@@ -1,0 +1,41 @@
+2.34:
+----
+
+Allow the backend_smtp event hook to support the serendipity_event_smtp plugin.
+
+2.33:
+----
+
+Set current language as default for new users
+2.31:
+-----
+
+Serendipty 1.5 password compatibility
+
+2.30:
+----
+Fix array check when no blog entries yet exist
+
+2.28, 2.29:
+----
+
+Bug fix:
+Allow registrations, even if "Only registered people may post" is enabled.
+
+2.27:
+----
+Do not show sidebar plugin when a user is logged in
+
+2.26:
+----
+Fix bad insertion of user memberships
+
+2.25:
+----
+Added support to use Captchas
+
+2.21:
+-----
+
+Added smarty template registerbox.tpl to support altering the registration form.
+Added smarty option to display some kinds of "terms of use".

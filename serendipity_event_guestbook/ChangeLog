@@ -1,0 +1,107 @@
+3.27:
+-----
+
+changed backend/frontend templates including changes to the backend.css from table to list style and be some more up to date
+changed config option markup internally to also set the {$plugin_guestbook_articleformat} as default(true) in frontend plugin_guestbook_entries.tpl
+changed sidebar plugin linebreak
+fixed sql alter update and remove procedure
+changed backend display to admin group instead admin only
+
+
+3.26:
+-----
+
+fixed spamblock call entry timestamp to be -8 day in past, while captchas_ttl checks normally set captchas true beyond 7 days.
+fixed backend admin entry; POST vars to form got lost in some error cases.
+changed ERROR_DATANOTAGS lang constant in <en>, <de> and <de-utf8> to support new wordfilter option.
+added new pre-filled config option to disallow plugin only filter words in entry body, which was done internally before.
+added internal var to function to support an incomplete error message properly.
+changed lang constant in <en>, <de> and <de-utf8> to better explain auto-moderation issues.
+changed documentation_en.html to explain differs in captchas check in contrast to spamblocks auto-moderation pass-through and new option 'entrychecks'.
+
+
+3.25:
+-----
+
+moved some internal vars to a better place.
+changed plugin_guestbook_backend_entries.tpl to support a moderate hidden var.
+erased moderate option in sidebar plugin, which came with v.3.21, while sidebar now extends event plugin option setting.
+rebuild sidebar <serendipity_plugin_guestbook> to support event plugins 'auto-moderation' and 'showapp option' changes.
+added lang constant in <en>, <de> and <de-utf8>.
+added new config option to allow entry set auto-moderate via spamblock plugin, if its wordfilter option is activ and set to 'moderate'.
+corrected small typo in german lang files.
+tweaked some small issues in guestbook CSS file.
+added spamblock return 'moderate_comments' value, to support adding entries to non-approved; this extends guestbooks config setting.
+
+
+3.24:
+-----
+
+added tag and link checks to prevent SPAM bots reading Captchas.
+tweaked some small issues in guestbook CSS file.
+changed some PAGINATOR_* and added new ERROR_DATANOTAGS lang constant in <de>, <en> and <de-utf8>.
+removed old paginator by new one.
+changed plugin_guestbook_entries.tpl to support removed administration.
+removed adminstration features from frontend, since they are better done in backend.
+
+
+3.23:
+-----
+
+latest: Smarty3 forward compatibility.
+
+
+3.22:
+----
+
+Changed smarty->fetch method call to be less strict to support smarty 2 to smarty3 parameter order change - removed param 4.
+Added restriction of backend functionality and administration sidebar link to admin only.
+
+
+
+3.21:
+----
+
+fixed send entry to email did not show entry body properly.
+backported fake call to spamblock and other comment plugins again, which was removed in 3.20 to prevent bots capturing Captchas.
+fixed serendipity_plugin_guestbook.php to truly show approved events only if set in config.
+Fixed some minor typos and made the documentation helppage W3C XHTML conform.
+
+
+3.20:
+----
+
+This edition adds backend administration and now supports admin moderation to guestbook entries.
+Therefor it adds a new database table field 'approve' and a new config variable 'showapp' to true or false (default is false).
+Changes will affect old entries to be set as approved.
+Updated Serendipity guestbook sidebar plugin to select these entries only to v.1.12.
+Changed and added lang constants. The lang files <en>, <de> and <de-utf8> are now up to date.
+Some small tweaks to both of the frontend tpls and some more to the stylesheet.
+Some small tweaks to frontend paginator and url building to be more friendly to mod_rewrite setting via permalink or subpage.
+This upgrade may effect individual design settings. Please make sure to have a look to your frontend tpls and the stylesheet!
+
+
+3.11:
+----
+
+Prefix possibly missing http://, thanks to WMK
+
+3.08:
+----
+
+Use headline to put into the blog title, just like static pages do
+
+3.07:
+----
+
+Only hide email address for non-logged in users
+
+3.06:
+-----
+
+Fix bad variable usage leading to not being able to delete guestbook entries in special cases
+
+3.05:
+-----
+
+Fixed proper recognition to not display email addresses if configured.

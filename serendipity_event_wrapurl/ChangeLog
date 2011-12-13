@@ -1,0 +1,9 @@
+ChangeLog: serendipity_event_wrapurl Plugin
+""""""""""
+
+[Version 0.8 2010/12/02] by Ian (Timbalu)
+
+    - added     styleable id, to be individual to every single used wrapurl event, like "plugin_wrapurl_PAGETITLE" eg. #plugin_wrapurl_name1 { /* your css notation */ }
+                This fixes the individual height setting, which did not work correctly in 0.7 taking always the last occurance of serendipity_event_wrapurl plugin
+    - changed   surrounding table around iframe to a styleable div tag in plugin and your individual template css-file (optional)
+    - changed   lang <en> file to support changes

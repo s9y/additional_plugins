@@ -1,0 +1,26 @@
+Index: include/functions_config.inc.php
+===================================================================
+--- include/functions_config.inc.php    (revision 1299)
++++ include/functions_config.inc.php    (working copy)
+@@ -462,6 +462,7 @@
+         }
+         
+                  if ($is_md5 === false && !empty($password)) {
+                  +            $password_plain = $password;
+                               $password = md5($password);
+                                        }
+                                        
+                                        @@ -484,7 +485,11 @@
+                                                     $_SESSION['serendipityAuthedUser']  = $serendipity['serendipityAuthedUser']   = true;
+                                                                  $_SESSION['serendipityRightPublish']= $serendipity['serendipityRightPublish'] = $row['right_publish'];
+                                                                               serendipity_load_configuration($serendipity['authorid']);
+                                                                               -            return true;
+                                                                               +
+                                                                               +            serendipity_plugin_api::hook_event('backend_auth_verify', $is_md5, array('username' => $username, 'password' => $password_plain)
+                                                                               );
+                                                                               +
+                                                                               +            // Return whether we are still authenticated (a plugin might have logged us out).
+                                                                               +            return $_SESSION['serendipityAuthedUser'];
+                                                                                        } else {
+                                                                                                     $_SESSION['serendipityAuthedUser'] = false;
+                                                                                                                  @session_destroy();

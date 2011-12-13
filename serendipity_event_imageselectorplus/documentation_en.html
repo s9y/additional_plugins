@@ -1,0 +1,149 @@
+<h1>Serendipity ImageSelectorPlus Plugin Documentation</h1>
+
+<h2>General description</h2>
+<p>
+    ImageSelectorPlus plugin is used to facilitate manipulation with images, especially their insertion into posts.
+</p>
+
+<h2>QuickBlog</h2>
+<p>
+When uploading an image, you can post it directly. Follow the instructions above the QuickBlog form. 
+</p>
+
+<h3>Modifying the design of QuickBlog post</h3>
+<p>
+    Plugin uses template file "plugin_quickblog.tpl" to display the inserted pictures. So by modifying it, you can change the design of displayed images.</p>
+    <p>Information about pictures is stored in an array {$quickblog} which has several parts you can use in your template:
+    <ul>
+        <li>fullimage - path and filename to the big image</li>
+        <li>image - path and filename to the thumbnail</li>
+        <li>body - the body of the post</li>
+        <li>exif_mode - type of exif information extraction ('internal', 'jhead', 'none'</li>
+        <li>exif - field of exif information, pleasu use the exif specifications to see the field values - use them like eq. $quickblog.exif.COMMENT or $quickblog.exif.Focal_length</li>
+    </ul>
+</p>
+
+
+<h2>Multiple image insertions</h2>
+<p>
+Another functionality of this plugin is multiple image insertion. If you write an xml structure in your entry, this plugin then replaces this xml structure by pictures from your media library.
+</p>
+
+<h3>When is it useful?</h3>
+<p>
+    When you write a blog, where you want to include many pictures in your entries. When you have fifty images and these images numbered in an ascending row, it is lengthy to insert them one by one through the images selector. With this plugin, you can insert all of them using on a single line. 
+</p>
+
+<h3>Examples</h3>
+    <h4>Example 1 - including parts of gallery</h4>
+    <code><pre>
+        &lt;mediainsert&gt;
+            &lt;gallery name="MyHolidays/" /&gt;
+            &lt;media type="single" name="pict0034" /&gt;
+            &lt;media type="single" name="pict0032" /&gt;
+            &lt;media type="range" prefix="pict00" start="35" stop="52" /&gt;
+        &lt;/mediainsert&gt;
+    </pre></code>
+    <p>
+        This example inserts from the directory "MyHolidays" picture "pict0034", then picture "pict0032" and then all pictures from "pict0035" to "pict0052".
+        <ul>
+        Plugin features:
+        <li>It shows only picturse which are in the database. So if pictures 44,45,48 and 50 does not exist, the plugin will not fail. Simply it will not display the non-existing pictures.</li>
+        <li>It respects order of pictures, so 34 will be displayed before 32.</li>
+        </ul>
+    </p>
+
+    <h4>Example 2 - including whole gallery at once</h4>
+    <code><pre>
+        &lt;mediainsert&gt;
+            &lt;gallery name="MyHolidays/" /&gt;
+            &lt;media type="gallery" /&gt;
+        &lt;/mediainsert&gt;
+    </pre></code>
+      
+<h3>Important</h3>
+<p>The plugin is sensitive to bad xml syntax. So if it is not perfect, for example if you ommit ending backslash in the media tag, it can cause fail to your whole blog!!!</p>
+
+<h3>Review of xml tags</h3>
+<dl>
+    <dt>&lt;mediainsert&gt;</dt>
+    <dd>general container of media insertion</dd>
+
+    <dt>&lt;gallery&gt;</dt>
+    <dd>from which gallery to choose the images, attribute name gives the path (prom the directory uploads/ - without the first backslash and WITH the final backslash - "MyHolidays" or "/MyHolidays/" is false. Right is "MyHolidays/".)</dd>
+
+    <dt>&lt;media&gt;</dt>
+    <dd>Defines which media to insert, first attribute is "type" and it can have next values:
+        <ul>
+            <li>"single" - includes single image given by attribute "name"</li>
+            <li>"gallery" - without other attributes, includes all images in gallery</li>
+            <li>"range" - includes numbered images from "prefix""start" to "prefix""stop" (see example1)</li>
+        </ul>
+    </dd>
+</dl>
+
+<h3>Modifying the design of inserted galleries</h3>
+<p>
+    Plugin uses template file "plugin_mediainsert.tpl" to display the inserted pictures. So by modifying it, you can change the design of displayed images.</p>
+    <p>Information about pictures is stored in an array {$plugin_mediainsert_media} which has these parts you can use in your template:
+    <ul>
+        <li>name - name of picture (filename without extension)</li>
+        <li>extension - extension of filename</li>
+        <li>realname - filename, the same as {$name}.{$extension}</li>
+        <li>thumbnail_name - you can get the thumbnail name by {$name}.{$thumbnail_name}.{$extension}</li>
+        <li>path - the same value as you provide in gallery tag</li>
+        <li>comment1 - comment from database</li>
+        <li>width - width of original image</li>
+        <li>height - height of original image</li>
+        <li>thumbwidth - width of thumbnail</li>
+        <li>thumbheight - height of thumbnail</li>
+    </ul>
+</p>
+
+<h2>Unzipping ZIP archives</h2>
+<h3>What it is good for</h3>
+<p>Typically when you want to upload many pictures at once. You need not to select every image discinctly. Just pack them in the ZIP archive, upload this archive and it will be unzipped on your blog.</p>
+
+<h3>Features of unzipping</h3>
+<p>
+<ul>
+<li>Files from archive are unzipped into the same directory, where the archive is uploaded.</li>
+<li>Unzipped files (not necessarily images) will be inserted in the media database.</li>
+<li>When selecting "Edit properties", unzipped images will be displayed.</li>
+<li>Do not make zip files with subdirectories. I didn't tested it, but I am afraid it will not unzip the directories, it will put all files in the target directory.</li>
+<li>Take into account the size of the archive. You have some limitations on maximal upload file size (typically 10MB).</li>
+</ul>
+</p>
+
+<h2>Auto Resizing of Images</h2>
+
+<p>This feature will automatically search through your blog post for images in the form:</p>
+
+<pre>
+&lt;img src="/uploads/myimage.jpg" width="100" height="150" /&gt;
+</pre>
+
+<p>When it finds an image tag in this form it will replace the value of 'src' attribute with the path 
+to the image resizing script, serendipity_admin_image_selector.php. The end result would be something 
+like this:</p>
+
+<pre>
+&lt;img src="http://domain.com/serendipity_admin_image_selector.php?serendipity[image]=1&serendipity[disposition]=inline&serendipity[step]=showItem&serendipity[resizeWidth]=100&serendipity[resizeHeight]=150" width="100" height="150" /&gt;
+</pre>
+
+<p>This saves you time if you need to use images at multiple resolutions, and can also reduce 
+download times for users. The performance hit is minimal as the image resize is only done once, 
+as is the parsing of img tags.</p>
+
+<h3>Notes</h3>
+
+<ol>
+<li>Image aspect ratios are maintained.</li>
+<li>Only the width or height attribute needs to be specified. If neither is specified then the image tag is ignored</li>
+<li>If both the width and height attributes are specified the image will be scaled to fit within this area while maintaining the aspect ratio</li>
+</ol>
+
+<h2>Authors</h2>
+<p>Garvin Hicking, Germany <br />
+Vladim¡r Ajgl (vlada [at] ajgl [dot] cz), Czech Republic, 2007-11-19
+</p>

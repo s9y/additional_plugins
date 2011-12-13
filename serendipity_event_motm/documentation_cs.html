@@ -1,0 +1,55 @@
+<html>
+    <head>
+		<meta http-equiv="content-type" content="text/html; charset=windows-1250">
+		<meta name="generator" content="PSPad editor, www.pspad.com">
+        <title>Dokumentace: Hudba, kterou právě poslouchám</title>
+        <style>
+        	pre {
+				display: block;
+				padding: 5px;
+				border: solid 1px #333333;
+				background-color: #cccccc;
+			}
+        </style>
+    </head>
+
+<body>
+    
+<h1>Dokumentace k pluginu 'Hudba, kterou právě poslouchám' (Music of the Moment)</h1>
+
+<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 29.9.2010. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="readme.txt">aktuální anglické "readme"</a>.
+<p>
+
+<h2>Autor</h2>
+Tys von Gaza (<a href="mailto:tys@tvg.ca">tys@tvg.ca</a>)
+<br /><a href="http://tvg.ca/">http://tvg.ca/</a>
+
+<h2>O pluginu</h2>
+
+<ul>
+<li>Plugin využívá výstup programu iTunesBlogger, který je schopný připojit se na libovolnou URL adresu (webovou stránku), které tím oznámí, jakou hudbu právě přehráváte ve svém přehrávači na svém počítači. Blog tuto informaci přijme a následně ji uloží do databáze.</li>
+<li>Stránka blogu načte iframe (vložený rámec), který používá JavaScript k zobrazení. JavaScript obsluhuje ukazatel vývoje (progress bar) a obnovuje každou hudební skladbu.</li>
+</ul>
+
+<p>
+Program není omezen pouze na iTunesBlogger, stačí najít plugin pro libovolný jiný přehrávač médií, který je schopen připojit se na webovou stránku ve formátu:
+<pre>http://www.vasblog.cz/index.php?/plugin/motm-update&
+track=%t&artist=%a&album=%b&genre=%g&tracktime=%y&secret_key=SECRET_KEY</pre>
+kde:
+<ul>
+<li><b>%t</b> je název skladby</li>
+<li><b>%a</b> je jméno interpreta</li>
+<li><b>%b</b> je název alba</li>
+<li><b>%g</b> je žánr skladby</li>
+<li><b>%y</b> je délka skladby ve formátu hodiny:minuty:sekundy, např. 1:23:45 znamená 1 hodina, 23 minut, 45 sekund</li>
+<li><b>SECRET_KEY</b> je tajné heslo ke schránce, aby nemohl kdokoliv nepovolaný prohlížet, co právě hrajete</li>
+</ul>
+</p>
+
+<p>
+Pokud najdete plugin pro jiný přehrávač, dejte mi prosím vědět.
+</p>
+
+
+  </body>
+</html>

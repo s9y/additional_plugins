@@ -1,0 +1,29 @@
+0.1.9:
+    * Fixed multiple insert of the title if link was a smaller part of
+      another link
+      
+0.1.8:
+    * Fixed wrong counting of existing links which lead to ignoring
+      some of them
+
+0.1.7:
+    * Fixed multiple insert of the title if the link was multiple times
+      in the same entry
+
+0.1.6:
+    * No longer check nl2br-activation
+    * remove newlines and tabs from title, as they get inserted by accident
+
+0.1.5:
+    * Encode title from the charset of the linked site to own charset
+
+0.1.4:
+    * Added configuration for the amount of kb to fetch from a linked site
+    * Added timeout to curl because range seem not to work and made fopen the default
+
+0.1.3:
+    * Made use of curl if existent
+    * Surpressed warnings of failing links
+
+0.1.1
+    * Removed a wrong-placed " which made the HTML invalid

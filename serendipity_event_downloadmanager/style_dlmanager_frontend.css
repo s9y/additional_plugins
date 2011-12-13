@@ -1,0 +1,34 @@
+/** style_dlmanager_frontend.css last modified 2010-08-25 **/
+#downloadmanager table {
+    background: #ddd;
+    border: 1px solid #aaa;
+    margin: 10px 0;
+    width: 95%;
+}
+
+#downloadmanager th {
+    border-bottom: 1px solid #aaa;
+    font-weight: bold;
+}
+
+#downloadmanager th { padding: 4px 2px; }
+#downloadmanager td { padding: 0 2px; line-height:1.6; }
+
+#downloadmanager .error { color: #f00; }
+.dlm_error_msg { color: #f00; }
+.dlm_status_msg { color:#0f0; }
+.dlm_error_msg, .dlm_status_msg { font-weight: bold; }
+
+#downloadmanager img { margin: 0; vertical-align: bottom; }
+
+#downloadmanager .odd { background: #eee; }
+#downloadmanager .even { background: #ddd; }
+
+.last_column { text-align: right; }
+
+#downloadmanager a img { border: 0 none; }
+
+#downloadmanager dd { margin-left: 0; }
+
+#downloadmanager .dlm_info,
+#downloadmanager .dlm_intro { display: block; margin: 10px 0; padding: 4px 2px; border: 1px solid #aaa; width: 94.4%; }

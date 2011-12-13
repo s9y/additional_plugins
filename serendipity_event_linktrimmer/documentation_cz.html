@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-2">
+		<meta name="generator" content="PSPad editor, www.pspad.com">
+		<title>Dokumentace: Plugin linktrimmer
+		</title>
+	</head>
+	<body>     <h1>Dokumentace k pluginu 'Linktrimmer'</h1>
+		<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 29.9.2010. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i 
+			<a href="documentation_en.html">aktuální anglickou dokumentaci</a>.
+		</p>
+
+
+<h1>Co dělá tento plugin?</h1>
+
+<p>Plugin Link-trimmer Vám umožňuje provozovat na blogu vlastní zkracovač adres.</p>
+
+<p>Můžete zadat libovolnou interní (uvnitř blogu) nebo externí (jakákoliv jiná) URL adresu. Plugin si zapíše tuto adresu do databáze a přiřadí k ní krátký identifikátor. Pak můžete posílat jiným lidem místo původní dlouhé adresy tuto novou krátkou, která lze lépe zapamatovat. V podstatě budete mít na blogu vlastní malou službu podobnou komerčním službám tr.im nebo tinyurl.
+</p>
+
+<h2>Proč dělá to, co dělá?</h2>
+
+<p>Krátké URL adresy jsou považované za více sexy a obecně příjemnější. Výhoda toho, že máte vlastní zkracovač, je, že můžete sami ovlivňovat jeho výstupy, přesměrování a dobu platnosti odkazů. Když používáte externí služby/servery, může se vám stát, že přijdete o všechny odkazy, pokud server spadne. Při vlastním přesměrovači vám také do odkazů nikdo nebude vkládat reklamy.</p>
+
+<p>Výhoda cizích služeb nicméně je jejich známost. Lidé je používají a vědí, co od nich mhou očekávat.</p>
+
+<h2>Co tento plugin NEDĚLÁ?</h2>
+
+<p>Nepředělává automaticky URL adresy zadané v blogu na krátké adresy. Plugin serendipity_event_trackexits dělá něco na ten způsob a používá tyto výstupy pro statistické účely.
+</p>
+
+<p>Tento plugin v současné době nevede statistiky použití. Plugin je spíše ve fázi (fungujícího) prototypu.</p>
+
+<h2>Jak používat tento plugin?</h2>
+
+<p>Pokud chcete zkracovat adresy, máte dvě možnosti. Na úvodní stránce po přihlášení do adminsitrátorské sekce můžete zadat URL adresu, která se má zkrátit, stejně jako můžete zadat předdefinovaný hash, který bude použit jako adresa po zkrácení. Pokud jej ponecháte prázdný, bude vytvořen automaticky. Hash (zkrácená adresa) pak bude zkracovaný odkaz zakódovaný funkcí base62. Ten sestává z číslic 0-9, malých písmen a-z a velkých A-Z. To znamená, že nejdříve budete mít velmi krátké odkazy a čím více odkazů uložíte, tím budou zkrácené reprezentace delší. Nicméně znamená to například, že abyste měli odkazy delší než tři znaky, musíte jich mít alespoň 10000:-)</p>
+    
+<p>Jakmile zadáte URL adresu, kliněte na tlačítko "GO" (provést nebo nějak podobně se jmenuje v českém překladu), zobrazí se Vám zkrácený odkaz, který můžete zkopírovat.</p>
+
+<p>Finální odkaz používá předponu, kterou můžete změnit v nastavení pluginu.</p>
+
+<p>Jiný způsob, jak vytvořit zkrácený odkaz, je začít psát nový příspěvek blogu, kliknou na tlačítko "Linktrimmer" (je přístupné jak ve WYSIWYG na NE-WYSIWYG editoru). Pak se otevře vyskakovací okno s políčkem pro zadání adresy ke zkrácení.</p>
+
+<p>Když ve vyskakovacím oknu kliknete na tlačítko "GO", bude do rozepsaného příspěvku automaticky vložen odkaz se zkrácenou adresou. Cíl odkazu bude zkrácená adresa a v popisu bude adresa původního odkazu.</p>
+
+<h2>Bezpečnost</h2>
+
+<p>Všechny zkracované odkazy jsou číslované vzestupně. To umožňuje návštěvníkům "odhadnout" a pak si prohlédnout i ostatní odkazy. To je ale ve skutečnosti přednost. Takže do zkracovače NEUKLÁDEJTE odkazy na citlivé stránky, nebo alespoň použijte vlastní (ne předdefinovanou) zkrácenou adresu.</p>
+
+<h2>Jak přizpůsobit plugin</h2>
+
+<p>Pomocí šablony plugin_linktrimmer.tpl můžete změnit vzhled rozhraní pluginu. Tuto šablonu uložte do adresáře Vámi používaného stylu vzhledu. CSS stylopis je nejlepší měnit přímo ve zmíněné šabloně.</p>
+
+<p>Vychytralý způsob, jak využít přesměrování pro zkrácení URL adres je následující. Pokud máte více než jednu doménu, můžete používat doménu s nejkratším názvem jako základnu pro přesměrování. Například, řekněme, že máte 2 domény. Serendipity běží na http://www.strasnedlouhadomena.com/serendipity/2009/index.php and druhá, doteď nevyužívaná, doména je is http://leto.com. A teď chcete, aby zkrácené odkazy nebyly ve tvaru http://www.strasnedlouhadomena.com/serendipity/2009/l/4711, ale místo toho jen http://leto.com/4711.</p>
+
+<p>Toho docílíte pomocí apache modulu mod_Rewrite a zapsáním následujícího kódu do souboru .htaccess v kořenovém adresáři domény leto.com:</p>
+
+<p>RewriteRule ^([0-9A-Za-z]{1,3})$ http://www.strasnedlouhadomena.com/serendipity/2009/l/$1 [L,QSA]</p>
+
+<p>To znamená, že server leto.com nejdříve provede přesměrování adresy na plnou dlouhou adresu na server, kde běží blog. Tam plugin vytvoří zbytek přesměrovací práce. Všimněte si, že v tomto příkladu byl použit hash (zkratka) dlouhý 3 znaky. Pokud máte více odkazů než několik tisíc, budete to chtít změnit např. na pět , tj. {1,5}. Dejte si jenom pozor, že toto přesměrování nekoliduje se jmény existujícíh adresářů. (pozn. překladatele: To se dá řešit pomocí direktivy RewriteCond. V každém případě je lepší se kolizím vyhnout.)</p>
+		
+	</body>
+</html>		

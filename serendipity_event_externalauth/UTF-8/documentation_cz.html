@@ -1,0 +1,69 @@
+<html>    
+	<head>        
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Dokumentace: Externí ověřování uživatelů</title>        
+		<style>
+        	pre {
+				display: block;
+				padding: 5px;
+				border: solid 1px #333333;
+				background-color: #cccccc;
+			}         
+		</style>    
+	</head>
+	<body>
+	<h1>Dokumentace k pluginu 'Externí ověřování uživatelů'<br />
+	<small>(serendipity_event_externalauth)</small></h1>
+		<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 6.9.2011. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i	<a href="../ChangeLog">aktuální anglický ChangeLog</a>. 
+		</p>
+		
+		<h2>Popis pluginu</h2>
+		<p>
+		Umožňuje použít vnější zdroj pro zjišťování správnosti přihlašovacích údajů. Přihlašovací jména jsou cachována v Serendipity databázi. Tento plugin umí také sledovat přihlášení do Serendipity.
+		</p>
+		
+		<h2>Historie verzí (ChangeLog)</h2>
+		<ul>
+			<li>verze 1.22 a 1.21</li>	
+			<ul>	
+				<li>Změněna syntaxe fail2ban, zlepšení parsování</li>	
+			</ul>
+
+			<li>verze 1.20, 31.5.2011</li>	
+			<ul>	
+				<li>přidáno - parametr logfile do funkce fail2ban</li>	
+			</ul>
+
+			<li>verze 1.17 (?), [Colas Nahaboo, colas@nahaboo.net]</li>	
+			<ul>	
+				<li>Přidal jsem následující:</li>
+				<ul>	
+					<li>Možnost přihlášení k rozhraní Microsoft Active Directory LDAP. Pro toto je nutné spustit dva příkazy hned po připojení LDAPu:
+<pre>
+ldap_set_option($ds,LDAP_OPT_PROTOCOL_VERSION, 3);
+ldap_set_option($ds, LDAP_OPT_REFERRALS, 0);
+</pre>
+					</li>	
+					<li>Možnost připojení k LDPAům, které nepodporují anonymní prohlížení pomocí dvou nových nastavení 'bind_user' a 'bind_password'</li>	
+					<li>Možnost používat LDAPy, kde uživatelé nejsou uložené výhradně v jedné větvi stromu, např. když je třeba nejdříve vyhledat jméno ve všech větvích stromu vráceného v 'rdn' pomocí vyhledávacího řetězce LDAP, který je možné zadat v nově zavedeném nastavení 'auth_query' s %-expansion v rdn</li>	
+					<li>Nastavení 'realname' v Serendipity ve všech případech z hodnoty LDAP 'name'</li>	
+				</ul>
+
+					<li>Například moje nastavení v ILOGu
+<pre>rdn = DC=ilog,DC=biz
+bind_user = CN=webcoreadreaddev,CN=Users,DC=ilog,DC=biz
+bind_password = dotohotinicneni
+auth_query = (&(objectcategory=person)(objectclass=user)(sAMAccountName=%1))
+</pre></li>
+				<li>Změnil jsem následující soubory:</li>
+				<ul>	
+					<li>serendipity_event_externalauth.php - vlastní kód</li>	
+					<li>lang_en.inc.php - anglické texty k novým třem nastavením</li>	
+					<li>ChangeLog.txt - nově přidaný soubor</li>	
+				</ul>
+			</ul>
+
+		</ul> 
+		 
+	</body>
+</html>

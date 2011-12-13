@@ -1,0 +1,19 @@
+1.20: Added google +1 by seraphyn
+
+1.19: Changed twitter link to reflect API change, fixed rel=nofollow
+
+1.18: Added spread.ly (experimental)
+
+1.17: Added identi.ca
+
+latest: Smarty3 forward compatibility
+
+1.16:
+------
+
+Added extra "do not track me" security when using facebook like button. Must be enabled in the plugin configuration.
+
+1.14:
+------
+
+Added Facebook "like" iframe

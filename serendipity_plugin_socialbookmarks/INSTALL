@@ -1,0 +1,10 @@
+Social Bookmarks Service Plugin for Serendipity
+
+written by Matthias Gutjahr <mattsches@gmail.com>
+released under GPLv2
+
+Installation notes for the initial release:
+- Extract this file to your plugins directory
+- Go to your S9Y admin area->plugins->install sidebar plugins
+- There now should be a new plugin called 'Social Bookmarks Plugin' available
+- Install!

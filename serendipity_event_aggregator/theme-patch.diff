@@ -1,0 +1,33 @@
+diff -ru default/entries.tpl isoplanet/entries.tpl
+--- default/entries.tpl	2005-03-15 00:04:33.000000000 +0100
++++ isoplanet/entries.tpl	2005-04-29 20:26:00.000000000 +0200
+@@ -10,7 +10,7 @@
+         {/if}
+ 
+         {foreach from=$dategroup.entries item="entry"}
+-        <h4 class="serendipity_title"><a href="{$entry.link}">{$entry.title}</a></h4>
++        <h4 class="serendipity_title">{$entry.properties.ep_aggregator_feedname}: <a href="{$entry.link}">{$entry.title}</a> <span style="font-size: 6pt">(<a href="{$entry.properties.ep_aggregator_articleurl}">Original</a>)</span></h4>
+ 
+         <div class="serendipity_entry serendipity_entry_author_{$entry.author|@makeFilename} {if $entry.is_entry_owner}serendipity_entry_author_self{/if}">
+             {if $entry.categories}
+@@ -24,7 +24,11 @@
+             {/if}
+ 
+             <div class="serendipity_entry_body">
++            {if $entry.body == ""}
++                <a href="{$entry.properties.ep_aggregator_articleurl}">Read Article</a>
++            {else}
+                 {$entry.body}
++            {/if}
+             </div>
+ 
+             {if $entry.is_extended}
+@@ -36,7 +40,7 @@
+             {/if}
+ 
+             <div class='serendipity_entryFooter'>
+-                {$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a>
++                {$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.properties.ep_aggregator_feedname}</a>
+                 {if $entry.categories}
+                    {$CONST.IN} {foreach from=$entry.categories item="category" name="categories"}<a href="{$category.category_link}">{$category.category_name|@escape}</a>{if not $smarty.foreach.categories.last}, {/if}{/foreach}
+                 {/if}

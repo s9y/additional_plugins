@@ -1,0 +1,366 @@
+/* # $Id: style_guestbook_backend.css - v.3.27 2011-06-28 ian */
+
+/******** Begin Guestbook Styles *********/
+
+.input-text input, .input-textarea textarea {
+    filter: progid:DXImageTransform.Microsoft.Shadow(color='#888888', Direction=145, Strength=2); /* IE Shadow setting */
+    -moz-box-shadow: 0 0 2px 2px #DDDDDD;
+    box-shadow: 0 0 2px 2px #DDDDDD;
+}
+
+.input-text input, .input-textarea textarea, #search-term, #captcha {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #AAAAAA;
+    -moz-border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    -khtml-border-radius: 4px 4px 4px 4px;
+    border-radius: 4px 4px 4px 4px;
+    color: #888888;
+}
+.input-text label, .input-select label, .input-textarea label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 4px;
+}
+
+.serendipity_guestbook  {
+    margin: 0 none;
+    padding: 0 none;
+}
+
+.serendipity_guestbook  h2.serendipity_title {
+    padding-left: 0;
+    text-align: center;
+}
+
+.serendipity_entry, 
+.serendipity_entry_body {
+    border-top: 0 none;
+}
+
+#guestbook_wrapper  { 
+    margin: 0 none;
+    padding: 0 none; 
+}
+br.clear { clear: both; }
+
+#guestbook_wrapper .guestbook_intro { 
+    background-color: transparent;
+    border: 1px solid #B20000;
+    border: 1px solid hsl(360,100%,35%);
+    /* mozilla, chrome, safari, ie7+, (opera?) round corners */
+    border-color: hsl(360,100%,35%);
+    -moz-border-radius: 8px 8px 8px 8px;
+    -webkit-border-radius: 8px 8px 8px 8px;
+    -khtml-border-radius: 8px 8px 8px 8px;
+    border-radius: 8px 8px 8px 8px;
+    padding: 4px;
+    text-align: justify;
+}
+
+#guestbook_entrypaging {
+    line-height: 1.6;
+    margin: 20px 0;
+    padding: 0;
+    border: 0 none;
+    text-align: center;
+}
+
+#guestbook_entrypaging a,
+#guestbook_entrypaging a:hover {
+    background: none repeat scroll 0 0 #FFFFFF;
+    text-decoration: none;
+}
+
+div.frontend_guestbook_paginator{}
+span.frontend_guestbook_paginator_left { color: #BBB; } 
+span.frontend_guestbook_paginator_center { }
+span.frontend_guestbook_paginator_right { color: #BBB; } 
+
+/*********************************************
+ *** GUESTBOOK BACKEND ONLY - START **********/
+/*********************************************/
+/* css color styles - colour you life ;-)    */
+/* 'gray' is a color & 'grey' is a colour!   */
+/* background colors potentially used:       */
+/*             #FFB90F DarkGoldenrod1        */
+/*             #FFC125 Goldenrod1            */
+/*             #FFD700 Gold1                 */
+/*             #FF8247 Sienna1               */
+/*             #ADD8E6 LightBlue             */
+/*             #6280A2 ~ PaginatorBlue       */
+/*             #5792d8 ~ nearNavBlue         */
+/*             #b6c9cc ~ nearNavGrey         */
+/*             #6280A2 ~ SkyBlue4            */
+/*             #D5BFC0 ~ darkrose            */
+/*             #FDECE1 ~ lightrose           */
+/*             #EEEEEE ~ light gray          */
+/*             #E0E0E0 ~ light grey 2        */
+/*             #F0F0F0 ~ ivory white         */
+/*********************************************/
+#backend_guestbook_wrapper, #backend_guestbook_wrapper table, #backend_guestbook_wrapper tr, #backend_guestbook_wrapper th, 
+#backend_guestbook_wrapper td, #backend_guestbook_wrapper div, #backend_guestbook_wrapper .guestbook_entries, 
+#backend_guestbook_wrapper .guestbook_entrybottom, #backend_guestbook_wrapper span, #backend_guestbook_wrapper font {
+    font: 500 11px/16px Verdana,Arial,Helvetica,sans-serif;
+}
+
+#backend_guestbook_wrapper { border: 0 none; background: 0 none; } /* get rid of intro and frontend messages borders and background-colors */
+#backend_guestbook_wrapper code { vertical-align: top; white-space: nowrap; }
+#backend_guestbook_wrapper .guestbook_helptip span { font: xx-small arial, helvetica, sans-serif; }
+
+#backend_guestbook_wrapper .guestbook_entrytop { 
+    background: none repeat scroll 0 0 #B6C9CC; 
+    padding: 4px 4px 0;
+}
+#backend_guestbook_wrapper .guestbook_entrybottom {
+    background: none repeat scroll 0 0 #E1E5DE;
+    border-bottom: 1px solid #B6C9CC;
+    border-top: 1px solid #A0A0A0; /*#999966;*/
+    margin: 2px 0 0;
+}
+#backend_guestbook_wrapper .guestbook_validation { 
+    float: right;
+	margin-left: 8px;
+}
+#backend_guestbook_wrapper .guestbook_entries dt { display: inline-block; }
+#backend_guestbook_wrapper .guestbook_move { padding: 0 4px; }
+
+div.backend_guestbook_nav { float: right; background-color: #EEEEEE; background: -moz-linear-gradient(top, #EEEEEE, #5792d8); width: 24em; margin: 1em auto; border: solid; }
+div.backend_guestbook_nav ul li#active { border-bottom: 1px solid #888; background-color: #FFD700; background: -moz-linear-gradient(left 20deg, #E0E0E0, #D5BFC0); }
+div.backend_guestbook_menu { background-color: #F0F0F0; background: -moz-linear-gradient(left 20deg, #F0F0F0, #5792d8); border: 1px solid #777; padding: 0 0 0 20px; }
+div.backend_guestbook_entrywrapper { margin: 99px 14% 0 0; padding: 0; }
+div.backend_guestbook_head { background-color: #5792d8; background: -moz-linear-gradient(left 20deg, #5792d8, #F0F0F0); border:1px solid red; margin: 30px 0 0 0px; padding: 4px 20px; float: left; }
+div.backend_guestbook_paginator { background-color: transparent; border: 0 none; margin: 10px 0; height: 25px; }
+span.backend_guestbook_paginator_left { float: left; width: 40%; text-align: left; margin-left: 20px; color: #aaa !important; } 
+span.backend_guestbook_paginator_center { margin: 5px 20px; width: 20%; text-align: center; font-weight: 700 !important; }
+span.backend_guestbook_paginator_right { float: right; width:40%; text-align: right; margin-right: 20px; color: #aaa !important; } 
+div.backend_guestbook_noresult { margin: 100px 0 0 0; border: 0 none; }
+div.backend_guestbook_dbclean_title { margin: 100px 0 20px 10px; }
+div.backend_guestbook_dbclean_menu { background-color: #EEEEEE; background: -moz-linear-gradient(left 20deg, #EEEEEE, #5792d8); border:1px solid #808; display:block; margin:20px 0 20px 0; }
+ul.backend_guestbook_dbclean_menu { padding: 4px 80px; }
+li.backend_guestbook_dbclean_menu { list-style-type: circle; line-height: 20px; font-size: 1.2em; text-decoration: none; }
+div.backend_guestbook_dbclean_menu ul li#active { border-bottom: 1px solid #888; background-color: #FFD700; background: -moz-linear-gradient(left 20deg, #FFC125, #E0E0E0); }
+div.backend_guestbook_dbclean_innercat { text-decoration: underline; }
+div.backend_guestbook_dbclean_innertitle { text-decoration: underline; margin-bottom: 1px; }
+div.backend_guestbook_dbclean_error { color: red; }
+div.backend_guestbook_dbclean_object { width: 740px; max-width: 1000px; max-height: 200px; overflow: auto; background-color: #D5BFC0; border: 1px solid #808; font: 9pt/1.3em #000 'courier new','times new roman',monospace; }
+tr.backend_guestbook_line { float: left; width: auto; margin: 0px; padding: 0px; }
+td.backend_guestbook_linenum { padding: 0px 2px; background:#FDECE1; border-right: 1px solid gray; color: gray; text-align: right; }
+td.backend_guestbook_linetxt  { padding-left: 2px; }
+span.backend_guestbook_right { float: right; padding: 0 20px 0 0; }
+img.backend_attention { width: 22px; height: 22px; border: 0 none; padding-right: 4px; vertical-align: middle; }
+.backend_guestbook_inline { display: inline }
+div.guestbook_backend_form { 
+	background-color: #E0E0E0; 
+	border: 1px solid #333333; 
+    padding: 8px;
+}
+div.guestbookformdesc { padding: 2px 0; font: 500 11px verdana, arial, geneva, helvetica, sans-serif; text-align: left; background-color: #e0e0e0; /* form gray */ }
+span.guestbook_admin_comment { 
+    display: block; 
+    margin: 10px 0 2px 40px; 
+    padding: 4px;
+    -moz-border-radius:1em 1em 1em 1em;
+	border-radius:1em 1em 1em 1em;
+    background: none repeat scroll 0 0 #EFEFEF;/*wheat;*/
+    border: 1px solid #FF8247; /*#CCCCCC;*/
+    font-size:80% !important;
+    font-style: italic; 
+    overflow:auto;
+}
+span.guestbook_admin_comment q{quotes:"\00AB" "\00BB"; }
+.guestbook_admin_comment blockquote  p,
+.guestbook_admin_comment blockquote p q { 
+    color: #055bc6; 
+    text-align: left;
+    /* font-style, font-variant, font-weight, font-size/line-height, font-family */
+    font: italic normal 500 11px/16px 'arial', helvetica, sans-serif !important;
+}
+.guestbook_admin_comment blockquote p:first-child { 
+    background: url('{TEMPLATE_PATH}img/quote-start.gif') no-repeat scroll left top transparent !important;
+    text-indent: 25px;
+}
+.guestbook_admin_comment blockquote, 
+.guestbook_admin_comment p { 
+    margin: 4px 2px !important; padding: 0 !important; border: 0 !important; color: #055bc6;
+    background: url('{TEMPLATE_PATH}img/quote-end.gif') no-repeat scroll right bottom transparent !important; 
+}
+.guestbook_reiter { text-align: center; font: 700 10.0px arial, helvetica, sans-serif; text-decoration: none; vertical-align: middle; }
+.guestbook_reiter_dim { color: #888; font: 500 x-small arial, helvetica, sans-serif; vertical-align: bottom; }
+
+#backend_guestbook_wrapper input.bbc_i { clear: both; font-style: italic; font-size: 12px;}
+#backend_guestbook_wrapper input.bbc_b { font-weight: bold; font-size: 12px;}
+#backend_guestbook_wrapper input.bbc_u { text-decoration: underline; font-size: 12px;}
+#backend_guestbook_wrapper input.bbc_s { font-style: italic; font-size: 12px;}
+#backend_guestbook_wrapper input.bbc_q { font-style: italic; font-size: 12px;}
+#backend_guestbook_wrapper .input-text input[type="button"] { 
+    background: url("{TEMPLATE_PATH}admin/img/bp_admin_prettybutton.png") repeat scroll 0 50% #055BC6;
+    border: 1px solid #055BC6;
+    color: #FFFFFF;
+}
+/*********************************************
+ *** GUESTBOOK BACKEND ONLY - END ***********/
+/********************************************/
+
+/* one guestbook entry wrapper */
+#guestbook_entrybundle dl {
+    margin: 0;
+}
+
+#guestbook_entrybundle { 
+    background-color: #AAAAAA;
+    border: 1px solid #BBBBBB;
+    -moz-border-radius: 0 0 7px 7px;
+    border-radius: 0 0 7px 7px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    text-align: left;
+}
+
+.serendipity_commentDirection { 
+    text-align:justify;
+}
+
+.guestbook_emailprotect { 
+    font-size: x-small;
+}
+
+.captcha { 
+    border: 1px solid #777;
+}
+
+/* the entry title mail date etc - depends on #guestbook_entrybundle */
+#guestbook_wrapper .guestbook_entrytop { 
+    background: none repeat scroll 0 0 #EEEEEE;
+    background: -moz-linear-gradient(#EEEEEE, #FFFFFF) repeat scroll 0 0 transparent;
+    margin-bottom: 5px;
+    padding: 4px;
+}
+
+.guestbook_entries {
+    padding: 0;
+    margin: 0; 
+    border: 0 none;
+    font: 500 11px/16px Verdana,Arial,Helvetica,sans-serif;
+    text-align: left;
+    width: 100%;
+}
+
+.guestbook_entrytop a,
+.guestbook_entrytop a:link,
+.guestbook_entrytop a:visited,
+.guestbook_entrytop a:active,
+.guestbook_entrytop a:focus { 
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.guestbook_entrytop a:hover {
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #ADB4D9; 
+}
+
+.guestbook_admin { 
+    text-align: right;
+}
+
+.guestbook_admintext { 
+    text-align: right; 
+    padding-right: 10px;
+}
+
+.guestbook_admintextdim { 
+    color: #777; 
+    text-decoration: none;
+}
+
+.guestbook_adminbutton { 
+    text-align: right;
+    vertical-align: top;
+}
+.guestbook_adminbutton  img { 
+    width: 14px; 
+	height: 14px; 
+}
+
+/* the entry value only - depends on #guestbook_entrybundle */
+.guestbook_entrybottom { 
+    background: none repeat scroll 0 0 #FDFDFD;
+    border: 1px solid #DFDFDF;
+    margin-bottom: 6px;
+    padding: 4px;
+    color: #333333;
+    font: 500 11px/16px Verdana,Arial,Helvetica,sans-serif;
+    text-align: left;
+}
+
+.guestbook_splitentries { 
+    clear: both;
+}
+
+.guestbook_errorbundled { 
+    padding-top: 30px;
+    width: auto;
+}
+
+.guestbook_error_red { 
+    color: #ff0000;
+}
+
+.guestbook_errors { 
+    font-family: verdana,arial,helvetica,sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: left;
+    color: #800040;
+}
+
+.guestbook_questionaire { 
+    line-height: 1.4em;
+ }
+ 
+ .guestbook_ripped { 
+    line-height: 1.4em;
+    font-weight: bold;
+ }
+ 
+.guestbook_popup { 
+    text-align:center;
+    padding-bottom: 10px;
+}
+
+#guestbook_wrapper a:link.serendipityPrettyButton,
+#guestbook_wrapper a:visited.serendipityPrettyButton,
+#guestbook_wrapper a:hover.serendipityPrettyButton { 
+    color: #1D2E3F;
+    text-decoration: none;
+}
+
+#guestbook_wrapper .serendipityPrettyButton { 
+    border: 1px outset #888888;
+    color: #1D2E3F;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin: 2px;
+    padding: 1px;
+}
+
+/* Special class if the button is a <a> tag */
+#guestbook_wrapper a.serendipityPrettyButton { 
+    cursor: pointer;
+    padding: 2px 4px;
+}
+
+#guestbook_wrapper .serendipityPrettyButton {
+    background: url('{TEMPLATE_PATH}img/button_background.png') repeat scroll 0 50% #80B0DA;
+}
+#guestbook_wrapper a.serendipityPrettyButton {
+    background: url('{TEMPLATE_PATH}img/button_background.png') repeat-x scroll center top transparent;
+}
+
+/******** End Guestbook Styles *********/

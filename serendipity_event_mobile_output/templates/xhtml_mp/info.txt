@@ -1,0 +1,5 @@
+Name: XHTML MP
+Author: Pelle Boese, Grischa Brockhaus
+Date: 12-03-2010
+version: 1.00
+supports: ext_article

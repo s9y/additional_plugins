@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                                   xmlns:dc="http://purl.org/dc/elements/1.1/"
+                                   xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<channel>
+<title>Serendipity: Available External Event Plugins</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/</link>
+<description>TOC</description>
+<dc:language>en</dc:language>
+<generator>Serendipitx SPARTACUS</generator>
+<item>
+<title>Babelfish: Translate blog entries (trash!)</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_babelfish</link>
+<category>Event Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_event_babelfish&lt;br /&gt;Babelfish</b></br>Translate blog entries (trash!)</content:encoded>
+<pubDate>Mon, 13 Dec 2004 16:24:28 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_babelfish</guid>
+</item>
+<item>
+<title>Static Page: : Shows an static page inside your blog with your blogs design and all formattings</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_staticpage</link>
+<category>Event Plugins</category>
+<author>Marco Rinck, Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_staticpage&lt;br /&gt;Static Page: </b></br>Shows an static page inside your blog with your blogs design and all formattings</content:encoded>
+<pubDate>Fri, 28 Jan 2005 13:11:05 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_staticpage</guid>
+</item>
+<item>
+<title>Picture of the author: Shows a picture of the author to each entry. The image file must be placed in the "img" Subfolder of your selected template and be called like the authorname. All special characters (quotes, spaces, ...) must be replaced by an "_" inside the filename.</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_authorpic</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_authorpic&lt;br /&gt;Picture of the author</b></br>Shows a picture of the author to each entry. The image file must be placed in the "img" Subfolder of your selected template and be called like the authorname. All special characters (quotes, spaces, ...) must be replaced by an "_" inside the filename.</content:encoded>
+<pubDate>Fri, 28 Jan 2005 13:05:03 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_authorpic</guid>
+</item>
+<item>
+<title>Validates authors login: Validates the login credentials of an author using the sidebar login form</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_loginform</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_loginform&lt;br /&gt;Validates authors login</b></br>Validates the login credentials of an author using the sidebar login form</content:encoded>
+<pubDate>Mon,  8 Nov 2004 13:56:58 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_loginform</guid>
+</item>
+<item>
+<title>Links to next/previous entry: Allows viewing the next/previous entry when viewing</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_entrypaging</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_entrypaging&lt;br /&gt;Links to next/previous entry</b></br>Allows viewing the next/previous entry when viewing</content:encoded>
+<pubDate>Thu,  9 Dec 2004 13:32:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_entrypaging</guid>
+</item>
+<item>
+<title>Gravatar: Show avatars inside comments</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_gravatar</link>
+<category>Event Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_event_gravatar&lt;br /&gt;Gravatar</b></br>Show avatars inside comments</content:encoded>
+<pubDate>Sun, 21 Nov 2004 11:19:01 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_gravatar</guid>
+</item>
+<item>
+<title>head nugget: HOLDS_A_BLAHBLAH</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_head_nugget</link>
+<category>Event Plugins</category>
+<author>Jannis Hermanns</author>
+<content:encoded>&lt;b&gt;serendipity_event_head_nugget&lt;br /&gt;head nugget</b></br>HOLDS_A_BLAHBLAH</content:encoded>
+<pubDate>Wed, 24 Nov 2004 14:29:10 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_head_nugget</guid>
+</item>
+<item>
+<title>Split long entries: Enables you to split longer entries into several subpages</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_entrysplit</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_entrysplit&lt;br /&gt;Split long entries</b></br>Enables you to split longer entries into several subpages</content:encoded>
+<pubDate>Mon,  6 Dec 2004 13:27:04 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_entrysplit</guid>
+</item>
+<item>
+<title>Rules for publishing: Applies some checks before an entry is published</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_entrycheck</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_entrycheck&lt;br /&gt;Rules for publishing</b></br>Applies some checks before an entry is published</content:encoded>
+<pubDate>Wed,  8 Dec 2004 18:29:01 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_entrycheck</guid>
+</item>
+<item>
+<title>Tagging of entries: Allows freestyle tagging of entries</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_freetag</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_freetag&lt;br /&gt;Tagging of entries</b></br>Allows freestyle tagging of entries</content:encoded>
+<pubDate>Mon, 20 Dec 2004 12:58:04 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_freetag</guid>
+</item>
+<item>
+<title>Multilingual entries: Allows to create multiple language versions of an entry</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_multilingual</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_multilingual&lt;br /&gt;Multilingual entries</b></br>Allows to create multiple language versions of an entry</content:encoded>
+<pubDate>Sat, 15 Jan 2005 15:08:01 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_multilingual</guid>
+</item>
+<item>
+<title>LJ Update Plugin: Uses XMLRPC to post to your Livejournal</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_ljupdate</link>
+<category>Event Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_event_ljupdate&lt;br /&gt;LJ Update Plugin</b></br>Uses XMLRPC to post to your Livejournal</content:encoded>
+<pubDate>Thu,  9 Dec 2004 19:44:12 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_ljupdate</guid>
+</item>
+<item>
+<title>Trackback-Control: Allows granular control over how trackbacks are sent when creating entries</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_trackback</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_trackback&lt;br /&gt;Trackback-Control</b></br>Allows granular control over how trackbacks are sent when creating entries</content:encoded>
+<pubDate>Thu, 16 Dec 2004 15:58:04 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_trackback</guid>
+</item>
+<item>
+<title>Show Emoticon toolbar: Shows a toolbar to select emoticons to insert into your entry</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_emoticonchooser</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_emoticonchooser&lt;br /&gt;Show Emoticon toolbar</b></br>Shows a toolbar to select emoticons to insert into your entry</content:encoded>
+<pubDate>Tue, 21 Dec 2004 10:14:20 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_emoticonchooser</guid>
+</item>
+<item>
+<title>Amazon Media Button: Adds a button to allow Amazon.com search which are insertable into your entry</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_amazonchooser</link>
+<category>Event Plugins</category>
+<author>Matthew Groeninger</author>
+<content:encoded>&lt;b&gt;serendipity_event_amazonchooser&lt;br /&gt;Amazon Media Button</b></br>Adds a button to allow Amazon.com search which are insertable into your entry</content:encoded>
+<pubDate>Fri, 28 Jan 2005 13:07:16 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_amazonchooser</guid>
+</item>
+<item>
+<title>External user authentication (LDAP) [EXPERIMENTAL]: Allows to use external ressource to validate logins. Logins will be cached in the Serendipity database framework.</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_externalauth</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking/Justin Alcorn</author>
+<content:encoded>&lt;b&gt;serendipity_event_externalauth&lt;br /&gt;External user authentication (LDAP) [EXPERIMENTAL]</b></br>Allows to use external ressource to validate logins. Logins will be cached in the Serendipity database framework.</content:encoded>
+<pubDate>Sat, 15 Jan 2005 15:07:59 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_externalauth</guid>
+</item>
+<item>
+<title>Hide entries for non-registered users: Hides all entries which are older than a specified age, so that they are only visible for registered users/authors.</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_outdate_entries</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_outdate_entries&lt;br /&gt;Hide entries for non-registered users</b></br>Hides all entries which are older than a specified age, so that they are only visible for registered users/authors.</content:encoded>
+<pubDate>Mon, 10 Jan 2005 21:30:57 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_outdate_entries</guid>
+</item>
+<item>
+<title>Delete Link: Adds a delete link to the footer of each entry.</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_deletelink</link>
+<category>Event Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_event_deletelink&lt;br /&gt;Delete Link</b></br>Adds a delete link to the footer of each entry.</content:encoded>
+<pubDate>Wed,  5 Jan 2005 03:26:39 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_deletelink</guid>
+</item>
+<item>
+<title>Markup: Markdown: Apply Markdown markup to entry text</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_markdown</link>
+<category>Event Plugins</category>
+<author>Serendipity Team and Jan Lehnardt</author>
+<content:encoded>&lt;b&gt;serendipity_event_markdown&lt;br /&gt;Markup: Markdown</b></br>Apply Markdown markup to entry text</content:encoded>
+<pubDate>Tue, 11 Jan 2005 17:12:13 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_markdown</guid>
+</item>
+<item>
+<title>Photoblog Entries: Adds a single image to an entry.</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_photoblog</link>
+<category>Event Plugins</category>
+<author>Cameron MacFarland</author>
+<content:encoded>&lt;b&gt;serendipity_event_photoblog&lt;br /&gt;Photoblog Entries</b></br>Adds a single image to an entry.</content:encoded>
+<pubDate>Fri, 28 Jan 2005 13:07:20 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_photoblog</guid>
+</item>
+<item>
+<title>Thumbnail Page: Shows a thumbnail page.</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_thumbnails</link>
+<category>Event Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_event_thumbnails&lt;br /&gt;Thumbnail Page</b></br>Shows a thumbnail page.</content:encoded>
+<pubDate>Fri, 28 Jan 2005 13:07:20 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_thumbnails</guid>
+</item>
+<item>
+<title>Gallery Display: Allows anonymous users to view gallery links</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_usergallery</link>
+<category>Event Plugins</category>
+<author>Matthew Groeninger</author>
+<content:encoded>&lt;b&gt;serendipity_event_usergallery&lt;br /&gt;Gallery Display</b></br>Allows anonymous users to view gallery links</content:encoded>
+<pubDate>Thu,  6 Jan 2005 18:39:54 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_usergallery</guid>
+</item>
+<item>
+<title>PHPOpenTracker: Logs accesses to the blog using PHPOpenTracker.</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_phpopentracker</link>
+<category>Event Plugins</category>
+<author>Rene Schmidt</author>
+<content:encoded>&lt;b&gt;serendipity_event_phpopentracker&lt;br /&gt;PHPOpenTracker</b></br>Logs accesses to the blog using PHPOpenTracker.</content:encoded>
+<pubDate>Tue, 25 Jan 2005 10:35:59 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_phpopentracker</guid>
+</item>
+<item>
+<title>Podcast: Adds "podcasting" capabilities (RSS, MP3 player)</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_podcast</link>
+<category>Event Plugins</category>
+<author>Hannes Gassert</author>
+<content:encoded>&lt;b&gt;serendipity_event_podcast&lt;br /&gt;Podcast</b></br>Adds "podcasting" capabilities (RSS, MP3 player)</content:encoded>
+<pubDate>Fri, 28 Jan 2005 13:07:20 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_podcast</guid>
+</item>
+<item>
+<title>Layout-Plugin: Link-Markup: Allows to change the markup of links in the entrybody</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_layout_linkmarkup</link>
+<category>Event Plugins</category>
+<author>Sebastian Nohn</author>
+<content:encoded>&lt;b&gt;serendipity_event_layout_linkmarkup&lt;br /&gt;Layout-Plugin: Link-Markup</b></br>Allows to change the markup of links in the entrybody</content:encoded>
+<pubDate>Thu, 20 Jan 2005 13:06:34 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_layout_linkmarkup</guid>
+</item>
+<item>
+<title>Layout-Plugin: Printerfriendly version: Hit print & go!</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_layout_quotemarkup</link>
+<category>Event Plugins</category>
+<author>Sebastian Nohn</author>
+<content:encoded>&lt;b&gt;serendipity_event_layout_printerfriendly&lt;br /&gt;Layout-Plugin: Printerfriendly version</b></br>Hit print & go!</content:encoded>
+<pubDate>Sat, 22 Jan 2005 15:23:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_layout_printerfriendly</guid>
+</item>
+<item>
+<title>Layout-Plugin: Quote-Markup: Allows to change the markup of quotes in the entrybody</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_layout_quotemarkup</link>
+<category>Event Plugins</category>
+<author>Sebastian Nohn</author>
+<content:encoded>&lt;b&gt;serendipity_event_layout_quotemarkup&lt;br /&gt;Layout-Plugin: Quote-Markup</b></br>Allows to change the markup of quotes in the entrybody</content:encoded>
+<pubDate>Thu, 20 Jan 2005 17:51:28 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_layout_quotemarkup</guid>
+</item>
+<item>
+<title>Link List: Maintain a Link List for display.</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_linklist</link>
+<category>Event Plugins</category>
+<author>Matthew Groeninger</author>
+<content:encoded>&lt;b&gt;serendipity_event_linklist&lt;br /&gt;Link List</b></br>Maintain a Link List for display.</content:encoded>
+<pubDate>Fri, 28 Jan 2005 00:41:33 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_linklist</guid>
+</item>
+</channel>

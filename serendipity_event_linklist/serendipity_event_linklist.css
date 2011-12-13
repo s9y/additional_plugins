@@ -1,0 +1,42 @@
+div.linklist span.menu_title {
+}
+
+div.linklist {
+      padding: 0px;
+      margin: 0px;
+      text-align: left;
+	font-size: 11px;
+	color: #666;
+	white-space: nowrap;
+	direction: ltr;
+}
+div.linklist ul {
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+      text-align: left;
+	white-space: nowrap;
+}
+
+div.linklist li {
+      margin: 0px;
+      padding: 0px;
+	white-space: nowrap;
+	font-family: Arial, Helvetica, sans-serif;
+	white-space: nowrap;
+}
+
+
+div.linklist img {
+	border: 0px;
+	vertical-align: middle;
+}
+div.linklist a.folder {
+	text-decoration: none;
+}
+div.linklist a.link {
+	text-decoration: underline;
+}
+div.linklist a:hover {
+	color: #333;
+}

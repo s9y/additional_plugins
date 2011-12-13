@@ -1,0 +1,121 @@
+The "Community Rating" Plugin
+==============================
+
+
+Basically, this plugin only provides an API - a collection of functions you can enter
+into your Serendipity Smarty templates.
+
+File preparations
+-----------------
+
+You will need the rating image files. They are bundled with this plugin within the "img/"
+subdirectory.
+
+Copy those files into the "img" directory of your current template!
+
+The backend
+-----------
+
+This plugin allows you to create a rating for any item you like. This example with use
+ratings for Movies, based on IMDB links and an ID of the item you rate.
+
+When you've installed the plugin, go to your Administration Panel and create a new entry.
+Look at the section on the bottom of the page, where it reads "Community Rating".
+
+There you have a dropdown selection panel, where you can add product types ("IMDB", "Product",
+...) and can enter your rating. You can add multiple types and ratings for a single entry.
+
+The ratings you store are your personal rating, and stored within your
+serendipity_entryproperties database panel.
+
+Now that we've stored this rating, you surely want to display that information to the user.
+For that, we need to modify our template files.
+
+entries.tpl
+------------
+
+The API functions only make sense within your entries.tpl template of your currently used
+template.
+
+Go and edit that file, and look at the HTML in front of you. You'll first need to choose
+a place, where you want to display your product rating.
+
+A good place for the new code is below this code:
+
+-----------8-<---------------->-8----------------------
+            <div class="serendipity_entry_extended"><a id="extended"></a>{$entry.extended}
+-----------8-<---------------->-8----------------------
+
+This line of code is reponsible to print the extended entry body of your article. Displaying
+your rating below that, seems like a good thing to do.
+
+Now to display your own rating of an IMDB movie, insert this piece of code:
+
+-----------8-<---------------->-8----------------------
+{communityrating_show data=$entry.properties type="IMDB"}
+-----------8-<---------------->-8----------------------
+
+This function call will give the required voting data ("data") to a template ("IMDB") and
+displays your own rating on the page.
+
+You can also show rating informations from other people who use this plugin. You can do that
+with this call:
+
+-----------8-<---------------->-8----------------------
+{communityrating_show data=$entry.properties type="IMDB" who="garvin" url="http://myfriend/index.php?/plugin/communityrating"}
+-----------8-<---------------->-8----------------------
+
+Via the "who" and "url" parameter you enter the URL of your friend. You can of course place any amount
+of calls to the {communityrating_show} function you like.
+
+Community Rating templates
+--------------------------
+
+Depending on which item type you show (IMDB, Product, ...) and the person from which you're showing the data,
+specific templates can be deployed.
+
+By default the plugin provides simple templates that show stars as rating indicators.
+
+The template files are called like "communityrating_IMDB.tpl" or "communityrating_IMDB_garvin.tpl".
+The first indicator ("_IMDB") is the type of your product. The second indicator ("", "_garvin") is the name
+of the displayed user. So you can customize the look of any foreign votings per user!
+
+RSS Feeds
+---------
+
+You can embed the rating information in your RSS feeds as well. Use the same API function
+calls within your feed_*.tpl RSS templates. And append a parameter "escaped='true'" like this:
+
+{communityrating_show data=$entry.properties type="IMDB" escaped="true"}
+
+Steps for adding a new type
+----------------------------
+
+1. Configure the Community Rating plugin. Edit the field which holds the current list of
+   Types. Add your type at the end, seperated by ",". Only enter names as Type without
+   special characters.
+
+2. Copy the img/stars_XXX_(full|half|zero).png files so, that you have new image files for
+   your type. So if you added the new type "Babes", your images must be called
+   "stars_Babes_full.png", "stars_Babes_half.png", ""stars_Babes_zero.png"
+
+3. Add a new template file "communityrating_Babes.tpl" file in either your plugin or
+   template directory. Adjust the file to suit your needs.
+
+4. Edit your entries.tpl template file. Insert a line like this:
+
+    {communityrating_show data=$entry.properties type="Babes"}
+
+Steps for adding a new community partner
+-----------------------------------------
+
+1. First, make sure your community partner has installed this Serendipity plugin. Make
+   sure you have the URL to his site.
+
+2. Add new template files for each type you want to show within the community. Say you
+   want to show your partner's IMDB ratings, and his name is "garvin", you'll need to
+   have a file like "communityrating_IMDB_garvin.tpl".
+
+3. Edit your template's entries.tpl file. Insert a line like this:
+
+    {communityrating_show who="garvin" url="http://garvin/index.php?/plugin/communityrating" data=$entry.properties type="Babes"}

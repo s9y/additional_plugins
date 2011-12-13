@@ -1,0 +1,9 @@
+latest: Smarty3 forward compatibility
+
+2.0:
+  - Add ability to include page blocks and page templates.
+  - Blocks can be shown randomly on the interface panel, templates can be
+  used for new entries.
+  - Each block can use a different template.
+  - You can attach special blocks to an entry individually.
+  (Garvin Hicking)

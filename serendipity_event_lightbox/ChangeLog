@@ -1,0 +1,52 @@
+# $Id$
+
+1.9.4: prettyPhoto 3.1 update
+1.9.3, 1.9.2: Added/fixed prettyPhoto
+
+------------------------------------------------------------------------
+Version 1.9.1 (brockhaus):
+
+    * thickbox: loadingAnimation.gif was loaded from wrong directory
+
+------------------------------------------------------------------------
+Version 1.8 (Barberousse):
+
+    * Add an option to choose no gallery, gallery by entry, gallery by page
+
+------------------------------------------------------------------------
+Version 1.7 (Barberousse):
+
+    * Change graybox to greybox
+    * Greybox upgraded to version 5.53
+    * Lightbox 2 upgraded to version 2.04
+    * Lightbox Plus upgraded to version 20061027
+    * Pictures in the same entry are grouped in a gallery to use the "previous" and "next" button in Lightbox 2, Lightbox Plus, Greybox and Thickbox
+
+------------------------------------------------------------------------
+Version 1.6 (brockhaus):
+
+    * Upgraded ThickBox 2.1 to 3.1 as the older version produced 
+      problems with in example a flicker js widget.
+
+------------------------------------------------------------------------
+Version 1.5 (brockhaus):
+
+    * Made last optimization configurable as so many users reported
+      problems with it I can't reproduce. :-/
+    * Added German language file.
+
+------------------------------------------------------------------------
+Version 1.4 (brockhaus):
+
+    * Made last optimization PHP <5.1 compatible.
+
+------------------------------------------------------------------------
+Version 1.3 (brockhaus):
+
+    * Performance optimization: JS for Lightbox is only added to the 
+      blogpage, if needed.
+
+------------------------------------------------------------------------
+Version 1.2: earlier versions..
+
+

@@ -1,0 +1,13 @@
+#serendipityFAQNav {
+    border-bottom:1px solid #000000;
+    margin:auto auto 10px auto;
+}
+
+#serendipityFAQNav a {
+    text-decoration:none;
+}
+
+#serendipityFAQNav p {
+    margin:0px 0px 0px 0px;
+    padding:2px 2px 2px 2px;
+}

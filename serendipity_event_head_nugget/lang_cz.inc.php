@@ -1,0 +1,12 @@
+<?php # lang_cz.inc.php 1.1 2009-08-26 20:49:46 VladaAjgl $
+
+/**
+ *  @version 1.1
+ *  @author Vladimir Ajgl <vlada@ajgl.cz>
+ *  @translated 2009/02/16
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2009/08/26
+ */
+
+@define('HEAD_NUGGET_TITLE',		'HTML kód v záhlaví stránky (HTML-Head Nugget)');
+@define('HEAD_NUGGET_HOLDS_A_BLAHBLAH',		'Umo¾òuje vlo¾it HTML kód do <HEAD> oblasti html kódu stránky. Pou¾ití pro vlo¾ení meta-tagù nebo vlo¾ení JavaScriptu.');

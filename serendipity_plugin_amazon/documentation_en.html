@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title>Documentation: Amazon Recommendations</title>
+    </head>
+
+<body>
+    
+<h1>What this plugin does</h1>
+
+<p>The Amazon recommendations is a sidebar plugin to access the Amazon Webservices. Those can be used to retrieve
+    information of products sold on Amazon. You can use those pieces of information to link to amazon products,
+    to make suggestions or also to power your Affiliate Business as an Amazon partner.</p>
+
+<p>The Amazon Recommendations plugin is a sidebar plugin that will display a number of random Amazon products from a preselected list.</p>
+  
+    
+
+<h1>Requirements</h1>
+
+<p>To use this plugin, you will need an Amazon API key, and your webserver/firewall needs to be allowed to connect to the
+Amazon servers. This plugin also needs at least Serendipity 1.4.1, so it can register custom toolbar buttons easily.</p>
+    
+<h2>Apply for an Amazon API key</h2>
+
+<p>An API key is a unique string that you receive from Amazon to identify you and your blog. This allows them to track
+    your referalls, possible affiliate actions, and traffic usage. Be sure to read the Amazon Terms of Use to see what
+    you can and cannot do with their API.</p>
+
+<p>Previously, Amazon did not require you to use personal API key. Since August 15th, 2009, it is a requirement to be able to use the Amazon database.</p>
+
+<p>To apply to an Amazon API key, visit the site <a href="http://aws.amazon.com/">aws.Amazon.com</a> and <a href="http://www.amazon.com/gp/aws/registration/registration-form.html">register</a> yourself. They will need your name, e-mail adress, contact information.</p>
+
+<p>After registration, you can find your access credentials on the "Your Account &gt; Access Identifiers" subpage (<a href="https://aws-portal.amazon.com/gp/aws/developer/account/index.html?ie=UTF8&action=access-key">direct link</a>).</p>
+
+<p>To apply for a Associate ID (the Affiliate marketing program) you need to visit the <a href="https://affiliate-program.amazon.com/gp/associates/apply/main.html">dedicated website from Amazon ("Amazon.com Associates Central")</a> and sign up there as well. The key will also be found on your Affiliate Account page then.</p>
+
+<h1>Installing the plugin</h1>
+
+<p>The Amazon Recommendations Serendipity-Plugin can be installed normally through Spartacus, or by putting the plugin inside the plugins/ subdirectory, and installing it through the Serendipity Administration Suite in the Plugin Configuration, by clicking on "Click here to install a sidebar plugin".</p>
+
+<p>Once installed, you can configure the plugin by clicking on the title of it in the listing inside the Plugin Configuration. You will now need to configure a few things:</p>
+    
+<p>This plugin also depends on the "Amazon Media Button" plugin.  If you do not have the plugin installed Spartacus should install if for you.  You will need to configure the options in the Amazon Meida Button configurations, also.  Please repeat the steps above for that configuration.</p>
+
+<h2>Plugin configuration</h2>
+
+Please ensure that the following settings are configured in the "Amazon Media Button" plugin:
+<ol>
+    <li><strong>Developer Access Key ID</strong><br />
+    This is your global Key that identifies each request to Amazon. It looks like: XKIAIEKPOU3U4MLELLQA. You can find it on the Amazon AWS homepage in the "Your Account &gt; Access Identifiers " page.</li>
+
+    <li>Amazon Developer Secret Access key</strong><br />
+    The secret key is like a password that you need to authenticate yourself. It can be found below the Developer Access Key on the Amazon site. The first time you want to use it, you will generate it on the Amazon site, or click on the button "Show" to show the existing value.</li>
+
+    <li><strong>Amazon Associate ID</strong> (optional)<br />
+    Your associate ID is important to be appended to any links to Amazon products, so that you can get paid through the Partner/Affiliate program. Your ID can be found on the Amazon Affiliate Program site.</li>
+</ol>
+
+You can configure the following settings in the Amazon Recommendations plugin:
+<ol>
+    <li><strong>Title</strong><br />
+    Title displayed in the sidbar.</li>
+    <li><strong>Default Server</strong><br />
+    With this you select, to which server people get directed when you advertise Amazon products.</li>
+    <li><strong>Open links in new windows</strong><br />
+    Plugin will open all links to Amazon in a new window.</li>
+    <li><strong>Thumbnail size to display</strong><br />
+    Choose whether to display Amazon's small, medium or large picture (when available).</li>
+    <li><strong>ASIN-List</strong><br />
+    Enter a comma-separated List of ASINs you'd like to recommend. The Amazon button returns a form ASIN-TYPE but this is not required for basic functionality.</li>
+    <li><strong>How many articles to display</strong><br />
+    Set how many items you would like to display.</li>
+    <li><strong>Cache time</strong><br />
+    Number of minutes to cache the entire plugin output. Amazon requests are cached for 24 hours, while the display text for each item is cached for 60 minutes. This setting allows a small increase in performance by not randomizing output for the duration of the cache time. Set to '0' for no cache.</li>
+</ol>
+
+<h1>Usage</h1>
+
+<p>Simply add comma seperated ASINs to the text box and configure the plugin options that you would like.  Once the configuration is complete the sidebar will begin making requests to Amazon and displaying the thumbnail and title in the sidebar, with a link to the product on Amazon's site.</p>
+    
+</body>        

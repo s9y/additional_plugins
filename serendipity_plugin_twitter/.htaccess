@@ -1,0 +1,2 @@
+# Switch off reqrite engine, else documentation gets a wrong link
+RewriteEngine Off

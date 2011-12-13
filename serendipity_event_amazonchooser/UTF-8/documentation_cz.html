@@ -1,0 +1,101 @@
+<html>
+    <head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Dokumentace: Amazon Chooser</title>
+    </head>
+
+<body>
+    
+<h1>Dokumentace k pluginu 'Amazon Chooser'</h1>
+
+<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 19.11.2010. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="../documentation_en.html">aktuální anglickou dokumentaci</a>.
+<p>
+
+<p>"Amazon chooser" je základním pluginem pro přístup k službám serveru Amazon. Ty slouží k získání informací o produktech prodávaných na Amazonu. Vy můžete použít tyto informace k zobrazení odkazů na produkty na Amazonu, k vytvoření návrhů, ale také Vám umožňuje využít výhod Obchodního partnera Amazon.</p>
+
+<p>Tento plugin přidá vlastní tlačítko do správce příspěvku. Při psaní příspěvku uvidíte přídavné tlačítko, které Vám umožní vybrat produkt ze seznamu produktů Amazon. Tento produkt bude připojen k příspěvku blogu.</p>
+
+<h1>Požadavky</h1>
+
+<p>Abyste mohli využít tento plugin, budete potřebovat Amazon API klíč. Dále je nezbytné, aby váš server/firewall umožňoval připojení k serverům Amazonu. Nakonec tento plugin vyžaduje verzi Serendipity 1.4.1 nebo novější, aby mohl přidávat vlastní tlačítka do editoru.</p>
+    
+<h2>Žádost o Amazon API klíč</h2>
+
+<p>API klíč je jedinečný řetězec znaků, který obdržíte od Amazonu, abyste se mohli identifikovat, abyste mohli identifikovat Váš blog. Tato identifikace umožňuje Amazonu sledovat odkazy, případné akce Obchodního partnera Amazon, a vytížení jednotlivých uživatelů. Nezapomeňte si přečíst Podmínky použití služby na Amazonu, abyste věděli, co je a není přípustné dělat s API klíčem.</p>
+
+<p>Donedávna Amazon nevyžadoval použití osobního API klíče. Od 15.srpna 2009 je to ale povinnost. Jinak nemůžete používat databázai Amazonu.</p>
+
+<p>Pro žádost o Amazon API klíč navštivte stránku <a href="http://aws.amazon.com/">aws.Amazon.com</a> a <a href="http://www.amazon.com/gp/aws/registration/registration-form.html">zaregistrujte se</a>. Budou po Vás žádat jméno, emailovou adresu a kontaktní informace.</p>
+
+<p>Po registraci naleznete Vaše data na stránce "Your Account &gt; Access Identifiers" (<a href="https://aws-portal.amazon.com/gp/aws/developer/account/index.html?ie=UTF8&action=access-key">přímý odkaz</a>).</p>
+
+<p>Pro žádost o Associate ID (identifikátor pro program Obchodního partnerství) je třeba navštívit <a href="https://affiliate-program.amazon.com/gp/associates/apply/main.html">vyhrazený server Amazon ("Amazon.com Associates Central")</a> a zapsat se také tam. Tento klíč je následně k nalezení na stránce vašeho partnerského účtu.</p>
+
+<h1>Instalace pluginu</h1>
+
+<p>Plugin "Amazon-Chooser" lze nainstalovat běžným způsobem pomocí pluginu SPARTACUS. Případně též zkopírováním souborů do podadresáře "plugins/" a nainstalováním v administrační sekci blogu kliknutím nejdříve na odkaz "Konfigurace pluginů" a dále na "Klikněte pro nainstavoání nového pluginu UDÁLOSTÍ".</p>
+
+<p>Jakmile je plugin nainstalovaný, můžete měnit jeho nastavení po kliknutí na název pluginu v sekci "Konfigurace pluginů". Význam jednotlivých voleb nastavení je vysvětlen níže.</p>
+    
+<h2>Nastavení pluginu</h2>
+
+<ol>
+    <li><strong>Klíč vývojáře (Developer Access Key ID)</strong><br />
+    To je globální klíč, který identifikuje každý požadavek po Amazonu. Vypadá jako: XKIAIEKPOU3U4MLELLQA. Naleznete ho na Amazonu, na stránce pro developery (server AWS) na stránce "Your Account &gt; Access Identifiers ".</li>
+
+    <li><strong>Amazon Developer Secret Access key</strong><br />
+    Tento tajný klíč je něco jako heslo, které vedle ID potřebujete k identifikaci. Na stránce Amazonu ho naleznete pod klíčem vývojáře. Před prvním použitím si ho nechte na stránkách Amazonu vygenerovat. V dalších případech stačí pouze kliknout na tlačítko "Show", a zobrazí se Vám jeho aktuální hodnota.</li>
+
+    <li><strong>Amazon Associate ID</strong><br />
+    Tento klíč je důležitý, pokud chcete být připojen k odkazovaným položkám jako Obchodní partner Amazonu. Pak za odkazy dostáváte platby v partnerském programu. Tento klíč naleznete na stránce Partnerského programu Amazon (Amazon Affiliate Program).</li>
+
+    <li><strong>Výchozí server</strong><br />
+    Vyberte, na který server budou návštěvníci vašeho blogu přesměrování po kliknutí na odkazovaný produkt Amazon.</li>
+</ol>
+
+<h1>Použití</h1>
+
+<p>Při psaní příspěvku na blog můžete kliknout na tlačítko "Amazon media" (a jde to ve WYSIWYG módu). Otevře se nové vyskakovací okno. V něm můžete vyhledat knihu nebo jiný produkt. Na straně s výsledky hledání vyberete položku, kterou chcete zobrazit v blogu. Jakmile to uděláte, bude položka vložena do příspěvku pomocí následující značky:</p>
+
+<p><strong>[amazon_chooser]32423434X,Books[/amazon_chooser]</strong></p>
+    
+<p>Při zobrazení příspěvku bude tato značka nahrazena informacemi o produktu staženými z Amazon serveru. Toto nahrazení je automatické a děje se při každém zobrazení stránky znovu, takže návštěvníci uvidí například aktuální cenu. Pokud znáte identifikátor položky (tzv. ASIN), můžete značku napsat do příspěvku ručně, bez použití tlačítka "Amazon media".</p>
+
+<p>Výsledky hledání jsou na Amazonu cachovány jednu hodinu. Přímo v pluginu jsou výsledky hledání cachovány 12 hodin. Pokud chcete vyčistit cache, jednoduše vymažte obsah adresáře templates_c/amazonchooser/ directory.
+<h1>ChangeLog (historie verzí)</h1>
+<ul>
+<li>Verze .59</li>
+<ul><li>Přidán hook (háček) serendipity_event_amazonchooser_devinfo.</li></ul>
+
+<li>Verze .58</li>
+<ul><li>Opraven CSS hook kód, aby respektoval šablony.</li></ul>
+
+<li>Verze .57</li>
+<ul><li>Aktualizace pluginu, aby používal funkci serendipity_rewriteurl() pro přepis URL adres. Zjevně jsem někde opomenul přepisovat URL.</li></ul>
+ 
+<li>Verze .56</li>
+<ul><li>Aktualizována knihovna Amazon_s9y_lib.php - odstraněny přebytečné proměnné.</li>
+<li>Aktualizovaný soubor serendipity_event_amazonchooser.css pro postranní sloupec amazon.</li></ul>
+
+<li>Verze .55</li>
+<ul><li>Přidán háček události (event hook) pro integraci s ostatními pluginy, konsolidovaná/zjednodušená knihovna Amazon_s9y_lib.php, aby byla volaná pouze tímto pluginem. Tento plugin bude požadován dalšími pluginy amazon.</li></ul>
+
+<li>Verze .54</li>
+<ul><li>Opraveno - kompatibilní s PHP 4. Potřeba předávat parametr pomocí reference v preg_replace_callback.</li>
+<li>Také opravena deklarace funkce v knihovně Amazon_s9y_lib.php, která obsahovala nikdy nepoužitou proměnnou. Díky patří Christophu Gassmannovi za obě opravy.</li></ul>
+
+<li>Verze .53</li>
+<ul><li>Oprava časování cache. Nastavení PEAR Cache Lite je v sekundách. To má za následek drobné odchylky ve výkonnosti cache.
+ </li><li>Aktualizovaná také knihovna Amazon, aby formátovala clonu a ohniskovou vzdálenost, pokud jsou použity.</li></ul>
+
+<li>Verze .52</li>
+<ul><li>Oprava cachování adresářů.</li></ul>
+
+<li>Verze .51</li>
+<ul><li>Téměř úplné přepsání pluginu, aby byl v souladu s podmínkami použití Amazon.</li>  
+  <li>Plugin umožňuje podepsané požadavky Amazon, což znamená, že nyní po uživateli vyžaduje, aby měl na Amazonu registrovaný vývojářský účet.</li>
+  <li>Plugin používá šablonovací systém Smarty (použitelný v různých šablonách vzhledu)</li>
+  <li>Plugin používá dvě úrovně cachování, aby urychlil zpracování požadavků.</li>
+  <li>Plugin podporuje více informací z Amazonu, včetně cen.</li></ul>
+</ul>
+</body>

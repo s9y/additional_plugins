@@ -1,0 +1,19 @@
+Gadu-Gadu Status
+
+This little plugin displays in the sidebar a status in an icon form and its description
+for a given Gadu-Gadu user. Gadu-Gadu is the most common (although not the _best_ one) 
+Polish instant messenger.
+
+To get this thing working, you need a new GG account, as a gateway. In the plugin 
+configuration you set an UIN and its password, and set what UIN it should watch 
+(for the most of times it will be your own UIN).
+
+In the side-bar there will be displayed your watched UIN number, an icon depicting your status 
+(available, busy, unavailable) and a text description. If the text description will be null, 
+it will display "No description" text. If you want, you can edit your language file and put there 
+an empty string. Probably I'll add an option if this specific text is to be displayed.
+
+Have fun! :-)
+
+Author: Piotr Borys <piotr.borys@gmail.com>
+

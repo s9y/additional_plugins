@@ -1,0 +1,73 @@
+What is this?
+-------------
+
+PhoneBlogz is a system that allows you to leave a voice message by phone to be
+posted to your Serendipity blog.  When a message is left, a page is requested 
+on your Serendipity site that tells it to check phoneblogz.com for new messages.
+If any new messages are found, they are posted to your blog.
+
+
+Requirements
+------------
+
+The plugin currently requires at least Serendipity 1.0-beta1.
+You'll need to register at http://www.phoneblogz.com to get an access code and 
+PIN number
+
+
+Setup steps
+-----------
+
+There are three things you'll need to setup for the system to work:
+
+1) Register and configure an account at http://www.phoneblogz.com
+   - go to http://www.phoneblogz.com and register for an account
+   - make note of your access code and PIN number you receive via e-mail
+
+2) Install the code and configure your Serendipity site
+   - upload the serendipity_event_phoneblogz directory into your plugins
+     directory
+   - activate the plugin in the Plugins Configuration page
+   - in Configure Plugins, go to the PhoneBlogz plugin and enter your
+     access code and password (NOT PIN number!) and make any other changes.
+   - in PhoneBlogz Users under the Admin menu, map each PhoneBlogz user
+     to a Serendipity user
+
+3) Using the system
+   - call a PhoneBlogz access number (http://www.phoneblogz.com/help/howcanipost.php)
+   - enter your access code and PIN number, then leave a message and press #
+   - PhoneBlogz should then call your notify URL which should
+     post the message to your blog.
+
+
+Known problems
+--------------
+
+None at present!
+
+
+Troubleshooting
+---------------
+
+If messages aren't appearing on your blog, check the following things:
+
+1) On phoneblogz.com, make sure your message appears in the "Recent Blogz" page.
+   If the message isn't there, contact us as something has gone wrong!
+
+2) Go to the PhoneBlogz entries page.  You should see your message in a list.  
+   If it's not there check the access and PIN codes.
+
+3) In a browser, go to the URL you entered in the Notification URL area.
+   If the URL can't be found you're using the wrong notification URL.
+
+4) If you're still having problems get in touch with us.
+
+
+Contact
+-------
+
+Feel free to get in touch with me about this plugin or any aspect of PhoneBlogz
+by e-mail at matt@phoneblogz.com or over at the forums at
+http://www.phoneblogz.com/forums
+
+

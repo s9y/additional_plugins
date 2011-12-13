@@ -1,0 +1,17 @@
+Music of the Moment plugin for Serendipity.
+Created by Tys von Gaza (tys@tvg.ca) - http://tvg.ca/
+
+- Uses a program called iTunesBlogger to hit a URL on the webpage and save song information to the database.
+- Page loads an iframe which uses javascript to set content on the main page.  Javascript runs a progress bar and refreshes every song.
+
+The program is not unique to iTunesBlogger, you just need to find a plugin for your media player of choice to hit the webpage with the following url format:
+http://website.com/index.php?/plugin/motm-update&track=%t&artist=%a&album=%b&genre=%g&tracktime=%y&secret_key=SECRET_KEY
+If you find a plugin for another player that supports this please let me know.
+
+Where:
+%t is the track name
+%a is the artist
+%b is the album
+%g is the genre
+%y is the tracktime in the format hours:minutes:seconds, ie: 1:23:45 would be 1 hour, 23 minutes, 45 seconds
+SECRET_KEY is the secret key setup in the blog so not anyone can update what you are playing

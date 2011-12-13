@@ -1,0 +1,103 @@
+<html>    
+	<head>        
+		<meta http-equiv="content-type" content="text/html; charset=windows-1250">
+		<title>Dokumentace: Plugin Doporučení Amazon</title>        
+		<style>
+        	pre {
+				display: block;
+				padding: 5px;
+				border: solid 1px #333333;
+				background-color: #cccccc;
+			}         
+		</style>    
+	</head>
+	<body>
+	<h1>Dokumentace k pluginu 'Doporučení Amazon'<br />
+	<small>(serendipity_plugin_amazon)</small></h1>
+		<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 20.8.2011. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i	<a href="documentation_en.html">aktuální anglickou dokumentaci</a> a <a href="Changelog">ChangeLog</a>. 
+		</p>
+		
+<h2>Co tento plugin dělá</h2>
+
+<p>'Doporučení Amazon' je postranní plugin, který přistupuje ke službám Amazonu. Tyto mohou být použity k získání informací o produktech prodávaných na Amazonu. Tyto informace můžete využít k odkazování na produkty Amazonu, k zobrazování doporučení nebo k posílení Vašich obchodních zájmů v rámci Affiliate Business programu (partnerství s Amazonem).</p>
+
+<p>'Doporučení Amazon' je postranní plugin, který zobrazí nastavený počet náhodných produktů Amazon z předem připraveného seznamu.</p>
+
+
+<h2>Požadavky</h2>
+
+<p>Abyste mohli využívat tento plugin, budete potřebovat Amazon API key. Kromě toho Váš server musí mít povolení připojit se k severům Amazonu (některé webhostingy to mohou zakazovat). Plugin vyžaduje Serendipity alespoň ve verzi 1.4.1, aby si mohl jednoduše zaregistrovat vlastní tlačítka do nástrojové lišty.</p>
+    
+<h2>Jak požádat o Amazon API key</h2>
+
+<p>API key je jedinečný textový řetězec, který obdržíte od Amazon a který jednoznačně identifikuje Váš blog. To umožňuje Amazonu identifikovat návštěvníky z Vašeho blogu, případné akce partnera Amazon a celkový provoz. Nezapomeňte si předem přečíst Podmínky použití od Amazonu, ať víte, co můžete a nemůžete dělat s jejich API.</p>
+
+<p>V dřívějších dobách Amazon nevyžadoval použití osobního API klíče. Od 15.srpna 2009 je to vyžadováno k přístupu do databáze Amazonu.</p>
+
+<p>Pro získání Amazon API key navštivte stránku <a href="http://aws.amazon.com/">aws.Amazon.com</a> a <a href="http://www.amazon.com/gp/aws/registration/registration-form.html">zaregistrujte se</a>. Budou po Vás vyžadovat jméno, email a kontaktní informace.</p>
+
+<p>Po registraci můžete Vaše údaje najít podstránce "Your Account &gt; Access Identifiers" (Váš účet &gt; Přístupové údaje - <a href="https://aws-portal.amazon.com/gp/aws/developer/account/index.html?ie=UTF8&action=access-key">přímý odkaz</a>).</p>
+
+<p>Pro získání Associate ID (partnerský program) musíte navštívit <a href="https://affiliate-program.amazon.com/gp/associates/apply/main.html">příslušnou stránku Amazon ("Amazon.com Associates Central")</a> a zaregistrovat se také tam. Získaný klíč pak naleznete na stránce partnerského účtu.</p>
+
+<h2>Instalace pluginu</h2>
+
+<p>Plugin 'Doporučení Amazon' může být nainstalován obvyklým způsobem pomocí Spartaca, nebo zkopírování pluginu do podadresáře plugins/ a instalací v Administrační sekci Serendipity na stránce 'Konfigurace pluginů' po kliknutí na odkaz 'Klikněte zde pro instalaci postranních pluginů'</p>
+
+<p>Jakmile je plugin nainstalován, můžete ho nastavit kliknutím na jeho nadpis ve výpisu pluginů na stránce 'Konfigurace pluginů'. Budete teď muset nastavit pár věcí:</p>
+    
+<p>Plugin také závisí na pluginu "Amazon Media Button" ("Tlačítko médií Amazon"). Pokud tento plugin nemáte nainstalovný, Spartacus by ho měl automaticky nainstalovat na základě závislostí pluginů. Budete muset nastavit i plugin "Tlačítko médií Amazon". Prosím zopakujte níže uvedené kroky i pro něj.</p>
+
+<h3>Nastavení pluginu</h3>
+
+Ujistěte se prosím, že jsou nastaveny následující volby v pluginu "Tlačítko médií Amazon":
+<ol>
+    <li><strong>Klíč vývojáře (Developer Access Key ID)</strong><br />
+    Toto je Váš klíč, který identifikuje každý požadavek na Amazonu. Vypadá jako: XKIAIEKPOU3U4MLELLQA. Můžete ho najít na domácí stránce Amazonu po přihlášení na podstránce "Your Account &gt; Access Identifiers " (Váš účet &gt; Přístupové údaje).</li>
+
+    <li><strong>Amazon Developer Secret Access key</strong><br />
+    Tajný přístupový klíč pro vývojáře Amazon - je to něco jako heslo, kterým se prokazujete. Na stránce Amazonu ho najdete pod Developer Access Key. Poprvé, když ho budete chtít použít, si ho vygenerujete na Amazonu, nebo klikněte na tlačítko "Zobrazit", pak se Vám zobrazí hodnota současného klíče.</li>
+
+    <li><strong>Amazon Associate ID</strong> (nepovinné)<br />
+    Tento identifikátor je důležité připojit ke každému odkazu na Amazon, aby Vám generoval prokliky v partnerském programu (Affiliate Business Program). Tento ID najdete na stránce partnerského programu Amazon.</li>
+</ol>
+
+V pluginu 'Doporučení Amazon' můžete nastavit následující volby:
+<ol>
+    <li><strong>Nadpis</strong><br />
+    Nadpis bloku s doporučeními Amazon.</li>
+    <li><strong>Výchozí server</strong><br />
+    Zde můžete nastavit, na jaký server budete přesměrovávat návštěvníky blogu po kliknutí na Vám inzerované produkty Amazon.</li>
+    <li><strong>Otvírat odkazy v novém okně</strong><br />
+    Plugin bude zobrazovat všechny odkazy na Amazon v novém okně.</li>
+    <li><strong>Velikost zobrazených náhledů</strong><br />
+    Vyberte si, jestli budete zobrazovat malé, střední nebo velké (pokud jsou dostupné) obrázky Amazonu.</li>
+    <li><strong>Seznam ASIN</strong><br />
+    Zadejte seznam ASIN, které chcete doporučovat, oddělené čárkou. Tlačítka Amazon vracejí fromu ASIN-TYPE, ale pro základní funkčnost není vyžadována.</li>
+    <li><strong>Kolik produktů se má zobrazovat?</strong><br />
+    Zadejte, kolik položek se má zobrazovat.</li>
+    <li><strong>Čas cachování</strong><br />
+    Počet minut na cachování výstupu pluginu. Požadavky na Amazon jsou cachovány  24 hodin, zatímco zobrazený text je cachován 60 minut. Toto nastavení umožňuje lehké zvýšení výkonu tím, že se nebude aktualizovat výstup podle serveru Amazon během doby cachování. Vypněte cachování nastavením "0".</li>
+</ol>
+
+<h2>Použití</h2>
+
+<p>Jednoduše zadejte do textového pole seznam ASIN oddělených čárkou a nastavte volby dle libosti. Jakmile je nastavení dokončené, plugin začne posílat požadavky na Amazon a začne v postranním sloupci zobrazovat náhledy a nadpisy s odkazem na produkt na stránky Amazon.</p>
+		
+<h2>Historie verzí (ChangeLog)</h2>
+		<ul>
+			<li>verze 1.22</li>	
+			<ul>	
+				<li>oprava od uživatele [danst0], přidáno sledování analýz</li>	
+			</ul>
+			<li>verze 1.21</li>	
+			<ul>	
+				<li>Aktualizace pluginu, aby správně zpracoval vývojářské ID. Zjevně tenhle plugin nikdo nepoužívá.</li>	
+			</ul>
+			<li>verze 1.20</li>	
+			<ul>	
+				<li>přepsání vkládací systému, aby podporoval mazon Product Advertising API</li>	
+			</ul>
+		</ul>  
+	</body>
+</html>

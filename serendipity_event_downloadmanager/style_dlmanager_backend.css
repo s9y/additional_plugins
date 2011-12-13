@@ -1,0 +1,353 @@
+/**********************************************************************************************/
+/* style_dlmanager_backend.css in serendipity_event_downloadmanager.php v.0.25 2010-09-23 ian */
+/**********************************************************************************************/
+
+/*********************************************/
+/* Backend only styles - colour you life ;-) */
+/* web colors used:                          */
+/*             #F8F8FF ghostwhite            */
+/*             #E8E8E8 gray91                */
+/*             #BC8F8F RosyBrown             */
+/* nearby colors used:                       */
+/*             #FAFAFA ~ linenwhite          */
+/*             #F8F8F8 ~ ghostgrey           */
+/*             #F4F4F4 ~ ghostwhite          */
+/*             #EDE3E3 ~ rosegrey            */
+/*             #AAAAAA ~ bordergrey box      */
+/*             #888888 ~ bordergrey dyn      */
+/*             #777777 ~ bordergrey head     */
+/*             #EEEEEE ~ ivorygrey           */
+/*             #F0F0F0 ~ ivorywhite          */
+/*********************************************/
+
+
+#backend_downloadmanager {
+    margin: 0;
+    padding: 0;
+    max-width: 1040px; /* keep design together in case of tables width:100% on wide-screens and long error messages */
+}
+
+/* generally set vertical correction of images to baseline without borders */
+#backend_downloadmanager img { vertical-align: baseline; border: 0 none; }
+
+#backend_downloadmanager table {
+    background: none repeat scroll 0 0 transparent;
+    border: 1px solid #aaa;
+}
+
+#dlm_messages {
+    margin: 16px 0;
+    padding: 4px;
+    text-align: center;
+}
+
+#dlm_toggle_optionall,
+#back_to_rootpage,
+#back_to_catpage {
+    display:inline;
+    float:right;
+}
+
+#backend_downloadmanager h3 {
+    background-color: #f0f0f0;
+    border: 1px solid #777;
+    font-size: 1em;
+    margin: 0 0 16px;
+    padding: 10px 0 10px 20px;
+    background: -moz-linear-gradient(left 20deg, #BC8F8F, #F0F0F0);
+}
+
+.dlm_page_header {
+    background-color: #f0f0f0;
+    border: 1px solid #aaa;
+    margin: 0 0 32px;
+    padding: 0;
+    width: 43em; /* What's this supposed to do?!? */ 
+    /* I tried with a variety of long and short filenames and found 43em to fit them all 
+       without breaking and still keeping the header box as small as possible! 
+       If the filename is longer than this we'll have a break 
+       - please note: the #dlm_edit_file has same width */
+    background: -moz-linear-gradient(left 20deg, #F0F0F0, #EDE3E3); /* I like it! */
+}
+.dlm_page_header h4 {
+    background-color: rgb(248, 248, 248); 
+    background: -moz-linear-gradient(center top , rgb(238, 238, 238), rgb(159, 182, 205)) repeat scroll 0% 0% transparent; 
+    border-bottom: 1px solid rgb(187, 187, 187);
+    margin: 2px 0 16px 0;
+    padding: 2px 0 2px 20px;
+    font-size: 1em;
+}
+.dlm_page_header #back_to_rootpage a { display: inline-block; margin: -10px 0 0; padding: 0; }
+.dlm_page_header #back_to_rootpage img { vertical-align: text-bottom; }
+
+.dlm_page_header ul {
+    list-style: none;
+    margin: 0 0 16px;
+    padding: 0 0 0 20px;
+}
+
+/* set closed dlm boxes to have a bottom margin of 16px */
+.dlm_backend_option {
+    font-weight: bold;
+    margin: 0 0 16px; 
+}
+
+.dlm_backend_option a,
+#dlm_toggle_optionall a {
+    border: 0px none;
+    text-decoration: none;
+}
+
+/* set opened dlm boxes to override closed status and have a bottom margin of 32px */
+#dlm1, #dlm2, #dlm3, #dlm4 { margin: -16px 0 32px 0; }
+/* special case dlm4 is dlm_help on rootpage */
+#dlm4.dlm_help_box { margin: 0; }
+
+.dlm_backend_newcat select { min-width:120px; }
+
+.dlm_backend_newcat input,
+.dlm_backend_newcat select { width: auto; } /* leave, until experiencing unusual behaviours */
+
+#addcat,
+#dlm_edit_file {
+    background: none repeat scroll 0 0 #f0f0f0;
+    border: 1px solid #aaa;
+    overflow: hidden;
+    width: auto;
+}
+
+.addcat_field {
+    display: inline;
+    float: left;
+    margin: 5px;
+    width: 40%;
+}
+
+.addcat_field label,
+#dlm_edit_file label,
+#dlm_edit_file textarea {
+    display: block;
+    margin: 0 0 5px;
+}
+
+#addcat_submit { margin: 25px 0 0; }
+
+/* holds the addcat block in a single line */ 
+.addcat_field label,
+#dlm_edit_file label,
+#dlm_edit_file textarea,
+#addcat_submit { display: inline-block; margin: 5px; }
+
+/* behave like .dlm_page_header */
+#dlm_edit_file { width: 43em; padding-bottom: 10px; }
+
+/* float dynamic fields to right side of box and give them the same size */
+#dlm_edit_file .edit_field input,
+#dlm_edit_file .edit_field select,
+#dlm_edit_file .edit_field textarea { float: right; display: inline-block; margin-right: 10px; width: auto; min-width: 260px; }
+#dlm_edit_file .edit_field textarea { width: 260px; }
+
+/* put some colors to dynamic fields */
+input#dlm_file_rename { border: 1px solid #888; background-color: rgb(221, 230, 237); }
+#dlm_edit_file select:hover,
+#dlm_edit_file input:hover,
+#dlm_edit_file textarea:hover { 
+    border: 1px solid #888;
+    color: #31709F; /* some sort of slate light blue */
+}
+#dlm_edit_file select:focus,
+#dlm_edit_file input:focus,
+#dlm_edit_file textarea:focus{
+    background-color: rgb(221, 230, 237); /* some sort of slate blue */
+    border: 1px solid #000;
+    color: #000;
+}
+
+#catfiles,
+#catlist,
+#ftpfiles,
+#smlfiles {
+    font-size: 1em;
+    width: 100%;
+}
+
+#catfiles thead,
+#catlist thead,
+#ftpfiles thead,
+#smlfiles thead {
+    font-weight: bold;
+}
+
+#catfiles tr,
+#catlist tr,
+#ftpfiles tr,
+#smlfiles tr {
+    background: none repeat scroll 0 0 #e8e8e8;
+    padding: 0;
+}
+
+#catfiles td,
+#catlist td,
+#ftpfiles td,
+#smlfiles td { padding: 0 2px; }
+
+#catfiles thead th,
+#catlist thead th,
+#ftpfiles thead th,
+#smlfiles thead th { border-bottom: 1px solid #aaa; text-align: left; padding: 3px 2px; font-size: 11.0px;}
+
+#catfiles #no_files_uploaded,
+#ftpfiles #no_ftp_files,
+#smlfiles #no_ml_files {
+    font-weight: bold;
+    text-align: center;
+}
+/* some little voodoo magic to make the tree/input pair appear as squeezed as possible */
+#catlist td img { margin: 0; width: 1.56em; vertical-align: bottom; }
+#catlist tbody tr { line-height: 1.4; }
+#catlist tbody td { padding: 0; background: none repeat scroll 0 0 #f8f8ff; }
+
+.catlist_catname_input {
+    background: none repeat scroll 0 0 #EEE; 
+    border: 0px none;
+}
+/* category list input selected, hover and focus behaviour */
+.catlist_cats_selected,
+.catlist_catname_input:focus { background: none repeat scroll 0 0 #EDE3E3; /* ~rosegrey */ }
+.catlist_catname_input:hover { background: none repeat scroll 0 0 #FFFF99; /* light yellow */ }
+.catlist_catname_input:focus:hover { background: none repeat scroll 0 0 #99FF99; /* light green */ }
+
+#catname_submit { margin-bottom: 2px; }
+
+.catlist_numoffiles {
+    font-size: 1em;
+    text-align: center;
+}
+
+#dlm_help {
+    display: inline;
+    float: right;
+    margin: 16px 0 0;
+    padding: 10px 0 0;
+    text-align: left;
+}
+
+#dlm_help div,
+#dlm_help h4 {
+    background: none repeat scroll 0 0 #dfdfdf;
+    border: 1px solid #888;
+}
+
+#dlm_help div {
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+#dlm_help h4 {
+    font-size: 12px;
+    margin: 0 0 2px;
+    padding: 5px;
+}
+
+#dlm_help ul {
+    margin: 0 0 10px;
+    padding: 5px 10px 0 20px;
+}
+
+#dlm_trash_box {
+    display: inline;
+    float: left;
+    margin: 16px 0 0;
+    padding: 10px 0 0;
+}
+
+#dlm_backend_uploadform {
+    background: none repeat scroll 0 0 #f0f0f0;
+    border: 1px solid #aaa;
+    width: auto;
+}
+
+#dlm_backend_uploadform form { margin: 0; }
+
+#uploads h4 {
+    border-bottom: 1px solid #aaa;
+    font-size: 1em;
+    margin: 0;
+    padding: 10px 0 10px 20px;
+}
+
+.upload label {
+    display: block;
+    margin: 0 0 5px;
+}
+
+.upload {
+    padding: 10px 10px 10px 20px;
+    overflow: hidden;
+}
+
+.upload_file,
+.upload_description {
+    display: inline;
+    float: left;
+    width: 50%;
+}
+
+/* put some colors to dynamic fields */
+#uploads textarea:hover { 
+    border: 1px solid #888;
+    color: #31709F; /* some sort of slate light blue */
+}
+#uploads textarea:focus{
+    background-color: rgb(221, 230, 237); /* some sort of slate blue */
+    border: 1px solid #000;
+    color: #000;
+}
+
+#upload_submit { margin: 5px 0 5px 20px; }
+
+#dlm_trash_ftp {
+    display: inline;
+    float: right;
+    margin: 0;
+    padding: 0;
+}
+#dlm_trash_ftp input { padding: 4px; }
+
+.dlm_backend_info { 
+    margin: 0;
+    border: 1px solid #aaa;
+    border-bottom: 0 none;
+    font-size: 0.88em;
+    color: #888; }
+
+#ftpfiles { clear: right; }
+
+#dlm_edit_file h4 {
+    font-size: 1em;
+    margin: 0 0 16px;
+    padding: 10px 0 0 20px;
+}
+
+.edit_field {
+    margin: 0 0 5px;
+    padding: 0 0 0 20px;
+}
+
+#editfile_submit { margin: 0 0 5px 20px; }
+
+/* #FAFAFA-F8F8F8, now with #F4F4F4 a slightly little more difference */
+#backend_downloadmanager .odd {  background: none repeat scroll 0 0 #fafafa; }
+#backend_downloadmanager .even { background: none repeat scroll 0 0 #f4f4f4; }
+
+/* the background of info text in subpage 2 trash and media library */
+.dlm_backend_info { background: none repeat scroll 0 0 #FAFAFA; }
+
+/* the font-size of file and ftp box tfoot being smaller than id boxes 1em */
+.dlm_backend_file_box tfoot,
+.dlm_backend_ftp_box tfoot { font-size: 0.8em; }
+
+/* special image centering in input-img-text rows, while all others are generally baselined. */
+#backend_downloadmanager .dlm_backend_file_box img,
+#backend_downloadmanager .dlm_backend_ftp_box img,
+#backend_downloadmanager .dlm_backend_s9ml_box img { vertical-align: text-bottom; /* this is important */ }

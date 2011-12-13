@@ -1,0 +1,22 @@
+markup-Icons:
+http://www.famfamfam.com/lab/icons/silk/
+Creative Commons Attribution 2.5 License. 
+
+jquery.elastic:
+http://plugins.jquery.com/project/elastic
+
+jquery.listen:
+http://plugins.jquery.com/project/Listen
+
+bbparser:
+http://www.dreamincode.net/code/snippet304.htm
+
+textileparser:
+http://jrm.cc/extras/live-textile-preview.php
+
+markdownparser:
+http://attacklab.net/showdown/
+
+jQuery-preview-idea:
+http://www.learningjquery.com/2006/11/really-simple-live-comment-preview
+

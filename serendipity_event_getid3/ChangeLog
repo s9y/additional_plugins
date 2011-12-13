@@ -1,0 +1,19 @@
+# $Id$
+
+------------------------------------------------------------------------
+Version 1.3 (brockhaus):
+
+    * Using admin styles for status messages now.
+    * Changed language files slightly.
+
+------------------------------------------------------------------------
+Version 1.2 (brockhaus):
+
+    * Try to load getid3 from bundled libs first and plugin dir second.
+    * An installer screen is shown now.
+    * Won't crash s9y if getid3 is not found.
+
+------------------------------------------------------------------------
+Version 1.1 (garvinhickins):
+
+

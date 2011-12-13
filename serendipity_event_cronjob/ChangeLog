@@ -1,0 +1,4 @@
+0.6:
+----
+
+* Fix important bug that did not properly schedule cronjobs

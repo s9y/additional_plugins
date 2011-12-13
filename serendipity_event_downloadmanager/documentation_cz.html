@@ -1,0 +1,224 @@
+<html>    
+	<head>        
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-2">
+		<title>Dokumentace: Downloadmanager</title>        
+		<style>
+        	pre {
+				display: block;
+				padding: 5px;
+				border: solid 1px #333333;
+				background-color: #cccccc;
+			}         
+		</style>    
+	</head>
+	<body>
+	<h1>Dokumentace k pluginu 'Downloadmanager'<br />
+	<small>(serendipity_event_downloadmanager)</small></h1>
+		<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 21.8.2011. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="ChangeLog">aktuální anglický ChangeLog</a>. 
+		</p>
+		
+		<h2>Popis pluginu</h2>
+		<p>Zajišťuje Serendipity všechny funkce download managera. Při odinstalování jsou odstraněny všechny tabulky z databáze (ztráta všech dat)!!!</p>
+
+		<h2>Historie verzí (ChangeLog)</h2>
+		<ul>
+			<li>nejnovější verze</li>	
+			<ul>	
+				<li>dopředná kompatibilita se Smarty3</li>	
+			</ul>
+
+			<li>verze 0.26, 15.2.2011, [Ian Timbalu]</li>	
+			<ul>	
+				<li>změněno - volání funkce smarty->fetch, aby bylo méně přísné, aby podporovalo změnu počtu a pořadí parametrů mezi specifikacemi Smarty 2 a Smarty 3 - odstraněn parametr 4</li>	
+				<li>přidáno - omezení funkcí backendu a odkazu na administraci v postranním sloupci pouze na administrátora</li>	
+				<li>opraveno - zobrazení dat v šablonách (*.tpl) frontendu pouze přihlášeným uživatelům, pokud je to nastaveno</li>	
+				<li>přidáno - serendipity_db_bool() do $this->get_config('registered_only')</li>	
+			</ul>
+
+			<li>verze 0.25.1, 20.10.2010, [Ian Timbalu]</li>	
+			<ul>	
+				<li>opraveno - předávání parametrů odkazem při volání funkce bylo zneplatněno od PHP 5.3.x</li>	
+				<li>přidáno - @silencer do mkdir a xhtml do &lt;hr&gt; tagu v if($coname == 'absincomingpath') echo '&lt;hr /&gt;';</li>	
+			</ul>
+
+			<li>verze 0.25, 23.9.2010, [Ian Timbalu]</li>	
+			<ul>	
+				<li>opraveno - špatná cesta, při kopírování souborů z mediatéky Serendipity do vybrané kategorie (pouze 0.25b)</li>	
+				<li>změněno - drobné detaily v jazykových souborech a šablonách frontenu filelist.tpl a filedetails.tpl</li>	
+				<li>přidáno - možnost přejmenovat soubor v administrační sekci na stránce editace souboru (to si vyžádalo přidání nové jazykové konstanty do jazykového souboru)</li>	
+				<li>změněno - 0.25 beta verze všech nových šablon backendu a jejich stylopisy tak, aby obsahovaly nejnovější vzhled (založený na designu uživatele [YellowLed], díky!)</li>	
+				<li>změněno - hlavička stránek v administrační sekci, která nyní ukazuje zpět na kořenový adresář a na předchozí úroveň, pokud existuje</li>	
+				<li>změněno - nastavení databáze pro kořenovou úroveň, aby nebyla schovaná - to nezmění chování pluginu při zobrzování souborů bez kořenové úrovně, ale usnadní to přístup k nim</li>	
+				<li>přidáno - nová ikona pro import do mediatéky Serendipity</li>	
+				<li>opraveno - několik potenciálních chyb a/nebo nepříjemných vlastností, které se vyskytly ve verzi 0.24</li>	
+				<li>přidáno - názvy polí v smarty šabloně pro backend, aby byly jedinečné v kontextu celého blogu - viz seznam v backend.dlm.index.tpl</li>	
+				<li>přidáno - kompletní šablona pro backend, což si vyžádalo vícero změn v kódu pluginu</li>	
+			</ul>
+
+			<li>verze 0.24, 26.8.2010, [Ian Timbalu]</li>	
+			<ul>	
+				<li>přidáno - nové nastavení: 'intro', přidává možnost úvodního textu před vlastním obsahem ve frontendu (nepovinné)</li>	
+				<li>přidáno - ikona mime typu ics</li>	
+				<li>změněno - šablony frontendu, frontend.cxx a ikony pro download, nyní nový svěží vzhled (navrhl [YelowLed], díky!)</li>	
+				<li>změněno - cesta souborů downloadmanageru zpět na '/serendipty/archives/.dlm/files' and '/serendipty/archives/.dlm/ftpin', který vypadá jako nejlepší místo pro pohyb souborů. Adresář /uploads představoval problém s mediatékou a adresář /templates_c je v některých přípdech uživateli mazán. Po konzultaci [Garvin] navrhl adresář /archives. Snažil jsem se automatizovat přesun adresářů do nového adresáře a do nového nastavení verze 0.24. Pokud zaznamenáte problémy, přesuňte soubory prosím ručně. Pokud uvidíte odkaz, abyste o tom informovali plugin, klikněte na něj. Příští obnovení stránky nastaví 'chg2archivespath' na 'ano'. Odteď tyto adresáře nejsou libovolně nastavitelné a v nastavení pluginu jsou skryté.</li>	
+				<li>změněno - vyčištění a optimalizace kódu, okomentování funkcí, refaktoring</li>	
+				<li>změněno - soubory frontendu a šablony kategorií, aby byly co nejvíce založeny na šablonách smarty</li>	
+				<li>přidáno - proměnná smarty 'dlm_is_registered' do všech tří šablon frontendu</li>	
+				<li>přidáno - nové nastavení, zobrazení kategorií a souborů ke stažení pouze registrovaným a přihlášeným uživatelům (výchozí: ne)</li>	
+				<li>přidáno a změněno - některé ikony backendu (ze starých ošklivých na nové vymazlené)</li>	
+				<li>změněno - stylopisy frontend.css a backends.css, aby podporovaly změny v html kódu, stále ve vývoji</li>	
+				<li>změněno - možnost vyčistit vstupní adresář (ftp/trash) okamžitě pomocí tlačítka 'koš'</li>	
+				<li>změněno - použití vstupního adresáře. Nyní je používán také jako koš/temp adresář pro vymazané (přesunuté) soubory!</li>	
+				<li>přidáno - rozbalovací nápověda/tipy</li>	
+				<li>změněno a přidáno - jazykové konstanty v jazycích &lt;en&gt;, &lt;de&gt; a &lt;de-utf8&gt;</li>	
+				<li>změněno - uspořádání funkcí pluginu, aby byly přehlednjší a ohebnější pro další vylepšení</li>	
+				<li>změněno - dlm_functions.js podporuje funkce označení/odznačení</li>	
+				<li>přidáno - označit a přesunout všechny vybrané soubory ve vstupním adresáři do vybraného adresáře</li>	
+				<li>přidáno - označit a vymazat všechny označené soubory v kategorii - soubory budou přesunuty do vstupního (ftp/trash) adresáře, aby se předešlo nechtěnému zlikvidování souborů</li>	
+			</ul>
+
+			<li>verze 0.23.1, 16.8.2010, [Ian Timbalu]</li>	
+			<ul>	
+				<li>Zvýšení verze, aby se do CVS (Spartacus) dostaly soubory dodatečně přidané k verzi 0.23.</li>	
+			</ul>
+
+			<li>verze 0.23, 11.8.2010, [Ian Timbalu]</li>	
+			<ul>	
+				<li>přidáno - zobrazování souborů v kořenovém adresáři v backendu (oprava chyby, kde se soubory přesunuté do kořenového adresáře nezobrazovaly). Frontend nezobrazoval/nezobrazuje soubory v kořenovém adresáři, což vlastně není chyba, odteď je to feature :-).</li>	
+				<li>změněno - chování práce souborů v dlm, aby byly podporovány i soubory v kořenovém adresáři (oznamte chybu, pokud zaznamenáte divné chování)</li>	
+				<li>přidáno - tlačítko "stáhnout soubor" do backendu</li>	
+				<li>změněno - adresář 'dlmanager/incoming' na '.dlmanager/incoming' (pouze v nových instalacích!), takže se nezobrazuje, když plugin zobrazuje hodnoty z mediatéky (pokud se Váš blog tak chová, smažte ručně adresář 'uploads/dlmanager', při příštím downloadu bude vytvořen správný adresář.</li>	
+				<li>opraveno - download souborů s mezerami v názvu - mezery jsou nahrazeny podtržítkem (_)</li>	
+				<li>přidáno - do CVS chybějící missing style_dlmanager_frontend.css</li>	
+				<li>přidáno - stylopis style_dlmanager_backend.css, aby podporoval budoucí šablony backendu</li>	
+				<li>přidno - dlm_functions.js, aby podporoval budoucí javascript v backendu - doteď používán pro rozbalovatelné divy</li>	
+				<li>přidáno - chybějící uzvavírací tagy &lt;/div&gt; - snad už jsou všechny na správných místech</li>	
+			</ul>
+
+			<li>verze 0.221, 9.8.2010, [Ian Timbalu]</li>	
+			<ul>	
+				<li>opraveno - špatný výchozí adresář, pokud nic nebylo zadáno v nastavení pluginu</li>	
+			</ul>
+
+			<li>verze 0.22, 8.8.2010, [Ian Timbalu]</li>	
+			<ul>	
+				<li>změněno - adresář pro upload na 'serendipity/uploads/dlmanager/incoming' (pouze při nové instalaci!)</li>	
+				<li>změněno - adresář pro download na 'serendipity/templates_c/.dlmanager/files' (pouze při nové instalaci!)</li>	
+				<li>přidáno - chybějící vytvoření adresářů pomocí rekurzivní funkce mkdir přidané v PHP 5.0.0</li>	
+				<li>opraveno - chyba a varování ve funkci is_dir($handle)</li>	
+				<li>přidáno - možnost mít vlastní stylopis pluginu s minimálními startovacími hodnotami</li>	
+				<li>změněno - *.tpl šablony frontendu, aby podporovaly tyto změny</li>	
+			</ul>
+
+			<li>verze 0.21, 25.8.2009, [dma147 - Alexander Mieland, <a href="http://blog.linux-stats.org">http://blog.linux-stats.org</a>, <a href="mailto:dma147@linux-stats.org">mailto: dma147@linux-stats.org</a>; kontaktujte mne na IRC na irc.freenode.net v #linux-stats, #archlinux, #archlinux.de a #s9y]</li>	
+			<ul>	
+				<li>kompatibilita s PHP 5.3, funkce split() není podporována</li>	
+			</ul>
+
+			<li>verze 0.20, 26.10.2007</li>	
+			<ul>	
+				<li>průhledné obrázky (díky uživateli [ICE]!)</li>	
+				<li>změněn soubor download.gif na download.png, kvůli lepšímu vzhledu průhledných částí (díky uživateli [Don Chambers]!)</li>	
+			</ul>
+
+			<li>verze 0.19, 7.9.2007, [brockhaus]</li>	
+			<ul>	
+				<li>přidáno - volitelný popis souboru v seznamu souborů</li>	
+				<li>přidáno - volitelný přímý download v seznamu souborů</li>	
+				<li>přidáno - CSS třídy v zobrazení seznamu souborů</li>	
+				<li>popis podporuje zalomení řádků</li>	
+				<li>přeloženy chybející částí do němčiny</li>	
+				<li>přidán obrázek *.mp3</li>	
+			</ul>
+
+			<li>verze 0.6, 21.9.2005, [dma147]</li>	
+			<ul>	
+				<li>release verze 0.6</li>	
+				<li>kompletní přepsání uživatelského rozhraní do šablon smarty</li>	
+				<li>skryté kategorie si nyní mohou zobrazit registrovaní uživatelé</li>
+				<li>přidána možnost přejmenovat kategorie</li>	
+			</ul>
+
+			<li>verze 0.5, 20.9.2005, [dma147]</li>	
+			<ul>	
+				<li>release verze 0.5</li>	
+				<li>přidáno - možnost skrýt kategorie (při kliknutí na ikonu složky)</li>
+			</ul>
+
+			<li>verze 0.4, 17.9.2005, [dma147]</li>	
+			<ul>	
+				<li>release verze 0.4</li>
+				<li>přidáno - zobrazení content-type při přejetí ikony souboru myší</li>
+				<li>přidáno - import souborů s mediatéky</li>
+				<li>opraveno - vzhled struktury kategorií (ikony)</li>
+				<li>přidáno - nastavení šířky a výšky ikon souborů</li>
+				<li>dokončeny permalinky (tady to nebude fungovat, ale na jiných blozích na apachi to funguje, takže to vzdávám. S *mým* apachem musí být nejaký konfigurační problém.)</li>
+				<li>po *opravdu* tvrdé práci jsem konečně zprovoznil zobrazování podkategorií! (vnořené sady jsou vážně hustý! ;-))</li>
+			</ul>
+
+			<li>verze ???, 16.9.2005, [dma147]</li>	
+			<ul>	
+				<li>stejně jako 15.9.2005</li>
+			</ul>
+
+			<li>verze ???, 15.9.2005, [dma147]</li>	
+			<ul>	
+				<li>pořád makám na podkategoriích</li>
+				<li>pořád makám na permalinku</li>
+			</ul>
+
+			<li>verze ???, 14.9.2005, [dma147]</li>	
+			<ul>	
+				<li>použit diff od uživatele [Rob] týkající se peramlinku</li>
+				<li>pokus rozchodit tyhle permalinky (s předpokladem, že nastavení mého apache je správné)</li>
+				<li>opraveno - výstup &quot; v jazykových konstantách</li>
+				<li>změněno - #dls na #files, aby se zabránilo zmatkům</li>
+				<li>přidáno - mime typy a ikony pro soubory palmpilot (díky uživateli [Rob])</li>
+				<li>začal jsem pracovat na zobrazení podkategirií v seznamu souborů</li>
+			</ul>
+
+			<li>verze 0.3, 12.9.2005, [dma147]</li>	
+			<ul>	
+				<li>release verze 0.3</li>
+				<li>opraveno - sql dotazy pro databázi postgresql</li>
+				<li>změněno - natvrdo kódované cesty (k obrázkům) na automaticky detekovanou relativní cestu (getRelPath())</li>
+				<li>opraveno - výchozí cesta pro adresáře pro download a příchozí soubory</li>
+				<li>změněno - addslashes() na serendipity_db_escape_string()</li>
+				<li>přidáno - hook pro download (už žádná další vyskakovací okna při stahování!!!)</li>
+			</ul>
+
+			<li>verze ???, 11.9.2005, [dma147]</li>	
+			<ul>	
+				<li>přidáno - nastavitelné zobrazování data souboru</li>
+				<li>přidáno - mnohem lepší a mnoho dalších ikon souborů</li>
+				<li>přidáno - mnohem více mime typů</li>
+				<li>změněno - funkce pro detekci mime typu</li>
+				<li>přidáno - nastavení dalších položek seznamu souborů</li>
+				<li>přidáno - německý jazykový soubor</li>
+			</ul>
+
+			<li>verze 0.1, 10.9.2005, [dma147]</li>	
+			<ul>	
+				<li>release verze 0.1</li>
+				<li>dokončeno - upload souborů skrz webové rozhraní</li>
+				<li>vytvořeno - uživatelská část</li>
+				<li>dokončeno - zobrazení stromu kategorií</li>
+				<li>dokončeno - zobrazení sezanmu souborů</li>
+				<li>dokončeno - download souborů</li>
+			</ul>
+
+			<li>verze ???, 9.9.2005, [dma147]</li>	
+			<ul>	
+				<li>dokončeno - přidávání, mazání a editace kategorií</li>
+				<li>dokončeno - správa souborů nahraných do vstupního adresáře</li>
+				<li>započato - nahrávání souborů skrz webové rozhraní</li>
+			</ul>
+
+			<li>verze ???, 9.9.2005, [dma147]</li>	
+			<ul>	
+				<li>Začátek vytváření pluginu downloadmanager pro Serendipity</li>
+			</ul>
+		</ul>  
+
+	</body>
+</html>

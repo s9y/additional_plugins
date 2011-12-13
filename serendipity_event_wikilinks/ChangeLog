@@ -1,0 +1,32 @@
+# $Id$
+
+0.18:
+   * Suppress html_entity_decode() warnings.
+
+------------------------------------------------------------------------
+Version 0.17 (brockhaus):
+
+    * The title of the article inside of the wiki link might contain HTML
+      entities. The plugin won't find the article in that case, because
+      titles are saved in pure text. 
+      Now the entities will be decoded first, before searching for a
+      matching article.
+
+------------------------------------------------------------------------
+Version 0.16 (garvinhicking):
+
+    * Use s9y internal function, thanks to Assen Tchorbadjiev
+
+------------------------------------------------------------------------
+Version 0.14 (brockhaus):
+
+    * Last change dind't work as expected.. :-/
+
+------------------------------------------------------------------------
+Version 0.13 (brockhaus):
+
+    * Options: Add a wiki link to an article only, if it is not a draft
+      or future article.
+
+------------------------------------------------------------------------
+Version 0.12 (garvinhickins):

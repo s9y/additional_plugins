@@ -1,0 +1,6 @@
+
+0.1.2:
+    Fixed call-by-reference-warning in php 5.3
+    Added checksum-test prior to unpacking to kind of authenticate
+    the update
+    Added checksum-test after unpacking to check the integrity 

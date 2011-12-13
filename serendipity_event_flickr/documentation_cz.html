@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>Dokumentace: Flickr</title>
+    </head>
+
+<body>
+    
+<h1>Dokumentace k pluginu 'Flickr'</h1>
+
+<p>Dokumentaci k tomuto pluginu pøelo¾il do èe¹tiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 24.4.2010. Od té doby mohl být plugin pozmìnìn nebo mohly být roz¹íøené jeho funkce. Zkontrolujte pro jistotu i <a href="Readme.txt">aktuální anglické "readme"</a>.
+<p>
+
+
+<h1>Popis pluginu</h1>
+<p>Tento plugin umí importovat fotky ze slu¾by Flickr.com pøímo do knihovny médií Serendipity. Jediný po¾adavek je mít API klíè (získat jej mù¾ete na http://www.flickr.com/services/api/misc.api_keys.html), abyste mohli pøistupovat k fotkám na Flickru pomocí webové slu¾by.
+</p>
+<p>
+V souèasné dobì je podporována pouze slu¾ba Flickr.com, ale dal¹í slu¾by je mo¾né na po¾ádání pøidat, pokud je nìkdo bude potøebovat (napøíklad Buzznet). Po¾adavky, komentáøe a otázky smìøujte na <a href="mailto:Jay.Bertrand@Free.Fr">Jay.Bertrand@Free.Fr</a>
+</p>
+
+<h1>TODO (zbývá udìlat)</h1>
+<ul>
+<li>Pøidat druhý krok importu, kdy bude u¾ivateli umo¾nìno vybrat velikost importovaného obrázku a adresáø, kam se má ulo¾it.</li>
+<li>Upravit knihovnu phpFlicr tak, aby neumøela (volání funcke die()) pøíli¹ brzy, pokud se objeví chyba.</li>
+</ul>
+
+<h1>Instalace</h1>
+
+<p>Na úètech nìkterých ISP (Internet service provider = poskytovatel internetových slu¾eb) není mo¾né zmìnit cestu vkládaných knihoven pomocí funkce ini_set() (napøíklad u Free.fr). Tento plugin pak spadne, proto¾e nemù¾e vytvoøit instance nìkterých tøíd.</p>
+
+<p>
+V takovém pøípadì máte nejspí¹ na svém úètu nìjaké zvlá¹tní místo, kam mù¾ete ukládat spoleèné php soubory (pro podrobnosti kontaktujte svého ISP). Napøíklad na Free.fr v základním adresáøi jednodu¹e vytvoøíte adresáø nazvaný 'include'. Pak zkopírujete v¹echno z podadresáøe 'phpFlickr/PEAR' do tohoto adresáøe 'include'.
+</p>
+
+<p>
+Pøíklad adresáøové struktury na mém úètu na Free.fr:
+
+<ul>
+	<li>blog</li>
+		<ul>
+		<li>plugins</li>
+			<ul>
+			<li>serendipity_event_flickr</li>
+				<ul>
+				<li>phpFlickr</li>
+					<ul>
+					<li>phpFlickr.php</li>
+					<li>xml.php</li>
+					</ul>
+				</ul>
+			</ul>
+		</ul>
+	<li>include</li>
+		<ul>
+		<li>DB</li>
+		<li>HTTP</li>
+		<li>Net</li>
+		<li>DB.php</li>
+		<li>PEAR.php</li>
+		</ul>
+</ul>
+
+<h1>Verze 1.0</h1>
+<p>
+Pøipojí se ke slu¾bì Flickr.com a zobrazí fotky pro zadané u¾ivatelské jméno. Roz¹íøená kritéria pro hledání zahrnují tagy a klíèová slova. Také je mo¾né zadat øazení fotek. Importované fotky jsou v Serendipity ulo¾eny v základním adresáøi knihovny médií, co¾ je obvykle adresáø 'upload'.
+</p>
+
+</body>        
+</html>

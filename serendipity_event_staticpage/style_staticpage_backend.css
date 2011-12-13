@@ -1,0 +1,77 @@
+#serendipityStaticpagesNav ul {
+    padding:3px 0;
+    margin-left:0;
+    border-bottom:1px solid #000000;
+}
+
+#serendipityStaticpagesNav ul li {
+    list-style:none;
+    margin:0;
+    display:inline;
+}
+
+#serendipityStaticpagesNav ul li a {
+    padding: 3px 0.5em;
+    margin-left:5px;
+    border:1px solid #000000;
+}
+
+#serendipityStaticpagesNav ul li a#active {
+    border-bottom:1px solid #ffffff;
+}
+
+#serendipityStaticpagesRed {
+    color:#c00000;
+}
+
+#serendipityStaticpagesYellow {
+    color:#eac131;
+}
+
+#serendipityStaticpagesGreen {
+    color:#18f11d;
+}
+
+#serendipityStaticpagesTableHeader {
+    background-color:#c0c0c0;
+}
+
+#serendipityStaticpagesTable1 {
+    background-color:#dfdfdf;
+}
+
+#serendipityStaticpagesTable0 {
+    background-color:#f0f0f0;
+}
+
+.sp_templateselector {
+    float: right;
+    margin: 5px;
+}
+
+.sp_pageselector {
+    background-color: #E0E0E0;
+    padding: 5px;
+}
+
+.default_staticpage .sp_label {
+    font-weight: bold;
+}
+
+.default_staticpage .sp_sect {
+    margin-bottom: 5px;
+}
+
+.default_staticpage .sect_opt {
+    font-size: 0.8em;
+}
+
+.default_staticpage fieldset {
+    margin: 5px;
+    border: 1px solid #F0F0F0;
+}
+
+.default_staticpage .input_textbox {
+    width: 100%;
+    margin: 0px auto;
+}

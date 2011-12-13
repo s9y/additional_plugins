@@ -1,0 +1,14 @@
+0.6.2:
+----
+Changed hook for the updater-plugin to react on an available update for 
+compatibility with php 5.3
+
+0.6.1:
+----
+
+Added hook for the updater-plugin to react on an available update
+
+0.5:
+----
+
+Patch by chrisbra: Allow checking for s9y update

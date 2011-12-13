@@ -1,0 +1,64 @@
+Javascript backend for displaying entries on external websites
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Use:
+""""
+
+simply add a "<script src=[URL]></script>" to your external website 
+at exactly the place, where the entries should appear.
+
+You also can use CSS to change the look of these shown entries. There
+exists three css-classes, which can be used.
+Please take a look into the example-file "backend.html" in this directory.
+
+Note: You can add as many "<script src=[URL]></script>", maybe with 
+different options to your external website as you want.
+
+[URL] should be something like:
+http://your.blog.com/plugin/[BACKEND_URL]?[OPTIONS]
+
+Where [BACKEND_URL] is the name which you've entered in the 
+plugin-configuration in your blog-administration.
+
+[OPTIONS] can be everything as shown below:
+
+
+Options:
+""""""""
+
+There are several options you can give with the script-url on your external website 
+to affect the looking of the shown entries:
+
+details		1|0				- Shows either only the headlines or the whole entry (without extended body!)
+
+category	[catname]		- If set, only entries of this category will be shown, if not set, entries of all
+							  categories will be shown
+
+categoryid  [N]             - You can also restrict by category name instead of ID
+authorid    [N]             - Set to the ID of an author to filter entries by
+
+num			[N]				- if set [N] entries will be shown, if not 10 entries will be shown
+
+order		ASC|DESC		- sorting order of the entries (by creation date)
+
+date		1|0				- if set to 1, the creation date will be shown
+
+dateformat	[formatstring]	- uses the provided formatstring to show the date (php-function date())
+
+time		1|0				- if set to 1, the creation time will be shown
+
+timeformat	[formatstring]	- uses the provided formatstring to show the time (php-function date())
+
+point		[string]		- uses the provided string as first part of the headlines.
+								  can be used to create a list (<li>), or similar.
+
+
+Examples:
+"""""""""
+	
+The following will show up to 30 headlines, with date and time and the point "*" and only from category "s9y"
+	<script src="http://blog.linux-stats.org/plugin/backend?category=s9y&num=30&order=DESC&date=1&dateformat=d.m.Y&time=1&timeformat=H:i&point=*"></script>
+	
+The following will show the whole entries as they are shown on the blogs mainpage. 
+	<script src="http://blog.linux-stats.org/plugin/backend?details=1&category=s9y&num=30&order=DESC&date=1&dateformat=d.m.Y&time=1&timeformat=H:i"></script>
+

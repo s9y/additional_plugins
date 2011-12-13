@@ -1,0 +1,10 @@
+This library contains a copy of the PHP OpenID library.
+To reduce the size of this distribution, the following directories 
+and their contents have been removed:
+admin, doc, examples and Tests
+No other modifications have been made to the library, so the included 
+files may be replaced by those found at the location specified in the 
+COPYING file.
+
+Rob Richards
+rrichards@ctindustries.net

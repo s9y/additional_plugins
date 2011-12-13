@@ -1,0 +1,71 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Dokumentace: EMAIL_BOT_OBFUSCATOR</title>
+    <link rel="stylesheet" type="text/css" href="documentation.css"/>
+</head>
+<body>
+<div id="title">
+<a name="top"/>
+<h1>Dokumentace k pluginu 'EMAIL_BOT_OBFUSCATOR'</h1>
+</div>
+
+<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 12.4.2010. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="documentation_en.html">aktuální anglickou dokumentaci</a>.
+<p>
+
+<p>Plugin má dvě hlavní vlasnosti:</p>
+
+
+<div id="content">
+<h2>Obsah</h2>
+<ol>
+    <li><a href="#clickable">Klikací mail</a></li>
+    <li><a href="#obfuscating">Obfuskace (zmatení) emailové adresy</a></li>
+</ol>
+</div>
+
+<a name="clickable"></a>
+<h2>Klikací mail</h2>
+
+<p>
+Do příspěvku nebo statické stránky můžete napsat mailovou adresu jako email@priklad.cz bez jakéhokoliv html kódu kolem něj. Plugin emailovou adresu vyhledá a přidá kolem ní html tagy, aby byla přístupná po kliknutí, například takto:
+<code>&lt;a href="mailto:email@priklad.cz"&gt;email@priklad.cz&lt;/a&gt;</code>
+
+</p>
+   
+<p><a href="#top">nahoru</a></p>
+
+
+<a name="obfuscating"></a>
+<h2>Obfuskace (zmatení) emailové adresy</h2>
+
+<p>
+Mnoho lidí se (oprávněně) bojí robotů, které po internetu hledají emailové adresy, na které pak posílají tuny spamu. Plugin umožňuje znesnadnit práci těmto robotům dvěma způsoby. Dopředu byly zavrženy špatné možnosti jako obrázek s textem mailu, které zhoršují dostupnost webu (například pro nevidomé lidi). Tedy použité možnosti znesnadnění emailové adresy jsou následující:
+
+<ol>
+<li>složení adresy pomocí javascriptu:</br>
+
+<code>&lt;script type="text/javascript"&gt;var username = "mail"; var hostname = "priklad.cz";document.write("&lt;a href=" + "mail" + "to:" + username + "@" + hostname + "&gt;" + username + "@" + hostname + "&lt;\/a&gt;")&lt;/script&gt;</code>
+</li>
+<li>
+Podle mého je ještě lepší následující varianta využívající html entity. Každý prohlížeč je zobrazí normálně, ale roboti budou mít větší problémy:<br/>
+
+<code>&lt;a href="mailto:&amp;#101;m&amp;#97;i&amp;#108;&amp;#64;prik&amp;#108;ad#46;cz"&gt;&amp;#101;m&amp;#97;i&amp;#108;&amp;#64;prik&amp;#108;ad#46;cz&lt;/a&gt;</code>
+
+</li>
+<li>
+
+a nebo nedělat nic
+</li>
+</ol>
+
+
+
+</p>
+   
+<p><a href="#top">nahoru</a></p>
+
+
+
+</body>
+</html>

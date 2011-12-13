@@ -1,0 +1,30 @@
+1.7:
+----
+
+Added truncation to 1000 chars for description, 255 chars for most other fields.
+(flattr compatibility)
+
+1.6:
+----
+
+Try to properly display in 'extended' view. Do not execute in comments. 
+
+1.5:
+----
+
+Optimize Feed implementation
+
+1.4:
+----
+
+Properly set smarty variable for the feed as well
+
+1.3:
+----
+
+When placement is set to smarty variable, do not automatically embed in RSS feed
+
+1.2:
+----
+
+Removed html tags from description

@@ -1,0 +1,209 @@
+<html>
+    <head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-2">
+        <title>Dokumentace: Spamblock (Bayes)</title>
+    </head>
+
+<body>
+    
+<h1>Dokumentace k pluginu 'Spamblock (Bayes)'</h1>
+
+<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 4.7.2011. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="documentation_de.html">aktuální německou dokumentaci</a> a <a href="ChangeLog"> anglický ChangeLog</a>.
+<p>
+
+<h2>O pluginu</h2>
+<p>
+Plugin Spamblock-Bayes se pokouší zjistit, jestli je nový komentář spam, nebo platný komentář (nespam = ham), a to pomocí statistické analýzy výskytu slov v komentáři.
+</p>
+<p>
+Za tímto účelem si vytváří lokální databázi, ze které se plugin učí hodnotit nové komentáře z hodnocení starých komentářů.
+</p>
+
+<h2>Spam-faktor</h2>
+<p>
+Základní myšlenkou je přiřazení spam-faktorů komentářům. Tento faktor se pohybuje od 0% (čistý komentář) do 100% (určitě spam). Spam-faktor klesá nebo stoupá podle hodnocení podobných komentářů.
+</p>
+
+<h2>Využití</h2>
+<p>
+Na stránce "Komentáře" budou během instalace pluginu ke každému komentáři přidána dvě tlačítka (Spam a Ham) a ukazatel v procentech. Pomocí tlačítek lze jednotlivé komentáře ohodnotit. Komentáře označené jako "Spam" budou přesunuty do koše (nebo rovnou smazány, pokud je koš vypnut v nastavení). Měřítko v procentech ukazuje Spam-faktor každého z komentářů.
+</p>
+
+<h3>Rozšířené menu</h3>
+<p>
+Na hlavní stránce administrativní sekce bude přidáno menu pojmenované "Spamblock (Bayes)". Toto je rozšířené menu, které není nezbytně nutné pro základní funkce pluginu.
+</p>
+<p>
+Dále jsou vysvětleny funkce jednotlivých podmenu.
+</p>
+
+<h4>Učit se</h4>
+<p>
+Formulář obsahuje všechna pole, které může obsahovat komentář, jako je například text komentáře nebo domovská URL adresa. Zde je možné zadat konkrétní slova, která se má plugin naučit. Toto nastavení slouží k přesnému vyladění filtrů, které by mělo být potřeba jen ve výjimečných případech.
+</p>
+
+<h4>Databáze</h4>
+V obou tabulkách je zobrazen pouze přehled o obsahu databáze. Menu na této stránce nicméně poskytuje důležité funkce.
+<dl><dt>Vytvořit databázi</dt>
+<dd>Vytvoří znovu databázi, pokud byla smazána nebo pokud nebyla správně založena při instalaci.</dd>
+<dt>Učit se ze starších</dt>
+<dd>Naučí se existující komentáře jako Ham (=nespam) a obsah spamlogů jako Spam</dd>
+<dt>Vymazat databázi</dt>
+<dd>Vymaže celou databázi. To může mít smysl např. pokud měníte jazyk blogu nebo pokud se filtr naučil příliš mnoho výrazů špatně.</dd>
+</dl>
+
+<h4>Koš</h4>
+<p>
+Smazané nebo neschválené komentáře zde mohou být definitivně smazány nebo obnoveny.
+</p>
+
+<h4>Analýza</h4>
+<p>
+Spamblock-Bayes hodnotí každé pole komentáře samostatně. To se ale neprojevuje v procentním ohodnocení komentáře v přehledu komentářů. Zde je ale možné prohlédnout si jednotlivé výsledky.
+</p>
+
+<h2>Poděkování</h2>
+Děkuji autorům jQuery pluginů, které jsem použil:
+<ul>
+<li>Heatcolor: <a href="http://www.jnathanson.com/blog/client/jquery/heatcolor/index.cfm">http://www.jnathanson.com/blog/client/jquery/heatcolor/index.cfm</a></li>
+<li>Excerpt: <a href="http://adamhooper.com/bodacity/playground/jquery.excerpt.html">http://adamhooper.com/bodacity/playground/jquery.excerpt.html</a></li>
+<li>Tablesorter: <a href="http://tablesorter.com/docs/">http://tablesorter.com/docs/</a></li>
+</ul>
+    
+
+<h2>Historie verzí (ChangeLog)</h2>
+<ul>
+<li>Verze 0.4.3:</li>
+	<ul>
+	<li>Opravena chyba při prohlížení v Safari</li>
+	</ul>
+<li>Verze 0.4.2:</li>
+	<ul>
+	<li>Přidána dokumentace (německá)</li>
+	<li>Drobné změny CSS stylů v rozšířeném menu</li>
+	<li>Neuložení nastavení už nezabraňuje natažení javascriptu</li>
+	</ul>
+<li>Verze 0.4.1:</li>
+	<ul>
+	<li>Komentáře ručně označené jako spam jsou přesunuty do koše místo trvalého smazání.</li>
+	</ul>
+<li>Verze 0.4:</li>
+	<ul>
+	<li>jQuery nyní může být součástí Serendipity</li>
+	</ul>
+<li>Verze 0.3.9.3:</li>
+	<ul>
+	<li>Změněno počítání komentářů při importu</li>
+	</ul>
+<li>Verze 0.3.9.2:</li>
+	<ul>
+	<li>Mazání a znovuvytváření databáze odteď vytváří tabulky s klíči</li>
+	<li>Opravena php-chyba při dotazu na všechny komentáře z prázdné databáze</li>
+	</ul>
+<li>Verze 0.3.9.1:</li>
+	<ul>
+	<li>Optimalizace výkonu databáze, nyní je import možný i na velkých databázích</li>
+	<li>Sníženo využití paměti při exportu</li>
+	<li>Zlepšena podpora pro SQLlite</li>
+	</ul>
+<li>Verze 0.3.9:</li>
+	<ul>
+	<li>Přidán Import/Export z/do databáze</li>
+	<li>Přidána ochrana před smazáním databáze pomocí potvrzovacího dialogu</li>
+	</ul>
+<li>Verze 0.3.8:</li>
+	<ul>
+	<li>Přidána volba pro ignorování polí komentáře</li>
+	<li>Použití Limitu k omezení nadužívání zdrojů v menu analýzy</li>
+	<li>Změna pořadí řazení na "nejnovější komenátř první" v menu analýzy</li>
+	<li>Opraveno: Koš se vyprazdňoval při analýze komentáře</li>
+	<li>Přidán odkaz na analýzy z hodnocení v seznamu komentářů</li>
+	</ul>
+<li>Verze 0.3.7:</li>
+	<ul>
+	<li>Obnoveno požadované řazení tabulky koše (recycler)</li>
+	<li>Snížen vliv jednoho pole obsahujícího spam, pokud ostatní pole komentáře nevypadají jako spam (např. jméno komentujícího vypadá jako spam, ale všechno ostatní projde kontrolou)</li>
+	<li>Učení z obnovených komentářů přímo jako "ham"</li>
+	<li>Přidáno tlačítko na naučení z komentářů v koši při jeho vyprázdnění.</li>
+	<li>Přidáno menu pro analýzu hodnocení komentářů, zobrazující hodnocení každé části komentáře.</li>
+	</ul>
+<li>Verze 0.3.6.1:</li>
+	<ul>
+	<li>Oprava obnovení obsahu koše</li>
+	</ul>
+<li>Verze 0.3.6:</li>
+	<ul>
+	<li>Na základě požadavků: Přidáno datum k položkám koše</li>
+	<li>Přidáno tlačítko "Označit vše jako ham" na stránku s komentáři, a to za použití tagu &lt;fieldset&gt; pro jeho oddělení od běžných tlačítek komentářů.</li>
+	</ul>
+<li>Verze 0.3.5:</li>
+	<ul>
+	<li>Opravena možná nekonečná smyčka při označování komentářů jako spam.</li>
+	<li>Zlepšení funkce "označit jako spam" - nyní robustnější</li>
+	<li>Upgrade: Opraveno ukládání starého počítadla do nového systému.</li>
+	<li>Lepší pojmenování "Vlastní" léčby</li>
+	</ul>
+<li>Verze 0.3.4:</li>
+	<ul>
+	<li>Přidán workaround pro "prázdné" pingbacky</li>
+	</ul>
+<li>Verze 0.3.3:</li>
+	<ul>
+	<li>Přidáno shromažďování informací o komentáři při hodnocení právě zadaného komentáře (jméno, referrer, ip adresa)</li>
+	<li>Opraven zmatek v pojmenování kategorií (jsou jiné v databázi a jiné při události ukládání komentáře)</li>
+	<li>Odstraněny chyby ve stylopisu pro administrační sekci</li>
+		<ul>
+		<li>Použito pevné tabulkové rozvržení pro tabulku koš</li>
+		<li>Přidány chybějící překlady</li>
+		<li>Opraveny chyby css co se týče ovládacích prvků</li>
+		</ul>
+	</ul>
+<li>Verze 0.3.2:</li>
+	<ul>
+	<li>Hodnocení každého prvku komentáře jako jsou text nebo email zvlášť</li>
+	<li>Použití UTF-8 v databázi a pro dělení na tokeny</li>
+	<li>Přidáno tlačítko pro označení všech vybraných komentářů jako spam</li>
+	<li>Přidáno menu pro:</li>
+		<ul>
+		<li>Naučení libovolného komentáře jako spam nebo "ham"</li>
+		<li>Zobrazení přehledu databázové tabulky a její ovládání</li>
+		<li>Obnovení komentářů dříve blokovaných jako spam</li>
+		</ul>
+	</ul>
+<li>Verze 0.2.2:</li>
+	<ul>
+	<li>Přidán volitelný (custom) mód pro zadávání podmínek pro schvalování a zamítání komentářů</li>
+	<li>Označování: označení jako "ham" schvaluje, označení jako "spam" maže</li>
+	</ul>
+<li>Verze 0.2.1:</li>
+	<ul>
+	<li>Vylepšen SQL dotaz pro načtení komentáře</li>
+	</ul>
+<li>Verze 0.2:</li>
+	<ul>
+	<li>Přidáno zobrazení hodnocení komentáře na stránce s komentářem</li>
+	<li>Přidány ovládací prvky = odkazy na emailové oznámení při vložení komentáře (v závislosti na změně v Serendipity 1.6)</li>
+	<li>Oprava chyby: Některé komentáře nešlo hodnotit</li>
+	</ul>
+<li>Verze 0.1.9:</li>
+	<ul>
+	<li>Sloučení ovládacích prvků s existujícíc stránku komentáře</li>
+	<li>Vylepšeno čtení komentářů při učení se</li>
+	</ul>
+<li>Verze 0.1.8.1:</li>
+	<ul>
+	<li>Přidáno další/předchozí na spodek menu</li>
+	<li>Odstraněny nadále nepotřebné prvky</li>
+	<li>Pokus o vyčištění html</li>
+	</ul>
+<li>Verze 0.1.8:</li>
+	<ul>
+	<li>Z uživatelského rozhraní odstraněny přebytečné prvky</li>
+	<li>Přidán indikátor načtení do uživatelského rozhraní</li>
+	<li>Oprava chyby: Použití formuláře v administrátorské sekci nadále nepřepíná na stránku s komentářem</li>
+	<li>Oprava chyby: odstranění tagu "konec php" (= "?&gt;") z jazykových souborů</li>
+	</ul>
+</ul>
+
+  </body>
+</html>

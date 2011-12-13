@@ -1,0 +1,5 @@
+Name: Android Mobile Template 1.0
+Author: Grischa Brockhaus
+Date: 12-03-2010
+version: 0.50
+supports: ext_article

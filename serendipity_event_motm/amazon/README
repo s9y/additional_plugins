@@ -1,0 +1,5 @@
+Original: http://scripts.incutio.com/amazon/
+
+Modified by Tys von Gaza
+	- Uses PEAR's HTTP Request
+	- Fixed to use v3 of amazon's API

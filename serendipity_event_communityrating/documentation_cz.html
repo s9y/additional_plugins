@@ -1,0 +1,125 @@
+<html>
+    <head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-2">
+		<meta name="generator" content="PSPad editor, www.pspad.com">
+        <title>Dokumentace: Hodnocení (Community rating)</title>
+    </head>
+
+	<style>
+		code {
+			display: block;
+			background-color: #cccccc;
+			border: solid 1px #666666;
+			margin: 5px;
+			padding: 5px;
+		}
+	</style>
+<body>
+    
+<h1>Dokumentace k pluginu 'Hodnocení'</h1>
+
+<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 19.6.2010. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="Readme">aktuální anglické "readme"</a> a <a href="ChangeLog">ChangeLog</a>.
+<p>
+
+<p>
+Tento plugin ve své podstatě pouze poskytuje API - programátorské rozhraní, neboli soubor funkcí, které můžete používat v šablonách Smarty.
+</p>
+
+<h2>Příprava souborů</h2>
+<p>
+Budete potřebovat obrázky se symboly hodnocení (hvězdičky, medaile, ...). Ty jsou součástí pluginu, nacházejí se v podadresáři "img/".
+<p>
+Zkopírujte tyto soubory do podadresáře "img" ve vaší aktuální šabloně/stylu vzhledu!
+
+<h2>Backend</h2>
+<p>
+Tento plugin umožňuje vytvořit hodnotící stupnici pro jakoukoliv položku si usmyslíte. V následujícím příkladu budeme hodnotit filmy na základě IMDB odkazů a ID čísla pro každý hodnocený film.
+<p>
+Poté co nainstalujete plugin, jděte do Administrační sekce a vytvořte nový příspěvek. Podívejte se na konec stránky, tam najdete odstavec "Hodnocení" (Community Rating).
+
+<p>
+Tady naleznete rozbalovací panel, kam můžete přidávat hodnocené věci ("IMDB", "Výrobek", ...) a zadat hodnocení. Pro jeden příspěvek můžete zadat více typů a hodnocení.
+<p>
+Hodnocení, která jste takto zadali, jsou Vaše osobní hodnocení a jsou uložena databázové tabulce serendipity_entryproperties.
+<p>
+Teď když jsme zadali hodnocení, určitě ho potřebujeme zobrazit a ukázat návštěvníkům stránek. K tomu musíme změnit šablony.
+
+<h2>entries.tpl</h2>
+<p>
+Používání funkcí API rozhraní má smysl pouze v šabloně entries.tpl.
+<p>
+Odrolujte nakonec a prohlédněte si HTML kód. Nejdříve si musíte rozmyslet, kde se má hodnocení zobrazovat.
+<p>
+Dobré místo je třeba následující úsek kódu:
+
+<code>
+            &lt;div class="serendipity_entry_extended"&gt;&lt;a id="extended"&gt;&lt;/a&gt;{$entry.extended}
+</code>
+
+<p>
+Tento řádek je zodpovědný za zobrazení rozšířené textové části příspěvku. Zobrazovat hodnocení hned pod ním zní jako dobrý nápad.
+<p>
+Aby se zobrazovalo hodnocení filmu, vložte do kódu následující tag:
+
+<code>
+{communityrating_show data=$entry.properties type="IMDB"}
+</code>
+Tato funkce vloží požadovaná data o hlasování ("data") do šablony ("IMDB") a zobrazí na stránce Vaše hodnocení.
+<p>
+Také můžete zobrazovat hodnocení jiných lidí, kteří používají tento plugin. Uděláte to následovně:
+
+<code>
+{communityrating_show data=$entry.properties type="IMDB" who="garvin" url="http://www.blog_kamarada.cz/index.php?/plugin/communityrating"}
+</code>
+
+Pomocí parametrů "who" a "url" můžete zadat adresu blogu kamaráda. Můžete přirozeněě přidat libovolný počet volání funkce {communityrating_show}.
+
+<h2>Šablony pro hodnocení</h2>
+<p>
+Pro zobrazení hodnocení můžete použít pro každý typ hodnocené věci (IMDB, Výrobek, ...) a pro každého kamaráda jinou šablonu. Tedy že každá kombinace může vypadat jinak.
+<p>
+Jako výchozí je použita šablona, která zobrazuje hvězdičky jako indikátor hodnocení.
+<p>
+Šablony jsou pojmenovaní jako "communityrating_IMDB.tpl" nebo "communityrating_IMDB_garvin.tpl". První část označuje typ věci ("_IMDB"). Druhá část názvu ("", "_garvin") je jméno kamaráda, od kterého zobrazujeme hodnocení. Takže si můžete hodnocení tak, že se pro každého cizího hodnotitele bude zobrazovat odlišně!
+
+<h2>RSS Kanály</h2>
+
+<p>
+Informaci o hodnocení můžete také přidat do RSS kanálu. Použijte stejnou funkci API rozhraní v šabloně RSS kanálu, jmenuje se feed_*.tpl. A nezapomeňte připojit parametr "escaped='true'" podle následujícího příkladu:
+
+<code>
+{communityrating_show data=$entry.properties type="IMDB" escaped="true"}
+</code>
+
+<h2>Postup přidání nového typu věci</h2>
+<ol>
+<li>Nastavte plugin "Hlasování". Upravte políčko, které obsahuje seznam aktuálně použitých typů. Přidejte svůj vlastní typ na konec. Oddělovačem je čárka ",". Zadávejte názvy bez diakritiky a speciálních znaků.</li>
+<li>Zkopírujte obrázky img/stars_XXX_(full|half|zero).png tak, abyste mohli vytvořit obrázky pro Váš nový typ. Pokud přidáte nový typ "auta", musí se obrázky jmenovat "stars_auta_full.png", "stars_auta_half.png", "stars_auta_zero.png".
+</li>
+<li>Vytvořte nový soubor šablony "communityrating_auta.tpl"</li> buď v adresáři pluginu, nebo v adresáři Vaší aktuální šablony/stylu vzhledu. Upravte šablonu podle potřeby.
+<li>Upravte šablonu "entries.tpl". Vložte do ní následující řádek:
+<code>
+{communityrating_show data=$entry.properties type="auta"}
+</code>
+</li>
+</ol>
+
+<h2>Postup přidání nového kamaráda</h2>
+<ol>
+<li>Nejprve se přesvědčte, že kamarád nainstaloval plugin do svého blogu serendipity. Také se předpokládá, že znáte URL adreu kamarádova blogu.</li>
+<li>Přidejte nové soubory šablon. Řekněme, že chcete zobrazovat, jak kamarád "garvin" hodnotil filmy podle IMDB. Pak budete potřebovat vytvořit soubor "communityrating_IMDB_garvin.tpl".
+</li>
+<li>Upravte šablonu "entries.tpl". Vložte do ní následující řádek:
+<code>
+{communityrating_show who="garvin" url="http://garvin/index.php?/plugin/communityrating" data=$entry.properties type="auta"}
+</code>
+</li>
+</ol>
+
+<h2>CHANGE_LOG (HISTORIE VERZÍ)</h2>
+<ul>
+<li>Nejnovější: Dopředná kompatibilita se smarty3</li>
+</ul>
+
+</body>        
+</html>

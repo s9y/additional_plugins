@@ -1,0 +1,36 @@
+.templateEditorList li {
+    padding-top: 0.5em;
+    list-style-type: none;
+}
+
+#template_editor {
+    width: 100%;
+    font-size: 1em;
+}
+
+.CodeMirror-line-numbers {
+    font-size: 1em;
+}
+
+img {
+    border: 0;
+}
+
+.templateEditorHighlight {
+    background: rgba(72,122,202,0.2);
+    border: 1px solid grey;
+}
+
+#templateEditorUpload {
+    float: right;
+    margin-right: 5em;
+    margin-top: 0.5em;
+}
+
+#templateEditorUploadButton {
+    border: 1px solid grey;
+}
+
+#templateEditorPath {
+    margin-top: 0.5em;
+}

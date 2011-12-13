@@ -1,0 +1,16 @@
+latest: Smarty3 forward compatibility
+
+1.13: Optimize foreach loop to not create bad references
+
+1.9:
+Upstream patch for path escaping by greenwayg
+
+1.7:
+PHP5 update
+
+1.6:
+
+Support Picasa XML upload interface 
+(Greg Greenway)
+http://board.s9y.org/viewtopic.php?f=4&t=15918
+

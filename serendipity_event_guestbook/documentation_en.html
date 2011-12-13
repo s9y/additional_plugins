@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="generator" content="HTML Tidy for Windows (vers 14 February 2006), see www.w3.org" />
+    <title>serendipty_event_guestbook plugin, HTML README</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+    <style type="text/css">
+        /*<![CDATA[*/
+        BODY { font: 80%/130% 'Lucida Grande',Geneva,Verdana,Arial,sans-serif; background: #A8A8A8; color: #333; margin: 20px; border: 1px solid #000 }
+        A:link { color: #F0F0F0 }
+        A:visited { color: #bbb }
+        A:active { color: #FF6600 }
+        h2 { padding: 20px 0;text-decoration: underline }
+        p { background: #EAEAEA; border: 1px solid #666 }
+        h2 span.date {font-size: small;color: #6280A2; letter-spacing: 0.1em; }
+        #wrapper { background: #F0F0F0; color: #333; padding: 10px; }
+        #wrapper div.doc_edited { float: right; color: #A8A8A8; padding: 4px; font-size: 7.4pt; }
+        #wrapper div.skip { float: right; color: #A8A8A8; margin: 4px 0; padding: 4px; font-size: 7.4pt; }
+        #wrapper div.dark a { color: #333; }
+        #wrapper div.doc_block { display: block; padding: 4px; text-align: justify; font-size: 9pt; font-weight:bold; line-height: 1.2em; background-color: #282828; color: #777; }
+        #wrapper div.doc_block .readme_title { margin: 5px 0; padding: 8px 4px; font-weight: 700; text-decoration: underline; background-color: #1C1C1C; background: -moz-linear-gradient(left 20deg, #1C1C1C, #696969); border: 1px solid #828282; }
+        #wrapper div.doc_block .white { color: #F0F0F0; text-decoration: underline; font-weight: bold; }
+        #wrapper div.doc_block .eye { color: #ff6600 }
+        #wrapper div.doc_block .cssblock { display: block; margin-left: 60px; }
+        #wrapper div.changelog { background-color: transparent; }
+        #wrapper div.changelog .readme_title { margin: 0 -4px; }
+        #wrapper div.doc_block ul.readme li { line-height: 1.5em; background: none repeat scroll 0 0 #333; }
+        #wrapper div.doc_block ul.readme li em { color: #E8E8E8; font-size: 8pt; font-weight: 500; }
+        #wrapper div.doc_block ul.config li em { color: #B8B8B8; }
+        /*]]>*/
+    </style>
+</head>
+<body>
+    <div><a name="top" id="top"></a></div>
+    <div id="wrapper">
+        <div class="doc_edited">serendipity_event_guestbook/documentation_en.html, last modified 2011-03-08</div>
+        <div class="doc_block"><span class="white">PLEASE NOTE</span><br />
+            <br />
+            This Serendipity guestbook plugin is TEMPLATE based, configurable by its own stylesheet, has a FRONTEND and a BACKEND.<br />
+            Please read the <a href="#config">Config</a>, <a href="#admin">Admin</a>, <a href="#design">Design</a> and last modified entry <a href="#change">Changelog</a> Section of this file
+            carefully.<br />
+            <br />
+            <a name="config" id="config"></a>
+            <div class="skip"><a href="#top">Top</a></div>
+            <div class="readme_title">S9Y :: GUESTBOOK :: CONFIG SETTINGS</div>
+            <ul class="readme config">
+                <li>The <span class="eye">'Permalink'</span> setting defines a permalink for the URL. Needs the absolute HTTP path and needs to end with .htm or .html!<br />
+                    The Serendipity default value is "<em>/blogname/pages/guestbook.html</em>", or, in case you are not using mod_rewrite, "<em>/blogname/index.php?/pages/guestbook.html</em>".</li>
+                <li>The <span class="eye">'Static Pagetitle &amp; URL'</span> setting defines the staticpage title of the page.<br />
+                    Attention: this also defines the URL of the page (<em>index.php?serendipity[subpage]=name</em>). Just one short name without whitespaces (<em>default: guestbook</em>).</li>
+                <li>The <span class="eye">'Headline'</span> setting defines the headline of the page inside your blog with your normal blog design (<em>optional</em>).</li>
+                <li>The <span class="eye">'Intro'</span> setting defines additional introductory Text (<em>optional</em>).</li>
+                <li>The <span class="eye">'Guestbook form order'</span> setting defines the place of your guestbook form, on top or bottom of the entries (<em>default: top</em>).</li>
+                <li>The <span class="eye">'Entries per page'</span> setting defines how many entries to display per page (<em>default: 10</em>).</li>
+                <li>The <span class="eye">'Characters per line (Wordwrap)'</span> setting defines after how many characters a guestbook text line will be automatically wrapped (<em>default: 120</em>).</li>
+                <li>The <span class="eye">'Format as article'</span> setting defines if the output is automatically formatted as an article (colors, borders, etc.) (<em>default: yes</em>).</li>
+                <li>The <span class="eye">'Send e-mail to admin'</span> setting defines email information of entries. The admin gets an e-mail for each new entry. Insert email address on next step (<em>default: false</em>).</li>
+                <li>The <span class="eye">'User Email'</span> setting defines a form field for the e-mail of the user (<em>default: yes</em>).</li>
+                <li>The <span class="eye">'User Homepage'</span> setting defines a form field for the homepage of the user (<em>default: false</em>).</li>
+                <li>The <span class="eye">'Show Captchas'</span> setting defines the use of Serendipity CAPTCHAS (requires Spamblock plugin activated) to prevent comment SPAM (<em>default: yes</em>).</li>
+                <li>The <span class="eye">'Approve entries'</span> setting defines the guestbook entries to be verified by admin generally before they show up in frontend (<em>default: false</em>).</li>
+                <li>The <span class="eye">'Auto-moderate'</span> setting defines the same behaviour for a single entry, if the SPAMBLOCK-plugin wordfilter option is activ and set to 'moderate', caused by stopword matches (<em>default: false</em>). The guestbook content evaluation will still return captcha checking, if any spam check evaluates true. This differs from normal spamblock behaviour!</li>
+                <li>The <span class="eye">'Entry checks'</span> setting sets an active and individual wordfilter array (<em>default: pre-filled</em>). Regular Expressions are allowed, separate strings by semicolons (;). You have to escape special chars with "\". If you leave this field empty, no special checks are done.</li>
+                <li>The <span class="eye">'Date format'</span> setting defines an individual strftime() code for the entry datetime (<em>default: %a, %d.%m.%Y %H:%M</em>).</li>
+            </ul>
+            <a name="admin" id="admin"></a>
+            <div class="skip"><a href="#top">Top</a></div>
+            <div class="readme_title">S9Y :: GUESTBOOK :: ADMINISTRATION</div>
+            <ul class="readme administration">
+                <li>Backend and frontend administration is possible, if logged in. The frontend administration allows erasing entries only, but will ask you to proceed.<br />Frontend administration got removed with 3.24 version.</li>
+                <li>The backend sidebar has a new link to administer the guestbook. There are 4 main points to show up:<br /> 
+                    1. &nbsp; view approved entries,<br />
+                    2. &nbsp; view unapproved entries (if <span class="eye">'Approve entries'</span> is set to true),<br />
+                    3. &nbsp; edit or insert an entry,<br />
+                    4. &nbsp; the database section.</li>
+                <li>Each of the first two, have the ability to (confirm,) erase (immediately!), or re-edit a single entry.</li>
+                <li>The database section will allow: backup and download the plugin database table, or erase the SQL table instantly. Be careful working here!</li>
+                <li>A link to SQL insert is shown, but not active, since this isn't trivial enough by now.</li>
+            </ul>
+            <a name="design" id="design"></a>
+            <div class="skip"><a href="#top">Top</a></div>
+            <div class="readme_title">S9Y :: GUESTBOOK :: DESIGN</div>
+            <ul class="readme design">
+                <li>All smarty tpls, images and the one main stylesheet of this plugin are located in the plugin folder and remain to stay there.</li>
+                <li>If you are skilled and wish to have an individual frontend design, copy the files to change to your template folder only<br />
+                    ( plugin_guestbook_entries.tpl, plugin_guestbook_form.tpl, style_guestbook_backend.css ).</li>
+                <li>In case you wish to change the <span class="eye">frontend entry background colors</span> only, copy these neutral white css directives:<br />
+                    <span class="cssblock"><em>/* styles guestbook entry colors neutral */</em><br />
+                    <span style="background-color: #FFB90F;;">/* the entry headline */</span> <em>.guestbook_entrytop { background:none repeat scroll 0 0 #FFF; }</em><br />
+                    <span style="background-color: #E1E5DE;">/* the entry background color */</span> <em>.guestbook_entrybottom { background:none repeat scroll 0 0 #FFF; }</em><br />
+                    <span style="background-color: wheat;color: #444">/* the admin comment line */</span> <em>span.guestbook_admin_comment { background:none repeat scroll 0 0 #FFF; }</em><br />
+                    <span style="background-color: #555555;color: #A8A8A8">/* the bottom shadow line */</span> <em>#guestbook_entrybundle { -moz-border-radius: 0 0; background:none repeat scroll 0 0 #FFF; }</em></span>
+                        to the end of your templates user.css file, if you have one (suggested approach!).<br />
+                        If your template does not support an individual stylesheet, <u>copy</u> the style_guestbook_backend.css file to your template folder,<br />
+                        set the directives to the end and change the #FFF to your prefered color (#FFF is neutral white).</li>
+                <li>If you want to purge the <span class="eye">frontend entry borders</span> too, add: <em>border: 0 none;</em> to each of them.</li>
+                <li>If you even wish to change all <span class="eye">frontend entry text colors</span>, add:<br />
+                    <span class="cssblock"><em>#guestbook_entrybundle table,<br />
+                        #guestbook_entrybundle table a,<br />
+                        #guestbook_entrybundle .guestbook_entrytop,<br />
+                        #guestbook_entrybundle .guestbook_entrybottom,<br />
+                        #guestbook_entrybundle .guestbook_admin_comment p,<br />
+                        #guestbook_entrybundle .guestbook_admin_comment blockquote,<br />
+                        #guestbook_entrybundle .guestbook_admin_comment blockquote p,<br />
+                        #guestbook_entrybundle .guestbook_admin_comment blockquote p q { color: #000; }</em></span> for a black text color (#000).</li>
+                <li><span class="eye">No space</span> between frontend entry blocks? Add: <em>.guestbook_splitentries { display: none; visibility: hidden; }</em></li>
+                <li>The <span class="eye">Intro</span>, if set in config, can be modified with: <em>#guestbook_wrapper .guestbook_intro { padding: 0 none; text-align: left; border: 0 none; background:none repeat scroll 0 0 #FFF; }</em></li>
+                <li>You can find a very nice list of available web colours <a href="http://www.wackerart.de/rgbfarben.html" target="_blank">here</a>. Happy designing!</li>
+            </ul>
+            <br />
+        </div>
+        <div class="doc_block changelog"><a name="change" id="change"></a>
+            <div class="skip"><a href="#top">Top</a></div>
+            <div class="readme_title">S9Y :: GUESTBOOK :: CHANGELOG</div>
+            <h2>ATTENTION: Upgrading version needs you to verify and set/submit the guestbook config again!</h2>
+            <p>
+                ****************************************************************<br />
+                * serendipty_event_guestbook plugin, ChangeLog<br />
+                * if you have a interesting hack or want to help,<br />
+                * please leave a message in http://www.s9y.org/forums/<br />
+                * have fun! Ian<br />
+                ****************************************************************</p>
+            <h2>Version 3.27 <span class="date">[ 2011-06-27 ]</span></h2>
+            <ul>
+                <li>changed backend/frontend templates including changes to the backend.css from table to list style and be some more up to date.</li>
+                <li>changed config option markup internally to also set the {$plugin_guestbook_articleformat} as default(true) in frontend plugin_guestbook_entries.tpl.</li>
+                <li>changed sidebar plugin linebreak.</li>
+                <li>fixed sql alter update and remove procedure.</li>
+                <li>changed backend display to admin group instead admin only.</li>
+            </ul>
+            <h2>Version 3.26 <span class="date">[ 2011-03-08 ]</span></h2>
+            <ul>
+                <li>fixed spamblock call entry timestamp to be -8 day in past, while captchas_ttl checks normally set captchas true beyond 7 days.</li>
+                <li>fixed backend admin entry; POST vars to form got lost in some error cases.</li>
+                <li>changed ERROR_DATANOTAGS lang constant in &lt;en&gt;, &lt;de&gt; and &lt;de-utf8&gt; to support new wordfilter option.</li>
+                <li>added new pre-filled config option to disallow plugin only filter words in entry body, which was done internally before.</li>
+                <li>added internal var to function to support an incomplete error message properly.</li>
+                <li>changed lang constant in &lt;en&gt;, &lt;de&gt; and &lt;de-utf8&gt; to better explain auto-moderation issues.</li>
+                <li>changed documentation_en.html to explain differs in captchas check in contrast to spamblocks auto-moderation pass-through and new option 'entrychecks'.</li>
+            </ul>
+            <h2>Version 3.25 <span class="date">[ 2011-03-06 ]</span></h2>
+            <ul>
+                <li>moved some internal vars to a better place.</li>
+                <li>changed plugin_guestbook_backend_entries.tpl to support a moderate hidden var.</li>
+                <li>erased moderate option in sidebar plugin, which came with v.3.21, while sidebar now extends event plugin option setting.</li>
+                <li>rebuild sidebar &lt;serendipity_plugin_guestbook&gt; to support event plugins 'auto-moderation' and 'showapp option' changes.</li>
+                <li>added lang constant in &lt;en&gt;, &lt;de&gt; and &lt;de-utf8&gt;.</li>
+                <li>added new config option to allow entry set auto-moderate via spamblock plugin, if its wordfilter option is activ and set to 'moderate'.</li>
+                <li>corrected small typo in german lang files.</li>
+                <li>tweaked some small issues in guestbook CSS file.</li>
+                <li>added spamblock return 'moderate_comments' value, to support adding entries to non-approved; this extends guestbooks config setting.</li>
+            </ul>
+            <h2>Version 3.24 <span class="date">[ 2011-02-23 ]</span></h2>
+            <ul>
+                <li>added tag and link checks to prevent SPAM bots reading Captchas.</li>
+                <li>tweaked some small issues in guestbook CSS file.</li>
+                <li>changed some PAGINATOR_* and added new ERROR_DATANOTAGS lang constant in &lt;en&gt;, &lt;de&gt; and &lt;de-utf8&gt;.</li>
+                <li>removed old paginator by new one.</li>
+                <li>changed plugin_guestbook_entries.tpl to support removed administration.</li>
+                <li>removed adminstration features from frontend, since they are better done in backend.</li>
+            </ul>
+            <h2>Version 3.23 <span class="date">[ 2011-02-17 ]</span></h2>
+            <ul>
+                <li>latest: Smarty3 forward compatibility.</li>
+            </ul>
+            <h2>Version 3.22 <span class="date">[ 2011-02-15 ]</span></h2>
+            <ul>
+                <li>Changed smarty->fetch method call to be less strict to support smarty 2 to smarty3 parameter order change - removed param 4.</li>
+                <li>Added restriction of backend functionality and administration sidebar link to admin only.</li>
+            </ul>
+            <h2>Version 3.21 <span class="date">[ 2011-01-24 ]</span></h2>
+            <ul>
+                <li>Fixed send entry to email, which did not show entry body properly.</li>
+                <li>Backported fake call to spamblock and other comment plugins again, which was removed in 3.20 to prevent bots capturing Captchas.</li>
+                <li>Fixed serendipity_plugin_guestbook.php to truly show approved events only, if set in config.</li>
+                <li>Fixed a small typo in lang_en.* file and made the documentation helppage W3C XHTML conform.</li>
+            </ul>
+            <h2>Version 3.20 <span class="date">[ 2010-07-17 ]</span></h2>
+            <ul>
+                <li>This edition adds backend administration and now supports admin moderation to guestbook entries.</li>
+                <li>Therefor it adds a new database table field 'approve' and a new config variable 'showapp' to true or false (default is false).</li>
+                <li>Changes will affect old entries to be set as approved.</li>
+                <li>Updated Serendipity guestbook sidebar plugin to select these entries only to v.1.12.</li>
+                <li>Changed and added lang constants. The lang files &lt;en&gt;, &lt;de&gt; and &lt;de-utf8&gt; are now up to date.</li>
+                <li>Some small tweaks to both of the frontend tpls and some more to the stylesheet.</li>
+                <li>Some small tweaks to frontend paginator and url building to be more friendly to mod_rewrite setting via permalink or subpage.</li>
+                <li>This upgrade may effect individual design settings. Please make sure to have a look to your frontend tpls and the stylesheet!</li>
+            </ul>
+            <h2>Version 3.0 to 3.11 <span class="date">[ 2007-2009 ]</span></h2>
+            <ul>
+                <li>some tweaks by Garvin</li>
+                <li style="list-style: none">
+                    <ul>
+                        <li>3.11: - Prefix possibly missing http://, thanks to WMK</li>
+                        <li>3.08: - Use headline to put into the blog title, just like static pages do</li>
+                        <li>3.07: - Only hide email address for non-logged in users</li>
+                        <li>3.06: - Fix bad variable usage leading to not being able to delete guestbook entries in special cases</li>
+                        <li>3.05: - Fixed proper recognition to not display email addresses if configured.<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Add status:200 output for better apache cgi compatibility</li>
+                        <li>3.04: - Add missing language constant</li>
+                        <li>3.03: - Jump to "confirm" section</li>
+                        <li>3.02: - Variable cleanup</li>
+                        <li>3.01: - Larger layout changes, removed popup option (which didnt work properly) etc.</li>
+                    </ul>
+                </li>
+            </ul>
+            <h2>Version 2.8 to 3.0 <span class="date">[ 2007-07-24 ]</span></h2>
+            <ul>
+                <li>Tried to insert form popup and dynamic fields which wasnt really working as intended (removed in 3.01) ;-)</li>
+            </ul>
+            <h2>Version 2.8 <span class="date">[ 2007-07-23 ]</span></h2>
+            <ul>
+                <li>Changed lang files. The lang files &lt;en&gt;, &lt;de&gt; and &lt;de-utf8&gt; are now up to date.</li>
+                <li style="list-style: none">
+                    <ul>
+                        <li>If you update other lang files please change the first line to</li>
+                        <li>$Id: serendipity_event_guestbook.php, langfile(short name) v.X.XX 20XX/XX/XX name</li>
+                    </ul>
+                </li>
+                <li>Images new and moved and old files clean up.</li>
+                <li style="list-style: none">
+                    <ul>
+                        <li>Deleted the very old 'plugin_guestbook.tpl' file: this confuses newbies. Please do the same!</li>
+                        <li>button_background.png and shorttime.gif belong into plugins img folder.</li>
+                        <li>Please delete them in plugin folder to not confuse anybody.</li>
+                        <li>Added a blank.gif and a info.gif, which actually is the config help picture, into plugins img folder.</li>
+                    </ul>
+                </li>
+                <li>Changed plugin_guestbook_form.tpl.</li>
+                <li style="list-style: none">
+                    <ul>
+                        <li>make use of the new smarty vars</li>
+                        <li>if set: popup and show messages</li>
+                        <li>Now a user using the popup issue can view his entry after DB INSERT.</li>
+                        <li>changed action="{$plugin_guestbook_action}#entry" to action="{$commentform_action}?frontpage#feedback" inside<br />
+                            plugin_guestbook_form.tpl. This seems necessary if you use a static page as your start page.<br />
+                            Be sure to have the staticpage plugin in order before the contactform and guestbook plugin.<br />
+                            Well, actually the '?frontpage' will be done in serendipity_event_guestbook.php.</li>
+                        <li>added admin stuff</li>
+                        <li>modified some css</li>
+                    </ul>
+                </li>
+                <li>Changed plugin_guestbook_entries.tpl.</li>
+                <li style="list-style: none">
+                    <ul>
+                        <li>make use of the new smarty vars</li>
+                        <li>if set: order form on top or end and be able to even link to the form</li>
+                        <li>moved some things around</li>
+                        <li>added admin stuff and a missing &lt;td&gt;&lt;/td&gt;, which seems nessessary!</li>
+                        <li>modified some css</li>
+                    </ul>
+                </li>
+                <li>Changed, cleaned and modified the style_guestbook_backend.css</li>
+                <li style="list-style: none">
+                    <ul>
+                        <li>you may put a very own version of both tpl and css files inside your template folder.</li>
+                    </ul>
+                </li>
+                <li>One extra dynamic field added (dyn).</li>
+                <li style="list-style: none">
+                    <ul>
+                        <li>I don't think there is any need to use mgroeninger's excellent dynamic function from contactform.</li>
+                    </ul>
+                </li>
+                <li>In order to make things more configurable, these vars were changed or added (see also the lang files):</li>
+                <li style="list-style: none">
+                    <ul>
+                        <li>'headline' staticpage headline on top of page, by Garvin (v. 2.7).</li>
+                        <li>'intro' is used for free additional text entry on top of guestbook page.</li>
+                        <li>'pageurl' now called permalink, while pagetitle is used as the original (1.x) pageurl and for<br />
+                            staticpage_pagetitle, see below. (Sounds a bit messy, I know, but this is more straight!)</li>
+                        <li>'pagetitle' is used in staticpages and other templates and defines the URL of the page<br />
+                            'index.php?serendipity[subpage]=name'.</li>
+                        <li>'formorder' decide to have form appear first, default is form at end of entries.</li>
+                        <li>'formpopup' decide to have the form appear in a popup page, default (yes) is no popup.</li>
+                        <li>'showdynfield' this is a basic dynamic field as a mysql varchar(100) field.<br />
+                            Use with a input field in plugin_guestbook_form.tpl<br />
+                            and as a text output in plugin_guestbook_entries.tpl.<br />
+                            I tried it with a tinyblob field, but it is not a very good idea<br />
+                            to store binary data in databases, and so I came back to this small input text field.<br />
+                            If you want to change this field with another label name, set config dynfield to the new name and submit.</li>
+                    </ul>
+                </li>
+                <li>Fixed a small bug in paginator function.</li>
+                <li>General code clean up and moved things around. More documented code.</li>
+                <li>Now this really is a fully template version (99.9% ;-)).</li>
+                <li style="list-style: none">
+                    <ul>
+                        <li>Moved some remaining divs and some admin stuff into the tpls.</li>
+                        <li>Sorry, there are still some needs inside functions for remaining line breaks and the urls of the paginator function.</li>
+                    </ul>
+                </li>
+                <li>Good news! The code for the staticpage plugin at the end of this page is obsolet by now.</li>
+                <li style="list-style: none">
+                    <ul>
+                        <li>We'll keep the compatibility to 1.x until next 3.x release. Well, actually this version should be 3.0.....</li>
+                    </ul>
+                </li>
+            </ul>
+            <h2>Version 2.5 to 2.7 <span class="date">[ 2007-??-?? ]</span></h2>
+            <ul>
+                <li>some tweaks by Garvin</li>
+            </ul>
+            <h2>Version 2.0 to 2.4 <span class="date">[ 2006-08-21 to 2006-10-09 ]</span></h2>
+            <ul>
+                <li>Some link generation changes to function generate_EntriesPage() to make it work with/without mode_rewrite</li>
+                <li>Entries SQL query and show now execute only when user is in 'entries view' or 'entry done' mode</li>
+                <li>Guestbookform tpl action url is now: $serendipity['baseURL'] . $serendipity['indexFile'] . '#entry'</li>
+                <li>Changed sidebar serendipity_event_staticpage.php to be compatible to guestbook 2.0 version too (code1).<br />
+                    In case you allready used this plugin to show a link to the guestbook plugin in your sidebar, please go into admin panel,<br />
+                    go to static pages, and say yes again to show guestbook plugin. Doing this, changes to code will take effect.</li>
+                <li>Made sidebar serendipity_plugin_guestbook work with 2.0 version only</li>
+                <li>Target admin mail address should now be compatible to old guestbook version 1.38 - just one targetmail used</li>
+                <li>Markup config var makes tpl based entries textfield output get parsed through S9y standard text formatting and converting standard smilies</li>
+                <li>Change old guestbook table now works for mysql (only?)</li>
+                <li>More cleanup / renaming and reconfigured wordwrap in config for 2.0 final</li>
+                <li>Now the guestbook should work well with/without CAPTCHAS - this needed a new config variable so please check your Captchas settings in spamblock and! guestbook plugins</li>
+                <li>Generell clean up and messages tweaks.</li>
+                <li>Now serendipity_event_guestbook is nearly full template based (see plugin_guestbook_entries.tpl and plugin_guestbook_form.tpl)</li>
+                <li>You will find images shorttime.gif, button_background.png and delete.png in $this_plugin/img dir now.</li>
+                <li>Change css (style_guestbook_backend.css) and template files to your needs</li>
+                <li>Please check other lang files - actualy only &lt;en&gt;, &lt;de&gt; and &lt;de-utf8&gt; will work!</li>
+                <li>Permalink ("pageurl") is a full path from http root eg. "/serendipity/pages/guestbook.html" or "/serendipity/index.php?/pages/guestbook.html" (see mod_rewrite)</li>
+                <li>Please Note: This version is making use of plugin::spamblock features and captchas (disabled for admins),</li>
+                <li>Please Note: timelock and sessionlock config vars will not be used anymore - removed by table update</li>
+            </ul>
+            <h2>Version 1.0 to 1.38 <span class="date">[ 2005-02-11 to 2006-08-21 ]</span></h2>
+            <ul>
+                <li>originally developed by Philipp Schneider aka boelkstoff</li>
+            </ul>
+        </div>
+    <div class="skip dark"><a href="#top">Top</a></div>
+    <p>
+    <a href="http://validator.w3.org/check?uri=referer"><img
+        src="http://www.w3.org/Icons/valid-xhtml10"
+        alt="Valid XHTML 1.0 Transitional" height="31" width="88" /></a>
+    </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+1.9:
+----
+If ?serendipity[hide_category] is set in the URL, the plugin will not
+overwrite it.
+
+1.08:
+-----
+
+Fix problem where startcat was assigned to "author view" blog pages,
+resulting in missing entries to be seen.

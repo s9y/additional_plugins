@@ -1,0 +1,28 @@
+serendipity_event_microformats - A Microformats Plugin for S9Y
+==============================================================
+
+Installation Instructions:
+- extract the folder 'serendipity_event_microformats' to your S9Y plugins folder
+- edit your templates' entries.tpl, add the following two lines where you want 
+  the microformats block to appear (I added them after {$entry.body}):
+  {microformats_show data=$entry.properties type="hReview"}
+  {microformats_show data=$entry.properties type="hCalendar"}
+- make sure the path to tabber-minimized.js in plugins/serendipity_event_microformats/microformatsBackend.inc.php is correct
+- did I forget something?
+
+More on Microformats:
+In case you're not familiar with Microformats or want to know more about it, check these websites:
+ - http://microformats.org/
+ - http://microformats.org/wiki/hReview for the hReview Microformat
+ - http://microformats.org/wiki/hcalendar for the hCalendar Microformat
+ - http://www.structured-blogging.org/ for some superficial info on structured blogging
+ - http://ma.gnolia.com/groups/mikroformate (German social bookmark collection)
+
+Release History:
+2006-09-04: v0.1 initial release
+- first release includes separate hReview and hCalendar formats
+- also includes subnode syntax by structured-blogging.org
+- admin dialog makes use of JavaScript tabifier (http://www.barelyfitz.com/projects/tabber/)
+- english language only
+- PLEASE test this plugin
+

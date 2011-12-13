@@ -1,0 +1,4 @@
+Thanks to the authors of the used jQuery-Plugins:
+    Heatcolor: http://www.jnathanson.com/blog/client/jquery/heatcolor/index.cfm
+    excerpt: http://adamhooper.com/bodacity/playground/jquery.excerpt.html
+    tablesorter: http://tablesorter.com/docs/

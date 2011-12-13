@@ -1,0 +1,15 @@
+latest: Smarty3 forward compatibility
+
+0.28:
+----
+
+Passed $eventData to the plugin_mediainsert.tpl file, as {$plugin_mediainsert_entry}.
+
+Version 0.20:
+------------
+
+(by Vladimír Ajgl)
+
+* Added documentation.html files
+* Added czech translation
+* Added ability to post XML code into entries that can be used to build galleries (PHP5 only)

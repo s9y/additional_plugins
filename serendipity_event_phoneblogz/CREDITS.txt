@@ -1,0 +1,9 @@
+In no particular order we'd like to thanks the following people for the 
+testing, input and ideas:
+
+ - Garvin Hickling
+ - ridcully
+ - The guys at http://phpxmlrpc.sourceforge.net/
+
+Think you should be mentioned in here? Let us know: matt@phoneblogz.com
+

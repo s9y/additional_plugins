@@ -1,0 +1,151 @@
+FRONTEND_EXTERNAL_SERVICES
+    serendipity_event_creativecommons
+    serendipity_event_searchhighlight
+    serendipity_event_yq
+    serendipity_plugin_creativecommons
+    serendipity_plugin_remoterss
+    serendipity_plugin_wikipedia_finder
+    serendipity_event_babelfish
+    serendipity_event_externalphp
+    serendipity_event_google_sitemap
+    serendipity_event_motm
+    serendipity_plugin_amazon
+    serendipity_plugin_delicious
+    serendipity_plugin_flickr
+    serendipity_plugin_google_last_query
+    serendipity_plugin_hitmaps
+    serendipity_plugin_weather
+FRONTEND_FEATURES
+    serendipity_plugin_eventwrapper
+    serendipity_plugin_shoutbox
+    serendipity_superuser_plugin
+    serendipity_event_contactform
+    serendipity_event_guestbook
+    serendipity_event_linklist
+    serendipity_event_loginform
+    serendipity_event_mycalendar
+    serendipity_event_todolist
+    serendipity_plugin_loginform
+FRONTEND_FULL_MODS
+    serendipity_event_aggregator
+    serendipity_event_blogpdf
+FRONTEND_VIEWS
+    serendipity_plugin_authors
+    serendipity_plugin_comments
+    serendipity_plugin_history
+    serendipity_plugin_recententries
+    serendipity_plugin_templatedropdown
+    serendipit_calendar_plugin
+    serendipity_archives_plugin
+    serendipity_syndication_plugin
+    serendipity_plug_plugin
+    serendipity_html_nugget_plugin
+    serendipity_categories_plugin
+    serendipity_event_filter_entries
+    serendipity_plugin_category_dhtml_menu
+FRONTEND_ENTRY_RELATED
+    serendipity_event_livesearch
+    serendipity_event_mailer
+    serendipity_plugin_entrylinks
+    serendipity_quicksearch_plugin
+    serendipity_event_customarchive
+    serendipity_event_deletelink
+    serendipity_event_entrylastmodified
+    serendipity_event_entrypaging
+    serendipity_event_linktoolbar
+    serendipity_event_mailentry
+    serendipity_event_multilingual
+    serendipity_event_mymood
+    serendipity_event_outdate_entries
+    
+BACKEND_EDITOR
+    serendipity_event_entrysplit
+    serendipity_event_contentrewrite
+    serendipity_event_entryproperties
+    serendipity_event_htmlvalidator
+    serendipity_event_staticpage
+    serendipity_event_weblogping
+    serendipity_event_amazonchooser
+    serendipity_event_cpgselector
+    serendipity_event_custom_permalinks
+    serendipity_event_emoticonchooser
+    serendipity_event_entrycheck
+    serendipity_event_freetag
+    serendipity_event_ljupdate
+    serendipity_event_multilingual
+    serendipity_event_mymood
+    serendipity_event_podcast
+    serendipity_event_relatedlinks
+    serendipity_event_tinymce
+    serendipity_event_trackback
+    serendipity_event_typesetbuttons
+BACKEND_USERMANAGEMENT
+    serendipity_event_externalauth
+    serendipity_event_userprofiles
+    serendipity_plugin_adduser
+BACKEND_METAINFORMATION
+    serendipity_event_geourl
+    serendipity_event_head_nugget
+    serendipity_event_randomblogdescription
+BACKEND_TEMPLATES
+    serendipity_event_xhtmlcleanup
+    serendipity_event_browsercompatibility
+    serendipity_event_templatechooser
+    serendipity_event_authorpic
+    serendipity_event_layout_linkmarkup
+    serendipity_event_layout_printerfriendly
+    serendipity_event_layout_quotemarkup
+    serendipity_event_sidebarhider
+BACKEND_FEATURES
+    serendipity_event_spartacus
+    serendipity_event_assigncategories
+    serendipity_event_cachesimple
+    serendipity_event_staticpage
+    serendipity_event_popfetcher
+
+IMAGES
+    serendipity_event_cpgselector
+    serendipity_event_gravatar
+    serendipity_event_imageselectorplus
+    serendipity_event_kubrickheader
+    serendipity_event_photoblog
+    serendipity_event_picasa
+    serendipity_event_thumbnails
+    serendipity_event_usergallery
+    serendipity_plugin_coppermine
+    serendipity_plugin_flickr
+    serendipity_plugin_gallery_menalto_random
+    serendipity_plugin_photoblog
+ANTISPAM
+    serendipity_event_spamblock
+    serendipity_event_spamblock_rbl
+    serendipity_event_spamblock_surbl
+
+MARKUP
+    serendipity_event_bbcode
+    serendipity_event_emoticate
+    serendipity_event_nl2br
+    serendipity_event_s9ymarkup
+    serendipity_event_textile
+    serendipity_event_textwiki
+    serendipity_event_geshi
+    serendipity_event_markdown
+    serendipity_event_mimetex
+    serendipity_event_smartymarkup
+    serendipity_event_typoquote
+    serendipity_event_unstrip_tags
+    serendipity_event_wordwrap
+    serendipity_event_glossary
+
+STATISTICS
+    serendipity_event_karma
+    serendipity_event_statistics
+    serendipity_event_trackexits
+    serendipity_topreferrers_plugin
+    serendipity_topexits_plugin
+    serendipity_event_phpopentracker
+    serendipity_plugin_karmaranking
+    serendipity_plugin_pollbox
+    serendipity_plugin_popularentries
+    serendipity_plugin_topreferers
+    

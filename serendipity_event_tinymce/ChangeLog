@@ -1,0 +1,80 @@
+# $Id$
+
+1.10: Added ?js=1 parameter to gzip loader to properly load TinyMCE
+
+------------------------------------------------------------------------
+Version 1.9 (brockhaus):
+
+    * Option for using TinyMCE only in articled. This makes it easier
+      to edit html nuggets in example.
+
+------------------------------------------------------------------------
+Version 1.8 (garvinhicking):
+
+------------------------------------------------------------------------
+Version 1.7 (brockhaus):
+
+    * Mediadatabase PHP page is not loaded from root of server anymore
+      but from directory defined as blog root now.
+    * Remove js warning produced by inited test introduced in last 
+      version.
+
+------------------------------------------------------------------------
+Version 1.6 (brockhaus):
+
+    * Made sure, that TinyMCE is only initied once. In static pages the
+      event backend_wysiwyg_finish is thrown twice. This made TinyMCE
+      init twice resulting into double editors when viewed with IE (not
+      with FF)
+
+------------------------------------------------------------------------
+Version 1.5 (brockhaus):
+
+    * Some new options added to the plugins configruation: Gecko
+      spellchecking, Cleanups, HTML verification and relative URLs.
+
+------------------------------------------------------------------------
+Version 1.4 (brockhaus):
+
+    * Fixed another IE7 JavaScript warning. :-/
+
+------------------------------------------------------------------------
+Version 1.3 (brockhaus):
+
+    * Added configuration defining the relative http plugin path, as
+      this is not always /plugins/serendipity_event_tinymce
+    * Added the s9ymdb plugin (button accessing S9Y's media database)
+      to the default configuration.
+
+------------------------------------------------------------------------
+Version 1.2 (brockhaus):
+
+    * TinyMCE enabled for static paged and HTML nuggets.
+    * Removed the need to patch serendipity_editor.js to make the 
+      mediadb button work. Thanks to garvin for the hint!
+
+------------------------------------------------------------------------
+Version 1.1 (brockhaus):
+
+    * The directory for TinyMCE is fixed now.
+    * Added the button for accessing the mediadatabase into this fixed
+      directory.
+    * Fixed the IE7 problem with the mediadatabase button.
+
+------------------------------------------------------------------------
+Version 1.0 (brockhaus):
+
+    * Convert only body and extended textarea to TinyMCE editors.
+
+------------------------------------------------------------------------
+Version 0.9 (brockhaus):
+
+    * Added needed tinyMCE compressor initialisation to the output.
+    * Added German language files, corrected English language file.
+    * Added configuration for button bars and rearanged default order.
+    * Corrected plugin list (flash replaced with media, meaningless
+      plugins removed)
+    * Default popups to inline popups for more performance
+
+------------------------------------------------------------------------
+Version 0.8 (garvinhicking):

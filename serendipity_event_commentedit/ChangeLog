@@ -1,0 +1,12 @@
+0.2.1
+    * Fixed mail-option (was ignored before)
+
+0.2
+    * Fetch comments from the database so the original markup is preserved
+    * Add option to toggle mail-notification
+
+0.1.5
+    * fix the conflict with plugins using other javascript-libraries
+
+0.1.4
+    * Editing a comment may toggle an email-send to blogowner - optional

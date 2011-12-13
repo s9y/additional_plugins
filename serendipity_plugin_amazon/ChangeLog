@@ -1,0 +1,6 @@
+1.22: Patch by danst0, added analytics tracking
+
+Version 1.21
+  Update plugin to correctly pass the developer ID.  Apparently this plugin isn't getting used by anyone.
+Version 1.20
+  Re-write of fetch system to support Amazon Product Advertising API

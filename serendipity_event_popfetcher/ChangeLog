@@ -1,0 +1,51 @@
+1.42:
+----
+
+* Also add [attach:X] syntax to text attachments, where X represents the number of the attachment (starting with 1)
+  that should be positioned inline
+  
+1.41:
+----
+
+* Now able to parse HTML inline pictures and replace them with attached files
+
+1.37:
+----
+
+(By danst0)
+* Change ereg to preg_hatcm
+* Added now flag to indicate if thumbnail or full image is posted
+
+1.36:
+-----
+
+Allow config options for Subfolder-Maildir storage and debugging.
+Increase attachment duplicate counter to prevent problems when more than
+one mail with attachment is received in the same second.
+
+1.35:
+----
+
+* Detect format=flowed
+* Fix bug that did not restore "extended body" correctly for next mail,
+  might lead to mail mingling with next entries.
+
+1.34:
+-----
+
+* Added ability to recognize mails send as a reply (Re:/Aw:/Wg:) to be posted as blog comments rather than entries
+* Added ability to recognize the date of a mail to import
+* Added ability to enabled $debug flag to log messages from cronjob outputs.
+* Recognize some basic NON-Html markup (->, >>, => etc.) to be escaped.
+* Remove any CR/LF inside <embed> and <object> tags, and within any HTML Tag.
+* Replace HTML inside comment mails with BBCode markup
+* Detect us-ascii charset as ISO-8859-1.
+* Store uploaded files within a YEAR/MONTH subdirectory structure.
+* Treat inline attached images to be put within the extended mailbody after the first.
+
+1.33:
+-----
+
+Improved string decoding functions to not only work with UTF-8 <-> ISO.
+Thanks to B. Tittelbach
+(https://sourceforge.net/tracker/?func=detail&atid=542822&aid=2831116&group_id=75065)

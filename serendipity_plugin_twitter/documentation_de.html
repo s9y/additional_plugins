@@ -1,0 +1,99 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Hilfedatei: Twitter Plugin</title>
+    <link rel="stylesheet" type="text/css" href="documentation/documentation.css"/>
+    <style type="text/css">
+<!--
+.Stil1 {
+	color: #EE0000;
+	font-weight: bold;
+}
+-->
+    </style>
+</head>
+<body>
+<div id="title">
+<a name="top"/>
+<h1> Hilfedatei: Twitter Plugin</h1>
+</div>
+<div id="content">
+<h2>Inhalt</h2>
+<ol>
+    <li><a href="#twitter_register">Verbindung zu Twitter</a></li>
+    <li><a href="#twitter_client">Microblogging Client</a></li>
+    <li><a href="#announce_twitter">Ankündigung über Twitter</a></li>
+    <li><a href="#tweetbacks">Tweetbacks</a></li>
+</ol>
+</div>
+
+<a name="twitter_register"></a>
+<h2>Verbindung zu Twitter</h2>
+
+<p>Um dein Blog mit Twitter zu verbinden, sind folgende Schritte notwendig:</p>
+<ul>
+  <li>Als erstes mußt du für deinen Blog eine eigene Twitter-Applikation erstellen. Klicke dazu auf den Button &quot;Register App&quot;.<br>
+  Wähle unter Application Type &quot;Browser&quot; aus und trage in &quot;Callback URL&quot; die über dem Button &quot;Register App&quot; angezeigte Callback URL.<br>
+  Wähle unter Default Access type  &quot;Read &amp; Write&quot; aus.</li>
+  <li>Nach dem Speichern erhältst du von deiner  Twitter-Applikation den &quot;Consumer key&quot; und &quot;Consumer secret&quot;.</li>
+  <li>Trage den &quot;Consumer key&quot; und &quot;Consumer secret&quot; in den Einstellungen ein unter Benutzerkonten ein und klicke auf Speichern.</li>
+  <li>Klicke anschließend auf den Button &quot;Sign in&quot; und erlaube Twitter eine Verbindung herzustellen.</li>
+  <li><span class="Stil1">WICHTIG!</span> Wenn du mehrere Twitter Accounts anlegen möchtest must du dich zwischendurch bei Twitter ausloggen.</li>
+</ul>
+
+<p><a href="#top">top</a></p>
+
+<a name="twitter_client"></a>
+<h2>Microblogging Client</h2>
+
+<p>Das Plugin liefert einen Twitter bzw Identica Client, der die Timeline des konfigurierten Users und eine Eingabe für
+neue Updates darstellt. Dieser Client kann entweder in die Startseite der Administator Seite oder als Menü
+Eintrag unterhalb von "Einträge" eingebunden werden.</p>
+   
+<p><a href="#top">top</a></p>
+
+<a name="announce_twitter"></a>
+<h2>Ankündigung über Twitter</h2>
+
+<p>Das Plugin kann Artikel über Twitter ankündingen. Dazu wird aus dem Titel des Artikels ein Tweet erzeugt.
+Der Titel wird optional mit Twitter Tags aufgefüllt (wenn das FreeTag Plugin installiert ist) und die Ankündigung
+mittels konfigurierter Platzhalter formatiert.</p>
+<p>Folgende Platzhalter sind verfügbar:
+<ul>
+    <li><strong>#title#</strong>: Wird mit dem Titel des Artikels ersetzt. Wenn die Tagsoption angeschaltet ist, wird er mit Tags markiert.</li>
+    <li><strong>#author#</strong> oder <strong>#autor#</strong>: Wird mit dem Autor des Artikels ersetzt.</li>
+    <li><strong>#link#</strong>: Wird mit dem Link auf den Artikel ersetzt.</li>
+    <li><strong>#tags#</strong>: Wird mit allen verbleibenden Tags ersetzt, die noch nicht im Titel eingetragen wurden. Ist die Tagsoption aussgeschaltet, so wird dieser Platzhalter mit <strong>allen</strong> Tags des Artikels ersetzt.</li>
+</ul>
+</p>
+</p>
+
+<p>Beispiel:
+<ul>
+    <li>Der Titel des Artikels ist "<i>Dies ist ein Test Eintrag</i>"</li>
+    <li>Als Format wurde "<i>blog: #title# von #autor# #tags# #link#</i>" konfiguriert</li>
+    <li><i>Test</i> und <i>Artikel</i> wurden als Tags vergeben.</li>
+</ul>
+Dann sieht der daraus produzierte Tweet wie folgt aus:
+</p>
+
+<p><code>blog: Dies ist ein #Test Eintrag von Grischa Brockhaus #Artikel http://tinyurl.com/ne9y4f</code></p>
+
+<p><i>Anmerkung</i>: Ich empfehle sehr, TinyUrl als URL Kürzer zu benutzen, da die so erzeugten URLs 
+eindeutig identifiziert werden können und so eine Abfrage nach Tweetbacks meist erfolgreich ist.
+Allerdings sind die anderen KurzURLs ebenfalls (auch für andere) gut zu erkennen, wenn sie mit
+diesem Plugin erstellt wurden.</p>
+
+<p><a href="#top">top</a></p>
+
+<a name="tweetbacks"></a>
+<h2>Tweetbacks</h2>
+<p>"Tweetbacks" ist ein zusammengesetztes Wort aus "Tweets" und "Trackbacks". Tweetbacks sind also Trackbacks, die
+in Twitter produziert wurden. Leider gibt es dafür keinen Automatismus wie bei den Trackbacks. Twitter sendet also
+kein Ereignis an das Blog, wenn in einem Tweet auf einen Artikel des Blogs verwiesen wurde. Somit muss das Blog
+selbst nach Tweetbacks suchen. Dies tut es, indem es die letzten Tweets nach passenden Links durchsucht.</p>
+
+<p><a href="#top">top</a></p>
+
+</body>
+</html>

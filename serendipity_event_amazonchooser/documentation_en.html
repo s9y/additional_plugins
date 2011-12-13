@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>Documentation: Amazon Chooser</title>
+    </head>
+
+<body>
+    
+<h1>What this plugin does</h1>
+
+<p>The Amazon chooser is a foundation plugin to access the Amazon Webservices. Those can be used to retrieve
+    information of products sold on Amazon. You can use those pieces of information to link to amazon products,
+    to make suggestions or also to power your Affiliate Business as an Amazon partner.</p>
+
+<p>This plugin will add a custom button to the Serendipity Entry Manager. When you create an entry, you will
+    see an extra button that allows you to pick from the amazon product list, and in the end attach the selected
+    amazon product to your blog entry.</p>
+
+<h1>Requirements</h1>
+
+<p>To use this plugin, you will need an Amazon API key, and your webserver/firewall needs to be allowed to connect to the
+Amazon servers. This plugin also needs at least Serendipity 1.4.1, so it can register custom toolbar buttons easily.</p>
+    
+<h2>Apply for an Amazon API key</h2>
+
+<p>An API key is a unique string that you receive from Amazon to identify you and your blog. This allows them to track
+    your referalls, possible affiliate actions, and traffic usage. Be sure to read the Amazon Terms of Use to see what
+    you can and cannot do with their API.</p>
+
+<p>Previously, Amazon did not require you to use personal API key. Since August 15th, 2009, it is a requirement to be able to use the Amazon database.</p>
+
+<p>To apply to an Amazon API key, visit the site <a href="http://aws.amazon.com/">aws.Amazon.com</a> and <a href="http://www.amazon.com/gp/aws/registration/registration-form.html">register</a> yourself. They will need your name, e-mail adress, contact information.</p>
+
+<p>After registration, you can find your access credentials on the "Your Account &gt; Access Identifiers" subpage (<a href="https://aws-portal.amazon.com/gp/aws/developer/account/index.html?ie=UTF8&action=access-key">direct link</a>).</p>
+
+<p>To apply for a Associate ID (the Affiliate marketing program) you need to visit the <a href="https://affiliate-program.amazon.com/gp/associates/apply/main.html">dedicated website from Amazon ("Amazon.com Associates Central")</a> and sign up there as well. The key will also be found on your Affiliate Account page then.</p>
+
+<h1>Installing the plugin</h1>
+
+<p>The Amazon-Chooser Serendipity-Plugin can be installed normalle through Spartacus, or by putting the plugin inside the plugins/ subdirectory, and installing it through the Serendipity Administration Suite in the Plugin Configuration, by clicking on "Click here to install an EVENT plugin".</p>
+
+<p>Once installed, you can configure the plugin by clicking on the title of it in the listing inside the Plugin Configuration. You will now need to configure a few things:</p>
+    
+<h2>Plugin configuration</h2>
+
+<ol>
+    <li><strong>Developer Access Key ID</strong><br />
+    This is your global Key that identifies each request to Amazon. It looks like: XKIAIEKPOU3U4MLELLQA. You can find it on the Amazon AWS homepage in the "Your Account &gt; Access Identifiers " page.</li>
+
+    <li>Amazon Developer Secret Access key</strong><br />
+    The secret key is like a password that you need to authenticate yourself. It can be found below the Developer Access Key on the Amazon site. The first time you want to use it, you will generate it on the Amazon site, or click on the button "Show" to show the existing value.</li>
+
+    <li><strong>Amazon Associate ID</strong><br />
+    Your associate ID is important to be appended to any links to Amazon products, so that you can get paid through the Partner/Affiliate program. Your ID can be found on the Amazon Affiliate Program site.</li>
+
+    <li><strong>Default Server</strong><br />
+    With this you select, to which server people get directed when you advertise Amazon products.</li>
+</ol>
+
+<h1>Usage</h1>
+
+<p>When you create a blog entry, you can click on the Amazon media button (also in WYSIWYG-mode) to open a popup window. There you can search for a book or specific media, and get a list of search results. On that page, you can pick your item to display. Once you did that, and confirmed your pick, it will get inserted into the blog entry with a markup like:</p>
+
+<p><strong>[amazon_chooser]32423434X,Books[/amazon_chooser]</strong></p>
+    
+<p>This markup will be replaced with the Amazon product information, when visitors view your blog. This is done automatically, so that prices etc. are updated automatically. You can also insert markup like this manually in your blog entry, if you know the ASINs already.</p>
+
+<p>The results of an amazon request are cached for an hour. Search results inside the backend are cached for 12 hours. If you want to "purge" your cache, simply delete all files inside your templates_c/amazonchooser/ directory.
+    WYSIWYG
+</body>        

@@ -1,0 +1,317 @@
+<html>
+    <head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Dokumentace: Freetag</title>
+        <style>
+        	pre {
+				display: block;
+				padding: 5px;
+				border: solid 1px #333333;
+				background-color: #cccccc;
+			}
+        </style>
+    </head>
+
+<body>
+    
+<h1>Dokumentace k pluginu 'Freetag'</h1>
+
+<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 22.8.2011. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="../README">aktuální anglické "README"</a>, <a href="../README.txt">"README.txt"</a> a <a href="../ChangeLog">ChangeLog</a>.
+<p>
+
+<p>Následující kód ukazuje příklad, jak použít rozšířený výstup do smarty šablony. Takto může například vypadat šablona "entries.tpl"
+<pre>
+{if isset($entry.freetag.extended) && $entry.freetag.extended == 1}
+	{if $entry.freetag.tags.tags}
+		&lt;div class="serendipity_freeTag"&gt;{$entry.freetag.tags.description}
+			{foreach from=$entry.freetag.tags.tags item="tag"}
+				{$tag}
+			{/foreach}
+		&lt;/div&gt;
+	
+		{if $is_single_entry or $is_preview}
+			{$entry.freetag.related.description}
+			&lt;ul class="serendipity_freeTag_related"&gt;
+			{foreach from=$entry.freetag.related.entries item="link"}
+				&lt;li&gt;{$link}&lt;/li&gt;
+			{/foreach}
+			&lt;/ul&gt;
+		{/if}
+	{/if}
+{else}
+	{$entry.freetag}
+{/if}
+</pre>
+</p>
+
+<p>
+Pomocí následujícího sql dotazu můžete v databázi vytvořit tagy z existujících kategorií:
+<pre>
+INSERT INTO serendipity_entrytags (entryid, tag) 
+  SELECT serendipity_entries.id, serendipity_category.category_name 
+    FROM serendipity_entries, serendipity_category, serendipity_entrycat 
+   WHERE serendipity_entrycat.entryid = serendipity_entries.id 
+     AND serendipity_category.categoryid = serendipity_entrycat.categoryid;
+</pre>
+(převzato z <a href="http://pixelated-dreams.com/archives/229-Spring-Cleaning.html">http://pixelated-dreams.com/archives/229-Spring-Cleaning.html</a>)
+</p>
+<p>
+A nebo můžete pro vytvoření tagů z kategorií použít následující skript:
+<pre>
+&lt;?php
+include 'serendipity_config.inc.php';
+
+$rows = serendipity_db_query("SELECT e.id, e.title, c.category_name
+                                FROM {$serendipity['dbPrefix']}entries AS e
+                                JOIN {$serendipity['dbPrefix']}entrycat AS ec
+                                  ON ec.entryid = e.id
+                                JOIN {$serendipity['dbPrefix']}category AS c
+                                  ON ec.categoryid = c.categoryid");
+
+foreach($rows AS $row) {
+    serendipity_db_query(
+        sprintf(
+            "REPLACE INTO {$serendipity['dbPrefix']}entrytags (entryid, tag) VALUES (%d, %s)",
+            (int)$row['id'],
+            serendipity_db_escape_string($row['category_name'])
+        )
+    );
+    
+    printf(
+        "Category '%s' added as Tag for Entry #%d, '%s'&lt;br /&gt;\n",
+        htmlspecialchars($row['category_name']),
+        (int)$row['id'],
+        htmlspecialchars($row['title'])
+    );
+}
+?&gt;
+
+</pre>
+</p>
+
+<h1>Historie verzí (ChangeLog)</h1>
+<ul>
+<li>verze 3.35</li>
+	<ul>
+	<li>Opraveno - Změna některých instancí [tag] na %5Btag%5D, který je kompatibilní s HTML - bug č.3427291</li>
+	</ul>
+<li>verze 3.34</li>
+	<ul>
+	<li>Pro mysql použít pouze sql dotaz SHOW.</li>
+	</ul>
+<li>verze 3.33</li>
+	<ul>
+	<li>Odkazy na https:// místo http://, aby správně fungoval backend na serverech se zapnutým SSL. Díky uživateli [Manko10].</li>
+	</ul>
+<li>verze 3.30, 3.31, 3.32</li>
+	<ul>
+	<li>Aktualizováno - použitý přiložený tagcloud.swf od WP-Cumulus/Roy Tanck na verzi 1.23.</li>
+	<li>Opraveno - Hrozba HTML injection nahlášená uživatelem [MustLive]</li>
+	<li>Opraveno - Hrozba XSS (Cross Site Scripting) nahlášená uživatelem [Stefan Schurtz]</li>
+	</ul>
+<li>verze 3.28</li>
+	<ul>
+	<li>Možnost použití konstrukce ?serendipity[tag]=Tag1;Tag2;Tag3</li>
+	</ul>
+<li>verze 3.27</li>
+	<ul>
+	<li>Správná detekce porovnání (collation) v MySQL databázi</li>
+	</ul>
+<li>verze 3.26</li>
+	<ul>
+	<li>Přidána kontrola is_array() [Timbalu]</li>
+	</ul>
+<li>verze 3.25</li>
+	<ul>
+	<li>Oprava kódování databáze</li>
+	</ul>
+<li>verze 3.24</li>
+	<ul>
+	<li>Přidáno kórování databáze (MySQL), oprava od uživatele [Vincent]</li>
+	</ul>
+<li>verze 3.23</li>
+	<ul>
+	<li>Přidána oprava zalamování bílých znaků, viz <a href="http://board.s9y.org/viewtopic.php?f=5&t=17760">http://board.s9y.org/viewtopic.php?f=5&t=17760</a></li>
+	</ul>
+<li>verze 3.22</li>
+	<ul>
+	<li>Ošetřen možný XSS útok (Cross Site Scripting) reportovaný uživatelem [Stefan Schurtz] (SSCHADV2011-004)</li>
+	</ul>
+<li>verze 3.21</li>
+	<ul>
+	<li>Přidán háček (event hook) "sort" pro plugin serendipity_event_sort (autor [lazybadger])</li>
+	</ul>
+<li>verze 3.20</li>
+	<ul>
+	<li>Mrak tagů se zobrazuje jako smarty šablona "plugin_freetag.tpl". Pokud si chcete přizpůsobit výstup, zkopírujte tento soubor do adresáře vašeho stylu vzhledu a upravte ho dle sebe.</li>
+	</ul>
+<li>verze 3.18</li>
+	<ul>
+	<li>Automatická detekce klíčových slov nyní funguje pouze vně html tagů, takže nic jako &lt;a href="..//serendipity/"&gt; nyní nebude detekováno jako klíčové slovo 'serendipity'</li>
+	</ul>
+<li>verze 3.17</li>
+	<ul>
+	<li>Přidána funkce do administrátorské sekce: vyčištění tagů přiřazených k neexistujícím příspěvkům.</li>
+	<li>Text potvrzovacího tlačítko ve formuláři pro přejmenování tagu už není zadán natvrdo, ale dá se přeložit.</li>
+	<li>Opravena chyba v syntaxi HTML ve formuláři pro přejmenování tagu, a to použitím odpovídající HTML entity.</li>
+	</ul>
+<li>verze 3.16</li>
+	<ul>
+	<li>Oprava chyby: Klíčová slova (meta-keywords) se nezobrazovala v příspěvcích.</li>
+	</ul>
+<li>verze 3.15</li>
+	<ul>
+	<li>Odstraněna nesprávná chybová hláška "FATAL ERROR! Unrecognized type for 
+serendipity_event_freetag:: !" 
+	<br />(Fatální chyba! Neznámý typ pro serendipity_event_freetag:: !)</li>
+	</ul>
+<li>verze 3.13, 3.14</li>
+	<ul>
+	<li>Přidáno volání funkce mb_internal_encoding() pro správný převod znaků na malá písmena.</li>
+	</ul>
+<li>verze 3.12.1</li>
+	<ul>
+	<li>Nahrazeno "wick-based" automatické doplňování jquery pluginem (wick nefungoval v Opeře) </li>
+	</ul>
+<li>verze 3.11.0</li>
+	<ul>
+	<li>Přidána volba, zda mají být tagy přidány na základě automatického hledání klíčových slov.</li>
+	<li>Opraveny falešné výsledky při změně hledání na regulární výrazy.</li>
+	</ul>
+<li>verze 3.10.5</li>
+	<ul>
+	<li>Chytání očekávaných chyb v tagcloud query.</li>
+	</ul>
+<li>verze 3.10.4</li>
+	<ul>
+	<li>Přidána další kontrola na prázdný výsledek pro potlačení chybových hlášek databáze.</li>
+	</ul>
+<li>verze 3.10.3</li>
+	<ul>
+	<li>Opraveny chybějící tagy v náhledu uloženého příspěvku v přehledu příspěvků.</li>
+	<li>Opraveno připojování výstupu k náhledu v editoru.</li>
+	</ul>
+<li>verze 3.10.2</li>
+	<ul>
+	<li>Opravena chybná detekce rozšířeného/jednoduchého příspěvku.</li>
+	</ul>
+<li>verze 3.10</li>
+	<ul>
+	<li>Produkuje podobné články jako nečíslovaný seznam &lt;ul&gt;</li>
+	<li>Zanoření o jeden krok níže při prohledávání podobných tagů.</li>
+	<li>"Podobné tagy" je nyní odstavec &lt;p&gt; míst původního bloku &lt;div&gt;</li>
+	<li>Zaveden rozšířený Smarty-Markup</li>
+	<li>Vyčištění kódu v displayEntry()</li>
+	</ul>
+<li>verze 3.09</li>
+	<ul>
+	<li>Opraveno chybějící escapování proměnných v SQL dotazech.</li>
+	</ul>
+<li>verze 3.08 [Chessnut]</li>
+	<ul>
+	<li>Při prohlížení příspěvků podle tagů nejsou používána omezení kategoriemi (jako například v pluginu startcat)</li>
+	</ul>
+<li>verze 3.07</li>
+	<ul>
+	<li>Kontrola, že se pole array vytvoří pouze při úspěšném provedení SQL dotazu.</li>
+	</ul>
+<li>verze 3.06 [garvinhicking]</li>
+	<ul>
+	<li>Oprava automatického hledání dle klíčových slov i na tagy s velkými písmeny.</li>
+	</ul>
+<li>verze 3.05 [garvinhicking]</li>
+	<ul>
+	<li>Používání pouze flash-bg/fg barev, pokud je flash cloud zapnut.</li>
+	</ul>
+<li>verze 3.04 [garvinhicking]</li>
+	<ul>
+	<li>Přidána nezdokumentovaná volba pro vložení příbuzných příspěvků do přehledu (<a href="http://board.s9y.org/viewtopic.php?f=10&t=11124&p=83814#p83814">http://board.s9y.org/viewtopic.php?f=10&t=11124&p=83814#p83814</a>)</li>
+	</ul>
+<li>verze 3.03 [garvinhicking]</li>
+	<ul>
+	<li>Přidáno escapování databáze při čtení tagů.</li>
+	<li>Opraven duplicitní řetězec LIMIT v SQl dotazu. (Díky uživateli [rupa])</li>
+	</ul>
+<li>verze 3.01 [designor]</li>
+	<ul>
+	<li>Optimalizace výstupu, použití nejnovějšího SWFObject.</li>
+	</ul>
+<li>verze 3.0 [lstrojny]</li>
+	<ul>
+	<li>Oprava verze</li>
+	</ul>
+<li>verze 2.51 [lstrojny]</li>
+	<ul>
+	<li>Opraveno řazení tagů při použití se šablonou.</li>
+	</ul>
+<li>verze 2.5 [lstrojny]</li>
+	<ul>
+	<li>Přidání možnosti použití Smarty šablony pro vykreslení postranního sloupce.</li>
+	<li>Sjednocení čísel verzí.</li>
+	</ul>
+<li>verze 2.105 [RobA]</li>
+	<ul>
+	<li>Opravy ve Flashi, omezování počtu tagů, výchozí hodnoty nastavení.</li>
+	</ul>
+<li>verze 2.103 [RobA]</li>
+	<ul>
+	<li>Přidán rotující Flashový tagcloud (mrak tagů)</li>
+	</ul>
+<li>verze 2.97 [garvinhicking]</li>
+	<ul>
+	<li>Možnost umístění tagů do smarty šablony pomocí {$entry.freetag}, pokud je nastaveno použití smarty.</li>
+	</ul>
+<li>verze 2.96 [garvinhicking]</li>
+	<ul>
+	<li>Oprava XSS při zobrazování mraku příbuzných tagů, díky [<a href="mailto:Alex@bitsploit.de">Alex@bitsploit.de</a>]</li>
+	</ul>
+<li>verze 2.95 [garvinhicking]</li>
+	<ul>
+	<li>Přidán nastavitelný obrázek technorati</li>
+	</ul>
+<li>verze 2.92/2.45 [brockhaus]</li>
+	<ul>
+	<li>Přidáno nastavení pro XML obrázek</li>
+	</ul>
+<li>verze 2.88/2.44 [brockhaus]</li>
+	<ul>
+	<li>Přidán volitelný tag technorati za tagy v patičce příspěvku.</li>
+	</ul>
+<li>verze 2.88/2.43 [brockhaus]</li>
+	<ul>
+	<li>Přidána možnost nastavení minimální/maximální velikosti fontu v postranním sloupci.</li>
+	</ul>
+<li>verze 2.88/2.42 [garvinhicking]</li>
+	<ul>
+	<li>Řazení tagů v postranním sloupci bez ohledu na velikost písmen.</li>
+	</ul>
+<li>verze 2.88/2.41 [brockhaus]</li>
+	<ul>
+	<li>Plugin pro postranní sloupec vždycky načetl prvních X tagů podle jména, ne podle příbuznosti (tagcount, počet tagů). Tedy příbuzné/podobné tagy tagy na konci abecedy se nezobrazovaly.</li>
+	</ul>
+<li>verze 2.70</li>
+	<ul>
+	<li>Přidána možnost "automatické tagy". To znamená, které tagy přiřadit k příspěvku, pokud jsou v něm nalezena klíčová slova svázaná s tagem.</li>
+	</ul>
+<li>verze 2.64</li>
+	<ul>
+	<li>Přidána volba pro převod kategorií na tagy.</li>
+	</ul>
+<li>verze 2.48</li>
+	<ul>
+	<li>Nastavení pro převod na mlá písmena, oprava od [Lars Strojny]</li>
+	</ul>
+<li>verze 2.47</li>
+	<ul>
+	<li>Lepší zobrazování meta-informací</li>
+	</ul>
+<li>verze 2.44</li>
+	<ul>
+	<li>Zobrazování podobných příspěvků, oprava od [Stain]</li>
+	<li>Změna místa zobrazování tagů, nyní nastavitelné uživatelem.</li>
+	</ul>
+
+</ul>
+
+  </body>
+</html>

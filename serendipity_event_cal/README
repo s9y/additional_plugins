@@ -1,0 +1,227 @@
+/*******************************************************************
+ *  serendipity_event_cal.php,  README file 2011-02-23 ian         *
+ *  if you have a interesting hack or want to help,                *
+ *  please leave a message at http://www.s9y.org/forums/           *
+ *  have fun! Ian (Timbalu)                                        *
+ ******************************************************************/
+
+ATTENTION: 
+**************************************************************************************************
+* This plugins frontend is fully template based - see files
+                    plugin_eventcal_cal.tpl (the main screen and monthly view),
+                    plugin_eventcal_add.tpl (the add form),
+                    plugin_eventcal_app.tpl (the approve table),
+                    plugin_eventcal_calweek.tpl (the weekly view table),
+                    plugin_eventcal_entry.tpl (the single entry table),
+                    plugin_eventcal_ical.tpl (experimental).
+*
+* There still are some poor html tags in plugin_eventcal_error messages and backend.
+* The lang files may need to be improved.
+* See ADDITIONAL NOTES, Quick HowTo, ConfigSettings and ChangeLog !!!
+**************************************************************************************************
+
+ADDITIONAL NOTES:
+**************************************************************************************************
+* Some vars in this plugin need PHP version >= 5.1! There is no incompatibleness mode if not!
+* This plugin, specially the calendar width, is not really usefull in a threeside design - better use 2sb not under 770px width!
+* This calendar allows using all-day-events only. To specify time values, use the long description or the shorttitle field.
+* Time values are not supported by plugins iCal export (by now).
+* If you proceed individual changes to the css or tpl files, copy them to your default template directory!
+* Save config options again, if updating a previous installation!
+* If you need to work in the code of this plugin itself, you may use internal smarty (as popup) or eventcal debugging. Search '##$serendipity['smarty']->debugging' on top.
+* 
+* If using iCal, be advised that there are differences between Outlook|Mozilla|Goggle|Apple|Web|smartphone|etc calendar apps. 
+* Some of them are still in beta mode, so this is experimental too and will not work in any cases! Truly tested with Mozillas Sunbird/Lightning.
+* If you encounter problems with timezone settings different from CET, please change them manually in plugin_eventcal_ical.tpl,
+* particularly the DAYLIGHT settings TZOFFSETFROM:+0200, TZID:Europe/Berlin, and X-LIC-LOCATION:Europe/Berlin and TZNAME:CEST
+*
+* A time zone is unambiguously defined by the set of time measurement rules determined by the governing body for a given
+* geographic area. These rules describe at a minimum the base offset from UTC for the time zone, often referred to as the Standard Time
+* offset. Many locations adjust their Standard Time forward or backward by one hour, in order to accommodate seasonal changes in number of
+* daylight hours, often referred to as Daylight Saving Time. Some locations adjust their time by a fraction of an hour. Standard Time
+* is also known as Winter Time. Daylight Saving Time is also known as Advanced Time, Summer Time, or Legal Time in certain countries.
+* Sample usage Eastern Time US
+     BEGIN:VTIMEZONE
+     TZID:US-Eastern
+     X-LIC-LOCATION:America/New_York
+     BEGIN:DAYLIGHT
+     TZOFFSETFROM:-0500
+     TZOFFSETTO:-0400
+     TZNAME:EDT
+     DTSTART:19700329T020000
+     RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=3
+     END:DAYLIGHT
+     BEGIN:STANDARD
+     TZOFFSETFROM:-0400
+     TZOFFSETTO:-0500
+     TZNAME:EST
+     DTSTART:19701025T030000
+     RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=10
+     END:STANDARD
+     END:VTIMEZONE
+
+* Have a deep look inside how Mozillas Sunbird/Lightning sets the section BEGIN:VTIMEZONE to END:VTIMEZONE for your timezone 
+* see https://wiki.mozilla.org/QA_Feature_Specification:Timezone_Test_ICS
+* 
+* Please read the ChangeLOG also at page bottom:
+**************************************************************************************************
+
+Quick HowTo
+**************************************************************************************************
+* Fill in event values. You can choose between single days, muli-days, recurring events (monthly, weekly or bi-weekly)
+* and single yearly events. Insert is valid, if startday is not older than 1 month in past.
+* IMHO there is no need for Captchas by now, while these bots are stupid. If that ever changes, set config Captchas to true.
+* Unapproved events show up in the public admin area of the second plus sign. [n events pending]
+* Only admins and s9y logged-in users are permitted to edit, erase or approve these events. Re-edited events get approved by submit.
+* If approved, they show up in the calendar as a short link [short title] (multi events per day are possible).
+* If you need to delete or rewrite a single approved entry, click the short link in monthview and view the single event entry screen, if logged-in.
+* Further on, the admin only is allowed to recreate the eventcal table by erasing all data older 1 month and reorganize the autoincrement id values.
+* You can now do the administration stuff in the backend too. Downgraded frontend administration to do db cleanup only in backend.
+***************************************************************************************************
+
+ConfigSettings
+***************************************************************************************************
+* Permalink            - /HTTP-Root/.../serendipity/pages/eventcal.html     
+* Pagetitle and Url    - Shortitle to be used also as index.php?serendipity[subpage]=name
+* Formatted as Article - default yes
+* Pageheader           - optional
+* Page Intro           - optional, if s9y wysiwyg turned on, as html field
+* Use Captchas         - default no
+* Export iCal Feed?    - default no
+* Export iCal URL?     - default no - choose between download|webcal|email|users decision (*)
+*                        email only is sort of special, since frontend buttons send to admins email, if set in plugins or S9y config!
+* Log iCal Exports?    - default no - default logging is a plain log file. If email is set, a log entry will also be send with to your email address (see next)
+* Your email address   - if you don't put in an address, default admin iCal setting is as download.
+***************************************************************************************************
+
+This plugin originally based on some event calender code at php.net, somewhere in 2005/06.
+Feel free to improve it.
+
+Ian, October 31, 2009
+
+
+
+ChangeLOG:
+***************************************************************************************************
+* Legend: ! Bugfix, + New Features, * Changed, - Info Only 
+* 
+* 
+* v. 1.66 2011-02-23 Spartacus
+* ===========================
+*
+* 2011-02-23 CHANGED - tweaked some small font issues in eventcal CSS file
+* 2011-02-23 ADDED   - double check db version upgrade and removed cleanup() being called every time
+* 2011-02-22 BUGFIX  - wrong placed smarty_object_init() call outside class did disrupt blogs entry comments form (fixed)
+*
+*
+* v. 1.65 2011-02-17 Spartacus
+* ===========================
+*
+* 2011-02-17 latest: Smarty3 forward compatibility 
+*
+*
+* v. 1.64 2011-02-15 Spartacus
+* ===========================
+*
+* 2011-02-15 ADDED   - restriction of backend functionality and administration sidebar link to admin only
+* 2011-02-05 CHANGED and ADDED
+                     - lang constants. The lang files <en>, <de> and <de-utf8> are now up to date.
+* 2011-02-05 CHANGED - smarty->fetch method call to be less strict to support smarty 2 to smarty3 parameter order change - removed param 4
+* 2011-01-29 ADDED   - sort option order by timestamp desc to approved events (including minor correction in backend.css)
+* 2011-01-29 ADDED   - management of eventcal database table, be able to dump, download and erase sql files
+* 2011-01-28 CHANGED - backend checks if mysql table exists to be more strict in case of fresh installation.
+* 
+* 
+* v. 1.63 2011-01-19 Spartacus
+* ===========================
+*
+* 2011-01-09 ADDED   - smarty3 compat future use smarty3 code docs
+* 2011-01-09 CHANGED - plugin_eventcal_cal.tpl removed start=1 from loop as of smarty3 compat
+* 2011-01-08 BUGFIX  - eventcal db update didn't work as expected (fixed)
+* 2010-07-22 CHANGED - internal url building to be more friendly to mod_rewrite setting via permalink or subpage (rewrite, none, errordocs defines the use of subpage).
+* 2010-07-15 BUGFIX  - in case of form POST error, the calendar did not point to the referrers calendar month/year and fell back to January/year (fixed)
+* 2010-07-15 CHANGED - style_event_backend.css, plugin_eventcal_add.tpl and plugin_eventcal_cal.tpl to be more strict to css rules
+* 2010-07-15 CHANGED - some minor cleanups and corrected typos
+* 
+* 
+* v. 1.62 2010-04-30 Spartacus
+* ===========================
+* 
+* 2010-04-28 BUG     - in case of changing unapproved events in backend, the form did not show the right type of event (bug closed)
+* 2010-04-28 CHANGED - ics url behaviour via external_plugin to check if URL rewriting is supported
+* 2010-03-22 CHANGED - external_plugin to be more strict to eventcals ics_export issues
+* 
+* 
+* v. 1.61 2010-03-11 Spartacus
+* ===========================
+*
+* 2010-03-09 ADDED - missing mkdir eventcal directory in templates_c
+*
+* 
+* v. 1.6 2010-02-22 Spartacus
+* ===========================
+* 
+* IN DETAIL, the backend now has a sidebar link to get access to view, approve, insert and change events. The database administration panel has moved there also, 
+*            but main admin stuff, like approve, change, erase, remains possible in frontend too. 
+*            All over time, I ADDED new functions and CHANGED old functions, tpl files and en/de LANG files to support propper backend working
+* 
+* 2010-02-23 CHANGED - log file path to serendipity/templates_c/eventcal and ics file back to serendipity/uploads - see 2010-02-11
+* 2010-02-20         - cleanup to release
+* 2010-02-19 CHANGED - plugin_eventcal_ical.tpl to unparse the RRULE part of multi events, I am sure I did this somewhere before..., while multi events have an endday
+* 2010-02-18 CHANGED - some vars to isset(vars) to avoid lots of PHP Notices in case of error_reporting(E_ALL)
+* 2010-02-16 CHANGED - function send_ical_log_email, log to mail, to build entryURI as a href link with full parameters link access
+* 2010-02-14 CHANGED - function sendIcalEmail - get rid of doubled Content-Type headers which produced a X-Amavis-Alert
+* 2010-02-14 CHANGED - function send_ical_log_email to send error in case of write to file failed
+* 2010-02-13 CHANGED - mail ical, to be more strict to entered email in plugins config or in S9y personal settings and LANG files
+* 2010-02-11 CHANGED - function write_file icalendar.ics to use function backend_file_write and write file to new public folder underneath pluginpath 
+*                      to send as file in case of mail or webcal. This changed the S9y/uploads path of version 1.5!
+* 2010-02-10 ADDED   - stripslashes to prepare approved event to form, which is either relative to plattform (win) or php version ...(?)
+*                      The old version without did not have this problem on my debian lenny server
+* 2010-02-10 CHANGED - function str_replace_icalarray to function str_replace_recursive supporting NEW parameter 4 to search in specific array key only
+* 2010-02-09 CHANGED - function send_ical_log_email to generate propper entryURI, logging iCal requests
+* 2010-02-08 CHANGED - CW week view in plugin_eventcal_calweek.tpl to be same as in month calendar and CW's date view in css to be xx-small
+* 2010-02-08 CHANGED - font css behaviour to be more strict to eventcal output only, get back control over blog templates settings
+* 2010-02-07 CHANGED - log ical request behaviour. Now it is possible to log via email and/or file backend/ical.log
+* 2010-02-07 ADDED   - in plugin_eventcal_ical.tpl the ORGANIZER part the RSVP=FALSE:MAILTO:"" directive, meaning "répondez, s'il vous plaît" set to NO
+* 2010-02-06 CHANGED - hook_event 'external_plugin' and ical function to support all approved events admin download via email or download
+* 2010-02-04 ADDED   - changed recurring error constant in LANG files to show supposed startday number
+* 2010-02-04 BUG     - in function calculate_recur_validday - check recurring errors if startday does not correspond to selected weekday now matches 
+*                      the secondlast and thirdlast weekday, which were not calculated properly and returned an error in case of add or re-edit validating (bug closed)
+* 2010-02-04 ADDED   - strtolower(re) recur monthly event name constant in case of 'Each "re" Dayname'
+* 2010-02-03 BUG     - in function draw_add - corrected the add form - rebuild year array in case of re-edit to show old startyear selected (bug closed)
+* 2010-02-03 CHANGED - plugin_eventcal_entry.tpl & style_eventcal_backend.css - changed some css for better single entry view
+* 2010-02-03 BUG     - in 'case css' - set correct stristr order to detect if the style.css already has plugins defined css (bug closed)
+* 2010-02-03 CHANGED - style_eventcal_backend.css - be more strict to serendipityPrettyButton to avoid conflicts in backend working
+* 2010-02-02 BUG     - in function view_app_events via load_unapproved_events now returns false if there is no value (bug closed)
+* 2010-02-02 ADDED   - in plugin_eventcal_app.tpl - added missing biweekly constant
+* 2010-02-01 NEW     - start adding backend administration via sidebar link to view approved, re-edit, approve and erase events including db cleanup stuff.
+*                      this includes changes to en/de LANG files, some *.tpls and the stylesheet.
+*
+* v. 1.5 2010-02-01 Spartacus
+* ===========================
+* 
+* IN DETAIL, I'll try to release this now ... its more a major one ;-)
+* IN DETAIL, in config settings you can now set iCal export to allow as download, send as webcal, or as email, or via users own decision in frontend.
+*            Although you can choose to allow iCal export explicit or not, if true, frontend image buttons will support single or monthly array iCal requests.
+*            All over time, I added new and changed functions, config vars, tpls, lang constants and images to support and correct iCal export behaviour.
+* 
+* 2010-01-28 - CHANGED - improved sql SELECT-ARRAY statement again to be as strict as possible to all kind of tipo events
+* 2010-01-26 - CHANGED - improved and added some lang constants and internal functions and tpls, added help to add form, re-edit startyear is now like stored in db
+* 2010-01-24 - NEW     - added yearly single and recurring bi-weekly events to plugin class, tpls and en/de LANG files
+* 2010-01-21 - BUG     - improved array 'case tipo 3 recurring monthly events' in monthview, which did not show up correctly in all cases (bug closed)
+* 2010-01-17 - CHANGED - set validation of recurring monthly and weekly events to be more strict to startday is equal the day of first occurance of selected weekday,
+*                        which is needed in iCal export. Please re-edit old events to get in touch with it!
+* 2010-01-06 - NEW     - added to eventcal Database the TIMESTAMP fields tstamp as creation time value and modified as its last modified value, 
+*                        this changed add form tpl too! This behaviour is needed in ical export.
+* 2009-12-20 - CHANGED - improved and changed db SELECT events array to be more strict to multi and recurring events in function load_monthly_events() and ical export.
+* 2009-12-20 - CHANGED - improved the monthly view array in function load_monthly_events(), which now should select and display all possible occurances.
+* 2009-12-19 - CHANGED - improved and added some lang constants
+* 2009-12-05 - CHANGED - some config settings - please submit them again
+* 2009-12-02 - CHANGED - some minor tweeks to some *.tpl files and the css backend file
+* 2009-12-01 - CHANGED - improved the internal 'get back to form' in case of errors
+* 2009-11-26 - BUG     - improved weekly array 'case tipo 4 to every weekday' in monthview, which did not show up correctly in all cases (bug closed)
+* 
+* v.1.4 2009-11-21 Spartacus
+* ==========================
+* 
+***************************************************************************************************

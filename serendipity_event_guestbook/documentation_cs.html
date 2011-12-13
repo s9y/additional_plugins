@@ -1,0 +1,374 @@
+<!doctype html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Dokumentace: Návštěvní kniha</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250"> 
+    <style type="text/css">
+        /*<![CDATA[*/
+        body { font: 80%/130% 'Lucida Grande',Geneva,Verdana,Arial,sans-serif; background: #A8A8A8; color: #333; margin: 20px; border: 1px solid #000 }
+        a:link { color: #F0F0F0 }
+        a:visited { color: #bbb }
+        a:active { color: #FF6600 }
+        h2 { padding: 20px 0;text-decoration: underline; line-height: 1.2em;}
+        p { background: #EAEAEA; border: 1px solid #666 }
+        h2 span.date {font-size: small;color: #6280A2; letter-spacing: 0.1em; }
+        #wrapper { background: #F0F0F0; color: #333; padding: 10px; }
+        #wrapper div.doc_edited { float: right; color: #A8A8A8; padding: 4px; font-size: 7.4pt; }
+        #wrapper div.skip { float: right; color: #A8A8A8; margin: 4px 0; padding: 4px; font-size: 7.4pt; }
+        #wrapper div.dark a { color: #333; }
+        #wrapper div.doc_block { display: block; padding: 4px; text-align: justify; font-size: 9pt; font-weight:bold; line-height: 1.2em; background-color: #282828; color: #777; }
+        #wrapper div.doc_block .readme_title { margin: 5px 0; padding: 8px 4px; font-weight: 700; text-decoration: underline; background-color: #1C1C1C; background: -moz-linear-gradient(left 20deg, #1C1C1C, #696969); border: 1px solid #828282; }
+        #wrapper div.doc_block .white { color: #F0F0F0; text-decoration: underline; font-weight: bold; }
+        #wrapper div.doc_block .eye { color: #ff6600 }
+        #wrapper div.doc_block .cssblock { display: block; margin-left: 60px; }
+        #wrapper div.changelog { background-color: transparent; }
+        #wrapper div.changelog .readme_title { margin: 0 -4px; }
+		#wrapper div.changelog a { color: #333; }
+        #wrapper div.doc_block ul.readme li { line-height: 1.5em; background: none repeat scroll 0 0 #333; }
+        #wrapper div.doc_block ul.readme li em { color: #E8E8E8; font-size: 8pt; font-weight: 500; }
+        #wrapper div.doc_block ul.config li em { color: #B8B8B8; }
+		h1 {font-size: 150%; color: white; text-align: left; margin-top: 25px;}
+        #wrapper div.skip a { color: #F0F0F0 }
+        /*]]>*/
+    </style>
+
+</head>
+<body><a name="top"></a>
+<div id="wrapper">
+<div class="doc_edited">serendipity_event_guestbook/documentation_cs.html, poslední změna 29. června 2011</div>
+<div class="doc_block">
+	<h1>Dokumentace k pluginu 'Návštěvní kniha' (Guestbook)</h1>
+    <span class="white"><b><u>MĚJTE NA PAMĚTI!</u></b></span><br />
+<br />Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 29.6.2011. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="documentation_en.html">aktuální anglickou dokumentaci</a>.
+    <br /><br />
+    Tento Serendipity plugin "Návštěvní kniha" je založen na ŠABLONÁCH vzhledu, nastavitelný vlastním stylopisem, má FRONTEND (to, co se zobrazuje návštěvníkům blogu) a BACKEND (stránky v administrační sekci sloužící k nastavení pluginu).<br />
+    Přečtěte si prosím pečlivě části <a href="#config">Nastavení</a>, <a href="#admin">Administrace</a>, <a href="#design">Vzhled</a> a nejnověji měněné položky v části <a href="#change">Changelog</a>. <br />
+    <br /><a name="config"></a>
+    
+    <div class="skip"><a href="#top">Nahoru</a></div>
+
+    <div class="readme_title">S9Y :: NÁVŠTĚVNÍ KNIHA :: NASTAVENÍ</div>
+    
+    <ul class="readme config">
+    <li>Volba <span class="eye">'Permalink'</span> určuje stálý odkaz (= permalink). Potřebuje absolutní HTTP cestu a musí končit na .htm nebo .html! <br />
+    Výchozí hodnota je "<em>/blogname/pages/guestbook.html</em>", nebo, v případě že nepoužíváte mod_rewrite, "<em>/blogname/index.php?/pages/guestbook.html</em>".</li>
+    <li><span class="eye">'Titulek & URL adresa statické stránky'</span> nastavení určuje titulek stránky (tj. to, co se zobrazuje v pruhu okna prohlížeče úplně nahoře.) <br />
+    Pozor: toto nastavení zároveň ovlivňuje URL adresu stránky (<em>index.php?serendipity[subpage]=titulek</em>). Zadávejte tedy krátký jednoslovný titulek bez mezer (<em>výchozí: guestbook</em>).</li>
+    <li><span class="eye">'Nadpis'</span> určuje nadpis stránky uvnitř blogu v designu nadpisů blogu (<em>nepovinné</em>).</li>
+    <li><span class="eye">'Úvod'</span> nastavuje přídavný úvodní text na stránce s návštěvní knihou (<em>nepovinné</em>).</li>
+    <li><span class="eye">'Umístění formuláře návštěvní knihy'</span> určuje, na kterém místě stránky bude zobrazen formulář pro vložení nových příspěvků do návštěvní knihy, jestli nad nebo pod příspěky (<em>výchozí: nahoře</em>).</li>
+    <li><span class="eye">'Příspěvků na stránku'</span> nastavuje, kolik příspěvků bude zobrazeno na jedné stránce (<em>výchozí: 10</em>).</li>
+    <li><span class="eye">'Znaků na řádku (zalomení)'</span> nastavuje, po kolika znacích bude automaticky zalomen text příspěvků (nová řádka) (<em>výchozí: 120</em>).</li>
+    <li><span class="eye">'Formátovat jako článek'</span> určuje, jestli mají být příspěvky návštěvní knihy formátovány stejně (co se týče barev, okrajů, apod.), jako příspěvky/články na blogu (<em>výchozí: ano</em>).</li>
+    <li><span class="eye">'Poslat e-mail administrátorovi'</span> nastavuje , že každý nový příspěvek bude emailem oznámen na adresu administrátora blogu. V následujícím kroku nastavte emailovou adresu administrátora (<em>výchozí: ne</em>).</li>
+    <li><span class="eye">'Email uživatele'</span> nastavuje, zda-li bude zobrazeno políčko pro zadání emailu uživatele (toho, kdo chce vložit příspěvek do návštěvní knihy) (<em>výchozí: ano</em>).</li>
+    <li><span class="eye">'WWW stránka uživatele'</span> nastavuje, zda-li bude zobrazeno políčko pro zadání www stránky uživatele (<em>výchozí: ne</em>).</li>
+    <li><span class="eye">'Zobrazovat kryptogramy'</span> určuje, jestli bude zadání příspěvku chráněno nutností správně přepsat kryptogram jako ochrana proti spamu. (vyžaduje nainstalovaný a aktivní plugin Spamblock) (<em>výchozí: ano</em>).</li>
+    <li><span class="eye">'Schvalovat příspěvky'</span> nastavuje, jestli budou příspěvky v návštěvní knize zobrazeny až poté, co je schválí administrátor blogu (<em>výchozí: ne</em>).</li>
+    <li><span class="eye">'Automatické schvalování'</span> nastavuje podobné chování pro jednotlivé vzkazy. Pokud je aktivní slovní filtr pluginu "spamblock", pokud je nastaven na "schvalovat", pokud je nastavena tato volba a pokud je nalezeno nevhodné slovo, vzkaz je označen ke schválení a není zobrazen. (<em>výchozí: ne</em>) Hodnocení obsahu návštěvní knihy přesto nadále vyžaduje potvrzení pomocí kryptogramu, pokud je zde přípěvek vyhodnocen jako spam. Tím se liší chování návštěvní knihy od běžného spamblocku!</li>
+    <li><span class="eye">'Kontroly vzkazů'</span> nastavuje aktivní individuální slovní filtr (<em>výchozí: předvyplněno</em>). Regulární výrazy jsou povolené, jednotlivé se oddělují středníkem (;). Musíte escapovat speciální znaky pomocí "\". Pokud necháte pole prázdné, nebudou se provádě žádné speciální kontroly. </li>
+    <li><span class="eye">'Formát data'</span> umožňuje nastavit libovolný formát pro zobrazení data příspěvku pomocí funkce php strftime() (<em>výchozí: %a, %d.%m.%Y %H:%M</em>).</li>
+    </ul>
+    <a name="admin"></a>
+    
+    <div class="skip"><a href="#top">Nahoru</a></div>
+
+    <div class="readme_title">S9Y :: GUESTBOOK :: ADMINISTRACE</a></div>
+    
+    <ul class="readme administration">
+        <li>Po přihlášení do blogu je možné spravovat plugin jak z administártorské sekce (z backendu), tak přímo ze stránky návštěvní knihy (z frontendu). Z frontendu je možné pouze mazat příspěvky. Před smazáním budete požádáni o potvrzení smazání.<br />
+		Administrace z frontendu byla odstraněna ve verzi 3.24.</li>
+        <li>Postranní sloupec v backendu blogu má čtyři položky pro správu návštěvní knihy: <br />
+        1. &#160; zobrazení schválených příspěvků, <br />
+        2. &#160; zobrazení neschválených příspěvků, <br />
+        3. &#160; úprava starého nebo vložení nového příspěvku (pokud je <span class="eye">'Schvalovat příspěvky'</span> nastaveno na 'ano'), <br />
+        4. &#160; databázová část.</li>
+        <li>První dvě položky umožňují potvrzení, smazání (okamžité bez potvrzení!) nebo znovu zadání jednotlivého příspěvku.</li>
+        <li>Databázová část umožňuje: zálohovat a stáhnout databázovou tabulku návštěvní knihy, nebo okamžité smazání databázové tabulky. Při práci zde opatrně! (Akce zde jsou mocné a zpravidla nevratné.)</li>
+        <li>Odkaz na vložení SQL je zobrazen, ale v současnosti není aktivní, neboť se v současnosti nejedná o jednoduchou operaci.</li>
+    </ul>
+    <a name="design"></a>
+    
+    <div class="skip"><a href="#top">Nahoru</a></div>
+
+    <div class="readme_title">S9Y :: GUESTBOOK :: VZHLED</div>
+    
+    <ul class="readme design">
+        <li>Všechny šablony smarty (soubory *.tpl), obrázky a hlavní css stylopis pluginu jsou umístěny v adresáři pluginu a musí zde zůstat.
+        <li>Pokud to umíte a chcete upravit vzhled návštěvní knihy podle sebe, zkopírujte tyto soubory do adresáře se stylem/šablonou vzhledu, kterou používáte.
+		<br />
+        ( plugin_guestbook_entries.tpl, plugin_guestbook_form.tpl, style_guestbook_backend.css ).</li>
+        <li>V případě, že chcete změnit pouze <span class="eye">barvu pozadí příspěvků</span>, zkopírujte tyto neutrální direktivy css s bílou barvou: <br />
+        <span class="cssblock">
+        <em> /* návštevní kniha - neutrální barvy */</em><br />
+        <span style="background-color: #FFB90F;;">/* nadpis příspěvku */</span><em> .guestbook_entrytop {  background:none repeat scroll 0 0 #FFF; } </em><br />
+        <span style="background-color: #E1E5DE;">/* pozadí příspěvku */</span><em> .guestbook_entrybottom { background:none repeat scroll 0 0 #FFF; } </em><br />
+        <span style="background-color: wheat;color: #444">/* administrátorský komentář */</span><em> span.guestbook_admin_comment { background:none repeat scroll 0 0 #FFF; } </em><br />
+        <span style="background-color: #555555;color: #A8A8A8">/* spodní šedá/stínová řádka */</span><em> #guestbook_entrybundle { -moz-border-radius: 0 0;  background:none repeat scroll 0 0 #FFF; } </em><br />
+        </span>
+        na konec souboru user.css, pokud takový máte (doporučený postup!). <br />
+        Pokud vaše šablona vzhledu neumožňuje uživatelské css stylopisy, <u>zkopírujte</u> soubor style_guestbook_backend.css do adresáře stylu/šablony vzhledu, <br />
+        zkopírujte výše zmíněné css direktivy na konec a změňte hodnotu #FFF na požadovanou barvu (#FFF je neutrální bílá).</li>
+        <li>Pokud chcete také zrušit <span class="eye">okraje okolo příspěvků</span>, přidejte ke každé direktivě: <em>border: 0 none;</em>.</li>
+        <li>Pokud chcete změnit všechny <span class="eye">barvy textu</span>, přidejte: <br />
+        <span class="cssblock"><em>
+        #guestbook_entrybundle table,<br />
+        #guestbook_entrybundle table a,<br />
+        #guestbook_entrybundle .guestbook_entrytop,<br />
+        #guestbook_entrybundle .guestbook_entrybottom,<br />
+        #guestbook_entrybundle .guestbook_admin_comment p,<br />
+        #guestbook_entrybundle .guestbook_admin_comment blockquote,<br />
+        #guestbook_entrybundle .guestbook_admin_comment blockquote p, <br />
+        #guestbook_entrybundle .guestbook_admin_comment blockquote p q { color: #000; } 
+        </em></span>
+        pro nastavení černé barvy (#000).</li>
+        <li>Nechcete <span class="eye">žádné mezery</span> mezi bloky s jednotlivými příspěvky? Přidejte: <em>.guestbook_splitentries { display: none; visibility: hidden; }</em></li>
+        <li><span class="eye">Úvodní text</span>, pokud je zadán v nastavení pluginu, může být upraven pomocí: <em>#guestbook_wrapper .guestbook_intro { padding: 0 none; text-align: left; border: 0 none; background:none repeat scroll 0 0 #FFF; }</em></li>
+        <li>Krásný seznam dostupných barev naleznete například <a href="http://www.wackerart.de/rgbfarben.html" target="_blank">tady</a>. Krásné obarvování!</li>
+        <br />
+    </ul>
+</div>
+<div class="doc_block changelog">
+
+    <a name="change"></a>
+    
+	<div class="skip"><a href="#top">Nahoru</a></div>
+    
+    <div class="readme_title">S9Y :: NÁVŠTĚVNÍ KNIHA :: CHANGELOG</div>
+    
+<h2>POZOR: Nejnovější verze pluginu vyžaduje, abyste zkontrolovali a zadali/znovu potvrdili nastavení návštěvní knihy!</h2>
+
+<p>
+ ****************************************************************<br />
+ *    plugin serendipty_event_guestbook, ChangeLog              <br />
+ *    Pokud máte zajímavé vylepšení nebo chcete pomoc, 			<br />
+ *    zanechte prosím zprávu na <a href="http://www.s9y.org/forums/">diskuzním fóru</a>. <br />
+ *    Užijte si to. .... Ian                                    <br />
+ ****************************************************************
+</p>
+
+<h2>Verze 3.27 <span class="date">[ 27.6.2011 ]</span></h2>
+
+<ul>
+    <li>změna šablon backendu/frontendu včetně změn souboru se styly backend.css z tabulkového layoutu na seznam a jejich aktualizace</li>
+    <li>změněna interního značkování nastavení, aby nastavilo výchozí hodnotu {$plugin_guestbook_articleformat} na (ano) v šabloně plugin_guestbook_entries.tpl.</li>
+    <li>změněno zalamování řádků v postranním pluginu</li>
+    <li>opravená sql procedura "alter update" a "remove"</li>
+    <li>změněno zobrazení backendu pro celou administrátorskou skupinu, ne pouze pro administrátora</li>
+</ul>
+
+<h2>Verze 3.26 <span class="date">[ 8.3.2011 ]</span></h2>
+
+<ul>
+    <li>Oprava časového razítka ve volání funkce spamblock na -8 dní do minulosti, zatímco captchas_ttl považuje krytpogramy jako platní do 7 dní.</li>
+    <li>Oprava administrační sekce; V některých chybových případech se ztatily proměnné POST.</li>
+    <li>Změněna jazyková konstanta ERROR_DATANOTAGS v jazycích &lt;en&gt;, &lt;de&gt;, &lt;de-utf8&gt;, &lt;cs&gt;, &lt;cs-utf8&gt;, &lt;cz&gt; a &lt;cz-utf8&gt;, aby podporovala novou funkci slovního filtru.</li>
+    <li>Přidána nová předvyplněná volba do nastavení, která umožňuje vypnout slovní filtr pluginu pro tělo vzkazu, která byla dříve vypínána interně.</li>
+    <li>Přidány interní proměnné do funkce pro správnou podporu nekompletních chybových zpráv.</li>
+    <li>Změna jazykových konstant v jazycích &lt;en&gt;, &lt;de&gt;, &lt;de-utf8&gt;, &lt;cs&gt;, &lt;cs-utf8&gt;, &lt;cz&gt; a &lt;cz-utf8&gt;, aby lépe vysvětlily rozdíly mezi jednotlivými způsoby schvalování vzkazů a kontrol proti spamu.</li>
+    <li>Změněna dokumentace documentation_en.html (kterou obsahuje i současná verze české documentation_cs.html), aby lépe vysvětlila rozdíl mezi kontrolou pomocí kryptogramů proti automatickému schvalování a nové volbě 'kontrola příspěvků'.</li>
+</ul>
+
+<h2>Verze 3.25 <span class="date">[ 6.3.2011 ]</span></h2>
+
+<ul>
+    <li>Přesun interních proměnných na lepší místo.</li>
+    <li>Změna šablony plugin_guestbook_backend_entries.tpl, aby podporovala skrytou proměnnou pro schvalování.</li>
+    <li>Vymazána volba schvalování v postranním pluginu, která byla zavedena ve verzi 3.21, protože postranní sloupec je nyní rozšířen o nastavení pluginu události.</li>
+    <li>Přestavěný postranní sloupec &lt;serendipity_plugin_guestbook&gt;, aby podporoval změny v nastavení 'automatické schvalování' a 'schvalování administrátorem'.</li>
+    <li>Přidány jazykové konstanty v jazycích &lt;en&gt;, &lt;de&gt;, &lt;de-utf8&gt;, &lt;cs&gt;, &lt;cs-utf8&gt;, &lt;cz&gt; a &lt;cz-utf8&gt;.</li>
+    <li>Přidáno nové nastavení, které umožňuje nastavit automatické schvalování pomocí pluginu spamblock, pokud je jeho slovní filtr aktivní a nastavený na 'schvalovat'.</li>
+    <li>Opravy pravopisu v německých jazykových souborech.</li>
+    <li>Upraveny drobnosti v CSS souboru návštěvní knihy.</li>
+    <li>Přidána návratová hodnota spamblocku 'schvalování komentářů', podpora vkládání vzkazů jako neschválených; rozšiřuje nastavení návštěvní knihy.</li>
+</ul>
+
+<h2>Verze 3.24 <span class="date">[ 23.2.2011 ]</span></h2>
+
+<ul>
+    <li>Přidány kontroly tagů a odkazů jako prevence před tím, aby spamboti četli kryptogramy.</li>
+    <li>Upraveny drobnosti v CSS souboru návštěvní knihy.</li>
+    <li>Změna jazykových konstant PAGINATOR_* a přidání nových konstant ERROR_DATANOTAGS v jazycích &lt;en&gt;, &lt;de&gt;, &lt;de-utf8&gt;, &lt;cs&gt;, &lt;cs-utf8&gt;, &lt;cz&gt; a &lt;cz-utf8&gt;.</li>
+    <li>Starý stránkovač nahrazen novým.</li>
+    <li>Změna šablony plugin_guestbook_entries.tpl, aby podporovala odstraněnou administraci.</li>
+    <li>Oodstraněny administrátorské funkce z frontendu, protože se lépe dělají v backendu.</li>
+</ul>
+
+<h2>Verze 3.23 <span class="date">[ 17.2.2011 ]</span></h2>
+
+<ul>
+    <li>Nejnovější: dopředná kompatibilita se smarty 3</li>
+</ul>
+
+<h2>Verze 3.22 <span class="date">[ 15.2.2011 ]</span></h2>
+
+<ul>
+    <li>Změněno volání metody smarty->fetch, aby podporovalo pořadí parametrů jak podle smarty 2, tak podle smarty 3 - odstraněn parametr 4.</li>
+    <li>Přidáno omezení funkcí administračního rozhraní a administrace z postranního sloupce pouze na přihlášeného administrátora.</li>
+</ul>
+
+<h2>Verze 3.21 <span class="date">[ 24.1.2011 ]</span></h2>
+
+<ul>
+    <li>Opraveno odesílání vzkazu na email, které nezobrazovalo správně tělo vzkazu.</li>
+    <li>Znovuzavedení falešného volání spamblocku a dalších pluginů komentářů, které bylo odstraněno v 3.20, aby bránilo spambotům v odchytávání kryptogramů.</li>
+    <li> Oprava serendipity_plugin_guestbook.php, aby správně zobrazeovalo pouze schválené vzkazy, pokud je to zadáno v nastavení.</li>
+    <li>Opravení překlepů v jazykovém souboru lang_en.* a upravení dokumentace tak, aby byla validní s W3C XHTML.</li>
+</ul>
+ 
+<h2>Verze 3.20 <span class="date">[ 17.7.2010 ]</span></h2>
+
+<ul>
+    <li>Tato verze přináší administrační stránky v administrační sekci blogu a nově umožňuje schvalování příspěvků.</li>
+    <li>Proto přidává nový sloupec 'approve' do databázové tabulky a novou proměnnou 'showapp', nastavenou buď na ano nebo ne (výchozí je ne).</li>
+    <li>Tyto změny se u starých příspěvků projeví tak, že budou všechny nastaveny jako schválené.</li>
+    <li>Aktualizován postranní blok návštěvní knihy, aby zobrazoval pouze schválené příspěvky. Nová verze postranního bloku je 1.12.</li>
+    <li>Změněny a přidány jazykové konstanty. Jazyky &lt;en&gt;, &lt;de&gt;, &lt;de-utf8&gt;, &lt;cs&gt; a &lt;cz&gt; jsou nyní aktuální.</li>
+    <li>Pár drobných vylepšení jak v šablonách frontendu, tak v css stylopisech.</li>
+    <li>Několik drobných vylepšení v algoritmu počítání stránek ve frontendu a v budování URL adresy stránky, aby byly kompatibilnější s nastavením mod_rewrite pomocí nastavení permalink nebo podstránka.</li>
+    <li>Tato vylepšní mohou ovlivnit individuální nastavení vzhledu. Zkontrolujte prosím vlastní šablony *.tpl a css stylopisy!</li>
+</ul>
+
+<h2>Verze 3.0 až 3.11 <span class="date">[ 2007-2009 ]</span></h2>
+
+<ul>
+<li>několik úprav od Garvina</li>
+    <ul>
+        <li>3.11: - Chybějící předpona http://, díky WMK</li>
+        <li>3.08: - Použití nadpisu pro vložení do titulku blogu, podobně jak to dělají statické stránky.</li>
+        <li>3.07: - Pouze skrytí emailových adres nepřihlášeným uživatelům</li>
+        <li>3.06: - Oprava chybného užití proměnných, které mělo za následek, že v některých případech nešly smazat příspěvky z návštěvní knihy</li>
+        <li>3.05: - Opraveno správné nezobrazování emailových adres, pokud bylo nastaveno.<br />
+                  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- Přidán status:200 pro lepší kompatibilitu s apache cgi</li>
+        <li>3.04: - Přidána chybějící jazyková konstanta</li>
+        <li>3.03: - Skok do sekce "potvrdit"</li>
+        <li>3.02: - Vyčištění proměnných</li>
+        <li>3.01: - Větší změny v rozložení knihy, odstraněna možnost vyskakovacích oken (která nefungovala správně) apod.</li>
+    </ul>
+</ul>
+
+<h2>Verze 2.8 až 3.0 <span class="date">[ 24.7.2007 ]</span></h2>
+
+<ul>
+    <li>Pokus o vložení vyskakovacích oken a dynamického vyplňování políček formuláře, které ovšem nefungoval tak, jak bylo plánováno. (nakonec odstraněno ve verzi 3.01) ;-)</li>
+</ul>
+
+<h2>Verze 2.7 <span class="date">[23.7.2007]</span></h2>
+
+<ul>
+    <li>Změněné jazykové soubory. Jazyky &lt;en&gt;, &lt;de&gt; a &lt;de-utf8&gt; jsou nyní aktualizovány. </li>
+        <ul>
+            <li>Pokud budete měnit nějaké jiné jazykové soubory, změňte prosím první řádek na </li>
+            <li>$Id: serendipity_event_guestbook.php, langfile(kratke_vase_jmeno) vX.X 20XX/XX/XX vase_jmeno</li>
+        </ul>
+    <li>Nové obrázky, přesun obrázků, vyčištění starých souborů.</li>
+        <ul>
+            <li>Smazaný prehistorický soubor 'plugin_guestbook.tpl', který mate nováčky. Udělejte prosím to samé!</li>
+            <li>'button_background.png' a 'shorttime.gif' nyní patří do podadresáře pluginu 'img'. Vymažte je prosím ze základního adresáře pluginu, aby nikoho nemátly.</li>
+            <li>Do adresáře 'img' přidány 'blank.gif' a 'info.gif', což je vlastně pomocný obrázek do nastavení.</li>
+        </ul>
+    <li>Změna šablony plugin_guestbook_form.tpl </li>
+        <ul>
+            <li>použití nových proměnných smarty</li>
+            <li>pokud jsou nastaveny: vyskakovací okno pro zobrazení zpráv</li>
+            <li>Nyní může uživatel používající vyskakovací okno vidět svůj příspěvěk po vložení do databáze.</li>
+            <li>V šabloně 'plugin_guestbook_form.tpl' byla změněna 'action="{$plugin_guestbook_action}#entry"' na 'action="{$commentform_action}?frontpage#feedback"'. To je nezbytné, pokud používáte statickou stránku jako startovní stránku blogu. Ujistěte se, že je plugin "statické stránky" před pluginy "kontaktní formulář" a "návštěvní kniha". Vlastně '?frontpage' bude zadána v 'serendipity_event_guestbook.php' </li>
+            <li>Přidáno administrační rozhraní</li>
+            <li>Změněno několik css tříd</li>
+        </ul>
+    <li>Změna šablony plugin_guestbook_entries.tpl</li>
+        <ul>
+            <li>použití nových proměnných smarty </li>
+            <li>pokud je nastaveno, zarovnání formuláře nahoře nebo dole a možnost odkazovat na formulář</li>
+            <li>změněno pár věcí okolo toho</li>
+            <li>přidáno pár věcí do adinistračního rozhraní a tag &lt;td&gt;&lt;/td&gt;, který se ukázal nezbytným</li>
+            <li>Změněno několik css tříd</li>
+        </ul>
+    <li>Změněn, vyčištěn a pozměněn soubor style_guestbook_backend.css</li>
+        <ul>
+            <li>Do Vašeho adresáře se šablonou si můžete vložit vlastní verzi jak tpl šablon, tak css stylopisů.</li>
+        </ul>
+    <li>Přidáno dynamické pole navíc (dyn).</li>
+        <ul>
+            <li>Nemyslím, že je nutné používat mgroeningerovu výbornou dynamickou funkci z kontaktního formuláře.</li>
+        </ul>
+    <li>Aby byl plugin lépe a více nastavitelný, následující proměnné byly přidány nebo pozměněny (viz též jazykové soubory):</li>
+        <ul>
+            <li>'headline' nadpis statické stránky, přidal Garvin (v. 2.7).</li>
+            <li>'intro' použito pro volitelný úvodní text na začátku stránky.</li>
+            <li>'pageurl' nyní nazávaný permalink, zatímco pagetitle je použit jako původní (1.x) URL adresa pro  <br />
+                        staticpage_pagetitle, viz níže. (Vím, zní to zmateně, ale ve výsledku je to přímější!)</li>
+            <li>'pagetitle' je použit ve statických stránkách a dalších šablonách a určuje URL adresu stránky <br />
+                        'index.php?serendipity[subpage]=name'.</li>
+            <li>'formorder' určuje místo zobrazení formuláře pro zadání nových příspěvků, výchozí hodnota je pod příspěvky.</li>
+            <li>'formpopup' určuje, jestli se má formulář zobrazit ve vyskakovacím okně, výchozí hodnota (ano) znamená žádná vyskakovací okna.</li>
+            <li>'showdynfield' je základní dynamické pole definované v databázi jako mysql varchar(100). <br />
+                        Použijte spolu se vstupním polem v šabloně plugin_guestbook_form.tpl <br />
+                        a jako textový výstup v šabloně plugin_guestbook_entries.tpl.<br />
+                        Zkoušel jsem to i s polem typu tinyblob, ale zjistil jsem, že není moc dobrý nápad <br />
+                        ukládat binární data v databázi, a proto jsem se vrátil k tomuto malému textovému poli.<br />
+                        Pokud chcete změnit označení tohoto pole, nastavte na stránce s nastavením nové jméno v příslušném políčku (dynfield) a potvrďte změny.</li>
+        </ul>
+    <li>Opravena malá chyba ve funkci stránkování.</li>
+    <li>Generální úklid kódu ho vyčistil a posunul výš. Více zdokumentovaného kódu.</li>
+    <li>Nyní se jedná už o opravdu plně šablonovanou verzi (99.9% ;-)). </li>
+        <ul>
+            <li>Zbývající bloky (div) a administrační věci byly přesunuty do *.tpl šablon.</li>
+            <li>Sorry, ve funkcích je stále potřeba zpracovávat zalomení řádků a url adresy ve funkci stránkování.</li>
+        </ul>
+    <li>Dobré zprávy! Kód pro statické stránky na konci této stránky je už překonaný.</li>
+        <ul>
+            <li>Zachováme kompatibilitu s verzí 1.x až do příštího releasu 3.x. No, vlastně, ... ta verze se bude jmenovat 3.0.....</li>
+        </ul>
+</ul>
+
+<h2>Verze 2.5 až 2.7 <span class="date">[ 2007 ]</span></h2>
+
+<ul>
+    <li>pár vylepšení od Garvina</li>
+</ul>
+
+<h2>Verze 2.0 až 2.4 <span class="date">[ 21.8.2006 až 9.10.2006 ]</span></h2>
+
+<ul>
+    <li>Několik změn ve vytváření ve funkci pro vytávření odkazů generate_EntriesPage(), aby pracovalo s i bez modulu mode_rewrite</li>
+    <li>SQL dotazy pro zobrazení příspěvků se nyní vykonávají pouze pokud je uživatel v módu 'zobrazení příspěvků' nebo 'příspěvek hotov'</li>
+    <li>Guestbookform tpl action url je nyní: $serendipity['baseURL'] . $serendipity['indexFile'] . '#entry'</li>
+    <li>Změněn postranní sloupec serendipity_event_staticpage.php, aby byl kompatibilní také s verzí návštěvní knihy 2.0 (code1). <br />
+        V případě, že už jste tento plugin používali k zobrazení odkazu do návštěvní knihy v postranním sloupci, jděte prosím do administrační sekce,<br />
+        do nastavení statických stránek, a znovu zadejte zobrazování návštěvní knihy mezi odkazy. Touto akcí dojde k potřebným změnám.</li>
+    <li>Postranní sloupec serendipity_plugin_guestbook nyní funguje pouze s verzí 2.0</li>
+    <li>Email administrátora by měl být nyní kompatibilní s verzí návštěvní knihy 1.38 - použití pouze jednoho emailu</li>
+    <li>Nastavení značkování nyní způsobuje, že políčka návštěvní knihy jsou nyní při zobrazování prohnána skrz standardní fonukce serendipity pro formátování textu a převod smajlíků do obrázkové podoby</li>
+    <li>Změna starších databázových tabulek nyní funguje (pouze?) v mysql</li>
+    <li>Více funkcí pro vyčištění/přejmenování a nastavitelné zalamování textu ve verzi 2.0</li>
+    <li>Nyní by měla návštěvní kniha spolupracovat s kryptogramy - to si vyžádalo novou proměnnou v nastavení, tedy prosím zkontrolujte nastavení kryptogramů v pluginech spamblock a návštěvní kniha</li>
+    <li>Vyčištění a optimalizace jazykových konstant</li>
+    <li>Teď už je plugin serendipity_event_guestbook skoro celý postavený na šablonách (viz plugin_guestbook_entries.tpl a plugin_guestbook_form.tpl)</li>
+    <li>Odteď naleznete obrázky shorttime.gif, button_background.png a delete.png v adresáři $adresar_pluginu/img.</li>
+    <li>Změna css (style_guestbook_backend.css) a souborů šablon podle vašich požadavků</li>
+    <li>Zkontrolujte prosím ostatní jazykové soubory. Nyní jsou aktuální a správně pracující pouze &lt;en&gt;, &lt;de&gt; a &lt;de-utf8&gt;!</li>
+    <li>Permalink ("pageurl") je úplná cesta z htto kořenového adresářenapř. "/serendipity/pages/guestbook.html" nebo "/serendipity/index.php?/pages/guestbook.html" (viz mod_rewrite)</li>
+    <li>Prosím pozor: Tato verze používá funkce pluginu spamblock, konkrétně kryptogramy (vypnuto pro administrátory),</li>
+    <li>Prosím pozor: proměnné timelock a sessionlock už nejsou nadále používány - jsou odstraněny při aktualizaci databázové tabulky</li>
+</ul>
+
+<h2>Verze 1.0 až 1.38 <span class="date">[ 11.2.2005 až 21.8.2006 ]</span></h2>
+
+<ul>
+    <li>první verze vyvinul Philipp Schneider aka boelkstoff</li>
+</ul>
+
+</div>
+
+<p>
+<a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Transitional" height="31" width="88" /></a>
+</p>
+
+<div class="skip dark"><a href="#top">Nahoru</a></div>
+
+</div>
+
+</body>
+</html>

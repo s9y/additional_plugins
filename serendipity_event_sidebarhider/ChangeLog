@@ -1,0 +1,3 @@
+1.24: Properly parse "sidebars" template option
+
+1.22: Made sure that checkboxes were properly checked.

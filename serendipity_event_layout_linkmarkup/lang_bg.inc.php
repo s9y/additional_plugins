@@ -1,0 +1,12 @@
+<?php # $Id: lang_bg.inc.php,v 1.2 2006/08/18 10:03:34 jwalker_bg Exp $
+
+/**
+ *  @version $Revision: 1.2 $
+ *  @author Ivan Cenov jwalker@hotmail.bg
+ *  EN-Revision: 1.1
+ */
+
+@define('PLUGIN_LAYOUT_LINKMARKUP_VERSION', '1.0');
+@define('PLUGIN_LAYOUT_LINKMARKUP_NAME', 'Layout-Plugin: Маркап за връзки');
+@define('PLUGIN_LAYOUT_LINKMARKUP_BLAHBLAH', 'Позволява смяна на маркапа (изобразяването) на връзките в телата на статиите');
+@define('PLUGIN_LAYOUT_LINKMARKUP_VISITEDIMAGE', 'URL на картинка, която да се показва като зад посетена връзка');

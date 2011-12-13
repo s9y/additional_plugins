@@ -1,0 +1,8 @@
+TODO:
+==============================
+
+* nicer look and feel
+* The ability to have more than one side bar plugin listing different pages.
+* copy existing static pages
+* Support the privilege "may create staticpages" per author, using the 0.9
+  privilege system

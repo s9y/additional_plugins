@@ -1,0 +1,11 @@
+latest: Smarty3 forward compatibility
+
+0.10:
+-----
+
+Suppress backend message, actually send mails when new entries arrive
+
+0.7:
+------
+
+Bugs #3055500 & 3055504 by Martin Leyrer, postgresql related

@@ -1,0 +1,12 @@
+.linktrimmer {
+    float: right;
+}
+
+.serendipity_linktrimmer_page {
+}
+
+.serendipity_linktrimmer_page .linktrimmer {
+    float: none;
+    display: block;
+    margin: auto auto;
+}

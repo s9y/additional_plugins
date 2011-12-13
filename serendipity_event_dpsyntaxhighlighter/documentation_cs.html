@@ -1,0 +1,45 @@
+<html>    
+	<head>        
+		<meta http-equiv="content-type" content="text/html; charset=windows-1250">
+		<title>Dokumentace: Zvýrazňovač syntaxe</title>        
+	</head>
+	<body>
+	<h1>Dokumentace k pluginu 'Zvýrazňovač syntaxe'<br />
+	<small>(serendipity_event_dpsyntaxhighlighter)</small></h1>
+		<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 2.9.2011. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="ChangeLog">aktuální anglický ChangeLog</a>. 
+		</p>
+		
+		<h2>Popis pluginu</h2>
+		<p>
+		Tento plugin je JavaScriptový zvýrazňovač syntaxe založený na stejnojmeném kódu Alexe Gorbačeva.
+		</p>
+		<p>
+       Tento plugin zatěžuje server méně než GeSHi a vkládá méně značek do HTML kódu. Představuje čistější, odlehčenější alternativu ke GeSHi.
+   		</p>
+		<p>
+       Plugin vyžaduje použití šablony vzhledu, který podporuje následující hooky: frontend_header, frontend_footer (a volitelně také backend_preview pro zobrazování i v administrační sekci).
+		</p>
+		
+		<h2>Historie verzí (ChangeLog)</h2>
+		<ul>
+			<li>verze 2.1.364</li>	
+			<ul>	
+				<li>aktualizováno na novou verzi použité knihovny</li>	
+				<li>vložena podpora odkazů (<a href="http://alexgorbatchev.com/wiki/SyntaxHighlighter:Upgrading">http://alexgorbatchev.com/wiki/SyntaxHighlighter:Upgrading</a>)</li>
+				<li>verze se stala variabliní, aby šla jednoduše aktualizovat při aktualizaci použité knihovny (jednoduše přidán nový adresář do adresáře /sh/ a změna proměnné)</li>
+				<li>adresář šablon a skriptů je zjišťován dynamicky, aby získal všechny šablony</li>
+				<li>šablonu lze vybrat v administračním rozhraní</li>
+				<li>autoři Serendipity jsou zmíněni v okně nápovědy ;-)</li>
+			</ul>
+
+			<li>verze 1.5.1</li>	
+			<ul>	
+				<li>Číslo verze se nyní shoduje s aktuálním JS skriptem, na kterém běží, namísto verze pluginu. To by mělo lidem pomoci zjistit, jestli pracují se starou nebo aktuální verzí skriptu.</li>	
+				<li>Aktualizovány popisky. Už neprovozuji změněnou verzi CSS. Alex Gorbechev zpracoval většinu mých návrhů z hlášení chyb a opravil své CSS.</li>
+				<li>Informace o autorech nyní odkazují na Alexe Gorbecheva (jádro) a na mě (plugin)</li>
+				<li>Popisky nyní říkají uživatelům, že šablony vzhledu musí zbracovávat hooky frontend_header, frontend_footer a volitelně i backend_preview, aby plugin fungoval.</li>
+			</ul>
+		</ul>  
+
+	</body>
+</html>

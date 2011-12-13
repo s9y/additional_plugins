@@ -1,0 +1,32 @@
+
+1.22, 1.21: Changed fail2ban syntax to better parse
+
+2011-05-31: 1.20 - added fail2ban logfile parameter
+
+2006-12-01  Colas Nahaboo  <colas@nahaboo.net>
+Potential v1.17 version?
+
+My changes add the following:
+   * Ability to connect to Microsoft Active Directory LDAP interface. For
+     this, one MUST issue the 2 commands:
+       ldap_set_option($ds,LDAP_OPT_PROTOCOL_VERSION, 3);
+       ldap_set_option($ds, LDAP_OPT_REFERRALS, 0);
+     juste after the ldap_connect
+   * Ability to connect to LDAPs not supporting anonymous browsing via the 2
+     new config vars 'bind_user' &  'bind_password'
+   * Ability to use LDAPs where users are not cleanly stored in one part of
+     the tree, i.e., one have to perform a search with the login name on all
+     the subtree given in 'rdn' with an LDAP search-expression given in the
+     new config variable 'auth_query' with %-expansion of rdn
+   * Setting the s9y 'realname' field from the LDAP 'name' one in all cases
+
+For instance in my config at ILOG,
+   rdn = DC=ilog,DC=biz
+   bind_user = CN=webcoreadreaddev,CN=Users,DC=ilog,DC=biz
+   bind_password = noneofyourbusiness
+   auth_query = (&(objectcategory=person)(objectclass=user)(sAMAccountName=%1))
+
+I changed the files
+   * serendipity_event_externalauth.php for the code
+   * lang_en.inc.php for the english descriptive text of the new 3 options
+   * ChangeLog.txt I added this file.

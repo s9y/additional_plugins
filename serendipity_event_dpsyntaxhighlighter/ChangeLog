@@ -1,0 +1,23 @@
+2.1.364 Updates:
+- updated to new upstream code
+- legacy support is included (http://alexgorbatchev.com/wiki/SyntaxHighlighter:Upgrading)
+- version has become a variable in order to easily upgrade on upstream upgrade (just add new directory to /sh/ directory and change the variable)
+- theme and scripts directory dynamically read to retrieve all brushes and themes
+- theme can be selected in admin interface
+- s9y plugin authors mentioned in help window ;-)
+
+1.5.1 Updates:
+- Version number now corresponds to the actual JS script this is running
+  instead of the version of the plugin - this should make it easier for people
+  to know if they're running an older or up-to-date version.
+
+- Descriptive text updated. I'm no longer running a modified version of the
+  CSS. Alex Gorbechev took most of my suggestions from the bug tracker and
+  fixed up his CSS.
+  
+- Author information now gives initial credit to Alex Gorbechev (core) and
+  then me (plugin)
+    
+- The descriptive text now tells people that the theme requires the
+  frontend_header, frontend_footer[/b], and optionally the
+  backend_preview hooks to work.

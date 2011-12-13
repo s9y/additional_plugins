@@ -1,0 +1,22 @@
+latest: Smarty3 forward compatibility
+
+0.26:
+-----
+* Add smarty variable $entry.authorpic
+
+0.20:
+======================================
+* Changed display workflow to evaluate target user permissions properly
+  and display own profile with default editing mask
+
+* Added birthday dates
+
+0.11:
+=======================================
+
+* add vcard to media library
+
+0.8:
+=======================================
+
+* Implemented serendipity_event_authorpic plugin into userprofiles plugin.

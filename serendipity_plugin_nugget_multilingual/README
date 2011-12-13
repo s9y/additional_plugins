@@ -1,0 +1,17 @@
+Serendipity 'Language-Specific HTML Nugget' Plug-in
+by Wesley Hwang-Chung, version 1.1
+
+This plug-in acts exactly like the default HTML Nugget plug-in,
+with one exception - you can choose under what language the HTML
+nugget will be visible in. For example, if you choose 'Korean',
+the HTML nugget will be visible only if the blog is being viewed
+under 'Korean' language option (generally using the Multilingual
+plug-in).
+
+This plug-in is useful in multilingual blogs where the author
+wants to display different HTML nuggets specifically tied to a
+language.
+
+History
+1.4: Added support for three new languages in s9y 0.9
+1.1: Initial Release

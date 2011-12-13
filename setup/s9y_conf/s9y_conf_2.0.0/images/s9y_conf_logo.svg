@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="200.00000pt"
+   height="100.00000pt"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.42.2"
+   sodipodi:docbase="/home/clander/public_html/s9y_conf/images"
+   sodipodi:docname="s9y_conf_logo.svg"
+   inkscape:export-filename="/home/clander/public_html/s9y_conf/images/s9y_conf_logo.png"
+   inkscape:export-xdpi="63.409092"
+   inkscape:export-ydpi="63.409092">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient4291">
+      <stop
+         style="stop-color:#555500;stop-opacity:1.0000000;"
+         offset="0.0000000"
+         id="stop4293" />
+      <stop
+         style="stop-color:#ffff00;stop-opacity:1.0000000;"
+         offset="1.0000000"
+         id="stop4295" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4283">
+      <stop
+         style="stop-color:#dddd00;stop-opacity:1.0000000;"
+         offset="0.0000000"
+         id="stop4285" />
+      <stop
+         style="stop-color:#aaaa00;stop-opacity:1.0000000;"
+         offset="1.0000000"
+         id="stop4287" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3549">
+      <stop
+         style="stop-color:#ffff00;stop-opacity:1.0000000;"
+         offset="0.0000000"
+         id="stop3551" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1.0000000;"
+         offset="1.0000000"
+         id="stop3553" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3527">
+      <stop
+         style="stop-color:#000000;stop-opacity:0.0000000;"
+         offset="0.0000000"
+         id="stop3529" />
+      <stop
+         style="stop-color:#000000;stop-opacity:1.0000000;"
+         offset="1.0000000"
+         id="stop3531" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient2793">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop2795" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1.0000000;"
+         offset="1.0000000"
+         id="stop2797" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient2041">
+      <stop
+         style="stop-color:#0000ff;stop-opacity:0.0000000;"
+         offset="0.0000000"
+         id="stop2057" />
+      <stop
+         style="stop-color:#0000ff;stop-opacity:1.0000000;"
+         offset="1.0000000"
+         id="stop2045" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4291"
+       id="radialGradient4297"
+       cx="100.03591"
+       cy="50.116566"
+       fx="100.03591"
+       fy="50.116566"
+       r="78.969727"
+       gradientTransform="matrix(1.000000,0.000000,0.000000,0.192209,6.930888,55.75971)"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4283"
+       id="radialGradient4305"
+       cx="100.03591"
+       cy="50.116566"
+       fx="100.03591"
+       fy="50.116566"
+       r="78.969727"
+       gradientTransform="matrix(1.000000,0.000000,0.000000,0.192209,6.930888,55.75971)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.6880000"
+     inkscape:cx="125.00000"
+     inkscape:cy="62.500000"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:window-width="1016"
+     inkscape:window-height="693"
+     inkscape:window-x="0"
+     inkscape:window-y="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       sodipodi:type="arc"
+       style="fill:#cc0000;fill-opacity:1.0000000;stroke:#999900;stroke-width:1.0000000;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000"
+       id="path1310"
+       sodipodi:cx="101.30152"
+       sodipodi:cy="37.527115"
+       sodipodi:rx="70.932755"
+       sodipodi:ry="21.691975"
+       d="M 172.23428 37.527115 A 70.932755 21.691975 0 1 1  30.368767,37.527115 A 70.932755 21.691975 0 1 1  172.23428 37.527115 z"
+       transform="matrix(1.623339,0.000000,0.000000,2.195220,-39.44671,-19.88027)" />
+    <text
+       xml:space="preserve"
+       style="font-size:44.000000px;font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;fill:url(#radialGradient4297);fill-opacity:1.0000000;stroke:url(#radialGradient4305);stroke-width:1.0000000;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000;font-family:Luxi Serif"
+       x="25.817383"
+       y="78.40918"
+       id="text1306"
+       sodipodi:linespacing="125.00000%"><tspan
+         sodipodi:role="line"
+         id="tspan1308"
+         x="25.817383"
+         y="78.409180"
+         style="font-size:44.000000px;font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;fill:url(#radialGradient4297);fill-opacity:1.0000000;stroke:url(#radialGradient4305);stroke-width:1.0000000;stroke-linejoin:round;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000;font-family:Luxi Serif">S9Y_Conf</tspan></text>
+  </g>
+</svg>

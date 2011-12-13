@@ -1,0 +1,6 @@
+<Files ~ "(\.(xml)|config|data|lib|domit)$">
+  Order deny,allow
+  Deny from all
+</Files>
+
+RewriteEngine Off

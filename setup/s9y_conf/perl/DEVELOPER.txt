@@ -1,0 +1,81 @@
+=================================================================================
+s9y_conf
+~~~~~~~~
+A PERL script to aid in the setup of Serendipity Blog (S9Y) especially in a
+shared environment.
+
+This script is released to the public domain under the GPL licence, it is free
+to use without warranty.
+
+Chris Lander - clander@labbs.com
+=================================================================================
+
+These notes are intended to assist others in developing the script to provide
+extra functionality, and convert it for use on alternative platforms.
+
+Initial development of the script took place in a Linux environment, and it is
+therefore likely to contain commands and features which may not work on other
+platforms (e.g. Windows).
+
+Files making up the complete package are spread across a directory hierarchy, and
+generally contain only one subroutine.
+
+./ --+
+     | Main script directory
+     |
+     |
+     +-- include/ --+
+     |              | Routines that do not fall into the categories below
+     |              |            
+     |              |
+     |              +-- data/ ----+
+     |              |             | Data handling routines
+     |              |             | Including sane initialisation and
+     |              |             | possibilities for the addition of
+     |              |             | version checking/upgrading in the
+     |              |             | future.
+     |              |
+     |              |
+     |              +-- menus/ ---+
+     |              |             | Menu routines
+     |              |            
+     |              |            
+     |              +-- output/ --+
+     |                            | Routines that create the output
+     |                            | configuration files
+     |             
+     |             
+     +-- lang/ --+            
+                 | Language definitions
+
+
+=================================================================================
+
+In order to convert this script for Windows usage you will need to resolve any
+issues surrounding functions as described below, amongst others.
+
+1. The command system('clear') is used to clear the terminal screen in menus and
+   elsewhere.
+
+2. The commands chmod and chown are used in the file output routines.
+
+3. Sudo functionality is provided through system('') calls that contain the sudo
+   command prefix.
+
+4. The path/name of the datafile used to store data between runs is set in
+   ./include/data/init_vars.pl, which includes '/'.
+
+5. Login UID/GID and superuser information is collected in
+   ./include/data/init_vars.pl using PERL '$' variables and the getpwuid()
+   command.
+
+6. Default data is set in ./include/data/init_data.pl, such as path names with
+   '/'.
+
+7. Data is also set in ./include/data/check_globals.pl, such as path names with
+   '/'.
+
+There will almost certainly be other issues that could affect the script
+operation on a Windows platform, these are the ones I know may make/break the
+script.
+=================================================================================

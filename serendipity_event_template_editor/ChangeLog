@@ -1,0 +1,13 @@
+0.3:
+ * Check if template directory is writeable
+ * Don't save php-files with syntax-errors
+ * Show link to template_editor also if there are no template options
+
+0.2:
+ * Changed necessary right to only "siteConfiguration"
+ * Bugfix: Some translation-variables had the wrong name
+ * Bugfix: Delete didn't work with files which had multiple "."
+ * Made images deletable
+ * Added Uploadbutton
+ * Added Rename function
+ * Minor usability improvements

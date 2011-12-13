@@ -1,0 +1,29 @@
+0.13:
+
+Fixed misspell of $addData vs. $addlData
+
+0.12:
+Added missing German translation for title and description of escaping option
+Added description for escaping option
+
+0.11:
+Changed tag capturing to allow for custom classes.
+Added config option to use htmlspecialchars() or not
+
+0.9:
+Add config option to decide whether entries without custom keywords should use auto-detection
+
+0.8:
+
+Changes by Don Chambers:
+
+New:
+Added field for entry-specific <title> element.
+Added word and character counts to all fields.
+Added defaults for meta description and meta keywords on non-single entry pages.
+Added fallback to default meta keywords if a keyword phrase cannot be generated based upon the list of HTML Tags for keywords.
+
+Updated:
+Increased meta data field display widths.
+Added suggestions for length of all fields.
+Increased auto-generated entry meta description to 120 characters.

@@ -1,0 +1,19 @@
+# $Id$
+
+------------------------------------------------------------------------
+Version 1.02 (brockhaus)
+
+    * In the RSS feeds the language tag of "wikified" words were popping
+      up. The plugin now removes them from the RSS feeds. Thanks to
+      Robert Lender for informing me.
+
+------------------------------------------------------------------------
+Version 1.01 (brockhaus)
+
+    * Added the new Wikipedia preview function of SnapShot
+
+------------------------------------------------------------------------
+Version 1.0 (brockhaus)
+
+    * Initial commit of this plugin with dummy domain registration.
+

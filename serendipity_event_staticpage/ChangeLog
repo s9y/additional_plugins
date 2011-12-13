@@ -1,0 +1,323 @@
+3.88: Fixed guestbook link generation for non-rewrites (Timbalu)
+
+(sidebar) 1.16: Added smartify option (by Timbalu)
+
+3.87: Add foreach check to prevent error
+
+3.86: Improved 404 page handling (Manko10)
+
+3.84: Added server "Status:" header as well
+
+3.83:
+---------------------------
+
+Add missing changes in backend template for selecting a staticpage as 404 error document
+
+3.82:
+---------------------------
+
+Add possibility to use a staticpage as 404 error document
+by setting the corresponding page property
+
+3.81:
+---------------------------
+
+Smarty3 forward compatibility
+
+3.80:
+---------------------------
+
+PHP 5.3 compat
+
+3.79:
+---------------------------
+
+Beter rename of dirs, by stm9x9
+http://board.s9y.org/viewtopic.php?f=3&t=15461
+
+3.78:
+---------------------------
+Fix properly showing stored custom properties for template when changing a page/template
+
+3.77:
+---------------------------
+
+Remember selection of last backend template in a cookie
+
+3.76:
+---------------------------
+
+Also allow "_" and "-" in custom backend template names
+
+3.75:
+---------------------------
+
+Safety confirmation for deleting staticpages
+
+3.73:
+----------------------------
+Fix for PHP4 to properly display HTMLArea on default smarty template.
+
+
+3.72:
+-----------------------------
+Fix for not being able to edit a staticpage through the frontend's
+Edit link
+
+
+3.70, 3.71:
+-----------------------------
+
+Major new functionalities:
+
+    1. Allow to create custom smarty templates used for editing a
+       staticpage.
+       
+       When editing a staticpage in the backend, you now have a dropdown
+       where you can choose a template. The default file is placed
+       in the plugin's subdirectory "backend_templates". You can
+       add files there on your own, which are then shown in the
+       dropdown as well.
+       
+       You can override the content of those files within your
+       template directory, by placing a file named exactly the same way,
+       in the "backend_templates" sub-directory of your template. 
+       Thus, you can put an empty file inside your plugin
+       directory to initialize the ability to use a template-preference.
+       
+       The default template file has several smarty functions to query
+       the current value and input fields. You can place all input
+       fields the way you like, using Smarty/HTML layouts.
+       
+       You can also still switch to the "old way" through the dropdown.
+       
+
+    2. Introduce "custom properties" for staticpages.
+    
+        You need to add those custom properties to your custom smarty
+        template, by accessing an input field "serendipity[plugin][custom][xxx]".
+        The default backend template has a commented section for an
+        example on how to use this.
+        
+        In your final smarty templates (either the staticpage_*.tpl files, or your
+        usual smarty template files) you can access those custom properties through
+        
+        {$staticpage_custom.XXX}
+        
+        to place them anywhere you want.
+
+To properly see the new layout, you might need to flush your browser's
+CSS cache, as changes have been made to the plugin's CSS file.
+
+
+3.61:
+-----------------------------
+Speed up call for getting staticpage list and cache it. Otherwise, the
+plugin was unusable for thousands of staticpages, because the 
+walkrecursive() function is VERY expensive.
+
+3.57:
+=============================
+
+Fix smarty function to properly interpret templates passed as argument.
+
+3.53:
+==============================
+Changes by Stephan Manske:
+
+* new feature: add a related staticpage to a category and the opposite way around
+
+
+3.32:
+==============================
+Changes by Falk D�ring:
+
+* Update formatting
+* Fix pageorder setting
+
+3.30 / 3.31:
+==============================
+Change by Garvin Hicking:
+
+* Allow to search staticpages via s9y Quicksearch
+
+3.26:
+==============================
+Change by Garvin Hicking:
+
+* Allow to post/edit staticpages via bookmark URLs / wikilinks plugin
+
+3.24:
+==============================
+Changes by Falk D�ring:
+
+* Change: Pagetype 'Aboutpage' renamed to 'Overview'
+* Update: german and english language file
+* Update: external plugin menu
+
+3.23:
+==============================
+* Fix: Filename of CSS backend styles
+
+3.22:
+==============================
+Changes by Falk D�ring:
+
+* Fix: disable templates if a plugin is called
+
+3.21:
+==============================
+Changes by Falk D�ring:
+
+* Fix: FAQ-Event now without mod_rewrite support
+
+3.20:
+==============================
+Changes by Falk Doering:
+
+* New: add FAQ-Event to sidebar
+* FIX: some wrong action messages
+
+
+3.19:
+==============================
+Changes by JWalker:
+
+* Fix: Only show prev/next/top links when link is not empty
+
+3.18:
+==============================
+Changes by Falk Döring:
+
+* Fix: integrating contactform per subpage correct if mod_rewrite is disabled
+
+3.17:
+==============================
+Changes by Falk D�ring:
+
+* New: a list of plugins they can be included in the sidebar and their status
+
+3.16:
+==============================
+Changes by Falk D�ring:
+
+* Fix multilingual selection. Now you can chose a page for all languages
+* Fix unused defines
+
+3.15:
+==============================
+
+* Change plugin_staticpage.tpl so that unique CSS classes are used
+* Fix PHP warning when no published page was found
+* split message catalog to lang_en.inc.php (Tadashi Jokagi)
+* Japanese translation updated. sync with en (Tadashi Jokagi)
+
+3.14:
+==============================
+Changes by Falk Döring:
+
+* New: Multilanguage support
+
+3.12/3.13:
+==============================
+Patch by Stephan Sachse:
+
+* Fix SQL creation statement. Again. Sorry, guys.
+
+3.11:
+==============================
+
+* Fix spelling error, thanks to Wesley
+* Fix trailing "/" for httpPath, thanks to Michel Verdier
+
+
+3.10:
+==============================
+Changes by Tadashi Jokagi:
+
+* Change constants
+STATICPAGE_{SHOWNAVI,SHOWONNAVI,SHOWARTICLEFORMAT,SHOWCHILDPAGES}_DEFAULT_DESC
+to single constant
+STATICPAGE_DEFAULT_DESC
+because they were all the same. Thanks to Tadashi Jokagi!
+
+3.09:
+==============================
+Changes by Garvin Hicking:
+
+* Fix PHP short-tags
+* Fix proper use of serendipity_db_update
+* Fix wrong unset variable checks (postgresql check pending)
+
+3.08:
+==============================
+Changes by Falk Döring:
+
+* Fix DB updates, blame Garvin
+* New: show headline or next/prev in childpage-naviagtion
+* Update: use s9y functions for update
+
+3.07:
+==============================
+Changes by Garvin Hicking:
+
+* Set default values for numerical columns,
+  to be nice to postgreSQL.
+
+3.06:
+==============================
+Changes by Falk Döring:
+
+* New: Include other plugins in sidebar
+
+3.05:
+==============================
+Changes by Garvin Hicking:
+
+* Change: ALTER TABLE
+
+3.04:
+==============================
+Changes by Garvin Hicking:
+
+* Fix: s9y version number
+
+3.03:
+==============================
+Changes by Falk Döring:
+
+* New Options:
+ * show on navigation
+ * show navigation
+ * publish status
+* configure default values in Plugin-Section
+
+3.02:
+==============================
+Changes by Garvin Hicking:
+
+* Fix: English language
+
+3.01:
+==============================
+Changes by Garvin Hicking:
+
+* Fixed WYSIWYG editors (to properly work in non-WYSIWYG mode you need Serendipity >= 0.9-beta3!)
+
+3.0:
+==============================
+Changes by Falk Döring:
+
+* New: Pagecategorys
+ * Default: Article and Aboutpage
+* Fix: Navigation back/next
+* Update: german language
+* Support for Category-Image
+* Support for ordering pages
+
+2.12:
+==============================
+Changes by Falk Döring:
+
+* Support display of last change and page back/next navigation
+* Support display of "Edit this page" link

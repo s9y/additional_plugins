@@ -1,0 +1,17 @@
+<?php # $Id: lang_bg.inc.php,v 1.1 2007/05/11 12:56:44 garvinhicking Exp $
+
+/**
+ *  @version $Revision: 1.1 $
+ *  @Author Ivan Cenov jwalker@hotmail.bg
+ *  EN-Revision: 1.1
+ */
+
+@define('PLUGIN_EXTERNALPHP_TITLE', 'Âúíøíî PHP ïðèëîæåíèå');
+@define('PLUGIN_EXTERNALPHP_TITLE_BLAHBLAH', 'Ïîêàçâà âúíøíî PHP ïðèëîæåíèå â áëîãà, èíòåãðèðàíî â íåãîâèÿ äèçàéí è ôîðìàòèðàíå. ÈÇÏÎËÇÂÀÉÒÅ ÒÀÇÈ ÏÐÈÑÒÀÂÊÀ Ñ ÂÍÈÌÀÍÈÅ, ÇÀÙÎÒÎ ÌÎÆÅÒÅ ÄÀ ÇÀÑÒÐÀØÈÒÅ ÑÈÃÓÐÍÎÑÒÒÀ ÍÀ ÁËÎÃÀ Ñ ÍÅß (Òß ÌÎÆÅ ÄÀ ÈÇÏÚËÍßÂÀ ÂÑßÊÀÊÚÂ PHP ÔÀÉË). ÌÎÆÅÒÅ ÄÀ ÈÇÏÎËÇÂÀÒÅ ÏÐÈÑÒÀÂÊÀÒÀ ÑÀÌÎ ÊÀÒÎ ÀÄÌÈÍÈÑÒÐÀÒÎÐ!');
+@define('PLUGIN_EXTERNALPHP_PERMALINK', 'Ïîñòîÿííà âðúçêà');
+@define('PLUGIN_EXTERNALPHP_PAGETITLE', 'Êúñî URL èìå (çà ñúâìåñòèìîñò íàçàä)');
+@define('PLUGIN_EXTERNALPHP_PERMALINK_BLAHBLAH', 'Äåôèíèðà ïîñòîÿííà âðúçêà çà URL. Òðÿáâà äà áúäå àáñîëþòåí HTTP ïúò, çàâúðøâàù íà .htm èëè .html.');
+@define('PLUGIN_EXTERNALPHP_INCLUDE', 'PHP ôàéë');
+@define('PLUGIN_EXTERNALPHP_INCLUDE_DESC', 'Àáñîëþòåí ïúò äî PHP ôàéëà, ïîäëåæàù íà âêëþ÷âàíå');
+@define('PLUGIN_EXTERNALPHP_ARTICLEFORMAT', 'Ôîðìàòèðàíå êàòî ñòàòèÿ');
+@define('PLUGIN_EXTERNALPHP_ARTICLEFORMAT_BLAHBLAH', 'Ïðè èçáîð \'Äà\' èçõîäúò îò ôàéëà àâòîìàòè÷íî ñå ôîðìàòèðà êàòî ñòàòèÿ (öâåòîâå, øðèôòîâå è ò.í.).');

@@ -1,0 +1,47 @@
+S9Y_Conf
+
+A set of PHP scripts to assist with the configuration and management
+of Serendipity (S9Y) installations.
+
+Copyright (C) 2006 Chris Lander <clander_at_labbs.com>
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+
+Requirements
+
+	* PHP
+	* MySQL
+	* a web-browser (doh!).
+
+Install
+
+	1. Untar or unzip the distribution (be sure to unzip the subdirectories)
+		#: tar -xzvf s9y_conf_x.x.x.tar.gz into a subdirectory of your webserver's
+		document root.
+
+		If you don't have direct access to your document root, put the files in
+		a directory on your local machine, and, after step 3, transfer the
+		directory on your web server using, for example, ftp.
+
+
+	2. Ensure that all the scripts have the appropriate owner (if PHP is run
+		ning in safe mode, having some scripts with an owner different from the
+		owner of other scripts will be a problem).
+
+
+	3. Open the file <www.your-host.com>/<your-install-dir>/index.php in your
+		browser. S9Y_conf should now begin its installation.
+

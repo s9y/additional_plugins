@@ -1,0 +1,78 @@
+<h1>Dokumentace k pluginu 'serendipity_event_advtypes'</h1>
+<p>Dokumentaci k tomuto pluginu pøelo¾il do èe¹tiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 20.12.2009. Od té doby mohl být plugin pozmìnìn nebo mohly být roz¹íøené jeho funkce. Zkontrolujte pro jistotu i <a href="documentation_en.html">aktuální anglickou dokumentaci</a>.
+<p>
+
+<p>
+Tento plugin jednodu¹e umo¾òuje pou¾ití typu 'sequence' v konfiguraci témat pro verze blogu ni¾¹í ne¾ 1.2.2. 
+</p>
+
+<p>
+I kdy¾ nic nehrozí, pokud je plugin nainstalován na verzi Serendipity 1.2.2 nebo pozdìj¹í, není dùvod, proè by mìl být nainstalován. V pøípadì, ¾e je nainstalován, má drobný vliv na výkon webu (sni¾uje ho) a vkládá do hlavièky administrátorské sekce bllogu skript dragdrop.js.
+</p>
+
+<p>
+Kdykoliv mù¾e být bezpeènì odinstalován.
+</p>
+
+<p>
+I kdy¾ budete mít tento plugin nainstalovaný, neuvidíte jeho volby nastavení do té doby, ne¾ nainstalujete také téma (styl) vzhledu nebo plugin, který tyto volby vyu¾ívá. 
+</p>
+
+<p>
+K pluginu pøilo¾ené soubory "index.tpl" a "config.inc.php" pøedstavují pouze pøíklady, jak pou¾ít výbìr médií ve va¹ich vlastních ¹ablonách. Tyto soubory konkrétnì jsou upravené ¹ablony z tématu vzhledu "One True Layout" od Carla Gallowaye a YellowLeda.
+</p>
+
+<p>
+Výbìr 'sequence' je ponìkud slo¾itìj¹í. Nejjednodu¹¹í je pøidat pole podobné následujícímu do voleb tématu vzhledu nebo do pluginu, konkrétnì do èásti 'introspect':
+<code><pre>
+    array(
+		'var'           => 'category_precedence',
+		'name'          => 'Poøadí kategorií',
+		'description'   => 'TESTOVÁNÍ: Poøadí, ve kterém budou otestovány kategorie.',
+		'type'          => 'sequence',
+		'items'         => array('cat1', 'cat2', 'cat3'),
+    )
+</code></pre>
+
+V pøede¹lém pøíkladu budou zobrazeny polo¾ky cat1, cat2, a cat3 v rámeèku, který lze pøesunout metodou Drag&Drop (a nebo, pokud u¾ivatel nemá povolený Javascript, budou zobrazeny v seznamu se ¹ipkami pro posouvání poøadí). Kdy¾ u¾ivatel potvrdí zmìny, Vá¹ skript obdr¾í seznam polo¾ek v nastaveném poøadí, oddìlený èárkami, napøíklad 'cat1,cat3,cat2'.
+</p>
+
+<p>
+Nìkdy mù¾ete chtít skrýt vlastní identifikátor zobrazovaných polo¾ek a chtít zobrazovat místo nìj hezèí název. Napøíklad chcete umo¾nit nastavení poøadí kategorií a chcete u¾ivateli poskytnout nikoliv èísla 1,7,18,24 a 32, ale rovnou názvy kategorií.
+
+K tomu staèí pole z na¹eho pøíkladu pozmìnit následovnì:
+<code><pre>
+	array(
+		'var'           => 'category_precedence',
+		'name'          => 'Poøadí kategorií',
+		'description'   => 'TESTOVÁNÍ: Poøadí, ve kterém budou otestovány kategorie.',
+		'type'          => 'sequence',
+		'items'         => array(	'1'  => array('display' => 'Název kategorie 1'),
+						'27' => array('display' => 'Název kategorie 27'),
+						'34' => array('display' => 'Název kategorie 34'))
+		)
+</code></pre>    
+
+V tomto pøípadì Vá¹ skript obdr¾í promìnnou 'category_precedence', která bude obsahovat ulo¾ené data ulo¾ená ve formátu "1,34,27". U¾ivatel ale uvidí uspoøádatelný seznam s polo¾kami 'Název kategorie 1', 'Název kategorie 27' a 'Název kategorie 34'.  
+</p>
+
+<p>
+To ale není v¹echno! Nìkdy ani zobrazené jméno nestaèí. Mù¾ete chtít nabídnout u¾ivatelùm náhledy obrázkù. V takovém pøípadì pøidejte jednodu¹e do pole klíè 'img', který obsahuje plnou URL adresu obrázku. (K zji¹tìní URL závislé na pou¾ité ¹ablonì mù¾ete pou¾ít napøíklad funkci serendipity_getTemplateFile()).
+<code><pre>
+	array(
+		'var'           => 'category_precedence',
+		'name'          => 'Poøadí kategorií',
+		'description'   => 'TESTOVÁNÍ: Poøadí, ve kterém budou otestovány kategorie.',
+		'type'          => 'sequence',
+		'items'         => array(	'1' => array('display' => 'Tento', 'img' => 'http://judebert.com/wasted_youth/classic.gif'),
+						'2' => array('display' => 'Tamten', 'img' => serendipity_getTemplateFile('img/minus.png')),
+						'3' => array('display' => 'Ten jiný', 'img' => serendipity_getTemplateFile('img/plus.png'))
+		)
+</code></pre>   
+
+V tomto pøípadì budou volby zobrazeny jako 'Tento' s obrázkem odrazivé koule, 'Tamten' se znamínkem mínus, ov¹em z adresáøe v aktuální ¹ablonì vzhledu, a 'Ten jiný' se znamínkem plus z aktuální ¹ablony. Vá¹ skript pak obdr¾í seznam ID '3,2,1'.
+</p>
+
+<p>
+Jednotlivé styly zápisu mù¾ete kombinovat dle libosti. Ka¾dá polo¾ka, která nemá definovaný klíè 'img', nebude zobrazovat ¾ádný obrázek. Ka¾dá polo¾ka, která nemá definovaný klíè 'display', bude zobrazovat rovnou ID. Mù¾ete zobrazovat promìnné pro nìkteré polo¾ky a pro jiné ne. V¹echno je v poøádku a projde.
+</p>

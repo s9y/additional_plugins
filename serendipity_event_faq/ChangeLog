@@ -1,0 +1,61 @@
+latest: Smarty3 forward compatibility
+
+1.4
+==============================
+
+* BUGFIX: Postgre-SQL-Error
+
+1.3
+==============================
+
+* BUGFIX: show categories from a language
+
+1.2
+==============================
+
+* NEW: multilingual support
+
+1.1
+==============================
+
+* NEW: using quicksearch in faqs
+
+1.0
+==============================
+
+* UPDATE: GUI, Templates
+* NEW: reorder of FAQs and categories
+* NEW: category tree
+
+Thanks to robert from the s9y forum for the alpha/beta testing
+
+0.10
+==============================
+
+* UPDATE: Show FAQ-Headline and Subcategory-Headline on Template
+
+0.9
+==============================
+
+* NEW: Message if you don't have FAQ categories created
+* NEW: sidebar plugin
+
+0.8
+==============================
+
+* FIX: URL without modrewrite
+
+0.7
+==============================
+
+* UPDATE: Templates now have a menu structure
+
+0.6
+==============================
+
+* NEW: new/update status
+
+0.5
+==============================
+
+* first release

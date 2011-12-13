@@ -1,0 +1,332 @@
+body {
+	background-color: white;
+	font-weight: normal;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: black;
+}
+div.centre {
+	background-color: white;
+	font-weight: normal;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: black;
+	text-align: center;
+}
+div.debugmsg {
+	font-size: 10pt;
+	font-family: arial, helvetica, sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	text-align: left;
+	background-color: white;
+	color: #8B0000;
+}
+div.error {
+	background-color: white;
+	font-weight: bold;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: red;
+}
+div.gpl {
+	color: black;
+	font-size: 8pt;
+	font-family: arial, helvetica, sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	background-color: white;
+	text-align: left;
+	min-width: 300px;
+	min-height: 75px;
+	max-width: 530px;
+	max-height: 200px;
+	overflow: auto;
+	list-style-type: decimal;
+}
+div.information {
+	background-color: white;
+	font-weight: normal;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: black;
+}
+div.left {
+	background-color: white;
+	text-align: left;
+	font-weight: normal;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: black;
+}
+div.ok {
+	background-color: white;
+	font-weight: bold;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: green;
+}
+div.textpage {
+	text-align: justify;
+	margin-left: 50px;
+	background-color: white;
+	font-weight: normal;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: black;
+	width: 90%;
+}
+div.warning {
+	background-color: white;
+	font-weight: bold;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: #FFBB00;
+}
+input {
+	background-color: white;
+	font-weight: normal;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: black;
+}
+ol.decimal {
+	list-style-type: decimal;
+}
+ol.lower-alpha {
+	list-style-type: lower-alpha;
+}
+select {
+	background-color: white;
+	font-weight: normal;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: black;
+}
+table.center {
+	border: 0px;
+	padding: 0px;
+	background-color: white;
+	font-weight: normal;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: black;
+	text-align: center;
+}
+td {
+	background-color: white;
+	font-weight: normal;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: black;
+}
+td.center {
+	background-color: white;
+	font-weight: normal;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: black;
+	text-align: center;
+}
+td.center-list {
+	background-color: #FFFFD0;
+	font-weight: normal;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: black;
+	vertical-align: middle;
+	text-align: center;
+}
+td.hnav {
+	border: 0px;
+	vertical-align: bottom;
+	text-align: center;
+	color: black;
+	font-size: 10pt;
+	font-family: arial, helvetica, sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	background-color: white;
+	padding-top: 0px;
+	padding-right: 5px;
+	padding-bottom: 0px;
+	padding-left: 5px;
+}
+td.installaction {
+	background-color: white;
+	font-weight: normal;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: black;
+	vertical-align: top;
+	text-align: left;
+	width: 400px;
+}
+td.installsteps {
+	background-color: white;
+	font-weight: normal;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: black;
+	vertical-align: top;
+	text-align: left;
+	width: 150px;
+}
+td.justify {
+	background-color: white;
+	font-weight: normal;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: black;
+	text-align: justify;
+}
+td.left {
+	background-color: white;
+	font-weight: normal;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: black;
+	text-align: left;
+}
+td.left-list {
+	background-color: #FFFFA0;
+	font-weight: normal;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: black;
+	vertical-align: middle;
+	text-align: left;
+}
+td.postinstall {
+	background-color: white;
+	font-weight: bold;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: green;
+	vertical-align: top;
+	text-align: left;
+}
+td.preinstall {
+	background-color: white;
+	font-weight: normal;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	vertical-align: top;
+	text-align: left;
+	color: #BEBEBE;
+}
+td.right {
+	background-color: white;
+	font-weight: normal;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: black;
+	text-align: right;
+}
+td.right-list {
+	background-color: #FFFFA0;
+	font-weight: normal;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: black;
+	vertical-align: middle;
+	text-align: right;
+}
+td.topleft {
+	background-color: white;
+	font-weight: normal;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: black;
+	vertical-align: top;
+	text-align: left;
+}
+td.topright {
+	background-color: white;
+	font-weight: normal;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: black;
+	vertical-align: top;
+	text-align: right;
+}
+td.vnav {
+	border: 0px;
+	vertical-align: bottom;
+	text-align: center;
+	color: black;
+	font-size: 10pt;
+	font-family: arial, helvetica, sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	background-color: white;
+	padding-top: 5px;
+	padding-right: 0px;
+	padding-bottom: 5px;
+	padding-left: 0px;
+}
+textarea {
+	background-color: white;
+	font-weight: normal;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: black;
+}
+th.add {
+	color: black;
+	background-color: #FFFF80;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+}
+th.delete {
+	color: white;
+	background-color: #FF0000;
+	font-weight: bold;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+}
+th.edit {
+	color: black;
+	background-color: #FFFF80;
+	font-weight: bold;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+}
+th.list {
+	color: black;
+	background-color: #FFFF80;
+	font-weight: bold;
+	font-style: normal;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+}

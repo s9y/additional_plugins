@@ -1,0 +1,101 @@
+/* Amazon Chooser Plugin */
+div.serendipity_amazonchr_title {
+  font-size:100%;
+  font-weight:bold;
+}
+
+div.serendipity_amazonchr_body_list {
+  padding: 20px; 
+ -moz-background-clip:border;
+ -moz-background-inline-policy:continuous;
+ -moz-background-origin:padding;
+ background:#FFFFFF none repeat scroll 0 0;
+ border:0 none;
+ margin:0 auto;
+ text-align:left;
+ width:95%;
+ font-size: 11px;
+}
+
+div.serendipity_amazonchr_page_buttons {
+  padding-left: 30px; 
+  padding-right: 30px;
+  width: 75%;
+}
+span.serendipity_amazonchr_nextbutton {
+  float: left;
+}
+
+span.serendipity_amazonchr_previousbutton {
+  float: right;
+}
+
+div.serendipity_amazonchr_noimage {
+  font-size:90%;
+}
+
+span.serendipity_amazonchr_productgroup {
+  font-weight:normal;
+}
+
+
+div.serendipity_amazonchr_body_count {
+  font-size:1.1em;
+  font-weight:bold;
+  padding: 10px; 
+}
+
+div.serendipity_amazonchr_body {
+  padding: 20px;
+  width: 700px;
+  clear:both;
+}
+
+div.serendipity_amazonchr_image {
+  position:relative;
+  padding-left:1%;
+  padding-right:1%;
+  float:left;
+}
+
+img.serendipity_amazonchr_pic {
+    border: 1px solid black;
+}
+
+div.serendipity_amazonchr_block {
+  float: left;
+  padding-left: 1%;
+  max-width: 500px;
+}
+
+div.serendipity_amazonchr_attr {
+  font-size:1em;
+  padding: 2px -2px 2px -2px;
+}
+
+div.serendipity_amazonchr_offer {
+  font-size:1em;
+}
+
+div.serendipity_amazonchr_offers {
+  font-size:1em;
+}
+
+div.serendipity_amazonchr_cache {
+  bottom: 0;
+  position: relative;
+  clear:left;
+  font-size:1em;
+  font-weight:bold;
+  padding-left: 1%;
+}
+
+div.amazon_sidebar {
+  text-align: center;
+  margin: 0px auto;
+}
+
+div.amazon_sidebar img {
+  border: 0px;
+}
+

@@ -1,0 +1,9 @@
+0.7:
+----
+
+Changed ClickableURL to prefix http:// for www. only links
+
+0.6:
+----
+
+Added 'Twitter' markup

@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>Tagged translation</title>
+</head>
+
+<body>
+<h1>Tagged translation</h1>
+
+The multilingual plugin now supports tagged translations by the use of {{!&lt;lang&gt;}}&lt;text&gt;{{--}} tags. So if you want to write text with an english and a danish version, for instance, you can write: "{{!en}}English version of text{{--}}{{!da}}Dansk version af tekst{{--}}".
+</br></br>
+Tagged translation has the advantage of being usable in the sidebar. So any editable content (typically the title) of a sidebar item can be translated as well. It even extends to the blog title and subtitle.
+</br></br>
+Tagged translation for entries is also available, but is disabled by default, as it duplicates functionality already present in the plugin. Entry translation is already implemented by use of a database based approach, and you should decide on which approach you prefer when creating entries. Using both approaches at the same time could end up being weird and confusing. Also be aware that tagged translation works by simply stripping out any language blocks that are not the current language. This means that you should probably disable the Markup: NL2BR plugin for entries. Otherwise newlines outside language blocks will be converted to &lt;/br&gt; tags and included.
+</body>
+</html>

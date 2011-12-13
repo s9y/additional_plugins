@@ -1,0 +1,19 @@
+# $Id: ChangeLog,v 1.1 2010/12/05 11:45:18 brockhaus Exp $
+
+------------------------------------------------------------------------
+Version 1.01 (brockhaus):
+
+    * Autoinstaller for mobile templates. These are part of the plugin and
+      will be installed into the template folder, if not already installed.
+    * Added config option for an Android device template. Android devices
+      should now be detected and the matching template be choosen.
+    * Created an Android template. It looks good in the standard browser 
+      with text=normal on my HTC Desire. Needs more device testing..
+    * Slightly updated the mobile and the iphone template.
+    * Removed / Changed the incorrect http://c.seo-mobile.de link. Now
+      the documentation link in the configuration is working again.
+    * Some code cleanup
+
+------------------------------------------------------------------------
+Version 1.0 (Pelle Boese):
+    * initial main release.

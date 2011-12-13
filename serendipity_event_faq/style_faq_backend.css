@@ -1,0 +1,21 @@
+#serendipityFAQNav ul {
+    padding:3px 0;
+    margin-left:0;
+    border-bottom:1px solid #000000;
+}
+
+#serendipityFAQNav ul li {
+    list-style:none;
+    margin:0;
+    display:inline;
+}
+
+#serendipityFAQNav ul li a {
+    padding: 3px 0.5em;
+    margin-left:5px;
+    border:1px solid #000000;
+}
+
+#serendipityFAQNav ul li a#active {
+    border-bottom:1px solid #ffffff;
+}

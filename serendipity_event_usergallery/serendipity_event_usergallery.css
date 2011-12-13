@@ -1,0 +1,82 @@
+/* User Gallery */
+div.serendipity_gallery_row {
+   clear:left;
+   padding-left: 3%;
+   margin-right: 3%;
+}
+
+div.serendipity_gallery_thumbs {
+    padding: 3px;
+    border: 1px solid #afafaf;
+    float: left;
+    overflow:hidden;
+    margin: .5em;
+}
+
+div.serendipity_gallery_info {
+   margin-left:auto; 
+   margin-right:auto; 
+   text-align:center;
+}
+
+div.serendipity_gallery_entry {
+   margin-left:auto; 
+   margin-right:auto; 
+   text-align:center;
+}
+
+div.serendipity_gallery_title {
+    font-size: 1.1em;
+    text-align:center;
+    font-weight:bold;
+}
+
+div.serendipity_gallery_navigation {
+    font-size: 1.0em;
+    text-align:center;
+}
+
+img.gallery_thumb {
+   margin-left:auto; 
+   margin-right:auto; 
+   text-align:center;
+   border: 0;
+}
+
+div.serendipity_gallery_pagination_top {
+	border-top: 1px solid #ccc;
+}
+
+div.serendipity_gallery_pagination_bottom {
+	border-bottom: 1px solid #ccc;
+}
+
+/* EXIF TAGS */
+.all_img_info {
+ 	width: 100%;
+ 	float: left;
+ 	text-align: center;
+ 	margin-bottom: 2em;
+}
+.exif_info_head {
+ 	background-color: #ccd9e6; 
+ 	border: 1px solid #fff;
+}
+.exif_info_row, .exif_info_head {
+ 	clear: both;
+ 	margin: 0 auto;
+ 	width: 400px;
+}
+.exif_info_tag, .exif_info {
+ 	float: left;
+ 	display: block;
+ 	width: 120px;
+ 	text-align: left;
+	border: 1px solid #fff;
+	background-color: #ccd9e6;
+	padding: 3px;
+}
+.exif_info {
+ 	width: 264px;
+ 	background-color: #eee;
+}

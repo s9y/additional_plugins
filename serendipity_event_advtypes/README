@@ -1,0 +1,59 @@
+This plugin simply enables the 'sequence' type in theme configurations for blogs 
+earlier than 1.2.2.
+
+While there's no harm in having it installed on a 1.2.2 or later blog, other
+than a slight performance hit and inclusion of the dragdrop.js on admin 
+header pages, there's no reason to have it there, either.
+
+It can be safely removed.
+
+Even with this plugin installed, you won't see configurable sequence entry 
+items unless you've also installed a theme or plugin that uses them.
+
+The included "index.tpl" and "config.inc.php" files are an example of how to use the media selector in your own templates.  They are modified from "One True Layout" by Carl Galloway and YellowLed.
+
+The sequence selector is more complicated.  The easiest case is to add an array
+such as the following to your theme options or plugin introspection:
+
+    array(
+	'var'           => 'category_precedence',
+	'name'          => 'Category Precedence',
+	'description'   => 'TESTING/UNUSED: The order in which categories will be tested',
+	'type'          => 'sequence',
+	'items'         => array('cat1', 'cat2', 'cat3'),
+    ),
+
+In this case, the items cat1, cat2, and cat3 will be displayed in a draggable list (or, if the user has no Javascript, in a list with up and down arrows).  When the user submits changes, you'll get a list with the items in the desired order, separated by commas; for instance, 'cat1,cat3,cat2'.
+
+Sometimes you won't want to display the actual item IDs themselves.  For instance, when we want the user to choose the precedences of categories, we wouldn't want the user's choices to be 1,7,18,24,32; we'd want to show him category names.
+
+To display something different for any item, just modify your array like this:
+    array(
+        'var'           => 'category_precedence',
+	'name'          => 'Category Precedence',
+	'description'   => 'TESTING/UNUSED: The order in which categories will be tested',
+        'type'          => 'sequence',
+        'items'         => array('1' => array('display' => 'Category 1 Name'),
+                                 '27' => array('display' => 'Category 27 Name'),
+                                 '34' => array('display' => 'Category 34 Name'))
+    ),
+
+In this case, you'll get back the variable 'category_precedence', and it will be saved as "1,34,27" (or whatever order the user wants).  However, the user will see a re-orderable list with the items 'Category 1 Name', 'Category 27 Name', and 'Category 34 Name'.  
+
+But we're not done yet!  Sometimes a displayable name won't be enough.  You may want thumbnails to improve the user experience.  In that case, just add the 'img' key to your array, with a full URL.  (Use serendipity_getTemplateFile() to find an image in the currently-used templates.)
+
+    array(
+        'var'           => 'category_precedence',
+        'name'          => 'Category Precedence',
+        'description'   => 'TESTING/UNUSED: The order in which categories will be tested',
+        'type'          => 'sequence',
+        'items'         => array('1' => array('display' => 'This', 'img' => 'http://judebert.com/wasted_youth/classic.gif'),   
+                                 '2' => array('display' => 'That', 'img' => serendipity_getTemplateFile('img/minus.png')),
+                                 '3' => array('display' => 'The Other', 'img' => serendipity_getTemplateFile('img/plus.png'))
+                                )
+         ),
+
+In this case, the options displayed to the user will be 'This' with my reflective-ball image, 'That' with the minus sign from the default template, and 'The Other' with the plus sign from the default template. What you'll receive is the comma-separated list of IDs, such as '3,2,1'.
+
+You can mix-and-match these styles as much as you want. Any item that doesn't have an 'img' associated with it will get no image. Any item that doesn't have a 'display' associated with it will be displayed using the item ID. You can have display variables for some items and no display variables for other items. It's all good.
+

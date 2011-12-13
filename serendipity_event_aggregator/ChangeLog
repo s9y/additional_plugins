@@ -1,0 +1,37 @@
+latest: Smarty3 forward compatibility
+
+0.29: By default now store aggregated entries with a "no flattr" attribute
+
+0.26:
+-----
+   * Add ability to display feeds within a template
+     (see inline documentation of the PHP file)
+     
+0.24:
+-----
+   * Add SimplePie as an option for the parser. (by Oliof)
+
+0.21:
+----
+   * Add option to decide whether entries are published or drafted
+   * Add support to suppress markup plugins for aggregated entries
+
+0.20:
+-----
+   * Fixed issue when aggregator is used and caching option of entryprops
+     is enabled.
+     
+0.3:
+-----
+   * Added MagpieRSS support [allows to parse Atom feeds] by
+     Claus Schmidt <http://clsc.net/> [GPL library -- dual licensing
+     of this plugin. BSD if using Onyx]
+
+0.11:
+-----
+   * Fixed htmlspecialchars escaping of OPML urls (garvinhicking)
+   
+0.10:
+-----
+   * Introduced OPML feed export (garvinhicking)
+

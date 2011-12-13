@@ -1,0 +1,10 @@
+latest: Smarty3 forward compatibility
+
+1.11:
+-----
+
+Added new smarty function to allow building for archive overviews based
+on custom entryproperties. See the serendipity_event_customarchive.php file
+for example use of the Smarty function, that you can for example use
+on static pages using the Smarty Markup plugin. The entryproperties plugin
+is required to enter the metadata that this plugin operates on.

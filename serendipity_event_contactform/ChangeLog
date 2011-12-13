@@ -1,0 +1,18 @@
+latest: Smarty3 forward compatibility
+
+1.13:
+-----
+
+Force spamblock plugin to properly realize "time to live" of captchas.
+Previously, even though captchas where displayed, it did not matter what
+the user entered.
+
+1.11:
+-----
+
+Fix XHTML validity of checked="checked"
+
+1.10:
+-----
+
+Introcuce new "issue counter".

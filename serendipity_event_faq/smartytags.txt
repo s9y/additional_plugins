@@ -1,0 +1,63 @@
+File: All
+===============================
+
+{$faq_plugin.plugin_url}
+    Path to the FAQ-Plugin
+
+File: plugin_faq_categories.tpl
+===============================
+
+{$faq_plugin.categories}
+    All categories
+
+{foreach $faq_plugin.categories as $cat}
+{$cat.id}
+    The ID of the category
+{$cat.parent_id}
+    The ID of the parent
+    0 = Parent
+    Example: Only show parents
+        {if $cat.id == 0}{$cat.id}{/if}
+{$cat.catorder}
+    The OrderID of the category
+{$cat.category}
+    The Name of the category
+{$cat.introduction}
+    The overview of the category
+{/foreach}
+
+File: plugin_faq_category_faqs.tpl
+===============================
+
+{$faq_plugin.category}
+    The category name
+
+{$faq_plugin.introduction}
+    The overview of this category
+
+{$faq_plugin.subcategories}
+    The childcategories of this category
+
+{foreach $faq_plugin.subcategories as $cat}
+{$cat.id}
+    The ID of this subcategory
+{$cat.category}
+    The Name of the category
+{/foreach}
+
+File: plugin_faq_category_faq.tpl
+===============================
+
+{$faq_plugin.this_faq.faqid}
+{$faq_plugin.this_faq.question}
+{$faq_plugin.this_faq.answer}
+{$faq_plugin.this_faq.categoryid}
+{$faq_plugin.this_faq.category}
+{$faq_plugin.next_faq.faqid}
+{$faq_plugin.next_faq.question}
+{$faq_plugin.next_faq.categoryid}
+{$faq_plugin.next_faq.category}
+{$faq_plugin.prev_faq.faqid}
+{$faq_plugin.prev_faq.question}
+{$faq_plugin.prev_faq.categoryid}
+{$faq_plugin.prev_faq.category}

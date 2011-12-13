@@ -1,0 +1,185 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+    <title>Dokumentace: Avatar Plugin</title>
+</head>
+<body>
+<h1>Dokumentace pluginy Serendipity ImageSelectorPlus</h1>
+
+<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 26.6.2011. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="documentation_en.html">anglickou dokumentaci</a> a <a href="ChangeLog">ChangeLog</a>.
+
+<h2>Obecný popis</h2>
+<p>
+    Plugin ImageSelectorPlus se používá k usnadnění práce s obrázky, především k vkládání obrázků z mediatéky (interní galerie Serendipity).
+</p> 
+
+<h2>QuickBlog</h2>
+<p>
+Při nahrávání obrázku ho rovnou můžete vystavit jako příspěvek. Řiďte se podle instrukcí nad formulářem QuickBlogu na straně s nahráváním souborů.
+</p>
+
+<h3>Změna vzhledu příspěvku QuickBlogu</h3>
+<p>
+    Plugin používá šablonu "plugin_quickblog.tpl". Její změnou změníte vzhled vkládaných obrázků.
+</p>
+
+<p>Informace o obrázku jsou uchovány v poli {$quickblog}, které má tyto části:
+    <ul>
+        <li>fullimage - cesta a název velkého souboru</li>
+        <li>image - cesta a název k náhledu</li>
+        <li>body - tělo příspěvku</li>
+        <li>exif_mode - způsob získání exif tagů z fotky ('internal', 'jhead', 'none')</li>
+        <li>exif - pole obsahující různé exif tagy, pro jejich názvy si najděte dokumentaci exif tagů - jejich názvy použijte následovně, příklad $quickblog.exif.COMMENT nebo $quickblog.exif.Focal_length</li>
+    </ul>
+</p>
+
+
+<h2>Hromadné vkládání obrázků</h2>   
+     Další funkcí je hromadné vkládání obrázků. Funguje na principu, že v textu příspěvku napíšete xml strukturu, kterou plugin nahradí obrázky z databáze.
+</p>
+
+<h3>Kdy se to hodí?</h3>
+<p>
+    Když píšete fotoblog a potřebujete do příspěvku vkládat více obrázků najednou. Když máte padesát fotek, které jsou navíc očíslované, tak je můžete vložit buď po jedné, jak to Serendipity umožňují v základu, nebo pomocí jediné řádky s použitím popisovaného pluginu. 
+</p>
+
+<h3>Příklady</h3>
+    <h4>Příklad 1 - vkládáme části galerie</h4>
+    <code><pre>
+        &lt;mediainsert&gt;
+            &lt;gallery name="MyHolidays/" /&gt;
+            &lt;media type="single" name="pict0034" /&gt;
+            &lt;media type="single" name="pict0032" /&gt;
+            &lt;media type="range" prefix="pict00" start="35" stop="52" /&gt;
+        &lt;/mediainsert&gt;
+    </pre></code>
+    <p>
+        Takto vložíme z galerie "MyHolidays" obrázek "pict0034", po něm obrázek "pict0032" a pak všechny obrázky od "pict0035" do "pict0052".
+
+        <ul>
+        Chování pluginu:
+        <li>Zobrazuje pouze obrázky, které jsou přítomny v databázi. Takže pokud zrovna obrázky 44,45,48 a 50 v databázi nejsou, pluginu to nevadí a nespadne. Jednoduše tyto obrázky vynechá.</li>
+        <li>Zachovává pořadí obrázků z xml. Tedy obrázek 34 bude zobrazen před obrázkem 32.</li>
+        </ul>
+    </p>
+
+    <h4>Příklad 2 - vkládáme celou galerii najednou</h4>
+    <code><pre>
+        &lt;mediainsert&gt;
+            &lt;gallery name="MyHolidays/" /&gt;
+            &lt;media type="gallery" /&gt;
+        &lt;/mediainsert&gt;
+    </pre></code>
+
+<h3>Důležité</h3>
+<p>Plugin je relativně citlivý na (ne)správnost syntaxe xml. Pokud není bezchybná, typicky zapomenete na ukončovací zpětné lomítko v tagu media, můžete vyřadit z činnosti celý blog!!! (prostě není ošetřená kontrola správnosti syntaxe a parser na špatné syntaxi havaruje)</p>
+
+<h3>Přehled xml tagů</h3>
+<dl>
+    <dt>&lt;mediainsert&gt;</dt>
+    <dd>hlavní kontejner pro vkládané obrázky</dd>
+
+    <dt>&lt;gallery&gt;</dt>
+    <dd>cesta ke galerii, ze které mají být brány obrázky (reltivně k adresáři uploads/ - bez úvodního lomítka a s ukončujícím lomítkem - "MyHolidays" nebo "/MyHolidays/" jsou špatně. Správně je "MyHolidays/".)</dd>
+
+    <dt>&lt;media&gt;</dt>
+    <dd>Určuje, které obrázky mají být vloženy. Na základě atributu "type" je možno vložit obrázky třemi způsoby:
+
+        <ul>
+            <li>"single" - vloží jeden obrázek se jménem zadaným atributem "name"</li>
+            <li>"gallery" - bez dalších atributů, vloží celou galerii</li>
+            <li>"range" - vloží číslované obrázky od obrázku "prefix""start" do obrázku "prefix""stop" (viz. příklad 1)</li>
+        </ul>
+    </dd>
+</dl>
+
+<h3>Změna vzhledu vkládaných obrázků</h3>
+<p>
+    Plugin používá šablonu "plugin_mediainsert.tpl". Její změnou změníte vzhled vkládaných obrázků.</p>
+
+    <p>Informace o obrázku jsou uchovány v poli {$plugin_mediainsert_media}, které má tyto části:
+    <ul>
+        <li>name - jméno obrázku (název souboru bez přípony)</li>
+        <li>extension - přípona souboru</li>
+        <li>realname - celé jméno souboru, to samé jako {$name}.{$extension}</li>
+        <li>thumbnail_name - název souboru s náhledem dostanete následovně - {$name}.{$thumbnail_name}.{$extension}</li>
+        <li>path - cesta ke galerii, stejná hodnota, kteoru zadáváte v tagu "gallery"</li>
+        <li>comment1 - krátký komentář z databáze</li>
+        <li>width - šířka původního (velkého) obrázku</li>
+        <li>height - výška původního (velkého) obrázku</li>
+        <li>thumbwidth - šířka náhledu</li>
+        <li>thumbheight - výška náhledu</li>
+    </ul>
+</p>
+
+
+<h2>Rozbalování ZIP archivů</h2>
+
+<h3>K čemu je to dobré</h3>
+<p>Kupříkladu když chcete nahrát mnoho souborů najednou. Nemusíte vybírat jednotlivé soubory po jednom (což je zdlouhavé). Prostě je zabalíte do zip archivu, nahrajete tento archiv a ten bude na blogu rozbalen.</p>
+
+<h3>Vlastnosti rozbalování ZIPů</h3>
+<p>
+<ul>
+<li>Soubory z archivu jsou rozbaleny do stejného adresáře, do kterého je nahrán archiv.</li>
+<li>Rozbalené soubor (což nemusí být nutně obrázky) jsou vloženy do databáze médií.</li>
+<li>Pokud zvolíte volbu "Zadat vlastnosti", rozbalené obrázky se také zorazí pro zadávání vlastností.</li>
+<li>Nenahrávejte ZIP archivy s podadersáři. Netestoval jsem to, ale obávám se, že se tyto adresáře nevytvoří a všechny soubory se rozbalí do jednoho adresáře.</li>
+<li>Dávejte pozor na velikost ZIP archivu. Na webu máte nastavené určité omezení týkající se maximální velikosti nahrávaného souboru (obvykle to bývá 10MB).</li>
+</ul>
+</p>
+
+
+<h2>Automatická změna velikosti obrázků</h2>
+
+<p>Tato funkce automaticky prohledá příspěvek blogu a vyhledá obrázky, které jsou zadány ve formě:</p>
+
+<pre>
+&lt;img src="/uploads/mujobrazek.jpg" width="100" height="150" /&gt;
+</pre>
+
+<p>Když najde obrázek v tomto formátu (pokud najde obrázek s definovanou výškou a/nebo šířkou), nahradí jeho atribut 'src' (adresa obrázku) odkazem na skript pro změnu velikosti obrázku 'serendipity_admin_image_selector.php'. Tedy přepíše odkaz na něco jako:</p>
+
+<pre>
+&lt;img src="http://www.mujblog.cz/serendipity_admin_image_selector.php?serendipity[image]=1&serendipity[disposition]=inline&serendipity[step]=showItem&serendipity[resizeWidth]=100&serendipity[resizeHeight]=150" width="100" height="150" /&gt;
+</pre>
+
+<p>Tato vlastnost šetří váš čás, pokud potřebujete použít stejný obrázek ve více rozlišeních a může také ušetřit čas nutný pro stažení obrázků při prohlížení vašeho blogu. Vliv na rychlost blogu je minimální, protože se změna velikosti obrázku provede jenom jednou, při prvním přepisu tagu &lt;img&gt;. 
+</p>
+
+<h3>Poznámky</h3>
+
+<ol>
+<li>Poměr stran obrázku je zachován.</li>
+<li>Stačí definovat pouze jeden z atributů 'width' nebo 'height'. Pokud není zadán žádný z nich, obrázek je ignorován a adresa není nahrazena adresou na skript pro změnu velikosti obrázku.</li>
+<li>Pokud jsou zadány dohromady jak šířka ('width'), tak výška ('height'), obrázek bude zvětšen/zmenšen při zachování poměrů stran tak, aby se vešel do zadané oblasti.</li>
+</ol>
+
+<h2>Autoři</h2>
+<p>
+Garvin Hicking, Německo - všechno ostatní<br />
+Vladimír Ajgl (vlada [at] ajgl [dot] cz), Česká republika, 19.11.2007 - hromadné vkládání obrázků do příspěvků pomocí XML, hromadné nahrávání v ZIP souboru
+</p>
+
+
+<h2>Historie verzí (ChangeLog)</h2>
+
+<ul>
+<li>nejnovější verze</li>
+	<ul>
+	<li>Dopředná kompatibilita se smarty3</li>
+	</ul>
+<li>verze 0.28</li>
+	<ul>
+	<li>Předávání proměnné $eventData do šablony plugin_mediainsert.tpl, pomocí smarty tagu {$plugin_mediainsert_entry}.</li>
+	</ul>
+<li>verze 0.20 [Vladimír Ajgl]</li>
+	<ul>
+	<li>Přidána dokumentace (documentation_en.html, documentation_cs.html)</li>
+	<li>Přidán český překlad</li>
+	<li>Přidána funkce hromadného vkládání fotek do příspěvků pomocí XML kódu (pouze s PHP5)</li>
+	</ul>
+</ul>
+
+</body>
+</html>

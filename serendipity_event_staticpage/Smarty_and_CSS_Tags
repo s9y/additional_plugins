@@ -1,0 +1,58 @@
+Smarty-Tags:
+==============================
+
+bool $staticpage_articleformat
+string $staticpage_articleformattitle
+string $staticpage_headline
+array $staticpage_navigation
+string $staticpage_navigation.prev.link
+string $staticpage_navigation.prev.name
+string $staticpage_navigation.top.link
+string $staticpage_navigation.top.name
+string $staticpage_navigation.next.link
+string $staticpage_navigation.next.name
+string $staticpage_pass
+string $staticpage_form_pass
+string $staticpage_form_url
+array $staticpage_extchildpages
+string $staticpage_extchildpages[i].image
+string $staticpage_extchildpages[i].permalink
+string $staticpage_extchildpages[i].precontent
+string $staticpage_author
+timestamp $staticpage_lastchange
+array $staticpage_adminlink
+bool $staticpage_adminlink.page_user
+string $staticpage_adminlink.link_edit
+string $staticpage_adminlink.link_name
+string $staticpage_precontent
+string $staticpage_content
+array $staticpage_childpages
+string $staticpage_childpages[i].permalink
+string $staticpage_childpages[i].pagetitle
+string $staticpage_categorypage.id
+string $staticpage_categorypage.pagetitle
+string $staticpage_categorypage.permalink
+string $staticpage_categorypage.publishstatus
+
+CSS-Tags:
+==============================
+
+Backend:
+
+#serendipityStaticpagesNav ul
+#serendipityStaticpagesNav ul li
+#serendipityStaticpagesNav ul li a
+#serendipityStaticpagesNav ul li a#active
+
+Frontend:
+
+.staticpage_navigation_left
+.staticpage_navigation_center
+.staticpage_navigation_right
+#staticpage_childpages
+.staticpage_author
+.staticpage_metainfo
+.staticpage_metainfo_lastchange
+.staticpage_metainfo_editlink
+#staticpage_related_category_entry_list
+#static-entries

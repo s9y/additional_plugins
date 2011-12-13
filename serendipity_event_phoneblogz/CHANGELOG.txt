@@ -1,0 +1,21 @@
+Version 0.2 - released Jan 26 2006
+----------------------------------
+
+- initial release
+
+
+Version 0.3 - released Feb 01 2006
+----------------------------------
+
+- moved the notifyurl to main config page so entries page now show entries immedaitely
+- notifyurl is sent to a different phoneblogz page (old wordpress page was being used)
+- removed some redundant code from WP plugin conversion
+- updated Flash HTML code for the latest player movie
+
+Version 0.4 - released Feb 10 2006
+----------------------------------
+
+- fixed blank post creation when getposts.php returns a blank line
+- added xmlrpc, phoneblog-api and converted all API calls to use the new PhoneBlogz API
+- added users section with ability to map a PhoneBlogz user to a Serendipity user
+

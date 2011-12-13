@@ -1,0 +1,33 @@
+latest: Smarty3 forward compatibility
+
+ Version .59
+Added serendipity_event_amazonchooser_devinfo hook for the amazon sidebar.
+
+ Version .58
+ Fix CSS hook code to respect templates.
+
+Version .57
+ Update plugin to use serendipity_rewriteurl() for urls.  Apparently I missed a rewrite url somewhere.
+Version .56
+ Update Amazon_s9y_lib.php to remove unnecessary variables.
+ Update serendipity_event_amazonchooser.css to have style for the amazon sidebar plugin.
+
+Version .55
+ Introduced event hook for integration, consolidated/simplified Amazon_s9y_lib.php to only be called by this plugin.  This plugin will become a requirement for other amazon plugins.
+
+Version .54
+ Compatibility fix for PHP 4.  Need to pass by reference for preg_replace_callback (apparently).  Also fixed a function declaration in Amazon_s9y_lib.php that had an unused variable.  Thanks to Christoph Gassmann for both fixes.
+
+Version .53
+ Fix for cache timing.  PEAR Cache Lite lifetime setting is in seconds.  That makes a slight difference in cache performance.
+ Also updated Amazon lib to format aperature and focal length if set.
+
+Version .52
+  Fix for caching folders.
+
+Version .51
+  Near complete rewrite to adhere to Amazon's new TOS.  
+  Plugin supports signed Amazon requests, which means it now requires users to register a developer account with Amazon (see documentation_en.html for details).
+  Plugin uses Smarty templating (usable in templates)
+  Plugin uses two levels of cache to speed processing
+  Plugin supports more information from Amazon, including prices

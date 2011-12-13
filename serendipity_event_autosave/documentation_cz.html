@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Dokumentace: Autosave</title>
+    </head>
+
+<body>
+    
+<h1>Dokumentace k pluginu 'Autosave'</h1>
+
+<p>Dokumentaci k tomuto pluginu pøelo¾il do èe¹tiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 29.12.2009. Od té doby mohl být plugin pozmìnìn nebo mohly být roz¹íøené jeho funkce. Zkontrolujte pro jistotu i <a href="documentation_en.html">aktuální anglickou dokumentaci</a>.
+<p>
+
+<h1>Jak zaèít - nastavení</h1>
+<p><ol>
+Jakmile nainstalujete plugin, mìli byste nastavit dvì volby:
+<li><strong>Interval ukládání</strong> - Zadáte poèet sekund mezi dvìmi voláními funkce automatického ulo¾ení. Nebo zadáte 0 a pak bude automatické ukládání vypnuto. I pøi vypnutém automatickém ukládání je ale stále mo¾né ulo¾it pøíspìvek ruènì kliknutím na tlaèítko "Ulo¾it".</li>
+<li><strong>Relativní http adresa</strong> - relativnì k umístìní blogu. Výchozí hodnota by mìla dobøe fungovat pro vìt¹inu u¾ivatelù.</li>
+</ol>
+Pak mù¾ete zaèít sepisovat pøíspìvky.
+</p>
+
+<h1>Chování u ji¾ publikovaných pøíspìvkù</h1>
+<p>
+Zabralo poøádnou chvíli vymyslet, jak má plugin pracovat u ji¾ vydaných pøíspìvkù. Nakonec pracuje takto:<br />
+Ne¹lo jednodu¹e pøepsat existující pøíspìvek, proto¾e by náv¹tìvníci blogu vidìli èásteèné zmìny je¹tì pøed dokonèením pøíspìvku. Tak¾e se pou¾ívá "stínová kopie", jiný, doèasný pøíspìvek ulo¾ený jako koncept, jeho¾ název zaèíná '[AUTOSAVED] '. Pùvodní pøíspìvek je svázán se svou stínovou kopií pomocí jedné vlastnosti.
+</p>
+
+<h1>Obnova po pádu prohlí¾eèe</h1>
+<p>
+Pokud pøíspìvek je¹tì nebyl publikován, jednodu¹e upravte koncept, odstraòte z nadpisu text '[AUTOSAVED] ', dokonèete text a ulo¾te pøíspìvek:-)
+</p>
+<p>
+Pokud u¾ jste pøíspìvek publikovali, vra»te se k jeho editaci (nestarejte se o svázanou stínovou kopii). Mìli byste mít k dispozici druhý odkaz. Poté, co na nìj kliknete, bude nata¾ena verze s automaticky ulo¾enými daty. Dokonèete pøíspìvek a ulo¾te ho jako obvykle. Pøíspìvek bude ulo¾en a stínová kopie bude smazána.
+</p>
+<p>
+Poznámka: V souèasné dobì se mi nadaøí obnovení staré verze "inline" (pomocí ajaxu), kvùli WYSIWYG editorùm ;-(
+</p>
+
+<h1>Jak to funguje uvnitø?!?</h1>
+<p>
+V¹echna ta kouzla jsou dìlána pomocí AJAXového volání v javascriptu. K tomu je pou¾ita knihovna Rico. Kdy¾ je stránka s editací pøíspìvku nata¾ena, je inicializován ajaxový engine. Vá¾nì nic ohromujícího. Je pøiøazena ka¾dá koncová url adresa s logickým jménem pro zjednodu¹ení pozdìj¹ích volání a také je registrován html element (span), který obdr¾í výsledky volání.
+</p>
+<p>
+Jakmile uplyne nastavená doba (a nebo pøi explicitním ruèním klinutí), je vytvoøeno a odesláno ajaxové volání, které obsahuje text editovaného pøíspìvku, s výjimkou statustu publikace, který je automaticky nastaven na "koncept", aby se zabránilo zveøejnìní nedopsaných pøíspìvkù. Na stranì serveru jsou data ulo¾ena pomocí stejného kódu, jako pøi standardním ulo¾ení pøíspìvku (napø. include/admin/entries.php je "vlo¾en" s adminAction nastavenou na 'save'). Pokud je potøeba (napø. pro je¹tì neulo¾ený pøíspìvek), novì vkládané skryté pole "entryid" je aktualizováno novì vygenerovaným ID èíslem, tak¾e po stisknutí tlaèítka "Ulo¾it" bude pøíspìvek ulo¾en s dokonèeným textem :-)
+</p>
+
+<h1>Po¾adavky</h1>
+<p>
+<ol>
+<li>Ajax-kompatibilní prohlí¾eè, tedy prohlí¾eè, který poskytuje objekt XmlHttpRequest. Plugin byl úspì¹nì otestován v prohlí¾eèích Firefox 1.5 a IE 6.0 SP2 (viz. domovská stránka knihovny RICO, èást podporované prohlí¾eèe), vèetnì WYSIWYG editorù TinyMCE a výchozím editorem HtmlArea.</li>
+<li>Plugin aktuálnì nefunguje s WYSIWYG editorem Xhina (pracuje se na tom, by pracoval) a nebyl otestován v kombinvaci s pluginem 'versioning' (rùzné verze jednoho pøíspìvku). Dobrovolníci na testování? :-)</li>
+<li>Funguje perfektnì s pluginem entrycheck.</li>
+</ol>
+</p>
+
+<h1>Závìr</h1>
+<p>
+Neostýchejte se poslat mi jakékoliv komentáøe, otázky, námìty, pøeklady (jay [teèka] bertrand [zavináè] free [teèka] fr).
+</p>
+</body>

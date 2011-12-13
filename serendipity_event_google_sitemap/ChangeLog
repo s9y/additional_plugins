@@ -1,0 +1,65 @@
+0.58:
+-----
+
+Exclude archives/Px.html pages when the "archives" option is not checked
+
+0.57:
+-----
+
+Forward compatibility to s9y's new defaultBaseURL variable, patch by Manko10
+
+0.56:
+-----
+
+Several changes to optimize the news_sitemap and sitemap.xml differences, and a new option
+to toggle whether sitemap.xml contains any NEWS references
+
+0.53:
+-----
+
+Create a second, smaller 'news_sitemap.xml' file that's suitable for submitting to google news seperately.
+
+0.52:
+----
+
+Proper $min reading, fixed too large sitemap files, thanks to Freudi
+
+0.51:
+-----
+
+Also add config options for subscription and genre tags
+
+0.50:
+-----
+
+Make GoogleNews BlogTitle configurable
+
+0.49:
+----
+
+Removed google news 'subscription' format, as it was misunderstood.
+
+0.48:
+-----
+
+Support new google news XML
+
+0.47:
+----
+
+Do not add links to not yet published entries, thanks to Stefan
+
+0.46:
+----
+
+Do not add UNKNOWN permalinks
+
+0.44:
+-----
+
+Made google news output optional.
+
+0.42:
+-----
+
+* Add google NEWS XML output, including meta keywords

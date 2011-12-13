@@ -1,0 +1,44 @@
+<?php # lang_cs.inc.php 1.2 2009-08-25 20:10:24 VladaAjgl $
+
+/**
+ *  @version 1.2
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  EN-Revision: Revision of lang_en.inc.php
+ *  Translated on 2007/11/23
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2009/08/25
+ */
+
+//
+//  serendipity_event_multilingual.php
+//
+
+@define('PLUGIN_EVENT_MULTILINGUAL_TITLE',              'Vízejazyèné záznamy');
+@define('PLUGIN_EVENT_MULTILINGUAL_DESC',               'Umožòuje vytvoøit pøíspìvek (záznam) ve více jazykových variantách. Obsahuje též fromuláø pro výbìr základního jazyka blogu.');
+@define('PLUGIN_EVENT_MULTILINGUAL_NEEDTOSAVE',         'Pøíspìvek musí být uložen pøed tím, než mùžete zaèít psát jeho verzi v cizím jazyce. Mùžete pøíspìvek uložit též jako koncept.');
+@define('PLUGIN_EVENT_MULTILINGUAL_CURRENT',            'Výbìr jazyka pro úpravy: ');
+@define('PLUGIN_EVENT_MULTILINGUAL_SWITCH',             'Jazyk');
+@define('PLUGIN_EVENT_MULTILINGUAL_COPY',               'Nechávat obsah z pøedchozího jazyka');
+@define('PLUGIN_EVENT_MULTILINGUAL_COPYDESC',           'Zachovává obsah polí z pøedešlého upravovaného jazyka pøi zvolení úpravy nové jazykové verze..');
+@define('PLUGIN_EVENT_MULTILINGUAL_PLACE',              'Kam umístit odkaz na jiné jazykové verze?');
+@define('PLUGIN_EVENT_MULTILINGUAL_PLACE_ADDFOOTER',    'Záhlaví pøíspìvku');
+@define('PLUGIN_EVENT_MULTILINGUAL_PLACE_ADDSPECIAL',   '"multilingual_footer" pro volitelný výstup do šablony Smarty');
+
+//
+//  serendipity_plugin_multilingual.php
+//
+
+@define('PLUGIN_SIDEBAR_MULTILINGUAL_TITLE',        'Výbìr jazyka');
+@define('PLUGIN_SIDEBAR_MULTILINGUAL_DESC',         'Povolit návštìvníkùm mìnit jazyk uživatelského rozhraní blogu');
+@define('PLUGIN_SIDEBAR_MULTILINGUAL_USERDESC',     'Mùžete vybrat rùzné jazyky pro zobrazování uživatelského rozhraní blogu: ');
+@define('PLUGIN_SIDEBAR_MULTILINGUAL_SUBMIT',       'Potvrzovací tlaèítko?');
+@define('PLUGIN_SIDEBAR_MULTILINGUAL_SUBMIT_DESC',  'Zobrazit potvrzovací tlaèítko vedle políèka s výbìrem jazyka?');
+@define('PLUGIN_SIDEBAR_MULTILINGUAL_SIZE',         'Velikost fontu');
+
+// Next lines were translated on 2009/08/25
+@define('PLUGIN_EVENT_MULTILINGUAL_TAGTITLE',           'Pøekládání nadpisu pøíspìvku pomocí tagù');
+@define('PLUGIN_EVENT_MULTILINGUAL_TAGTITLE_DESC',      'Zapne možnost pøekládání nadpisu pomocí taug {{!<jazyk>}}<text>{{--}}');
+@define('PLUGIN_EVENT_MULTILINGUAL_TAGENTRIES',         'Pøekládání pøíspìvkù a nadpisù pøíspìvkù pomocí tagù v textu');
+@define('PLUGIN_EVENT_MULTILINGUAL_TAGENTRIES_DESC',    'Zapne možnost pøekládání pøíspìvkù pomocí tagu {{!<jazyk>}}<text>{{--}}');
+@define('PLUGIN_EVENT_MULTILINGUAL_TAGSIDEBAR',         'Pøekládání položek postranních sloupcù pomocí tagù');
+@define('PLUGIN_EVENT_MULTILINGUAL_TAGSIDEBAR_DESC',    'Zapne možnost pøekládání obsahu postranních sloupcù pomocí tagu {{!<jazyk>}}<text>{{--}}');

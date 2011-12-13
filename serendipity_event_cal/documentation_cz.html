@@ -1,0 +1,241 @@
+<html>
+    <head>
+        <title>Dokumentace: Kalendáø akcí</title>
+    </head>
+
+	<style>
+		div.ramecek {
+			border: solid 2px gray;
+			padding: 3px;
+			margin: 5px;
+			}
+		div.nadpis, a.nadpis {
+			display: block;
+			background-color: gray;
+			color: white;
+			padding: 3px;
+			font-size: 150%;
+			font-family: sans-serif;
+			}
+		td {
+			vertical-align: top;
+		}
+	</style>
+<body>
+    
+<h1>Dokumentace k pluginu 'Kalendáø akcí'</h1>
+
+<p>Dokumentaci k tomuto pluginu pøelo¾il do èe¹tiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) a naposledy ji aktualizoval dne 19.6.2011. Od té doby mohl být plugin pozmìnìn nebo mohly být roz¹íøené jeho funkce. Zkontrolujte pro jistotu i <a href="Readme">aktuální anglické "readme"</a> a <a href="ChangeLog">.ChangeLog</a>.
+<p>
+
+<div class="ramecek">
+<div class="nadpis">serendipity_event_cal.php, README file 2010-02-23 ian</div>
+Pokud máte zajímavé vylep¹ení nebo potøebujete pomoc, zanechte prosím zprávu na <a href="http://www.s9y.org/forums/">diskuzním fóru</a>.<br />
+U¾ijte si to. .... Ian
+</div>
+
+<div class="ramecek">
+<div class="nadpis">POZOR:</div>
+Plugin je postaven plnì na ¹ablonách - viz soubory
+<div style="margin-left: 4em;">
+                    plugin_eventcal_cal.tpl (hlavní obrazovka a mìsíèní pøehledy),<br />
+                    plugin_eventcal_add.tpl (formuláø "pøidat"),<br />
+                    plugin_eventcal_app.tpl (tabulka "potvrdit"),<br />
+                    plugin_eventcal_calweek.tpl (tabulka týdeního pøehledu),<br />
+                    plugin_eventcal_entry.tpl (jednotlivá akce),<br />
+                    plugin_eventcal_ical.tpl (experimentální).
+					</div>
+V chybových zprávách plugin_eventcal_error se stále vyskytují ¹patné html tagy.<br />
+Soubor s jazykovými zprávami mù¾e být dále upravován.<br />
+Ètìte <a href="#additional_notes">DAL©Í POZNÁMKY</a>, <a href="#howto">Rychlé JakNaTo</a>, <a href="#settings">Nastavení</a> a <a href="#changelog">ChangeLog</a> (Historie verzí).
+</div>
+
+<div class="ramecek">
+<a name="additional_notes" class="nadpis">DAL©Í POZNÁMKY</a>
+<ul>
+<li>Nìkteré promìnné v tomto pluginu vy¾adují verzi PHP >= 5.1! Neexistuje ¾ádný omezený kompatibilní mód pro ni¾¹í verze, v ni¾¹ích verzích plugin nefunguje!</li>
+<li>Tento plugin není vhodný pro tøísloupcový design, a to z dùvodu ¹íøky. Lep¹í je pou¾ít dvousloupcový design s hlavním sloupcem ¹iø¹ím ne¾ 770 pixelù!</li>
+<li>Kalendáø umo¾òuje pouze celodenní akce. K upøesnìní èasu pou¾ijte del¹í popisek akce nebo pole pro krátký nadpis.</li>
+<li>V souèasnosti (6.3.2010) nejsou podporovány èasové údaje pøi iCal exportu.</li>
+<li>Pokud dìláte vlastní zmìny v css nebo tpl souborech, nakopírujte je do adresáøe se ¹ablonou, nepøepisujte výchozí ¹ablony v adresáøi pluginu!</li>
+<li>Ulo¾te znovu nasvatení, pokud aktualizujete ze star¹í verze!</li>
+<li>Pokud potøebujete pracovat pøimo v pluginu, pou¾ijte interní smarty (jako vyskakovací okno) nebo eventcal debugování ~øádek 2520. Hledejte '##$serendipity['smarty']->debugging' nahoøe v souboru.</li>
+<li>Pokud pou¾íváte iCal, mìjte na pamìti, ¾e existuje spousta rozídlù mezi kalendáøi v prostøedích Outlook|Mozilla|Google|Apple|Web|Smartphone|apod. Nìkteré jsou stále v beta-verzích, tak¾e jsou stále experimentální a je dost pravdìpodobné, ¾e nebudou fungovat. Funkce iCal byly plnì otestovány pouze s Mozillou Sunbird/Lightning.</li>
+<li>Pokud se vyskytnou problémy s nastavení èasové zóny jiné ne¾ CET (Støedoevropský èas), zmìòte nastavení ruènì v ¹ablonì plugin_eventcal_ical.tpl, obzvlá¹tì DAYLIGHT nastavení TZOFFSETFROM:+0200, TZID:Europe/Berlin, X-LIC-LOCATION:Europe/Berlin a TZNAME:CEST. <br />
+Èasové pásmo je jednoznaènì urèeno pomocí pravidel pro mìøení èasu urèenou vládami jednotlivých geografických oblastí. Tato pravidla popisují pøinejmen¹ím odchylku od UTC (Greenwichský èas). Mnoho oblastí nastavuje svùj "Standardní èas" o jednu hodinu dopøedu nebo dozadu, aby pøizpùsobila sezónní zmìny v poètu hodin se svìtlem dennì, èasto také oznaèovaný jako "Upravený èas". Nìkteré oblasti upravují svùj èas o zlomky hodiny. Standardní èas je èasto oznaèován jako "Zimní èas" a upravený èas jako "Letní èas, Úøední èas nebo Posunutý èas".<br />
+Pøíklad nastavení Východního amerického èasu:
+<div style="margin-left: 4em;">
+     BEGIN:VTIMEZONE<br />
+     TZID:US-Eastern<br />
+     X-LIC-LOCATION:America/New_York<br />
+     BEGIN:DAYLIGHT<br />
+     TZOFFSETFROM:-0500<br />
+     TZOFFSETTO:-0400<br />
+     TZNAME:EDT<br />
+     DTSTART:19700329T020000<br />
+     RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=3<br />
+     END:DAYLIGHT<br />
+     BEGIN:STANDARD<br />
+     TZOFFSETFROM:-0400<br />
+     TZOFFSETTO:-0500<br />
+     TZNAME:EST<br />
+     DTSTART:19701025T030000<br />
+     RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=10<br />
+     END:STANDARD<br />
+     END:VTIMEZONE<br />
+</div>
+Podívejte se také na stránky Mozilla Sunbird/Lightning, konkrétnì na popis sekcí EGIN:VTIMEZONE a¾ END:VTIMEZONE, pro nastaveníí Va¹í èasové zóny <a href="https://wiki.mozilla.org/QA_Feature_Specification:Timezone_Test_ICS">https://wiki.mozilla.org/QA_Feature_Specification:Timezone_Test_ICS</a>.
+</li>
+<li>Proètìte si prosím také <a href="#changelog">ChangeLog</a> (Historii verzí) ní¾e na této stránce.</li>
+</ul>
+</div>
+
+<div class="ramecek">
+<a name="howto" class="nadpis">RYCHLÉ "JAK NA TO"</a>
+<ul>
+<li>Vyplòte parametry akce. Mù¾ete si vybrat mezi jednodenní akcí (která se mù¾e jednou roènì opakovat), vícedenní akcí, opakovanou akcí (mìsíènì, týdnì, jednou za ètrnáct dní) a jednoroèní událostí. Jednoroèní událost je platná, jestli¾e poèáteèní datum není star¹í ne¾ 1 mìsíc.</li>
+<li>IMHO (In My Humble Opinion = Dle mého skromného názoru) není v souèasnosti potøeba nastavovat kryptogramy, proto¾e spamboty jsou relativnì hloupé. Pokud by se to zmìnilo, nastavte Kryptogramy na "ano".</li>
+<li>Neschválené akce se zobrazují v administrátorské oblasti pod druhým znaménkem "plus" [n akcí èeká na schválení]</li>
+<li>Pouze administrátoøi a pøihlá¹ení u¾ivatelé jsou oprávnìni upravovat, mazat a schvalovat akce. Upravené akce jsou potvrzovány automaticky pøi zadání zmìny.</li>
+<li>Schválené akce se zobrazují v kalendáøi jako krátký odkaz (s nadpisem zadaným v poli "krátký nadpis"). Více akcí behìm jednoho dne je mo¾né zadat.</li>
+<li>Pokud potøebujete smazat nebo pøepsat jednotlivou ji¾ schválenou akci, kliknìte na její nadpis v mìsíèním pøehledu. Tím zobrazíte editovatelné podrobnosti akce, pokud jste ov¹em pøihlá¹eni.</li>
+<li>Dále - pouze administrátor je oprávnìn k proèi¹tìní databázové tabulky akcí vymazáním v¹ech akcí star¹ích ne¾ 1 mìsíc a reorganizací hodnot autoincrement id.</li>
+<li>Administrátorské úkony teï mù¾ete provádìt také v administraèní sekci blogu. Downgradované rozhraní pro provedení èistky databáze pouze v administraèní sekci.</li>
+</ul>
+</div>
+
+<div class="ramecek">
+<a name="settings" class="nadpis">NASTAVENÍ</a>
+<table>
+<tr><td>Permalink</td><td> - /HTTP-Root/.../serendipity/pages/eventcal.html</td></tr>
+<tr><td>Nadpis stránky a Url</td><td> - Krátký nadpis, který je pou¾itý té¾ v index.php?serendipity[subpage]=jmeno</td></tr>
+<tr><td>Formátovat jako èlánek</td><td> - výchozí hodnota je "ano"</td></tr>
+<tr><td>Nadpis stránky</td><td> - nepovinné</td></tr>
+<tr><td>Úvodní slovo</td><td> - nepovinné; Pokud je WYSIWYG editor zapnutý, jako html pole.</td></tr>
+<tr><td>Pou¾ít kryptogramy</td><td> - výchozí hodnota "ne"</td></tr>
+<tr><td>Exportovat iCal feed?</td><td> - výchozí hodnota "ne"</td></tr>
+<tr><td>Exportovat iCal URL?</td><td> - výchozí hodnota "ne"; Vyberte jednu hodnotu mezi "sta¾ení|webcal|email|u¾ivatel rozhodne sám"</td></tr>
+<tr><td>Logovat iCal exporty?</td><td> - výchozí hodnota "ne"; Pokud ano, email s daty u¾ivatele [IP, email, url] budou posílány na zadaný email, viz následující nastavení.</td></tr>
+<tr><td>Va¹e emailová adresa</td><td> - Email, na který posílat oznámení, pokud je logování nastaveno na "ano".</td></tr>
+</table>
+</div>
+
+
+<p>
+Tento plugin je postaven na pùvodním kódu "event calender" na php.net nìkdy v roce 2005 a¾ 2006. Neostýchejte se ho dále vylep¹ovat.
+</p>
+<p>
+Ian, 31 øíjna 2009
+</p>
+
+<div class="ramecek">
+<a name="changelog" class="nadpis">CHANGE_LOG (HISTORIE VERZÍ)</a>
+
+<h2>Verze 1.66 (23.2.2011)</h2>
+<table>
+<tr><td>23.2.2011</td><td>ZMÌNA</td><td>o¹etøené drobné vìci okolo fontù v CSS souboru kalendáøe</td></tr>
+<tr><td>23.2.2011</td><td>NOVÁ FUNKCE</td><td>dvojitá kontrola verze databáze a odstranìní cleanup() je volána poka¾dé</td></tr>
+<tr><td>22.2.2011</td><td>CHYBA (o¹etøená, uzavøená)</td><td>¹patnì umístìné volání funkce smarty_object_init() vnì tøídy poru¹ilo formuláø komentáøù u pøíspìvkù</td></tr>
+</table>
+
+<h2>Verze 1.65 (17.2.2011)</h2>
+<table>
+<tr><td>17.2.2011</td><td>NOVINKA</td><td>dopøedná kompatibilita se Smarty3</td></tr>
+</table>
+
+<h2>Verze 1.64 (15.2.2011)</h2>
+<table>
+<tr><td>15.2.2011</td><td>NOVÁ FUNKCE</td><td>omezení adinistraèní funkce v backendu a postranním sloupci pouze na pøihlá¹eného administrátora</td></tr>
+<tr><td>5.2.2011</td><td>ZMÌNA a NOVÁ FUNKCE</td><td>jazykové konstanty. Jazykové soubory &lt;en&gt;, &lt;de&gt;, &lt;de-utf8&gt;, &lt;cs&gt;, &lt;cs-utf8&gt;, &lt;cz&gt; a &lt;cz-utf8&gt; jsou nyní aktuální.</td></tr>
+<tr><td>5.2.2011</td><td>ZMÌNA</td><td>metoda smarty->fetch je nyní ménì pøísná, aby podporoval zmìnu poøádí parametrù mezi verzemi smarty2 a samrty3 - odstranìn parametr 4</td></tr>
+<tr><td>29.1.2011</td><td>NOVÁ FUNKCE</td><td>volba øazení podle èasu sestupnì pro schválené pøípsìvky (vèetnì drobné opravy v backend.css)</td></tr>
+<tr><td>29.1.2011</td><td>NOVÁ FUNKCE</td><td>správa databáze eventcal, umo¾òuje zálohovat, stahovat a mazat sql soubory</td></tr>
+<tr><td>28.1.2011</td><td>ZMÌNA</td><td>backend - kontroly, ¾e mysql tabulka existuje, jsou nyní pøísnìj¹í v pøípadì èerstvé instalace</td></tr>
+</table>
+
+<h2>Verze 1.63 (19.1.2011)</h2>
+<table>
+<tr><td>9.1.2011</td><td>NOVÁ FUNKCE</td><td>compatibilita se smarty3</td></tr>
+<tr><td>9.1.2011</td><td>ZMÌNA</td><td>plugin_eventcal_cal.tpl - odstranìno start=1 z loop kvùli kompatibilitì se smarty3</td></tr>
+<tr><td>8.1.2011</td><td>CHYBA (o¹etøená, uzavøená)</td><td>update databáze nefungoval podle oèekávání</td></tr>
+<tr><td>22.7.2010</td><td>ZMÌNA</td><td>interní sestavování URL adresy je pøátel¹tìj¹í k nastavení mod_rewrite pomocí permalinku nebo podstrany (rewrite, ¾ádné, errordocs definuje pou¾ití podstránky)</td></tr>
+<tr><td>15.7.2010</td><td>CHYBA (o¹etøená, uzavøená)</td><td>v pøípadì chyby formuláøe POST kalendáø neukazoval na odkazovaný mìsíc/rok, ale pøepnul se na leden/rok</td></tr>
+<tr><td>15.7.2010</td><td>ZMÌNA</td><td>style_event_backend.css, plugin_eventcal_add.tpl a plugin_eventcal_cal.tpl je pøísnìj¹í co se týèe css pravidel</td></tr>
+<tr><td>15.7.2010</td><td>ZMÌNA</td><td>drobné opravy a vyèi¹tìní kódu</td></tr>
+</table>
+
+<h2>Verze 1.62 (30.4.2011)</h2>
+<table>
+<tr><td>28.4.2011</td><td>CHYBA (o¹etøená, uzavøená)</td><td>v pøípadì zmìny neschválených akcí v administraèní sekci formuláø nezobrazoval správný typ akce</td></tr>
+<tr><td>28.4.2011</td><td>ZMÌNA</td><td>ics chování url pomocí external_plugin pro kontrolu, jestli je pou¾íváno pøepisování URL (URLRewrite)</td></tr>
+<tr><td>22.3.2011</td><td>ZMÌNA</td><td>external_plugin je pøenìj¹í v ics_exportu akcí kalendáøe</td></tr>
+</table>
+
+<h2>Verze 1.61 (11.3.2011)</h2>
+<table>
+<tr><td>9.3.2011</td><td>NOVÁ FUNKCE</td><td>vytvoøení chybìjícího adresáøe eventcal v templates_c </td></tr>
+</table>
+
+<h2>Verze 1.6 (22.2.2010)</h2>
+SOUHRNNÌ: V backendu (v adminstraèní sekci) je nyní v postranním sloupci odkaz, pod kterým je schováno rozhraní k zobrazování, povolování, vkládání a úpravám událostí. Panel pro administraci databáze se pøesunul také tam. Nicménì hlavní administrativní operace, jako povolování, zmìny nebo mazání zùstávají pøístupné z frontendu (u¾ivatelského rozhraní). Po celou dobu jsem PØIDÁVAL nové funkce a MÌNIL staré funkce, *.tpl ¹ablony a anglické a nìmecké jazykové soubory, aby plugin správnì fungoval.
+<table>
+<tr><td>23.2.2010</td><td>ZMÌNA</td><td>cesta pro log soubor do serendipity/templates_c/eventcal a ics soubor do serendipity/uploads - viz 11.2.2010</td></tr>
+<tr><td>20.2.2010</td><td>ZMÌNA</td><td>èi¹tìní pøed releasem</td></tr>
+<tr><td>19.2.2010</td><td>ZMÌNA</td><td>plugin_eventcal_ical.tpl pro unparsování RRULE èásti multi-událostí. Jsem si jistý, ¾e u¾ jsem to dìlal døíve nìkde jinde..., proto¾e multi-události mají den ukonèení.</td></tr>
+<tr><td>18.2.2010</td><td>ZMÌNA</td><td>nìkteré promìnné jsou testované pomocí (isset(promìnná), abychom se vyhnuli mno¾ství PHP varování v pøípadì nastavení chybových hlá¹ek na error_reporting(E_ALL)</td></tr>
+<tr><td>16.2.2010</td><td>ZMÌNA</td><td>funkce send_ical_log_email, logování do mailu, pro vytvoøení entryURI jako odkaz href s plnými parametry</td></tr>
+<tr><td>14.2.2010</td><td>ZMÌNA</td><td>funkce sendIcalEmail - zbavil jsem se dvojtých hlavièek Content-Type, které produkovaly X-Amavis-Alert</td></tr>
+<tr><td>14.2.2010</td><td>ZMÌNA</td><td>funkce send_ical_log_email - hází chybu v pøípadì, ¾e selhal zápis do souboru</td></tr>
+<tr><td>13.2.2010</td><td>ZMÌNA</td><td>mail ical, aby byl pøesnìj¹í vzhledem k zadanému mailu v nastavení pluginu nebo v osobním nastavení serendipity a jazykových souborech</td></tr>
+<tr><td>11.2.2010</td><td>ZMÌNA</td><td>funkce write_file icalendar.ics pou¾ívá nyní funkci backend_file_write a zapisuje soubor do nového veøejného adresáøe pod cestou k pluginu, aby byl následnì poslán jako soubor v pøípadì mailu nebo webcalu. Toto nastavení je jiné oproti verzi pluginu 1.5, který ukládal do adresáøe S9y/uploads!</td></tr>
+<tr><td>10.2.2010</td><td>NOVÁ FUNKCE</td><td>stripsalshes (odstranìní lomítek) pøi pøípravì povolené události do formuláøe, který je u¾ita podle platformy (windows) nebo php verze.... (?) Stará verze bez této funkce nemìla na mém serveru bì¾ícím na debian lenny ¾ádný problém.</td></tr>
+<tr><td>10.2.2010</td><td>ZMÌNA</td><td>funkce str_replace_icalarray na funkci str_replace_recursive, podporuje NOVÌ parametr 4 pro vyhledávání pouze ve specifickém klíèi pole</td></tr>
+<tr><td>9.2.2010</td><td>ZMÌNA</td><td>funkce send_ical_log_email, aby generovala správné entryURI, logování iCal po¾adavkù</td></tr>
+<tr><td>8.2.2010</td><td>ZMÌNA</td><td>CW týden v ¹ablonì plugin_eventcal_calweek.tpl je stejný v mìsíèním kalendáøí a v denním pøehledu, v css je nastavený jako xx-small</td></tr>
+<tr><td>8.2.2010</td><td>ZMÌNA</td><td>vlastnosti css fontu, aby byl zacílen pouze na výstup eventcal, vrací kontrolu nad blogem do rukou ¹ablony a jejího nastavení</td></tr>
+<tr><td>7.2.2010</td><td>ZMÌNA</td><td>chování logu iCal po¾adavkù. Nyní mo¾né logovat pomocí emailu a/nebo souboru v backend/ical.log</td></tr>
+<tr><td>7.2.2010</td><td>NOVÁ FUNKCE</td><td>v ¹ablonì plugin_eventcal_ical.tpl èást ORGANIZER, direktiva RSVP=FALSE:MAILTO:"", znamenající "répondez, s'il vous plaît" nastavená na NE</td></tr>
+<tr><td>6.2.2010</td><td>ZMÌNA</td><td>hook_event 'external_plugin' a ical funkce podporují v¹echny povolené události, administrátorský download pomocí mailu nebo downloadu</td></tr>
+<tr><td>4.2.2010</td><td>NOVÁ FUNKCE</td><td>zmìnìná chybová konstanta v jazykovém souboru, aby zobrazovala pøedpokládané poèáteèní datum u opakujících se událostí</td></tr>
+<tr><td>4.2.2010</td><td>CHYBA (o¹etøená, uzavøená)</td><td>ve funkci calculate_recur_validday - kontrola u opakujících se událostí, pokud se poèáteèní den neshoduje s vybraným dnem v týdnu. Nyní souhlasí pøepøedposlední a tøetí den v týdnu od konce, které nebyly poèítány správnì a vracely chybu v pøípadì kontroly po pøidání nebo opìtovné editaci.</td></tr>
+<tr><td>4.2.2010</td><td>NOVÁ FUNKCE</td><td>strtolower(re) - opakující se mìsíèní událost, konstanta jména v pøípadì  'Ka¾dý "re" jméno v týdnu'</td></tr>
+<tr><td>3.2.2010</td><td>CHYBA (o¹etøená, uzavøená)</td><td>funkce draw_add - opravený formuláø na pøidání - pøestavìno pole pro rok v pøípadì opakované úpravy události, aby zobrazovalo pùvodní poèáteèní rok</td></tr>
+<tr><td>3.2.2010</td><td>ZMÌNA</td><td>plugin_eventcal_entry.tpl & style_eventcal_backend.css - zmìnìné css styly, aby lépe zobrazovaly jediný pøíspìvek</td></tr>
+<tr><td>3.2.2010</td><td>CHYBA (o¹etøená, uzavøená)</td><td>v 'case css' - nastaveno správné poøadí stristr, aby zjistilo, jestli soubor style.css má u¾ css styly definované pluginem</td></tr>
+<tr><td>3.2.2010</td><td>ZMÌNA</td><td>style_eventcal_backend.css - zpøesnìné chování serendipityPrettyButton, aby se vylouèil konflikt v administrátorské sekci, backendu</td></tr>
+<tr><td>2.2.2010</td><td>CHYBA (o¹etøená, uzavøená)</td><td>funkce view_app_events pomocí load_unapproved_events nyní vrací false, pokud není zadána ¾ádná hodnota</td></tr>
+<tr><td>2.2.2010</td><td>NOVÁ FUNKCE</td><td>v ¹ablonì plugin_eventcal_app.tpl - pøidána chybìjící konstanta 'jednou za ètrnáct dní'</td></tr>
+<tr><td>1.2.2010</td><td>NOVÁ FUNKCE</td><td>pøidána administraèní sekce v backendu blogu - pro schvalování, upravování a mazání událostí, vèetnì manipulací s databází. To zahrnuje zmìny v anglickém a nìmeckém jazykovém souboru, nìkterých *.tpl ¹ablonách a css stylopisech.</td></tr>
+</table>
+
+<h2>Verze 1.5 (1.2.2010)</h2>
+V krátkosti, pokusím se to releasnout právì teï... je to vícemnénì hlavní release ;-). <br />
+V krátkosti, v nastavení mù¾ete nyní povolit iCal export jako sta¾ení souboru, poslání pomocí protokolu webcal nebo pomocí mailu. Pøípadnì mù¾ete zpùsob sta¾ení nechat na u¾ivateli.<br />
+V krátkosti, v nastavení mù¾ete povolit explicitní iCal export. Pokud je nastaven, v kalendáøi budou zpøístupnìna tlaèítka, která umo¾òují po¾adavek na mìsíèní pøehled nebo stáhnutí jednotlivé akce.<br />
+Obecnì vzato jsem pøidal nové a pozmìnil staré funce, nastavovací promìnné, ¹ablony, jazykové konstanty a obrázky, aby plugin podporoval korektní export ve formátu iCal.
+<table>
+<tr><td>28.1.2010</td><td>ZMÌNA</td><td> - znovu vylep¹en sql dotaz SELECT-ARRAY, aby byl jak pøesný to jde k v¹em tipo-akcím</td></tr>
+<tr><td>26.1.2010</td><td>ZMÌNA</td><td> - Vylep¹ené a pøidané nìkteré jazykové konstanty a interní funkce, tpl ¹ablony, pøidána nápovìda k pøidávacímu formuláøi, re-edit poèáteèní rok je nyní ukládán v databázi</td></tr>
+<tr><td>24.1.2010</td><td>NOVÁ FUNKCE</td><td> - pøidány opakované události - roèní a ètrnáctidenní - do souborù pluginu, tpl ¹ablon a jazykových souborù</td></tr>
+<tr><td>21.1.2010</td><td>CHYBA (opravená, uzavøená)</td><td> - Vylep¹eno pole 'case tipo 3 recurring monthly events' v mìsíèním pøehledu, které se nezobrazovalo v¾dy korektnì.</td></tr>
+<tr><td>17.1.2010</td><td>ZMÌNA</td><td> - nastavení kontroly akcí opakovaných mìsíènì a týdnì, aby byly pøesnìj¹í, co se týèe data prvního výskytu ve vybraném dnu, které je potøeba pro iCal export. Upravte staré akce, aby splòovaly nové po¾adavky!</td></tr>
+<tr><td>6.1.2010 </td><td>NOVÁ FUNKCE</td><td> - Do databáze byly pøidány TIMESTAMP pole 'tstamp' jako hodnota vytvoøení a poslední úpravy. Toto si také vy¾ádalo zmìnu tpl ¹ablony! Bylo to potøeba pro iCal export.</td></tr>
+<tr><td>20.12.2009</td><td>ZMÌNA</td><td>  - vylep¹en a zmìnìn databázový SELECT akcí, aby byl pøesnìj¹í co se týèe vícedenních a opakovaných akcí ve funkci load_monthly_events() v iCal exportu.</td></tr>
+<tr><td>20.12.2009</td><td>ZMÌNA</td><td>  - Vylep¹eno pole mìsíèního pohledu ve funkci load_monthly_events(), které nyní vybírá a zobrazuje v¹echny mo¾né výskyty.</td></tr>
+<tr><td>19.12.2009</td><td>ZMÌNA</td><td>  - vylep¹eny a pøidány nìkteré jazykové konstanty</td></tr>
+<tr><td>5.12.2009</td><td>ZMÌNA</td><td>  - zmìnìna nìkterá nastavení. Nastavte je prosím znovu.</td></tr>
+<tr><td>2.12.2009</td><td>ZMÌNA</td><td>  - Nìkterá men¹í vylep¹ení v ¹ablonách *.tpl a stylech *.css</td></tr>
+<tr><td>1.12.2009</td><td>ZMÌNA</td><td>  - Vylep¹eno interní 'get back to form' v pøípadì chyb.</td></tr>
+<tr><td>26.11.2009</td><td>CHYBA (opravená, uzavøená)</td><td>  - Zlep¹eno pole týdeního pøehledu 'case tipo 4 to every weekday' v mìsíèním pøehledu, které se ne v¾dy zobrazovalo korektnì.</td></tr>
+</table>
+
+<h2>Verze 1.4</h2>
+<ul>
+<li>2009-11-21 - Nahrána první verze</li>
+</ul>
+</div>
+
+
+
+</body>        
+</html>

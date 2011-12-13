@@ -1,0 +1,114 @@
+0.4.3:
+    * Fixed error when using safari
+
+0.4.2:
+    * Added documentation (german)
+    * Minor CSS-changes in extended menu
+    * Not saving a config won't prevent javascript from loading
+
+0.4.1:
+    * Comments marked manually as spam will be moved to the recycler
+     instead of being deleted instantly
+
+0.4:
+    * jQuery now may be part of s9y
+
+0.3.9.3:
+    * Changed counting of comments when importing
+
+0.3.9.2:
+    * Deleting and recreating the database will now create the table with
+      the key
+    * Fixed php-error when requesting all comments from an empty 
+      database
+
+0.3.9.1:
+    * Database-performance-upgrade for making import possible
+      on big databases
+    * Reduced memory-usage of export
+    * Improved support for sqlite
+
+0.3.9:
+    * Added Import/Export of the database
+    * Protected the database-deletion with a confirm-dialog
+
+0.3.8:
+    * Added option to ignore commentfields
+    * Used Limit to reduce resourceusage of Analysismenu
+    * Changed sortorder to "newest comment first" in Analysismenu
+    * Fixed: Recycler got emptied when analysing a comment
+    * Linked Analysis from rating in commentlist
+
+0.3.7:
+    * Restored wanted order of the recycler-table
+    * Mitigated the effect of one spamfield if there are other clearly
+      valid fields in the comment (e.g. commenter's name looks like spam
+      but everything else is valid)
+    * Learn restored comments directly as ham
+    * Added a button to learn comments in the recycler again as spam when
+      emptying it.
+    * Added menu for analysing the ratings of a comment, showing the
+      the rating of each part    
+
+0.3.6.1:
+    * Fixing restore of recyclercontent
+
+0.3.6:
+    * Upon Request: Added date to recycler
+    * Added a "Mark all as ham"-button to the commentpage, using
+      fieldsets to separate plugin-buttons from the normal ones
+    
+0.3.5:
+    * Fixed possible infinite-loop when marking as spam
+    * Made the "mark selected as spam"-function more robust
+    * Upgrade: Fixed saving of old counter into the new system
+    * Named treatment "custom" better
+    
+0.3.4:
+    * Added workaround for "empty" pingbacks
+
+0.3.3:
+    * Fixed gathering of comment-information when rating a just-entered one
+        (name, referrer, ip)
+    * Fixed confusion with names of the categories (they are different
+      in database than in the commentsave-event)
+    * Fixed styling-errors in adminarea:
+       * Used fixed table-layout for recycler-table
+       * Added missing translations
+       * Fixed CSS-errors regarding the controls
+
+0.3.2:
+    * Rate each element of the comment, like text and e-mail, separately
+    * Use UTF-8 in the database and for tokenizing
+    * Added button to mark all selected comments as spam
+    * Added menu for:
+        * Learn a custom comment as spam or ham
+        * Get an overview of and control the database-table
+        * Restore comments prior blocked as spam
+
+0.2.2:
+    * Added custom-mode for setting the barrier for moderation and rejection
+    * Mark-workflow: marking as ham approves, marking as spam deletes.
+
+0.2.1:
+    * Improved 'getComment'-SQL-Statement
+
+0.2:
+    * Added display of comment-rating on commentpage
+    * Added control-links to comment-email-notification (relying on a change in s9y 1.6)
+    * Bugfix: Some comments were unrateable
+
+0.1.9:
+    * Merged controls with existing commentpage
+    * Improved fetching of comments when learning
+
+0.1.8.1:
+    * Added next/previous to bottom of the menu
+    * Removed further unnecessary items
+    * Tried to clean up html
+
+0.1.8:
+    * removed unnecessary interface-items from frontend
+    * added loadinidicator to frontend
+    * Bugfix: Use of the form at the admin-frontend no longer switches to the comment-frontend
+    * Bugfix: php-end from lang-file removed

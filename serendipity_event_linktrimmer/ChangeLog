@@ -1,0 +1,22 @@
+latest: Smarty3 forward compatibility
+
+0.8:
+----
+
+Use latin1_general_cs charset due to lower/uppercase lookups,
+thanks to danst0
+
+0.6:
+----
+
+Allow to be used in other plugins (danst0)
+
+0.5:
+----
+
+Remove unneeded die()
+
+0.1:
+----
+
+Initial Release. See Documentation.

@@ -1,0 +1,92 @@
+# $Id$
+
+------------------------------------------------------------------------
+Version 1.18 (brockhaus)
+    
+    * Supress errors, if cache loading / writing was unsuccessfull
+
+------------------------------------------------------------------------
+Version 1.16 (garvinhicking)
+
+    * When no rows are returned, suppress error
+
+------------------------------------------------------------------------
+Version 1.15 (brockhaus)
+
+    * FIX: PostgreSQL problem in plugin "Last Google search"
+      http://board.s9y.org/viewtopic.php?f=3&t=15475&p=88289#p88269
+      thanks to ads for reporting and adding a hint for fixing it! 
+
+------------------------------------------------------------------------
+Version 1.14 (brockhaus)
+
+    * Changed code, so that more engines can be added very easy
+    * Added more engines found in my google analytics: 
+      freenet.de, t-online.de, web.de, ixquick.com, MySpace, 
+      Metager2.de, 1&1
+    * Stats: Shows engines only, that delivered hits, sorted by 
+      relevance.
+    * Configurable, which of the known engines should be used
+     (for performance reasons).
+    * Cache of SQL queries for performance
+    * Search hits can be switched off (only the stats will be shown then)
+    * stackable
+
+------------------------------------------------------------------------
+Version 1.13 (brockhaus)
+
+    * BugFix: search engine statistics loaded *all* entries, not the
+      entries of the last X days. :-/
+
+------------------------------------------------------------------------
+Version 1.12 (brockhaus)
+
+    * Optional statistic output: Count of queries per search engine the
+      last X days.
+    * more refactoring.
+
+------------------------------------------------------------------------
+Version 1.11 (brockhaus)
+
+    * Time of query visible via title attribute (optonal).
+    * Show last queries to users only, who are logged in (optional)
+    * Removed duplicate code, refactoring.
+
+------------------------------------------------------------------------
+Version 1.10 (brockhaus)
+
+    * Added scroogle.org and bing.com searches
+    * Yahoo searches tested successfully
+    * Added optional icons representing the search enginge
+ 
+------------------------------------------------------------------------
+Version 1.07 (brockhaus)
+
+    * Support for yahoo searches added (not testet yet, as yahoo doesn't
+      find me)
+    * Removed unused browser image code and laguage support
+    * If visitors table choosen but not existing, fallback to references
+      produced a PHP error about a missing function.
+
+------------------------------------------------------------------------
+Version 1.06 (brockhaus)
+
+    * Coding style
+    * Linking to google from search words didn't work correctly anymore
+
+------------------------------------------------------------------------
+Version 1.05 (brockhaus)
+
+    * The plugin is now configurable to evaluate the visitors table
+      instead of the referrers table. This gives immidiate results
+      instead of results about searches executed a couple of times.
+      This is only working, if the statistics plugin is installed.
+
+    * Option for opening the google search links in a new window.
+
+    * Prepared functionality showing browser icons near the search
+      words, but I switched it off, because I wasn't able to create
+      nice icons. ;-)
+
+------------------------------------------------------------------------
+Version 1.04 (garvinhickins)

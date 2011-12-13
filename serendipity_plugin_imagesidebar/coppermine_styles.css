@@ -1,0 +1,25 @@
+
+/* outer block, including thumbnails & gallery link */
+.cm_block {
+    text-align: center;
+}
+
+/* album title below thumbnail (if a non-zero size is specified in the plugin settings) */
+.cm_info {
+
+}
+
+/* thumbnail block, including album link if visible) */
+.cm_cell {
+    margin-bottom: 10px;
+}
+
+/* thumbnail img element */
+.cm_thumbnail {
+    border: 1px solid #000000;
+}
+
+/* Gallery link */
+.cm_gallery {
+
+}

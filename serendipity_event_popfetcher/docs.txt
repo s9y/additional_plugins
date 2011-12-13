@@ -1,0 +1,83 @@
+// POPfetcher 1.0 -- Fetches and publishes email and attachments
+//               from a POP3 email account (includes cell phone support)
+// Author: Jason Levitt  fredb86@users.sourceforge.net
+
+CONTENTS
+--------
+
+* KNOWN ISSUES
+* REQUIREMENTS
+* DESCRIPTION
+* EXTERNAL VERSUS INTERNAL USE
+* CELL PHONE SUPPORT
+
+KNOWN ISSUES
+
+* HTML email
+POPfetcher expects your email messages to be plain text. HTML email may work, but the display format will likely be less than optimal
+
+* POP3 over SSL
+If you are trying to use POP3 over SSL (port 995) and PHP's OpenSSL extension is not installed, you will see an error message like this:
+
+"ERROR: could not connect to mail server: POP3 connect: Error [0] [Unknown error: 0]"
+
+REQUIREMENTS
+
+* Serendipity 0.8 or newer
+* PHP 4.1 or newer, or PHP 5.x
+* An email account accessible via POP3 protocol
+
+Your POP3 mail server must support UIDL (all modern POP3 servers support UIDL). If you want to access Gmail accounts, or other accounts that use POP3 over SSL, you must have PHP's OpenSSL extension installed. To enable POP3 over SSL, simply change the POP port from 110 to 995 in the plugin preferences.
+
+DESCRIPTION
+
+This plugin adds the menu selection "POPFetcher" to your admin menu. Clicking on it will retrieve all attachments (and corresponding email msgs) from your mailbox using POP3 protocol. Alternatively, this plugin can also be run externally, typically from crontab.
+
+The attachments are decoded and moved into the serendipity Media Library.
+Additionally, if blogflag is set to yes, every email message plus its attachments are posted as blog entries.
+
+SprintPCS (and to a lesser degree: tmobile, cingular, and verizon) photo, video,and audio attachments are recognized and "cleaned" before posting.
+
+EXTERNAL VERSUS INTERNAL USE
+
+The first setting in the POPfetcher settings decides whether POPfetcher runs as an "Internal" or "External" plugin.
+
+By default, POPfetcher runs as an "internal" plugin. This means that it's just another menu selection from within your blog administration section. It only runs when you manually click on the "POPfetcher" menu selection. It's that simple. 
+
+Alternatively, you may run it as an "external" plugin. This means that it is launched from outside of your blog by using a URL. To keep villains from running POPfetcher (it wouldn't compromise security, but could be annoying :-), you choose a secret word, which you set in your POPfetcher settings, to use as the end of your launch URL. 
+
+The external launch URL for POPfetcher looks like this:
+
+      http://www.yourblog.com/serendipity/index.php?/plugin/SECRET_WORD
+
+      Or if Apache URL rewriting is on, you can use this format:
+
+      http://www.yourblog.com/serendipity/plugin/SECRET_WORD
+
+You should be able to manually test it by simply putting this external URL in your web browser.
+
+You can then create a Crontab entry to run POPfetcher at desired intervals.
+I've tested it using lynx, but it should work using wget and curl as well. Here's
+the Crontab entry I use:
+
+*/30 * * * * /usr/local/bin/lynx -dump http://www.myblog.com/serendipity/index.php?/plugin/SECRET_WORD >> /htdocs/serendipity/uploads/0000log.txt 2>&1
+
+Of course, if you have Apache URL rewriting on, you can use this format:
+
+*/30 * * * * /usr/local/bin/lynx -dump http://www.myblog.com/serendipity/plugin/SECRET_WORD >> /htdocs/serendipity/uploads/0000log.txt 2>&1
+
+Here's a version using wget:
+
+*/30 * * * * /usr/local/bin/wget -O - -q http://www.myblog.com/serendipity/plugin/SECRET_WORD >> /htdocs/serendipity/uploads/0000log.txt 2>&1
+
+Here's a version using GET:
+
+*/30 * * * * /usr/local/bin/GET http://www.myblog.com/serendipity/index.php?/plugin/SECRET_WORD >> /htdocs/serendipity/uploads/0000log.txt 2>&1
+
+This cron job runs popfetcher every 30 minutes. Any log output is written to the file named "0000log.txt".  I chose that name so that, by default, it ends up at the far end of my Media Manager. You can choose the filter settings "filename" and "descending" and it will magically show up as the first entry in the Media Manager. You could name it "aaaalog.txt" and it would always be at the top. You can use the Media Manager to read the log file whenever you suspect there are problems with POPfetcher.
+
+CELL PHONE SUPPORT
+
+POPfetcher automatically recognizes some cell phone attachments (U.S. carriers only, at the moment) and transfers any photos, video, and sound clips to your Media Manager. The support is far from perfect but is pretty good for Sprint, and acceptable for some phones by other carriers. 
+
+=================================================

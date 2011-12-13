@@ -1,0 +1,571 @@
+<html><head><title>Color Wheel</title>
+
+<!-- 4096 Color Wheel Version 2.1  by Jemima Pereira -->
+
+<!-- http://jemimap.ficml.org/style/color/wheel.html -->
+<!-- 2.1:  Improved unsafe to smart conversion,         -->
+<!--       added keyboard navigation             (4/04) -->
+<!-- 2.0:  Converted to HSV to get the greys (4/04) -->
+<!-- 1.4:  Added optional 3-color list           (2/04) -->
+<!-- 1.31: Added navigation, translation         (2/04) -->
+<!-- 1.3:  Switched to png, reversed direction   (7/03) -->
+<!-- 1.2:  Added picks list, cleaned up style (7/03) -->
+<!-- 1.1:  Added Web-safe colors                 (7/03) -->
+<!-- 1.0: Added Mozilla compatibility                  -->
+<!--       Restricted output to the 4096 colors  (7/03) -->
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+</head>
+<body onload="deMoronize();">
+
+<style type="text/css">
+body {font-family: "Trebuchet MS", Skia, "Lucida Sans Unicode", sans-serif;
+      font-size: 16px;}
+
+h1 {position:absolute; visibility:visible; top:30px; left:50px;
+
+font-size: 24px;}
+
+div#wheel {position:absolute; visibility:visible; top:50px; left:350px;
+width: 553px; height: 257px; background: #ffff00;}
+
+div#demoa, div#demob, div#democ {
+   position:absolute; visibility:visible;
+   top:350px; width: 270px; height: 150px;
+   text-align:center; padding-top: 15px; padding-bottom: 20px;
+   font-size: 14px; font-family: serif;} 
+div#demoa {left:350px; margin-right: 0px;}
+div#demob {left:440px; margin-left: 0px;  margin-right: 0px;}
+div#democ {left:350px; margin-left: 0px;}
+
+div#pickset {
+   position:absolute; visibility:visible; top:220px; left:50px;
+   padding-right: 35px; border-right: 1px dotted grey;
+   font-size: 14px; font-family: Courier, monospace;}
+div#picks {padding-left: 10px;}
+div#picka, div#pickb, div#pickc, div#pickd, div#picke, div#pickf, div#pickg {
+   width: 100px; height: 25px; padding: 10px;}
+
+div#notes {position:absolute; visibility:visible; top:650px;
+    left:50px; padding-top: 30px; font-size: 12px; width: 270px;}
+
+div#instructs {
+     position:absolute; visibility:visible; top:80px;
+     left:50px;  padding-bottom: 30px; width: 270px;}
+
+div#showhide {
+     position:absolute; visibility:visible; top:330px; left:620px;
+     padding-left: 35px; padding-right: 5px; width: 270px;}
+div#fulllist {
+     position:absolute; visibility:visible; top:50px; left:935px;
+     padding-left: 25px; padding-right: 5px; display: none; 
+     white-space: nowrap; border-left: 1px dotted grey;
+     font-size: 14px; font-family: Courier, monospace;} 
+
+div#showhide span {text-decoration: underline;}
+
+div#watermark {position:absolute; visibility:visible; top:5px; 
+left:5px; width: 553px; white-space: nowrap;
+font-family: "Trebuchet MS", Skia, "Lucida Sans Unicode",
+sans-serif; font-size: 10px; color: #cecece;}
+
+.btxt {color: #000000;}
+.wtxt {color: #ffffff;}
+
+</style>
+<script language="JavaScript">
+<!-- //Begin
+
+hue = 60;
+adeg = 60;
+sat = 1;
+val = 1;
+squarecolor = "#ffff00"; //starting hue
+pickindex = 0;
+
+threec = new Array("#666666", "#555555", "#545657"); // the three colors
+prevc = threec[2];
+picary = new Array("picka", "pickb", "pickc", "pickd", "picke", "pickf", "pickg");
+initary = new Array("#444444", "#777777", "#aaaaaa",  "#bbbbbb", "#cccccc", "#dddddd", "#eeeeee");
+
+// code from Browser Detect Lite  v2.1
+// http://www.dithered.com/javascript/browser_detect/index.html
+// modified by Chris Nott (chris@NOSPAMdithered.com - remove NOSPAM)
+// modified by Michael Lovitt to include OmniWeb and Dreamcast
+// modified by Jemima Pereira to detect only relevant browsers
+
+function BrowserDetectXLite() {
+	var ua = navigator.userAgent.toLowerCase(); 
+	this.ua = ua;
+
+	// browser name
+	this.isIE        = ( (ua.indexOf("msie") != -1) && (ua.indexOf("opera") == -1) && (ua.indexOf("webtv") == -1) ); 
+        this.isSafari      = (ua.indexOf('safari') != - 1);
+
+	// browser version
+	this.versionMinor = parseFloat(navigator.appVersion); 
+	
+	// correct version number for IE4+ 
+	if (this.isIE && this.versionMinor >= 4) {
+		this.versionMinor = parseFloat( ua.substring( ua.indexOf('msie ') + 5 ) );
+	}
+	
+	this.versionMajor = parseInt(this.versionMinor); 
+	
+	// platform
+	this.isWin   = (ua.indexOf('win') != -1);
+	this.isWin32 = (this.isWin && ( ua.indexOf('95') != -1 || ua.indexOf('98') != -1 || ua.indexOf('nt') != -1 || ua.indexOf('win32') != -1 || ua.indexOf('32bit') != -1) );
+	this.isMac   = (ua.indexOf('mac') != -1);
+
+	this.isIE4x = (this.isIE && this.versionMajor == 4);
+	this.isIE4up = (this.isIE && this.versionMajor >= 4);
+	this.isIE5x = (this.isIE && this.versionMajor == 5);
+	this.isIE55 = (this.isIE && this.versionMinor == 5.5);
+	this.isIE5up = (this.isIE && this.versionMajor >= 5);
+	this.isIE6x = (this.isIE && this.versionMajor == 6);
+	this.isIE6up = (this.isIE && this.versionMajor >= 6);
+	
+	this.isIE4xMac = (this.isIE4x && this.isMac);
+}
+var browser = new BrowserDetectXLite();
+//end of browser detector
+
+
+//fix for IE's png stupidity
+function deMoronize() {//now the onload function
+// detect moronic browsers
+  if (!((browser.isIE55 || browser.isIE6up) && browser.isWin32)) {
+     // demoronize div#wheel image if browser is non-moronic
+     thesmartversion = "<a href='javascript://' onclick='javascript:pickColor(); return false;'><img src='index.php?/plugin/hsvwheel' alt='PLUGIN_EVENT_TODOLIST_COLORWHEEL' width='553' height='257' border='0'></a>";
+  document.getElementById("wheel").innerHTML = thesmartversion;
+  }
+  // keypress stuff
+  if (browser.isSafari) document.onkeypress = rotate; //safari repeat
+  else document.onkeydown = rotate;
+  // start capturing the mouse
+  capture();
+}
+
+// HSV conversion algorithm adapted from easyrgb.com
+function hsv2rgb(Hdeg,S,V) {
+  H = Hdeg/360;     // convert from degrees to 0 to 1
+  if (S==0) {       // HSV values = From 0 to 1
+    R = V*255;     // RGB results = From 0 to 255
+    G = V*255;
+    B = V*255;}
+  else {
+    var_h = H*6;
+    var_i = Math.floor( var_h );     //Or ... var_i = floor( var_h )
+    var_1 = V*(1-S);
+    var_2 = V*(1-S*(var_h-var_i));
+    var_3 = V*(1-S*(1-(var_h-var_i)));
+    if (var_i==0)      {var_r=V ;    var_g=var_3; var_b=var_1}
+    else if (var_i==1) {var_r=var_2; var_g=V;     var_b=var_1}
+    else if (var_i==2) {var_r=var_1; var_g=V;     var_b=var_3}
+    else if (var_i==3) {var_r=var_1; var_g=var_2; var_b=V}
+    else if (var_i==4) {var_r=var_3; var_g=var_1; var_b=V}
+    else               {var_r=V;     var_g=var_1; var_b=var_2}
+    R = Math.round(var_r*255);   //RGB results = From 0 to 255
+    G = Math.round(var_g*255);
+    B = Math.round(var_b*255);
+  }
+  return new Array(R,G,B);
+}
+
+function rgb2hex(rgbary) {
+  cary = new Array; 
+  cary[3] = "#";
+  for (i=0; i < 3; i++) {
+    cary[i] = parseInt(rgbary[i]).toString(16);
+    if (cary[i].length < 2) cary[i] = "0"+ cary[i];
+    cary[3] = cary[3] + cary[i];
+    cary[i+4] = rgbary[i]; //save dec values for later
+  }
+  // function returns hex color as an array of three two-digit strings
+  // plus the full hex color and original decimal values
+  return cary;
+}
+
+function webRounder(c,d) {//d is the divisor
+  //safe divisor is 51, smart divisor is 17 
+  thec = "#";
+  for (i=0; i<3; i++) {
+      num = Math.round(c[i+4]/d) * d; //use saved rgb value
+      numc = num.toString(16);
+      if (String(numc).length < 2) numc = "0" + numc;
+      thec += numc;
+  }
+  return thec;
+}
+
+function hexColorArray(c) { //now takes string hex value with #
+    threec[2] = c[3];
+    threec[1] = webRounder(c,17);
+    threec[0] = webRounder(c,51);
+    return false;
+}
+
+function capture() {
+ hoverColor();
+ initColor();
+ if(document.layers) {
+  layobj = document.layers['wheel'];
+  layobj.document.captureEvents(Event.MOUSEMOVE);
+  layobj.document.onmousemove = mouseMoved;
+ }
+ else if (document.all) {
+  layobj = document.all["wheel"];
+  layobj.onmousemove = mouseMoved;
+   }
+ else if (document.getElementById) {
+  window.document.getElementById("wheel").onmousemove = mouseMoved;
+ }
+}
+
+function greyMoved(x,y) {
+    adeg = hue;
+    xside = (x<=553)?x - 296:256;
+    yside = (y<=256)?y:256;
+    sat = xside/256;
+    val = 1 - (yside/256);
+    c = rgb2hex(hsv2rgb(hue,sat,val));
+    hexColorArray(c);
+    hoverColor();
+    return false;
+}
+
+function mouseMoved(e) {
+ if (document.layers) {
+  x = e.layerX;
+  y = e.layerY;
+ }
+ else if (document.all) {
+  x = event.offsetX;
+  y = event.offsetY;
+ }
+ else if (document.getElementById) {
+  x = (e.pageX - document.getElementById("wheel").offsetLeft);
+  y = (e.pageY - document.getElementById("wheel").offsetTop);
+ }
+ if (x >= 296) {greyMoved(x,y);
+   return false;}
+ if (y > 256) {return false;}
+
+    cartx = x - 128;
+    carty = 128 - y;
+    cartx2 = cartx * cartx;
+    carty2 = carty * carty;
+    cartxs = (cartx < 0)?-1:1;
+    cartys = (carty < 0)?-1:1;
+    cartxn = cartx/128;                      //normalize x
+    rraw = Math.sqrt(cartx2 + carty2);       //raw radius
+    rnorm = rraw/128;                        //normalized radius
+    if (rraw == 0) {
+      sat = 0;
+      val = 0;
+      rgb = new Array(0,0,0);
+      }
+    else {
+      arad = Math.acos(cartx/rraw);            //angle in radians 
+      aradc = (carty>=0)?arad:2*Math.PI - arad;  //correct below axis
+      adeg = 360 * aradc/(2*Math.PI);  //convert to degrees
+      if (rnorm > 1) {    // outside circle
+            rgb = new Array(255,255,255);
+            sat = 1;
+            val = 1;            
+            }
+      //else rgb = hsv2rgb(adeg,1,1);
+            else if (rnorm >= .5) {
+	      sat = 1 - ((rnorm - .5) *2);
+              val = 1;
+	      rgb = hsv2rgb(adeg,sat,val);
+	      }
+              else {
+                   sat = 1;
+	      	   val = rnorm * 2;
+	      	   rgb = hsv2rgb(adeg,sat,val);}
+   }
+   c = rgb2hex(rgb);
+   hexColorArray(c);
+   hoverColor();
+   return false;
+}
+
+function hoverColor() {
+ if (document.layers) {
+  //document.layers["wheel"].bgColor = threec[2];
+  //document.layers["demoa"].bgColor = threec[0];
+  //document.layers["demob"].bgColor = threec[1];
+  document.layers["democ"].bgColor = threec[2];
+  //document.layers["demoa"].document.cccform.ccc.value = threec[0];
+  //document.layers["demob"].document.aaaform.abc.value = threec[1];
+  document.layers["democ"].document.abcform.abc.value = threec[2];
+ } else if (document.all) {
+  //document.all["wheel"].style.backgroundColor = threec[2];
+  //document.all["demoa"].style.backgroundColor = threec[0];
+  //document.all["demob"].style.backgroundColor = threec[1];
+  document.all["democ"].style.backgroundColor = threec[2];
+  //document.all["demoa"].document.cccform.ccc.value = threec[0];
+  //document.all["demob"].document.aaaform.aaa.value = threec[1];
+  document.all["democ"].document.abcform.abc.value = threec[2];
+ } else if (document.getElementById) {
+  //document.getElementById("wheel").style.backgroundColor = threec[2];
+  //document.getElementById("demoa").style.backgroundColor = threec[0];
+  //document.getElementById("demob").style.backgroundColor = threec[1];
+  document.getElementById("democ").style.backgroundColor = threec[2];
+  //document.cccform.ccc.value = threec[0];
+  //document.aaaform.aaa.value = threec[1];
+  document.abcform.abc.value = threec[2];
+ }
+ return false;
+}
+
+function pickColor() {
+  if (threec[2] == prevc) return false; // prevent duplicate entries in list
+  prevc = threec[2];
+  thecontents = "<tt class='wtxt'>" + threec[2] +"</tt><br /><tt class='btxt'>" + threec[2] + "</tt>";
+  thecolors = "<tt>" + threec[2] + "</tt>&nbsp;&nbsp;<span style='background-color: " + threec[2] + "; padding-left: 10px;'>&nbsp;</span><br />";
+  document.getElementById("fulllist").innerHTML += thecolors;
+  switch (pickindex) {
+   case 0:
+   document.getElementById("picka").innerHTML = thecontents;
+   document.getElementById("picka").style.backgroundColor = threec[1];
+   break;
+   case 1:
+   document.getElementById("pickb").innerHTML = thecontents;
+   document.getElementById("pickb").style.backgroundColor = threec[1];
+   break;
+   case 2:
+   document.getElementById("pickc").innerHTML = thecontents;
+   document.getElementById("pickc").style.backgroundColor = threec[1];
+   break;
+   case 3:
+   document.getElementById("pickd").innerHTML = thecontents;
+   document.getElementById("pickd").style.backgroundColor = threec[1];
+   break;
+   case 4:
+   document.getElementById("picke").innerHTML = thecontents;
+   document.getElementById("picke").style.backgroundColor = threec[1];
+   break;
+   case 5:
+   document.getElementById("pickf").innerHTML = thecontents;
+   document.getElementById("pickf").style.backgroundColor = threec[1];
+   break;
+   case 6:
+   document.getElementById("pickg").innerHTML = thecontents;
+   document.getElementById("pickg").style.backgroundColor = threec[1];
+   break;
+  }
+  pickindex += 1;
+  if (pickindex >= picary.length) pickindex = 0;
+  setSquare(adeg);
+  return false;
+}
+
+function setSquare(deg) {
+  hue = deg;
+  adeg = deg;
+  c = rgb2hex(hsv2rgb(hue,1,1));
+  squarecolor = c[3];
+  if (document.layers) {
+     document.layers["wheel"].bgColor = squarecolor;
+  } else if (document.all) {
+     document.all["wheel"].style.backgroundColor = squarecolor;
+  } else if (document.getElementById) {
+     document.getElementById("wheel").style.backgroundColor = squarecolor;
+  }
+}
+
+function initColor() {
+ for (i=0; i<7; i++) {
+  thecontents = "<tt class='wtxt'>" + initary[i] +"</tt><br><tt class='btxt'>" + initary[i] +"</tt>";
+  switch (i) {
+   case 0:
+   document.getElementById("picka").innerHTML = thecontents;
+   document.getElementById("picka").style.backgroundColor = initary[i];
+   break;
+   case 1:
+   document.getElementById("pickb").innerHTML = thecontents;
+   document.getElementById("pickb").style.backgroundColor = initary[i];
+   break;
+   case 2:
+   document.getElementById("pickc").innerHTML = thecontents;
+   document.getElementById("pickc").style.backgroundColor = initary[i];
+   break;
+   case 3:
+   document.getElementById("pickd").innerHTML = thecontents;
+   document.getElementById("pickd").style.backgroundColor = initary[i];
+   break;
+   case 4:
+   document.getElementById("picke").innerHTML = thecontents;
+   document.getElementById("picke").style.backgroundColor = initary[i];
+   break;
+   case 5:
+   document.getElementById("pickf").innerHTML = thecontents;
+   document.getElementById("pickf").style.backgroundColor = initary[i];
+   break;
+   case 6:
+   document.getElementById("pickg").innerHTML = thecontents;
+   document.getElementById("pickg").style.backgroundColor = initary[i];
+   break;
+  }
+ }
+}
+
+
+function theToggle(divid,disp) {
+	var elements = document.getElementsByTagName("div");
+	for(var i = 0; i < elements.length; i++) {
+	if (elements.item(i).id == divid) {
+	   elements.item(i).style.display = disp;}}}
+
+// keyboard tricks adapted from
+// http://www.ipwebdesign.net/kaelisSpace/useful_keypress.html
+// see also http://sniptools.com/jskeys
+
+function rotate(e) {
+    if (!e) e = window.event;
+    var key = (typeof e.which == 'number')?e.which:e.keyCode;
+  //  var key = e.keyCode;
+    handleKP(key);
+    }
+
+function handleKP(key) {
+    switch (key) {
+    case 13:  reHue(hue); pickColor(); break; // enter key
+    case 112: reHue(hue); pickColor(); break; // p to pick
+    case 114: reHue(0); break; //r for red
+    case 121: reHue(60); break; //y for yellow
+    case 103: reHue(120); break; //g for green
+    case 99: reHue(180); break; //c for cyan
+    case 98: reHue(240); break; //b for blue
+    case 109: reHue(300); break; //m for magenta
+    case 106: reHue(hue+1); break; //j increases
+    case 104: reHue(hue+1); break; //h increases (dvorak)
+    case 107: reHue(hue+355); break; //k decreases more
+    case 116: reHue(hue+355); break; //t decreases more (dvorak)
+    case 108: reHue(hue+359); break; //l decreases
+    case 110: reHue(hue+359); break; //n decreases (dvorak)
+    // need second set for capital letters
+    case 80: reHue(hue); pickColor(); break; // P 
+    case 82: reHue(0); break; //R 
+    case 89: reHue(60); break; //Y 
+    case 71: reHue(120); break; //G
+    case 67: reHue(180); break; //C
+    case 66: reHue(240); break; //B
+    case 77: reHue(300); break; //M
+    case 74: reHue(hue+1); break; //J
+    case 72: reHue(hue+1); break; //H
+    case 75: reHue(hue+355); break; //K
+    case 84: reHue(hue+355); break; //T
+    case 76: reHue(hue+359); break; //L
+    case 78: reHue(hue+359); break; //N
+    }
+    return false;
+}
+
+function reHue(deg) {
+    deg = deg % 360;
+    setSquare(deg);
+    rgb = hsv2rgb(deg,sat,val);
+    c = rgb2hex(rgb);
+    hexColorArray(c);
+    hoverColor();
+    return false;
+}
+
+//  End -->
+</script>
+
+
+
+<h1>PLUGIN_EVENT_TODOLIST_COLORWHEEL</h1>
+
+<!-- on the left, the instructions -->
+
+<div id="instructs">
+PLUGIN_EVENT_TODOLIST_COLORWHEEL_INSTRUCTIONS
+</div>
+
+<!-- in the middle, the wheel and display -->
+
+<div id="wheel"><a href="javascript://" onclick="javascript:pickColor(); return false;"><img src="index.php?/plugin/hsvwheel" alt="color wheel" border="0" height="257" width="553"></a></div>
+
+<!--
+<div style="background-color: rgb(204, 255, 204);" id="demoa">
+<form name="cccform">
+<input name="ccc" size="8" type="text">
+</form>
+<span class="btxt">web-safe</span><br>
+<span class="wtxt">web-safe</span></div>
+
+<div style="background-color: rgb(204, 255, 221);" id="demob">
+<form name="aaaform">
+<input name="aaa" size="8" type="text">
+</form>
+<span class="btxt">web-smart</span><br>
+<span class="wtxt">web-smart</span></div>
+-->
+
+<div style="background-color: rgb(198, 255, 217);" id="democ">
+<form name="abcform">
+<input name="abc" size="8" type="text">
+</form>
+</div>
+
+<!-- with the pickset, the picks and instructions -->
+
+<div id="pickset">
+<div id="picks">
+<div style="background-color: rgb(68, 68, 68);" id="picka"><tt class="wtxt">#444444</tt><br><tt class="btxt">#444444</tt></div>
+<div style="background-color: rgb(119, 119, 119);" id="pickb"><tt class="wtxt">#777777</tt><br><tt class="btxt">#777777</tt></div>
+<div style="background-color: rgb(170, 170, 170);" id="pickc"><tt class="wtxt">#aaaaaa</tt><br><tt class="btxt">#aaaaaa</tt></div>
+<div style="background-color: rgb(187, 187, 187);" id="pickd"><tt class="wtxt">#bbbbbb</tt><br><tt class="btxt">#bbbbbb</tt></div>
+<div style="background-color: rgb(204, 204, 204);" id="picke"><tt class="wtxt">#cccccc</tt><br><tt class="btxt">#cccccc</tt></div>
+<div style="background-color: rgb(221, 221, 221);" id="pickf"><tt class="wtxt">#dddddd</tt><br><tt class="btxt">#dddddd</tt></div>
+<div style="background-color: rgb(238, 238, 238);" id="pickg"><tt class="wtxt">#eeeeee</tt><br><tt class="btxt">#eeeeee</tt></div>
+</div>
+</div>
+
+
+<!-- on the right, the full list -->
+
+<!--
+<div id="showhide">
+<p><a href="#" onclick="theToggle('fulllist','block');return false;">show full list</a> |
+<a href="#" onclick="theToggle('fulllist','none');return false;">hide
+full list</a></p>
+<p>Hover over the square to change saturation (left to right) and value
+(bottom to top) of the last hue.</p>
+<p>Use the keyboard to rotate hue:<br>
+<span>j</span> rotates slowly counterclockwise,<br>
+<span>k</span> rotates quickly clockwise, and<br>
+<span>l</span> rotates slowly clockwise.</p>
+<p>Jump to a primary or secondary color:
+<span>r</span>ed, 
+<span>g</span>reen, 
+<span>b</span>lue, 
+<span>c</span>yan, 
+<span>m</span>agenta, or
+<span>y</span>ellow.
+The <span>enter</span> key will also add the current color to the
+<span>p</span>ick list.</p>
+</div>
+-->
+
+<div id="fulllist"><pre>Color</pre></div>
+
+</body></html>

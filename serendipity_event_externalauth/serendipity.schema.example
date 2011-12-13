@@ -1,0 +1,17 @@
+# $Id: serendipity.schema.example,v 1.2 2005/01/07 20:06:31 jbalcorn Exp $
+#
+# Objectclass and Attributes for workign with Serendipity Blog software.
+#
+
+attributetype ( 2.16.840.1.555555.1.1.2
+    NAME 'serendipityUserlevel'
+    DESC 'Serendipity Blog Login Level (-1, 0, 1, 255)'
+    EQUALITY integerMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE )
+
+objectclass ( 2.16.840.1.555555.1.1.1
+	NAME 'serendipityUser'
+	DESC 'User of Serendipity Blog Software'
+    SUP top AUXILIARY
+	MAY	( serendipityUserlevel ) )

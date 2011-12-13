@@ -1,0 +1,10 @@
+- Remove: 
+RPC.php:
+include_once 'PEAR.php'
+
+RPC/Server.php:
+require_once 'RPC/RPC.php';
+
+if (!class_exists('XML_RPC_Base')) {
+    require_once dirname(__FILE__) . '/../RPC.php';
+}

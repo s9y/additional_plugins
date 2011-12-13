@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                                   xmlns:dc="http://purl.org/dc/elements/1.1/"
+                                   xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<channel>
+<title>Serendipity: Available External Sidebar Plugins</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/</link>
+<description>TOC</description>
+<dc:language>en</dc:language>
+<generator>Serendipitx SPARTACUS</generator>
+<item>
+<title>Weather: Display the current weather in the sidebar.</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_plugin_weather</link>
+<category>Sidebar Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_weather&lt;br /&gt;Weather</b></br>Display the current weather in the sidebar.</content:encoded>
+<pubDate>Sat, 15 Jan 2005 15:08:04 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_weather</guid>
+</item>
+<item>
+<title>Authors login: Show a login form for authors</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_plugin_loginform</link>
+<category>Sidebar Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_loginform&lt;br /&gt;Authors login</b></br>Show a login form for authors</content:encoded>
+<pubDate>Fri, 28 Jan 2005 13:07:21 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_loginform</guid>
+</item>
+<item>
+<title>Amazon Recommendations: Recommend Products at Amazon within the Amazon-Partnerprogram</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_plugin_amazon</link>
+<category>Sidebar Plugins</category>
+<author>Thomas Nesges</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_amazon&lt;br /&gt;Amazon Recommendations</b></br>Recommend Products at Amazon within the Amazon-Partnerprogram</content:encoded>
+<pubDate>Wed, 19 Jan 2005 12:04:14 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_amazon</guid>
+</item>
+<item>
+<title>Last Google Search: Shows the last Google Search which led to this Blog</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_plugin_google_last_query</link>
+<category>Sidebar Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_google_last_query&lt;br /&gt;Last Google Search</b></br>Shows the last Google Search which led to this Blog</content:encoded>
+<pubDate>Sat, 13 Nov 2004 03:15:53 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_google_last_query</guid>
+</item>
+<item>
+<title>Hitmaps: Shows where the blogs visitors are coming from</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_plugin_hitmaps</link>
+<category>Sidebar Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_hitmaps&lt;br /&gt;Hitmaps</b></br>Shows where the blogs visitors are coming from</content:encoded>
+<pubDate>Mon, 13 Dec 2004 16:24:32 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_hitmaps</guid>
+</item>
+<item>
+<title>Top Referers: SHOWS_TOP_SITES</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_plugin_topreferers</link>
+<category>Sidebar Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_topreferers&lt;br /&gt;Top Referers</b></br>SHOWS_TOP_SITES</content:encoded>
+<pubDate>Sat, 13 Nov 2004 03:16:08 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_topreferers</guid>
+</item>
+<item>
+<title>Wikipedia Finder: Ein Markiertes Wort in Wikipedia suchen</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_plugin_wikipedia_finder</link>
+<category>Sidebar Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_wikipedia_finder&lt;br /&gt;Wikipedia Finder</b></br>Ein Markiertes Wort in Wikipedia suchen</content:encoded>
+<pubDate>Sat, 13 Nov 2004 03:16:08 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_wikipedia_finder</guid>
+</item>
+<item>
+<title>Show tagged entries: Shows a list of existing tags for entries</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_event_freetag</link>
+<category>Sidebar Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_freetag&lt;br /&gt;Show tagged entries</b></br>Shows a list of existing tags for entries</content:encoded>
+<pubDate>Mon, 13 Dec 2004 13:51:20 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_freetag</guid>
+</item>
+<item>
+<title>Popular Entries: Shows the titles and number of comments of the most popular entries calculated according to the
+entries most commented on.</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_plugin_popularentries</link>
+<category>Sidebar Plugins</category>
+<author>Kaustubh Srikanth</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_popularentries&lt;br /&gt;Popular Entries</b></br>Shows the titles and number of comments of the most popular entries calculated according to the
+entries most commented on.</content:encoded>
+<pubDate>Wed,  8 Dec 2004 19:51:03 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_popularentries</guid>
+</item>
+<item>
+<title>PHP Nugget: HOLDS_A_BLAHBLAH</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_plugin_phpbox</link>
+<category>Sidebar Plugins</category>
+<author>37331 h4x0rr</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_phpbox&lt;br /&gt;PHP Nugget</b></br>HOLDS_A_BLAHBLAH</content:encoded>
+<pubDate>Thu, 23 Dec 2004 15:49:09 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_phpbox</guid>
+</item>
+<item>
+<title>PLUGIN_DELICIOUS_N: PLUGIN_DELICIOUS_D</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_plugin_delicious</link>
+<category>Sidebar Plugins</category>
+<author>Risck (riscky-\{\@\}-gmail-\[dot\]-com</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_delicious&lt;br /&gt;PLUGIN_DELICIOUS_N</b></br>PLUGIN_DELICIOUS_D</content:encoded>
+<pubDate>Wed, 29 Dec 2004 21:15:09 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_delicious</guid>
+</item>
+<item>
+<title>category tree menu: DHTML category menu.  Requires PEAR::HTML_TreeMenu.</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_plugin_category_dhtml_menu</link>
+<category>Sidebar Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_category_dhtml_menu&lt;br /&gt;category tree menu</b></br>DHTML category menu.  Requires PEAR::HTML_TreeMenu.</content:encoded>
+<pubDate>Sat, 15 Jan 2005 19:44:02 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_category_dhtml_menu</guid>
+</item>
+<item>
+<title>Photoblog Entries: Shows the thumbnails of the most recent photoblog entries.</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_plugin_photoblog</link>
+<category>Sidebar Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_photoblog&lt;br /&gt;Photoblog Entries</b></br>Shows the thumbnails of the most recent photoblog entries.</content:encoded>
+<pubDate>Sun,  9 Jan 2005 04:04:46 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_photoblog</guid>
+</item>
+<item>
+<title>User Self-Registration: Allows blog visitors to create their own author account. WARNING: With this plugin ANY visotor will be able to login into your blog and create entries! Though administrative functions are not accessible by them.</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_plugin_adduser</link>
+<category>Sidebar Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_adduser&lt;br /&gt;User Self-Registration</b></br>Allows blog visitors to create their own author account. WARNING: With this plugin ANY visotor will be able to login into your blog and create entries! Though administrative functions are not accessible by them.</content:encoded>
+<pubDate>Mon, 17 Jan 2005 11:45:46 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_adduser</guid>
+</item>
+<item>
+<title>Authors: Displays entries by author.</title>
+<link>http://cvs.sourceforge.net/viewcvs.py/php-blog/additional_plugins/serendipity_plugin_authors</link>
+<category>Sidebar Plugins</category>
+<author>Victor Fusco</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_authors&lt;br /&gt;Authors</b></br>Displays entries by author.</content:encoded>
+<pubDate>Fri, 28 Jan 2005 12:39:15 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_authors</guid>
+</item>
+</channel>

@@ -1,0 +1,16 @@
+0.35:
+----
+
+Fix bad ORDER BY
+
+0.34:
+----
+
+Only apply fallback to the actual value, not to the fallback itself, thanks to @paux
+
+0.33:
+-----
+
+Fix default sort order getting applied, even though other plugins might want
+to override that.
+

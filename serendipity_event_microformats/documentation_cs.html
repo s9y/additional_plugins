@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=windows-1250">
+		<meta name="generator" content="PSPad editor, www.pspad.com">
+		<title>Dokumentace: Plugin Mikroformáty 
+		</title>        
+		<style>        
+		pre { 	display: block; 
+			padding: 5px; 	
+			border: solid 1px #333333; 	
+			background-color: #cccccc; } 
+		</style>
+	</head>
+	<body>     <h1>Dokumentace k pluginu 'Mikroformáty'</h1>
+		<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) a naposledy aktualizoval dne 19.6.2011. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="Readme">aktuální anglické "readme"</a> a <a href="ChangeLog">ChangeLog</a>. 
+		</p><h2>Pokyny k instalaci</h2>
+		<ul>
+			<li>rozbalte adresář 'serendipity_event_microformats' do adresáře 'plugins' v instalaci serendipity
+			</li>
+			<li>editujte šablonu 'entries.tpl', přidejte do ní následující dvě řádky kdekoliv potřebujete, aby se zobrazil blok s mikroformáty (např. je lze vložit za { 	$entry.body } ): 
+<pre>{microformats_show data=$entry.properties type="hReview"}
+{microformats_show data=$entry.properties type="hCalendar"}</pre>  
+			</li>
+			<li>ujistěte se, že cesta k souboru 'tabber-minimized.js' v souboru 'plugins/serendipity_event_microformats/microformatsBackend.inc.php' je správná
+			</li>
+			<li>Zapomněl jsem na něco?
+			</li>
+		</ul><h2>Více o mikroformátech</h2>V případě, že se moc nevyznáte v mikroformátech a nebo pokud se o nich chcete dozvědět více, navštivte některou z následujících stránek: 
+		<ul>
+			<li>
+			<a href="http://microformats.org/">http://microformats.org/</a>
+			</li>
+			<li>
+			<a href="http://microformats.org/wiki/hReview">http://microformats.org/wiki/hReview</a> pro popis mirkoformátu hReview
+			</li>
+			<li>
+			<a href="http://microformats.org/wiki/hcalendar">http://microformats.org/wiki/hcalendar</a> pro popis mirkoformátu hCalendar
+			</li>
+			<li>
+			<a href="http://www.structured-blogging.org/">http://www.structured-blogging.org/</a> pro další informace o strukturovaném blogování
+			</li>
+			<li>
+			<a href="http://ma.gnolia.com/groups/mikroformate">http://ma.gnolia.com/groups/mikroformate</a> (Německá komunitní sbírka záložek)
+			</li>
+		</ul><h2>ChangeLog = historie verzí</h2>
+		<ul>
+			<li>nejnovější: přidaná dopředná kompatibilita se smarty3
+			</li>
+			<li>verze 0.1, první vydání, 4.9.2006
+			</li>
+			<ul>
+				<li>první verze obsahuje odděleně formáty hReview a hCalendar
+				</li>
+				<li>obsahuje také synataxi doporučenou 
+				<a href="http://www.structured-blogging.org">structured-blogging.org</a>
+				</li>
+				<li>administrátorské rozhraní používá JavaScriptové záložky (
+				<a href="http://www.barelyfitz.com/projects/tabber/">http://www.barelyfitz.com/projects/tabber/</a>)
+				</li>
+				<li>pouze anglický jazyk
+				</li>
+				<li>PROSÍM otestujte tento plugin
+				</li>
+			</ul>
+		</ul>
+	</body>
+	</htm

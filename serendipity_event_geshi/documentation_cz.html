@@ -1,0 +1,126 @@
+<html>
+    <head>
+        <title>Dokumentace: Geshi</title>
+        <style>
+        	pre {
+				display: block;
+				padding: 5px;
+				border: solid 1px #333333;
+				background-color: #cccccc;
+			}
+        </style>
+    </head>
+
+<body>
+    
+<h1>Dokumentace k pluginu 'Geshi'</h1>
+
+<p>Dokumentaci k tomuto pluginu pøelo¾il do èe¹tiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 24.11.2010. Od té doby mohl být plugin pozmìnìn nebo mohly být roz¹íøené jeho funkce. Zkontrolujte pro jistotu i <a href="readme.txt">aktuální anglické "readme"</a> a <a href="ChangeLog">ChangeLog</a>.
+<p>
+
+<h2>O pluginu</h2>
+<p>Tento plugin umo¾òuje vkládat do pøíspìvkù blogu útr¾ky programovacího kódu v rùzných programovacích jazycích, a to s barveným zvýraznìním jejich syntaxe. Volitelnì lze zobrazovat i èísla øádkù. Èíslování øádkù je provedeno pomocí stylù, tak¾e náv¹tìvníci stránek mohou jednodu¹e zkopírovat kód bez èísel øádkù.
+</p>
+
+<p>
+Plugin je zalo¾en na obecné knihovnì pro zvýraznìní syntaxe GeSHi (která je souèástí pluginu). Domovská stránka GeSHi je <a href="http://qbnz.com/highlighter/">http://qbnz.com/highlighter/</a>.
+</p>
+
+<p>
+Tento plugin napsal David Rolson. V pøípadì otázek nebo návrhù k vylep¹ení nav¹tivte fórum na jeho webové stránce. Fórum najdete na stránce <a href="http://www.gizmola.com/">http://www.gizmola.com/</a>.
+</p>
+
+<h2>Aktualizace, upgrade</h2>
+<p>
+Pokud nahrazujete verzi .01, musíte buï odinstalovat starou verzi a znovu nainstalovat plugin GeSHi, nebo v administraèní sekci blogu najdìte nastavení pluginu a znovu ho ulo¾te. Tato procedura je nutná kvùli tomu, ¾e v novìj¹ích verzích pluginu byly do nastavení pøesunuty cesty k jednotlivým èástem pluginu, døíve natvrdo zabudované do kódu pluginu.
+</p>
+
+<h2>Jak pou¾ívat plugin GeSHi</h2>
+<ol>
+<li>Nainstalujte a povolte tento plugin událostí.</li>
+<li>Ujistìte se, ¾e v seznamu pluginù je pøed pluginem NL2BR. Také doporuèuji umístit ho i pøed plugin BBCode.</li>
+<li>Vìt¹inì lidí by mìlo vyhovovat výchozí nastavení, snad s výjimkou nastavení èíslování øádkù, které je ve výchozím stavu vypnuto. Pokud ho zapnete, bloky geshi budou obsahovat i èísla øádkù, ani¾ byste je museli ruènì psát do textu.</li>
+</ol>
+
+<p>
+Pokud chcete do pøíspìvku vlo¾it zdrojový kód, pou¾ijte následující syntaxi:
+<pre>
+[geshi lang=nazev] Sem napi¹tì kód [/geshi]
+</pre>
+</p>
+
+<p>
+Podporované programovací jazyky naleznete v podadresáøi pluginu /geshi. Ka¾dý podporovaný jazyk má svùj php soubor, jeho¾ jméno má formát "nazev.php".
+</p>
+<p>
+Následuje výèet nejèastìji pou¾ívaných programovacích jazykù:
+<ul>
+<li>c - (Céèko)</li>
+<li>cpp (C++)</li>
+<li>java</li>
+<li>php</li>
+<li>actionscript</li>
+<li>javascript</li>
+<li>python</li>
+<li>css</li>
+<li>sql</li>
+</ul> 
+</p>
+<p>
+Ka¾dý pøíspìvek mù¾e obsahovat libovolný poèet blokù geshi. Není ¾ádný problém mít v jednom pøíspìvku více blokù s rùznými programovacími jazyky.
+</p>
+
+<h2>Nastavení èísel øádkù</h2>
+<p>
+Pokud potøebujete výslovnì zapnout nebo vypnout èíslování øádek u jednoho konkrétního bloku geshi, mù¾ete pou¾ít parametr ln= (line numbering). Parametr mù¾e nabývat hodnot ln={y|n}, kde y = yes = ano (zapnuté èíslování) a n = no = ne (vypnuté èíslování). Tak¾e napøíklad pro zapanutí èíslování øádek v bloku s kódem v jazyce php byste pou¾ili znaèku:
+
+<pre>
+[geshi lang=php ln=y]...php code [/geshi]
+</pre>
+
+Narozdíl od html, kde na poøadí parametrù nezále¾í, zde musí být parametr "ln" bezpodmíneènì a¾ ZA parametrem "lang".
+</p>
+
+<h2>Známé vlastnosti a nedostatky</h2>
+<p>Tato verze je nyní stabilní beta!!! Pou¾íváte ji na vlastní nebezpeèí (i kdy¾ riziko nehody je pravdìpodobnì zanedbatelné).
+</p>
+
+<ul>
+<li>Èíslování øádkù zaèíná na øádku s úvodním tagem. Tak¾e pokud nechcete na zaèátku bloku s kódem prázdné oèíslované øádky navíc, musí kód zaèínat bezpodmíneènì hned za uvozujícím tagem [geshi].</li>
+<li>Narozdíl od html, kde na poøadí parametrù nezále¾í, zde musí být parametr "ln" bezpodmíneènì a¾ ZA parametrem "lang". Pokud napí¹ete parametry obrácenì, blok geshi nebude fungovat.</li>
+</ul>
+
+
+<h2>Pøíklad (v c++)</h2>
+<pre>[geshi lang=cpp]
+double CAAPluto::EclipticLongitude(double JD)
+{
+  double T = (JD - 2451545) / 36525;
+  double J = 34.35 + 3034.9057*T;
+ 
+  //Calculate Longitude
+  double L = 0;
+  int nPlutoCoefficients = sizeof(g_PlutoArgumentCoefficients) / sizeof(PlutoCoefficient1);
+  for (int i=0; i&lt;nPlutoCoefficients; i++)
+  {
+    double Alpha = g_PlutoArgumentCoefficients[i].J * J +  g_PlutoArgumentCoefficients[i].S * S + g_PlutoArgumentCoefficients[i].P * P;
+    Alpha = CAACoordinateTransformation::DegreesToRadians(Alpha);
+    L += ((g_PlutoLongitudeCoefficients[i].A * sin(Alpha)) + (g_PlutoLongitudeCoefficients[i].B * cos(Alpha)));
+  }
+  L = L / 1000000;
+  L += (238.958116 + 144.96*T);
+  L = CAACoordinateTransformation::MapTo0To360Range(L);
+
+  return L;
+}
+[/geshi]</pre>
+
+<h2>ChangeLog (Historie verzí)</h2>
+<ul>
+	<li>verze 0.7</li>
+	<ul>
+		<li>Upgrade pluginu na verzi GeSHi 1.0.8.1</li>
+	</ul>
+</ul>
+  </body>
+</html>

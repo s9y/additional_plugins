@@ -1,0 +1,81 @@
+<html>    
+	<head>        
+		<meta http-equiv="content-type" content="text/html; charset=windows-1250">
+		<title>Dokumentace: Generátor mapy stránek</title>        
+		<style>
+        	pre {
+				display: block;
+				padding: 5px;
+				border: solid 1px #333333;
+				background-color: #cccccc;
+			}         
+		</style>    
+	</head>
+	<body>
+	<h1>Dokumentace k pluginu 'Generátor mapy stránek'<br />
+	<small>(serendipity_event_google_sitemap)</small></h1>
+		<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 27.10.2011. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="ChangeLog">aktuální anglický ChangeLog</a>. 
+		</p>
+		
+		<h2>Popis pluginu</h2>
+		<p>
+		Vytváří soubor sitemap.xml.gz, který používají nejrůznější webové vyhledávače (Google, MSN, Yahoo nebo Ask).
+		</p>
+		
+		<h2>Historie verzí (ChangeLog)</h2>
+		<ul>
+			<li>verze 0.58</li>	
+			<ul>	
+				<li>Vynechání stránek archives/Px.html, pokud není nastavena volba "Archivy"</li>	
+			</ul>
+			<li>verze 0.57</li>	
+			<ul>	
+				<li>Dopředná kompatibilita s novou proměnnou Serendipity defaultBaseURL, oprava od uživatele [Manko10]</li>	
+			</ul>
+			<li>verze 0.56</li>	
+			<ul>	
+				<li>Několik změn směrem k optimalizaci rozídlů mezi news_sitemap a sitemap.xml a zároveň nové nastavení, které přepíná, zda sitemap.xml obsahuje odkazy na novinky.</li>	
+			</ul>
+			<li>verze 0.53</li>	
+			<ul>	
+				<li>Vytvoření nového menšího souboru 'news_sitemap.xml', který je vhodný k samostatnému posílání novinek do google news.</li>	
+			</ul>
+			<li>verze 0.52</li>	
+			<ul>	
+				<li>Správné čtení $min, opraveny příliš velké mapy stránek, díky uživateli [Freudi]</li>	
+			</ul>
+			<li>verze 0.51</li>	
+			<ul>	
+				<li>Přidání nastavení pro přihlášení se k odběru a žánrové tagy.</li>	
+			</ul>
+			<li>verze 0.50</li>	
+			<ul>	
+				<li>Nyní je nadpis blogu pro GoogleNews nastavitelný</li>	
+			</ul>
+			<li>verze 0.49</li>	
+			<ul>	
+				<li>Odstraněn formát 'subscription', protože byl špatně interpretován.</li>	
+			</ul>
+			<li>verze 0.48</li>	
+			<ul>	
+				<li>Podpora nového XML formátu google novinek.</li>	
+			</ul>
+			<li>verze 0.47</li>	
+			<ul>	
+				<li>Nepřidávání odkazů na příspěvky, které ještě nebyly zveřejněny. Díky uživeteli [Stefan]</li>	
+			</ul>
+			<li>verze 0.46</li>	
+			<ul>	
+				<li>Nepřidávání neznámých (UNKNOWN) permalinků</li>	
+			</ul>
+			<li>verze 0.44</li>	
+			<ul>	
+				<li>Nyní je výstup novinek google volitelný/nepovinný.</li>	
+			</ul>
+			<li>verze 0.42</li>	
+			<ul>	
+				<li>Přidán výstup google novinky XML, včetně klíčových slov.</li>	
+			</ul>
+		</ul>  
+	</body>
+</html>

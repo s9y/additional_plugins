@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Dokumentace: Backend URL</title>
+    </head>
+
+<body>
+    
+<h1>Dokumentace k pluginu 'Backend URL'</h1>
+
+<p>Dokumentaci k tomuto pluginu pøeložil do èeštiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) a naposledy ji aktualizoval dne 6.3.2010. Od té doby mohl být plugin pozmìnìn nebo mohly být rozšíøené jeho funkce. Zkontrolujte pro jistotu i <a href="Readme">aktuální anglické "readme"</a>.
+<p>
+
+<h1>Javascriptový backend pro zobrazování pøíspìvkù na webových stránkách mimo Váš blog</h1>
+
+<h2>Použití</h2>
+
+<p>
+Jednoduše pøidejte "&lt;script src=[URL]&gt;&lt;/script&gt;" na Vaší externí webovou stránku pøesnì v místì, kde se má zobrazit pøíspìvek.
+</p>
+<p>
+Mùžete také použít CSS styl pro zmìnu vzhledu tìchto zobrazených pøíspìvkù. Mùžete použít tøi css-tøídy. Prohlédnìte si prosím soubor "<a href="backend.html">backend.html</a>" v tomto adresáøi, který obsahuje názorný pøíklad.
+</p>
+<p>Poznámka: Mùžete pøidat tolik tagù "&lt;script src=[URL]&gt;&lt;/script&gt;", kolik chcete. Každý mùže mít jiné volby a nastavení.
+</p>
+
+<p>[URL] má tvar pøibližnì takovýto:<br />
+http://vas.blog.cz/plugin/[BACKEND_URL]?[VOLBY]<br />
+Kde [BACKEND_URL] je název, který jste zadali v nastavení pluginu v administraèní sekci.
+
+<p>[VOLBY] mohou být cokoliv z následujícího:</p>
+
+<h3>Volby</h3>
+Je nìkolik voleb, které mùžete pøidat k url adrese skriptu. Ovlivníte jimi vzhled zobrazených pøíspìvkù.
+
+<table>
+<tr><th>název volby</th><th>pøípustné hodnoty</th><th>vysvìtlivky</th></tr>
+
+<tr><td>details</td><td>1|0</td><td>zobrazuje buï pouze nadpis nebo celý pøíspìvek (bez rošíøené textové èásti!)</td></tr>
+
+<tr><td>category</td><td>[název kategorie]</td><td>Pokud je nastaveno, budou se zobrazovat pouze pøíspìvky ze zadané kategorie. Pokud není uvedeno, budou zobrazeny pøíspìvky ze všech kategorií.</td></tr>
+
+<tr><td>categoryid</td><td>[N]</td><td>Výpis mùžete omezit na kategorie také podle jejího identifikaèního èísla.</td></tr>
+
+<tr><td>authorid</td><td>[N]</td><td>Nastavte ID èíslo autora pro výpis pouze jeho pøíspìvkù.</td></tr>
+
+<tr><td>num</td><td>[N]</td><td>Pokud je nastaveno, bude se zobrazovat [N] pøíspìvkù. Pokud není zadáno, zobrazuje se 10.</td></tr>
+
+<tr><td>order</td><td>ASC|DESC</td><td>øazení pøíspìvkù (podel data, ASC = vzestupnì, DESC = sestupnì)</td></tr>
+
+<tr><td>date</td><td>1|0</td><td>Pokud je nastaveno 1, bude se zobrazovat datum vytvoøení pøíspìvkù.</td></tr>
+
+<tr><td>dateformat</td><td>[formatstring]</td><td>Zformátuje zobrazované datum pøíspìvku podle zadaného formátovacího øetìzce (pøípustné je cokoliv, co umožòuje php funkce <a href="http://cz.php.net/manual/en/function.date.php">date()</a>).</td></tr>
+
+<tr><td>time</td><td>1|0</td><td>Pokud je nastaveno 1, bude se zobrazovat èas vytvoøení pøíspìvkù.</td></tr>
+
+<tr><td>timeformat</td><td>[formatstring]</td><td>Zformátuje zobrazovaný èas pøíspìvku podle zadaného formátovacího øetìzce (pøípustné je cokoliv, co umožòuje php funkce <a href="http://cz.php.net/manual/en/function.date.php">date()</a>).</td></tr>
+
+<tr><td>point</td><td>[øetìzcová konstanta, text]</td><td>Použije tento text jako první èást nadpisù. Mùže být použito pro vytvoøení seznamu (pøidání tagù &lt;li&gt; nebo nìco podobného)</td></tr>
+</table>
+
+<h3>Pøíklady</h3>
+
+<p>
+Následující pøíklad zobrazí až 30 nadpisù s date a èasem vytvoøení, každé s odrážkou "*" a pouze z kategorie "s9y"<br />	
+<code>&lt;script src="http://blog.linux-stats.org/plugin/backend?category=s9y&num=30&order=DESC&date=1&dateformat=d.m.Y&time=1&timeformat=H:i&point=*"&gt;&lt;/script&gt;
+</code>
+</p>	
+	
+<p>
+Následující pøíklad zobrazí kompletní pøíspìvky, tak jak jsou zadané na pùvodních stránkách.<br />
+<code>&lt;script src="http://blog.linux-stats.org/plugin/backend?details=1&category=s9y&num=30&order=DESC&date=1&dateformat=d.m.Y&time=1&timeformat=H:i"&gt;&lt;/script&gt;</code>
+</p>

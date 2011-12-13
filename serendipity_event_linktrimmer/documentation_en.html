@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Documentation: Link Trimmer</title>
+    </head>
+
+<body>
+    
+<h1>What this plugin does</h1>
+
+<p>The Link Trimmer plugin allows you to run your own URL shortener on your domain.</p>
+
+<p>You can enter any internal or external URL, and the plugin will store that link inside your database and return
+    a short unique identifier for it. You can then pass along this resulting identifier inside a URL to other people.
+Basically, it's your own tr.im or tinyurl service.</p>
+
+<h2>Why does it do that?</h2>
+
+<p>Short URLs are recognized as being sexy, and better conveyable. The upside of having your own shortener service is
+    that you yourself control its output, redirection and lifetime. Using external shorteners can result in loss of links
+when they shut down, or maybe introduce advetisement to their redirection</p>
+
+<p>The upside of foreign service is, though, that they are commonly used by other people and they know what to expect.</p>
+
+<h2>What does this plugin NOT do?</h2>
+
+<p>It does not automatically convert URLs you enter inside your blog article to short URLs. The serendipity_event_trackexits
+plugin basically does something like that, and uses it for statistical reasons.</p>
+
+<p>This plugin currently does not track usage statistics, and is more of a (working) proof of concept.</p>
+
+<h2>How to use this plugin?</h2>
+
+<p>You have two options of getting shortlinks. One is via the frontpage of the admin login, where you can enter a URL to shorten, as well as a pre-
+    defined custom hash that would be used. If you leave that has empty, it will be autocreated for you. The hash is a
+    base62-encoded representation of your link. It stores its unique, numbered ID by using digits from 0-9, characters from
+    A to Z and a to z to replace that ID. This means at first you will have very short links, and the more links you save,
+the longer your URLs will get. But you have a few thousand URLs to use until your identifieres will get more than 3 characters.</p>
+    
+<p>Once the URL is entered, click the "GO" button and then you will see the shortened result, which you can copy to your clipboard.</p>
+
+<p>The final link uses a prefix that can be configured in the plugin's configuration.</p>
+
+<p>The other way to create a shortlink is to write a blog entry, click on the "Linktrimmer" button (available in both WYSIWYG and non-WYSIWYG mode) to open a popup, where you have the same input area than on your homepage.</p>
+
+<p>Clicking the "GO" button there will automatically insert a anchor link into your blog, with the link target being the shortened link, and the description being the the original link.</p>
+
+<h2>Security</h2>
+
+<p>Any shortened links are numbered sequentially. This makes it possible for any visitor to "guess" and see all the other links you used so far. This is actually an advantage. DO NOT STORE sensitive links inside the link truncator, or at least use a custom hash to encode them.</p>
+
+<h2>How to customize this plugin</h2>
+
+<p>You can change the look of the plugin's interface in the plugin_linktrimmer.tpl smarty file, which can be put inside your template directory. CSS code can best be changed inside the Smarty template file as well.</p>
+
+<p>A tricky way of using the redirection feature to shorten your URLs is like this. When you have more than one domain, you can use the shortest domain as the link base. Let's say you have 2 domains, Serendipity runs on http://www.thisisalonghostname.com/serendipity/2009/index.php and the other dormant domain is http://summer.com. Now you want your shortlinks to not go to http://www.thisisalonghostname.com/serendipity/2009/l/4711, but instead to http://summer.com/4711.</p>
+
+<p>For this to happen, you need apache mod_Rewrite, and setup a .htaccess file on your summer.com document root with a code like this:</p>
+
+<p>RewriteRule ^([0-9A-Za-z]{1,3})$ http://www.thisisalonghostname.com/serendipity/2009/l/$1 [L,QSA]</p>
+
+<p>This means, that your server will first redirect to the proper full canonical URL on your blog, and then the plugin does the rest of the authentication. Note that in this example I used a 3-byte long hash. If you have more links than a few thousand, you might need to change it to {1,5} for example. Only take care that this does not conflict with any existing directory names or so on your server.</p>
+
+</body>        

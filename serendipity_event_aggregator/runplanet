@@ -1,0 +1,29 @@
+#! /bin/sh --
+
+# Change to what you need
+PLANETURL=http://planet.example.com/index.php?/plugin/aggregator
+
+# Logs go here
+LOGDIR=$HOME/Log
+LOG=$LOGDIR/planet.log
+
+# NO USER SERVICEABLE PARTS BELOW THIS LINE
+
+# Create a logdir, if needed and change into it
+[ ! -d $LOGDIR ] && mkdir $LOGDIR
+cd $LOGDIR
+
+# Trigger the aggregator
+echo "Start: $(date)" >> $LOG
+wget --output-document=$LOGDIR/planet.lastrun --output-file=planet.msg $PLANETURL
+
+# Shorten the log, if it is larger than 10M
+len=$(stat -c "%s" $LOG)
+if [ "$len" -ge 10000000 ]
+then
+	cat $LOGDIR/planet.lastrun > $LOG
+else
+	cat $LOGDIR/planet.lastrun >> $LOG
+fi
+echo "End: $(date)" >> $LOG
+echo >> $LOG

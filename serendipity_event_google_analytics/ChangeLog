@@ -1,0 +1,13 @@
+1.2.4:
+----
+# added _anonymizeIp()
+
+1.2.3:
+----
+# Bug with external link and downloads fixed
+
+1.2.2:
+----
+# added ChangeLog
+# added check if account number is valid
+# updated to new GA asynchronous tracking code

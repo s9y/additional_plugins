@@ -1,0 +1,96 @@
+.template_summary,
+.plugin_summary {
+    font-size: 1.1em;
+    padding: 3px;
+    font-weight: bold;
+}
+
+.template_name,
+.plugin_name {
+    text-align: right;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+.template_version,
+.plugin_version {
+    text-align: right;
+}
+
+.template_maintainers,
+.plugin_maintainers {
+    text-align: right;
+}
+
+.template_requirements,
+.plugin_requirements {
+    text-align: right;
+}
+
+.template_description,
+.plugin_description {
+    margin: 15px 0px 15px 0px;
+}
+
+.template_download,
+.plugin_download {
+    text-align: right;
+}
+
+.template_download {
+    margin: 0px auto 0px auto;
+    text-align: center;
+}
+
+.template_download a,
+.plugin_download a {
+    font-size: 1em;
+    color: white;
+    padding: 5px;
+    text-decoration: none;
+    border: 0px;
+}
+
+.serendipitySideBarContent ol {
+    list-style: none;
+    margin: 0px 0px 0px 10px;
+    padding: 0px;
+}
+
+.serendipitySideBarContent .language {
+    width: 130px !important;
+}
+
+.serendipitySideBarContent input.smallsubmit {
+    width: 25px;
+    float: right;
+}
+
+#content {
+    background-color: white;
+    margin: 1px;
+    padding: 1px;
+    border: 1px solid white;
+}
+
+.group h3 {
+	border-bottom: 2px solid #8cb4c9;
+}
+
+.template,
+.group .plugin {
+    background-color: #edf5fc;
+    border: 1px solid #cce2fa;
+    padding: 5px;
+    margin: 10px 0px 10px 0px;
+}
+
+.serendipity_entry {
+  clear: both;
+  position: relative;
+}
+
+#sidebartop, #contenttop {
+    line-height: 1px;
+    font-size: 1px;
+}

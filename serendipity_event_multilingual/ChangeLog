@@ -1,0 +1,53 @@
+sidebar 1.11: Use proper "current url", thanks to timbalu
+
+2.13:
+----
+
+Add smarty modifier "multilingual_lang" that you can use like
+
+{$entry_category.category_name|@multilingual_lang|@escape}
+
+in templates, to replace possible {{...}} language variants.
+
+Also, by default parse such language constructs in the category name.
+
+
+2.11, 2.12:
+----
+
+Patch to save drafts properly, by Martin Matuska
+SF Bug #3047591
+
+Patch to properly detect current language, by Martin Matuska
+SF Bug #3047600
+
+
+2.10:
+----
+
+Allow to replace category names/descriptions for the header display
+
+2.9:
+----
+
+Completely replace the broken regexp to use subparts now.
+
+2.8:
+---
+
+Another regexp for replacements, look-behind and look-ahead.
+
+2.7:
+----
+
+Better regexp for replacements
+
+2.6:
+----
+
+Fix a PHP error notice
+
+2.5:
+----
+
+Allow for tagged trnaslations, see documentation. By praabjerg

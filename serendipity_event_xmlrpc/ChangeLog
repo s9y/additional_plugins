@@ -1,0 +1,48 @@
+# $Id$
+Version 1.45:
+   * Catch empty timestemps, thanks to TimNiceBut
+
+Version 1.44:
+    * Fixed unrequired output when setting categories, thanks to
+      patk
+      
+Version 1.43:
+    * Added default posting category
+
+Version 1.41:
+    * Added Patch by TimeNiceBut to add mt_suppoertedMethods API call
+    
+Version 1.38
+    * Bug #1931794: Better base64 detection
+    
+Version 1.37 (garvinhicking)
+    * Bug #1922509: Respect MT API for base64 encoded attachments, patch
+      by Sven Herzberg
+
+Version 1.36 (garvinhicking)
+    * Bug #1904377: Respect GMT, patch by Mike Tyson
+    
+------------------------------------------------------------------------
+Version 1.33 (brockhaus):
+    * Produced not validating (and wrong) link tag. Changed attribute
+      url to href.
+    * While updating entries without defining a new date, the old 
+      publishing date will be used instead of refreshing the date
+      each time.
+
+------------------------------------------------------------------------
+Version 1.32 (brockhaus):
+
+    * $serendipity['xml_rpc_default_moderate_comments'] didn't work :-/
+
+------------------------------------------------------------------------
+Version 1.31 (brockhaus):
+
+    * Header was sent twice in some situtations resulting in wrong XML
+      responses.
+    * Convert HTML entities in entry titles to normal utf-8 characters
+      while saving entries.
+    * Defaults for allow allow_comments and moderate_comments 
+      configurable in serendipity_config_local.inc.php:
+      $serendipity['xml_rpc_default_allow_comments'] = true;
+      $serendipity['xml_rpc_default_moderate_comments'] = false;

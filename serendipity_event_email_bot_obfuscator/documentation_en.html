@@ -1,0 +1,71 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Helpfile: EMAIL_BOT_OBFUSCATOR Plugin</title>
+    <link rel="stylesheet" type="text/css" href="documentation.css"/>
+</head>
+<body>
+<div id="title">
+<a name="top"/>
+<h1> Helpfile: EMAIL_BOT_OBFUSCATOR Plugin</h1>
+</div>
+
+<p>the plugin has two main features:</p>
+
+
+<div id="content">
+<h2>Inhalt</h2>
+<ol>
+    <li><a href="#clickable">make an email clickable</a></li>
+    <li><a href="#obfuscating">Obfuscate the mail address</a></li>
+</ol>
+</div>
+
+<a name="clickable"></a>
+<h2>make an email clickable</h2>
+
+<p>
+
+like a "make a link clickable" for www-Links you can write a mail@example.com without any html-code into a post or a static page. The plugin detects this and convert it to 
+
+<code>&lt;a href="mailto:mail@example.com"&gt;mail@example.com&lt;/a&gt;</code>
+
+</p>
+   
+<p><a href="#top">top</a></p>
+
+
+<a name="obfuscating"></a>
+<h2>Obfuscate the mail address</h2>
+
+<p>
+
+many people fear about address-harvester-bots. So I found two alternatives to "hide" a address from this bots - but without using such crapy non-accessible things like text-as-an-image. There are three options:
+
+<ol>
+<li>a javascript builds the address on the fly:</br>
+
+<code>&lt;script type="text/javascript"&gt;var username = "mail"; var hostname = "example.com";document.write("&lt;a href=" + "mail" + "to:" + username + "@" + hostname + "&gt;" + username + "@" + hostname + "&lt;\/a&gt;")&lt;/script&gt;</code>
+</li>
+<li>
+IMHO much better - using html entities, so every browser will display it normal, but as I was told, harvester will have their problems:<br/>
+
+<code>&lt;a href="mailto:m&amp;#97;i&amp;#108;&amp;#64;&amp;#101;xa&amp;#109;ple&amp;#46;com"&gt;mai&amp;#108;&amp;#64;&amp;#101;xa&amp;#109;&amp;#112;&amp;#108;e.com&lt;/a&gt;</code>
+
+</li>
+<li>
+
+or doing nothing 
+</li>
+</ol>
+
+
+
+</p>
+   
+<p><a href="#top">top</a></p>
+
+
+
+</body>
+</html>

@@ -1341,11 +1341,11 @@ a.twitter_update_time {
                 $tags = explode(',',$taglist);
                 foreach ($tags as $tag) {
                     $tag = trim($tag);
-                    $tag = str_replace(" ","",$tag); // make tags more twitter alike
+                    $tag = str_replace(" ","_",$tag); // make tags more twitter alike
                     $test = str_replace('#title#',$title,$announce_format_notags);
                     $len = strlen($title);
                     if (strlen($test) < 140) { // still capacity
-                        $title = preg_replace('@(' . $tag . ')@i',"#$1",$title);
+                        $title = preg_replace('@(^|\s)(' . $tag . ')@i'," #$2",$title);
                         if (strlen($title) == $len) $tagsnotused[] = $tag;
                     }
                     else {

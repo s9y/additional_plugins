@@ -1,0 +1,4 @@
+<?
+class LinkEmbed extends OEmbed{
+
+}

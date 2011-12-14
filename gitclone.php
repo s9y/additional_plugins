@@ -17,3 +17,6 @@ foreach($out AS $file) {
 		`cvs rm $file`;
 	}
 }
+
+`cvs commit -m "gitclone.sh autocommit"`;
+

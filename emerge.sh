@@ -55,3 +55,8 @@ rsync --partial -v -r ~/cvs/serendipity/additional_themes/ \
 rsync --partial -v -r ~/cvs/serendipity/additional_plugins/homepage/ \
   garvinhicking,php-blog@web.sourceforge.net:/home/groups/p/ph/php-blog/htdocs/homepage/
 
+cp ~/cvs/serendipity/additional_plugins/*.xml ~/cvs/serendipity/git/additional_plugins/
+cd ~/cvs/serendipity/git/additional_plugins
+git add *.xml
+git commit -m "Automagic XML sync"
+git push origin

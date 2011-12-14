@@ -123,7 +123,7 @@
 
 {if NOT $findmore_disabled_services.plusone}
 <div class="google_plus">
-<g:plusone size="small" count="false" href="{$entrydata.url}"</g:plusone>
+<g:plusone size="small" count="false" href="{$entrydata.url}"></g:plusone>
 </div>
 {/if}
 

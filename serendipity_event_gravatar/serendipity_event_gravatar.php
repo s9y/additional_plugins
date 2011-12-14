@@ -1308,6 +1308,7 @@ class serendipity_event_gravatar extends serendipity_event
                 header("Pragma:", true);
             }
             fpassthru($fp);
+            fclose($fp);
         }
         return true;
     }

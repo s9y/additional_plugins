@@ -1,5 +1,5 @@
 <?
-/** Testfile fÃ¼r die Provider Konfiguration
+/** Testfile für die Provider Konfiguration
  * @author: Grischa Brockhaus
  */
 

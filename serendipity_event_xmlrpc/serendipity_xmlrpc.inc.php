@@ -7,9 +7,10 @@ if (empty($HTTP_RAW_POST_DATA)) {
     $HTTP_RAW_POST_DATA = implode("\r\n", file('php://input'));
 }
 
-$debug_xmlrpc = false;
+$debug_xmlrpc = 1;
 if ($debug_xmlrpc) {
-    @define('DEBUG_LOG_XMLRPC', '/tmp/rpc.log');
+    //@define('DEBUG_LOG_XMLRPC', '/tmp/rpc.log');
+    @define('DEBUG_LOG_XMLRPC', dirname(__FILE__) . "/rpc.log"); 
     $fp = fopen(DEBUG_LOG_XMLRPC, 'a');
     fwrite($fp, '[' . date('d.m.Y H:i') . ']' . print_r($HTTP_RAW_POST_DATA, true));
     fwrite($fp, "\n" . print_r($_REQUEST, true) . "\n");
@@ -23,9 +24,14 @@ if ($debug_xmlrpc) {
 if ($debug_xmlrpc === 2) {
     #$HTTP_RAW_POST_DATA = file_get_contents('/www/input.xml');
 }
+@define('XMLRPC_WP_COMPATIBLE', TRUE);
 
 $dispatches = array(
-                    /* BLOGGER API */
+                    /* WordPress API */
+                    'wp.getUsersBlogs' =>
+                        array('function' => 'wp_getUsersBlogs'),
+
+					/* BLOGGER API */
                     'blogger.getUsersBlogs' =>
                         array('function' => 'blogger_getUsersBlogs'),
                     'blogger.getUserInfo' =>
@@ -71,11 +77,36 @@ $dispatches = array(
                     'mt.publishPost' =>
                         array('function' => 'metaWeblog_publishPost'),
                     'metaWeblog.getCategories' =>
-		        array('function' => 'metaWeblog_getCategories'),
+        		        array('function' => 'metaWeblog_getCategories'),
                     'mt.supportedMethods' =>
                         array('function' => 'mt_supportedMethods')
                     );
 
+function wp_getUsersBlogs($message) {
+    global $serendipity;
+
+    $val = $message->params[0];
+    $username = $val->getval();
+    $val = $message->params[1];
+    $password = $val->getval();
+    if (!serendipity_authenticate_author($username, $password)) {
+        return new XML_RPC_Response('', 4, 'Authentication Failed');
+    }
+    $blog1 = new XML_RPC_Value(
+        array('url'      => new XML_RPC_Value($serendipity['baseURL'], 'string'),
+              'blogid'   => new XML_RPC_Value('1', 'string'),
+              'blogName' => new XML_RPC_Value($serendipity['blogTitle'], 'string'),
+              'isAdmin' => new XML_RPC_Value('false', 'boolean'),
+			  'xmlrpc' =>  new XML_RPC_Value($serendipity['baseURL'] . 'serendipity_xmlrpc.php', 'string')
+        ),
+        'struct');
+    $blogs = new XML_RPC_Value(array($blog1), 'array');
+    #$blogs = $blog1;
+    $r = new XML_RPC_Response($blogs);
+    return($r);
+}
+
+                    
 function blogger_getUsersBlogs($message) {
     global $serendipity;
 
@@ -179,6 +210,7 @@ function metaWeblog_getCategories($message) {
     foreach ((array) $cats as $cat ) {
         if ($cat['categoryid']) $xml_entries_vals[] = new XML_RPC_Value(
             array(
+              'categoryName'   => new XML_RPC_Value($cat['category_name'], 'string'),
               'description'   => new XML_RPC_Value($cat['category_name'], 'string'),
               'htmlUrl'       => new XML_RPC_Value(serendipity_categoryURL($cat, 'serendipityHTTPPath'), 'string'),
               'rssUrl'        => new XML_RPC_Value(serendipity_feedCategoryURL($cat, 'serendipityHTTPPath'), 'string')
@@ -234,8 +266,7 @@ function metaWeblog_getRecentPosts($message) {
         $entry = serendipity_fetchEntry('id', $tentry['id'], true, 'true');
         serendipity_plugin_api::hook_event('xmlrpc_fetchEntry', $entry);
         if ($entry['id']) {
-            $xml_entries_vals[] = new XML_RPC_Value(
-            array(
+            $values =             array(
                 'dateCreated'       => new XML_RPC_Value(XML_RPC_iso8601_encode($entry['timestamp'], $serendipity['XMLRPC_GMT']) . ($serendipity['XMLRPC_GMT'] ? 'Z' : ''), 'dateTime.iso8601'),
                 'postid'            => new XML_RPC_Value($entry['id'], 'string'),
                 'userid'            => new XML_RPC_Value($entry['authorid'], 'string'),
@@ -249,8 +280,18 @@ function metaWeblog_getRecentPosts($message) {
                 'title'             => new XML_RPC_Value($entry['title'],'string'),
                 'permalink'         => new XML_RPC_Value(serendipity_archiveURL($entry['id'], $entry['title'], 'serendipityHTTPPath', true, array('timestamp' => $entry['timestamp'])), 'string'),
                 'link'              => new XML_RPC_Value(serendipity_archiveURL($entry['id'], $entry['title'], 'serendipityHTTPPath', true, array('timestamp' => $entry['timestamp'])), 'string')
-             ),
-            'struct');
+             );
+            if (XMLRPC_WP_COMPATIBLE) {
+                $values['permaLink'] =  new XML_RPC_Value(serendipity_archiveURL($entry['id'], $entry['title'], 'serendipityHTTPPath', true, array('timestamp' => $entry['timestamp'])), 'string');
+                $values['wp_slug'] =  new XML_RPC_Value(serendipity_archiveURL($entry['id'], $entry['title'], 'serendipityHTTPPath', true, array('timestamp' => $entry['timestamp'])), 'string');
+                $values['wp_password'] =  new XML_RPC_Value('', 'string');
+                $values['wp_author_id'] =  new XML_RPC_Value($entry['authorid'], 'string');
+                $values['wp_author_display_name'] =  new XML_RPC_Value($entry['author'], 'string');
+                $values['wp_post_format'] =  new XML_RPC_Value('', 'string');
+                $draft = isset($entry['isdraft']) && serendipity_db_bool($entry['isdraft']);
+                $values['post_status'] =  new XML_RPC_Value($draft?'draft':'publish', 'string');
+            }
+            $xml_entries_vals[] = new XML_RPC_Value( $values, 'struct');
         }
      }
     $xml_entries = new XML_RPC_Value($xml_entries_vals, 'array');
@@ -434,6 +475,10 @@ function metaWeblog_newPost($message) {
     } else {
         $publish = 1;
     }
+    if (XMLRPC_WP_COMPATIBLE) {
+        if ($post_array['post_status'] == 'draft') $publish = 0;
+        else if ($post_array['post_status'] == 'publish') $publish = 1;
+    }
 
     $entry['categories']        = universal_fetchCategories($post_array['categories']);
     $entry['title']             = @html_entity_decode($post_array['title'],ENT_COMPAT,'UTF-8');
@@ -526,6 +571,11 @@ function metaWeblog_editPost($message) {
     $post_array = $val->getval();
     $val = $message->params[4];
     $publish = $val->getval();
+    if (XMLRPC_WP_COMPATIBLE) {
+        if ($post_array['post_status'] == 'draft') $publish = 0;
+        else if ($post_array['post_status'] == 'publish') $publish = 1;
+    }
+    
 
     universal_debug("metaWeblog_editPost");
     universal_debug(print_r($post_array, true));
@@ -743,7 +793,10 @@ function metaWeblog_setEntry(&$entry) {
 function mt_supportedMethods($message) {
     $supported_methods = new XML_RPC_Value(
         array(
-            /* Blogger API */
+            /* Wordpress API */
+            new XML_RPC_Value('wp.getUsersBlogs', 'string'),
+        	
+        	/* Blogger API */
             new XML_RPC_Value('blogger.getUsersBlogs', 'string'),
             new XML_RPC_Value('blogger.getUserInfo', 'string'),
             new XML_RPC_Value('blogger.newPost', 'string'),

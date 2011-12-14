@@ -2713,11 +2713,6 @@
 <file>serendipity_event_stalkerbuster.php</file>
 <file>lang_en.inc.php</file>
 </dir>
-<dir name="wienerwuerstchen">
-<dir name="UTF-8">
-</dir>
-<file>wienerwuerstchen.php</file>
-</dir>
 <file>serendipity_event_challengeresponse.php</file>
 </dir>
 
@@ -2730,7 +2725,6 @@
     <file>alpha/bogo.php</file>
     <file>alpha/stalkerbuster/serendipity_event_stalkerbuster.php</file>
     <file>alpha/stalkerbuster/lang_en.inc.php</file>
-    <file>alpha/wienerwuerstchen/wienerwuerstchen.php</file>
     <file>alpha/serendipity_event_challengeresponse.php</file>
   </serendipityFilelist>
 </release>
@@ -2757,11 +2751,6 @@
 <file>serendipity_event_stalkerbuster.php</file>
 <file>lang_en.inc.php</file>
 </dir>
-<dir name="wienerwuerstchen">
-<dir name="UTF-8">
-</dir>
-<file>wienerwuerstchen.php</file>
-</dir>
 <file>serendipity_event_challengeresponse.php</file>
 </dir>
 
@@ -2774,7 +2763,6 @@
     <file>alpha/bogo.php</file>
     <file>alpha/stalkerbuster/serendipity_event_stalkerbuster.php</file>
     <file>alpha/stalkerbuster/lang_en.inc.php</file>
-    <file>alpha/wienerwuerstchen/wienerwuerstchen.php</file>
     <file>alpha/serendipity_event_challengeresponse.php</file>
   </serendipityFilelist>
 </release>
@@ -2825,11 +2813,6 @@
 <file>serendipity_event_stalkerbuster.php</file>
 <file>lang_en.inc.php</file>
 </dir>
-<dir name="wienerwuerstchen">
-<dir name="UTF-8">
-</dir>
-<file>wienerwuerstchen.php</file>
-</dir>
 <file>serendipity_event_challengeresponse.php</file>
 </dir>
 
@@ -2842,7 +2825,6 @@
     <file>alpha/bogo.php</file>
     <file>alpha/stalkerbuster/serendipity_event_stalkerbuster.php</file>
     <file>alpha/stalkerbuster/lang_en.inc.php</file>
-    <file>alpha/wienerwuerstchen/wienerwuerstchen.php</file>
     <file>alpha/serendipity_event_challengeresponse.php</file>
   </serendipityFilelist>
 </release>
@@ -4730,6 +4712,7 @@
 <file>documentation_cz.html</file>
 </dir>
 <file>lang_bg.inc.php</file>
+<file>testfile2</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>documentation_cs.html</file>
@@ -4748,6 +4731,7 @@
     <file>serendipity_event_cpgselector/UTF-8/documentation_cs.html</file>
     <file>serendipity_event_cpgselector/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_cpgselector/lang_bg.inc.php</file>
+    <file>serendipity_event_cpgselector/testfile2</file>
     <file>serendipity_event_cpgselector/lang_cs.inc.php</file>
     <file>serendipity_event_cpgselector/lang_cz.inc.php</file>
     <file>serendipity_event_cpgselector/documentation_cs.html</file>

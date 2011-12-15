@@ -3,8 +3,12 @@ class OEmbedProvider extends EmbedProvider{
     private $urlRegExp;
     private $jsonEndpoint;
     private $xmlEndpoint;
-    public function __construct($url,$endpoint){
+    
+    private $onlyJson = false;
+    
+    public function __construct($url,$endpoint, $onlyJson=false){
         parent::__construct($url,$endpoint);
+        $this->onlyJson = $onlyJson;
         $this->urlRegExp=preg_replace(array("/\*/","/\//","/\.\*\./"),array(".*","\/",".*"),$url);
         $this->urlRegExp="/".$this->urlRegExp."/";
         if (preg_match("/\{format\}/",$endpoint)){
@@ -47,10 +51,12 @@ class OEmbedProvider extends EmbedProvider{
         }
     }
     private function provideObject($url){
-        $xml=simplexml_load_string($this->provideXML($url));
-        if (empty($xml)) {
+        if (!$this->onlyJson) {
+            $xml=simplexml_load_string($this->provideXML($url));
+        }
+        else {
             $data=$this->provide($url);
-            if (!empty($$data)) $xml = json_decode($data);
+            if (!empty($data)) $xml = json_decode($data);
         }
         //TODO $xml->type alapjan assigner
         $obj = $this->getTypeObj((string)$xml->type);

@@ -61,7 +61,7 @@ class serendipity_event_oembed extends serendipity_event
         if ($simplePatterns==null) {
             $simplePatterns = array(
                 //'simpleTweet' => '@\(tweet\s+(\S*)\)@Usi',
-                'simpleTweet' => '@\[(?:embed|tweet)\s+(.*)\]@Usi',
+                'simpleTweet' => '@\[(?:e|embed|tweet)\s+(.*)\]@Usi',
             );
         }
         
@@ -109,13 +109,14 @@ class serendipity_event_oembed extends serendipity_event
             $manager = ProviderManager::getInstance();
             try {
                 $obj=$manager->provide($url,"object");
-                if (!empty($obj)) {
+                if (isset($obj)) {
                     OEmbedDatabase::save_oembed($url,$obj);
                 }
             }
             catch (ErrorException $e) {
+                print "Loading online url ex $e ..\n";
                 // Timeout in most cases
-                //return $e;
+                return $e;
             }
         }
 	    if (!empty($obj)) {

@@ -5,15 +5,14 @@
 class OEmbedDatabase {
 
     function save_oembed($url, $oembed) {
-        global $serendipity;
+        if (empty($url) || !isset($oembed)) return false;
+        $save = array();
+        $save['urlmd5'] = md5($url);
+        $save['url'] = $url;
+        $save['oetype'] = $oembed->type;
+        $save['oeobj'] = serialize($oembed);
+        return serendipity_db_insert( PLUGIN_OEMBED_DATABASEVNAME, $save );
         
-        if (empty($url) || empty($oembed)) return false;
-        
-        $urlmd5 = md5($url);
-        $oetype = $oembed->type;
-        $oeobj = serialize($oembed);
-        $query = "insert into {$serendipity['dbPrefix']}" . PLUGIN_OEMBED_DATABASEVNAME . " (urlmd5,url,oetype,oeobj) VALUES ('$urlmd5','$url','$oetype','$oeobj')";           
-        return serendipity_db_query($query);
     }
     
     function load_oembed($url) {

@@ -7,7 +7,8 @@ class ProviderManager{
         $xml = simplexml_load_file(PLUGIN_OEMBED_PROVIDER_XML_FILE);// PROVIDER_XML comes from config.php
         foreach($xml->provider as $provider){
             if(!isset($provider->class) && isset($provider->endpoint)){
-                $this->register(new OEmbedProvider($provider->url,$provider->endpoint));
+                $onlyJson = isset($provider->jsononly);
+                $this->register(new OEmbedProvider($provider->url,$provider->endpoint, $onlyJson));
             } else {
                 $classname="".$provider->class; // force to be string :)
                 $reflection = new ReflectionClass($classname);

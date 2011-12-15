@@ -25,7 +25,7 @@
   </provider>
   -->
   <provider>
-    <url>http://*.youtube.com/watch?v=*</url>
+    <url>http://*.youtube.com/*</url>
     <endpoint>http://www.youtube.com/oembed</endpoint>
   </provider>
   <provider>
@@ -34,12 +34,13 @@
   </provider>
 
   <provider>
-    <url>http://official.fm/tracks/*</url>
+    <url>http://official.fm/(playlists|tracks)/*</url>
     <endpoint>http://official.fm/services/oembed.{format}</endpoint>
   </provider>
 
   <provider>
     <url>http://blip.tv/*</url>
+    <jsononly/>
     <endpoint>http://blip.tv/oembed</endpoint>
   </provider>
 </providers>

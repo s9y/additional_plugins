@@ -34,6 +34,7 @@ class OEmbedProvider extends EmbedProvider{
     }
     private function getTypeObj($type){
         switch($type){
+            case "image":
             case "photo":
                 return new PhotoEmbed();
                 break;

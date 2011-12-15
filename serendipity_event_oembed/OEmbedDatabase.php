@@ -6,13 +6,16 @@ class OEmbedDatabase {
 
     function save_oembed($url, $oembed) {
         if (empty($url) || !isset($oembed)) return false;
+        if (isset($oembed->html)) {
+            $oembed->html = OEmbedDatabase::cleanup_html($oembed->html);
+        }
         $save = array();
         $save['urlmd5'] = md5($url);
         $save['url'] = $url;
         $save['oetype'] = $oembed->type;
         $save['oeobj'] = serialize($oembed);
-        return serendipity_db_insert( PLUGIN_OEMBED_DATABASEVNAME, $save );
-        
+        serendipity_db_insert( PLUGIN_OEMBED_DATABASEVNAME, $save );
+        return $oembed;
     }
     
     function load_oembed($url) {
@@ -74,6 +77,17 @@ class OEmbedDatabase {
         } else {
             return true;
         }
+    }
+    
+    function cleanup_html( $str ) {
+        // Clear unicode stuff 
+        $str=str_ireplace("\u003C","<",$str);
+        $str=str_ireplace("\u003E",">",$str);
+        // Clear CDATA Trash.
+        $str = preg_replace("@^<!\[CDATA\[(.*)]]>$@", '$1', $str);
+        $str = preg_replace("@^<!\[CDATA\[(.*)$@", '$1', $str);
+        $str = preg_replace("@(.*)]]>$@", '$1', $str);
+        return $str;
     }
     
 }

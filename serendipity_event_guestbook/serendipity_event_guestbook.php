@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_guestbook.php, v.3.27 - 2011-06-28 ian
+<?php # $Id: serendipity_event_guestbook.php, v.3.28 - 2011-12-15 ian
 
 //error_reporting(E_ALL);
 
@@ -56,7 +56,7 @@ class serendipity_event_guestbook extends serendipity_event {
                         'dateformat'
                     ));
         $propbag->add('author',       'Ian (Timbalu)');
-        $propbag->add('version',      '3.27');
+        $propbag->add('version',      '3.28');
         $propbag->add('requirements', array(
                         'serendipity' => '0.7',
                         'smarty'      => '2.6.7',
@@ -329,6 +329,7 @@ class serendipity_event_guestbook extends serendipity_event {
         // Filter Content
         $filter_bodys = explode(';', $this->get_config('entrychecks', $this->filter_defaults['words']));
         // filter body checks if not admin [serendipityUserlevel] => 255 && [serendipityAuthedUser] => 1
+        // @ToDo: is there a need to make this accessible to admin group?
         if (is_array($filter_bodys) && (!serendipity_userLoggedIn() && !$_SESSION['serendipityAuthedUser'] === true && !$_SESSION['serendipityUserlevel'] == '255')) {
             foreach($filter_bodys AS $filter_body) {
                 $filter_body = trim($filter_body);
@@ -455,13 +456,12 @@ class serendipity_event_guestbook extends serendipity_event {
         }
         $inclusion = $serendipity['smarty']->security_settings[@INCLUDE_ANY];
         $serendipity['smarty']->security_settings[@INCLUDE_ANY] = true;
-        // be smarty 3 compat including the serendipity_smarty class wrappers ->fetch and ->display methods and removed unused parameters
         $content = $serendipity['smarty']->fetch('file:'. $tfile);
         $serendipity['smarty']->security_settings[@INCLUDE_ANY] = $inclusion;
         return $content;
     }
 
-    /* This function is only used for sidebar plugins - the $title variable is somewhat important to indicate the title of a plugin in the plugin configuration manager. */
+    /* This function is used for sidebar plugins only - the $title variable is somehow important to indicate the title of a plugin in the plugin configuration manager. */
     /* do we need to set this to headline now? */
     function generate_content(&$title) {
         $title = PLUGIN_GUESTBOOK_TITLE.' (' . $this->get_config('pagetitle') . ')';
@@ -1100,11 +1100,16 @@ class serendipity_event_guestbook extends serendipity_event {
                     }
                     
                     $tfile = serendipity_getTemplateFile('style_guestbook_backend.css', 'serendipityPath');
-                    if($tfile) echo str_replace('{TEMPLATE_PATH}', 'templates/' . $serendipity['defaultTemplate'] . '/', @file_get_contents($tfile));
+                    if($tfile) { 
+                        $search       = array('{TEMPLATE_PATH}', '{PLUGIN_PATH}');
+                        $replace      = array('templates/' . $serendipity['defaultTemplate'] . '/', $serendipity['guestbook']['pluginpath']);
+                        $tfilecontent = str_replace($search, $replace, @file_get_contents($tfile));
+                    }
                     
                     if (!$tfile || $tfile == 'style_guestbook_backend.css') { 
-                        $tfile = dirname(__FILE__) . '/style_guestbook_backend.css';
-                        echo str_replace('{TEMPLATE_PATH}', $serendipity['guestbook']['pluginpath'], @file_get_contents($tfile));
+                        $tfile        = dirname(__FILE__) . '/style_guestbook_backend.css';
+                        $search       = array('{TEMPLATE_PATH}', '{PLUGIN_PATH}');
+                        $tfilecontent = str_replace($search, $serendipity['guestbook']['pluginpath'], @file_get_contents($tfile));
                     }
                     
                     return true;
@@ -1142,12 +1147,15 @@ class serendipity_event_guestbook extends serendipity_event {
                     }
                     $tfile = serendipity_getTemplateFile('style_guestbook_backend.css', 'serendipityPath');
                     if($tfile) { 
-                        $tfilecontent = str_replace('{TEMPLATE_PATH}', 'templates/' . $serendipity['defaultTemplate'] . '/', @file_get_contents($tfile));
+                        $search       = array('{TEMPLATE_PATH}', '{PLUGIN_PATH}');
+                        $replace      = array('templates/' . $serendipity['defaultTemplate'] . '/', $serendipity['guestbook']['pluginpath']);
+                        $tfilecontent = str_replace($search, $replace, @file_get_contents($tfile));
                     }
                     
                     if ( (!$tfile || $tfile == 'style_guestbook_backend.css') && !$tfilecontent ) { 
-                        $tfile = dirname(__FILE__) . '/style_guestbook_backend.css';
-                        $tfilecontent = str_replace('{TEMPLATE_PATH}', $serendipity['guestbook']['pluginpath'], @file_get_contents($tfile));
+                        $tfile        = dirname(__FILE__) . '/style_guestbook_backend.css';
+                        $search       = array('{TEMPLATE_PATH}', '{PLUGIN_PATH}');
+                        $tfilecontent = str_replace($search, $serendipity['guestbook']['pluginpath'], @file_get_contents($tfile));
                     }
                     
                     // add replaced css content to the end of serendipity_admin.css
@@ -1324,7 +1332,7 @@ class serendipity_event_guestbook extends serendipity_event {
                         $serendipity['smarty']->assign('is_show_url', true);
                     }
                 
-                    // extract bodies admincomments to var
+                    // extract admincomments to var
                     preg_match_all("/\[ac\](.*?)\[\/ac\]/", $entry['body'], $match);
                     $entry['acbody'] = $match[1][0];
                     $entry['body']   = preg_replace("/\[ac\](.*?)\[\/ac\]/","", $entry['body']);
@@ -1400,9 +1408,12 @@ class serendipity_event_guestbook extends serendipity_event {
     }
 
     /**
+     * get sql results and assign them to smarty
+     * 
      * @param  $ap  = approved yes/no = 1/0
      * @param  $cat = serendipity[guestbookcategory]
      * 
+     * @return (true/false)
      **/
     function backend_guestbook_view($ap, $cat) { 
         global $serendipity;
@@ -1619,7 +1630,7 @@ class serendipity_event_guestbook extends serendipity_event {
         
         return $str = $this->backend_guestbook_smsg() . $text . '<br /><br />
         <a href="'.$url.$addno.'" class="serendipityPrettyButton">' . NOT_REALLY . '</a>
-        <img src="' . $serendipity['serendipityHTTPPath'] . 'templates/default/img/blank.png" alt="blank" width="10" height="1" />
+        <img src="' . $serendipity['serendipityHTTPPath'] . $serendipity['templatePath'] . 'default/img/blank.png" alt="blank" width="10" height="1" />
         <a href="'.$url.$addyes.'" class="serendipityPrettyButton">' . DUMP_IT . '</a><br /><br />
         ' . $this->backend_guestbook_emsg();
     }

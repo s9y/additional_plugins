@@ -48,6 +48,10 @@ class OEmbedProvider extends EmbedProvider{
     }
     private function provideObject($url){
         $xml=simplexml_load_string($this->provideXML($url));
+        if (empty($xml)) {
+            $data=$this->provide($url);
+            if (!empty($$data)) $xml = json_decode($data);
+        }
         //TODO $xml->type alapjan assigner
         $obj = $this->getTypeObj((string)$xml->type);
         $obj->cloneObj($xml);

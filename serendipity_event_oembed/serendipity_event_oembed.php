@@ -11,8 +11,9 @@ if (file_exists($probelang)) {
 }
 
 include dirname(__FILE__) . '/lang_en.inc.php';
-include_once dirname(__FILE__) . '/oembed/config.php'; // autoload oembed classes
-        
+require_once dirname(__FILE__) . '/oembed/config.php'; // autoload oembed classes
+require_once dirname(__FILE__) . '/OEmbedDatabase.php';
+
 
 class serendipity_event_oembed extends serendipity_event
 {
@@ -39,11 +40,17 @@ class serendipity_event_oembed extends serendipity_event
             'frontend_display'  => true,
         ));
 
-        //$propbag->add('configuration', array('max_items','ext_vis_stat','stat_all','banned_bots'));
+        $propbag->add('configuration', array('info'));
     }
 
     function introspect_config_item($name, &$propbag)
     {
+        switch($name) {
+            case 'info':
+                $propbag->add('type',           'content');
+                $propbag->add('default',        "Info");
+                break;
+        }
     }
 
     function event_hook($event, &$bag, &$eventData) {
@@ -54,7 +61,7 @@ class serendipity_event_oembed extends serendipity_event
         if ($simplePatterns==null) {
             $simplePatterns = array(
                 //'simpleTweet' => '@\(tweet\s+(\S*)\)@Usi',
-                'simpleTweet' => '@\(tweet\s+(.*)\)@Usi',
+                'simpleTweet' => '@\[(?:embed|tweet)\s+(.*)\]@Usi',
             );
         }
         
@@ -86,27 +93,51 @@ class serendipity_event_oembed extends serendipity_event
                 array( $this, "oembedRewriteCallback"),
                 $eventData['body']);
         }
-        /*
         if (!empty($eventData['extended'])) {
-            $eventData['extended'] = preg_replace_callback(
+            $eventData['body'] = preg_replace_callback(
                 $patterns['simpleTweet'],
                 array( $this, "oembedRewriteCallback"),
                 $eventData['extended']);
         }
-        */  
     }
     
     function oembedRewriteCallback($match) {
         $url = $match[1];
-        //$url = "http://www.flickr.com/photos/gbrockhaus/2052855443/in/set-72157603214268227/";
-        //print "<br/><b>callback</b><br/>";
-        print_r($match[1]);
-        $manager = ProviderManager::getInstance();
-        $obj=$manager->provide($url,"object");
+        $obj = OEmbedDatabase::load_oembed($url);
+        $html = '';
+        if (empty($obj)) {
+            $manager = ProviderManager::getInstance();
+            try {
+                $obj=$manager->provide($url,"object");
+                if (!empty($obj)) {
+                    OEmbedDatabase::save_oembed($url,$obj);
+                }
+            }
+            catch (ErrorException $e) {
+                // Timeout in most cases
+                //return $e;
+            }
+        }
 	    if (!empty($obj)) {
-	        if ($obj->type == 'rich') return $obj->html;
+	        if ($obj->type == 'rich') 
+	            $html = $obj->html;
+	        elseif ($obj->type == 'video') 
+	            $html = $obj->html;
+	        elseif ($obj->type == 'photo') {
+	            $html = '<img src="' . $obj->url . '" title="' .$obj->title  . '" alt="' .$obj->title . '"/>';
+	        }
 	    }
-        return $match[0];
+	    else {
+        	$html = '<a href="' . $match[1] . '">' . $match[1] . '</a>';
+	    }
+	    return '<span class="serendipity_oembed">' . $html . '</span>';
     }
-
+    
+    function cleanup() {
+        OEmbedDatabase::install($this);
+    }
+    function install() {
+        OEmbedDatabase::install($this);
+    }
+    
 }

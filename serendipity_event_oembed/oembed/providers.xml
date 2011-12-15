@@ -4,10 +4,12 @@
     <url>http://*.flickr.com/*</url>
     <endpoint>http://www.flickr.com/services/oembed/</endpoint>
   </provider>
+  <!-- down 
   <provider>
     <url>http://*.pownce.com/*</url>
     <endpoint>http://api.pownce.com/2.1/oembed.{format}</endpoint>
   </provider>
+   -->
   <provider>
     <url>https://*.twitter.com/*</url>
     <endpoint>https://api.twitter.com/1/statuses/oembed.{format}</endpoint>
@@ -16,9 +18,29 @@
     <url>http://*.vimeo.com/*</url>
     <endpoint>http://vimeo.com/api/oembed.{format}</endpoint>
   </provider>
+  <!-- 
   <provider>
     <url>http://*.youtube.*/*</url>
     <class>YouTubeProvider</class>
+  </provider>
+  -->
+  <provider>
+    <url>http://*.youtube.com/watch?v=*</url>
+    <endpoint>http://www.youtube.com/oembed</endpoint>
+  </provider>
+  <provider>
+    <url>http://*.youtu.be/*</url>
+    <endpoint>http://www.youtube.com/oembed</endpoint>
+  </provider>
+
+  <provider>
+    <url>http://official.fm/tracks/*</url>
+    <endpoint>http://official.fm/services/oembed.{format}</endpoint>
+  </provider>
+
+  <provider>
+    <url>http://blip.tv/*</url>
+    <endpoint>http://blip.tv/oembed</endpoint>
   </provider>
 </providers>
 

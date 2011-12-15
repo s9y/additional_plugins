@@ -3036,7 +3036,7 @@
 <description>Zobrazuje Va¹e nejnovìj¹í pøíspìvky na Twitteru</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Damian Luszczymak, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.40</version>
+  <version>1.41</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
   <date>2011-11-28</date>
   <filelist>

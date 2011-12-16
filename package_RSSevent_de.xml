@@ -50,7 +50,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_gravatar&lt;br /&gt;Avatar Plugin&lt;/b&gt;&lt;br /&gt;Avatare bei Kommentaren anzeigen. Unterstützt werden Gravatare, Pavatare, Favatare, Twitter, Identica und MyBlogLog Avatare&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Thu, 15 Dec 2011 02:32:34 +0100</pubDate>
+<pubDate>Fri, 16 Dec 2011 02:32:34 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_gravatar</guid>
 </item>
 <item>
@@ -266,7 +266,7 @@
 <category>Event Plugins</category>
 <author>Ian (Timbalu)</author>
 <content:encoded>&lt;b&gt;serendipity_event_guestbook&lt;br /&gt;Gästebuch&lt;/b&gt;&lt;br /&gt;Zeigt ein Gästebuch innerhalb des Blogs mit dem gewählten Design und allen Formatierungen an.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Tue, 28 Jun 2011 12:50:35 +0200</pubDate>
+<pubDate>Fri, 16 Dec 2011 02:31:38 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_guestbook</guid>
 </item>
 <item>
@@ -707,16 +707,16 @@
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_event_xmlrpc&lt;br /&gt;Einträge via XML-RPC erstellen&lt;/b&gt;&lt;br /&gt;Ermöglicht Einträge via XML-RPC API zu erstellen/bearbeiten (MT, Blogger API-Endpunkte)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 15 Dec 2011 02:32:34 +0100</pubDate>
+<pubDate>Fri, 16 Dec 2011 02:32:34 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_xmlrpc</guid>
 </item>
 <item>
 <title>WrapURL: : Wraps another page in an IFRAME to be displayed in the body</title>
 <link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_wrapurl</link>
 <category>Event Plugins</category>
-<author>Rob Antonishen</author>
+<author>Rob Antonishen, Ian (Timbalu)</author>
 <content:encoded>&lt;b&gt;serendipity_event_wrapurl&lt;br /&gt;WrapURL: &lt;/b&gt;&lt;br /&gt;Wraps another page in an IFRAME to be displayed in the body&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Thu, 02 Dec 2010 14:22:10 +0100</pubDate>
+<pubDate>Fri, 16 Dec 2011 02:31:44 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_wrapurl</guid>
 </item>
 <item>
@@ -1150,7 +1150,7 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Peter Heimann</author>
 <content:encoded>&lt;b&gt;serendipity_event_twitter&lt;br /&gt;Microblogging (Twitter,Identica)&lt;/b&gt;&lt;br /&gt;Fügt einen Twitter/Identica Client zum Administrator Interface hinzu, sucht nach Tweetbacks und kündigt neue Artikel über Twitter/Identica Accounts an.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Thu, 15 Dec 2011 02:32:34 +0100</pubDate>
+<pubDate>Fri, 16 Dec 2011 02:32:34 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_twitter</guid>
 </item>
 <item>

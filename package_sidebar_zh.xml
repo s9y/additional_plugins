@@ -1317,6 +1317,7 @@
 <file>documentation_cz.html</file>
 <file>plugin_guestbook_backend_entries.tpl</file>
 <file>plugin_guestbook_backend_form.tpl</file>
+<file>PIE.htc</file>
 </dir>
 
   </filelist>
@@ -1365,6 +1366,7 @@
     <file>serendipity_event_guestbook/documentation_cz.html</file>
     <file>serendipity_event_guestbook/plugin_guestbook_backend_entries.tpl</file>
     <file>serendipity_event_guestbook/plugin_guestbook_backend_form.tpl</file>
+    <file>serendipity_event_guestbook/PIE.htc</file>
   </serendipityFilelist>
 </release>
 </package>

@@ -1,7 +1,7 @@
 <?php # $Id: lang_de.inc.php,v 1.2 2007/07/09 11:07:52 brockhaus Exp $
 
 @define('PLUGIN_EVENT_WIKILINKS_NAME', 'Freie Wiki-Links für Einträge');
-@define('PLUGIN_EVENT_WIKILINKS_DESC', 'Ermöglicht Links zu blog-internen Einträgen via [[Titel]], Links zu Statischen Seiten via ((Titel)) und einen Link zu beidem via {{Titel}}. Zudem wird ein Button zu internen Einträgen bereitgestellt.');
+@define('PLUGIN_EVENT_WIKILINKS_DESC', 'Ermöglicht Links zu blog-internen Einträgen via [[Titel]], Links zu Statischen Seiten via ((Titel)) und einen Link zu beidem via {{Titel}}. Zudem wird ein Button zu internen Einträgen bereitgestellt.  Referenzen können am Ende eines Blogeintrags eingehangen werden.');
 @define('PLUGIN_EVENT_WIKILINKS_IMGPATH', 'Pfad zu den Bildern');
 @define('PLUGIN_EVENT_WIKILINKS_IMGPATH_DESC', 'Bitte Pfad zu den Bildern der Wikilink-Icons eingeben.');
 

@@ -1,5 +1,11 @@
 # $Id$
 
+0.20:
+------------------------------------------------------------------------
+
+   * Added support for reference building via <ref (name=XXX)>...reference...</ref>
+   
+
 0.18:
    * Suppress html_entity_decode() warnings.
 

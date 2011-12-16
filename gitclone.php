@@ -18,5 +18,5 @@ foreach($out AS $file) {
 	}
 }
 
-`cvs commit -m "gitclone.sh autocommit"`;
+`cvs -q commit -m "gitclone.sh autocommit"`;
 

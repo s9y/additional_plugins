@@ -1,5 +1,9 @@
 # $Id: ChangeLog,v 1.45 2011/03/31 11:44:44 garvinhicking Exp $
 
+Version 1.55: (brockhaus)
+------------------------------------------------------------------------
+    * Twitter and identica where not fetched correctly if fetched first.
+
 Version 1.54:
 ------------------------------------------------------------------------
     * Made PLUGIN_GRAVATAR_SUPPORTED recognize %s as variable for

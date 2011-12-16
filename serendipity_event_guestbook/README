@@ -1,5 +1,5 @@
 /******************************************************************************
- *    serendipty_event_guestbook.php, README, last modified 2011-03-08        *
+ *    serendipty_event_guestbook.php, README, last modified 2011-12-15        *
  *    if you have a interesting hack or want to help,                         *
  *    please leave a message in http://www.s9y.org/forums/                    *
  *    have fun! Ian                                                           *
@@ -71,6 +71,15 @@ S9Y :: GUESTBOOK :: DESIGN
     * No space between frontend entry blocks? Add: .guestbook_splitentries { display: none; visibility: hidden; }
     * The Intro, if set in config, can be modified with: #guestbook_wrapper .guestbook_intro { padding: 0 none; text-align: left; border: 0 none; background:none repeat scroll 0 0 #FFF; }
     * You can find a very nice list of available web colours here http://www.wackerart.de/rgbfarben.html. Happy designing!
+
+
+-------------------------------------
+| Version 3.28 [ 2011-12-15 ]       |
+-------------------------------------
+
+    * update to latest css, now uses PIE in older IE
+    * changed internal path to var
+    * added some docs
 
 
 -------------------------------------

@@ -1,6 +1,10 @@
 ChangeLog: serendipity_event_wrapurl Plugin
 """"""""""
 
+[Version 0.9 2011/08/13] by Ian (Timbalu)
+
+    - changed css output to support newline breaks in serendipity.css (more a cosmetic change)
+
 [Version 0.8 2010/12/02] by Ian (Timbalu)
 
     - added     styleable id, to be individual to every single used wrapurl event, like "plugin_wrapurl_PAGETITLE" eg. #plugin_wrapurl_name1 { /* your css notation */ }

@@ -8,3 +8,4 @@ find -name DEADJOE -exec rm {} \;
 
 /home/garvin/cvs/serendipity/git/additional_plugins/gitclone.sh
 php /home/garvin/cvs/serendipity/additional_plugins/gitclone.php
+php /home/garvin/cvs/serendipity/additional_themes/gitclone.php

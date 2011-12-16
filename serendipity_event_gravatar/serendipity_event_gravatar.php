@@ -14,7 +14,7 @@ if (file_exists($probelang)) {
 include dirname(__FILE__) . '/lang_en.inc.php';
 
 // Actual version of this plugin
-@define('PLUGIN_EVENT_GRAVATAR_VERSION', '1.53');
+@define('PLUGIN_EVENT_GRAVATAR_VERSION', '1.55');
 
 // Defines the maximum available method  slots in the configuration.
 @define('PLUGIN_EVENT_GRAVATAR_METHOD_MAX', 6);
@@ -835,6 +835,8 @@ class serendipity_event_gravatar extends serendipity_event
     }
     
     function fetchTwitter(&$eventData) {
+        require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+        
         // Was lastrun successfull?
         if (isset($this->avatarConfiguration['twitter_found']) && !$this->avatarConfiguration['twitter_found']) {
             return false;
@@ -891,6 +893,8 @@ class serendipity_event_gravatar extends serendipity_event
     }
     
     function fetchIdentica(&$eventData) {
+        require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+        
         // Was lastrun successfull?
         if (isset($this->avatarConfiguration['identica_found']) && !$this->avatarConfiguration['identica_found']) {
             return false;

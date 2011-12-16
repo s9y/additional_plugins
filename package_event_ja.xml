@@ -285,7 +285,7 @@
 <release>
   <version>1.53</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2011-03-31</date>
+  <date>2011-12-16</date>
   <filelist>
 <dir name="serendipity_event_gravatar">
 <file>serendipity_event_gravatar.php</file>
@@ -2131,9 +2131,9 @@
 <description>Shows a guestbook inside your blog with your normal blog design.</description>
 <maintainers><maintainer><name>Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.27</version>
+  <version>3.28</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2011-06-28</date>
+  <date>2011-12-16</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="UTF-8">
@@ -2184,6 +2184,7 @@
 <file>documentation_cz.html</file>
 <file>plugin_guestbook_backend_entries.tpl</file>
 <file>plugin_guestbook_backend_form.tpl</file>
+<file>PIE.htc</file>
 </dir>
 
   </filelist>
@@ -2232,6 +2233,7 @@
     <file>serendipity_event_guestbook/documentation_cz.html</file>
     <file>serendipity_event_guestbook/plugin_guestbook_backend_entries.tpl</file>
     <file>serendipity_event_guestbook/plugin_guestbook_backend_form.tpl</file>
+    <file>serendipity_event_guestbook/PIE.htc</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -2713,11 +2715,6 @@
 <file>serendipity_event_stalkerbuster.php</file>
 <file>lang_en.inc.php</file>
 </dir>
-<dir name="wienerwuerstchen">
-<dir name="UTF-8">
-</dir>
-<file>wienerwuerstchen.php</file>
-</dir>
 <file>serendipity_event_challengeresponse.php</file>
 </dir>
 
@@ -2730,7 +2727,6 @@
     <file>alpha/bogo.php</file>
     <file>alpha/stalkerbuster/serendipity_event_stalkerbuster.php</file>
     <file>alpha/stalkerbuster/lang_en.inc.php</file>
-    <file>alpha/wienerwuerstchen/wienerwuerstchen.php</file>
     <file>alpha/serendipity_event_challengeresponse.php</file>
   </serendipityFilelist>
 </release>
@@ -2757,11 +2753,6 @@
 <file>serendipity_event_stalkerbuster.php</file>
 <file>lang_en.inc.php</file>
 </dir>
-<dir name="wienerwuerstchen">
-<dir name="UTF-8">
-</dir>
-<file>wienerwuerstchen.php</file>
-</dir>
 <file>serendipity_event_challengeresponse.php</file>
 </dir>
 
@@ -2774,7 +2765,6 @@
     <file>alpha/bogo.php</file>
     <file>alpha/stalkerbuster/serendipity_event_stalkerbuster.php</file>
     <file>alpha/stalkerbuster/lang_en.inc.php</file>
-    <file>alpha/wienerwuerstchen/wienerwuerstchen.php</file>
     <file>alpha/serendipity_event_challengeresponse.php</file>
   </serendipityFilelist>
 </release>
@@ -2825,11 +2815,6 @@
 <file>serendipity_event_stalkerbuster.php</file>
 <file>lang_en.inc.php</file>
 </dir>
-<dir name="wienerwuerstchen">
-<dir name="UTF-8">
-</dir>
-<file>wienerwuerstchen.php</file>
-</dir>
 <file>serendipity_event_challengeresponse.php</file>
 </dir>
 
@@ -2842,7 +2827,6 @@
     <file>alpha/bogo.php</file>
     <file>alpha/stalkerbuster/serendipity_event_stalkerbuster.php</file>
     <file>alpha/stalkerbuster/lang_en.inc.php</file>
-    <file>alpha/wienerwuerstchen/wienerwuerstchen.php</file>
     <file>alpha/serendipity_event_challengeresponse.php</file>
   </serendipityFilelist>
 </release>
@@ -4730,6 +4714,7 @@
 <file>documentation_cz.html</file>
 </dir>
 <file>lang_bg.inc.php</file>
+<file>testfile2</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>documentation_cs.html</file>
@@ -4748,6 +4733,7 @@
     <file>serendipity_event_cpgselector/UTF-8/documentation_cs.html</file>
     <file>serendipity_event_cpgselector/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_cpgselector/lang_bg.inc.php</file>
+    <file>serendipity_event_cpgselector/testfile2</file>
     <file>serendipity_event_cpgselector/lang_cs.inc.php</file>
     <file>serendipity_event_cpgselector/lang_cz.inc.php</file>
     <file>serendipity_event_cpgselector/documentation_cs.html</file>
@@ -5178,7 +5164,7 @@
 <release>
   <version>1.45</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2009-08-03</date>
+  <date>2011-12-16</date>
   <filelist>
 <dir name="serendipity_event_xmlrpc">
 <file>serendipity_xmlrpc.inc.php</file>
@@ -5231,11 +5217,11 @@
 <summary>WrapURL: </summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
 <description>Wraps another page in an IFRAME to be displayed in the body</description>
-<maintainers><maintainer><name>Rob Antonishen</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Rob Antonishen, Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.8</version>
+  <version>0.9</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2010-12-02</date>
+  <date>2011-12-16</date>
   <filelist>
 <dir name="serendipity_event_wrapurl">
 <file>serendipity_event_wrapurl.php</file>
@@ -8843,9 +8829,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>Adds a twitter/identica client to the admininistration interface, searches for tweetbacks and announces new articles to a microblogging account.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Peter Heimann</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.40</version>
+  <version>1.41</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2011-12-07</date>
+  <date>2011-12-16</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="classes">

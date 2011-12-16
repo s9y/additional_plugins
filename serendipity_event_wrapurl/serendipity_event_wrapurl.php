@@ -25,8 +25,8 @@ class serendipity_event_wrapURL extends serendipity_event {
         $propbag->add('description', WRAPURL_TITLE_BLAHBLAH);
         $propbag->add('event_hooks',  array('entries_header' => true, 'entry_display' => true, 'genpage' => true, 'frontend_generate_plugins' => true, 'css' => true));
         $propbag->add('configuration', array('headline', 'permalink', 'pagetitle', 'wrapurl', 'height', 'wrapurl_append', 'hide_sidebar'));
-        $propbag->add('author', 'Rob Antonishen');
-        $propbag->add('version', '0.8');
+        $propbag->add('author', 'Rob Antonishen, Ian (Timbalu)');
+        $propbag->add('version', '0.9');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
@@ -212,7 +212,9 @@ class serendipity_event_wrapURL extends serendipity_event {
                         return true;
                     }
 
-echo '#plugin_wrapurl_'.$serendipity['wrapurl']['id_name'].' { width: 100%; border: 0 none; border-collapse: collapse; border-spacing: 0; height:' . $this->get_config('height') . 'px; }';
+echo '
+#plugin_wrapurl_'.$serendipity['wrapurl']['id_name'].' { width: 100%; border: 0 none; border-collapse: collapse; border-spacing: 0; height:' . $this->get_config('height') . 'px; }
+';
 
                     return true;
                     break;

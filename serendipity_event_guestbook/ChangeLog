@@ -1,3 +1,11 @@
+3.28:
+-----
+
+update to latest css, now uses PIE in older IE
+changed internal path to var
+added some docs
+
+
 3.27:
 -----
 

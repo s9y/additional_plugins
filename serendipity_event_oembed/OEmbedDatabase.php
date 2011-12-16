@@ -42,6 +42,11 @@ class OEmbedDatabase {
         }
         return null;
     }
+    function clear_cache() {
+        global $serendipity;
+        $q = "delete from {$serendipity['dbPrefix']}" . PLUGIN_OEMBED_DATABASEVNAME;
+        serendipity_db_schema_import($q);
+    }
     
     function install(&$obj) {
         global $serendipity;
@@ -80,6 +85,7 @@ class OEmbedDatabase {
     }
     
     function cleanup_html( $str ) {
+        $str = trim($str);
         // Clear unicode stuff 
         $str=str_ireplace("\u003C","<",$str);
         $str=str_ireplace("\u003E",">",$str);

@@ -37,12 +37,10 @@ class serendipity_event_oembed extends serendipity_event
         ));
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
         $propbag->add('event_hooks',    array(
-//            'backend_publish'   => true,    // An entry was puplished (was draft before or saved from the scratch).
-//            'backend_save'      => true,    // An entry was saved.
             'frontend_display'  => true,
         ));
-
-        $propbag->add('configuration', array('info'));
+        $configuration = $configuration = array('info','maxwidth','maxheight');
+        $propbag->add('configuration', $configuration);
     }
 
     function introspect_config_item($name, &$propbag)
@@ -52,7 +50,20 @@ class serendipity_event_oembed extends serendipity_event
                 $propbag->add('type',           'content');
                 $propbag->add('default',        sprintf(PLUGIN_EVENT_OEMBED_INFO, ProviderList::ul_providernames(true)));
                 break;
+            case 'maxwidth':
+                $propbag->add('type',           'string');
+                $propbag->add('name',           PLUGIN_EVENT_OEMBED_MAXWIDTH);
+                $propbag->add('description',    PLUGIN_EVENT_OEMBED_MAXWIDTH_DESC);
+                $propbag->add('default',        '');
+                break;
+            case 'maxheight':
+                $propbag->add('type',           'string');
+                $propbag->add('name',           PLUGIN_EVENT_OEMBED_MAXHEIGHT);
+                $propbag->add('description',    PLUGIN_EVENT_OEMBED_MAXHEIGHT_DESC);
+                $propbag->add('default',        '');
+                break;
         }
+        return true;
     }
 
     function event_hook($event, &$bag, &$eventData) {
@@ -72,14 +83,10 @@ class serendipity_event_oembed extends serendipity_event
         if (isset($hooks[$event])) {
             switch($event) {
                 case 'frontend_display':
-                case 'backend_publish':
-                case 'backend_save':
-                    if (!isset($eventData['body']) && !isset($eventData['extended'])) {
-                        // Do not use for user comments, html nuggets, static pages etc.
-                        return false;
-                        break;
+                    if (isset($eventData['body']) && isset($eventData['extended'])) {
+                        $this->update_entry($eventData, $simplePatterns, 'body');
+                        $this->update_entry($eventData, $simplePatterns, 'extended');
                     }
-                    $this->update_entry($eventData, $simplePatterns);
                     return true;
             }
         }
@@ -88,27 +95,34 @@ class serendipity_event_oembed extends serendipity_event
         
     }
 
-    function update_entry(&$eventData, &$patterns) {
-        if (!empty($eventData['body'])) {
-            $eventData['body'] = preg_replace_callback(
+    function update_entry(&$eventData, &$patterns, $dateType) {
+        if (!empty($eventData[$dateType])) {
+            $eventData[$dateType] = preg_replace_callback(
                 $patterns['simpleTweet'],
                 array( $this, "oembedRewriteCallback"),
-                $eventData['body']);
-        }
-        if (!empty($eventData['extended'])) {
-            $eventData['extended'] = preg_replace_callback(
-                $patterns['simpleTweet'],
-                array( $this, "oembedRewriteCallback"),
-                $eventData['extended']);
+                $eventData[$dateType]);
         }
     }
     
     function oembedRewriteCallback($match) {
         $url = $match[1];
+        $maxwidth = $this->get_config('maxwidth','');
+        $maxheight = $this->get_config('maxheight','');
+        $obj = $this->expand($url, $maxwidth, $maxheight);
+        return OEmbedTemplater::fetchTemplate('oembed.tpl',$obj, $url);
+    }
+    
+    /**
+     * This method can be used by other plugins. It will expand an URL to an oembed object (or null if not supported).
+     * @param string $url The url to be expanded
+     * @param string $maxwidth Maximum width of returned object (if service supports this). May be left empty
+     * @param string $maxheight Maximum height of returned object (if service supports this). May be left empty
+     * @return OEmbed or null
+     */
+    function expand($url, $maxwidth=null, $maxheight=null) {
         $obj = OEmbedDatabase::load_oembed($url);
-        $html = '';
         if (empty($obj)) {
-            $manager = ProviderManager::getInstance();
+            $manager = ProviderManager::getInstance($maxwidth,$maxheight);
             try {
                 $obj=$manager->provide($url,"object");
                 if (isset($obj)) {
@@ -120,8 +134,9 @@ class serendipity_event_oembed extends serendipity_event
                 //return $e;
             }
         }
-        return OEmbedTemplater::fetchTemplate('oembed.tpl',$obj, $url);
+        return $obj;
     }
+    
     function cleanup_html( $str ) {
         // Clear unicode stuff 
         $str=str_ireplace("\u003C","<",$str);
@@ -134,6 +149,8 @@ class serendipity_event_oembed extends serendipity_event
     }
     function cleanup() {
         OEmbedDatabase::install($this);
+        OEmbedDatabase::clear_cache();
+        echo '<div class="serendipityAdminMsgSuccess">Cleared oembed cache.</div>';
     }
     function install() {
         OEmbedDatabase::install($this);

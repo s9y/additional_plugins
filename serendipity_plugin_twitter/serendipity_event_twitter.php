@@ -625,7 +625,7 @@ class serendipity_event_twitter extends serendipity_plugin {
                 $propbag->add('name',           PLUGIN_EVENT_TWITTER_CONSUMER_KEY);
                 $propbag->add('description',    PLUGIN_EVENT_TWITTER_CONSUMER_KEY_DESC);
                 $propbag->add('default',        '');
-                                break;
+                break;
             case 'general_oa_consumersecret':
                 $propbag->add('type',           'string');
                 $propbag->add('name',           PLUGIN_EVENT_TWITTER_CONSUMER_SECRET);
@@ -1245,7 +1245,7 @@ a.twitter_update_time {
             }
             if (empty($highest_ids[$article_id]['last_info']) || empty($highest_ids[$article_id]['last_info']['lasttweetid']) || "{$entry[TWITTER_SEARCHRESULT_ID]}">$highest_ids[$article_id]['last_info']['lasttweetid']) {
                 if ($complete) { // This is called from admin interface
-                    echo "Found new tweetback for article $article_id: tweetid: {$entry[TWITTER_SEARCHRESULT_ID]}<br/>";
+                    echo "<div class='serendipityAdminMsgSuccess'>Found new tweetback for article $article_id: tweetid: {$entry[TWITTER_SEARCHRESULT_ID]}</div><br/>";
                 }
                 $this->check_tweetbacks_save_comment($article_id, $entry, $comment_type, true);
                 $comment_saved = true;

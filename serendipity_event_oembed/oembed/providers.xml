@@ -13,7 +13,7 @@
    -->
   <provider>
     <name>Twitter Status</name>
-    <url>https://*.twitter.com/*/status/*</url>
+    <url>https?://*.twitter.com/*/status(es)?/*</url>
     <endpoint>https://api.twitter.com/1/statuses/oembed.{format}</endpoint>
   </provider>
   <provider>
@@ -52,6 +52,7 @@
   
   <provider>
     <name>My Opera</name>
+    <nodimensionsupport/>
     <url>http://my.opera.com/*</url>
     <endpoint>http://my.opera.com/service/oembed</endpoint>
   </provider>
@@ -77,6 +78,13 @@
     <jsononly/>
     <url>http://*.yfrog.com/*</url>
     <endpoint>http://www.yfrog.com/api/oembed</endpoint>
+  </provider>
+
+  <provider>
+    <name>Instragr.am</name>
+    <jsononly/>
+    <url>http://*.instagr.am/*</url>
+    <endpoint>http://api.instagram.com/api/v1/oembed/</endpoint>
   </provider>
 
   <provider>

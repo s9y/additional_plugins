@@ -74,7 +74,7 @@ class YouTubeProvider extends EmbedProvider {
     }
 
 
-    public function __construct($config){
-        parent::__construct("http://youtube.com","");
+    public function __construct($config,$maxwidth=null, $maxheight=null){
+        parent::__construct("http://youtube.com","", $maxwidth, $maxheight);
     }
 }

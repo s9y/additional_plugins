@@ -2,13 +2,14 @@
 class ProviderManager{
     private $providers;
     private static $_instance;
-    private function __construct(){
+    private function __construct($maxwidth=null, $maxheight=null){
         $this->providers=array();
         $xml = simplexml_load_file(PLUGIN_OEMBED_PROVIDER_XML_FILE);// PROVIDER_XML comes from config.php
         foreach($xml->provider as $provider){
             if(!isset($provider->class) && isset($provider->endpoint)){
                 $onlyJson = isset($provider->jsononly);
-                $this->register(new OEmbedProvider($provider->url,$provider->endpoint, $onlyJson));
+                $dimensionsSupported = !isset($provider->nodimensionsupport);
+                $this->register(new OEmbedProvider($provider->url,$provider->endpoint, $onlyJson, $maxwidth, $maxheight, $dimensionsSupported));
             } else {
                 $classname="".$provider->class; // force to be string :)
                 $reflection = new ReflectionClass($classname);
@@ -16,9 +17,9 @@ class ProviderManager{
             }
         }
     }
-    static function getInstance(){
+    static function getInstance($maxwidth=null, $maxheight=null){
         if(!isset($_instance) || $_instance==null){
-            $_instance = new ProviderManager();
+            $_instance = new ProviderManager($maxwidth, $maxheight);
         }
         return $_instance;
     }

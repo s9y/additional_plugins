@@ -3,12 +3,14 @@ class OEmbedProvider extends EmbedProvider{
     private $urlRegExp;
     private $jsonEndpoint;
     private $xmlEndpoint;
+    private $dimensionsSupported = true;
     
     private $onlyJson = false;
     
-    public function __construct($url,$endpoint, $onlyJson=false){
-        parent::__construct($url,$endpoint);
+    public function __construct($url,$endpoint, $onlyJson=false, $maxwidth=null, $maxheight=null, $dimensionsSupported=true){
+        parent::__construct($url,$endpoint,$maxwidth,$maxheight);
         $this->onlyJson = $onlyJson;
+        $this->dimensionsSupported = $dimensionsSupported;
         $this->urlRegExp=preg_replace(array("/\*/","/\//","/\.\*\./"),array(".*","\/",".*"),$url);
         $this->urlRegExp="/".$this->urlRegExp."/";
         if (preg_match("/\{format\}/",$endpoint)){
@@ -19,6 +21,16 @@ class OEmbedProvider extends EmbedProvider{
         } else {
             $this->jsonEndpoint=$endpoint."?url={url}&format=json";
             $this->xmlEndpoint=$endpoint."?url={url}&format=xml";
+        }
+        if ($this->dimensionsSupported) {
+            if (!empty($this->maxwidth)) {
+                $this->jsonEndpoint.= '&maxwidth=' . $this->maxwidth;   
+                $this->xmlEndpoint.= '&maxwidth=' . $this->maxwidth;   
+            }
+            if (!empty($this->maxheight)) {
+                $this->jsonEndpoint.= '&maxwidth=' . $this->maxheight;
+                $this->xmlEndpoint.= '&maxwidth=' . $this->maxheight;
+            }
         }
     }
 

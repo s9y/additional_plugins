@@ -16,6 +16,7 @@ require_once dirname(__FILE__) . '/OEmbedDatabase.php';
 require_once dirname(__FILE__) . '/OEmbedTemplater.php';
 require_once dirname(__FILE__) . '/oembed/ProviderList.php';
 
+@define('OEMBED_USE_CURL',TRUE);
 
 class serendipity_event_oembed extends serendipity_event
 {
@@ -74,7 +75,7 @@ class serendipity_event_oembed extends serendipity_event
         if ($simplePatterns==null) {
             $simplePatterns = array(
                 //'simpleTweet' => '@\(tweet\s+(\S*)\)@Usi',
-                'simpleTweet' => '@\[(?:e|embed|tweet)\s+(.*)\]@Usi',
+                'simpleTweet' => '@\[(?:e|embed)\s+(.*)\]@Usi',
             );
         }
         

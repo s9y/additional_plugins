@@ -90,9 +90,9 @@ class OEmbedDatabase {
         $str=str_ireplace("\u003C","<",$str);
         $str=str_ireplace("\u003E",">",$str);
         // Clear CDATA Trash.
-        $str = preg_replace("@^<!\[CDATA\[(.*)]]>$@", '$1', $str);
-        $str = preg_replace("@^<!\[CDATA\[(.*)$@", '$1', $str);
-        $str = preg_replace("@(.*)]]>$@", '$1', $str);
+        $str = preg_replace("@^<!\[CDATA\[(.*)\]\]>$@", '$1', $str);
+        $str = preg_replace("@^<!\[CDATA\[(.*)@", '$1', $str);
+        $str = preg_replace("@(.*)\]\]>$@", '$1', $str);
         return $str;
     }
     

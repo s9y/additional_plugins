@@ -41,8 +41,26 @@ class OEmbedProvider extends EmbedProvider{
     public function match($url){
         return preg_match($this->urlRegExp,$url);
     }
+    private function file_get_contents($fileurl) {
+        if (defined('OEMBED_USE_CURL') && OEMBED_USE_CURL && defined('CURLOPT_URL')) {
+            $ch = curl_init();
+            $timeout = 5; // 0 wenn kein Timeout
+            curl_setopt($ch, CURLOPT_URL, $fileurl);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, true );
+            curl_setopt($ch, CURLOPT_MAXREDIRS, 3 );
+            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+            $file_content = curl_exec($ch);
+            curl_close($ch);
+        }
+        else {
+            $context = array ( 'http' => array ( 'method' => 'GET', 'max_redirects' => 3, ),);
+            $file_content = file_get_contents($fileurl, null, stream_context_create($context));
+        }
+        return $file_content;
+    }
     private function provideXML($url){
-        return file_get_contents(preg_replace("/\{url\}/",urlencode($url),$this->xmlEndpoint));
+        return $this->file_get_contents(preg_replace("/\{url\}/",urlencode($url),$this->xmlEndpoint));
     }
     private function getTypeObj($type){
         switch($type){
@@ -89,7 +107,7 @@ class OEmbedProvider extends EmbedProvider{
         } else if ($format=="serialized"){
             return $this->provideSerialized($url);
         } else {
-            return file_get_contents(preg_replace("/\{url\}/",urlencode($url),$this->jsonEndpoint));
+            return $this->file_get_contents(preg_replace("/\{url\}/",urlencode($url),$this->jsonEndpoint));
         }
     }
     public function register(){}

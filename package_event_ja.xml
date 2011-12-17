@@ -283,9 +283,9 @@
 <description>Show avatars inside comments. Gravatars, Pavatars, Favatars, Twitter, Identica and MyBlogLog avatars are supported.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.53</version>
+  <version>1.55</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2011-12-16</date>
+  <date>2011-12-17</date>
   <filelist>
 <dir name="serendipity_event_gravatar">
 <file>serendipity_event_gravatar.php</file>
@@ -5164,7 +5164,7 @@
 <release>
   <version>1.45</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-12-16</date>
+  <date>2011-12-17</date>
   <filelist>
 <dir name="serendipity_event_xmlrpc">
 <file>serendipity_xmlrpc.inc.php</file>
@@ -7339,12 +7339,12 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <license>GPL</license>
 <summary>Free Wiki links for your entries</summary>
 <groups>MARKUP</groups>
-<description>You can specify new/existing links to your blog entries via [[title]], link to staticpages via ((title)) and link to both via {{title}}.</description>
+<description>You can specify new/existing links to your blog entries via [[title]], link to staticpages via ((title)) and link to both via {{title}}. References can be automatically appended to the blog entry.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.18</version>
+  <version>0.20</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2009-08-07</date>
+  <date>2011-12-17</date>
   <filelist>
 <dir name="serendipity_event_wikilinks">
 <file>serendipity_event_wikilinks.php</file>
@@ -8831,7 +8831,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.41</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2011-12-16</date>
+  <date>2011-12-17</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="classes">

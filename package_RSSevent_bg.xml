@@ -50,7 +50,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_gravatar&lt;br /&gt;Avatar Plugin&lt;/b&gt;&lt;br /&gt;Show avatars inside comments. Gravatars, Pavatars, Favatars, Twitter, Identica and MyBlogLog avatars are supported.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Fri, 16 Dec 2011 02:32:34 +0100</pubDate>
+<pubDate>Sat, 17 Dec 2011 02:32:19 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_gravatar</guid>
 </item>
 <item>
@@ -707,7 +707,7 @@
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_event_xmlrpc&lt;br /&gt;Post via XML-RPC&lt;/b&gt;&lt;br /&gt;Allows to post/edit entries via the XML-RPC API (MT, Blogger Endpoints)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 16 Dec 2011 02:32:34 +0100</pubDate>
+<pubDate>Sat, 17 Dec 2011 02:32:19 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_xmlrpc</guid>
 </item>
 <item>
@@ -950,7 +950,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_wikilinks&lt;br /&gt;Wiki връзки в статиите&lt;/b&gt;&lt;br /&gt;Можете да поставяте нови/съществуващи връзки към вашите статии чрез [[title]], към статични страници чрез ((title)) и връзки към двете чрез {{title}}.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Fri, 07 Aug 2009 12:13:48 +0200</pubDate>
+<pubDate>Sat, 17 Dec 2011 02:32:19 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_wikilinks</guid>
 </item>
 <item>
@@ -1150,7 +1150,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Peter Heimann</author>
 <content:encoded>&lt;b&gt;serendipity_event_twitter&lt;br /&gt;Microblogging (Twitter,Identica)&lt;/b&gt;&lt;br /&gt;Adds a twitter/identica client to the admininistration interface, searches for tweetbacks and announces new articles to a microblogging account.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Fri, 16 Dec 2011 02:32:34 +0100</pubDate>
+<pubDate>Sat, 17 Dec 2011 02:32:19 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_twitter</guid>
 </item>
 <item>

@@ -1,12 +1,14 @@
 <?php
+require_once dirname(__FILE__) . '/../CurlFetcher.php';
+
 class OEmbedProvider extends EmbedProvider{
     private $urlRegExp;
     private $jsonEndpoint;
     private $xmlEndpoint;
     private $dimensionsSupported = true;
-    
+
     private $onlyJson = false;
-    
+
     public function __construct($url,$endpoint, $onlyJson=false, $maxwidth=null, $maxheight=null, $dimensionsSupported=true){
         parent::__construct($url,$endpoint,$maxwidth,$maxheight);
         $this->onlyJson = $onlyJson;
@@ -24,8 +26,8 @@ class OEmbedProvider extends EmbedProvider{
         }
         if ($this->dimensionsSupported) {
             if (!empty($this->maxwidth)) {
-                $this->jsonEndpoint.= '&maxwidth=' . $this->maxwidth;   
-                $this->xmlEndpoint.= '&maxwidth=' . $this->maxwidth;   
+                $this->jsonEndpoint.= '&maxwidth=' . $this->maxwidth;
+                $this->xmlEndpoint.= '&maxwidth=' . $this->maxwidth;
             }
             if (!empty($this->maxheight)) {
                 $this->jsonEndpoint.= '&maxwidth=' . $this->maxheight;
@@ -42,22 +44,8 @@ class OEmbedProvider extends EmbedProvider{
         return preg_match($this->urlRegExp,$url);
     }
     private function file_get_contents($fileurl) {
-        if (defined('OEMBED_USE_CURL') && OEMBED_USE_CURL && defined('CURLOPT_URL')) {
-            $ch = curl_init();
-            $timeout = 5; // 0 wenn kein Timeout
-            curl_setopt($ch, CURLOPT_URL, $fileurl);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, true );
-            curl_setopt($ch, CURLOPT_MAXREDIRS, 3 );
-            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
-            $file_content = curl_exec($ch);
-            curl_close($ch);
-        }
-        else {
-            $context = array ( 'http' => array ( 'method' => 'GET', 'max_redirects' => 3, ),);
-            $file_content = file_get_contents($fileurl, null, stream_context_create($context));
-        }
-        return $file_content;
+        $allow_curl = defined('OEMBED_USE_CURL') && OEMBED_USE_CURL && defined('CURLOPT_URL');
+        return CurlFetcher::file_get_contents($fileurl, $allow_curl);
     }
     private function provideXML($url){
         return $this->file_get_contents(preg_replace("/\{url\}/",urlencode($url),$this->xmlEndpoint));

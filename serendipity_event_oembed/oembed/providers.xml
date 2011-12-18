@@ -128,12 +128,15 @@
   </provider>
 
   <!-- noembed providers -->
+  <!-- 
   <provider>
     <name>Wikipedia (via noembed.com)</name>
     <jsononly/>
     <url>https?://*.wikipedia.org/wiki/*</url>
     <endpoint>http://noembed.com/embed</endpoint>
   </provider>
+  -->
+  
   <provider>
     <name>Twitpic (via noembed.com)</name>
     <jsononly/>
@@ -192,4 +195,11 @@
     <url>http://((www.)?audio)?boo.fm/boos/*</url>
     <endpoint>http://oohembed.com/oohembed/</endpoint>
   </provider>
+  <provider>
+    <name>Wikipedia (via oohembed.com)</name>
+    <jsononly/>
+      <url>https?://*.wikipedia.org/wiki/*</url>
+    <endpoint>http://oohembed.com/oohembed/</endpoint>
+  </provider>
+  
 </providers>

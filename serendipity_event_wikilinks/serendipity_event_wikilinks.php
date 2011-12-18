@@ -29,7 +29,7 @@ class serendipity_event_wikilinks extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_WIKILINKS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Grischa Brockhaus');
-        $propbag->add('version',       '0.20');
+        $propbag->add('version',       '0.21');
         $propbag->add('requirements',  array(
             'serendipity' => '1.0',
             'smarty'      => '2.6.7',
@@ -193,7 +193,7 @@ class serendipity_event_wikilinks extends serendipity_event
 							echo '<div class="serendipityAdminMsgSuccess"><img style="height: 22px; width: 22px; border: 0px; padding-right: 4px; vertical-align: middle" src="' . serendipity_getTemplateFile('admin/img/admin_msg_success.png') . '" alt="" />' . DONE .': '. sprintf(SETTINGS_SAVED_AT, serendipity_strftime('%H:%M:%S')) . '</div>';
 						}
 
-						$ref = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}wikireferences WHERE id = " . (int)$serendipity['POST']['wikireference'], 'assoc', true);
+						$ref = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}wikireferences WHERE id = " . (int)$serendipity['POST']['wikireference'], true, 'assoc');
 						$entry = serendipity_fetchEntry('id', $ref['entryid']);
 						
 						echo '<div>';
@@ -450,7 +450,7 @@ function use_link_<?php echo $func; ?>(txt) {
 
 		if (!empty($buffer['ref']) && !empty($buffer['refname']) && !empty($this->ref_entry)) {
 			// New refname, needs to be stored in the database IF NOT CURRENTLY EXISTING
-			$exists = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}wikireferences WHERE refname = '" . serendipity_db_escape_string($buffer['refname']) . "'", 'assoc', true);
+			$exists = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}wikireferences WHERE refname = '" . serendipity_db_escape_string($buffer['refname']) . "'", true, 'assoc');
 			
 			if ($exists['entryid'] == $this->ref_entry) {
 				#serendipity_db_update('wikireferences', array('entryid' => $this->ref_entry, 'refname' => $buffer['refname']), array('ref' => $buffer['ref']));
@@ -461,7 +461,7 @@ function use_link_<?php echo $func; ?>(txt) {
 
 		if (empty($buffer['ref']) && !empty($buffer['refname'])) {
 			// We found a referenced pattern like <ref name="XXX" />, so let's fetch that from the database!
-			$exists = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}wikireferences WHERE refname = '" . serendipity_db_escape_string($buffer['refname']) . "'", 'assoc', true);
+			$exists = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}wikireferences WHERE refname = '" . serendipity_db_escape_string($buffer['refname']) . "'", true, 'assoc');
 
 			$buffer['ref'] = $exists['ref'];
 		}

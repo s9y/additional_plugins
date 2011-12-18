@@ -17,8 +17,8 @@ class OEmbedTemplater {
         
         $inclusion = $serendipity['smarty']->security_settings[@INCLUDE_ANY];
         $serendipity['smarty']->security_settings[@INCLUDE_ANY] = true;
-        
-        if (version_compare($serendipity['version'], '1.7-alpha1','>=')) {
+
+        if (version_compare($serendipity['version'], '1.7-alpha1')>=0) {
             $serendipity['smarty']->disableSecurity();
         }
         else {

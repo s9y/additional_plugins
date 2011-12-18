@@ -1,8 +1,10 @@
 #!/bin/bash
 cd ~/cvs/serendipity/git/additional_plugins/
+git pull
 git rebase
 
 cd ~/cvs/serendipity/git/additional_themes/
+git pull
 git rebase
 
 rsync \

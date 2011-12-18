@@ -22,8 +22,5 @@ require_once dirname(__FILE__) . '/' . 'VideoEmbed.class.php';
 require_once dirname(__FILE__) . '/' . 'EmbedProvider.class.php';
 require_once dirname(__FILE__) . '/' . 'OEmbedProvider.class.php';
 
-// Will be loaded via generic oembedprovider!
-//require_once dirname(__FILE__) . '/' . 'YouTubeProvider.class.php';
-
 require_once dirname(__FILE__) . '/' . 'ProviderManager.class.php';
 

@@ -3,7 +3,7 @@
 <span class="serendipity_oembed_rich">
 {if $oembed.provider_name=="Wikipedia"}
 <blockquote>{$oembed.html}</blockquote>
-{elseif $oembed.provider_name=="IMDB"} {* beautify IMDB content *}
+{elseif $oembed.provider_name=="IMDB"} {* beautify noembed.com IMDB content *}
 <blockquote>{$oembed.html|replace:"<h2>":"<strong>"|replace:"</h2>":"</strong>"|replace:"<img":"<img align='right'"}</blockquote>
 {elseif $oembed.provider-name=="Soundcloud"} {* beautify SoundCloud *}
 {$oembed.html|replace:"</object>":"</object><br/>"}
@@ -28,7 +28,7 @@
 {if $oembed.provider_name=="Wikipedia"}<blockquote>{/if}
 {if $oembed.description}
 {if $oembed.title}<strong>{$oembed.title}</strong><br/>{/if}
-<p>{if $oembed.thumbnail_url}<img src="{$oembed.thumbnail_url}" align="left">{/if}{$oembed.description}{if $oembed.url}<br/>[<a href="{$oembed.url}" target="_blank">link</a>]{/if}</p>
+<p>{if $oembed.thumbnail_url}<img src="{$oembed.thumbnail_url}" align="left" style="padding-right: 1em"{if $oembed.title} alt="{$oembed.title}" title="{$oembed.title}"{/if}>{/if}{$oembed.description}{if $oembed.url} [<a href="{$oembed.url}" target="_blank">link</a>]{/if}</p>
 {else}
 <a href="{$oembedurl}" title="{$oembed.title}">{$oembed.author_name}</a>
 {/if}

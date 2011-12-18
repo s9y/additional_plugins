@@ -40,12 +40,18 @@ class serendipity_event_oembed extends serendipity_event
         $propbag->add('event_hooks',    array(
             'frontend_display'  => true,
         ));
-        $configuration = $configuration = array('info','maxwidth','maxheight');
+        $configuration = $configuration = array('info','maxwidth','maxheight','generic_service','embedly_apikey');
+        $configuration[] = 'supported'; // always last
         $propbag->add('configuration', $configuration);
     }
 
     function introspect_config_item($name, &$propbag)
     {
+        $generic_services = array (
+            'none'       => PLUGIN_EVENT_OEMBED_SERVICE_NONE,
+            'oohembed'   => PLUGIN_EVENT_OEMBED_SERVICE_OOHEMBED,
+            'embedly'    => PLUGIN_EVENT_OEMBED_SERVICE_EMBEDLY,
+        );
         switch($name) {
             case 'info':
                 $propbag->add('type',           'content');
@@ -62,6 +68,23 @@ class serendipity_event_oembed extends serendipity_event
                 $propbag->add('name',           PLUGIN_EVENT_OEMBED_MAXHEIGHT);
                 $propbag->add('description',    PLUGIN_EVENT_OEMBED_MAXHEIGHT_DESC);
                 $propbag->add('default',        '');
+                break;
+            case 'generic_service':
+                $propbag->add('type',           'select');
+                $propbag->add('name',           PLUGIN_EVENT_OEMBED_GENERIC_SERVICE);
+                $propbag->add('description',    PLUGIN_EVENT_OEMBED_GENERIC_SERVICE_DESC);
+                $propbag->add('select_values',  $generic_services);
+                $propbag->add('default',        'oohembed');
+                break;
+            case 'embedly_apikey':
+                $propbag->add('type',           'string');
+                $propbag->add('name',           PLUGIN_EVENT_OEMBED_EMBEDLY_APIKEY);
+                $propbag->add('description',    PLUGIN_EVENT_OEMBED_EMBEDLY_APIKEY_DESC);
+                $propbag->add('default',        '');
+                break;
+            case 'supported':
+                $propbag->add('type',           'content');
+                $propbag->add('default',        sprintf(PLUGIN_EVENT_OEMBED_SUPPORTED, ProviderList::ul_providernames(true)));
                 break;
         }
         return true;
@@ -126,6 +149,9 @@ class serendipity_event_oembed extends serendipity_event
             $manager = ProviderManager::getInstance($maxwidth,$maxheight);
             try {
                 $obj=$manager->provide($url,"object");
+                if (!isset($obj)) {
+                    $obj = $this->expand_by_general_provider($url,$maxwidth,$maxheight);
+                }
                 if (isset($obj)) {
                     $obj = OEmbedDatabase::save_oembed($url,$obj);
                 }
@@ -136,6 +162,33 @@ class serendipity_event_oembed extends serendipity_event
             }
         }
         return $obj;
+    }
+    
+    function expand_by_general_provider($url, $maxwidth=null, $maxheight=null) {
+        $provider = $this->get_config('generic_service', 'none');
+        $manager = null;
+        if ('oohembed' == $provider) {
+            require_once dirname(__FILE__) . '/oembed/OohEmbedProvider.class.php';
+            $manager = new OohEmbedProvider($url, $maxwidth, $maxheight);
+        }
+        elseif ('embedly' == $provider) {
+            $apikey = $this->get_config('embedly_apikey', '');
+            if (!empty($apikey)) {
+                require_once dirname(__FILE__) . '/oembed/EmbedlyProvider.class.php';
+                $manager = new EmbedlyProvider($url, $apikey, $maxwidth, $maxheight);
+            } 
+        }
+        
+        if (isset($manager)) {
+            try {
+                return $manager->provide($url,'object');
+            } catch (Exception $e) {
+                return null;
+            }
+        }
+        else {
+            return null;
+        }
     }
     
     function cleanup_html( $str ) {

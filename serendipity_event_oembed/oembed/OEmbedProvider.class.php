@@ -21,8 +21,14 @@ class OEmbedProvider extends EmbedProvider{
             $this->xmlEndpoint=preg_replace("/\{format\}/","xml",$endpoint);
             $this->xmlEndpoint.="?url={url}";
         } else {
-            $this->jsonEndpoint=$endpoint."?url={url}&format=json";
-            $this->xmlEndpoint=$endpoint."?url={url}&format=xml";
+            if (strpos($endpoint, '?') === FALSE) {
+                $this->jsonEndpoint=$endpoint."?url={url}&format=json";
+                $this->xmlEndpoint=$endpoint."?url={url}&format=xml";
+            } 
+            else {
+                $this->jsonEndpoint=$endpoint."&url={url}&format=json";
+                $this->xmlEndpoint=$endpoint."&url={url}&format=xml";
+            }
         }
         if ($this->dimensionsSupported) {
             if (!empty($this->maxwidth)) {

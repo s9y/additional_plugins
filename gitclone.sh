@@ -1,9 +1,9 @@
 #!/bin/bash
 cd ~/cvs/serendipity/git/additional_plugins/
-git pull
+git rebase
 
 cd ~/cvs/serendipity/git/additional_themes/
-git pull
+git rebase
 
 rsync \
       --exclude=/*.zip --exclude=/*.tgz --exclude=.project --exclude=.cvsignore --exclude=SerendipityTranslator.zip --exclude=CVS --exclude=.git --exclude=homepage/by*.htm --exclude=homepage/template*.htm --exclude=homepage/box*.htm --exclude=homepage/last.txt \

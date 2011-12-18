@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<providers>
+  <provider>
+    <name>Flickr (image and video)</name>
+    <url>http://*.flickr.com/*</url>
+    <endpoint>http://www.flickr.com/services/oembed/</endpoint>
+  </provider>
+  <!-- down 
+  <provider>
+    <url>http://*.pownce.com/*</url>
+    <endpoint>http://api.pownce.com/2.1/oembed.{format}</endpoint>
+  </provider>
+   -->
+  <provider>
+    <name>Twitter Status</name>
+    <url>https?://*.twitter.com/*/status(es)?/*</url>
+    <endpoint>https://api.twitter.com/1/statuses/oembed.{format}</endpoint>
+  </provider>
+  <provider>
+    <url>http://*.vimeo.com/*</url>
+    <endpoint>http://vimeo.com/api/oembed.{format}</endpoint>
+  </provider>
+  <!-- 
+  <provider>
+    <url>http://*.youtube.*/*</url>
+    <class>YouTubeProvider</class>
+  </provider>
+  -->
+  <provider>
+    <name>Youtube</name>
+    <url>http://*.youtube.com/*</url>
+    <endpoint>http://www.youtube.com/oembed</endpoint>
+  </provider>
+  <provider>
+    <name>Youtube short link</name>
+    <url>http://*.youtu.be/*</url>
+    <endpoint>http://www.youtube.com/oembed</endpoint>
+  </provider>
+  <provider>
+    <name>SmugMug</name>
+    <url>http://*.smugmug.com/*</url>
+    <endpoint>http://api.smugmug.com/services/oembed/</endpoint>
+  </provider>
+  <provider>
+    <name>Photobucket</name>
+    <url>http://*.photobucket.com/(albums|groups)/*</url>
+    <endpoint>http://photobucket.com/oembed</endpoint>
+  </provider>
+  
+  <provider>
+    <name>Official.fm (tracks and playlist)</name>
+    <url>http://official.fm/(playlists|tracks)/*</url>
+    <endpoint>http://official.fm/services/oembed.{format}</endpoint>
+  </provider>
+
+  <provider>
+    <name>Blib TV</name>
+    <url>http://blip.tv/*</url>
+    <jsononly/>
+    <endpoint>http://blip.tv/oembed</endpoint>
+  </provider>
+
+  <provider>
+    <name>Qik Mobile Videos</name>
+    <url>http://qik.com/video/*</url>
+    <endpoint>http://qik.com/api/oembed.{format}</endpoint>
+  </provider>
+  
+  <provider>
+    <name>My Opera</name>
+    <nodimensionsupport/>
+    <url>http://my.opera.com/*</url>
+    <endpoint>http://my.opera.com/service/oembed</endpoint>
+  </provider>
+
+  <provider>
+    <name>Hulu</name>
+    <url>http://www.hulu.com/*</url>
+    <endpoint>http://www.hulu.com/api/oembed.{format}</endpoint>
+  </provider>
+  <provider>
+    <name>Revision 3</name>
+    <url>http://*.revision3.com/*</url>
+    <endpoint>http://revision3.com/api/oembed/</endpoint>
+  </provider>
+  <provider>
+    <name>Viddler</name>
+    <url>http://*.viddler.com/*</url>
+    <endpoint>http://lab.viddler.com/services/oembed/</endpoint>
+  </provider>
+
+  <provider>
+    <name>YFrog</name>
+    <jsononly/>
+    <url>http://*.yfrog.com/*</url>
+    <endpoint>http://www.yfrog.com/api/oembed</endpoint>
+  </provider>
+
+  <provider>
+    <name>Instagr.am</name>
+    <jsononly/>
+    <url>http://*.instagr.am/*</url>
+    <endpoint>http://api.instagram.com/api/v1/oembed/</endpoint>
+  </provider>
+
+  <provider>
+    <name>DailyMotion</name>
+    <url>http://*.dailymotion.com/*</url>
+    <endpoint>http://www.dailymotion.com/services/oembed</endpoint>
+  </provider>
+
+  <provider>
+    <name>PicPlz</name>
+    <jsononly/>
+    <url>http://*.picplz.com/*</url>
+    <endpoint>http://picplz.com/oembed</endpoint>
+  </provider>
+
+  <provider>
+    <name>SoundCloud</name>
+    <url>http://*.soundcloud.com/*</url>
+    <endpoint>http://soundcloud.com/oembed</endpoint>
+  </provider>
+  <provider>
+    <name>Skitch</name>
+    <url>http://(www.)?skitch.com/*</url>
+    <endpoint>http://skitch.com/oembed/</endpoint>
+  </provider>
+
+  <!-- noembed providers -->
+  <!-- 
+  <provider>
+    <name>Wikipedia (via noembed.com)</name>
+    <jsononly/>
+    <url>https?://*.wikipedia.org/wiki/*</url>
+    <endpoint>http://noembed.com/embed</endpoint>
+  </provider>
+  -->
+  
+  <provider>
+    <name>Twitpic (via noembed.com)</name>
+    <jsononly/>
+    <url>http://(www.)?twitpic.com/*</url>
+    <endpoint>http://noembed.com/embed</endpoint>
+  </provider>
+  <provider>
+    <name>Imgur.com (via noembed.com)</name>
+    <jsononly/>
+    <url>http://imgur.com/*</url>
+    <endpoint>http://noembed.com/embed</endpoint>
+  </provider>
+  <provider>
+    <name>Imdb.com (via noembed.com)</name>
+    <jsononly/>
+    <url>http://(www.)?imdb.com/title/*</url>
+    <endpoint>http://noembed.com/embed</endpoint>
+  </provider>
+  <provider>
+    <name>CloudApp (via noembed.com)</name>
+    <jsononly/>
+    <url>http://cl.ly/*</url>
+    <endpoint>http://noembed.com/embed</endpoint>
+  </provider>
+  <provider>
+    <name>ASCII Art Farts (via noembed.com)</name>
+    <jsononly/>
+    <url>http://www.asciiartfarts.com/*.html</url>
+    <endpoint>http://noembed.com/embed</endpoint>
+  </provider>
+  <provider>
+    <name>GiantBomb (via noembed.com)</name>
+    <jsononly/>
+    <url>http://www.giantbomb.com/*</url>
+    <endpoint>http://noembed.com/embed</endpoint>
+  </provider>
+  <provider>
+    <name>Spotify (via noembed.com)</name>
+    <jsononly/>
+    <url>https?://open.spotify.com/(track|album)/*</url>
+    <endpoint>http://noembed.com/embed</endpoint>
+  </provider>
+  <!-- Too big for blogs
+  <provider>
+    <name>Amazon.com (via noembed.com)</name>
+    <jsononly/>
+    <url>https?://www.(amazon|amzn).com/*</url>
+    <endpoint>http://noembed.com/embed</endpoint>
+  </provider>
+  -->
+
+  <!-- oohembed.com providers -->
+  <provider>
+    <name>Audioboo (via oohembed.com)</name>
+    <jsononly/>
+    <url>http://((www.)?audio)?boo.fm/boos/*</url>
+    <endpoint>http://oohembed.com/oohembed/</endpoint>
+  </provider>
+  <provider>
+    <name>Wikipedia (via oohembed.com)</name>
+    <jsononly/>
+      <url>https?://*.wikipedia.org/wiki/*</url>
+    <endpoint>http://oohembed.com/oohembed/</endpoint>
+  </provider>
+  
+</providers>

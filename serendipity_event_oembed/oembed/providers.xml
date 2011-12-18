@@ -178,6 +178,18 @@
     <url>https?://open.spotify.com/(track|album)/*</url>
     <endpoint>http://noembed.com/embed</endpoint>
   </provider>
+  <provider>
+    <name>Github Commit (via noembed.com)</name>
+    <jsononly/>
+    <url>https?://github.com/*/*commit/*</url>
+    <endpoint>http://noembed.com/embed</endpoint>
+  </provider>
+  <provider>
+    <name>Beer Advocate (via noembed.com)</name>
+    <jsononly/>
+    <url>http://(www.)?beeradvocate.com/beer/profile/*</url>
+    <endpoint>http://noembed.com/embed</endpoint>
+  </provider>
   <!-- Too big for blogs
   <provider>
     <name>Amazon.com (via noembed.com)</name>

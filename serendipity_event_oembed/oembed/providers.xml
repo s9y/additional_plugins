@@ -185,6 +185,12 @@
     <endpoint>http://noembed.com/embed</endpoint>
   </provider>
   <provider>
+    <name>Github Gist (via noembed.com)</name>
+    <jsononly/>
+    <url>https?://gist.github.com/*</url>
+    <endpoint>http://noembed.com/embed</endpoint>
+  </provider>
+  <provider>
     <name>Beer Advocate (via noembed.com)</name>
     <jsononly/>
     <url>http://(www.)?beeradvocate.com/beer/profile/*</url>

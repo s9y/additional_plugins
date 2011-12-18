@@ -285,7 +285,7 @@
 <release>
   <version>1.55</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2011-12-17</date>
+  <date>2011-12-18</date>
   <filelist>
 <dir name="serendipity_event_gravatar">
 <file>serendipity_event_gravatar.php</file>
@@ -5164,7 +5164,7 @@
 <release>
   <version>1.45</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-12-17</date>
+  <date>2011-12-18</date>
   <filelist>
 <dir name="serendipity_event_xmlrpc">
 <file>serendipity_xmlrpc.inc.php</file>
@@ -7342,7 +7342,7 @@
 <release>
   <version>0.20</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2011-12-17</date>
+  <date>2011-12-18</date>
   <filelist>
 <dir name="serendipity_event_wikilinks">
 <file>serendipity_event_wikilinks.php</file>
@@ -8829,7 +8829,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.41</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2011-12-17</date>
+  <date>2011-12-18</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="classes">

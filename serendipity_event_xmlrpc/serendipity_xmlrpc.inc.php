@@ -7,10 +7,10 @@ if (empty($HTTP_RAW_POST_DATA)) {
     $HTTP_RAW_POST_DATA = implode("\r\n", file('php://input'));
 }
 
-$debug_xmlrpc = false;
+$debug_xmlrpc = 1;
 if ($debug_xmlrpc) {
-    @define('DEBUG_LOG_XMLRPC', '/tmp/rpc.log');
-    //@define('DEBUG_LOG_XMLRPC', dirname(__FILE__) . "/rpc.log"); 
+    //@define('DEBUG_LOG_XMLRPC', '/tmp/rpc.log');
+    @define('DEBUG_LOG_XMLRPC', dirname(__FILE__) . "/rpc.log"); 
     $fp = fopen(DEBUG_LOG_XMLRPC, 'a');
     fwrite($fp, '[' . date('d.m.Y H:i') . ']' . print_r($HTTP_RAW_POST_DATA, true));
     fwrite($fp, "\n" . print_r($_REQUEST, true) . "\n");
@@ -24,7 +24,7 @@ if ($debug_xmlrpc) {
 if ($debug_xmlrpc === 2) {
     #$HTTP_RAW_POST_DATA = file_get_contents('/www/input.xml');
 }
-@define('XMLRPC_WP_COMPATIBLE', FALSE);
+@define('XMLRPC_WP_COMPATIBLE', TRUE);
 
 $dispatches = array(
                     /* WordPress API */

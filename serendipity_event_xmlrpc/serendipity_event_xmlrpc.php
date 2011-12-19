@@ -53,6 +53,7 @@ class serendipity_event_xmlrpc extends serendipity_event
             <engineLink>http://www.s9y.org/</engineLink>
             <homePageLink>' . $serendipity['baseURL'] . '</homePageLink>
             <apis>
+                <api name="WordPress"   preferred="false"  apiLink="' . $serendipity['baseURL'] . 'serendipity_xmlrpc.php" blogID="1" />
                 <api name="MovableType" preferred="true"   apiLink="' . $serendipity['baseURL'] . 'serendipity_xmlrpc.php" blogID="1" />
                 <api name="MetaWeblog"  preferred="false"  apiLink="' . $serendipity['baseURL'] . 'serendipity_xmlrpc.php" blogID="1" />
                 <api name="Blogger"     preferred="false"  apiLink="' . $serendipity['baseURL'] . 'serendipity_xmlrpc.php" blogID="1" />

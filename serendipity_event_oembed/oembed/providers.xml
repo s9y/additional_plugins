@@ -122,6 +122,11 @@
     <endpoint>http://soundcloud.com/oembed</endpoint>
   </provider>
   <provider>
+    <name>MixCloud</name>
+    <url>http://*.mixcloud.com/*</url>
+    <endpoint>http://www.mixcloud.com/oembed</endpoint>
+  </provider>
+  <provider>
     <name>Skitch</name>
     <url>http://(www.)?skitch.com/*</url>
     <endpoint>http://skitch.com/oembed/</endpoint>

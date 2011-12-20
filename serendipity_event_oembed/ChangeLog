@@ -1,3 +1,10 @@
+Version 1.01 (brockhaus)
+-----------------------
+* Added "generic providers" embed.ly and oohembed.com.
+* Removed the depending definitions in providers.xml
+* New providers via noembed: GitHub Commit, GitHub Gist and Beer Advocate (Yeah!) ;D
+* Reverted Smarty Security Disabling (tested with 1.6/1.7 blogs
+
 Version 1.00 (brockhaus)
 -----------------------
 * Initial Release, have fun! :)

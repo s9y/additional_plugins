@@ -7,13 +7,13 @@ if (empty($HTTP_RAW_POST_DATA)) {
     $HTTP_RAW_POST_DATA = implode("\r\n", file('php://input'));
 }
 
-$debug_xmlrpc = 1;
+$debug_xmlrpc = 2;
 if ($debug_xmlrpc) {
     //@define('DEBUG_LOG_XMLRPC', '/tmp/rpc.log');
     @define('DEBUG_LOG_XMLRPC', dirname(__FILE__) . "/rpc.log"); 
     $fp = fopen(DEBUG_LOG_XMLRPC, 'a');
     fwrite($fp, '[' . date('d.m.Y H:i') . ']' . print_r($HTTP_RAW_POST_DATA, true));
-    fwrite($fp, "\n" . print_r($_REQUEST, true) . "\n");
+    fwrite($fp, "\n REQUEST: " . print_r($_REQUEST, true) . "\n");
     fclose($fp);
     ob_start();
     @define('DEBUG_XMLRPC', true);
@@ -871,8 +871,15 @@ function universal_debug($message) {
         fclose($fp);
     }
 }
-
-$server = new XML_RPC_Server($dispatches, 1, ($debug_xmlrpc === 2 ? true : false));
+try {
+    $server = new XML_RPC_Server($dispatches, 1, ($debug_xmlrpc === 2 ? 1 : 0));
+    
+} catch (Exception $e) {
+    $fp = fopen(DEBUG_LOG_XMLRPC, 'a');
+    fwrite($fp, $e . "\n---------------------------------------\n");
+    fclose($fp);
+    ob_end_flush();
+}
 
 if ($debug_xmlrpc === 2) {
     print_r($GLOBALS['XML_RPC_Server_debuginfo']);

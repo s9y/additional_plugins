@@ -20,20 +20,14 @@
     <url>http://*.vimeo.com/*</url>
     <endpoint>http://vimeo.com/api/oembed.{format}</endpoint>
   </provider>
-  <!-- 
-  <provider>
-    <url>http://*.youtube.*/*</url>
-    <class>YouTubeProvider</class>
-  </provider>
-  -->
   <provider>
     <name>Youtube</name>
-    <url>http://*.youtube.com/*</url>
+    <url>https?://*.youtube.com/*</url>
     <endpoint>http://www.youtube.com/oembed</endpoint>
   </provider>
   <provider>
     <name>Youtube short link</name>
-    <url>http://*.youtu.be/*</url>
+    <url>https?://*.youtu.be/*</url>
     <endpoint>http://www.youtube.com/oembed</endpoint>
   </provider>
   <provider>

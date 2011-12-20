@@ -20,6 +20,7 @@ class serendipity_event_wikilinks extends serendipity_event
 {
     var $title = PLUGIN_EVENT_WIKILINKS_NAME;
     var $references = array();
+    var $out_references = array();
 
     function introspect(&$propbag)
     {
@@ -29,7 +30,7 @@ class serendipity_event_wikilinks extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_WIKILINKS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Grischa Brockhaus');
-        $propbag->add('version',       '0.21');
+        $propbag->add('version',       '0.22');
         $propbag->add('requirements',  array(
             'serendipity' => '1.0',
             'smarty'      => '2.6.7',
@@ -219,6 +220,7 @@ class serendipity_event_wikilinks extends serendipity_event
 					break;
 
                 case 'frontend_display':
+                    $this->out_references = array();
                     foreach ($this->markup_elements as $temp) {
                         if (serendipity_db_bool($this->get_config($temp['name'], true)) && isset($eventData[$temp['element']]) &&
                             !$eventData['properties']['ep_disable_markup_' . $this->instance] &&
@@ -253,7 +255,8 @@ class serendipity_event_wikilinks extends serendipity_event
                             
                             $source .= $this->reference_parse();
                             if ($is_body) {
-                            	$eventData['properties']['references'] = $this->references;
+                                if (!is_array($eventData['properties']['references'])) $eventData['properties']['references'] = array();
+                            	$eventData['properties']['references'] += $this->references;
                             }
                         }
                     }

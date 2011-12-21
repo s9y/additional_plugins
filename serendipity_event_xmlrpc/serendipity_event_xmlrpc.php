@@ -162,13 +162,15 @@ class serendipity_event_xmlrpc extends serendipity_event
     
     function setupPearPath() {
         // use bundled PEAR modules instead of plugins, if found
+        // The s9y bundled lib could be outdated. Upgrading it with the plugin is much more easy.
+        /*
         @define('S9Y_PEAR_PATH', $serendipity['serendipityPath'] . 'bundled-libs/');
         if (file_exists(S9Y_PEAR_PATH . 'XML/RPC.php') && file_exists(S9Y_PEAR_PATH . 'XML/RPC/Server.php')) {
             @define('PLUGIN_EVENT_XMLRPC_PEAR_PATH', S9Y_PEAR_PATH);
         }
-        else {
+        else { */
             @define('PLUGIN_EVENT_XMLRPC_PEAR_PATH',dirname(__FILE__) . '/PEAR/');
-        }
+//        }
     }
 }
 

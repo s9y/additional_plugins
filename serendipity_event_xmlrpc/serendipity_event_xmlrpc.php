@@ -118,9 +118,9 @@ class serendipity_event_xmlrpc extends serendipity_event
         if (isset($hooks[$event])) {
             switch($event) {
                 case 'frontend_header':
-                   echo '<link rel="pingback" href="' . $serendipity['baseURL'] . 'serendipity_xmlrpc.php" />' . "\n";
-                   echo '<link rel="EditURI" type="application/rsd+xml" title="RSD" href="' . $serendipity['baseURL'] . 'serendipity_xmlrpc.php?xsd=true" />' . "\n";
-                   break;
+                    echo '<link rel="pingback" href="' . $serendipity['baseURL'] . 'serendipity_xmlrpc.php" />' . "\n";
+                    echo '<link rel="EditURI" type="application/rsd+xml" title="RSD" href="' . $serendipity['baseURL'] . 'serendipity_xmlrpc.php?xsd=true" />' . "\n";
+                    break;
 
                 case 'frontend_xmlrpc':
                     // Those variables should not be set by other plugins!
@@ -137,13 +137,14 @@ class serendipity_event_xmlrpc extends serendipity_event
 
                     @define('SERENDIPITY_IS_XMLRPC', true);
                     $serendipity['XMLRPC_GMT'] = serendipity_db_bool($this->get_config('gmt'));
-
+                    
+                    $this->setupPearPath();
                     if (!class_exists('XML_RPC_Base')) {
-                        require_once dirname(__FILE__) . '/PEAR/XML/RPC.php';
+                        require_once PLUGIN_EVENT_XMLRPC_PEAR_PATH . 'XML/RPC.php';
                     }
 
                     if (!class_exists('XML_RPC_Server')) {
-                        require_once dirname(__FILE__) . '/PEAR/XML/RPC/Server.php';
+                        require_once PLUGIN_EVENT_XMLRPC_PEAR_PATH . 'XML/RPC/Server.php';
                     }
 
                     require_once dirname(__FILE__) . '/serendipity_xmlrpc.inc.php';
@@ -156,6 +157,17 @@ class serendipity_event_xmlrpc extends serendipity_event
             }
         } else {
             return false;
+        }
+    }
+    
+    function setupPearPath() {
+        // use bundled PEAR modules instead of plugins, if found
+        @define('S9Y_PEAR_PATH', $serendipity['serendipityPath'] . 'bundled-libs/');
+        if (file_exists(S9Y_PEAR_PATH . 'XML/RPC.php') && file_exists(S9Y_PEAR_PATH . 'XML/RPC/Server.php')) {
+            @define('PLUGIN_EVENT_XMLRPC_PEAR_PATH', S9Y_PEAR_PATH);
+        }
+        else {
+            @define('PLUGIN_EVENT_XMLRPC_PEAR_PATH',dirname(__FILE__) . '/PEAR/');
         }
     }
 }

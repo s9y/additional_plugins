@@ -21,9 +21,11 @@ class OEmbedTemplater {
         if (version_compare($serendipity['version'], '1.7-alpha1')>=0) {
             $serendipity['smarty']->disableSecurity();
         }
+        /* in earlier versions this is not needed.
         else {
             $serendipity['smarty']->security = false;
         }
+        */
 
         // be smarty 3 compat including the serendipity_smarty class wrappers ->fetch and ->display methods and remove changed parameter number 4
         $content = @$serendipity['smarty']->fetch('file:'. $tfile);//, false

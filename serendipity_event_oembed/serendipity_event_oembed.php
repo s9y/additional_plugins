@@ -30,7 +30,7 @@ class serendipity_event_oembed extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_OEMBED_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Grischa Brockhaus');
-        $propbag->add('version',       '1.01');
+        $propbag->add('version',       '1.02');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -39,6 +39,7 @@ class serendipity_event_oembed extends serendipity_event
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
         $propbag->add('event_hooks',    array(
             'frontend_display'  => true,
+            'css'               => true,
         ));
         $configuration = $configuration = array('info','maxwidth','maxheight','generic_service','embedly_apikey');
         $configuration[] = 'supported'; // always last
@@ -111,6 +112,19 @@ class serendipity_event_oembed extends serendipity_event
                         $this->update_entry($eventData, $simplePatterns, 'body');
                         $this->update_entry($eventData, $simplePatterns, 'extended');
                     }
+                    return true;
+                case 'css':
+                    if (strpos($eventData, '.serendipity_oembed')) {
+                        // class exists in CSS, so a user has customized it and we don't need default
+                        // (doesn't work with templates like BP or 2k11 as the user css is loaded from a seperate file)
+                        return true;
+                    }
+?>
+.serendipity_oembed_rich, .serendipity_oembed_video, .serendipity_oembed_photo, .serendipity_oembed_link, .serendipity_oembed {
+    max-width: 100%;
+    height: auto;
+}
+<?php
                     return true;
             }
         }

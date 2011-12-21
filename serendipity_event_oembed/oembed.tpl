@@ -1,6 +1,6 @@
 {* oembed.tpl last modified 2011-12-01 *}
 {if $oembed.type=='rich'}		{* =================================================== RICH *}
-<span class="serendipity_oembed_rich">
+<div class="serendipity_oembed_rich">
 {if $oembed.provider_name=="Wikipedia"}
 <blockquote>{$oembed.html}</blockquote>
 {elseif $oembed.provider_name=="IMDB"} {* beautify noembed.com IMDB content *}
@@ -10,21 +10,21 @@
 {else}
 {$oembed.html}
 {/if}
-</span>
+</div>
 {elseif $oembed.type=='video'}	{* =================================================== VIDEO *}
-<span class="serendipity_oembed_video">
+<div class="serendipity_oembed_video">
 {$oembed.html}
-</span>
+</div>
 {elseif $oembed.type=='image'}	{* =================================================== IMAGE *}
-<span class="serendipity_oembed_photo">
+<div class="serendipity_oembed_photo">
 <a href="{$oembed.url}"><img src="{$oembed.thumbnail_url}""{if $oembed.title} title="{$oembed.title}" alt="{$oembed.title}"{/if}/></a>
-</span>
+</div>
 {elseif $oembed.type=='photo'}	{* =================================================== PHOTO *}
-<span class="serendipity_oembed_photo">
+<div class="serendipity_oembed_photo">
 <img src="{$oembed.url}"{if $oembed.title} title="{$oembed.title}" alt="{$oembed.title}"{/if}/>
-</span>
+</div>
 {elseif $oembed.type=='link'}	{* =================================================== LINK *}
-<span class="serendipity_oembed_link">
+<div class="serendipity_oembed_link">
 {if $oembed.provider_name=="Wikipedia"}<blockquote>{/if}
 {if $oembed.description}
 {if $oembed.title}<strong>{$oembed.title}</strong><br/>{/if}
@@ -33,9 +33,9 @@
 <a href="{$oembedurl}" title="{$oembed.title}">{$oembed.author_name}</a>
 {/if}
 {if $oembed.provider_name=="Wikipedia"}</blockquote>{/if}
-</span>
+</div>
 {else}  {* Link type finishes *}
-<span class="serendipity_oembed">
+<div class="serendipity_oembed">
 <a href="{$oembedurl}" target="_blank">{if $oembed.error}{$oembed.error}{else}{$oembedurl}{/if}</a>
-</span>
+</div>
 {/if}

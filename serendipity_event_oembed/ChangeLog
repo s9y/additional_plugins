@@ -1,3 +1,8 @@
+Version 1.02 (brockhaus)
+-----------------------
+* Added default css entries, changed oebed containers from span to div.
+* Smarty security disabling for 1.7+ blogs only.
+
 Version 1.01 (brockhaus)
 -----------------------
 * Added "generic providers" embed.ly and oohembed.com.

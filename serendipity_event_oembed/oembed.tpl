@@ -26,11 +26,10 @@
 {elseif $oembed.type=='link'}	{* =================================================== LINK *}
 <div class="serendipity_oembed_link">
 {if $oembed.provider_name=="Wikipedia"}<blockquote>{/if}
-{if $oembed.description}
-{if $oembed.title}<strong>{$oembed.title}</strong><br/>{/if}
+{if $oembed.description}{if $oembed.title}<strong>{$oembed.title}</strong><br/>{/if}
 <p>{if $oembed.thumbnail_url}<img src="{$oembed.thumbnail_url}" align="left" style="padding-right: 1em"{if $oembed.title} alt="{$oembed.title}" title="{$oembed.title}"{/if}>{/if}{$oembed.description}{if $oembed.url} [<a href="{$oembed.url}" target="_blank">link</a>]{/if}</p>
 {else}
-<a href="{$oembedurl}" title="{$oembed.title}">{$oembed.author_name}</a>
+<a href="{$oembedurl}" title="{$oembed.title}">{$oembed.author_name}: {$oembed.title}</a>
 {/if}
 {if $oembed.provider_name=="Wikipedia"}</blockquote>{/if}
 </div>

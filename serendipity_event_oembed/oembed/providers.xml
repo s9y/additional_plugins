@@ -122,7 +122,7 @@
 
   <!-- custom providers =========================================== -->
   <provider>
-    <name>Posterous (Imge and Video Posts)</name>
+    <name>Posterous post.ly</name>
     <url>http://post.ly/*</url>
     <class>PostlyProvider</class>
   </provider>

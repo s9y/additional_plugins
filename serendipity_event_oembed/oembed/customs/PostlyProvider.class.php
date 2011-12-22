@@ -12,7 +12,7 @@
  * 
  * After implementing the provider you have to add it to the providers.xml like this:
  * <provider>
- *  <name>Posterous (Imge and Video Posts)</name>
+ *  <name>Posterous post.ly</name>
  *  <url>http://post.ly/*</url>
  *  <class>PostlyProvider</class>
  * </provider>
@@ -60,21 +60,31 @@ class PostlyProvider extends EmbedProvider {
                 $oembed->height=(string)$medium->height;
             }
             else {
-                return null;
+                $oembed = new LinkEmbed();
+                $oembed->type="link";
+                $oembed->html=(string)$post->body;
+                $oembed->description=(string)$post->body;
+                $oembed->url=(string)$post->link;
+                $oembed->thumbnail_url=(string)$post->authorpic;
             }
-            $oembed->version='1.0';
-            $oembed->provider_name="Posterous";
-            $oembed->provider_url="http://posterous.com";
-            $oembed->resource_url=(string)$post->link;
-            $oembed->title = (string)$post->title;
-            //$oembed->html = $post->body;
-            $oembed->author_name = (string)$post->author;
-            $oembed->author_pic = (string)$post->authorpic; // normaly unsupported
-            return $oembed;
         }
         else {
-            return null;
+            $oembed = new LinkEmbed();
+            $oembed->type="link";
+            $oembed->html=(string)$post->body;
+            $oembed->description=(string)$post->body;
+            $oembed->url=(string)$post->link;
+            $oembed->thumbnail_url=(string)$post->authorpic;
         }
+        $oembed->version='1.0';
+        $oembed->provider_name="Posterous";
+        $oembed->provider_url="http://posterous.com";
+        $oembed->resource_url=(string)$post->link;
+        $oembed->title = (string)$post->title;
+        //$oembed->html = $post->body;
+        $oembed->author_name = (string)$post->author;
+        $oembed->author_pic = (string)$post->authorpic; // normaly unsupported
+        return $oembed;
     }
     
     // === here comes the regular stuff for providers, what is very similar in any custom provider =========

@@ -7,7 +7,8 @@ class ProviderList {
             if (isset($provider->name)) {
                 $pentry = $provider->name;
                 if ($with_url && isset($provider->url)) {
-                    $pentry = "<b>$pentry</b><br/>(" . $provider->url . ")";
+                    //$pentry = "<b>$pentry</b><br/>(" . $provider->url . ")";
+                    $pentry = "$pentry";
                 }
                 $provider_names[] = $pentry;
             }

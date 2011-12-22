@@ -1,3 +1,8 @@
+Version 1.03 (brockhaus)
+-----------------------
+* Added a Posterous post.ly provider (mainly as an example how to write custom providers).
+* Some default CSS entries. Changed embed area from span to div.
+
 Version 1.02 (brockhaus)
 -----------------------
 * Added default css entries, changed oebed containers from span to div.

@@ -28,8 +28,12 @@
 {if $oembed.provider_name=="Wikipedia"}<blockquote>{/if}
 {if $oembed.description}{if $oembed.title}<strong>{$oembed.title}</strong><br/>{/if}
 <p>{if $oembed.thumbnail_url}<img src="{$oembed.thumbnail_url}" align="left" style="padding-right: 1em"{if $oembed.title} alt="{$oembed.title}" title="{$oembed.title}"{/if}>{/if}{$oembed.description}{if $oembed.url} [<a href="{$oembed.url}" target="_blank">link</a>]{/if}</p>
+{elseif $oembed.title}
+<a href="{$oembedurl}" title="{$oembed.title}">{if $oembed.author_name}{$oembed.author_name}: {/if}{$oembed.title}</a>
+{elseif $oembed.thumbnail_url}
+<a href="{$oembedurl}" title="{$oembed.title}"><img src="{$oembed.thumbnail_url}"></a>
 {else}
-<a href="{$oembedurl}" title="{$oembed.title}">{$oembed.author_name}: {$oembed.title}</a>
+<a href="{$oembedurl}" title="{$oembed.title}">{$oembedurl}</a>
 {/if}
 {if $oembed.provider_name=="Wikipedia"}</blockquote>{/if}
 </div>

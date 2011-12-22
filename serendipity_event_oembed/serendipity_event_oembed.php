@@ -120,10 +120,7 @@ class serendipity_event_oembed extends serendipity_event
                         return true;
                     }
 ?>
-.serendipity_oembed_rich, .serendipity_oembed_video, .serendipity_oembed_photo, .serendipity_oembed_link, .serendipity_oembed {
-    max-width: 100%;
-    height: auto;
-}
+.serendipity_oembed_video iframe { 	max-width: 100%; }
 <?php
                     return true;
             }

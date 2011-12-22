@@ -5,12 +5,6 @@
     <url>http://*.flickr.com/*</url>
     <endpoint>http://www.flickr.com/services/oembed/</endpoint>
   </provider>
-  <!-- down 
-  <provider>
-    <url>http://*.pownce.com/*</url>
-    <endpoint>http://api.pownce.com/2.1/oembed.{format}</endpoint>
-  </provider>
-   -->
   <provider>
     <name>Twitter Status</name>
     <url>https?://*.twitter.com/*/status(es)?/*</url>
@@ -124,6 +118,13 @@
     <name>Skitch</name>
     <url>http://(www.)?skitch.com/*</url>
     <endpoint>http://skitch.com/oembed/</endpoint>
+  </provider>
+
+  <!-- custom providers =========================================== -->
+  <provider>
+    <name>Posterous (Imge and Video Posts)</name>
+    <url>http://post.ly/*</url>
+    <class>PostlyProvider</class>
   </provider>
 
   <!-- noembed providers =========================================== -->

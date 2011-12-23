@@ -31,6 +31,8 @@ $dispatches = array(
                         array('function' => 'wp_getUsersBlogs'),
                     'wp.getCategories' =>
                         array('function' => 'wp_getCategories'),
+                    'wp.uploadFile' =>
+                        array('function' => 'wp_uploadFile'),
 
 					/* BLOGGER API */
                     'blogger.getUsersBlogs' =>
@@ -109,6 +111,10 @@ function wp_getUsersBlogs($message) {
 
 function wp_getCategories($message) {
     return mt_getCategoryList($message);
+}
+function wp_uploadFile($message) {
+    universal_debug("wp_uploadFile");
+    return metaWeblog_newMediaObject($message);
 }
 
 function blogger_getUsersBlogs($message) {
@@ -493,7 +499,15 @@ function metaWeblog_newPost($message) {
     $entry['categories']        = universal_fetchCategories($post_array['categories']);
     $entry['title']             = @html_entity_decode($post_array['title'],ENT_COMPAT,'UTF-8');
     $entry['body']              = $post_array['description'];
+    if (XMLRPC_WP_COMPATIBLE) { // WP adds an obj behind an image upload
+        universal_debug("body 1: " . $entry['body']);
+        $entry['body'] = str_replace('￼', '', $entry['body']);
+        universal_debug("body 2: " . $entry['body']);
+    }
     $entry['extended']          = $post_array['mt_text_more'];
+    if (XMLRPC_WP_COMPATIBLE) { // WP adds an obj behind an image upload
+        $entry['extended'] = str_replace('￼', '', $entry['extended']);
+    }
     $entry['isdraft']           = ($publish == 0) ? 'true' : 'false';
     if (isset($post_array['mt_allow_comments'])) {
         $entry['allow_comments'] = serendipity_db_bool($post_array['mt_allow_comments']);

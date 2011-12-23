@@ -33,7 +33,9 @@ $dispatches = array(
                         array('function' => 'wp_getCategories'),
                     'wp.uploadFile' =>
                         array('function' => 'wp_uploadFile'),
-
+                    'wp.newCategory' =>
+                        array('function' => 'wp_newCategory'),
+                        
 					/* BLOGGER API */
                     'blogger.getUsersBlogs' =>
                         array('function' => 'blogger_getUsersBlogs'),
@@ -116,7 +118,35 @@ function wp_uploadFile($message) {
     universal_debug("wp_uploadFile");
     return metaWeblog_newMediaObject($message);
 }
+function wp_newCategory($message) {
+    global $serendipity;
+    
+    universal_debug("wp_newCategory");
 
+    $val = $message->params[1];
+    $username = $val->getval();
+    $val = $message->params[2];
+    $password = $val->getval();
+    if (!serendipity_authenticate_author($username, $password)) {
+        return new XML_RPC_Response('', 4, 'Authentication Failed');
+    }
+    $val = $message->params[3];
+    if (is_object($val)) {
+        $cat = XML_RPC_decode($val);
+        $category = array();
+        $category['category_name'] = $cat['name'];
+        $category['category_description'] = $cat['description'];
+        if (!empty($cat['parent_id'])) {
+            $category['parentid'] = $cat['parent_id'];
+        }
+        if (serendipity_db_insert('category', $category)) {
+            $saved = serendipity_fetchCategoryInfo(0, $cat['name']);
+            $saved_id = $saved['categoryid'];
+            return new XML_RPC_Response(new XML_RPC_Value($saved_id, 'i4'));
+        }
+    }
+    return new XML_RPC_Response('', 99, 'Error writing category');
+}
 function blogger_getUsersBlogs($message) {
     global $serendipity;
 

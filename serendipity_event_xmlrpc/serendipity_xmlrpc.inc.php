@@ -7,13 +7,12 @@ if (empty($HTTP_RAW_POST_DATA)) {
     $HTTP_RAW_POST_DATA = implode("\r\n", file('php://input'));
 }
 
-$debug_xmlrpc = 2;
+$debug_xmlrpc = 1;
 if ($debug_xmlrpc) {
     //@define('DEBUG_LOG_XMLRPC', '/tmp/rpc.log');
     @define('DEBUG_LOG_XMLRPC', dirname(__FILE__) . "/rpc.log"); 
     $fp = fopen(DEBUG_LOG_XMLRPC, 'a');
     fwrite($fp, '[' . date('d.m.Y H:i') . ']' . print_r($HTTP_RAW_POST_DATA, true));
-    fwrite($fp, "\n REQUEST: " . print_r($_REQUEST, true) . "\n");
     fclose($fp);
     ob_start();
     @define('DEBUG_XMLRPC', true);
@@ -30,6 +29,8 @@ $dispatches = array(
                     /* WordPress API */
                     'wp.getUsersBlogs' =>
                         array('function' => 'wp_getUsersBlogs'),
+                    'wp.getCategories' =>
+                        array('function' => 'wp_getCategories'),
 
 					/* BLOGGER API */
                     'blogger.getUsersBlogs' =>
@@ -106,7 +107,10 @@ function wp_getUsersBlogs($message) {
     return($r);
 }
 
-                    
+function wp_getCategories($message) {
+    return mt_getCategoryList($message);
+}
+
 function blogger_getUsersBlogs($message) {
     global $serendipity;
 
@@ -414,25 +418,32 @@ function universal_fetchCategories($post_categories) {
 
     $categories = array();
     if (is_array($post_categories)) {
-        universal_debug("fetchCategories: \n" . print_r($post_categories, true));
-        foreach($post_categories AS $cat_id => $cat_obj) {
-            if (is_object($cat_obj)) {
-                $cat_name = $cat_obj->getval();
-                if (!empty($cat_name)) {
-                    $cat = serendipity_fetchCategories(null, $cat_name);
-                    if (isset($cat[0]['categoryid'])) {
-                        $categories[$cat[0]['categoryid']] = $cat[0]['categoryid'];
+        if (is_array($post_categories[0])) { // if it is a cat_id hash
+            foreach($post_categories AS $cat_id => $cat_obj) {
+                if (is_object($cat_obj)) {
+                    $cat_name = $cat_obj->getval();
+                    if (!empty($cat_name)) {
+                        $cat = serendipity_fetchCategories(null, $cat_name);
+                        if (isset($cat[0]['categoryid'])) {
+                            $categories[$cat[0]['categoryid']] = $cat[0]['categoryid'];
+                        }
                     }
-                }
-            } elseif (is_array($cat_obj) && isset($cat_obj['categoryId'])) {
-                $cat_id = $cat_obj['categoryId']->getval();
-                if (!empty($cat_id)) {
-                    $categories[$cat_id] = $cat_id;
+                } elseif (is_array($cat_obj) && isset($cat_obj['categoryId'])) {
+                    $cat_id = $cat_obj['categoryId']->getval();
+                    if (!empty($cat_id)) {
+                        $categories[$cat_id] = $cat_id;
+                    }
                 }
             }
         }
+        else { // Just an array with names, has to be resolved to ids
+            foreach($post_categories AS $cat_name) {
+                $info = serendipity_fetchCategoryInfo(0, $cat_name);
+                $cat_id= $info['categoryid'];
+                $categories[$cat_id] = $cat_id;
+            }
+        }
     }
-
     return $categories;
 }
 
@@ -440,7 +451,7 @@ function metaWeblog_newPost($message) {
     global $serendipity;
 
     universal_debug("newPost dispatch called.");
-
+    
     $val = $message->params[1];
     if (is_object($val)) {
         $username = $val->getval();
@@ -463,8 +474,7 @@ function metaWeblog_newPost($message) {
 
     $val = $message->params[3];
     if (is_object($val)) {
-        $post_array = $val->getval();
-        universal_debug("Incoming Data: " . print_r($post_array, true));
+        $post_array = XML_RPC_decode($val);// $val->getval();
     } else {
         $post_array = array();
     }

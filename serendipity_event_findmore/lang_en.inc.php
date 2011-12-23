@@ -25,11 +25,12 @@
 @define('PLUGIN_EVENT_FINDMORE_DISABLED_SERVICES', 'Disabled services');
 @define('PLUGIN_EVENT_FINDMORE_DISABLED_SERVICES_DESC', 'Select which services should NOT be shown. Select multiple values with Ctrl-Click.');
 
-@define('PLUGIN_EVENT_FINDMORE_LAZYLOAD', 'Enable tracking security (for Facebook Like)');
+@define('PLUGIN_EVENT_FINDMORE_LAZYLOAD', 'Enable tracking security');
 @define('PLUGIN_EVENT_FINDMORE_LAZYLOAD_DESC', 'When enabled, all links to foreign services (like Facebook) will only load once the user has clicked on it. This is especially important for countries like Germany, where tracking without a user\s consent is forbidden. Requires javascript.');
 
 @define('PLUGIN_EVENT_FINDMORE_LAZYLOAD_TEXT', 'Text for tracking security');
 @define('PLUGIN_EVENT_FINDMORE_LAZYLOAD_TEXT_DESC', 'Enter the text that instructs the user to click on, so that the foreign service (like Facebook) will load. Can also be HTML code.');
+@define('PLUGIN_EVENT_FINDMORE_LAZYLOAD_TEXT_EXAMPLE', 'This is a dummy. Click to load the real button.');
 
 @define('PLUGIN_FINDMORE_EXTENDEDONLY', 'Only extended article');
 @define('PLUGIN_FINDMORE_EXTENDEDONLY_BLAHBLAH', 'Only show social bookmarks on extended article view?');

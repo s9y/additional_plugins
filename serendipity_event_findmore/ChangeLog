@@ -1,3 +1,8 @@
+1.21:
+    Replaced "do not track"-text with 2-click-buttons (heise) for
+    google+ and facebook
+    Modified default spreadly-width
+
 1.20: Added google +1 by seraphyn
 
 1.19: Changed twitter link to reflect API change, fixed rel=nofollow

@@ -10,7 +10,7 @@
 {/if}
 
 {if NOT $findmore_disabled_services.facebook}
-<a rel="nofollow" href="http://www.facebook.com/share.php?u={$entrydata.url|escape:url}&amp;t={$entrydata.title|escape}" title="Facebook"><img src="{$entrydata.path}facebook.png" title="Facebook" alt="Facebook" class="socialbkmark" /></a>
+    <a rel="nofollow" href="http://www.facebook.com/share.php?u={$entrydata.url|escape:url}&amp;t={$entrydata.title|escape}" title="Facebook"><img src="{$entrydata.path}facebook.png" title="Facebook" alt="Facebook" class="socialbkmark" /></a>
 {/if}
 
 {if NOT $findmore_disabled_services.google}
@@ -107,28 +107,37 @@
 
 </div>
 
-{if NOT $findmore_disabled_services.facebook}
-<div class="facebook_like">
-{if $findmore_lazyload}
-    <script type="text/javascript">
-    var fb_like = '<iframe src="http://www.facebook.com/plugins/like.php?href={$entrydata.url|@escape:url}&amp;layout=standard&amp;show-faces=true&amp;width=300&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:100%; height:60px"><' + '/iframe>';
+{if NOT $findmore_disabled_services.facebook OR NOT $findmore_disabled_services.gplus OR NOT $findmore_disabled_services.spreadly}
+<ul class="serendipity_findmore_like serendipity_plainList">
 
-    document.write('<a rel="nofollow" onclick="this.innerHTML = fb_like; return false" href="#">{$findmore_lazyload_text}<' + '/a>');
-    </script>
-{else}
-    <iframe src="http://www.facebook.com/plugins/like.php?href={$entrydata.url|@escape:url}&amp;layout=standard&amp;show-faces=true&amp;width=300&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:100%; height:60px"></iframe>
-{/if}
-</div>    
-{/if}
-
-{if NOT $findmore_disabled_services.plusone}
-<div class="google_plus">
-<g:plusone size="small" count="false" href="{$entrydata.url}"></g:plusone>
-</div>
-{/if}
+    {if NOT $findmore_disabled_services.facebook}
+        <li class="facebook_like findmore_like_button">
+            {if $findmore_lazyload}
+                <script type="text/javascript">
+                    var fb_like = '<iframe src="http://www.facebook.com/plugins/like.php?href={$entrydata.url|@escape:url}&amp;layout=standard&amp;show-faces=true&amp;width=300&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:300px; height:30px"></iframe>';
+                    insertLazyLoadButton(fb_like, "facebook", '{$entrydata.path}', '{$findmore_lazyload_text}');
+                </script>
+            {else}
+                <iframe src="http://www.facebook.com/plugins/like.php?href={$entrydata.url|@escape:url}&amp;layout=standard&amp;show-faces=true&amp;width=300&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:100%; height:30px"></iframe>
+            {/if}
+        </li>    
+    {/if}
+    {if NOT $findmore_disabled_services.plusone}
+        <li class="google_like findmore_like_button">
+            {if $findmore_lazyload}
+                <script type="text/javascript">
+                    var gplus_like = '<div class="gplus_like"><div class="g-plusone" data-size="medium" data-href="{$entrydata.url}"></div>{literal}<script type="text/javascript">window.___gcfg = {lang: "en"}; (function() { var po = document.createElement("script"); po.type = "text/javascript"; po.async = true; po.src = "https://apis.google.com/js/plusone.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s); })(); <\/script></div>';
+                    {/literal}
+                    insertLazyLoadButton(gplus_like, "gplus", '{$entrydata.path}', '{$findmore_lazyload_text}');
+                </script>
+            {else}
+                <g:plusone annotation="none" href="{$entrydata.url}"></g:plusone>
+            {/if}
+        </li>
+    {/if}
 
 {if NOT $findmore_disabled_services.spreadly}
-<div class="spreadly_like">
+<li class="spreadly_like findmore_like_button">
 {if $findmore_lazyload}
     <a href="http://spread.ly/?url={$entrydata.url|@escape:url}&amp;title={$entrydata.title|@escape:url}&amp;tags={$entrydata.properties.freetag_tagList|@escape:url}&amp;social={if $findmore_spreadly_social}1{else}0{/if}" rel="like">
      <img src="http://spread.ly/img/like-button.jpg" alt="Like" />
@@ -136,10 +145,12 @@
 {else}
 
     <iframe scrolling="no" frameborder="0" marginwidth="0" marginheight="0"
-           style="overflow: hidden; width: 42px; height: {if $findmore_spreadly_social}60px;{else}24px{/if}"
+           style="overflow: hidden; width: 100px; height: {if $findmore_spreadly_social}24px;{else}24px{/if}"
            src="http://button.spread.ly/?url={$entrydata.url|@escape:url}&amp;title={$entrydata.title|@escape:url}&amp;tags={$entrydata.properties.freetag_tagList|@escape:url}&amp;social={if $findmore_spreadly_social}1{else}0{/if}"
            allowtransparency="true">
     </iframe>
 {/if}
-</div>    
+</li>    
+{/if}
+</ul>
 {/if}

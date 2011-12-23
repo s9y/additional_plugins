@@ -22,7 +22,7 @@ class serendipity_event_findmore extends serendipity_event
         $propbag->add('description',   PLUGIN_FINDMORE_DESCRIPTION);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Kodewulf');
-        $propbag->add('version',       '1.20');
+        $propbag->add('version',       '1.21');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -132,7 +132,7 @@ class serendipity_event_findmore extends serendipity_event
                 $propbag->add('type',        'string');
                 $propbag->add('name',        PLUGIN_EVENT_FINDMORE_LAZYLOAD_TEXT);
                 $propbag->add('description', PLUGIN_EVENT_FINDMORE_LAZYLOAD_TEXT_DESC);
-                $propbag->add('default',     'Facebook: Like');
+                $propbag->add('default',     PLUGIN_EVENT_FINDMORE_LAZYLOAD_TEXT_EXAMPLE);
                 break;
 
             case 'path':
@@ -245,6 +245,38 @@ class serendipity_event_findmore extends serendipity_event
       .serendipity_diggcount {
           float: left;
       }
+
+      .findmore_like_button img, .findmore_like_button iframe {
+        cursor: pointer;
+    }
+
+    .lazyload_switcher {
+        margin-right: 0.5em;
+        display: inline;
+        float: left;
+        margin-top: 4px;
+    }
+
+    .findmore_like_button {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 2em;
+    }
+
+    .google_like {
+        width: 150px;
+        height: 21px;
+    }
+
+    .gplus_like {
+        display: inline;
+    }
+
+    .serendipity_findmore_like {
+        vertical-align: middle;
+        height: 21px;
+    }
+
 <?php
                     return true;
                     break;
@@ -265,9 +297,26 @@ class serendipity_event_findmore extends serendipity_event
                     foreach($_disabled_services AS $i => $service) {
                         $disabled_services[$service] = true;
                     }
-                    if (!$disabled_services['plusone']) {
-                        echo '<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>'."\n";
+
+                    if ($lazyload == null) {
+                        $lazyload  = serendipity_db_bool($this->get_config('lazyload'));
                     }
+                    if ($lazyload) {
+                        echo '<script src="' .  $path .'plugin_findmore.js"></script>'."\n";
+                    }
+                    
+                    if (! ($disabled_services['plusone'] || $lazyload)) {
+                        #echo '<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>'."\n";
+                        echo '<script type="text/javascript">
+                          (function() {
+                            var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;
+                            po.src = "https://apis.google.com/js/plusone.js";
+                            var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);
+                          })();
+                        </script>' . "\n";
+                    }
+
+                    
 
                     return true;
                     break;

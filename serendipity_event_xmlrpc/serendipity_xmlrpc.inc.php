@@ -35,6 +35,8 @@ $dispatches = array(
                         array('function' => 'wp_uploadFile'),
                     'wp.newCategory' =>
                         array('function' => 'wp_newCategory'),
+                    'wp.getPostFormats' =>
+                        array('function' => 'wp_getPostFormats'),
                         
 					/* BLOGGER API */
                     'blogger.getUsersBlogs' =>
@@ -147,6 +149,62 @@ function wp_newCategory($message) {
     }
     return new XML_RPC_Response('', 99, 'Error writing category');
 }
+
+function wp_getPostFormats( $message ) {
+    global $serendipity;
+    
+    universal_debug("wp_getPostFormats");
+
+    $val = $message->params[1];
+    $username = $val->getval();
+    $val = $message->params[2];
+    $password = $val->getval();
+    if (!serendipity_authenticate_author($username, $password)) {
+        return new XML_RPC_Response('', 4, 'Authentication Failed');
+    }
+    $val = $message->params[3];
+    $formats_to_show = $val->getval();
+    
+    $all_formats = new XML_RPC_Value(
+        array(
+            'aside' => new XML_RPC_Value("Aside", 'string'), 
+            'audio' => new XML_RPC_Value("Audio", 'string'), 
+            'chat' => new XML_RPC_Value("Chat", 'string'), 
+            'gallery' => new XML_RPC_Value("Gallery", 'string'), 
+            'image' => new XML_RPC_Value("Image", 'string'), 
+            'link' => new XML_RPC_Value("Link", 'string'), 
+            'quote' => new XML_RPC_Value("Quote", 'string'), 
+            'standard' => new XML_RPC_Value("Article", 'string'), 
+            'status' => new XML_RPC_Value("Status", 'string'), 
+            'video' => new XML_RPC_Value("Video", 'string'), 
+        ),'struct'
+    );
+    $supported_formats = new XML_RPC_Value(
+        array(
+            'standard' => new XML_RPC_Value("Serendipity", 'string'), 
+        ),'struct'
+    );
+
+    /*
+    $xml_result = new XML_RPC_Value(
+            array(
+                'all' => new XML_RPC_Value($all_formats, 'array'),
+            	'supported' => new XML_RPC_Value($supported_formats, 'array')
+            ),
+            'struct'
+    );
+    */
+    return new XML_RPC_Response($supported_formats);
+    /*
+    if ($formats_to_show=='show-supported') {
+        return new XML_RPC_Response($supported_formats);
+    }
+    else {
+        return new XML_RPC_Response($all_formats);
+    }
+    */
+}
+
 function blogger_getUsersBlogs($message) {
     global $serendipity;
 

@@ -285,7 +285,7 @@
 <release>
   <version>1.55</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2011-12-23</date>
+  <date>2011-12-24</date>
   <filelist>
 <dir name="serendipity_event_gravatar">
 <file>serendipity_event_gravatar.php</file>
@@ -5163,7 +5163,7 @@ aplikovány další typografické úpravy.</description>
 <release>
   <version>1.46</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-12-23</date>
+  <date>2011-12-24</date>
   <filelist>
 <dir name="serendipity_event_xmlrpc">
 <file>serendipity_xmlrpc.inc.php</file>
@@ -7341,7 +7341,7 @@ aplikovány další typografické úpravy.</description>
 <release>
   <version>0.22</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2011-12-23</date>
+  <date>2011-12-24</date>
   <filelist>
 <dir name="serendipity_event_wikilinks">
 <file>serendipity_event_wikilinks.php</file>
@@ -7464,9 +7464,9 @@ aplikovány další typografické úpravy.</description>
 <description>Můžete vložit/odstranit další webové služby pomocí souboru šablony &quot;plugin_findmore.tpl&quot;. Pamatujte, že pokud chcete ušetřit pár drahocených bodů za výkon blogu, můžete stejného efektu dosáhnout také vložením HTML/JavaScript snipletu do souboru šablony entries.tpl namísto používání tohoto pluginu!</description>
 <maintainers><maintainer><name>Garvin Hicking, Kodewulf</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.20</version>
+  <version>1.21</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-07-29</date>
+  <date>2011-12-24</date>
   <filelist>
 <dir name="serendipity_event_findmore">
 <file>serendipity_event_findmore.php</file>
@@ -7499,6 +7499,12 @@ aplikovány další typografické úpravy.</description>
 <file>googlebookmark.png</file>
 <file>printfriendly.png</file>
 <file>twitter.png</file>
+<file>socialshareprivacy_off.png</file>
+<file>facebook_dummy.png</file>
+<file>gplus_dummy.png</file>
+<file>plugin_findmore.js</file>
+<file>socialshareprivacy_on_off.png</file>
+<file>socialshareprivacy_on.png</file>
 </dir>
 <dir name="UTF-8">
 <file>lang_pl.inc.php</file>
@@ -7548,6 +7554,12 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_findmore/img/googlebookmark.png</file>
     <file>serendipity_event_findmore/img/printfriendly.png</file>
     <file>serendipity_event_findmore/img/twitter.png</file>
+    <file>serendipity_event_findmore/img/socialshareprivacy_off.png</file>
+    <file>serendipity_event_findmore/img/facebook_dummy.png</file>
+    <file>serendipity_event_findmore/img/gplus_dummy.png</file>
+    <file>serendipity_event_findmore/img/plugin_findmore.js</file>
+    <file>serendipity_event_findmore/img/socialshareprivacy_on_off.png</file>
+    <file>serendipity_event_findmore/img/socialshareprivacy_on.png</file>
     <file>serendipity_event_findmore/UTF-8/lang_pl.inc.php</file>
     <file>serendipity_event_findmore/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_event_findmore/UTF-8/lang_cs.inc.php</file>
@@ -8827,7 +8839,7 @@ aplikovány další typografické úpravy.</description>
 <release>
   <version>1.41</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2011-12-23</date>
+  <date>2011-12-24</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="classes">

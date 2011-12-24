@@ -285,7 +285,7 @@
 <release>
   <version>1.55</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2011-12-23</date>
+  <date>2011-12-24</date>
   <filelist>
 <dir name="serendipity_event_gravatar">
 <file>serendipity_event_gravatar.php</file>
@@ -5162,7 +5162,7 @@
 <release>
   <version>1.46</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-12-23</date>
+  <date>2011-12-24</date>
   <filelist>
 <dir name="serendipity_event_xmlrpc">
 <file>serendipity_xmlrpc.inc.php</file>
@@ -7342,7 +7342,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>0.22</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2011-12-23</date>
+  <date>2011-12-24</date>
   <filelist>
 <dir name="serendipity_event_wikilinks">
 <file>serendipity_event_wikilinks.php</file>
@@ -7465,9 +7465,9 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <description>You can remove/insert other custom services to link to via the &quot;plugin_findmore.tpl&quot; template file easily. Also remember that if you want to save grandma's performance pennies that you can also insert the HTML/JS snippets into your entries.tpl template file instead of using this plugin!</description>
 <maintainers><maintainer><name>Garvin Hicking, Kodewulf</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.20</version>
+  <version>1.21</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-07-29</date>
+  <date>2011-12-24</date>
   <filelist>
 <dir name="serendipity_event_findmore">
 <file>serendipity_event_findmore.php</file>
@@ -7500,6 +7500,12 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <file>googlebookmark.png</file>
 <file>printfriendly.png</file>
 <file>twitter.png</file>
+<file>socialshareprivacy_off.png</file>
+<file>facebook_dummy.png</file>
+<file>gplus_dummy.png</file>
+<file>plugin_findmore.js</file>
+<file>socialshareprivacy_on_off.png</file>
+<file>socialshareprivacy_on.png</file>
 </dir>
 <dir name="UTF-8">
 <file>lang_pl.inc.php</file>
@@ -7549,6 +7555,12 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
     <file>serendipity_event_findmore/img/googlebookmark.png</file>
     <file>serendipity_event_findmore/img/printfriendly.png</file>
     <file>serendipity_event_findmore/img/twitter.png</file>
+    <file>serendipity_event_findmore/img/socialshareprivacy_off.png</file>
+    <file>serendipity_event_findmore/img/facebook_dummy.png</file>
+    <file>serendipity_event_findmore/img/gplus_dummy.png</file>
+    <file>serendipity_event_findmore/img/plugin_findmore.js</file>
+    <file>serendipity_event_findmore/img/socialshareprivacy_on_off.png</file>
+    <file>serendipity_event_findmore/img/socialshareprivacy_on.png</file>
     <file>serendipity_event_findmore/UTF-8/lang_pl.inc.php</file>
     <file>serendipity_event_findmore/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_event_findmore/UTF-8/lang_cs.inc.php</file>
@@ -8829,7 +8841,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.41</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2011-12-23</date>
+  <date>2011-12-24</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="classes">

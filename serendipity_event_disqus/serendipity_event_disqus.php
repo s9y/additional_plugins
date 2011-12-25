@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_disqus.php,v 1.1 2011/05/22 19:09:31 garvinhicking Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

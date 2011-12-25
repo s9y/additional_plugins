@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_facebook.php,v 1.8 2011/06/03 07:49:21 garvinhicking Exp $
+<?php # $Id$
 
 /*
 TODO:

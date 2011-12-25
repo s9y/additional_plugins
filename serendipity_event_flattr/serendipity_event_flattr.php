@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_flattr.php,v 1.15 2011/07/05 09:09:07 garvinhicking Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

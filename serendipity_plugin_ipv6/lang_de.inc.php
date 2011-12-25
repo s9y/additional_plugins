@@ -1,4 +1,4 @@
-<?php // $Id: lang_de.inc.php,v 1.1 2011/03/23 21:36:45 webcompas Exp $
+<?php // $Id$
 
 @define('PLUGIN_IPV6_NAME', 'IPv6-Check');
 @define('PLUGIN_IPV6_DESC', 'Dieses Plugin zeigt in einem Sidebar-Element an, mit welcher IP-Version (IPv4 oder IPv6) der Besucher die Website aufgerufen hat.');

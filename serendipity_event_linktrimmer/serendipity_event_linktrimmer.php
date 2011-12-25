@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_linktrimmer.php,v 1.9 2011/05/09 08:26:21 garvinhicking Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

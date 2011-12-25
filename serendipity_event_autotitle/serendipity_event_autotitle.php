@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_autotitle.php,v 1.9 2010/11/27 01:54:50 onli Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

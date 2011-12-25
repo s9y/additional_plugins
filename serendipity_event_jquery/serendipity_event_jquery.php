@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_jquery.php,v 1.5 2010/12/31 17:23:47 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

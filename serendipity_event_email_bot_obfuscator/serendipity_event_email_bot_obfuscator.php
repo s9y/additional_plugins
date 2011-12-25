@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_email_bot_obfuscator.php,v 1.1 2009/12/10 12:45:38 garvinhicking Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

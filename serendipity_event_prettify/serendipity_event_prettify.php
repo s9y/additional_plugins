@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_prettify.php,v 1.3 2009/12/06 05:40:48 pigslipstick Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

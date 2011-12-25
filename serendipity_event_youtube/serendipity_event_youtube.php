@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_youtube.php,v 1.3 2009/09/18 12:01:09 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

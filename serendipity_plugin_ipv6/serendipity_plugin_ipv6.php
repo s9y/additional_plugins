@@ -1,4 +1,4 @@
-<?php // $Id: serendipity_plugin_ipv6.php,v 1.1 2011/03/23 21:36:44 webcompas Exp $
+<?php // $Id$
 
 if (IN_serendipity !== TRUE) {
     die('Don\'t hack!');

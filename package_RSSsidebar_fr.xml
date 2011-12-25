@@ -14,7 +14,7 @@
 <category>Sidebar Plugins</category>
 <author>Rob Antonishen, Falk Doering, Ian (Timbalu)</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_staticpage&lt;br /&gt;Static Page List&lt;/b&gt;&lt;br /&gt;This plugin displays a configurable list of the static pages.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 24 Jun 2011 21:49:10 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:09:56 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_staticpage</guid>
 </item>
 <item>
@@ -23,7 +23,7 @@
 <category>Sidebar Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_weather&lt;br /&gt;Weather&lt;/b&gt;&lt;br /&gt;Display the current weather in the sidebar.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Fri, 25 Jan 2008 11:22:41 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:16:16 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_weather</guid>
 </item>
 <item>
@@ -32,7 +32,7 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking, Neil Dudman</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_loginform&lt;br /&gt;Authors login&lt;/b&gt;&lt;br /&gt;Show a login form for authors&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 14 May 2009 02:31:02 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:18:14 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_loginform</guid>
 </item>
 <item>
@@ -41,7 +41,7 @@
 <category>Sidebar Plugins</category>
 <author>Matthew Groeninger, (original plugin by Thomas Nesges)</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_amazon&lt;br /&gt;Amazon Recommendations&lt;/b&gt;&lt;br /&gt;Recommend Products at Amazon within the Amazon-Partnerprogram&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 02 Aug 2011 19:25:03 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:31:24 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_amazon</guid>
 </item>
 <item>
@@ -50,7 +50,7 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_google_last_query&lt;br /&gt;Last Search (Google, Yahoo, Bing, Scroogle)&lt;/b&gt;&lt;br /&gt;Shows searched word of the last Google, Yahoo, Bing or Scoogle search, that lead to this blog.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Thu, 24 Sep 2009 02:31:00 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:32:23 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_google_last_query</guid>
 </item>
 <item>
@@ -59,7 +59,7 @@
 <category>Sidebar Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_hitmaps&lt;br /&gt;Hitmaps&lt;/b&gt;&lt;br /&gt;Shows where the blogs visitors are coming from&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:01:34 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:34:08 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_hitmaps</guid>
 </item>
 <item>
@@ -68,7 +68,7 @@
 <category>Sidebar Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_topreferers&lt;br /&gt;Top Referers&lt;/b&gt;&lt;br /&gt;Montrer le top des sites qui affichent un lien vers votre blog&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Thu, 20 Mar 2008 10:14:01 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:34:53 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_topreferers</guid>
 </item>
 <item>
@@ -77,7 +77,7 @@
 <category>Sidebar Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_wikipedia_finder&lt;br /&gt;Recherche Wikipedia&lt;/b&gt;&lt;br /&gt;Surlignez une phrase et cliquez l'icône pour lancer une recherche sur Wikipedia.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:02:13 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:35:46 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_wikipedia_finder</guid>
 </item>
 <item>
@@ -86,7 +86,7 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_freetag&lt;br /&gt;Nuage de tags&lt;/b&gt;&lt;br /&gt;Montre une liste des tags existant pour les billets&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 09 May 2011 10:19:30 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:42:32 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_freetag</guid>
 </item>
 <item>
@@ -95,7 +95,7 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking, Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_multilingual&lt;br /&gt;Langage&lt;/b&gt;&lt;br /&gt;Sélection de la langue par les visiteurs&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 16 May 2011 11:38:07 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:44:27 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_multilingual</guid>
 </item>
 <item>
@@ -104,7 +104,7 @@
 <category>Sidebar Plugins</category>
 <author>Kaustubh Srikanth</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_popularentries&lt;br /&gt;Popular Entries&lt;/b&gt;&lt;br /&gt;Shows the titles and number of comments of the most popular entries calculated according to the entries most commented on.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Tue, 20 Jan 2009 02:30:39 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:46:11 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_popularentries</guid>
 </item>
 <item>
@@ -113,7 +113,7 @@
 <category>Sidebar Plugins</category>
 <author>Riscky</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_delicious&lt;br /&gt;A del.icio.us plug-in&lt;/b&gt;&lt;br /&gt;A clone of the &quot;Remaindered Links&quot; &amp; &quot;Blogmarks&quot; systems, and uses the trendy del.icio.us for its back-end support.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 06 Dec 2010 13:51:22 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:52:10 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_delicious</guid>
 </item>
 <item>
@@ -122,7 +122,7 @@
 <category>Sidebar Plugins</category>
 <author>Jackson Miller, Sebastian Bauer</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_category_dhtml_menu&lt;br /&gt;Category Tree Menu&lt;/b&gt;&lt;br /&gt;DHTML category menu.  Requires PEAR::HTML_TreeMenu.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 02 Mar 2009 09:32:10 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:03:41 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_category_dhtml_menu</guid>
 </item>
 <item>
@@ -131,7 +131,7 @@
 <category>Sidebar Plugins</category>
 <author>Cameron MacFarland</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_photoblog&lt;br /&gt;Photoblog Entries&lt;/b&gt;&lt;br /&gt;Shows the thumbnails of the most recent photoblog entries (see event plugin).&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:55 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:04:29 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_photoblog</guid>
 </item>
 <item>
@@ -140,7 +140,7 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_adduser&lt;br /&gt;Auto-enregistrement des utilisateurs&lt;/b&gt;&lt;br /&gt;Permettre aux visiteurs du blog de créer leur propre compte utilisateur. En conjonction avec le plugin d'évènement (index.php?serendipity[subpage]=adduser), vous pouvez décider de n'autoriser que les utilisateurs enregistrés à poster des commentaires.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 25 Feb 2010 10:13:08 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:05:48 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_adduser</guid>
 </item>
 <item>
@@ -149,7 +149,7 @@
 <category>Sidebar Plugins</category>
 <author>Victor Fusco</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_authors&lt;br /&gt;Authors&lt;/b&gt;&lt;br /&gt;Displays entries by author.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 20 Jan 2009 02:30:39 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:15:46 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_authors</guid>
 </item>
 <item>
@@ -158,7 +158,7 @@
 <category>Sidebar Plugins</category>
 <author>Matthew Groeninger, Omid Mottaghi Rad</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_linklist&lt;br /&gt;Link List&lt;/b&gt;&lt;br /&gt;Links manager - Shows your favorite links in the sidebar.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 07 Mar 2008 02:30:55 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:19:09 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_linklist</guid>
 </item>
 <item>
@@ -167,7 +167,7 @@
 <category>Sidebar Plugins</category>
 <author>Jaap Boerma ( j@webbict.com ), Tadashi Jokagi &lt;elf2000@users.sourceforge.net&gt;, Ian (Timbalu)</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_guestbook&lt;br /&gt;Guestbook Sidebar&lt;/b&gt;&lt;br /&gt;Display the latest guestbook items in the sidebar&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Tue, 28 Jun 2011 12:52:44 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:23:15 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_guestbook</guid>
 </item>
 <item>
@@ -176,7 +176,7 @@
 <category>Sidebar Plugins</category>
 <author>Michael Kaiser</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_flickr&lt;br /&gt;flickr Photostream&lt;/b&gt;&lt;br /&gt;Display the latest photos from flickr Photostreams.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 01 Aug 2011 19:39:57 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:06:21 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_flickr</guid>
 </item>
 <item>
@@ -185,7 +185,7 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking, Evan Nemerson</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_pollbox&lt;br /&gt;Polls&lt;/b&gt;&lt;br /&gt;Shows the current poll in your sidebar&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 22 Feb 2007 11:41:24 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:22:49 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_pollbox</guid>
 </item>
 <item>
@@ -194,7 +194,7 @@
 <category>Sidebar Plugins</category>
 <author>Andrew Brown, Tadashi Jokagi</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_gallery_menalto_random&lt;br /&gt;Gallery Random Photo Block&lt;/b&gt;&lt;br /&gt;Adds a reference to a Gallery Random Block script (see http://gallery.menalto.com for details on this script)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:54 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:26:22 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_gallery_menalto_random</guid>
 </item>
 <item>
@@ -203,7 +203,7 @@
 <category>Sidebar Plugins</category>
 <author>Falk D�ring</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_userprofiles&lt;br /&gt;Serendipity Authors&lt;/b&gt;&lt;br /&gt;Shows a list for all Authors&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 24 May 2007 16:04:27 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:28:46 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_userprofiles</guid>
 </item>
 <item>
@@ -212,7 +212,7 @@
 <category>Sidebar Plugins</category>
 <author>Falk Doering</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_userprofiles_birthdays&lt;br /&gt;Birthdays of users&lt;/b&gt;&lt;br /&gt;PLUGIN_USERPROFILES_BIRTHDAYSNAME_DESCRIPTION&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 24 May 2007 16:04:27 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:29:33 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_userprofiles_birthdays</guid>
 </item>
 <item>
@@ -221,7 +221,7 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking, Markus Gerstel</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_mycalendar&lt;br /&gt;My Calendar&lt;/b&gt;&lt;br /&gt;Shows your personal calendar with X upcoming scheduled events&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 30 Nov 2009 09:37:36 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:31:16 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_mycalendar</guid>
 </item>
 <item>
@@ -230,7 +230,7 @@
 <category>Sidebar Plugins</category>
 <author>Andreas Brandmaier</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_karmaranking&lt;br /&gt;Karma Ranking&lt;/b&gt;&lt;br /&gt;Shows overall score by author&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:55 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:32:16 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_karmaranking</guid>
 </item>
 <item>
@@ -239,7 +239,7 @@
 <category>Sidebar Plugins</category>
 <author>Matthew Maude</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_coppermine&lt;br /&gt;Coppermine Thumbnails&lt;/b&gt;&lt;br /&gt;Display thumbnails from a Coppermine gallery in the sidebar&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:01:16 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:34:06 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_coppermine</guid>
 </item>
 <item>
@@ -254,7 +254,7 @@
                                    Green light means 'cool'; yellow light means 
                                    'warning'; red light means 'banned'
                                    The administrator can easily modify this value for each user.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:51 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:47:21 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_xsstrust</guid>
 </item>
 <item>
@@ -263,7 +263,7 @@
 <category>Sidebar Plugins</category>
 <author>Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_nugget_multilingual&lt;br /&gt;Language-Specific HTML Nugget&lt;/b&gt;&lt;br /&gt;Shows an HTML nugget on the sidebar, for a specific language.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:55 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:49:35 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_nugget_multilingual</guid>
 </item>
 <item>
@@ -272,7 +272,7 @@
 <category>Sidebar Plugins</category>
 <author>Dustin Hawkins</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_currently&lt;br /&gt;Currently...&lt;/b&gt;&lt;br /&gt;Displays items you are currently listening, playing, or reading...&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 18 Nov 2009 08:54:49 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:50:09 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_currently</guid>
 </item>
 <item>
@@ -281,7 +281,7 @@
 <category>Sidebar Plugins</category>
 <author>Flo Solcher</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_audioscrobbler&lt;br /&gt;Audioscrobbler&lt;/b&gt;&lt;br /&gt;Shows last played songs in your blog&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 14 Jul 2009 13:42:12 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:50:55 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_audioscrobbler</guid>
 </item>
 <item>
@@ -290,7 +290,7 @@
 <category>Sidebar Plugins</category>
 <author>Florian Solcher</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_randomquotes&lt;br /&gt;Random Quotes&lt;/b&gt;&lt;br /&gt;Shows a block with a random quotation&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:01:53 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:52:54 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_randomquotes</guid>
 </item>
 <item>
@@ -299,7 +299,7 @@
 <category>Sidebar Plugins</category>
 <author>John Mann</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_shoutcast&lt;br /&gt;Shoutcast&lt;/b&gt;&lt;br /&gt;Display Shoutcast stream information in the sidebar.&lt;br/&gt;For: Serendipity 0.8.4</content:encoded>
-<pubDate>Mon, 21 May 2007 09:59:11 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:58:44 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_shoutcast</guid>
 </item>
 <item>
@@ -308,7 +308,7 @@
 <category>Sidebar Plugins</category>
 <author>Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_google_quicksearch&lt;br /&gt;Google Recherche rapide&lt;/b&gt;&lt;br /&gt;Recherche d'un billet (Google)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 25 Feb 2009 12:15:49 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 03:01:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_google_quicksearch</guid>
 </item>
 <item>
@@ -317,7 +317,7 @@
 <category>Sidebar Plugins</category>
 <author>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_geotag&lt;br /&gt;Geotag Google/OSM Map&lt;/b&gt;&lt;br /&gt;This plugin displays a Google Map or Openstreetmap with geotagged entries&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sat, 10 Dec 2011 02:31:08 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 03:17:02 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_geotag</guid>
 </item>
 <item>
@@ -326,7 +326,7 @@
 <category>Sidebar Plugins</category>
 <author>Christian Lescuyer</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_pagerank&lt;br /&gt;Google PageRank&lt;/b&gt;&lt;br /&gt;Affichage dynamique du PageRank Google&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 14 Jul 2009 13:45:06 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 03:31:03 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_pagerank</guid>
 </item>
 <item>
@@ -335,7 +335,7 @@
 <category>Sidebar Plugins</category>
 <author>Christoph Eunicke &lt;s9y-plugin@eunicke.org&gt;</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_timezones&lt;br /&gt;Timezones&lt;/b&gt;&lt;br /&gt;Shows the time of up to four timezones&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Tue, 20 Jan 2009 02:30:39 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 03:31:15 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_timezones</guid>
 </item>
 <item>

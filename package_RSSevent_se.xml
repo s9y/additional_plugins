@@ -14,7 +14,7 @@
 <category>Event Plugins</category>
 <author>Sebastian Nohn</author>
 <content:encoded>&lt;b&gt;serendipity_event_babelfish&lt;br /&gt;Babelfish&lt;/b&gt;&lt;br /&gt;Translate blog entries (trash!)&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Tue, 25 Aug 2009 21:54:29 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:06:04 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_babelfish</guid>
 </item>
 <item>
@@ -23,7 +23,7 @@
 <category>Event Plugins</category>
 <author>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_staticpage&lt;br /&gt;statiska sidor&lt;/b&gt;&lt;br /&gt;Förvaltar olika statiska sidor inom ditt blog med blog-design och alla formateringen. Lägg3r till en ny menypunkt i administrationsgränssnittet!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 28 Nov 2011 13:08:52 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:06:57 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_staticpage</guid>
 </item>
 <item>
@@ -32,7 +32,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_loginform&lt;br /&gt;Validates authors login&lt;/b&gt;&lt;br /&gt;Validates the login credentials of an author using the sidebar login form&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 27 Aug 2008 21:23:00 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:16:45 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_loginform</guid>
 </item>
 <item>
@@ -41,7 +41,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_event_entrypaging&lt;br /&gt;Links to next/previous entry&lt;/b&gt;&lt;br /&gt;Allows viewing the next/previous entry when viewing&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 16 Nov 2011 02:31:09 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:18:38 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_entrypaging</guid>
 </item>
 <item>
@@ -50,7 +50,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_gravatar&lt;br /&gt;Avatar Plugin&lt;/b&gt;&lt;br /&gt;Show avatars inside comments. Gravatars, Pavatars, Favatars, Twitter, Identica and MyBlogLog avatars are supported.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sat, 24 Dec 2011 02:33:06 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:20:17 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_gravatar</guid>
 </item>
 <item>
@@ -59,7 +59,7 @@
 <category>Event Plugins</category>
 <author>Jannis Hermanns</author>
 <content:encoded>&lt;b&gt;serendipity_event_head_nugget&lt;br /&gt;HTML-Code inside head (HTML-Head Nugget)&lt;/b&gt;&lt;br /&gt;Allows you to insert HTML-Code into the HEAD-area of your blog. You can use this for meta-tags or JavaScript inclusion.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:44 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:37:18 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_head_nugget</guid>
 </item>
 <item>
@@ -68,7 +68,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Tadashi Jokagi, Thomas Werner</author>
 <content:encoded>&lt;b&gt;serendipity_event_entrysplit&lt;br /&gt;Split long entries&lt;/b&gt;&lt;br /&gt;Enables you to split longer entries into several subpages and provides you with an auto-generated table of contents&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 27 Jan 2010 02:30:45 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:38:23 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_entrysplit</guid>
 </item>
 <item>
@@ -77,7 +77,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_entrycheck&lt;br /&gt;Rules for publishing&lt;/b&gt;&lt;br /&gt;Applies some checks before an entry is published&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:41 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:39:23 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_entrycheck</guid>
 </item>
 <item>
@@ -86,7 +86,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_freetag&lt;br /&gt;Etikettering av artiklar&lt;/b&gt;&lt;br /&gt;Medger fri etikettering av artiklar&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 24 Oct 2011 17:14:09 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:42:29 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_freetag</guid>
 </item>
 <item>
@@ -95,7 +95,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_event_multilingual&lt;br /&gt;Multilingual entries&lt;/b&gt;&lt;br /&gt;Allows to create multiple language versions of an entry&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 08 Dec 2010 10:26:54 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:44:50 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_multilingual</guid>
 </item>
 <item>
@@ -104,7 +104,7 @@
 <category>Event Plugins</category>
 <author>Kaustubh Srikanth, Ivan Makhonin</author>
 <content:encoded>&lt;b&gt;serendipity_event_ljupdate&lt;br /&gt;LJ/MySpace/Serendipity Update Plugin&lt;/b&gt;&lt;br /&gt;Uses XMLRPC to post to your Livejournal/MySpace/Serendipity&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Thu, 11 Mar 2010 17:49:26 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:45:19 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_ljupdate</guid>
 </item>
 <item>
@@ -113,7 +113,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_trackback&lt;br /&gt;Trackback-Control&lt;/b&gt;&lt;br /&gt;Allows granular control over how trackbacks are sent when creating entries&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 01 Apr 2011 14:59:03 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:47:50 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_trackback</guid>
 </item>
 <item>
@@ -122,7 +122,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jay Bertrandt</author>
 <content:encoded>&lt;b&gt;serendipity_event_emoticonchooser&lt;br /&gt;Show Emoticon/Smilie toolbar&lt;/b&gt;&lt;br /&gt;Shows a toolbar to select emoticons to insert into your entry. Does NOT work in the WYSIWYG editor!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:41 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:48:53 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_emoticonchooser</guid>
 </item>
 <item>
@@ -131,7 +131,7 @@
 <category>Event Plugins</category>
 <author>Matthew Groeninger</author>
 <content:encoded>&lt;b&gt;serendipity_event_amazonchooser&lt;br /&gt;Amazon Media Button&lt;/b&gt;&lt;br /&gt;Adds a button to allow Amazon.com search which are insertable into your entry&lt;br/&gt;For: Serendipity 1.4</content:encoded>
-<pubDate>Thu, 17 Feb 2011 14:25:20 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:49:59 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_amazonchooser</guid>
 </item>
 <item>
@@ -140,7 +140,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking/Justin Alcorn</author>
 <content:encoded>&lt;b&gt;serendipity_event_externalauth&lt;br /&gt;External user authentication (LDAP)/tracking&lt;/b&gt;&lt;br /&gt;Allows to use external ressource to validate logins. Logins will be cached in the Serendipity database framework. This plugin can also track logins inside the Database.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 27 Jun 2011 11:31:58 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:53:40 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_externalauth</guid>
 </item>
 <item>
@@ -149,7 +149,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_outdate_entries&lt;br /&gt;Hide/delete entries for non-registered users after a specific timespan&lt;/b&gt;&lt;br /&gt;Hides all entries which are older than a specified age, so that they are only visible for registered users/authors.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 29 Mar 2010 09:35:41 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:54:08 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_outdate_entries</guid>
 </item>
 <item>
@@ -158,7 +158,7 @@
 <category>Event Plugins</category>
 <author>Cameron MacFarland, Brett Profitt</author>
 <content:encoded>&lt;b&gt;serendipity_event_deletelink&lt;br /&gt;Delete Link&lt;/b&gt;&lt;br /&gt;Adds a delete link to the footer of each entry.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 05 Feb 2008 11:04:14 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:54:59 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_deletelink</guid>
 </item>
 <item>
@@ -167,7 +167,7 @@
 <category>Event Plugins</category>
 <author>Serendipity Team and Jan Lehnardt</author>
 <content:encoded>&lt;b&gt;serendipity_event_markdown&lt;br /&gt;Markup: Markdown&lt;/b&gt;&lt;br /&gt;Apply Markdown markup to entry text&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 12 Dec 2011 14:52:07 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:56:06 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_markdown</guid>
 </item>
 <item>
@@ -176,7 +176,7 @@
 <category>Event Plugins</category>
 <author>Cameron MacFarland</author>
 <content:encoded>&lt;b&gt;serendipity_event_photoblog&lt;br /&gt;Photoblog Entries&lt;/b&gt;&lt;br /&gt;Adds a single image to an entry.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 13 Nov 2009 22:03:10 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:57:08 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_photoblog</guid>
 </item>
 <item>
@@ -185,7 +185,7 @@
 <category>Event Plugins</category>
 <author>Cameron MacFarland</author>
 <content:encoded>&lt;b&gt;serendipity_event_thumbnails&lt;br /&gt;Thumbnail Page&lt;/b&gt;&lt;br /&gt;Shows a thumbnail page. Address is index.php?serendipity[page]=thumbs&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Fri, 22 Aug 2008 11:41:16 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:58:07 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_thumbnails</guid>
 </item>
 <item>
@@ -194,7 +194,7 @@
 <category>Event Plugins</category>
 <author>Arnan de Gans, Matthew Groeninger, and Stefan Willoughby</author>
 <content:encoded>&lt;b&gt;serendipity_event_usergallery&lt;br /&gt;Gallery Display&lt;/b&gt;&lt;br /&gt;Allows anonymous users to view Serendipity media gallery&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 17 Feb 2011 14:36:06 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 00:59:06 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_usergallery</guid>
 </item>
 <item>
@@ -203,7 +203,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_adduser&lt;br /&gt;User Self-Registration&lt;/b&gt;&lt;br /&gt;Allows blog visitors to create their own author account. Together with the Event-plugin (index.php?serendipity[subpage]=adduser) you can choose whether only registered users may post comments.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 25 Feb 2010 10:13:08 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:04:55 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_adduser</guid>
 </item>
 <item>
@@ -212,7 +212,7 @@
 <category>Event Plugins</category>
 <author>Rene Schmidt</author>
 <content:encoded>&lt;b&gt;serendipity_event_phpopentracker&lt;br /&gt;PHPOpenTracker&lt;/b&gt;&lt;br /&gt;Logs accesses to the blog using PHPOpenTracker. Requires installed phpOpenTracker, please see readme.txt for further information.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Thu, 17 Feb 2011 14:25:26 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:07:01 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_phpopentracker</guid>
 </item>
 <item>
@@ -221,7 +221,7 @@
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Hannes Gassert, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_podcast&lt;br /&gt;Easy Podcasting Plugin&lt;/b&gt;&lt;br /&gt;Adds &quot;podcasting&quot; capabilities hinzu (RSS enclosure, Video/Sound-Player)&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 22 Jun 2011 23:34:29 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:08:03 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_podcast</guid>
 </item>
 <item>
@@ -230,7 +230,7 @@
 <category>Event Plugins</category>
 <author>Sebastian Nohn</author>
 <content:encoded>&lt;b&gt;serendipity_event_layout_linkmarkup&lt;br /&gt;Layout-Plugin: Link-Markup&lt;/b&gt;&lt;br /&gt;Allows to change the markup of links in the entrybody&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:44 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:16:38 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_layout_linkmarkup</guid>
 </item>
 <item>
@@ -239,7 +239,7 @@
 <category>Event Plugins</category>
 <author>Sebastian Nohn</author>
 <content:encoded>&lt;b&gt;serendipity_event_layout_quotemarkup&lt;br /&gt;Layout-Plugin: Quote-Markup&lt;/b&gt;&lt;br /&gt;Allows to change the markup of quotes in the entrybody&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:45 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:17:25 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_layout_quotemarkup</guid>
 </item>
 <item>
@@ -248,7 +248,7 @@
 <category>Event Plugins</category>
 <author>Matthew Groeninger, Omid Mottaghi Rad</author>
 <content:encoded>&lt;b&gt;serendipity_event_linklist&lt;br /&gt;Link List&lt;/b&gt;&lt;br /&gt;Links manager - Shows your favorite links in the sidebar.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 10 Jan 2011 21:42:48 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:18:05 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_linklist</guid>
 </item>
 <item>
@@ -257,7 +257,7 @@
 <category>Event Plugins</category>
 <author>Rasmus Lerdorf</author>
 <content:encoded>&lt;b&gt;serendipity_event_yq&lt;br /&gt;Y!Q Related Search&lt;/b&gt;&lt;br /&gt;Finds related pages using Yahoo's context sensitive search technology&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:51 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:20:39 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_yq</guid>
 </item>
 <item>
@@ -266,7 +266,7 @@
 <category>Event Plugins</category>
 <author>Ian (Timbalu)</author>
 <content:encoded>&lt;b&gt;serendipity_event_guestbook&lt;br /&gt;Gästbok&lt;/b&gt;&lt;br /&gt;Visa en gästbol i din blog med ditt vanlig blog-utseende.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Fri, 16 Dec 2011 02:31:38 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:23:08 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_guestbook</guid>
 </item>
 <item>
@@ -275,7 +275,7 @@
 <category>Event Plugins</category>
 <author>Brett Profitt</author>
 <content:encoded>&lt;b&gt;serendipity_event_mymood&lt;br /&gt;My Mood&lt;/b&gt;&lt;br /&gt;Allows you to add your current mood or moods to entries.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 17 Feb 2011 14:25:42 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:32:13 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_mymood</guid>
 </item>
 <item>
@@ -284,7 +284,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_custom_permalinks&lt;br /&gt;Custom Permalinks for Entries&lt;/b&gt;&lt;br /&gt;Defines custom permalinks that can be used to access a specific entry. It can only use URL patterns which are NOT YET in use - using custom permalinks within the /archives/ structure is thus not possible. But any (virtual) other directory is.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 29 Jan 2009 12:51:43 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:32:49 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_custom_permalinks</guid>
 </item>
 <item>
@@ -293,7 +293,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_unstrip_tags&lt;br /&gt;Transforms HTML for comments&lt;/b&gt;&lt;br /&gt;Allows to insert HTML tags in comments (instead of stripping the tags, they are now converted to entities). Needs to be first of all markup plugins in the event queue!&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:50 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:33:36 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_unstrip_tags</guid>
 </item>
 <item>
@@ -302,7 +302,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_filter_entries&lt;br /&gt;Frontend entry filtering&lt;/b&gt;&lt;br /&gt;Allows visitors to filter/order your entries by several options&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 17 Jul 2007 12:34:14 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:34:15 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_filter_entries</guid>
 </item>
 <item>
@@ -311,7 +311,7 @@
 <category>Event Plugins</category>
 <author>David Rolston</author>
 <content:encoded>&lt;b&gt;serendipity_event_geshi&lt;br /&gt;Markup: GeSHi&lt;/b&gt;&lt;br /&gt;Computer Language Color Syntax Highlighting. Tag usage: [geshi lang=lang_name [,ln={y|n}]]code snippet[/geshi]&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Thu, 26 Feb 2009 10:38:01 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:43:03 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_geshi</guid>
 </item>
 <item>
@@ -320,7 +320,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_smfmarkup&lt;br /&gt;SMF Markup&lt;/b&gt;&lt;br /&gt;SMF Markup&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 03 Dec 2008 13:21:17 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:44:04 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_smfmarkup</guid>
 </item>
 <item>
@@ -329,7 +329,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_mailcc&lt;br /&gt;Adds CC to all sent emails&lt;/b&gt;&lt;br /&gt;(Notice: Make sure that the all of your authors have the option to receiv comment notification emails activated, or else no mails will be created that can be CCed&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 03 Dec 2008 13:21:17 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:44:07 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_mailcc</guid>
 </item>
 <item>
@@ -338,7 +338,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_stalkerbuster&lt;br /&gt;StalkerBuster (TM,C,R)&lt;/b&gt;&lt;br /&gt;Denies access to baddies. Write line-separated list of blocked cookies to a stalkerbuster.php file in your root.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 12 May 2011 13:20:34 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:44:21 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_stalkerbuster</guid>
 </item>
 <item>
@@ -347,7 +347,7 @@
 <category>Event Plugins</category>
 <author>Nobody</author>
 <content:encoded>&lt;b&gt;serendipity_event_challengeresponse&lt;br /&gt;Spam: Challenge/Response&lt;/b&gt;&lt;br /&gt;&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Tue, 03 May 2011 15:30:24 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:44:38 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_challengeresponse</guid>
 </item>
 <item>
@@ -356,7 +356,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_externalphp&lt;br /&gt;External PHP Application&lt;/b&gt;&lt;br /&gt;Shows an external PHP application inside your blog with your blogs design and all formattings. USE WITH CARE, THIS PLUGIN HAS SECURITY IMPLICATIONS AS IT INCLUDES ANY GENERIC PHP FILE! YOU CAN ONLY USE THIS PLUGIN AS ADMIN!&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Fri, 22 Aug 2008 11:38:22 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:44:42 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_externalphp</guid>
 </item>
 <item>
@@ -365,7 +365,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_smartymarkup&lt;br /&gt;Markup: Smarty Parsing&lt;/b&gt;&lt;br /&gt;Parses Smarty instructions inside the article text&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 17 Feb 2011 14:36:05 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:45:51 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_smartymarkup</guid>
 </item>
 <item>
@@ -374,7 +374,7 @@
 <category>Event Plugins</category>
 <author>Tys von Gaza</author>
 <content:encoded>&lt;b&gt;serendipity_event_motm&lt;br /&gt;Music of the Moment&lt;/b&gt;&lt;br /&gt;Real time music status from iTunes using iTunesBlogger: http://www.ituneshacking.com/wiki/wakka.php?wakka=iTunesBloggerHomePage&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 25 Aug 2009 21:47:42 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:47:35 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_motm</guid>
 </item>
 <item>
@@ -383,7 +383,7 @@
 <category>Event Plugins</category>
 <author>Evan Nemerson, Garvin Hicking, Kristian Koehntopp, Thomas Schulz, Claus Schmidt</author>
 <content:encoded>&lt;b&gt;serendipity_event_aggregator&lt;br /&gt;RSS Aggregator&lt;/b&gt;&lt;br /&gt;Display entries from multiple RSS feeds (&quot;Planet&quot;). IMPORTANT NOTE: Updating and &quot;feeding&quot; your Aggregator must currently still happen manually via Cronjobs or similar. Call this URL with your custom timing interval: index.php?/plugin/aggregator&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 05 Jun 2011 22:07:55 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:48:19 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_aggregator</guid>
 </item>
 <item>
@@ -392,7 +392,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking extended by Sebastian Mayeres and Jude Anthony</author>
 <content:encoded>&lt;b&gt;serendipity_event_kubrickheader&lt;br /&gt;Template Header/Logo Image&lt;/b&gt;&lt;br /&gt;Switch header image or logo for templates&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 27 Aug 2008 10:26:47 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:51:42 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_kubrickheader</guid>
 </item>
 <item>
@@ -401,7 +401,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_entrylastmodified&lt;br /&gt;Show last modification date&lt;/b&gt;&lt;br /&gt;Shows a message with the last modification date of an entry on the blogs frontpage. For not modified entries shows a message that says they are not modified.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 07 Oct 2010 10:48:12 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:51:48 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_entrylastmodified</guid>
 </item>
 <item>
@@ -410,7 +410,7 @@
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_event_geourl&lt;br /&gt;GeoURL&lt;/b&gt;&lt;br /&gt;GeoURL allocates URLs to locations. More Information at http://geourl.org/&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 14 Jul 2009 13:46:10 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:52:51 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_geourl</guid>
 </item>
 <item>
@@ -419,7 +419,7 @@
 <category>Event Plugins</category>
 <author>Matthew Groeninger</author>
 <content:encoded>&lt;b&gt;serendipity_event_mimetex&lt;br /&gt;MimeTex/LaTeX TeX Interpreter&lt;/b&gt;&lt;br /&gt;Create Gifs from TeX expressions using MimeTex or LaTeX&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 17 Jan 2009 02:30:32 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:54:09 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_mimetex</guid>
 </item>
 <item>
@@ -428,7 +428,7 @@
 <category>Event Plugins</category>
 <author>Matthew Groeninger, Malte Diers</author>
 <content:encoded>&lt;b&gt;serendipity_event_typesetbuttons&lt;br /&gt;Typeset/Extended Buttons for non-WYSIWYG editors&lt;/b&gt;&lt;br /&gt;Adds buttons for various encoded typeset entities and other extended actions.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 06 Aug 2007 12:47:55 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:54:57 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_typesetbuttons</guid>
 </item>
 <item>
@@ -437,7 +437,7 @@
 <category>Event Plugins</category>
 <author>Jason Levitt</author>
 <content:encoded>&lt;b&gt;serendipity_event_popfetcher&lt;br /&gt;POPfetcher&lt;/b&gt;&lt;br /&gt;Fetches and publishes email and attachments from a POP3 email account (with special cell phone support)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 02 Dec 2011 14:53:28 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:56:27 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_popfetcher</guid>
 </item>
 <item>
@@ -446,7 +446,7 @@
 <category>Event Plugins</category>
 <author>Tys von Gaza, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_sidebarhider&lt;br /&gt;Toggle Sidebar state (collapsed/uncollapsed)&lt;/b&gt;&lt;br /&gt;Shrinks Sidebars to just their titles.  Extra configuration in Entries -&gt; Manage Sidebars in the Admin Suite.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Mon, 09 May 2011 11:12:22 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:57:37 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_sidebarhider</guid>
 </item>
 <item>
@@ -455,7 +455,7 @@
 <category>Event Plugins</category>
 <author>Thomas Nesges, Greg Greenway</author>
 <content:encoded>&lt;b&gt;serendipity_event_picasa&lt;br /&gt;Picasa&lt;/b&gt;&lt;br /&gt;Shows Picasa albums exported as XML&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 27 Aug 2011 11:26:02 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:59:51 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_picasa</guid>
 </item>
 <item>
@@ -464,7 +464,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_contactform&lt;br /&gt;Contact Form&lt;/b&gt;&lt;br /&gt;Shows a email contactform on your blog as a static page. It can be accessed by either the custom permalink or by index.php?serendipity[subpage]=contactform. You can customize the look of the contact form by putting the plugin_contactform.tpl file into your template directory and modify it there. Captchas from the Spamblock plugin (if enabled) will be applied.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Thu, 17 Feb 2011 14:36:05 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 01:59:54 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_contactform</guid>
 </item>
 <item>
@@ -473,7 +473,7 @@
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_event_mailentry&lt;br /&gt;e-Mail Entry&lt;/b&gt;&lt;br /&gt;Allow users to e-mail a blog entry to a friend. Pay attention that this plugin can cause automatted traffic if bots are submitting your forms.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:45 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:02:32 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_mailentry</guid>
 </item>
 <item>
@@ -482,7 +482,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_linktoolbar&lt;br /&gt;HTML Link Metatags&lt;/b&gt;&lt;br /&gt;Inserts link rel=&quot;start|up|prev|next|canonical&quot; metatags into your frontend for better navigation.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 18 Feb 2009 11:48:05 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:03:57 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_linktoolbar</guid>
 </item>
 <item>
@@ -491,7 +491,7 @@
 <category>Event Plugins</category>
 <author>Sebastian Nohn</author>
 <content:encoded>&lt;b&gt;serendipity_event_layout_printerfriendly&lt;br /&gt;Layout-Plugin: Printerfriendly version&lt;/b&gt;&lt;br /&gt;Using the print function of your browser, you will see a better printed representation of your Entry&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:45 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:05:13 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_layout_printerfriendly</guid>
 </item>
 <item>
@@ -500,7 +500,7 @@
 <category>Event Plugins</category>
 <author>Michael Kaiser</author>
 <content:encoded>&lt;b&gt;serendipity_event_flickrcss&lt;br /&gt;flickr Photostream CSS&lt;/b&gt;&lt;br /&gt;This plugin is an extension to the flickr Photostream sidebar plugin and adds style information (CSS).&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 01 Aug 2011 19:38:53 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:08:42 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_flickrcss</guid>
 </item>
 <item>
@@ -509,7 +509,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Olivier PLATHEY, Steven Wittens</author>
 <content:encoded>&lt;b&gt;serendipity_event_blogpdf&lt;br /&gt;Export blog as PDF&lt;/b&gt;&lt;br /&gt;Allows visitors to download your blog in the PDF format&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 17 Mar 2008 10:28:19 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:11:30 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_blogpdf</guid>
 </item>
 <item>
@@ -518,7 +518,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_relatedlinks&lt;br /&gt;Related entries/links&lt;/b&gt;&lt;br /&gt;Insert related links/entries per entry. For flexibility you can edit the &quot;plugin_relatedlinks.tpl&quot; Smarty-Template file to adjust the output. Note that this plugin only outputs data in the detailed/full entry view.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 17 Feb 2011 14:36:05 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:13:20 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_relatedlinks</guid>
 </item>
 <item>
@@ -527,7 +527,7 @@
 <category>Event Plugins</category>
 <author>Steven Tonnesen</author>
 <content:encoded>&lt;b&gt;serendipity_event_todolist&lt;br /&gt;ToDo/Project-List&lt;/b&gt;&lt;br /&gt;Maintain a list of projects and their percentage completion.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 20 Jul 2007 12:04:18 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:14:36 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_todolist</guid>
 </item>
 <item>
@@ -536,7 +536,7 @@
 <category>Event Plugins</category>
 <author>Sebastian Nohn</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_rbl&lt;br /&gt;Spam Protector (RBL)&lt;/b&gt;&lt;br /&gt;Will reject comments made from hosts which are listed in RBLs. Pay attention that this may affect proxy-users or dial-up users.&lt;br/&gt;For: Serendipity 1.2</content:encoded>
-<pubDate>Thu, 29 May 2008 19:58:44 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:19:46 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_rbl</guid>
 </item>
 <item>
@@ -545,7 +545,7 @@
 <category>Event Plugins</category>
 <author>Sebastian Nohn</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_surbl&lt;br /&gt;Spam Protector (SURBL)&lt;/b&gt;&lt;br /&gt;Reject comments that contain blacklisted URLs&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:49 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:21:07 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_surbl</guid>
 </item>
 <item>
@@ -554,7 +554,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_cachesimple&lt;br /&gt;Simple Cached/Pregenerated Pages&lt;/b&gt;&lt;br /&gt;[EXPERIMENTAL] Allows to cache/pregenerate pages. Note: Destroys dynamic capabilites and may not interoperate well with dynamic plugins. But it's faster, if you don't depend on realtime dynamics.  (This plugin should be placed as early as possible in the event queue list. Only dynamic plugins like the karmavoting should be positioned before this plugin.)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 22 Aug 2008 11:41:14 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:21:54 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_cachesimple</guid>
 </item>
 <item>
@@ -563,7 +563,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_pollbox&lt;br /&gt;Polls&lt;/b&gt;&lt;br /&gt;Maintains your votings / polls&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 22 Aug 2008 11:38:42 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:23:01 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_pollbox</guid>
 </item>
 <item>
@@ -572,7 +572,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_wordwrap&lt;br /&gt;Markup: Wordwrap long text&lt;/b&gt;&lt;br /&gt;Inserts breaks for lengthy entries/comments&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:51 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:23:54 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_wordwrap</guid>
 </item>
 <item>
@@ -581,7 +581,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Vladimir Ajgl, Adam Charnock</author>
 <content:encoded>&lt;b&gt;serendipity_event_imageselectorplus&lt;br /&gt;Extended options for media manager&lt;/b&gt;&lt;br /&gt;Allows extended options for inserting images from the media manager [Serendipity &gt;= 0.9]&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Tue, 05 Apr 2011 09:36:57 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:26:17 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_imageselectorplus</guid>
 </item>
 <item>
@@ -590,7 +590,7 @@
 <category>Event Plugins</category>
 <author>Jonathan Spalink and Matthew Groeninger</author>
 <content:encoded>&lt;b&gt;serendipity_event_typoquote&lt;br /&gt;Markup: Typographic Smart Quotes&lt;/b&gt;&lt;br /&gt;Convert straight quotes to smart quotes.  Also can use SmartyPants PHP library (by Michel Fortin, based on SmartyPants by John Gruber) to provide further typographic replacement.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 16 May 2007 15:45:41 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:27:18 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_typoquote</guid>
 </item>
 <item>
@@ -599,7 +599,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Falk Doering</author>
 <content:encoded>&lt;b&gt;serendipity_event_userprofiles&lt;br /&gt;User Profiles&lt;/b&gt;&lt;br /&gt;Shows simple user profiles and allows to embed author pictures.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 17 Feb 2011 14:36:06 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:29:40 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_userprofiles</guid>
 </item>
 <item>
@@ -608,7 +608,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_customarchive&lt;br /&gt;Customizable Entries Archive&lt;/b&gt;&lt;br /&gt;Shows a sortable view of all past articles for the visitor. The link to this page should be inserted into a HTML nugget.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 17 Feb 2011 14:26:15 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:30:44 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_customarchive</guid>
 </item>
 <item>
@@ -617,7 +617,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Markus Gerstel, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_mycalendar&lt;br /&gt;My Calendar&lt;/b&gt;&lt;br /&gt;Maintains a personal calendar&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 19 Jan 2011 19:58:41 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:31:10 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_mycalendar</guid>
 </item>
 <item>
@@ -626,7 +626,7 @@
 <category>Event Plugins</category>
 <author>Matthew Maude (modified by Jim Davies)</author>
 <content:encoded>&lt;b&gt;serendipity_event_cpgselector&lt;br /&gt;Coppermine Selector&lt;/b&gt;&lt;br /&gt;Select images from a Coppermine gallery in new entries&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 20 Jul 2007 12:04:23 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:33:10 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_cpgselector</guid>
 </item>
 <item>
@@ -635,7 +635,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_assigncategories&lt;br /&gt;Category Assignment&lt;/b&gt;&lt;br /&gt;Lets you assign multiple categories to entries&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 07 Aug 2007 09:53:56 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:34:53 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_assigncategories</guid>
 </item>
 <item>
@@ -644,7 +644,7 @@
 <category>Event Plugins</category>
 <author>Boris</author>
 <content:encoded>&lt;b&gt;serendipity_event_google_sitemap&lt;br /&gt;Sitemap Generator (for Crawlers)&lt;/b&gt;&lt;br /&gt;Creates a sitemap.xml.gz, which can be used by miscellaneous Web-Crawlers. (Google, MSN, Yahoo and Ask)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 24 Oct 2011 17:24:15 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:36:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_google_sitemap</guid>
 </item>
 <item>
@@ -653,7 +653,7 @@
 <category>Event Plugins</category>
 <author>Florian Anderiasch</author>
 <content:encoded>&lt;b&gt;serendipity_event_randomblogdescription&lt;br /&gt;Random Blog Description&lt;/b&gt;&lt;br /&gt;Shows a random description in the header. (Seperate database table has currently to be maintained manually)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 25 Aug 2009 21:51:05 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:37:01 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_randomblogdescription</guid>
 </item>
 <item>
@@ -662,7 +662,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_tinymce&lt;br /&gt;Uses TinyMCE as WYSIWYG editor&lt;/b&gt;&lt;br /&gt;Utilizes the TinyMCE WYSIWYG editor. Requires Serendipity 0.9 or later. After installation, read the installation guide in the configuration screen for this plugin.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Thu, 30 Jun 2011 10:29:16 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:46:21 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_tinymce</guid>
 </item>
 <item>
@@ -671,7 +671,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_xsstrust&lt;br /&gt;Options for trustworthy editing on multi-user blogs&lt;/b&gt;&lt;br /&gt;This plugin can specify, which authors on a multi-user blog you have enough trust in and do not expect hacking attempts. All other users are treated as possibly evil and cannot create HTML entries.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Tue, 05 Feb 2008 13:16:34 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:46:41 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_xsstrust</guid>
 </item>
 <item>
@@ -680,7 +680,7 @@
 <category>Event Plugins</category>
 <author>Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_event_page_nugget&lt;br /&gt;HTML Nugget on Page&lt;/b&gt;&lt;br /&gt;Puts an HTML nugget on top or bottom of the page, or inside the page's HEAD tag&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:47 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:48:10 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_page_nugget</guid>
 </item>
 <item>
@@ -689,7 +689,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_includeentry&lt;br /&gt;Markup: Include entry data/templates/blocks&lt;/b&gt;&lt;br /&gt;Allows you to add HTML-style tags to your entry that includes parts of other entrys. Use this markup: [s9y-include-entry:XXX:YYY]. Replace XXX with the target entryid and YYY with the target field name (i.e. &quot;body&quot;, &quot;title&quot;, &quot;extended&quot;, ...). You can also use the new menu functions to maintain templates and blocks that can get inserted in between your entries.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 17 Feb 2011 14:26:19 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:51:36 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_includeentry</guid>
 </item>
 <item>
@@ -698,7 +698,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Judebert</author>
 <content:encoded>&lt;b&gt;serendipity_event_categorytemplates&lt;br /&gt;Properties/Templates of categories&lt;/b&gt;&lt;br /&gt;This plugin provides additional properties for categories and their entries, including custom templates, sort order, display limit, password protection, and RSS hiding.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Wed, 16 Dec 2009 22:12:27 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:53:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_categorytemplates</guid>
 </item>
 <item>
@@ -707,7 +707,7 @@
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_event_xmlrpc&lt;br /&gt;Post via XML-RPC&lt;/b&gt;&lt;br /&gt;Allows to post/edit entries via the XML-RPC API (MT, Blogger Endpoints)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 24 Dec 2011 02:33:07 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:54:40 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_xmlrpc</guid>
 </item>
 <item>
@@ -716,7 +716,7 @@
 <category>Event Plugins</category>
 <author>Rob Antonishen, Ian (Timbalu)</author>
 <content:encoded>&lt;b&gt;serendipity_event_wrapurl&lt;br /&gt;WrapURL: &lt;/b&gt;&lt;br /&gt;Wraps another page in an IFRAME to be displayed in the body&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Fri, 16 Dec 2011 02:31:44 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:56:14 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_wrapurl</guid>
 </item>
 <item>
@@ -725,7 +725,7 @@
 <category>Event Plugins</category>
 <author>Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_event_comics&lt;br /&gt;Comics&lt;/b&gt;&lt;br /&gt;Run webcomics in your blog&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:40 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:57:42 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_comics</guid>
 </item>
 <item>
@@ -734,7 +734,7 @@
 <category>Event Plugins</category>
 <author>Ziyad Saeed, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_fckeditor&lt;br /&gt;Uses FCKeditor as WYSIWYG editor&lt;/b&gt;&lt;br /&gt;Utilizes the FCKeditor WYSIWYG editor. Requires Serendipity 0.9. After installation, read the installation guide in the configuration screen for this plugin.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:42 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:58:03 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_fckeditor</guid>
 </item>
 <item>
@@ -743,7 +743,7 @@
 <category>Event Plugins</category>
 <author>Ziyad Saeed, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_xinha&lt;br /&gt;Uses XINHA as WYSIWYG editor&lt;/b&gt;&lt;br /&gt;Warning! Xinha is experimental. Utilizes the XINHA WYSIWYG editor. Requires Serendipity 0.9. After installation, read the installation guide in the configuration screen for this plugin.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Mon, 10 Mar 2008 02:31:06 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 02:59:29 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_xinha</guid>
 </item>
 <item>
@@ -752,7 +752,7 @@
 <category>Event Plugins</category>
 <author>Sebastian Nohn</author>
 <content:encoded>&lt;b&gt;serendipity_event_backendrss&lt;br /&gt;Display RSS-Feed in Backend Overview&lt;/b&gt;&lt;br /&gt;Displays a RSS feed on the overview page (right after login) to the administration interface&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 14 Jul 2009 13:46:10 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 03:02:09 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_backendrss</guid>
 </item>
 <item>
@@ -761,7 +761,7 @@
 <category>Event Plugins</category>
 <author>Alexander 'dma147' Mieland, Grischa Brockhaus, Ian (Timbalu)</author>
 <content:encoded>&lt;b&gt;serendipity_event_downloadmanager&lt;br /&gt;Downloadmanager&lt;/b&gt;&lt;br /&gt;Provides full downloadmanager capabilities to your s9y. When uninstalling, all related tables will be dropped!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 17 Feb 2011 14:26:22 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 03:10:22 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_downloadmanager</guid>
 </item>
 <item>
@@ -770,7 +770,7 @@
 <category>Event Plugins</category>
 <author>Enrico Stahn</author>
 <content:encoded>&lt;b&gt;serendipity_event_tooltips&lt;br /&gt;Tooltips&lt;/b&gt;&lt;br /&gt;Activate Tooltips Text and Images.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 26 Oct 2008 16:04:10 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 03:13:20 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_tooltips</guid>
 </item>
 <item>
@@ -779,7 +779,7 @@
 <category>Event Plugins</category>
 <author>Rob Antonishen, Alexander Mieland</author>
 <content:encoded>&lt;b&gt;serendipity_event_galleryimage&lt;br /&gt;Markup: Gallery Image&lt;/b&gt;&lt;br /&gt;Inserts a Gallery album or image using markup text.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 07 Aug 2007 09:53:56 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 03:14:09 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_galleryimage</guid>
 </item>
 <item>
@@ -788,7 +788,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_httpauth&lt;br /&gt;HTTP-Authentication&lt;/b&gt;&lt;br /&gt;Authenticates users via HTTP auth using their s9y user login data.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 22 Aug 2008 11:41:15 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 03:15:08 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_httpauth</guid>
 </item>
 <item>
@@ -797,7 +797,7 @@
 <category>Event Plugins</category>
 <author>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</author>
 <content:encoded>&lt;b&gt;serendipity_event_backend&lt;br /&gt;Show entries via JavaScript&lt;/b&gt;&lt;br /&gt;Provides javascript output of recent entries for inclusion on other, extern websites. (see the README in the plugins directory!)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 22 Aug 2008 11:39:54 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 03:16:26 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_backend</guid>
 </item>
 <item>
@@ -806,7 +806,7 @@
 <category>Event Plugins</category>
 <author>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr</author>
 <content:encoded>&lt;b&gt;serendipity_event_geotag&lt;br /&gt;Geotag&lt;/b&gt;&lt;br /&gt;Allows entries to be geotagged with coordinates&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Dec 2011 14:51:44 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 03:17:14 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_geotag</guid>
 </item>
 <item>
@@ -815,7 +815,7 @@
 <category>Event Plugins</category>
 <author>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</author>
 <content:encoded>&lt;b&gt;serendipity_event_backup&lt;br /&gt;Backup Interface&lt;/b&gt;&lt;br /&gt;Provides the ability to automatically make backups from your s9y, the database-tables, the whole database and the files. Only MySQL(i) databases are currently supported. WARNING: This plugin does not work well with large databases or directories.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 25 Aug 2009 21:54:29 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 03:19:16 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_backup</guid>
 </item>
 <item>
@@ -824,7 +824,7 @@
 <category>Event Plugins</category>
 <author>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</author>
 <content:encoded>&lt;b&gt;serendipity_event_forum&lt;br /&gt;Discussion forum / phpBB comment mirroring&lt;/b&gt;&lt;br /&gt;Provides a complete discussion forum to your users. Can alternatively provide to mirror comments into a phpBB installation.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 17 Feb 2011 14:26:25 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 03:22:26 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_forum</guid>
 </item>
 <item>
@@ -833,7 +833,7 @@
 <category>Event Plugins</category>
 <author>Rob Antonishen</author>
 <content:encoded>&lt;b&gt;serendipity_event_glossary&lt;br /&gt;Glossary&lt;/b&gt;&lt;br /&gt;A user defined glossary as highlighted text with a tooltip.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 01 Dec 2006 09:58:43 +0100</pubDate>
+<pubDate>Sun, 25 Dec 2011 03:29:20 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_glossary</guid>
 </item>
 <item>
@@ -842,7 +842,7 @@
 <category>Event Plugins</category>
 <author>Stefan Willoughby, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_startcat&lt;br /&gt;Start Page Category&lt;/b&gt;&lt;br /&gt;Allows you to show only one category on the frontpage&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 07 Aug 2009 12:17:27 +0200</pubDate>
+<pubDate>Sun, 25 Dec 2011 03:30:11 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_startcat</guid>
 </item>
 <item>
@@ -950,7 +950,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_wikilinks&lt;br /&gt;Free Wiki links for your entries&lt;/b&gt;&lt;br /&gt;You can specify new/existing links to your blog entries via [[title]], link to staticpages via ((title)) and link to both via {{title}}. References can be automatically appended to the blog entry.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Sat, 24 Dec 2011 02:33:07 +0100</pubDate>
+<pubDate>Sat, 24 Dec 2011 23:56:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_wikilinks</guid>
 </item>
 <item>
@@ -968,7 +968,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Kodewulf</author>
 <content:encoded>&lt;b&gt;serendipity_event_findmore&lt;br /&gt;Show links to services like Facebook, Digg, Technorati, del.icio.us, spread.ly etc related to your entry.&lt;/b&gt;&lt;br /&gt;You can remove/insert other custom services to link to via the &quot;plugin_findmore.tpl&quot; template file easily. Also remember that if you want to save grandma's performance pennies that you can also insert the HTML/JS snippets into your entries.tpl template file instead of using this plugin!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 24 Dec 2011 02:33:05 +0100</pubDate>
+<pubDate>Sat, 24 Dec 2011 23:56:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_findmore</guid>
 </item>
 <item>
@@ -1150,7 +1150,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Peter Heimann</author>
 <content:encoded>&lt;b&gt;serendipity_event_twitter&lt;br /&gt;Microblogging (Twitter,Identica)&lt;/b&gt;&lt;br /&gt;Adds a twitter/identica client to the admininistration interface, searches for tweetbacks and announces new articles to a microblogging account.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sat, 24 Dec 2011 02:33:07 +0100</pubDate>
+<pubDate>Sat, 24 Dec 2011 23:56:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_twitter</guid>
 </item>
 <item>

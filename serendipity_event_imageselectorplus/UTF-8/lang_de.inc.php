@@ -1,4 +1,4 @@
-<?php # $Id: lang_de.inc.php,v 1.1 2005/08/01 18:18:59 garvinhicking Exp $
+<?php # $Id$
 
         @define('PLUGIN_EVENT_IMAGESELECTORPLUS_NAME',     'Erweiterte Optionen für Bildauswahl');
         @define('PLUGIN_EVENT_IMAGESELECTORPLUS_DESC',     'Ermöglicht erweiterte Optionen beim Einfügen von Bildern aus der Mediendatenbank. [Serendipity >= 0.9]');

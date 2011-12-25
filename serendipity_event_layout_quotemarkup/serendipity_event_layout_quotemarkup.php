@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_layout_quotemarkup.php,v 1.6 2006/12/01 09:00:45 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

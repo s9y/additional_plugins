@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_recaptcha.php,v 1.6 2010/11/29 12:14:31 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

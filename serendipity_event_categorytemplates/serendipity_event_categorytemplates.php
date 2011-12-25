@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_categorytemplates.php,v 1.34 2009/12/16 21:12:27 garvinhicking Exp $
+<?php # $Id$
 
 // TODO:
 // Use parent category template for a child category, but allow child categories to override template of parent category.

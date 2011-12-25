@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_adduser.php,v 1.26 2010/02/25 09:13:08 garvinhicking Exp $
+<?php # $Id$
 
 include_once dirname(__FILE__) . '/common.inc.php';
 

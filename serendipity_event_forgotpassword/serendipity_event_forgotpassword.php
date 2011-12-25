@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_forgotpassword.php,v 1.15 2010/07/19 11:21:16 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

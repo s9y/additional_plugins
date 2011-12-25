@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_authors.php,v 1.14 2009/01/19 15:34:26 matthiasmees Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

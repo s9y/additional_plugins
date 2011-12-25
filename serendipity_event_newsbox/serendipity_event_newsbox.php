@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_newsbox.php,v 1.8 2007/07/20 10:04:17 garvinhicking Exp $
+<?php # $Id$
 
 // Built from serendipity_event_entryproperties, with help from serendipity_event_includeentries
 

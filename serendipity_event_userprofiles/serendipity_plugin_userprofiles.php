@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_userprofiles.php,v 1.7 2007/05/24 14:04:27 garvinhicking Exp $
+<?php # $Id$
 
 # (c) by Falk Döring
 

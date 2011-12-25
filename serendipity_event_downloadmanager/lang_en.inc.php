@@ -1,4 +1,4 @@
-<?php # $Id: lang_en.inc.php,v 1.14 2011/02/16 11:57:12 garvinhicking Exp $
+<?php # $Id$
 
 @define('PLUGIN_DOWNLOADMANAGER_TITLE', 'Downloadmanager');
 @define('PLUGIN_DOWNLOADMANAGER_DESC', 'Provides full downloadmanager capabilities to your s9y. When uninstalling, all related tables will be dropped!');

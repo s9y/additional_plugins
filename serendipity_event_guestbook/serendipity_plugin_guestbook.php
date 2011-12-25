@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_guestbook.php,v 1.18 2011/06/28 10:52:44 garvinhicking Exp $
+<?php # $Id$
 /* guestbooksidebar plugin by Jaap Boerma // j@webbict.com // v1.02 // 18-10-2005 */
 
 

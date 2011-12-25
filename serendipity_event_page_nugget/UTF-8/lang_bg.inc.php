@@ -1,9 +1,9 @@
-<?php # $Id: lang_bg.inc.php,v 1.3 2006/08/18 09:15:55 jwalker_bg Exp $
+<?php # $Id$
 # Translated by: Wesley Hwang-Chung <wesley96@gmail.com> 
 # (c) 2005 http://www.tool-box.info/
 
 /**
- *  @version $Revision: 1.3 $
+ *  @version $Revision$
  *  @author Ivan Cenov jwalker@hotmail.bg
  *  EN-Revision: 1.1
  */

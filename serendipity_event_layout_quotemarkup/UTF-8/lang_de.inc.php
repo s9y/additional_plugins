@@ -1,4 +1,4 @@
-<?php # $Id: lang_de.inc.php,v 1.1 2005/08/01 18:19:02 garvinhicking Exp $
+<?php # $Id$
 
         @define('PLUGIN_LAYOUT_QUOTEMARKUP_VERSION', '1.0');
         @define('PLUGIN_LAYOUT_QUOTEMARKUP_NAME', 'Layout-Plugin: Quote-Formatierung');

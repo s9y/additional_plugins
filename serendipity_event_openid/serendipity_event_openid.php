@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_openid.php,v 1.1 2007/08/17 13:21:46 garvinhicking Exp $
+<?php # $Id$
 
 include_once dirname(__FILE__) . '/common.inc.php';
 

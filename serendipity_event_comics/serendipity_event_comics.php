@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_comics.php,v 1.5 2006/12/01 09:00:40 garvinhicking Exp $
+<?php # $Id$
 //* s9y Comics Plug-in  by Wesley Hwang-Chung *//
 //* http://tool-box.info | wesley96@gmail.com *//
 

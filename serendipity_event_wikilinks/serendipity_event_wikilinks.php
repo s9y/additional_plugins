@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_wikilinks.php,v 1.31 2011/12/24 22:56:28 garvinhicking Exp $
+<?php # $Id$
 
 // TODO:
 // Show existing references for insertion in 'Extended options' panel for 'edit entry' screen

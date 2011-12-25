@@ -1,4 +1,4 @@
-<?php # $Id: Twitter.php,v 1.17 2011/12/06 10:23:47 brockhaus Exp $
+<?php # $Id$
 /*
  * Contributed by Grischa Brockhaus <s9ycoder@brockha.us>
  *

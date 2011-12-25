@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_smfmarkup.php,v 1.1 2008/12/03 12:21:17 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

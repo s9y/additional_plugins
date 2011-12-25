@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_pollbox.php,v 1.11 2007/02/22 10:41:24 garvinhicking Exp $
+<?php # $Id$
 
 include_once dirname(__FILE__) . '/common.inc.php';
 

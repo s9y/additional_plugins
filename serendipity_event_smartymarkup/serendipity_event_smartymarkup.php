@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_smartymarkup.php,v 1.12 2011/02/17 13:36:05 garvinhicking Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

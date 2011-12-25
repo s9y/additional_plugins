@@ -1,4 +1,4 @@
-<?php # $Id: lang_de.inc.php,v 1.1 2005/08/01 15:45:22 garvinhicking Exp $
+<?php # $Id$
 
         @define('PLUGIN_EVENT_BLOGPDF_NAME', 'Blog als PDF exportieren');
         @define('PLUGIN_EVENT_BLOGPDF_DESC', 'Exportiert alle Einträge des Blogs in eine PDF-Datei');

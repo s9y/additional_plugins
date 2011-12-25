@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_geotag.php,v 1.18 2011/12/09 15:16:34 mgutjahr Exp $
+<?php # $Id$
 
 // 20050923 Zoran Kovacevic (http://www.kovacevic.nl/blog).
 // The plugin is a shameless copy from Rob Antonishen (http://ffaat.pointclark.net/).

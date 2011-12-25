@@ -1,4 +1,4 @@
-<?php # $Id: Twitter.php,v 1.2 2009/12/17 16:22:36 garvinhicking Exp $
+<?php # $Id$
 // Twitter preg replace markup
 // turns usernames like @user to twitter-links
 //

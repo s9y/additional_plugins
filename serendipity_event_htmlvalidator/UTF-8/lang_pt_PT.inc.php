@@ -1,4 +1,4 @@
-<?php # $Id: lang_pt_PT.inc.php,v 1.1 2006/02/06 19:21:33 garvinhicking Exp $
+<?php # $Id$
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 # Translation (c) by  Joao P Matos <jmatos@math.ist.utl.pt>

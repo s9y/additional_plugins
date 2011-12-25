@@ -1,7 +1,7 @@
-<?php # $Id: lang_de.inc.php,v 1.1 2010/12/05 11:45:45 brockhaus Exp $
+<?php # $Id$
 
 /**
- *  @version $Revision: 1.1 $
+ *  @version $Revision$
  *  @author Pelle Boese <p.boese@gmail.com>
  *  EN-Revision: Revision of lang_de.inc.php
  */

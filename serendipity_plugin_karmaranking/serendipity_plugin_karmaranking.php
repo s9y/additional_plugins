@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_karmaranking.php,v 1.5 2006/12/01 09:00:55 garvinhicking Exp $
+<?php # $Id$
 
 // Google Last Query Plugin for Serendipity
 // 10/2004 by Thomas Nesges <thomas@tnt-computer.de>

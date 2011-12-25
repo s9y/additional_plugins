@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_textlinkads.php,v 1.5 2007/07/17 10:34:14 garvinhicking Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

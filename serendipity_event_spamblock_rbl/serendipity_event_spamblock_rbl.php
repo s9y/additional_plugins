@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_spamblock_rbl.php,v 1.10 2008/05/29 17:58:44 garvinhicking Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

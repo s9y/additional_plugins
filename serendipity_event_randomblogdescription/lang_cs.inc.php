@@ -1,7 +1,7 @@
-<?php # $Id: lang_cs.inc.php,v 1.1 2007/12/03 11:30:05 garvinhicking Exp $
+<?php # $Id$
 
 /**
- *  @version $Revision: 1.1 $
+ *  @version $Revision$
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  EN-Revision: Revision of lang_en.inc.php
  *  Translated on 2007/11/25

@@ -1,4 +1,4 @@
-<?php # $Id: lang_nl.inc.php,v 1.1 2005/10/24 10:59:06 garvinhicking Exp $
+<?php # $Id$
 
         @define('PLUGIN_GUESTSIDE_NAME', 'Guestbook Sidebar');
         @define('PLUGIN_GUESTSIDE_BLAHBLAH', 'Toont de laatste items uit het gastenboek in de sidebar');

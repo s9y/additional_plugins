@@ -1,4 +1,4 @@
-<?php // $Id: serendipity_event_findmore.php,v 1.26 2011/12/24 22:56:28 garvinhicking Exp $
+<?php // $Id$
 
 
 if (IN_serendipity !== true) {

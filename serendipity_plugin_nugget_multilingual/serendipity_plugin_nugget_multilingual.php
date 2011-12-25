@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_nugget_multilingual.php,v 1.8 2006/12/01 09:00:55 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

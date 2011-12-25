@@ -1,7 +1,7 @@
-<?php # $Id: lang_tr.inc.php,v 1.2 2006/07/18 08:16:53 garvinhicking Exp $
+<?php # $Id$
 
 /**
- *  @version $Revision: 1.2 $
+ *  @version $Revision$
  *  @author Ahmet Usal <ahmetusal@gmail.com>
  *  TR-version: First Public Release of lang_tr.inc.php
  */

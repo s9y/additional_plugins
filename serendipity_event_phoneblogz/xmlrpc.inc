@@ -1,7 +1,7 @@
 <?php					// -*-c++-*-
 // by Edd Dumbill (C) 1999-2002
 // <edd@usefulinc.com>
-// $Id: xmlrpc.inc,v 1.2 2006/02/20 00:26:54 mabutt Exp $
+// $Id$
 
 
 // Copyright (c) 1999,2000,2002 Edd Dumbill.

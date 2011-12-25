@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_entrylastmodified.php,v 1.18 2010/10/07 08:48:12 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_mycalendar.php,v 1.23 2011/01/19 18:58:41 garvinhicking Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

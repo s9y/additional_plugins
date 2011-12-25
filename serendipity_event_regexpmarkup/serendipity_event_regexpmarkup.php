@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_regexpmarkup.php,v 1.8 2009/09/16 09:15:59 garvinhicking Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

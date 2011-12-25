@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_tinymce.php,v 1.26 2011/06/30 08:29:16 garvinhicking Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

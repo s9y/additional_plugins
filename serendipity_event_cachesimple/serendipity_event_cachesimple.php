@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_cachesimple.php,v 1.28 2008/08/22 09:41:14 garvinhicking Exp $
+<?php # $Id$
 
 /*
  * EXPERIMANTEL CACHING PLUGIN

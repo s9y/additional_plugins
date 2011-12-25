@@ -1,4 +1,4 @@
-<?php # $Id: lang_bg.inc.php,v 1.3 2006/08/18 09:19:04 jwalker_bg Exp $
+<?php # $Id$
 
 @define('PLUGIN_SUGGEST_TITLE',          'Предложения за статии');
 @define('PLUGIN_SUGGEST_DESC',           'Дава възможност на нерегистрирани автори да предлагат статии за публикуване.');

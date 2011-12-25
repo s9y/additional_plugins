@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_mimetex.php,v 1.18 2009/01/16 04:51:05 mgroeninger Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

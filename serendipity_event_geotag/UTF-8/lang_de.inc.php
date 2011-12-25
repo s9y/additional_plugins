@@ -1,7 +1,7 @@
-<?php # $Id: lang_de.inc.php,v 1.8 2011/12/12 10:09:20 brockhaus Exp $
+<?php # $Id$
 
 /**
- *  @version $Revision: 1.8 $
+ *  @version $Revision$
  *  @author Holger Mitterwald <murgul@sourceforge.net>
  *  EN-Revision: Revision of lang_de.inc.php
  */

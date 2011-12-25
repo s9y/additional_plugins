@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_galleryimage.php,v 1.15 2007/08/07 07:53:56 garvinhicking Exp $
+<?php # $Id$
 
 // nearly completly rewritten on Sept 2005 by Alexander 'dma147' Mieland, http://blog.linux-stats.org, <dma147@linux-stats.org>
 // Contact me on IRC in #linux-stats, #archlinux, #archlinux.de, #s9y on irc.freenode.net

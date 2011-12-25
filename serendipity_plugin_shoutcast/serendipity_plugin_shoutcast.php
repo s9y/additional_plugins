@@ -1,6 +1,6 @@
 <?php
 
-/* $Id: serendipity_plugin_shoutcast.php,v 1.8 2007/05/21 07:59:11 garvinhicking Exp $*/
+/* $Id$*/
 
 
 if (IN_serendipity !== true) {

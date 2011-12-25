@@ -1,7 +1,7 @@
-<?php # $Id: lang_nl.inc.php,v 1.2 2006/06/23 08:10:00 garvinhicking Exp $
+<?php # $Id$
 
 /**
- *  @version $Revision: 1.2 $
+ *  @version $Revision$
  *  @author Wilco Wietsma <wilco@line-movies.net>
  *  EN-Revision: Revision of lang_en.inc.php
  */

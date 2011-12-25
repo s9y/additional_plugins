@@ -1,4 +1,4 @@
-<?php # $Id: lang_de.inc.php,v 1.1 2005/08/01 18:18:54 garvinhicking Exp $
+<?php # $Id$
 
         @define('PLUGIN_EVENT_GEOURL_NAME',      'GeoURL'); 
         @define('PLUGIN_EVENT_GEOURL_DESC',      'GeoURL ordnet URLs Örtlichkeiten zu. Mehr Infos unter http://geourl.org/'); 

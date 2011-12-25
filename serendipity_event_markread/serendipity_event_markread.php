@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_markread.php,v 1.4 2006/12/01 09:00:46 garvinhicking Exp $
+<?php # $Id$
 
 // Done for augusto @ bauer - online . org :-)
 

@@ -1,4 +1,4 @@
-<?php # $Id: lang_bg.inc.php,v 1.1 2005/11/04 13:26:50 jwalker_bg Exp $
+<?php # $Id$
 
         @define('PLUGIN_LAYOUT_PRINTERFRIENDLY_VERSION', '1.0');
         @define('PLUGIN_LAYOUT_PRINTERFRIENDLY_NAME', 'Layout-Plugin: Изглед за принтер');

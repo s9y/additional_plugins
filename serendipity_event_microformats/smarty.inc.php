@@ -1,4 +1,4 @@
-<?php # $Id: smarty.inc.php,v 1.4 2011/02/17 13:36:05 garvinhicking Exp $
+<?php # $Id$
 
 function microformats_serendipity_show_image($file, $alt = '*')
 {

@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_google_quicksearch.php,v 1.7 2009/02/25 11:15:49 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

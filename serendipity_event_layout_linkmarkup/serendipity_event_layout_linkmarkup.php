@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_layout_linkmarkup.php,v 1.8 2006/12/01 09:00:44 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

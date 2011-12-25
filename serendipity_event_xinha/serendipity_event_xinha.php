@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_xinha.php,v 1.10 2008/03/09 05:46:38 brockhaus Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

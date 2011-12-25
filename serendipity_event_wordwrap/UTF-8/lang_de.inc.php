@@ -1,4 +1,4 @@
-<?php # $Id: lang_de.inc.php,v 1.1 2005/08/01 18:26:20 garvinhicking Exp $
+<?php # $Id$
 
         @define('PLUGIN_EVENT_WORDWRAP_NAME',     'Textformatierung: Texte umbrechen');
         @define('PLUGIN_EVENT_WORDWRAP_DESC',     'Fügt Umbrüche für lange Einträge/Kommentare ein.');

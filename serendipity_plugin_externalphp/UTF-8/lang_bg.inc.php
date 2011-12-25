@@ -1,7 +1,7 @@
-<?php # $Id: lang_bg.inc.php,v 1.1 2007/05/11 12:56:44 garvinhicking Exp $
+<?php # $Id$
 
 /**
- *  @version $Revision: 1.1 $
+ *  @version $Revision$
  *  @author Ivan Cenov jwalker@hotmail.bg
  *  EN-Revision: 1.1
  */

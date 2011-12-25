@@ -22,7 +22,7 @@
  * in the /geshi/ subdirectory.  See the GeSHi project page for more
  * information.
  *
- * $Id: serendipity_event_geshi.php,v 1.18 2009/02/26 09:38:01 garvinhicking Exp $
+ * $Id$
  * @package Serendipity
  * @author David Rolston <gizmo@gizmola.com>
  * @version 05

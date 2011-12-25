@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_sidebarhider.php,v 1.26 2011/05/09 09:12:22 garvinhicking Exp $
+<?php # $Id$
 
 // serendipity_event_sidebarhide
 

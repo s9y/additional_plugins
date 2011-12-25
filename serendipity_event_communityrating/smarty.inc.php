@@ -1,4 +1,4 @@
-<?php # $Id: smarty.inc.php,v 1.6 2011/02/17 13:36:05 garvinhicking Exp $
+<?php # $Id$
 
 function communityrating_serendipity_show_image($file, $alt = '*') {
 	return '<img alt="' . $alt . '" src="' . $file . '" />';

@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_todolist.php,v 1.29 2007/07/20 10:04:18 garvinhicking Exp $ #
+<?php # $Id$ #
 
 //
 // Credit to Matthew Groeninger, whose linklist plugin was the basis for this

@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_typoquote.php,v 1.8 2007/05/16 13:45:41 garvinhicking Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

@@ -1,4 +1,4 @@
-<?php # $Id: lang_en.inc.php,v 1.1 2008/07/29 17:19:42 garvinhicking Exp $
+<?php # $Id$
 
 /**
  *  @version 0.0.1

@@ -1,4 +1,4 @@
-<?php # $Id: common.inc.php,v 1.26 2010/02/25 09:13:06 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_userprofiles_birthdays.php,v 1.3 2007/05/24 14:04:27 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

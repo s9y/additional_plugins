@@ -1,4 +1,4 @@
-<?php # $Id: lang_it.inc.php,v 1.2 2005/10/25 21:36:58 dma147 Exp $
+<?php # $Id$
 
 # (c) 2005 by Alexander 'dma147' Mieland, http://blog.linux-stats.org, <dma147@linux-stats.org>
 # Contact me on IRC in #linux-stats, #archlinux, #archlinux.de, #s9y on irc.freenode.net

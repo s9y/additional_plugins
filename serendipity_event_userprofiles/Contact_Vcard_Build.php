@@ -16,7 +16,7 @@
 // | Authors: Paul M. Jones <pmjones@php.net>                             | 
 // +----------------------------------------------------------------------+ 
 // 
-// $Id: Contact_Vcard_Build.php,v 1.1 2005/07/08 14:05:16 garvinhicking Exp $ 
+// $Id$ 
 
 /**
 * 

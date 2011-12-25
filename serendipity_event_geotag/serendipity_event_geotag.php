@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_geotag.php,v 1.35 2011/12/12 10:09:19 brockhaus Exp $
+<?php # $Id$
 
 // Zoran Kovacevic http://www.kovacevic.nl/blog
 // Shameless copy of serendipity_event_entryproperties and serendipity_event_multilingual

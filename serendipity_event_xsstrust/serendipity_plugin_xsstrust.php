@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_xsstrust.php,v 1.5 2006/12/01 09:00:51 garvinhicking Exp $
+<?php # $Id$
 
 /* Author: Nicola Zanoni, (nicola.zanoni@gmail.com) */
 

@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_zooomr.php,v 1.3 2009/07/14 11:46:11 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

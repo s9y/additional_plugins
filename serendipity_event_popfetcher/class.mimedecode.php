@@ -53,7 +53,7 @@
 * $params['input'] = $input;
 * $structure = mimeDecode::decode($params);
 * print_r($structure);
-* @version $Revision: 1.34 $
+* @version $Revision$
 *
 * July 10, 2004 -- Modifed for standalone use
 */

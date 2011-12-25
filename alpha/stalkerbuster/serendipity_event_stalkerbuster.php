@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_stalkerbuster.php,v 1.2 2011/05/12 11:20:34 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

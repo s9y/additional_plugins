@@ -1,7 +1,7 @@
-<?php # $Id: lang_nl.inc.php,v 1.1 2006/11/21 10:12:39 garvinhicking Exp $
+<?php # $Id$
 
 /**
- *  @version $Revision: 1.1 $
+ *  @version $Revision$
  *  @Rikkie Neutelings <nb@3gz.com>
   */
 

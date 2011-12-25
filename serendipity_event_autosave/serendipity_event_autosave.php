@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_autosave.php,v 1.2 2006/12/01 09:00:39 garvinhicking Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

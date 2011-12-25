@@ -21,7 +21,7 @@
  * @author     Daniel Convissor <danielc@php.net>
  * @copyright  1997-2005 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: pgsql.php,v 1.2 2009/05/21 09:47:04 garvinhicking Exp $
+ * @version    CVS: $Id$
  * @link       http://pear.php.net/package/DB
  */
 

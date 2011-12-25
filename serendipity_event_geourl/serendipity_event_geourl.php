@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_geourl.php,v 1.12 2009/07/14 11:46:10 garvinhicking Exp $
+<?php # $Id$
 
 // GeoURL Plugin for Serendipity
 //

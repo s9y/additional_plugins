@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_backendrss.php,v 1.8 2009/07/14 11:46:10 garvinhicking Exp $
+<?php # $Id$
 
 /** We reuse most of that code and language constants, so include this before we
     do anything else */

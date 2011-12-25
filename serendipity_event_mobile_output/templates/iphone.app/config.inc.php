@@ -1,4 +1,4 @@
-<?php # $Id: config.inc.php,v 1.1 2010/12/05 11:45:18 brockhaus Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

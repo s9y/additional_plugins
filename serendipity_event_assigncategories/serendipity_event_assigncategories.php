@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_assigncategories.php,v 1.9 2007/08/07 07:53:56 garvinhicking Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

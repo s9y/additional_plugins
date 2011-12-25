@@ -12,7 +12,7 @@
  * @package    XML_RPC
  * @author     Christian Weiske <cweiske@php.net>
  * @license    http://www.php.net/license/3_01.txt  PHP License
- * @version    SVN: $Id: Dump.php,v 1.10 2011/12/24 22:56:28 garvinhicking Exp $
+ * @version    SVN: $Id$
  * @link       http://pear.php.net/package/XML_RPC
  */
 

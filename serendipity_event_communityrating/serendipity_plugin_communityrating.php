@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_communityrating.php,v 1.3 2010/03/29 07:38:14 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

@@ -1,4 +1,4 @@
-<?php # $Id: lang_fr.inc.php,v 1.1 2006/04/11 20:44:44 jay_bertrand Exp $
+<?php # $Id$
 
 @define('PLUGIN_EVENT_AUTOSAVE_TITLE', 'Sauvegarde automatique');
 @define('PLUGIN_EVENT_AUTOSAVE_DESC', 'Effectue une copie de sauvegarde des posts lors de leur rédaction');

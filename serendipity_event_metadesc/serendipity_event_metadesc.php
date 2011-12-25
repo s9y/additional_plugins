@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_metadesc.php,v 1.18 2011/04/05 08:20:07 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

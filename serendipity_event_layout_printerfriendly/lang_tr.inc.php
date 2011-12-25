@@ -1,4 +1,4 @@
-<?php # $Id: lang_tr.inc.php,v 1.1 2006/07/24 08:32:46 garvinhicking Exp $
+<?php # $Id$
 
         @define('PLUGIN_LAYOUT_PRINTERFRIENDLY_VERSION', '1.0');
         @define('PLUGIN_LAYOUT_PRINTERFRIENDLY_NAME', 'Sayfa Mizanpajý-Eklentisi: Yazýcý Dostu Sürümü');

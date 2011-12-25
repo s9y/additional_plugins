@@ -1,4 +1,4 @@
-<?php # $Id: lang_de.inc.php,v 1.1 2005/08/01 18:19:01 garvinhicking Exp $
+<?php # $Id$
 
         @define('PLUGIN_LAYOUT_LINKMARKUP_VERSION', '1.0');
         @define('PLUGIN_LAYOUT_LINKMARKUP_NAME', 'Layout-Plugin: Link-Formatierung');

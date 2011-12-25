@@ -22,8 +22,8 @@
  * ***** END LICENSE BLOCK ***** */
 
 /*
- * $Id: update_cache.php,v 1.2 2008/05/05 07:38:58 garvinhicking Exp $
- * $RCSfile: update_cache.php,v $ v2.1 beta2 (Apr, 16 2005)
+ * $Id$
+ * $RCSfile$ v2.1 beta2 (Apr, 16 2005)
  *
  * Author: Andrea Trasatti ( atrasatti AT users DOT sourceforge DOT net )
  * Multicache implementation: Herouth Maoz ( herouth AT spamcop DOT net )

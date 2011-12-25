@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_page_nugget.php,v 1.11 2006/12/01 09:00:47 garvinhicking Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

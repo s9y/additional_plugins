@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_commentsearch.php,v 1.5 2011/02/17 13:36:04 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

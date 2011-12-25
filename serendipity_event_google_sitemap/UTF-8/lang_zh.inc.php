@@ -1,7 +1,7 @@
-<?php # $Id: lang_zh.inc.php,v 1.3 2006/11/17 14:42:44 sirrogate Exp $
+<?php # $Id$
 
 /**
- *  @version $Revision: 1.3 $
+ *  @version $Revision$
  *  @author Demin Yin <damon@deminy.net>
  *  EN-Revision: 1.2
  */

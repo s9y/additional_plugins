@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_imagesidebar.php,v 1.12 2007/04/29 11:28:16 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

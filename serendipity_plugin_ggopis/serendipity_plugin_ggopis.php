@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_ggopis.php,v 1.4 2010/05/11 10:08:46 garvinhicking Exp $
+<?php # $Id$
 
 /************
   TODO:

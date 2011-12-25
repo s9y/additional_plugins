@@ -1,4 +1,4 @@
-<?php # $Id: lang_bg.inc.php,v 1.4 2006/08/18 09:20:05 jwalker_bg Exp $ #
+<?php # $Id$ #
 
 /*
  * Bulgarian Translation version 1.0

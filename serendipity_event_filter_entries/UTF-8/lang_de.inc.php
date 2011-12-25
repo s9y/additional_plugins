@@ -1,4 +1,4 @@
-<?php # $Id: lang_de.inc.php,v 1.1 2005/08/01 18:18:53 garvinhicking Exp $
+<?php # $Id$
 
         @define('PLUGIN_EVENT_FILTER_ENTRIES_NAME', 'Filtern von Einträgen im Frontend');
         @define('PLUGIN_EVENT_FILTER_ENTRIES_DESC', 'Ermöglich Besuchern die Einträge im Blog nach Kriterien zu durchsuchen/sortieren');

@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_linklist.php,v 1.39 2011/01/10 20:42:48 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

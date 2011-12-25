@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_cronjob.php,v 1.8 2011/04/05 08:07:38 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

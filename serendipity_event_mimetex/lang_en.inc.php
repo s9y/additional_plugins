@@ -1,4 +1,4 @@
-<?php # $Id: lang_en.inc.php,v 1.5 2008/12/22 05:35:27 mgroeninger Exp $
+<?php # $Id$
 
 @define('PLUGIN_EVENT_MIMETEX_NOTE','This plugin relies on an external executable to render gifs of TeX input.  It either requires MimeTex or a full laTeX installation.  MimeTex is a considerably easier install, but does not render fonts as cleanly as true LateX output. LaTeX rendering is done on a modifed version of the GPL <a href="http://www.mayer.dial.pipex.com/tex.htm">LatexRender</a>, which relies on a laTeX distribution and ImageMagick (which relies on Ghostscript).<br />  For more information, please see <a href="http://www.forkosh.com/mimetex.html">http://www.forkosh.com/mimetex.html</a><br />');
 @define('PLUGIN_EVENT_MIMETEX_NAME', 'MimeTex/LaTeX TeX Interpreter');

@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_yq.php,v 1.12 2006/12/01 09:00:51 garvinhicking Exp $
+<?php # $Id$
 
 /* Y!Q Related Search Plugin */
 

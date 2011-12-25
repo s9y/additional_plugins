@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_gallery_menalto_random.php,v 1.13 2006/12/01 09:00:54 garvinhicking Exp $
+<?php # $Id$
 
 require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
 

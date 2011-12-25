@@ -1,11 +1,11 @@
-<?php # $Id: lang_fr.inc.php,v 1.1 2009/03/24 13:19:54 garvinhicking Exp $
+<?php # $Id$
 
 # (c) 2009 by remundia , http://www.remundia.com, <http://www.remundia.com>
 
 # french language file
 
 /**
- *  @version $Revision: 1.1 $
+ *  @version $Revision$
  *  @author Translator Name <contact@remundia.com>
  *  FR-Revision: Revision of lang_fr.inc.php
  */

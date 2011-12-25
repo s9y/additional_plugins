@@ -1,4 +1,4 @@
-<?php # $Id: common.inc.php,v 1.2 2008/08/27 19:23:00 garvinhicking Exp $
+<?php # $Id$
 
 // Probe for a language include with constants. Still include defines later on, if some constants were missing
 $probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';

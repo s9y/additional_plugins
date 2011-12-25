@@ -1,4 +1,4 @@
-<?php /* $Id: serendipity_plugin_externalphp.php,v 1.2 2009/12/17 16:22:36 garvinhicking Exp $ */
+<?php /* $Id$ */
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

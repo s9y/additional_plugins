@@ -1,7 +1,7 @@
-<?php # $Id: lang_ru.inc.php,v 1.1 2007/02/06 09:00:17 garvinhicking Exp $
+<?php # $Id$
 
 /**
- *  @version $Revision: 1.1 $
+ *  @version $Revision$
  *  @author Alexey Noskov <alexey.noskov@gmail.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */

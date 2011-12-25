@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_blogpdf.php,v 1.15 2008/03/17 09:28:19 garvinhicking Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

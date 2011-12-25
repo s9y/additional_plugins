@@ -1,4 +1,4 @@
-<?php # $Id: lang_de.inc.php,v 1.1 2005/08/01 18:19:36 garvinhicking Exp $
+<?php # $Id$
 
         @define('PLUGIN_EVENT_SPAMBLOCK_RBL_TITLE', 'Spamschutz (RBL)');
         @define('PLUGIN_EVENT_SPAMBLOCK_RBL_DESC', 'Blockiert SPAM Anhand von IP-Blacklists. Wird diese Option aktiviert, werden Kommentare abgewiesen die von IPs stammen, die in einer RBL/Blacklist geführt werden. Die Aktivierung hiervon kann Dial-Up oder Proxy-User betreffen!');

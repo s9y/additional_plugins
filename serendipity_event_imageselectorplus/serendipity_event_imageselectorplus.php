@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_imageselectorplus.php,v 1.37 2011/04/05 07:36:57 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

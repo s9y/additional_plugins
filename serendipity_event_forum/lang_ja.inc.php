@@ -1,4 +1,4 @@
-<?php # $Id: lang_ja.inc.php,v 1.3 2006/06/21 03:02:15 elf2000 Exp $
+<?php # $Id$
 
 # (c) 2005 by Alexander 'dma147' Mieland, http://blog.linux-stats.org, <dma147@linux-stats.org>
 # Contact me on IRC in #linux-stats, #archlinux, #archlinux.de, #s9y on irc.freenode.net
@@ -6,7 +6,7 @@
 # japanese language file
 
 /**
- *  @version $Revision: 1.3 $
+ *  @version $Revision$
  *  @author Tadashi Jokagi <elf2000@users.sourceforge.net>
  *  EN-Revision: 1.8
  */

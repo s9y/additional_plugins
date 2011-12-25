@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_smiletag.php,v 1.2 2006/12/01 09:00:56 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_htmlvalidator.php,v 1.4 2008/04/23 08:16:53 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

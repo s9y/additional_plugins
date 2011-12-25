@@ -1,4 +1,4 @@
-<?php # $Id: lang_de.inc.php,v 1.1 2006/08/03 15:16:46 garvinhicking Exp $ #
+<?php # $Id$ #
 
 		@define('PLUGIN_ZOOOMR_NAME', 'Zooomr Plugin');
 		@define('PLUGIN_ZOOOMR_DESC', 'Stellt die neuesten Bilder eines Zooomr-Feeds dar');

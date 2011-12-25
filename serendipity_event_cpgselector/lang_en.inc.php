@@ -1,7 +1,7 @@
-<?php # $Id: lang_en.inc.php,v 1.2 2006/12/11 11:43:40 garvinhicking Exp $
+<?php # $Id$
 
 /**
- *  @version $Revision: 1.2 $
+ *  @version $Revision$
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */

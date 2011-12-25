@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_flickr.php,v 1.3 2007/07/20 10:04:15 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

@@ -1,4 +1,4 @@
-<?php # $Id: lang_bg.inc.php,v 1.3 2006/08/18 08:14:24 jwalker_bg Exp $
+<?php # $Id$
 
 
 @define('PLUGIN_EVENT_INCLUDEENTRY_NAME',     'Markup: Включване на статия/шаблон/блок в статия');

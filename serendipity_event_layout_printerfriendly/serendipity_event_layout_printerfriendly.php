@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_layout_printerfriendly.php,v 1.7 2006/12/01 09:00:45 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

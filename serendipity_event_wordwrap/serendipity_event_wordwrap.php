@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_wordwrap.php,v 1.7 2006/12/01 09:00:51 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

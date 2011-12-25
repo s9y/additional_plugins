@@ -19,7 +19,7 @@
 // | to fit our needs for serendipity (s9y)                               |
 // +----------------------------------------------------------------------*
 //
-// $Id: Tar.php,v 1.2 2005/10/05 10:26:26 dma147 Exp $
+// $Id$
 
 if (!class_exists('pear')) {
 	include_once $serendipity['serendipityPath'].'bundled-libs/PEAR.php';
@@ -29,7 +29,7 @@ if (!class_exists('pear')) {
 * Creates a (compressed) Tar archive
 *
 * @author   Vincent Blavet <vincent@blavet.net>
-* @version  $Revision: 1.2 $
+* @version  $Revision$
 * @package  Archive
 */
 class Archive_Tar extends PEAR

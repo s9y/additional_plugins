@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  @version $Revision: 1.3 $
+ *  @version $Revision$
  *  @author Matthias Mees <matthiasmees@googlemail.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */

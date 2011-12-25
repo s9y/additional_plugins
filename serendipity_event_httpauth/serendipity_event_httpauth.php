@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_httpauth.php,v 1.9 2008/08/22 09:41:15 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

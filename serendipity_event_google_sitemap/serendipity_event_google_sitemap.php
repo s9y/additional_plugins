@@ -8,7 +8,7 @@ if (IN_serendipity !== true) {
 /** This plugin builds a sitemap.xml according to sitemap.org's defintion of the
   * "Sitemap XML format" Version 0.9 after every save and publish.
   * See http://www.sitemaps.org/protocol.html for details
-  * $Id: serendipity_event_google_sitemap.php,v 1.61 2011/10/24 15:24:15 garvinhicking Exp $
+  * $Id$
   */
 
 // Probe for a language include with constants. Still include defines later on, if some constants were missing

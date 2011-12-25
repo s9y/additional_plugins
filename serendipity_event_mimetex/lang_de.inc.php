@@ -1,4 +1,4 @@
-<?php # $Id: lang_de.inc.php,v 1.1 2005/08/01 15:45:38 garvinhicking Exp $
+<?php # $Id$
 
         @define('PLUGIN_EVENT_MIMETEX_NAME', 'MimeTex Tex Interpreter');
         @define('PLUGIN_EVENT_MIMETEX_NAME_BUTTON', 'Tex');

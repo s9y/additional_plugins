@@ -1,4 +1,4 @@
-<?php # $Id: lang_de.inc.php,v 1.3 2008/08/25 10:27:31 garvinhicking Exp $
+<?php # $Id$
 
         @define('PLUGIN_EVENT_KUBRICKHEADER_STYLE_DESC',     'Welchen Style benutzen Sie ?');
         @define('PLUGIN_EVENT_KUBRICKHEADER_STYLE_DESC_BLAH',	'Wählen Sie den Style, den Sie für den Blog benutzen');

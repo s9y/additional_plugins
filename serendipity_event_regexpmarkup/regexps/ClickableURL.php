@@ -1,4 +1,4 @@
-<?php # $Id: ClickableURL.php,v 1.3 2009/12/17 16:22:36 garvinhicking Exp $
+<?php # $Id$
 // ClickableURL preg replace markup
 // turns urls into clickable links
 //

@@ -1,4 +1,4 @@
-<?php #$Id: serendipity_event_freetag.php,v 1.161 2011/10/24 15:14:09 garvinhicking Exp $
+<?php #$Id$
 /*
  * ULTRA HIGH PRIORITY
  * - get some kind of data-sharing protocol in action.  It is very difficult

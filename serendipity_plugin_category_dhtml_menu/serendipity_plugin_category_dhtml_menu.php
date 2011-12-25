@@ -4,7 +4,7 @@
  * @author Sebastian Bauer <sbauer@gjl-network.net>
  * @license PHP
  * @package additional_plugins
- * @version $Id: serendipity_plugin_category_dhtml_menu.php,v 1.21 2009/03/02 08:32:10 garvinhicking Exp $
+ * @version $Id$
  */
 
 

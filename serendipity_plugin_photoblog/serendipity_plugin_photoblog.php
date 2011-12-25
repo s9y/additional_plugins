@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_photoblog.php,v 1.12 2006/12/01 09:00:55 garvinhicking Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

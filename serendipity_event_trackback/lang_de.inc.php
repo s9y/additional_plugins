@@ -1,4 +1,4 @@
-<?php # $Id: lang_de.inc.php,v 1.5 2010/04/28 08:46:47 onli Exp $
+<?php # $Id$
 
 @define('PLUGIN_EVENT_MTRACKBACK_TITLETITLE', 'Trackbacks kontrollieren');
 @define('PLUGIN_EVENT_MTRACKBACK_TITLEDESC', 'Ermöglicht beim Anlegen eines Eintrages zu weiteren URLs Trackbacks zu schicken oder Trackbacks zu deaktivieren');

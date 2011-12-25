@@ -1,4 +1,4 @@
-<?php # $Id: lang_de.inc.php,v 1.1 2005/08/01 18:18:51 garvinhicking Exp $
+<?php # $Id$
 
         @define('PLUGIN_EVENT_EXTERNALAUTH_TITLE', 'Externe Benutzer-Authentifizierung (LDAP) [EXPERIMENTAL]');
         @define('PLUGIN_EVENT_EXTERNALAUTH_DESC', 'Ermöglicht die externe authentifizierung für Logins der Benutzer. Die Zugangsdaten werden im lokalen Serendipity Datenbank-Framework gecached.');

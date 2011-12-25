@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_emoticonchooser.php,v 1.19 2006/12/01 09:00:41 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

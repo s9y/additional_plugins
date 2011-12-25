@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_multilingual.php,v 1.13 2011/05/16 09:38:07 garvinhicking Exp $
+<?php # $Id$
 
 // Probe for a language include with constants. Still include defines later on, if some constants were missing
 

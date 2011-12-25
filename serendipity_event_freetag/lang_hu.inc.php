@@ -1,7 +1,7 @@
-<?php # $Id: lang_hu.inc.php,v 1.1 2007/03/25 21:48:56 norbertmocsnik Exp $
+<?php # $Id$
 
 /**
- *  @version $Revision: 1.1 $
+ *  @version $Revision$
  *  @author Norbert Mocsnik <norbert@mocsnik.hu>
  *  EN-Revision: 1.15
  */

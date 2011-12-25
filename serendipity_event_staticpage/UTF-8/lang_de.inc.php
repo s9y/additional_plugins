@@ -1,4 +1,4 @@
-<?php # $Id: lang_de.inc.php,v 1.8 2011/03/08 22:37:02 webcompas Exp $
+<?php # $Id$
 
 @define('LANG_ALL', 'Alle Sprache');
 @define('LANG_BG', 'Bulgarisch');

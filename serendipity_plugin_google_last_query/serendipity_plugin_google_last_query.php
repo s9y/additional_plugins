@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_google_last_query.php,v 1.26 2009/09/23 18:55:33 brockhaus Exp $
+<?php # $Id$
 
 // Google Last Query Plugin for Serendipity
 // 10/2004 by Thomas Nesges <thomas@tnt-computer.de>

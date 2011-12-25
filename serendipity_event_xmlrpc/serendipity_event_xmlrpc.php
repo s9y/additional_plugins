@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_xmlrpc.php,v 1.42 2009/08/03 14:24:46 garvinhicking Exp $
+<?php # $Id: serendipity_event_xmlrpc.php,v 1.56 2011/12/24 22:56:28 garvinhicking Exp $
 
 
 if (IN_serendipity !== true) {

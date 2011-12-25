@@ -1,7 +1,7 @@
-<?php # $Id: lang_zh.inc.php,v 1.1 2006/01/25 10:30:11 garvinhicking Exp $
+<?php # $Id$
 
 /**
- *  @version $Revision: 1.1 $
+ *  @version $Revision$
  *  @author Demin Yin <damon@deminy.net>
  *  CN-Revision: Revision of lang_cn.inc.php
  */

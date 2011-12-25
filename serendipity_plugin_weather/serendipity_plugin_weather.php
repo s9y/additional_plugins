@@ -1,6 +1,6 @@
 <?php
 
-/* $Id: serendipity_plugin_weather.php,v 1.27 2007/03/08 15:13:14 garvinhicking Exp $*/
+/* $Id$*/
 // Spanish translation by Francisco Ortiz <frortiz@gmail.com>
 
 

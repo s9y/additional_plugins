@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_staticpage.php,v 1.142 2011/11/28 12:08:52 garvinhicking Exp $
+<?php # $Id$
      #http://board.s9y.org/viewtopic.php?p=57348#57348
 
 if (IN_serendipity !== true) {

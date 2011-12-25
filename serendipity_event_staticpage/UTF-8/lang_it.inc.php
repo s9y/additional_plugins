@@ -1,4 +1,4 @@
-<?php # $Id: lang_it.inc.php,v 1.2 2005/10/10 11:01:59 garvinhicking Exp $
+<?php # $Id$
 
         @define('STATICPAGE_HEADLINE', 'Intestazione');
         @define('STATICPAGE_HEADLINE_BLAHBLAH', 'Mostra un\'intestazione sopra il contenuto, che viene mostrata come tutte le altre intestazioni all\'interno del blog');

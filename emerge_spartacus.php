@@ -1,4 +1,4 @@
-<?php # $Id: emerge_spartacus.php,v 1.41 2011/10/06 10:27:21 garvinhicking Exp $
+<?php # $Id$
 
 /* This file creates a package XML file for all additional_plugins CVS files
  *
@@ -111,7 +111,7 @@ class emerge_spartacus {
         $x = &$this->xmlData['template'];
 
         $x[] = '<?xml version="1.0" encoding="UTF-8" ?>';
-        $x[] = '<!-- $Revision: 1.41 $ -->' . "\n";
+        $x[] = '<!-- $Revision$ -->' . "\n";
         $x[] = '<packages>';
 
         $t = array();
@@ -246,7 +246,7 @@ class emerge_spartacus {
         $x = &$this->xmlData[$key];
 
         $x[] = '<?xml version="1.0" encoding="UTF-8" ?>';
-        $x[] = '<!-- $Revision: 1.41 $ -->' . "\n";
+        $x[] = '<!-- $Revision$ -->' . "\n";
         $x[] = '<packages>';
 
         foreach($this->plugins[$key] AS $plugin_name => $plugin_data) {

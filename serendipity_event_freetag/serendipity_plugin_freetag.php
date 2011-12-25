@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_freetag.php,v 1.37 2011/05/09 08:19:30 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

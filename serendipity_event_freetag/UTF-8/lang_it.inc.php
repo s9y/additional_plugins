@@ -1,7 +1,7 @@
-<?php # $Id: lang_it.inc.php,v 1.1 2006/04/19 09:33:20 garvinhicking Exp $
+<?php # $Id$
 
 /**
- *  @version $Revision: 1.1 $
+ *  @version $Revision$
  *  @author Alberto Mucignat <alberto.mucignat@gmail.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */

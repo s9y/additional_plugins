@@ -1,4 +1,4 @@
-<?php # $Id: lang_de.inc.php,v 1.4 2006/08/18 19:36:12 garvinhicking Exp $
+<?php # $Id$
 
         @define('PLUGIN_EVENT_ENTRYCHECK_TITLE', 'Regeln für Veröffentlichungen');
         @define('PLUGIN_EVENT_ENTRYCHECK_DESC', 'Führt einige Prüfungen vor der Veröffentlichung eines Artikels durch');

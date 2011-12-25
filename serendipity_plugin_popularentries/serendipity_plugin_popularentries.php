@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_popularentries.php,v 1.17 2009/01/19 20:17:38 matthiasmees Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

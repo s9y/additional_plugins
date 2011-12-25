@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_entrysplit.php,v 1.19 2010/01/26 20:45:10 slothman Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

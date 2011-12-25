@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  @version $Revision: 1.2 $
+ *  @version $Revision$
  *  @author Translator Kami Petersen <kami@gueststars.net>
  *  EN-Revision: Revision of lang_en.inc.php
  */

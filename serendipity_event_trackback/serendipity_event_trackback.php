@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_trackback.php,v 1.22 2011/04/01 12:59:03 garvinhicking Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

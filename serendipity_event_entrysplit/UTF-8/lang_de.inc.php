@@ -1,4 +1,4 @@
-<?php # $Id: lang_de.inc.php,v 1.3 2009/02/13 12:51:48 garvinhicking Exp $
+<?php # $Id$
 
 @define('PLUGIN_ENTRYSPLIT_NAME', 'Lange Einträge aufteilen');
 @define('PLUGIN_ENTRYSPLIT_BLAHBLAH', 'Erlaubt die Aufteilung eines langen Artikels in mehrere Unterseiten sowie das Einfügen eines Inhaltsverzeichnisses');

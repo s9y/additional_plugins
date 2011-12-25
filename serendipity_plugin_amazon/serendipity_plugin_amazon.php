@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_amazon.php,v 1.29 2011/08/02 17:25:03 garvinhicking Exp $
+<?php # $Id$
 
 require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : S9Y_INCLUDE_PATH . 'bundled-libs/') . 'HTTP/Request.php';
 

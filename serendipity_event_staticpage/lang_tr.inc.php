@@ -1,4 +1,4 @@
-<?php #  $Id: lang_tr.inc.php,v 1.2 2006/07/18 08:16:53 garvinhicking Exp $
+<?php #  $Id$
 
 /**
  *  @author Ahmet Usal <ahmetusal@gmail.com>

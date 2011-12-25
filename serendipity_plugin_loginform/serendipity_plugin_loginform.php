@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_loginform.php,v 1.18 2009/05/13 09:37:12 matthiasmees Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_entrypaging.php,v 1.35 2011/11/15 23:17:40 matthiasmees Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

@@ -1,7 +1,7 @@
-<?php # $Id: lang_fr.inc.php,v 1.1 2006/02/20 09:01:56 garvinhicking Exp $
+<?php # $Id$
 
 /**
- *  @version $Revision: 1.1 $
+ *  @version $Revision$
  *  @author Translator Christian Lescuyer <cl@goelette.net>
  *  EN-Revision: 1.1
  */

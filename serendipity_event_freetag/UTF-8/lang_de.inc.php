@@ -1,7 +1,7 @@
-<?php # $Id: lang_de.inc.php,v 1.16 2011/01/09 22:24:39 webcompas Exp $
+<?php # $Id$
 
 /**
- *  @version $Revision: 1.16 $
+ *  @version $Revision$
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */

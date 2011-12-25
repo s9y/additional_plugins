@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_multilingual.php,v 1.41 2010/12/08 09:26:54 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

@@ -1,4 +1,4 @@
-<?php // $Id: serendipity_event_babelfish.php,v 1.20 2009/08/25 19:54:29 garvinhicking Exp $
+<?php // $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

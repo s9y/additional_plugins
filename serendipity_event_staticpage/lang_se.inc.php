@@ -1,4 +1,4 @@
-<?php # $Id: lang_se.inc.php,v 1.1 2005/11/09 13:29:20 garvinhicking Exp $
+<?php # $Id$
 
 @define('PLUGIN_STATICPAGELIST_NAME',             'lista med statiska sidorna');
 @define('PLUGIN_STATICPAGELIST_NAME_DESC',        'Den här plugin visar en konfigurerbar lista den statiska sidorna. StaticPage-Plugin behöver version 1.22 eller högre.');

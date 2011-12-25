@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_gravatar.php,v 1.67 2011/03/31 11:44:44 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_usergallery.php,v 1.60 2011/02/17 13:36:06 garvinhicking Exp $
+<?php # $Id$
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

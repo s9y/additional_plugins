@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_plugin_topreferers.php,v 1.10 2008/03/20 09:14:01 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

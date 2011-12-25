@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_markdown.php,v 1.15 2011/12/12 13:52:07 garvinhicking Exp $
+<?php # $Id$
 
 
 if (IN_serendipity !== true) {

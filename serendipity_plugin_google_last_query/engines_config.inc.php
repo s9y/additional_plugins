@@ -1,4 +1,4 @@
-<?php # $Id: engines_config.inc.php,v 1.2 2009/06/29 23:56:44 brockhaus Exp $
+<?php # $Id$
 /*
  * Created on 05.06.2009
  *

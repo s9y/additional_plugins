@@ -1,4 +1,4 @@
-<?php # $Id: smarty.inc.php,v 1.2 2007/07/10 08:55:43 garvinhicking Exp $
+<?php # $Id$
 
 // You can fetch static pages via smarty as well. Syntax:
 //

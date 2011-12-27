@@ -55,7 +55,6 @@ class serendipity_event_geotag extends serendipity_event
             'frontend_header'									=> true,
             'external_plugin'                                   => true,
             'xmlrpc_updertEntry'                                => true,
-            'xmlrpc_fetchEntry'                                 => true,
             'xmlrpc_deleteEntry'                                => true,
         ));
 
@@ -481,6 +480,9 @@ class serendipity_event_geotag extends serendipity_event
 
                 case 'backend_publish':
                 case 'backend_save':
+                    // Don't save when sent via xmlrpc. It is saved later.
+                    if (isset($eventData['via']) && $eventData['via']== "xmlrpc") return true;
+                    
                     GeoTagDb::addEntryProperties($eventData['id'], $this->supported_properties, $serendipity['POST']['properties']);
                     return true;
                 case 'backend_delete_entry':
@@ -585,7 +587,7 @@ class serendipity_event_geotag extends serendipity_event
                     GeoTagDb::delete($eventData['id'], $this->supported_properties);
                     return true;
                 case 'xmlrpc_updertEntry':
-                    GeoTagDb::addEntryProperties($eventData['id'], $this->supported_properties, $eventData);
+                    GeoTagDb::addEntryProperties($eventData['id'], $this->supported_properties, $eventData, false);
                     return true;
                 default:
                     return false;

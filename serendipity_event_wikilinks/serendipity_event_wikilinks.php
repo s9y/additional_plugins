@@ -30,7 +30,7 @@ class serendipity_event_wikilinks extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_WIKILINKS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Grischa Brockhaus');
-        $propbag->add('version',       '0.22');
+        $propbag->add('version',       '0.23');
         $propbag->add('requirements',  array(
             'serendipity' => '1.0',
             'smarty'      => '2.6.7',
@@ -515,6 +515,7 @@ function use_link_<?php echo $func; ?>(txt) {
 		$format =  $this->get_config('target_match2');
 		
 		if ($format == '-') return;
+		if (count($this->references) == 0) return;
 		
 		$block = "\n\n" . '<ol class="serendipity_referencelist" id="serendipity_referencelist' . $count . '">' . "\n";
 		

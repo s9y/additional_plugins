@@ -1,3 +1,8 @@
+1.28 (brockhaus)
+----------------------------------
+* Deleting entries did not delete GeoTag db entries.
+* Added support for xml-rpc event hooks.
+
 1.27 (brockhaus)
 ----------------------------------
 * Now you can define different map settings for article list and single article view (bigger map i.e.)

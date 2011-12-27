@@ -16,6 +16,7 @@ if (file_exists($probelang)) {
 
 include_once dirname(__FILE__) . '/lang_en.inc.php';
 include dirname(__FILE__) . '/plugin_version.inc.php';
+include dirname(__FILE__) . '/GeoTagDb.class.php';
 
 @define("PLUGIN_EVENT_GEOTAG_DEBUG",FALSE);
 
@@ -42,7 +43,8 @@ class serendipity_event_geotag extends serendipity_event
             'backend_publish'                                   => true,
             'backend_save'                                      => true,
             'backend_display'                                   => true,
-            'css'                                               => true,
+            'backend_delete_entry'                              => true,
+        	'css'                                               => true,
             'entry_display'                                     => true,
             'frontend_entryproperties'                          => true,
             'frontend_entryproperties_query'                    => true,
@@ -51,7 +53,10 @@ class serendipity_event_geotag extends serendipity_event
             'frontend_display:rss-2.0:namespace'                => true,
             'frontend_display:rss-2.0:per_entry'                => true,
             'frontend_header'									=> true,
-            'external_plugin'                                   => true
+            'external_plugin'                                   => true,
+            'xmlrpc_updertEntry'                                => true,
+            'xmlrpc_fetchEntry'                                 => true,
+            'xmlrpc_deleteEntry'                                => true,
         ));
 
         $propbag->add('groups',                 array('BACKEND_EDITOR'));
@@ -293,26 +298,6 @@ class serendipity_event_geotag extends serendipity_event
         $title = $this->title;
     }
 
-    function addProperties(&$properties, &$eventData) {
-        global $serendipity;
-        // Get existing data
-        $property = serendipity_fetchEntryProperties($eventData['id']);
-
-        foreach($this->supported_properties AS $prop_key) {
-            $prop_val = (isset($properties[$prop_key]) ? $properties[$prop_key] : null);
-            $prop_key = 'ep_' . $prop_key;
-            if (!isset($property[$prop_key]) && !empty($prop_val)) {
-                $q = "INSERT INTO {$serendipity['dbPrefix']}entryproperties (entryid, property, value) VALUES (" . (int)$eventData['id'] . ", '" . serendipity_db_escape_string($prop_key) . "', '" . serendipity_db_escape_string($prop_val) . "')";
-            } elseif ($property[$prop_key] != $prop_val && !empty($prop_val)) {
-                $q = "UPDATE {$serendipity['dbPrefix']}entryproperties SET value = '" . serendipity_db_escape_string($prop_val) . "' WHERE entryid = " . (int)$eventData['id'] . " AND property = '" . serendipity_db_escape_string($prop_key) . "'";
-            } else {
-                $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$eventData['id'] . " AND property = '" . serendipity_db_escape_string($prop_key) . "'";
-            }
-
-            serendipity_db_query($q);
-        }
-    }
-
     function event_hook($event, &$bag, &$eventData, &$addData = null) {
         global $serendipity;
 
@@ -496,22 +481,10 @@ class serendipity_event_geotag extends serendipity_event
 
                 case 'backend_publish':
                 case 'backend_save':
-                    // Get existing data
-                    $property = serendipity_fetchEntryProperties($eventData['id']);
-
-                    // Insert POST values in database or update if it exists
-                    foreach($this->supported_properties AS $prop_key) {
-                        $prop_val = (isset($serendipity['POST']['properties'][$prop_key]) ? $serendipity['POST']['properties'][$prop_key] : null);
-                        if (!isset($property[$prop_key]) && !empty($prop_val)) {
-                            $q = "INSERT INTO {$serendipity['dbPrefix']}entryproperties (entryid, property, value) VALUES (" . (int)$eventData['id'] . ", '" . serendipity_db_escape_string($prop_key) . "', '" . serendipity_db_escape_string($prop_val) . "')";
-                        } elseif (!empty($prop_val)) {
-                            $q = "UPDATE {$serendipity['dbPrefix']}entryproperties SET value = '" . serendipity_db_escape_string($prop_val) . "' WHERE entryid = " . (int)$eventData['id'] . " AND property = '" . serendipity_db_escape_string($prop_key) . "'";
-                        } else {
-                            $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$eventData['id'] . " AND property = '" . serendipity_db_escape_string($prop_key) . "'";
-                        }
-                        serendipity_db_query($q);
-                    }
-
+                    GeoTagDb::addEntryProperties($eventData['id'], $this->supported_properties, $serendipity['POST']['properties']);
+                    return true;
+                case 'backend_delete_entry':
+                    GeoTagDb::delete($eventData['id'], $this->supported_properties);
                     return true;
 
                 case 'frontend_entryproperties':
@@ -608,6 +581,12 @@ class serendipity_event_geotag extends serendipity_event
 
                     return true;
 
+                case 'xmlrpc_deleteEntry':
+                    GeoTagDb::delete($eventData['id'], $this->supported_properties);
+                    return true;
+                case 'xmlrpc_updertEntry':
+                    GeoTagDb::addEntryProperties($eventData['id'], $this->supported_properties, $eventData);
+                    return true;
                 default:
                     return false;
             }

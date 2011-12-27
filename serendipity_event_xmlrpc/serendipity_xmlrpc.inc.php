@@ -184,25 +184,7 @@ function wp_getPostFormats( $message ) {
             'standard' => new XML_RPC_Value("Serendipity", 'string'), 
         ),'struct'
     );
-
-    /*
-    $xml_result = new XML_RPC_Value(
-            array(
-                'all' => new XML_RPC_Value($all_formats, 'array'),
-            	'supported' => new XML_RPC_Value($supported_formats, 'array')
-            ),
-            'struct'
-    );
-    */
     return new XML_RPC_Response($supported_formats);
-    /*
-    if ($formats_to_show=='show-supported') {
-        return new XML_RPC_Response($supported_formats);
-    }
-    else {
-        return new XML_RPC_Response($all_formats);
-    }
-    */
 }
 
 function blogger_getUsersBlogs($message) {
@@ -364,36 +346,11 @@ function metaWeblog_getRecentPosts($message) {
         $entry = serendipity_fetchEntry('id', $tentry['id'], true, 'true');
         serendipity_plugin_api::hook_event('xmlrpc_fetchEntry', $entry);
         if ($entry['id']) {
-            $values =             array(
-                'dateCreated'       => new XML_RPC_Value(XML_RPC_iso8601_encode($entry['timestamp'], $serendipity['XMLRPC_GMT']) . ($serendipity['XMLRPC_GMT'] ? 'Z' : ''), 'dateTime.iso8601'),
-                'postid'            => new XML_RPC_Value($entry['id'], 'string'),
-                'userid'            => new XML_RPC_Value($entry['authorid'], 'string'),
-                'description'       => new XML_RPC_Value($entry['body'], 'string'),
-                'mt_excerpt'        => new XML_RPC_Value('', 'string'),
-                'mt_allow_comments' => new XML_RPC_Value($entry['allow_comments'] ? 1 : 0, 'int'),
-                'mt_text_more'      => new XML_RPC_Value($entry['extended'], 'string' ),
-                'mt_allow_pings'    => new XML_RPC_Value(1, 'int'),
-                'mt_convert_breaks' => new XML_RPC_Value('', 'string'),
-                'mt_keywords'       => new XML_RPC_Value(isset($entry['mt_keywords']) ? $entry['mt_keywords']:'', 'string'),
-                'title'             => new XML_RPC_Value($entry['title'],'string'),
-                'permalink'         => new XML_RPC_Value(serendipity_archiveURL($entry['id'], $entry['title'], 'serendipityHTTPPath', true, array('timestamp' => $entry['timestamp'])), 'string'),
-                'link'              => new XML_RPC_Value(serendipity_archiveURL($entry['id'], $entry['title'], 'serendipityHTTPPath', true, array('timestamp' => $entry['timestamp'])), 'string')
-             );
-            if (XMLRPC_WP_COMPATIBLE) {
-                $values['permaLink'] =  new XML_RPC_Value(serendipity_archiveURL($entry['id'], $entry['title'], 'baseURL', true, array('timestamp' => $entry['timestamp'])), 'string');
-                $values['wp_slug'] =  new XML_RPC_Value(serendipity_archiveURL($entry['id'], $entry['title'], 'baseURL', true, array('timestamp' => $entry['timestamp'])), 'string');
-                $values['wp_password'] =  new XML_RPC_Value('', 'string');
-                $values['wp_author_id'] =  new XML_RPC_Value($entry['authorid'], 'string');
-                $values['wp_author_display_name'] =  new XML_RPC_Value($entry['author'], 'string');
-                $values['wp_post_format'] =  new XML_RPC_Value('', 'string');
-                $draft = isset($entry['isdraft']) && serendipity_db_bool($entry['isdraft']);
-                $values['post_status'] =  new XML_RPC_Value($draft?'draft':'publish', 'string');
-                $values['date_created_gmt'] =  new XML_RPC_Value(XML_RPC_iso8601_encode($entry['timestamp'], 1) . 'Z', 'dateTime.iso8601');
-            }
-            $xml_entries_vals[] = new XML_RPC_Value( $values, 'struct');
+            $xml_entries_vals[] = metaWeblog_createPostRpcValue($entry);
         }
      }
     $xml_entries = new XML_RPC_Value($xml_entries_vals, 'array');
+    //universal_debug("rescentPosts: " . print_r($xml_entries,true));
     return new XML_RPC_Response($xml_entries);
 
 }
@@ -573,7 +530,8 @@ function metaWeblog_newPost($message) {
     } else {
         $post_array = array();
     }
-
+    universal_debug("post: " . print_r($post_array,true));
+    
     $val = $message->params[4];
     if (is_object($val)) {
         $publish = $val->getval();
@@ -585,6 +543,7 @@ function metaWeblog_newPost($message) {
         else if ($post_array['post_status'] == 'publish') $publish = 1;
     }
 
+    $entry['via']               = "xmlrpc";
     $entry['categories']        = universal_fetchCategories($post_array['categories']);
     $entry['title']             = @html_entity_decode($post_array['title'],ENT_COMPAT,'UTF-8');
     $entry['body']              = $post_array['description'];
@@ -628,6 +587,20 @@ function metaWeblog_newPost($message) {
             $entry['id']=$id;
         }
         $entry['mt_keywords'] = $post_array['mt_keywords'];
+
+        // check for custom fields
+        if (isset($post_array['custom_fields'])) {
+            $custom_fields = $post_array['custom_fields'];
+            if (is_array($custom_fields)) {
+                foreach($custom_fields as $custom_field) {
+                    if (isset($custom_field['key'])) {
+                        if ('geo_latitude'==$custom_field['key'])  $entry['geo_lat'] = $custom_field['value'];
+                        else if ('geo_longitude'==$custom_field['key'])  $entry['geo_long'] = $custom_field['value'];
+                        else if ('geo_public'==$custom_field['key'])  $entry['geo_public'] = $custom_field['value'];
+                    }
+                }
+            }
+        }
         serendipity_plugin_api::hook_event('xmlrpc_updertEntry', $entry);
     }
     $errs = ob_get_contents();
@@ -681,7 +654,12 @@ function metaWeblog_editPost($message) {
     }
 
     $val = $message->params[3];
-    $post_array = $val->getval();
+    if (is_object($val)) {
+        $post_array = XML_RPC_decode($val);
+    } else {
+        $post_array = $val->getval();
+    }
+    
     $val = $message->params[4];
     $publish = $val->getval();
     if (XMLRPC_WP_COMPATIBLE) {
@@ -696,6 +674,7 @@ function metaWeblog_editPost($message) {
     if (isset($post_array['categories'])) {
         $entry['categories'] = universal_fetchCategories($post_array['categories']);
     }
+    $entry['via']            = "xmlrpc";
     $entry['title']          = @html_entity_decode($post_array['title'],ENT_COMPAT,'UTF-8');
     $entry['body']           = $post_array['description'];
     $entry['extended']       = $post_array['mt_text_more'];
@@ -724,6 +703,19 @@ function metaWeblog_editPost($message) {
     //if plugins want to manage it, let's instantiate all non managed meta
     if ($id) {
         $entry['mt_keywords'] = $post_array['mt_keywords'];
+        // check for custom fields
+        if (isset($post_array['custom_fields'])) {
+            $custom_fields = $post_array['custom_fields'];
+            if (is_array($custom_fields)) {
+                foreach($custom_fields as $custom_field) {
+                    if (isset($custom_field['key'])) {
+                        if ('geo_latitude'==$custom_field['key'])  $entry['geo_lat'] = $custom_field['value'];
+                        else if ('geo_longitude'==$custom_field['key'])  $entry['geo_long'] = $custom_field['value'];
+                        else if ('geo_public'==$custom_field['key'])  $entry['geo_public'] = $custom_field['value'];
+                    }
+                }
+            }
+        }
         serendipity_plugin_api::hook_event('xmlrpc_updertEntry', $entry);
     }
     ob_clean();
@@ -731,6 +723,64 @@ function metaWeblog_editPost($message) {
     return new XML_RPC_Response(new XML_RPC_Value($id ? true : false, 'boolean'));
 }
 
+
+/**
+ * This is not a XML RPC function. metaWeblog_getPost and metaWeblog_getRecentPosts produce exactly the same structure.
+ * @param unknown_type $entry
+ */
+function metaWeblog_createPostRpcValue($entry) {
+    global $serendipity;
+    $values =             array(
+        'dateCreated'       => new XML_RPC_Value(XML_RPC_iso8601_encode($entry['timestamp'], $serendipity['XMLRPC_GMT']) . ($serendipity['XMLRPC_GMT'] ? 'Z' : ''), 'dateTime.iso8601'),
+        'postid'            => new XML_RPC_Value($entry['id'], 'string'),
+        'userid'            => new XML_RPC_Value($entry['authorid'], 'string'),
+        'description'       => new XML_RPC_Value($entry['body'], 'string'),
+        'mt_excerpt'        => new XML_RPC_Value('', 'string'),
+        'mt_allow_comments' => new XML_RPC_Value($entry['allow_comments'] ? 1 : 0, 'int'),
+        'mt_text_more'      => new XML_RPC_Value($entry['extended'], 'string' ),
+        'mt_allow_pings'    => new XML_RPC_Value(1, 'int'),
+        'mt_convert_breaks' => new XML_RPC_Value('', 'string'),
+        'mt_keywords'       => new XML_RPC_Value(isset($entry['mt_keywords']) ? $entry['mt_keywords']:'', 'string'),
+        'title'             => new XML_RPC_Value($entry['title'],'string'),
+        'permaLink'         => new XML_RPC_Value(serendipity_archiveURL($entry['id'], $entry['title'], 'baseURL', true, array('timestamp' => $entry['timestamp'])), 'string'),
+        'link'              => new XML_RPC_Value(serendipity_archiveURL($entry['id'], $entry['title'], 'baseURL', true, array('timestamp' => $entry['timestamp'])), 'string')
+     );
+
+     // Add geo coords if given:
+    if (isset($entry['properties'])) {
+        if (isset($entry['properties']['geo_lat']) && isset($entry['properties']['geo_long'])) {
+            $geo_lat = new XML_RPC_Value(array(
+            	'key'=> new XML_RPC_Value('geo_latitude', 'string'), 
+            	'value'=>new XML_RPC_Value($entry['properties']['geo_lat'], 'double'),
+            ), 'struct');
+            $geo_long = new XML_RPC_Value(array(
+            	'key'=> new XML_RPC_Value('geo_longitude', 'string'), 
+            	'value'=>new XML_RPC_Value($entry['properties']['geo_long'], 'double'),
+            ), 'struct');
+            $values['custom_fields'] = new XML_RPC_Value(array($geo_lat, $geo_long), 'array');
+        }
+    }
+    // Add Categories. metaWeblog supports names only.
+    if (isset($entry['categories'])) {
+        $rpc_categories = array();
+        foreach ($entry['categories'] as $category)  {
+            $rpc_categories[] = new XML_RPC_Value($category['category_name'], 'string');
+        }
+        $values['categories'] = new XML_RPC_Value($rpc_categories, 'array');
+    }
+    
+    if (XMLRPC_WP_COMPATIBLE) {
+        $values['wp_slug'] =  new XML_RPC_Value(serendipity_archiveURL($entry['id'], $entry['title'], 'baseURL', true, array('timestamp' => $entry['timestamp'])), 'string');
+        $values['wp_password'] =  new XML_RPC_Value('', 'string');
+        $values['wp_author_id'] =  new XML_RPC_Value($entry['authorid'], 'string');
+        $values['wp_author_display_name'] =  new XML_RPC_Value($entry['author'], 'string');
+        $values['wp_post_format'] =  new XML_RPC_Value('', 'string');
+        $draft = isset($entry['isdraft']) && serendipity_db_bool($entry['isdraft']);
+        $values['post_status'] =  new XML_RPC_Value($draft?'draft':'publish', 'string');
+        $values['date_created_gmt'] =  new XML_RPC_Value(XML_RPC_iso8601_encode($entry['timestamp'], 1) . 'Z', 'dateTime.iso8601');
+    }
+    return new XML_RPC_Value( $values, 'struct');
+}
 
 function metaWeblog_getPost($message) {
     global $serendipity;
@@ -746,26 +796,12 @@ function metaWeblog_getPost($message) {
 
     $entry = serendipity_fetchEntry('id', $postid, true, 'true');
     //if plugins want to manage it, let's get all non managed meta
+    
     if ($entry["id"]) {
         serendipity_plugin_api::hook_event('xmlrpc_fetchEntry', $entry);
     }
 
-    $tmp = new XML_RPC_Value(array(
-        'userid'            => new XML_RPC_Value($entry['authorid'], 'string'),
-        'dateCreated'       => new XML_RPC_Value(XML_RPC_iso8601_encode($entry['timestamp'], $serendipity['XMLRPC_GMT']) . ($serendipity['XMLRPC_GMT'] ? 'Z' : ''), 'dateTime.iso8601'),
-        'postid'            => new XML_RPC_Value($postid, 'string'),
-        'description'       => new XML_RPC_Value($entry['body'], 'string'),
-        'title'             => new XML_RPC_Value($entry['title'],'string'),
-        'link'              => new XML_RPC_Value(serendipity_archiveURL($entry['id'], $entry['title'], 'baseURL', true, array('timestamp' => $entry['timestamp'])), 'string'),
-        'permalink'         => new XML_RPC_Value(serendipity_archiveURL($entry['id'], $entry['title'], 'baseURL', true, array('timestamp' => $entry['timestamp'])), 'string'),
-        'mt_excerpt'        => new XML_RPC_Value($entry['excerpt'], 'string'),
-        'mt_text_more'      => new XML_RPC_Value($entry['extended'], 'string'),
-        'mt_allow_comments' => new XML_RPC_Value(($entry['allow_comments'] == true ? 1 : 0), 'int'),
-        'mt_allow_pings'    => new XML_RPC_Value(($entry['mt_allow_pings'] == true ? 1 : 0), 'int'),
-        'mt_convert_breaks' => new XML_RPC_Value($entry['mt_convert_breaks'], 'string'),
-        'mt_keywords'       => new XML_RPC_Value($entry['mt_keywords'], 'string')), 'struct');
-
-    return new XML_RPC_Response($tmp);
+    return new XML_RPC_Response(metaWeblog_createPostRpcValue($entry));
 }
 
 function metaWeblog_deletePost($message) {

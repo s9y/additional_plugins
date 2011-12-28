@@ -195,7 +195,7 @@ function wp_getPostFormats( $message ) {
     );
     $supported_formats = new XML_RPC_Value(
         array(
-            'standard' => new XML_RPC_Value("Serendipity", 'string'), 
+            'standard' => new XML_RPC_Value("S9Y Article", 'string'), 
         ),'struct'
     );
     return new XML_RPC_Response($supported_formats);
@@ -794,8 +794,7 @@ function metaWeblog_newPost($message) {
         if ($post_array['post_status'] == 'draft') $publish = 0;
         else if ($post_array['post_status'] == 'publish') $publish = 1;
     }
-
-    $entry['via']               = "xmlrpc";
+    
     $entry['categories']        = universal_fetchCategories($post_array['categories']);
     $entry['title']             = @html_entity_decode($post_array['title'],ENT_COMPAT,'UTF-8');
     $entry['body']              = $post_array['description'];
@@ -819,7 +818,7 @@ function metaWeblog_newPost($message) {
     if (isset($post_array['dateCreated'])) {
         $entry['timestamp']  = XML_RPC_iso8601_decode($post_array['dateCreated'],($post_array['dateCreated']{strlen($post_array['dateCreated'])-1} == "Z"));
     }
-
+    
     ob_start();
     universal_fixEntry($entry);
     if (!is_array($entry['categories']) || count($entry['categories']) < 1) {
@@ -831,7 +830,10 @@ function metaWeblog_newPost($message) {
     }
 
     $id = serendipity_updertEntry($entry);
-
+    // Apply password:
+    universal_save_entrypassword($id, $post_array['wp_password']);
+    
+    
     universal_debug("Created entry: " . print_r($id, true));
 
     if ($id) {
@@ -920,13 +922,10 @@ function metaWeblog_editPost($message) {
     }
     
 
-    universal_debug("metaWeblog_editPost");
-    universal_debug(print_r($post_array, true));
-    
     if (isset($post_array['categories'])) {
         $entry['categories'] = universal_fetchCategories($post_array['categories']);
     }
-    $entry['via']            = "xmlrpc";
+    
     $entry['title']          = @html_entity_decode($post_array['title'],ENT_COMPAT,'UTF-8');
     $entry['body']           = $post_array['description'];
     $entry['extended']       = $post_array['mt_text_more'];
@@ -935,6 +934,16 @@ function metaWeblog_editPost($message) {
     $entry['authorid']       = $serendipity['authorid'];
     $entry['id']             = $postid;
     $entry['allow_comments'] = serendipity_db_bool($post_array['mt_allow_comments']);
+
+    // Remember old geo coords for clients not resaving them:
+    $entry_properties = serendipity_fetchEntryProperties($postid);
+    if (is_array($entry_properties)) {
+        $old_geo_long = $entry_properties['geo_long'];
+        $old_geo_lat = $entry_properties['geo_lat'];
+    }
+    
+    // Apply password:
+    universal_save_entrypassword($postid, $post_array['wp_password']);
 
     if (isset($post_array['dateCreated'])) {
         $entry['timestamp']  = XML_RPC_iso8601_decode($post_array['dateCreated'], ($post_array['dateCreated']{strlen($post_array['dateCreated'])-1} == "Z"));
@@ -955,6 +964,13 @@ function metaWeblog_editPost($message) {
     //if plugins want to manage it, let's instantiate all non managed meta
     if ($id) {
         $entry['mt_keywords'] = $post_array['mt_keywords'];
+        
+        // Resave old geo coord values (if not set by client)
+        if (!empty($old_geo_lat) && !empty($old_geo_long)) {
+            $entry['geo_lat'] = $old_geo_lat;
+            $entry['geo_long'] = $old_geo_long;
+        }
+        
         // check for custom fields
         if (isset($post_array['custom_fields'])) {
             $custom_fields = $post_array['custom_fields'];
@@ -966,6 +982,11 @@ function metaWeblog_editPost($message) {
                         else if ('geo_public'==$custom_field['key'])  $entry['geo_public'] = $custom_field['value'];
                     }
                 }
+                // If switched off by client, unset this
+                if (isset($entry['geo_public']) && !$entry['geo_public']) {
+                    unset($entry['geo_lat']);
+                    unset($entry['geo_long']);
+                }
             }
         }
         serendipity_plugin_api::hook_event('xmlrpc_updertEntry', $entry);
@@ -975,6 +996,16 @@ function metaWeblog_editPost($message) {
     return new XML_RPC_Response(new XML_RPC_Value($id ? true : false, 'boolean'));
 }
 
+function universal_save_entrypassword($entryId, $password){
+    global $serendipity;
+    // Apply password:
+    $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$entryId . " AND property = 'ep_entrypassword'";
+    serendipity_db_query($q);
+    if (!empty($password)) {
+        $q = "INSERT INTO {$serendipity['dbPrefix']}entryproperties (entryid, property, value) VALUES (" . (int)$entryId . ", 'ep_entrypassword', '" . serendipity_db_escape_string($password) . "')";
+        serendipity_db_query($q);
+    }
+}
 
 /**
  * This is not a XML RPC function. metaWeblog_getPost and metaWeblog_getRecentPosts produce exactly the same structure.
@@ -1020,16 +1051,25 @@ function metaWeblog_createPostRpcValue($entry) {
         }
         $values['categories'] = new XML_RPC_Value($rpc_categories, 'array');
     }
-    
+        
     if (XMLRPC_WP_COMPATIBLE) {
         $values['wp_slug'] =  new XML_RPC_Value(serendipity_archiveURL($entry['id'], $entry['title'], 'baseURL', true, array('timestamp' => $entry['timestamp'])), 'string');
-        $values['wp_password'] =  new XML_RPC_Value('', 'string');
         $values['wp_author_id'] =  new XML_RPC_Value($entry['authorid'], 'string');
         $values['wp_author_display_name'] =  new XML_RPC_Value($entry['author'], 'string');
         $values['wp_post_format'] =  new XML_RPC_Value('', 'string');
         $draft = isset($entry['isdraft']) && serendipity_db_bool($entry['isdraft']);
         $values['post_status'] =  new XML_RPC_Value($draft?'draft':'publish', 'string');
         $values['date_created_gmt'] =  new XML_RPC_Value(XML_RPC_iso8601_encode($entry['timestamp'], 1) . 'Z', 'dateTime.iso8601');
+
+        // Extended Article Properties supports passwords.
+        $entry_properties = serendipity_fetchEntryProperties($entry['id']);
+        if (is_array($entry_properties)) {
+            $values['wp_password'] =  new XML_RPC_Value($entry_properties['ep_entrypassword'], 'string');
+        }
+        else {
+            $values['wp_password'] =  new XML_RPC_Value('', 'string');
+        }
+        
     }
     return new XML_RPC_Value( $values, 'struct');
 }

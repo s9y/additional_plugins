@@ -481,7 +481,7 @@ class serendipity_event_geotag extends serendipity_event
                 case 'backend_publish':
                 case 'backend_save':
                     // Don't save when sent via xmlrpc. It is saved later.
-                    if (isset($eventData['via']) && $eventData['via']== "xmlrpc") return true;
+                    if (isset($serendipity['POST']) && !isset($serendipity['POST']['properties'])) return true;
                     
                     GeoTagDb::addEntryProperties($eventData['id'], $this->supported_properties, $serendipity['POST']['properties']);
                     return true;

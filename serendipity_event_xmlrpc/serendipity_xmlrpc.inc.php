@@ -37,6 +37,20 @@ $dispatches = array(
                         array('function' => 'wp_newCategory'),
                     'wp.getPostFormats' =>
                         array('function' => 'wp_getPostFormats'),
+                    'wp.getComments' =>
+                        array('function' => 'wp_getComments'),
+                    'wp.deleteComment' =>
+                        array('function' => 'wp_deleteComment'),
+                    'wp.editComment' =>
+                        array('function' => 'wp_editComment'),
+                    'wp.newComment' =>
+                        array('function' => 'wp_newComment'),
+                    'wp.getTags' =>
+                        array('function' => 'wp_getTags'),
+					'wp.getOptions' =>
+                        array('function' => 'wp_getOptions'),
+					'wp.getPages' =>
+                        array('function' => 'wp_getPages'),
                         
 					/* BLOGGER API */
                     'blogger.getUsersBlogs' =>
@@ -187,6 +201,244 @@ function wp_getPostFormats( $message ) {
     return new XML_RPC_Response($supported_formats);
 }
 
+function wp_getOptions($message) {
+    global $serendipity;
+
+    $val = $message->params[1];
+    $username = $val->getval();
+    $val = $message->params[2];
+    $password = $val->getval();
+    if (!serendipity_authenticate_author($username, $password)) {
+        return new XML_RPC_Response('', 4, 'Authentication Failed');
+    }
+    
+    $xml_entries_vals = array();
+    $xml_entries_vals[] = wp_getOptions_createOption('software_name', 'Serendipity');
+    $xml_entries_vals[] = wp_getOptions_createOption('software_version', $serendipity['version']);
+    $xml_entries_vals[] = wp_getOptions_createOption('blog_url', $serendipity['baseURL']);
+    $xml_entries_vals[] = wp_getOptions_createOption('blog_title', $serendipity['blogTitle']);
+    $xml_entries = new XML_RPC_Value($xml_entries_vals, 'array');
+    return new XML_RPC_Response($xml_entries);
+    
+}
+/**
+ * Private function to create a single wpOption
+ * Enter description here ...
+ * @param unknown_type $desc
+ * @param unknown_type $value
+ * @param unknown_type $readonly
+ */
+function wp_getOptions_createOption($desc, $value, $readonly=true) {
+    $values =             array(
+        //'tag_id'     => new XML_RPC_Value(0, 'int'),
+        'desc'     => new XML_RPC_Value($desc, 'string'),
+        'readonly'     => new XML_RPC_Value($readonly, 'boolean'),
+        'value'     => new XML_RPC_Value($value, 'string'),
+    
+    );
+    return new XML_RPC_Value( $values, 'struct');
+}
+
+function wp_getPages($message) {
+    global $serendipity;
+
+    $val = $message->params[1];
+    $username = $val->getval();
+    $val = $message->params[2];
+    $password = $val->getval();
+    if (!serendipity_authenticate_author($username, $password)) {
+        return new XML_RPC_Response('', 4, 'Authentication Failed');
+    }
+    
+    $xml_entries_vals = array();
+    
+    //TODO: For now this returns an empty array in order not to make the client crash. If we want to edit pages, we have to add some more code (to the static pages plugin) 
+    
+    $xml_entries = new XML_RPC_Value($xml_entries_vals, 'array');
+    return new XML_RPC_Response($xml_entries);
+}
+function wp_getTags($message) {
+    global $serendipity;
+
+    $val = $message->params[1];
+    $username = $val->getval();
+    $val = $message->params[2];
+    $password = $val->getval();
+    if (!serendipity_authenticate_author($username, $password)) {
+        return new XML_RPC_Response('', 4, 'Authentication Failed');
+    }
+    
+    $xml_entries_vals = array();
+    
+    if (class_exists('serendipity_event_freetag')) {
+        $tags = serendipity_event_freetag::getAllTags();
+        $rsslink = $serendipity['baseURL'] . 'rss.php?serendipity%5Btag%5D=';
+        
+        // Find the plugins tag http path setting
+        $q = "select value from {$serendipity['dbPrefix']}config WHERE name LIKE 'serendipity_plugin_freetag:%/taglink'";
+        $row = serendipity_db_query($q, true);
+        if (is_array($row)) $http_url = $row['value'];
+        else $http_url = $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/tag/'; // copied default from plugin
+        
+        foreach ($tags AS $tag => $count) {
+            $values =             array(
+                //'tag_id'     => new XML_RPC_Value(0, 'int'),
+                'name'     => new XML_RPC_Value($tag, 'string'),
+                'count'     => new XML_RPC_Value($count, 'int'),
+                'slug'     => new XML_RPC_Value($tag, 'string'),
+                'html_url'     => new XML_RPC_Value($http_url . $tag, 'string'),
+                'rss_url'     => new XML_RPC_Value($rsslink . $tag, 'string'),
+            
+            );
+            $xml_entries_vals[] = new XML_RPC_Value( $values, 'struct');
+        }
+    }
+    
+    $xml_entries = new XML_RPC_Value($xml_entries_vals, 'array');
+    return new XML_RPC_Response($xml_entries);
+    
+}
+function wp_getComments($message) {
+    global $serendipity;
+    
+    $val = $message->params[1];
+    $username = $val->getval();
+    $val = $message->params[2];
+    $password = $val->getval();
+    if (!serendipity_authenticate_author($username, $password)) {
+        return new XML_RPC_Response('', 4, 'Authentication Failed');
+    }
+    
+    $val = $message->params[3];
+    $comment_filter =  $val->getval();
+    
+    $limit = !empty($comment_filter['number'])?$comment_filter['number']:'10'; // defaults to 10
+    if (!empty($comment_filter['offset'])) $limit = serendipity_db_limit($comment_filter['offset'], $limit); 
+    $order = ' DESC'; //  co.timestamp DESC';
+    $showAll = $comment_filter['status'] != 'approve';
+    $type = 'comments_and_trackbacks';
+    
+    $entries = serendipity_fetchComments($comment_filter['post_id'], $limit, $order, $showAll, $type);
+    $xml_entries_vals = array();
+    foreach ((array)$entries as $entry) {
+        if ($entry['commentid']) {
+            
+            if ($entry['type']=='TRACKBACK') $type = 'trackback';
+            else if ($entry['type']=='PINGBACK') $type = 'pingback';
+            else $type = '';
+             
+            $values =             array(
+				'date_created_gmt'  =>  new XML_RPC_Value(XML_RPC_iso8601_encode($entry['timestamp'], 1) . 'Z', 'dateTime.iso8601'),
+                'userid'            => new XML_RPC_Value($entry['authorid'], 'string'),
+                'comment_id'        => new XML_RPC_Value($entry['commentid'], 'int'),
+                'parent'            => new XML_RPC_Value($entry['parent_id'], 'int'),
+                'status'			=> new XML_RPC_Value($entry['status']=='approved'?'approved':'hold', 'string'),
+                'content'			=> new XML_RPC_Value($entry['body'], 'string'),
+                'link'			    => new XML_RPC_Value($entry['url'], 'string'),
+        		'permaLink'         => new XML_RPC_Value(serendipity_archiveURL($entry['entryid'], $entry['title'], 'baseURL', true, array('timestamp' => $entry['timestamp'])) . '#c' . $entry['commentid'], 'string'),
+            	'post_id'			=> new XML_RPC_Value($entry['entryid'], 'int'),
+                'post_title'	    => new XML_RPC_Value($entry['title'], 'string'),
+                'author'	        => new XML_RPC_Value($entry['author'], 'string'),
+                'author_url'	    => new XML_RPC_Value($entry['url'], 'string'),
+                'author_email'	    => new XML_RPC_Value($entry['email'], 'string'),
+                'author_ip'	        => new XML_RPC_Value($entry['ip'], 'string'),
+                'type'	            => new XML_RPC_Value($type, 'string'),
+             );
+             
+            $xml_entries_vals[] = new XML_RPC_Value( $values, 'struct'); 
+        }
+    }
+     
+    $xml_entries = new XML_RPC_Value($xml_entries_vals, 'array');
+    return new XML_RPC_Response($xml_entries);
+
+}
+
+function wp_deleteComment($message) {
+    global $serendipity;
+    
+    $val = $message->params[1];
+    $username = $val->getval();
+    $val = $message->params[2];
+    $password = $val->getval();
+    if (!serendipity_authenticate_author($username, $password)) {
+        return new XML_RPC_Response('', 4, 'Authentication Failed');
+    }
+    
+    $val = $message->params[3];
+    $comment_id =  $val->getval();
+    if (!empty($comment_id)) {
+        // We need the entryid, so fetch it:
+        $sql = serendipity_db_query("SELECT entry_id FROM {$serendipity['dbPrefix']}comments WHERE id = ". $comment_id, true);
+        $entry_id = $sql['entry_id'];
+        $result = serendipity_deleteComment($comment_id, $entry_id);
+    }
+    else {
+        $result = false;
+    }
+    return new XML_RPC_Response(new XML_RPC_Value($result, 'boolean'));
+}
+
+/**
+ * This is moderation only! This will not change any other state than the moderation state.
+ * @param unknown_type $message
+ */
+function wp_editComment($message) {
+    global $serendipity;
+    
+    $val = $message->params[1];
+    $username = $val->getval();
+    $val = $message->params[2];
+    $password = $val->getval();
+    if (!serendipity_authenticate_author($username, $password)) {
+        return new XML_RPC_Response('', 4, 'Authentication Failed');
+    }
+    
+    $val = $message->params[3];
+    $comment_id =  $val->getval();
+    $val = $message->params[4];
+    $comment =  $val->getval();
+    
+    if (!empty($comment_id)) {
+        // We need the entryid, so fetch it:
+        $sql = serendipity_db_query("SELECT entry_id FROM {$serendipity['dbPrefix']}comments WHERE id = ". $comment_id, true);
+        $entry_id = $sql['entry_id'];
+        $result = serendipity_approveComment($comment_id, $entry_id, false, $comment['status'] !== 'approve');
+    }
+    else {
+        $result = false;
+    }
+    return new XML_RPC_Response(new XML_RPC_Value($result, 'boolean'));
+}
+function wp_newComment($message) {
+    global $serendipity;
+    
+    $val = $message->params[1];
+    $username = $val->getval();
+    $val = $message->params[2];
+    $password = $val->getval();
+    if (!serendipity_authenticate_author($username, $password)) {
+        return new XML_RPC_Response('', 4, 'Authentication Failed');
+    }
+    $val = $message->params[3];
+    $article_id =  $val->getval();
+    $val = $message->params[4];
+    $comment =  $val->getval();
+    
+    // Setup defaults, if not given by client. The serendipity vars were setup while authenticating.
+    if (empty($comment['author'])) $comment['author'] = $serendipity['serendipityRealname'];
+    if (empty($comment['author_email'])) $comment['author_email'] = $serendipity['serendipityEmail'];
+    
+    $commentInfo['comment'] = $comment['content'];
+    $commentInfo['name'] = $comment['author'];
+    $commentInfo['url'] = $comment['author_url'];
+    $commentInfo['email'] = $comment['author_email'];
+    if (!empty($commentInfo['comment_parent'])) $commentInfo['comment_parent'] = $comment['parent_id'];
+    
+    universal_debug("Saving new comment: " .  print_r($commentInfo, true));
+    $result = serendipity_insertComment($article_id, $commentInfo);
+    return new XML_RPC_Response(new XML_RPC_Value($result, 'boolean'));
+}
 function blogger_getUsersBlogs($message) {
     global $serendipity;
 
@@ -292,8 +544,8 @@ function metaWeblog_getCategories($message) {
             array(
               'categoryName'   => new XML_RPC_Value($cat['category_name'], 'string'),
               'description'   => new XML_RPC_Value($cat['category_name'], 'string'),
-              'htmlUrl'       => new XML_RPC_Value(serendipity_categoryURL($cat, 'serendipityHTTPPath'), 'string'),
-              'rssUrl'        => new XML_RPC_Value(serendipity_feedCategoryURL($cat, 'serendipityHTTPPath'), 'string')
+              'htmlUrl'       => new XML_RPC_Value(serendipity_categoryURL($cat, 'baseURL'), 'string'),
+              'rssUrl'        => new XML_RPC_Value(serendipity_feedCategoryURL($cat, 'baseURL'), 'string')
             ),
             'struct'
         );

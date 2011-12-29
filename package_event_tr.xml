@@ -5923,7 +5923,7 @@
 <release>
   <version>1.28</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-12-28</date>
+  <date>2011-12-29</date>
   <filelist>
 <dir name="serendipity_event_geotag">
 <file>serendipity_plugin_geotag.php</file>

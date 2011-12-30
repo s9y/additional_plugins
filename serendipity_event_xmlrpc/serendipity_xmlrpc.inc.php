@@ -85,6 +85,9 @@ $dispatches = array(
                         array('function' => 'metaWeblog_newMediaObject'),
                     'metaWeblog.getRecentPosts' =>
                         array('function' => 'metaWeblog_getRecentPosts'),
+                    'metaWeblog.getCategories' =>
+        		        array('function' => 'metaWeblog_getCategories'),
+                        
                     'mt.getRecentPostTitles' =>
                         array('function' => 'mt_getRecentPostTitles'),
                     'mt.getCategoryList' =>
@@ -97,8 +100,6 @@ $dispatches = array(
                         array('function' => 'mt_supportedTextFilters'),
                     'mt.publishPost' =>
                         array('function' => 'metaWeblog_publishPost'),
-                    'metaWeblog.getCategories' =>
-        		        array('function' => 'metaWeblog_getCategories'),
                     'mt.supportedMethods' =>
                         array('function' => 'mt_supportedMethods')
                     );
@@ -127,13 +128,41 @@ function wp_getUsersBlogs($message) {
     return($r);
 }
 
-function wp_getCategories($message) {
-    return mt_getCategoryList($message);
-}
 function wp_uploadFile($message) {
     universal_debug("wp_uploadFile");
     return metaWeblog_newMediaObject($message);
 }
+function wp_getCategories($message) {
+    global $serendipity;
+
+    $val = $message->params[1];
+    $username = $val->getval();
+    $val = $message->params[2];
+    $password = $val->getval();
+    if (!serendipity_authenticate_author($username, $password)) {
+        return new XML_RPC_Response('', 4, 'Authentication Failed');
+    }
+    $cats = serendipity_fetchCategories($serendipity['authorid']);
+    $xml_entries_vals = array();
+    foreach ((array) $cats as $cat ) {
+        if ($cat['categoryid']) {
+            $values = array(
+              'categoryId'    => new XML_RPC_Value($cat['categoryid'], 'int'),
+              'categoryName'  => new XML_RPC_Value($cat['category_name'], 'string'),
+              'description'   => new XML_RPC_Value($cat['category_description'], 'string'),
+              'htmlUrl'       => new XML_RPC_Value(serendipity_categoryURL($cat, 'baseURL'), 'string'),
+              'rssUrl'        => new XML_RPC_Value(serendipity_feedCategoryURL($cat, 'baseURL'), 'string')
+            );
+            if (!empty($cat['parentid'])) {
+                $values['parentId'] = new XML_RPC_Value($cat['parentid'], 'int');
+            }
+            $xml_entries_vals[] = new XML_RPC_Value($values,'struct');
+        }
+    }
+    $xml_entries = new XML_RPC_Value($xml_entries_vals, 'array');
+    return new XML_RPC_Response($xml_entries);
+}
+
 function wp_newCategory($message) {
     global $serendipity;
     
@@ -733,7 +762,7 @@ function universal_fetchCategories($post_categories) {
                         }
                     }
                 } elseif (is_array($cat_obj) && isset($cat_obj['categoryId'])) {
-                    $cat_id = $cat_obj['categoryId']->getval();
+                    $cat_id = $cat_obj['categoryId']; //->getval();
                     if (!empty($cat_id)) {
                         $categories[$cat_id] = $cat_id;
                     }
@@ -743,8 +772,10 @@ function universal_fetchCategories($post_categories) {
         else { // Just an array with names, has to be resolved to ids
             foreach($post_categories AS $cat_name) {
                 $info = serendipity_fetchCategoryInfo(0, $cat_name);
-                $cat_id= $info['categoryid'];
-                $categories[$cat_id] = $cat_id;
+                if (is_array($info)) {
+                    $cat_id= $info['categoryid'];
+                    $categories[$cat_id] = $cat_id;
+                }
             }
         }
     }
@@ -754,8 +785,6 @@ function universal_fetchCategories($post_categories) {
 function metaWeblog_newPost($message) {
     global $serendipity;
 
-    universal_debug("newPost dispatch called.");
-    
     $val = $message->params[1];
     if (is_object($val)) {
         $username = $val->getval();
@@ -770,8 +799,6 @@ function metaWeblog_newPost($message) {
         $password = '';
     }
 
-    universal_debug("Incoming user $username : $password");
-
     if (!serendipity_authenticate_author($username, $password)) {
         return new XML_RPC_Response('', 4, 'Authentication Failed');
     }
@@ -782,7 +809,6 @@ function metaWeblog_newPost($message) {
     } else {
         $post_array = array();
     }
-    universal_debug("post: " . print_r($post_array,true));
     
     $val = $message->params[4];
     if (is_object($val)) {
@@ -833,9 +859,6 @@ function metaWeblog_newPost($message) {
     // Apply password:
     universal_save_entrypassword($id, $post_array['wp_password']);
     
-    
-    universal_debug("Created entry: " . print_r($id, true));
-
     if ($id) {
         if (!$entry['id']) {
             $entry['id']=$id;
@@ -859,8 +882,6 @@ function metaWeblog_newPost($message) {
     }
     $errs = ob_get_contents();
     ob_clean();
-
-    universal_debug("Outgoing Data: " . $errs);
 
     return new XML_RPC_Response(new XML_RPC_Value($id, 'string'));
 }
@@ -1021,7 +1042,7 @@ function metaWeblog_createPostRpcValue($entry) {
         'mt_excerpt'        => new XML_RPC_Value('', 'string'),
         'mt_allow_comments' => new XML_RPC_Value($entry['allow_comments'] ? 1 : 0, 'int'),
         'mt_text_more'      => new XML_RPC_Value($entry['extended'], 'string' ),
-        'mt_allow_pings'    => new XML_RPC_Value(1, 'int'),
+        'mt_allow_pings'    => new XML_RPC_Value($entry['allow_comments'] ? 1 : 0, 'int'), // we don't seperate the both.
         'mt_convert_breaks' => new XML_RPC_Value('', 'string'),
         'mt_keywords'       => new XML_RPC_Value(isset($entry['mt_keywords']) ? $entry['mt_keywords']:'', 'string'),
         'title'             => new XML_RPC_Value($entry['title'],'string'),
@@ -1132,7 +1153,7 @@ function metaWeblog_setPostCategories($message) {
         return new XML_RPC_Response('', 4, 'Authentication Failed');
     }
 
-    $category_ids = universal_fetchCategories($categories->getval(), true);
+    $category_ids = universal_fetchCategories(XML_RPC_decode($categories), true); // before: $categories->getval() instead of XML_RPC_decode
     $entry = serendipity_fetchEntry('id', $postid, true, 'true');
 
     if ($entry['id']) {

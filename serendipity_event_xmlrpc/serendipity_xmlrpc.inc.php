@@ -25,6 +25,9 @@ if ($debug_xmlrpc === 2) {
 }
 @define('XMLRPC_WP_COMPATIBLE', TRUE);
 
+@define('XMLRPC_ERR_CODE_AUTHFAILED', 4);
+@define('XMLRPC_ERR_NAME_AUTHFAILED', 'Authentication Failed');
+
 $dispatches = array(
                     /* WordPress API */
                     'wp.getUsersBlogs' =>
@@ -51,7 +54,9 @@ $dispatches = array(
                         array('function' => 'wp_getOptions'),
 					'wp.getPages' =>
                         array('function' => 'wp_getPages'),
-                        
+					'wp.getPageList' =>
+                        array('function' => 'wp_getPageList'),
+
 					/* BLOGGER API */
                     'blogger.getUsersBlogs' =>
                         array('function' => 'blogger_getUsersBlogs'),
@@ -112,7 +117,7 @@ function wp_getUsersBlogs($message) {
     $val = $message->params[1];
     $password = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     $blog1 = new XML_RPC_Value(
         array('url'      => new XML_RPC_Value($serendipity['baseURL'], 'string'),
@@ -140,7 +145,7 @@ function wp_getCategories($message) {
     $val = $message->params[2];
     $password = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     $cats = serendipity_fetchCategories($serendipity['authorid']);
     $xml_entries_vals = array();
@@ -173,7 +178,7 @@ function wp_newCategory($message) {
     $val = $message->params[2];
     $password = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     $val = $message->params[3];
     if (is_object($val)) {
@@ -203,7 +208,7 @@ function wp_getPostFormats( $message ) {
     $val = $message->params[2];
     $password = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     $val = $message->params[3];
     $formats_to_show = $val->getval();
@@ -224,7 +229,7 @@ function wp_getPostFormats( $message ) {
     );
     $supported_formats = new XML_RPC_Value(
         array(
-            'standard' => new XML_RPC_Value("S9Y Article", 'string'), 
+            'standard' => new XML_RPC_Value("Article (S9Y)", 'string'), 
         ),'struct'
     );
     return new XML_RPC_Response($supported_formats);
@@ -238,7 +243,7 @@ function wp_getOptions($message) {
     $val = $message->params[2];
     $password = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     
     $xml_entries_vals = array();
@@ -268,6 +273,7 @@ function wp_getOptions_createOption($desc, $value, $readonly=true) {
     return new XML_RPC_Value( $values, 'struct');
 }
 
+// Get an array of all the pages on a blog.
 function wp_getPages($message) {
     global $serendipity;
 
@@ -276,7 +282,7 @@ function wp_getPages($message) {
     $val = $message->params[2];
     $password = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     
     $xml_entries_vals = array();
@@ -286,6 +292,27 @@ function wp_getPages($message) {
     $xml_entries = new XML_RPC_Value($xml_entries_vals, 'array');
     return new XML_RPC_Response($xml_entries);
 }
+
+// Get an array of all the pages on a blog. Just the minimum details, lighter than wp.getPages. 
+function wp_getPageList($message) {
+    global $serendipity;
+
+    $val = $message->params[1];
+    $username = $val->getval();
+    $val = $message->params[2];
+    $password = $val->getval();
+    if (!serendipity_authenticate_author($username, $password)) {
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
+    }
+    
+    $xml_entries_vals = array();
+    
+    //TODO: For now this returns an empty array in order not to make the client crash. If we want to edit pages, we have to add some more code (to the static pages plugin) 
+    
+    $xml_entries = new XML_RPC_Value($xml_entries_vals, 'array');
+    return new XML_RPC_Response($xml_entries);
+}
+
 function wp_getTags($message) {
     global $serendipity;
 
@@ -294,7 +321,7 @@ function wp_getTags($message) {
     $val = $message->params[2];
     $password = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     
     $xml_entries_vals = array();
@@ -335,7 +362,7 @@ function wp_getComments($message) {
     $val = $message->params[2];
     $password = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     
     $val = $message->params[3];
@@ -391,7 +418,7 @@ function wp_deleteComment($message) {
     $val = $message->params[2];
     $password = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     
     $val = $message->params[3];
@@ -420,7 +447,7 @@ function wp_editComment($message) {
     $val = $message->params[2];
     $password = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     
     $val = $message->params[3];
@@ -447,7 +474,7 @@ function wp_newComment($message) {
     $val = $message->params[2];
     $password = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     $val = $message->params[3];
     $article_id =  $val->getval();
@@ -476,7 +503,7 @@ function blogger_getUsersBlogs($message) {
     $val = $message->params[2];
     $password = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     $blog1 = new XML_RPC_Value(
         array('url'      => new XML_RPC_Value($serendipity['baseURL'], 'string'),
@@ -496,7 +523,7 @@ function blogger_getUserInfo($message) {
     $val = $message->params[2];
     $password = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     $userdata = new XML_RPC_Value(
         array('nickname'  => new XML_RPC_Value($serendipity['serendipityUser']),
@@ -519,7 +546,7 @@ function blogger_getRecentPosts($message) {
     $val = $message->params[4];
     $numposts = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     $entries = serendipity_fetchEntries('', false, $numposts, true);
     $xml_entries_vals = array();
@@ -548,7 +575,7 @@ function blogger_getPost($message) {
     $val = $message->params[3];
     $password = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
 
     $entry = serendipity_fetchEntry('id', $postid, true, 'true');
@@ -564,7 +591,7 @@ function metaWeblog_getCategories($message) {
     $val = $message->params[2];
     $password = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     $cats = serendipity_fetchCategories($serendipity['authorid']);
     $xml_entries_vals = array();
@@ -592,7 +619,7 @@ function mt_getCategoryList($message) {
     $val = $message->params[2];
     $password = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     $cats = serendipity_fetchCategories($serendipity['authorid']);
     $xml_entries_vals = array();
@@ -618,7 +645,7 @@ function metaWeblog_getRecentPosts($message) {
     $val = $message->params[3];
     $numposts = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     $entries = serendipity_fetchEntries('', false, $numposts, true);
     $xml_entries_vals = array();
@@ -644,7 +671,7 @@ function mt_getRecentPostTitles($message) {
     $val = $message->params[3];
     $numposts = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     $entries = serendipity_fetchEntries('', false, $numposts, true);
     $xml_entries_vals = array();
@@ -676,7 +703,7 @@ function blogger_newPost($message) {
     $val = $message->params[3];
     $password = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     $val = $message->params[4];
     $entry['body']  = $val->getval();
@@ -701,7 +728,7 @@ function blogger_newPost($message) {
     }
 
     $serendipity['POST']['properties']['fake'] = 'fake';
-    $id = serendipity_updertEntry($entry);
+    $id = universal_updertEntry($entry);
     ob_clean();
     return new XML_RPC_Response(new XML_RPC_Value($id, 'string'));
 }
@@ -714,14 +741,14 @@ function blogger_editPost($message) {
     $val = $message->params[3];
     $password = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     $val = $message->params[4];
     $entry['body']  = $val->getval();
     $entry['author'] = $username;
     ob_start();
     universal_fixEntry($entry);
-    $id = serendipity_updertEntry($entry);
+    $id = universal_updertEntry($entry);
     ob_clean();
     return new XML_RPC_Response(new XML_RPC_Value($id, 'string'));
 }
@@ -734,7 +761,7 @@ function blogger_deletePost($message) {
     $val = $message->params[3];
     $password = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
 
     ob_start();
@@ -800,7 +827,7 @@ function metaWeblog_newPost($message) {
     }
 
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
 
     $val = $message->params[3];
@@ -855,8 +882,8 @@ function metaWeblog_newPost($message) {
         }
     }
 
-    $id = serendipity_updertEntry($entry);
-    // Apply password:
+    $id = universal_updertEntry($entry);
+    // Apply password has to be after serendipity_updertEntry, else it will override it empty!
     universal_save_entrypassword($id, $post_array['wp_password']);
     
     if ($id) {
@@ -897,7 +924,7 @@ function metaWeblog_publishPost($message) {
     $password = $val->getval();
 
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
 
     $entry['isdraft']    = 'false';
@@ -906,7 +933,7 @@ function metaWeblog_publishPost($message) {
     ob_start();
     if ($entry['id']) {
         universal_fixEntry($entry);
-        $id = serendipity_updertEntry($entry);
+        $id = universal_updertEntry($entry);
     } else {
         $id = 0;
     }
@@ -925,7 +952,7 @@ function metaWeblog_editPost($message) {
     $password = $val->getval();
 
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
 
     $val = $message->params[3];
@@ -963,9 +990,6 @@ function metaWeblog_editPost($message) {
         $old_geo_lat = $entry_properties['geo_lat'];
     }
     
-    // Apply password:
-    universal_save_entrypassword($postid, $post_array['wp_password']);
-
     if (isset($post_array['dateCreated'])) {
         $entry['timestamp']  = XML_RPC_iso8601_decode($post_array['dateCreated'], ($post_array['dateCreated']{strlen($post_array['dateCreated'])-1} == "Z"));
         universal_debug("Handed date created: " . $post_array['dateCreated']);
@@ -977,11 +1001,15 @@ function metaWeblog_editPost($message) {
     ob_start();
     if ($entry['id']) {
         universal_fixEntry($entry);
-        $id = serendipity_updertEntry($entry);
+        $id = universal_updertEntry($entry);
     } else {
         $id = 0;
     }
+    
+    // Apply password has to be after serendipity_updertEntry, else it will override it empty!
+    universal_save_entrypassword($postid, $post_array['wp_password']);
 
+    
     //if plugins want to manage it, let's instantiate all non managed meta
     if ($id) {
         $entry['mt_keywords'] = $post_array['mt_keywords'];
@@ -1104,7 +1132,7 @@ function metaWeblog_getPost($message) {
     $val = $message->params[2];
     $password = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
 
     $entry = serendipity_fetchEntry('id', $postid, true, 'true');
@@ -1125,7 +1153,7 @@ function metaWeblog_deletePost($message) {
     $val = $message->params[3];
     $password = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     $val = $message->params[4];
     $entry['body'] = $val->getval();
@@ -1150,7 +1178,7 @@ function metaWeblog_setPostCategories($message) {
     $categories = $message->params[3];
 
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
 
     $category_ids = universal_fetchCategories(XML_RPC_decode($categories), true); // before: $categories->getval() instead of XML_RPC_decode
@@ -1160,7 +1188,7 @@ function metaWeblog_setPostCategories($message) {
         $entry['categories'] = $category_ids;
         ob_start();
         universal_fixEntry($entry);
-        $entry = serendipity_updertEntry($entry);
+        $entry = universal_updertEntry($entry);
         ob_clean();
         return new XML_RPC_Response(new XML_RPC_Value(true, 'boolean'));
     } else {
@@ -1176,7 +1204,7 @@ function metaWeblog_getPostCategories($message) {
     $val = $message->params[2];
     $password = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
 
     $entry = serendipity_fetchEntry('id', (int)$postid, true, 'true');
@@ -1208,7 +1236,7 @@ function metaWeblog_newMediaObject($message) {
     $val = $message->params[3];
     $struct = $val->getval();
     if (!serendipity_authenticate_author($username, $password)) {
-        return new XML_RPC_Response('', 4, 'Authentication Failed');
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
 
     $full = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $struct['name'];
@@ -1257,7 +1285,19 @@ function mt_supportedMethods($message) {
         array(
             /* Wordpress API */
             new XML_RPC_Value('wp.getUsersBlogs', 'string'),
-        	
+            new XML_RPC_Value('wp.getCategories', 'string'),
+            new XML_RPC_Value('wp.uploadFile', 'string'),
+            new XML_RPC_Value('wp.newCategory', 'string'),
+            new XML_RPC_Value('wp.getPostFormats', 'string'),
+            new XML_RPC_Value('wp.getComments', 'string'),
+            new XML_RPC_Value('wp.deleteComment', 'string'),
+            new XML_RPC_Value('wp.editComment', 'string'),
+            new XML_RPC_Value('wp.newComment', 'string'),
+            new XML_RPC_Value('wp.getTags', 'string'),
+            new XML_RPC_Value('wp.getOptions', 'string'),
+            new XML_RPC_Value('wp.getPages', 'string'),
+            new XML_RPC_Value('wp.getPageList', 'string'),
+
         	/* Blogger API */
             new XML_RPC_Value('blogger.getUsersBlogs', 'string'),
             new XML_RPC_Value('blogger.getUserInfo', 'string'),
@@ -1326,6 +1366,12 @@ function universal_fixEntry(&$entry) {
     }
 }
 
+function universal_updertEntry(&$entry) {
+    // The permission check is only executed, if this is set:
+    $serendipity['GET']['adminModule'] = 'entries';
+    return serendipity_updertEntry($entry);
+}
+
 function universal_debug($message) {
     if (DEBUG_XMLRPC) {
         $fp = fopen(DEBUG_LOG_XMLRPC, 'a');
@@ -1334,7 +1380,7 @@ function universal_debug($message) {
     }
 }
 try {
-    $server = new XML_RPC_Server($dispatches, 1, ($debug_xmlrpc === 2 ? 1 : 0));
+    $server = new XML_RPC_Server($dispatches, 1, ($debug_xmlrpc === 2 ? 1 : 0));    
     
 } catch (Exception $e) {
     $fp = fopen(DEBUG_LOG_XMLRPC, 'a');

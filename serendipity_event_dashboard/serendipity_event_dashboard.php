@@ -118,7 +118,7 @@ class serendipity_event_dashboard extends serendipity_event {
         $summaryLength = 200;
         $i = 0;
 
-        $comments = serendipity_fetchComments(null, null, '', true, 'NORMAL', $where);
+        $comments = serendipity_fetchComments(null, $limit, '', true, 'NORMAL', $where);
 
         if (!is_array($comments)) {
             return;

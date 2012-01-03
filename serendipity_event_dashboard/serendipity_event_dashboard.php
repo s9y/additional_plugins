@@ -27,7 +27,7 @@ class serendipity_event_dashboard extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.6.3');
+        $propbag->add('version',       '0.6.4');
         $propbag->add('author',        'Garvin Hicking');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array('read_only', 'limit_draft', 'limit_comments', 'limit_comments_pending', 'limit_future', 'sequence', 'update'));
@@ -118,9 +118,12 @@ class serendipity_event_dashboard extends serendipity_event {
         $summaryLength = 200;
         $i = 0;
 
-        $comments = serendipity_fetchComments(null, $limit, '', true, 'NORMAL', $where);
+        $comments = serendipity_fetchComments(null, $limit, 'co.id DESC', true, 'NORMAL', $where);
 
         if (!is_array($comments)) {
+            return;
+        }
+        if (count($comments)==0) {
             return;
         }
 
@@ -371,22 +374,25 @@ class serendipity_event_dashboard extends serendipity_event {
 
     function CheckUpdate() {
         global $serendipity;
-        $updateURL = 'http://svn.berlios.de/viewvc/serendipity/trunk/docs/RELEASE';
+        if ($this->get_config('update') == 'none') {
+            return;
+        }
+        $updateURL = 'https://raw.github.com/s9y/Serendipity/master/docs/RELEASE';
 
         $file = fopen($updateURL, 'r');
         if (!$file) {
             echo "PLUGIN_DASHBOARD_ERROR_URL";
             return;
         }
+        $version=$this->get_config('update');
         while(!feof($file)){
             $line = fgets($file);
-            $version=$this->get_config('update');
 
             if(preg_match('/^' . $version . ':(.+$)/', $line, $match)){
-                $this->set_config('last_version', $match[1]);
-                $u_text = '<div class="serendipity_admin_list_item serendipity_admin_list_item_even" id="notifier"> ';
+                $update_to_version = $match[1];
+                $this->set_config('last_version', $update_to_version);
                 if ($version == "stable"){
-                    $url="http://prdownloads.sourceforge.net/php-blog/serendipity-" . $match[1] . ".zip";
+                    $url="http://prdownloads.sourceforge.net/php-blog/serendipity-" . $update_to_version . ".zip";
                 }
                 else {
                     if (date('H') >= 23 && date('i') >=42){
@@ -397,12 +403,11 @@ class serendipity_event_dashboard extends serendipity_event {
                     }
                     $url="http://www.s9y.org/snapshots/s9y_". date("Ym") . $day . "2342.tar.gz";
                 }
-                if($this->compareVersion($match[1], $serendipity['version'])){
-                    print $this->showUpdateHeader();
-                    $u_text .= PLUGIN_DASHBOARD_UPDATE_NOTIFIER . ' <a href="' . $url . '">' . $match[1] . '</a>';
-                $u_text .= '</div>';
-                print $u_text;
-                $this->set_config('update_text', $u_text);
+                if($this->compareVersion($update_to_version, $serendipity['version'])){
+                    $u_text = '<div class="serendipity_admin_list_item serendipity_admin_list_item_even" id="notifier"> ';
+                    $u_text .= PLUGIN_DASHBOARD_UPDATE_NOTIFIER . ' <a href="' . $url . '">' . $update_to_version . '</a>';
+                    $u_text .= '</div>';
+                    $this->set_config('update_text', $u_text);
                 }
             }
         }
@@ -429,38 +434,26 @@ class serendipity_event_dashboard extends serendipity_event {
         echo '</div>';
     }
 
-    function showUpdateHeader() {
-        $header =  '<div class="dashboard dashboard_update">';
-        $header .= ' <h3> ' . PLUGIN_DASHBOARD_UPD . ' </h3>';
-        return $header;
-    }
-
     function showUpdateNotifier() {
         global $serendipity;
 
+        // If we didn't check today, do it now and remeber, that we did.
         if (($this->get_config('last_update') != date('Ymd'))){
             $this->set_config('last_update', date('Ymd'));
+            $this->CheckUpdate(); // this will fill all needed config values
         }
-        else {
-            $nv = $this->get_config('last_version');
-            if($this->compareVersion($nv, $serendipity['version'])){
-                $eventData = '';
-                serendipity_plugin_api::hook_event('plugin_dashboard_updater', $eventData, $nv);
-                print $this->showUpdateHeader();
-                $update_text = $this->get_config('update_text');
-                print $update_text . $eventData;
-                print '</div>';
-            }
-            return;
-        }
-
-        if ($this->get_config('update') == 'none') {
-            return;
-        }
-
-        $this->CheckUpdate();
         
-        echo '</div>';
+        // Check if the last found update version is newer and tell it, if this is the case
+        $nv = $this->get_config('last_version');
+        if($this->compareVersion($nv, $serendipity['version'])){
+            $eventData = '';
+            serendipity_plugin_api::hook_event('plugin_dashboard_updater', $eventData, $newVersion);
+            print '<div class="dashboard dashboard_update">';
+            print '<h3> ' . PLUGIN_DASHBOARD_UPD . ' </h3>';
+            $update_text = $this->get_config('update_text');
+            print $update_text . $eventData;
+            print '</div>';
+        }
     }
 
     function showElementFuture() {

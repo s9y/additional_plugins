@@ -1,3 +1,8 @@
+0.6.4:
+----
+* let it look to github instead of svn berlios
+* cleaned up the updatecheck code flow a little to make it better readable
+
 0.6.2:
 ----
 Changed hook for the updater-plugin to react on an available update for 

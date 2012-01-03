@@ -27,7 +27,7 @@ class serendipity_event_dashboard extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.6.2');
+        $propbag->add('version',       '0.6.3');
         $propbag->add('author',        'Garvin Hicking');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array('read_only', 'limit_draft', 'limit_comments', 'limit_comments_pending', 'limit_future', 'sequence', 'update'));
@@ -177,7 +177,7 @@ class serendipity_event_dashboard extends serendipity_event {
                     <img style="width: 22px; height: 22px; border: 0px; padding-right: 4px; vertical-align: middle" src="<?php echo serendipity_getTemplateFile('admin/img/admin_msg_note.png'); ?>" alt="" />
         <?php   }?>
                 <a name="c<?php echo $comment['id'] ?>"></a>
-                <?php echo ($comment['type'] == 'NORMAL' ? COMMENT : ($comment['type'] == 'TRACKBACK' ? TRACKBACK : PINGBACK )) . ' #'. $comment['id'] .', '. IN_REPLY_TO .' <strong><a href="' . $comment['entry_url'] . '">'. htmlspecialchars($comment['title']) .'</a></strong>, '. ON . ' ' . serendipity_mb('ucfirst', serendipity_strftime('%b %e %Y, %H:%M', $comment['timestamp']))?>
+                <?php echo ($comment['type'] == 'NORMAL' ? COMMENT : ($comment['type'] == 'TRACKBACK' ? TRACKBACK : PINGBACK )) . ' #'. $comment['id'] .', '. IN_REPLY_TO .' <strong><a href="' . $comment['entry_url'] . '">'. htmlspecialchars($comment['title']) .'</a></strong>, '. ON . ' ' . serendipity_formatTime('%b %e %Y, %H:%M', $comment['timestamp'])?>
             </td>
         </tr>
         <tr>

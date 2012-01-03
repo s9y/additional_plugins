@@ -114,24 +114,19 @@ class serendipity_event_dashboard extends serendipity_event {
         $title = PLUGIN_DASHBOARD_TITLE;
     }
     
-    function showElementCommentlist($where, $limit) {
-        global $serendipity;
-        
+    function showElementCommentlist($where) {
         $summaryLength = 200;
-
         $i = 0;
-        $sql = serendipity_db_query("SELECT c.*, e.title FROM {$serendipity['dbPrefix']}comments c
-                                        LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
-                                        WHERE 1 = 1 " . $where
-                                        . (!serendipity_checkPermission('adminEntriesMaintainOthers') ? 'AND e.authorid = ' . (int)$serendipity['authorid'] : '') . "
-                                        ORDER BY c.id DESC LIMIT $limit");
-        if (!is_array($sql)) {
+
+        $comments = serendipity_fetchComments(null, null, '', true, 'NORMAL', $where);
+
+        if (!is_array($comments)) {
             return;
         }
 
         echo '<table width="100%" cellpadding="3" border="0" cellspacing="0">';
 
-        foreach ($sql as $rs) {
+        foreach ($comments as $rs) {
             $i++;
             $comment = array(
                 'fullBody'  => $rs['body'],
@@ -166,10 +161,10 @@ class serendipity_event_dashboard extends serendipity_event {
         
             #serendipity_plugin_api::hook_event('backend_view_comment', $comment, '&amp;serendipity[page]='. $page . $searchString);
             $class = 'serendipity_admin_list_item_' . (($i % 2 == 0 ) ? 'even' : 'uneven');
-            if ($comment['status'] == 'pending') {
+            if ($comment['status'] == 'pending' || $comment['status'] === 'confirm') {
                 $class .= ' serendipity_admin_comment_pending'; 
             }
-            $header_class = ($comment['status'] == 'pending' ? 'serendipityAdminMsgNote serendipity_admin_comment_pending_header' : '');
+            $header_class = ($comment['status'] == 'pending' || $comment['status'] === 'confirm' ? 'serendipityAdminMsgNote serendipity_admin_comment_pending_header' : '');
         ?>
         <tr>
             <td class="<?php echo $header_class; ?>">
@@ -237,7 +232,7 @@ class serendipity_event_dashboard extends serendipity_event {
                         </td>
                     </tr>
                 </table>
-        <?php if ($comment['status'] == 'pending' && !serendipity_db_bool($this->get_config('read_only'))) { ?>
+        <?php if (($comment['status'] == 'pending' || $comment['status'] === 'confirm') && !serendipity_db_bool($this->get_config('read_only'))) { ?>
                   <a href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=approve&amp;serendipity[id]=<?php echo $comment['id'] ?>&amp;<?php echo serendipity_setFormToken('url'); ?>" class="serendipityIconLink" title="<?php echo APPROVE; ?>"><img src="<?php echo serendipity_getTemplateFile('admin/img/accept.png'); ?>" alt="<?php echo APPROVE ?>" /><?php echo APPROVE ?></a>
         <?php } ?>
         <?php if ($comment['status'] == 'approved' && !serendipity_db_bool($this->get_config('read_only'))) { ?>
@@ -258,7 +253,6 @@ class serendipity_event_dashboard extends serendipity_event {
         <?php 
         }
         echo '</table>';
-
     }
 
     function showElementEntrylist($filter = array(), $limit = 0) {
@@ -351,8 +345,6 @@ class serendipity_event_dashboard extends serendipity_event {
     }
 
     function showElementDraft() {
-        global $serendipity;
-        
         $lim = $this->get_config('limit_draft');
         if ($lim < 1) return;
 
@@ -392,7 +384,6 @@ class serendipity_event_dashboard extends serendipity_event {
 
             if(preg_match('/^' . $version . ':(.+$)/', $line, $match)){
                 $this->set_config('last_version', $match[1]);
-                #$u_text = '<div class="serendipity_admin_list_item serendipity_admin_list_item_even" style="padding: 10px;"> ';
                 $u_text = '<div class="serendipity_admin_list_item serendipity_admin_list_item_even" id="notifier"> ';
                 if ($version == "stable"){
                     $url="http://prdownloads.sourceforge.net/php-blog/serendipity-" . $match[1] . ".zip";
@@ -409,24 +400,15 @@ class serendipity_event_dashboard extends serendipity_event {
                 if($this->compareVersion($match[1], $serendipity['version'])){
                     print $this->showUpdateHeader();
                     $u_text .= PLUGIN_DASHBOARD_UPDATE_NOTIFIER . ' <a href="' . $url . '">' . $match[1] . '</a>';
-#                }
-#                else {
-#                    $u_teøt = "No New Version is available.";
-#                }
                 $u_text .= '</div>';
                 print $u_text;
                 $this->set_config('update_text', $u_text);
                 }
             }
         }
-
-
     }
 
-
     function showElementComments() {
-        global $serendipity;
-
         $lim = $this->get_config('limit_comments');
         if ($lim < 1) return;
 
@@ -437,15 +419,13 @@ class serendipity_event_dashboard extends serendipity_event {
     }
     
     function showElementCommentsPending() {
-        global $serendipity;
-
         $lim = $this->get_config('limit_comments_pending');
         if ($lim < 1) return;
 
         echo '<div class="dashboard dashboard_comments_pending">';
         echo '<h3>' . COMMENTS_FILTER_NEED_APPROVAL . '</h3>';
 
-        $this->showElementcommentlist("AND status = 'pending'", $lim);
+        $this->showElementcommentlist(" AND status IN ('pending','confirm')", $lim);
         echo '</div>';
     }
 
@@ -478,15 +458,12 @@ class serendipity_event_dashboard extends serendipity_event {
             return;
         }
 
-        #print $this->showUpdateHeader();
         $this->CheckUpdate();
         
         echo '</div>';
     }
 
     function showElementFuture() {
-        global $serendipity;
-
         $lim = $this->get_config('limit_future');
         if ($lim < 1) return;
 
@@ -520,8 +497,6 @@ class serendipity_event_dashboard extends serendipity_event {
     }
 
     function event_hook($event, &$bag, &$eventData, $addData = null) {
-        global $serendipity;
-
         $hooks = &$bag->get('event_hooks');
 
         if (isset($hooks[$event])) {

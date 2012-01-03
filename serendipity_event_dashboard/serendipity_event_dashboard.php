@@ -114,7 +114,7 @@ class serendipity_event_dashboard extends serendipity_event {
         $title = PLUGIN_DASHBOARD_TITLE;
     }
     
-    function showElementCommentlist($where) {
+    function showElementCommentlist($where, $limit) {
         $summaryLength = 200;
         $i = 0;
 

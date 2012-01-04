@@ -373,7 +373,10 @@ function wp_getComments($message) {
     
     $limit = !empty($comment_filter['number'])?$comment_filter['number']:'10'; // defaults to 10
     if (!empty($comment_filter['offset'])) $limit = serendipity_db_limit($comment_filter['offset'], $limit); 
-    $order = ' DESC'; //  co.timestamp DESC';
+    if (version_compare($serendipity['version'],'1.7-alpha1')>=0)
+        $order = ' co.timestamp DESC';
+    else 
+        $order = ' DESC'; //  old versions have a bug here producing wrong results
     $showAll = $comment_filter['status'] != 'approve';
     $type = 'comments_and_trackbacks';
     
@@ -439,7 +442,7 @@ function wp_deleteComment($message) {
 }
 
 /**
- * This is moderation only! This will not change any other state than the moderation state.
+ * This will update the comment and approve/moderate it. 
  * @param unknown_type $message
  */
 function wp_editComment($message) {
@@ -456,13 +459,47 @@ function wp_editComment($message) {
     $val = $message->params[3];
     $comment_id =  $val->getval();
     $val = $message->params[4];
-    $comment =  $val->getval();
+    $rpccomment =  $val->getval();
+    universal_debug("Edit comment: " . print_r($rpccomment,true));
     
     if (!empty($comment_id)) {
         // We need the entryid, so fetch it:
-        $sql = serendipity_db_query("SELECT entry_id FROM {$serendipity['dbPrefix']}comments WHERE id = ". $comment_id, true);
-        $entry_id = $sql['entry_id'];
-        $result = serendipity_approveComment($comment_id, $entry_id, false, $comment['status'] !== 'approve');
+        $commentInfo = serendipity_db_query("SELECT c.entry_id as entry_id, c.body as content, c.email as author_email, c.author as comment_author, c.status as comment_status, c.url as author_url, e.authorid AS entry_authorid
+        	FROM {$serendipity['dbPrefix']}comments c
+        	LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
+        	WHERE c.id = $comment_id"
+        , true);
+        universal_debug("Fetched commentInfos: " . print_r($commentInfo, TRUE));
+        
+        // If we fetched a row, process it
+        if (is_array($commentInfo)) {
+            $entry_id = $commentInfo['entry_id'];
+            $entry_authorid = $commentInfo['entry_authorid'];
+            $comment_status = $commentInfo['comment_status'];
+            
+            // Setup new comment to save. Preserve old values, if nothing is given by the client.
+            $comment = array(
+                'author'  => empty($rpccomment['author'])       ? $commentInfo['author']       : $rpccomment['author'],
+                'url'     => empty($rpccomment['author_url'])   ? $commentInfo['author_url']   : $rpccomment['author_url'],
+                'email'   => empty($rpccomment['author_email']) ? $commentInfo['author_email'] : $rpccomment['author_email'],
+                'body'    => empty($rpccomment['content'])      ? $commentInfo['content']      : $rpccomment['content'],
+            );
+            $result = universal_updateComment($comment_id, $entry_id, $entry_authorid, $comment);
+            if ($result) {
+                $rpc_comment_status = $rpccomment['status'];
+                $result = serendipity_approveComment($comment_id, $entry_id, false, $rpc_comment_status !== 'approve');
+                if ($result) {
+                    // Sent out plugin hooks, perhaps someone is interested?
+                    if ($rpc_comment_status=='spam') serendipity_plugin_api::hook_event('xmlrpc_comment_spam', $comment);
+                    // dont call hooks, if we changed nothing (except for spam clicks, as Bayes is learning..)
+                    elseif ($rpc_comment_status=='hold' && $comment_status != 'pending') serendipity_plugin_api::hook_event('xmlrpc_comment_pending', $comment);
+                    elseif ($rpc_comment_status=='approve' && $comment_status != 'approved') serendipity_plugin_api::hook_event('xmlrpc_comment_approve', $comment);
+                }
+            }
+        }
+        else {
+            $result = false;
+        }
     }
     else {
         $result = false;
@@ -1373,6 +1410,24 @@ function universal_updertEntry(&$entry) {
     // The permission check is only executed, if this is set:
     $serendipity['GET']['adminModule'] = 'entries';
     return serendipity_updertEntry($entry);
+}
+function universal_updateComment($cid, $entry_id, $entry_authorid, &$comment) {
+    global $serendipity;
+    
+    // Check for adminEntriesMaintainOthers
+    if ($entry_authorid != $serendipity['authorid'] && !serendipity_checkPermission('adminEntriesMaintainOthers')) {
+        return false; // wrong user having no adminEntriesMaintainOthers right
+    }
+    $sql = "UPDATE {$serendipity['dbPrefix']}comments
+                    SET
+                        author    = '" . serendipity_db_escape_string($somment['author'])    . "',
+                        email     = '" . serendipity_db_escape_string($comment['email'])   . "',
+                        url       = '" . serendipity_db_escape_string($comment['url'])     . "',
+                        body      = '" . serendipity_db_escape_string($comment['body']) . "'
+            WHERE id = " . (int)$cid . " AND entry_id = " . (int)$comment['entry_id'];
+    serendipity_db_query($sql);
+    serendipity_plugin_api::hook_event('backend_updatecomment', $comment, $cid);
+    return true;
 }
 
 function universal_debug($message) {

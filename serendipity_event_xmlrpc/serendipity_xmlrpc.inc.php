@@ -161,6 +161,9 @@ function wp_getCategories($message) {
             if (!empty($cat['parentid'])) {
                 $values['parentId'] = new XML_RPC_Value($cat['parentid'], 'int');
             }
+            else {
+                $values['parentId'] = new XML_RPC_Value(0, 'int');
+            }
             $xml_entries_vals[] = new XML_RPC_Value($values,'struct');
         }
     }

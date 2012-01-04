@@ -35,7 +35,7 @@ class serendipity_event_xmlrpc extends serendipity_event
             'frontend_xmlrpc'  => true,
             'frontend_header'  => true
         ));
-        $propbag->add('configuration', array('category', 'gmt'));
+        $propbag->add('configuration', array('doc_rpclink','category', 'gmt'));
         $propbag->add('groups', array('FRONTEND_FULL_MODS', 'FRONTEND_EXTERNAL_SERVICES'));
     }
 
@@ -65,7 +65,13 @@ class serendipity_event_xmlrpc extends serendipity_event
     
     function introspect_config_item($name, &$propbag)
     {
+        global $serendipity;
+        
         switch($name) {
+            case 'doc_rpclink':
+                $propbag->add('type',           'content');
+                $propbag->add('default',        sprintf(PLUGIN_EVENT_XMLRPC_DOC_RPCLINK, $serendipity['baseURL'] . 'serendipity_xmlrpc.php'));
+                break;
             case 'gmt':
                 $propbag->add('type', 'boolean');
                 $propbag->add('name', PLUGIN_EVENT_XMLRPC_GMT);

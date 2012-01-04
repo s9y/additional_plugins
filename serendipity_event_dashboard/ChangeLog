@@ -1,3 +1,7 @@
+0.6.4:
+----
+* bugfix renamed var 
+
 0.6.3:
 ----
 * bugfix CRT comment bug 

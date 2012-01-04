@@ -27,7 +27,7 @@ class serendipity_event_dashboard extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.6.3');
+        $propbag->add('version',       '0.6.4');
         $propbag->add('author',        'Garvin Hicking');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array('read_only', 'limit_draft', 'limit_comments', 'limit_comments_pending', 'limit_future', 'sequence', 'update'));
@@ -444,8 +444,8 @@ class serendipity_event_dashboard extends serendipity_event {
         }
         
         // Check if the last found update version is newer and tell it, if this is the case
-        $nv = $this->get_config('last_version');
-        if($this->compareVersion($nv, $serendipity['version'])){
+        $newVersion = $this->get_config('last_version');
+        if($this->compareVersion($newVersion, $serendipity['version'])){
             $eventData = '';
             serendipity_plugin_api::hook_event('plugin_dashboard_updater', $eventData, $newVersion);
             print '<div class="dashboard dashboard_update">';

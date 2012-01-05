@@ -773,7 +773,7 @@ function blogger_newPost($message) {
         return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     $val = $message->params[4];
-    $entry['body']  = $val->getval();
+    $entry['body']  = universal_autohtml($val->getval());
     $val = $message->params[5];
     $topublish = $val->getval();
     if ($topublish == 1){
@@ -811,7 +811,7 @@ function blogger_editPost($message) {
         return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     $val = $message->params[4];
-    $entry['body']  = $val->getval();
+    $entry['body']  = universal_autohtml($val->getval());
     $entry['author'] = $username;
     ob_start();
     universal_fixEntry($entry);
@@ -917,13 +917,13 @@ function metaWeblog_newPost($message) {
     
     $entry['categories']        = universal_fetchCategories($post_array['categories']);
     $entry['title']             = @html_entity_decode($post_array['title'],ENT_COMPAT,'UTF-8');
-    $entry['body']              = $post_array['description'];
+    $entry['body']              = universal_autohtml($post_array['description']);
     if (XMLRPC_WP_COMPATIBLE) { // WP adds an obj behind an image upload
         universal_debug("body 1: " . $entry['body']);
         $entry['body'] = str_replace('￼', '', $entry['body']);
         universal_debug("body 2: " . $entry['body']);
     }
-    $entry['extended']          = $post_array['mt_text_more'];
+    $entry['extended']          = universal_autohtml($post_array['mt_text_more']);
     if (XMLRPC_WP_COMPATIBLE) { // WP adds an obj behind an image upload
         $entry['extended'] = str_replace('￼', '', $entry['extended']);
     }
@@ -1042,8 +1042,8 @@ function metaWeblog_editPost($message) {
     }
     
     $entry['title']          = @html_entity_decode($post_array['title'],ENT_COMPAT,'UTF-8');
-    $entry['body']           = $post_array['description'];
-    $entry['extended']       = $post_array['mt_text_more'];
+    $entry['body']           = universal_autohtml($post_array['description']);
+    $entry['extended']       = universal_autohtml($post_array['mt_text_more']);
     $entry['isdraft']        = ($publish == 0) ? 'true' : 'false';
     $entry['author']         = $username;
     $entry['authorid']       = $serendipity['authorid'];
@@ -1465,6 +1465,91 @@ function universal_debug($message) {
         fclose($fp);
     }
 }
+
+/**
+ * Private function trying to detect, if the text is html or plain. If it is plain, it converts \n to <p>
+ * @param string $text text to convert
+ */
+function universal_autohtml(&$text) {
+    if (empty($text)) return $text;
+    // if no p or br formatting is found, add it.
+    if (!preg_match('@<p(.*)>@Usi', $text) && !preg_match('@</p>@Usi', $text) &&  !preg_match('@<br/?>@Usi', $text)) {
+        $text = nl2p($text);
+        $text = str_replace("\n", "", $text); // strip nl's in order not to have the nl2br plugin responding.
+    }
+    return $text;
+}
+/* stolen from nl2br plugin: Insert <p class="whiteline" at paragraphs ending with two newlines
+ * Insert <p class="break" at paragraphs ending with one nl
+ * @param string text
+ * @return string
+ * */
+function nl2p(&$text) {
+    if (empty($text)) {
+        return $text;
+    }
+    //Standardize line endings:
+    //DOS to Unix and Mac to Unix
+    $text = str_replace(array("\r\n", "\r"), "\n", $text);
+    $text = str_split($text);
+    
+    $big_p = '<p class="whiteline">';
+    $small_p = '<p class="break">';
+
+    $insert = true;
+    $i = count($text);
+    $whiteline = false;
+    if ($text[$i-1] == "\n") {
+        //prevent unnexessary p-tag at the end
+        unset($text[$i-1]);
+    }
+
+    //main operation: convert \n to big_p and small_p 
+    while ($i > 0) {
+        if ($insert) {
+            $i = next_nl_block($i, $text);
+            if ($i == 0) {
+                //prevent replacing of first character
+                break;
+            }                
+            if ($whiteline == true) {
+                $text[$i] = '</p>' . $big_p;
+            } else {
+                $text[$i] = '</p>' . $small_p;
+            }
+            $whiteline = false;
+            $insert = false;
+        } else {
+            if ($text[$i-1] === "\n") {
+                //newline is follower of a newline 
+                $whiteline = true;
+            }
+            $insert = true;
+        }
+    }
+    if ($whiteline) {
+        $start_tag = $big_p;
+    } else {
+        $start_tag = $small_p;
+    }
+    return $start_tag . implode($text) . '</p>';
+}
+function next_nl_block($i, $text) {
+    $skipped = false;
+    for ($i--; $i>0; $i-- ) {
+        if (!$skipped){
+            //see if you skipped over a non-newline (heading to the next block)
+            if (strpos($text[$i], "\n") === false) {
+                $skipped = true;
+            }
+        }else if (strpos($text[$i], "\n") !== false) {
+            break;
+        }
+    }
+    return $i;
+}
+
+
 try {
     $server = new XML_RPC_Server($dispatches, 1, ($debug_xmlrpc === 2 ? 1 : 0));    
     

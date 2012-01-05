@@ -7,7 +7,7 @@
  */
 
 @define('PLUGIN_EVENT_XMLRPC_NAME', 'Posílání pøíspìvkù pomocí XML-RPC');
-@define('PLUGIN_EVENT_XMLRPC_DESC', 'Umo¾òuje posílat/editovat pøíspìvky pomocí XML-RPC API (MT, Blogger, Endpoints)');
+@define('PLUGIN_EVENT_XMLRPC_DESC', 'Umo¾òuje posílat/editovat pøíspìvky pomocí XML-RPC API (MT, Blogger, WordPress Endpoints)');
 @define('PLUGIN_EVENT_XMLRPC_GMT', 'Pou¾ívat èas ve formátu GMT');
 @define('PLUGIN_EVENT_XMLRPC_DEFAULTCAT', 'Výchozí kategorie');
 @define('PLUGIN_EVENT_XMLRPC_DEFAULTCAT_DESC', 'Upøesnìte výchozí kategorii, kam se mají umístit poslané pøíspìvky, pokud u nich není zadána kategorie.');

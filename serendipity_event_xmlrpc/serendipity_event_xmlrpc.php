@@ -35,7 +35,9 @@ class serendipity_event_xmlrpc extends serendipity_event
             'frontend_xmlrpc'  => true,
             'frontend_header'  => true
         ));
-        $propbag->add('configuration', array('doc_rpclink','category', 'gmt'));
+        $propbag->add('configuration', 
+            array('doc_rpclink','category', 'gmt', 'debuglog', 'wpfakeversion')
+            );
         $propbag->add('groups', array('FRONTEND_FULL_MODS', 'FRONTEND_EXTERNAL_SERVICES'));
     }
 
@@ -72,13 +74,32 @@ class serendipity_event_xmlrpc extends serendipity_event
                 $propbag->add('type',           'content');
                 $propbag->add('default',        sprintf(PLUGIN_EVENT_XMLRPC_DOC_RPCLINK, $serendipity['baseURL'] . 'serendipity_xmlrpc.php'));
                 break;
+            case 'debuglog':
+                $debuglevels = array(
+                    'none'     => PLUGIN_EVENT_XMLRPC_DEBUGLOG_NONE,
+                    'normal'   => PLUGIN_EVENT_XMLRPC_DEBUGLOG_NORMAL,
+                    'verbose'  => PLUGIN_EVENT_XMLRPC_DEBUGLOG_VERBOSE
+                );
+                $propbag->add('type',          'select');
+                $propbag->add('select_values', $debuglevels);
+                $propbag->add('name', PLUGIN_EVENT_XMLRPC_DEBUGLOG);
+                $propbag->add('description', PLUGIN_EVENT_XMLRPC_DEBUGLOG_DESC);
+                $propbag->add('default', 'none');
+                break;
             case 'gmt':
                 $propbag->add('type', 'boolean');
                 $propbag->add('name', PLUGIN_EVENT_XMLRPC_GMT);
                 $propbag->add('description', '');
                 $propbag->add('default', false);
                 break;
-
+                
+            case 'wpfakeversion' :
+                $propbag->add('type',          'string');
+                $propbag->add('name',          PLUGIN_EVENT_XMLRPC_WPFAKEVERSION);
+                $propbag->add('description',   PLUGIN_EVENT_XMLRPC_WPFAKEVERSION_DESC);
+                $propbag->add('default',       '');
+                break;
+                
             case 'category':
                 $cats    = serendipity_fetchCategories($serendipity['authorid']);
                 if (!is_array($cats)) {
@@ -141,6 +162,8 @@ class serendipity_event_xmlrpc extends serendipity_event
                     unset($serendipity['GET']['category']);
                     unset($serendipity['GET']['hide_category']);
                     $serendipity['xmlrpc_default_category'] = $this->get_config('category');
+                    $serendipity['xmlrpc_debuglog'] = $this->get_config('debuglog','none');
+                    $serendipity['xmlrpc_wpfakeversion'] = $this->get_config('wpfakeversion','');
 
                     @define('SERENDIPITY_IS_XMLRPC', true);
                     $serendipity['XMLRPC_GMT'] = serendipity_db_bool($this->get_config('gmt'));

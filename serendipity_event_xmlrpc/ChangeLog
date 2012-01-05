@@ -1,7 +1,7 @@
 # $Id$
 Version 1.46:
-    * Enahnced the interface with WordPress RPC calls.
-    * Info about RPC caller URL in config.
+    * Enhanced the interface with WordPress RPC calls.
+    * Info about RPC caller URL in config, some configurations.
 
 Version 1.45:
    * Catch empty timestemps, thanks to TimNiceBut

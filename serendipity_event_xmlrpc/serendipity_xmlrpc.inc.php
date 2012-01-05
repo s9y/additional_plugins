@@ -7,10 +7,14 @@ if (empty($HTTP_RAW_POST_DATA)) {
     $HTTP_RAW_POST_DATA = implode("\r\n", file('php://input'));
 }
 
-$debug_xmlrpc = 1;
+global $serendipity;
+if ($serendipity['xmlrpc_debuglog']=='normal') $debug_xmlrpc = 1;
+elseif ($serendipity['xmlrpc_debuglog']=='verbose') $debug_xmlrpc = 2;
+else  $debug_xmlrpc = 0;
+
 if ($debug_xmlrpc) {
     //@define('DEBUG_LOG_XMLRPC', '/tmp/rpc.log');
-    @define('DEBUG_LOG_XMLRPC', dirname(__FILE__) . "/rpc.log"); 
+    @define('DEBUG_LOG_XMLRPC', dirname(__FILE__) . "/rpc.log");
     $fp = fopen(DEBUG_LOG_XMLRPC, 'a');
     fwrite($fp, '[' . date('d.m.Y H:i') . ']' . print_r($HTTP_RAW_POST_DATA, true));
     fclose($fp);
@@ -213,8 +217,10 @@ function wp_getPostFormats( $message ) {
     if (!serendipity_authenticate_author($username, $password)) {
         return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
-    $val = $message->params[3];
-    $formats_to_show = $val->getval();
+    if (count($message->params)>3) {
+        $val = $message->params[3];
+        $formats_to_show = $val->getval();
+    }
     
     $all_formats = new XML_RPC_Value(
         array(
@@ -232,15 +238,16 @@ function wp_getPostFormats( $message ) {
     );
     $supported_formats = new XML_RPC_Value(
         array(
-            'standard' => new XML_RPC_Value("Article (S9Y)", 'string'), 
+            'standard' => new XML_RPC_Value("Article (Serendipity)", 'string'), 
         ),'struct'
     );
+    //return new XML_RPC_Response($all_formats);
     return new XML_RPC_Response($supported_formats);
 }
 
 function wp_getOptions($message) {
     global $serendipity;
-
+    
     $val = $message->params[1];
     $username = $val->getval();
     $val = $message->params[2];
@@ -249,21 +256,39 @@ function wp_getOptions($message) {
         return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
     
+    if (count($message->params)>3) {
+        $val = $message->params[3];
+        $filter = XML_RPC_decode($val);
+    }
+    
+    $doFilter = !empty($filter) && is_array($filter) && count($filter) >0;
+    
     $xml_entries_vals = array();
-    $xml_entries_vals[] = wp_getOptions_createOption('software_name', 'Serendipity');
-    $xml_entries_vals[] = wp_getOptions_createOption('software_version', $serendipity['version']);
-    $xml_entries_vals[] = wp_getOptions_createOption('blog_url', $serendipity['baseURL']);
-    $xml_entries_vals[] = wp_getOptions_createOption('blog_title', $serendipity['blogTitle']);
+    if (empty($serendipity['xmlrpc_wpfakeversion'])) {
+        if (!$doFilter || in_array('software_name', $filter)) 
+            $xml_entries_vals[] = wp_getOptions_createOption('software_name', 'Serendipity');
+        if (!$doFilter || in_array('software_version', $filter)) 
+            $xml_entries_vals[] = wp_getOptions_createOption('software_version', $serendipity['version']);
+    }
+    else {
+        if (!$doFilter || in_array('software_name', $filter)) 
+            $xml_entries_vals[] = wp_getOptions_createOption('software_name', 'WordPress');
+        if (!$doFilter || in_array('software_version', $filter)) 
+            $xml_entries_vals[] = wp_getOptions_createOption('software_version', $serendipity['xmlrpc_wpfakeversion']);
+    }
+    if (!$doFilter || in_array('blog_url', $filter)) 
+        $xml_entries_vals[] = wp_getOptions_createOption('blog_url', $serendipity['baseURL']);
+    if (!$doFilter || in_array('blog_title', $filter)) 
+        $xml_entries_vals[] = wp_getOptions_createOption('blog_title', $serendipity['blogTitle']);
     $xml_entries = new XML_RPC_Value($xml_entries_vals, 'array');
     return new XML_RPC_Response($xml_entries);
     
 }
 /**
  * Private function to create a single wpOption
- * Enter description here ...
- * @param unknown_type $desc
- * @param unknown_type $value
- * @param unknown_type $readonly
+ * @param string $desc
+ * @param string $value
+ * @param boolean $readonly default true
  */
 function wp_getOptions_createOption($desc, $value, $readonly=true) {
     $values =             array(
@@ -460,16 +485,16 @@ function wp_editComment($message) {
     $comment_id =  $val->getval();
     $val = $message->params[4];
     $rpccomment =  $val->getval();
-    universal_debug("Edit comment: " . print_r($rpccomment,true));
     
     if (!empty($comment_id)) {
+        ob_start();
+        
         // We need the entryid, so fetch it:
         $commentInfo = serendipity_db_query("SELECT c.entry_id as entry_id, c.body as content, c.email as author_email, c.author as comment_author, c.status as comment_status, c.url as author_url, e.authorid AS entry_authorid
         	FROM {$serendipity['dbPrefix']}comments c
         	LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
         	WHERE c.id = $comment_id"
         , true);
-        universal_debug("Fetched commentInfos: " . print_r($commentInfo, TRUE));
         
         // If we fetched a row, process it
         if (is_array($commentInfo)) {
@@ -496,10 +521,12 @@ function wp_editComment($message) {
                     elseif ($rpc_comment_status=='approve' && $comment_status != 'approved') serendipity_plugin_api::hook_event('xmlrpc_comment_approve', $comment);
                 }
             }
-        }
-        else {
+        } else {
             $result = false;
         }
+        $errs = ob_get_contents();
+        if (!empty($errs)) universal_debug("errors: $errs");
+        ob_clean();
     }
     else {
         $result = false;
@@ -1434,6 +1461,7 @@ function universal_debug($message) {
     if (DEBUG_XMLRPC) {
         $fp = fopen(DEBUG_LOG_XMLRPC, 'a');
         fwrite($fp, $message . "\n");
+        fflush($fp);
         fclose($fp);
     }
 }

@@ -914,17 +914,13 @@ function metaWeblog_newPost($message) {
         if ($post_array['post_status'] == 'draft') $publish = 0;
         else if ($post_array['post_status'] == 'publish') $publish = 1;
     }
-    
+
     $entry['categories']        = universal_fetchCategories($post_array['categories']);
     $entry['title']             = @html_entity_decode($post_array['title'],ENT_COMPAT,'UTF-8');
     $entry['body']              = universal_autohtml($post_array['description']);
-    if (XMLRPC_WP_COMPATIBLE) { // WP adds an obj behind an image upload
-        universal_debug("body 1: " . $entry['body']);
-        $entry['body'] = str_replace('￼', '', $entry['body']);
-        universal_debug("body 2: " . $entry['body']);
-    }
     $entry['extended']          = universal_autohtml($post_array['mt_text_more']);
     if (XMLRPC_WP_COMPATIBLE) { // WP adds an obj behind an image upload
+        $entry['body'] = str_replace('￼', '', $entry['body']);
         $entry['extended'] = str_replace('￼', '', $entry['extended']);
     }
     $entry['isdraft']           = ($publish == 0) ? 'true' : 'false';
@@ -935,10 +931,17 @@ function metaWeblog_newPost($message) {
     }
     $entry['moderate_comments'] = serendipity_db_bool($serendipity['moderateCommentsDefault']);
 
+    // Set tags as if it was set from editor. The plugins reads them from POST
+    if (!empty($post_array['mt_keywords'])) {
+        if (empty($serendipity['POST'])) $serendipity['POST'] = array();
+        $serendipity['POST']['properties']['freetag_tagList'] = $post_array['mt_keywords'];
+        $serendipity['POST']['properties']['microblogging_tagList'] = $post_array['mt_keywords'];
+    }
+
     if (isset($post_array['dateCreated'])) {
         $entry['timestamp']  = XML_RPC_iso8601_decode($post_array['dateCreated'],($post_array['dateCreated']{strlen($post_array['dateCreated'])-1} == "Z"));
     }
-    
+
     ob_start();
     universal_fixEntry($entry);
     if (!is_array($entry['categories']) || count($entry['categories']) < 1) {
@@ -952,13 +955,12 @@ function metaWeblog_newPost($message) {
     $id = universal_updertEntry($entry);
     // Apply password has to be after serendipity_updertEntry, else it will override it empty!
     universal_save_entrypassword($id, $post_array['wp_password']);
-    
+
     if ($id) {
         if (!$entry['id']) {
             $entry['id']=$id;
         }
         $entry['mt_keywords'] = $post_array['mt_keywords'];
-
         // check for custom fields
         if (isset($post_array['custom_fields'])) {
             $custom_fields = $post_array['custom_fields'];
@@ -1049,6 +1051,12 @@ function metaWeblog_editPost($message) {
     $entry['authorid']       = $serendipity['authorid'];
     $entry['id']             = $postid;
     $entry['allow_comments'] = serendipity_db_bool($post_array['mt_allow_comments']);
+    // Set tags as if it was set from editor. The plugins reads them from POST
+    if (!empty($post_array['mt_keywords'])) {
+        if (empty($serendipity['POST'])) $serendipity['POST'] = array();
+        $serendipity['POST']['properties']['freetag_tagList'] = $post_array['mt_keywords'];
+        $serendipity['POST']['properties']['microblogging_tagList'] = $post_array['mt_keywords'];
+    }
 
     // Remember old geo coords for clients not resaving them:
     $entry_properties = serendipity_fetchEntryProperties($postid);
@@ -1425,11 +1433,11 @@ function universal_fixEntry(&$entry) {
     }
     
     if (empty($entry['allow_comments'])) {
-        $entry['allow_comments'] = serendipity_db_bool($serendipity['allowCommentsDefault']);//(empty($serendipity['xml_rpc_default_allow_comments'])?'false':'true');
+        $entry['allow_comments'] = serendipity_db_bool($serendipity['allowCommentsDefault']);
     }
 
     if (empty($entry['moderate_comments'])) {
-        $entry['moderate_comments'] = serendipity_db_bool($serendipity['moderateCommentsDefault']);//(empty($serendipity['xml_rpc_default_moderate_comments'])?'false':'true');
+        $entry['moderate_comments'] = serendipity_db_bool($serendipity['moderateCommentsDefault']);
     }
 }
 

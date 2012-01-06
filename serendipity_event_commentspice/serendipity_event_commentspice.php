@@ -32,6 +32,8 @@ class serendipity_event_commentspice extends serendipity_event
         $propbag->add('version',       '0.1');
         $propbag->add('event_hooks',    array(
             'frontend_comment' => true,
+            'frontend_display' => true,
+            'frontend_saveComment_finish' => true,
             'external_plugin'  => true,
         ));
         $propbag->add('groups', array('FRONTEND_VIEWS'));
@@ -56,7 +58,7 @@ class serendipity_event_commentspice extends serendipity_event
         return false;
     }
     
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, &$addData) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');
@@ -68,20 +70,30 @@ class serendipity_event_commentspice extends serendipity_event
                             header('Content-Type: image/png');
                             echo file_get_contents(dirname(__FILE__). '/img/twitter.png');
                             break;
+                        case 'spicetwittersmall.png':
+                            header('Content-Type: image/png');
+                            echo file_get_contents(dirname(__FILE__). '/img/twitter_small.png');
+                            break;
                     }
                     return true;
                     break;
-                case 'frontend_comment':
-                    if (!serendipity_db_bool($this->get_config('twitterinput', true))) {
-                        break;
+                case 'frontend_saveComment_finish' :
+                    // Remember twitter name value into cookie, if user ordered to, else clear cookie
+                    if (isset($serendipity['POST']['remember'])) {
+                        serendipity_rememberCommentDetails(array ('twitter' => $serendipity['POST']['twitter']));
                     }
-                    echo '<div id="serendipity_commentspice_twitter">';
-                    echo '<input type="text" id="serendipity_commentform_twitter" name="serendipity[twitter]" placeholder="your twittername" />';
-                    echo '&nbsp;<label for="serendipity_commentform_twitter"><img src="' . $serendipity['baseURL'] . 'index.php?/plugin/spicetwitter.png" alt="Twitter"></label>';
-                    echo '</div>';
-                    echo '<br/><div  id="serendipity_commentspice_twitter_desc" class="serendipity_commentDirection serendipity_comment_spice">';
-                    echo 'If you enter your <b>twitter name</b> here, your timeline will get linked to your comment. (<i>experimental comment spice</i>)';
-                    echo '</div>';
+                    else {
+                        serendipity_forgetCommentDetails(array('twitter'));
+                    }
+                    return true;
+                    break;
+                case 'frontend_display':        
+                    $this->printTwitterLink($eventData, $addData);
+
+                    return true;
+                    break;
+                case 'frontend_comment':
+                    $this->printTwitterInput($eventData, $addData);
                     return true;
                     break;
                 default:
@@ -91,5 +103,38 @@ class serendipity_event_commentspice extends serendipity_event
         } else {
             return false;
         }
+    }
+    function printTwitterLink(&$eventData, &$addData) {
+        global $serendipity;
+        
+        if (!isset($eventData['comment']) || !serendipity_db_bool($this->get_config('twitterinput', true))) {
+            return true;                            
+        }
+        // Called from sidbar:
+        if ($addData['from'] == 'serendipity_plugin_comments:generate_content') {
+            return true;
+        }
+        
+        if (isset($serendipity['COOKIE']['twitter'])) {
+            $twittername = $serendipity['COOKIE']['twitter'];
+            $eventData['comment'] = '<a href="https://twitter.com/#!/' . $twittername . '" class="commentspice_twitterlink" target="_blank"><img src="' . $serendipity['baseURL'] . 'index.php?/plugin/spicetwittersmall.png" alt="Read on twitter: "> ' . $twittername . '</a><br/>' . $eventData['comment'];
+        }
+        
+    }
+    function printTwitterInput(&$eventData, &$addData) {
+        global $serendipity;
+        
+        if (!serendipity_db_bool($this->get_config('twitterinput', true))) {
+            return;
+        }
+        if (isset($serendipity['COOKIE']['twitter'])) $twittername = $serendipity['COOKIE']['twitter'];
+        else  $twittername = '';
+        echo '<div id="serendipity_commentspice_twitter">';
+        echo '<input type="text" id="serendipity_commentform_twitter" name="serendipity[twitter]" placeholder="your twittername" value="' . $twittername . '"/>';
+        echo '&nbsp;<label for="serendipity_commentform_twitter"><img src="' . $serendipity['baseURL'] . 'index.php?/plugin/spicetwitter.png" alt="Twitter"></label>';
+        echo '</div>';
+        echo '<br/><div  id="serendipity_commentspice_twitter_desc" class="serendipity_commentDirection serendipity_comment_spice">';
+        echo 'If you enter your <b>twitter name</b>, your timeline will get linked to your comment. (<i>comment spice experimental</i>)';
+        echo '</div>';
     }
 }

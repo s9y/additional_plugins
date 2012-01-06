@@ -27,7 +27,7 @@ class serendipity_event_dashboard extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.6.4');
+        $propbag->add('version',       '0.6.5');
         $propbag->add('author',        'Garvin Hicking');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array('read_only', 'limit_draft', 'limit_comments', 'limit_comments_pending', 'limit_future', 'sequence', 'update'));
@@ -118,7 +118,15 @@ class serendipity_event_dashboard extends serendipity_event {
         $summaryLength = 200;
         $i = 0;
 
-        $comments = serendipity_fetchComments(null, $limit, 'co.id DESC', true, 'NORMAL', $where);
+        if (version_compare(substr($serendipity['version'], 0, 3), '1.6') >= 0) { 
+            $comments = serendipity_fetchComments(null, $limit, 'co.id DESC', true, 'NORMAL', $where);
+        } else {
+            $comments = serendipity_db_query("SELECT c.*, e.title FROM {$serendipity['dbPrefix']}comments c
+                                        LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
+                                        WHERE 1 = 1 " . $where
+                                        . (!serendipity_checkPermission('adminEntriesMaintainOthers') ? 'AND e.authorid = ' . (int)$serendipity['authorid'] : '') . "
+                                        ORDER BY c.id DESC LIMIT $limit");
+        }
 
         if (!is_array($comments)) {
             return;

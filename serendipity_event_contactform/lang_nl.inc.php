@@ -23,6 +23,9 @@
 @define('PLUGIN_CONTACTFORM_DYNAMICTPL','Dynamische tpl gebruiken?');
 @define('PLUGIN_CONTACTFORM_DYNAMICTPL_DESC','Met deze instelling kan een tpl-bestand gebruikt worden, om dynamische velden te maken in het formulier.');
 @define('PLUGIN_CONTACTFORM_DYNAMICFIELDS','Tekenreeks voor formulier-veld');
+@define('PLUGIN_CONTACTFORM_FNAME','Voornaam');
+@define('PLUGIN_CONTACTFORM_LNAME','Achternaam');
+@define('PLUGIN_CONTACTFORM_ADDRESS','Adres');
 @define('PLUGIN_CONTACTFORM_DYNAMICFIELDS_DESC','Dit is de tekenreeks die wordt toegepast om te bepalen welke velden zichtbaar zullen zijn op het formulier, of ze al dan niet verplicht zijn, en met welke standaardwaarden.');
 @define('PLUGIN_CONTACTFORM_DYNAMICFIELDS_DESC_NOTE','<p>De "Tekenreeks voor formulier-veld" wordt toegepast om te bepalen welke velden zichtbaar zullen zijn op het dynamische formulier. De tekenreeks moet worden opgemaakt als <field>:<field:<field>. Let op de scheiding door de dubbele punt.</p>
    <p>De individuele velden (die van het type "radio", worden later gedefinieerd) moeten worden opgemaakt als {require;}Name;type{;default}. Let op de scheiding door de punt-komma. N.B.: de accolades geven een optioneel veld aan. Indien een veld verplicht is, dan moet het "require" gebruikt worden bij het veld (zonder accolades).</p>

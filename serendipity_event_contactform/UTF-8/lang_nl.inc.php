@@ -14,6 +14,9 @@
 @define('PLUGIN_CONTACTFORM_ERROR_DATA', 'Naam, e-mail en bericht mogen niet leeg zijn.');
 @define('PLUGIN_CONTACTFORM_DYNAMIC_ERROR_DATA', 'Niet alle verplichte velden zijn ingevuld.');
 @define('PLUGIN_CONTACTFORM_ARTICLEFORMAT', 'Opmaken als een inzending?');
+@define('PLUGIN_CONTACTFORM_FNAME','Voornaam');
+@define('PLUGIN_CONTACTFORM_LNAME','Achternaam');
+@define('PLUGIN_CONTACTFORM_ADDRESS','Adres');
 @define('PLUGIN_CONTACTFORM_ARTICLEFORMAT_BLAHBLAH', 'bij ja wordt de uitvoer automatisch opgemaakt als een inzending (kleuren, randen, etc.). Standaard: ja');
 @define('PLUGIN_CONTACTFORM_DYNAMICTPL','Dynamische tpl gebruiken?');
 @define('PLUGIN_CONTACTFORM_DYNAMICTPL_DESC','Met deze instelling kan een tpl-bestand gebruikt worden, om dynamische velden te maken in het formulier.');

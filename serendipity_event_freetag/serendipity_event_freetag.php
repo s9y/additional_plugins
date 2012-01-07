@@ -70,7 +70,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.35');
+        $propbag->add('version',       '3.36');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -1865,8 +1865,8 @@ class serendipity_event_freetag extends serendipity_event
 <?php
             if (urldecode($serendipity['GET']['tag']) == $tag) {
 ?>
-                    <input type="hidden" name="serendipity%5Btag%5D" value="<?php echo urlencode(urldecode($serendipity['GET']['tag'])); ?>" />
-                    <input type="submit" name="serendipity%5Bkeywordsubmit%5D" class="serendipityPrettyButton input_button" value="<?php echo SAVE; ?>" />
+                    <input type="hidden" name="serendipity[tag]" value="<?php echo urlencode(urldecode($serendipity['GET']['tag'])); ?>" />
+                    <input type="submit" name="serendipity[keywordsubmit]" class="serendipityPrettyButton input_button" value="<?php echo SAVE; ?>" />
 <?php
             } else {
 ?>

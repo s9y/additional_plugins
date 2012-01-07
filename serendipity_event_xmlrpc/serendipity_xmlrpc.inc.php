@@ -938,8 +938,10 @@ function metaWeblog_newPost($message) {
         $serendipity['POST']['properties']['microblogging_tagList'] = $post_array['mt_keywords'];
     }
 
-    if (isset($post_array['dateCreated'])) {
-        $entry['timestamp']  = XML_RPC_iso8601_decode($post_array['dateCreated'],($post_array['dateCreated']{strlen($post_array['dateCreated'])-1} == "Z"));
+    if (isset($post_array['dateCreated']) || isset($post_array['date_created_gmt'])) {
+        if (isset($post_array['date_created_gmt'])) $timestamp = XML_RPC_iso8601_decode($post_array['date_created_gmt'],1);
+        else $timestamp = XML_RPC_iso8601_decode($post_array['dateCreated'], ($post_array['dateCreated']{strlen($post_array['dateCreated'])-1} == "Z"));
+        $entry['timestamp']  = $timestamp;
     }
 
     ob_start();
@@ -954,8 +956,8 @@ function metaWeblog_newPost($message) {
 
     $id = universal_updertEntry($entry);
     // Apply password has to be after serendipity_updertEntry, else it will override it empty!
-    universal_save_entrypassword($id, $post_array['wp_password']);
-
+    universal_save_entrypassword($postid, isset($post_array['wp_password'])?$post_array['wp_password']:null);
+    
     if ($id) {
         if (!$entry['id']) {
             $entry['id']=$id;
@@ -1031,8 +1033,11 @@ function metaWeblog_editPost($message) {
         $post_array = $val->getval();
     }
     
-    $val = $message->params[4];
-    $publish = $val->getval();
+    $publish = 0;
+    if (count($message->params)>4) { // Some clients don't even send this!
+        $val = $message->params[4];
+        $publish = $val->getval();
+    }
     if (XMLRPC_WP_COMPATIBLE) {
         if ($post_array['post_status'] == 'draft') $publish = 0;
         else if ($post_array['post_status'] == 'publish') $publish = 1;
@@ -1065,9 +1070,10 @@ function metaWeblog_editPost($message) {
         $old_geo_lat = $entry_properties['geo_lat'];
     }
     
-    if (isset($post_array['dateCreated'])) {
-        $entry['timestamp']  = XML_RPC_iso8601_decode($post_array['dateCreated'], ($post_array['dateCreated']{strlen($post_array['dateCreated'])-1} == "Z"));
-        universal_debug("Handed date created: " . $post_array['dateCreated']);
+    if (isset($post_array['dateCreated']) || isset($post_array['date_created_gmt'])) {
+        if (isset($post_array['date_created_gmt'])) $timestamp = XML_RPC_iso8601_decode($post_array['date_created_gmt'],1);
+        else $timestamp = XML_RPC_iso8601_decode($post_array['dateCreated'], ($post_array['dateCreated']{strlen($post_array['dateCreated'])-1} == "Z"));
+        $entry['timestamp']  = $timestamp;
     }
     else { // Get the original date, if no new date was defined
         $oldEntry = serendipity_fetchEntry('id', $postid, true, 'true');
@@ -1082,7 +1088,7 @@ function metaWeblog_editPost($message) {
     }
     
     // Apply password has to be after serendipity_updertEntry, else it will override it empty!
-    universal_save_entrypassword($postid, $post_array['wp_password']);
+    universal_save_entrypassword($postid, isset($post_array['wp_password'])?$post_array['wp_password']:null);
 
     
     //if plugins want to manage it, let's instantiate all non managed meta
@@ -1480,6 +1486,8 @@ function universal_debug($message) {
  */
 function universal_autohtml(&$text) {
     if (empty($text)) return $text;
+    $text = trim($text);
+    if (!serendipity_db_bool($serendipity['xmlrpc_htmlconvert'])) return $text;
     // if no p or br formatting is found, add it.
     if (!preg_match('@<p(.*)>@Usi', $text) && !preg_match('@</p>@Usi', $text) &&  !preg_match('@<br/?>@Usi', $text)) {
         $text = nl2p($text);

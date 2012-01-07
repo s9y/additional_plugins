@@ -22,3 +22,5 @@
 
 @define('PLUGIN_EVENT_XMLRPC_WPFAKEVERSION', 'Fake WordPress version');
 @define('PLUGIN_EVENT_XMLRPC_WPFAKEVERSION_DESC', 'This XML-RPC interface is able to respond to WordPress type calls. Normally, if asked for the software used, it answers with Serendipity ' . $serendipity['version'] .'. But if you enter a version here, it will response as WordPress (version entered). Some clients might check, if the WP version is high enough, so a version like 3.2 would be okay here.');
+@define('PLUGIN_EVENT_XMLRPC_HTMLCONVERT', 'Convert plaintext articles to HTML');
+@define('PLUGIN_EVENT_XMLRPC_HTMLCONVERT_DESC', 'The plugin tries to detect plain text delivered as article body and if detected converts its linefeeds to HTML. If you use plugins like the textile or nl2br textformats for articles you should disable this.');

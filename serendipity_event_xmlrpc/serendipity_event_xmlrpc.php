@@ -36,7 +36,7 @@ class serendipity_event_xmlrpc extends serendipity_event
             'frontend_header'  => true
         ));
         $propbag->add('configuration', 
-            array('doc_rpclink','category', 'gmt', 'debuglog', 'wpfakeversion')
+            array('doc_rpclink','category', 'gmt', 'htmlconvert', 'wpfakeversion', 'debuglog')
             );
         $propbag->add('groups', array('FRONTEND_FULL_MODS', 'FRONTEND_EXTERNAL_SERVICES'));
     }
@@ -92,7 +92,12 @@ class serendipity_event_xmlrpc extends serendipity_event
                 $propbag->add('description', '');
                 $propbag->add('default', false);
                 break;
-                
+            case 'htmlconvert':
+                $propbag->add('type', 'boolean');
+                $propbag->add('name', PLUGIN_EVENT_XMLRPC_HTMLCONVERT);
+                $propbag->add('description', PLUGIN_EVENT_XMLRPC_HTMLCONVERT_DESC);
+                $propbag->add('default', true);
+                break;
             case 'wpfakeversion' :
                 $propbag->add('type',          'string');
                 $propbag->add('name',          PLUGIN_EVENT_XMLRPC_WPFAKEVERSION);
@@ -164,6 +169,7 @@ class serendipity_event_xmlrpc extends serendipity_event
                     $serendipity['xmlrpc_default_category'] = $this->get_config('category');
                     $serendipity['xmlrpc_debuglog'] = $this->get_config('debuglog','none');
                     $serendipity['xmlrpc_wpfakeversion'] = $this->get_config('wpfakeversion','');
+                    $serendipity['xmlrpc_htmlconvert']  = $this->get_config('htmlconvert',true);
 
                     @define('SERENDIPITY_IS_XMLRPC', true);
                     $serendipity['XMLRPC_GMT'] = serendipity_db_bool($this->get_config('gmt'));

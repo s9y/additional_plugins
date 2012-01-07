@@ -16,3 +16,5 @@
 
 @define('PLUGIN_EVENT_XMLRPC_WPFAKEVERSION', 'WordPress Version vortäuschen');
 @define('PLUGIN_EVENT_XMLRPC_WPFAKEVERSION_DESC', 'Die XML-RPC Schnittlstelle kann auf WordPress Aufrufe reagieren. Wenn sie nach der installierten Software Version gefragt wird, antwortet sie normaler Weise mit Serendipity ' . $serendipity['version'] .'. Wenn Du hier eine Version einträgst, dann wird sie mit WordPress (angegebene Version) antworten. Einige Clients könnten auf eine minimale WordPress Version testen, eine Version wie 3.2 erscheint dann okay.');
+@define('PLUGIN_EVENT_XMLRPC_HTMLCONVERT', 'Text Artikel nach HTML konvertieren');
+@define('PLUGIN_EVENT_XMLRPC_HTMLCONVERT_DESC', 'Das Plugin versucht zu erkennen, ob Artikel als reine Texte oder als HTML übermittelt werden. Bei reinem Text wird es Zeilenumbrüche in HTML umwandeln. Wenn Du z.B: ein Textile oder das NL2BR Plugin für Artikel benutzt, solltest Du diese Option ausschalten.');

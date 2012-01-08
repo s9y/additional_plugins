@@ -914,11 +914,15 @@ function metaWeblog_newPost($message) {
         if ($post_array['post_status'] == 'draft') $publish = 0;
         else if ($post_array['post_status'] == 'publish') $publish = 1;
     }
-
     $entry['categories']        = universal_fetchCategories($post_array['categories']);
     $entry['title']             = @html_entity_decode($post_array['title'],ENT_COMPAT,'UTF-8');
-    $entry['body']              = universal_autohtml($post_array['description']);
-    $entry['extended']          = universal_autohtml($post_array['mt_text_more']);
+    if (!isset($post_array['mt_text_more']) || empty($post_array['mt_text_more'])) {
+        $entry = universal_splitMore($entry, $post_array['description']);
+    }
+    else {
+        $entry['body']              = universal_autohtml($post_array['description']);
+        $entry['extended']          = universal_autohtml($post_array['mt_text_more']);
+    }
     if (XMLRPC_WP_COMPATIBLE) { // WP adds an obj behind an image upload
         $entry['body'] = str_replace('￼', '', $entry['body']);
         $entry['extended'] = str_replace('￼', '', $entry['extended']);
@@ -1016,7 +1020,7 @@ function metaWeblog_editPost($message) {
     global $serendipity;
 
     $val = $message->params[0];
-    $postid = $val->getval();
+    $postid = (int)$val->getval();
     $val = $message->params[1];
     $username = $val->getval();
     $val = $message->params[2];
@@ -1049,8 +1053,13 @@ function metaWeblog_editPost($message) {
     }
     
     $entry['title']          = @html_entity_decode($post_array['title'],ENT_COMPAT,'UTF-8');
-    $entry['body']           = universal_autohtml($post_array['description']);
-    $entry['extended']       = universal_autohtml($post_array['mt_text_more']);
+    if (!isset($post_array['mt_text_more']) || empty($post_array['mt_text_more'])) {
+        $entry = universal_splitMore($entry, $post_array['description']);
+    }
+    else {
+        $entry['body']              = universal_autohtml($post_array['description']);
+        $entry['extended']          = universal_autohtml($post_array['mt_text_more']);
+    }
     $entry['isdraft']        = ($publish == 0) ? 'true' : 'false';
     $entry['author']         = $username;
     $entry['authorid']       = $serendipity['authorid'];
@@ -1471,6 +1480,18 @@ function universal_updateComment($cid, $entry_id, $entry_authorid, &$comment) {
     return true;
 }
 
+function universal_splitMore(&$entry, &$body) {
+    $parts = explode('<!--more-->', $body, 2);
+    if (count($parts)>1) {
+        $entry['body']              = universal_autohtml($parts[0]);
+        $entry['extended']          = universal_autohtml($parts[1]);
+    }
+    else {
+        $entry['body']              = universal_autohtml($body);
+    }
+    return $entry;
+}
+
 function universal_debug($message) {
     if (DEBUG_XMLRPC) {
         $fp = fopen(DEBUG_LOG_XMLRPC, 'a');
@@ -1485,6 +1506,8 @@ function universal_debug($message) {
  * @param string $text text to convert
  */
 function universal_autohtml(&$text) {
+    global $serendipity;
+    
     if (empty($text)) return $text;
     $text = trim($text);
     if (!serendipity_db_bool($serendipity['xmlrpc_htmlconvert'])) return $text;

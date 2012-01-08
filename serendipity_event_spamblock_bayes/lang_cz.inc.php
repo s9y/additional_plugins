@@ -1,7 +1,7 @@
-<?php # lang_cz.inc.php 1.6 2011-03-05 13:16:22 VladaAjgl $
+<?php # lang_cz.inc.php 1.5 2010-11-26 18:34:41 VladaAjgl $
 
 /**
- *  @version 1.6
+ *  @version 1.5
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/11/07
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
@@ -14,8 +14,6 @@
  *  @revisionDate 2010/09/12
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2010/11/26
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2011/03/05
  */
 
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME',     'Spamblock (Bayes)');
@@ -76,7 +74,10 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_MENU_ANALYSIS',     'Analýza');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_DELETE',     'Pøemostìní ko¹e');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_DELETE_DESC',     'Komentáøe s hodnocením vìt¹ím nebo rovném ne¾ je tato hodnota nebudou zahozeny do ko¹e, nýbr¾ rovnou smazány. Pøíklad: 98');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_IGNORE',     'Ignorovat');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_IGNORE_DESC',     'Zadejte pole komentáøe, které budou ignorovány. Mo¾né hodnoty: ip, referer, author, body, email, url. Pøíklad: "ip, referer".');
 
 // Next lines were translated on 2010/11/26
-
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_EXPORTDB',     'Export databáze');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_IMPORTDB',     'Import databáze');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_IMPORT_EXPLANATION',     'Iportovat døíve vygenerovaný CSV soubory. Naètená data filtru budou pøidána do databáze.');

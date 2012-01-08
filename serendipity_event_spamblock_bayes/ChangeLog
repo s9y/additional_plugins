@@ -1,3 +1,8 @@
+0.4.4:
+    * Added menu options in import menu for troja
+    * Recycler will only delete selected comments (all if none selected)
+    * prevented external parties to fetch spamblock-database (ddos-attackvector)
+
 0.4.3:
     * Fixed error when using safari
 

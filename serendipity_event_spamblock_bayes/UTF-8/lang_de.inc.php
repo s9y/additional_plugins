@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  @version $Revision$
+ *  @version $Revision: 1.10 $
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */
@@ -43,7 +43,7 @@ define('PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAMBUTTON', 'Als Spam lernen');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_MENU_DATABASE', 'Datenbank');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_MENU_RECYCLER', 'Papierkorb');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_CREATEDB', 'Datenbank erstellen');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LEARNOLD', 'Altes einlernen');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LEARNOLD', 'Kommentare einlernen');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_ERASEDB', 'Datenbank löschen');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_SAVEDVALUES', 'Eingeordnete Kommentare');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_MENU', 'Menü');
@@ -59,5 +59,11 @@ define('PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAMBUTTON', 'Als Spam lernen');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_EXPORTDB', 'Datenbank exportieren');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_IMPORTDB', 'Datenbank importieren');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_IMPORT_EXPLANATION', 'Hier kann eine CSV-Datei, die in einem anderen Blog mit der Export-Funktion erstellt wurde, importiert werden. Die enthaltenen Daten über Spam und valide Kommentare werden der eigenen Datenbank hinzugefügt.');
-
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_MENU_IMPORT', 'Import');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_IMPORT_EXPLANATION', 'Importiert eine CVS-Datei, deren Inhalt der Spamdatenbank hinzugefügt wird.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA_EXPLANATION', 'Die Spamdatenbank eines registrierten Blogs einlernen oder den eigenen Blog als Quelle hinzufügen.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA', 'Online-Import');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA_IMPORT', 'Importieren');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA_REGISTER', 'Blog hinzufügen');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA_REMOVE', 'Blog entfernen');
 ?>

@@ -219,7 +219,7 @@ function getAllRatings() {
 }
 
 //Something like this don't exist in Javascript
-function getElementByClass(classname, node, tag) {
+function getElementByClass(className, node, tag) {
     if (node == null) {
         node = document;
     }
@@ -231,7 +231,7 @@ function getElementByClass(classname, node, tag) {
     var length = allHTMLTags.length;
     for (var i=0; i < length; i++) {
         //multiple classes are in the same string, so search carefully
-        if (allHTMLTags[i].className.indexOf(classname) != -1) {
+        if (allHTMLTags[i].className.indexOf(className) != -1) {
             classes.push(allHTMLTags[i]);
         }
     }

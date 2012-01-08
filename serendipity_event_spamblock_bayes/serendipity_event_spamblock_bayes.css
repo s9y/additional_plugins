@@ -127,3 +127,12 @@ label {
 input[type="submit"] {
     cursor: pointer;
 }
+.bayesTrojaButtons {
+    display: inline;
+}
+fieldset {
+    display: inline-block;
+}
+#trojaImport {
+    margin-left: 1.1em;
+}

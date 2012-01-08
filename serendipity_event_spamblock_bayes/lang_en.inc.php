@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  @version $Revision$
+ *  @version $Revision: 1.7 $
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */
@@ -40,8 +40,9 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_MENU_LEARN', 'Learn');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_MENU_DATABASE', 'Database');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_MENU_RECYCLER', 'Recycler');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_MENU_IMPORT', 'Import');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_CREATEDB', 'Create Database');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LEARNOLD', 'Learn from Old');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LEARNOLD', 'Learn from comments');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_ERASEDB', 'Erase Database');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_SAVEDVALUES', 'Rated comments');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_MENU', 'Menu');
@@ -52,5 +53,14 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_MENU_ANALYSIS', 'Analysis');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_DELETE', 'Recyler Bypass');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_DELETE_DESC', 'Comments with a rating equal or higher this value will not be thrown into the recycler, they will be deleted. Example: 98');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_IMPORT_EXPLANATION', 'Import a previously generated CSV-file. The included characteristics of spam and comments will be become a part of your database.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_IGNORE', 'Ignore');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_IGNORE_DESC', 'Parts of comments to be ignored. Possible values: ip, referer, author, body, email, url. Beispiel: "ip, referer".');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_EXPORTDB', 'Export Database');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_IMPORTDB', 'Import Database');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_IMPORT_EXPLANATION', 'Import a previously generated CSV-file. The included characteristics of spam and comments will become a part of your database.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA_EXPLANATION', 'You can import the spam-database of another blog. Register, and other blogs will learn from you spam-database.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA', 'Online Import');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA_IMPORT', 'Import');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA_REGISTER', 'Add this blog');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA_REMOVE', 'Remove this blog');
 ?>

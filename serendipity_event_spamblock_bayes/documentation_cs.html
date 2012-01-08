@@ -1,6 +1,7 @@
 <html>
     <head>
 		<meta http-equiv="content-type" content="text/html; charset=windows-1250">
+		<meta name="generator" content="PSPad editor, www.pspad.com">
         <title>Dokumentace: Spamblock (Bayes)</title>
     </head>
 
@@ -8,59 +9,8 @@
     
 <h1>Dokumentace k pluginu 'Spamblock (Bayes)'</h1>
 
-<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 4.7.2011. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="documentation_de.html">aktuální německou dokumentaci</a> a <a href="ChangeLog"> anglický ChangeLog</a>.
+<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 8.1.2011. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="ChangeLog">aktuální anglický ChangeLog</a>.
 <p>
-
-<h2>O pluginu</h2>
-<p>
-Plugin Spamblock-Bayes se pokouší zjistit, jestli je nový komentář spam, nebo platný komentář (nespam = ham), a to pomocí statistické analýzy výskytu slov v komentáři.
-</p>
-<p>
-Za tímto účelem si vytváří lokální databázi, ze které se plugin učí hodnotit nové komentáře z hodnocení starých komentářů.
-</p>
-
-<h2>Spam-faktor</h2>
-<p>
-Základní myšlenkou je přiřazení spam-faktorů komentářům. Tento faktor se pohybuje od 0% (čistý komentář) do 100% (určitě spam). Spam-faktor klesá nebo stoupá podle hodnocení podobných komentářů.
-</p>
-
-<h2>Využití</h2>
-<p>
-Na stránce "Komentáře" budou během instalace pluginu ke každému komentáři přidána dvě tlačítka (Spam a Ham) a ukazatel v procentech. Pomocí tlačítek lze jednotlivé komentáře ohodnotit. Komentáře označené jako "Spam" budou přesunuty do koše (nebo rovnou smazány, pokud je koš vypnut v nastavení). Měřítko v procentech ukazuje Spam-faktor každého z komentářů.
-</p>
-
-<h3>Rozšířené menu</h3>
-<p>
-Na hlavní stránce administrativní sekce bude přidáno menu pojmenované "Spamblock (Bayes)". Toto je rozšířené menu, které není nezbytně nutné pro základní funkce pluginu.
-</p>
-<p>
-Dále jsou vysvětleny funkce jednotlivých podmenu.
-</p>
-
-<h4>Učit se</h4>
-<p>
-Formulář obsahuje všechna pole, které může obsahovat komentář, jako je například text komentáře nebo domovská URL adresa. Zde je možné zadat konkrétní slova, která se má plugin naučit. Toto nastavení slouží k přesnému vyladění filtrů, které by mělo být potřeba jen ve výjimečných případech.
-</p>
-
-<h4>Databáze</h4>
-V obou tabulkách je zobrazen pouze přehled o obsahu databáze. Menu na této stránce nicméně poskytuje důležité funkce.
-<dl><dt>Vytvořit databázi</dt>
-<dd>Vytvoří znovu databázi, pokud byla smazána nebo pokud nebyla správně založena při instalaci.</dd>
-<dt>Učit se ze starších</dt>
-<dd>Naučí se existující komentáře jako Ham (=nespam) a obsah spamlogů jako Spam</dd>
-<dt>Vymazat databázi</dt>
-<dd>Vymaže celou databázi. To může mít smysl např. pokud měníte jazyk blogu nebo pokud se filtr naučil příliš mnoho výrazů špatně.</dd>
-</dl>
-
-<h4>Koš</h4>
-<p>
-Smazané nebo neschválené komentáře zde mohou být definitivně smazány nebo obnoveny.
-</p>
-
-<h4>Analýza</h4>
-<p>
-Spamblock-Bayes hodnotí každé pole komentáře samostatně. To se ale neprojevuje v procentním ohodnocení komentáře v přehledu komentářů. Zde je ale možné prohlédnout si jednotlivé výsledky.
-</p>
 
 <h2>Poděkování</h2>
 Děkuji autorům jQuery pluginů, které jsem použil:
@@ -73,24 +23,6 @@ Děkuji autorům jQuery pluginů, které jsem použil:
 
 <h2>Historie verzí (ChangeLog)</h2>
 <ul>
-<li>Verze 0.4.3:</li>
-	<ul>
-	<li>Opravena chyba při prohlížení v Safari</li>
-	</ul>
-<li>Verze 0.4.2:</li>
-	<ul>
-	<li>Přidána dokumentace (německá)</li>
-	<li>Drobné změny CSS stylů v rozšířeném menu</li>
-	<li>Neuložení nastavení už nezabraňuje natažení javascriptu</li>
-	</ul>
-<li>Verze 0.4.1:</li>
-	<ul>
-	<li>Komentáře ručně označené jako spam jsou přesunuty do koše místo trvalého smazání.</li>
-	</ul>
-<li>Verze 0.4:</li>
-	<ul>
-	<li>jQuery nyní může být součástí Serendipity</li>
-	</ul>
 <li>Verze 0.3.9.3:</li>
 	<ul>
 	<li>Změněno počítání komentářů při importu</li>

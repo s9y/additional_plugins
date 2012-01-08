@@ -24,9 +24,6 @@ if ($debug_xmlrpc) {
     @define('DEBUG_XMLRPC', false);
 }
 
-if ($debug_xmlrpc === 2) {
-    #$HTTP_RAW_POST_DATA = file_get_contents('/www/input.xml');
-}
 @define('XMLRPC_WP_COMPATIBLE', TRUE);
 
 @define('XMLRPC_ERR_CODE_AUTHFAILED', 4);
@@ -143,7 +140,6 @@ function wp_uploadFile($message) {
 }
 function wp_getCategories($message) {
     global $serendipity;
-
     $val = $message->params[1];
     $username = $val->getval();
     $val = $message->params[2];
@@ -1329,7 +1325,8 @@ function metaWeblog_newMediaObject($message) {
         return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
 
-    $full = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $struct['name'];
+    $full = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $serendipity['xmlrpc_uploadreldir'] . $struct['name'];
+    universal_debug("path: " . $full);
 
     if (!is_dir(dirname($full))) {
         @mkdir(dirname($full));
@@ -1352,7 +1349,8 @@ function metaWeblog_newMediaObject($message) {
     @umask(0000);
     @chmod($full, 0664);            
             
-    $path = $serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $struct['name'];
+    $path = $serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $serendipity['xmlrpc_uploadreldir'] . $struct['name'];
+    universal_debug("url: " . $path);
     return new XML_RPC_Response(new XML_RPC_Value(array('url' => new XML_RPC_Value($path, 'string')), 'struct'));
 }
 

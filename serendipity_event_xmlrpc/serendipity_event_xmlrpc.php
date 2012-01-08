@@ -36,7 +36,7 @@ class serendipity_event_xmlrpc extends serendipity_event
             'frontend_header'  => true
         ));
         $propbag->add('configuration', 
-            array('doc_rpclink','category', 'gmt', 'htmlconvert', 'wpfakeversion', 'debuglog')
+            array('doc_rpclink','category', 'gmt', 'uploaddir', 'htmlconvert', 'wpfakeversion', 'debuglog')
             );
         $propbag->add('groups', array('FRONTEND_FULL_MODS', 'FRONTEND_EXTERNAL_SERVICES'));
     }
@@ -91,6 +91,13 @@ class serendipity_event_xmlrpc extends serendipity_event
                 $propbag->add('name', PLUGIN_EVENT_XMLRPC_GMT);
                 $propbag->add('description', '');
                 $propbag->add('default', false);
+                break;
+            case 'uploaddir' :
+                $propbag->add('type',          'select');
+                $propbag->add('select_values', $this->scanUploadDir());
+                $propbag->add('name', PLUGIN_EVENT_XMLRPC_UPLOADDIR);
+                $propbag->add('description', PLUGIN_EVENT_XMLRPC_UPLOADDIR_DESC);
+                $propbag->add('default', '');
                 break;
             case 'htmlconvert':
                 $propbag->add('type', 'boolean');
@@ -170,7 +177,8 @@ class serendipity_event_xmlrpc extends serendipity_event
                     $serendipity['xmlrpc_debuglog'] = $this->get_config('debuglog','none');
                     $serendipity['xmlrpc_wpfakeversion'] = $this->get_config('wpfakeversion','');
                     $serendipity['xmlrpc_htmlconvert']  = $this->get_config('htmlconvert',true);
-
+                    $serendipity['xmlrpc_uploadreldir']  = $this->get_config('uploaddir','');
+                    
                     @define('SERENDIPITY_IS_XMLRPC', true);
                     $serendipity['XMLRPC_GMT'] = serendipity_db_bool($this->get_config('gmt'));
                     
@@ -207,6 +215,29 @@ class serendipity_event_xmlrpc extends serendipity_event
         else { */
             @define('PLUGIN_EVENT_XMLRPC_PEAR_PATH',dirname(__FILE__) . '/PEAR/');
 //        }
+    }
+    
+    function scanUploadDir(){
+        global $serendipity;
+
+        if (!serendipity_checkPermission('adminImagesDirectories')) {
+            return;
+        }
+        $folders = serendipity_traversePath(
+            $serendipity['serendipityPath'] . $serendipity['uploadPath'],
+            '',
+            true,
+            NULL,
+            1,
+            NULL,
+            'write'
+        );
+        usort($folders, 'serendipity_sortPath');
+        $result = array('' => PARENT_DIRECTORY);
+        foreach ($folders as $dirmeta) {
+            $result[$dirmeta['relpath']] = $dirmeta['relpath'];
+        }
+        return $result;
     }
 }
 

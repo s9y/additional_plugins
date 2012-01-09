@@ -429,7 +429,7 @@ class serendipity_event_dashboard extends serendipity_event {
 
         echo '<div class="dashboard dashboard_comments">';
         echo '<h3>' . COMMENT . '</h3>';
-        $this->showElementcommentlist("AND status = 'approved'", $lim);
+        $this->showElementCommentlist("AND status = 'approved'", $lim);
         echo '</div>';
     }
     
@@ -440,7 +440,7 @@ class serendipity_event_dashboard extends serendipity_event {
         echo '<div class="dashboard dashboard_comments_pending">';
         echo '<h3>' . COMMENTS_FILTER_NEED_APPROVAL . '</h3>';
 
-        $this->showElementcommentlist(" AND status IN ('pending','confirm')", $lim);
+        $this->showElementCommentlist("AND status IN ('pending','confirm')", $lim);
         echo '</div>';
     }
 

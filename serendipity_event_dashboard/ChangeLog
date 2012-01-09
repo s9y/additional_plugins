@@ -1,3 +1,7 @@
+0.6.6:
+----
+* fixed missing global $serendipity in comments function
+
 0.6.5:
 ----
 * bugfixed and reverted the comments query call, 

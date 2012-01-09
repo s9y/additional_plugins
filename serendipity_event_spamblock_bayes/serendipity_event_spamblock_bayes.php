@@ -46,8 +46,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		                                     'backend_sidebar_entries' => true,
 		                                     'backend_sidebar_entries_event_display_spamblock_bayes' => true,
                                              /*'xmlrpc_comment_spam' => true,
-		                                     'xmlrpc_comment_pending' => true,
-		                                     'xmlrpc_comment_approve' => true,*/
+		                                     'xmlrpc_comment_ham' => true,*/
 		                                     ));
 		$propbag->add ( 'groups', array ('ANTISPAM' ) );
 		$propbag->add ( 'author', 'kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold');
@@ -1250,13 +1249,16 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 
                 /*case 'xmlrpc_comment_spam' : // xml-rpc client marked this comment SPAM
                     $this->startLearn($eventData, 'spam');
+                    // Move/Moderate SPAM:
+                    $method = $this->get_config('method', 'moderate');
+                    if ($method == 'moderate') {
+                        $this->moderate($eventData, $addData);
+                    } elseif($method == 'block') {
+                        $this->block($eventData, $addData);
+                    }
 				    return true;
 					break;
-			    case 'xmlrpc_comment_pending' : // xml-rpc client changed comment state to pending
-			        $this->startLearn($eventData, 'spam');
-			        return true;
-					break;
-			    case 'xmlrpc_comment_approve' : // xml-rpc client changed comment state to approved
+			    case 'xmlrpc_comment_ham' : // xml-rpc client told, it's ham.
                     $this->startLearn($eventData, 'ham');
 			        return true;
 					break;*/
@@ -1530,11 +1532,11 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
             } else {
                 echo '<h3>'.COMMENT .' #'. $comment_id .'</h3>';
             }
-            $types = array_keys($this->type);
+            $types = $this->type;//array_keys($this->type);
             $ratings = array();
             
             foreach($types as $type) {
-                $rating = $this->classify($comment[$type], $this->type[$type]);
+                $rating = $this->classify($comment[$type], $type);
                 $ratings[$type] = $rating;
             }
             echo '<ul class="plainList bayesAnalysis">';

@@ -2,6 +2,8 @@
 Version 1.46:
     * Enhanced the interface with WordPress RPC calls.
     * Info about RPC caller URL in config, some configurations.
+    * Medialibrary directory for media uploads configurable
+    * Define spam events: Signal ham and spam to AntiSpam plugins supporting it. 
 
 Version 1.45:
    * Catch empty timestemps, thanks to TimNiceBut

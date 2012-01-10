@@ -508,13 +508,22 @@ function wp_editComment($message) {
             $result = universal_updateComment($comment_id, $entry_id, $entry_authorid, $comment);
             if ($result) {
                 $rpc_comment_status = $rpccomment['status'];
-                $result = serendipity_approveComment($comment_id, $entry_id, false, $rpc_comment_status !== 'approve');
-                if ($result) {
+                $moderate_comment = $rpc_comment_status !== 'approve';
+                $result = !serendipity_approveComment($comment_id, $entry_id, false, $moderate_comment) == $moderate_comment; // TODO: Result is fals if done something. Why that?
+                if ($result || $rpc_comment_status=='spam') {
+                    $result = true; 
+                    $addData['id'] = $entry_id;
+                    $addData['eid'] = $entry_id;
+                    $addData['cid'] = $comment_id;
+                    $event_type = "";
                     // Sent out plugin hooks, perhaps someone is interested?
-                    if ($rpc_comment_status=='spam') serendipity_plugin_api::hook_event('xmlrpc_comment_spam', $comment);
+                    if ($rpc_comment_status=='spam') $event_type= $serendipity['xmlrpc_event_spam'];
                     // dont call hooks, if we changed nothing (except for spam clicks, as Bayes is learning..)
-                    elseif ($rpc_comment_status=='hold' && $comment_status != 'pending') serendipity_plugin_api::hook_event('xmlrpc_comment_pending', $comment);
-                    elseif ($rpc_comment_status=='approve' && $comment_status != 'approved') serendipity_plugin_api::hook_event('xmlrpc_comment_approve', $comment);
+                    elseif ($rpc_comment_status=='hold' && $comment_status != 'pending') $event_type= $serendipity['xmlrpc_event_pending'];
+                    elseif ($rpc_comment_status=='approve' && $comment_status != 'approved') $event_type= $serendipity['xmlrpc_event_approved'];
+                    if (!empty($event_type) && 'none'!=$event_type) {
+                        serendipity_plugin_api::hook_event('xmlrpc_comment_' . $event_type, $comment, $addData);                        
+                    }
                 }
             }
         } else {

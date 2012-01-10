@@ -36,7 +36,7 @@ class serendipity_event_xmlrpc extends serendipity_event
             'frontend_header'  => true
         ));
         $propbag->add('configuration', 
-            array('doc_rpclink','category', 'gmt', 'uploaddir', 'htmlconvert', 'wpfakeversion', 'debuglog')
+            array('doc_rpclink','category', 'gmt', 'uploaddir', 'htmlconvert', 'wpfakeversion', 'debuglog', 'spamevent_description', 'event_spam', 'event_approved','event_pending')
             );
         $propbag->add('groups', array('FRONTEND_FULL_MODS', 'FRONTEND_EXTERNAL_SERVICES'));
     }
@@ -78,7 +78,7 @@ class serendipity_event_xmlrpc extends serendipity_event
                 $debuglevels = array(
                     'none'     => PLUGIN_EVENT_XMLRPC_DEBUGLOG_NONE,
                     'normal'   => PLUGIN_EVENT_XMLRPC_DEBUGLOG_NORMAL,
-                    'verbose'  => PLUGIN_EVENT_XMLRPC_DEBUGLOG_VERBOSE
+                    //'verbose'  => PLUGIN_EVENT_XMLRPC_DEBUGLOG_VERBOSE
                 );
                 $propbag->add('type',          'select');
                 $propbag->add('select_values', $debuglevels);
@@ -140,6 +140,36 @@ class serendipity_event_xmlrpc extends serendipity_event
                 $propbag->add('description',   PLUGIN_EVENT_XMLRPC_DEFAULTCAT_DESC);
                 $propbag->add('default',       '');
                 break;
+            case 'spamevent_description':
+                $propbag->add('type',           'content');
+                $propbag->add('default',        PLUGIN_EVENT_XMLRPC_EVENT_SPAM_HEADER);
+                break;
+            case 'event_spam':
+            case 'event_approved':
+            case 'event_pending':
+                $events = array(
+                    'none'     => PLUGIN_EVENT_XMLRPC_EVENTVALUE_NONE,
+                    'spam'   => PLUGIN_EVENT_XMLRPC_EVENTVALUE_SPAM,
+                    'ham'  => PLUGIN_EVENT_XMLRPC_EVENTVALUE_HAM
+                );
+                $propbag->add('type',          'select');
+                $propbag->add('select_values', $events);
+                if ($name=='event_spam') {
+                    $propbag->add('name', PLUGIN_EVENT_XMLRPC_EVENT_SPAM);
+                    $propbag->add('description', PLUGIN_EVENT_XMLRPC_EVENT_SPAM_DESC);
+                    $propbag->add('default', 'spam');
+                }
+                elseif ($name=='event_approved') {
+                    $propbag->add('name', PLUGIN_EVENT_XMLRPC_EVENT_APPROVED);
+                    $propbag->add('description', PLUGIN_EVENT_XMLRPC_EVENT_APPROVED_DESC);
+                    $propbag->add('default', 'ham');
+                }
+                elseif ($name=='event_pending') {
+                    $propbag->add('name', PLUGIN_EVENT_XMLRPC_EVENT_PENDING);
+                    $propbag->add('description', PLUGIN_EVENT_XMLRPC_EVENT_PENDING_DESC);
+                    $propbag->add('default', 'none');
+                }
+                break;
 
             default:
                     return false;
@@ -178,6 +208,10 @@ class serendipity_event_xmlrpc extends serendipity_event
                     $serendipity['xmlrpc_wpfakeversion'] = $this->get_config('wpfakeversion','');
                     $serendipity['xmlrpc_htmlconvert']  = $this->get_config('htmlconvert',true);
                     $serendipity['xmlrpc_uploadreldir']  = $this->get_config('uploaddir','');
+                    
+                    $serendipity['xmlrpc_event_spam']  = $this->get_config('event_spam','spam');
+                    $serendipity['xmlrpc_event_approved']  = $this->get_config('event_approved','ham');
+                    $serendipity['xmlrpc_event_pending']  = $this->get_config('event_approved','none');
                     
                     @define('SERENDIPITY_IS_XMLRPC', true);
                     $serendipity['XMLRPC_GMT'] = serendipity_db_bool($this->get_config('gmt'));

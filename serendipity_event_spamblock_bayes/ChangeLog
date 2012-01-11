@@ -1,3 +1,7 @@
+0.4.5:
+    Fixed analysis-menu
+    Fixed error in classification, ignored some commentcomponents
+
 0.4.4:
     * Added menu options in import menu for troja
     * Recycler will only delete selected comments (all if none selected)

@@ -36,7 +36,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '0.4.4' );
+		$propbag->add ( 'version', '0.4.5' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_spamblock_comments_shown' => true,
 		                                     'external_plugin' => true,
@@ -45,8 +45,8 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		                                     'backend_sendcomment' => true,
 		                                     'backend_sidebar_entries' => true,
 		                                     'backend_sidebar_entries_event_display_spamblock_bayes' => true,
-                                             /*'xmlrpc_comment_spam' => true,
-		                                     'xmlrpc_comment_ham' => true,*/
+                                             'xmlrpc_comment_spam' => true,
+                                             'xmlrpc_comment_ham' => true,
 		                                     ));
 		$propbag->add ( 'groups', array ('ANTISPAM' ) );
 		$propbag->add ( 'author', 'kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold');
@@ -209,7 +209,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 	    $ratings = array();
 	    $types = array_keys($this->type);
 	    foreach($types as $type) {
-            $rating = $this->classify($comment[$type], $this->type[$type]);
+            $rating = $this->classify($comment[$this->type[$type]], $this->type[$type]);
             if (is_numeric($rating)) {
                 $ratings[] = $rating;
                 $divider++;
@@ -1247,21 +1247,41 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     return true;
                     break;
 
-                /*case 'xmlrpc_comment_spam' : // xml-rpc client marked this comment SPAM
-                    $this->startLearn($eventData, 'spam');
-                    // Move/Moderate SPAM:
-                    $method = $this->get_config('method', 'moderate');
-                    if ($method == 'moderate') {
-                        $this->moderate($eventData, $addData);
-                    } elseif($method == 'block') {
-                        $this->block($eventData, $addData);
+                case 'xmlrpc_comment_spam': 
+                    $entry_id = $addData['id'];
+                    $comment_id = $addData['cid'];
+                    if($this->get_config('method', 'moderate') == 'custom') {
+                        $spamBarrier = min(array(
+                                            $this->get_config('moderateBarrier', 70) / 100,
+                                            $this->get_config('blockBarrier', 90) / 100
+                                            ));
+                    } else {
+                        $spamBarrier = 0.7;
                     }
+                    //spam shall not get through the filter twice - so make sure, it really is marked as spam
+
+                    $loop = 0;
+                    while ($this->startClassify($eventData) < $spamBarrier && $loop < 5) {
+                        $this->startLearn($eventData, 'spam');
+                        //prevent infinite loop
+                        $loop++;
+                    }
+                    if ($this->get_config('recycler', true)) {
+                        $this->recycleComment($comment_id, $entry_id);
+                    }
+                    serendipity_deleteComment($comment_id, $entry_id);
+ 				    return true;
+ 					break;
+
+                case 'xmlrpc_comment_ham': 
+                    $this->startLearn($eventData, 'ham');
+                    $comment_id = $addData['cid'];
+                    $entry_id = $addData['id'];
+                    //moderated ham-comments should be instantly approved, that's why they need an id:
+                    serendipity_approveComment($comment_id, $entry_id);
 				    return true;
 					break;
-			    case 'xmlrpc_comment_ham' : // xml-rpc client told, it's ham.
-                    $this->startLearn($eventData, 'ham');
-			        return true;
-					break;*/
+
 				
 				default :
 					return false;
@@ -1483,7 +1503,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     break;
                 }
                 $comment = $comments[$i];
-                echo '<li><input type="checkbox" id="comments['. $comment['id'] .']" name="comments['. $comment['id'] .']" /><label for="comments['. $comment['id'] .']" >'.$comment['id'].'</label>: <div class="bayesComments">'.htmlspecialchars($comment['name']).', "'.htmlspecialchars($comment['body']).'</div> </li>';
+                echo '<li><input type="checkbox" id="comments['. $comment['id'] .']" name="comments['. $comment['id'] .']" /><label for="comments['. $comment['id'] .']" >'.$comment['id'].'</label>: <div class="bayesComments">'.htmlspecialchars($comment[$this->type['name']]).', "'.htmlspecialchars($comment[$this->type['body']]).'</div> </li>';
             }
             echo '<input type="submit" class="serendipityPrettyButton input_button" value="'.GO.'" />
             </ul></form>
@@ -1527,27 +1547,29 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
         $comments = $this->getComment($comment_id);
         for ($i=0; $i < count($comments); $i++) {
             $comment = $comments[$i];
+
             if (is_array($comment_id)) {
                 echo '<h3>'. $comment_id[$i] .'</h3>';
             } else {
                 echo '<h3>'.COMMENT .' #'. $comment_id .'</h3>';
             }
-            $types = $this->type;//array_keys($this->type);
+            $types = array_keys($this->type);
             $ratings = array();
             
             foreach($types as $type) {
-                $rating = $this->classify($comment[$type], $type);
-                $ratings[$type] = $rating;
+                $rating = $this->classify($comment[$this->type[$type]], $this->type[$type]);
+                $ratings[$this->type[$type]] = $rating;
             }
             echo '<ul class="plainList bayesAnalysis">';
             foreach($types as $type) {
                 echo "<li class=\"ratingBox\"><div class=\"commentType\">$type:</div>
-                <div class=\"commentPart\">".htmlspecialchars($comment[$type])."</div>
+                <div class=\"commentPart\">".htmlspecialchars($comment[$this->type[$type]])."</div>
                 <div class=\"rating\">";
-                if (is_numeric($ratings[$type])) {
-                    echo preg_replace('/\..*/', '', $ratings[$type] * 100) .'%';
-                } else
-                echo '-';
+                if (is_numeric($ratings[$this->type[$type]])) {
+                    echo preg_replace('/\..*/', '', $ratings[$this->type[$type]] * 100) .'%';
+                } else {
+                    echo '-';
+                }
                 echo "</div></li>";
             }
             echo '</ul>';

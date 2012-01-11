@@ -1159,7 +1159,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_dashboard&lt;br /&gt;Dashboard&lt;/b&gt;&lt;br /&gt;Shows some summary information on the backend frontpage&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Sat, 07 Jan 2012 02:33:01 +0100</pubDate>
+<pubDate>Wed, 11 Jan 2012 04:31:08 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_dashboard</guid>
 </item>
 <item>
@@ -1222,7 +1222,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_bayes&lt;br /&gt;Spamblock (Bayes)&lt;/b&gt;&lt;br /&gt;Detects Spam via an algorithmus which learns.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 09 Jan 2012 02:31:40 +0100</pubDate>
+<pubDate>Wed, 11 Jan 2012 04:31:08 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_bayes</guid>
 </item>
 <item>

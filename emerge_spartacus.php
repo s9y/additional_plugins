@@ -61,7 +61,7 @@ class emerge_spartacus {
                 $plugins[$plugin_name]['files']      = $this->get_files($plugin_data['pluginPath']);
 
                 if (file_exists($path . 'ChangeLog')) {
-                    $plugins[$plugin_name]['properties']['changelog'] = 'http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/' . $plugin_data['pluginPath'] . '/ChangeLog';
+                    $plugins[$plugin_name]['properties']['changelog'] = 'https://github.com/s9y/additional_plugins/blob/master/' . $plugin_data['pluginPath'] . '/ChangeLog';
                 }
 
                 echo 'Successfully loaded plugin ' . $plugin_name . "\n";
@@ -319,7 +319,7 @@ class emerge_spartacus {
                     $zipfile = str_replace('_plugin_', '_event_', $plugin_name);
                 }
             }
-            $x .= '<div class="plugin_download"><a href="cvs/additional_plugins/' . $zipfile . '.zip">Download</a> <a href="http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/' . $this->encode($zipfile) . '">ViewCVS</a>';
+            $x .= '<div class="plugin_download"><a href="cvs/additional_plugins/' . $zipfile . '.zip">Download</a> <a href="https://github.com/s9y/additional_plugins/tree/master/' . $this->encode($zipfile) . '">ViewCVS</a>';
 
             if (!empty($plugin_data['properties']['website'])) {
                 $x .= '<br /><a href="' . $this->encode($plugin_data['properties']['website']) . '">Documentation</a>';
@@ -381,7 +381,7 @@ class emerge_spartacus {
                                    xmlns:content="http://purl.org/rss/1.0/modules/content/">';
         $x[] = '<channel>';
         $x[] = '<title>Serendipity: Available External ' . $title . '</title>';
-        $x[] = '<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/</link>';
+        $x[] = '<link>https://github.com/s9y/additional_plugins/</link>';
         $x[] = '<description>TOC</description>';
         $x[] = '<dc:language>en</dc:language>';
         $x[] = '<generator>Serendipitx SPARTACUS</generator>';
@@ -394,7 +394,7 @@ class emerge_spartacus {
 
             $x[] = '<item>';
             $x[] = '<title>' . $this->encode($plugin_data['properties']['name'] . ': ' . $plugin_data['properties']['description']) . '</title>';
-            $x[] = '<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/' . $plugin_data['pluginPath'] . '</link>';
+            $x[] = '<link>https://github.com/s9y/additional_plugins/tree/master/' . $plugin_data['pluginPath'] . '</link>';
             $x[] = '<category>' . $this->encode($title) . '</category>';
             $x[] = '<author>' . $this->encode($author) . '</author>';
             $x[] = '<content:encoded>' . $this->encode('<b>' . $plugin_name . '<br />' . $plugin_data['properties']['name'] . '</b><br />' . $plugin_data['properties']['description'] . '<br/>For: Serendipity ' . $s9yVersion) . '</content:encoded>';

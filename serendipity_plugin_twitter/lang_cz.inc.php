@@ -1,17 +1,19 @@
-<?php # lang_cz.inc.php 1.4 2011-03-09 20:28:16 VladaAjgl $
+<?php # lang_cz.inc.php 1.5 2012-01-11 23:45:25 VladaAjgl $
 
 /**
- *  @version 1.4
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @version 1.5
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  @translated 2009/08/08
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2009/08/15
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2009/08/25
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2010/09/28
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2011/03/09
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2012/01/11
  */
 @define('PLUGIN_TWITTER_TITLE',                         'Twitter');
 @define('PLUGIN_TWITTER_DESC',                          'Zobrazuje Va¹e nejnovìj¹í pøíspìvky na Twitteru');
@@ -22,15 +24,15 @@
 @define('PLUGIN_TWITTER_SERVICE',                       'Slu¾ba');
 @define('PLUGIN_TWITTER_SERVICE_DESC',                  'Vyberte mikroblogovací slu¾bu, kterou pou¾íváte');
 @define('PLUGIN_TWITTER_USERNAME',                      'U¾ivatelské jméno');
-@define('PLUGIN_TWITTER_USERNAME_DESC',                 'Pokud máte adresu http://www.twitter.com/ptak_jarabak, pak je Va¹e u¾ivatelské jméno ptak_jarabak');
+@define('PLUGIN_TWITTER_USERNAME_DESC',                 'Pokud máte adresu http://www.twitter.com/ptak_jarabak, pak je Va¹e u¾ivatelské jméno ptak_jarabak. Mù¾ete pou¾ít i pøihla¹ovací jméno k indenti.ca.');
 @define('PLUGIN_TWITTER_SHOWFORMAT',                    'Výstupní formát');
-@define('PLUGIN_TWITTER_SHOWFORMAT_DESC',               'Mù¾ete si vybrat mezi Javascriptem a PHP. Týká se vlastního zobrazení pøíspìvkù v postranním bloku na blogu.');
+@define('PLUGIN_TWITTER_SHOWFORMAT_DESC',               'Mù¾ete si vybrat mezi Javascriptem a PHP. Týká se vlastního zobrazení pøíspìvkù v postranním bloku na blogu. Pozor! - JavaScript nebude fungovat s více instancemi pluginu na jedné stránce. Musíte pou¾ít PHP verzi, pokud ho tak chcete nastavit.');
 @define('PLUGIN_TWITTER_SHOWFORMAT_RADIO_JAVASCRIPT',   'Javascript');
 @define('PLUGIN_TWITTER_SHOWFORMAT_RADIO_PHP',          'PHP');
 
 @define('PLUGIN_TWITTER_CACHETIME',                     'Jak dlouho cachovat data (pouze pro PHP formát)');
 @define('PLUGIN_TWITTER_CACHETIME_DESC',                'Aby se zamezilo pøíli¹ velkému a zbyteènému pøená¹ení dat mezi blogem a Twitterem, mohou se výsledky z Twitteru ukládat do cache. Zde zadejte v sekundách dobu, po které se bude aktualizovat obsah cache podle Twitteru.');
-@define('PLUGIN_TWITTER_BACKUP',                        'Zálohovat Tweety? (experimentální funkce)');
+@define('PLUGIN_TWITTER_BACKUP',                        'Zálohovat Tweety? (experimentální funkce, pouze Twitter)');
 @define('PLUGIN_TWITTER_BACKUP_DESC',                   'Pokud je povoleno, plugin bude dennì stahovat tweety a zálohovat je v databázi blogu (tabulka ' . $serendipity['dbPrefix'] . 'tweets). Vy¾aduje PHP5.');
 
 @define('PLUGIN_TWITTER_LINKTEXT',                      'Text odkazù ve tweetech');
@@ -197,5 +199,23 @@
 @define('PLUGIN_EVENT_TWITTER_VERBINDUNG_ERROR',        'Chyba zpìtného volání Twitteru');
 
 // Next lines were translated on 2011/03/09
+
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_ARTICLES_NO',    'Pro oznamování pøíspìvku je ve výchozím nastavení checkbox od¹krtnut');
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_ARTICLES_NO_DESC','Povolení znamená, ¾e nový pøíspìvek na blogu musí být výslovnì odeslán do twiteru. Vypnutí (výchozí hodnota) znamená, ¾e pøíspìvek bude do twiteru odeslán automaticky.');
+
+// Next lines were translated on 2012/01/11
+@define('PLUGIN_EVENT_TWITTER_SIGN_IN',                 'Kliknìte na tlaèítko ní¾e a pøipojte Twitter.<br/>
+<p><a style="color:red;">VAROVÁNÍ!</a><br/>
+Musíte se pøihlásit nebo odhlásit s <b>odpovídajícím úètem Twitteru</b>!<br/>
+<a href="#" onclick="window.open(\'http://twitter.com\',\'\',\'width=1000,height=400\'); return false">Potvrïte prosím pøed pøipojením</a>.</p>');
+@define('PLUGIN_EVENT_TWITTER_SIGNIN',                  'Pøihlásit');
+@define('PLUGIN_TWITTER_FOLLOWME_WIDGET',               'Widget sledování Twitteru');
+@define('PLUGIN_TWITTER_FOLLOWME_WIDGET_DESC',          'Pokud plugin zobrazuje èasovou osu, mù¾ete povolit widget twitteru pro zobrazování aktuálního poètu followerù a dal¹í. Nastavení je ignorováno, pokud zobrazujete z identi.ca.');
+@define('PLUGIN_TWITTER_FOLLOWME_WIDGET_COUNT',         'Poèet followerù ve widgetu');
+@define('PLUGIN_TWITTER_FOLLOWME_WIDGET_COUNT_DESC',    'Pokud je povoleno, widget zobrazuje poèet followerù.');
+@define('PLUGIN_TWITTER_FOLLOWME_WIDGET_DARK',          'Widget sledování Twitter na tmavém pozadí');
+@define('PLUGIN_TWITTER_FOLLOWME_WIDGET_DARK_DESC',     'Pokud Va¹e ¹ablona pou¾ívá tmavé pozadí, mìli byste toto povolit.');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_BITLYDESC',      '<h3>u¾ivatelské jméno bit.ly a API klíè</h3><b>bit.ly</b> a <b>j.mp</b> zkracovaèe URL adres potøebují pøihla¹ovací jméno k bit.ly a API klíè. Pokud ani jeden z tìchto zkracovaèù nepou¾íváte, nemìli byste je potøebovat.<br/>Výchozí klíè vìt¹inou nefunguje, proto¾e je to demo klíè a jeho kvóta je pravidelnì pøeèerpána. Pokud máte úèet na bit.ly account, mìli byste zadat vlastní pøihla¹ovací údaje.<br/><a href="http://bitly.com/a/your_api_key/" target="_blank">Najdete je tady</a>.');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_BITLYLOGIN',     'U¾ivatelské jméno bit.ly');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_BITLYAPIKEY',    'bit.ly API klíè');
+@define('PLUGIN_EVENT_TWITTER_GENERALCONSUMER',         '<h3>Vlastní twitter klient</h3>Ve výchozím nastavení pou¾ívá plugin klienta \'s9y\'. Mù¾ete si <a href="https://dev.twitter.com/apps" target="_blank">zaregistrovat vlastního klienta</a> a nastavit consumer klíè a heslo va¹eho klienta.');

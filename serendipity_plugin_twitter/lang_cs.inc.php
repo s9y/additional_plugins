@@ -1,7 +1,7 @@
-<?php # lang_cs.inc.php 1.4 2011-03-09 20:28:16 VladaAjgl $
+<?php # lang_cs.inc.php 1.5 2012-01-11 23:45:25 VladaAjgl $
 
 /**
- *  @version 1.4
+ *  @version 1.5
  *  @author Vladim√≠r Ajgl <vlada@ajgl.cz>
  *  @translated 2009/08/08
  *  @author Vladim√≠r Ajgl <vlada@ajgl.cz>
@@ -12,190 +12,210 @@
  *  @revisionDate 2010/09/28
  *  @author Vladim√≠r Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2011/03/09
+ *  @author VladimÌr Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2012/01/11
  */
 @define('PLUGIN_TWITTER_TITLE',                         'Twitter');
-@define('PLUGIN_TWITTER_DESC',                          'Zobrazuje Va≈°e nejnov√¨j≈°√≠ p√∏√≠sp√¨vky na Twitteru');
-@define('PLUGIN_TWITTER_NUMBER',                        'Po√®et p√∏√≠sp√¨vk√π');
-@define('PLUGIN_TWITTER_NUMBER_DESC',                   'Kolik p√∏√≠sp√¨vk√π z Twitteru m√° b√Ωt zobrazeno? (V√Ωchoz√≠: 10)');
-@define('PLUGIN_TWITTER_TOALL_ONLY',                    'Pouze tweety adresovan√© v≈°em');
-@define('PLUGIN_TWITTER_TOALL_ONLY_DESC',               'Pokud je zapnuto, nebudou se zobrazovat tweety, kter√© obsahuj√≠ zavin√°√® "@" (pouze v PHP verzi)');
-@define('PLUGIN_TWITTER_SERVICE',                       'Slu≈æba');
-@define('PLUGIN_TWITTER_SERVICE_DESC',                  'Vyberte mikroblogovac√≠ slu≈æbu, kterou pou≈æ√≠v√°te');
-@define('PLUGIN_TWITTER_USERNAME',                      'U≈æivatelsk√© jm√©no');
-@define('PLUGIN_TWITTER_USERNAME_DESC',                 'Pokud m√°te adresu http://www.twitter.com/ptak_jarabak, pak je Va≈°e u≈æivatelsk√© jm√©no ptak_jarabak');
-@define('PLUGIN_TWITTER_SHOWFORMAT',                    'V√Ωstupn√≠ form√°t');
-@define('PLUGIN_TWITTER_SHOWFORMAT_DESC',               'M√π≈æete si vybrat mezi Javascriptem a PHP. T√Ωk√° se vlastn√≠ho zobrazen√≠ p√∏√≠sp√¨vk√π v postrann√≠m bloku na blogu.');
+@define('PLUGIN_TWITTER_DESC',                          'Zobrazuje Vaöe nejnovÏjöÌ p¯ÌspÏvky na Twitteru');
+@define('PLUGIN_TWITTER_NUMBER',                        'PoËet p¯ÌspÏvk˘');
+@define('PLUGIN_TWITTER_NUMBER_DESC',                   'Kolik p¯ÌspÏvk˘ z Twitteru m· b˝t zobrazeno? (V˝chozÌ: 10)');
+@define('PLUGIN_TWITTER_TOALL_ONLY',                    'Pouze tweety adresovanÈ vöem');
+@define('PLUGIN_TWITTER_TOALL_ONLY_DESC',               'Pokud je zapnuto, nebudou se zobrazovat tweety, kterÈ obsahujÌ zavin·Ë "@" (pouze v PHP verzi)');
+@define('PLUGIN_TWITTER_SERVICE',                       'Sluûba');
+@define('PLUGIN_TWITTER_SERVICE_DESC',                  'Vyberte mikroblogovacÌ sluûbu, kterou pouûÌv·te');
+@define('PLUGIN_TWITTER_USERNAME',                      'UûivatelskÈ jmÈno');
+@define('PLUGIN_TWITTER_USERNAME_DESC',                 'Pokud m·te adresu http://www.twitter.com/ptak_jarabak, pak je Vaöe uûivatelskÈ jmÈno ptak_jarabak. M˘ûete pouûÌt i p¯ihlaöovacÌ jmÈno k indenti.ca.');
+@define('PLUGIN_TWITTER_SHOWFORMAT',                    'V˝stupnÌ form·t');
+@define('PLUGIN_TWITTER_SHOWFORMAT_DESC',               'M˘ûete si vybrat mezi Javascriptem a PHP. T˝k· se vlastnÌho zobrazenÌ p¯ÌspÏvk˘ v postrannÌm bloku na blogu. Pozor! - JavaScript nebude fungovat s vÌce instancemi pluginu na jednÈ str·nce. MusÌte pouûÌt PHP verzi, pokud ho tak chcete nastavit.');
 @define('PLUGIN_TWITTER_SHOWFORMAT_RADIO_JAVASCRIPT',   'Javascript');
 @define('PLUGIN_TWITTER_SHOWFORMAT_RADIO_PHP',          'PHP');
 
-@define('PLUGIN_TWITTER_CACHETIME',                     'Jak dlouho cachovat data (pouze pro PHP form√°t)');
-@define('PLUGIN_TWITTER_CACHETIME_DESC',                'Aby se zamezilo p√∏√≠li≈° velk√©mu a zbyte√®n√©mu p√∏en√°≈°en√≠ dat mezi blogem a Twitterem, mohou se v√Ωsledky z Twitteru ukl√°dat do cache. Zde zadejte v sekund√°ch dobu, po kter√© se bude aktualizovat obsah cache podle Twitteru.');
-@define('PLUGIN_TWITTER_BACKUP',                        'Z√°lohovat Tweety? (experiment√°ln√≠ funkce)');
-@define('PLUGIN_TWITTER_BACKUP_DESC',                   'Pokud je povoleno, plugin bude denn√¨ stahovat tweety a z√°lohovat je v datab√°zi blogu (tabulka ' . $serendipity['dbPrefix'] . 'tweets). Vy≈æaduje PHP5.');
+@define('PLUGIN_TWITTER_CACHETIME',                     'Jak dlouho cachovat data (pouze pro PHP form·t)');
+@define('PLUGIN_TWITTER_CACHETIME_DESC',                'Aby se zamezilo p¯Ìliö velkÈmu a zbyteËnÈmu p¯en·öenÌ dat mezi blogem a Twitterem, mohou se v˝sledky z Twitteru ukl·dat do cache. Zde zadejte v sekund·ch dobu, po kterÈ se bude aktualizovat obsah cache podle Twitteru.');
+@define('PLUGIN_TWITTER_BACKUP',                        'Z·lohovat Tweety? (experiment·lnÌ funkce, pouze Twitter)');
+@define('PLUGIN_TWITTER_BACKUP_DESC',                   'Pokud je povoleno, plugin bude dennÏ stahovat tweety a z·lohovat je v datab·zi blogu (tabulka ' . $serendipity['dbPrefix'] . 'tweets). Vyûaduje PHP5.');
 
-@define('PLUGIN_TWITTER_LINKTEXT',                      'Text odkaz√π ve tweetech');
-@define('PLUGIN_TWITTER_LINKTEXT_DESC',                 'Odkazy nalezen√© v Tweetech jsou nahrazeny kliknuteln√Ωm HTML odkazem. Zde nastavte text odkazu. Hodnota $1 bude nahrazena samotn√Ωm odkazem tak, jak to d√¨l√° Twitter.');
-@define('PLUGIN_TWITTER_FOLLOWME_LINK',                 'Odkaz "Sledov√°n√≠"');
-@define('PLUGIN_TWITTER_FOLLOWME_LINK_DESC',            'P√∏id√°v√° odkaz "sledov√°n√≠" pod √®asovou osu');
-@define('PLUGIN_TWITTER_FOLLOWME_LINK_TEXT',            'Sledov√°n√≠');
-@define('PLUGIN_TWITTER_USE_TIME_AGO',                  'Pou≈æ√≠t pohled zp√¨t v √®ase');
-@define('PLUGIN_TWITTER_USE_TIME_AGO_DESC',             'Pokud je zapnuto, pak bude √®as statutu zobrazen jako √®as, kter√Ω uplynul od zad√°n√≠ statutu (tak jak to d√¨l√° samotn√Ω twitter), jinak bude pou≈æ√≠t nastaviteln√Ω form√°t data.');
+@define('PLUGIN_TWITTER_LINKTEXT',                      'Text odkaz˘ ve tweetech');
+@define('PLUGIN_TWITTER_LINKTEXT_DESC',                 'Odkazy nalezenÈ v Tweetech jsou nahrazeny kliknuteln˝m HTML odkazem. Zde nastavte text odkazu. Hodnota $1 bude nahrazena samotn˝m odkazem tak, jak to dÏl· Twitter.');
+@define('PLUGIN_TWITTER_FOLLOWME_LINK',                 'Odkaz "Sledov·nÌ"');
+@define('PLUGIN_TWITTER_FOLLOWME_LINK_DESC',            'P¯id·v· odkaz "sledov·nÌ" pod Ëasovou osu');
+@define('PLUGIN_TWITTER_FOLLOWME_LINK_TEXT',            'Sledov·nÌ');
+@define('PLUGIN_TWITTER_USE_TIME_AGO',                  'PouûÌt pohled zpÏt v Ëase');
+@define('PLUGIN_TWITTER_USE_TIME_AGO_DESC',             'Pokud je zapnuto, pak bude Ëas statutu zobrazen jako Ëas, kter˝ uplynul od zad·nÌ statutu (tak jak to dÏl· samotn˝ twitter), jinak bude pouûÌt nastaviteln˝ form·t data.');
 
-@define('PLUGIN_TWITTER_PROBLEM_TWITTER_ACCESS',        'Probl√©m p√∏i p√∏√≠stupu na Twitter. <br />Po√®kejte chvilku a obnovte str√°nku...');
+@define('PLUGIN_TWITTER_PROBLEM_TWITTER_ACCESS',        'ProblÈm p¯i p¯Ìstupu na Twitter. <br />PoËkejte chvilku a obnovte str·nku...');
 
 // Twitter Event Plugin 
 
-@define('PLUGIN_EVENT_TWITTER_NAME',                    'Mikroblogov√°n√≠ (Twitter, Identica)');
-@define('PLUGIN_EVENT_TWITTER_DESC',                    'P√∏id√°v√° klienta Twitter/Identica do administra√®n√≠ sekce a stahuje nov√© tweety a ozn√°muje nov√© √®l√°nky na √∫√®tu mikroblogu.');
+@define('PLUGIN_EVENT_TWITTER_NAME',                    'Mikroblogov·nÌ (Twitter, Identica)');
+@define('PLUGIN_EVENT_TWITTER_DESC',                    'P¯id·v· klienta Twitter/Identica do administraËnÌ sekce a stahuje novÈ tweety a ozn·muje novÈ Ël·nky na ˙Ëtu mikroblogu.');
 
-@define('PLUGIN_EVENT_TWITTER_ACCOUNT_NAME',            'Jm√©no √∫√®tu');
-@define('PLUGIN_EVENT_TWITTER_ACCOUNT_NAME_DESC',       'Jm√©no √∫√®tu, kter√Ωm se bude klient na pozad√≠ p√∏ihla≈°ovat k mikroblogu.');
-@define('PLUGIN_EVENT_TWITTER_ACCOUNT_PWD',             'Heslo k √∫√®tu');
-@define('PLUGIN_EVENT_TWITTER_ACCOUNT_PWD_DESC',        'Heslo √∫√®tu, kter√Ωm se bude klient na pozad√≠ p√∏ihla≈°ovat k mikroblogu.');
+@define('PLUGIN_EVENT_TWITTER_ACCOUNT_NAME',            'JmÈno ˙Ëtu');
+@define('PLUGIN_EVENT_TWITTER_ACCOUNT_NAME_DESC',       'JmÈno ˙Ëtu, kter˝m se bude klient na pozadÌ p¯ihlaöovat k mikroblogu.');
+@define('PLUGIN_EVENT_TWITTER_ACCOUNT_PWD',             'Heslo k ˙Ëtu');
+@define('PLUGIN_EVENT_TWITTER_ACCOUNT_PWD_DESC',        'Heslo ˙Ëtu, kter˝m se bude klient na pozadÌ p¯ihlaöovat k mikroblogu.');
 
-@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_ARTICLES_TITLE', 'Ozn√°mov√°n√≠ √®l√°nk√π');
-@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_ARTICLES',       'Oznamovat nov√© √®l√°nky');
-@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_ARTICLES_DESC',  'Pokud je zapnuto, plugin bude oznamovat nov√© na blogu publikovan√© p√∏√≠sp√¨vky na slu≈æb√¨ Twitter nebo Identica.');
-@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_WITHTTAGS',      'Ozn√°mit s tagy');
-@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_WITHTTAGS_DESC', 'Pokud je nainstalov√°n plugin Free Tag (Kl√≠√®ov√° slova), oznamova√® √®l√°nk√π prohled√° nadpis p√∏√≠sp√¨vku, jestli neobsahuje tagy. Pokud n√¨jak√Ω nalezne, budou tyto tagy ozna√®en√© jako tagy twitteru. V≈ædy m√π≈æete p√∏idat tagy ru√®n√¨ pomoc√≠ #tags#. Tyto budou napln√¨ny v≈°emi tagy, kter√© je≈°t√¨ nebyly nalezeny v nadpisu p√∏√≠sp√¨vku. To znamen√° v≈°echny zde zadan√© tagy budou p√∏id√°ny, pokud volba automatick√©ho hled√°n√≠ tag√π nen√≠ zapnuta.');
-@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_SERVICE',        'Ozn√°mit URL zkracova√®');
-@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_SERVICE_DESC',   'Slu≈æba, kter√° m√° b√Ωt pou≈æita pro zkr√°cen√≠ odkaz√π p√∏i oznamov√°n√≠ p√∏√≠sp√¨vku. Doporu√®en√© jsou 7ax.de nebo tinyurl.com, proto≈æe to jsou zat√≠m jedin√© zn√°m√© slu≈æby, kter√© funguj√≠ spole√®n√¨ s tweetbacks.');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_ARTICLES_TITLE', 'Ozn·mov·nÌ Ël·nk˘');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_ARTICLES',       'Oznamovat novÈ Ël·nky');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_ARTICLES_DESC',  'Pokud je zapnuto, plugin bude oznamovat novÈ na blogu publikovanÈ p¯ÌspÏvky na sluûbÏ Twitter nebo Identica.');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_WITHTTAGS',      'Ozn·mit s tagy');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_WITHTTAGS_DESC', 'Pokud je nainstalov·n plugin Free Tag (KlÌËov· slova), oznamovaË Ël·nk˘ prohled· nadpis p¯ÌspÏvku, jestli neobsahuje tagy. Pokud nÏjak˝ nalezne, budou tyto tagy oznaËenÈ jako tagy twitteru. Vûdy m˘ûete p¯idat tagy ruËnÏ pomocÌ #tags#. Tyto budou naplnÏny vöemi tagy, kterÈ jeötÏ nebyly nalezeny v nadpisu p¯ÌspÏvku. To znamen· vöechny zde zadanÈ tagy budou p¯id·ny, pokud volba automatickÈho hled·nÌ tag˘ nenÌ zapnuta.');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_SERVICE',        'Ozn·mit URL zkracovaË');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_SERVICE_DESC',   'Sluûba, kter· m· b˝t pouûita pro zkr·cenÌ odkaz˘ p¯i oznamov·nÌ p¯ÌspÏvku. DoporuËenÈ jsou 7ax.de nebo tinyurl.com, protoûe to jsou zatÌm jedinÈ zn·mÈ sluûby, kterÈ fungujÌ spoleËnÏ s tweetbacks.');
 
 @define('PLUGIN_EVENT_TWITTER_TWEETBACKS_TITLE',        'Tweetbacks');
-@define('PLUGIN_EVENT_TWITTER_DO_TWEETBACKS',           'Zji≈°ÔøΩovat Tweetbacky');
-@define('PLUGIN_EVENT_TWITTER_DO_TWEETBACKS_DESC',      'Pokud je zapnuto, plugin se pokus√≠ naj√≠t tweetbacky (odezvy twitteru) na √®l√°nky a p√∏id√° volbu "zkontrolovat odezvy twitteru" pod roz≈°√≠√∏en√© t√¨lo p√∏√≠sp√¨vku, pokud je n√°v≈°t√¨vn√≠k p√∏ihl√°≈°en√Ω do blogu.');
+@define('PLUGIN_EVENT_TWITTER_DO_TWEETBACKS',           'Zjiöùovat Tweetbacky');
+@define('PLUGIN_EVENT_TWITTER_DO_TWEETBACKS_DESC',      'Pokud je zapnuto, plugin se pokusÌ najÌt tweetbacky (odezvy twitteru) na Ël·nky a p¯id· volbu "zkontrolovat odezvy twitteru" pod rozöÌ¯enÈ tÏlo p¯ÌspÏvku, pokud je n·vötÏvnÌk p¯ihl·öen˝ do blogu.');
 @define('PLUGIN_EVENT_TWITTER_IGNORE_MYTWEETBACKS',     'Ignorovat moje Tweety');
-@define('PLUGIN_EVENT_TWITTER_IGNORE_MYTWEETBACKS_DESC','Pokud nechcete zobrazovat vlastn√≠ tweety jako tweetbacky, zapn√¨te tuto volbu. V opa√®n√©m p√∏√≠pad√¨ budou ozn√°men√≠ zobrazov√°na jako tweetbacky.');
+@define('PLUGIN_EVENT_TWITTER_IGNORE_MYTWEETBACKS_DESC','Pokud nechcete zobrazovat vlastnÌ tweety jako tweetbacky, zapnÏte tuto volbu. V opaËnÈm p¯ÌpadÏ budou ozn·menÌ zobrazov·na jako tweetbacky.');
 
-@define('PLUGIN_EVENT_TWITTER_TWEETBACK_CHECK_FREQ',    'Frekvence kontroly tweetback√π');
-@define('PLUGIN_EVENT_TWITTER_TWEETBACK_CHECK_FREQ_DESC','√àas v minut√°ch mezi dv√¨ma kontrolami twitteru. (mus√≠ b√Ωt alespo√≤ 5 minut)');
+@define('PLUGIN_EVENT_TWITTER_TWEETBACK_CHECK_FREQ',    'Frekvence kontroly tweetback˘');
+@define('PLUGIN_EVENT_TWITTER_TWEETBACK_CHECK_FREQ_DESC','»as v minut·ch mezi dvÏma kontrolami twitteru. (musÌ b˝t alespoÚ 5 minut)');
 @define('PLUGIN_EVENT_TWITTER_TB_TYPE',                 'Typ tweetbacku');
-@define('PLUGIN_EVENT_TWITTER_TB_TYPE_DESC',            'Serendipity nepodporuje sama o sob√¨ tweetbacky. Tak≈æe ty musej√≠ b√Ωt ulo≈æeny jako odezvy nebo norm√°ln√≠ koment√°√∏e. Proto≈æe p√∏ich√°zej√≠ z vn√¨ blogu, jsou jist√Ωm type odezvy, ale podle obsahu by pat√∏ily sp√≠≈° mezi koment√°√∏e. Rozhodn√¨te sami, jak se maj√≠ tweetbacky ukl√°dat.');
+@define('PLUGIN_EVENT_TWITTER_TB_TYPE_DESC',            'Serendipity nepodporuje sama o sobÏ tweetbacky. Takûe ty musejÌ b˝t uloûeny jako odezvy nebo norm·lnÌ koment·¯e. Protoûe p¯ich·zejÌ z vnÏ blogu, jsou jist˝m type odezvy, ale podle obsahu by pat¯ily spÌö mezi koment·¯e. RozhodnÏte sami, jak se majÌ tweetbacky ukl·dat.');
 @define('PLUGIN_EVENT_TWITTER_TB_TYPE_TRACKBACK',       'Odezva');
-@define('PLUGIN_EVENT_TWITTER_TB_TYPE_COMMENT',         'Koment√°√∏');
+@define('PLUGIN_EVENT_TWITTER_TB_TYPE_COMMENT',         'Koment·¯');
 
-@define('PLUGIN_EVENT_TWITTER_TWEETER_TITLE',           'Mikroblogovac√≠ klient');
+@define('PLUGIN_EVENT_TWITTER_TWEETER_TITLE',           'MikroblogovacÌ klient');
 @define('PLUGIN_EVENT_TWITTER_TWEETER_SIDEBARTITLE',    'Tweeter');
-@define('PLUGIN_EVENT_TWITTER_TWEETER_SHOW',            'Zapnout mikroblogovac√≠ho klienta');
-@define('PLUGIN_EVENT_TWITTER_TWEETER_SHOW_DESC',       'Zapnte tweeter na hlavn√≠ str√°nce administra√®n√≠ sekce, jako postrann√≠ sloupec a nebo ho vypne.');
-@define('PLUGIN_EVENT_TWITTER_TWEETER_SHOW_FRONTPAGE',  'Hlavn√≠ str√°nka');
-@define('PLUGIN_EVENT_TWITTER_TWEETER_SHOW_SIDEBAR',    'Postrann√≠ sloupec');
+@define('PLUGIN_EVENT_TWITTER_TWEETER_SHOW',            'Zapnout mikroblogovacÌho klienta');
+@define('PLUGIN_EVENT_TWITTER_TWEETER_SHOW_DESC',       'Zapnte tweeter na hlavnÌ str·nce administraËnÌ sekce, jako postrannÌ sloupec a nebo ho vypne.');
+@define('PLUGIN_EVENT_TWITTER_TWEETER_SHOW_FRONTPAGE',  'HlavnÌ str·nka');
+@define('PLUGIN_EVENT_TWITTER_TWEETER_SHOW_SIDEBAR',    'PostrannÌ sloupec');
 @define('PLUGIN_EVENT_TWITTER_TWEETER_SHOW_DISABLE',    'Vypnout');
-@define('PLUGIN_EVENT_TWITTER_TWEETER_HISTORY',         'Zobrazit √®asovou osu');
-@define('PLUGIN_EVENT_TWITTER_TWEETER_HISTORY_DESC',    'Zobrazuje √®asovou osu s √®l√°nky pod aktualizovan√Ωm v√Ωpisem.');
-@define('PLUGIN_EVENT_TWITTER_TWEETER_HISTORY_COUNT',   'D√©lka √®asov√© osy');
-@define('PLUGIN_EVENT_TWITTER_TWEETER_HISTORY_COUNT_DESC','Kolik nejnov√¨j≈°√≠ch p√∏√≠sp√¨vk√π  se m√° zobrazovat na hlavn√≠ stran√¨?');
+@define('PLUGIN_EVENT_TWITTER_TWEETER_HISTORY',         'Zobrazit Ëasovou osu');
+@define('PLUGIN_EVENT_TWITTER_TWEETER_HISTORY_DESC',    'Zobrazuje Ëasovou osu s Ël·nky pod aktualizovan˝m v˝pisem.');
+@define('PLUGIN_EVENT_TWITTER_TWEETER_HISTORY_COUNT',   'DÈlka ËasovÈ osy');
+@define('PLUGIN_EVENT_TWITTER_TWEETER_HISTORY_COUNT_DESC','Kolik nejnovÏjöÌch p¯ÌspÏvk˘  se m· zobrazovat na hlavnÌ stranÏ?');
 
 @define('PLUGIN_EVENT_TWITTER_TWEETER_FORM',            'Zadejte tweet:');
-@define('PLUGIN_EVENT_TWITTER_TWEETER_CHARSLEFT',       'znak√π vlevo');
+@define('PLUGIN_EVENT_TWITTER_TWEETER_CHARSLEFT',       'znak˘ vlevo');
 @define('PLUGIN_EVENT_TWITTER_TWEETER_SHORTEN',         'Zkracovat URL adresy');
-@define('PLUGIN_EVENT_TWITTER_TWEETER_STORED',          'Tweet ulo≈æen ');
-@define('PLUGIN_EVENT_TWITTER_TWEETER_STOREFAIL',       'Tweet nemohl b√Ωt ulo≈æen! Chyba Twitteru: ');
+@define('PLUGIN_EVENT_TWITTER_TWEETER_STORED',          'Tweet uloûen ');
+@define('PLUGIN_EVENT_TWITTER_TWEETER_STOREFAIL',       'Tweet nemohl b˝t uloûen! Chyba Twitteru: ');
 
-@define('PLUGIN_EVENT_TWITTER_GENERAL_TITLE',           'Obecn√°');
+@define('PLUGIN_EVENT_TWITTER_GENERAL_TITLE',           'Obecn·');
 @define('PLUGIN_EVENT_TWITTER_PLUGIN_EVENT_REL_URL',    'Plugin rel. path');
-@define('PLUGIN_EVENT_TWITTER_PLUGIN_EVENT_REL_URL_DESC', 'Zadejte celou HTTP cestu (v≈°echno, co n√°sleduje po Va≈°em dom√©nov√©m jm√©n√¨), kter√© vede do adres√°√∏e s pluginem.');
+@define('PLUGIN_EVENT_TWITTER_PLUGIN_EVENT_REL_URL_DESC', 'Zadejte celou HTTP cestu (vöechno, co n·sleduje po Vaöem domÈnovÈm jmÈnÏ), kterÈ vede do adres·¯e s pluginem.');
 
 @define('PLUGIN_EVENT_TWITTER_TWEETER_WARNING',         '<p class="serendipityAdminMsgError">' .
                 '<img style="width: 22px; height: 22px; border: 0px; padding-right: 4px; vertical-align: middle" src="' . serendipity_getTemplateFile('admin/img/admin_msg_error.png'). '" alt="" />' .
-                'UPOZORN√åN√ç: Nalezen nainstalovan√Ω plugin TwitterTweeter.</p>' .
-                '<p class="serendipityAdminMsgError">Tento plugin je slou√®en√≠m pluginu TwitterTweeter a ofici√°ln√≠ho star√©ho serendipity pluginu twitter, nav√≠c oba dva pluginy roz≈°i√∏uje.M√¨li byste odinstalovat v≈°echny p√∏edchoz√≠ pluginy.</p>');
+                'UPOZORNÃNÕ: Nalezen nainstalovan˝ plugin TwitterTweeter.</p>' .
+                '<p class="serendipityAdminMsgError">Tento plugin je slouËenÌm pluginu TwitterTweeter a ofici·lnÌho starÈho serendipity pluginu twitter, navÌc oba dva pluginy rozöi¯uje.MÏli byste odinstalovat vöechny p¯edchozÌ pluginy.</p>');
 
 @define('PLUGIN_EVENT_TWITTER_TB_USE_URL',              'URL Tweetbacku');
-@define('PLUGIN_EVENT_TWITTER_TB_USE_URL_DESC',         'Co ulo≈æit jako URL adresu tweetbacku? M√°te 3 mo≈ænosti. Status: url tweetu, kter√Ω je tweetbackem, Profil: adresa profilu u≈æivatele twitteru nebo WebURL: adresa zadan√° u≈æivatelem twitteru v jeho profilu jako Web URL');
+@define('PLUGIN_EVENT_TWITTER_TB_USE_URL_DESC',         'Co uloûit jako URL adresu tweetbacku? M·te 3 moûnosti. Status: url tweetu, kter˝ je tweetbackem, Profil: adresa profilu uûivatele twitteru nebo WebURL: adresa zadan· uûivatelem twitteru v jeho profilu jako Web URL');
 @define('PLUGIN_EVENT_TWITTER_TB_USE_URL_STATUS',       'Status');
 @define('PLUGIN_EVENT_TWITTER_TB_USE_URL_PROFILE',      'Profil');
 @define('PLUGIN_EVENT_TWITTER_TB_USE_URL_WEBURL',       'Web URL');
 
 @define('PLUGIN_EVENT_TWITTER_IDENTITIES',              'Identity');
-@define('PLUGIN_EVENT_TWITTER_ACCOUNT_IDCOUNT',         'Po√®et √∫√®t√π');
-@define('PLUGIN_EVENT_TWITTER_ACCOUNT_IDCOUNT_DESC',    'Po ulo≈æen√≠ tohoto nastaven√≠ se na t√©to str√°nce nastaven√≠ objev√≠ pol√≠√®ka pro nastaven√≠ zde zadan√©ho po√®tu √∫√®t√π. Mo≈æn√° budete muset nastaven√≠ ulo≈æit dvakr√°t, abyste p√∏√≠slu≈°n√° zad√°vac√≠ pol√≠√®ka vid√¨li.');
+@define('PLUGIN_EVENT_TWITTER_ACCOUNT_IDCOUNT',         'PoËet ˙Ët˘');
+@define('PLUGIN_EVENT_TWITTER_ACCOUNT_IDCOUNT_DESC',    'Po uloûenÌ tohoto nastavenÌ se na tÈto str·nce nastavenÌ objevÌ polÌËka pro nastavenÌ zde zadanÈho poËtu ˙Ët˘. Moûn· budete muset nastavenÌ uloûit dvakr·t, abyste p¯Ìsluön· zad·vacÌ polÌËka vidÏli.');
 @define('PLUGIN_EVENT_TWITTER_IDENTITY',                'Identita');
-@define('PLUGIN_EVENT_TWITTER_ACCOUNT_SERVICE',         'Jm√©no slu≈æby');
-@define('PLUGIN_EVENT_TWITTER_ACCOUNT_SERVICE_DESC',    'Zadejte, zda je tento √∫√®et na twitteru nebo na identi.ca');
+@define('PLUGIN_EVENT_TWITTER_ACCOUNT_SERVICE',         'JmÈno sluûby');
+@define('PLUGIN_EVENT_TWITTER_ACCOUNT_SERVICE_DESC',    'Zadejte, zda je tento ˙Ëet na twitteru nebo na identi.ca');
 @define('PLUGIN_EVENT_TWITTER_ACCOUNT_SERVICE_TWITTER', 'twitter');
 @define('PLUGIN_EVENT_TWITTER_ACCOUNT_SERVICE_IDENTICA','identica');
 
-@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_ACCOUNTS',       'Oznamovac√≠ √∫√®ty');
-@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_ACCOUNTS_DESC',  'Vyberte √∫√®ty, na kter√© se maj√≠ oznamovat nov√© p√∏√≠sp√¨vky');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_ACCOUNTS',       'OznamovacÌ ˙Ëty');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_ACCOUNTS_DESC',  'Vyberte ˙Ëty, na kterÈ se majÌ oznamovat novÈ p¯ÌspÏvky');
 
 // Configuration Tabs:
 
-@define('PLUGIN_EVENT_TWITTER_CFGTAB',                  'Konfigura√®n√≠ z√°lo≈æky:');
+@define('PLUGIN_EVENT_TWITTER_CFGTAB',                  'KonfiguraËnÌ z·loûky:');
 @define('PLUGIN_EVENT_TWITTER_CFGTAB_IDENTITIES',       'Identity');
-@define('PLUGIN_EVENT_TWITTER_CFGTAB_ANNOUNCE',         'Oznamov√°n√≠ √®l√°nk√π');
-@define('PLUGIN_EVENT_TWITTER_CFGTAB_TWEETER',          'Mikroblogovac√≠ klient');
+@define('PLUGIN_EVENT_TWITTER_CFGTAB_ANNOUNCE',         'Oznamov·nÌ Ël·nk˘');
+@define('PLUGIN_EVENT_TWITTER_CFGTAB_TWEETER',          'MikroblogovacÌ klient');
 @define('PLUGIN_EVENT_TWITTER_CFGTAB_TWEETBACK',        'Tweetbacky');
-@define('PLUGIN_EVENT_TWITTER_CFGTAB_GLOBAL',           'Obecn√©');
-@define('PLUGIN_EVENT_TWITTER_CFGTAB_ALL',              'V≈°echno');
+@define('PLUGIN_EVENT_TWITTER_CFGTAB_GLOBAL',           'ObecnÈ');
+@define('PLUGIN_EVENT_TWITTER_CFGTAB_ALL',              'Vöechno');
 
-@define('PLUGIN_EVENT_TWITTER_TWEETER_REPLY',           'Odpov√¨d√¨t pisateli');
+@define('PLUGIN_EVENT_TWITTER_TWEETER_REPLY',           'OdpovÏdÏt pisateli');
 @define('PLUGIN_EVENT_TWITTER_TWEETER_RETWEET',         'Retweetovat');
-@define('PLUGIN_EVENT_TWITTER_TWEETER_DM',              'P√∏√≠m√° zpr√°va (Pracuje pouze pokud V√°s u≈æivatel sleduje)');
+@define('PLUGIN_EVENT_TWITTER_TWEETER_DM',              'P¯Ìm· zpr·va (Pracuje pouze pokud V·s uûivatel sleduje)');
 
 @define('PLUGIN_EVENT_TWITTER_IGNORE_TWEETBACKS_BYNAME','Ignorovat tweetbacky z');
-@define('PLUGIN_EVENT_TWITTER_IGNORE_TWEETBACKS_BYNAME_DESC','√à√°rkami odd√¨len√Ω seznam √∫√®t√π twitteru, ze kter√Ωch nechcete p√∏ij√≠mat tweetbacky.');
+@define('PLUGIN_EVENT_TWITTER_IGNORE_TWEETBACKS_BYNAME_DESC','»·rkami oddÏlen˝ seznam ˙Ët˘ twitteru, ze kter˝ch nechcete p¯ijÌmat tweetbacky.');
 
 @define('PLUGIN_TWITTER_EVENT_NOT_INSTALLED',           '<p class="serendipityAdminMsgError">' .
                 '<img style="width: 22px; height: 22px; border: 0px; padding-right: 4px; vertical-align: middle" src="' . serendipity_getTemplateFile('admin/img/admin_msg_error.png'). '" alt="" />' .
-                'VAROV√ÅN√ç: Plugin ud√°lost√≠ pro mikroblogov√°n√≠ (twitter/identica) je≈°t√¨ nebyl nainstalov√°n!</p>' .
-                '<p class="serendipityAdminMsgError">Hlavn√≠ √®√°st funkc√≠ twitter/identica je zabezpe√®ov√°na pluginem ud√°lost√≠ mikroblogov√°n√≠. Pokud chcete plnou funk√®nost pluginu, m√¨li byste ho tak√© nainstalovat
+                'VAROV¡NÕ: Plugin ud·lostÌ pro mikroblogov·nÌ (twitter/identica) jeötÏ nebyl nainstalov·n!</p>' .
+                '<p class="serendipityAdminMsgError">HlavnÌ Ë·st funkcÌ twitter/identica je zabezpeËov·na pluginem ud·lostÌ mikroblogov·nÌ. Pokud chcete plnou funkËnost pluginu, mÏli byste ho takÈ nainstalovat
 .</p>');
 
-@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_FORMAT',         'Form√°t ozn√°men√≠');
-@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_FORMAT_DESC',    'Zadejte vlastn√≠ form√°t oznamovac√≠ch zpr√°v. M√π≈æete pou≈æ√≠t n√°sleduj√≠c√≠ prom√¨nn√©. title#: bude nahrazen nadpisem p√∏√≠sp√¨vku (a odpov√≠daj√≠c√≠mi tagy); #link#: odkaz na p√∏√≠sp√¨vek; #author#: Autor p√∏√≠sp√¨vku; #tags#: zb√Ωvaj√≠c√≠ tagy.');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_FORMAT',         'Form·t ozn·menÌ');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_FORMAT_DESC',    'Zadejte vlastnÌ form·t oznamovacÌch zpr·v. M˘ûete pouûÌt n·sledujÌcÌ promÏnnÈ. title#: bude nahrazen nadpisem p¯ÌspÏvku (a odpovÌdajÌcÌmi tagy); #link#: odkaz na p¯ÌspÏvek; #author#: Autor p¯ÌspÏvku; #tags#: zb˝vajÌcÌ tagy.');
 
 @define('PLUGIN_EVENT_TWITTER_CFGTAB_TWEETTHIS',        'Twittni to!');
 @define('PLUGIN_EVENT_TWITTER_TWEETTHIS_TITLE',         'Twittni to!');
 @define('PLUGIN_EVENT_TWITTER_DO_TWEETTHIS',            'Povolit "Twittni to!"');
-@define('PLUGIN_EVENT_TWITTER_DO_TWEETTHIS_DESC',       'Zapnut√≠ t√©to funkce zobraz√≠ tla√®√≠tko "Twittni to!" v pati√®ce p√∏√≠sp√¨vku.');
+@define('PLUGIN_EVENT_TWITTER_DO_TWEETTHIS_DESC',       'ZapnutÌ tÈto funkce zobrazÌ tlaËÌtko "Twittni to!" v patiËce p¯ÌspÏvku.');
 @define('PLUGIN_EVENT_TWITTER_DO_IDENTICATHIS',         'Zapnout Identica');
-@define('PLUGIN_EVENT_TWITTER_DO_IDENTICATHIS_DESC',    'Zapnut√≠ t√©to funkce zobraz√≠ tla√®√≠tko "Identica" v pati√®ce p√∏√≠sp√¨vku.');
-@define('PLUGIN_EVENT_TWITTER_TWEETTHIS_FORMAT',        'Form√°t "Twittni to!"');
-@define('PLUGIN_EVENT_TWITTER_TWEETTHIS_FORMAT_DESC',   'Zadejte form√°t pro tweety n√°v≈°t√¨vn√≠k√π. M√¨li byste pou≈æ√≠t n√°sleduj√≠c√≠ prom√¨nn√©. title#: bude nahrazen nadpisem p√∏√≠sp√¨vku (a odpov√≠daj√≠c√≠mi tagy); #link#: odkaz na p√∏√≠sp√¨vek; #author#: Autor p√∏√≠sp√¨vku; #tags#: zb√Ωvaj√≠c√≠ tagy.');
-@define('PLUGIN_EVENT_TWITTER_TWEETTHIS_FORMAT_BUTTON', 'Styl tla√®√≠tek');
-@define('PLUGIN_EVENT_TWITTER_TWEETTHIS_FORMAT_BUTTON_DESC', 'V sou√®asnosti je mo≈æno vybrat mezi dv√¨ma styly twittovac√≠ho tla√®√≠tka.');
-@define('PLUGIN_EVENT_TWITTER_TWEETTHIS_FORMAT_BUTTON_BLACK', '√®ern√©');
-@define('PLUGIN_EVENT_TWITTER_TWEETTHIS_FORMAT_BUTTON_WHITE', 'b√≠l√©');
+@define('PLUGIN_EVENT_TWITTER_DO_IDENTICATHIS_DESC',    'ZapnutÌ tÈto funkce zobrazÌ tlaËÌtko "Identica" v patiËce p¯ÌspÏvku.');
+@define('PLUGIN_EVENT_TWITTER_TWEETTHIS_FORMAT',        'Form·t "Twittni to!"');
+@define('PLUGIN_EVENT_TWITTER_TWEETTHIS_FORMAT_DESC',   'Zadejte form·t pro tweety n·vötÏvnÌk˘. MÏli byste pouûÌt n·sledujÌcÌ promÏnnÈ. title#: bude nahrazen nadpisem p¯ÌspÏvku (a odpovÌdajÌcÌmi tagy); #link#: odkaz na p¯ÌspÏvek; #author#: Autor p¯ÌspÏvku; #tags#: zb˝vajÌcÌ tagy.');
+@define('PLUGIN_EVENT_TWITTER_TWEETTHIS_FORMAT_BUTTON', 'Styl tlaËÌtek');
+@define('PLUGIN_EVENT_TWITTER_TWEETTHIS_FORMAT_BUTTON_DESC', 'V souËasnosti je moûno vybrat mezi dvÏma styly twittovacÌho tlaËÌtka.');
+@define('PLUGIN_EVENT_TWITTER_TWEETTHIS_FORMAT_BUTTON_BLACK', 'ËernÈ');
+@define('PLUGIN_EVENT_TWITTER_TWEETTHIS_FORMAT_BUTTON_WHITE', 'bÌlÈ');
 
-@define('PLUGIN_EVENT_TWITTER_TWEETTHIS_NEWWINDOW',     '"Twittni to!" v nov√©m okn√¨');
-@define('PLUGIN_EVENT_TWITTER_TWEETTHIS_NEWWINDOW_DESC','Pokud je zapnuto, twitter a identica se nat√°hnou v nov√©m okn√¨, v aktu√°ln√≠m okn√¨ tedy z√πstane st√°le zobrazen√Ω blog.');
+@define('PLUGIN_EVENT_TWITTER_TWEETTHIS_NEWWINDOW',     '"Twittni to!" v novÈm oknÏ');
+@define('PLUGIN_EVENT_TWITTER_TWEETTHIS_NEWWINDOW_DESC','Pokud je zapnuto, twitter a identica se nat·hnou v novÈm oknÏ, v aktu·lnÌm oknÏ tedy z˘stane st·le zobrazen˝ blog.');
 @define('PLUGIN_EVENT_TWITTER_TWEETTHIS_SMARTIFY',      'Smartyfizce funkce "Twittni to!"');
-@define('PLUGIN_EVENT_TWITTER_TWEETTHIS_SMARTIFY_DESC', 'Pokud je zapnuto, plugin nebude p√∏id√°vat tla√®√≠tko s√°m o sob√¨. M√≠sto toho p√∏id√° do smarty dv√¨ prom√¨nn√©: entry.url_tweetthis a entry.url_dentthis. Ty pak lze pou≈æ√≠t v ≈°ablon√¨. Tyto prom√¨nn√© obsahuj√≠ pouze URL adresy, tak≈æe m√π≈æete vytvo√∏it vlastn√≠ text pro tla√®√≠tko "Twittni to!", nebo tla√®√≠tko um√≠stit nap√∏√≠klad do z√°hlav√≠ √®l√°nku.');
+@define('PLUGIN_EVENT_TWITTER_TWEETTHIS_SMARTIFY_DESC', 'Pokud je zapnuto, plugin nebude p¯id·vat tlaËÌtko s·m o sobÏ. MÌsto toho p¯id· do smarty dvÏ promÏnnÈ: entry.url_tweetthis a entry.url_dentthis. Ty pak lze pouûÌt v öablonÏ. Tyto promÏnnÈ obsahujÌ pouze URL adresy, takûe m˘ûete vytvo¯it vlastnÌ text pro tlaËÌtko "Twittni to!", nebo tlaËÌtko umÌstit nap¯Ìklad do z·hlavÌ Ël·nku.');
 
-@define('PLUGIN_EVENT_TWITTER_BACKEND_DONTANNOUNCE',    'NEoznamovat tento p√∏√≠sp√¨vek pomoc√≠ mikroblogovac√≠ch slu≈æeb');
-@define('PLUGIN_EVENT_TWITTER_BACKEND_ENTERDESC',       'Zadejte libovoln√© tagy, kter√© souvis√≠ s p√∏√≠sp√¨vkem. V√≠ce tag√π odd√¨lujte √®√°rkou (,). Pokud je zde n√¨co zad√°no, tagy pluginu freetag jsou p√∏i oznamov√°n√≠ ignorov√°ny!');
+@define('PLUGIN_EVENT_TWITTER_BACKEND_DONTANNOUNCE',    'NEoznamovat tento p¯ÌspÏvek pomocÌ mikroblogovacÌch sluûeb');
+@define('PLUGIN_EVENT_TWITTER_BACKEND_ENTERDESC',       'Zadejte libovolnÈ tagy, kterÈ souvisÌ s p¯ÌspÏvkem. VÌce tag˘ oddÏlujte Ë·rkou (,). Pokud je zde nÏco zad·no, tagy pluginu freetag jsou p¯i oznamov·nÌ ignorov·ny!');
 
 // Next lines were translated on 2009/08/15
 
-@define('PLUGIN_TWITTER_FILTER_ALL',                    '≈Ω√°dn√© u≈æivatelsk√© tweety');
-@define('PLUGIN_TWITTER_FILTER_ALL_DESC',               'Pokud je volba zapnuta, nebudou se zobrazovat tweety obsahuj√≠c√≠ @. (pouze v PHP verzi)');
-@define('PLUGIN_EVENT_TWITTER_TB_MODERATE',             'Schvalov√°n√≠ tweetback√π');
-@define('PLUGIN_EVENT_TWITTER_TB_MODERATE_DESC',        'Jak pracovat s p√∏ijat√Ωmi tweetbacky? M√π≈æete pou≈æ√≠t obecn√© nastaven√≠ pro koment√°√∏e, schvalovat je, nebo je v≈ædy povolit.');
-@define('PLUGIN_EVENT_TWITTER_TB_MODERATE_DEFAULT',     'Pou≈æ√≠t obecn√© nastaven√≠ koment√°√∏√π');
+@define('PLUGIN_TWITTER_FILTER_ALL',                    'é·dnÈ uûivatelskÈ tweety');
+@define('PLUGIN_TWITTER_FILTER_ALL_DESC',               'Pokud je volba zapnuta, nebudou se zobrazovat tweety obsahujÌcÌ @. (pouze v PHP verzi)');
+@define('PLUGIN_EVENT_TWITTER_TB_MODERATE',             'Schvalov·nÌ tweetback˘');
+@define('PLUGIN_EVENT_TWITTER_TB_MODERATE_DESC',        'Jak pracovat s p¯ijat˝mi tweetbacky? M˘ûete pouûÌt obecnÈ nastavenÌ pro koment·¯e, schvalovat je, nebo je vûdy povolit.');
+@define('PLUGIN_EVENT_TWITTER_TB_MODERATE_DEFAULT',     'PouûÌt obecnÈ nastavenÌ koment·¯˘');
 
 // Next lines were translated on 2009/08/25
 
-@define('PLUGIN_EVENT_TWITTER_SHORTURL_TITLE',          'Zobrazit URL adresu pro tento √®l√°nek');
-@define('PLUGIN_EVENT_TWITTER_SHORTURL_ON_CLICK',       'Tento odkaz nen√≠ klikac√≠. Obsahuje zkr√°cenou URL adresu k tomuto p√∏√≠sp√¨vku. Tuto URL adresu m√π≈æete pou≈æ√≠t jako odkaz na tento √®l√°nek, nap√∏√≠klad v twitteru. Odkaz zkop√≠rujete tak, ≈æe kliknete prav√Ωm tla√®√≠tkem a vyberete "Zkop√≠rovat odkaz" v Internet Exploreru, nebo "Kop√≠rovat adresu odkazu" v Mozille.');
-@define('PLUGIN_EVENT_TWITTER_SHOW_SHORTURL',           'Zobrzit kr√°tkou URL adresu pro ka≈æd√Ω p√∏√≠sp√¨vek');
-@define('PLUGIN_EVENT_TWITTER_SHOW_SHORTURL_DESC',      'Bude zobrazovat v√Ωchoz√≠ kr√°tkou URL v pati√®ce ka≈æd√©ho √®l√°nku. Pokud je zapnut√° funkce smarty TweetThis, ka≈æd√Ω p√∏√≠sp√¨vek bude obsahovat prom√¨nnou entry.url_shorturl, kter√° se d√° libovoln√¨ vyu≈æ√≠t ve smarty ≈°ablon√¨.');
+@define('PLUGIN_EVENT_TWITTER_SHORTURL_TITLE',          'Zobrazit URL adresu pro tento Ël·nek');
+@define('PLUGIN_EVENT_TWITTER_SHORTURL_ON_CLICK',       'Tento odkaz nenÌ klikacÌ. Obsahuje zkr·cenou URL adresu k tomuto p¯ÌspÏvku. Tuto URL adresu m˘ûete pouûÌt jako odkaz na tento Ël·nek, nap¯Ìklad v twitteru. Odkaz zkopÌrujete tak, ûe kliknete prav˝m tlaËÌtkem a vyberete "ZkopÌrovat odkaz" v Internet Exploreru, nebo "KopÌrovat adresu odkazu" v Mozille.');
+@define('PLUGIN_EVENT_TWITTER_SHOW_SHORTURL',           'Zobrzit kr·tkou URL adresu pro kaûd˝ p¯ÌspÏvek');
+@define('PLUGIN_EVENT_TWITTER_SHOW_SHORTURL_DESC',      'Bude zobrazovat v˝chozÌ kr·tkou URL v patiËce kaûdÈho Ël·nku. Pokud je zapnut· funkce smarty TweetThis, kaûd˝ p¯ÌspÏvek bude obsahovat promÏnnou entry.url_shorturl, kter· se d· libovolnÏ vyuûÌt ve smarty öablonÏ.');
 
 // Next lines were translated on 2010/09/28
 
-@define('PLUGIN_EVENT_TWITTER_CONSUMER_KEY',            'Kl√≠√® z√°kazn√≠ka (Consumer key)');
-@define('PLUGIN_EVENT_TWITTER_CONSUMER_KEY_DESC',       '"Z√°kaznick√Ω kl√≠√®" a "z√°kaznick√© heslo" obdr≈æ√≠te od Twitteru pot√©, co pro sv√πj blok vytvo√∏√≠te aplikaci Twitteru.');
-@define('PLUGIN_EVENT_TWITTER_CONSUMER_SECRET',         'Z√°kaznick√© heslo');
-@define('PLUGIN_EVENT_TWITTER_TIMELINE',                '√àasov√° osa statutu');
+@define('PLUGIN_EVENT_TWITTER_CONSUMER_KEY',            'KlÌË z·kaznÌka (Consumer key)');
+@define('PLUGIN_EVENT_TWITTER_CONSUMER_KEY_DESC',       '"Z·kaznick˝ klÌË" a "z·kaznickÈ heslo" obdrûÌte od Twitteru potÈ, co pro sv˘j blok vytvo¯Ìte aplikaci Twitteru.');
+@define('PLUGIN_EVENT_TWITTER_CONSUMER_SECRET',         'Z·kaznickÈ heslo');
+@define('PLUGIN_EVENT_TWITTER_TIMELINE',                '»asov· osa statutu');
 @define('PLUGIN_EVENT_TWITTER_TIMELINE_DESC',           '');
-@define('PLUGIN_EVENT_TWITTER_VERBINDUNG_OK',           'P√∏ipojeno');
+@define('PLUGIN_EVENT_TWITTER_VERBINDUNG_OK',           'P¯ipojeno');
 @define('PLUGIN_EVENT_TWITTER_VERBINDUNG_DEL',          'Smazat odkaz');
-@define('PLUGIN_EVENT_TWITTER_VERBINDUNG_DEL_OK',       'Twitter OAuth token odstran√¨n');
-@define('PLUGIN_EVENT_TWITTER_CLOSEWINDOW',             'Zav√∏√≠t okno');
+@define('PLUGIN_EVENT_TWITTER_VERBINDUNG_DEL_OK',       'Twitter OAuth token odstranÏn');
+@define('PLUGIN_EVENT_TWITTER_CLOSEWINDOW',             'Zav¯Ìt okno');
 @define('PLUGIN_EVENT_TWITTER_REGISTER',                'Registrovat');
-@define('PLUGIN_EVENT_TWITTER_CALLBACKURL',             'Zp√¨tn√° URL adresa (zadejte ve Twitteru)');
-@define('PLUGIN_EVENT_TWITTER_VERBINDUNG_ERROR',        'Chyba zp√¨tn√©ho vol√°n√≠ Twitteru');
+@define('PLUGIN_EVENT_TWITTER_CALLBACKURL',             'ZpÏtn· URL adresa (zadejte ve Twitteru)');
+@define('PLUGIN_EVENT_TWITTER_VERBINDUNG_ERROR',        'Chyba zpÏtnÈho vol·nÌ Twitteru');
 
 // Next lines were translated on 2011/03/09
-@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_ARTICLES_NO',    'Pro oznamov√°n√≠ p√∏√≠sp√¨vku je ve v√Ωchoz√≠m nastaven√≠ checkbox od≈°krtnut');
-@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_ARTICLES_NO_DESC','Povolen√≠ znamen√°, ≈æe nov√Ω p√∏√≠sp√¨vek na blogu mus√≠ b√Ωt v√Ωslovn√¨ odesl√°n do twiteru. Vypnut√≠ (v√Ωchoz√≠ hodnota) znamen√°, ≈æe p√∏√≠sp√¨vek bude do twiteru odesl√°n automaticky.');
+
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_ARTICLES_NO',    'Pro oznamov·nÌ p¯ÌspÏvku je ve v˝chozÌm nastavenÌ checkbox odökrtnut');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_ARTICLES_NO_DESC','PovolenÌ znamen·, ûe nov˝ p¯ÌspÏvek na blogu musÌ b˝t v˝slovnÏ odesl·n do twiteru. VypnutÌ (v˝chozÌ hodnota) znamen·, ûe p¯ÌspÏvek bude do twiteru odesl·n automaticky.');
+
+// Next lines were translated on 2012/01/11
+@define('PLUGIN_EVENT_TWITTER_SIGN_IN',                 'KliknÏte na tlaËÌtko nÌûe a p¯ipojte Twitter.<br/>
+<p><a style="color:red;">VAROV¡NÕ!</a><br/>
+MusÌte se p¯ihl·sit nebo odhl·sit s <b>odpovÌdajÌcÌm ˙Ëtem Twitteru</b>!<br/>
+<a href="#" onclick="window.open(\'http://twitter.com\',\'\',\'width=1000,height=400\'); return false">PotvrÔte prosÌm p¯ed p¯ipojenÌm</a>.</p>');
+@define('PLUGIN_EVENT_TWITTER_SIGNIN',                  'P¯ihl·sit');
+@define('PLUGIN_TWITTER_FOLLOWME_WIDGET',               'Widget sledov·nÌ Twitteru');
+@define('PLUGIN_TWITTER_FOLLOWME_WIDGET_DESC',          'Pokud plugin zobrazuje Ëasovou osu, m˘ûete povolit widget twitteru pro zobrazov·nÌ aktu·lnÌho poËtu follower˘ a dalöÌ. NastavenÌ je ignorov·no, pokud zobrazujete z identi.ca.');
+@define('PLUGIN_TWITTER_FOLLOWME_WIDGET_COUNT',         'PoËet follower˘ ve widgetu');
+@define('PLUGIN_TWITTER_FOLLOWME_WIDGET_COUNT_DESC',    'Pokud je povoleno, widget zobrazuje poËet follower˘.');
+@define('PLUGIN_TWITTER_FOLLOWME_WIDGET_DARK',          'Widget sledov·nÌ Twitter na tmavÈm pozadÌ');
+@define('PLUGIN_TWITTER_FOLLOWME_WIDGET_DARK_DESC',     'Pokud Vaöe öablona pouûÌv· tmavÈ pozadÌ, mÏli byste toto povolit.');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_BITLYDESC',      '<h3>uûivatelskÈ jmÈno bit.ly a API klÌË</h3><b>bit.ly</b> a <b>j.mp</b> zkracovaËe URL adres pot¯ebujÌ p¯ihlaöovacÌ jmÈno k bit.ly a API klÌË. Pokud ani jeden z tÏchto zkracovaË˘ nepouûÌv·te, nemÏli byste je pot¯ebovat.<br/>V˝chozÌ klÌË vÏtöinou nefunguje, protoûe je to demo klÌË a jeho kvÛta je pravidelnÏ p¯eËerp·na. Pokud m·te ˙Ëet na bit.ly account, mÏli byste zadat vlastnÌ p¯ihlaöovacÌ ˙daje.<br/><a href="http://bitly.com/a/your_api_key/" target="_blank">Najdete je tady</a>.');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_BITLYLOGIN',     'UûivatelskÈ jmÈno bit.ly');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_BITLYAPIKEY',    'bit.ly API klÌË');
+@define('PLUGIN_EVENT_TWITTER_GENERALCONSUMER',         '<h3>VlastnÌ twitter klient</h3>Ve v˝chozÌm nastavenÌ pouûÌv· plugin klienta \'s9y\'. M˘ûete si <a href="https://dev.twitter.com/apps" target="_blank">zaregistrovat vlastnÌho klienta</a> a nastavit consumer klÌË a heslo vaöeho klienta.');

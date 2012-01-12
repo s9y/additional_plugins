@@ -1,7 +1,7 @@
-<?php # lang_cz.inc.php 1.5 2009-08-15 10:21:49 VladaAjgl $
+<?php # lang_cz.inc.php 1.6 2012-01-10 21:17:17 VladaAjgl $
 
 /**
- *  @version 1.5
+ *  @version 1.6
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  EN-Revision: Revision of lang_en.inc.php
  *  Revision-date: 2008/01/27 17:35:00
@@ -10,6 +10,8 @@
  *  @revisionDate 2009/06/30
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2009/08/15
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2012/01/10
  */
 
 //
@@ -68,3 +70,41 @@
 @define('PLUGIN_GEOTAG_GMAP_GEOCODE_MSG_PROGRESS','Snažím se najít souřadnice...');
 @define('PLUGIN_GEOTAG_GMAP_GEOCODE_NOT_FOUND', 'nenalezeno:-(');
 @define('PLUGIN_GEOTAG_GMAP_GEOCODE_OK',        'OK');
+
+// Next lines were translated on 2012/01/10
+@define('PLUGIN_EVENT_GEOTAG_WARNING_GEOURL_PLUGIN','VAROVÁNÍ: nalezen plugin GeoUrl. Odinstalujte ho prosím, je zastaralý a dále neudržovaný.<br/>Všechny jeho funkce jsou zajištěny i pluginem GeoTag. Plugin GeoTag je podrobnější, umí toho víc.');
+@define('PLUGIN_EVENT_GEOTAG_HEADER_EDITOR',    'Nastavení editoru příspěvku');
+@define('PLUGIN_EVENT_GEOTAG_HEADER_FOOTER',    'Nastavení patičky příspěvku');
+@define('PLUGIN_EVENT_GEOTAG_HEADER_FOOTER_LIST','Nastavení patičky příspěvku (v přehledu příspěvků)');
+@define('PLUGIN_EVENT_GEOTAG_HEADER_FOOTER_SINGLE','Nastavení patičky příspěvku (při zobrazení jediného příspěvku)');
+@define('PLUGIN_EVENT_GEOTAG_HEADER_HDRTAG',    'HTML hlavička GeoTagu');
+@define('PLUGIN_EVENT_GEOTAG_HEADER_HDRTAG_DESC','Tento plugin přidává <a href="http://en.wikipedia.org/wiki/Geotag#HTML_pages" target="_blank">geourl meta tagy</a> do HTML hlavičky stránky. Tak umožňuje ostatním snadno zjistit zeměpisné souřadnice článku nebo blogu.');
+@define('PLUGIN_EVENT_GEOTAG_SERVICE_DESC',     'Chcete vytvořit mapu do patičky stránky pomocí Google Map nebo pomocí Openstreetmap?');
+@define('PLUGIN_EVENT_GEOTAG_EDITOR_AUTOFILL',  'Automaticky vyplňovat polohu v editoru');
+@define('PLUGIN_EVENT_GEOTAG_EDITOR_AUTOFILL_DESC','To se pokusí automaticky zjistit Vaši aktuální polohu při psaní příspěvku a zjišťenou hodnotu předvyplní do políčka polohy. (Pouze pokud tuto funkci podporuje prohlížeč.)');
+@define('PLUGIN_EVENT_GEOTAG_MAP_LINK_BLANK',   'Otevřít odkazy z mapy v novém okně');
+@define('PLUGIN_EVENT_GEOTAG_MAP_LINK_BLANK_DESC','Při kliknutí na polohu je otevřená google mapa. Má se zobrazovat v novém okně prohlížeče?');
+@define('PLUGIN_EVENT_GEOTAG_SHOW_IMAGE',       'Zobrazovat polohu jako mapu');
+@define('PLUGIN_EVENT_GEOTAG_SHOW_IMAGE_DESC',  'Místo zobrazování nicneříkajících číselných zeměpisných souřadnic můžete v patičce příspěvku zobrazit malou mapku.');
+@define('PLUGIN_EVENT_GEOTAG_SHOW_IMAGE_HEIGHT','Výška mapy');
+@define('PLUGIN_EVENT_GEOTAG_SHOW_IMAGE_HEIGHT_DESC','Výška mapy v patičce');
+@define('PLUGIN_EVENT_GEOTAG_SHOW_IMAGE_WIDTH', 'Šířka mapy');
+@define('PLUGIN_EVENT_GEOTAG_SHOW_IMAGE_WIDTH_DESC','Šířka mapy v patičce');
+@define('PLUGIN_EVENT_GEOTAG_SHOW_IMAGE_ZOOM',  'Zoom mapy');
+@define('PLUGIN_EVENT_GEOTAG_SHOW_IMAGE_ZOOM_DESC','Zoom faktor pro mapu v patičce. Čím větší číslo, tím podrobnější mapa bude.');
+@define('PLUGIN_EVENT_GEOTAG_SHOW_IMAGE_TITLE', 'Zobrazovat polohu příspěvku');
+@define('PLUGIN_EVENT_GEOTAG_IMAGE_MARKER_SIZE','Google: Velikost mapových křížků');
+@define('PLUGIN_EVENT_GEOTAG_IMAGE_MARKER_SIZE_DESC','Mapa umožňuje použít různou velikost značkovacích křížků. V závislosti na velikosti mapy byste se měli vybrat velikost, která Vám nejvíc vyhovuje.');
+@define('PLUGIN_EVENT_GEOTAG_IMAGE_MARKER_SIZE_TINY','Mrňavé');
+@define('PLUGIN_EVENT_GEOTAG_IMAGE_MARKER_SIZE_SMALL','Malé');
+@define('PLUGIN_EVENT_GEOTAG_IMAGE_MARKER_SIZE_MID','Střední');
+@define('PLUGIN_EVENT_GEOTAG_IMAGE_MARKER_SIZE_NORMAL','Normální');
+@define('PLUGIN_EVENT_GEOTAG_HDRTAG_DEFAULT_LAT','Zeměpsiná šířka blogu');
+@define('PLUGIN_EVENT_GEOTAG_HDRTAG_DEFAULT_LAT_DESC','Zadejte zeměpsinou šířku blogu. Bude použita u příspěvků, které nemají přiřazenou vlastní polohu, a u přehledu příspěvků. Ponechte prázdné pokud nechcete tyto stránky označovat souřadnicemi.');
+@define('PLUGIN_EVENT_GEOTAG_HDRTAG_DEFAULT_LONG','Zeměpisná délka blogu');
+@define('PLUGIN_EVENT_GEOTAG_HDRTAG_DEFAULT_LONG_DESC','Zadejte zeměpsinou délku blogu. Bude použita u příspěvků, které nemají přiřazenou vlastní polohu, a u přehledu příspěvků. Ponechte prázdné pokud nechcete tyto stránky označovat souřadnicemi.');
+@define('PLUGIN_EVENT_GEOTAG_GEOURL_PINGED',    'Služba GeoURL úspěšně kontaktována pro získání nových souřadnic. Navštivte <a href="http://geourl.org/near/?p='.$serendipity['baseURL'].'">Vaše sousedy</a>!');
+@define('PLUGIN_GEOTAG_GMAP_TERRAIN',           'Povrch');
+@define('PLUGIN_GEOTAG_SERVICE',                'Mapová služba');
+@define('PLUGIN_GEOTAG_SERVICE_DESC',           'Jako mapový podklad můžete použít buď mapy Googlu nebo Openstreetmap');
+@define('PLUGIN_GEOTAG_GMAP_GEOCODE_GET_CODE',  'vaše aktuální poloha');

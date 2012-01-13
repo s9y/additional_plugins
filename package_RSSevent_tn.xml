@@ -4,13 +4,13 @@
                                    xmlns:content="http://purl.org/rss/1.0/modules/content/">
 <channel>
 <title>Serendipity: Available External Event Plugins</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/</link>
+<link>https://github.com/s9y/additional_plugins/</link>
 <description>TOC</description>
 <dc:language>en</dc:language>
 <generator>Serendipitx SPARTACUS</generator>
 <item>
 <title>Babelfish: Translate blog entries (trash!)</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_babelfish</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_babelfish</link>
 <category>Event Plugins</category>
 <author>Sebastian Nohn</author>
 <content:encoded>&lt;b&gt;serendipity_event_babelfish&lt;br /&gt;Babelfish&lt;/b&gt;&lt;br /&gt;Translate blog entries (trash!)&lt;br/&gt;For: Serendipity 0.7</content:encoded>
@@ -19,7 +19,7 @@
 </item>
 <item>
 <title>Static Pages: Shows static pages inside your blog with your blogs design and all formattings. Adds a new menu item to the admin interface.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_staticpage</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_staticpage</link>
 <category>Event Plugins</category>
 <author>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_staticpage&lt;br /&gt;Static Pages&lt;/b&gt;&lt;br /&gt;Shows static pages inside your blog with your blogs design and all formattings. Adds a new menu item to the admin interface.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -28,7 +28,7 @@
 </item>
 <item>
 <title>Validates authors login: Validates the login credentials of an author using the sidebar login form</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_loginform</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_loginform</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_loginform&lt;br /&gt;Validates authors login&lt;/b&gt;&lt;br /&gt;Validates the login credentials of an author using the sidebar login form&lt;br/&gt;For: Serendipity 0.7</content:encoded>
@@ -37,7 +37,7 @@
 </item>
 <item>
 <title>Links to next/previous entry: Allows viewing the next/previous entry when viewing</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_entrypaging</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_entrypaging</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_event_entrypaging&lt;br /&gt;Links to next/previous entry&lt;/b&gt;&lt;br /&gt;Allows viewing the next/previous entry when viewing&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -46,7 +46,7 @@
 </item>
 <item>
 <title>Avatar Plugin: Show avatars inside comments. Gravatars, Pavatars, Favatars, Twitter, Identica and MyBlogLog avatars are supported.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_gravatar</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_gravatar</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_gravatar&lt;br /&gt;Avatar Plugin&lt;/b&gt;&lt;br /&gt;Show avatars inside comments. Gravatars, Pavatars, Favatars, Twitter, Identica and MyBlogLog avatars are supported.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
@@ -55,7 +55,7 @@
 </item>
 <item>
 <title>HTML-Code inside head (HTML-Head Nugget): Allows you to insert HTML-Code into the HEAD-area of your blog. You can use this for meta-tags or JavaScript inclusion.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_head_nugget</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_head_nugget</link>
 <category>Event Plugins</category>
 <author>Jannis Hermanns</author>
 <content:encoded>&lt;b&gt;serendipity_event_head_nugget&lt;br /&gt;HTML-Code inside head (HTML-Head Nugget)&lt;/b&gt;&lt;br /&gt;Allows you to insert HTML-Code into the HEAD-area of your blog. You can use this for meta-tags or JavaScript inclusion.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
@@ -64,7 +64,7 @@
 </item>
 <item>
 <title>Split long entries: Enables you to split longer entries into several subpages and provides you with an auto-generated table of contents</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_entrysplit</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_entrysplit</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Tadashi Jokagi, Thomas Werner</author>
 <content:encoded>&lt;b&gt;serendipity_event_entrysplit&lt;br /&gt;Split long entries&lt;/b&gt;&lt;br /&gt;Enables you to split longer entries into several subpages and provides you with an auto-generated table of contents&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -73,7 +73,7 @@
 </item>
 <item>
 <title>Rules for publishing: Applies some checks before an entry is published</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_entrycheck</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_entrycheck</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_entrycheck&lt;br /&gt;Rules for publishing&lt;/b&gt;&lt;br /&gt;Applies some checks before an entry is published&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -82,7 +82,7 @@
 </item>
 <item>
 <title>Tagging of entries: Allows freestyle tagging of entries</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_freetag</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_freetag</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_freetag&lt;br /&gt;Tagging of entries&lt;/b&gt;&lt;br /&gt;Allows freestyle tagging of entries&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -91,7 +91,7 @@
 </item>
 <item>
 <title>Multilingual entries: Allows to create multiple language versions of an entry</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_multilingual</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_multilingual</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_event_multilingual&lt;br /&gt;Multilingual entries&lt;/b&gt;&lt;br /&gt;Allows to create multiple language versions of an entry&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -100,7 +100,7 @@
 </item>
 <item>
 <title>LJ/MySpace/Serendipity Update Plugin: Uses XMLRPC to post to your Livejournal/MySpace/Serendipity</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_ljupdate</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_ljupdate</link>
 <category>Event Plugins</category>
 <author>Kaustubh Srikanth, Ivan Makhonin</author>
 <content:encoded>&lt;b&gt;serendipity_event_ljupdate&lt;br /&gt;LJ/MySpace/Serendipity Update Plugin&lt;/b&gt;&lt;br /&gt;Uses XMLRPC to post to your Livejournal/MySpace/Serendipity&lt;br/&gt;For: Serendipity 0.7</content:encoded>
@@ -109,7 +109,7 @@
 </item>
 <item>
 <title>Trackback-Control: Allows granular control over how trackbacks are sent when creating entries</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_trackback</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_trackback</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_trackback&lt;br /&gt;Trackback-Control&lt;/b&gt;&lt;br /&gt;Allows granular control over how trackbacks are sent when creating entries&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -118,7 +118,7 @@
 </item>
 <item>
 <title>Show Emoticon/Smilie toolbar: Shows a toolbar to select emoticons to insert into your entry. Does NOT work in the WYSIWYG editor!</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_emoticonchooser</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_emoticonchooser</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jay Bertrandt</author>
 <content:encoded>&lt;b&gt;serendipity_event_emoticonchooser&lt;br /&gt;Show Emoticon/Smilie toolbar&lt;/b&gt;&lt;br /&gt;Shows a toolbar to select emoticons to insert into your entry. Does NOT work in the WYSIWYG editor!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -127,7 +127,7 @@
 </item>
 <item>
 <title>Amazon Media Button: Adds a button to allow Amazon.com search which are insertable into your entry</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_amazonchooser</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_amazonchooser</link>
 <category>Event Plugins</category>
 <author>Matthew Groeninger</author>
 <content:encoded>&lt;b&gt;serendipity_event_amazonchooser&lt;br /&gt;Amazon Media Button&lt;/b&gt;&lt;br /&gt;Adds a button to allow Amazon.com search which are insertable into your entry&lt;br/&gt;For: Serendipity 1.4</content:encoded>
@@ -136,7 +136,7 @@
 </item>
 <item>
 <title>External user authentication (LDAP)/tracking: Allows to use external ressource to validate logins. Logins will be cached in the Serendipity database framework. This plugin can also track logins inside the Database.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_externalauth</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_externalauth</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking/Justin Alcorn</author>
 <content:encoded>&lt;b&gt;serendipity_event_externalauth&lt;br /&gt;External user authentication (LDAP)/tracking&lt;/b&gt;&lt;br /&gt;Allows to use external ressource to validate logins. Logins will be cached in the Serendipity database framework. This plugin can also track logins inside the Database.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -145,7 +145,7 @@
 </item>
 <item>
 <title>Hide/delete entries for non-registered users after a specific timespan: Hides all entries which are older than a specified age, so that they are only visible for registered users/authors.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_outdate_entries</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_outdate_entries</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_outdate_entries&lt;br /&gt;Hide/delete entries for non-registered users after a specific timespan&lt;/b&gt;&lt;br /&gt;Hides all entries which are older than a specified age, so that they are only visible for registered users/authors.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -154,7 +154,7 @@
 </item>
 <item>
 <title>刪除和編輯連結: 在文章底下顯示刪除和編輯連結。</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_deletelink</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_deletelink</link>
 <category>Event Plugins</category>
 <author>Cameron MacFarland, Brett Profitt</author>
 <content:encoded>&lt;b&gt;serendipity_event_deletelink&lt;br /&gt;刪除和編輯連結&lt;/b&gt;&lt;br /&gt;在文章底下顯示刪除和編輯連結。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -163,7 +163,7 @@
 </item>
 <item>
 <title>Markup: Markdown: Apply Markdown markup to entry text</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_markdown</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_markdown</link>
 <category>Event Plugins</category>
 <author>Serendipity Team and Jan Lehnardt</author>
 <content:encoded>&lt;b&gt;serendipity_event_markdown&lt;br /&gt;Markup: Markdown&lt;/b&gt;&lt;br /&gt;Apply Markdown markup to entry text&lt;br/&gt;For: Serendipity 0.7</content:encoded>
@@ -172,7 +172,7 @@
 </item>
 <item>
 <title>Photoblog Entries: Adds a single image to an entry.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_photoblog</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_photoblog</link>
 <category>Event Plugins</category>
 <author>Cameron MacFarland</author>
 <content:encoded>&lt;b&gt;serendipity_event_photoblog&lt;br /&gt;Photoblog Entries&lt;/b&gt;&lt;br /&gt;Adds a single image to an entry.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -181,7 +181,7 @@
 </item>
 <item>
 <title>Thumbnail Page: Shows a thumbnail page. Address is index.php?serendipity[page]=thumbs</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_thumbnails</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_thumbnails</link>
 <category>Event Plugins</category>
 <author>Cameron MacFarland</author>
 <content:encoded>&lt;b&gt;serendipity_event_thumbnails&lt;br /&gt;Thumbnail Page&lt;/b&gt;&lt;br /&gt;Shows a thumbnail page. Address is index.php?serendipity[page]=thumbs&lt;br/&gt;For: Serendipity 0.7</content:encoded>
@@ -190,7 +190,7 @@
 </item>
 <item>
 <title>Gallery Display: Allows anonymous users to view Serendipity media gallery</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_usergallery</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_usergallery</link>
 <category>Event Plugins</category>
 <author>Arnan de Gans, Matthew Groeninger, and Stefan Willoughby</author>
 <content:encoded>&lt;b&gt;serendipity_event_usergallery&lt;br /&gt;Gallery Display&lt;/b&gt;&lt;br /&gt;Allows anonymous users to view Serendipity media gallery&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -199,7 +199,7 @@
 </item>
 <item>
 <title>User Self-Registration: Allows blog visitors to create their own author account. Together with the Event-plugin (index.php?serendipity[subpage]=adduser) you can choose whether only registered users may post comments.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_plugin_adduser</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_adduser</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_adduser&lt;br /&gt;User Self-Registration&lt;/b&gt;&lt;br /&gt;Allows blog visitors to create their own author account. Together with the Event-plugin (index.php?serendipity[subpage]=adduser) you can choose whether only registered users may post comments.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -208,7 +208,7 @@
 </item>
 <item>
 <title>PHPOpenTracker: Logs accesses to the blog using PHPOpenTracker. Requires installed phpOpenTracker, please see readme.txt for further information.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_phpopentracker</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_phpopentracker</link>
 <category>Event Plugins</category>
 <author>Rene Schmidt</author>
 <content:encoded>&lt;b&gt;serendipity_event_phpopentracker&lt;br /&gt;PHPOpenTracker&lt;/b&gt;&lt;br /&gt;Logs accesses to the blog using PHPOpenTracker. Requires installed phpOpenTracker, please see readme.txt for further information.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
@@ -217,7 +217,7 @@
 </item>
 <item>
 <title>Easy Podcasting Plugin: Adds &quot;podcasting&quot; capabilities hinzu (RSS enclosure, Video/Sound-Player)</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_podcast</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_podcast</link>
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Hannes Gassert, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_podcast&lt;br /&gt;Easy Podcasting Plugin&lt;/b&gt;&lt;br /&gt;Adds &quot;podcasting&quot; capabilities hinzu (RSS enclosure, Video/Sound-Player)&lt;br/&gt;For: Serendipity 0.7</content:encoded>
@@ -226,7 +226,7 @@
 </item>
 <item>
 <title>Layout-Plugin: Link-Markup: Allows to change the markup of links in the entrybody</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_layout_linkmarkup</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_layout_linkmarkup</link>
 <category>Event Plugins</category>
 <author>Sebastian Nohn</author>
 <content:encoded>&lt;b&gt;serendipity_event_layout_linkmarkup&lt;br /&gt;Layout-Plugin: Link-Markup&lt;/b&gt;&lt;br /&gt;Allows to change the markup of links in the entrybody&lt;br/&gt;For: Serendipity 0.7</content:encoded>
@@ -235,7 +235,7 @@
 </item>
 <item>
 <title>Layout-Plugin: Quote-Markup: Allows to change the markup of quotes in the entrybody</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_layout_quotemarkup</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_layout_quotemarkup</link>
 <category>Event Plugins</category>
 <author>Sebastian Nohn</author>
 <content:encoded>&lt;b&gt;serendipity_event_layout_quotemarkup&lt;br /&gt;Layout-Plugin: Quote-Markup&lt;/b&gt;&lt;br /&gt;Allows to change the markup of quotes in the entrybody&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -244,7 +244,7 @@
 </item>
 <item>
 <title>Link List: Links manager - Shows your favorite links in the sidebar.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_linklist</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_linklist</link>
 <category>Event Plugins</category>
 <author>Matthew Groeninger, Omid Mottaghi Rad</author>
 <content:encoded>&lt;b&gt;serendipity_event_linklist&lt;br /&gt;Link List&lt;/b&gt;&lt;br /&gt;Links manager - Shows your favorite links in the sidebar.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -253,7 +253,7 @@
 </item>
 <item>
 <title>Y!Q Related Search: Finds related pages using Yahoo's context sensitive search technology</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_yq</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_yq</link>
 <category>Event Plugins</category>
 <author>Rasmus Lerdorf</author>
 <content:encoded>&lt;b&gt;serendipity_event_yq&lt;br /&gt;Y!Q Related Search&lt;/b&gt;&lt;br /&gt;Finds related pages using Yahoo's context sensitive search technology&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -262,7 +262,7 @@
 </item>
 <item>
 <title>Guestbook: Shows a guestbook inside your blog with your normal blog design.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_guestbook</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_guestbook</link>
 <category>Event Plugins</category>
 <author>Ian (Timbalu)</author>
 <content:encoded>&lt;b&gt;serendipity_event_guestbook&lt;br /&gt;Guestbook&lt;/b&gt;&lt;br /&gt;Shows a guestbook inside your blog with your normal blog design.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
@@ -271,7 +271,7 @@
 </item>
 <item>
 <title>My Mood: Allows you to add your current mood or moods to entries.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_mymood</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mymood</link>
 <category>Event Plugins</category>
 <author>Brett Profitt</author>
 <content:encoded>&lt;b&gt;serendipity_event_mymood&lt;br /&gt;My Mood&lt;/b&gt;&lt;br /&gt;Allows you to add your current mood or moods to entries.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -280,7 +280,7 @@
 </item>
 <item>
 <title>Custom Permalinks for Entries: Defines custom permalinks that can be used to access a specific entry. It can only use URL patterns which are NOT YET in use - using custom permalinks within the /archives/ structure is thus not possible. But any (virtual) other directory is.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_custom_permalinks</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_custom_permalinks</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_custom_permalinks&lt;br /&gt;Custom Permalinks for Entries&lt;/b&gt;&lt;br /&gt;Defines custom permalinks that can be used to access a specific entry. It can only use URL patterns which are NOT YET in use - using custom permalinks within the /archives/ structure is thus not possible. But any (virtual) other directory is.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -289,7 +289,7 @@
 </item>
 <item>
 <title>Transforms HTML for comments: Allows to insert HTML tags in comments (instead of stripping the tags, they are now converted to entities). Needs to be first of all markup plugins in the event queue!</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_unstrip_tags</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_unstrip_tags</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_unstrip_tags&lt;br /&gt;Transforms HTML for comments&lt;/b&gt;&lt;br /&gt;Allows to insert HTML tags in comments (instead of stripping the tags, they are now converted to entities). Needs to be first of all markup plugins in the event queue!&lt;br/&gt;For: Serendipity 0.7</content:encoded>
@@ -298,7 +298,7 @@
 </item>
 <item>
 <title>Frontend entry filtering: Allows visitors to filter/order your entries by several options</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_filter_entries</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_filter_entries</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_filter_entries&lt;br /&gt;Frontend entry filtering&lt;/b&gt;&lt;br /&gt;Allows visitors to filter/order your entries by several options&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -307,7 +307,7 @@
 </item>
 <item>
 <title>Markup: GeSHi: Computer Language Color Syntax Highlighting. Tag usage: [geshi lang=lang_name [,ln={y|n}]]code snippet[/geshi]</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_geshi</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_geshi</link>
 <category>Event Plugins</category>
 <author>David Rolston</author>
 <content:encoded>&lt;b&gt;serendipity_event_geshi&lt;br /&gt;Markup: GeSHi&lt;/b&gt;&lt;br /&gt;Computer Language Color Syntax Highlighting. Tag usage: [geshi lang=lang_name [,ln={y|n}]]code snippet[/geshi]&lt;br/&gt;For: Serendipity 0.7</content:encoded>
@@ -316,7 +316,7 @@
 </item>
 <item>
 <title>SMF Markup: SMF Markup</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/alpha</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/alpha</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_smfmarkup&lt;br /&gt;SMF Markup&lt;/b&gt;&lt;br /&gt;SMF Markup&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -325,7 +325,7 @@
 </item>
 <item>
 <title>Adds CC to all sent emails: (Notice: Make sure that the all of your authors have the option to receiv comment notification emails activated, or else no mails will be created that can be CCed</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/alpha</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/alpha</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_mailcc&lt;br /&gt;Adds CC to all sent emails&lt;/b&gt;&lt;br /&gt;(Notice: Make sure that the all of your authors have the option to receiv comment notification emails activated, or else no mails will be created that can be CCed&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -334,7 +334,7 @@
 </item>
 <item>
 <title>StalkerBuster (TM,C,R): Denies access to baddies. Write line-separated list of blocked cookies to a stalkerbuster.php file in your root.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/alpha/stalkerbuster</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/alpha/stalkerbuster</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_stalkerbuster&lt;br /&gt;StalkerBuster (TM,C,R)&lt;/b&gt;&lt;br /&gt;Denies access to baddies. Write line-separated list of blocked cookies to a stalkerbuster.php file in your root.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -343,7 +343,7 @@
 </item>
 <item>
 <title>Spam: Challenge/Response: </title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/alpha</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/alpha</link>
 <category>Event Plugins</category>
 <author>Nobody</author>
 <content:encoded>&lt;b&gt;serendipity_event_challengeresponse&lt;br /&gt;Spam: Challenge/Response&lt;/b&gt;&lt;br /&gt;&lt;br/&gt;For: Serendipity 1.0</content:encoded>
@@ -352,7 +352,7 @@
 </item>
 <item>
 <title>External PHP Application: Shows an external PHP application inside your blog with your blogs design and all formattings. USE WITH CARE, THIS PLUGIN HAS SECURITY IMPLICATIONS AS IT INCLUDES ANY GENERIC PHP FILE! YOU CAN ONLY USE THIS PLUGIN AS ADMIN!</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_externalphp</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_externalphp</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_externalphp&lt;br /&gt;External PHP Application&lt;/b&gt;&lt;br /&gt;Shows an external PHP application inside your blog with your blogs design and all formattings. USE WITH CARE, THIS PLUGIN HAS SECURITY IMPLICATIONS AS IT INCLUDES ANY GENERIC PHP FILE! YOU CAN ONLY USE THIS PLUGIN AS ADMIN!&lt;br/&gt;For: Serendipity 0.7</content:encoded>
@@ -361,7 +361,7 @@
 </item>
 <item>
 <title>Markup: Smarty Parsing: Parses Smarty instructions inside the article text</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_smartymarkup</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_smartymarkup</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_smartymarkup&lt;br /&gt;Markup: Smarty Parsing&lt;/b&gt;&lt;br /&gt;Parses Smarty instructions inside the article text&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -370,7 +370,7 @@
 </item>
 <item>
 <title>Music of the Moment: Real time music status from iTunes using iTunesBlogger: http://www.ituneshacking.com/wiki/wakka.php?wakka=iTunesBloggerHomePage</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_motm</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_motm</link>
 <category>Event Plugins</category>
 <author>Tys von Gaza</author>
 <content:encoded>&lt;b&gt;serendipity_event_motm&lt;br /&gt;Music of the Moment&lt;/b&gt;&lt;br /&gt;Real time music status from iTunes using iTunesBlogger: http://www.ituneshacking.com/wiki/wakka.php?wakka=iTunesBloggerHomePage&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -379,7 +379,7 @@
 </item>
 <item>
 <title>RSS Aggregator: Display entries from multiple RSS feeds (&quot;Planet&quot;). IMPORTANT NOTE: Updating and &quot;feeding&quot; your Aggregator must currently still happen manually via Cronjobs or similar. Call this URL with your custom timing interval: index.php?/plugin/aggregator</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_aggregator</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_aggregator</link>
 <category>Event Plugins</category>
 <author>Evan Nemerson, Garvin Hicking, Kristian Koehntopp, Thomas Schulz, Claus Schmidt</author>
 <content:encoded>&lt;b&gt;serendipity_event_aggregator&lt;br /&gt;RSS Aggregator&lt;/b&gt;&lt;br /&gt;Display entries from multiple RSS feeds (&quot;Planet&quot;). IMPORTANT NOTE: Updating and &quot;feeding&quot; your Aggregator must currently still happen manually via Cronjobs or similar. Call this URL with your custom timing interval: index.php?/plugin/aggregator&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -388,7 +388,7 @@
 </item>
 <item>
 <title>Template Header/Logo Image: Switch header image or logo for templates</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_kubrickheader</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_kubrickheader</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking extended by Sebastian Mayeres and Jude Anthony</author>
 <content:encoded>&lt;b&gt;serendipity_event_kubrickheader&lt;br /&gt;Template Header/Logo Image&lt;/b&gt;&lt;br /&gt;Switch header image or logo for templates&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -397,7 +397,7 @@
 </item>
 <item>
 <title>Show last modification date: Shows a message with the last modification date of an entry on the blogs frontpage. For not modified entries shows a message that says they are not modified.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_entrylastmodified</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_entrylastmodified</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_entrylastmodified&lt;br /&gt;Show last modification date&lt;/b&gt;&lt;br /&gt;Shows a message with the last modification date of an entry on the blogs frontpage. For not modified entries shows a message that says they are not modified.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -406,7 +406,7 @@
 </item>
 <item>
 <title>GeoURL: GeoURL allocates URLs to locations. More Information at http://geourl.org/</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_geourl</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_geourl</link>
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_event_geourl&lt;br /&gt;GeoURL&lt;/b&gt;&lt;br /&gt;GeoURL allocates URLs to locations. More Information at http://geourl.org/&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -415,7 +415,7 @@
 </item>
 <item>
 <title>MimeTex/LaTeX TeX Interpreter: Create Gifs from TeX expressions using MimeTex or LaTeX</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_mimetex</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mimetex</link>
 <category>Event Plugins</category>
 <author>Matthew Groeninger</author>
 <content:encoded>&lt;b&gt;serendipity_event_mimetex&lt;br /&gt;MimeTex/LaTeX TeX Interpreter&lt;/b&gt;&lt;br /&gt;Create Gifs from TeX expressions using MimeTex or LaTeX&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -424,7 +424,7 @@
 </item>
 <item>
 <title>Typeset/Extended Buttons for non-WYSIWYG editors: Adds buttons for various encoded typeset entities and other extended actions.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_typesetbuttons</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_typesetbuttons</link>
 <category>Event Plugins</category>
 <author>Matthew Groeninger, Malte Diers</author>
 <content:encoded>&lt;b&gt;serendipity_event_typesetbuttons&lt;br /&gt;Typeset/Extended Buttons for non-WYSIWYG editors&lt;/b&gt;&lt;br /&gt;Adds buttons for various encoded typeset entities and other extended actions.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -433,7 +433,7 @@
 </item>
 <item>
 <title>POPfetcher: Fetches and publishes email and attachments from a POP3 email account (with special cell phone support)</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_popfetcher</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_popfetcher</link>
 <category>Event Plugins</category>
 <author>Jason Levitt</author>
 <content:encoded>&lt;b&gt;serendipity_event_popfetcher&lt;br /&gt;POPfetcher&lt;/b&gt;&lt;br /&gt;Fetches and publishes email and attachments from a POP3 email account (with special cell phone support)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -442,7 +442,7 @@
 </item>
 <item>
 <title>Toggle Sidebar state (collapsed/uncollapsed): Shrinks Sidebars to just their titles.  Extra configuration in Entries -&gt; Manage Sidebars in the Admin Suite.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_sidebarhider</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_sidebarhider</link>
 <category>Event Plugins</category>
 <author>Tys von Gaza, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_sidebarhider&lt;br /&gt;Toggle Sidebar state (collapsed/uncollapsed)&lt;/b&gt;&lt;br /&gt;Shrinks Sidebars to just their titles.  Extra configuration in Entries -&gt; Manage Sidebars in the Admin Suite.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
@@ -451,7 +451,7 @@
 </item>
 <item>
 <title>Picasa: Shows Picasa albums exported as XML</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_picasa</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_picasa</link>
 <category>Event Plugins</category>
 <author>Thomas Nesges, Greg Greenway</author>
 <content:encoded>&lt;b&gt;serendipity_event_picasa&lt;br /&gt;Picasa&lt;/b&gt;&lt;br /&gt;Shows Picasa albums exported as XML&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -460,7 +460,7 @@
 </item>
 <item>
 <title>Contact Form: Shows a email contactform on your blog as a static page. It can be accessed by either the custom permalink or by index.php?serendipity[subpage]=contactform. You can customize the look of the contact form by putting the plugin_contactform.tpl file into your template directory and modify it there. Captchas from the Spamblock plugin (if enabled) will be applied.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_contactform</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_contactform</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_contactform&lt;br /&gt;Contact Form&lt;/b&gt;&lt;br /&gt;Shows a email contactform on your blog as a static page. It can be accessed by either the custom permalink or by index.php?serendipity[subpage]=contactform. You can customize the look of the contact form by putting the plugin_contactform.tpl file into your template directory and modify it there. Captchas from the Spamblock plugin (if enabled) will be applied.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
@@ -469,7 +469,7 @@
 </item>
 <item>
 <title>寄送文章: 允許訪客寄送文章給朋友</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_mailentry</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mailentry</link>
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_event_mailentry&lt;br /&gt;寄送文章&lt;/b&gt;&lt;br /&gt;允許訪客寄送文章給朋友&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -478,7 +478,7 @@
 </item>
 <item>
 <title>HTML Link Metatags: Inserts link rel=&quot;start|up|prev|next|canonical&quot; metatags into your frontend for better navigation.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_linktoolbar</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_linktoolbar</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_linktoolbar&lt;br /&gt;HTML Link Metatags&lt;/b&gt;&lt;br /&gt;Inserts link rel=&quot;start|up|prev|next|canonical&quot; metatags into your frontend for better navigation.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
@@ -487,7 +487,7 @@
 </item>
 <item>
 <title>Layout-Plugin: Printerfriendly version: Using the print function of your browser, you will see a better printed representation of your Entry</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_layout_printerfriendly</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_layout_printerfriendly</link>
 <category>Event Plugins</category>
 <author>Sebastian Nohn</author>
 <content:encoded>&lt;b&gt;serendipity_event_layout_printerfriendly&lt;br /&gt;Layout-Plugin: Printerfriendly version&lt;/b&gt;&lt;br /&gt;Using the print function of your browser, you will see a better printed representation of your Entry&lt;br/&gt;For: Serendipity 0.7</content:encoded>
@@ -496,7 +496,7 @@
 </item>
 <item>
 <title>flickr Photostream CSS: This plugin is an extension to the flickr Photostream sidebar plugin and adds style information (CSS).</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_plugin_flickr</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_flickr</link>
 <category>Event Plugins</category>
 <author>Michael Kaiser</author>
 <content:encoded>&lt;b&gt;serendipity_event_flickrcss&lt;br /&gt;flickr Photostream CSS&lt;/b&gt;&lt;br /&gt;This plugin is an extension to the flickr Photostream sidebar plugin and adds style information (CSS).&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -505,7 +505,7 @@
 </item>
 <item>
 <title>Export blog as PDF: Allows visitors to download your blog in the PDF format</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_blogpdf</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_blogpdf</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Olivier PLATHEY, Steven Wittens</author>
 <content:encoded>&lt;b&gt;serendipity_event_blogpdf&lt;br /&gt;Export blog as PDF&lt;/b&gt;&lt;br /&gt;Allows visitors to download your blog in the PDF format&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -514,7 +514,7 @@
 </item>
 <item>
 <title>Related entries/links: Insert related links/entries per entry. For flexibility you can edit the &quot;plugin_relatedlinks.tpl&quot; Smarty-Template file to adjust the output. Note that this plugin only outputs data in the detailed/full entry view.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_relatedlinks</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_relatedlinks</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_relatedlinks&lt;br /&gt;Related entries/links&lt;/b&gt;&lt;br /&gt;Insert related links/entries per entry. For flexibility you can edit the &quot;plugin_relatedlinks.tpl&quot; Smarty-Template file to adjust the output. Note that this plugin only outputs data in the detailed/full entry view.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -523,7 +523,7 @@
 </item>
 <item>
 <title>ToDo/Project-List: Maintain a list of projects and their percentage completion.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_todolist</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_todolist</link>
 <category>Event Plugins</category>
 <author>Steven Tonnesen</author>
 <content:encoded>&lt;b&gt;serendipity_event_todolist&lt;br /&gt;ToDo/Project-List&lt;/b&gt;&lt;br /&gt;Maintain a list of projects and their percentage completion.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -532,7 +532,7 @@
 </item>
 <item>
 <title>Spam Protector (RBL): Will reject comments made from hosts which are listed in RBLs. Pay attention that this may affect proxy-users or dial-up users.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_spamblock_rbl</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_spamblock_rbl</link>
 <category>Event Plugins</category>
 <author>Sebastian Nohn</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_rbl&lt;br /&gt;Spam Protector (RBL)&lt;/b&gt;&lt;br /&gt;Will reject comments made from hosts which are listed in RBLs. Pay attention that this may affect proxy-users or dial-up users.&lt;br/&gt;For: Serendipity 1.2</content:encoded>
@@ -541,7 +541,7 @@
 </item>
 <item>
 <title>Spam Protector (SURBL): Reject comments that contain blacklisted URLs</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_spamblock_surbl</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_spamblock_surbl</link>
 <category>Event Plugins</category>
 <author>Sebastian Nohn</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_surbl&lt;br /&gt;Spam Protector (SURBL)&lt;/b&gt;&lt;br /&gt;Reject comments that contain blacklisted URLs&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -550,7 +550,7 @@
 </item>
 <item>
 <title>Simple Cached/Pregenerated Pages: [EXPERIMENTAL] Allows to cache/pregenerate pages. Note: Destroys dynamic capabilites and may not interoperate well with dynamic plugins. But it's faster, if you don't depend on realtime dynamics.  (This plugin should be placed as early as possible in the event queue list. Only dynamic plugins like the karmavoting should be positioned before this plugin.)</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_cachesimple</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_cachesimple</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_cachesimple&lt;br /&gt;Simple Cached/Pregenerated Pages&lt;/b&gt;&lt;br /&gt;[EXPERIMENTAL] Allows to cache/pregenerate pages. Note: Destroys dynamic capabilites and may not interoperate well with dynamic plugins. But it's faster, if you don't depend on realtime dynamics.  (This plugin should be placed as early as possible in the event queue list. Only dynamic plugins like the karmavoting should be positioned before this plugin.)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -559,7 +559,7 @@
 </item>
 <item>
 <title>Polls: Maintains your votings / polls</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_plugin_pollbox</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_pollbox</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_pollbox&lt;br /&gt;Polls&lt;/b&gt;&lt;br /&gt;Maintains your votings / polls&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -568,7 +568,7 @@
 </item>
 <item>
 <title>Markup: Wordwrap long text: Inserts breaks for lengthy entries/comments</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_wordwrap</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_wordwrap</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_wordwrap&lt;br /&gt;Markup: Wordwrap long text&lt;/b&gt;&lt;br /&gt;Inserts breaks for lengthy entries/comments&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -577,7 +577,7 @@
 </item>
 <item>
 <title>Extended options for media manager: Allows extended options for inserting images from the media manager [Serendipity &gt;= 0.9]</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_imageselectorplus</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_imageselectorplus</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Vladimir Ajgl, Adam Charnock</author>
 <content:encoded>&lt;b&gt;serendipity_event_imageselectorplus&lt;br /&gt;Extended options for media manager&lt;/b&gt;&lt;br /&gt;Allows extended options for inserting images from the media manager [Serendipity &gt;= 0.9]&lt;br/&gt;For: Serendipity 0.9</content:encoded>
@@ -586,7 +586,7 @@
 </item>
 <item>
 <title>Markup: Typographic Smart Quotes: Convert straight quotes to smart quotes.  Also can use SmartyPants PHP library (by Michel Fortin, based on SmartyPants by John Gruber) to provide further typographic replacement.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_typoquote</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_typoquote</link>
 <category>Event Plugins</category>
 <author>Jonathan Spalink and Matthew Groeninger</author>
 <content:encoded>&lt;b&gt;serendipity_event_typoquote&lt;br /&gt;Markup: Typographic Smart Quotes&lt;/b&gt;&lt;br /&gt;Convert straight quotes to smart quotes.  Also can use SmartyPants PHP library (by Michel Fortin, based on SmartyPants by John Gruber) to provide further typographic replacement.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -595,7 +595,7 @@
 </item>
 <item>
 <title>User Profiles: Shows simple user profiles and allows to embed author pictures.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_userprofiles</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_userprofiles</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Falk Doering</author>
 <content:encoded>&lt;b&gt;serendipity_event_userprofiles&lt;br /&gt;User Profiles&lt;/b&gt;&lt;br /&gt;Shows simple user profiles and allows to embed author pictures.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -604,7 +604,7 @@
 </item>
 <item>
 <title>Customizable Entries Archive: Shows a sortable view of all past articles for the visitor. The link to this page should be inserted into a HTML nugget.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_customarchive</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_customarchive</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_customarchive&lt;br /&gt;Customizable Entries Archive&lt;/b&gt;&lt;br /&gt;Shows a sortable view of all past articles for the visitor. The link to this page should be inserted into a HTML nugget.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -613,7 +613,7 @@
 </item>
 <item>
 <title>My Calendar: Maintains a personal calendar</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_mycalendar</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mycalendar</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Markus Gerstel, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_mycalendar&lt;br /&gt;My Calendar&lt;/b&gt;&lt;br /&gt;Maintains a personal calendar&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -622,7 +622,7 @@
 </item>
 <item>
 <title>Coppermine Selector: Select images from a Coppermine gallery in new entries</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_cpgselector</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_cpgselector</link>
 <category>Event Plugins</category>
 <author>Matthew Maude (modified by Jim Davies)</author>
 <content:encoded>&lt;b&gt;serendipity_event_cpgselector&lt;br /&gt;Coppermine Selector&lt;/b&gt;&lt;br /&gt;Select images from a Coppermine gallery in new entries&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -631,7 +631,7 @@
 </item>
 <item>
 <title>Category Assignment: Lets you assign multiple categories to entries</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_assigncategories</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_assigncategories</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_assigncategories&lt;br /&gt;Category Assignment&lt;/b&gt;&lt;br /&gt;Lets you assign multiple categories to entries&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -640,7 +640,7 @@
 </item>
 <item>
 <title>Sitemap Generator (for Crawlers): Creates a sitemap.xml.gz, which can be used by miscellaneous Web-Crawlers. (Google, MSN, Yahoo and Ask)</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_google_sitemap</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_google_sitemap</link>
 <category>Event Plugins</category>
 <author>Boris</author>
 <content:encoded>&lt;b&gt;serendipity_event_google_sitemap&lt;br /&gt;Sitemap Generator (for Crawlers)&lt;/b&gt;&lt;br /&gt;Creates a sitemap.xml.gz, which can be used by miscellaneous Web-Crawlers. (Google, MSN, Yahoo and Ask)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -649,7 +649,7 @@
 </item>
 <item>
 <title>Random Blog Description: Shows a random description in the header. (Seperate database table has currently to be maintained manually)</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_randomblogdescription</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_randomblogdescription</link>
 <category>Event Plugins</category>
 <author>Florian Anderiasch</author>
 <content:encoded>&lt;b&gt;serendipity_event_randomblogdescription&lt;br /&gt;Random Blog Description&lt;/b&gt;&lt;br /&gt;Shows a random description in the header. (Seperate database table has currently to be maintained manually)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -658,7 +658,7 @@
 </item>
 <item>
 <title>Uses TinyMCE as WYSIWYG editor: Utilizes the TinyMCE WYSIWYG editor. Requires Serendipity 0.9 or later. After installation, read the installation guide in the configuration screen for this plugin.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_tinymce</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_tinymce</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_tinymce&lt;br /&gt;Uses TinyMCE as WYSIWYG editor&lt;/b&gt;&lt;br /&gt;Utilizes the TinyMCE WYSIWYG editor. Requires Serendipity 0.9 or later. After installation, read the installation guide in the configuration screen for this plugin.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
@@ -667,7 +667,7 @@
 </item>
 <item>
 <title>Options for trustworthy editing on multi-user blogs: This plugin can specify, which authors on a multi-user blog you have enough trust in and do not expect hacking attempts. All other users are treated as possibly evil and cannot create HTML entries.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_xsstrust</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_xsstrust</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_xsstrust&lt;br /&gt;Options for trustworthy editing on multi-user blogs&lt;/b&gt;&lt;br /&gt;This plugin can specify, which authors on a multi-user blog you have enough trust in and do not expect hacking attempts. All other users are treated as possibly evil and cannot create HTML entries.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
@@ -676,7 +676,7 @@
 </item>
 <item>
 <title>HTML Nugget on Page: Puts an HTML nugget on top or bottom of the page, or inside the page's HEAD tag</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_page_nugget</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_page_nugget</link>
 <category>Event Plugins</category>
 <author>Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_event_page_nugget&lt;br /&gt;HTML Nugget on Page&lt;/b&gt;&lt;br /&gt;Puts an HTML nugget on top or bottom of the page, or inside the page's HEAD tag&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -685,7 +685,7 @@
 </item>
 <item>
 <title>Markup: Include entry data/templates/blocks: Allows you to add HTML-style tags to your entry that includes parts of other entrys. Use this markup: [s9y-include-entry:XXX:YYY]. Replace XXX with the target entryid and YYY with the target field name (i.e. &quot;body&quot;, &quot;title&quot;, &quot;extended&quot;, ...). You can also use the new menu functions to maintain templates and blocks that can get inserted in between your entries.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_includeentry</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_includeentry</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_includeentry&lt;br /&gt;Markup: Include entry data/templates/blocks&lt;/b&gt;&lt;br /&gt;Allows you to add HTML-style tags to your entry that includes parts of other entrys. Use this markup: [s9y-include-entry:XXX:YYY]. Replace XXX with the target entryid and YYY with the target field name (i.e. &quot;body&quot;, &quot;title&quot;, &quot;extended&quot;, ...). You can also use the new menu functions to maintain templates and blocks that can get inserted in between your entries.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -694,7 +694,7 @@
 </item>
 <item>
 <title>Properties/Templates of categories: This plugin provides additional properties for categories and their entries, including custom templates, sort order, display limit, password protection, and RSS hiding.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_categorytemplates</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_categorytemplates</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Judebert</author>
 <content:encoded>&lt;b&gt;serendipity_event_categorytemplates&lt;br /&gt;Properties/Templates of categories&lt;/b&gt;&lt;br /&gt;This plugin provides additional properties for categories and their entries, including custom templates, sort order, display limit, password protection, and RSS hiding.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
@@ -703,7 +703,7 @@
 </item>
 <item>
 <title>Post via XML-RPC: Allows to post/edit entries via the XML-RPC API (MT, Blogger Endpoints)</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_xmlrpc</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_xmlrpc</link>
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_event_xmlrpc&lt;br /&gt;Post via XML-RPC&lt;/b&gt;&lt;br /&gt;Allows to post/edit entries via the XML-RPC API (MT, Blogger Endpoints)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -712,7 +712,7 @@
 </item>
 <item>
 <title>WrapURL: : Wraps another page in an IFRAME to be displayed in the body</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_wrapurl</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_wrapurl</link>
 <category>Event Plugins</category>
 <author>Rob Antonishen, Ian (Timbalu)</author>
 <content:encoded>&lt;b&gt;serendipity_event_wrapurl&lt;br /&gt;WrapURL: &lt;/b&gt;&lt;br /&gt;Wraps another page in an IFRAME to be displayed in the body&lt;br/&gt;For: Serendipity 0.7</content:encoded>
@@ -721,7 +721,7 @@
 </item>
 <item>
 <title>Comics: Run webcomics in your blog</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_comics</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_comics</link>
 <category>Event Plugins</category>
 <author>Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_event_comics&lt;br /&gt;Comics&lt;/b&gt;&lt;br /&gt;Run webcomics in your blog&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -730,7 +730,7 @@
 </item>
 <item>
 <title>Uses FCKeditor as WYSIWYG editor: Utilizes the FCKeditor WYSIWYG editor. Requires Serendipity 0.9. After installation, read the installation guide in the configuration screen for this plugin.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_fckeditor</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_fckeditor</link>
 <category>Event Plugins</category>
 <author>Ziyad Saeed, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_fckeditor&lt;br /&gt;Uses FCKeditor as WYSIWYG editor&lt;/b&gt;&lt;br /&gt;Utilizes the FCKeditor WYSIWYG editor. Requires Serendipity 0.9. After installation, read the installation guide in the configuration screen for this plugin.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
@@ -739,7 +739,7 @@
 </item>
 <item>
 <title>Uses XINHA as WYSIWYG editor: Warning! Xinha is experimental. Utilizes the XINHA WYSIWYG editor. Requires Serendipity 0.9. After installation, read the installation guide in the configuration screen for this plugin.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_xinha</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_xinha</link>
 <category>Event Plugins</category>
 <author>Ziyad Saeed, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_xinha&lt;br /&gt;Uses XINHA as WYSIWYG editor&lt;/b&gt;&lt;br /&gt;Warning! Xinha is experimental. Utilizes the XINHA WYSIWYG editor. Requires Serendipity 0.9. After installation, read the installation guide in the configuration screen for this plugin.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
@@ -748,7 +748,7 @@
 </item>
 <item>
 <title>Display RSS-Feed in Backend Overview: Displays a RSS feed on the overview page (right after login) to the administration interface</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_backendrss</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_backendrss</link>
 <category>Event Plugins</category>
 <author>Sebastian Nohn</author>
 <content:encoded>&lt;b&gt;serendipity_event_backendrss&lt;br /&gt;Display RSS-Feed in Backend Overview&lt;/b&gt;&lt;br /&gt;Displays a RSS feed on the overview page (right after login) to the administration interface&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -757,7 +757,7 @@
 </item>
 <item>
 <title>Downloadmanager: Provides full downloadmanager capabilities to your s9y. When uninstalling, all related tables will be dropped!</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_downloadmanager</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_downloadmanager</link>
 <category>Event Plugins</category>
 <author>Alexander 'dma147' Mieland, Grischa Brockhaus, Ian (Timbalu)</author>
 <content:encoded>&lt;b&gt;serendipity_event_downloadmanager&lt;br /&gt;Downloadmanager&lt;/b&gt;&lt;br /&gt;Provides full downloadmanager capabilities to your s9y. When uninstalling, all related tables will be dropped!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -766,7 +766,7 @@
 </item>
 <item>
 <title>Tooltips: Activate Tooltips Text and Images.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_tooltips</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_tooltips</link>
 <category>Event Plugins</category>
 <author>Enrico Stahn</author>
 <content:encoded>&lt;b&gt;serendipity_event_tooltips&lt;br /&gt;Tooltips&lt;/b&gt;&lt;br /&gt;Activate Tooltips Text and Images.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -775,7 +775,7 @@
 </item>
 <item>
 <title>Markup: Gallery Image: Inserts a Gallery album or image using markup text.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_galleryimage</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_galleryimage</link>
 <category>Event Plugins</category>
 <author>Rob Antonishen, Alexander Mieland</author>
 <content:encoded>&lt;b&gt;serendipity_event_galleryimage&lt;br /&gt;Markup: Gallery Image&lt;/b&gt;&lt;br /&gt;Inserts a Gallery album or image using markup text.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -784,7 +784,7 @@
 </item>
 <item>
 <title>HTTP-Authentication: Authenticates users via HTTP auth using their s9y user login data.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_httpauth</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_httpauth</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_httpauth&lt;br /&gt;HTTP-Authentication&lt;/b&gt;&lt;br /&gt;Authenticates users via HTTP auth using their s9y user login data.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -793,7 +793,7 @@
 </item>
 <item>
 <title>Show entries via JavaScript: Provides javascript output of recent entries for inclusion on other, extern websites. (see the README in the plugins directory!)</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_backend</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_backend</link>
 <category>Event Plugins</category>
 <author>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</author>
 <content:encoded>&lt;b&gt;serendipity_event_backend&lt;br /&gt;Show entries via JavaScript&lt;/b&gt;&lt;br /&gt;Provides javascript output of recent entries for inclusion on other, extern websites. (see the README in the plugins directory!)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -802,7 +802,7 @@
 </item>
 <item>
 <title>Geotag: Allows entries to be geotagged with coordinates</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_geotag</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_geotag</link>
 <category>Event Plugins</category>
 <author>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr</author>
 <content:encoded>&lt;b&gt;serendipity_event_geotag&lt;br /&gt;Geotag&lt;/b&gt;&lt;br /&gt;Allows entries to be geotagged with coordinates&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -811,7 +811,7 @@
 </item>
 <item>
 <title>Backup Interface: Provides the ability to automatically make backups from your s9y, the database-tables, the whole database and the files. Only MySQL(i) databases are currently supported. WARNING: This plugin does not work well with large databases or directories.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_backup</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_backup</link>
 <category>Event Plugins</category>
 <author>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</author>
 <content:encoded>&lt;b&gt;serendipity_event_backup&lt;br /&gt;Backup Interface&lt;/b&gt;&lt;br /&gt;Provides the ability to automatically make backups from your s9y, the database-tables, the whole database and the files. Only MySQL(i) databases are currently supported. WARNING: This plugin does not work well with large databases or directories.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -820,7 +820,7 @@
 </item>
 <item>
 <title>Discussion forum / phpBB comment mirroring: Provides a complete discussion forum to your users. Can alternatively provide to mirror comments into a phpBB installation.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_forum</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_forum</link>
 <category>Event Plugins</category>
 <author>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</author>
 <content:encoded>&lt;b&gt;serendipity_event_forum&lt;br /&gt;Discussion forum / phpBB comment mirroring&lt;/b&gt;&lt;br /&gt;Provides a complete discussion forum to your users. Can alternatively provide to mirror comments into a phpBB installation.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -829,7 +829,7 @@
 </item>
 <item>
 <title>Glossary: A user defined glossary as highlighted text with a tooltip.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_glossary</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_glossary</link>
 <category>Event Plugins</category>
 <author>Rob Antonishen</author>
 <content:encoded>&lt;b&gt;serendipity_event_glossary&lt;br /&gt;Glossary&lt;/b&gt;&lt;br /&gt;A user defined glossary as highlighted text with a tooltip.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -838,7 +838,7 @@
 </item>
 <item>
 <title>Start Page Category: Allows you to show only one category on the frontpage</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_startcat</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_startcat</link>
 <category>Event Plugins</category>
 <author>Stefan Willoughby, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_startcat&lt;br /&gt;Start Page Category&lt;/b&gt;&lt;br /&gt;Allows you to show only one category on the frontpage&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -847,7 +847,7 @@
 </item>
 <item>
 <title>Show read/unread state of entries for visitors: Show read/unread state of entries for visitors</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_markread</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_markread</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_markread&lt;br /&gt;Show read/unread state of entries for visitors&lt;/b&gt;&lt;br /&gt;Show read/unread state of entries for visitors&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -856,7 +856,7 @@
 </item>
 <item>
 <title>Forgot Password: Change the password for selected user</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_forgotpassword</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_forgotpassword</link>
 <category>Event Plugins</category>
 <author>Omid Mottaghi</author>
 <content:encoded>&lt;b&gt;serendipity_event_forgotpassword&lt;br /&gt;Forgot Password&lt;/b&gt;&lt;br /&gt;Change the password for selected user&lt;br/&gt;For: Serendipity 0.9.1</content:encoded>
@@ -865,7 +865,7 @@
 </item>
 <item>
 <title>Markup: RegexpMarkup: Mark up via user custom regexp files. See example files in &quot;regexps&quot; subdirectory of this plugin.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_regexpmarkup</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_regexpmarkup</link>
 <category>Event Plugins</category>
 <author>Rob Antonishen</author>
 <content:encoded>&lt;b&gt;serendipity_event_regexpmarkup&lt;br /&gt;Markup: RegexpMarkup&lt;/b&gt;&lt;br /&gt;Mark up via user custom regexp files. See example files in &quot;regexps&quot; subdirectory of this plugin.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -874,7 +874,7 @@
 </item>
 <item>
 <title>Newsbox: Group a category's entries in a frontpage box instead of the usual article listing.  Supports nested newsboxes.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_newsbox</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_newsbox</link>
 <category>Event Plugins</category>
 <author>Jude Anthony</author>
 <content:encoded>&lt;b&gt;serendipity_event_newsbox&lt;br /&gt;Newsbox&lt;/b&gt;&lt;br /&gt;Group a category's entries in a frontpage box instead of the usual article listing.  Supports nested newsboxes.&lt;br/&gt;For: Serendipity 1.0-alpha1</content:encoded>
@@ -883,7 +883,7 @@
 </item>
 <item>
 <title>Community Rating: You can rate products, movies or anything else and display your rating within your associated entries. Also enables you to share your ratings with other users of these plugins. This plugin requires you to edit template files, please read the README file.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_communityrating</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_communityrating</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Lewe Zipfel</author>
 <content:encoded>&lt;b&gt;serendipity_event_communityrating&lt;br /&gt;Community Rating&lt;/b&gt;&lt;br /&gt;You can rate products, movies or anything else and display your rating within your associated entries. Also enables you to share your ratings with other users of these plugins. This plugin requires you to edit template files, please read the README file.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
@@ -892,7 +892,7 @@
 </item>
 <item>
 <title>Enhanced Comment Area: Uses JavaScript to show a live preview and markup-buttons</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_livecomment</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_livecomment</link>
 <category>Event Plugins</category>
 <author>Malte Paskuda, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_livecomment&lt;br /&gt;Enhanced Comment Area&lt;/b&gt;&lt;br /&gt;Uses JavaScript to show a live preview and markup-buttons&lt;br/&gt;For: Serendipity 1.0</content:encoded>
@@ -901,7 +901,7 @@
 </item>
 <item>
 <title>Frequently Asked Questions: Edit the Frequently Asked Question.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_faq</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_faq</link>
 <category>Event Plugins</category>
 <author>Falk Doering</author>
 <content:encoded>&lt;b&gt;serendipity_event_faq&lt;br /&gt;Frequently Asked Questions&lt;/b&gt;&lt;br /&gt;Edit the Frequently Asked Question.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
@@ -910,7 +910,7 @@
 </item>
 <item>
 <title>Lightbox/Thickbox JS/Greybox: Lightbox JS is a simple, unobtrusive script used to to overlay images on the current page. It's a snap to setup and works on all modern browsers. Lightbox pops up images, while Thickbox can also display HTML popup links. Both scripts work like this: They search through your entries, and replace every 'a href=&quot;XXX&quot;' link and then replace that link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. Using thickbox, you can put a 'class=&quot;thickbox&quot;' attribute into your 'a href' links so that they will popup in a window.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_lightbox</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_lightbox</link>
 <category>Event Plugins</category>
 <author>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_lightbox&lt;br /&gt;Lightbox/Thickbox JS/Greybox&lt;/b&gt;&lt;br /&gt;Lightbox JS is a simple, unobtrusive script used to to overlay images on the current page. It's a snap to setup and works on all modern browsers. Lightbox pops up images, while Thickbox can also display HTML popup links. Both scripts work like this: They search through your entries, and replace every 'a href=&quot;XXX&quot;' link and then replace that link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. Using thickbox, you can put a 'class=&quot;thickbox&quot;' attribute into your 'a href' links so that they will popup in a window.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
@@ -919,7 +919,7 @@
 </item>
 <item>
 <title>Versioning of entries: Can store and retrieve older versions of an entry</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_versioning</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_versioning</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_versioning&lt;br /&gt;Versioning of entries&lt;/b&gt;&lt;br /&gt;Can store and retrieve older versions of an entry&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -928,7 +928,7 @@
 </item>
 <item>
 <title>Phoneblogz: This plugin allows to fetch messages from Phoneblogz.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_phoneblogz</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_phoneblogz</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, phoneblogz.com</author>
 <content:encoded>&lt;b&gt;serendipity_event_phoneblogz&lt;br /&gt;Phoneblogz&lt;/b&gt;&lt;br /&gt;This plugin allows to fetch messages from Phoneblogz.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -937,7 +937,7 @@
 </item>
 <item>
 <title>Import from Flickr: Import images from flickr.com into the media library</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_flickr</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_flickr</link>
 <category>Event Plugins</category>
 <author>Jay Bertrand</author>
 <content:encoded>&lt;b&gt;serendipity_event_flickr&lt;br /&gt;Import from Flickr&lt;/b&gt;&lt;br /&gt;Import images from flickr.com into the media library&lt;br/&gt;For: Serendipity 0.9</content:encoded>
@@ -946,7 +946,7 @@
 </item>
 <item>
 <title>Free Wiki links for your entries: You can specify new/existing links to your blog entries via [[title]], link to staticpages via ((title)) and link to both via {{title}}. References can be automatically appended to the blog entry.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_wikilinks</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_wikilinks</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_wikilinks&lt;br /&gt;Free Wiki links for your entries&lt;/b&gt;&lt;br /&gt;You can specify new/existing links to your blog entries via [[title]], link to staticpages via ((title)) and link to both via {{title}}. References can be automatically appended to the blog entry.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
@@ -955,7 +955,7 @@
 </item>
 <item>
 <title>HTML 查驗: 以 XML 標準查驗文章</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_htmlvalidator</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_htmlvalidator</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_htmlvalidator&lt;br /&gt;HTML 查驗&lt;/b&gt;&lt;br /&gt;以 XML 標準查驗文章&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -964,7 +964,7 @@
 </item>
 <item>
 <title>Show links to services like Facebook, Digg, Technorati, del.icio.us, spread.ly etc related to your entry.: You can remove/insert other custom services to link to via the &quot;plugin_findmore.tpl&quot; template file easily. Also remember that if you want to save grandma's performance pennies that you can also insert the HTML/JS snippets into your entries.tpl template file instead of using this plugin!</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_findmore</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_findmore</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Kodewulf</author>
 <content:encoded>&lt;b&gt;serendipity_event_findmore&lt;br /&gt;Show links to services like Facebook, Digg, Technorati, del.icio.us, spread.ly etc related to your entry.&lt;/b&gt;&lt;br /&gt;You can remove/insert other custom services to link to via the &quot;plugin_findmore.tpl&quot; template file easily. Also remember that if you want to save grandma's performance pennies that you can also insert the HTML/JS snippets into your entries.tpl template file instead of using this plugin!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -973,7 +973,7 @@
 </item>
 <item>
 <title>Gallery2 Embed: : Embeds Gallery2 within Serendipity.  You must be running the Gallery 2.1 core.  Gallery 2.1 RC2a or newer REQUIRED.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_g2embed</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_g2embed</link>
 <category>Event Plugins</category>
 <author>Aaron Axelsen</author>
 <content:encoded>&lt;b&gt;serendipity_event_g2embed&lt;br /&gt;Gallery2 Embed: &lt;/b&gt;&lt;br /&gt;Embeds Gallery2 within Serendipity.  You must be running the Gallery 2.1 core.  Gallery 2.1 RC2a or newer REQUIRED.&lt;br/&gt;For: Serendipity 0.9.1</content:encoded>
@@ -982,7 +982,7 @@
 </item>
 <item>
 <title>Autosave entries: Saves entries in background while editing</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_autosave</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_autosave</link>
 <category>Event Plugins</category>
 <author>Jay Bertrand</author>
 <content:encoded>&lt;b&gt;serendipity_event_autosave&lt;br /&gt;Autosave entries&lt;/b&gt;&lt;br /&gt;Saves entries in background while editing&lt;br/&gt;For: Serendipity 0.9</content:encoded>
@@ -991,7 +991,7 @@
 </item>
 <item>
 <title>getID3() support for fetching media properties: Uses the getID3() library to fetch extended media properties for movies/audio files. getID3() itself is not distributed with this plugin.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_getid3</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_getid3</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_getid3&lt;br /&gt;getID3() support for fetching media properties&lt;/b&gt;&lt;br /&gt;Uses the getID3() library to fetch extended media properties for movies/audio files. getID3() itself is not distributed with this plugin.&lt;br/&gt;For: Serendipity 1.1</content:encoded>
@@ -1000,7 +1000,7 @@
 </item>
 <item>
 <title>Searches comments on quicksearch: If this plugin is installed, the quicksearch on your blog will also search through comments on your blog</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_commentsearch</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_commentsearch</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_commentsearch&lt;br /&gt;Searches comments on quicksearch&lt;/b&gt;&lt;br /&gt;If this plugin is installed, the quicksearch on your blog will also search through comments on your blog&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -1009,7 +1009,7 @@
 </item>
 <item>
 <title>Suggest entries: Allows non-registered authors to suggest entries for publishing</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_suggest</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_suggest</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_suggest&lt;br /&gt;Suggest entries&lt;/b&gt;&lt;br /&gt;Allows non-registered authors to suggest entries for publishing&lt;br/&gt;For: Serendipity 0.9</content:encoded>
@@ -1018,7 +1018,7 @@
 </item>
 <item>
 <title>Embed Ads (TextLinkAds.com, Custom): Embeds Ads into your page.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_textlinkads</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_textlinkads</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_textlinkads&lt;br /&gt;Embed Ads (TextLinkAds.com, Custom)&lt;/b&gt;&lt;br /&gt;Embeds Ads into your page.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -1027,7 +1027,7 @@
 </item>
 <item>
 <title>Cronjob scheduler: This plugin periodically executes plugins that provide/require periodic tasks. See the configuration of this plugin for details.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_cronjob</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_cronjob</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_cronjob&lt;br /&gt;Cronjob scheduler&lt;/b&gt;&lt;br /&gt;This plugin periodically executes plugins that provide/require periodic tasks. See the configuration of this plugin for details.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -1036,7 +1036,7 @@
 </item>
 <item>
 <title>HTML META-Tags: Sets HTML meta keywords/description tags and title element for single entry pages and default meta keywords/description tags for non-single entry pages.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_metadesc</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_metadesc</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Judebert, Don Chambers</author>
 <content:encoded>&lt;b&gt;serendipity_event_metadesc&lt;br /&gt;HTML META-Tags&lt;/b&gt;&lt;br /&gt;Sets HTML meta keywords/description tags and title element for single entry pages and default meta keywords/description tags for non-single entry pages.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -1045,7 +1045,7 @@
 </item>
 <item>
 <title>Microformats: This plugin provides an easy way to publish reviews (or events); it supports the respective microformats.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_microformats</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_microformats</link>
 <category>Event Plugins</category>
 <author>Matthias Gutjahr</author>
 <content:encoded>&lt;b&gt;serendipity_event_microformats&lt;br /&gt;Microformats&lt;/b&gt;&lt;br /&gt;This plugin provides an easy way to publish reviews (or events); it supports the respective microformats.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
@@ -1054,7 +1054,7 @@
 </item>
 <item>
 <title>QuickNotes: Displays information for authors on the administration panel</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_adminnotes</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_adminnotes</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_adminnotes&lt;br /&gt;QuickNotes&lt;/b&gt;&lt;br /&gt;Displays information for authors on the administration panel&lt;br/&gt;For: Serendipity 0.9</content:encoded>
@@ -1063,7 +1063,7 @@
 </item>
 <item>
 <title>Feedburner FeedFlare: Adds a FeedFlare tag to the footer of each entry.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_feedflare</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_feedflare</link>
 <category>Event Plugins</category>
 <author>Jim Davies</author>
 <content:encoded>&lt;b&gt;serendipity_event_feedflare&lt;br /&gt;Feedburner FeedFlare&lt;/b&gt;&lt;br /&gt;Adds a FeedFlare tag to the footer of each entry.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -1072,7 +1072,7 @@
 </item>
 <item>
 <title>Google Analytics: This plugin adds extendet Google Analytic funcionality to youre Page like tracking external links or download links.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_google_analytics</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_google_analytics</link>
 <category>Event Plugins</category>
 <author>&lt;a href=&quot;http://blog.kleinerChemiker.net/&quot; target=&quot;_blank&quot;&gt;kleinerChemiker&lt;/a&gt;</author>
 <content:encoded>&lt;b&gt;serendipity_event_google_analytics&lt;br /&gt;Google Analytics&lt;/b&gt;&lt;br /&gt;This plugin adds extendet Google Analytic funcionality to youre Page like tracking external links or download links.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -1081,7 +1081,7 @@
 </item>
 <item>
 <title>Advanced configuration types: Provides advanced plugin and theme configuration options for Serendipity versions before 1.2.2 (currently supporting 'sequence' widget)</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_advtypes</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_advtypes</link>
 <category>Event Plugins</category>
 <author>Judebert (&lt;a href=&quot;http://judebert.com/&quot;&gt;http://judebert.com/&lt;/a&gt;)</author>
 <content:encoded>&lt;b&gt;serendipity_event_advtypes&lt;br /&gt;Advanced configuration types&lt;/b&gt;&lt;br /&gt;Provides advanced plugin and theme configuration options for Serendipity versions before 1.2.2 (currently supporting 'sequence' widget)&lt;br/&gt;For: Serendipity 1.1</content:encoded>
@@ -1090,7 +1090,7 @@
 </item>
 <item>
 <title>Recaptcha: Enabling a recaptcha for commenting articles (You need to apply for a key)</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_recaptcha</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_recaptcha</link>
 <category>Event Plugins</category>
 <author>Christian Brabandt (based on work of Garvin Hicking, Sebastian Nohn)</author>
 <content:encoded>&lt;b&gt;serendipity_event_recaptcha&lt;br /&gt;Recaptcha&lt;/b&gt;&lt;br /&gt;Enabling a recaptcha for commenting articles (You need to apply for a key)&lt;br/&gt;For: Serendipity 1.0</content:encoded>
@@ -1099,7 +1099,7 @@
 </item>
 <item>
 <title>Markup: Mobile Output: This plugin handles mobile devices and outputs optimized XHTML MP markup if it detects a mobile browser and a specially optimized site for iPhone and iPod Touch. It also scales images to fit the display size.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_mobile_output</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mobile_output</link>
 <category>Event Plugins</category>
 <author>Pelle Boese, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_mobile_output&lt;br /&gt;Markup: Mobile Output&lt;/b&gt;&lt;br /&gt;This plugin handles mobile devices and outputs optimized XHTML MP markup if it detects a mobile browser and a specially optimized site for iPhone and iPod Touch. It also scales images to fit the display size.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
@@ -1108,7 +1108,7 @@
 </item>
 <item>
 <title>Dejure.org automatic linking: Automatically links quoted statues and judicature (references and source of information) with contents of dejure.org.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_dejure</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_dejure</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, dejure.org</author>
 <content:encoded>&lt;b&gt;serendipity_event_dejure&lt;br /&gt;Dejure.org automatic linking&lt;/b&gt;&lt;br /&gt;Automatically links quoted statues and judicature (references and source of information) with contents of dejure.org.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -1117,7 +1117,7 @@
 </item>
 <item>
 <title>OpenID Authentication: Allows authors to authenticate using an OpenID.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_openid</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_openid</link>
 <category>Event Plugins</category>
 <author>Rob Richards</author>
 <content:encoded>&lt;b&gt;serendipity_event_openid&lt;br /&gt;OpenID Authentication&lt;/b&gt;&lt;br /&gt;Allows authors to authenticate using an OpenID.&lt;br/&gt;For: Serendipity 1.2</content:encoded>
@@ -1126,7 +1126,7 @@
 </item>
 <item>
 <title>Markup: Syntax Highlighter: This plugin is a JavaScript code highlighter based on the code of the same name by Alex Gorbatchev.   This plugin takes less server-side resources than GeSHi and displays less markup in the actual HTML code.  It's a lighter, cleaner alternative. This plugin requires the supporting theme to provide the following hooks: frontend_header, frontend_footer (and optionally backend_preview on the administrative theme only).</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_dpsyntaxhighlighter</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_dpsyntaxhighlighter</link>
 <category>Event Plugins</category>
 <author>Alex Gorbatchev (core), Brendon Kozlowski and J.M. Roth (plugin)</author>
 <content:encoded>&lt;b&gt;serendipity_event_dpsyntaxhighlighter&lt;br /&gt;Markup: Syntax Highlighter&lt;/b&gt;&lt;br /&gt;This plugin is a JavaScript code highlighter based on the code of the same name by Alex Gorbatchev.   This plugin takes less server-side resources than GeSHi and displays less markup in the actual HTML code.  It's a lighter, cleaner alternative. This plugin requires the supporting theme to provide the following hooks: frontend_header, frontend_footer (and optionally backend_preview on the administrative theme only).&lt;br/&gt;For: Serendipity 1.0</content:encoded>
@@ -1136,7 +1136,7 @@
 <item>
 <title>Link SnapShots using snap.com: This plugin shows page previews, while the user is hovering over a link. To reach this aim the SnapShot service at www.snap.com is used. 
 Snap.com is a free service, but be aware that snap.com *might* be able to collect data profiles about user IPs loading links from this blog site, although their privacy statement promise not to do so.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_snapshotlinks</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_snapshotlinks</link>
 <category>Event Plugins</category>
 <author>Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_snapshotlinks&lt;br /&gt;Link SnapShots using snap.com&lt;/b&gt;&lt;br /&gt;This plugin shows page previews, while the user is hovering over a link. To reach this aim the SnapShot service at www.snap.com is used. 
@@ -1146,7 +1146,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </item>
 <item>
 <title>Microblogging (Twitter,Identica): Adds a twitter/identica client to the admininistration interface, searches for tweetbacks and announces new articles to a microblogging account.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_plugin_twitter</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_twitter</link>
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Peter Heimann</author>
 <content:encoded>&lt;b&gt;serendipity_event_twitter&lt;br /&gt;Microblogging (Twitter,Identica)&lt;/b&gt;&lt;br /&gt;Adds a twitter/identica client to the admininistration interface, searches for tweetbacks and announces new articles to a microblogging account.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
@@ -1155,7 +1155,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </item>
 <item>
 <title>Dashboard: Shows some summary information on the backend frontpage</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_dashboard</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_dashboard</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_dashboard&lt;br /&gt;Dashboard&lt;/b&gt;&lt;br /&gt;Shows some summary information on the backend frontpage&lt;br/&gt;For: Serendipity 1.3</content:encoded>
@@ -1164,7 +1164,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </item>
 <item>
 <title>SMTP Mail: Use a SMTP server to send your mails</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_smtpmail</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_smtpmail</link>
 <category>Event Plugins</category>
 <author>kleinerChemiker</author>
 <content:encoded>&lt;b&gt;serendipity_event_smtpmail&lt;br /&gt;SMTP Mail&lt;/b&gt;&lt;br /&gt;Use a SMTP server to send your mails&lt;br/&gt;For: Serendipity 1.3</content:encoded>
@@ -1173,7 +1173,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </item>
 <item>
 <title>Implements jQuery: Provides jQuery for use in other plugins</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_jquery</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_jquery</link>
 <category>Event Plugins</category>
 <author>Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_jquery&lt;br /&gt;Implements jQuery&lt;/b&gt;&lt;br /&gt;Provides jQuery for use in other plugins&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -1182,7 +1182,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </item>
 <item>
 <title>Extended Editor Buttons: Youtube etc.: Offers more buttons to the editing screen to implement easy access to HTML/JS snippets like Youtube etc.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_youtube</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_youtube</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_youtube&lt;br /&gt;Extended Editor Buttons: Youtube etc.&lt;/b&gt;&lt;br /&gt;Offers more buttons to the editing screen to implement easy access to HTML/JS snippets like Youtube etc.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -1191,7 +1191,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </item>
 <item>
 <title>Markup: Autotitle: Set the title-tag into the links of the entry.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_autotitle</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_autotitle</link>
 <category>Event Plugins</category>
 <author>Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_autotitle&lt;br /&gt;Markup: Autotitle&lt;/b&gt;&lt;br /&gt;Set the title-tag into the links of the entry.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -1200,7 +1200,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </item>
 <item>
 <title>Comment Edit: Let user's edit their comments after they posted them.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_commentedit</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_commentedit</link>
 <category>Event Plugins</category>
 <author>Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_commentedit&lt;br /&gt;Comment Edit&lt;/b&gt;&lt;br /&gt;Let user's edit their comments after they posted them.&lt;br/&gt;For: Serendipity 1.5</content:encoded>
@@ -1209,7 +1209,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </item>
 <item>
 <title>Linktrimmer: Allows you to truncate any link for redirection on your own blog, like tr.im, tinyurl.com etc.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_linktrimmer</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_linktrimmer</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_linktrimmer&lt;br /&gt;Linktrimmer&lt;/b&gt;&lt;br /&gt;Allows you to truncate any link for redirection on your own blog, like tr.im, tinyurl.com etc.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
@@ -1218,7 +1218,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </item>
 <item>
 <title>Spamblock (Bayes): Detects Spam via an algorithmus which learns.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_spamblock_bayes</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_spamblock_bayes</link>
 <category>Event Plugins</category>
 <author>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_bayes&lt;br /&gt;Spamblock (Bayes)&lt;/b&gt;&lt;br /&gt;Detects Spam via an algorithmus which learns.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -1227,7 +1227,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </item>
 <item>
 <title>Event-Calendar (MySQL-only): Shows an event calendar inside your blogs with your normal blog design. It supports backend/frontend administration, multiple events and iCal export.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_cal</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_cal</link>
 <category>Event Plugins</category>
 <author>Ian (Timbalu)</author>
 <content:encoded>&lt;b&gt;serendipity_event_cal&lt;br /&gt;Event-Calendar (MySQL-only)&lt;/b&gt;&lt;br /&gt;Shows an event calendar inside your blogs with your normal blog design. It supports backend/frontend administration, multiple events and iCal export.&lt;br/&gt;For: Serendipity 1.4</content:encoded>
@@ -1236,7 +1236,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </item>
 <item>
 <title>Prettify for S9Y: Use Prettify to brush content between PRE tags for simple syntax highlighting.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_prettify</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_prettify</link>
 <category>Event Plugins</category>
 <author>Adam Krause</author>
 <content:encoded>&lt;b&gt;serendipity_event_prettify&lt;br /&gt;Prettify for S9Y&lt;/b&gt;&lt;br /&gt;Use Prettify to brush content between PRE tags for simple syntax highlighting.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
@@ -1245,7 +1245,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </item>
 <item>
 <title>Markup: clickable email adresses - but with antispam: Makes email addresses clickabe, but obfuscates them to block spam harvester bots</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_email_bot_obfuscator</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_email_bot_obfuscator</link>
 <category>Event Plugins</category>
 <author>Stephan Manske</author>
 <content:encoded>&lt;b&gt;serendipity_event_email_bot_obfuscator&lt;br /&gt;Markup: clickable email adresses - but with antispam&lt;/b&gt;&lt;br /&gt;Makes email addresses clickabe, but obfuscates them to block spam harvester bots&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -1254,7 +1254,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </item>
 <item>
 <title>oEmbed Plugin: oEmbed is a format for allowing an embedded representation of a URL on your blog. It allows blog articles to display embedded content (such as tweets, photos or videos) when a user posts a link to that resource, without having to parse the resource directly.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_oembed</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_oembed</link>
 <category>Event Plugins</category>
 <author>Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_oembed&lt;br /&gt;oEmbed Plugin&lt;/b&gt;&lt;br /&gt;oEmbed is a format for allowing an embedded representation of a URL on your blog. It allows blog articles to display embedded content (such as tweets, photos or videos) when a user posts a link to that resource, without having to parse the resource directly.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -1263,7 +1263,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </item>
 <item>
 <title>Realtime Comments: Load comments made from other users without reloading the page.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_realtimecomments</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_realtimecomments</link>
 <category>Event Plugins</category>
 <author>Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_realtimecomments&lt;br /&gt;Realtime Comments&lt;/b&gt;&lt;br /&gt;Load comments made from other users without reloading the page.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -1272,7 +1272,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </item>
 <item>
 <title>Flattr: Flattr is a social micropayment platform that lets you show love for the things you like. This plugin embedds &quot;Flattr&quot;-Badges in blog entries and RSS feeds. You can specify flattr-specific options per-entry, with a default global fallback.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_flattr</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_flattr</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Joachim Breitner</author>
 <content:encoded>&lt;b&gt;serendipity_event_flattr&lt;br /&gt;Flattr&lt;/b&gt;&lt;br /&gt;Flattr is a social micropayment platform that lets you show love for the things you like. This plugin embedds &quot;Flattr&quot;-Badges in blog entries and RSS feeds. You can specify flattr-specific options per-entry, with a default global fallback.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
@@ -1281,7 +1281,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </item>
 <item>
 <title>Template Editor: Edit the files of the currently used template directly form the adminarea.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_template_editor</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_template_editor</link>
 <category>Event Plugins</category>
 <author>Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_template_editor&lt;br /&gt;Template Editor&lt;/b&gt;&lt;br /&gt;Edit the files of the currently used template directly form the adminarea.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -1290,7 +1290,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </item>
 <item>
 <title>Autoupdate (Experimental): Experimental. When the dashboard-plugin detects an update, this plugin adds the option to update the blog directly with one click from within the adminarea.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_autoupdate</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_autoupdate</link>
 <category>Event Plugins</category>
 <author>onli</author>
 <content:encoded>&lt;b&gt;serendipity_event_autoupdate&lt;br /&gt;Autoupdate (Experimental)&lt;/b&gt;&lt;br /&gt;Experimental. When the dashboard-plugin detects an update, this plugin adds the option to update the blog directly with one click from within the adminarea.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -1299,7 +1299,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </item>
 <item>
 <title>DBClean: Cleanup database</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_dbclean</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_dbclean</link>
 <category>Event Plugins</category>
 <author>Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_dbclean&lt;br /&gt;DBClean&lt;/b&gt;&lt;br /&gt;Cleanup database&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -1308,7 +1308,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </item>
 <item>
 <title>Facebook (Experimental!): Imports comments made on facebook postings (like through RSS Graffiti) back into the blog. Also embeds Facebook OpenGraph Meta-Tags into the blog. Note that adding &quot;like&quot;-Buttons to blog entries is achieved via the serendipity_event_findmore plugin! </title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_facebook</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_facebook</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_facebook&lt;br /&gt;Facebook (Experimental!)&lt;/b&gt;&lt;br /&gt;Imports comments made on facebook postings (like through RSS Graffiti) back into the blog. Also embeds Facebook OpenGraph Meta-Tags into the blog. Note that adding &quot;like&quot;-Buttons to blog entries is achieved via the serendipity_event_findmore plugin! &lt;br/&gt;For: Serendipity 0.7</content:encoded>
@@ -1317,7 +1317,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </item>
 <item>
 <title>UTF-8 aware sorting: This plugin offers special UTF-8 alphabetic sorting as an extension so specific plugins like Freetag. It allows to sort by kyrillic and other foreign characters with a custom alphabet. Alphabet contributions are welcome (on the s9y forums).</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_sort</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_sort</link>
 <category>Event Plugins</category>
 <author>LazyBadger, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_sort&lt;br /&gt;UTF-8 aware sorting&lt;/b&gt;&lt;br /&gt;This plugin offers special UTF-8 alphabetic sorting as an extension so specific plugins like Freetag. It allows to sort by kyrillic and other foreign characters with a custom alphabet. Alphabet contributions are welcome (on the s9y forums).&lt;br/&gt;For: Serendipity 0.8</content:encoded>
@@ -1326,7 +1326,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </item>
 <item>
 <title>Disqus comments: Disqus.com is a webservice that allows you to manage comments, with central logins. It stores and manages comments outside of your Serendipity installation, and is embedded using JavaScript. For more information see disqus.com.</title>
-<link>http://php-blog.cvs.sourceforge.net/php-blog/additional_plugins/serendipity_event_disqus</link>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_disqus</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_disqus&lt;br /&gt;Disqus comments&lt;/b&gt;&lt;br /&gt;Disqus.com is a webservice that allows you to manage comments, with central logins. It stores and manages comments outside of your Serendipity installation, and is embedded using JavaScript. For more information see disqus.com.&lt;br/&gt;For: Serendipity 0.7</content:encoded>

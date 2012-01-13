@@ -51,7 +51,7 @@
 <package version="1.0">
 <name>serendipity_event_staticpage</name>
 <website>http://board.s9y.org</website>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_staticpage/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_staticpage/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Statické stránky</summary>
 <groups>BACKEND_EDITOR,BACKEND_FEATURES</groups>
@@ -276,7 +276,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_gravatar</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_gravatar/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_gravatar/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Avatar Plugin</summary>
 <groups>IMAGES</groups>
@@ -777,7 +777,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_freetag</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_freetag/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_freetag/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Klíčová slova </summary>
 <groups>BACKEND_EDITOR</groups>
@@ -878,7 +878,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_multilingual</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_multilingual/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_multilingual/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Vízejazyčné záznamy</summary>
 <groups>FRONTEND_ENTRY_RELATED,BACKEND_EDITOR</groups>
@@ -997,7 +997,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_trackback</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_trackback/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_trackback/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Správa odezev</summary>
 <groups>BACKEND_EDITOR</groups>
@@ -1096,7 +1096,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_amazonchooser</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_amazonchooser/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_amazonchooser/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Tlačítko médií Amazon</summary>
 <groups>BACKEND_EDITOR</groups>
@@ -1171,7 +1171,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_externalauth</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_externalauth/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_externalauth/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Externí ověřování/sledování uživatelů (LDAP)</summary>
 <groups>BACKEND_USERMANAGEMENT</groups>
@@ -1368,7 +1368,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_photoblog</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_photoblog/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_photoblog/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Fotoblog</summary>
 <groups>IMAGES</groups>
@@ -1463,7 +1463,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_usergallery</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_usergallery/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_usergallery/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Galerie</summary>
 <groups>IMAGES</groups>
@@ -1572,7 +1572,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_adduser</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_plugin_adduser/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_adduser/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Samoregistrace nových uživatelů</summary>
 <groups>BACKEND_USERMANAGEMENT</groups>
@@ -1629,7 +1629,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_phpopentracker</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_phpopentracker/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_phpopentracker/ChangeLog</changelog>
 <license>GPL</license>
 <summary>PHPOpenTracker</summary>
 <groups>STATISTICS</groups>
@@ -1674,7 +1674,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_podcast</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_podcast/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_podcast/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Podcasting plugin</summary>
 <groups>BACKEND_EDITOR</groups>
@@ -1989,7 +1989,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_linklist</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_linklist/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_linklist/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Link List</summary>
 <groups>FRONTEND_VIEWS,BACKEND_FEATURES</groups>
@@ -2124,7 +2124,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_guestbook</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_guestbook/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_guestbook/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Návštěvní kniha</summary>
 <groups>FRONTEND_FEATURES,BACKEND_FEATURES</groups>
@@ -2239,7 +2239,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_mymood</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_mymood/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_mymood/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Moje nálada</summary>
 <groups>FRONTEND_ENTRY_RELATED,BACKEND_EDITOR</groups>
@@ -2400,7 +2400,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_geshi</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_geshi/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_geshi/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Markup: GeSHi</summary>
 <groups>MARKUP</groups>
@@ -2875,7 +2875,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_smartymarkup</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_smartymarkup/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_smartymarkup/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Markupt: Smarty</summary>
 <groups>MARKUP</groups>
@@ -2980,7 +2980,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_aggregator</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_aggregator/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_aggregator/ChangeLog</changelog>
 <license>GPL</license>
 <summary>RSS agregátor</summary>
 <groups>FRONTEND_FULL_MODS</groups>
@@ -3161,7 +3161,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_geourl</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_geourl/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_geourl/ChangeLog</changelog>
 <license>GPL</license>
 <summary>GeoURL</summary>
 <groups>BACKEND_METAINFORMATION</groups>
@@ -3302,7 +3302,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_popfetcher</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_popfetcher/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_popfetcher/ChangeLog</changelog>
 <license>GPL</license>
 <summary>POP3 stahovač</summary>
 <groups>BACKEND_FEATURES</groups>
@@ -3371,7 +3371,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_sidebarhider</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_sidebarhider/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_sidebarhider/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Přepínání stavu postranního sloupce (sbalený/rozbalený)</summary>
 <groups>BACKEND_TEMPLATES</groups>
@@ -3420,7 +3420,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_picasa</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_picasa/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_picasa/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Picasa</summary>
 <groups>IMAGES</groups>
@@ -3479,7 +3479,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_contactform</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_contactform/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_contactform/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Kontaktní formulář</summary>
 <groups>FRONTEND_FEATURES</groups>
@@ -3622,7 +3622,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_linktoolbar</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_linktoolbar/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_linktoolbar/ChangeLog</changelog>
 <license>GPL</license>
 <summary>HTML Link metatagy</summary>
 <groups>FRONTEND_ENTRY_RELATED</groups>
@@ -3721,7 +3721,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_flickrcss</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_plugin_flickr/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_flickr/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Flickr Photostream CSS</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
@@ -3978,7 +3978,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_relatedlinks</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_relatedlinks/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_relatedlinks/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Odkazy na podobné príspevky/stránky</summary>
 <groups>BACKEND_EDITOR</groups>
@@ -4415,7 +4415,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_imageselectorplus</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_imageselectorplus/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_imageselectorplus/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Rozšířené volby pro práci s médii</summary>
 <groups>IMAGES,MARKUP</groups>
@@ -4527,7 +4527,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_userprofiles</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_userprofiles/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_userprofiles/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Profily uživatelů</summary>
 <groups>BACKEND_USERMANAGEMENT,BACKEND_TEMPLATES</groups>
@@ -4586,7 +4586,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_customarchive</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_customarchive/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_customarchive/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Přizpůsobitelný archiv příspěvků</summary>
 <groups>FRONTEND_ENTRY_RELATED</groups>
@@ -4641,7 +4641,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_mycalendar</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_mycalendar/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_mycalendar/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Můj kalendář</summary>
 <groups>FRONTEND_FEATURES</groups>
@@ -4788,7 +4788,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_google_sitemap</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_google_sitemap/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_google_sitemap/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Generátor mapy stránek pro vyhledávače</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
@@ -4887,7 +4887,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_tinymce</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_tinymce/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_tinymce/ChangeLog</changelog>
 <license>GPL</license>
 <summary>TinyMCE jako WYSIWYG editor</summary>
 <groups>BACKEND_EDITOR</groups>
@@ -5040,7 +5040,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_includeentry</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_includeentry/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_includeentry/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Markup: Vložení příspěvku/šablony/bloku</summary>
 <groups>MARKUP</groups>
@@ -5097,7 +5097,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_categorytemplates</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_categorytemplates/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_categorytemplates/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Vlastnosti/šablona vzhledu pro kategorie</summary>
 <groups>FRONTEND_FULL_MODS,FRONTEND_VIEWS,BACKEND_TEMPLATES</groups>
@@ -5154,7 +5154,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_xmlrpc</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_xmlrpc/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_xmlrpc/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Posílání příspěvků pomocí XML-RPC</summary>
 <groups>FRONTEND_FULL_MODS,FRONTEND_EXTERNAL_SERVICES</groups>
@@ -5211,7 +5211,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_wrapurl</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_wrapurl/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_wrapurl/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Vložení cizí stránky: </summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
@@ -5410,7 +5410,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_downloadmanager</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_downloadmanager/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_downloadmanager/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Downloadmanager</summary>
 <groups>FRONTEND_FULL_MODS</groups>
@@ -5915,7 +5915,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_geotag</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_geotag/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_geotag/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Geotag</summary>
 <groups>BACKEND_EDITOR</groups>
@@ -6026,7 +6026,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_forum</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_forum/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_forum/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Diskusní fórum / zrcadlení phpBB fóra</summary>
 <groups>FRONTEND_FULL_MODS</groups>
@@ -6353,7 +6353,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_startcat</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_startcat/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_startcat/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Kategorie na výchozí stránce</summary>
 <groups>FRONTEND_VIEWS</groups>
@@ -6432,7 +6432,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_forgotpassword</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_forgotpassword/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_forgotpassword/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Zapomenuté heslo</summary>
 <groups>BACKEND_FEATURES</groups>
@@ -6489,7 +6489,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_regexpmarkup</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_regexpmarkup/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_regexpmarkup/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Markup: RegexpMarkup</summary>
 <groups>MARKUP</groups>
@@ -6582,7 +6582,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_communityrating</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_communityrating/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_communityrating/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Hodnocení</summary>
 <groups>BACKEND_EDITOR</groups>
@@ -6657,7 +6657,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_livecomment</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_livecomment/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_livecomment/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Vylepšené políčko komentářů</summary>
 <groups>FRONTEND_VIEWS</groups>
@@ -6742,7 +6742,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_faq</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_faq/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_faq/ChangeLog</changelog>
 <license>GPL</license>
 <summary>FAQ - Často kladené otázky</summary>
 <groups>FRONTEND_FEATURES</groups>
@@ -6859,7 +6859,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_lightbox</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_lightbox/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_lightbox/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Lightbox/Thickbox JS/Greybox</summary>
 <groups>IMAGES</groups>
@@ -7334,7 +7334,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_wikilinks</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_wikilinks/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_wikilinks/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Wiki odkazy v příspěvcích</summary>
 <groups>MARKUP</groups>
@@ -7459,7 +7459,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_findmore</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_findmore/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_findmore/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Zobrazuje odkazy jako Digg, Technorati, del.icio.us apod. vztažené k příspěvku.</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
@@ -7672,7 +7672,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_getid3</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_getid3/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_getid3/ChangeLog</changelog>
 <license>GPL</license>
 <summary>getID3() podpora pro získání vlastností média</summary>
 <groups>IMAGES</groups>
@@ -7725,7 +7725,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_commentsearch</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_commentsearch/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_commentsearch/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Hledání v komentářích</summary>
 <groups>FRONTEND_FEATURES</groups>
@@ -7780,7 +7780,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_suggest</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_suggest/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_suggest/ChangeLog</changelog>
 <license>Commercial</license>
 <summary>Návrhy na nové články</summary>
 <groups>FRONTEND_FEATURES</groups>
@@ -7879,7 +7879,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_cronjob</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_cronjob/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_cronjob/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Plánovač úloh</summary>
 <groups>BACKEND_FEATURES</groups>
@@ -7924,7 +7924,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_metadesc</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_metadesc/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_metadesc/ChangeLog</changelog>
 <license>GPL</license>
 <summary>HTML META tagy</summary>
 <groups>FRONTEND_ENTRY_RELATED,BACKEND_METAINFORMATION</groups>
@@ -7973,7 +7973,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_microformats</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_microformats/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_microformats/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Mikroformáty</summary>
 <groups>BACKEND_EDITOR,BACKEND_TEMPLATES</groups>
@@ -8130,7 +8130,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_google_analytics</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_google_analytics/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_google_analytics/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Google Analytics</summary>
 <groups>STATISTICS</groups>
@@ -8253,7 +8253,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_recaptcha</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_recaptcha/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_recaptcha/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Recaptcha</summary>
 <groups>ANTISPAM</groups>
@@ -8303,7 +8303,7 @@ aplikovány další typografické úpravy.</description>
 <package version="1.0">
 <name>serendipity_event_mobile_output</name>
 <website>http://c.mobile-seo.de/</website>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_mobile_output/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_mobile_output/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Markup: V�stup na mobil</summary>
 <groups>MARKUP</groups>
@@ -8646,7 +8646,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_dpsyntaxhighlighter</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_dpsyntaxhighlighter/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_dpsyntaxhighlighter/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Zvýrazňovač syntaxe dp.SyntaxHighlighter</summary>
 <groups>MARKUP</groups>
@@ -8789,7 +8789,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_snapshotlinks</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_snapshotlinks/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_snapshotlinks/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Odkazy s náhledy pomocí služby www.snap.com</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
@@ -8832,11 +8832,11 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_twitter</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_plugin_twitter/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_twitter/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Mikroblogování (Twitter, Identica)</summary>
 <groups>FRONTEND_VIEWS</groups>
-<description>Pøidává klienta Twitter/Identica do administraèní sekce a stahuje nové tweety a oznámuje nové èlánky na úètu mikroblogu.</description>
+<description>Přidává klienta Twitter/Identica do administrační sekce a stahuje nové tweety a oznámuje nové články na účtu mikroblogu.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Peter Heimann</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.41</version>
@@ -8935,7 +8935,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_dashboard</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_dashboard/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_dashboard/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Tabule</summary>
 <groups>BACKEND_FEATURES</groups>
@@ -9054,7 +9054,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_jquery</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_jquery/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_jquery/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Implementace jQuery</summary>
 <groups>BACKEND_FEATURES</groups>
@@ -9107,7 +9107,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_youtube</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_youtube/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_youtube/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Rozšířená tlačítka editoru: Youtube apod.</summary>
 <groups>BACKEND_EDITOR</groups>
@@ -9144,7 +9144,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_autotitle</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_autotitle/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_autotitle/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Markup: Automatický titulek</summary>
 <groups>MARKUP</groups>
@@ -9195,7 +9195,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_commentedit</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_commentedit/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_commentedit/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Editace komentářů</summary>
 <groups>FRONTEND_VIEWS</groups>
@@ -9252,7 +9252,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_linktrimmer</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_linktrimmer/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_linktrimmer/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Zkracovač adres</summary>
 <groups>BACKEND_FEATURES</groups>
@@ -9305,7 +9305,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_spamblock_bayes</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_spamblock_bayes/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_spamblock_bayes/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Spamblock (Bayes)</summary>
 <groups>ANTISPAM</groups>
@@ -9382,7 +9382,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_cal</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_cal/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_cal/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Kalendář akcí</summary>
 <groups>FRONTEND_FEATURES,BACKEND_FEATURES</groups>
@@ -9593,11 +9593,11 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_oembed</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_oembed/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_oembed/ChangeLog</changelog>
 <license>GPL</license>
-<summary>oEmbed Plugin</summary>
+<summary>oEmbed</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
-<description>oEmbed is a format for allowing an embedded representation of a URL on your blog. It allows blog articles to display embedded content (such as tweets, photos or videos) when a user posts a link to that resource, without having to parse the resource directly.</description>
+<description>oEmbed je formát, který umožňuje vkládat do blogu jiné stránky z internetu. Umožňuje zobrazovat v příspěvcích vložený obsah (jako tweety, fotky nebo videa), když autor příspěvku napíše odkaz na zdroj obsahu, aniž by bylo potřeba přímo parsovat cílovou stránku.</description>
 <maintainers><maintainer><name>Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.03</version>
@@ -9632,6 +9632,12 @@ aplikovány další typografické úpravy.</description>
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>oembed.tpl</file>
+<dir name="UTF-8">
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
+</dir>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
 </dir>
 
   </filelist>
@@ -9659,6 +9665,10 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_oembed/lang_de.inc.php</file>
     <file>serendipity_event_oembed/lang_en.inc.php</file>
     <file>serendipity_event_oembed/oembed.tpl</file>
+    <file>serendipity_event_oembed/UTF-8/lang_cs.inc.php</file>
+    <file>serendipity_event_oembed/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_oembed/lang_cs.inc.php</file>
+    <file>serendipity_event_oembed/lang_cz.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -9706,7 +9716,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_flattr</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_flattr/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_flattr/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Flattr</summary>
 <groups>FRONTEND_FEATURES</groups>
@@ -9755,7 +9765,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_template_editor</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_template_editor/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_template_editor/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Editor stylů vzhledu</summary>
 <groups>BACKEND_FEATURES</groups>
@@ -9860,7 +9870,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_autoupdate</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_autoupdate/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_autoupdate/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Automatické aktualizace (experimentální)</summary>
 <groups>BACKEND_FEATURES</groups>
@@ -9911,7 +9921,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_dbclean</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_dbclean/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_dbclean/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Vyčištění databáze</summary>
 <groups>BACKEND_FEATURES</groups>
@@ -9962,7 +9972,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_facebook</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_facebook/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_facebook/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Facebook (experimentální!)</summary>
 <groups>FRONTEND_VIEWS</groups>

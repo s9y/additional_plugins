@@ -51,7 +51,7 @@
 <package version="1.0">
 <name>serendipity_event_staticpage</name>
 <website>http://board.s9y.org</website>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_staticpage/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_staticpage/ChangeLog</changelog>
 <license>GPL</license>
 <summary>静的ページ</summary>
 <groups>BACKEND_EDITOR,BACKEND_FEATURES</groups>
@@ -276,7 +276,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_gravatar</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_gravatar/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_gravatar/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Avatar Plugin</summary>
 <groups>IMAGES</groups>
@@ -777,7 +777,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_freetag</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_freetag/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_freetag/ChangeLog</changelog>
 <license>GPL</license>
 <summary>エントリーのタグ</summary>
 <groups>BACKEND_EDITOR</groups>
@@ -878,7 +878,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_multilingual</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_multilingual/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_multilingual/ChangeLog</changelog>
 <license>GPL</license>
 <summary>多言語エントリ</summary>
 <groups>FRONTEND_ENTRY_RELATED,BACKEND_EDITOR</groups>
@@ -997,7 +997,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_trackback</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_trackback/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_trackback/ChangeLog</changelog>
 <license>GPL</license>
 <summary>トラックバック制御</summary>
 <groups>BACKEND_EDITOR</groups>
@@ -1096,7 +1096,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_amazonchooser</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_amazonchooser/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_amazonchooser/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Amazon メディアボタン</summary>
 <groups>BACKEND_EDITOR</groups>
@@ -1171,7 +1171,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_externalauth</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_externalauth/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_externalauth/ChangeLog</changelog>
 <license>GPL</license>
 <summary>External user authentication (LDAP)/tracking</summary>
 <groups>BACKEND_USERMANAGEMENT</groups>
@@ -1368,7 +1368,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_photoblog</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_photoblog/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_photoblog/ChangeLog</changelog>
 <license>GPL</license>
 <summary>フォトログエントリ</summary>
 <groups>IMAGES</groups>
@@ -1463,7 +1463,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_usergallery</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_usergallery/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_usergallery/ChangeLog</changelog>
 <license>GPL</license>
 <summary>ギャラリー表示</summary>
 <groups>IMAGES</groups>
@@ -1572,7 +1572,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_adduser</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_plugin_adduser/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_adduser/ChangeLog</changelog>
 <license>GPL</license>
 <summary>ユーザー自身での登録</summary>
 <groups>BACKEND_USERMANAGEMENT</groups>
@@ -1629,7 +1629,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_phpopentracker</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_phpopentracker/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_phpopentracker/ChangeLog</changelog>
 <license>GPL</license>
 <summary>PHPOpenTracker</summary>
 <groups>STATISTICS</groups>
@@ -1674,7 +1674,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_podcast</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_podcast/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_podcast/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Easy Podcasting Plugin</summary>
 <groups>BACKEND_EDITOR</groups>
@@ -1989,7 +1989,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_linklist</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_linklist/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_linklist/ChangeLog</changelog>
 <license>GPL</license>
 <summary>リンク集</summary>
 <groups>FRONTEND_VIEWS,BACKEND_FEATURES</groups>
@@ -2124,7 +2124,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_guestbook</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_guestbook/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_guestbook/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Guestbook</summary>
 <groups>FRONTEND_FEATURES,BACKEND_FEATURES</groups>
@@ -2239,7 +2239,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_mymood</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_mymood/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_mymood/ChangeLog</changelog>
 <license>GPL</license>
 <summary>My Mood</summary>
 <groups>FRONTEND_ENTRY_RELATED,BACKEND_EDITOR</groups>
@@ -2400,7 +2400,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_geshi</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_geshi/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_geshi/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Markup: GeSHi</summary>
 <groups>MARKUP</groups>
@@ -2875,7 +2875,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_smartymarkup</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_smartymarkup/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_smartymarkup/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Markup: Smarty Parsing</summary>
 <groups>MARKUP</groups>
@@ -2980,7 +2980,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_aggregator</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_aggregator/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_aggregator/ChangeLog</changelog>
 <license>GPL</license>
 <summary>RSS アグリゲータ</summary>
 <groups>FRONTEND_FULL_MODS</groups>
@@ -3161,7 +3161,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_geourl</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_geourl/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_geourl/ChangeLog</changelog>
 <license>GPL</license>
 <summary>GeoURL</summary>
 <groups>BACKEND_METAINFORMATION</groups>
@@ -3302,7 +3302,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_popfetcher</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_popfetcher/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_popfetcher/ChangeLog</changelog>
 <license>GPL</license>
 <summary>POPfetcher</summary>
 <groups>BACKEND_FEATURES</groups>
@@ -3371,7 +3371,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_sidebarhider</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_sidebarhider/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_sidebarhider/ChangeLog</changelog>
 <license>GPL</license>
 <summary>サイドバーの状態切り替え (折り畳み/展開)</summary>
 <groups>BACKEND_TEMPLATES</groups>
@@ -3420,7 +3420,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_picasa</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_picasa/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_picasa/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Picasa</summary>
 <groups>IMAGES</groups>
@@ -3479,7 +3479,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_contactform</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_contactform/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_contactform/ChangeLog</changelog>
 <license>GPL</license>
 <summary>お問合せフォーム</summary>
 <groups>FRONTEND_FEATURES</groups>
@@ -3622,7 +3622,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_linktoolbar</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_linktoolbar/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_linktoolbar/ChangeLog</changelog>
 <license>GPL</license>
 <summary>HTML リンクのメタタグ</summary>
 <groups>FRONTEND_ENTRY_RELATED</groups>
@@ -3721,7 +3721,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_flickrcss</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_plugin_flickr/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_flickr/ChangeLog</changelog>
 <license>GPL</license>
 <summary>flickr Photostream CSS</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
@@ -3978,7 +3978,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_relatedlinks</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_relatedlinks/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_relatedlinks/ChangeLog</changelog>
 <license>GPL</license>
 <summary>関連エントリとリンク</summary>
 <groups>BACKEND_EDITOR</groups>
@@ -4415,7 +4415,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_imageselectorplus</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_imageselectorplus/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_imageselectorplus/ChangeLog</changelog>
 <license>GPL</license>
 <summary>メディアマネージャーの拡張されたオプション</summary>
 <groups>IMAGES,MARKUP</groups>
@@ -4526,7 +4526,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_userprofiles</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_userprofiles/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_userprofiles/ChangeLog</changelog>
 <license>GPL</license>
 <summary>ユーザープロフィール</summary>
 <groups>BACKEND_USERMANAGEMENT,BACKEND_TEMPLATES</groups>
@@ -4585,7 +4585,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_customarchive</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_customarchive/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_customarchive/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Customizable Entries Archive</summary>
 <groups>FRONTEND_ENTRY_RELATED</groups>
@@ -4640,7 +4640,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_mycalendar</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_mycalendar/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_mycalendar/ChangeLog</changelog>
 <license>GPL</license>
 <summary>自分のカレンダー</summary>
 <groups>FRONTEND_FEATURES</groups>
@@ -4787,7 +4787,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_google_sitemap</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_google_sitemap/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_google_sitemap/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Sitemap Generator (for Crawlers)</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
@@ -4886,7 +4886,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_tinymce</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_tinymce/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_tinymce/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Uses TinyMCE as WYSIWYG editor</summary>
 <groups>BACKEND_EDITOR</groups>
@@ -5039,7 +5039,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_includeentry</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_includeentry/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_includeentry/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Markup: Include entry data/templates/blocks</summary>
 <groups>MARKUP</groups>
@@ -5096,7 +5096,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_categorytemplates</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_categorytemplates/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_categorytemplates/ChangeLog</changelog>
 <license>GPL</license>
 <summary>カテゴリのプロパティとテンプレート</summary>
 <groups>FRONTEND_FULL_MODS,FRONTEND_VIEWS,BACKEND_TEMPLATES</groups>
@@ -5153,7 +5153,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_xmlrpc</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_xmlrpc/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_xmlrpc/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Post via XML-RPC</summary>
 <groups>FRONTEND_FULL_MODS,FRONTEND_EXTERNAL_SERVICES</groups>
@@ -5210,7 +5210,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_wrapurl</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_wrapurl/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_wrapurl/ChangeLog</changelog>
 <license>GPL</license>
 <summary>WrapURL: </summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
@@ -5409,7 +5409,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_downloadmanager</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_downloadmanager/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_downloadmanager/ChangeLog</changelog>
 <license>GPL</license>
 <summary>ダウンロードマネージャー</summary>
 <groups>FRONTEND_FULL_MODS</groups>
@@ -5915,7 +5915,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_geotag</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_geotag/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_geotag/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Geotag</summary>
 <groups>BACKEND_EDITOR</groups>
@@ -6027,7 +6027,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_forum</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_forum/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_forum/ChangeLog</changelog>
 <license>GPL</license>
 <summary>ディスカッションフォーラム</summary>
 <groups>FRONTEND_FULL_MODS</groups>
@@ -6354,7 +6354,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_startcat</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_startcat/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_startcat/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Start Page Category</summary>
 <groups>FRONTEND_VIEWS</groups>
@@ -6433,7 +6433,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_forgotpassword</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_forgotpassword/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_forgotpassword/ChangeLog</changelog>
 <license>GPL</license>
 <summary>パスワード忘れ</summary>
 <groups>BACKEND_FEATURES</groups>
@@ -6490,7 +6490,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_regexpmarkup</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_regexpmarkup/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_regexpmarkup/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Markup: RegexpMarkup</summary>
 <groups>MARKUP</groups>
@@ -6583,7 +6583,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_communityrating</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_communityrating/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_communityrating/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Community Rating</summary>
 <groups>BACKEND_EDITOR</groups>
@@ -6658,7 +6658,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_livecomment</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_livecomment/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_livecomment/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Enhanced Comment Area</summary>
 <groups>FRONTEND_VIEWS</groups>
@@ -6743,7 +6743,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_faq</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_faq/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_faq/ChangeLog</changelog>
 <license>GPL</license>
 <summary>よくある質問と回答(Frequently Asked Questions)</summary>
 <groups>FRONTEND_FEATURES</groups>
@@ -6860,7 +6860,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_lightbox</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_lightbox/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_lightbox/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Lightbox/Thickbox JS/Greybox</summary>
 <groups>IMAGES</groups>
@@ -7335,7 +7335,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_wikilinks</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_wikilinks/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_wikilinks/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Free Wiki links for your entries</summary>
 <groups>MARKUP</groups>
@@ -7460,7 +7460,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_findmore</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_findmore/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_findmore/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Show links to services like Facebook, Digg, Technorati, del.icio.us, spread.ly etc related to your entry.</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
@@ -7673,7 +7673,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_getid3</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_getid3/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_getid3/ChangeLog</changelog>
 <license>GPL</license>
 <summary>getID3() support for fetching media properties</summary>
 <groups>IMAGES</groups>
@@ -7726,7 +7726,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_commentsearch</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_commentsearch/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_commentsearch/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Searches comments on quicksearch</summary>
 <groups>FRONTEND_FEATURES</groups>
@@ -7781,7 +7781,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_suggest</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_suggest/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_suggest/ChangeLog</changelog>
 <license>Commercial</license>
 <summary>Suggest entries</summary>
 <groups>FRONTEND_FEATURES</groups>
@@ -7880,7 +7880,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_cronjob</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_cronjob/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_cronjob/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Cronjob scheduler</summary>
 <groups>BACKEND_FEATURES</groups>
@@ -7925,7 +7925,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_metadesc</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_metadesc/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_metadesc/ChangeLog</changelog>
 <license>GPL</license>
 <summary>HTML META-Tags</summary>
 <groups>FRONTEND_ENTRY_RELATED,BACKEND_METAINFORMATION</groups>
@@ -7974,7 +7974,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_microformats</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_microformats/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_microformats/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Microformats</summary>
 <groups>BACKEND_EDITOR,BACKEND_TEMPLATES</groups>
@@ -8131,7 +8131,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_google_analytics</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_google_analytics/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_google_analytics/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Google Analytics</summary>
 <groups>STATISTICS</groups>
@@ -8254,7 +8254,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_recaptcha</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_recaptcha/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_recaptcha/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Recaptcha</summary>
 <groups>ANTISPAM</groups>
@@ -8304,7 +8304,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <package version="1.0">
 <name>serendipity_event_mobile_output</name>
 <website>http://c.mobile-seo.de/</website>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_mobile_output/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_mobile_output/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Markup: Mobile Output</summary>
 <groups>MARKUP</groups>
@@ -8647,7 +8647,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_dpsyntaxhighlighter</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_dpsyntaxhighlighter/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_dpsyntaxhighlighter/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Markup: Syntax Highlighter</summary>
 <groups>MARKUP</groups>
@@ -8790,7 +8790,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_snapshotlinks</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_snapshotlinks/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_snapshotlinks/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Link SnapShots using snap.com</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
@@ -8834,7 +8834,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </package>
 <package version="1.0">
 <name>serendipity_event_twitter</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_plugin_twitter/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_twitter/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Microblogging (Twitter,Identica)</summary>
 <groups>FRONTEND_VIEWS</groups>
@@ -8937,7 +8937,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </package>
 <package version="1.0">
 <name>serendipity_event_dashboard</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_dashboard/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_dashboard/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Dashboard</summary>
 <groups>BACKEND_FEATURES</groups>
@@ -9056,7 +9056,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </package>
 <package version="1.0">
 <name>serendipity_event_jquery</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_jquery/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_jquery/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Implements jQuery</summary>
 <groups>BACKEND_FEATURES</groups>
@@ -9109,7 +9109,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </package>
 <package version="1.0">
 <name>serendipity_event_youtube</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_youtube/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_youtube/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Extended Editor Buttons: Youtube etc.</summary>
 <groups>BACKEND_EDITOR</groups>
@@ -9146,7 +9146,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </package>
 <package version="1.0">
 <name>serendipity_event_autotitle</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_autotitle/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_autotitle/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Markup: Autotitle</summary>
 <groups>MARKUP</groups>
@@ -9197,7 +9197,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </package>
 <package version="1.0">
 <name>serendipity_event_commentedit</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_commentedit/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_commentedit/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Comment Edit</summary>
 <groups>FRONTEND_VIEWS</groups>
@@ -9254,7 +9254,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </package>
 <package version="1.0">
 <name>serendipity_event_linktrimmer</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_linktrimmer/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_linktrimmer/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Linktrimmer</summary>
 <groups>BACKEND_FEATURES</groups>
@@ -9307,7 +9307,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </package>
 <package version="1.0">
 <name>serendipity_event_spamblock_bayes</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_spamblock_bayes/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_spamblock_bayes/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Spamblock (Bayes)</summary>
 <groups>ANTISPAM</groups>
@@ -9384,7 +9384,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </package>
 <package version="1.0">
 <name>serendipity_event_cal</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_cal/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_cal/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Event-Calendar (MySQL-only)</summary>
 <groups>FRONTEND_FEATURES,BACKEND_FEATURES</groups>
@@ -9595,7 +9595,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </package>
 <package version="1.0">
 <name>serendipity_event_oembed</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_oembed/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_oembed/ChangeLog</changelog>
 <license>GPL</license>
 <summary>oEmbed Plugin</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
@@ -9634,6 +9634,12 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>oembed.tpl</file>
+<dir name="UTF-8">
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
+</dir>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
 </dir>
 
   </filelist>
@@ -9661,6 +9667,10 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
     <file>serendipity_event_oembed/lang_de.inc.php</file>
     <file>serendipity_event_oembed/lang_en.inc.php</file>
     <file>serendipity_event_oembed/oembed.tpl</file>
+    <file>serendipity_event_oembed/UTF-8/lang_cs.inc.php</file>
+    <file>serendipity_event_oembed/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_oembed/lang_cs.inc.php</file>
+    <file>serendipity_event_oembed/lang_cz.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -9708,7 +9718,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </package>
 <package version="1.0">
 <name>serendipity_event_flattr</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_flattr/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_flattr/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Flattr</summary>
 <groups>FRONTEND_FEATURES</groups>
@@ -9757,7 +9767,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </package>
 <package version="1.0">
 <name>serendipity_event_template_editor</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_template_editor/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_template_editor/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Template Editor</summary>
 <groups>BACKEND_FEATURES</groups>
@@ -9862,7 +9872,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </package>
 <package version="1.0">
 <name>serendipity_event_autoupdate</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_autoupdate/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_autoupdate/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Autoupdate (Experimental)</summary>
 <groups>BACKEND_FEATURES</groups>
@@ -9913,7 +9923,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </package>
 <package version="1.0">
 <name>serendipity_event_dbclean</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_dbclean/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_dbclean/ChangeLog</changelog>
 <license>GPL</license>
 <summary>DBClean</summary>
 <groups>BACKEND_FEATURES</groups>
@@ -9964,7 +9974,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </package>
 <package version="1.0">
 <name>serendipity_event_facebook</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_facebook/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_facebook/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Facebook (Experimental!)</summary>
 <groups>FRONTEND_VIEWS</groups>

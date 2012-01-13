@@ -4,7 +4,7 @@
 <packages>
 <package version="1.0">
 <name>serendipity_plugin_staticpage</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_staticpage/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_staticpage/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Static Page List</summary>
 <groups>FRONTEND_VIEWS</groups>
@@ -371,7 +371,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_loginform</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_plugin_loginform/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_loginform/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Authors login</summary>
 <groups>FRONTEND_FEATURES</groups>
@@ -430,7 +430,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_amazon</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_plugin_amazon/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_amazon/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Amazon Recommendations</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
@@ -485,7 +485,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_google_last_query</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_plugin_google_last_query/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_google_last_query/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Last Search (Google, Yahoo, Bing, Scroogle)</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
@@ -696,7 +696,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_freetag</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_freetag/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_freetag/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Show tagged entries</summary>
 <groups>FRONTEND_ENTRY_RELATED</groups>
@@ -797,7 +797,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_multilingual</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_multilingual/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_multilingual/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Choose Language</summary>
 <groups>FRONTEND_VIEWS</groups>
@@ -870,7 +870,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_popularentries</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_plugin_popularentries/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_popularentries/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Popular Entries</summary>
 <groups>STATISTICS</groups>
@@ -1061,7 +1061,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_adduser</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_plugin_adduser/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_adduser/ChangeLog</changelog>
 <license>GPL</license>
 <summary>User Self-Registration</summary>
 <groups>BACKEND_USERMANAGEMENT</groups>
@@ -1160,7 +1160,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_linklist</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_linklist/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_linklist/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Link List</summary>
 <groups>FRONTEND_FEATURES</groups>
@@ -1257,7 +1257,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_guestbook</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_guestbook/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_guestbook/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Guestbook Sidebar</summary>
 <groups>FRONTEND_FEATURES</groups>
@@ -1372,7 +1372,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_flickr</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_plugin_flickr/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_flickr/ChangeLog</changelog>
 <license>GPL</license>
 <summary>flickr Photostream</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES,IMAGES</groups>
@@ -1561,7 +1561,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_userprofiles</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_userprofiles/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_userprofiles/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Serendipity Authors</summary>
 <groups>FRONTEND_VIEWS</groups>
@@ -1620,7 +1620,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_userprofiles_birthdays</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_userprofiles/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_userprofiles/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Birthdays of users</summary>
 <groups>FRONTEND_VIEWS</groups>
@@ -1679,7 +1679,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_mycalendar</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_mycalendar/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_mycalendar/ChangeLog</changelog>
 <license>GPL</license>
 <summary>My Calendar</summary>
 <groups>FRONTEND_FEATURES</groups>
@@ -1903,7 +1903,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_currently</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_plugin_currently/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_currently/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Currently...</summary>
 <groups>FRONTEND_VIEWS</groups>
@@ -2122,7 +2122,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_geotag</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_geotag/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_geotag/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Geotag Google/OSM Map</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
@@ -2265,7 +2265,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_showentries</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_plugin_showentries/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_showentries/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Show Entries in sidebar</summary>
 <groups>FRONTEND_VIEWS</groups>
@@ -2320,7 +2320,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_communityrating</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_communityrating/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_communityrating/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Average Rating</summary>
 <groups>STATISTICS</groups>
@@ -2395,7 +2395,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_faq</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_faq/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_faq/ChangeLog</changelog>
 <license>GPL</license>
 <summary>FAQs Category Chooser</summary>
 <groups>FRONTEND_VIEWS</groups>
@@ -2720,7 +2720,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_microformats</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_event_microformats/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_microformats/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Upcoming Events</summary>
 <groups>FRONTEND_FEATURES</groups>
@@ -3035,7 +3035,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_twitter</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_plugin_twitter/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_twitter/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Twitter Timeline</summary>
 <groups>FRONTEND_VIEWS</groups>
@@ -3172,7 +3172,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_google_adsense</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_plugin_google_adsense/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_google_adsense/ChangeLog</changelog>
 <license>GPL</license>
 <summary>AdSense</summary>
 <groups>FRONTEND_VIEWS</groups>
@@ -3285,7 +3285,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_ipv6</name>
-<changelog>http://php-blog.cvs.sourceforge.net/viewvc/*checkout*/php-blog/additional_plugins/serendipity_plugin_ipv6/ChangeLog</changelog>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_ipv6/ChangeLog</changelog>
 <license>GPL</license>
 <summary>IPv6 Check</summary>
 <groups>FRONTEND_VIEWS</groups>

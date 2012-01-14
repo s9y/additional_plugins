@@ -18,6 +18,11 @@
 @define('PLUGIN_EVENT_XMLRPC_WPFAKEVERSION_DESC', 'Die XML-RPC Schnittlstelle kann auf WordPress Aufrufe reagieren. Wenn sie nach der installierten Software Version gefragt wird, antwortet sie normaler Weise mit Serendipity ' . $serendipity['version'] .'. Wenn Du hier eine Version einträgst, dann wird sie mit WordPress (angegebene Version) antworten. Einige Clients könnten auf eine minimale WordPress Version testen, eine Version wie 3.2 erscheint dann okay.');
 @define('PLUGIN_EVENT_XMLRPC_HTMLCONVERT', 'Text Artikel nach HTML konvertieren');
 @define('PLUGIN_EVENT_XMLRPC_HTMLCONVERT_DESC', 'Das Plugin versucht zu erkennen, ob Artikel als reine Texte oder als HTML übermittelt werden. Bei reinem Text wird es Zeilenumbrüche in HTML umwandeln. Wenn Du z.B: ein Textile oder das NL2BR Plugin für Artikel benutzt, solltest Du diese Option ausschalten.');
+@define('PLUGIN_EVENT_XMLRPC_ASUREAUTHOR', 'Benutze Login als Kommentar Autor');
+@define('PLUGIN_EVENT_XMLRPC_ASUREAUTHOR_DESC', 'Manche Clients speichern Kommentare mit einem generischen Autorennamen wie \'from WordPress\'. Wenn diese Option eingeschaltet ist, so wird immer der Name des eingeloggten Benutzers als Autor genommen.');
+@define('PLUGIN_EVENT_XMLRPC_ASUREAUTHOR_DEFAULT', 'Autor nicht verändern');
+@define('PLUGIN_EVENT_XMLRPC_ASUREAUTHOR_LOGIN', 'Loginname als Autor');
+@define('PLUGIN_EVENT_XMLRPC_ASUREAUTHOR_REALNAME', 'Realname als Autor');
 @define('PLUGIN_EVENT_XMLRPC_UPLOADDIR', 'Upload Verzeichnis');
 @define('PLUGIN_EVENT_XMLRPC_UPLOADDIR_DESC', 'In welches Medienverzeichnis sollen Medien (wie Bilder und Videos) hoch geladen werden, die der Client schickt?');
 

@@ -498,6 +498,9 @@ function wp_editComment($message) {
             $entry_authorid = $commentInfo['entry_authorid'];
             $comment_status = $commentInfo['comment_status'];
             
+            if (!empty($serendipity['xmlrpc_asureauthor']) && $serendipity['xmlrpc_asureauthor']!='default') {
+                $rpccomment['author'] = $serendipity[$serendipity['xmlrpc_asureauthor']];
+            }
             // Setup new comment to save. Preserve old values, if nothing is given by the client.
             $comment = array(
                 'author'  => empty($rpccomment['author'])       ? $commentInfo['author']       : $rpccomment['author'],
@@ -554,6 +557,9 @@ function wp_newComment($message) {
     $comment =  $val->getval();
     
     // Setup defaults, if not given by client. The serendipity vars were setup while authenticating.
+    if (!empty($serendipity['xmlrpc_asureauthor']) && $serendipity['xmlrpc_asureauthor']!='default') {
+        $comment['author'] = $serendipity[$serendipity['xmlrpc_asureauthor']];
+    }
     if (empty($comment['author'])) $comment['author'] = $serendipity['serendipityRealname'];
     if (empty($comment['author_email'])) $comment['author_email'] = $serendipity['serendipityEmail'];
     

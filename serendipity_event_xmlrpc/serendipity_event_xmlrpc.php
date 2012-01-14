@@ -36,7 +36,7 @@ class serendipity_event_xmlrpc extends serendipity_event
             'frontend_header'  => true
         ));
         $propbag->add('configuration', 
-            array('doc_rpclink','category', 'gmt', 'uploaddir', 'htmlconvert', 'wpfakeversion', 'debuglog', 'spamevent_description', 'event_spam', 'event_approved','event_pending')
+            array('doc_rpclink','category', 'gmt', 'uploaddir', 'htmlconvert', 'asureauthor', 'wpfakeversion', 'debuglog', 'spamevent_description', 'event_spam', 'event_approved','event_pending')
             );
         $propbag->add('groups', array('FRONTEND_FULL_MODS', 'FRONTEND_EXTERNAL_SERVICES'));
     }
@@ -104,6 +104,18 @@ class serendipity_event_xmlrpc extends serendipity_event
                 $propbag->add('name', PLUGIN_EVENT_XMLRPC_HTMLCONVERT);
                 $propbag->add('description', PLUGIN_EVENT_XMLRPC_HTMLCONVERT_DESC);
                 $propbag->add('default', true);
+                break;
+            case 'asureauthor':
+                $authoroptions = array(
+                    'default'             => PLUGIN_EVENT_XMLRPC_ASUREAUTHOR_DEFAULT,
+                    'serendipityUser'     => PLUGIN_EVENT_XMLRPC_ASUREAUTHOR_LOGIN,
+                    'serendipityRealname' => PLUGIN_EVENT_XMLRPC_ASUREAUTHOR_REALNAME,
+                );
+                $propbag->add('type',          'select');
+                $propbag->add('select_values', $authoroptions);
+                $propbag->add('name', PLUGIN_EVENT_XMLRPC_ASUREAUTHOR);
+                $propbag->add('description', PLUGIN_EVENT_XMLRPC_ASUREAUTHOR_DESC);
+                $propbag->add('default', 'default');
                 break;
             case 'wpfakeversion' :
                 $propbag->add('type',          'string');
@@ -208,6 +220,7 @@ class serendipity_event_xmlrpc extends serendipity_event
                     $serendipity['xmlrpc_wpfakeversion'] = $this->get_config('wpfakeversion','');
                     $serendipity['xmlrpc_htmlconvert']  = $this->get_config('htmlconvert',true);
                     $serendipity['xmlrpc_uploadreldir']  = $this->get_config('uploaddir','');
+                    $serendipity['xmlrpc_asureauthor'] = $this->get_config('asureauthor','default');
                     
                     $serendipity['xmlrpc_event_spam']  = $this->get_config('event_spam','spam');
                     $serendipity['xmlrpc_event_approved']  = $this->get_config('event_approved','ham');

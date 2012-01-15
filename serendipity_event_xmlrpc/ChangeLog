@@ -1,5 +1,5 @@
 # $Id$
-Version 1.46:
+Version 1.47:
     * Enhanced the interface with WordPress RPC calls.
     * Info about RPC caller URL in config, some configurations.
     * Medialibrary directory for media uploads configurable

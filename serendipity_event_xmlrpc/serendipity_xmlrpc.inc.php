@@ -843,12 +843,17 @@ function blogger_deletePost($message) {
     }
 
     ob_start();
-    if ($entry['id']) {
-        $id = serendipity_deleteEntry($entry['id']);
+    $result = true;
+    if ($entry['id'] && is_numeric($entry['id'])) {
+        universal_debug("deleting entry: " . $entry['id']);
+        serendipity_deleteEntry($entry['id']);
         serendipity_plugin_api::hook_event('xmlrpc_deleteEntry', $entry);
     }
+    else {
+        $result = false;       
+    }
     ob_clean();
-    return new XML_RPC_Response(new XML_RPC_Value(true, 'boolean'));
+    return new XML_RPC_Response(new XML_RPC_Value($result, 'boolean'));
 }
 
 function universal_fetchCategories($post_categories) {
@@ -1256,8 +1261,6 @@ function metaWeblog_deletePost($message) {
     if (!serendipity_authenticate_author($username, $password)) {
         return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
-    $val = $message->params[4];
-    $entry['body'] = $val->getval();
     $entry['author'] = $username;
     ob_start();
     $id = serendipity_deleteEntry($entry['id']);

@@ -167,6 +167,20 @@ class serendipity_event_commentspice extends serendipity_event
     }
     function readRss() {
         $comment_url = $_REQUEST ['coment_url'];
+        if (empty($comment_url)) return;
+
+        require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : S9Y_INCLUDE_PATH . 'bundled-libs/') . 'HTTP/Request.php';
+        $req = new HTTP_Request($comment_url);
+        if (PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200') {
+            return;
+        } 
+        # Fetch html content:
+        $data = $req->getResponseBody();
+        $matches = array();
+        if (preg_match('@<link.*? type="application/rss+xml".*? href="(.*?)"@Usi', $data, $matches)) {
+            $rssUrl = $matches[1];
+        }
+        
         //echo "Angekommen im Plugin. url=$comment_url";
         $articles = array();
         for ($i = 1; $i <= 3; $i++) {

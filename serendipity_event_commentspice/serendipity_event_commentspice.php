@@ -39,7 +39,8 @@ class serendipity_event_commentspice extends serendipity_event
             'frontend_footer' => true,
             'frontend_comment' => true,
             'frontend_display' => true,
-            'frontend_saveComment_finish' => true,
+            'frontend_saveComment' => true,
+        	'frontend_saveComment_finish' => true,
             'backend_deletecomment' => true,
             'external_plugin'  => true,
         ));
@@ -58,17 +59,23 @@ class serendipity_event_commentspice extends serendipity_event
             case 'twitterinput':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_TWITTERINPUT);
-                $propbag->add('description', '');
+                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_TWITTERINPUT_DESC);
                 $propbag->add('default',     true);
                 return true;
                 break;
             case 'announcerss':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS);
-                $propbag->add('description', '');
+                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_DESC);
                 $propbag->add('default',     false);
                 return true;
                 break;
+            case 'announcerssmax':
+                $propbag->add('type',        'string');
+                $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_MAXSELECT);
+                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_MAXSELECT_DESC);
+                $propbag->add('default',     false);
+                return true;
                 
             case 'plugin_path':
                 $propbag->add('type', 'string');
@@ -103,6 +110,9 @@ class serendipity_event_commentspice extends serendipity_event
                             break;
                     }
                     break;
+                case 'frontend_saveComment':
+                    return $this->checkComment($eventData, $addData);
+                    break;
                 case 'frontend_saveComment_finish' :
                     $this->commentSaved($eventData, $addData);
                     break;
@@ -111,7 +121,7 @@ class serendipity_event_commentspice extends serendipity_event
                     $this->printHeader();
                     break;
                 case 'frontend_display':        
-                    $this->printTwitterLink($eventData, $addData);
+                    $this->spiceComment($eventData, $addData);
                     break;
                 case 'frontend_comment':
                     $this->printCommentEditExtras($eventData, $addData);
@@ -155,40 +165,118 @@ class serendipity_event_commentspice extends serendipity_event
         global $serendipity;
         
         if ("NORMAL" == $addData['type']) { // only supported for normal comments
-            $result = DbSpice::saveCommentSpice($addData['comment_cid'], $serendipity['POST']['twitter']);
-            // Remember twitter name value into cookie, if user ordered to, else clear cookie
-            if (isset($serendipity['POST']['remember'])) {
-                serendipity_rememberCommentDetails(array ('twitter' => $serendipity['POST']['twitter']));
+            $promo_name = null;
+            $promo_url = null;
+            if (isset($serendipity['POST']['promorss']) && !empty($serendipity['POST']['promorss'])) {
+                $promorss = $serendipity['POST']['promorss'];
+                $parts = explode("\n", $promorss);
+                $promo_hash = trim($parts[0]);
+                $promo_name = trim($parts[1]);
+                $promo_url = trim($parts[2]);
+                if (!$this->hashString($promo_name.$promo_url) == $promo_hash) return false;
+                
             }
-            else {
-                serendipity_forgetCommentDetails(array('twitter'));
-            }
+            $result = DbSpice::saveCommentSpice($addData['comment_cid'], $serendipity['POST']['twitter'], $promo_name, $promo_url);
+            $this->rememberInputs();
+        }
+        return true;
+    }
+    function rememberInputs() {
+        global $serendipity;
+        // Remember twitter name value into cookie, if user ordered to, else clear cookie
+        if (isset($serendipity['POST']['remember'])) {
+            serendipity_rememberCommentDetails(array ('twitter' => $serendipity['POST']['twitter']));
+        }
+        else {
+            serendipity_forgetCommentDetails(array('twitter'));
         }
     }
+    function checkComment(&$eventData, &$addData) {
+        global $serendipity;
+        
+        if ("NORMAL" == $addData['type']) { // only supported for normal comments
+            $this->rememberInputs();
+            
+            $promo_name = null;
+            $promo_url = null;
+            if (isset($serendipity['POST']['promorss']) && !empty($serendipity['POST']['promorss'])) {
+                $promorss = $serendipity['POST']['promorss'];
+                $parts = explode("\n", $promorss);
+                $promo_hash = trim($parts[0]);
+                $promo_name = trim($parts[1]);
+                $promo_url = trim($parts[2]);
+                if ($this->hashString($promo_name.$promo_url) != $promo_hash) {
+                    $eventData = array ('allow_comments' => false);
+                    $serendipity ['messagestack'] ['comments'] [] = PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_CORRUPTED;
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
     function readRss() {
+        global $serendipity;
+        
         $comment_url = $_REQUEST ['coment_url'];
+        $this->log("readRss for $comment_url");
         if (empty($comment_url)) return;
 
         require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : S9Y_INCLUDE_PATH . 'bundled-libs/') . 'HTTP/Request.php';
-        $req = new HTTP_Request($comment_url);
+        $req = new HTTP_Request($comment_url, array('allowRedirects' => true, 'maxRedirects' => 3));
         if (PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200') {
+            $this->log("Error reading $comment_url");
             return;
         } 
         # Fetch html content:
         $data = $req->getResponseBody();
+        $this->log("Have data!");
+        
+        // Check if page defines a RSS link
         $matches = array();
-        if (preg_match('@<link.*? type="application/rss+xml".*? href="(.*?)"@Usi', $data, $matches)) {
+        if (preg_match('@<link[^>]*? type="application/rss\+xml"[^>]*? href="([^"]*?)"@Usi', $data, $matches)) {
+            $this->log("rss link found, matches: " . print_r($matches[1],TRUE));
             $rssUrl = $matches[1];
         }
-        
-        //echo "Angekommen im Plugin. url=$comment_url";
-        $articles = array();
-        for ($i = 1; $i <= 3; $i++) {
-            $article = array();
-            $article['title'] = "Test $i";
-            $article['url'] = "$comment_url/$i";
-            $articles[] = $article;
+        else {
+            $this->log("rss link not found");
+            return;
+            
         }
+
+        // Now fetch the RSS feed:
+        require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : S9Y_INCLUDE_PATH . 'bundled-libs/') . 'Onyx/RSS.php';
+                        # test multiple likely charsets
+        $charsets = array( "utf-8", "ISO-8859-1");
+        $retry = false;
+        foreach ($charsets as $ch) {
+            if ($retry) $this->log("Retrying charset $ch");
+            $retry = true;
+            $rss = new Onyx_RSS($ch);
+            # does it parse? if so, all is fine...
+            if ($rss->parse($rssUrl))
+            break;
+        }
+        
+        $articles = array();
+        $article = array();
+        $article['title'] = PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_CHOOSE;
+        $article['url'] = "";
+        $articles[] = $article;
+        
+        $itemCount = 0;
+        $maxItems = 3;
+        // Iterate the items
+        while ($item = $rss->getNextItem()) {
+            if ($itemCount>=$maxItems) break;
+            $article = array();
+            $article['title'] = $item['title'];
+            $hash = $this->hashString($item['title'].$item['link']);
+            $article['url'] = $hash . "\n" . $item['title'] . "\n" . $item['link'];
+            $articles[] = $article;
+            $itemCount++;
+        }
+        if ($itemCount==0) return;
+        
         echo json_encode($articles);
     }
     
@@ -200,7 +288,7 @@ class serendipity_event_commentspice extends serendipity_event
         $this->log("delete result: $reult");
     }
     
-    function printTwitterLink(&$eventData, &$addData) {
+    function spiceComment(&$eventData, &$addData) {
         global $serendipity;
         
         if (!isset($eventData['comment']) || !serendipity_db_bool($this->get_config('twitterinput', true))) {
@@ -215,13 +303,16 @@ class serendipity_event_commentspice extends serendipity_event
             return true;
         }
         $twittername = $spice['twittername'];
-        $eventData['comment'] = '<a href="https://twitter.com/#!/' . $twittername . '" class="commentspice_twitterlink" target="_blank"><img src="' . $serendipity['baseURL'] . 'index.php?/plugin/spicetwittersmall.png" alt="Read on twitter: "> ' . $twittername . '</a><br/>' . $eventData['comment'];
+        $eventData['comment'] = '<a href="https://twitter.com/#!/' . $twittername . '" class="commentspice_twitterlink" target="_blank"><img src="' . $serendipity['baseURL'] . 'index.php?/plugin/spicetwittersmall.png" alt="' . PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER . ': "> ' . $twittername . '</a><br/>' . $eventData['comment'];
+        if ($spice['promo_name'] && $spice['promo_url']) {
+            $eventData['comment'] .= "<p class=\"spice_resentpost\" style=\"padding-top: 1em; margin-bottom: 0em\">" . PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_RESCENT . ": <a href=\"{$spice['promo_url']}\" target=\"_blank\">{$spice['promo_name']}</a></p>";
+        }
         
     }
     function printCommentEditExtras(&$eventData, &$addData) {
         global $serendipity;
         
-        $tag_comment_spice = '<br/>(<i>comment spice experimental</i>)';
+        $tag_comment_spice = '<br/>(<i>' . PLUGIN_EVENT_COMMENTSPICE_EXPERIMENTAL . '</i>)';
         if (serendipity_db_bool($this->get_config('twitterinput', true))) {
             if (isset($serendipity['COOKIE']['twitter'])) $twittername = $serendipity['COOKIE']['twitter'];
             else  $twittername = '';
@@ -231,21 +322,29 @@ class serendipity_event_commentspice extends serendipity_event
         }
         if (serendipity_db_bool($this->get_config('announcerss', false))) {
             echo '<div id="serendipity_commentspice_rss" style="display:none;">';
-            echo '<label for="serendipity_commentform_rss">Promote one of your rescent articles: </label><br/><select id="serendipity_commentform_rss" name="serendipity[rss]"></select>';
+            echo '<select id="serendipity_commentform_rss" name="serendipity[promorss]"></select>'; //  style="max-width: 20em; width: 100%"
             echo '</div>';
         }
         if (serendipity_db_bool($this->get_config('twitterinput', true))) {
             echo '<div  id="serendipity_commentspice_twitter_desc" class="serendipity_commentDirection serendipity_comment_spice">';
-            echo 'If you enter your <b>twitter name</b>, your timeline will get linked to your comment.' . $tag_comment_spice;
+            echo PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER_FOOTER . $tag_comment_spice;
             echo '</div>';
         }
-        if (serendipity_db_bool($this->get_config('announcerss', true))) {
+        if (serendipity_db_bool($this->get_config('announcerss', false))) {
             echo '<div  id="serendipity_commentspice_rss_desc" class="serendipity_commentDirection serendipity_comment_spice">';
-            echo '<b>Promote one of your rescent articles</b><br/>This blog allows you to announce one of your recent blog articles with your comment. Please enter your the corresponding URL as homepage and a selection box will pop up letting you choose an article.' .$tag_comment_spice;
+            echo PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_FOOTER .$tag_comment_spice;
             echo '</div>';
         }
     }
     
+    function hashString( $what ) {
+        $installation_secret = $this->get_config('installation_secret');
+        if (empty($installation_secret)) {
+            $installation_secret = md5(date('l jS \of F Y h:i:s A'));
+            $this->set_config('installation_secret', $installation_secret);
+        }
+        return md5($installation_secret . ':' . $what);
+    }
     function log($message){
         if (!PLUGIN_EVENT_COMMENTSPICE_DEBUG) return;
         $fp = fopen(dirname(__FILE__) . '/spice.log','a');

@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # $Id: serendipity_plugin_guestbook.php,v 1.17 2011/03/10 07:19:06 garvinhicking Exp $
 /* guestbooksidebar plugin by Jaap Boerma // j@webbict.com // v1.02 // 18-10-2005 */
 
 
@@ -16,7 +16,7 @@ include dirname(__FILE__) . '/lang_en.inc.php';
 
 class serendipity_plugin_guestbook extends serendipity_plugin {
     var $title = PLUGIN_GUESTSIDE_NAME;
-    var $conty = array('%serendipity_event_guestbook%/showapp', '%serendipity_event_guestbook%/automoderate');
+    #var $conty = array('%serendipity_event_guestbook%/showapp', '%serendipity_event_guestbook%/automoderate');
     
     function introspect(&$propbag) {
         global $serendipity;
@@ -25,7 +25,7 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_GUESTSIDE_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Jaap Boerma ( j@webbict.com ), Tadashi Jokagi <elf2000@users.sourceforge.net>, Ian (Timbalu)');
-        $propbag->add('version',       '1.18');
+        $propbag->add('version',       '1.19');
         $propbag->add('requirements', array(
                         'serendipity' => '0.7',
                         'smarty'      => '2.6.7',
@@ -42,9 +42,9 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
         );
         $this->dependencies = array('serendipity_event_guestbook' => 'keep'); 
         
-        if(!is_array($serendipity['plugin_guestbook_dependency'])) { 
-            $this->dependency_config_merge($this->conty);
-        }
+        #if(!is_array($serendipity['plugin_guestbook_dependency'])) { 
+        #    $this->dependency_config_merge($this->conty);
+        #}
     }
 
     function introspect_config_item($name, &$propbag) {
@@ -159,14 +159,16 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
             $sql .=", email";
         }
         
-        if($this->get_config('dbversion') == '3.0') { 
-            $sql .=", approved";
-        }
+        #if($this->get_config('dbversion') == '3.0') { 
+        #    $sql .=", approved";
+        #}
         
-        $whe = (serendipity_db_bool($serendipity['plugin_guestbook_dependency']['showapp']) === true || 
-                serendipity_db_bool($serendipity['plugin_guestbook_dependency']['automoderate']) === true) 
-                ? "WHERE approved=1" 
-                : '';
+        #$whe = (serendipity_db_bool($serendipity['plugin_guestbook_dependency']['showapp']) === true || 
+        #        serendipity_db_bool($serendipity['plugin_guestbook_dependency']['automoderate']) === true) 
+        #        ? "WHERE approved=1" 
+        #        : '';
+        // as of 2012/01/19 disabled all this dependency tweaks, while not in real nead for the sidebar (why did I do this then?)
+        $whe = "WHERE approved=1";
         
         $sql .=", body FROM {$serendipity['dbPrefix']}guestbook $whe ORDER BY timestamp DESC";
         $sql .=" LIMIT ".$max_items;

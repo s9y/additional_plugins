@@ -1,4 +1,7 @@
 # $Id$
+Version 1.48:
+    * Added many compatibility fixes while testing with the WP Blackberry Client.
+
 Version 1.47:
     * Enhanced the interface with WordPress RPC calls.
     * Info about RPC caller URL in config, some configurations.

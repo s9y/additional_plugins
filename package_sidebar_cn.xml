@@ -1264,9 +1264,9 @@
 <description>Display the latest guestbook items in the sidebar</description>
 <maintainers><maintainer><name>Jaap Boerma ( j@webbict.com ), Tadashi Jokagi &lt;elf2000@users.sourceforge.net&gt;, Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.18</version>
+  <version>1.19</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2012-01-20</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="UTF-8">

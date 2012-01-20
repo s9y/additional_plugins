@@ -45,7 +45,7 @@ class serendipity_event_commentspice extends serendipity_event
             'external_plugin'  => true,
         ));
         $propbag->add('groups', array('FRONTEND_VIEWS'));
-        $propbag->add('configuration', array('twitterinput','announcerss','plugin_path'));
+        $propbag->add('configuration', array('twitterinput','twitterinput_nofollow', 'announcerss', 'announcerss_nofollow','plugin_path'));
     }
 
     function generate_content(&$title) {
@@ -63,10 +63,24 @@ class serendipity_event_commentspice extends serendipity_event
                 $propbag->add('default',     true);
                 return true;
                 break;
+            case 'twitterinput_nofollow':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_TWITTERINPUT_NOFOLLOW);
+                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_TWITTERINPUT_NOFOLLOW_DESC);
+                $propbag->add('default',     true);
+                return true;
+                break;
             case 'announcerss':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS);
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_DESC);
+                $propbag->add('default',     false);
+                return true;
+                break;
+            case 'announcerss_nofollow':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_NOFOLLOW);
+                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_NOFOLLOW_DESC);
                 $propbag->add('default',     false);
                 return true;
                 break;
@@ -303,9 +317,9 @@ class serendipity_event_commentspice extends serendipity_event
             return true;
         }
         $twittername = $spice['twittername'];
-        $eventData['comment'] = '<a href="https://twitter.com/#!/' . $twittername . '" class="commentspice_twitterlink" target="_blank"><img src="' . $serendipity['baseURL'] . 'index.php?/plugin/spicetwittersmall.png" alt="' . PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER . ': "> ' . $twittername . '</a><br/>' . $eventData['comment'];
+        $eventData['comment'] = '<a href="https://twitter.com/#!/' . $twittername . '" class="commentspice_twitterlink" target="_blank"' . ($this->get_config('twitterinput_nofollow', true)?' rel="nofollow"':'') . '><img src="' . $serendipity['baseURL'] . 'index.php?/plugin/spicetwittersmall.png" alt="' . PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER . ': "> ' . $twittername . '</a><br/>' . $eventData['comment'];
         if ($spice['promo_name'] && $spice['promo_url']) {
-            $eventData['comment'] .= "<p class=\"spice_resentpost\" style=\"padding-top: 1em; margin-bottom: 0em\">" . PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_RESCENT . ": <a href=\"{$spice['promo_url']}\" target=\"_blank\">{$spice['promo_name']}</a></p>";
+            $eventData['comment'] .= "<p class=\"spice_resentpost\" style=\"padding-top: 1em; margin-bottom: 0em\">" . sprintf(PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_RESCENT, $eventData['author']) . ": <a href=\"{$spice['promo_url']}\" target=\"_blank\"" . ($this->get_config('announcerss_nofollow', false)?' rel="nofollow"':'') . ">{$spice['promo_name']}</a></p>";
         }
         
     }

@@ -14,7 +14,7 @@ if (file_exists($probelang)) {
 include dirname(__FILE__) . '/lang_en.inc.php';
 
 // Actual version of this plugin
-@define('PLUGIN_EVENT_GRAVATAR_VERSION', '1.55');
+@define('PLUGIN_EVENT_GRAVATAR_VERSION', '1.56');
 
 // Defines the maximum available method  slots in the configuration.
 @define('PLUGIN_EVENT_GRAVATAR_METHOD_MAX', 6);
@@ -52,7 +52,9 @@ class serendipity_event_gravatar extends serendipity_event
         $propbag->add('event_hooks', array(
             'frontend_display' => true,
             'frontend_comment' => true,
-            'external_plugin'  => true));
+            'external_plugin'  => true,
+            'css'              => true,
+        ));
         $configuration = array('longdescription','seperator');
         $config_methods = array();
         for ($idx=1; $idx<=PLUGIN_EVENT_GRAVATAR_METHOD_MAX; $idx++) {
@@ -246,7 +248,6 @@ class serendipity_event_gravatar extends serendipity_event
                 }
             }
         }
-        //}
     }
     
     function event_hook($event, &$bag, &$eventData, &$addData) {
@@ -314,7 +315,27 @@ class serendipity_event_gravatar extends serendipity_event
 
                     return true;
                     break;
-                
+                case 'css':
+                    // avatar css has to be emitted no matter of smarty enabled: the sidebar needs it.
+                    //$useSmarty = serendipity_db_bool($this->get_config('smartyimage', false));
+                    //if (!$useSmarty && !(strpos($eventData, '.avatar_left') || strpos($eventData, '.avatar_rigth'))) {
+                    if (!(strpos($eventData, '.avatar_left') || strpos($eventData, '.avatar_rigth'))) {
+?>
+.avatar_left {
+	float:left;
+	margin-left:0px;
+	margin-right:10px;
+}
+.avatar_right {
+	float:right;
+	margin-right:0px;
+	margin-left:10px;
+}
+<?php
+                    }
+                    return true;
+                	break;
+
                 // Adds information about the actual supported avatar types below the comment input
                 case 'frontend_comment':
 
@@ -1324,7 +1345,7 @@ class serendipity_event_gravatar extends serendipity_event
      * @param string title the title for that image
      * @return string the html code representing the Avatar
      */
-    function generateImageHtml($url, $title = null, $align = 'right', $addStyleAttribute = true, $cssClass = "comment_avatar"){
+    function generateImageHtml($url, $title = null, $align = 'right', $addAlignClass = true, $cssClass = "comment_avatar"){
         
         $default = $this->getDefaultImageConfiguration();
         
@@ -1334,14 +1355,14 @@ class serendipity_event_gravatar extends serendipity_event
         if (PLUGIN_EVENT_GRAVATAR_DEBUG) $title .= ' (Avatar Plugin V.' . PLUGIN_EVENT_GRAVATAR_VERSION . ' DEBUG)';
         
         // set alignment by configuration
-        $style = '';
-        if ($addStyleAttribute && ($align == 'right' || $align == 'left'))
-            $style = "style='float:$align; padding-$align:0px; padding-" . ($align == 'right'?'left':'right') . ":10px;'";
+        $cssAlign = '';
+        if ($addAlignClass && ($align == 'right' || $align == 'left'))
+            $cssAlign = "avatar_$align";
         $alt = '*';
         if (serendipity_db_bool($this->get_config('autoralt', false))) {
             $alt = $title; 
         }
-        return '<img src="' . $url . '" alt="' . $alt . '" title="' . $title . '" class="' . $cssClass . '" ' . $style . ' height="' . $default['size'] . '" width="' . $default['size'] . '"/>';
+        return '<img src="' . $url . '" alt="' . $alt . '" title="' . $title . '" class="' . $cssClass . ($addAlignClass? " $cssAlign":"") . '" height="' . $default['size'] . '" width="' . $default['size'] . '"/>';
     }
     
     /**

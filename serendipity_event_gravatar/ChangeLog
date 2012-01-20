@@ -1,5 +1,10 @@
 # $Id$
-
+Version 1.56: (brockhaus)
+------------------------------------------------------------------------
+    * Removed inline styles, added class avatar_right and avatar_left.
+      If not found set in css, the plugin will emit a default style for
+      those two.
+      
 Version 1.55: (brockhaus)
 ------------------------------------------------------------------------
     * Twitter and identica where not fetched correctly if fetched first.

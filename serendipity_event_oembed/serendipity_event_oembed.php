@@ -30,7 +30,7 @@ class serendipity_event_oembed extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_OEMBED_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Grischa Brockhaus');
-        $propbag->add('version',       '1.03');
+        $propbag->add('version',       '1.04');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -120,7 +120,23 @@ class serendipity_event_oembed extends serendipity_event
                         return true;
                     }
 ?>
-.serendipity_oembed_video iframe { 	max-width: 100%; }
+.serendipity_oembed_video {
+    position: relative;
+    padding-top: 25px;
+    padding-bottom: 67.5%;
+    height: 0;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.serendipity_oembed_video iframe,
+.serendipity_oembed_video object {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 <?php
                     return true;
             }

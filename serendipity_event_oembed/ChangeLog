@@ -1,3 +1,7 @@
+Version 1.04 (brockhaus)
+-----------------------
+* added css for iframe videos contributed by Matthias Mees
+
 Version 1.03 (brockhaus)
 -----------------------
 * Added a Posterous post.ly provider (mainly as an example how to write custom providers).

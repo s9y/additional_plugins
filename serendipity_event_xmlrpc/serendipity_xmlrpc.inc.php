@@ -26,7 +26,8 @@ if ($debug_xmlrpc) {
 
 @define('XMLRPC_WP_COMPATIBLE', TRUE);
 
-@define('XMLRPC_ERR_CODE_AUTHFAILED', 4);
+@define('XMLRPC_ERR_CODE_AUTHFAILED',   4);
+@define('XMLRPC_ERR_CODE_NOTFOUND',     404);
 @define('XMLRPC_ERR_NAME_AUTHFAILED', 'Authentication Failed');
 
 $dispatches = array(
@@ -41,6 +42,8 @@ $dispatches = array(
                         array('function' => 'wp_newCategory'),
                     'wp.getPostFormats' =>
                         array('function' => 'wp_getPostFormats'),
+                    'wp.getComment' =>
+                        array('function' => 'wp_getComment'),
                     'wp.getComments' =>
                         array('function' => 'wp_getComments'),
                     'wp.deleteComment' =>
@@ -53,7 +56,13 @@ $dispatches = array(
                         array('function' => 'wp_getTags'),
 					'wp.getOptions' =>
                         array('function' => 'wp_getOptions'),
-					'wp.getPages' =>
+                    'wp.getPostStatusList' =>
+                        array('function' => 'wp_getPostStatusList'),
+                    'wp.getPageTemplates' =>
+                        array('function' => 'wp_getPageTemplates'),
+                    'wp.getPageStatusList' =>
+                        array('function' => 'wp_getPageStatusList'),
+                    'wp.getPages' =>
                         array('function' => 'wp_getPages'),
 					'wp.getPageList' =>
                         array('function' => 'wp_getPageList'),
@@ -152,17 +161,17 @@ function wp_getCategories($message) {
     foreach ((array) $cats as $cat ) {
         if ($cat['categoryid']) {
             $values = array(
-              'categoryId'    => new XML_RPC_Value($cat['categoryid'], 'int'),
+              'categoryId'    => new XML_RPC_Value($cat['categoryid'], 'string'),
               'categoryName'  => new XML_RPC_Value($cat['category_name'], 'string'),
               'description'   => new XML_RPC_Value($cat['category_description'], 'string'),
               'htmlUrl'       => new XML_RPC_Value(serendipity_categoryURL($cat, 'baseURL'), 'string'),
               'rssUrl'        => new XML_RPC_Value(serendipity_feedCategoryURL($cat, 'baseURL'), 'string')
             );
             if (!empty($cat['parentid'])) {
-                $values['parentId'] = new XML_RPC_Value($cat['parentid'], 'int');
+                $values['parentId'] = new XML_RPC_Value($cat['parentid'], 'string');
             }
             else {
-                $values['parentId'] = new XML_RPC_Value(0, 'int');
+                $values['parentId'] = new XML_RPC_Value(0, 'string');
             }
             $xml_entries_vals[] = new XML_RPC_Value($values,'struct');
         }
@@ -174,8 +183,6 @@ function wp_getCategories($message) {
 function wp_newCategory($message) {
     global $serendipity;
     
-    universal_debug("wp_newCategory");
-
     $val = $message->params[1];
     $username = $val->getval();
     $val = $message->params[2];
@@ -204,8 +211,6 @@ function wp_newCategory($message) {
 function wp_getPostFormats( $message ) {
     global $serendipity;
     
-    universal_debug("wp_getPostFormats");
-
     $val = $message->params[1];
     $username = $val->getval();
     $val = $message->params[2];
@@ -217,7 +222,7 @@ function wp_getPostFormats( $message ) {
         $val = $message->params[3];
         $formats_to_show = $val->getval();
     }
-    
+/*    
     $all_formats = new XML_RPC_Value(
         array(
             'aside' => new XML_RPC_Value("Aside", 'string'), 
@@ -232,13 +237,78 @@ function wp_getPostFormats( $message ) {
             'video' => new XML_RPC_Value("Video", 'string'), 
         ),'struct'
     );
+    return new XML_RPC_Response($all_formats);
+*/
     $supported_formats = new XML_RPC_Value(
         array(
             'standard' => new XML_RPC_Value("Article (Serendipity)", 'string'), 
         ),'struct'
     );
-    //return new XML_RPC_Response($all_formats);
     return new XML_RPC_Response($supported_formats);
+}
+
+// wp.getPostStatusList
+function wp_getPostStatusList($message) {
+    global $serendipity;
+    
+    $val = $message->params[1];
+    $username = $val->getval();
+    $val = $message->params[2];
+    $password = $val->getval();
+    if (!serendipity_authenticate_author($username, $password)) {
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
+    }
+    
+    $values = new XML_RPC_Value(
+        array(
+            'draft' => new XML_RPC_Value("Draft", 'string'), 
+//            'pending' => new XML_RPC_Value("Pending Review", 'string'), 
+//            'private' => new XML_RPC_Value("Private", 'string'), 
+        	'publish' => new XML_RPC_Value("Published", 'string'), 
+        ),'struct'
+    );
+    return new XML_RPC_Response($values);
+}
+
+function wp_getPageStatusList($message) {
+    global $serendipity;
+    
+    $val = $message->params[1];
+    $username = $val->getval();
+    $val = $message->params[2];
+    $password = $val->getval();
+    if (!serendipity_authenticate_author($username, $password)) {
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
+    }
+    
+    $values = new XML_RPC_Value(
+        array(
+//          'draft' => new XML_RPC_Value("Draft", 'string'), 
+//          'private' => new XML_RPC_Value("Private", 'string'), 
+//        	'publish' => new XML_RPC_Value("Published", 'string'), 
+        ),'struct'
+    );
+    return new XML_RPC_Response($values);
+}
+function wp_getPageTemplates($message) {
+    global $serendipity;
+    
+    universal_debug("wp.getPostStatusList");
+
+    $val = $message->params[1];
+    $username = $val->getval();
+    $val = $message->params[2];
+    $password = $val->getval();
+    if (!serendipity_authenticate_author($username, $password)) {
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
+    }
+    
+    $values = new XML_RPC_Value(
+        array(
+//            'Default' => new XML_RPC_Value("default", 'string'), 
+        ),'struct'
+    );
+    return new XML_RPC_Response($values);
 }
 
 function wp_getOptions($message) {
@@ -262,21 +332,21 @@ function wp_getOptions($message) {
     $xml_entries_vals = array();
     if (empty($serendipity['xmlrpc_wpfakeversion'])) {
         if (!$doFilter || in_array('software_name', $filter)) 
-            $xml_entries_vals[] = wp_getOptions_createOption('software_name', 'Serendipity');
+            $xml_entries_vals['software_name'] = wp_getOptions_createOption('software_name', 'Serendipity');
         if (!$doFilter || in_array('software_version', $filter)) 
-            $xml_entries_vals[] = wp_getOptions_createOption('software_version', $serendipity['version']);
+            $xml_entries_vals['software_version'] = wp_getOptions_createOption('software_version', $serendipity['version']);
     }
     else {
         if (!$doFilter || in_array('software_name', $filter)) 
-            $xml_entries_vals[] = wp_getOptions_createOption('software_name', 'WordPress');
+            $xml_entries_vals['software_name'] = wp_getOptions_createOption('software_name', 'WordPress');
         if (!$doFilter || in_array('software_version', $filter)) 
-            $xml_entries_vals[] = wp_getOptions_createOption('software_version', $serendipity['xmlrpc_wpfakeversion']);
+            $xml_entries_vals['software_version'] = wp_getOptions_createOption('software_version', $serendipity['xmlrpc_wpfakeversion']);
     }
     if (!$doFilter || in_array('blog_url', $filter)) 
-        $xml_entries_vals[] = wp_getOptions_createOption('blog_url', $serendipity['baseURL']);
+        $xml_entries_vals['blog_url'] = wp_getOptions_createOption('blog_url', $serendipity['baseURL']);
     if (!$doFilter || in_array('blog_title', $filter)) 
-        $xml_entries_vals[] = wp_getOptions_createOption('blog_title', $serendipity['blogTitle']);
-    $xml_entries = new XML_RPC_Value($xml_entries_vals, 'array');
+        $xml_entries_vals['blog_title'] = wp_getOptions_createOption('blog_title', $serendipity['blogTitle']);
+    $xml_entries = new XML_RPC_Value($xml_entries_vals, 'struct');
     return new XML_RPC_Response($xml_entries);
     
 }
@@ -360,23 +430,61 @@ function wp_getTags($message) {
         if (is_array($row)) $http_url = $row['value'];
         else $http_url = $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/tag/'; // copied default from plugin
         
+        $tagid = 1;
         foreach ($tags AS $tag => $count) {
             $values =             array(
-                //'tag_id'     => new XML_RPC_Value(0, 'int'),
+                'tag_id'     => new XML_RPC_Value(0, 'string'),
                 'name'     => new XML_RPC_Value($tag, 'string'),
-                'count'     => new XML_RPC_Value($count, 'int'),
+                'count'     => new XML_RPC_Value($count, 'string'),
                 'slug'     => new XML_RPC_Value($tag, 'string'),
                 'html_url'     => new XML_RPC_Value($http_url . $tag, 'string'),
                 'rss_url'     => new XML_RPC_Value($rsslink . $tag, 'string'),
             
             );
             $xml_entries_vals[] = new XML_RPC_Value( $values, 'struct');
+            $tagid++;
         }
     }
     
     $xml_entries = new XML_RPC_Value($xml_entries_vals, 'array');
     return new XML_RPC_Response($xml_entries);
     
+}
+function wp_getComment($message) {
+    global $serendipity;
+    
+    $val = $message->params[1];
+    $username = $val->getval();
+    $val = $message->params[2];
+    $password = $val->getval();
+    if (!serendipity_authenticate_author($username, $password)) {
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
+    }
+    
+    $val = $message->params[3];
+    $comment_id =  $val->getval();
+    $query = "SELECT
+                    co.id,
+                    co.entry_id, co.timestamp, co.title AS ctitle, co.email, co.url, co.ip, co.body, co.type, co.subscribed,
+                    co.author,
+                    e.title,
+                    e.timestamp AS entrytimestamp,
+                    e.id AS entryid,
+                    e.authorid,
+                    co.id AS commentid,
+                    co.parent_id AS parent_id,
+                    co.status
+              FROM
+                    {$serendipity['dbPrefix']}comments AS co
+                    LEFT JOIN {$serendipity['dbPrefix']}entries AS e ON (co.entry_id = e.id)
+              WHERE co.id=$comment_id";
+    $entry = serendipity_db_query($query, true, 'assoc');
+    if ($entry['commentid']) {
+        return new XML_RPC_Response(_wp_createSingleCommentResult($entry));
+    }
+    else { // not found
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_NOTFOUND, 'Invalid comment ID.');
+    }
 }
 function wp_getComments($message) {
     global $serendipity;
@@ -405,36 +513,38 @@ function wp_getComments($message) {
     $xml_entries_vals = array();
     foreach ((array)$entries as $entry) {
         if ($entry['commentid']) {
-            
-            if ($entry['type']=='TRACKBACK') $type = 'trackback';
-            else if ($entry['type']=='PINGBACK') $type = 'pingback';
-            else $type = '';
-             
-            $values =             array(
-				'date_created_gmt'  =>  new XML_RPC_Value(XML_RPC_iso8601_encode($entry['timestamp'], 1) . 'Z', 'dateTime.iso8601'),
-                'userid'            => new XML_RPC_Value($entry['authorid'], 'string'),
-                'comment_id'        => new XML_RPC_Value($entry['commentid'], 'int'),
-                'parent'            => new XML_RPC_Value($entry['parent_id'], 'int'),
-                'status'			=> new XML_RPC_Value($entry['status']=='approved'?'approved':'hold', 'string'),
-                'content'			=> new XML_RPC_Value($entry['body'], 'string'),
-                'link'			    => new XML_RPC_Value($entry['url'], 'string'),
-        		'permaLink'         => new XML_RPC_Value(serendipity_archiveURL($entry['entryid'], $entry['title'], 'baseURL', true, array('timestamp' => $entry['timestamp'])) . '#c' . $entry['commentid'], 'string'),
-            	'post_id'			=> new XML_RPC_Value($entry['entryid'], 'int'),
-                'post_title'	    => new XML_RPC_Value($entry['title'], 'string'),
-                'author'	        => new XML_RPC_Value($entry['author'], 'string'),
-                'author_url'	    => new XML_RPC_Value($entry['url'], 'string'),
-                'author_email'	    => new XML_RPC_Value($entry['email'], 'string'),
-                'author_ip'	        => new XML_RPC_Value($entry['ip'], 'string'),
-                'type'	            => new XML_RPC_Value($type, 'string'),
-             );
-             
-            $xml_entries_vals[] = new XML_RPC_Value( $values, 'struct'); 
+            $xml_entries_vals[] = _wp_createSingleCommentResult($entry);
         }
     }
-     
     $xml_entries = new XML_RPC_Value($xml_entries_vals, 'array');
     return new XML_RPC_Response($xml_entries);
-
+}
+function _wp_createSingleCommentResult($entry) {
+    if ($entry['commentid']) {
+        if ($entry['type']=='TRACKBACK') $type = 'trackback';
+        else if ($entry['type']=='PINGBACK') $type = 'pingback';
+        else $type = '';
+         
+        $values =             array(
+			'date_created_gmt'  =>  new XML_RPC_Value(XML_RPC_iso8601_encode($entry['timestamp'], 1) . 'Z', 'dateTime.iso8601'),
+            'userid'            => new XML_RPC_Value($entry['authorid'], 'string'),
+            'comment_id'        => new XML_RPC_Value($entry['commentid'], 'int'),
+            'parent'            => new XML_RPC_Value($entry['parent_id'], 'int'),
+            'status'			=> new XML_RPC_Value($entry['status']=='approved'?'approved':'hold', 'string'),
+            'content'			=> new XML_RPC_Value($entry['body'], 'string'),
+            'link'			    => new XML_RPC_Value($entry['url'], 'string'),
+    		'permaLink'         => new XML_RPC_Value(serendipity_archiveURL($entry['entryid'], $entry['title'], 'baseURL', true, array('timestamp' => $entry['timestamp'])) . '#c' . $entry['commentid'], 'string'),
+        	'post_id'			=> new XML_RPC_Value($entry['entryid'], 'int'),
+            'post_title'	    => new XML_RPC_Value($entry['title'], 'string'),
+            'author'	        => new XML_RPC_Value($entry['author'], 'string'),
+            'author_url'	    => new XML_RPC_Value($entry['url'], 'string'),
+            'author_email'	    => new XML_RPC_Value($entry['email'], 'string'),
+            'author_ip'	        => new XML_RPC_Value($entry['ip'], 'string'),
+            'type'	            => new XML_RPC_Value($type, 'string'),
+         );
+        return new XML_RPC_Value( $values, 'struct');
+    }
+    return null;
 }
 
 function wp_deleteComment($message) {
@@ -570,8 +680,8 @@ function wp_newComment($message) {
     if (!empty($commentInfo['comment_parent'])) $commentInfo['comment_parent'] = $comment['parent_id'];
     
     universal_debug("Saving new comment: " .  print_r($commentInfo, true));
-    $result = serendipity_insertComment($article_id, $commentInfo);
-    return new XML_RPC_Response(new XML_RPC_Value($result, 'boolean'));
+    $id = serendipity_insertComment($article_id, $commentInfo);
+    return new XML_RPC_Response(new XML_RPC_Value($id, 'int'));
 }
 function blogger_getUsersBlogs($message) {
     global $serendipity;
@@ -720,8 +830,11 @@ function metaWeblog_getRecentPosts($message) {
     $username = $val->getval();
     $val = $message->params[2];
     $password = $val->getval();
-    $val = $message->params[3];
-    $numposts = $val->getval();
+    $numposts = '10';
+    if (count($message->params) >3) {
+        $val = $message->params[3];
+        $numposts = $val->getval();
+    }
     if (!serendipity_authenticate_author($username, $password)) {
         return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
@@ -746,8 +859,11 @@ function mt_getRecentPostTitles($message) {
     $username = $val->getval();
     $val = $message->params[2];
     $password = $val->getval();
-    $val = $message->params[3];
-    $numposts = $val->getval();
+    $numposts = '10';
+    if (count($message->params) >3) {
+        $val = $message->params[3];
+        $numposts = $val->getval();
+    }
     if (!serendipity_authenticate_author($username, $password)) {
         return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
     }
@@ -1246,9 +1362,11 @@ function metaWeblog_getPost($message) {
     
     if ($entry["id"]) {
         serendipity_plugin_api::hook_event('xmlrpc_fetchEntry', $entry);
+        return new XML_RPC_Response(metaWeblog_createPostRpcValue($entry));
     }
-
-    return new XML_RPC_Response(metaWeblog_createPostRpcValue($entry));
+    else { // not found
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_NOTFOUND, 'Invalid post ID.');
+    }
 }
 
 function metaWeblog_deletePost($message) {

@@ -1,0 +1,88 @@
+<html>    
+	<head>        
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Dokumentace: XML-RPC</title>        
+		<style>
+        	pre {
+				display: block;
+				padding: 5px;
+				border: solid 1px #333333;
+				background-color: #cccccc;
+			}         
+		</style>    
+	</head>
+	<body>
+	<h1>Dokumentace k pluginu 'Posílání příspěvků pomocí XML-RPC'<br />
+	<small>(serendipity_event_xmlrpc)</small></h1>
+		<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) a naposledy upravil dne 21.1.2012. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="../ChangeLog">aktuální anglický ChangeLog</a>. 
+		</p>
+		
+		<h2>Popis pluginu</h2>
+		<p>
+		Umožňuje posílat/editovat příspěvky pomocí XML-RPC API (MT, Blogger, WordPress Endpoints)
+		</p>
+		
+		<h2>Historie verzí (ChangeLog)</h2>
+		<ul>
+			<li>verze 1.48</li>	
+			<ul>	
+				<li>Opraveno mnoho chyb s kompatibilitou během testování s klientem WP Blackberry.</li>	
+			</ul>
+			<li>verze 1.47</li>	
+			<ul>	
+				<li>Rozhraní vylepšeno o volání WordPress RPC</li>	
+				<li>Do nastavení přidány informace o nastavení adresy pro volání RPC URL adresy. Plus pár dalších nastavení.</li>	
+				<li>Do nastavení přidán adresář pro upload médií.</li>	
+				<li>Definování spamových eventů: Signalizace hamu a spamu AntiSpamovým pluginům, které podporují příslušný event hook.</li>	
+			</ul>
+			<li>verze 1.45</li>	
+			<ul>	
+				<li>Odchycení prázdných časových razítek, díky uživateli [TimNiceBut]</li>	
+			</ul>
+			<li>verze 1.44</li>	
+			<ul>	
+				<li>Oprava špatného výstupu při nastavení kategorií, díky uživateli [patk]</li>	
+			</ul>
+			<li>verze 1.43</li>	
+			<ul>	
+				<li>Přidána výchozí kategorie pro posílání příspěvků</li>	
+			</ul>
+			<li>verze 1.41</li>	
+			<ul>	
+				<li>Oprava API volání metody mt_supportedMethods uživatelem [TimeNiceBut]</li>	
+			</ul>
+			<li>verze 1.38</li>	
+			<ul>	
+				<li>Chyba #1931794: Lepší detekce base64</li>	
+			</ul>
+			<li>verze 1.37 [garvinhicking]</li>	
+			<ul>	
+				<li>Chyba #1922509: Zohlednění MT API pro přílohy zakódované v base64, oprava od uživatele [Sven Herzberg]</li>	
+			</ul>
+			<li>verze 1.36 [garvinhicking]</li>	
+			<ul>	
+				<li>Chyba #1904377: Zohlednění GMT, oprava od uživatele [Mike Tyson]</li>	
+			</ul>
+			<li>verze 1.33 [brockhaus]</li>	
+			<ul>	
+				<li>Vytváření nevalidních (a špatných) odkazů. Změněný atribut url na správný href.</li>	
+				<li>Při aktualizaci příspěvků bez zadání nového data bude použito staré datum místo obnovení podle aktuálního data.</li>	
+			</ul>
+			<li>verze 1.32 [brockhaus]</li>	
+			<ul>	
+				<li>$serendipity['xml_rpc_default_moderate_comments'] nefungovalo :-/</li>	
+			</ul>
+			<li>verze 1.31 [brockhaus]</li>	
+			<ul>	
+				<li>Hlavička byla v nětkerých situcích poslána dvakrát, což mělo za následek špatné XML odpovědi.</li>	
+				<li>Převod HTML entit v nadpisech příspěvků na normální utf-8 znaky při ukládání příspěvků.</li>	
+				<li>Výchozí hodnoty pro allow_comments and moderate_comments 
+      se dají nastavit v serendipity_config_local.inc.php:
+<pre>      $serendipity['xml_rpc_default_allow_comments'] = true;
+      $serendipity['xml_rpc_default_moderate_comments'] = false;</pre>
+	  </li>	
+			</ul>
+		</ul>  
+
+	</body>
+</html>

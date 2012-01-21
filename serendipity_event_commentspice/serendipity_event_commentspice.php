@@ -45,7 +45,7 @@ class serendipity_event_commentspice extends serendipity_event
             'css'				=> true,
         ));
         $propbag->add('groups', array('FRONTEND_VIEWS'));
-        $propbag->add('configuration', array('twitterinput','twitterinput_nofollow', 'announcerss', 'announcerssmax','announcerss_nofollow','plugin_path'));
+        $propbag->add('configuration', array('twitterinput','twitterinput_nofollow', 'announcerss', 'announcerssmax','announcersscachemin','announcerss_nofollow','plugin_path'));
     }
 
     function generate_content(&$title) {
@@ -90,7 +90,12 @@ class serendipity_event_commentspice extends serendipity_event
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_MAXSELECT_DESC);
                 $propbag->add('default',     3);
                 return true;
-                
+            case 'announcersscachemin':
+                $propbag->add('type',        'string');
+                $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_CACHEMIN);
+                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_CACHEMIN_DESC);
+                $propbag->add('default',     90);
+                return true;
             case 'plugin_path':
                 $propbag->add('type', 'string');
                 $propbag->add('name', PLUGIN_EVENT_COMMENTSPICE_PATH);
@@ -167,7 +172,22 @@ class serendipity_event_commentspice extends serendipity_event
         if (!is_numeric($announcerssmax)) {
             $this->set_config('announcerssmax',3);
         }
+        $announcersscachemin = $this->get_config('announcersscachemin',90);
+        if (!is_numeric($announcersscachemin)) {
+            $this->set_config('announcersscachemin',90);
+        }
+        // clear cache
+        $cacheDir = dirname($this->cacheRssFilename("doesntmatter"));
+        if (is_dir($cacheDir) && $handle = opendir($cacheDir)) {
+            while (false !== ($file = readdir($handle))) {
+                $filename = $cacheDir . '/' . $file;
+                if (!is_dir($filename)) {
+                    unlink($filename);
+                }
+            }
+        }
     }
+    
     function printHeader() {
         global $serendipity;
         
@@ -245,10 +265,24 @@ class serendipity_event_commentspice extends serendipity_event
         $this->log("readRss for $comment_url");
         if (empty($comment_url)) return;
 
+        // First try to read from cache
+        $result = $this->cacheReadRss($url);
+        if (empty($result)) {
+            $result = $this->readRssRemote($comment_url);
+            $this->log("Fetched array: " . print_r($result, true));
+            if (!empty($result) && $result['articles']) $this->cacheWriteRss($url, $result);
+        }
+        if (empty($result) || !$result['articles'] || count($result['articles'])==0) return;
+        
+        echo json_encode($result);
+    }
+    function readRssRemote($url) {
+        $this->log("Fetchig remote rss from: " . $url);
+        
         require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : S9Y_INCLUDE_PATH . 'bundled-libs/') . 'HTTP/Request.php';
-        $req = new HTTP_Request($comment_url, array('allowRedirects' => true, 'maxRedirects' => 3));
+        $req = new HTTP_Request($url, array('allowRedirects' => true, 'maxRedirects' => 3));
         if (PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200') {
-            $this->log("Error reading $comment_url");
+            $this->log("Error reading $url");
             return;
         } 
         # Fetch html content:
@@ -264,12 +298,12 @@ class serendipity_event_commentspice extends serendipity_event
         else {
             $this->log("rss link not found");
             return;
-            
         }
 
         // Now fetch the RSS feed:
         require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : S9Y_INCLUDE_PATH . 'bundled-libs/') . 'Onyx/RSS.php';
-                        # test multiple likely charsets
+        
+        # test multiple likely charsets
         $charsets = array( "utf-8", "ISO-8859-1");
         $retry = false;
         foreach ($charsets as $ch) {
@@ -280,7 +314,7 @@ class serendipity_event_commentspice extends serendipity_event
             if ($rss->parse($rssUrl))
             break;
         }
-        
+    
         $articles = array();
         $article = array();
         $article['title'] = PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_CHOOSE;
@@ -299,18 +333,42 @@ class serendipity_event_commentspice extends serendipity_event
             $articles[] = $article;
             $itemCount++;
         }
-        if ($itemCount==0) return;
         $result['articles'] = $articles;
-        $result['url'] = $comment_url;
-        echo json_encode($result);
+        $result['url'] = $url;
+        return $result;
+    }
+    function cacheReadRss($url) {
+        $filename = $this->cacheRssFilename($url);
+        $cachemin = $this->get_config('announcersscachemin',90);
+        if ($cachemin == 0) return null;
+        $this->log("Reading " . $filename);
+        if (file_exists($filename) && (time() - filemtime($filename))< $cachemin * 60) {
+            $fp = fopen($filename, 'rb');
+            $result = unserialize(fread($fp, filesize($filename)));
+            fclose($fp);
+            return $result;
+        }
+        return null;
+    }
+    function cacheWriteRss($url, $array_struct) {
+        $cachemin = $this->get_config('announcersscachemin',90);
+        if ($cachemin == 0) return; // cache switched off
+        $filename = $this->cacheRssFilename($url);
+        $cache_dir= dirname($filename);
+        @mkdir($cache_dir);
+        $this->log("Writing " . $filename);
+        $fp = fopen($filename, 'wb');
+        fwrite($fp,serialize($array_struct));
+        fclose($fp);
+    }
+    function cacheRssFilename($url) {
+        global $serendipity;
+        $url_md5=md5($url);
+        return $serendipity['serendipityPath'] . '/' . PATH_SMARTY_COMPILE . '/commentspice/rss_' . $url_md5;
     }
     
     function commentDeleted($eventData, $addData) {
-        $this->log('commentDeleted');
-        $this->log(print_r($eventData, true));
-        $this->log(print_r($addData, true));
-        $reult = DbSpice::deleteCommentSpice($addData['cid']);
-        $this->log("delete result: $reult");
+        $result = DbSpice::deleteCommentSpice($addData['cid']);
     }
     
     function spiceComment(&$eventData, &$addData) {

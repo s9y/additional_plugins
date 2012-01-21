@@ -1,11 +1,13 @@
 var inputComentUrl = document.getElementById("serendipity_commentform_url");
 var inputComentText = document.getElementById("serendipity_commentform_comment");
+var lastUrlChecked = null;
 
 function fetch_rss() {
 	var url = inputComentUrl.value;
 	if(!url.match(/^http/)) return;
+	if (url == lastUrlChecked) return;
 	var divSelectRss = document.getElementById("serendipity_commentspice_rss");
-	if (divSelectRss.style.display!='none') return; // allready done
+	//if (divSelectRss.style.display!='none') return; // allready done
 	
     if (window.XMLHttpRequest) { // Mozilla, Safari, Opera, IE7
         httpRequest = new XMLHttpRequest();
@@ -28,8 +30,10 @@ function fetch_rss_ready(httpRequest){
         var jsonResponse = eval('(' + response + ')');
         var divSelectRss = document.getElementById("serendipity_commentspice_rss");
         var selectRss = document.getElementById("serendipity_commentform_rss");
-        for (idx in jsonResponse) {
-        	var article = jsonResponse[idx];
+        var articles = jsonResponse.articles;
+        selectRss.options.length = 0;
+        for (idx in articles) {
+        	var article = articles[idx];
 			var option = document.createElement('option');
 			option.text = article.title;
 			option.value = article.url;
@@ -41,6 +45,7 @@ function fetch_rss_ready(httpRequest){
 			}
         }
         divSelectRss.style.display='';
+        lastUrlChecked = jsonResponse.url;
     }
 }
 

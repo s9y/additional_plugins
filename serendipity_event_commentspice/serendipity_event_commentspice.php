@@ -15,7 +15,7 @@ include dirname(__FILE__) . '/lang_en.inc.php';
 require_once dirname(__FILE__) . '/DbSpice.class.php';
 require_once dirname(__FILE__) . '/json/json.php4.include.php';
 
-@define('PLUGIN_EVENT_COMMENTSPICE_DEBUG', TRUE);
+@define('PLUGIN_EVENT_COMMENTSPICE_DEBUG', FALSE);
 
 class serendipity_event_commentspice extends serendipity_event
 {
@@ -33,9 +33,8 @@ class serendipity_event_commentspice extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '0.1');
+        $propbag->add('version',       '1.0');
         $propbag->add('event_hooks',    array(
-//            'frontend_header' => true,
             'frontend_footer' => true,
             'frontend_comment' => true,
             'frontend_display' => true,
@@ -43,9 +42,10 @@ class serendipity_event_commentspice extends serendipity_event
         	'frontend_saveComment_finish' => true,
             'backend_deletecomment' => true,
             'external_plugin'  => true,
+            'css'				=> true,
         ));
         $propbag->add('groups', array('FRONTEND_VIEWS'));
-        $propbag->add('configuration', array('twitterinput','twitterinput_nofollow', 'announcerss', 'announcerss_nofollow','plugin_path'));
+        $propbag->add('configuration', array('twitterinput','twitterinput_nofollow', 'announcerss', 'announcerssmax','announcerss_nofollow','plugin_path'));
     }
 
     function generate_content(&$title) {
@@ -88,7 +88,7 @@ class serendipity_event_commentspice extends serendipity_event
                 $propbag->add('type',        'string');
                 $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_MAXSELECT);
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_MAXSELECT_DESC);
-                $propbag->add('default',     false);
+                $propbag->add('default',     3);
                 return true;
                 
             case 'plugin_path':
@@ -110,13 +110,17 @@ class serendipity_event_commentspice extends serendipity_event
             switch($event) {
                 case 'external_plugin':
                     switch($eventData) {
-                        case 'spicetwitter.png':
+                        case 'spiceicotwitter.png':
                             header('Content-Type: image/png');
-                            echo file_get_contents(dirname(__FILE__). '/img/twitter.png');
+                            echo file_get_contents(dirname(__FILE__). '/img/twitter_icon.png');
                             break;
-                        case 'spicetwittersmall.png':
+                        case 'spiceicorss.png':
                             header('Content-Type: image/png');
-                            echo file_get_contents(dirname(__FILE__). '/img/twitter_small.png');
+                            echo file_get_contents(dirname(__FILE__). '/img/rss_icon.png');
+                            break;
+                        case 'commentspice.png':
+                            header('Content-Type: image/png');
+                            echo file_get_contents(dirname(__FILE__). '/img/commentspice.png');
                             break;
                         case 'commentspicefrss':
                             if (!serendipity_db_bool($this->get_config('announcerss', false))) break;
@@ -130,7 +134,6 @@ class serendipity_event_commentspice extends serendipity_event
                 case 'frontend_saveComment_finish' :
                     $this->commentSaved($eventData, $addData);
                     break;
-                //case 'frontend_header':
                 case 'frontend_footer':
                     $this->printHeader();
                     break;
@@ -142,6 +145,9 @@ class serendipity_event_commentspice extends serendipity_event
                     break;
                 case 'backend_deletecomment' :
                     $this->commentDeleted($eventData, $addData);
+                    break;
+                case 'css':
+                    $this->writeCss($eventData, $addData);
                     break;
                 default:
                     return false;
@@ -157,6 +163,10 @@ class serendipity_event_commentspice extends serendipity_event
     }
     function cleanup() {
         DbSpice::install($this);
+        $announcerssmax = $this->get_config('announcerssmax',3);
+        if (!is_numeric($announcerssmax)) {
+            $this->set_config('announcerssmax',3);
+        }
     }
     function printHeader() {
         global $serendipity;
@@ -278,7 +288,7 @@ class serendipity_event_commentspice extends serendipity_event
         $articles[] = $article;
         
         $itemCount = 0;
-        $maxItems = 3;
+        $maxItems = $announcerssmax = $this->get_config('announcerssmax',3);
         // Iterate the items
         while ($item = $rss->getNextItem()) {
             if ($itemCount>=$maxItems) break;
@@ -290,8 +300,9 @@ class serendipity_event_commentspice extends serendipity_event
             $itemCount++;
         }
         if ($itemCount==0) return;
-        
-        echo json_encode($articles);
+        $result['articles'] = $articles;
+        $result['url'] = $comment_url;
+        echo json_encode($result);
     }
     
     function commentDeleted($eventData, $addData) {
@@ -317,7 +328,7 @@ class serendipity_event_commentspice extends serendipity_event
             return true;
         }
         $twittername = $spice['twittername'];
-        $eventData['comment'] = '<a href="https://twitter.com/#!/' . $twittername . '" class="commentspice_twitterlink" target="_blank"' . ($this->get_config('twitterinput_nofollow', true)?' rel="nofollow"':'') . '><img src="' . $serendipity['baseURL'] . 'index.php?/plugin/spicetwittersmall.png" alt="' . PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER . ': "> ' . $twittername . '</a><br/>' . $eventData['comment'];
+        $eventData['comment'] = '<a href="https://twitter.com/#!/' . $twittername . '" class="commentspice_twitterlink" target="_blank"' . ($this->get_config('twitterinput_nofollow', true)?' rel="nofollow"':'') . '><img src="' . $serendipity['baseURL'] . 'index.php?/plugin/spiceicotwitter.png" alt="' . PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER . ': "> ' . $twittername . '</a><br/>' . $eventData['comment'];
         if ($spice['promo_name'] && $spice['promo_url']) {
             $eventData['comment'] .= "<p class=\"spice_resentpost\" style=\"padding-top: 1em; margin-bottom: 0em\">" . sprintf(PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_RESCENT, $eventData['author']) . ": <a href=\"{$spice['promo_url']}\" target=\"_blank\"" . ($this->get_config('announcerss_nofollow', false)?' rel="nofollow"':'') . ">{$spice['promo_name']}</a></p>";
         }
@@ -326,31 +337,70 @@ class serendipity_event_commentspice extends serendipity_event
     function printCommentEditExtras(&$eventData, &$addData) {
         global $serendipity;
         
-        $tag_comment_spice = '<br/>(<i>' . PLUGIN_EVENT_COMMENTSPICE_EXPERIMENTAL . '</i>)';
         if (serendipity_db_bool($this->get_config('twitterinput', true))) {
             if (isset($serendipity['COOKIE']['twitter'])) $twittername = $serendipity['COOKIE']['twitter'];
             else  $twittername = '';
             echo '<div id="serendipity_commentspice_twitter">';
-            echo '<input style="background: url(' . $serendipity['baseURL'] . 'index.php?/plugin/spicetwittersmall.png) left no-repeat; padding-left: 1.5em; max-width: 18.5em" type="text" id="serendipity_commentform_twitter" name="serendipity[twitter]" placeholder="your twittername" value="' . $twittername . '"/>';
+            echo '<input class="commentspice_twitter_input" type="text" id="serendipity_commentform_twitter" name="serendipity[twitter]" placeholder="' . PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER_PLACEHOLDER . '" value="' . $twittername . '"/>';
             echo '</div>';
         }
         if (serendipity_db_bool($this->get_config('announcerss', false))) {
             echo '<div id="serendipity_commentspice_rss" style="display:none;">';
-            echo '<select id="serendipity_commentform_rss" name="serendipity[promorss]"></select>'; //  style="max-width: 20em; width: 100%"
+            echo '<select class="commentspice_rss_input" id="serendipity_commentform_rss" name="serendipity[promorss]"></select>'; //  style="max-width: 20em; width: 100%"
             echo '</div>';
         }
         if (serendipity_db_bool($this->get_config('twitterinput', true))) {
             echo '<div  id="serendipity_commentspice_twitter_desc" class="serendipity_commentDirection serendipity_comment_spice">';
-            echo PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER_FOOTER . $tag_comment_spice;
+            echo '<img src="' . $serendipity['baseURL'] . 'index.php?/plugin/commentspice.png" class="commentspice_ico" title="' . PLUGIN_EVENT_COMMENTSPICE_TITLE . '">';
+            echo PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER_FOOTER;
             echo '</div>';
         }
         if (serendipity_db_bool($this->get_config('announcerss', false))) {
             echo '<div  id="serendipity_commentspice_rss_desc" class="serendipity_commentDirection serendipity_comment_spice">';
-            echo PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_FOOTER .$tag_comment_spice;
+            echo '<img src="' . $serendipity['baseURL'] . 'index.php?/plugin/commentspice.png" class="commentspice_ico" title="' . PLUGIN_EVENT_COMMENTSPICE_TITLE . '">';
+            echo PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_FOOTER;
             echo '</div>';
         }
     }
     
+    function writeCss(&$eventData, &$addData) {
+        global $serendipity;
+        if (!(strpos($eventData, '.commentspice_ico'))) {
+?>
+.commentspice_ico {
+	float:right;
+	margin-right:0px;
+	margin-left:10px;
+}
+<?php
+        }
+        if (!(strpos($eventData, '.commentspice_twitter_input'))) {
+?>
+.commentspice_twitter_input {
+	background: url('<?php echo $serendipity['baseURL']; ?>index.php?/plugin/spiceicotwitter.png') left no-repeat;
+	padding-left: 1.5em;
+	max-width: 18.5em;
+	margin-bottom: 1em;
+}
+<?php
+        }
+        if (!(strpos($eventData, '.commentspice_rss_input'))) {
+?>
+.commentspice_rss_input {
+    max-width: 22em;
+    min-width: 13.5em;
+    width: 100%;
+ 	background: url('<?php echo $serendipity['baseURL']; ?>index.php?/plugin/spiceicorss.png') no-repeat left #444444;
+ 	overflow: hidden;
+    border: 0.1em solid #000000;
+    border-radius: 3px 3px 3px 3px;
+    color: #FFFFFF;
+	padding-left: 1.5em;
+	margin-bottom: 1em;
+}
+<?php
+        }
+    }
     function hashString( $what ) {
         $installation_secret = $this->get_config('installation_secret');
         if (empty($installation_secret)) {

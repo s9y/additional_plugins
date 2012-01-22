@@ -43,9 +43,15 @@ class serendipity_event_commentspice extends serendipity_event
             'backend_deletecomment' => true,
             'external_plugin'  => true,
             'css'				=> true,
+            'avatar_fetch_userinfos' => true,
         ));
         $propbag->add('groups', array('FRONTEND_VIEWS'));
-        $propbag->add('configuration', array('title_twitter','twitterinput','twitterinput_nofollow','smartifytwitter','title_announcerss', 'announcerss', 'announcerssmax','announcersscachemin','announcerss_nofollow','smartifyannouncerss','title_general','plugin_path'));
+        $config = array('title_twitter','twitterinput','twitterinput_nofollow','smartifytwitter','title_announcerss', 'announcerss', 'announcerssmax','announcersscachemin','announcerss_nofollow','smartifyannouncerss','title_general');
+        if (!$serendipity['pingbackFetchPage'] && function_exists('fetchPingbackData')) {
+            $config[] = 'fetchPingback';
+        }
+        $config[] = 'plugin_path';
+        $propbag->add('configuration', $config );
     }
 
     function generate_content(&$title) {
@@ -132,6 +138,14 @@ class serendipity_event_commentspice extends serendipity_event
                 $propbag->add('default',   '<h3>' . PLUGIN_EVENT_COMMENTSPICE_CONFIG_GENERAL .'</h3>');
                 return true;
                 break;
+            case 'fetchPingback':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK);
+                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK_DESC);
+                $propbag->add('default',     $serendipity['pingbackFetchPage']);
+                return true;
+                break;
+                
         }
         return false;
     }
@@ -163,7 +177,9 @@ class serendipity_event_commentspice extends serendipity_event
                     }
                     break;
                 case 'frontend_saveComment':
-                    return $this->checkComment($eventData, $addData);
+                    $result = $this->checkComment($eventData, $addData);
+                    $this->log("after checkComment: " . print_r($eventData, true) . "\n" . print_r($addData,TRUE));
+                    return $result;
                     break;
                 case 'frontend_saveComment_finish' :
                     $this->commentSaved($eventData, $addData);
@@ -182,6 +198,10 @@ class serendipity_event_commentspice extends serendipity_event
                     break;
                 case 'css':
                     $this->writeCss($eventData, $addData);
+                    break;
+                case 'avatar_fetch_userinfos':
+                    $this->log("caught avatar_fetch_userinfos");
+                    $this->handleAvatar($eventData, $addData);
                     break;
                 default:
                     return false;
@@ -237,6 +257,8 @@ class serendipity_event_commentspice extends serendipity_event
     function commentSaved($eventData, $addData) {
         global $serendipity;
         
+        $this->log("commentSaved: " . print_r($eventData, true) . "\n" . print_r($addData,TRUE));
+        
         if ("NORMAL" == $addData['type']) { // only supported for normal comments
             $promo_name = null;
             $promo_url = null;
@@ -282,6 +304,15 @@ class serendipity_event_commentspice extends serendipity_event
                     $eventData = array ('allow_comments' => false);
                     $serendipity ['messagestack'] ['comments'] [] = PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_CORRUPTED;
                     return false;
+                }
+            }
+        }
+        elseif ("PINGBACK" == $addData['type']) {
+            if (!$serendipity['pingbackFetchPage']) { // Only fetch if S9Y does not already.
+                if (serendipity_db_bool($this->get_config('fetchPingback', false))) {
+                    $serendipity['pingbackFetchPage'] = true;
+                    $serendipity['pingbackFetchPageMaxLength'] = 200;
+                    fetchPingbackData($addData); // method declared in functions_trackbacks.php
                 }
             }
         }
@@ -448,6 +479,25 @@ class serendipity_event_commentspice extends serendipity_event
         }
         
     }
+    function handleAvatar(&$eventData, &$addData) {
+        $this->log("avatar_hook. " . print_r($eventData,true) .  "\n" . print_r($addData, true));
+        
+        // We support twitter only
+        if (!is_array($addData) || !$addData['type']==twitter) return;
+        
+        // Check for valid input
+        if (!is_array($eventData) || !$eventData['cid']) return;
+        
+        // Add twitter infos to metadata. Twitter is detected by URL, so produce an URL
+        $spice = DbSpice::loadCommentSpice($eventData['cid']);
+        if (!is_array($spice)) return;
+        
+        if (!empty($spice['twittername'])) {
+            $eventData['url'] = 'http://twitter.com/' . $spice['twittername'];
+            $this->log("avatar_hook filled. " . print_r($eventData,true) .  "\n" . print_r($addData, true));
+        }
+    }
+    
     function printCommentEditExtras(&$eventData, &$addData) {
         global $serendipity;
         

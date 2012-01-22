@@ -1,3 +1,7 @@
+Version 1.05 (brockhaus)
+-----------------------
+* Better handling of unparsable oembed results (like youtube links not allowed to embed).
+
 Version 1.04 (brockhaus)
 -----------------------
 * added css for iframe videos contributed by Matthias Mees

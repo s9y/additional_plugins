@@ -4661,6 +4661,8 @@
 <file>lang_ja.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>lang_bg.inc.php</file>
 <file>lang_ja.inc.php</file>
@@ -4668,6 +4670,8 @@
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>ChangeLog</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -4680,12 +4684,16 @@
     <file>serendipity_event_mycalendar/UTF-8/lang_ja.inc.php</file>
     <file>serendipity_event_mycalendar/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_mycalendar/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_mycalendar/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_mycalendar/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_mycalendar/lang_bg.inc.php</file>
     <file>serendipity_event_mycalendar/lang_ja.inc.php</file>
     <file>serendipity_event_mycalendar/lang_en.inc.php</file>
     <file>serendipity_event_mycalendar/lang_cs.inc.php</file>
     <file>serendipity_event_mycalendar/lang_cz.inc.php</file>
     <file>serendipity_event_mycalendar/ChangeLog</file>
+    <file>serendipity_event_mycalendar/documentation_cs.html</file>
+    <file>serendipity_event_mycalendar/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -5182,11 +5190,15 @@
 <file>lang_de.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>lang_en.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -5201,10 +5213,14 @@
     <file>serendipity_event_xmlrpc/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_xmlrpc/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_xmlrpc/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_xmlrpc/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_xmlrpc/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_xmlrpc/lang_en.inc.php</file>
     <file>serendipity_event_xmlrpc/ChangeLog</file>
     <file>serendipity_event_xmlrpc/lang_cs.inc.php</file>
     <file>serendipity_event_xmlrpc/lang_cz.inc.php</file>
+    <file>serendipity_event_xmlrpc/documentation_cs.html</file>
+    <file>serendipity_event_xmlrpc/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -8333,6 +8349,8 @@
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
@@ -8403,6 +8421,8 @@
 </dir>
 <file>ChangeLog</file>
 <file>template.class.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -8421,6 +8441,8 @@
     <file>serendipity_event_mobile_output/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_mobile_output/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_mobile_output/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_mobile_output/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_mobile_output/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_mobile_output/lang_cs.inc.php</file>
     <file>serendipity_event_mobile_output/lang_cz.inc.php</file>
     <file>serendipity_event_mobile_output/templates/android.app/img/arrow.gif</file>
@@ -8476,6 +8498,8 @@
     <file>serendipity_event_mobile_output/templates/xhtml_mp/style.css</file>
     <file>serendipity_event_mobile_output/ChangeLog</file>
     <file>serendipity_event_mobile_output/template.class.php</file>
+    <file>serendipity_event_mobile_output/documentation_cs.html</file>
+    <file>serendipity_event_mobile_output/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>

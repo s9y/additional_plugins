@@ -274,19 +274,22 @@ class serendipity_event_gravatar extends serendipity_event
                 // This will response with an image (not with html code)
                 case 'external_plugin':
                     $parts      = explode('_', $eventData);
-                    if (count($parts)!=4) {
+                    if (count($parts)<4) {
                         return false;
                     }
                     if ($parts[0] == 'fetchAvatar') {
+                        if (count($parts)!=5) return false;
                         $info = array();
                         $info['url']       = $this->urldecode($parts[1]);
                         $info['email_md5'] = $parts[2];
                         $info['author']    = $this->urldecode($parts[3]);
+                        $info['cid']       = $parts[4];
                         $this->log("-------");
                         $this->log("fetch Avatar: " . urldecode($parts[1]));
                         $this->fetchAvatar($info);
                         return true;
                     } else if ($parts[0] == 'cachedAvatar') {
+                        if (count($parts)!=4) return false;
                         $cache_file = $this->getCacheDirectory() . '/' . $parts[1] .'_' .$parts[2] . '_' .$parts[3];
                         $lastrun = $cache_file . '.lastrun';
                         $this->log("-------");
@@ -452,7 +455,7 @@ class serendipity_event_gravatar extends serendipity_event
             if (!isset($cache_file)) {
                 return false;   
             }
-            
+            $this->log("comment print: " . print_r($eventData, true));
             // If there is a cache file that's new enough, return the image immidiatly            
             if (file_exists($cache_file) &&  (time() - filemtime($cache_file) < $this->cache_seconds)) {
                 $url = $serendipity['baseURL'] . $serendipity['indexFile'] . '?/'
@@ -461,13 +464,13 @@ class serendipity_event_gravatar extends serendipity_event
             } else { // no image cached yet, call external plugin hook for fetching a new one
                 $url = $serendipity['baseURL'] . $serendipity['indexFile'] . '?/'
                     . $this->getPermaPluginPath() . '/fetchAvatar_' . $this->urlencode($url) . '_' . $email_md5 
-                    . '_' . $this->urlencode($author);
+                    . '_' . $this->urlencode($author) . '_' . $eventData['id'];
             }
             
         } else { // call external plugin hook for fetching a new one
             $url = $serendipity['baseURL'] . $serendipity['indexFile'] . '?/'
                 . $this->getPermaPluginPath() . '/fetchAvatar_' . $this->urlencode($url) . '_' . $email_md5 
-                . '_' . $this->urlencode($author);
+                . '_' . $this->urlencode($author) . '_' . $eventData['id'];
         }
         
         $image_html = $this->generateImageHtml($url, $title, $this->get_config('align', 'right'), !$useSmarty, $this->generateAvatarCssClass($addData));
@@ -855,11 +858,21 @@ class serendipity_event_gravatar extends serendipity_event
     
     function fetchTwitter(&$eventData) {
         require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
-        
+
         // Was lastrun successfull?
         if (isset($this->avatarConfiguration['twitter_found']) && !$this->avatarConfiguration['twitter_found']) {
             return false;
         }
+
+        // Let other plugins fill metadata. CommentSpice is perhaps able to fetch twitter infos.
+        try {
+            $this->log("hook_event: avatar_fetch_userinfos");
+            $askforData = array("type" => "twitter");
+            serendipity_plugin_api::hook_event('avatar_fetch_userinfos', $eventData, $askforData);
+        } catch (Exception $e) {
+            $this->log($e);
+        }
+        
         if (empty($eventData['url'])) {
             return false;
         }
@@ -872,6 +885,7 @@ class serendipity_event_gravatar extends serendipity_event
             $path =  trim($parts['path']);
             $dirs = explode('/',$path);
             $twittername = $dirs[1];
+            //if ($twittername=='#!') $twittername = $dirs[2]; 
             
             $this->log("Twitteruser found ($url): $twittername");
             

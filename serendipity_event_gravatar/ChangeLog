@@ -1,4 +1,8 @@
 # $Id$
+    * Allows other plugins to fetch user metadata via 
+      avatar_fetch_userinfos hook.
+    * supports !# twitter links now, too.
+    
 Version 1.57: (brockhaus)
     * Better Gravatar handling, as the call changed a little
     * Doesn't accept existing but empty images anymore.

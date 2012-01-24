@@ -510,7 +510,7 @@ class serendipity_event_commentspice extends serendipity_event
             if (!serendipity_db_bool($this->get_config('followme_widget_counter', false))) {
                 $extra_style .= '  data-show-count="false"';
             }
-            return '<a href="https://twitter.com/'.$wittername.'" class="twitter-follow-button"'.$extra_style.'"' . ($timeline_url_nofollow?' rel="nofollow"':'') . '>Follow @'.$wittername.'</a>';
+            return '<a href="https://twitter.com/' . $wittername . '" class="twitter-follow-button"' . $extra_style . ($timeline_url_nofollow?' rel="nofollow"':'') . '>Follow @' . $wittername . '</a>';
         }
         return "";
     }

@@ -46,7 +46,10 @@ class serendipity_event_commentspice extends serendipity_event
             'avatar_fetch_userinfos' => true,
         ));
         $propbag->add('groups', array('FRONTEND_VIEWS'));
-        $config = array('title_twitter','twitterinput','twitterinput_nofollow','smartifytwitter','title_announcerss', 'announcerss', 'announcerssmax','announcersscachemin','announcerss_nofollow','smartifyannouncerss','title_general');
+        $config = array('title_twitter','twitterinput','twitterinput_nofollow',
+        	'followme_widget', 'followme_widget_counter','followme_widget_dark','smartifytwitter',
+        	'title_announcerss', 'announcerss', 'announcerssmax','announcersscachemin','announcerss_nofollow','smartifyannouncerss',
+        	'title_general');
         if (!$serendipity['pingbackFetchPage'] && function_exists('fetchPingbackData')) {
             $config[] = 'fetchPingback';
         }
@@ -67,76 +70,84 @@ class serendipity_event_commentspice extends serendipity_event
                 $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_TWITTERINPUT);
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_TWITTERINPUT_DESC);
                 $propbag->add('default',     true);
-                return true;
                 break;
             case 'twitterinput_nofollow':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_TWITTERINPUT_NOFOLLOW);
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_TWITTERINPUT_NOFOLLOW_DESC);
                 $propbag->add('default',     true);
-                return true;
+                break;
+            case 'followme_widget':
+                $propbag->add('type', 'boolean');
+                $propbag->add('name', PLUGIN_EVENT_COMMENTSPICE_FOLLOWME_WIDGET);
+                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_FOLLOWME_WIDGET_DESC);
+                $propbag->add('default', false);
+                break;
+            case 'followme_widget_counter':
+                $propbag->add('type', 'boolean');
+                $propbag->add('name', PLUGIN_EVENT_COMMENTSPICE_FOLLOWME_WIDGET_COUNT);
+                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_FOLLOWME_WIDGET_COUNT_DESC);
+                $propbag->add('default', false);
+                break;
+            case 'followme_widget_dark':
+                $propbag->add('type', 'boolean');
+                $propbag->add('name', PLUGIN_EVENT_COMMENTSPICE_FOLLOWME_WIDGET_DARK);
+                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_FOLLOWME_WIDGET_DARK_DESC);
+                $propbag->add('default', false);
                 break;
             case 'announcerss':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS);
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_DESC);
                 $propbag->add('default',     false);
-                return true;
                 break;
             case 'announcerss_nofollow':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_NOFOLLOW);
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_NOFOLLOW_DESC);
                 $propbag->add('default',     false);
-                return true;
                 break;
             case 'announcerssmax':
                 $propbag->add('type',        'string');
                 $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_MAXSELECT);
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_MAXSELECT_DESC);
                 $propbag->add('default',     3);
-                return true;
+                break;
             case 'announcersscachemin':
                 $propbag->add('type',        'string');
                 $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_CACHEMIN);
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_CACHEMIN_DESC);
                 $propbag->add('default',     90);
-                return true;
+                break;
             case 'smartifytwitter':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_SMARTIFY_TWITTER);
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_SMARTIFY_TWITTER_DESC);
                 $propbag->add('default',     false);
-                return true;
                 break;
             case 'smartifyannouncerss':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_SMARTIFY_RSS);
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_SMARTIFY_RSS_DESC);
                 $propbag->add('default',     false);
-                return true;
                 break;
             case 'plugin_path':
                 $propbag->add('type', 'string');
                 $propbag->add('name', PLUGIN_EVENT_COMMENTSPICE_PATH);
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_PATH_DESC);
                 $propbag->add('default', $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_commentspice/');
-                return true;
                 break;
             case 'title_announcerss':
                 $propbag->add('type', 'content');
                 $propbag->add('default',   '<h3>' . PLUGIN_EVENT_COMMENTSPICE_CONFIG_ANNOUNC_RSS .'</h3>');
-                return true;
                 break;
             case 'title_twitter':
                 $propbag->add('type', 'content');
                 $propbag->add('default',   '<h3>' . PLUGIN_EVENT_COMMENTSPICE_CONFIG_TWITTERNAME .'</h3>');
-                return true;
                 break;
             case 'title_general':
                 $propbag->add('type', 'content');
                 $propbag->add('default',   '<h3>' . PLUGIN_EVENT_COMMENTSPICE_CONFIG_GENERAL .'</h3>');
-                return true;
                 break;
             case 'fetchPingback':
                 $propbag->add('type',        'boolean');
@@ -145,9 +156,10 @@ class serendipity_event_commentspice extends serendipity_event
                 $propbag->add('default',     $serendipity['pingbackFetchPage']);
                 return true;
                 break;
-                
+            default:
+                return false;
         }
-        return false;
+        return true;
     }
     
     function event_hook($event, &$bag, &$eventData, &$addData) {
@@ -252,6 +264,9 @@ class serendipity_event_commentspice extends serendipity_event
     </script>
 <script type=\"text/javascript\" src=\"{$path}frontend_commentspice.js\"></script>
 ";
+        }
+        if (serendipity_db_bool($this->get_config('followme_widget', false))) {
+            echo '<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>' . "\n";
         }
     }
     function commentSaved($eventData, $addData) {
@@ -451,14 +466,21 @@ class serendipity_event_commentspice extends serendipity_event
             $timeline_url = 'https://twitter.com/#!/' . $twittername;
             $timeline_url_nofollow = serendipity_db_bool($this->get_config('twitterinput_nofollow', true));
             $twitter_icon_html = '<img src="' . $serendipity['baseURL'] . 'index.php?/plugin/spiceicotwitter.png" alt="' . PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER . ': ">';
+            $followme_widget = $this->createFollowMeWidget($twittername, $timeline_url_nofollow);
             if ($smartify) {
                 $eventData['spice_twitter_name'] = $twittername;
                 $eventData['spice_twitter_url'] = $timeline_url;
                 $eventData['spice_twitter_nofollow'] = $timeline_url_nofollow;
                 $eventData['spice_twitter_icon_html'] = $twitter_icon_html;
+                $eventData['spice_twitter_followme'] = $followme_widget;
             }
             else {
-                $eventData['comment'] = '<a href="' . $timeline_url . '" class="commentspice_twitterlink" target="_blank"' . ($timeline_url_nofollow?' rel="nofollow"':'') . '>' . $twitter_icon_html .  ' ' . $twittername . '</a><br/>' . $eventData['comment'];
+                if (serendipity_db_bool($this->get_config('followme_widget', false))) {
+                    $eventData['comment'] = $followme_widget . '<br/>' . $eventData['comment'];
+                }
+                else {
+                    $eventData['comment'] = '<a href="' . $timeline_url . '" class="commentspice_twitterlink" target="_blank"' . ($timeline_url_nofollow?' rel="nofollow"':'') . '>' . $twitter_icon_html .  ' ' . $twittername . '</a>' . '<br/>' . $eventData['comment'];
+                }
             }
         }
         if ($spice['promo_name'] && $spice['promo_url']) {
@@ -478,6 +500,19 @@ class serendipity_event_commentspice extends serendipity_event
             }
         }
         
+    }
+    function createFollowMeWidget($wittername, $timeline_url_nofollow) {
+        if (serendipity_db_bool($this->get_config('followme_widget', false))) {
+            $extra_style = '';
+            if (serendipity_db_bool($this->get_config('followme_widget_dark', false))) {
+                $extra_style .= ' data-button="grey" data-text-color="#FFFFFF" data-link-color="#00AEFF"';
+            }
+            if (!serendipity_db_bool($this->get_config('followme_widget_counter', false))) {
+                $extra_style .= '  data-show-count="false"';
+            }
+            return '<a href="https://twitter.com/'.$wittername.'" class="twitter-follow-button"'.$extra_style.'"' . ($timeline_url_nofollow?' rel="nofollow"':'') . '>Follow @'.$wittername.'</a>';
+        }
+        return "";
     }
     function handleAvatar(&$eventData, &$addData) {
         $this->log("avatar_hook. " . print_r($eventData,true) .  "\n" . print_r($addData, true));

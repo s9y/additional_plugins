@@ -11,6 +11,11 @@ TODO:
 * Twitter announcements/credentials etc. per author instead of
   only per central blog
 
+1.42 (brockhaus)
+--------------------------
+    * Followme widget hat a " too much (thanks to Matthias Mees)
+    * Auto tagging of article announcements was still not working correctly always
+
 1.41 (brockhaus)
 --------------------------
     * Auto tagging of article announcements was not working correctly always

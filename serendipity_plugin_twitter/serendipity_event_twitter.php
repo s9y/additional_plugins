@@ -1345,7 +1345,7 @@ a.twitter_update_time {
                     $test = str_replace('#title#',$title,$announce_format_notags);
                     $len = strlen($title);
                     if (strlen($test) < 140) { // still capacity
-                        $title = preg_replace('@(^|\s)(' . $tag . ')@i'," #$2",$title);
+                        $title = preg_replace('@(^|\s)(' . $tag . '($|\s))@i'," #$2",$title);
                         if (strlen($title) == $len) $tagsnotused[] = $tag;
                     }
                     else {

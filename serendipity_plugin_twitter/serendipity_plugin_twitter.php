@@ -319,7 +319,7 @@ class serendipity_plugin_twitter extends serendipity_plugin {
             if (!serendipity_db_bool($this->get_config('followme_widget_counter', true))) {
                 $extra_style .= '  data-show-count="false"';
             }
-            echo '<a href="https://twitter.com/'.$username.'" class="twitter-follow-button"'.$extra_style.'">Follow @'.$username.'</a><script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>';
+            echo '<a href="https://twitter.com/'.$username.'" class="twitter-follow-button"'.$extra_style.'>Follow @'.$username.'</a><script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>';
         }
         
         if ($showformat == 'PHP') {

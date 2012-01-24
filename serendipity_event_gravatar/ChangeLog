@@ -1,4 +1,8 @@
 # $Id$
+Version 1.57: (brockhaus)
+    * Better Gravatar handling, as the call changed a little
+    * Doesn't accept existing but empty images anymore.
+
 Version 1.56: (brockhaus)
 ------------------------------------------------------------------------
     * Removed inline styles, added class avatar_right and avatar_left.

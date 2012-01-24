@@ -14,7 +14,7 @@ if (file_exists($probelang)) {
 include dirname(__FILE__) . '/lang_en.inc.php';
 
 // Actual version of this plugin
-@define('PLUGIN_EVENT_GRAVATAR_VERSION', '1.56');
+@define('PLUGIN_EVENT_GRAVATAR_VERSION', '1.57');
 
 // Defines the maximum available method  slots in the configuration.
 @define('PLUGIN_EVENT_GRAVATAR_METHOD_MAX', 6);
@@ -640,7 +640,8 @@ class serendipity_event_gravatar extends serendipity_event
         	$fallback = '&d=' . $gravatar_fallback; 
         }
         else {
-        	$defaultavatar = urlencode((empty($default['defaultavatar'])?  $serendipity['baseURL'] . 'dummy.gif': 'http://' . $_SERVER['SERVER_NAME'] . $default['defaultavatar']));
+        	//$defaultavatar = urlencode((empty($default['defaultavatar'])?  $serendipity['baseURL'] . 'dummy.gif': 'http://' . $_SERVER['SERVER_NAME'] . $default['defaultavatar']));
+        	$defaultavatar = urlencode($serendipity['serendipityHTTPPath'] . 'dummy456.gif123'); // Add a not existing image to produce an error we can check
         	$fallback = '&d=' . $defaultavatar;
         }
         
@@ -653,7 +654,7 @@ class serendipity_event_gravatar extends serendipity_event
         // Assure a default avatar, because we need it for testing if the avatar given by Gravatar is a dummy image.
         $this->log("Gravatar Link: " . $urltpl) ;
         
-        $success = $this->saveAndResponseAvatar($eventData, $urltpl, false);
+        $success = $this->saveAndResponseAvatar($eventData, $urltpl, 1);
         $this->avatarConfiguration['gravatar_found'] = $success;
         return $success;
     }
@@ -793,10 +794,6 @@ class serendipity_event_gravatar extends serendipity_event
                     $urlParts   = parse_url($url);
                     $faviconURL = $urlParts['scheme'] . '://' . $urlParts['host'] . ($mode=='F'?'/favicon.ico':'/pavatar.png');
                     $this->log($mode . " - Not found link rel, guessing $faviconURL");
-                    
-                    $this->log($mode . " response start ---- ");
-                    $this->log($fContent);
-                    $this->log($mode . " response end ---- ");
                 }
     
                 // Split image URL and check if image is available using a fast and timed out socket:
@@ -903,7 +900,7 @@ class serendipity_event_gravatar extends serendipity_event
                     }
                 }
                 if ($success) {                
-                    $success = $this->saveAndResponseAvatar($eventData, $img_url, true);
+                    $success = $this->saveAndResponseAvatar($eventData, $img_url);
                 }
             }
             $this->avatarConfiguration['twitter_found'] = $success;
@@ -946,7 +943,7 @@ class serendipity_event_gravatar extends serendipity_event
             xml_parser_free($parser);
             if ($success) {
                 $img_url = $vals[$index['PROFILE_IMAGE_URL'][0]]['value'];
-                $success = $this->saveAndResponseAvatar($eventData, $img_url, true);
+                $success = $this->saveAndResponseAvatar($eventData, $img_url);
             }
             $this->avatarConfiguration['identica_found'] = $success;
             return $success;
@@ -1081,7 +1078,7 @@ class serendipity_event_gravatar extends serendipity_event
     /**
      * Caches an avatar and streams it back to the browser. 
      */
-    function saveAndResponseAvatar($eventData, $url, $allow_redirection = true){
+    function saveAndResponseAvatar($eventData, $url, $allow_redirection = 3){
         require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
         global $serendipity;
         $fContent   = null;
@@ -1090,13 +1087,26 @@ class serendipity_event_gravatar extends serendipity_event
             serendipity_request_start();
         }
         
-        $request_pars['allowRedirects'] = $allow_redirection;
+        if ($allow_redirection) {
+            $request_pars['allowRedirects'] = true;
+            $request_pars['maxRedirects'] = $allow_redirection;
+        }
+        else {
+            $request_pars['allowRedirects'] = false;
+        }
+            
         $req = new HTTP_Request($url, $request_pars);
 
         // if the request leads to an error we don't want to have it: return false
         if (PEAR::isError($req->sendRequest()) || ($req->getResponseCode() != '200')) {
             $fContent = null;
-            $this->log("Avatar fetch error: " . $req->getResponseCode() . " for url=" . $url);
+            if ($req->getResponseCode() != '200') {
+                $this->log("Avatar fetch error: " . $req->getResponseCode() . " for url=" . $url);
+            }
+            else {
+                $this->log("Avatar fetch error: PEAR reported ERROR for url=" . $url);
+            }
+                
         }
         else {
             // Allow only images as Avatar!
@@ -1113,7 +1123,7 @@ class serendipity_event_gravatar extends serendipity_event
         }
         
         // if no content was fetched, return false
-        if (!isset($fContent)){
+        if (!isset($fContent) || empty($fContent)){
             $this->log("Avatar fetch: no Content!");
             return false;
         }

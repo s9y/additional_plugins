@@ -341,11 +341,11 @@ class serendipity_event_commentspice extends serendipity_event
         if (empty($comment_url)) return;
 
         // First try to read from cache
-        $result = $this->cacheReadRss($url);
+        $result = $this->cacheReadRss($comment_url);
         if (empty($result)) {
             $result = $this->readRssRemote($comment_url);
             $this->log("Fetched array: " . print_r($result, true));
-            if (!empty($result) && $result['articles']) $this->cacheWriteRss($url, $result);
+            if (!empty($result) && $result['articles']) $this->cacheWriteRss($comment_url, $result);
         }
         if (empty($result) || !$result['articles'] || count($result['articles'])==0) return;
         

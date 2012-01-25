@@ -8863,9 +8863,9 @@ aplikovány další typografické úpravy.</description>
 <description>Přidává klienta Twitter/Identica do administrační sekce a stahuje nové tweety a oznámuje nové články na účtu mikroblogu.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Peter Heimann</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.41</version>
+  <version>1.42</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2012-01-25</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="classes">

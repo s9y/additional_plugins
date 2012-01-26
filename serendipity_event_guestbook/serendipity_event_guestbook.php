@@ -1,4 +1,5 @@
-<?php # $Id: serendipity_event_guestbook.php, v.3.28 - 2011-12-15 ian
+<?php # $Id$
+// serendipity_event_guestbook.php, v.3.29 - 2012-01-26 ian
 
 //error_reporting(E_ALL);
 
@@ -56,7 +57,7 @@ class serendipity_event_guestbook extends serendipity_event {
                         'dateformat'
                     ));
         $propbag->add('author',       'Ian (Timbalu)');
-        $propbag->add('version',      '3.28');
+        $propbag->add('version',      '3.29');
         $propbag->add('requirements', array(
                         'serendipity' => '0.7',
                         'smarty'      => '2.6.7',

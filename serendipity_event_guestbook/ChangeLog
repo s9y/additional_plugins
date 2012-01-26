@@ -1,3 +1,10 @@
+3.29:
+-----
+
+bump version to support spartacus update for guestbooks sidebar plugin update
+fixed sidebar showed unapproved entries
+
+
 3.28:
 -----
 

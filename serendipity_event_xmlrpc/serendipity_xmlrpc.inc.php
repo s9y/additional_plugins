@@ -594,12 +594,15 @@ function wp_editComment($message) {
     
     if (!empty($comment_id)) {
         ob_start();
-        
+        $asureEntryId = "";
+        if ($rpccomment['post_id']) {
+            $asureEntryId = " AND entry_id=" .$rpccomment['post_id']; 
+        }
         // We need the entryid, so fetch it:
         $commentInfo = serendipity_db_query("SELECT c.entry_id as entry_id, c.body as content, c.email as author_email, c.author as comment_author, c.status as comment_status, c.url as author_url, e.authorid AS entry_authorid
         	FROM {$serendipity['dbPrefix']}comments c
         	LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
-        	WHERE c.id = $comment_id"
+        	WHERE c.id = $comment_id"// .  $asureEntryId
         , true);
         
         // If we fetched a row, process it
@@ -613,7 +616,7 @@ function wp_editComment($message) {
             }
             // Setup new comment to save. Preserve old values, if nothing is given by the client.
             $comment = array(
-                'author'  => empty($rpccomment['author'])       ? $commentInfo['author']       : $rpccomment['author'],
+                'author'  => empty($rpccomment['author'])       ? $commentInfo['comment_author']: $rpccomment['author'],
                 'url'     => empty($rpccomment['author_url'])   ? $commentInfo['author_url']   : $rpccomment['author_url'],
                 'email'   => empty($rpccomment['author_email']) ? $commentInfo['author_email'] : $rpccomment['author_email'],
                 'body'    => empty($rpccomment['content'])      ? $commentInfo['content']      : $rpccomment['content'],
@@ -621,8 +624,8 @@ function wp_editComment($message) {
             $result = universal_updateComment($comment_id, $entry_id, $entry_authorid, $comment);
             if ($result) {
                 $rpc_comment_status = $rpccomment['status'];
-                $moderate_comment = $rpc_comment_status !== 'approve';
-                $result = !serendipity_approveComment($comment_id, $entry_id, false, $moderate_comment) == $moderate_comment; // TODO: Result is fals if done something. Why that?
+                $moderate_comment = $rpc_comment_status !== 'approve' && $rpc_comment_status !== 'approved';
+                $result = !serendipity_approveComment($comment_id, $entry_id, false, $moderate_comment) == $moderate_comment;
                 if ($result || $rpc_comment_status=='spam') {
                     $result = true; 
                     $addData['id'] = $entry_id;
@@ -1604,11 +1607,11 @@ function universal_updateComment($cid, $entry_id, $entry_authorid, &$comment) {
     }
     $sql = "UPDATE {$serendipity['dbPrefix']}comments
                     SET
-                        author    = '" . serendipity_db_escape_string($somment['author'])    . "',
+                        author    = '" . serendipity_db_escape_string($comment['author'])    . "',
                         email     = '" . serendipity_db_escape_string($comment['email'])   . "',
                         url       = '" . serendipity_db_escape_string($comment['url'])     . "',
                         body      = '" . serendipity_db_escape_string($comment['body']) . "'
-            WHERE id = " . (int)$cid . " AND entry_id = " . (int)$comment['entry_id'];
+            WHERE id = " . (int)$cid . " AND entry_id = " . (int)$entry_id;
     serendipity_db_query($sql);
     serendipity_plugin_api::hook_event('backend_updatecomment', $comment, $cid);
     return true;

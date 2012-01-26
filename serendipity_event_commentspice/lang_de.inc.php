@@ -30,6 +30,13 @@
 @define('PLUGIN_EVENT_COMMENTSPICE_SMARTIFY_RSS', 'Artikelbewerbung smartifizieren');
 @define('PLUGIN_EVENT_COMMENTSPICE_SMARTIFY_RSS_DESC', 'Wenn angeschaltet, wird CommentSpice keinen Code für die Artikelbewerbung darstellen sondern wird benötigte Informationen in den Smarty Hash stecken. Damit das funktioniert, muss die comments.tpl angepasst werden. Verfügbare Variablen sind $comment.spice_article_name (Name des Artikel, sollte auf Vorhandensein gecheckt werden). $comment.spice_article_url (Artikel URL), $comment.spice_article_nofollow (Nofollow Einstellung für Artikelbewerbung), $comment.spice_article_prefix (Prefix in der Sprache des Besuchers).');
 
+@define('PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK', 'Inhalt von Pingback Artikeln abholen');
+@define('PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK_DESC', 'Wenn ein anderes Blog ein Pingback auf einen Artikel dieses Blogs schickt, ist nur die URL des fremden Artikels bekannt. Serendipity kann jedoch den Inhalt des fremden Artikels abholen und darstellen, so wie es von Trackbacks bekannt ist. Aus Performance Gründen tut Serendipity dies jedoch nicht per default. Hiermit kann eine Einstellung in die serendipity_config_local.inc.php geschrieben werden, die Serendipity dazu veranlasst, den Inhalt abzuholen. Wenn der Wert hier unverändert bleibt, dann wurde die Einstellung bereits manuell vorgenommen und überschreibt die Einstellung des Plugins. In dem Fall muss der manuelle Eintrag aus der serendipity_config_local.inc.php wieder entfernt werden, wenn die Einstellung mit diesem Plugin verändert werden soll.');
+@define('PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK_LEAVE_ON', 'Behalte: Inhalt abholen');
+@define('PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK_LEAVE_OFF', 'Behalte: Inhalt nicht abholen');
+@define('PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK_FETCH', 'Setze auf: Inhalt abholen');
+@define('PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK_DONTFETCH', 'Setze auf: Inhalt nicht abholen');
+
 @define('PLUGIN_EVENT_COMMENTSPICE_PATH', 'Plugin Pfad');
 @define('PLUGIN_EVENT_COMMENTSPICE_PATH_DESC', 'In normalen Installationen ist der Default die korrekte Einstellung.');
 

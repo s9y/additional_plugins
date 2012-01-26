@@ -50,7 +50,7 @@ class serendipity_event_commentspice extends serendipity_event
         	'followme_widget', 'followme_widget_counter','followme_widget_dark','smartifytwitter',
         	'title_announcerss', 'announcerss', 'announcerssmax','announcersscachemin','announcerss_nofollow','smartifyannouncerss',
         	'title_general');
-        if (!$serendipity['pingbackFetchPage'] && function_exists('fetchPingbackData')) {
+        if (function_exists('fetchPingbackData') && $this->isLocalConfigWritable()) {
             $config[] = 'fetchPingback';
         }
         $config[] = 'plugin_path';
@@ -150,10 +150,16 @@ class serendipity_event_commentspice extends serendipity_event
                 $propbag->add('default',   '<h3>' . PLUGIN_EVENT_COMMENTSPICE_CONFIG_GENERAL .'</h3>');
                 break;
             case 'fetchPingback':
-                $propbag->add('type',        'boolean');
+                $fetchPingbackValues = array (
+                    'none' => $serendipity['pingbackFetchPage']?PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK_LEAVE_ON:PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK_LEAVE_OFF,
+                );
+                if ($serendipity['pingbackFetchPage']) $fetchPingbackValues['false'] = PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK_DONTFETCH;
+                else  $fetchPingbackValues['true'] = PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK_FETCH;
+                $propbag->add('type',       'select');
                 $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK);
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK_DESC);
-                $propbag->add('default',     $serendipity['pingbackFetchPage']);
+                $propbag->add('select_values', $fetchPingbackValues);
+                $propbag->add('default',     'none');
                 return true;
                 break;
             default:
@@ -162,7 +168,7 @@ class serendipity_event_commentspice extends serendipity_event
         return true;
     }
     
-    function event_hook($event, &$bag, &$eventData, &$addData) {
+    function event_hook($event, &$bag, &$eventData, $addData) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');
@@ -190,7 +196,6 @@ class serendipity_event_commentspice extends serendipity_event
                     break;
                 case 'frontend_saveComment':
                     $result = $this->checkComment($eventData, $addData);
-                    $this->log("after checkComment: " . print_r($eventData, true) . "\n" . print_r($addData,TRUE));
                     return $result;
                     break;
                 case 'frontend_saveComment_finish' :
@@ -228,6 +233,8 @@ class serendipity_event_commentspice extends serendipity_event
         DbSpice::install($this);
     }
     function cleanup() {
+        global $serendipity;
+        
         DbSpice::install($this);
         $announcerssmax = $this->get_config('announcerssmax',3);
         if (!is_numeric($announcerssmax)) {
@@ -319,15 +326,6 @@ class serendipity_event_commentspice extends serendipity_event
                     $eventData = array ('allow_comments' => false);
                     $serendipity ['messagestack'] ['comments'] [] = PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_CORRUPTED;
                     return false;
-                }
-            }
-        }
-        elseif ("PINGBACK" == $addData['type']) {
-            if (!$serendipity['pingbackFetchPage']) { // Only fetch if S9Y does not already.
-                if (serendipity_db_bool($this->get_config('fetchPingback', false))) {
-                    $serendipity['pingbackFetchPage'] = true;
-                    $serendipity['pingbackFetchPageMaxLength'] = 200;
-                    fetchPingbackData($addData); // method declared in functions_trackbacks.php
                 }
             }
         }
@@ -618,6 +616,41 @@ class serendipity_event_commentspice extends serendipity_event
         }
         return md5($installation_secret . ':' . $what);
     }
+    
+    function saveFetchPingbackDataConfig($fetchPingback) {
+        global $serendipity;
+        
+        if (is_writeable($serendipity['serendipityPath'] . 'serendipity_config_local.inc.php')) {
+            $privateVariables = array('pingbackFetchPage' => $fetchPingback);
+            serendipity_updateLocalConfig($serendipity['dbName'], $serendipity['dbPrefix'], $serendipity['dbHost'], $serendipity['dbUser'], $serendipity['dbPass'], $serendipity['dbType'], $serendipity['dbPersistent'], $privateVariables);
+        }
+        else {
+            echo "serendipity_config_local.inc.php is not writeable for plugins";
+        }
+    }
+    
+    function isLocalConfigWritable() {
+        global $serendipity;
+        $file = $serendipity['serendipityPath'] . 'serendipity_config_local.inc.php';
+        return !file_exists($file) || is_writeable($file);
+    }
+    
+    function set_config($name, $value, $implodekey = '^') {
+        global $serendipity;
+        
+        if ($name == 'fetchPingback') {
+            if ('none' != $value) {
+                // This will be updated later, so save it in memory, too:
+                $serendipity['pingbackFetchPage'] = serendipity_db_bool($value);
+                // now make the config persistant.
+                $this->saveFetchPingbackDataConfig($serendipity['pingbackFetchPage']);
+            }
+        }
+        else {
+            parent::set_config($name, $value, $implodekey);
+        }
+    }
+    
     function log($message){
         if (!PLUGIN_EVENT_COMMENTSPICE_DEBUG) return;
         $fp = fopen(dirname(__FILE__) . '/spice.log','a');

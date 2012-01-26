@@ -1,4 +1,5 @@
 <?php
+
 @define('PLUGIN_EVENT_COMMENTSPICE_TITLE', 'Comment Spice');
 @define('PLUGIN_EVENT_COMMENTSPICE_DESC',  'Spice up your comments area with goodies like commenters twitter or last posted article link.');
 
@@ -29,6 +30,13 @@
 @define('PLUGIN_EVENT_COMMENTSPICE_SMARTIFY_TWITTER_DESC', 'If switched on, CommentSpice won\'t emit code for the commentors twittername but will put all needed infos to the smarty hash. For this to work you have to add new smarty content to your comments.tpl. Available variables are $comment.spice_twitter_name (the twitter name, check if empty), $comment.spice_twitter_url (url of the users timeline), $comment.spice_twitter_nofollow (nofollow configured for twitterlinks), $comment.spice_twitter_icon_html (html producing the twitter icon), $comment.spice_twitter_followme (html for the followme widget).');
 @define('PLUGIN_EVENT_COMMENTSPICE_SMARTIFY_RSS', 'Smartify article output');
 @define('PLUGIN_EVENT_COMMENTSPICE_SMARTIFY_RSS_DESC', 'If switched on, CommentSpice won\'t emit code for the announced post but will put all needed infos to the smarty hash. For this to work you have to add new smarty content to your comments.tpl. Available variables are $comment.spice_article_name (articles title, check if empty). $comment.spice_article_url (articles url), $comment.spice_article_nofollow (nofollow configured for article links), $comment.spice_article_prefix (prefix in language of visitor).');
+
+@define('PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK', 'Fetch content of pingback articles');
+@define('PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK_DESC', 'If another blog sends a pingback to one of your articles, only the URL of the foreign article is known. Serendipity is able to fetch the content of the foreign article and displays it like it is known from trackbacks. But for performance reasons Serendipity does not by default. With this option you can let the plugin save a config into your serendipity_config_local.inc.php ordering Serendipity to fetch the content. If you can not change the value, you have done that manualy already overwriting the setting here. In this case you should remove your manual change from serendipity_config_local.inc.php in order to be able to change this setting with this plugin.');
+@define('PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK_LEAVE_ON', 'Leave as: fetch content');
+@define('PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK_LEAVE_OFF', 'Leave as: don\'t fetch content');
+@define('PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK_FETCH', 'Change to: fetch content');
+@define('PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK_DONTFETCH', 'Change to: don\'t fetch content');
 
 @define('PLUGIN_EVENT_COMMENTSPICE_PATH', 'Plugins path');
 @define('PLUGIN_EVENT_COMMENTSPICE_PATH_DESC', 'In normal installations the default is correct.');

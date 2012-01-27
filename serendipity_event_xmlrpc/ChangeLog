@@ -1,4 +1,7 @@
 # $Id$
+Version 1.49:
+    * Fixed update comment. Tested as working on iPhone client.
+
 Version 1.48:
     * Added many compatibility fixes while testing with the WP Blackberry Client.
 

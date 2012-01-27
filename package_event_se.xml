@@ -2131,9 +2131,9 @@
 <description>Visa en gästbol i din blog med ditt vanlig blog-utseende.</description>
 <maintainers><maintainer><name>Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.28</version>
+  <version>3.29</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2012-01-27</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="UTF-8">

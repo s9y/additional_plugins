@@ -461,23 +461,25 @@ class serendipity_event_commentspice extends serendipity_event
         if (serendipity_db_bool($this->get_config('twitterinput', true))) {
             $smartify = serendipity_db_bool($this->get_config('smartifytwitter', false));
             $twittername = $spice['twittername'];
-            $timeline_url = 'https://twitter.com/#!/' . $twittername;
-            $timeline_url_nofollow = serendipity_db_bool($this->get_config('twitterinput_nofollow', true));
-            $twitter_icon_html = '<img src="' . $serendipity['baseURL'] . 'index.php?/plugin/spiceicotwitter.png" alt="' . PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER . ': ">';
-            $followme_widget = $this->createFollowMeWidget($twittername, $timeline_url_nofollow);
-            if ($smartify) {
-                $eventData['spice_twitter_name'] = $twittername;
-                $eventData['spice_twitter_url'] = $timeline_url;
-                $eventData['spice_twitter_nofollow'] = $timeline_url_nofollow;
-                $eventData['spice_twitter_icon_html'] = $twitter_icon_html;
-                $eventData['spice_twitter_followme'] = $followme_widget;
-            }
-            else {
-                if (serendipity_db_bool($this->get_config('followme_widget', false))) {
-                    $eventData['comment'] = $followme_widget . '<br/>' . $eventData['comment'];
+            if (!empty($twittername)) {
+                $timeline_url = 'https://twitter.com/#!/' . $twittername;
+                $timeline_url_nofollow = serendipity_db_bool($this->get_config('twitterinput_nofollow', true));
+                $twitter_icon_html = '<img src="' . $serendipity['baseURL'] . 'index.php?/plugin/spiceicotwitter.png" alt="' . PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER . ': ">';
+                $followme_widget = $this->createFollowMeWidget($twittername, $timeline_url_nofollow);
+                if ($smartify) {
+                    $eventData['spice_twitter_name'] = $twittername;
+                    $eventData['spice_twitter_url'] = $timeline_url;
+                    $eventData['spice_twitter_nofollow'] = $timeline_url_nofollow;
+                    $eventData['spice_twitter_icon_html'] = $twitter_icon_html;
+                    $eventData['spice_twitter_followme'] = $followme_widget;
                 }
                 else {
-                    $eventData['comment'] = '<a href="' . $timeline_url . '" class="commentspice_twitterlink" target="_blank"' . ($timeline_url_nofollow?' rel="nofollow"':'') . '>' . $twitter_icon_html .  ' ' . $twittername . '</a>' . '<br/>' . $eventData['comment'];
+                    if (serendipity_db_bool($this->get_config('followme_widget', false))) {
+                        $eventData['comment'] = $followme_widget . '<br/>' . $eventData['comment'];
+                    }
+                    else {
+                        $eventData['comment'] = '<a href="' . $timeline_url . '" class="commentspice_twitterlink" target="_blank"' . ($timeline_url_nofollow?' rel="nofollow"':'') . '>' . $twitter_icon_html .  ' ' . $twittername . '</a>' . '<br/>' . $eventData['comment'];
+                    }
                 }
             }
         }

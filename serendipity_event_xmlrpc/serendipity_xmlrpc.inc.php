@@ -502,7 +502,7 @@ function wp_getComments($message) {
     
     $limit = !empty($comment_filter['number'])?$comment_filter['number']:'10'; // defaults to 10
     if (!empty($comment_filter['offset'])) $limit = serendipity_db_limit($comment_filter['offset'], $limit); 
-    if (version_compare($serendipity['version'],'1.7-alpha1')>=0)
+    if (version_compare($serendipity['version'],'1.6.1')>=0)
         $order = ' co.timestamp DESC';
     else 
         $order = ' DESC'; //  old versions have a bug here producing wrong results

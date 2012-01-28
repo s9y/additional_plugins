@@ -94,7 +94,7 @@
 Additional to that the plugin adds the media files to the RSS feed in this way a RSS reader can interpret them as podcasts. (Keyword: Enclosure Tags).');
 
 @define('PLUGIN_PODCAST_USAGE_RSS', '
-To get RSS feeds of only specific filetypes, you can access/advertise a feed with a URL like http://' . $serendipity['baseURL'] . '/rss.php?version=2.0&podcast_format=ogg.
+To get RSS feeds of only specific filetypes, you can access/advertise a feed with a URL like ' . $serendipity['baseURL'] . '/rss.php?version=2.0&podcast_format=ogg.
 This will only put files with an "ogg" extension inside a feed. You can specify multiple formats separated by ",".
 '); 
 
@@ -109,7 +109,7 @@ This will only put files with an "ogg" extension inside a feed. You can specify 
 'In the archive you\'ll find the files flvplayer.swf and swfobject.js. Plesae copy them into the subdirectory player of this plugin. If the archive only contains "mediaplayer.*" files, please rename them to "flvplayer.*"</p>');
 
 @define('PLUGIN_PODCAST_ITUNES', 'iTunes XML markup');
-@define('PLUGIN_PODCAST_ITUNES_DESC', 'Enter the XML that is put into your RSS-Feed to be shown within iTunes. Requires Serendipity 1.6 and above to work.');
+@define('PLUGIN_PODCAST_ITUNES_DESC', 'Enter the XML that is put into your RSS-Feed to be shown within iTunes (see https://www.apple.com/itunes/podcasts/specs.html). Requires Serendipity 1.6 and above to work.');
 
 @define('PLUGIN_PODCAST_MERGEMULTI', 'Merge multiple HTML5 player elements');
 @define('PLUGIN_PODCAST_DOWNLOADLINK', 'Always add download link');

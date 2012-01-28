@@ -27,8 +27,12 @@
 
 @define('PLUGIN_EVENT_COMMENTSPICE_SMARTIFY_TWITTER', 'Twittername Ausgabe smartifizieren');
 @define('PLUGIN_EVENT_COMMENTSPICE_SMARTIFY_TWITTER_DESC', 'Wenn angeschaltet, wird CommentSpice keinen Code für den Twitterlink darstellen sondern wird benötigte Informationen in den Smarty Hash stecken. Damit das funktioniert, muss die comments.tpl angepasst werden. Verfügbare Variablen sind $comment.spice_twitter_name (Twittername, sollte auf Vorhandensein gecheckt werden), $comment.spice_twitter_url (URL der Twitter Timeline), $comment.spice_twitter_nofollow (Nofollow Einstllung für Twitterlinks), $comment.spice_twitter_icon_html (HTML, das das twitter icon darstellt), $comment.spice_twitter_followme (HTML, das das followme widget darstellt).');
+@define('PLUGIN_EVENT_COMMENTSPICE_PATCHEDINPUT_TWITTER', 'Kommentareditor Template wurde für Twittereingabe gepatched.');
+@define('PLUGIN_EVENT_COMMENTSPICE_PATCHEDINPUT_TWITTER_DESC', 'Wenn Dein commentform.tpl bereits gepatched wurde, um die Twitter Eingabe darzustellen, dann kannst Du diese Option einschalten. Ich habe dem Plugin Beispiel Templates beigefügt.');
 @define('PLUGIN_EVENT_COMMENTSPICE_SMARTIFY_RSS', 'Artikelbewerbung smartifizieren');
 @define('PLUGIN_EVENT_COMMENTSPICE_SMARTIFY_RSS_DESC', 'Wenn angeschaltet, wird CommentSpice keinen Code für die Artikelbewerbung darstellen sondern wird benötigte Informationen in den Smarty Hash stecken. Damit das funktioniert, muss die comments.tpl angepasst werden. Verfügbare Variablen sind $comment.spice_article_name (Name des Artikel, sollte auf Vorhandensein gecheckt werden). $comment.spice_article_url (Artikel URL), $comment.spice_article_nofollow (Nofollow Einstellung für Artikelbewerbung), $comment.spice_article_prefix (Prefix in der Sprache des Besuchers).');
+@define('PLUGIN_EVENT_COMMENTSPICE_PATCHEDINPUT_RSS', 'Kommentareditor Template wurde für Artikel Auswahl gepatched.');
+@define('PLUGIN_EVENT_COMMENTSPICE_PATCHEDINPUT_RSS_DESC', 'Wenn Dein commentform.tpl bereits gepatched wurde, um die Artikel Auswahl darzustellen, dann kannst Du diese Option einschalten. Ich habe dem Plugin Beispiel Templates beigefügt.');
 
 @define('PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK', 'Inhalt von Pingback Artikeln abholen');
 @define('PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK_DESC', 'Wenn ein anderes Blog ein Pingback auf einen Artikel dieses Blogs schickt, ist nur die URL des fremden Artikels bekannt. Serendipity kann jedoch den Inhalt des fremden Artikels abholen und darstellen, so wie es von Trackbacks bekannt ist. Aus Performance Gründen tut Serendipity dies jedoch nicht per default. Hiermit kann eine Einstellung in die serendipity_config_local.inc.php geschrieben werden, die Serendipity dazu veranlasst, den Inhalt abzuholen. Wenn der Wert hier unverändert bleibt, dann wurde die Einstellung bereits manuell vorgenommen und überschreibt die Einstellung des Plugins. In dem Fall muss der manuelle Eintrag aus der serendipity_config_local.inc.php wieder entfernt werden, wenn die Einstellung mit diesem Plugin verändert werden soll.');
@@ -39,6 +43,9 @@
 
 @define('PLUGIN_EVENT_COMMENTSPICE_PATH', 'Plugin Pfad');
 @define('PLUGIN_EVENT_COMMENTSPICE_PATH_DESC', 'In normalen Installationen ist der Default die korrekte Einstellung.');
+
+@define('PLUGIN_EVENT_COMMENTSPICE_EXPERTSETTINGS', 'Erweiterte Einstellungen anzeigen');
+@define('PLUGIN_EVENT_COMMENTSPICE_STANDARDSETTINGS', 'Grundeinstellungen anzeigen');
 
 @define('PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER', 'Auf Twitter lesen');
 @define('PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER_FOOTER', 'Wenn Du Deinen <b>Twitter Namen</b> eingibst wird Deine Timeline in Deinem Kommentar verlinkt.');

@@ -1,6 +1,7 @@
 var inputCommentEmail = document.getElementById("serendipity_commentform_email");
 var inputCommentUrl = document.getElementById("serendipity_commentform_url");
 var inputCommentText = document.getElementById("serendipity_commentform_comment");
+var submitPreview = document.getElementById("serendipity_preview");
 
 var lastUrlChecked = null;
 var lastEmailChecked = null;
@@ -62,14 +63,56 @@ function fetch_rss_ready(httpRequest){
 				}
 	        }
 	        divSelectRss.style.display='';
+	        reloadSelection();
         }
         lastUrlChecked = jsonResponse.url;
         lastEmailChecked = jsonResponse.email;
     }
 }
 
+function setCookie(c_name,value)
+{
+	var exdate=new Date();
+	var c_value=escape(value);
+	document.cookie=c_name + "=" + c_value;
+}
+function getCookie(c_name)
+{
+var i,x,y,ARRcookies=document.cookie.split(";");
+for (i=0;i<ARRcookies.length;i++)
+{
+  x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+  y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+  x=x.replace(/^\s+|\s+$/g,"");
+  if (x==c_name)
+    {
+    return unescape(y);
+    }
+  }
+}
+function rememberSelection() {
+	var selectRss = document.getElementById("serendipity_commentform_rss");
+	if (selectRss!=null) {
+		//alert("save: " + selectRss.value);
+		setCookie("commentspice[promo]",selectRss.value);
+	}
+	return true;
+}
+function reloadSelection() {
+	//alert("Reload");
+	var selectRss = document.getElementById("serendipity_commentform_rss");
+	if (selectRss!=null) {
+		cookieval = getCookie("commentspice[promo]");
+		if (cookieval!='') {
+			selectRss.value = cookieval;
+			//setCookie("promotevalue",'');
+		}
+	}
+}
+
 // Intialisation
 inputCommentEmail.onblur = fetch_rss;
 inputCommentUrl.onblur = fetch_rss;
 inputCommentText.onfocus = fetch_rss;
+submitPreview.onclick = rememberSelection;
 fetch_rss();

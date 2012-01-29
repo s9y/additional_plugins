@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>Documentation: Amazon Chooser</title>
+    </head>
+
+<body>
+    
+<h1>Qué hace este plugin</h1>
+
+<p>Amazon Chooser es un plugin de fundación para acceder a los servicios web de Amazon. Esto puede usarse para obtener información de 
+productos en venta en Amazon. Puedes usar esas piezas de información para enlazar a productos amazon,
+hacer sugerencias o incluso dar un empujón a tu negocio de afiliado como partner de Amazon</p>
+
+<p>Este plugin añadirá un botón personal al gestor de entradas de serendipity. Cuando crees una nueva entrada, veras
+un botón extra que te permite elegir de la lista de productos de amazon, y al final adjuntar el producto seleccionado
+en amazon a tu entrada en el blog.</p>
+
+<h1>Requisitos</h1>
+
+<p>Para usar este plugin, necesitarás una clave del API de Amazon, y tu firewall/servidor web tiene que tener permitido
+conectar a los servidores de Amazon. Este plugin necesita Serendipity 1.4.1 o posterior, para que pueda registrar los botones
+personales de la barra de herramientas facilmente,</p>
+    
+<h2>Solicita la clave del API de Amazon</h2>
+
+<p>Una clave de API es una cadena única que recibes de Amazon para identificarte a tí y a tu blog. Esto les permite
+rastrar tus referencias, posibles acciones de afiliado y uso del tráfico. Asegúrate de leer las condiciones de uso de Amazon para
+ver lo que puedes hacer y lo que no con su API.</p>
+
+<p>Anteriormente, Amazon no requería usar tu clave personal de API. Desde el 15 de agosto de 2009, es un requisito indispensable
+para poder usar la base de datos de Amazon.</p>
+
+
+<p>Para solicitar una clave del API de Amazon, visita el sitio <a href="http://aws.amazon.com/">aws.Amazon.com</a> y <a href="http://www.amazon.com/gp/aws/registration/registration-form.html">regístrate</a>. Necesitarán tu nombre, dirección de e-mail e información de contacto.</p>
+
+<p>Tras el registro, puedes encontrar tus credenciales de acceso en "Identificadores de acceso" en esta subpágina (<a href="https://aws-portal.amazon.com/gp/aws/developer/account/index.html?ie=UTF8&action=access-key">enlace directo</a>).</p>
+
+<p>Para solicitar un ID de afiliado (el programa de marketing de afiliados) tienes que visitar el <a href="https://affiliate-program.amazon.com/gp/associates/apply/main.html">sitio web dedicado de Amazon ("Amazon.com Associates Central")</a> y registrarte ahí también. La clave también puede encontrarse en la página de tu cuenta de afiliado.</p>
+
+<h1>Instalando el Plugin</h1>
+
+<p>El plugin para serendipity Amazon-Chooser puede instalarse generalmente usando Spartacus, o poniendo el plugin dentro del
+subdirectorio "plugins/", e instalándolo mediante la suite de administración de serendipity en la configuración de extensiones, haciendo
+click en "Click aquí para instalar una nueva extensión de evento"</p>
+
+<p>Una vez instalado, puedes configurar la extensión haciendo click en su título en el listad dentro de la configuración de extensiones. Tendrás
+que configurar unas cuantas cosas:</p>
+    
+<h2>Configuración de plugin</h2>
+
+<ol>
+    <li><strong>Número de clave de acceso de desarrollador</strong><br />
+    Es tu clave global que identifica cada petición a Amazon. Su aspecto es similar a: XKIAIEKPOU3U4MLELLQA. La puedes encontrar en la página principal de Amazon AWS (Amazon Web Services) en la página "Identificadores de acceso.</li>
+
+    <li>Clave de acceso secreta de desarrollador</strong><br />
+	La clave secreta es como un password que necesitas para autenticarte. Puede encontrarse bajo la clave de acceso de desarrollador en el sitio de Amazon. La primera vez que quieras usarla, puedes generarla en el sitio de Amazon, o hacer click en el botón "Mostrar" para mostrar el valor existente.</li>
+
+    <li><strong>ID de seguimiento de afiliados de Amazon</strong><br />
+    Tu ID de asociado es importante para añadir cualquier enlace a los productos de Amazon, para que puedas ser pagado mediante el programa
+de Partner/Afiliados. Tu ID puede encontrarse en el sitio del Programa de Afiliados de Amazon.</li>
+
+    <li><strong>Servidor por defecto</strong><br />
+    Con esto eliges a qué servidor se dirige a la gente cuando anuncias productos de Amazon.</li>
+</ol>
+
+<h1>Uso</h1>
+
+<p>Cuando creas una entrada en el blog, puedes hacer clock en el botón de Amazon Media (también en el modo WYSIWYG) para abrir un popup. Ahí puedes
+buscar un libro o un producto específico, y tener una lista de resultados de búsqueda. En esa página, puedes elegir el item a mostrar. Una vez
+hiciste esto, y confirmaste tu elección, se introducirá en la entrada del blog con una marca como:</p>
+
+<p><strong>[amazon_chooser]32423434X,Books[/amazon_chooser]</strong></p>
+    
+<p>Esta marca se reemplazará con la información de producto de amazon cuando los visitantes vean tu blog. Esto se hace automáticamente,
+así que los precios etcétera se actualizan automáticamente. Puedes insertar también una línea de marcado como esta manualmente en tu entrada del blog, si ya conoces el ASIN.</p>
+
+<p>Los resultados de la petición a Amazon se mantienen en caché por una hora. Los resultados de púsqueda en el backend se guardan en caché por 12 horas. Si quieres purgar tu caché, simplemente elimina todos los archivos dentro del directorio templates_c/amazonchooser/
+    WYSIWYG
+</body>        

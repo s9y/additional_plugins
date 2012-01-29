@@ -1,7 +1,8 @@
-latest (0.70): 
+latest (0.71): 
 Update to 2011-08-01 version of Amazon Product Advertising API
 Added Spain, Italy and China server endpoints
-Thanks to Luis Sieira for help!
+Thanks to Luis Sieira for help and for the Spanish translation!
+
  Version .6
  Smarty3 forward compatibility
 

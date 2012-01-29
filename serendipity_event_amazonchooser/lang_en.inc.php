@@ -23,6 +23,9 @@
 @define('PLUGIN_EVENT_AMAZONCHOOSER_US', 'United States');
 @define('PLUGIN_EVENT_AMAZONCHOOSER_CA', 'Canada');
 @define('PLUGIN_EVENT_AMAZONCHOOSER_FR', 'France');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_CN', 'China');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_IT', 'Italy');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_ES', 'Spain');
 @define('PLUGIN_EVENT_AMAZONCHOOSER_SEARCH', 'Search');
 @define('PLUGIN_EVENT_AMAZONCHOOSER_SEARCH_DESC', 'Enter a keyword to search for:');
 @define('PLUGIN_EVENT_AMAZONCHOOSER_CLICK', 'Click on the item you are searching for:');
@@ -112,6 +115,16 @@
 @define('PLUGIN_EVENT_AMAZONCHOOSER_WATCHES','Watches');
 @define('PLUGIN_EVENT_AMAZONCHOOSER_WIRELESS','Wireless');
 @define('PLUGIN_EVENT_AMAZONCHOOSER_WIRELESSACC','Wireless Accessories');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_APPLIANCES','Applicances');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_ARTSANDCRAFTS','Arts and Crafts');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_BLENDED','Blended');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_GARDEN','Garden');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_HOME','Home');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_MARKETPLACE','Marketplace');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_MISC','Misc');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_MOBILEAPP','Mobile App');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_OUTLET','Outlet');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_UNBOXVIDEO','Unbox Video');
 @define('PLUGIN_EVENT_AMAZONCHOOSER_INVALIDINDEX','Invalid Index');
 @define('PLUGIN_EVENT_AMAZONCHOOSER_NORESULTS','No results were returned.');
 @define('PLUGIN_EVENT_AMAZONCHOOSER_NORESULTS_DESC','No results were returned from Amazon.  Please try the search again with different keywords.');

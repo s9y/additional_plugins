@@ -4,6 +4,7 @@ function Amazon_country_code($country)  {
        case 'ca':
            $country_url = "http://ecs.amazonaws.ca/onca/xml";
            $mode = array (
+                'Blended',
                 'Books',
                 'Classical',
                 'DigitalMusic',
@@ -25,33 +26,85 @@ function Amazon_country_code($country)  {
                 'Automotive',
                 'Baby',
                 'Books',
+                'Beauty',
+                'Blended',
                 'Classical',
                 'DVD',
                 'Electronics',
                 'ForeignBooks',
+                'Grocery',
                 'HealthPersonalCare',
                 'HomeGarden',
                 'HomeImprovement',
+                'Jewelry',
                 'Kitchen',
+                'Lighting',
                 'Magazines',
+                'Marketplace',
                 'MP3Downloads',
                 'Music',
+                'MusicalInstruments',
                 'MusicTracks',
+                'OfficeProducts',
                 'OutdoorLiving',
+                'Outlet',
                 'PCHardware',
                 'Photo',
+                'Shoes',
                 'Software',
                 'SoftwareVideoGames',
                 'SportingGoods',
                 'Tools',
                 'Toys',
                 'VHS',
-                'VideoGames'
+                'Video',
+                'VideoGames',
+                'Watches'
           );
           break;
+         case 'jp':
+            $country_url = "http://ecs.amazonaws.jp/onca/xml";
+            $mode = array (
+                'Apparel',
+                'Automotive',
+                'Baby',
+                'Beauty',
+                'Blended',
+                'Books',
+                'Classical',
+                'DVD',
+                'Electronics',
+                'ForeignBooks',
+                'Grocery',
+                'HealthPersonalCare',
+                'Hobbies',
+                'HomeImprovement',
+                'Jewelry',
+                'Kitchen',
+                'Marketplace',
+                'MP3Downloads',
+                'Music',
+                'MusicalInstruments',
+                'MusicTracks',
+                'OfficeProducts',
+                'Shoes',
+                'Software',
+                'SportingGoods',
+                'Toys',
+                'VHS',
+                'Video',
+                'VideoGames',
+                'Wireless',
+                'WirelessAccessories'
+         );
+         break;
          case 'fr':
             $country_url = "http://ecs.amazonaws.fr/onca/xml";
             $mode = array (
+                'Apparel',
+                'Baby',
+                'Beauty',
+                'Blended',
                 'Books',
                 'Classical',
                 'DVD',
@@ -60,57 +113,54 @@ function Amazon_country_code($country)  {
                 'HealthPersonalCare',
                 'Jewelry',
                 'Kitchen',
+                'Lighting',
                 'MP3Downloads',
                 'Music',
+                'MusicalInstruments',
                 'MusicTracks',
+                'OfficeProducts',
+                'PCHardware',
+                'Shoes',
                 'Software',
                 'SoftwareVideoGames',
-                'Toys',
-                'VHS',
-                'Video',
-                'VideoGames'
-         );
-         break;
-         case 'jp':
-            $country_url = "http://ecs.amazonaws.jp/onca/xml";
-            $mode = array (
-                'Apparel',
-                'Baby',
-                'Books',
-                'Classical',
-                'DVD',
-                'Electronics',
-                'ForeignBooks',
-                'HealthPersonalCare',
-                'Hobbies',
-                'Kitchen',
-                'Music',
-                'MusicTracks',
-                'Software',
                 'SportingGoods',
                 'Toys',
                 'VHS',
                 'Video',
-                'VideoGames'
+                'VideoGames',
+                'Watches'
          );
          break;
          case 'uk':
             $country_url = "http://ecs.amazonaws.co.uk/onca/xml";
             $mode = array (
                 'Apparel',
+                'Automotive',
                 'Baby',
                 'Books',
+                'Beauty',
+                'Blended',
                 'Classical',
                 'DVD',
                 'Electronics',
+                'Grocery',
                 'HealthPersonalCare',
                 'HomeGarden',
+                'HomeImprovement',
+                'Jewelry',
+				'KindleStore',
                 'Kitchen',
+                'Lighting',
+                'Marketplace',
                 'MP3Downloads',
                 'Music',
-          'MusicTracks',
+                'MusicalInstruments',
+                'MusicTracks',
                 'OfficeProducts',
                 'OutdoorLiving',
+                'Outlet',
+                'PCHardware',
+                'Shoes',
                 'Software',
                 'SoftwareVideoGames',
                 'SportingGoods',
@@ -118,17 +168,81 @@ function Amazon_country_code($country)  {
                 'Toys',
                 'VHS',
                 'Video',
-                'VideoGames'
+                'VideoGames',
+                'Watches'
          );
          break;
+           case 'es':
+           $country_url = "http://webservices.amazon.es/onca/xml";
+           $mode = array (
+                'Books',
+                'DVD',
+                'Electronics',
+                'ForeignBooks',
+                'Kitchen',
+                'Music',
+                'Software',
+                'Toys',
+                'VideoGames',
+                'Watches'
+          );
+         break;
+         case 'it':
+           $country_url = "http://webservices.amazon.it/onca/xml";
+           $mode = array (
+                'Books',
+                'DVD',
+                'Electronics',
+                'ForeignBooks',
+                'Garden',
+                'Kitchen',
+                'Music',
+                'Shoes',
+                'Software',
+                'Toys',
+                'VideoGames',
+                'Watches'
+          );
+         break;
+         case 'cn':
+           $country_url = "http://webservices.amazon.cn/onca/xml";
+           $mode = array (
+                'Apparel',
+				'Appliances',
+                'Automotive',
+                'Baby',
+                'Books',
+                'Beauty',
+                'Electronics',
+                'Grocery',
+                'HealthPersonalCare',
+                'Home',
+                'HomeImprovement',
+                'Jewelry',
+                'Miscellaneous',
+                'Music',
+                'OfficeProducts',
+                'Photo',
+                'Shoes',
+                'Software',
+                'SportingGoods',
+                'Toys',
+                'Video',
+                'VideoGames',
+                'Watches'
+          );
+          break;
          case 'us':
          default:
             $country_url = "http://ecs.amazonaws.com/onca/xml";
             $mode = array (
                 'Apparel',
+                'Appliances',
+                'ArtsAndCrafts',
                 'Automotive',
                 'Baby',
                 'Beauty',
+                'Blended',
                 'Books',
                 'Classical',
                 'DigitalMusic',
@@ -143,11 +257,15 @@ function Amazon_country_code($country)  {
                 'KindleStore',
                 'Kitchen',
                 'Magazines',
+                'Marketplace',
+                'Miscellaneous',
+                'MobileApps',
                 'MP3Downloads',
                 'Music',
                 'MusicalInstruments',
                 'MusicTracks',
                 'OfficeProducts',
+                'OutdoorLiving',
                 'PetSupplies',
                 'OutdoorLiving',
                 'PCHardware',
@@ -157,9 +275,11 @@ function Amazon_country_code($country)  {
                 'SportingGoods',
                 'Tools',
                 'Toys',
+                'UnboxVideo',
                 'VHS',
                 'Video',
                 'VideoGames',
+                'Watches',
                 'Wireless',
                 'WirelessAccessories'
        );
@@ -171,18 +291,23 @@ function Amazon_return_mode_array() {
    $mode_names = array (
        'Apparel' => constant('PLUGIN_EVENT_AMAZONCHOOSER_APPAREL'),
        'Automotive' => constant('PLUGIN_EVENT_AMAZONCHOOSER_AUTO'),
+       'Appliances' => constant('PLUGIN_EVENT_AMAZONCHOOSER_APPLIANCES'),
+       'ArtsAndCrafts' => constant('PLUGIN_EVENT_AMAZONCHOOSER_ARTSANDCRAFTS'),
        'Baby' => constant('PLUGIN_EVENT_AMAZONCHOOSER_BABY'),
        'Beauty' => constant('PLUGIN_EVENT_AMAZONCHOOSER_BEAUTY'),
+       'Blended' => constant('PLUGIN_EVENT_AMAZONCHOOSER_BLENDED'),
        'Books' => constant('PLUGIN_EVENT_AMAZONCHOOSER_BOOKS'),
        'Classical' => constant('PLUGIN_EVENT_AMAZONCHOOSER_CLASSICALMUSIC'),
        'DigitalMusic' => constant('PLUGIN_EVENT_AMAZONCHOOSER_DIGITALMUSIC'),
        'DVD' => constant('PLUGIN_EVENT_AMAZONCHOOSER_DVD'),
        'Electronics' => constant('PLUGIN_EVENT_AMAZONCHOOSER_ELECTRONICS'),
        'ForeignBooks' => constant('PLUGIN_EVENT_AMAZONCHOOSER_FOREIGNBOOKS'),
+       'Garden' => constant('PLUGIN_EVENT_AMAZONCHOOSER_GARDEN'),
        'GourmetFood' => constant('PLUGIN_EVENT_AMAZONCHOOSER_GORMETFOOD'),
        'Grocery' => constant('PLUGIN_EVENT_AMAZONCHOOSER_GROCERY'),
        'HealthPersonalCare' => constant('PLUGIN_EVENT_AMAZONCHOOSER_HEALTH'),
        'Hobbies' => constant('PLUGIN_EVENT_AMAZONCHOOSER_HOBBIES'),
+       'Home' => constant('PLUGIN_EVENT_AMAZONCHOOSER_HOME'),
        'HomeGarden' => constant('PLUGIN_EVENT_AMAZONCHOOSER_HOMEGARDEN'),
        'HomeImprovement' => constant('PLUGIN_EVENT_AMAZONCHOOSER_HOMEIMPROVE'),
        'Industrial' => constant('PLUGIN_EVENT_AMAZONCHOOSER_INDUSTRIAL'),
@@ -190,14 +315,18 @@ function Amazon_return_mode_array() {
        'KindleStore' => constant('PLUGIN_EVENT_AMAZONCHOOSER_KINDLESTORE'),
        'Kitchen' => constant('PLUGIN_EVENT_AMAZONCHOOSER_KITCHEN'),
        'Magazines' => constant('PLUGIN_EVENT_AMAZONCHOOSER_MAGAZINE'),
+       'Marketplace' => constant('PLUGIN_EVENT_AMAZONCHOOSER_MARKETPLACE'),
+       'Miscellaneous' => constant('PLUGIN_EVENT_AMAZONCHOOSER_MISC'),
+       'MobileApps' => constant('PLUGIN_EVENT_AMAZONCHOOSER_MOBILEAPP'),
        'MP3Downloads' => constant('PLUGIN_EVENT_AMAZONCHOOSER_MP3DOWNLOADS'),
        'Music' => constant('PLUGIN_EVENT_AMAZONCHOOSER_MUSIC'),
        'MusicalInstruments' => constant('PLUGIN_EVENT_AMAZONCHOOSER_MUSICALINST'),
        'MusicTracks' => constant('PLUGIN_EVENT_AMAZONCHOOSER_MUSICTRACKS'),
        'OfficeProducts' => constant('PLUGIN_EVENT_AMAZONCHOOSER_OFFICEPROD'),
-       'PetSupplies' => constant('PLUGIN_EVENT_AMAZONCHOOSER_PETS'),
        'OutdoorLiving' => constant('PLUGIN_EVENT_AMAZONCHOOSER_OUTDOOR'),
+       'Outlet' => constant('PLUGIN_EVENT_AMAZONCHOOSER_OUTLET'),
        'PCHardware' => constant('PLUGIN_EVENT_AMAZONCHOOSER_COMPUTERS'),
+       'PetSupplies' => constant('PLUGIN_EVENT_AMAZONCHOOSER_PETS'),
        'Photo' => constant('PLUGIN_EVENT_AMAZONCHOOSER_PHOTO'),
        'Shoes' => constant('PLUGIN_EVENT_AMAZONCHOOSER_SHOES'),
        'Software' => constant('PLUGIN_EVENT_AMAZONCHOOSER_SOFTWARE'),
@@ -205,6 +334,7 @@ function Amazon_return_mode_array() {
        'SportingGoods' => constant('PLUGIN_EVENT_AMAZONCHOOSER_SPORTGOODS'),
        'Tools' => constant('PLUGIN_EVENT_AMAZONCHOOSER_TOOLS'),
        'Toys' => constant('PLUGIN_EVENT_AMAZONCHOOSER_TOYS'),
+       'UnboxVideo' => constant('PLUGIN_EVENT_AMAZONCHOOSER_UNBOXVIDEO'),
        'VHS' => constant('PLUGIN_EVENT_AMAZONCHOOSER_VHS'),
        'Video' => constant('PLUGIN_EVENT_AMAZONCHOOSER_VIDEO'),
        'VideoGames' => constant('PLUGIN_EVENT_AMAZONCHOOSER_COMPUTERGAMES'),
@@ -432,7 +562,7 @@ function buildSignedAmazonRequest($parameters,$server,$secret) {
 
 function Amazon_SearchItems ($AWSAccessKey,$AssociateTag,$secretKey,$SearchIndex,$keywords,$country_url,$page) {
    $params["ItemPage"] = $page;
-   $params["Version"] = "2009-01-06";
+   $params["Version"] = "2011-08-01";
    $params["Timestamp"] = gmdate("Y-m-d\TH:i:s\Z");
    $params["ResponseGroup"]  =  "Medium";
    $params["AWSAccessKeyId"] = $AWSAccessKey;
@@ -449,7 +579,7 @@ function Amazon_SearchItems ($AWSAccessKey,$AssociateTag,$secretKey,$SearchIndex
 }
 
 function Amazon_ItemLookup ($AWSAccessKey,$AssociateTag,$secretKey,$SearchIndex,$ASIN,$country_url) {
-   $params["Version"] = "2009-01-06";
+   $params["Version"] = "2011-08-01";
    $params["Timestamp"] = gmdate("Y-m-d\TH:i:s\Z");
    $params["ResponseGroup"]  =  "Medium,OfferFull";
    $params["AWSAccessKeyId"] = $AWSAccessKey;

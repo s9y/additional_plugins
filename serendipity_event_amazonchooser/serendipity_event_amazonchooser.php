@@ -28,7 +28,7 @@ class serendipity_event_amazonchooser extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_AMAZONCHOOSER_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Matthew Groeninger');
-        $propbag->add('version',       '0.60');
+        $propbag->add('version',       '0.70');
         $propbag->add('requirements',  array(
             'serendipity' => '1.4',
             'smarty'      => '2.6.7',
@@ -91,8 +91,8 @@ class serendipity_event_amazonchooser extends serendipity_event
                 $propbag->add('name', PLUGIN_EVENT_AMAZONCHOOSER_SERVER);
                 $propbag->add('description', PLUGIN_EVENT_AMAZONCHOOSER_SERVER_DESC);
                 $propbag->add('radio',         array(
-                    'value' => array('ca','de','fr', 'jp', 'uk', 'us'),
-                    'desc'  => array(PLUGIN_EVENT_AMAZONCHOOSER_CA,PLUGIN_EVENT_AMAZONCHOOSER_GERMANY,PLUGIN_EVENT_AMAZONCHOOSER_FR,PLUGIN_EVENT_AMAZONCHOOSER_JAPAN,PLUGIN_EVENT_AMAZONCHOOSER_UK,PLUGIN_EVENT_AMAZONCHOOSER_US)
+                    'value' => array('ca', 'cn', 'de', 'es', 'fr', 'it', 'jp', 'uk', 'us'),
+                    'desc'  => array(PLUGIN_EVENT_AMAZONCHOOSER_CA,PLUGIN_EVENT_AMAZONCHOOSER_CN,PLUGIN_EVENT_AMAZONCHOOSER_GERMANY,PLUGIN_EVENT_AMAZONCHOOSER_ES,PLUGIN_EVENT_AMAZONCHOOSER_FR,PLUGIN_EVENT_AMAZONCHOOSER_IT,PLUGIN_EVENT_AMAZONCHOOSER_JAPAN,PLUGIN_EVENT_AMAZONCHOOSER_UK,PLUGIN_EVENT_AMAZONCHOOSER_US)
                 ));
                 $propbag->add('radio_per_row', '1');
                 $propbag->add('default', 'us');

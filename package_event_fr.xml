@@ -1681,9 +1681,9 @@
 <description>Ajoute des moyens pour le &quot;podcasting&quot; (RSS, boutons video/audio)</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Hannes Gassert, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.32</version>
+  <version>1.33</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2012-01-29</date>
   <filelist>
 <dir name="serendipity_event_podcast">
 <dir name="UTF-8">

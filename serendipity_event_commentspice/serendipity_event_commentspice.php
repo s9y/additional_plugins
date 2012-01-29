@@ -55,6 +55,9 @@ class serendipity_event_commentspice extends serendipity_event
         $config_announce = array('title_announcerss', 'announcerss', 'announcerssmax');
         $config_announce_expert = array('announcersscachemin','announcerss_nofollow','smartifyannouncerss','inputpatched_rss');
         
+        $config_rules = array('title_rules', 'rule_extras_commentcount', 'rule_extras_commentlength');
+        $config_rules_extra = array('rule_dofollow_commentcount', 'rule_dofollow_commentlength');
+        
         $config_general = array('title_general');
         if (!class_exists('serendipity_event_spamblock')) { // Only do that, if spamblock is not installed.
             $config_general[] = 'required_fields';
@@ -66,10 +69,10 @@ class serendipity_event_commentspice extends serendipity_event
         
         $open_expert_setting = isset($_GET['pluginexpert']);
         if ($open_expert_setting) {
-            $configuration = array_merge($config_switchexpert,$config_twitter, $config_twitter_expert, $config_announce, $config_announce_expert, $config_general, $config_general_expert);
+            $configuration = array_merge($config_switchexpert,$config_twitter, $config_twitter_expert, $config_announce, $config_announce_expert, $config_rules, $config_rules_extra,  $config_general, $config_general_expert);
         }
         else {
-            $configuration = array_merge($config_switchexpert,$config_twitter, $config_announce, $config_general);
+            $configuration = array_merge($config_switchexpert,$config_twitter, $config_announce, $config_rules, $config_general);
         }
         $propbag->add('configuration', $configuration );
     }
@@ -81,6 +84,12 @@ class serendipity_event_commentspice extends serendipity_event
     function introspect_config_item($name, &$propbag)
     {
         global $serendipity;
+        
+        $yesnorules = array(
+            "enabled" => PLUGIN_EVENT_COMMENTSPICE_ENABLED,
+            "disabled" => PLUGIN_EVENT_COMMENTSPICE_DISABED,
+            "rules" => PLUGIN_EVENT_COMMENTSPICE_RULES,
+        );
         switch($name) {
             case 'expert_switch':
                 $actConfigUrl = $_SERVER["REQUEST_URI"];
@@ -98,17 +107,24 @@ class serendipity_event_commentspice extends serendipity_event
                 $propbag->add('type',           'content');
                 $propbag->add('default',        $htmlswitchline);
                 break;
+
+            case 'title_twitter':
+                $propbag->add('type', 'content');
+                $propbag->add('default',   '<h3>' . PLUGIN_EVENT_COMMENTSPICE_CONFIG_TWITTERNAME .'</h3>');
+                break;
             case 'twitterinput':
-                $propbag->add('type',        'boolean');
+                $propbag->add('type',       'select');
                 $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_TWITTERINPUT);
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_TWITTERINPUT_DESC);
-                $propbag->add('default',     true);
+                $propbag->add('select_values', $yesnorules);
+                $propbag->add('default',     'enabled');
                 break;
             case 'twitterinput_nofollow':
-                $propbag->add('type',        'boolean');
+                $propbag->add('type',       'select');
                 $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_TWITTERINPUT_NOFOLLOW);
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_TWITTERINPUT_NOFOLLOW_DESC);
-                $propbag->add('default',     true);
+                $propbag->add('select_values', $yesnorules);
+                $propbag->add('default',     'enabled');
                 break;
             case 'followme_widget':
                 $propbag->add('type', 'boolean');
@@ -128,17 +144,24 @@ class serendipity_event_commentspice extends serendipity_event
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_FOLLOWME_WIDGET_DARK_DESC);
                 $propbag->add('default', false);
                 break;
+
+            case 'title_announcerss':
+                $propbag->add('type', 'content');
+                $propbag->add('default',   '<br/><h3>' . PLUGIN_EVENT_COMMENTSPICE_CONFIG_ANNOUNC_RSS .'</h3>');
+                break;
             case 'announcerss':
-                $propbag->add('type',        'boolean');
+                $propbag->add('type',       'select');
                 $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS);
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_DESC);
-                $propbag->add('default',     false);
+                $propbag->add('select_values', $yesnorules);
+                $propbag->add('default',     'disabled');
                 break;
             case 'announcerss_nofollow':
-                $propbag->add('type',        'boolean');
+                $propbag->add('type',       'select');
                 $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_NOFOLLOW);
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_NOFOLLOW_DESC);
-                $propbag->add('default',     false);
+                $propbag->add('select_values', $yesnorules);
+                $propbag->add('default',     'disabled');
                 break;
             case 'announcerssmax':
                 $propbag->add('type',        'string');
@@ -176,6 +199,40 @@ class serendipity_event_commentspice extends serendipity_event
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_PATCHEDINPUT_RSS_DESC);
                 $propbag->add('default',     false);
                 break;
+                
+            case 'title_rules':
+                $propbag->add('type', 'content');
+                $propbag->add('default',   '<br/><h3>' . PLUGIN_EVENT_COMMENTSPICE_CONFIG_RULES .'</h3>');
+                break;
+            case 'rule_extras_commentcount':
+                $propbag->add('type', 'string');
+                $propbag->add('name', PLUGIN_EVENT_COMMENTSPICE_RULE_EXTRAS_COMMENTCOUNT);
+                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_RULE_EXTRAS_COMMENTCOUNT_DESC);
+                $propbag->add('default', 0);
+                break;
+            case 'rule_extras_commentlength':
+                $propbag->add('type', 'string');
+                $propbag->add('name', PLUGIN_EVENT_COMMENTSPICE_RULE_EXTRAS_COMMENTLENGTH);
+                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_RULE_EXTRAS_COMMENTLENGTH_DESC);
+                $propbag->add('default', 0);
+                break;
+            case 'rule_dofollow_commentcount':
+                $propbag->add('type', 'string');
+                $propbag->add('name', PLUGIN_EVENT_COMMENTSPICE_RULE_DOFOLLOW_COMMENTCOUNT);
+                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_RULE_DOFOLLOW_COMMENTCOUNT_DESC);
+                $propbag->add('default', 0);
+                break;
+            case 'rule_dofollow_commentlength':
+                $propbag->add('type', 'string');
+                $propbag->add('name', PLUGIN_EVENT_COMMENTSPICE_RULE_DOFOLLOW_COMMENTLENGTH);
+                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_RULE_DOFOLLOW_COMMENTLENGTH_DESC);
+                $propbag->add('default', 0);
+                break;
+                
+            case 'title_general':
+                $propbag->add('type', 'content');
+                $propbag->add('default',   '<br/><h3>' . PLUGIN_EVENT_COMMENTSPICE_CONFIG_GENERAL .'</h3>');
+                break;
             case 'required_fields':
                 $propbag->add('type', 'string');
                 $propbag->add('name', PLUGIN_EVENT_COMMENTSPICE_REQUIRED_FIELDS);
@@ -187,18 +244,6 @@ class serendipity_event_commentspice extends serendipity_event
                 $propbag->add('name', PLUGIN_EVENT_COMMENTSPICE_PATH);
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_PATH_DESC);
                 $propbag->add('default', $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_commentspice/');
-                break;
-            case 'title_announcerss':
-                $propbag->add('type', 'content');
-                $propbag->add('default',   '<h3>' . PLUGIN_EVENT_COMMENTSPICE_CONFIG_ANNOUNC_RSS .'</h3>');
-                break;
-            case 'title_twitter':
-                $propbag->add('type', 'content');
-                $propbag->add('default',   '<h3>' . PLUGIN_EVENT_COMMENTSPICE_CONFIG_TWITTERNAME .'</h3>');
-                break;
-            case 'title_general':
-                $propbag->add('type', 'content');
-                $propbag->add('default',   '<h3>' . PLUGIN_EVENT_COMMENTSPICE_CONFIG_GENERAL .'</h3>');
                 break;
             case 'fetchPingback':
                 $fetchPingbackValues = array (
@@ -246,7 +291,7 @@ class serendipity_event_commentspice extends serendipity_event
                             echo file_get_contents(dirname(__FILE__). '/img/commentspice.png');
                             break;
                         case 'commentspicefrss':
-                            if (!serendipity_db_bool($this->get_config('announcerss', false))) break;
+                            //if (!serendipity_db_bool($this->get_config('announcerss', false))) break;
                             $this->readRss();
                             break;
                     }
@@ -304,6 +349,16 @@ class serendipity_event_commentspice extends serendipity_event
         if (!is_numeric($announcersscachemin)) {
             $this->set_config('announcersscachemin',90);
         }
+        
+        // Asure numeric inputs for rule settings
+        $config_rules = array('rule_extras_commentcount','rule_extras_commentlength', 'rule_dofollow_commentcount', 'rule_dofollow_commentlength');
+        foreach($config_rules as $config_rule) {
+            $check = $this->get_config($config_rule,0);
+            if (!is_numeric($check)) {
+                $this->set_config($check,0);
+            }
+        }
+        
         // clear cache
         $cacheDir = dirname($this->cacheRssFilename("doesntmatter"));
         if (is_dir($cacheDir) && $handle = opendir($cacheDir)) {
@@ -319,14 +374,15 @@ class serendipity_event_commentspice extends serendipity_event
     function printHeader() {
         global $serendipity;
         
-        if (serendipity_db_bool($this->get_config('announcerss',false)))
+        if ($this->get_config('announcerss','disabled')!='disabled')
         {
 
             $path = $this->path = $this->get_config('plugin_path', $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_commentspice/');
-    
+            $announce_changedby_email = ('rules' == $this->get_config('announcerss', 'disabled') && $this->get_config('rule_extras_commentcount',0))?'true':'false';
             echo "
 <script>
     var comentspice_fetchrss = '{$serendipity['baseURL']}index.php?/plugin/commentspicefrss';
+    var comentspice_fetchrss_emailchanges = $announce_changedby_email;
     var s9yCharset = '".LANG_CHARSET."';
     </script>
 <script type=\"text/javascript\" src=\"{$path}frontend_commentspice.js\"></script>
@@ -344,6 +400,9 @@ class serendipity_event_commentspice extends serendipity_event
         if ("NORMAL" == $addData['type']) { // only supported for normal comments
             $promo_name = null;
             $promo_url = null;
+            
+            // I save no matter what the rules say, bt wont display later.
+            $twittername = $serendipity['POST']['twitter'];
             if (isset($serendipity['POST']['promorss']) && !empty($serendipity['POST']['promorss'])) {
                 $promorss = $serendipity['POST']['promorss'];
                 $parts = explode("\n", $promorss);
@@ -353,11 +412,73 @@ class serendipity_event_commentspice extends serendipity_event
                 if (!$this->hashString($promo_name.$promo_url) == $promo_hash) return false;
                 
             }
-            $result = DbSpice::saveCommentSpice($addData['comment_cid'], $serendipity['POST']['twitter'], $promo_name, $promo_url);
+            $result = DbSpice::saveCommentSpice($addData['comment_cid'], $twittername, $promo_name, $promo_url);
             $this->rememberInputs();
         }
         return true;
     }
+    
+    function checkRules($email, $comment, $checkCommentLength=true, $checknofollow=false) {
+        $rule_twitter = $this->get_config('twitterinput', 'enabled');
+        $rule_announce= $this->get_config('announcerss', 'disabled');
+        $rule_twitter_nofollow = $this->get_config('twitterinput_nofollow', 'enabled');
+        $rule_announce_nofollow = $this->get_config('announcerss_nofollow', 'disabled');
+        $this->log("anf:$rule_announce_nofollow, tnf:$rule_twitter_nofollow");
+        
+        $result = array();
+        $result['allow_twitter'] = $rule_twitter!='disabled';
+        $result['allow_announce'] = $rule_announce!='disabled';
+        $result['nofollow_twitter'] = $rule_twitter_nofollow=='enabled';
+        $result['nofollow_announce'] = $rule_announce_nofollow=='enabled';
+        
+        $commentcount = -1;
+        if ('rules' == $rule_announce || 'rules' == $rule_twitter) {
+            // Check for comment length
+            if ($checkCommentLength) {
+                $rule_commentlenght = (int)$this->get_config('rule_extras_commentlength',0);
+                $commentlen = empty($comment)?0:strlen($comment);
+                $comment_enough = $commentlen>= $rule_commentlenght;
+                if ('rules' == $rule_twitter) $result['allow_twitter'] = $result['allow_twitter'] &&  $comment_enough;
+                if ('rules' == $rule_announce) $result['allow_announce'] = $result['allow_announce'] &&  $comment_enough;
+                
+            }
+
+            // Check for comment count
+            $rule_commentcount = (int)$this->get_config('rule_extras_commentcount',0);
+            if ($rule_commentcount>0) {
+                $commentcount = DbSpice::countComments($email);
+                $more_comments = (int)$commentcount >= $rule_commentcount;
+                if ('rules' == $rule_twitter) $result['allow_twitter'] = $result['allow_twitter'] &&  $more_comments;
+                if ('rules' == $rule_announce) $result['allow_announce'] = $result['allow_announce'] &&  $more_comments;
+            }
+        }
+        
+        if ($checknofollow && ('rules' == $rule_announce_nofollow || 'rules' == $rule_twitter_nofollow)) {
+            // Check for comment length
+            if ($checkCommentLength) {
+                $rule_commentlenght = (int)$this->get_config('rule_dofollow_commentlength',0);
+                $commentlen = empty($comment)?0:strlen($comment);
+                $comment_enough = $commentlen>= $rule_commentlenght;
+                $this->log("checkCommentLenght. len:$commentlen, rulen:$rule_commentlenght - enough:$comment_enough");
+                if ('rules' == $rule_twitter_nofollow) $result['nofollow_twitter'] = $result['nofollow_twitter'] ||  !$comment_enough;
+                if ('rules' == $rule_announce_nofollow) $result['nofollow_announce'] = $result['nofollow_announce'] || !$comment_enough;
+                
+            }
+
+            // Check for comment count
+            $rule_commentcount = (int)$this->get_config('rule_dofollow_commentcount',0);
+            if ($rule_commentcount>0) {
+                $commentcount = ($commentcount==-1?DbSpice::countComments($email):$commentcount);
+                $more_comments = (int)$commentcount >= $rule_commentcount;
+                $this->log("checkCommentCount. cnt:$commentcount, rucnt:$rule_commentcount - more:$more_comments");
+                if ('rules' == $rule_twitter_nofollow) $result['nofollow_twitter'] = $result['nofollow_twitter'] ||  !$more_comments;
+                if ('rules' == $rule_announce_nofollow) $result['nofollow_announce'] = $result['nofollow_announce'] ||  !$more_comments;
+            }
+        }
+        $this->log("checkRules($email,$comment,$checkCommentLength,$checknofollow): " . print_r($result,true));
+        return $result;
+    }
+    
     function rememberInputs() {
         global $serendipity;
         // Remember twitter name value into cookie, if user ordered to, else clear cookie
@@ -412,8 +533,23 @@ class serendipity_event_commentspice extends serendipity_event
         
         $comment_url = $_REQUEST ['coment_url'];
         $this->log("readRss for $comment_url");
-        if (empty($comment_url)) return;
-
+        $comment_email = $_REQUEST ['coment_email'];
+        $this->log("email=$comment_email");
+        
+        $result= array("url"=>$comment_url, "email"=>$comment_email, "articles"=>array());
+        
+        if (empty($comment_url)) {
+            echo json_encode($result);
+            return;
+        }
+        
+        $allow = $this->checkRules($comment_email, null, false);
+        if (!$allow['allow_announce']) {
+            $this->log("Announce not allowed by email. result: " . print_r($result,TRUE));
+            echo json_encode($result);
+            return;
+        }
+                
         // First try to read from cache
         $result = $this->cacheReadRss($comment_url);
         if (empty($result)) {
@@ -421,8 +557,12 @@ class serendipity_event_commentspice extends serendipity_event
             $this->log("Fetched array: " . print_r($result, true));
             if (!empty($result) && $result['articles']) $this->cacheWriteRss($comment_url, $result);
         }
-        if (empty($result) || !$result['articles'] || count($result['articles'])==0) return;
-        
+        $result['email'] = $comment_email;
+        if (empty($result) || !$result['articles'] || count($result['articles'])==0) {
+            echo json_encode($result);
+            return;
+        }
+
         echo json_encode($result);
     }
     function readRssRemote($url) {
@@ -534,12 +674,13 @@ class serendipity_event_commentspice extends serendipity_event
         if (!is_array($spice)) {
             return true;
         }
-        if (serendipity_db_bool($this->get_config('twitterinput', true))) {
+        $allow = $this->checkRules($eventData['email'], $eventData['comment'], true, true);
+        if ($allow['allow_twitter']) {
             $smartify = serendipity_db_bool($this->get_config('smartifytwitter', false));
             $twittername = $spice['twittername'];
             if (!empty($twittername)) {
                 $timeline_url = 'https://twitter.com/#!/' . $twittername;
-                $timeline_url_nofollow = serendipity_db_bool($this->get_config('twitterinput_nofollow', true));
+                $timeline_url_nofollow = $allow['nofollow_twitter'];
                 $twitter_icon_html = '<img src="' . $serendipity['baseURL'] . 'index.php?/plugin/spiceicotwitter.png" alt="' . PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER . ': ">';
                 $followme_widget = $this->createFollowMeWidget($twittername, $timeline_url_nofollow);
                 if ($smartify) {
@@ -559,11 +700,11 @@ class serendipity_event_commentspice extends serendipity_event
                 }
             }
         }
-        if ($spice['promo_name'] && $spice['promo_url']) {
+        if ($allow['allow_announce'] && $spice['promo_name'] && $spice['promo_url']) {
             $spice_article_prefix = sprintf(PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_RESCENT, $eventData['author']); 
             $spice_article_name = $spice['promo_name'];
             $spice_article_url = $spice['promo_url'];
-            $spice_article_nofollow = serendipity_db_bool($this->get_config('announcerss_nofollow', false)); 
+            $spice_article_nofollow = $allow['nofollow_announce']; 
             $smartify = serendipity_db_bool($this->get_config('smartifyannouncerss', false));
             if ($smartify) {
                 $eventData['spice_article_prefix'] = $spice_article_prefix;
@@ -592,13 +733,13 @@ class serendipity_event_commentspice extends serendipity_event
 	            if ($patched_input_twitter) {
 	                if (isset($serendipity['COOKIE']['twitter'])) $twittername = $serendipity['COOKIE']['twitter'];
                     else  $twittername = '';
-		            $smarty_spice['inputtwitter'] = serendipity_db_bool($this->get_config('twitterinput', true));
+		            $smarty_spice['inputtwitter'] = $this->get_config('twitterinput','disabled')!='disabled';
 		            $smarty_spice['inputtwitterlabel'] = 'Twitter';
 		            $smarty_spice['inputtwittervalue'] = $twittername;
 		            $smarty_spice['inputtwitterplaceholder'] = PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER_PLACEHOLDER;
 	            }
 	            if ($patched_input_rss) {
-	                $smarty_spice['inputarticle'] = serendipity_db_bool($this->get_config('announcerss', false));
+	                $smarty_spice['inputarticle'] = $this->get_config('announcerss','disabled')!='disabled';
 	            }
 	            if (count($smarty_spice)) {
 	                $serendipity['smarty']->assign('spice', $smarty_spice);
@@ -644,7 +785,12 @@ class serendipity_event_commentspice extends serendipity_event
     function printCommentEditExtras(&$eventData, &$addData) {
         global $serendipity;
         
-        if (serendipity_db_bool($this->get_config('twitterinput', true))) {
+        $config_twitter = $this->get_config('twitterinput','enabled');
+        $config_announce =$this->get_config('announcerss','disabled');
+        $do_twitter = $config_twitter!='disabled';
+        $do_announce = $config_announce!='disabled';
+        
+        if ($do_twitter) {
             if (isset($serendipity['COOKIE']['twitter'])) $twittername = $serendipity['COOKIE']['twitter'];
             else  $twittername = '';
             if (!serendipity_db_bool($this->get_config('inputpatched_twitter', false))) {
@@ -653,23 +799,47 @@ class serendipity_event_commentspice extends serendipity_event
                 echo '</div>';
             }
         }
-        if (serendipity_db_bool($this->get_config('announcerss', false)) && !serendipity_db_bool($this->get_config('inputpatched_rss', false))) {
+        if ($do_announce && !serendipity_db_bool($this->get_config('inputpatched_rss', false))) {
             echo '<div id="serendipity_commentspice_rss" style="display:none;">';
             echo '<select class="commentspice_rss_input" id="serendipity_commentform_rss" name="serendipity[promorss]"></select>'; //  style="max-width: 20em; width: 100%"
             echo '</div>';
         }
-        if (serendipity_db_bool($this->get_config('twitterinput', true))) {
+        if ($do_twitter) {
             echo '<div  id="serendipity_commentspice_twitter_desc" class="serendipity_commentDirection serendipity_comment_spice">';
             echo '<img src="' . $serendipity['baseURL'] . 'index.php?/plugin/commentspice.png" class="commentspice_ico" title="' . PLUGIN_EVENT_COMMENTSPICE_TITLE . '">';
             echo PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER_FOOTER;
+            $requirements = $this->createRequirementsString($config_twitter);
+            if (!empty($requirements)) echo "<br/>$requirements";
             echo '</div>';
         }
-        if (serendipity_db_bool($this->get_config('announcerss', false))) {
+        if ($do_announce) {
             echo '<div  id="serendipity_commentspice_rss_desc" class="serendipity_commentDirection serendipity_comment_spice">';
             echo '<img src="' . $serendipity['baseURL'] . 'index.php?/plugin/commentspice.png" class="commentspice_ico" title="' . PLUGIN_EVENT_COMMENTSPICE_TITLE . '">';
             echo PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_FOOTER;
+            $requirements = $this->createRequirementsString($config_announce);
+            if (!empty($requirements)) echo "<br/>$requirements";
             echo '</div>';
         }
+    }
+    
+    function createRequirementsString($rule_config_value) {
+        $requirements = '';
+        if ('rules'==$rule_config_value) {
+            $rule_commentlenght = (int)$this->get_config('rule_extras_commentlength',0);
+            $rule_commentcount = (int)$this->get_config('rule_extras_commentcount',0);
+            $requirements = "<em>(" .PLUGIN_EVENT_COMMENTSPICE_REQUIREMENTS . ": ";
+            if ($rule_commentcount) {
+                $requirements .= sprintf(PLUGIN_EVENT_COMMENTSPICE_REQUIREMENTS_COMMENTCOUNT,$rule_commentcount);
+            }
+            if ($rule_commentlenght && $rule_commentcount) {
+                $requirements .= ", ";
+            }
+            if ($rule_commentlenght) {
+                $requirements .= sprintf(PLUGIN_EVENT_COMMENTSPICE_REQUIREMENTS_COMMENTLEN,$rule_commentlenght);
+            }
+            $requirements .= ")</em>";
+        }
+        return $requirements;
     }
     
     function writeCss(&$eventData, &$addData) {

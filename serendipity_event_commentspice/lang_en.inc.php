@@ -26,6 +26,19 @@
 @define('PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_CACHEMIN', 'Minutes to cache fetched article results');
 @define('PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_CACHEMIN_DESC', 'How many minutes CommentSpice should cache fetched article informations? Don\'t set this too high, as new articles will pop up late. one to two hours (60-120min) seems to be a good value. Setting this to zero will switch off the cache.');
 
+@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_RULES', 'Rules');
+@define('PLUGIN_EVENT_COMMENTSPICE_RULE_EXTRAS_COMMENTCOUNT', 'Minimal comment count to allow spice extras');
+@define('PLUGIN_EVENT_COMMENTSPICE_RULE_EXTRAS_COMMENTCOUNT_DESC', 'Assing the minimal comment count a commentor must have written before comment spices are enabled. 0 means: Allow to anybody.');
+@define('PLUGIN_EVENT_COMMENTSPICE_RULE_EXTRAS_COMMENTLENGTH', 'Minimal comment length to allow spice extras');
+@define('PLUGIN_EVENT_COMMENTSPICE_RULE_EXTRAS_COMMENTLENGTH_DESC', 'Assing the minimal length of a comment before comment spices are enabled. 0 means: Any comment length.');
+@define('PLUGIN_EVENT_COMMENTSPICE_RULE_DOFOLLOW_COMMENTCOUNT', 'Minimal comment count to allow dofollow links');
+@define('PLUGIN_EVENT_COMMENTSPICE_RULE_DOFOLLOW_COMMENTCOUNT_DESC', 'Assing the minimal comment count a commentor must have written before dofollow links are allowed. 0 means: Allow to anybody.');
+@define('PLUGIN_EVENT_COMMENTSPICE_RULE_DOFOLLOW_COMMENTLENGTH', 'Minimal comment length to allow dofollow links');
+@define('PLUGIN_EVENT_COMMENTSPICE_RULE_DOFOLLOW_COMMENTLENGTH_DESC', 'Assing the minimal length of a comment for allowing dofollow links. 0 means: Any comment length.');
+@define('PLUGIN_EVENT_COMMENTSPICE_ENABLED', 'enabled');
+@define('PLUGIN_EVENT_COMMENTSPICE_DISABED', 'disabled');
+@define('PLUGIN_EVENT_COMMENTSPICE_RULES', 'use rules');
+
 @define('PLUGIN_EVENT_COMMENTSPICE_SMARTIFY_TWITTER', 'Smartify twittername output');
 @define('PLUGIN_EVENT_COMMENTSPICE_SMARTIFY_TWITTER_DESC', 'If switched on, CommentSpice won\'t emit code for the commentors twittername but will put all needed infos to the smarty hash. For this to work you have to add new smarty content to your comments.tpl. Available variables are $comment.spice_twitter_name (the twitter name, check if empty), $comment.spice_twitter_url (url of the users timeline), $comment.spice_twitter_nofollow (nofollow configured for twitterlinks), $comment.spice_twitter_icon_html (html producing the twitter icon), $comment.spice_twitter_followme (html for the followme widget).');
 @define('PLUGIN_EVENT_COMMENTSPICE_PATCHEDINPUT_TWITTER', 'Comment editor template patched for twitter input');
@@ -59,3 +72,7 @@
 @define('PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_RESCENT', '%s wrote about');
 @define('PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_FOOTER', '<b>Promote one of your rescent articles</b><br/>This blog allows you to announce one of your recent blog articles with your comment. Please enter your the corresponding URL as homepage and a selection box will pop up letting you choose an article.');
 @define('PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_CORRUPTED', 'Sorry, unable to verify your "recent post" datas..');
+
+@define('PLUGIN_EVENT_COMMENTSPICE_REQUIREMENTS', 'Requirements');
+@define('PLUGIN_EVENT_COMMENTSPICE_REQUIREMENTS_COMMENTCOUNT', '%s comments written');
+@define('PLUGIN_EVENT_COMMENTSPICE_REQUIREMENTS_COMMENTLEN', 'this comment %s letters at least');

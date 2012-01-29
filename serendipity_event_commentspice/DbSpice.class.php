@@ -35,6 +35,7 @@ class DbSpice {
             }
             $obj->set_config(PLUGIN_EVENT_COMMENTSPICE_CNAME_DBCONFIG, 1);
         }
+        // Version 2 updates
         if ($obj->get_config((PLUGIN_EVENT_COMMENTSPICE_CNAME_DBCONFIG)<2)) {
             $q = "alter table {$serendipity['dbPrefix']}commentspice" .
                 " add column promo_name nvarchar(200),".
@@ -42,16 +43,36 @@ class DbSpice {
             serendipity_db_query($q);
             $obj->set_config(PLUGIN_EVENT_COMMENTSPICE_CNAME_DBCONFIG, 2);
         }
+        // Version 3 updates
+        if ($obj->get_config((PLUGIN_EVENT_COMMENTSPICE_CNAME_DBCONFIG)<3)) {
+            $q = "CREATE INDEX IDX_COMMENTS_EMAIL" .
+                  " on {$serendipity['dbPrefix']}comments (email);";
+            serendipity_db_query($q); // if it already exists, it won't be created 
+            $obj->set_config(PLUGIN_EVENT_COMMENTSPICE_CNAME_DBCONFIG, 3);
+        }
+    }
+    
+    function countComments($email) {
+        global $serendipity;
+        if (empty($email)) return 0;
+        $db_email = serendipity_db_escape_string($email);
+        $q = "SELECT COUNT(*) AS commentcount FROM {$serendipity['dbPrefix']}comments WHERE email='$db_email'";
+        $row = serendipity_db_query($q, true);
+        return $row['commentcount'];
     }
     
     function saveCommentSpice($commentid, $twittername, $promo_name, $promo_url) {
         global $serendipity;
         if (empty($commentid) || !is_numeric($commentid) || (empty($twittername) && empty($promo_name)) ) return true;
         
+        $db_twittername = (empty($twittername)?'':serendipity_db_escape_string($twittername));
+        $db_promo_name = (empty($promo_name)?'':serendipity_db_escape_string($promo_name));
+        $db_promo_url = (empty($promo_url)?'':serendipity_db_escape_string($promo_url));
+        
         $sql = "INSERT INTO {$serendipity['dbPrefix']}commentspice (commentid, twittername, promo_name, promo_url) ";
-        if (empty($promo_name)) $sql .= " VALUES ($commentid, '$twittername', NULL, NULL)";
-        elseif (empty($twittername)) $sql .= " VALUES ($commentid, NULL, '$promo_name', '$promo_url')";
-        else $sql .= " VALUES ($commentid, '$twittername', '$promo_name', '$promo_url')";
+        if (empty($promo_name)) $sql .= " VALUES ($commentid, '$db_twittername', NULL, NULL)";
+        elseif (empty($twittername)) $sql .= " VALUES ($commentid, NULL, '$db_promo_name', '$db_promo_url')";
+        else $sql .= " VALUES ($commentid, '$db_twittername', '$db_promo_name', '$db_promo_url')";
         return serendipity_db_query($sql);
     }
     

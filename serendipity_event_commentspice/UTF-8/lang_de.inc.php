@@ -43,6 +43,9 @@
 
 @define('PLUGIN_EVENT_COMMENTSPICE_PATH', 'Plugin Pfad');
 @define('PLUGIN_EVENT_COMMENTSPICE_PATH_DESC', 'In normalen Installationen ist der Default die korrekte Einstellung.');
+@define('PLUGIN_EVENT_COMMENTSPICE_REQUIRED_FIELDS', 'Pflichtfelder');
+@define('PLUGIN_EVENT_COMMENTSPICE_REQUIRED_FIELDS_DESC', 'Geben Sie die Liste von Pflichtfeldern bei der Abgabe eines Kommentars ein. Mehrere Felder können mit "," getrennt werden. Verfügbare Felder sind: name, email, url, replyTo, comment');
+@define('PLUGIN_EVENT_COMMENTSPICE_REASON_REQUIRED_FIELD', 'Sie haben das Feld "%s" nicht ausgefüllt!');
 
 @define('PLUGIN_EVENT_COMMENTSPICE_EXPERTSETTINGS', 'Erweiterte Einstellungen anzeigen');
 @define('PLUGIN_EVENT_COMMENTSPICE_STANDARDSETTINGS', 'Grundeinstellungen anzeigen');

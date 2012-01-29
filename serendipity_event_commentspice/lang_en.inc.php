@@ -44,6 +44,9 @@
 
 @define('PLUGIN_EVENT_COMMENTSPICE_PATH', 'Plugins path');
 @define('PLUGIN_EVENT_COMMENTSPICE_PATH_DESC', 'In normal installations the default is correct.');
+@define('PLUGIN_EVENT_COMMENTSPICE_REQUIRED_FIELDS', 'Required comment fields');
+@define('PLUGIN_EVENT_COMMENTSPICE_REQUIRED_FIELDS_DESC', 'Enter a list of required fields that need to be filled when a user comments. Seperate multiple fields with a ",". Available keys are: name, email, url, replyTo, comment');
+@define('PLUGIN_EVENT_COMMENTSPICE_REASON_REQUIRED_FIELD', 'You did not specify the %s field!');
 
 @define('PLUGIN_EVENT_COMMENTSPICE_EXPERTSETTINGS', 'Show advanced settings');
 @define('PLUGIN_EVENT_COMMENTSPICE_STANDARDSETTINGS', 'Show basic settings');

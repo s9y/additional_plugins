@@ -56,6 +56,9 @@ class serendipity_event_commentspice extends serendipity_event
         $config_announce_expert = array('announcersscachemin','announcerss_nofollow','smartifyannouncerss','inputpatched_rss');
         
         $config_general = array('title_general');
+        if (!class_exists('serendipity_event_spamblock')) { // Only do that, if spamblock is not installed.
+            $config_general[] = 'required_fields';
+        }
         if (function_exists('fetchPingbackData') && $this->isLocalConfigWritable()) {
             $config_general[] = 'fetchPingback';
         }
@@ -172,6 +175,12 @@ class serendipity_event_commentspice extends serendipity_event
                 $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_PATCHEDINPUT_RSS);
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_PATCHEDINPUT_RSS_DESC);
                 $propbag->add('default',     false);
+                break;
+            case 'required_fields':
+                $propbag->add('type', 'string');
+                $propbag->add('name', PLUGIN_EVENT_COMMENTSPICE_REQUIRED_FIELDS);
+                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_REQUIRED_FIELDS_DESC);
+                $propbag->add('default', '');
                 break;
             case 'plugin_path':
                 $propbag->add('type', 'string');
@@ -365,8 +374,24 @@ class serendipity_event_commentspice extends serendipity_event
         if ("NORMAL" == $addData['type']) { // only supported for normal comments
             $this->rememberInputs();
             
-            $promo_name = null;
-            $promo_url = null;
+            // Check, if all required fields are set, but only if spamblock is not installed.
+            if (!class_exists('serendipity_event_spamblock')) {
+                $required_fields = $this->get_config('required_fields', '');
+                if (!empty($required_fields)) {
+                    $required_field_list = explode(',', $required_fields);
+                    foreach($required_field_list as $required_field) {
+                        $required_field = trim($required_field);
+                        if (empty($addData[$required_field])) {
+                            $this->log($logfile, $eventData['id'], 'REJECTED', PLUGIN_EVENT_COMMENTSPICE_REASON_REQUIRED_FIELD, $addData);
+                            $eventData = array('allow_comments' => false);
+                            $serendipity['messagestack']['comments'][] = sprintf(PLUGIN_EVENT_COMMENTSPICE_REASON_REQUIRED_FIELD, $required_field);
+                            return false;
+                        }
+                    }
+                }
+            }
+            
+            // Check, if promoted URL is still valid (unmodified) 
             if (isset($serendipity['POST']['promorss']) && !empty($serendipity['POST']['promorss'])) {
                 $promorss = $serendipity['POST']['promorss'];
                 $parts = explode("\n", $promorss);

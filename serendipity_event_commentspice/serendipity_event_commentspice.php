@@ -881,6 +881,10 @@ class serendipity_event_commentspice extends serendipity_event
 	margin-bottom: 1em;
 <?php } ?>
 }
+select.commentspice_rss_input option {
+ 	background: #444444;
+	padding-left: 1.5em;
+}
 <?php
         }
         if (!(strpos($eventData, '.commentspice_announce_article'))) {

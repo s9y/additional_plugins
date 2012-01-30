@@ -126,12 +126,12 @@
 <guid isPermaLink="false">serendipity_event_emoticonchooser</guid>
 </item>
 <item>
-<title>Amazon Media Button: Adds a button to allow Amazon.com search which are insertable into your entry</title>
+<title>Botón Amazon Media: Incluye un botón para permitir la búsqueda en Amazon.com y la inclusión de los resultados en tus entradas</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_amazonchooser</link>
 <category>Event Plugins</category>
 <author>Matthew Groeninger</author>
-<content:encoded>&lt;b&gt;serendipity_event_amazonchooser&lt;br /&gt;Amazon Media Button&lt;/b&gt;&lt;br /&gt;Adds a button to allow Amazon.com search which are insertable into your entry&lt;br/&gt;For: Serendipity 1.4</content:encoded>
-<pubDate>Sun, 25 Dec 2011 00:49:59 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_amazonchooser&lt;br /&gt;Botón Amazon Media&lt;/b&gt;&lt;br /&gt;Incluye un botón para permitir la búsqueda en Amazon.com y la inclusión de los resultados en tus entradas&lt;br/&gt;For: Serendipity 1.4</content:encoded>
+<pubDate>Mon, 30 Jan 2012 02:31:53 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_amazonchooser</guid>
 </item>
 <item>

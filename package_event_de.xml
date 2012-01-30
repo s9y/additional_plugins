@@ -1103,9 +1103,9 @@
 <description>Fügt einen Button zum Artikeleditor hinzu, über den eine Amazon.com Suche für Produkte ausgeführt werden kann und die Ergebnisse in den Eintrag eingebettet werden</description>
 <maintainers><maintainer><name>Matthew Groeninger</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.60</version>
+  <version>0.71</version>
   <requirements:s9yVersion>1.4</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2012-01-30</date>
   <filelist>
 <dir name="serendipity_event_amazonchooser">
 <file>lang_de.inc.php</file>
@@ -1118,10 +1118,12 @@
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
 <file>lang_ja.inc.php</file>
+<file>lang_es.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
+<file>documentation_es.html</file>
 </dir>
 <dir name="sha256">
 <file>example.php</file>
@@ -1149,10 +1151,12 @@
     <file>serendipity_event_amazonchooser/serendipity_event_amazonchooser.css</file>
     <file>serendipity_event_amazonchooser/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_amazonchooser/UTF-8/lang_ja.inc.php</file>
+    <file>serendipity_event_amazonchooser/UTF-8/lang_es.inc.php</file>
     <file>serendipity_event_amazonchooser/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_amazonchooser/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_amazonchooser/UTF-8/documentation_cs.html</file>
     <file>serendipity_event_amazonchooser/UTF-8/documentation_cz.html</file>
+    <file>serendipity_event_amazonchooser/UTF-8/documentation_es.html</file>
     <file>serendipity_event_amazonchooser/sha256/example.php</file>
     <file>serendipity_event_amazonchooser/sha256/sha256.inc.php</file>
     <file>serendipity_event_amazonchooser/lang_en.inc.php</file>

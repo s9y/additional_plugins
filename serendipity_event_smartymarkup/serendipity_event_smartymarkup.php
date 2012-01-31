@@ -145,23 +145,26 @@ class serendipity_event_smartymarkup extends serendipity_event
             serendipity_smarty_init();
         }
 
-        if( isset($serendipity['smarty']->_version) ) {
-            $serendipity['smarty']->register_resource("smartymarkupplugin", array(
-                                   "smarty_resource_smartymarkupplugin_template",
-                                   "smarty_resource_smartymarkupplugin_timestamp",
-                                   "smarty_resource_smartymarkupplugin_secure",
-                                   "smarty_resource_smartymarkupplugin_trusted"));
-        } else {
-            // Smarty 3.1 >=
-            $serendipity['smarty']->registerResource("smartymarkupplugin", array(
-                                   array( $this, "smarty_resource_smartymarkupplugin_template" ),
-                                   array( $this, "smarty_resource_smartymarkupplugin_timestamp" ),
-                                   array( $this, "smarty_resource_smartymarkupplugin_secure" ),
-                                   array( $this, "smarty_resource_smartymarkupplugin_trusted" )));
+        if (!isset($serendipity['PLUGINDATA']['smartymarkupplugin'])) {
+            if( isset($serendipity['smarty']->_version) ) {
+                $serendipity['smarty']->register_resource("smartymarkupplugin", array(
+                                       "smarty_resource_smartymarkupplugin_template",
+                                       "smarty_resource_smartymarkupplugin_timestamp",
+                                       "smarty_resource_smartymarkupplugin_secure",
+                                       "smarty_resource_smartymarkupplugin_trusted"));
+            } else {
+                // Smarty 3.1 >=
+                $serendipity['smarty']->registerResource("smartymarkupplugin", array(
+                                       array( $this, "smarty_resource_smartymarkupplugin_template" ),
+                                       array( $this, "smarty_resource_smartymarkupplugin_timestamp" ),
+                                       array( $this, "smarty_resource_smartymarkupplugin_secure" ),
+                                       array( $this, "smarty_resource_smartymarkupplugin_trusted" )));
+            }
         }
 
         $serendipity['PLUGINDATA']['smartymarkupplugin'] =& $input;
         $serendipity['smarty']->assign('smartymarkup_eventData', $eventData);
+
         // avoid non existing or empty template fetch calls
         if(isset($serendipity['PLUGINDATA']['smartymarkupplugin']) && !empty($serendipity['PLUGINDATA']['smartymarkupplugin'])) {
             return $serendipity['smarty']->fetch('smartymarkupplugin:' . crc32($serendipity['PLUGINDATA']['smartymarkupplugin']));

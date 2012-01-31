@@ -4,7 +4,6 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-
 // Probe for a language include with constants. Still include defines later on, if some constants were missing
 $probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
 if (file_exists($probelang)) {
@@ -46,7 +45,7 @@ class serendipity_event_smartymarkup extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SMARTYMARKUP_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.8');
+        $propbag->add('version',       '1.9');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -112,6 +111,33 @@ class serendipity_event_smartymarkup extends serendipity_event
         return true;
     }
 
+    function smarty_resource_smartymarkupplugin_template($tpl_name, &$tpl_source, $smarty) {
+        global $serendipity;
+
+        // return the template content via referenced argument 
+        $tpl_source = $serendipity['PLUGINDATA']['smartymarkupplugin'];
+
+        // test
+        #$tpl_source = '{assign var="foo" value="bar"}{$foo|escape:"html"}'; 
+
+        // return success state 
+        return true;
+    }
+
+    function smarty_resource_smartymarkupplugin_timestamp($tpl_name, &$tpl_timestamp, $smarty) {
+        global $serendipity;
+
+        $tpl_timestamp = crc32($serendipity['PLUGINDATA']['smartymarkupplugin']);
+        return true;
+    }
+
+    function smarty_resource_smartymarkupplugin_secure($tpl_name, $smarty) {
+        return true;
+    }
+
+    function smarty_resource_smartymarkupplugin_trusted($tpl_name, $smarty) {
+    }
+
     function smartymarkup($input, &$eventData) {
         global $serendipity;
 
@@ -119,20 +145,30 @@ class serendipity_event_smartymarkup extends serendipity_event
             serendipity_smarty_init();
         }
 
-        if (!isset($serendipity['PLUGINDATA']['smartymarkupplugin'])) {
+        if( isset($serendipity['smarty']->_version) ) {
             $serendipity['smarty']->register_resource("smartymarkupplugin", array(
-                                       "smarty_resource_smartymarkupplugin_template",
-                                       "smarty_resource_smartymarkupplugin_timestamp",
-                                       "smarty_resource_smartymarkupplugin_secure",
-                                       "smarty_resource_smartymarkupplugin_trusted"));
+                                   "smarty_resource_smartymarkupplugin_template",
+                                   "smarty_resource_smartymarkupplugin_timestamp",
+                                   "smarty_resource_smartymarkupplugin_secure",
+                                   "smarty_resource_smartymarkupplugin_trusted"));
+        } else {
+            // Smarty 3.1 >=
+            $serendipity['smarty']->registerResource("smartymarkupplugin", array(
+                                   array( $this, "smarty_resource_smartymarkupplugin_template" ),
+                                   array( $this, "smarty_resource_smartymarkupplugin_timestamp" ),
+                                   array( $this, "smarty_resource_smartymarkupplugin_secure" ),
+                                   array( $this, "smarty_resource_smartymarkupplugin_trusted" )));
         }
 
         $serendipity['PLUGINDATA']['smartymarkupplugin'] =& $input;
         $serendipity['smarty']->assign('smartymarkup_eventData', $eventData);
-        return $serendipity['smarty']->fetch('smartymarkupplugin:' . crc32($serendipity['PLUGINDATA']['smartymarkupplugin']));
+        // avoid non existing or empty template fetch calls
+        if(isset($serendipity['PLUGINDATA']['smartymarkupplugin']) && !empty($serendipity['PLUGINDATA']['smartymarkupplugin'])) {
+            return $serendipity['smarty']->fetch('smartymarkupplugin:' . crc32($serendipity['PLUGINDATA']['smartymarkupplugin']));
+        }
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData=null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

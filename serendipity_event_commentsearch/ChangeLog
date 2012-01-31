@@ -1,1 +1,5 @@
+Version 1.4:
+* Not stripping comment html tags in code, so the template can decide, how to display comments
+* Stripping tags before truncating comment in template, else tags will be truncated.
+
 latest: Smarty3 forward compatibility

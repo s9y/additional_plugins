@@ -8,7 +8,7 @@
         {if $result.type == 'TRACKBACK'}
         <strong><a href="{$result.url|@escape}">{$result.author|@escape}</a></strong> - <a href="{$result.permalink|@escape}">{$result.title|@escape}</a><br />
         {else}
-        <strong>{$result.author|@escape}</strong><a href="{$result.permalink|@escape}">{$result.title|@escape}</a><br />
+        <strong>{$result.author|@escape}</strong> - <a href="{$result.permalink|@escape}">{$result.title|@escape}</a><br />
         {/if}
         {$result.comment|@truncate:200:" ... "}</li>
     {/foreach}

@@ -45,7 +45,7 @@ class serendipity_event_smartymarkup extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SMARTYMARKUP_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.9');
+        $propbag->add('version',       '1.10');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -107,7 +107,7 @@ class serendipity_event_smartymarkup extends serendipity_event
         $propbag->add('type',        'boolean');
         $propbag->add('name',        constant($name));
         $propbag->add('description', sprintf(APPLY_MARKUP_TO, constant($name)));
-        $propbag->add('default', 'true');
+        $propbag->add('default', ($name == 'COMMENT' ? 'false' : 'true'));
         return true;
     }
 

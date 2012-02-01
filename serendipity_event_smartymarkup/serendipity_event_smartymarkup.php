@@ -106,7 +106,7 @@ class serendipity_event_smartymarkup extends serendipity_event
     {
         $propbag->add('type',        'boolean');
         $propbag->add('name',        constant($name));
-        $propbag->add('description', sprintf(APPLY_MARKUP_TO, constant($name)));
+        $propbag->add('description', sprintf(APPLY_MARKUP_TO, constant($name)) . ($name == 'COMMENT' ? PLUGIN_EVENT_SMARTYMARKUP_WARN : ''));
         $propbag->add('default', ($name == 'COMMENT' ? 'false' : 'true'));
         return true;
     }

@@ -1,1 +1,5 @@
+1.10
+added: configs comment warning and their default to not parse comments
+
+1.9
 latest: Smarty3 forward compatibility

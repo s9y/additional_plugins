@@ -365,7 +365,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_smartymarkup&lt;br /&gt;Textformatierung: Smarty Parsing&lt;/b&gt;&lt;br /&gt;Parst Smarty-Anweisungen im Artikeltext&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 01:45:51 +0100</pubDate>
+<pubDate>Wed, 01 Feb 2012 02:32:08 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_smartymarkup</guid>
 </item>
 <item>
@@ -1004,7 +1004,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_commentsearch&lt;br /&gt;Durchsuche Kommentare mit der Schnellsuche&lt;/b&gt;&lt;br /&gt;Wenn dieses Plugin installiert ist, durchsucht die Schnellsuche Ihres Blogs auch die Kommentare.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 04:10:58 +0100</pubDate>
+<pubDate>Wed, 01 Feb 2012 02:31:56 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_commentsearch</guid>
 </item>
 <item>

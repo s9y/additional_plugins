@@ -767,7 +767,7 @@ class serendipity_event_commentspice extends serendipity_event
         $this->log("avatar_hook. " . print_r($eventData,true) .  "\n" . print_r($addData, true));
         
         // We support twitter only
-        if (!is_array($addData) || !$addData['type']==twitter) return;
+        if (!is_array($addData) || !$addData['type']=='twitter') return;
         
         // Check for valid input
         if (!is_array($eventData) || !$eventData['cid']) return;

@@ -866,6 +866,7 @@ class serendipity_event_gravatar extends serendipity_event
 
         // Let other plugins fill metadata. CommentSpice is perhaps able to fetch twitter infos.
         try {
+            $original_url = $eventData['url'];
             $this->log("hook_event: avatar_fetch_userinfos");
             $askforData = array("type" => "twitter");
             serendipity_plugin_api::hook_event('avatar_fetch_userinfos', $eventData, $askforData);
@@ -877,6 +878,7 @@ class serendipity_event_gravatar extends serendipity_event
             return false;
         }
         $url = $eventData['url'];
+        $eventData['url'] = $original_url;
         $parts = @parse_url($url);
         if (!is_array($parts)) {
             return false;

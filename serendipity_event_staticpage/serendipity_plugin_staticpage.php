@@ -1,6 +1,6 @@
-<?php # $Id: serendipity_plugin_staticpage.php, v1.0 2005/06/01
+<?php # $Id$
 
-# (c) by Rob Antonishen
+# serendipity_plugin_staticpage.php, v1.0 2005/06/01 (c) by Rob Antonishen
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -24,7 +24,7 @@ class serendipity_plugin_staticpage extends serendipity_plugin {
         $propbag->add('description', PLUGIN_STATICPAGELIST_NAME_DESC);
         $propbag->add('author',      "Rob Antonishen, Falk Doering, Ian (Timbalu)");
         $propbag->add('stackable',   true);
-        $propbag->add('version',     '1.17');
+        $propbag->add('version',     '1.18');
         $propbag->add('configuration', array(
                 'title',
                 'limit',
@@ -117,7 +117,15 @@ class serendipity_plugin_staticpage extends serendipity_plugin {
         return true;
     }
 
-    function generate_content(&$title) {
+    function generate_content(&$title) { 
+        $title = STATICPAGE_TITLE;
+        // do not load the tpl in backend
+        if(!defined('IN_serendipity_admin')) {
+            $this->show_content();
+        }
+    }
+
+    function show_content() {
         global $serendipity;
         static $smartify = null;
 
@@ -196,17 +204,13 @@ class serendipity_plugin_staticpage extends serendipity_plugin {
         }
 
         if ($smartify) {
-            $serendipity['smarty']->assign('staticpage_jsStr', $str);
-            $serendipity['smarty']->assign('staticpage_listContent', $smartcar);
+            $serendipity['smarty']->assign(array(
+                'staticpage_jsStr'       => $str,
+                'staticpage_listContent' => $smartcar
+            ));
             $filename = 'plugin_staticpage_sidebar.tpl';
-            $tfile = serendipity_getTemplateFile($filename, 'serendipityPath');
-            if (!$tfile || $tfile == $filename) {
-                $tfile = dirname(__FILE__) . '/' . $filename;
-            }
-            $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-            $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
-            $content = $serendipity['smarty']->fetch('file:'. $tfile);
-            $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+            // use serendipity's own function here! ;-)
+            $content = $this->parseTemplate($filename);
             echo $content;
         } else {
             echo $str;

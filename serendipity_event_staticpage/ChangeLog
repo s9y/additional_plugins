@@ -1,6 +1,8 @@
+3.89: bump version (sidebar 1.18) Fixed smarty load in backend (Timbalu)
+
 3.88: Fixed guestbook link generation for non-rewrites (Timbalu)
 
-(sidebar) 1.16: Added smartify option (by Timbalu)
+1.16: (sidebar) Added smartify option (by Timbalu)
 
 3.87: Add foreach check to prevent error
 

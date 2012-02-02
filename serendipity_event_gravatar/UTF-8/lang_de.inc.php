@@ -22,7 +22,8 @@
 @define('PLUGIN_EVENT_GRAVATAR_RATING_PG',          'Parental Guidance (PG)');
 @define('PLUGIN_EVENT_GRAVATAR_RATING_X',           'Explicit (X)');
 
-@define('PLUGIN_EVENT_GRAVATAR_DEFAULTAVATAR_DESC', 'URL zu ihrem Standard-Avatar. Hier müssen Sie den relativen oder absoluten Pfad bezogen auf ihre Server URL zu ihrem Standard Avatar angeben.');
+@define('PLUGIN_EVENT_GRAVATAR_METHOD_DEFAULT',     'Standardavatar');
+@define('PLUGIN_EVENT_GRAVATAR_DEFAULTAVATAR_DESC', 'URL zu ihrem Standard-Avatar. Hier müssen Sie den relativen oder absoluten Pfad bezogen auf ihre Server URL zu ihrem Standard Avatar angeben. ACHTUNG: Damit es benutzt wird, muss eine Methode auf "' . PLUGIN_EVENT_GRAVATAR_METHOD_DEFAULT . '" stehen!');
 @define('PLUGIN_EVENT_GRAVATAR_SIZE_DESC',          'Maximal dargestellte Größe des Avatar-Bildes in Pixeln');
 @define('PLUGIN_EVENT_GRAVATAR_RATING_DESC',        'Kinderschutz :)');
 
@@ -41,7 +42,6 @@
 @define('PLUGIN_EVENT_GRAVATAR_INFOLINE',           'Avatar Typ anzeigen');
 @define('PLUGIN_EVENT_GRAVATAR_INFOLINE_DESC',      'Wenn angeschaltet, wird eine Zeile unterhalb des Kommentar Editors ausgegeben, die angibt, welche Avatar Typen aktuell unterstützt werden.');
 
-@define('PLUGIN_EVENT_GRAVATAR_METHOD_DEFAULT',     'Standardavatar');
 @define('PLUGIN_EVENT_GRAVATAR_METHOD',             'Avatar laden über');
 @define('PLUGIN_EVENT_GRAVATAR_SUPPORTED',          '%s Autoren-Bilder werden unterstützt.');
 
@@ -64,4 +64,4 @@
 @define('PLUGIN_EVENT_GRAVATAR_FALLBACK_ALLWAYS_DESC', 'Gravatar Fallbacks auch dann benutzen, wenn der Benutzer keine EMail (aber eine URL oder einen Namen) eingegeben hat.');
 
 // Next lines were translated on 2009/08/20
-@define('PLUGIN_EVENT_GRAVATAR_METHOD_DESC',        'Wenn die vorherigen Methoden fehlschlagen, versuche diese. Der Typ  "Monster ID", "Defaultavatar" und  "---" wird niemals fehlschalgen. Alles unterhalb dieser Methoden wird nicht versucht.');
+@define('PLUGIN_EVENT_GRAVATAR_METHOD_DESC',        'Wenn die vorherigen Methoden fehlschlagen, versuche diese. Der Typ "' . PLUGIN_EVENT_GRAVATAR_METHOD_DEFAULT . '", "Monster ID", "Wavatar", "Identicon" und  "---" wird niemals fehlschlagen. Alles unterhalb dieser Methoden wird nicht versucht.');

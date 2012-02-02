@@ -21,7 +21,8 @@
 @define('PLUGIN_EVENT_GRAVATAR_RATING_PG',          'Parental Guidance (PG)');
 @define('PLUGIN_EVENT_GRAVATAR_RATING_X',           'Explicit (X)');
 
-@define('PLUGIN_EVENT_GRAVATAR_DEFAULTAVATAR_DESC', 'What is the URL to your default avatar image? Please enter here the absulute or relative URL based from your servers URL');
+@define('PLUGIN_EVENT_GRAVATAR_METHOD_DEFAULT',     'Defaultavatar');
+@define('PLUGIN_EVENT_GRAVATAR_DEFAULTAVATAR_DESC', 'What is the URL to your default avatar image? Please enter here the absulute or relative URL based from your servers URL. ATTENTION! To have the default avatar displayed, one mthod has to be set to "' . PLUGIN_EVENT_GRAVATAR_METHOD_DEFAULT . '".');
 @define('PLUGIN_EVENT_GRAVATAR_SIZE_DESC',          'Maximum size of the avatar picture (in pixels)');
 @define('PLUGIN_EVENT_GRAVATAR_RATING_DESC',        'Picture Rating');
 
@@ -40,9 +41,8 @@
 @define('PLUGIN_EVENT_GRAVATAR_INFOLINE',           'Show avatar type info');
 @define('PLUGIN_EVENT_GRAVATAR_INFOLINE_DESC',      'If switched on an infoline is displayed below the comment box which types of avatars are supported at the moment.');
 
-@define('PLUGIN_EVENT_GRAVATAR_METHOD_DEFAULT',     'Defaultavatar');
 @define('PLUGIN_EVENT_GRAVATAR_METHOD',             'Load avatar via');
-@define('PLUGIN_EVENT_GRAVATAR_METHOD_DESC',        'If previous fails, try this one. The types "Monster ID", "Defaultavatar" and "---" will never fail. Everything below this methods won\'t be tried!');
+@define('PLUGIN_EVENT_GRAVATAR_METHOD_DESC',        'If previous fails, try this one. The types "' . PLUGIN_EVENT_GRAVATAR_METHOD_DEFAULT . '", "Monster ID", "Wavatar", "Identicon" and "---" will never fail. Everything below this methods won\'t be tried!');
 @define('PLUGIN_EVENT_GRAVATAR_SUPPORTED',          '%s author images supported.');
 
 @define('PLUGIN_EVENT_GRAVATAR_AUTOR_ALT',          'Authorname in ALT attribute');

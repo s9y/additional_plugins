@@ -24,8 +24,8 @@ class serendipity_event_entrycheck extends serendipity_event
         $propbag->add('name',          PLUGIN_EVENT_ENTRYCHECK_TITLE);
         $propbag->add('description',   PLUGIN_EVENT_ENTRYCHECK_DESC);
         $propbag->add('stackable',     false);
-        $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.12');
+        $propbag->add('author',        'Garvin Hicking, Gregor Voeltz');
+        $propbag->add('version',       '1.13');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -38,7 +38,7 @@ class serendipity_event_entrycheck extends serendipity_event
             'css_backend'               => true
         ));
         $propbag->add('groups', array('BACKEND_EDITOR'));
-        $propbag->add('configuration', array('emptyCategories', 'emptyTitle', 'defaultCat', 'locking'));
+        $propbag->add('configuration', array('emptyCategories', 'emptyTitle', 'emptyBody', 'emptyExtended', 'defaultCat', 'locking'));
     }
 
     function introspect_config_item($name, &$propbag)
@@ -62,6 +62,20 @@ class serendipity_event_entrycheck extends serendipity_event
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_EVENT_ENTRYCHECK_EMPTYTITLE);
                 $propbag->add('description', PLUGIN_EVENT_ENTRYCHECK_EMPTYTITLE_DESC);
+                $propbag->add('default',     true);
+                break;
+
+            case 'emptyBody':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        PLUGIN_EVENT_ENTRYCHECK_EMPTYBODY);
+                $propbag->add('description', PLUGIN_EVENT_ENTRYCHECK_EMPTYBODY_DESC);
+                $propbag->add('default',     true);
+                break;
+
+            case 'emptyExtended':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        PLUGIN_EVENT_ENTRYCHECK_EMPTYEXTENDED);
+                $propbag->add('description', PLUGIN_EVENT_ENTRYCHECK_EMPTYEXTENDED_DESC);
                 $propbag->add('default',     true);
                 break;
 
@@ -162,12 +176,20 @@ class serendipity_event_entrycheck extends serendipity_event
                     break;
 
                 case 'backend_entry_updertEntry':
-                    if (!serendipity_db_bool($this->get_config('emptyCategories')) && count($addData['categories']) == 1 && $addData['categories'][0] == '0') {
+                    if (serendipity_db_bool($this->get_config('emptyCategories') == true) && count($addData['categories']) < 1 || $addData['categories'][0] == '0') {
                         $eventData[] = PLUGIN_EVENT_ENTRYCHECK_EMPTYCATEGORIES_WARNING;
                     }
 
-                    if (!serendipity_db_bool($this->get_config('emptyTitle')) && strlen($addData['title']) < 1) {
+                    if (serendipity_db_bool($this->get_config('emptyTitle') == true) && strlen($addData['title']) < 1) {
                         $eventData[] = PLUGIN_EVENT_ENTRYCHECK_EMPTYTITLE_WARNING;
+                    }
+
+                    if (serendipity_db_bool($this->get_config('emptyBody') == true) && strlen($addData['body']) < 1) {
+                        $eventData[] = PLUGIN_EVENT_ENTRYCHECK_EMPTYBODY_WARNING;
+                    }
+
+                    if (serendipity_db_bool($this->get_config('emptyExtended') == true) && strlen($addData['extended']) < 1) {
+                        $eventData[] = PLUGIN_EVENT_ENTRYCHECK_EMPTYEXTENDED_WARNING;
                     }
 
                     if ($addData['id'] > 0 && serendipity_db_bool($this->get_config('locking'))) {
@@ -221,10 +243,26 @@ class serendipity_event_entrycheck extends serendipity_event
                                 }
                             }
 
+                            <?php if (serendipity_db_bool($this->get_config('emptyTitle')) == true) { ?>
                             if (document.getElementById('entryTitle').value.length < 1) {
                                 alert('<?php echo str_replace("'", "\\'", PLUGIN_EVENT_ENTRYCHECK_EMPTYTITLE_WARNING); ?>');
                                 error = true;
                             }
+                            <?php } ?>
+
+                            <?php if (serendipity_db_bool($this->get_config('emptyBody')) == true) { ?>
+                            if (document.getElementById('serendipity[body]').value.length < 1) {
+                                alert('<?php echo str_replace("'", "\\'", PLUGIN_EVENT_ENTRYCHECK_EMPTYBODY_WARNING); ?>');
+                                error = true;
+                            }
+                            <?php } ?>
+
+                            <?php if (serendipity_db_bool($this->get_config('emptyExtended')) == true) { ?>
+                            if (document.getElementById('serendipity[extended]').value.length < 1) {
+                                alert('<?php echo str_replace("'", "\\'", PLUGIN_EVENT_ENTRYCHECK_EMPTYEXTENDED_WARNING); ?>');
+                                error = true;
+                            }
+                            <?php } ?>
 
                             if (error) {
                                 return false;
@@ -241,3 +279,4 @@ class serendipity_event_entrycheck extends serendipity_event
 }
 
 /* vim: set sts=4 ts=4 expandtab : */
+?>

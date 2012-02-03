@@ -2,8 +2,8 @@
 
 /**
  * This is a kind of example class how to do a oembed provider for a service, that doesn't support oembed.
- * This provider reads the Posterous API to resolve post.ly links. If the result is an image or a video, the XML result
- * will be converted as an OEmbed
+ * This provider reads the AudioBoo API to resolve Boos and produce embedded players.
+ * It is configurable, what type of player should be used. 
  * 
  * Converting is done in the getEmbed function. This is the main code. 
  * Everything else is only type converting that should be nearly the same in any custom provider
@@ -12,9 +12,9 @@
  * 
  * After implementing the provider you have to add it to the providers.xml like this:
  * <provider>
- *  <name>Posterous post.ly</name>
- *  <url>http://post.ly/*</url>
- *  <class>PostlyProvider</class>
+ *   <name>AudioBoo (3 different players)</name>
+ *   <url>http://(audio)?boo.fm/boos/*</url>
+ *   <class>AudioBooProvider</class>
  * </provider>
 * 
  * @author Grischa Brockhaus

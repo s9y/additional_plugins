@@ -11,9 +11,9 @@
 <description>Tento plugin zobrazuje nastavitelný seznam stálých (statických) stránek.</description>
 <maintainers><maintainer><name>Rob Antonishen, Falk Doering, Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.17</version>
+  <version>1.18</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2012-02-03</date>
   <filelist>
 <dir name="serendipity_event_staticpage">
 <file>lang_de.inc.php</file>

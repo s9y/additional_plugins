@@ -23,7 +23,7 @@
 <category>Event Plugins</category>
 <author>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_staticpage&lt;br /&gt;Statické stránky&lt;/b&gt;&lt;br /&gt;Zobrazuje v blogu statické stránky se stejným designem jako mají běžné přspěvky. Přidá nové menu do adminstrátorského rozhraní.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 00:06:57 +0100</pubDate>
+<pubDate>Fri, 03 Feb 2012 02:32:00 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_staticpage</guid>
 </item>
 <item>
@@ -75,9 +75,9 @@
 <title>Pravidla vydávání příspěvků: Provádí kontrolu příspěvku před jeho vydáním</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_entrycheck</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking</author>
+<author>Garvin Hicking, Gregor Voeltz</author>
 <content:encoded>&lt;b&gt;serendipity_event_entrycheck&lt;br /&gt;Pravidla vydávání příspěvků&lt;/b&gt;&lt;br /&gt;Provádí kontrolu příspěvku před jeho vydáním&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 00:39:23 +0100</pubDate>
+<pubDate>Fri, 03 Feb 2012 02:31:44 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_entrycheck</guid>
 </item>
 <item>
@@ -1258,7 +1258,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_oembed&lt;br /&gt;oEmbed&lt;/b&gt;&lt;br /&gt;oEmbed je formát, který umožňuje vkládat do blogu jiné stránky z internetu. Umožňuje zobrazovat v příspěvcích vložený obsah (jako tweety, fotky nebo videa), když autor příspěvku napíše odkaz na zdroj obsahu, aniž by bylo potřeba přímo parsovat cílovou stránku.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 23 Jan 2012 02:32:16 +0100</pubDate>
+<pubDate>Fri, 03 Feb 2012 02:31:54 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_oembed</guid>
 </item>
 <item>

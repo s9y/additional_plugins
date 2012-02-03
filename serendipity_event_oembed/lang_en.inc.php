@@ -34,3 +34,10 @@
 @define('PLUGIN_EVENT_OEMBED_SUPPORTED',      '<p>'.
 'The plugin supports representations of the following link types without the need of the generic fallback:%s'.
 '</p>');
+
+// new entries 2012-02-03
+@define('PLUGIN_EVENT_OEMBED_PLAYER_BOO',              'Audioboo player');
+@define('PLUGIN_EVENT_OEMBED_PLAYER_BOO_DESC',     	   'Audioboo supports 3 different players (see http://audioboo.fm/boos/649785-ein-erster-testboo.embed?labs=1). Choose the one you like most.');
+@define('PLUGIN_EVENT_OEMBED_PLAYER_BOO_STANDARD',     'standard player');
+@define('PLUGIN_EVENT_OEMBED_PLAYER_BOO_FULLFEATURED', 'full-featured (requires JavaScript)');
+@define('PLUGIN_EVENT_OEMBED_PLAYER_BOO_WORDPRESS',    'wordpress.com player (requires Flash)');

@@ -126,6 +126,11 @@
     <url>http://post.ly/*</url>
     <class>PostlyProvider</class>
   </provider>
+  <provider>
+    <name>AudioBoo (3 different players)</name>
+    <url>http://(audio)?boo.fm/boos/*</url>
+    <class>AudioBooProvider</class>
+  </provider>
 
   <!-- noembed providers =========================================== -->
   
@@ -141,14 +146,6 @@
     <url>http://imgur.com/*</url>
     <endpoint>http://noembed.com/embed</endpoint>
   </provider>
-  <!-- 
-  <provider>
-    <name>Imdb.com (via noembed.com)</name>
-    <jsononly/>
-    <url>http://(www.)?imdb.com/title/*</url>
-    <endpoint>http://noembed.com/embed</endpoint>
-  </provider>
-  -->
   <provider>
     <name>CloudApp (via noembed.com)</name>
     <jsononly/>
@@ -191,35 +188,4 @@
     <url>http://(www.)?beeradvocate.com/beer/profile/*</url>
     <endpoint>http://noembed.com/embed</endpoint>
   </provider>
-  <!-- Too big for blogs
-  <provider>
-    <name>Amazon.com (via noembed.com)</name>
-    <jsononly/>
-    <url>https?://www.(amazon|amzn).com/*</url>
-    <endpoint>http://noembed.com/embed</endpoint>
-  </provider>
-  -->
-
-  <!-- oohembed.com providers -->
-  <!-- 
-  <provider>
-    <name>Audioboo (via oohembed.com)</name>
-    <jsononly/>
-    <url>http://((www.)?audio)?boo.fm/boos/*</url>
-    <endpoint>http://oohembed.com/oohembed/</endpoint>
-  </provider>
-  <provider>
-    <name>Wikipedia (via oohembed.com)</name>
-    <jsononly/>
-      <url>https?://*.wikipedia.org/wiki/*</url>
-    <endpoint>http://oohembed.com/oohembed/</endpoint>
-  </provider>
-  <provider>
-    <name>Imdb.com (via oohembed.com)</name>
-    <jsononly/>
-      <url>http://(www.)?imdb.com/title/*</url>
-    <endpoint>http://oohembed.com/oohembed/</endpoint>
-  </provider>
- -->
-  
 </providers>

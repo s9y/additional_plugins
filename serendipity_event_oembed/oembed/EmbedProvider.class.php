@@ -4,6 +4,7 @@ abstract class EmbedProvider {
   public $endpoint;
   public $maxwidth;
   public $maxheight;
+  public $config;
   public abstract function match($url);
   public abstract function provide($url,$format="json");
 //  public abstract function register();
@@ -12,5 +13,8 @@ abstract class EmbedProvider {
     $this->endpoint = $endpoint;
     $this->maxwidth = $maxwidth;
     $this->maxheight = $maxheight;
+  }
+  public function set_config($config) {
+      $this->config = $config;
   }
 }

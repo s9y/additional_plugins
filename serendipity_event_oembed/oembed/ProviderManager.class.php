@@ -2,8 +2,10 @@
 class ProviderManager{
     private $providers;
     private static $_instance;
-    private function __construct($maxwidth=null, $maxheight=null){
+    private $config;
+    private function __construct($maxwidth=null, $maxheight=null, $config = array()){
         $this->providers=array();
+        $this->config = $config;
         $xml = simplexml_load_file(PLUGIN_OEMBED_PROVIDER_XML_FILE);// PROVIDER_XML comes from config.php
         foreach($xml->provider as $provider){
             if(!isset($provider->class) && isset($provider->endpoint)){
@@ -17,13 +19,14 @@ class ProviderManager{
             }
         }
     }
-    static function getInstance($maxwidth=null, $maxheight=null){
+    static function getInstance($maxwidth=null, $maxheight=null, $config = array()){
         if(!isset($_instance) || $_instance==null){
-            $_instance = new ProviderManager($maxwidth, $maxheight);
+            $_instance = new ProviderManager($maxwidth, $maxheight, $config);
         }
         return $_instance;
     }
     public function register($provider){
+        if (!empty($this->config)) $provider->set_config($this->config);
         $this->providers[]=$provider;
     }
     public function provide($url,$format){

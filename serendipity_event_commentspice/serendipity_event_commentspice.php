@@ -58,6 +58,8 @@ class serendipity_event_commentspice extends serendipity_event
         $config_rules = array('title_rules', 'rule_extras_commentcount', 'rule_extras_commentlength');
         $config_rules_extra = array('rule_dofollow_commentcount', 'rule_dofollow_commentlength');
         
+        $config_boo = array('title_boo','allow_boo','moderate_boo');
+        
         $config_general = array('title_general');
         if (!class_exists('serendipity_event_spamblock')) { // Only do that, if spamblock is not installed.
             $config_general[] = 'required_fields';
@@ -69,7 +71,7 @@ class serendipity_event_commentspice extends serendipity_event
         
         $open_expert_setting = isset($_GET['pluginexpert']);
         if ($open_expert_setting) {
-            $configuration = array_merge($config_switchexpert,$config_twitter, $config_twitter_expert, $config_announce, $config_announce_expert, $config_rules, $config_rules_extra,  $config_general, $config_general_expert);
+            $configuration = array_merge($config_switchexpert,$config_twitter, $config_twitter_expert, $config_announce, $config_announce_expert, $config_boo, $config_rules, $config_rules_extra, $config_general, $config_general_expert);
         }
         else {
             $configuration = array_merge($config_switchexpert,$config_twitter, $config_announce, $config_rules, $config_general);
@@ -200,6 +202,23 @@ class serendipity_event_commentspice extends serendipity_event
                 $propbag->add('default',     false);
                 break;
                 
+            case 'title_boo':
+                $propbag->add('type', 'content');
+                $propbag->add('default',   '<br/><h3>' . PLUGIN_EVENT_COMMENTSPICE_CONFIG_BOO .'</h3>' . PLUGIN_EVENT_COMMENTSPICE_CONFIG_BOO_DESC);
+                break;
+            case 'allow_boo':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_BOO_ALLOW);
+                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_BOO_ALLOW_DESC);
+                $propbag->add('default',     false);
+                break;
+            case 'moderate_boo':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_BOO_MODERATE);
+                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_BOO_MODERATE_DESC);
+                $propbag->add('default',     true);
+                break;
+
             case 'title_rules':
                 $propbag->add('type', 'content');
                 $propbag->add('default',   '<br/><h3>' . PLUGIN_EVENT_COMMENTSPICE_CONFIG_RULES .'</h3>');
@@ -258,12 +277,7 @@ class serendipity_event_commentspice extends serendipity_event
                 $propbag->add('default',     'none');
                 return true;
                 break;
-            case 'expert':
-                $propbag->add('type',        'boolean');
-                $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_EXPERTSETTINGS);
-                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_EXPERTSETTINGS_DESC);
-                $propbag->add('default',     false);
-                break;
+
             default:
                 return false;
         }
@@ -293,6 +307,14 @@ class serendipity_event_commentspice extends serendipity_event
                         case 'commentspicefrss':
                             //if (!serendipity_db_bool($this->get_config('announcerss', false))) break;
                             $this->readRss();
+                            break;
+                        case 'audioboo.png':
+                            header('Content-Type: image/png');
+                            echo file_get_contents(dirname(__FILE__). '/img/audioboo.png');
+                            break;
+                        case 'spiceicorecord.png':
+                            header('Content-Type: image/png');
+                            echo file_get_contents(dirname(__FILE__). '/img/microphone.png');
                             break;
                     }
                     break;
@@ -401,8 +423,9 @@ class serendipity_event_commentspice extends serendipity_event
             $promo_name = null;
             $promo_url = null;
             
-            // I save no matter what the rules say, bt wont display later.
+            // I save no matter what the rules say, it wont display later.
             $twittername = $serendipity['POST']['twitter'];
+            $boourl = $serendipity['POST']['boo'];
             if (isset($serendipity['POST']['promorss']) && !empty($serendipity['POST']['promorss'])) {
                 $promorss = $serendipity['POST']['promorss'];
                 $parts = explode("\n", $promorss);
@@ -412,7 +435,7 @@ class serendipity_event_commentspice extends serendipity_event
                 if (!$this->hashString($promo_name.$promo_url) == $promo_hash) return false;
                 
             }
-            $result = DbSpice::saveCommentSpice($addData['comment_cid'], $twittername, $promo_name, $promo_url);
+            $result = DbSpice::saveCommentSpice($addData['comment_cid'], $twittername, $promo_name, $promo_url, $boourl);
             $this->rememberInputs();
         }
         return true;
@@ -430,6 +453,8 @@ class serendipity_event_commentspice extends serendipity_event
         $result['allow_announce'] = $rule_announce!='disabled';
         $result['nofollow_twitter'] = $rule_twitter_nofollow=='enabled';
         $result['nofollow_announce'] = $rule_announce_nofollow=='enabled';
+        
+        $result['allow_boo'] = true;
         
         $commentcount = -1;
         if ('rules' == $rule_announce || 'rules' == $rule_twitter) {
@@ -525,6 +550,35 @@ class serendipity_event_commentspice extends serendipity_event
                     return false;
                 }
             }
+            
+            // Check, if an boo URL was set and if it seems to be valid:
+            if (isset($serendipity['POST']['boo']) && !empty($serendipity['POST']['boo'])) {
+                $boourl = $serendipity['POST']['boo'];
+                $isBoo = preg_match('@^https?://(audio)?boo.fm/boos/@',$boourl);
+                //$isBoo = (strpos($boourl, 'http://audioboo.fm/boos/') === 0 || (strpos($boourl, 'https://audioboo.fm/boos/') === 0));
+                if ($isBoo) {
+                    $test = str_ireplace('https;//', 'http://', $boourl);                    
+                    $test = str_replace('http://audioboo.fm/boos/', '', $test);       
+                    $test = str_replace('http://boo.fm/boos/', '', $test);       
+                    $testfields = explode('/', $test);
+                    $isBoo = count($testfields) == 1;
+                    if ($isBoo) {
+                        $testfields = explode('-', $test);
+                        $isBoo = is_numeric($testfields[0]);
+                    }
+                }
+                if (!$isBoo) {
+                    $eventData = array ('allow_comments' => false);
+                    $serendipity ['messagestack'] ['comments'] [] = PLUGIN_EVENT_COMMENTSPICE_BOO_WRONG;
+                    return false;
+                }
+                if (serendipity_db_bool($this->get_config('moderate_boo',true))) {
+                    $eventData['moderate_comments'] = true;
+                    $serendipity['csuccess']        = 'moderate';
+                    $serendipity['moderate_reason'] = sprintf(PLUGIN_EVENT_COMMENTSPICE_BOO_MODERATED);
+                }
+            }
+            
         }
         return true;
     }
@@ -700,6 +754,11 @@ class serendipity_event_commentspice extends serendipity_event
                 }
             }
         }
+        
+        if ($allow['allow_boo'] && $spice['boo']) {
+            $booPlayer = '<iframe class="commentspice_booplayer" allowtransparency="allowtransparency" cellspacing="0" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" vspace="0" src="' . $spice['boo'] . '/embed" title="Audioboo player"></iframe>';
+            $eventData['comment'] .= $booPlayer;
+        }
         if ($allow['allow_announce'] && $spice['promo_name'] && $spice['promo_url']) {
             $spice_article_prefix = sprintf(PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_RESCENT, $eventData['author']); 
             $spice_article_name = $spice['promo_name'];
@@ -789,6 +848,7 @@ class serendipity_event_commentspice extends serendipity_event
         $config_announce =$this->get_config('announcerss','disabled');
         $do_twitter = $config_twitter!='disabled';
         $do_announce = $config_announce!='disabled';
+        $do_boo = serendipity_db_bool($this->get_config('allow_boo',false));
         
         if ($do_twitter) {
             if (isset($serendipity['COOKIE']['twitter'])) $twittername = $serendipity['COOKIE']['twitter'];
@@ -802,6 +862,15 @@ class serendipity_event_commentspice extends serendipity_event
         if ($do_announce && !serendipity_db_bool($this->get_config('inputpatched_rss', false))) {
             echo '<div id="serendipity_commentspice_rss" style="display:none;">';
             echo '<select class="commentspice_rss_input" id="serendipity_commentform_rss" name="serendipity[promorss]"></select>'; //  style="max-width: 20em; width: 100%"
+            echo '</div>';
+        }
+        if ($do_boo) {
+            echo '<div  id="serendipity_commentspice_boo_desc" class="serendipity_commentDirection serendipity_comment_spice">';
+            echo '<a href="http://audioboo.fm/profile" target="_blank"><img src="' . $serendipity['baseURL'] . 'index.php?/plugin/audioboo.png" class="commentspice_ico" title="Audioboo.com"></a>';
+            echo PLUGIN_EVENT_COMMENTSPICE_BOO_FOOTER . '<br/>';
+            
+            echo '<a href="http://audioboo.fm/boos/new" target="_blank"><img src="' . $serendipity['baseURL'] . 'index.php?/plugin/spiceicorecord.png" class="commentspice_ico" title="create a boo" alt="record" onClick="window.open(\'http://audioboo.fm/boos/new\',\'recordboo\',\'width=600,height=300\');return false;"></a>';
+            echo '<input class="commentspice_boo_input" type="url" id="serendipity_commentform_boo" name="serendipity[boo]" placeholder="' . PLUGIN_EVENT_COMMENTSPICE_BOO_PLACEHOLDER . '" value=""/>';
             echo '</div>';
         }
         if ($do_twitter) {
@@ -843,13 +912,37 @@ class serendipity_event_commentspice extends serendipity_event
     }
     
     function writeCss(&$eventData, &$addData) {
+        //             $booPlayer = '<iframe class="space_booplayer" style="" allowtransparency="allowtransparency" cellspacing="0" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" vspace="0" src="http://audioboo.fm/boos/649785-ein-erster-testboo/embed" title="Audioboo player"></iframe>';
         global $serendipity;
+        if (!(strpos($eventData, '.commentspice_booplayer'))) {
+?>
+.commentspice_booplayer {
+margin: 0px; padding: 0px; border: none; display: block; max-width: 100%; width: 1000px; height: 145px;
+}
+<?php
+        }
+        if (!(strpos($eventData, '.commentspice_ico_boo'))) {
+?>
+.commentspice_ico_boo {
+	float:right;
+	margin-right:0px;
+	margin-left:10px;
+}
+<?php
+        }
         if (!(strpos($eventData, '.commentspice_ico'))) {
 ?>
 .commentspice_ico {
 	float:right;
 	margin-right:0px;
 	margin-left:10px;
+}
+<?php
+        }
+        if (!(strpos($eventData, '.commentspice_boo_input'))) {
+?>
+.commentspice_boo_input {
+	max-width: 100%;
 }
 <?php
         }

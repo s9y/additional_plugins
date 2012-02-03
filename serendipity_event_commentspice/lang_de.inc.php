@@ -73,6 +73,17 @@
 @define('PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_FOOTER', '<b>Bewirb einen Deiner letzten Artikel</b><br/>Dieses Blog erlaubt Dir mit Deinem Kommentar einen Deiner letzten Artikel zu bewerben. Bitte gib Deine Blog URL als Homepage ein, dann wird eine Auswahl erscheinen, in der Du einen Artikel auswählen kannst.'); 
 @define('PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_CORRUPTED', 'Entschuldigung, bei der Übergabe "Deines letzten Artikels" ist etwas schief gegangen.');
 
+@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_BOO','Audio Kommentare mittels audioboo.fm');
+@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_BOO_DESC','Wenn Du z.B. ein Podcasting Blog hast, möchtest Du vielleicht Deinen Hörern erlauben, per Boo Audio (Mini Podcasts) zu kommentieren, die auf <a href="http://audioboo.fm" target="_blank">audioboo.fm</a> gehostet werden.');
+@define('PLUGIN_EVENT_COMMENTSPICE_BOO_ALLOW','Erlaube Boo Kommentare');
+@define('PLUGIN_EVENT_COMMENTSPICE_BOO_ALLOW_DESC','Schalte dies ein, wenn Du Deinen Lesern/Hörern Boo Audio Kommentare erlauben möchtest. Unterhalb des Kommentar Editors wird ein Feld erscheinen, in dem ein Boo eingetragen und (beta!) aufgenommen werden kann.');
+@define('PLUGIN_EVENT_COMMENTSPICE_BOO_MODERATE','Moderiere Boo Kommentare');
+@define('PLUGIN_EVENT_COMMENTSPICE_BOO_MODERATE_DESC','Schalte dies ein, wenn Audio Boos moderiert werden sollen.');
+@define('PLUGIN_EVENT_COMMENTSPICE_BOO_FOOTER','Dieses Blog erlaubt Dir, Audio Kommentare über <a href="http://audioboo.fm/profile" target="_blank">audioboo.fm</a> hinzuzufügen. <a href="http://audioboo.fm/boos/new" target="_blank">Erstelle einen neuen Boo</a> und gib hier den Link auf die Seite Deines Boos ein.');
+@define('PLUGIN_EVENT_COMMENTSPICE_BOO_PLACEHOLDER', 'http://audioboo.fm/boos/123456-title');
+@define('PLUGIN_EVENT_COMMENTSPICE_BOO_WRONG', 'Tut mir leid, das scheint keine boo URL zu sein (http://audioboo.fm/boos/12345-title)');
+@define('PLUGIN_EVENT_COMMENTSPICE_BOO_MODERATED', 'Boo Audio Kommentare werden vorerst moderiert, bitte habe etwas Geduld.');
+
 @define('PLUGIN_EVENT_COMMENTSPICE_REQUIREMENTS', 'Bedingung');
 @define('PLUGIN_EVENT_COMMENTSPICE_REQUIREMENTS_COMMENTCOUNT', '%s Kommentare geschrieben');
 @define('PLUGIN_EVENT_COMMENTSPICE_REQUIREMENTS_COMMENTLEN', '%s Buchstaben in diesem Kommentar');

@@ -1,0 +1,55 @@
+<html>    
+	<head>        
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-2">
+		<title>Dokumentace: oEmbed</title>        
+	</head>
+	<body>
+	<h1>Dokumentace k pluginu 'oEmbed'<br />
+	<small>(serendipity_event_oembed)</small></h1>
+		<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 4.2.2011. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="ChangeLog">aktuální anglický ChangeLog</a>. 
+		</p>
+		
+		<h2>Popis pluginu</h2>
+		<p>
+		oEmbed je formát, který umožňuje vkládat do blogu jiné stránky z internetu. Umožňuje zobrazovat v příspěvcích vložený obsah (jako tweety, fotky nebo videa), když autor příspěvku napíše odkaz na zdroj obsahu, aniž by bylo potřeba přímo parsovat cílovou stránku.
+		</p>
+		
+		<h2>Historie verzí (ChangeLog)</h2>
+		<ul>
+			<li>verze 1.06 [brockhaus]</li>	
+			<ul>	
+				<li>Nový rozpoznávač AudioBoo, který podporuje 3 různé typy přehrávačů AudioBoo (jde nastavit, který se má použít). Starý "wordpress přehrávač" je nastaven jako výchozí kvůli zpětné kompatibilitě.</li>	
+			</ul>
+			<li>verze 1.05 [brockhaus]</li>	
+			<ul>	
+				<li>Lepší zpracování neparsovatelných výsledků oembed (např. vkládání odkazů youtube není povoleno)</li>	
+			</ul>
+			<li>verze 1.04 [brockhaus]</li>	
+			<ul>	
+				<li>přidáno css pro iframe videa - příspěvek od [Matthias Mees]</li>	
+			</ul>
+			<li>verze 1.03 [brockhaus]</li>	
+			<ul>	
+				<li>Přidán poskytovatel pro post.ly (hlavně jako příklad, jak psát vlastní poskytovatele).</li>	
+				<li>Některé CSS styly. Změněna vložená oblast ze span na div.</li>	
+			</ul>
+			<li>verze 1.02 [brockhaus]</li>	
+			<ul>	
+				<li>Přidáno výchozí css pro příspěvky, změněn oembed kontejner ze span na div.</li>	
+				<li>Smarty security vypnuta pouze pro blogy verze 1.7 a vyšší.</li>	
+			</ul>
+			<li>verze 1.01 [brockhaus]</li>	
+			<ul>	
+				<li>Přidáni "obecní poskytovatelé" embed.ly a oohembed.com.</li>	
+				<li>Odstraněny závislé definice v providers.xml.</li>	
+				<li>Noví poskytovatelé pomocí noembed: GitHub Commit, GitHub Gist a Beer Advocate (Jooo!) ;D</li>	
+				<li>Navráceno vypnutí Smarty Security (testováno s blogy verze 1.6/1.7)</li>	
+				<li>Přímá podporu youtube https</li>	
+			</ul>
+			<li>verze 1.0 [brockhaus]</li>	
+			<ul>	
+				<li>První release, užijte si ho! :)</li>	
+			</ul>
+		</ul>  
+	</body>
+</html>

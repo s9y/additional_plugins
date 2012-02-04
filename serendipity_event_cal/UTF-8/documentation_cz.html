@@ -23,15 +23,16 @@
 	</style>
 <body>
     
-<h1>Dokumentace k pluginu 'Kalendář akcí'</h1>
+<h1>Dokumentace k pluginu 'Kalendář akcí'<br />
+	<small>(serendipity_event_cal)</small></h1>
 
-<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) a naposledy ji aktualizoval dne 19.6.2011. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="../Readme">aktuální anglické "readme"</a> a <a href="../ChangeLog">.ChangeLog</a>.
+<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) a naposledy ji aktualizoval dne 4.2.2012. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="../Readme">aktuální anglické "readme"</a> a <a href="../ChangeLog">.ChangeLog</a>
 <p>
 
 <div class="ramecek">
 <div class="nadpis">serendipity_event_cal.php, README file 2010-02-23 ian</div>
 Pokud máte zajímavé vylepšení nebo potřebujete pomoc, zanechte prosím zprávu na <a href="http://www.s9y.org/forums/">diskuzním fóru</a>.<br />
-Užijte si to. .... Ian
+Užijte si to. .... Ian (Timbalu)
 </div>
 
 <div class="ramecek">
@@ -47,7 +48,7 @@ Plugin je postaven plně na šablonách - viz soubory
 					</div>
 V chybových zprávách plugin_eventcal_error se stále vyskytují špatné html tagy.<br />
 Soubor s jazykovými zprávami může být dále upravován.<br />
-Čtěte <a href="#additional_notes">DALŠÍ POZNÁMKY</a>, <a href="#howto">Rychlé JakNaTo</a>, <a href="#settings">Nastavení</a> a <a href="#changelog">ChangeLog</a> (Historie verzí).
+Čtěte <a href="../#additional_notes">DALŠÍ POZNÁMKY</a>, <a href="../#howto">Rychlé JakNaTo</a>, <a href="../#settings">Nastavení</a> a <a href="../#changelog">ChangeLog</a> (Historie verzí).
 </div>
 
 <div class="ramecek">
@@ -56,7 +57,7 @@ Soubor s jazykovými zprávami může být dále upravován.<br />
 <li>Některé proměnné v tomto pluginu vyžadují verzi PHP >= 5.1! Neexistuje žádný omezený kompatibilní mód pro nižší verze, v nižších verzích plugin nefunguje!</li>
 <li>Tento plugin není vhodný pro třísloupcový design, a to z důvodu šířky. Lepší je použít dvousloupcový design s hlavním sloupcem šiřším než 770 pixelů!</li>
 <li>Kalendář umožňuje pouze celodenní akce. K upřesnění času použijte delší popisek akce nebo pole pro krátký nadpis.</li>
-<li>V současnosti (6.3.2010) nejsou podporovány časové údaje při iCal exportu.</li>
+<li>V současnosti (19.6.2011) nejsou podporovány časové údaje při iCal exportu.</li>
 <li>Pokud děláte vlastní změny v css nebo tpl souborech, nakopírujte je do adresáře se šablonou, nepřepisujte výchozí šablony v adresáři pluginu!</li>
 <li>Uložte znovu nasvatení, pokud aktualizujete ze starší verze!</li>
 <li>Pokud potřebujete pracovat přimo v pluginu, použijte interní smarty (jako vyskakovací okno) nebo eventcal debugování ~řádek 2520. Hledejte '##$serendipity['smarty']->debugging' nahoře v souboru.</li>
@@ -84,9 +85,9 @@ Příklad nastavení Východního amerického času:
      END:STANDARD<br />
      END:VTIMEZONE<br />
 </div>
-Podívejte se také na stránky Mozilla Sunbird/Lightning, konkrétně na popis sekcí EGIN:VTIMEZONE až END:VTIMEZONE, pro nastaveníí Vaší časové zóny <a href="https://wiki.mozilla.org/QA_Feature_Specification:Timezone_Test_ICS">https://wiki.mozilla.org/QA_Feature_Specification:Timezone_Test_ICS</a>.
+Podívejte se také na stránky Mozilla Sunbird/Lightning, konkrétně na popis sekcí EGIN:VTIMEZONE až END:VTIMEZONE, pro nastaveníí Vaší časové zóny <a href="../https://wiki.mozilla.org/QA_Feature_Specification:Timezone_Test_ICS">https://wiki.mozilla.org/QA_Feature_Specification:Timezone_Test_ICS</a>.
 </li>
-<li>Pročtěte si prosím také <a href="#changelog">ChangeLog</a> (Historii verzí) níže na této stránce.</li>
+<li>Pročtěte si prosím také <a href="../#changelog">ChangeLog</a> (Historii verzí) níže na této stránce.</li>
 </ul>
 </div>
 

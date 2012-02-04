@@ -1,7 +1,7 @@
-<?php # lang_cz.inc.php 1.4 2009-08-26 20:42:26 VladaAjgl $
+<?php # lang_cz.inc.php 1.5 2012-02-01 20:53:56 VladaAjgl $
 
 /**
- *  @version 1.4
+ *  @version 1.5
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/06/14
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
@@ -12,6 +12,8 @@
  *  @revisionDate 2009/08/25
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2009/08/26
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2012/02/01
  */
 
 @define('PLUGIN_EVENT_AMAZONCHOOSER_TITLE', 'Tlačítko médií Amazon');
@@ -135,3 +137,18 @@
 @define('PLUGIN_EVENT_AMAZONCHOOSER_SETTINGS_PROBLEM', 'Nejčastější důvod této chyby je špatné nastavení pluginu. Prosím přečtěte si dokumentaci a znovu zkontrolujte nastavení pluginu.');
 @define('PLUGIN_EVENT_AMAZONCHOOSER_PLUGINPROBLEM', 'Konflikt verzí knihovny Amazon.');
 @define('PLUGIN_EVENT_AMAZONCHOOSER_PLUGINPROBLEM_DESC', 'Plugin "Tlačítko Amazon Media" závisí na nejnovější verzi knihovny "Amazon_s9y_lib.php". Ujistěte se prosím, že jsou všechny Vaše pluginy aktuální.');
+
+// Next lines were translated on 2012/02/01
+@define('PLUGIN_EVENT_AMAZONCHOOSER_CN', 'Čína');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_IT', 'Itálie');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_ES', 'Španělsko');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_APPLIANCES', 'Spotřebiče');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_ARTSANDCRAFTS', 'Umění a řemesla');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_BLENDED', 'Směska');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_GARDEN', 'Zahrada');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_HOME', 'Domov');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_MARKETPLACE', 'Tržiště');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_MISC', 'Různé');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_MOBILEAPP', 'Mobilní aplikace');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_OUTLET', 'Outlet');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_UNBOXVIDEO', 'Unbox Video');

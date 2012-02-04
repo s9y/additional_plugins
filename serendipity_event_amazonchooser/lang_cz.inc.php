@@ -1,7 +1,7 @@
-<?php # lang_cz.inc.php 1.4 2009-08-26 20:42:26 VladaAjgl $
+<?php # lang_cz.inc.php 1.5 2012-02-01 20:53:56 VladaAjgl $
 
 /**
- *  @version 1.4
+ *  @version 1.5
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/06/14
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
@@ -12,6 +12,8 @@
  *  @revisionDate 2009/08/25
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2009/08/26
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2012/02/01
  */
 
 @define('PLUGIN_EVENT_AMAZONCHOOSER_TITLE', 'Tlaèítko médií Amazon');
@@ -135,3 +137,18 @@
 @define('PLUGIN_EVENT_AMAZONCHOOSER_SETTINGS_PROBLEM', 'Nejèastìj¹í dùvod této chyby je ¹patné nastavení pluginu. Prosím pøeètìte si dokumentaci a znovu zkontrolujte nastavení pluginu.');
 @define('PLUGIN_EVENT_AMAZONCHOOSER_PLUGINPROBLEM', 'Konflikt verzí knihovny Amazon.');
 @define('PLUGIN_EVENT_AMAZONCHOOSER_PLUGINPROBLEM_DESC', 'Plugin "Tlaèítko Amazon Media" závisí na nejnovìj¹í verzi knihovny "Amazon_s9y_lib.php". Ujistìte se prosím, ¾e jsou v¹echny Va¹e pluginy aktuální.');
+
+// Next lines were translated on 2012/02/01
+@define('PLUGIN_EVENT_AMAZONCHOOSER_CN', 'Èína');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_IT', 'Itálie');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_ES', '©panìlsko');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_APPLIANCES', 'Spotøebièe');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_ARTSANDCRAFTS', 'Umìní a øemesla');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_BLENDED', 'Smìska');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_GARDEN', 'Zahrada');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_HOME', 'Domov');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_MARKETPLACE', 'Tr¾i¹tì');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_MISC', 'Rùzné');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_MOBILEAPP', 'Mobilní aplikace');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_OUTLET', 'Outlet');
+@define('PLUGIN_EVENT_AMAZONCHOOSER_UNBOXVIDEO', 'Unbox Video');

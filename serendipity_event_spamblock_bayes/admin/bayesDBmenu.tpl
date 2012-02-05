@@ -29,9 +29,9 @@
                 </tr>
             </thead>
             <tbody>
-                {foreach $bayesTable as $row}
+                {foreach from=$bayesTable item=row}
                     <tr>
-                        {foreach $row as $value}
+                        {foreach from=$row item=value}
                             <td>
                                 {$value}
                             </td>

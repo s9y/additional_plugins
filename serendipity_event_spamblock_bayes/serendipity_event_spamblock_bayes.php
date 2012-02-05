@@ -36,7 +36,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '0.4.6' );
+		$propbag->add ( 'version', '0.4.6.1' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_spamblock_comments_shown' => true,
 		                                     'external_plugin' => true,
@@ -1414,17 +1414,21 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 
     function showRecyclerMenu($commentpage) {
         $comments = $this->getAllRecyclerComments($commentpage);
-        for ($i=0; $i < count($comments); $i++) {
-            $comment = $comments[$i];
-            
-            $types = array_keys($this->type);
-            $ratings = array();
-            
-            $comment['rating'] = $this->startClassify($comment) * 100;
-            $comment['article_link'] = serendipity_archiveURL($comment['entry_id'], 'comments', 'serendipityHTTPPath', true);
-            $comment['article_title'] = $this->getEntryTitle($comment['entry_id']);
-            $comments[$i] = $comment;
-           
+        if (is_array($comments[0])) {
+            for ($i=0; $i < count($comments); $i++) {
+                $comment = $comments[$i];
+                
+                $types = array_keys($this->type);
+                $ratings = array();
+                
+                $comment['rating'] = $this->startClassify($comment) * 100;
+                $comment['article_link'] = serendipity_archiveURL($comment['entry_id'], 'comments', 'serendipityHTTPPath', true);
+                $comment['article_title'] = $this->getEntryTitle($comment['entry_id']);
+                $comments[$i] = $comment;
+               
+            }
+        } else {
+            $comments = array();
         }
         echo $this->smarty_show('admin/bayesRecyclermenu.tpl', array('comments' => $comments,
                                                         'types' => array_values($this->type),

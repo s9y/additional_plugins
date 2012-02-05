@@ -1,9 +1,11 @@
-<?php # lang_cs.inc.php 1.0 2012-01-11 23:23:15 VladaAjgl $
+<?php # lang_cs.inc.php 1.1 2012-02-04 09:54:28 VladaAjgl $
 
 /**
- *  @version 1.0
+ *  @version 1.1
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2012/01/11
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2012/02/04
  */
 
 @define('PLUGIN_EVENT_OEMBED_NAME',      'oEmbed');
@@ -34,3 +36,10 @@
 @define('PLUGIN_EVENT_OEMBED_SUPPORTED',      '<p>'.
 'Plugin podporuje následující reprezentace odkazů, aniž by bylo potřeba nastavovat obecný fallback:%s'.
 '</p>');
+
+// Next lines were translated on 2012/02/04
+@define('PLUGIN_EVENT_OEMBED_PLAYER_BOO', 'Přehrávač Audioboo');
+@define('PLUGIN_EVENT_OEMBED_PLAYER_BOO_DESC', 'Audioboo podporuje 3 různé přehrávače (viz http://audioboo.fm/boos/649785-ein-erster-testboo.embed?labs=1). Vyberte si, který se vám nejvíce líbí.');
+@define('PLUGIN_EVENT_OEMBED_PLAYER_BOO_STANDARD', 'standardní');
+@define('PLUGIN_EVENT_OEMBED_PLAYER_BOO_FULLFEATURED', 'plná výbava (vyžaduje JavaScript)');
+@define('PLUGIN_EVENT_OEMBED_PLAYER_BOO_WORDPRESS', 'přehrávač wordpress.com (vyžaduje Flash)');

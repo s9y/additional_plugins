@@ -360,11 +360,11 @@
 <guid isPermaLink="false">serendipity_event_externalphp</guid>
 </item>
 <item>
-<title>Markupt: Smarty: Zpracovává instrukce šablonového systému Smarty napsané v těle příspěvku</title>
+<title>Markup: Smarty: Zpracovává instrukce šablonového systému Smarty napsané v těle příspěvku</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_smartymarkup</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_smartymarkup&lt;br /&gt;Markupt: Smarty&lt;/b&gt;&lt;br /&gt;Zpracovává instrukce šablonového systému Smarty napsané v těle příspěvku&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_event_smartymarkup&lt;br /&gt;Markup: Smarty&lt;/b&gt;&lt;br /&gt;Zpracovává instrukce šablonového systému Smarty napsané v těle příspěvku&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Thu, 02 Feb 2012 02:31:45 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_smartymarkup</guid>
 </item>

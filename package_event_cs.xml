@@ -2259,12 +2259,16 @@
 <dir name="UTF-8">
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>plugin_mymood.tpl</file>
 <file>lang_en.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>ChangeLog</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -2272,11 +2276,15 @@
     <file>serendipity_event_mymood/serendipity_event_mymood.php</file>
     <file>serendipity_event_mymood/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_mymood/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_mymood/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_mymood/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_mymood/plugin_mymood.tpl</file>
     <file>serendipity_event_mymood/lang_en.inc.php</file>
     <file>serendipity_event_mymood/lang_cs.inc.php</file>
     <file>serendipity_event_mymood/lang_cz.inc.php</file>
     <file>serendipity_event_mymood/ChangeLog</file>
+    <file>serendipity_event_mymood/documentation_cs.html</file>
+    <file>serendipity_event_mymood/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -2881,7 +2889,7 @@
 <name>serendipity_event_smartymarkup</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_smartymarkup/ChangeLog</changelog>
 <license>GPL</license>
-<summary>Markupt: Smarty</summary>
+<summary>Markup: Smarty</summary>
 <groups>MARKUP</groups>
 <description>Zpracovává instrukce šablonového systému Smarty napsané v těle příspěvku</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
@@ -2897,11 +2905,15 @@
 <file>lang_de.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>lang_cs.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>ChangeLog</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -2911,10 +2923,14 @@
     <file>serendipity_event_smartymarkup/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_smartymarkup/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_smartymarkup/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_smartymarkup/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_smartymarkup/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_smartymarkup/lang_cs.inc.php</file>
     <file>serendipity_event_smartymarkup/lang_en.inc.php</file>
     <file>serendipity_event_smartymarkup/lang_cz.inc.php</file>
     <file>serendipity_event_smartymarkup/ChangeLog</file>
+    <file>serendipity_event_smartymarkup/documentation_cs.html</file>
+    <file>serendipity_event_smartymarkup/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -9664,9 +9680,13 @@ aplikovány další typografické úpravy.</description>
 <dir name="UTF-8">
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
+<file>documentation_cs.html</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -9697,8 +9717,12 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_oembed/oembed.tpl</file>
     <file>serendipity_event_oembed/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_oembed/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_oembed/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_oembed/UTF-8/documentation_cz.html</file>
+    <file>serendipity_event_oembed/documentation_cs.html</file>
     <file>serendipity_event_oembed/lang_cs.inc.php</file>
     <file>serendipity_event_oembed/lang_cz.inc.php</file>
+    <file>serendipity_event_oembed/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>

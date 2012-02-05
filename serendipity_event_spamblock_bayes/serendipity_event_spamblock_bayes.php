@@ -36,7 +36,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '0.4.6.1' );
+		$propbag->add ( 'version', '0.4.6.2' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_spamblock_comments_shown' => true,
 		                                     'external_plugin' => true,
@@ -476,7 +476,6 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     type VARCHAR(20) DEFAULT '{$this->type['body']}'
                     ) {UTF_8};";
 		serendipity_db_schema_import($sql);
-
         #recycler-table
         if ($serendipity['dbType'] == 'mysql') {
             $sql = "CREATE TABLE
@@ -493,18 +492,15 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     {$serendipity['dbPrefix']}spamblock_bayes_recycler;";
         }
         serendipity_db_query($sql);
-		
         
         $dbversion = $this->get_config('dbversion', 1);
         if ($dbversion == '1') {
             $this->updateDB1();
         }
-        
         $dbversion = $this->get_config('dbversion', 1);
         if ($dbversion == '2') {
             $this->updateDB2();
         }
-		
 	}
     #when upgrading to 0.3, type has to get added
     function updateDB1() {
@@ -560,7 +556,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
             FROM 
                 {$serendipity['dbPrefix']}spamblock_bayes;";
             $results = serendipity_db_query($sql);
-            
+
             foreach ($results as $result) {
                 $token = $result['token'];
                 $ham = $result['ham'];
@@ -594,7 +590,6 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 
         $sql3 = "DROP TABLE {$serendipity['dbPrefix']}spamblock_bayes;";
         serendipity_db_query($sql3);
-
         
         $sql4 = "CREATE TABLE {$serendipity['dbPrefix']}spamblock_bayes (
                     token VARCHAR(100) NOT NULL,
@@ -605,7 +600,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     ) {UTF_8};";
 
         serendipity_db_schema_import($sql4);
-
+        
         $sql5 = "INSERT INTO 
                     {$serendipity['dbPrefix']}spamblock_bayes
                 (token, ham, spam, type)
@@ -616,6 +611,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     ";
 
         serendipity_db_schema_import($sql5);
+        
         serendipity_db_end_transaction(true);
         $this->set_config('dbversion', 3);
     }
@@ -1452,6 +1448,9 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
             $this->showAnalysis($comment_ids);
         } else {
             $comments = $this->getAllComments($commentpage);
+            if (!is_array($comments[0])) {
+                $comments = array();
+            }
             echo $this->smarty_show('admin/bayesAnalysismenu.tpl', array(
                                                                     'comments' => $comments,
                                                                     'commentpage' => $commentpage,

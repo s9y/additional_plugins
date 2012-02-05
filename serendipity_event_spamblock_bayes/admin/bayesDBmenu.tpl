@@ -16,7 +16,7 @@
             <input type="submit" class="serendipityPrettyButton input_button" value="{$CONST.PLUGIN_EVENT_SPAMBLOCK_BAYES_IMPORTDB}" name="submit"/>
         </form>
     </div>
-
+    
     <div id="bayesDatabase">
         <table id="bayesDatabaseTable">
             <caption>{$CONST.PLUGIN_EVENT_SPAMBLOCK_BAYES_MENU_DATABASE}</caption>
@@ -48,16 +48,16 @@
                 {elseif $curpage > 1}
                     <a href="?serendipity[adminModule]=event_display&serendipity[adminAction]=spamblock_bayes&serendipity[subpage]=2&serendipity[commentpage]=0" title="{$CONST.Page}">1</a>
                 {/if}
-
-                {for $page=1 to $pages}
-                    {if $curpage == $page -1}
-                        <a class="curpage" href="?serendipity[adminModule]=event_display&serendipity[adminAction]=spamblock_bayes&serendipity[subpage]=2&serendipity[commentpage]={$page-1}" title="{$CONST.Page}">{$page}</a>
+                
+                {section name=page start=1 loop=$pages+1}
+                    {if $curpage == $smarty.section.page.index -1}
+                        <a class="curpage" href="?serendipity[adminModule]=event_display&serendipity[adminAction]=spamblock_bayes&serendipity[subpage]=2&serendipity[commentpage]={$smarty.section.page.index-1}" title="{$CONST.Page}">{$smarty.section.page.index}</a>
                     {/if}
-                    {if $curpage == $page -2 || $curpage == $page}
-                        <a href="?serendipity[adminModule]=event_display&serendipity[adminAction]=spamblock_bayes&serendipity[subpage]=2&serendipity[commentpage]={$page-1}" title="{$CONST.Page}">{$page}</a>
+                    {if $curpage == $smarty.section.page.index -2 || $curpage == $smarty.section.page.index}
+                        <a href="?serendipity[adminModule]=event_display&serendipity[adminAction]=spamblock_bayes&serendipity[subpage]=2&serendipity[commentpage]={$smarty.section.page.index-1}" title="{$CONST.Page}">{$smarty.section.page.index}</a>
                     {/if}
-                {/for}
-
+                {/section}
+                
                 {if $curpage < $pages -3}
                     ...
                     <a href="?serendipity[adminModule]=event_display&serendipity[adminAction]=spamblock_bayes&serendipity[subpage]=2&serendipity[commentpage]={$pages-1}" title="{$CONST.Page}">{$pages}</a>
@@ -80,10 +80,10 @@
                     <th colspan="2">{$CONST.COMMENT}</th>
                 </tr>
                 <tr>
-                    {for $i=1 to 6}
+                    {section name=i  loop=6 start=0}
                         <th>{$CONST.PLUGIN_EVENT_SPAMBLOCK_BAYES_HAM}</th>
                         <th>{$CONST.PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAM}</th>
-                    {/for}
+                    {/section}
                 </tr>
             </thead>
             <tbody>

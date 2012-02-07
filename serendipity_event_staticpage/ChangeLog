@@ -1,3 +1,5 @@
+3.90: fixed typo and shrinked last note
+
 3.89: note sidebar plugin availability & update (sidebar 1.18) Fixed smarty load in backend (Timbalu)
 
 3.88: Fixed guestbook link generation for non-rewrites (Timbalu)

@@ -58,9 +58,9 @@
 <description>Verwaltet beliebige statische Seiten innerhalb des Blogs mit dem Blog-Design und allen Formatierungen. Fügt einen neuen Menüpunkt in der Admin-Oberfläche hinzu!</description>
 <maintainers><maintainer><name>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.89</version>
+  <version>3.90</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-02-03</date>
+  <date>2012-02-08</date>
   <filelist>
 <dir name="serendipity_event_staticpage">
 <file>lang_de.inc.php</file>

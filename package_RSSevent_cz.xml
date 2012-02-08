@@ -23,7 +23,7 @@
 <category>Event Plugins</category>
 <author>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_staticpage&lt;br /&gt;Statické stránky&lt;/b&gt;&lt;br /&gt;Zobrazuje v blogu statické stránky se stejným designem jako mají běžné přspěvky. Přidá nové menu do adminstrátorského rozhraní.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 03 Feb 2012 02:32:00 +0100</pubDate>
+<pubDate>Wed, 08 Feb 2012 02:33:01 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_staticpage</guid>
 </item>
 <item>
@@ -360,11 +360,11 @@
 <guid isPermaLink="false">serendipity_event_externalphp</guid>
 </item>
 <item>
-<title>Markupt: Smarty: Zpracovává instrukce šablonového systému Smarty napsané v těle příspěvku</title>
+<title>Markup: Smarty: Zpracovává instrukce šablonového systému Smarty napsané v těle příspěvku</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_smartymarkup</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_smartymarkup&lt;br /&gt;Markupt: Smarty&lt;/b&gt;&lt;br /&gt;Zpracovává instrukce šablonového systému Smarty napsané v těle příspěvku&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_event_smartymarkup&lt;br /&gt;Markup: Smarty&lt;/b&gt;&lt;br /&gt;Zpracovává instrukce šablonového systému Smarty napsané v těle příspěvku&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Thu, 02 Feb 2012 02:31:45 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_smartymarkup</guid>
 </item>
@@ -1222,7 +1222,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_bayes&lt;br /&gt;Spamblock (Bayes)&lt;/b&gt;&lt;br /&gt;Detekce spamu pomocí adaptivního algoritmu, který se dokáže sám učit.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 12 Jan 2012 02:31:57 +0100</pubDate>
+<pubDate>Mon, 06 Feb 2012 02:32:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_bayes</guid>
 </item>
 <item>

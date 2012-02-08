@@ -58,9 +58,9 @@
 <description>블로그의 디자인을 그대로 따르는 고정 페이지를 블로그 속에 보여줍니다. 관리 메뉴에 새 메뉴 아이템을 생성합니다.</description>
 <maintainers><maintainer><name>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.89</version>
+  <version>3.90</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-02-03</date>
+  <date>2012-02-08</date>
   <filelist>
 <dir name="serendipity_event_staticpage">
 <file>lang_de.inc.php</file>
@@ -2259,12 +2259,16 @@
 <dir name="UTF-8">
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>plugin_mymood.tpl</file>
 <file>lang_en.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>ChangeLog</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -2272,11 +2276,15 @@
     <file>serendipity_event_mymood/serendipity_event_mymood.php</file>
     <file>serendipity_event_mymood/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_mymood/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_mymood/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_mymood/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_mymood/plugin_mymood.tpl</file>
     <file>serendipity_event_mymood/lang_en.inc.php</file>
     <file>serendipity_event_mymood/lang_cs.inc.php</file>
     <file>serendipity_event_mymood/lang_cz.inc.php</file>
     <file>serendipity_event_mymood/ChangeLog</file>
+    <file>serendipity_event_mymood/documentation_cs.html</file>
+    <file>serendipity_event_mymood/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -2897,11 +2905,15 @@
 <file>lang_de.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>lang_cs.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>ChangeLog</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -2911,10 +2923,14 @@
     <file>serendipity_event_smartymarkup/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_smartymarkup/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_smartymarkup/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_smartymarkup/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_smartymarkup/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_smartymarkup/lang_cs.inc.php</file>
     <file>serendipity_event_smartymarkup/lang_en.inc.php</file>
     <file>serendipity_event_smartymarkup/lang_cz.inc.php</file>
     <file>serendipity_event_smartymarkup/ChangeLog</file>
+    <file>serendipity_event_smartymarkup/documentation_cs.html</file>
+    <file>serendipity_event_smartymarkup/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -9340,9 +9356,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>Detects Spam via an algorithmus which learns.</description>
 <maintainers><maintainer><name>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.4.5</version>
+  <version>0.4.6.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-01-12</date>
+  <date>2012-02-06</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bayes">
 <dir name="UTF-8">
@@ -9364,6 +9380,16 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </dir>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<dir name="admin">
+<file>bayesAnalysismenu.tpl</file>
+<file>bayesAnalysis.tpl</file>
+<file>bayesImportmenu.tpl</file>
+<file>bayesDBmenu.tpl</file>
+<file>bayesRecyclermenu.tpl</file>
+<file>bayesLearnmenu.tpl</file>
+<file>bayesNavigation.tpl</file>
+<file>serendipity_event_spamblock_bayes.css</file>
+</dir>
 <file>bayes_commentlist.js</file>
 <file>credit.txt</file>
 <file>jquery.excerpt.js</file>
@@ -9374,6 +9400,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
 <file>documentation_de.html</file>
+<file>details.polyfill.min.js</file>
 <file>publicTrojaKey.pem</file>
 </dir>
 
@@ -9394,6 +9421,14 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
     <file>serendipity_event_spamblock_bayes/img/spamblock_bayes.spam.png</file>
     <file>serendipity_event_spamblock_bayes/lang_cs.inc.php</file>
     <file>serendipity_event_spamblock_bayes/lang_cz.inc.php</file>
+    <file>serendipity_event_spamblock_bayes/admin/bayesAnalysismenu.tpl</file>
+    <file>serendipity_event_spamblock_bayes/admin/bayesAnalysis.tpl</file>
+    <file>serendipity_event_spamblock_bayes/admin/bayesImportmenu.tpl</file>
+    <file>serendipity_event_spamblock_bayes/admin/bayesDBmenu.tpl</file>
+    <file>serendipity_event_spamblock_bayes/admin/bayesRecyclermenu.tpl</file>
+    <file>serendipity_event_spamblock_bayes/admin/bayesLearnmenu.tpl</file>
+    <file>serendipity_event_spamblock_bayes/admin/bayesNavigation.tpl</file>
+    <file>serendipity_event_spamblock_bayes/admin/serendipity_event_spamblock_bayes.css</file>
     <file>serendipity_event_spamblock_bayes/bayes_commentlist.js</file>
     <file>serendipity_event_spamblock_bayes/credit.txt</file>
     <file>serendipity_event_spamblock_bayes/jquery.excerpt.js</file>
@@ -9404,6 +9439,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
     <file>serendipity_event_spamblock_bayes/documentation_cs.html</file>
     <file>serendipity_event_spamblock_bayes/documentation_cz.html</file>
     <file>serendipity_event_spamblock_bayes/documentation_de.html</file>
+    <file>serendipity_event_spamblock_bayes/details.polyfill.min.js</file>
     <file>serendipity_event_spamblock_bayes/publicTrojaKey.pem</file>
   </serendipityFilelist>
 </release>
@@ -9664,9 +9700,13 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <dir name="UTF-8">
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
+<file>documentation_cs.html</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -9697,8 +9737,12 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
     <file>serendipity_event_oembed/oembed.tpl</file>
     <file>serendipity_event_oembed/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_oembed/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_oembed/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_oembed/UTF-8/documentation_cz.html</file>
+    <file>serendipity_event_oembed/documentation_cs.html</file>
     <file>serendipity_event_oembed/lang_cs.inc.php</file>
     <file>serendipity_event_oembed/lang_cz.inc.php</file>
+    <file>serendipity_event_oembed/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>

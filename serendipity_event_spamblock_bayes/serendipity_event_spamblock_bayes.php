@@ -24,8 +24,8 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                         'referrer'  => 'referer',
 	                    'email'     => 'email',
 	                    'url'       => 'url',
-	                    'body'      => 'body',
-	                    'name'      => 'author'
+                        'name'      => 'author',
+	                    'body'      => 'body'
 	                    );
     var $path;
 	                    
@@ -36,7 +36,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '0.4.5' );
+		$propbag->add ( 'version', '0.4.6.2' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_spamblock_comments_shown' => true,
 		                                     'external_plugin' => true,
@@ -328,8 +328,6 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
             }
         }
 
-            
-
         if ( $n > 0 ) {
             $probability = $probability / $n;
         } else {
@@ -478,7 +476,6 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     type VARCHAR(20) DEFAULT '{$this->type['body']}'
                     ) {UTF_8};";
 		serendipity_db_schema_import($sql);
-
         #recycler-table
         if ($serendipity['dbType'] == 'mysql') {
             $sql = "CREATE TABLE
@@ -495,18 +492,15 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     {$serendipity['dbPrefix']}spamblock_bayes_recycler;";
         }
         serendipity_db_query($sql);
-		
         
         $dbversion = $this->get_config('dbversion', 1);
         if ($dbversion == '1') {
             $this->updateDB1();
         }
-        
         $dbversion = $this->get_config('dbversion', 1);
         if ($dbversion == '2') {
             $this->updateDB2();
         }
-		
 	}
     #when upgrading to 0.3, type has to get added
     function updateDB1() {
@@ -562,7 +556,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
             FROM 
                 {$serendipity['dbPrefix']}spamblock_bayes;";
             $results = serendipity_db_query($sql);
-            
+
             foreach ($results as $result) {
                 $token = $result['token'];
                 $ham = $result['ham'];
@@ -596,7 +590,6 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 
         $sql3 = "DROP TABLE {$serendipity['dbPrefix']}spamblock_bayes;";
         serendipity_db_query($sql3);
-
         
         $sql4 = "CREATE TABLE {$serendipity['dbPrefix']}spamblock_bayes (
                     token VARCHAR(100) NOT NULL,
@@ -607,7 +600,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     ) {UTF_8};";
 
         serendipity_db_schema_import($sql4);
-
+        
         $sql5 = "INSERT INTO 
                     {$serendipity['dbPrefix']}spamblock_bayes
                 (token, ham, spam, type)
@@ -618,6 +611,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     ";
 
         serendipity_db_schema_import($sql5);
+        
         serendipity_db_end_transaction(true);
         $this->set_config('dbversion', 3);
     }
@@ -658,7 +652,11 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 				    //catch learnAction here because the GET-Params prevent
 				    //the normal switch/case to find this
 				    if (strpos($eventData, 'learnAction') !== false) {
+                        if (!serendipity_checkPermission('adminComments')) {
+                            return;
+                        }
                         $this->learnAction($_REQUEST['id'], $_REQUEST['category'], $_REQUEST['action'], $_REQUEST['entry_id']);
+                        echo DONE;
                         return true;
                         break;
                     }
@@ -750,7 +748,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                             }
                             //the POST-Data of the form is almost exactly like the result of the database-query
                             $comment = $_POST;
-                            //TODO: determine category
+                            
                             if (serendipity_db_bool($comment['ham'])) {
                                 $category = 'ham';
                             } else {
@@ -809,7 +807,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                             if ( !empty($_REQUEST['serendipity']['selected'])) {
                                     $ids = array_keys($_REQUEST['serendipity']['selected']);
                                 } else {
-                                    $ids = array();
+                                    $ids = array_keys($_REQUEST['serendipity']['comments']);
                                 }
                             if(isset($_REQUEST['restore'])) {
                                 if ( !empty($ids)) {
@@ -1167,7 +1165,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     $delete .= $serendipity['baseURL'] . 'index.php?/plugin/learnAction&action=delete&category=spam&id=' . $eventData['comment_id'] . '&entry_id='. $eventData['entry_id'];
                     $eventData['action_more']['delete'] = $delete;
                     if (!empty($eventData['moderate_comment']) && $eventData['moderate_comment']) {
-                        $delete = PLUGIN_EVENT_SPAMBLOCK_BAYES_APPROVE . ': ';
+                        $approve = PLUGIN_EVENT_SPAMBLOCK_BAYES_APPROVE . ': ';
                         $approve .= $serendipity['baseURL'] . 'index.php?/plugin/learnAction&action=approve&category=ham&id=' . $eventData['comment_id'] . '&entry_id='. $eventData['entry_id'];
                         $eventData['action_more']['approve'] = $approve;
                     }
@@ -1212,6 +1210,9 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     break;
 
                 case 'backend_sidebar_entries':
+                    if (!serendipity_checkPermission('adminComments')) {
+                        break;
+                    }
                     if ($this->get_config('menu', true)) {
                         echo '<li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks">
                             <a href="?serendipity[adminModule]=event_display&serendipity[adminAction]=spamblock_bayes&serendipity[subpage]=1">
@@ -1223,6 +1224,9 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     break;
 
                 case 'backend_sidebar_entries_event_display_spamblock_bayes':
+                    if (!serendipity_checkPermission('adminComments')) {
+                        break;
+                    }
                     $path = $this->path = $this->get_config('path', $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_spamblock_bayes/');
                     if (!empty($path) && $path != 'default' && $path != 'none' && $path != 'empty') {
                         $path_defined = true;
@@ -1310,52 +1314,29 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 
     #Show the whole additional configuration, specifiy subpage for a specific tab
 	function displayMenu($subpage=0) {
-	    $css = file_get_contents(dirname(__FILE__). '/serendipity_event_spamblock_bayes.css');
-	    echo "<style>
-        $css
-	    </style>";
+	    $css = file_get_contents(dirname(__FILE__). '/admin/serendipity_event_spamblock_bayes.css');
 	    #add javascript for usability
-		if (!$serendipity['capabilities']['jquery']) {
-		    echo '<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>';
-		}
-		echo '<script src="'.$this->path.'serendipity_event_spamblock_bayes.js" type="text/javascript"></script>';
-	    #Navigation:
-	    $menuNames = array( PLUGIN_EVENT_SPAMBLOCK_BAYES_MENU_LEARN,
-	                        PLUGIN_EVENT_SPAMBLOCK_BAYES_MENU_DATABASE,
-	                        PLUGIN_EVENT_SPAMBLOCK_BAYES_MENU_RECYCLER,
-	                        PLUGIN_EVENT_SPAMBLOCK_BAYES_MENU_ANALYSIS,
-                            PLUGIN_EVENT_SPAMBLOCK_BAYES_MENU_IMPORT);
-	    $menu ='<div id="bayesNav">
-        <ul>';
-        $menuLength = count($menuNames);
-        for ($i=1; $i <= $menuLength; $i++) {
-            if ($subpage == $i) {
-                $menu .= '<li>
-                 <h3><a href="?serendipity[adminModule]=event_display&serendipity[adminAction]=spamblock_bayes&serendipity[subpage]='.$i.'">
-                  '. $menuNames[$i-1] .'
-                </a></h3>
-            </li>';
-            } else {
-                $menu .= '<li>
-                 <a href="?serendipity[adminModule]=event_display&serendipity[adminAction]=spamblock_bayes&serendipity[subpage]='.$i.'">
-                  '. $menuNames[$i-1] .'
-                </a>
-            </li>';
-            }
+		if ($serendipity['capabilities']['jquery']) {
+            $jquery_needed = false;
+		} else {
+            $jquery_needed = true;
         }
-        echo $menu .'</ul>
-	    </div>
+
+        echo $this->smarty_show('admin/bayesNavigation.tpl', array('css' => $css,
+                                                                'jquery_needed' => $jquery_needed,
+                                                                'path' => $this->path,
+                                                                'subpage' => $subpage
+                                                                ));
 	    
-	    <div id="bayesContent">';
         switch($subpage) {
             case '1':
                 $this->showLearnMenu();
                 break;
             case '2':
-                $this->showDBMenu();
+                $this->showDBMenu($this->get['commentpage']);
                 break;
             case '3':
-                $this->showRecyclerMenu();
+                $this->showRecyclerMenu($this->get['commentpage']);
                 break;
             case '4':
                 $this->showAnalysisMenu($this->get['commentpage']);
@@ -1366,121 +1347,98 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
             default:
                 break;
         }
-        echo '</div>';
+    }
+
+    /* Render a smarty-template
+     * $template: path to the template-file
+     * $data: map with the variables to assign
+     * */
+    function smarty_show($template, $data = null) {
+        global $serendipity;
+        
+        if (!is_object($serendipity['smarty'])) {
+            serendipity_smarty_init();
+        }
+        
+        $serendipity['smarty']->assign($data);
+        
+        $tfile = serendipity_getTemplateFile($template, 'serendipityPath');
+
+        if ($tfile == $template) {
+            $tfile = dirname(__FILE__) . "/$template";
+        }
+        $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
+        $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
+        $content = $serendipity['smarty']->fetch('file:'. $tfile);
+        $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+
+        echo $content;
     }
 
     function showLearnMenu() {
+        echo $this->smarty_show('admin/bayesLearnmenu.tpl');
+    }
+
+    function showDBMenu($commentpage) {
         global $serendipity;
+        $data = array();
+        
+        $sql = "SELECT
+                    token, ham, spam, type
+                FROM
+                    {$serendipity['dbPrefix']}spamblock_bayes ORDER BY spam" . serendipity_db_limit_sql(sprintf("%d,%d", $commentpage*20, 20));
+        $bayesTable = serendipity_db_query($sql, false, "assoc");
+        $sql ="SELECT COUNT(token) FROM {$serendipity['dbPrefix']}spamblock_bayes";
+        $amount = serendipity_db_query($sql, true, "num");
+        $amount = $amount[0];
 
-        echo '<form id="bayesLearnForm" action="'. "{$serendipity['baseURL']}index.php?/plugin/bayesMenuLearn" .'" method="post">
-        <table id="bayesLearnTable">
-            <tr>
-                <td><label for="bayesCommentName">'.NAME.'</label></td>
-                <td><input type="text" id="bayesCommentName" name="author"></input></td>
-            </tr>
-        <tr>
-                <td><label for="bayesCommentUrl">'.HOMEPAGE.'</label></td>
-                <td>
-        <input type="text" id="bayesCommentUrl" name="url"></input></td>
-            </tr>
-        <tr>
-                <td><label for="bayesCommentEmail">'.EMAIL.'</label></td>
-                <td>
-        <input type="text" id="bayesCommentEmail" name="email"></input></td>
-            </tr>
-        <tr>
-                <td><label for="bayesCommentIp">'.IP.'</label></td>
-                <td>
-        <input type="text" id="bayesCommentIp" name="ip"></input></td>
-            </tr>
-        <tr>
-                <td><label for="bayesCommentReferrer">'.REFERER.'</label></td>
-                <td>
-        <input type="text" id="bayesCommentReferrer" name="referrer"></input></td>
-            </tr>
-        <tr>
-                <td><label for="bayesCommentBody">'.COMMENT.'</label></td>
-                <td>
-        <textarea rows="10" cols="40" id="bayesCommentBody" name="body"></textarea></td>
-            </tr>
-        <tr>
-                <td></td><td><label for="bayesCommentHam">'.PLUGIN_EVENT_SPAMBLOCK_BAYES_HAM.'</label>
-        <input class="direction_ltr input_radio" type="radio" id="bayesCommentHam" name="ham" value="true" checked="" title="'.PLUGIN_EVENT_SPAMBLOCK_BAYES_HAM.'">
-        <label for="bayesCommentSpam">'.PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAM.'</label>
-        <input class="direction_ltr input_radio" type="radio" id="bayesCommentSpam" name="ham" value="false" title="'.PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAM.'"></td>
-            </tr>
-        </table>
-        <input type="submit" class="serendipityPrettyButton input_button" value="'.SAVE.'" name="submit"/>
-        </form>';
+        $data['pages'] = ceil($amount / 20);
+        $data['bayesTable'] = $bayesTable;
+        if (! isset($commentpage)) {
+            $commentpage = 0;
+        }
+        $data['curpage'] = $commentpage;
+        
+        foreach($this->type as $type) {
+            $data[$type.'_ham'] = $this->get_config("{$type}_ham", 0);
+		    $data[$type.'_spam'] = $this->get_config("{$type}_spam", 0);
+        }
+
+        $data['path'] = $this->path;
+        echo $this->smarty_show('admin/bayesDBmenu.tpl', $data);
     }
 
-    function showDBMenu() {
-        echo '
-        <div id="bayesControls">
-            <form action="'. "{$serendipity['baseURL']}index.php?/plugin/bayesSetupDatabase" .'" method="post">
-                <input type="submit" class="serendipityPrettyButton input_button" value="'.PLUGIN_EVENT_SPAMBLOCK_BAYES_CREATEDB.'" name="submit"/>
-            </form>
-            <form action="'. "{$serendipity['baseURL']}index.php?/plugin/bayesLearnFromOld" .'" method="post">
-                <input type="submit" class="serendipityPrettyButton input_button" value="'.PLUGIN_EVENT_SPAMBLOCK_BAYES_LEARNOLD.'" name="submit"/>
-            </form>
-            <form id="bayesDeleteDB" action="'. "{$serendipity['baseURL']}index.php?/plugin/bayesDeleteDatabase" .'" method="post">
-                <input type="submit" class="serendipityPrettyButton input_button" value="'.PLUGIN_EVENT_SPAMBLOCK_BAYES_ERASEDB.'" name="submit"/>
-            </form>
-            <form action="'. "{$serendipity['baseURL']}index.php?/plugin/bayesExportDatabase" .'" method="post">
-                <input type="submit" class="serendipityPrettyButton input_button" value="'.PLUGIN_EVENT_SPAMBLOCK_BAYES_EXPORTDB.'" name="submit"/>
-            </form>
-            <form action="'. "?serendipity[adminModule]=event_display&serendipity[adminAction]=spamblock_bayes&serendipity[subpage]=5" .'" method="post">
-                <input type="submit" class="serendipityPrettyButton input_button" value="'.PLUGIN_EVENT_SPAMBLOCK_BAYES_IMPORTDB.'" name="submit"/>
-            </form>
-        </div>';
-        echo '<div id="bayesDatabase">'.
-         $this->showTable('spamblock_bayes', false, PLUGIN_EVENT_SPAMBLOCK_BAYES_MENU_DATABASE, 'bayesDatabaseTable')
-        . '</div>';
-        echo '
-        <div id="bayesSavedValues">
-            <table id="bayesSavedValuesTable">
-                <caption>'.PLUGIN_EVENT_SPAMBLOCK_BAYES_SAVEDVALUES.'</caption>';
-        
-        $thead .= '<thead>
-                    <tr>';
-        foreach($this->type as $type) {
-            $thead .= '<th colspan="2">'.$type.'</th>';
+    function showRecyclerMenu($commentpage) {
+        $comments = $this->getAllRecyclerComments($commentpage);
+        if (is_array($comments[0])) {
+            for ($i=0; $i < count($comments); $i++) {
+                $comment = $comments[$i];
+                
+                $types = array_keys($this->type);
+                $ratings = array();
+                
+                $comment['rating'] = $this->startClassify($comment) * 100;
+                $comment['article_link'] = serendipity_archiveURL($comment['entry_id'], 'comments', 'serendipityHTTPPath', true);
+                $comment['article_title'] = $this->getEntryTitle($comment['entry_id']);
+                $comments[$i] = $comment;
+               
+            }
+        } else {
+            $comments = array();
         }
-        $thead .= '</tr><tr>';
-        foreach($this->type as $type) {
-            $thead .= '<th>'.HAM.'</th>';
-            $thead .= '<th>'.SPAM.'</th>';
-        }
-        $thead .= '</tr></thead>';
-        $tbody = '<tbody><tr>';
-        foreach($this->type as $type) {
-            $tbody .='<td>'.$this->get_config("{$type}_ham", 0).'</td>';
-		    $tbody .= '<td>'.$this->get_config("{$type}_spam", 0).'</td>';
-        }
-        $tbody .= '</tr></tbody>';
-        echo "$thead $tbody </table></div>";
-        echo '<script src="'.$this->path.'jquery.heatcolor.js" type="text/javascript"></script>
-	    <script src="'.$this->path.'jquery.tablesorter.js" type="text/javascript"></script>
-	    <script>$("#bayesDatabaseTable").tablesorter();
-        sortwithcolor(2);</script>';
- 
+        echo $this->smarty_show('admin/bayesRecyclermenu.tpl', array('comments' => $comments,
+                                                        'types' => array_values($this->type),
+                                                        'commentpage' => $commentpage,
+                                                        'path' => $this->path
+                                                        ));
     }
 
-    function showRecyclerMenu() {
-        echo '<form action="'. "{$serendipity['baseURL']}index.php?/plugin/bayesRecycler" .'" method="post">
-        <div id="bayesControls">
-            <input type="submit" class="serendipityPrettyButton input_button" value="'.PLUGIN_EVENT_SPAMBLOCK_BAYES_RESTORE.'" name="restore"/>
-            <input type="submit" class="serendipityPrettyButton input_button" value="'.PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_EMPTY.'" name="empty" />
-            <label for="recyclerSpam">'.PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAMBUTTON.'<input type="checkbox" id="recyclerSpam" class="serendipityPrettyButton input_button" value="" name="recyclerSpam" /></label>
-        </div>'
-        . $this->showTable('spamblock_bayes_recycler', true, '', 'bayesRecyclerTable', array('author', 'url', 'email', 'body', 'timestamp'),
-        array(
-            'timestamp' => create_function('$time', 'return strftime(\'%e.%m.%y, %R\', $time);')
-        ))
-        .'</form>
-        <script src="'.$this->path.'jquery.excerpt.js" type="text/javascript"></script>
-        <script>shortenAll("body", 3);</script>';
-        
+    function getEntryTitle($id) {
+        global $serendipity;
+        $sql = "SELECT title FROM {$serendipity['dbPrefix']}entries WHERE id = '$id'";
+        $title = serendipity_db_query($sql, true, "assoc");
+        $title = $title['title'];
+        return $title;
     }
 
     function showAnalysisMenu($commentpage=0) {
@@ -1490,189 +1448,51 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
             $this->showAnalysis($comment_ids);
         } else {
             $comments = $this->getAllComments($commentpage);
-            if ($commentpage > 0) {
-                 echo '<a class="serendipityIconLink" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=4&amp;serendipity[commentpage]='. ($commentpage-1) .'"><img src="/templates/default/admin/img/previous.png"/>'.PREVIOUS.'</a>';
+            if (!is_array($comments[0])) {
+                $comments = array();
             }
-            if (count($comments) > 20) {
-                echo '<a class="serendipityIconLinkRight" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=4&amp;serendipity[commentpage]='. ($commentpage+1) .'">'.NEXT.'<img src="/templates/default/admin/img/next.png"/></a>';
-            }
-            echo '<form action="'. "{$serendipity['baseURL']}index.php?/plugin/bayesAnalyse" .'" method="post">
-            <ul id="bayesAnalysisList" class="plainList">';
-            for ($i=0; $i < 20;$i++) {
-                if (! isset($comments[$i])) {
-                    break;
-                }
-                $comment = $comments[$i];
-                echo '<li><input type="checkbox" id="comments['. $comment['id'] .']" name="comments['. $comment['id'] .']" /><label for="comments['. $comment['id'] .']" >'.$comment['id'].'</label>: <div class="bayesComments">'.htmlspecialchars($comment[$this->type['name']]).', "'.htmlspecialchars($comment[$this->type['body']]).'</div> </li>';
-            }
-            echo '<input type="submit" class="serendipityPrettyButton input_button" value="'.GO.'" />
-            </ul></form>
-            <script src="'.$this->path.'jquery.excerpt.js" type="text/javascript"></script>
-            <script>shortenAll("bayesComments", 1)</script> ';
-            if ($commentpage > 0) {
-                 echo '<a class="serendipityIconLink" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=4&amp;serendipity[commentpage]='. ($commentpage-1) .'"><img src="/templates/default/admin/img/previous.png"/>'.PREVIOUS.'</a>';
-            }
-            if (($commentpage+1)*20 < count($comments) ) {
-                echo '<a class="serendipityIconLinkRight" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=4&amp;serendipity[commentpage]='. ($commentpage+1) .'">'.NEXT.'<img src="/templates/default/admin/img/next.png"/></a>';
-            }
+            echo $this->smarty_show('admin/bayesAnalysismenu.tpl', array(
+                                                                    'comments' => $comments,
+                                                                    'commentpage' => $commentpage,
+                                                                    'path' => $this->path
+                                                                     )
+                                    );
         }
     }
     
     function showImportMenu() {
         global $serendipity;
-        echo '<p>' . PLUGIN_EVENT_SPAMBLOCK_BAYES_IMPORT_EXPLANATION . '</p>
-        
-            <form enctype="multipart/form-data" action="'.$serendipity ['baseURL'] . 'index.php?/plugin/spamblock_bayes_import" method="post">
-                 <input name="importcsv" type="file" />
-                 <input class="serendipityPrettyButton input_button" type="submit" value="'.GO.'" />
-            </form>
-            
-            <h3>'.PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA.'</h3>
-            <p>'.PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA_EXPLANATION.'</p>
-            <form action="'.$serendipity ['baseURL'] . 'index.php?/plugin/bayesTrojaRequestDB" method="post">
-                <input id="trojaImport" class="serendipityPrettyButton input_button" type="submit" value="'.PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA_IMPORT.'" />
-            </form>';
-            if ($this->get_config('troja_registered', false) == true) {
-                echo '<form class="bayesTrojaButtons" action="'.$serendipity ['baseURL'] . 'index.php?/plugin/bayesTrojaRemove" method="post">
-                    <input class="serendipityPrettyButton input_button" type="submit" value="'.PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA_REMOVE.'" />
-                </form>';
-            } else {
-                echo '<form class="bayesTrojaButtons" action="'.$serendipity ['baseURL'] . 'index.php?/plugin/bayesTrojaRegister" method="post">
-                    <input class="serendipityPrettyButton input_button" type="submit" value="'.PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA_REGISTER.'" />
-                </form>';
-            }
+        echo $this->smarty_show('admin/bayesImportmenu.tpl', array('trojaRegistered' => $this->get_config('troja_registered', false) == true));
     }
 
     function showAnalysis($comment_id) {
         $comments = $this->getComment($comment_id);
         for ($i=0; $i < count($comments); $i++) {
             $comment = $comments[$i];
-
-            if (is_array($comment_id)) {
-                echo '<h3>'. $comment_id[$i] .'</h3>';
-            } else {
-                echo '<h3>'.COMMENT .' #'. $comment_id .'</h3>';
-            }
+            
             $types = array_keys($this->type);
             $ratings = array();
             
             foreach($types as $type) {
                 $rating = $this->classify($comment[$this->type[$type]], $this->type[$type]);
-                $ratings[$this->type[$type]] = $rating;
-            }
-            echo '<ul class="plainList bayesAnalysis">';
-            foreach($types as $type) {
-                echo "<li class=\"ratingBox\"><div class=\"commentType\">$type:</div>
-                <div class=\"commentPart\">".htmlspecialchars($comment[$this->type[$type]])."</div>
-                <div class=\"rating\">";
-                if (is_numeric($ratings[$this->type[$type]])) {
-                    echo preg_replace('/\..*/', '', $ratings[$this->type[$type]] * 100) .'%';
+                
+                if (is_numeric($rating)) {
+                    $ratings[$this->type[$type]] = $rating * 100;
                 } else {
-                    echo '-';
-                }
-                echo "</div></li>";
-            }
-            echo '</ul>';
-            echo '<div class="finalRating">'.preg_replace('/\..*/', '', $this->startClassify($comment) * 100) .'%</div>';
-        }
-        echo '<script src="'.$this->path.'jquery.excerpt.js" type="text/javascript"></script>
-            <script>shortenAll("commentPart", 1)
-            colorize()</script> ';
-    }
-
-    
-    # Returns the input of a table as HTML-Table
-    # $table            The name of the table
-    # $select           Shall a checkbox for selecting a row be shown?
-    # $caption          The caption of the table
-    # $id               The id the table shall get in the htmlentities
-    # $include          The columns to select
-    # $formatFunctions  An associative array, containing a function
-    #                   which get used upon the corresponding column
-    function showTable($table, $select=false, $caption="", $id="", $include="", $formatFunctions="") {
-        global $serendipity;
-
-        if (is_array($include)) {
-            $columns = implode(', ', $include);
-        } elseif (empty($include)) {
-            $columns = '*';
-        } else {
-            $columns = $include;
-            $include = array($include);
-        }
-
-        if ($select) {
-            $columns .= ", id";
-        }
-        
-        if ( $serendipity['dbType'] == 'sqlite') {
-            $sql = "SELECT " . $columns . "
-                    FROM
-                    {$serendipity['dbPrefix']}$table
-                    LIMIT 0, 2000 ";
-        } else {
-            $sql = "SELECT " . $columns . "
-                    FROM
-                    {$serendipity['dbPrefix']}$table
-                    ORDER BY 'id'
-                    LIMIT 0, 2000 ";
-        }
-        $selectedTable = serendipity_db_query($sql);
-        
-        if(is_array($selectedTable)) {
-            if (empty($id)) {
-            $output = '<table>';
-            } else {
-                $output = '<table id="'.$id.'">';
-            }
-            if (! empty($caption)) {
-                $output .= "<caption>$caption</caption>";
-            }
-
-            $output .= '<thead>
-                    <tr>';
-            if($select) {
-                $output .= "<th class=\"select\"></th>";
-            }
-            $names = array_keys($selectedTable[0]);
-            $names = array_filter($names, create_function('$name', 'return ! is_numeric($name);'));
-            foreach ($names as $name) {
-                if (empty($include) || in_array($name, $include)) {
-                    $output .= "<th>$name</th>";
+                    $ratings[$this->type[$type]] = '-';
                 }
             }
-            $output .= '</tr>
-            </thead>';
-            $output .= '<tbody>';
-            foreach($selectedTable as $column) {
-                $output .= '<tr>';
-                if ($select) {
-                    $output .= '<td class="select"><input type="checkbox" name="serendipity[selected]['.$column['id'].']" /></td>';
-                }
-                foreach ($names as $name) {;
-                    if (empty($include) || in_array($name, $include)) {
-                        if (isset($formatFunctions[$name])) {
-                            $output .= "<td class=\"$name\">". $formatFunctions[$name]($column[$name])."</td>";
-                        } else {
-                            $output .= "<td class=\"$name\">{$column[$name]}</td>";
-                        }
-                    }
-                }
-                $output .= '</tr>';
-            }
-        } else {
-            return;
+            $comment['rating'] = $this->startClassify($comment) * 100;
+            $comment['ratings'] = $ratings;
+            $comments[$i] = $comment;
         }
-        
-        $output .= '</tbody></table>';
-        return $output;
+        echo $this->smarty_show('admin/bayesAnalysis.tpl', array('comments' => $comments,
+                                                        'types' => array_values($this->type)
+                                                        ));
     }
 
     #For email-notification. Learn a spam or ham and delete or approve.
 	function learnAction($id, $category, $action, $entry_id) {
-        if (!serendipity_checkPermission('adminComments')) {
-            return;
-        }
         $comment = $this->getComment($id);
         if (is_array ($comment)) {
             $comment = $comment['0'];
@@ -1692,14 +1512,13 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
         global $serendipity;
 
         if(is_array($id)) {
-            $sql = "SELECT body, entry_id, author, email, url, ip, referer FROM {$serendipity['dbPrefix']}comments
+            $sql = "SELECT id, body, entry_id, author, email, url, ip, referer FROM {$serendipity['dbPrefix']}comments
                 WHERE " . serendipity_db_in_sql ( 'id', $id );
         } else {
-            $sql = "SELECT body, entry_id, author, email, url, ip, referer FROM {$serendipity['dbPrefix']}comments
+            $sql = "SELECT id, body, entry_id, author, email, url, ip, referer FROM {$serendipity['dbPrefix']}comments
                 WHERE id = " . (int)$id;
         }
-        $comments = serendipity_db_query($sql);
-        
+        $comments = serendipity_db_query($sql, false, 'assoc');
         return $comments;
     }
 
@@ -1708,13 +1527,13 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
         global $serendipity;
 
         if(is_array($id)) {
-            $sql = "SELECT body, entry_id, author, email, url, ip, referer FROM {$serendipity['dbPrefix']}spamblock_bayes_recycler
+            $sql = "SELECT id, body, entry_id, author, email, url, ip, referer FROM {$serendipity['dbPrefix']}spamblock_bayes_recycler
                 WHERE " . serendipity_db_in_sql ( 'id', $id );
         } else {
-            $sql = "SELECT body, entry_id, author, email, url, ip, referer FROM {$serendipity['dbPrefix']}spamblock_bayes_recycler
+            $sql = "SELECT id, body, entry_id, author, email, url, ip, referer FROM {$serendipity['dbPrefix']}spamblock_bayes_recycler
                 WHERE id = " . (int)$id;
         }
-        $comments = serendipity_db_query($sql);
+        $comments = serendipity_db_query($sql, false, 'assoc');
 
         return $comments;
     }
@@ -1727,20 +1546,24 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
             $sql = "SELECT * FROM {$serendipity['dbPrefix']}comments ORDER BY id DESC";
         } else {
             $first = $page * 20;
-            #+1, because the analyser-menu looks at the amount of
-            #comments to decide if a next page is needed
-            $last = $first + 20 +1;
-            $sql = "SELECT * FROM {$serendipity['dbPrefix']}comments ORDER BY id DESC LIMIT $first, $last";
+            $amount = 21;
+            $sql = "SELECT * FROM {$serendipity['dbPrefix']}comments ORDER BY id DESC" . serendipity_db_limit_sql(sprintf("%d,%d", $first, $amount));
         }
-        $comments = serendipity_db_query($sql);
+        $comments = serendipity_db_query($sql, false, 'assoc');
 
         return $comments;
     }
 
-    function getAllRecyclerComments() {
+    function getAllRecyclerComments($page=false) {
         global $serendipity;
-        $sql = "SELECT * FROM {$serendipity['dbPrefix']}spamblock_bayes_recycler";
-        $comments = serendipity_db_query($sql);
+        if ($page === false) {
+            $sql = "SELECT * FROM {$serendipity['dbPrefix']}spamblock_bayes_recycler ORDER BY id DESC";
+        } else {
+            $first = $page * 20;
+            $amount = 21;
+            $sql = "SELECT * FROM {$serendipity['dbPrefix']}spamblock_bayes_recycler ORDER BY id DESC" . serendipity_db_limit_sql(sprintf("%d,%d", $first, $amount));
+        }
+        $comments = serendipity_db_query($sql, false, 'assoc');
 
         return $comments;
     }

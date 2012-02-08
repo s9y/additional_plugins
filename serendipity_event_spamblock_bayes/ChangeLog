@@ -1,3 +1,12 @@
+0.4.6:
+    Smartified backend-menu
+    Added pagination to database-table
+    Added pagination to recycler
+    Fixed "race-condition" in recycler, will now only delete displayed
+    comments
+    Recycler will now show rating of comments
+    Added missing label for approval email link
+    
 0.4.5:
     Fixed analysis-menu
     Fixed error in classification, ignored some commentcomponents

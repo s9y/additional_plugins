@@ -16,5 +16,3 @@
 @define('PLUGIN_EVENT_ENTRYCHECK_EMPTYTITLE_WARNING', '題名を指定せずにエントリを公開することは許可されていません。エントリの題名を入力してから再び保存を試みてください!');
 @define('PLUGIN_EVENT_ENTRYCHECK_DEFAULTCAT', 'デフォルトのカテゴリを設定する');
 @define('PLUGIN_EVENT_ENTRYCHECK_DEFAULTCAT_DESC', 'ユーザがカテゴリー関連を空で残した場合、ここで使用されたデフォルトカテゴリを設定することができます。');
-
-?>

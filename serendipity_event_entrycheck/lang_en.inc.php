@@ -27,4 +27,3 @@
 @define('PLUGIN_EVENT_ENTRYCHECK_UNLOCK', 'Unlock Entry');
 @define('PLUGIN_EVENT_ENTRYCHECK_LOCK_WARNING', 'This entry is locked and can only be saved by the lock owner, unless you unlock the entry.');
 @define('PLUGIN_EVENT_ENTRYCHECK_LOCKING', 'Enable entry locks?');
-?>

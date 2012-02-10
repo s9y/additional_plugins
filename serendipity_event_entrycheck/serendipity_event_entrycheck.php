@@ -25,7 +25,7 @@ class serendipity_event_entrycheck extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYCHECK_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Gregor Voeltz');
-        $propbag->add('version',       '1.13');
+        $propbag->add('version',       '1.14');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -237,10 +237,12 @@ class serendipity_event_entrycheck extends serendipity_event
                                     }
                                 }
 
+<?php if (serendipity_db_bool($this->get_config('emptyCategories')) { ?>
                                 if (showerror) {
                                     alert('<?php echo str_replace("'", "\\'", PLUGIN_EVENT_ENTRYCHECK_EMPTYCATEGORIES_WARNING); ?>');
                                     error = true;
                                 }
+<?php } ?>
                             }
 
                             <?php if (serendipity_db_bool($this->get_config('emptyTitle')) == true) { ?>

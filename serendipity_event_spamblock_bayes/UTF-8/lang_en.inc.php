@@ -7,7 +7,7 @@
  */
 
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME',     'Spamblock (Bayes)');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC',     'Detects Spam via an algorithmus which learns.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC',     'Detects Spam via an algorithm which learns.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_HAM',      'Valid');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAM',     'Spam');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_AUTOLEARN',     'Learn');

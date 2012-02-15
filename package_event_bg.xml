@@ -733,9 +733,9 @@
 <description>Прилага няколко проверки на статията преди тя да бъде публикувана</description>
 <maintainers><maintainer><name>Garvin Hicking, Gregor Voeltz</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.13</version>
+  <version>1.15</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-02-03</date>
+  <date>2012-02-15</date>
   <filelist>
 <dir name="serendipity_event_entrycheck">
 <file>serendipity_event_entrycheck.php</file>
@@ -9353,7 +9353,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <license>GPL</license>
 <summary>Spamblock (Bayes)</summary>
 <groups>ANTISPAM</groups>
-<description>Detects Spam via an algorithmus which learns.</description>
+<description>Detects Spam via an algorithm which learns.</description>
 <maintainers><maintainer><name>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>0.4.6.2</version>

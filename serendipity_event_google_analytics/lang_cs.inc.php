@@ -1,11 +1,13 @@
-<?php # lang_cs.inc.php 1.1 2010-09-28 09:02:21 VladaAjgl $
+<?php # lang_cs.inc.php 1.2 2011-02-13 23:31:00 VladaAjgl $
 
 /**
- *  @version 1.1
+ *  @version 1.2
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/06/27
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2010/09/28
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2012/02/13
  */
 @define('PLUGIN_EVENT_GOOGLE_ANALYTICS_NAME', 'Google Analytics');
 @define('PLUGIN_EVENT_GOOGLE_ANALYTICS_DESC', 'Tento plugin pøidává vašemu blogu rošíøené funkce Google Analytics jako je napøíklad sledování odkazù nebo stažených souborù.');
@@ -25,3 +27,7 @@
 // Next lines were translated on 2010/09/28
 @define('PLUGIN_EVENT_GOOGLE_ANALYTICS_ANONYMIZEIP', 'Anonymní IP');
 @define('PLUGIN_EVENT_GOOGLE_ANALYTICS_ANONYMIZEIP_DESC', 'Oznamovat nástroji Google Analytics, aby znemožnil jednoznaènou identifikaci pomocí IP adresy zasílané sledovanými objekty tím, že odstraní poslední oktet z IP adresy ještì pøed tím, než ji uloží do databáze. Mìjte na pamìti, že tato akce trochu sníží pøesnost urèení geografické polohy návštìvníkù.');
+
+// Next lines were translated on 2012/02/13
+@define('PLUGIN_EVENT_GOOGLE_ANALYTICS_TRACK_ADSENSE', 'Sledovat reklamy AdSense');
+@define('PLUGIN_EVENT_GOOGLE_ANALYTICS_TRACK_ADSENSE_DESC', 'Sleduje reklamy z AdSense a pøidává data do GA (GoogleAnalytics). GA a AdSense ale musejí být pøedtím propojené.(->http://support.google.com/adsense/bin/answer.py?hl=cs&answer=92625)');

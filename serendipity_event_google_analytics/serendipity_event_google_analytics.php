@@ -21,7 +21,7 @@ class serendipity_event_google_analytics extends serendipity_event {
 		$propbag->add ('description', PLUGIN_EVENT_GOOGLE_ANALYTICS_DESC);
 		$propbag->add ('stackable', false);
 		$propbag->add ('author', '<a href="http://blog.kleinerChemiker.net/" target="_blank">kleinerChemiker</a>');
-		$propbag->add ('version', '1.2.4');
+		$propbag->add ('version', '1.2.9');
 		$propbag->add ('requirements', array ('serendipity' => '0.8', 'smarty' => '2.6.7', 'php' => '4.1.0' ));
 		$propbag->add ('groups', array ('STATISTICS' ));
 		$propbag->add ('cachable_events', array ('frontend_display' => true ));
@@ -31,6 +31,7 @@ class serendipity_event_google_analytics extends serendipity_event {
 		
 		$conf_array = array ();
 		$conf_array[] = 'analytics_account_number';
+		$conf_array[] = 'analytics_track_adsense';
 		$conf_array[] = 'analytics_anonymizeIp';
 		$conf_array[] = 'analytics_track_external';
 		$conf_array[] = 'analytics_track_downloads';
@@ -52,6 +53,12 @@ class serendipity_event_google_analytics extends serendipity_event {
 				$propbag->add ('description', PLUGIN_EVENT_GOOGLE_ANALYTICS_ACCOUNT_NUMBER_DESC);
 				$propbag->add ('validate', '/^[0-9]+-[0-9]+$/');
 				$propbag->add ('default', '');
+				break;
+			case 'analytics_track_adsense' :
+				$propbag->add ('type', 'boolean');
+				$propbag->add ('name', PLUGIN_EVENT_GOOGLE_ANALYTICS_TRACK_ADSENSE);
+				$propbag->add ('description', PLUGIN_EVENT_GOOGLE_ANALYTICS_TRACK_ADSENSE_DESC);
+				$propbag->add ('default', 'false');
 				break;
 			case 'analytics_anonymizeIp' :
 				$propbag->add ('type', 'boolean');
@@ -184,6 +191,7 @@ class serendipity_event_google_analytics extends serendipity_event {
 	function event_hook($event, &$bag, &$eventData, $addData = null) {
 		global $serendipity;
 		static $analytics_anonymizeIp = null;
+		static $analytics_track_adsense = null;
 		static $analytics_track_external = null;
 		static $analytics_track_downloads = null;
 		static $analytics_exclude_groups = null;
@@ -192,6 +200,10 @@ class serendipity_event_google_analytics extends serendipity_event {
 		
 		if ($analytics_anonymizeIp === null) {
 			$analytics_anonymizeIp = serendipity_db_bool ($this->get_config ('analytics_anonymizeIp', false));
+		}
+
+		if ($analytics_track_adsense === null) {
+			$analytics_track_adsense = serendipity_db_bool ($this->get_config ('analytics_track_adsense', false));
 		}
 
 		if ($analytics_track_downloads === null) {
@@ -221,7 +233,9 @@ class serendipity_event_google_analytics extends serendipity_event {
 			switch ($event) {
 				case 'frontend_header' :
 					$analytics_anonymizeIp ? $analytics_anonymizeIp_code = "_gaq.push(['_gat._anonymizeIp']);\r  " : $analytics_anonymizeIp_code = '';
+					$analytics_track_adsense ? $analytics_track_adsense_code = "\r<script type=\"text/javascript\">\rwindow.google_analytics_uacct = \"UA-" . $this->get_config ('analytics_account_number') . "\";\r</script>\r" : $analytics_track_adsense_code = '';
 					if ($serendipity['authorid'] === null || !$this->in_array_loop ($usergroup, $analytics_exclude_groups)) {
+						echo $analytics_track_adsense_code;
 						echo '
 <script type="text/javascript">
   var _gaq = _gaq || [];

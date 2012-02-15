@@ -4,6 +4,8 @@
 @define('PLUGIN_EVENT_GOOGLE_ANALYTICS_DESC', 'Dieses Plugin fügt Google Analytics Funktionalität hinzu. So können auch externe Links oder Downloads verfolgt werden.');
 @define('PLUGIN_EVENT_GOOGLE_ANALYTICS_ACCOUNT_NUMBER', 'Google Analytics Accountnumber');
 @define('PLUGIN_EVENT_GOOGLE_ANALYTICS_ACCOUNT_NUMBER_DESC', 'Deine Google Analytics Accountnumber. xxxx-x von _uacct="UA-xxxx-x";');
+@define('PLUGIN_EVENT_GOOGLE_ANALYTICS_TRACK_ADSENSE', 'AdSense Anzeigen verfolgen');
+@define('PLUGIN_EVENT_GOOGLE_ANALYTICS_TRACK_ADSENSE_DESC', 'Überwacht AdSense Anzeigen und fügt die Daten GA hinzu. Dazu muß Analytics und AdSense verbunden werden. (->http://support.google.com/adsense/bin/answer.py?hl=de&answer=92625)');
 @define('PLUGIN_EVENT_GOOGLE_ANALYTICS_ANONYMIZEIP', 'IP Maskierung');
 @define('PLUGIN_EVENT_GOOGLE_ANALYTICS_ANONYMIZEIP_DESC', 'Annonymisiert die IP der Besucher, indem Google das letzte Oktett der IP adresse nicht speichert. Verringert etwas die Genauigkeit der geographischen Berichte.');
 @define('PLUGIN_EVENT_GOOGLE_ANALYTICS_TRACK_DOWNLOADS', 'Downloads verfolgen?');

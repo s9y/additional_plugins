@@ -25,6 +25,7 @@ function ham(id) {
         setLoadIndicator(id);
     }
     httpRequest.send('id='+id+'&category=ham'); // Start request
+    return false;
 }
 
 function spam(id) {
@@ -51,7 +52,7 @@ function spam(id) {
         setLoadIndicator(id);
     }
     httpRequest.send('id='+id+'&category=spam'); // Start request
-    
+    return false;
 }
 
 function setLoadIndicator(id) {

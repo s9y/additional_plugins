@@ -36,7 +36,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '0.4.6.2' );
+		$propbag->add ( 'version', '0.4.7' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_spamblock_comments_shown' => true,
 		                                     'external_plugin' => true,
@@ -1140,14 +1140,18 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     
                     $eventData['action_more'] = '<a id="ham'. $comment ['id'] .'"
 			class="serendipityIconLink spamblockBayesControls"
-			onclick="ham('. $comment ['id'].')"
-			title="'. PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME . ': ' . PLUGIN_EVENT_SPAMBLOCK_BAYES_HAM .'"><img
+			onclick="return ham('. $comment ['id'].')"
+			title="'. PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME . ': ' . PLUGIN_EVENT_SPAMBLOCK_BAYES_HAM .'"
+            href="'. $serendipity['baseURL'] . 'index.php?/plugin/learnAction&action=approve&category=ham&id=' . $eventData['id'] . '&entry_id='. $eventData['entry_id'] . '"
+            ><img
 			src="'. serendipity_getTemplateFile ( 'admin/img/accept.png' ) .'"
 			alt="" />'. PLUGIN_EVENT_SPAMBLOCK_BAYES_HAM.'</a> <a
 			id="spam'. $comment ['id'].'"
 			class="serendipityIconLink spamblockBayesControls"
-			onclick="spam('. $comment ['id'] .')"
-			title="'. PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME . ': ' . PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAM .'"><img
+			onclick="return spam('. $comment ['id'] .')"
+			title="'. PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME . ': ' . PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAM .'"
+            href="'. $serendipity['baseURL'] . 'index.php?/plugin/learnAction&action=delete&category=spam&id=' . $eventData['id'] . '&entry_id='. $eventData['entry_id'] . '"
+            ><img
 			src="'. $imgpath . 'spamblock_bayes.spam.png' .'" 
 			alt="" />'. PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAM.'</a>
             <span class="spamblockBayesRating">

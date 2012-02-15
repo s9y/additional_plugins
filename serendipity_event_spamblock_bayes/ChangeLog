@@ -1,3 +1,6 @@
+0.4.7:
+    Added non-js-buttons in commentlist
+
 0.4.6:
     Smartified backend-menu
     Added pagination to database-table

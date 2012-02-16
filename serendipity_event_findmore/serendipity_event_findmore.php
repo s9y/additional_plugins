@@ -22,7 +22,7 @@ class serendipity_event_findmore extends serendipity_event
         $propbag->add('description',   PLUGIN_FINDMORE_DESCRIPTION);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Kodewulf');
-        $propbag->add('version',       '1.21');
+        $propbag->add('version',       '1.22');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -104,7 +104,6 @@ class serendipity_event_findmore extends serendipity_event
                         'google'        => 'Google Bookmarks',
                         'plusone'       => 'Google +1',
                         'identica'      => 'Identi.ca',
-                        'magnolia'      => 'ma.gnolia',
                         'misterwong'    => 'mister-wong',
                         'mixx'          => 'mixx',
                         'newsvine'      => 'newsvine',

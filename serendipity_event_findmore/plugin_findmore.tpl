@@ -77,10 +77,6 @@
 <a rel="nofollow" href="http://wists.com/r.php?c=&amp;r={$entrydata.url|escape:url}&amp;title={$entrydata.title|escape:url}" title="Bookmark {$entrydata.title|escape}  with wists"><img width="16" height="16" src="{$entrydata.path}wists.png" class="socialbkmark" alt="Bookmark {$entrydata.title|escape}  with wists"/></a>
 {/if}
 
-{if NOT $findmore_disabled_services.magnolia}
-<a rel="nofollow" href="http://ma.gnolia.com/beta/bookmarklet/add?url={$entrydata.url|escape:url}&amp;title={$entrydata.title|escape:url}&amp;description={$entrydata.title|escape:url}" title="Bookmark {$entrydata.title|escape}  at Ma.gnolia.com"><img src="{$entrydata.path}magnolia.png" width="16" height="16" class="socialbkmark" alt="Bookmark {$entrydata.title|escape}  at Ma.gnolia.com"/></a>
-{/if}
-
 {if NOT $findmore_disabled_services.misterwong}
 <a rel="nofollow" href="http://www.mister-wong.de/index.php?action=addurl&amp;bm_url={$entrydata.url|escape:url}&amp;bm_description={$entrydata.title|escape:url}" title="wong it! {$entrydata.title|escape}"><img width="18" height="18" src="{$entrydata.path}wong18.gif" alt="wong it!" class="socialbkmark" /></a>
 {/if}

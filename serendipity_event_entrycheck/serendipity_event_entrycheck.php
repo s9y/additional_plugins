@@ -55,28 +55,28 @@ class serendipity_event_entrycheck extends serendipity_event
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_EVENT_ENTRYCHECK_EMPTYCATEGORIES);
                 $propbag->add('description', PLUGIN_EVENT_ENTRYCHECK_EMPTYCATEGORIES_DESC);
-                $propbag->add('default',     true);
+                $propbag->add('default',     false);
                 break;
 
             case 'emptyTitle':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_EVENT_ENTRYCHECK_EMPTYTITLE);
                 $propbag->add('description', PLUGIN_EVENT_ENTRYCHECK_EMPTYTITLE_DESC);
-                $propbag->add('default',     true);
+                $propbag->add('default',     false);
                 break;
 
             case 'emptyBody':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_EVENT_ENTRYCHECK_EMPTYBODY);
                 $propbag->add('description', PLUGIN_EVENT_ENTRYCHECK_EMPTYBODY_DESC);
-                $propbag->add('default',     true);
+                $propbag->add('default',     false);
                 break;
 
             case 'emptyExtended':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_EVENT_ENTRYCHECK_EMPTYEXTENDED);
                 $propbag->add('description', PLUGIN_EVENT_ENTRYCHECK_EMPTYEXTENDED_DESC);
-                $propbag->add('default',     true);
+                $propbag->add('default',     false);
                 break;
 
             case 'defaultCat':
@@ -253,16 +253,34 @@ class serendipity_event_entrycheck extends serendipity_event
                             <?php } ?>
 
                             <?php if (serendipity_db_bool($this->get_config('emptyBody')) == true) { ?>
-                            if (document.getElementById('serendipity[body]').value.length < 1) {
+                            if (typeof(editorbody) != "undefined") {
+                                editorbody.setMode('textmode');
+                                var serendipitybody = document.getElementById('serendipity[body]').value.replace(/(<([^>]+)>)/ig,"");
+                            } else {
+                                var serendipitybody = document.getElementById('serendipity[body]').value;
+                            }
+                            if (serendipitybody.length < 1) {
                                 alert('<?php echo str_replace("'", "\\'", PLUGIN_EVENT_ENTRYCHECK_EMPTYBODY_WARNING); ?>');
                                 error = true;
+                            }
+                            if (typeof(editorbody) != "undefined") {
+                                editorbody.setMode('wysiwyg');
                             }
                             <?php } ?>
 
                             <?php if (serendipity_db_bool($this->get_config('emptyExtended')) == true) { ?>
-                            if (document.getElementById('serendipity[extended]').value.length < 1) {
+                            if (typeof(editorextended) != "undefined") {
+                                editorextended.setMode('textmode');
+                                var serendipityextended = document.getElementById('serendipity[extended]').value.replace(/(<([^>]+)>)/ig,"");
+                            } else {
+                                var serendipityextended = document.getElementById('serendipity[extended]').value;
+                            }
+                            if (serendipityextended.length < 1) {
                                 alert('<?php echo str_replace("'", "\\'", PLUGIN_EVENT_ENTRYCHECK_EMPTYEXTENDED_WARNING); ?>');
                                 error = true;
+                            }
+                            if (typeof(editorextended) != "undefined") {
+                                editorextended.setMode('wysiwyg');
                             }
                             <?php } ?>
 

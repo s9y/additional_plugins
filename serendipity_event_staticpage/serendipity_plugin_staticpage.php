@@ -36,7 +36,7 @@ class serendipity_plugin_staticpage extends serendipity_plugin {
                 'imgdir'
         ));
         $propbag->add('requirements',  array(
-            'serendipity' => '0.8',
+            'serendipity' => '1.3',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
@@ -209,7 +209,7 @@ class serendipity_plugin_staticpage extends serendipity_plugin {
                 'staticpage_listContent' => $smartcar
             ));
             $filename = 'plugin_staticpage_sidebar.tpl';
-            // use serendipity's own function here! ;-)
+            // use nativ API here - extends s9y version >= 1.3'
             $content = $this->parseTemplate($filename);
             echo $content;
         } else {

@@ -7501,9 +7501,9 @@
 <description>Możesz dodawać lub usuwać serwisy znajdujące się w pliku &quot;plugin_findmore.tpl&quot;. Pamiętaj także, że zamiast używać tej wtyczki, możesz wstawić fragmenty kodu do pliku entries.tpl znajdującego się w folderze twojego szablonu.</description>
 <maintainers><maintainer><name>Garvin Hicking, Kodewulf</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.21</version>
+  <version>1.22</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2012-02-17</date>
   <filelist>
 <dir name="serendipity_event_findmore">
 <file>serendipity_event_findmore.php</file>

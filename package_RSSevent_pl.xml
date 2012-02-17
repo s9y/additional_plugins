@@ -968,7 +968,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Kodewulf</author>
 <content:encoded>&lt;b&gt;serendipity_event_findmore&lt;br /&gt;Pokaż linki do usług, takich jak Facebook, Digg, Technorati, del.icio.us itp. by promować twoje wpisy&lt;/b&gt;&lt;br /&gt;Możesz dodawać lub usuwać serwisy znajdujące się w pliku &quot;plugin_findmore.tpl&quot;. Pamiętaj także, że zamiast używać tej wtyczki, możesz wstawić fragmenty kodu do pliku entries.tpl znajdującego się w folderze twojego szablonu.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 04:03:33 +0100</pubDate>
+<pubDate>Fri, 17 Feb 2012 02:32:22 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_findmore</guid>
 </item>
 <item>

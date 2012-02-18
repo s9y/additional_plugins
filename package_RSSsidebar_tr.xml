@@ -13,8 +13,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_staticpage</link>
 <category>Sidebar Plugins</category>
 <author>Rob Antonishen, Falk Doering, Ian (Timbalu)</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_staticpage&lt;br /&gt;Statik Sayfalar Listesi&lt;/b&gt;&lt;br /&gt;Bu eklenti statik sayfaların yapılandırılabilir bir listesini gösterir. Bu işlemin gerçekleşebilmesi için Statik Sayfa Eklentisinin 1.22 ya da daha yüksek bir sürümünün kurulu olması gereklidir.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 03 Feb 2012 02:32:00 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_plugin_staticpage&lt;br /&gt;Statik Sayfalar Listesi&lt;/b&gt;&lt;br /&gt;Bu eklenti statik sayfaların yapılandırılabilir bir listesini gösterir. Bu işlemin gerçekleşebilmesi için Statik Sayfa Eklentisinin 1.22 ya da daha yüksek bir sürümünün kurulu olması gereklidir.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
+<pubDate>Sat, 18 Feb 2012 02:33:06 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_staticpage</guid>
 </item>
 <item>

@@ -30,7 +30,7 @@ class serendipity_event_oembed extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_OEMBED_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Grischa Brockhaus');
-        $propbag->add('version',       '1.06');
+        $propbag->add('version',       '1.07');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -199,6 +199,7 @@ class serendipity_event_oembed extends serendipity_event
             catch (ErrorException $e) {
                 // Timeout in most cases
                 //return $e;
+                //print_r($e);
             }
         }
         return $obj;

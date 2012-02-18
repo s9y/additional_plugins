@@ -34,6 +34,11 @@
     <url>http://*.photobucket.com/(albums|groups)/*</url>
     <endpoint>http://photobucket.com/oembed</endpoint>
   </provider>
+  <provider>
+    <name>DotSub.com</name>
+    <url>http://dotsub.com/view//*</url>
+    <endpoint>http://dotsub.com/services/oembed/</endpoint>
+  </provider>
   
   <provider>
     <name>Official.fm (tracks and playlist)</name>
@@ -130,6 +135,11 @@
     <name>AudioBoo (3 different players)</name>
     <url>http://(audio)?boo.fm/boos/*</url>
     <class>AudioBooProvider</class>
+  </provider>
+  <provider>
+    <name>Podomatic Minicasts</name>
+    <url>http://minicasts.podomatic.com/play/*</url>
+    <class>PodomaticProvider</class>
   </provider>
 
   <!-- noembed providers =========================================== -->

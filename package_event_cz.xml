@@ -9664,9 +9664,9 @@ aplikovány další typografické úpravy.</description>
 <description>oEmbed je formát, který umožňuje vkládat do blogu jiné stránky z internetu. Umožňuje zobrazovat v příspěvcích vložený obsah (jako tweety, fotky nebo videa), když autor příspěvku napíše odkaz na zdroj obsahu, aniž by bylo potřeba přímo parsovat cílovou stránku.</description>
 <maintainers><maintainer><name>Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.06</version>
+  <version>1.07</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-02-03</date>
+  <date>2012-02-19</date>
   <filelist>
 <dir name="serendipity_event_oembed">
 <dir name="oembed">
@@ -9681,6 +9681,7 @@ aplikovány další typografické úpravy.</description>
 <dir name="customs">
 <file>PostlyProvider.class.php</file>
 <file>AudioBooProvider.class.php</file>
+<file>PodomaticProvider.class.php</file>
 </dir>
 <file>RichEmbed.class.php</file>
 <file>VideoEmbed.class.php</file>
@@ -9721,6 +9722,7 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_oembed/oembed/ProviderList.php</file>
     <file>serendipity_event_oembed/oembed/customs/PostlyProvider.class.php</file>
     <file>serendipity_event_oembed/oembed/customs/AudioBooProvider.class.php</file>
+    <file>serendipity_event_oembed/oembed/customs/PodomaticProvider.class.php</file>
     <file>serendipity_event_oembed/oembed/RichEmbed.class.php</file>
     <file>serendipity_event_oembed/oembed/VideoEmbed.class.php</file>
     <file>serendipity_event_oembed/oembed/providers.xml</file>

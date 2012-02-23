@@ -30,7 +30,7 @@ class serendipity_event_contactform extends serendipity_event {
         $propbag->add('event_hooks',  array('entries_header' => true, 'entry_display' => true, 'genpage' => true));
         $propbag->add('configuration', array('permalink', 'pagetitle', 'backend_title', 'email', 'subject', 'counter', 'intro', 'sent', 'articleformat','dynamic_tpl','dynamic_fields','dynamic_fields_tpl','dynamic_fields_desc'));
         $propbag->add('author', 'Garvin Hicking');
-        $propbag->add('version', '1.14');
+        $propbag->add('version', '1.15');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
@@ -225,7 +225,9 @@ class serendipity_event_contactform extends serendipity_event {
             'name' => $serendipity['POST']['name'],
             'url' => $serendipity['POST']['url'],
             'comment' => $serendipity['POST']['comment'],
-            'email' => $serendipity['POST']['email']
+            'email' => $serendipity['POST']['email'],
+            'source2' => 'adduser' // Allow the contactform to bypass "only registered users may post" option of the adduser-plugin
+
         );
         serendipity_plugin_api::hook_event('frontend_saveComment', $ca, $commentInfo);
 
@@ -319,7 +321,8 @@ class serendipity_event_contactform extends serendipity_event {
             'name' => $serendipity['POST']['name'],
             'url' => $serendipity['POST']['url'],
             'comment' => $comment,
-            'email' => $serendipity['POST']['email']
+            'email' => $serendipity['POST']['email'],
+            'source2' => 'adduser' // Allow the contactform to bypass "only registered users may post" option of the adduser-plugin
         );
         serendipity_plugin_api::hook_event('frontend_saveComment', $ca, $commentInfo);
 

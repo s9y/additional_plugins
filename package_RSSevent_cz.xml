@@ -464,7 +464,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_contactform&lt;br /&gt;Kontaktní formulář&lt;/b&gt;&lt;br /&gt;Zobrazuje kontaktní formulář k poslání e-mailu jako statickou stránku. Přístup k fromuláři buď pomocí stálého odkazu (permalinku) nebo na adrese index.php?serendipity[subpage]=contactform. Vzhled fromuláře si můžete upravit podle svého vložením souboru plugin_contactform.tpl do adresáře s Vaší šablonou. Kryptogramy z pluginu SpamBlock budou použity, pokud je SpamBlock nainstalován.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 25 Dec 2011 01:59:54 +0100</pubDate>
+<pubDate>Fri, 24 Feb 2012 02:32:55 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_contactform</guid>
 </item>
 <item>

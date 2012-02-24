@@ -3506,9 +3506,9 @@
 <description>Geeft een contactformulier weer op uw blog als een statische pagina. Het kan zowel worden opgeroepen via een zelfgemaakte permalink of door index.php?serendipity[subpage]=contactform. Het uiterlijk van het contactformulier kan worden aangepast door het plugin_contactform.tpl-bestand in de template map te plaatsen en vervolgens te bewerken. Captchas van de Spamblock plugin worden ondersteund (indien geactiveerd).</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.14</version>
+  <version>1.15</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2012-02-24</date>
   <filelist>
 <dir name="serendipity_event_contactform">
 <file>serendipity_event_contactform.php</file>

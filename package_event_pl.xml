@@ -3506,9 +3506,9 @@
 <description>Pokazuje na Twojej stronie formularz kontaktu e-mailem jako stronę statyczną. Wyświetlić formularz można korzystając z własnego permalinku lub przez podanie adresu index.php?serendipity[subpage]=contactform. Możesz zmodyfikować wygląd formularza przez umieszczenie w katalogu stylu, z którego korzystasz pliku the plugin_contactform.tpl i zmodyfikowania go według własnych potrzeb. Captcha oferowane przez wtyczkę Ochrona przed spamem będą stosowane (o ile będą włączone).</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.14</version>
+  <version>1.15</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2012-02-24</date>
   <filelist>
 <dir name="serendipity_event_contactform">
 <file>serendipity_event_contactform.php</file>

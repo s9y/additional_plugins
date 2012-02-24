@@ -464,7 +464,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_contactform&lt;br /&gt;Contactformulier&lt;/b&gt;&lt;br /&gt;Geeft een contactformulier weer op uw blog als een statische pagina. Het kan zowel worden opgeroepen via een zelfgemaakte permalink of door index.php?serendipity[subpage]=contactform. Het uiterlijk van het contactformulier kan worden aangepast door het plugin_contactform.tpl-bestand in de template map te plaatsen en vervolgens te bewerken. Captchas van de Spamblock plugin worden ondersteund (indien geactiveerd).&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 25 Dec 2011 01:59:54 +0100</pubDate>
+<pubDate>Fri, 24 Feb 2012 02:32:55 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_contactform</guid>
 </item>
 <item>

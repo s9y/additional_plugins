@@ -3506,9 +3506,9 @@
 <description>Ajoute une page contact statique à votre blog. On peut y accéder par le rétrolien ou par index.php?serendipity[subpage]=contactform. Vous pouvez modifier l'aspect de la page contact en copiant plugin_contactform.tpl dans votre répertoire de template et en l'y modifiant. Les captchas contre le spam seront appliqués si le plugin est installé.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.14</version>
+  <version>1.15</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2012-02-24</date>
   <filelist>
 <dir name="serendipity_event_contactform">
 <file>serendipity_event_contactform.php</file>

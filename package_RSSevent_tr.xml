@@ -464,7 +464,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_contactform&lt;br /&gt;İletişim Formu&lt;/b&gt;&lt;br /&gt;Sitenizde bir e-posta ile iletişim formu gösterir. Özelleştirilmiş bir kalıcı bağlantı URL adresi ile ya da index.php?serendipity[subpage]=contactform  adresiyle de erişilebilir. İletişim Formunun görünüşünü özelleştirebilirsiniz. plugin_contactform.tpl dosyasını şablon dizinize kopyalayıp istediğiniz gibi düzenleyebilirsiniz. Captcha koruması Spamblock eklentisiyle (eğer etkinse) iletişim formunuza eklenecektir.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 25 Dec 2011 01:59:54 +0100</pubDate>
+<pubDate>Fri, 24 Feb 2012 02:32:55 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_contactform</guid>
 </item>
 <item>

@@ -464,7 +464,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_contactform&lt;br /&gt;Modulo di contatto&lt;/b&gt;&lt;br /&gt;Mostra un modulo di contatto e-mail sul tuo blog come pagina statica, cui si può accedere sia da permalink personalizzato che da index.php?serendipity[subpage]=contactform. Puoi personalizzare l'aspetto del modulo inserendo il file plugin_contactform.tpl nella tua directory dei template e modificandolo là. I captchas del plugin Spamblock (se attivi) verranno applicati.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 25 Dec 2011 01:59:54 +0100</pubDate>
+<pubDate>Fri, 24 Feb 2012 02:32:55 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_contactform</guid>
 </item>
 <item>

@@ -48,12 +48,7 @@ class UrlShortener {
                 }
                 break;
             case 'raw':
-                if (strlen($url)<140) {
-                    $shorturls['raw'] = $url;
-                }
-                break;
-            case 'reallyraw':
-                $shorturls['reallyraw'] = $url;
+                $shorturls['raw'] = $url;
                 break;
             case 'tinyurl':
                 UrlShortener::shorten_via_tinyurl( $url, $shorturls );

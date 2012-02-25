@@ -3,6 +3,11 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 ?>
+<script type="text/javascript">
+var twitter_http_length_str = '<?php echo $http_length_str?>';
+var twitter_https_length_str = '<?php echo $https_length_str?>';
+</script>
+
 <div id="serendipity_admin_tweeter">
 <form action="serendipity_admin.php" method="post">
 <?php if ($tweeter_in_sidbar) { ?>
@@ -10,7 +15,7 @@ if (IN_serendipity !== true) {
  <input type="hidden" name="serendipity[adminAction]" value="tweeter" />
 <?php } ?>
 <label for="tweeter_account"><?php echo PLUGIN_EVENT_TWITTER_IDENTITY;?> </label>
-    <select id="tweeter_account" name="tweeter_account"><?php foreach($identities as $idkey =>$idtext) {?>
+    <select id="tweeter_account" name="tweeter_account" onchange="accountChanged()"><?php foreach($identities as $idkey =>$idtext) {?>
         <option value="<?php echo $idkey; ?>" <?php if ($idkey==$val_identitiy) echo 'SELECTED';?>><?php echo $idtext; ?></option>
 <?php } ?></select><?php if ($tweeter_has_timeline) { ?><br />
 <label for="tweeter_timeline"><?php echo PLUGIN_EVENT_TWITTER_TIMELINE;?> </label>
@@ -24,4 +29,8 @@ if (IN_serendipity !== true) {
  <input id="tweeter_submit" name="tweeter_submit" value="<?php echo PLUGIN_EVENT_TWITTER_TWEETER_SHORTEN; ?> / Update" type="submit" />
 </form>
 <?php if(isset($notice)) echo $notice; ?>
+<script type="text/javascript">
+// If we shortened a link, recount chars.
+tweeter_char_count();
+</script>
 </div>

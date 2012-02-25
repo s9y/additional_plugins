@@ -21,6 +21,7 @@ require_once dirname(__FILE__) . '/classes/RedirectCheck.php';
 require_once dirname(__FILE__) . '/classes/UrlShortener.php';
 require_once dirname(__FILE__) . '/classes/TwitterPluginDbAccess.php';
 require_once dirname(__FILE__) . '/classes/TwitterPluginFileAccess.php';
+require_once dirname(__FILE__) . '/classes/twitter_entry_defs.include.php';
 
 // writes a debug log into templates_c
 @define('PLUGIN_TWITTER_DEBUG', FALSE);
@@ -1310,17 +1311,35 @@ a.twitter_update_time {
         return $comment_url;
     }
 
-    function create_update_from_entry($entry, $announce_format) {
+    function create_update_from_entry($entry, $announce_format, $checkUrlLen = false) {
         global $serendipity;
         
         $entryurl = $this->generate_article_url($entry);
 
         $short_url = $this->default_shorturl($entryurl);
-
+        
+        // Check for real URL length after twitter shortened it:
+        if ($checkUrlLen) {
+            $this->twitter_check_config();
+            if (substr($short_url,0,5) == 'https') {
+                $url_len = $this->get_config('twitter_config_https_len');
+            }
+            else {
+                $url_len = $this->get_config('twitter_config_http_len');
+            }
+        }
+        if (empty($url_len)) $url_len = strlen($short_url); // Fallback, if we were not able to detect it
+        
+        $url_placeholder = "#";
+        for ($i=1; $i<$url_len-2;$i++) {
+            $url_placeholder .= $i;
+        }
+        $url_placeholder .= "#";
+        
         $author = !empty($entry['author'])?$entry['author']:$serendipity['serendipityRealname'];
         $announce_format = str_replace(
             array('#author#','#autor#','#link#'), 
-            array($author,$author,$short_url),
+            array($author,$author,$url_placeholder),
             $announce_format);
         
         $title = $entry['title'];
@@ -1372,12 +1391,31 @@ a.twitter_update_time {
             $update = trim(str_replace(array(' ' . $tags_marker,$tags_marker),'',$update));
         }
 
+        // Now fill in shorturl, if needed
+        $update = str_replace($url_placeholder, $short_url, $update);
+        
         // Change encoding of update to UTF-8
         if (LANG_CHARSET!='UTF-8' && function_exists("mb_convert_encoding")) {
             $update = mb_convert_encoding($update, 'UTF-8', LANG_CHARSET);
         }
         
         return $update;
+    }
+    
+    function twitter_check_config() {
+        $last_config_check = $this->get_config("twitter_last_config_check", 0);
+        $now = time();
+        $daybefore = $now - (24 * 60 * 60); // One day in seconds
+        if (empty($last_config_check) || $last_config_check<$daybefore) {
+            $config = Twitter::get_twitter_config();
+            if (!empty($config)) {
+                $max_http = $config->short_url_length;
+                $max_https = $config->short_url_length_https;
+                $this->set_config('twitter_last_config_check', $now);
+                $this->set_config('twitter_config_http_len', $max_http);
+                $this->set_config('twitter_config_https_len', $max_https);
+            }
+        }
     }
     
     function twitter_published_entry( $entry ) {
@@ -1394,15 +1432,23 @@ a.twitter_update_time {
 
         $announce_format = trim($this->get_config('announce_format', $this->get_default_announceformat()));
         
-        $update = $this->create_update_from_entry($entry, $announce_format);
-        
+        $updates = array();
         echo "<ul>";
         foreach ($announce_account_list as $announce_account) {
             $suffix = empty($announce_account)?'':(int)$announce_account+1;
             $account_name = $this->get_config('twittername'.$suffix,'');
             $account_pwd = $this->get_config('twitterpwd'.$suffix,'');
             $account_type = $this->get_config('id_service'.$suffix,'twitter');
-
+            
+            // For twitter we need a special update generation
+            if (empty($updates[$account_type])) {
+                $update = $this->create_update_from_entry($entry, $announce_format, 'twitter'==$account_type);
+                $updates[$account_type] = $update;
+            }
+            else {
+                $update = $updates[$account_type];
+            }
+            
             // If the GeoTag Plugin is installed, it will hand over some geodata
             $geo_lat = $serendipity['POST']['properties']['geo_lat'];
             $geo_long = $serendipity['POST']['properties']['geo_long'];
@@ -1607,11 +1653,6 @@ a.twitter_update_time {
         
         foreach ($selected_services as $service) {
             $shorter->put_shorturl($service, $article_url, $shorturls);
-        }
-
-        // Always look up 'raw'
-        if (empty($shorturls['raw']) && empty($shorturls['reallyraw'])) {
-            $shorter->put_shorturl('reallyraw', $article_url, $shorturls);
         }
 
         TwitterPluginDbAccess::save_short_urls( $article_url, $shorturls, $loaded_shorturls );
@@ -1879,6 +1920,11 @@ a.twitter_update_time {
                 $val_tweet = $_POST['tweet'];
                 $val_short = $_POST['shorturl'];
             }
+            
+            // Create strings of twitter URL length:
+            $this->twitter_check_config();
+            $http_length_str = str_repeat("=", $this->get_config('twitter_config_http_len'));
+            $https_length_str = str_repeat("=", $this->get_config('twitter_config_https_len'));
             
             // Display the form
             include dirname(__FILE__) . '/tweeter/tweeter_client.inc.php';

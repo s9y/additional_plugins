@@ -5,11 +5,14 @@ TODO:
 * "check tweetback" link should add new tweetbacks immediately
 * Link twitter accs with s9y accs. Only s9y autors linked to a
   twitter acc should be able to create tweets with that acc.
-* Button copying a shorturl of the article to the clipboard.
-* Twitter offset for tweetbacks? Tweeter is showing correct time,
-  tweetbacks not?!
 * Twitter announcements/credentials etc. per author instead of
   only per central blog
+
+1.43 (brockhaus)
+--------------------------
+    * Announce article: check for real URL lenght, as twitter makes it longer sometimes. 
+    * Tweeter: Count chars directly after a short URL was added. Counts URLs as twitter URL length always.
+    * Article announcement with "uncompressed" urls did not work very well.
 
 1.42 (brockhaus)
 --------------------------

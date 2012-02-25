@@ -72,6 +72,9 @@ class TwitterPluginDbAccess {
                     $shorturls[$row['service']] = $row['shorturl'];
                 }
             }
+            // Add raw urls, as they are not saved anymore
+            $shorturls['raw'] = $article_url;
+            
             return $shorturls;
         }
     }
@@ -81,9 +84,9 @@ class TwitterPluginDbAccess {
 
         // insert all new (not yet known) shorturls.
         foreach ($shorturls as $service => $shorturl) {
+            if ('raw'==$service) continue; // don't save raw, table can't hold it.
             $shorturl = trim($shorturl);
             if (empty($shorturl)) continue; // something whent wrong while fetching shorturls
-            
             if (empty($loaded_shorturls[$service])) {
                 // Save only valid short urls!
                 if (preg_match('/^http/', $shorturl)) {

@@ -236,6 +236,41 @@ class Twitter {
         return $entries;
     }
     
+    /**
+     * Loads the actual twitter configuration
+{
+	"short_url_length_https":21,
+	"max_media_per_upload":1,
+	"characters_reserved_per_media":21,
+	"photo_sizes":{"thumb":{"resize":"crop","h":150,"w":150},
+	"small":{"resize":"fit","h":480,"w":340},
+	"large":{"resize":"fit","h":2048,"w":1024},
+	"medium":{"resize":"fit","h":1200,"w":600}},
+	"non_username_paths"["about", ... , "media_signup"],
+	"photo_size_limit":3145728,
+	"short_url_length":20
+}
+     */
+    function get_twitter_config() {
+        require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+        $config_url = "https://api.twitter.com/1/help/configuration.json";
+
+        if (function_exists('serendipity_request_start')) serendipity_request_start();
+        $req = new HTTP_Request($config_url, array('timeout' => 20, 'readTimeout' => array(5,0)));
+        $req->sendRequest();
+        $this->last_error = $req->getResponseCode();
+        if ($req->getResponseCode() != 200) {
+            $this->last_error = $req->getResponseCode();
+            $this->error_response = trim($req->getResponseBody());
+            if (function_exists('serendipity_request_start')) serendipity_request_end();
+            return false;
+        }
+        $response = trim($req->getResponseBody());
+        if (function_exists('serendipity_request_start')) serendipity_request_end();
+        
+        return @json_decode($response);
+    }
+    
     function parse_entry_json( $item ) {
         $entry = array();
         

@@ -760,7 +760,7 @@ class serendipity_event_commentspice extends serendipity_event
             $eventData['comment'] .= $booPlayer;
         }
         if ($allow['allow_announce'] && $spice['promo_name'] && $spice['promo_url']) {
-            $spice_article_prefix = sprintf(PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_RESCENT, $eventData['author']); 
+            $spice_article_prefix = sprintf(PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_RECENT, $eventData['author']); 
             $spice_article_name = $spice['promo_name'];
             $spice_article_url = $spice['promo_url'];
             $spice_article_nofollow = $allow['nofollow_announce']; 

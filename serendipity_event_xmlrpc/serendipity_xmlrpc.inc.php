@@ -1072,6 +1072,10 @@ function metaWeblog_newPost($message) {
 
     // Set tags as if it was set from editor. The plugins reads them from POST
     if (!empty($post_array['mt_keywords'])) {
+        // Some clients send keywords as arrays and not as csv's. We fix this here.
+        if (is_array($post_array['mt_keywords'])) {
+            $post_array['mt_keywords'] = implode(',', $post_array['mt_keywords']);
+        }
         if (empty($serendipity['POST'])) $serendipity['POST'] = array();
         $serendipity['POST']['properties']['freetag_tagList'] = $post_array['mt_keywords'];
         $serendipity['POST']['properties']['microblogging_tagList'] = $post_array['mt_keywords'];

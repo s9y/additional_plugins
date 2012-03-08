@@ -1322,15 +1322,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_markdown</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_markdown/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Форматиране на текст: Markdown</summary>
 <groups>MARKUP</groups>
 <description>Прилага текстово форматиране Markdown</description>
 <maintainers><maintainer><name>Serendipity Team and Jan Lehnardt</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.14</version>
+  <version>1.15</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2012-03-08</date>
   <filelist>
 <dir name="serendipity_event_markdown">
 <file>lang_de.inc.php</file>
@@ -1349,6 +1350,7 @@
 <file>markdown_extra.php</file>
 <file>lang_en.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -1367,6 +1369,7 @@
     <file>serendipity_event_markdown/markdown_extra.php</file>
     <file>serendipity_event_markdown/lang_en.inc.php</file>
     <file>serendipity_event_markdown/lang_cz.inc.php</file>
+    <file>serendipity_event_markdown/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>

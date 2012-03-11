@@ -25,6 +25,8 @@
 @define('PLUGIN_PODCAST_ALIGN_NONE',       'nothing');
 @define('PLUGIN_PODCAST_FIRSTMEDIAONLY',   'Embed first media only as RSS enclosure');
 @define('PLUGIN_PODCAST_FIRSTMEDIAONLY_DESC',   'The RSS specification supports only one enclosure per entry. If this option is enabled, the RSS specification is respected and only the first media file found will be enclosured into the RSS feed.');
+@define('PLUGIN_PODCAST_NOPODCASTING_CLASS', 'Ignore by CSS class');
+@define('PLUGIN_PODCAST_NOPODCASTING_CLASS_DESC', 'When media links do have this class style, they will be ignored (won\'t be replaced by players and won\'t show up in RSS).');
 
 @define('PLUGIN_PODCAST_EXTATTRSETTINGS',  '<br/><h3>Podcasting using extended article attributes:</h3>');
 @define('PLUGIN_PODCAST_EXTATTR',          'Extended article attributes');

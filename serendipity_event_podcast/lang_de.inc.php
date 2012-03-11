@@ -25,6 +25,8 @@
 @define('PLUGIN_PODCAST_ALIGN_NONE',       'keine');
 @define('PLUGIN_PODCAST_FIRSTMEDIAONLY',   'Nur die erste Mediendatei an den Feed Eintrag hängen');
 @define('PLUGIN_PODCAST_FIRSTMEDIAONLY_DESC',   'Die RSS Spezifikation unterstützt nur einen Medienanhang pro Eintrag. Wird diese Option angeschaltet, so wird nur die erste gefundene Mediendatei pro Artikel an den Feed Eintrag angehängt.');
+@define('PLUGIN_PODCAST_NOPODCASTING_CLASS', 'Ignorieren über CSS class');
+@define('PLUGIN_PODCAST_NOPODCASTING_CLASS_DESC', 'Wenn ein Medien Link dieses Class Style bekommt, dann wird er ignoriert (kein Player und kein Eintrag im RSS).');
 
 @define('PLUGIN_PODCAST_EXTATTRSETTINGS',  '<br/><h3>Podcasting über die erweiterten Artikel Attribute:</h3>');
 @define('PLUGIN_PODCAST_EXTATTR',          'Erweiterte Artikel Attribute');
@@ -47,7 +49,7 @@
 @define('PLUGIN_PODCAST_MFEXT_DESC',       'Erweiterungen, die mit dem Flash Player abgespielt werden sollen.');
 @define('PLUGIN_PODCAST_XSPFEXT',          'XSPF Flashplayer Audio Erweiterungen');
 @define('PLUGIN_PODCAST_XSPFEXT_DESC',     'Audio Erweiterungen, die mit dem XSPF Flashplayer abgespielt werden sollen. Dieser kann normaler Weise nur MP3 und XSPF Dateien abspielen.');
-@define('PLUGIN_PODCAST_AUEXT',            'Quicktime Miniplaer Audio Erweiterungen');
+@define('PLUGIN_PODCAST_AUEXT',            'Quicktime Miniplayer Audio Erweiterungen');
 @define('PLUGIN_PODCAST_AUEXT_DESC',       'Audio Erweiterungen, die mit dem Quicktime Mini Player abgespielt werden sollen.');
 @define('PLUGIN_PODCAST_FLVEXT',           'FLV Player Erweiterungen');
 @define('PLUGIN_PODCAST_FLVEXT_DESC',      'Erweiterungen, die mit dem FLV Player abgespielt werden sollen. FLV ist ein Videoformat, dass für Flashplayer gedacht ist und somit Plattform unabhängig ist! Man kann normale Videoformate mit kostenlosen Konvertern in das FLV Format umwandeln (PC http://www.rivavx.com/index.php?id=483&L=0 und Mac http://www.versiontracker.com/dyn/moreinfo/macosx/15473).');

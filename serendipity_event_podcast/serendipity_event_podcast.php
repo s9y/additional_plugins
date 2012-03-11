@@ -14,7 +14,7 @@ if (file_exists($probelang)) {
 include_once dirname(__FILE__) . '/lang_en.inc.php';
 include_once dirname(__FILE__) . '/podcast_player.php';
 
-@define("SERENDIPITY_EVENT_PODCAST_VERSION", "1.33");
+@define("SERENDIPITY_EVENT_PODCAST_VERSION", "1.34");
 
 class serendipity_event_podcast extends serendipity_event {
 /**
@@ -71,6 +71,7 @@ class serendipity_event_podcast extends serendipity_event{
             'height', 
             'align', 
             'firstmedia_only', 
+            'nopodcasting_class',
             'epheader', 
             'extendet_enclosure_attributes', 
             'extendet_enclosure_position', 
@@ -211,7 +212,13 @@ class serendipity_event_podcast extends serendipity_event{
                 $propbag->add('select_values',  $this->GetAlignOptionsArray());
                 $propbag->add('default',        'left');
                 break;
-
+            case 'nopodcasting_class':
+                $propbag->add('type',           'string');
+                $propbag->add('name',           PLUGIN_PODCAST_NOPODCASTING_CLASS);
+                $propbag->add('description',    PLUGIN_PODCAST_NOPODCASTING_CLASS_DESC);
+                $propbag->add('default',        'nopodcast');
+                break;
+                
             case 'firstmedia_only':
                 $propbag->add('type',           'boolean');
                 $propbag->add('name',           PLUGIN_PODCAST_FIRSTMEDIAONLY);
@@ -541,8 +548,21 @@ class serendipity_event_podcast extends serendipity_event{
                 
                 // Last, also match the '<a href>' style, if "use_player" is disabled and thus no <embed> might exist.
                 $this->log("Matching playerRewritePattern");
+                $nopodcasting_class = $this->get_config('nopodcasting_class','nopodcast');
+                if (!empty($nopodcasting_class)) {
+                    $classPattern = '@class\s*=\s*(\'|")\s*' . $nopodcasting_class . '\s*(\'|")+@si';
+                }
+                
                 if (!$use_player && preg_match_all($patterns['playerRewritePattern'], $matchSource, $matches)) {
                     for ($i = 0, $maxi = count($matches[1]); $i < $maxi; $i++){
+                        $complete   = $matches[0];
+                        if (!empty($nopodcasting_class) && preg_match($classPattern, $complete)) {
+                            $this->log("NoPodcasting class found!");
+                            continue;
+                        }
+                        else {
+                            $this->log("NoPodcasting class not found! [" . $classPattern . "]");
+                        }
                         $url        = $matches[2][$i];
                         $fileInfo   = $this->GetFileInfo($url);
                         $type       = $fileInfo['mime'];
@@ -783,6 +803,14 @@ class serendipity_event_podcast extends serendipity_event{
     function playerRewriteCallBack($treffer) {
         global $serendipity;
         $this->log('playerRewriteCallBack: treffer=' . print_r($treffer,true));
+        
+        // Check for nopodcasting class
+        $nopodcasting_class = $this->get_config('nopodcasting_class','nopodcast');
+        if (!empty($nopodcasting_class)) {
+            $classPattern = '@class\s*=\s*(\'|")\s*' . $nopodcasting_class . '\s*(\'|")+@si';
+            if (preg_match($classPattern , $treffer[0])) return $treffer[0];
+        }
+        
         $fileUrl = $serendipity['baseURL']  . $treffer[2];
         if (serendipity_db_bool($this->get_config('automatic_size', 'false'))) {
             $fileInfo = $this->GetFileInfo($treffer[2]);

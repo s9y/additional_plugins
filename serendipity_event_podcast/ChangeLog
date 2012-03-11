@@ -1,5 +1,8 @@
 # $Id$
 
+1.34: 
+  * media links having a (configurable) CSS class style are ignored (not replaced by players or added to RSS).
+
 1.33: Small lang update
 
 1.32:

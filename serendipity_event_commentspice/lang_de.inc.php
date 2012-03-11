@@ -66,7 +66,7 @@
 
 @define('PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER', 'Auf Twitter lesen');
 @define('PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER_FOOTER', 'Wenn Du Deinen <b>Twitter Namen</b> eingibst wird Deine Timeline in Deinem Kommentar verlinkt.');
-@define('PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER_PLACEHOLDER', 'Dein Twittername');
+@define('PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER_PLACEHOLDER', 'Twittername oder name@identi.ca');
 
 @define('PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_CHOOSE', '- Bewirb einen Deiner letzten Artikel -');
 @define('PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_RECENT', '%s schrieb auch');

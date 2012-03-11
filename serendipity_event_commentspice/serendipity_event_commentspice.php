@@ -296,6 +296,11 @@ class serendipity_event_commentspice extends serendipity_event
                             header('Content-Type: image/png');
                             echo file_get_contents(dirname(__FILE__). '/img/twitter_icon.png');
                             break;
+                        case 'spiceicoidentica.png':
+                            header('Content-Type: image/png');
+                            echo file_get_contents(dirname(__FILE__). '/img/identica_icon.png');
+                            break;
+                            
                         case 'spiceicorss.png':
                             header('Content-Type: image/png');
                             echo file_get_contents(dirname(__FILE__). '/img/rss_icon.png');
@@ -734,10 +739,20 @@ class serendipity_event_commentspice extends serendipity_event
             $smartify = serendipity_db_bool($this->get_config('smartifytwitter', false));
             $twittername = $spice['twittername'];
             if (!empty($twittername)) {
-                $timeline_url = 'https://twitter.com/#!/' . $twittername;
+                $twitternameparts = explode('@', $twittername);
+                $statusnet = is_array($twitternameparts) && count($twitternameparts)==2;
+                if ($statusnet) {
+                    $twittername = $twitternameparts[0];
+                    $timeline_url = "http://" . $twitternameparts[1] . "/" . $twittername; 
+                    $twitter_icon_html = '<img src="' . $serendipity['baseURL'] . 'index.php?/plugin/spiceicoidentica.png" alt="' . PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER . ': ">';
+                    $followme_widget = '';
+                }
+                else {
+                    $timeline_url = 'https://twitter.com/#!/' . $twittername;
+                    $twitter_icon_html = '<img src="' . $serendipity['baseURL'] . 'index.php?/plugin/spiceicotwitter.png" alt="' . PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER . ': ">';
+                    $followme_widget = $this->createFollowMeWidget($twittername, $timeline_url_nofollow);
+                }
                 $timeline_url_nofollow = $allow['nofollow_twitter'];
-                $twitter_icon_html = '<img src="' . $serendipity['baseURL'] . 'index.php?/plugin/spiceicotwitter.png" alt="' . PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER . ': ">';
-                $followme_widget = $this->createFollowMeWidget($twittername, $timeline_url_nofollow);
                 if ($smartify) {
                     $eventData['spice_twitter_name'] = $twittername;
                     $eventData['spice_twitter_url'] = $timeline_url;

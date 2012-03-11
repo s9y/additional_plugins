@@ -424,7 +424,7 @@ class serendipity_event_commentspice extends serendipity_event
             $promo_url = null;
             
             // I save no matter what the rules say, it wont display later.
-            $twittername = $serendipity['POST']['twitter'];
+            $twittername = ltrim(trim($serendipity['POST']['twitter']),'@');
             $boourl = $serendipity['POST']['boo'];
             if (isset($serendipity['POST']['promorss']) && !empty($serendipity['POST']['promorss'])) {
                 $promorss = $serendipity['POST']['promorss'];
@@ -508,7 +508,8 @@ class serendipity_event_commentspice extends serendipity_event
         global $serendipity;
         // Remember twitter name value into cookie, if user ordered to, else clear cookie
         if (isset($serendipity['POST']['remember'])) {
-            serendipity_rememberCommentDetails(array ('twitter' => $serendipity['POST']['twitter']));
+            // Remember twitter name, remove leading @ if found
+            serendipity_rememberCommentDetails(array ('twitter' => ltrim(trim($serendipity['POST']['twitter']),'@')));
         }
         else {
             serendipity_forgetCommentDetails(array('twitter'));

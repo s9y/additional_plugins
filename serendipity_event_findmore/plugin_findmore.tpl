@@ -104,7 +104,7 @@
 </div>
 
 {if NOT $findmore_disabled_services.facebook OR NOT $findmore_disabled_services.gplus OR NOT $findmore_disabled_services.spreadly}
-<ul class="serendipity_findmore_like serendipity_plainList">
+<ul class="serendipity_findmore_like plainList">
 
     {if NOT $findmore_disabled_services.facebook}
         <li class="facebook_like findmore_like_button">

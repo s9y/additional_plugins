@@ -8,3 +8,8 @@ COPYING file.
 
 Rob Richards
 rrichards@ctindustries.net
+
+22.03.2012 Grischa Brockhaus
+* Replaced with newest version of library
+* Added this pull request changes https://github.com/arnaud-lb/php-openid/commit/bb6da3326a330b2d4dd235a23316d23bc5569016
+  (Fixing some big problems with new ERROR HANDLING in S9Y 1.7)

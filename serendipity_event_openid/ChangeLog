@@ -1,0 +1,6 @@
+Version 0.3 (brockhaus)
+---------------------------------
+* New PHP-OpenId lib
+* Patched it with a pull request found at GitHub solving depreated
+problems
+* A lot of fixes.

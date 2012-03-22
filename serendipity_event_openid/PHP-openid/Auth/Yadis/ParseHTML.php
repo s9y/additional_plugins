@@ -7,10 +7,10 @@
  *
  * LICENSE: See the COPYING file included in this distribution.
  *
- * @package Yadis
+ * @package OpenID
  * @author JanRain, Inc. <openid@janrain.com>
- * @copyright 2005 Janrain, Inc.
- * @license http://www.gnu.org/copyleft/lesser.html LGPL
+ * @copyright 2005-2008 Janrain, Inc.
+ * @license http://www.apache.org/licenses/LICENSE-2.0 Apache
  */
 
 /**
@@ -18,9 +18,9 @@
  * tags and their attributes.  This is used by the Yadis discovery
  * process.  This class must be instantiated to be used.
  *
- * @package Yadis
+ * @package OpenID
  */
-class Services_Yadis_ParseHTML {
+class Auth_Yadis_ParseHTML {
 
     /**
      * @access private
@@ -30,18 +30,28 @@ class Services_Yadis_ParseHTML {
     /**
      * @access private
      */
+    var $_removed_re =
+           "<!--.*?-->|<!\[CDATA\[.*?\]\]>|<script\b(?!:)[^>]*>.*?<\/script>";
+
+    /**
+     * @access private
+     */
     var $_tag_expr = "<%s%s(?:\s.*?)?%s>";
 
     /**
      * @access private
      */
-    var $_attr_find = '\b([-\w]+)=(".*?"|\'.*?\'|.+?)[\s>]';
+    var $_attr_find = '\b([-\w]+)=(".*?"|\'.*?\'|.+?)[\/\s>]';
 
-    function Services_Yadis_ParseHTML()
+    function Auth_Yadis_ParseHTML()
     {
         $this->_attr_find = sprintf("/%s/%s",
                                     $this->_attr_find,
                                     $this->_re_flags);
+
+        $this->_removed_re = sprintf("/%s/%s",
+                                     $this->_removed_re,
+                                     $this->_re_flags);
 
         $this->_entity_replacements = array(
                                             'amp' => '&',
@@ -146,6 +156,10 @@ class Services_Yadis_ParseHTML {
      */
     function getMetaTags($html_string)
     {
+        $html_string = preg_replace($this->_removed_re,
+                                    "",
+                                    $html_string);
+
         $key_tags = array($this->tagPattern('html', false, false),
                           $this->tagPattern('head', false, false),
                           $this->tagPattern('head', true, false),
@@ -185,7 +199,8 @@ class Services_Yadis_ParseHTML {
         if (!is_null($key_tags_pos[0]) && $key_tags_pos[1] < $key_tags_pos[0]) {
             return array();
         }
-        $html_string = substr($html_string, $key_tags_pos[1], ($key_tags_pos[2]-$key_tags_pos[1]));
+        $html_string = substr($html_string, $key_tags_pos[1],
+                              ($key_tags_pos[2]-$key_tags_pos[1]));
 
         $link_data = array();
         $link_matches = array();
@@ -241,4 +256,3 @@ class Services_Yadis_ParseHTML {
     }
 }
 
-?>

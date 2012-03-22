@@ -12,8 +12,8 @@ class serendipity_event_openid extends serendipity_event
         $propbag->add('name',        PLUGIN_OPENID_NAME);
         $propbag->add('description', PLUGIN_OPENID_DESC);
         $propbag->add('stackable',   false);
-        $propbag->add('author',      'Rob Richards');
-        $propbag->add('version',     '0.2');
+        $propbag->add('author',      'Grischa Brockhaus, Rob Richards');
+        $propbag->add('version',     '0.3');
         $propbag->add('requirements',  array(
             'serendipity' => '1.2',
             'smarty'      => '2.6.7',
@@ -128,6 +128,7 @@ class serendipity_event_openid extends serendipity_event
                         }
                     } else if (! empty($serendipity['GET']['openidflag']) && ($serendipity['GET']['openidflag']==1)) {
                         $eventData = serendipity_common_openid::authenticate_openid($_GET, $this->get_config('storage_path'));
+                        print_r($eventData);
                     } else if (! empty($serendipity['POST']['openid_url']) && ! empty($serendipity['POST']['action'])) {
                         $eventData = serendipity_common_openid::redir_openidserver($serendipity['POST']['openid_url'], $this->get_config('storage_path'), 1);
                     }

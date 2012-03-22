@@ -23,26 +23,21 @@ class Auth_OpenID_PostgreSQLStore extends Auth_OpenID_SQLStore {
     function setSQL()
     {
         $this->sql['nonce_table'] =
-            "CREATE TABLE %s (nonce CHAR(8) UNIQUE PRIMARY KEY, ".
-            "expires INTEGER)";
+            "CREATE TABLE %s (server_url VARCHAR(2047) NOT NULL, ".
+                             "timestamp INTEGER NOT NULL, ".
+                             "salt CHAR(40) NOT NULL, ".
+                "UNIQUE (server_url, timestamp, salt))";
 
         $this->sql['assoc_table'] =
-            "CREATE TABLE %s (server_url VARCHAR(2047), handle VARCHAR(255), ".
-            "secret BYTEA, issued INTEGER, lifetime INTEGER, ".
-            "assoc_type VARCHAR(64), PRIMARY KEY (server_url, handle), ".
+            "CREATE TABLE %s (server_url VARCHAR(2047) NOT NULL, ". 
+                             "handle VARCHAR(255) NOT NULL, ".
+                             "secret BYTEA NOT NULL, ".
+                             "issued INTEGER NOT NULL, ".
+                             "lifetime INTEGER NOT NULL, ".
+                             "assoc_type VARCHAR(64) NOT NULL, ".
+            "PRIMARY KEY (server_url, handle), ".
             "CONSTRAINT secret_length_constraint CHECK ".
             "(LENGTH(secret) <= 128))";
-
-        $this->sql['settings_table'] =
-            "CREATE TABLE %s (setting VARCHAR(128) UNIQUE PRIMARY KEY, ".
-            "value BYTEA, ".
-            "CONSTRAINT value_length_constraint CHECK (LENGTH(value) <= 20))";
-
-        $this->sql['create_auth'] =
-            "INSERT INTO %s VALUES ('auth_key', '!')";
-
-        $this->sql['get_auth'] =
-            "SELECT value FROM %s WHERE setting = 'auth_key'";
 
         $this->sql['set_assoc'] =
             array(
@@ -66,17 +61,15 @@ class Auth_OpenID_PostgreSQLStore extends Auth_OpenID_SQLStore {
             "DELETE FROM %s WHERE server_url = ? AND handle = ?";
 
         $this->sql['add_nonce'] =
-            array(
-                  'insert_nonce' => "INSERT INTO %s (nonce, expires) VALUES ".
-                  "(?, ?)",
-                  'update_nonce' => "UPDATE %s SET expires = ? WHERE nonce = ?"
-                  );
+                  "INSERT INTO %s (server_url, timestamp, salt) VALUES ".
+                  "(?, ?, ?)"
+                  ;
 
-        $this->sql['get_nonce'] =
-            "SELECT * FROM %s WHERE nonce = ?";
+        $this->sql['clean_nonce'] =
+            "DELETE FROM %s WHERE timestamp < ?";
 
-        $this->sql['remove_nonce'] =
-            "DELETE FROM %s WHERE nonce = ?";
+        $this->sql['clean_assoc'] =
+            "DELETE FROM %s WHERE issued + lifetime < ?";
     }
 
     /**
@@ -103,22 +96,6 @@ class Auth_OpenID_PostgreSQLStore extends Auth_OpenID_SQLStore {
     /**
      * @access private
      */
-    function _add_nonce($nonce, $expires)
-    {
-        if ($this->_get_nonce($nonce)) {
-            return $this->resultToBool($this->connection->query(
-                                      $this->sql['add_nonce']['update_nonce'],
-                                      array($expires, $nonce)));
-        } else {
-            return $this->resultToBool($this->connection->query(
-                                      $this->sql['add_nonce']['insert_nonce'],
-                                      array($nonce, $expires)));
-        }
-    }
-
-    /**
-     * @access private
-     */
     function blobEncode($blob)
     {
         return $this->_octify($blob);
@@ -133,4 +110,3 @@ class Auth_OpenID_PostgreSQLStore extends Auth_OpenID_SQLStore {
     }
 }
 
-?>

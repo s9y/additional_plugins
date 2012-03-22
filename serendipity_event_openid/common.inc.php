@@ -8,16 +8,22 @@ if (file_exists($probelang)) {
     include dirname(__FILE__) . '/lang_en.inc.php';
 }
 
+function escape($message) {
+    return htmlspecialchars($message, ENT_QUOTES);
+}
+
 class serendipity_common_openid {
 
     function redir_openidserver($openid_url, $store_path, $wfFlag=1) {
         global $serendipity;
-        $path_extra = dirname(__FILE__).DIRECTORY_SEPARATOR.'PHP-openid';
+
+        $path_extra = dirname(__FILE__).DIRECTORY_SEPARATOR.'PHP-openid/';
         $path = ini_get('include_path');
         $path = $path_extra . PATH_SEPARATOR . $path;
         ini_set('include_path', $path);
-        require_once("Auth/OpenID/Consumer.php");
-        require_once("Auth/OpenID/FileStore.php");
+        require_once "Auth/OpenID/Consumer.php";
+        require_once "Auth/OpenID/FileStore.php";
+
         $store = new Auth_OpenID_FileStore($store_path);
         $consumer = new Auth_OpenID_Consumer($store);
         $trust_root = $serendipity['baseURL'];
@@ -64,48 +70,99 @@ class serendipity_common_openid {
          }
          return false;
     }
-
+    
     function authenticate_openid($getData, $store_path, $returnData = false) {
-         global $serendipity;
+        global $serendipity;
 
+        $trust_root = $serendipity['baseURL'] . 'serendipity_admin.php';
+         
         $path_extra = dirname(__FILE__).DIRECTORY_SEPARATOR.'PHP-openid';
         $path = ini_get('include_path');
         $path = $path_extra . PATH_SEPARATOR . $path;
         ini_set('include_path', $path);
         require_once("Auth/OpenID/Consumer.php");
         require_once("Auth/OpenID/FileStore.php");
+        require_once("Auth/OpenID/SReg.php");
+        require_once("Auth/OpenID/PAPE.php");
         $store = new Auth_OpenID_FileStore($store_path);
         $consumer = new Auth_OpenID_Consumer($store);
-        $response = $consumer->complete($getData);
+        $response = $consumer->complete($trust_root); //, $getData);
+        
         if ($response->status == Auth_OpenID_CANCEL) {
-            $msg = 'Verification cancelled.';
+            $success = 'Verification cancelled.';
         } else if ($response->status == Auth_OpenID_FAILURE) {
-            $msg = "OpenID authentication failed: " . $response->message;
+            $success = "OpenID authentication failed: " . $response->message;
         } else if ($response->status == Auth_OpenID_SUCCESS) {
-            $openid = $response->identity_url;
-            $esc_identity = htmlspecialchars($openid, ENT_QUOTES);
-            $msg = sprintf('You have successfully verified ' .
+            // This means the authentication succeeded; extract the
+            // identity URL and Simple Registration data (if it was
+            // returned).
+            $openid = $response->getDisplayIdentifier();
+            $esc_identity = escape($openid);
+    
+            $success = sprintf('You have successfully verified ' .
                                '<a href="%s">%s</a> as your identity.',
                                $esc_identity, $esc_identity);
-
+    
             if ($response->endpoint->canonicalID) {
-                $msg .= '  (XRI CanonicalID: '.$response->endpoint->canonicalID.') ';
+                $escaped_canonicalID = escape($response->endpoint->canonicalID);
+                $success .= '  (XRI CanonicalID: '.$escaped_canonicalID.') ';
             }
-
-            $sreg = $response->extensionResponse('sreg');
-        
+    
+            $sreg_resp = Auth_OpenID_SRegResponse::fromSuccessResponse($response);
+    
+            $sreg = $sreg_resp->contents();
+    
             if (@$sreg['email']) {
-                $msg .= "  You also returned '".$sreg['email']."' as your email.";
-                $email = $sreg['email'];
+                escape($sreg['email']);
+                $success .= "  You also returned '".escape($sreg['email']).
+                    "' as your email.";
             }
+    
+            if (@$sreg['nickname']) {
+                $success .= "  Your nickname is '".escape($sreg['nickname']).
+                    "'.";
+            }
+    
             if (@$sreg['fullname']) {
-                $msg .= "  Your name is '".$sreg['fullname']."'";
-                $realname = $sreg['fullname'];
-            } else {
-                $realname = 'Anonymous';
+                $success .= "  Your fullname is '".escape($sreg['fullname']).
+                    "'.";
             }
+/*
+        	$pape_resp = Auth_OpenID_PAPE_Response::fromSuccessResponse($response);
+        
+        	if ($pape_resp) {
+                    if ($pape_resp->auth_policies) {
+                        $success .= "<p>The following PAPE policies affected the authentication:</p><ul>";
+        
+                        foreach ($pape_resp->auth_policies as $uri) {
+                            $escaped_uri = escape($uri);
+                            $success .= "<li><tt>$escaped_uri</tt></li>";
+                        }
+        
+                        $success .= "</ul>";
+                    } else {
+                        $success .= "<p>No PAPE policies affected the authentication.</p>";
+                    }
+        
+                    if ($pape_resp->auth_age) {
+                        $age = ($pape_resp->auth_age);
+                        $success .= "<p>The authentication age returned by the " .
+                            "server is: <tt>".$age."</tt></p>";
+                    }
+        
+                    if ($pape_resp->nist_auth_level) {
+                        $auth_level = escape($pape_resp->nist_auth_level);
+                        $success .= "<p>The NIST auth level returned by the " .
+                            "server is: <tt>".$auth_level."</tt></p>";
+                    }
+        
+        	} else {
+                    $success .= "<p>No PAPE response was sent by the provider.</p>";
+        	}
+*/
         }
-
+        //print "Message: $success";
+        
         if (! empty($openid)) {
             if ($returnData) {
                 return array('realname'=>$realname, 'email'=>$email, 'openID'=>$openid);

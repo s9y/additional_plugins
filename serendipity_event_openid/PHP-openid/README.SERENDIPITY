@@ -9,7 +9,56 @@ COPYING file.
 Rob Richards
 rrichards@ctindustries.net
 
+
+----------------------------
 22.03.2012 Grischa Brockhaus
 * Replaced with newest version of library
 * Added this pull request changes https://github.com/arnaud-lb/php-openid/commit/bb6da3326a330b2d4dd235a23316d23bc5569016
   (Fixing some big problems with new ERROR HANDLING in S9Y 1.7)
+
+----------------------------
+24.03.2012 Grischa Brockhaus
+* Do an atofallback, if /dev/urandom is not accessible in CryptUtil
+
+Changed 
+
+    static function getBytes($num_bytes)
+    {
+        static $f = null;
+        $bytes = '';
+        if ($f === null) {
+            if (Auth_OpenID_RAND_SOURCE === null) {
+                $f = false;
+            } else {
+                $f = @fopen(Auth_OpenID_RAND_SOURCE, "r");
+                if ($f === false) {
+                    $msg = 'Define Auth_OpenID_RAND_SOURCE as null to ' .
+                        ' continue with an insecure random number generator.';
+                    trigger_error($msg, E_USER_ERROR);
+                }
+            }
+        }
+
+to
+
+    static function getBytes($num_bytes)
+    {
+        static $f = null;
+        $bytes = '';
+        if ($f === null) {
+            if (Auth_OpenID_RAND_SOURCE === null) {
+                $f = false;
+            } else {
+                $f = @fopen(Auth_OpenID_RAND_SOURCE, "r");
+                // Grischa Brockhaus patch: Do an autofallback, don't fail!
+                /*
+                if ($f === false) {
+                    $msg = 'Define Auth_OpenID_RAND_SOURCE as null to ' .
+                        ' continue with an insecure random number generator.';
+                    trigger_error($msg, E_USER_ERROR);
+                }
+                */
+            }
+        }
+
+----------------------------

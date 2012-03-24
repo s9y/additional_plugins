@@ -1,3 +1,7 @@
+Version 0.6 (brockhaus)
+---------------------------------
+* Patched OpenID library to do an autofallback, if /dev/urandom is not accessible instead of failing completely.
+ 
 Version 0.5 (brockhaus)
 ---------------------------------
 * New PHP-OpenId lib

@@ -27,7 +27,8 @@ class serendipity_event_browserid extends serendipity_event
         $propbag->add('event_hooks', array(
             'backend_login'             => true,
             'backend_login_page'        => true,
-            'external_plugin'			=> true,
+            'backend_header'			=> true,
+        	'external_plugin'			=> true,
         ));
 
         $propbag->add('configuration', array(
@@ -73,6 +74,9 @@ class serendipity_event_browserid extends serendipity_event
                         header('Content-Type: image/png');
                         echo file_get_contents(dirname(__FILE__). '/browserid_signin.png');
                     }
+                    else if ($eventData=="serendipity_event_browserid_verify") {
+                        $this->verify();
+                    }
                     break;
                     
                 case 'backend_login_page':
@@ -84,7 +88,10 @@ class serendipity_event_browserid extends serendipity_event
                         return true;
                     }
                     return;
-
+                case 'backend_header':
+                    $this->print_backend_header();
+                    return true;
+                    
                 default:
                     return false;
             }
@@ -92,23 +99,101 @@ class serendipity_event_browserid extends serendipity_event
             return false;
         }
     }
-
+    
+    function verify() {
+        global $serendipity;
+        
+        $url = 'https://browserid.org/verify';
+        $assert = $_POST['assert'];
+        $params = 'assertion='.$assert.'&audience=' .
+                 urlencode($serendipity['baseURL']);
+        $ch = curl_init();
+        curl_setopt($ch,CURLOPT_URL,$url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch,CURLOPT_POST,2);
+        curl_setopt($ch,CURLOPT_POSTFIELDS, $params);
+        $result = curl_exec($ch);
+        curl_close($ch);
+        $response = json_decode($result);
+        if (isset($response) && $response->status=='okay') {
+            $email = $response->email;
+            $audience = $response->audience;
+            if ($audience!=$serendipity['baseURL']) { // The login has the wrong host!
+                $response->status = 'errorhost';
+                $response->message= "Internal error logging you in (wrong host: $audience)";
+                $_SESSION['serendipityAuthedUser'] = false;
+                @session_destroy();
+            }
+            else { // host ist correct, check what we have with this email
+                $password = md5($email);
+                $query = "SELECT DISTINCT a.email, a.authorid, a.userlevel, a.right_publish, a.realname
+                     FROM
+                       {$serendipity['dbPrefix']}authors AS a
+                     WHERE
+                       a.email = '{$email}'";
+                $row = serendipity_db_query($query, true, 'assoc');
+                if (is_array($row)) {
+                    serendipity_setCookie('old_session', session_id());
+                    serendipity_setAuthorToken();
+                    $_SESSION['serendipityUser']        = $serendipity['serendipityUser']         = $row['realname'];
+                    $_SESSION['serendipityPassword']    = $serendipity['serendipityPassword']     = $password;
+                    $_SESSION['serendipityEmail']       = $serendipity['serendipityEmail']        = $email;
+                    $_SESSION['serendipityAuthorid']    = $serendipity['authorid']                = $row['authorid'];
+                    $_SESSION['serendipityUserlevel']   = $serendipity['serendipityUserlevel']    = $row['userlevel'];
+                    $_SESSION['serendipityAuthedUser']  = $serendipity['serendipityAuthedUser']   = true;
+                    $_SESSION['serendipityRightPublish']= $serendipity['serendipityRightPublish'] = $row['right_publish'];
+                    $_SESSION['serendipityOpenID'] = true;
+                    serendipity_load_configuration($serendipity['authorid']);
+                }
+                else { // No user found for that email!
+                    $response->status = 's9yunknown';
+                    $response->message= "Sorry, we don't have a user for $email";
+                    $_SESSION['serendipityAuthedUser'] = false;
+                    @session_destroy();
+                }
+                       
+                
+            }
+            $result = json_encode($response);
+        }
+        echo $result;
+    }
+    
+    function print_backend_header() {
+        echo '
+<script src="https://browserid.org/include.js" type="text/javascript"></script>
+';
+    }
+    
     function print_loginpage(&$eventData) {
         global $serendipity;
         
         $hidden = array('action'=>'admin');
         $bid_title = "Sign-in with BrowserID";
-        $local_js = $serendipity['baseURL'] . 'index.php?/plugin/serendipity_event_browserid.js';
         $local_signin_img = $serendipity['baseURL'] . 'index.php?/plugin/browserid_signin.png';
+        $local_js = $serendipity['baseURL'] . 'index.php?/plugin/serendipity_event_browserid.js';
+        $verify_url = $serendipity['baseURL'] . 'index.php?/plugin/serendipity_event_browserid_verify';
         
-        $eventData['header'] .=
-        "\n<!-- browserid start -->\n" .
-        '<script src="https://browserid.org/include.js" type="text/javascript"></script>' . "\n" . 
-        '<script src="' . $local_js . '" type="text/javascript"></script>' . "\n" . 
-        '<div align="center"><p>'.
-		'<a href="#" id="browserid" title="' . $bid_title . '"><img src="' . $local_signin_img . '" alt="' . $bid_title . '" title="' . $bid_title . '"></a>'.
-    	'</p></div>' .
-        "\n<!-- browserid end -->\n";
+        $eventData['header'] .= '
+<!-- browserid start -->
+<script type="text/javascript">var browserid_verify="'. $verify_url . '";</script>
+<div align="center">
+<section><button><img src="' . $local_signin_img . '" alt="' . $bid_title . '" title="' . $bid_title . '"></button></section>
+</div>
+<script src="' . $local_js . '" type="text/javascript"></script>
+<!-- browserid end -->
+';
+
+    }
+    
+    function print_backend_footer() {
+        global $serendipity;
+        $local_js = $serendipity['baseURL'] . 'index.php?/plugin/serendipity_event_browserid.js';
+        echo '
+<!-- browserid start -->
+<script src="' . $local_js . '" type="text/javascript"></script>
+<!-- browserid end -->
+';        
     }
 }
 

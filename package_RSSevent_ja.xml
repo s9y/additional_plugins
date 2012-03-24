@@ -1123,9 +1123,9 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <title>OpenID Authentication: Allows authors to authenticate using an OpenID.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_openid</link>
 <category>Event Plugins</category>
-<author>Rob Richards</author>
+<author>Grischa Brockhaus, Rob Richards</author>
 <content:encoded>&lt;b&gt;serendipity_event_openid&lt;br /&gt;OpenID Authentication&lt;/b&gt;&lt;br /&gt;Allows authors to authenticate using an OpenID.&lt;br/&gt;For: Serendipity 1.2</content:encoded>
-<pubDate>Sun, 25 Dec 2011 04:42:08 +0100</pubDate>
+<pubDate>Sat, 24 Mar 2012 02:33:09 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_openid</guid>
 </item>
 <item>

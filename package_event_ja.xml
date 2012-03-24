@@ -8568,15 +8568,16 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_openid</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_openid/ChangeLog</changelog>
 <license>GPL</license>
 <summary>OpenID Authentication</summary>
 <groups>BACKEND_USERMANAGEMENT</groups>
 <description>Allows authors to authenticate using an OpenID.</description>
-<maintainers><maintainer><name>Rob Richards</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Grischa Brockhaus, Rob Richards</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.2</version>
+  <version>0.5</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2012-03-24</date>
   <filelist>
 <dir name="serendipity_event_openid">
 <dir name="PHP-openid">
@@ -8591,7 +8592,6 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <file>Discover.php</file>
 <file>DumbStore.php</file>
 <file>FileStore.php</file>
-<file>HMACSHA1.php</file>
 <file>Interface.php</file>
 <file>KVForm.php</file>
 <file>MySQLStore.php</file>
@@ -8603,41 +8603,55 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <file>SQLStore.php</file>
 <file>TrustRoot.php</file>
 <file>URINorm.php</file>
+<file>Extension.php</file>
+<file>AX.php</file>
+<file>MDB2Store.php</file>
+<file>HMAC.php</file>
+<file>MemcachedStore.php</file>
+<file>Message.php</file>
+<file>Nonce.php</file>
+<file>PAPE.php</file>
+<file>SReg.php</file>
 </dir>
 <file>OpenID.php</file>
-</dir>
-<dir name="Services">
 <dir name="Yadis">
+<file>ParanoidHTTPFetcher.php</file>
 <file>HTTPFetcher.php</file>
 <file>Manager.php</file>
 <file>Misc.php</file>
-<file>ParanoidHTTPFetcher.php</file>
-<file>ParseHTML.php</file>
 <file>PlainHTTPFetcher.php</file>
+<file>ParseHTML.php</file>
+<file>XRIRes.php</file>
 <file>XML.php</file>
 <file>XRDS.php</file>
 <file>XRI.php</file>
-<file>XRIRes.php</file>
 <file>Yadis.php</file>
 </dir>
 </dir>
-<file>CHANGELOG</file>
+<dir name="Services">
+<dir name="Yadis">
+</dir>
+</dir>
 <file>COPYING</file>
-<file>package.xml</file>
-<file>package2.xml</file>
 <file>README</file>
 <file>README.Debian</file>
 <file>README.SERENDIPITY</file>
+<file>README.git</file>
+<file>NEWS</file>
+<file>CHANGES-2.1.0</file>
 </dir>
 <dir name="UTF-8">
+<file>lang_de.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 </dir>
 <file>common.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_openid.php</file>
+<file>ChangeLog</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>lang_de.inc.php</file>
 </dir>
 
   </filelist>
@@ -8651,7 +8665,6 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
     <file>serendipity_event_openid/PHP-openid/Auth/OpenID/Discover.php</file>
     <file>serendipity_event_openid/PHP-openid/Auth/OpenID/DumbStore.php</file>
     <file>serendipity_event_openid/PHP-openid/Auth/OpenID/FileStore.php</file>
-    <file>serendipity_event_openid/PHP-openid/Auth/OpenID/HMACSHA1.php</file>
     <file>serendipity_event_openid/PHP-openid/Auth/OpenID/Interface.php</file>
     <file>serendipity_event_openid/PHP-openid/Auth/OpenID/KVForm.php</file>
     <file>serendipity_event_openid/PHP-openid/Auth/OpenID/MySQLStore.php</file>
@@ -8663,32 +8676,44 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
     <file>serendipity_event_openid/PHP-openid/Auth/OpenID/SQLStore.php</file>
     <file>serendipity_event_openid/PHP-openid/Auth/OpenID/TrustRoot.php</file>
     <file>serendipity_event_openid/PHP-openid/Auth/OpenID/URINorm.php</file>
+    <file>serendipity_event_openid/PHP-openid/Auth/OpenID/Extension.php</file>
+    <file>serendipity_event_openid/PHP-openid/Auth/OpenID/AX.php</file>
+    <file>serendipity_event_openid/PHP-openid/Auth/OpenID/MDB2Store.php</file>
+    <file>serendipity_event_openid/PHP-openid/Auth/OpenID/HMAC.php</file>
+    <file>serendipity_event_openid/PHP-openid/Auth/OpenID/MemcachedStore.php</file>
+    <file>serendipity_event_openid/PHP-openid/Auth/OpenID/Message.php</file>
+    <file>serendipity_event_openid/PHP-openid/Auth/OpenID/Nonce.php</file>
+    <file>serendipity_event_openid/PHP-openid/Auth/OpenID/PAPE.php</file>
+    <file>serendipity_event_openid/PHP-openid/Auth/OpenID/SReg.php</file>
     <file>serendipity_event_openid/PHP-openid/Auth/OpenID.php</file>
-    <file>serendipity_event_openid/PHP-openid/Services/Yadis/HTTPFetcher.php</file>
-    <file>serendipity_event_openid/PHP-openid/Services/Yadis/Manager.php</file>
-    <file>serendipity_event_openid/PHP-openid/Services/Yadis/Misc.php</file>
-    <file>serendipity_event_openid/PHP-openid/Services/Yadis/ParanoidHTTPFetcher.php</file>
-    <file>serendipity_event_openid/PHP-openid/Services/Yadis/ParseHTML.php</file>
-    <file>serendipity_event_openid/PHP-openid/Services/Yadis/PlainHTTPFetcher.php</file>
-    <file>serendipity_event_openid/PHP-openid/Services/Yadis/XML.php</file>
-    <file>serendipity_event_openid/PHP-openid/Services/Yadis/XRDS.php</file>
-    <file>serendipity_event_openid/PHP-openid/Services/Yadis/XRI.php</file>
-    <file>serendipity_event_openid/PHP-openid/Services/Yadis/XRIRes.php</file>
-    <file>serendipity_event_openid/PHP-openid/Services/Yadis/Yadis.php</file>
-    <file>serendipity_event_openid/PHP-openid/CHANGELOG</file>
+    <file>serendipity_event_openid/PHP-openid/Auth/Yadis/ParanoidHTTPFetcher.php</file>
+    <file>serendipity_event_openid/PHP-openid/Auth/Yadis/HTTPFetcher.php</file>
+    <file>serendipity_event_openid/PHP-openid/Auth/Yadis/Manager.php</file>
+    <file>serendipity_event_openid/PHP-openid/Auth/Yadis/Misc.php</file>
+    <file>serendipity_event_openid/PHP-openid/Auth/Yadis/PlainHTTPFetcher.php</file>
+    <file>serendipity_event_openid/PHP-openid/Auth/Yadis/ParseHTML.php</file>
+    <file>serendipity_event_openid/PHP-openid/Auth/Yadis/XRIRes.php</file>
+    <file>serendipity_event_openid/PHP-openid/Auth/Yadis/XML.php</file>
+    <file>serendipity_event_openid/PHP-openid/Auth/Yadis/XRDS.php</file>
+    <file>serendipity_event_openid/PHP-openid/Auth/Yadis/XRI.php</file>
+    <file>serendipity_event_openid/PHP-openid/Auth/Yadis/Yadis.php</file>
     <file>serendipity_event_openid/PHP-openid/COPYING</file>
-    <file>serendipity_event_openid/PHP-openid/package.xml</file>
-    <file>serendipity_event_openid/PHP-openid/package2.xml</file>
     <file>serendipity_event_openid/PHP-openid/README</file>
     <file>serendipity_event_openid/PHP-openid/README.Debian</file>
     <file>serendipity_event_openid/PHP-openid/README.SERENDIPITY</file>
+    <file>serendipity_event_openid/PHP-openid/README.git</file>
+    <file>serendipity_event_openid/PHP-openid/NEWS</file>
+    <file>serendipity_event_openid/PHP-openid/CHANGES-2.1.0</file>
+    <file>serendipity_event_openid/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_openid/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_openid/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_openid/common.inc.php</file>
     <file>serendipity_event_openid/lang_en.inc.php</file>
     <file>serendipity_event_openid/serendipity_event_openid.php</file>
+    <file>serendipity_event_openid/ChangeLog</file>
     <file>serendipity_event_openid/lang_cs.inc.php</file>
     <file>serendipity_event_openid/lang_cz.inc.php</file>
+    <file>serendipity_event_openid/lang_de.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>

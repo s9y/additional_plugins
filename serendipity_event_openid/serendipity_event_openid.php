@@ -110,6 +110,7 @@ class serendipity_event_openid extends serendipity_event
                             echo '<meta http-equiv="X-XRDS-Location" content="'.$xrdsloc.'" />	'."\n";
                         }
                     }
+                    break;
 
                 case 'backend_login_page':
                     $hidden = array('action'=>'admin');

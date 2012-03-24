@@ -24,7 +24,8 @@ class serendipity_event_openid extends serendipity_event
             'backend_login'             => true,
             'backend_login_page'        => true,
             'backend_sidebar_entries_event_display_profiles' => true,
-            'frontend_header'           => true
+            'frontend_header'           => true,
+            'external_plugin'			=> true
         ));
 
         $propbag->add('configuration', array(
@@ -88,6 +89,12 @@ class serendipity_event_openid extends serendipity_event
         if (isset($hooks[$event])) {
             switch($event) {
 
+                case 'external_plugin' :
+                    if ($eventData=="openid.png") {
+                        header('Content-Type: image/png');
+                        echo file_get_contents(dirname(__FILE__). '/openid.png');
+                    }
+                    break;
                 case 'frontend_header':
                     $server = $this->get_config('server');
                     $openidurl = $this->get_config('delegate');
@@ -106,7 +113,7 @@ class serendipity_event_openid extends serendipity_event
 
                 case 'backend_login_page':
                     $hidden = array('action'=>'admin');
-                    $eventData['header'] .= '<div align="center"><p>' . PLUGIN_OPENID_LOGIN_INPUT . '<br />'.
+                    $eventData['header'] .= '<div align="center"><p><br/>'.
                          serendipity_common_openid::loginform('serendipity_admin.php', $hidden, NULL).
                          '</p><br /></div>';
                     break;
@@ -153,13 +160,14 @@ class serendipity_event_openid extends serendipity_event
                             echo '<strong>' . htmlspecialchars(PLUGIN_OPENID_INVALID_RESPONSE) . '</strong><br /><br />';
                         }
                     }
+                    $imgpath = $serendipity['baseURL'] . 'index.php?/plugin/openid.png';
                     echo '<form action="?" method="post">';
                     echo '<input type="hidden" name="serendipity[adminModule]" value="event_display" />';
                     echo '<input type="hidden" name="serendipity[adminAction]" value="profiles" />';
                     echo '<input type="hidden" name="serendipity[openidflag]" value="3" />';
                     echo '<div>';
                     echo '<strong>' . htmlspecialchars(PLUGIN_EVENT_OPENID_SELECT) . '</strong><br /><br />';
-                    echo 'OpenID URL: <input type="text" size="50" name="serendipity[openid_url]" value="'. serendipity_common_openid::getOpenID($serendipity['authorid']) .'" />';
+                    echo '<img src="' . $imgpath . '" alt="OpenID URL"> <input type="text" size="50" name="serendipity[openid_url]" value="'. serendipity_common_openid::getOpenID($serendipity['authorid']) .'" />';
                     echo ' <input type="submit" name="submit" value="' . EDIT . '" />';
                     echo '</div><br /><hr /></form>';
                     return true;

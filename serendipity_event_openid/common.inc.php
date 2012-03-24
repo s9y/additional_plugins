@@ -236,6 +236,9 @@ class serendipity_common_openid {
     }
 
     function loginform($url, $hidden = array(), $instructions = '') {
+        global $serendipity;
+        
+        $imgpath = $serendipity['baseURL'] . 'index.php?/plugin/openid.png';
         $form = '';
         if (! empty($instructions)) {
             $form = $instructions . '<br /><br />';
@@ -245,7 +248,7 @@ class serendipity_common_openid {
         foreach($hidden AS $key => $val) {
             $form .= '<input type="hidden" name="serendipity[' . $key . ']" value="' . htmlspecialchars($val) . '" />' . "\n";
         }
-        $form .= "<center>\n".'	OpenID: <input type="text" size="40" name="serendipity[openid_url]" value="" />'."\n".
+        $form .= "<center>\n".'	<img src="' . $imgpath . '" alt="OpenID"> <input type="text" size="40" name="serendipity[openid_url]" value="" placeholder="' . PLUGIN_OPENID_LOGIN_INPUT . '"/>'."\n".
              '<input type="submit" name="openIDLogin" value="Login" /></form>';
         return $form;
     }

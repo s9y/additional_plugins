@@ -114,9 +114,9 @@ class serendipity_event_openid extends serendipity_event
 
                 case 'backend_login_page':
                     $hidden = array('action'=>'admin');
-                    $eventData['header'] .= '<div align="center"><p><br/>'.
+                    $eventData['header'] .= '<br/><div align="center">'.
                          serendipity_common_openid::loginform('serendipity_admin.php', $hidden, NULL).
-                         '</p><br /></div>';
+                         '</div>';
                     break;
 
                 case 'backend_login':

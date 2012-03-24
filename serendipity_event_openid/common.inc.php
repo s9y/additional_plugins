@@ -248,7 +248,7 @@ class serendipity_common_openid {
         foreach($hidden AS $key => $val) {
             $form .= '<input type="hidden" name="serendipity[' . $key . ']" value="' . htmlspecialchars($val) . '" />' . "\n";
         }
-        $form .= "<center>\n".'	<img src="' . $imgpath . '" alt="OpenID"> <input type="text" size="40" name="serendipity[openid_url]" value="" placeholder="' . PLUGIN_OPENID_LOGIN_INPUT . '"/>'."\n".
+        $form .= '<img src="' . $imgpath . '" alt="OpenID"> <input type="text" size="40" name="serendipity[openid_url]" value="" placeholder="' . PLUGIN_OPENID_LOGIN_INPUT . '"/>'."\n".
              '<input type="submit" name="openIDLogin" value="Login" /></form>';
         return $form;
     }

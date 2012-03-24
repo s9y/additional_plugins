@@ -1,6 +1,7 @@
-Version 0.3 (brockhaus)
+Version 0.5 (brockhaus)
 ---------------------------------
 * New PHP-OpenId lib
-* Patched it with a pull request found at GitHub solving depreated
-problems
+* Patched it with a pull request found at GitHub solving depreated problems
+* Removed temp storage path from config (as no user knows what to do here) and replaced it with a templates_c path.
+* A lot more documentation inside the plugin configuration.
 * A lot of fixes.

@@ -13,7 +13,7 @@ class serendipity_event_openid extends serendipity_event
         $propbag->add('description', PLUGIN_OPENID_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Grischa Brockhaus, Rob Richards');
-        $propbag->add('version',     '0.3');
+        $propbag->add('version',     '0.5');
         $propbag->add('requirements',  array(
             'serendipity' => '1.2',
             'smarty'      => '2.6.7',
@@ -28,7 +28,8 @@ class serendipity_event_openid extends serendipity_event
         ));
 
         $propbag->add('configuration', array(
-            'storage_path',
+            'plugin_desc',
+            'delegation_desc',
             'server',
             'delegate',
             'xrds_location'
@@ -38,11 +39,13 @@ class serendipity_event_openid extends serendipity_event
     function introspect_config_item($name, &$propbag)
     {
         switch($name) {
-            case 'storage_path':
-                $propbag->add('type',        'string');
-                $propbag->add('name',        PLUGIN_OPENID_STORE_PATH);
-                $propbag->add('description', PLUGIN_OPENID_STORE_PATH_DESC);
-                $propbag->add('default',     '/tmp/_php_consumer_test');
+            case 'plugin_desc':
+                $propbag->add('type',        'content');
+                $propbag->add('default',     PLUGIN_OPENID_DESCRIPTION);
+                break;
+            case 'delegation_desc':
+                $propbag->add('type',        'content');
+                $propbag->add('default',     PLUGIN_OPENID_DELEGATION_DESCRIPTION);
                 break;
             case 'server':
                 $propbag->add('type',        'string');
@@ -103,7 +106,7 @@ class serendipity_event_openid extends serendipity_event
 
                 case 'backend_login_page':
                     $hidden = array('action'=>'admin');
-                    $eventData['header'] .= '<div align="center"><p>Logon using your OpenID<br />'.
+                    $eventData['header'] .= '<div align="center"><p>' . PLUGIN_OPENID_LOGIN_INPUT . '<br />'.
                          serendipity_common_openid::loginform('serendipity_admin.php', $hidden, NULL).
                          '</p><br /></div>';
                     break;
@@ -116,7 +119,7 @@ class serendipity_event_openid extends serendipity_event
                         $eventData = serendipity_common_openid::reauth_openid();
                         if (! empty($serendipity['POST']['openid_url']) && ! empty($serendipity['POST']['openidflag'])) {
                             /* Check that openid isn't already associated with another login */
-                            $tmpRet = serendipity_common_openid::redir_openidserver($serendipity['POST']['openid_url'], $this->get_config('storage_path'), 3);
+                            $tmpRet = serendipity_common_openid::redir_openidserver($serendipity['POST']['openid_url'], $this->get_consumertest_path(), 3);
 
                             /* If updating an OpenID it is not a real login attempt */
                             if (($tmpRet === false) && (($serendipity['GET']['openidflag']==3) || ($serendipity['POST']['openidflag']==3))) {
@@ -127,17 +130,17 @@ class serendipity_event_openid extends serendipity_event
                             $eventData = serendipity_common_openid::reauth_openid();
                         }
                     } else if (! empty($serendipity['GET']['openidflag']) && ($serendipity['GET']['openidflag']==1)) {
-                        $eventData = serendipity_common_openid::authenticate_openid($_GET, $this->get_config('storage_path'));
+                        $eventData = serendipity_common_openid::authenticate_openid($_GET, $this->get_consumertest_path());
                         print_r($eventData);
                     } else if (! empty($serendipity['POST']['openid_url']) && ! empty($serendipity['POST']['action'])) {
-                        $eventData = serendipity_common_openid::redir_openidserver($serendipity['POST']['openid_url'], $this->get_config('storage_path'), 1);
+                        $eventData = serendipity_common_openid::redir_openidserver($serendipity['POST']['openid_url'], $this->get_consumertest_path(), 1);
                     }
                     return;
 
                 case 'backend_sidebar_entries_event_display_profiles':
                     if (($_SESSION['serendipityAuthedUser'] == true)) {
                         if (! empty($serendipity['GET']['openidflag']) && ($serendipity['GET']['openidflag']==3)) {
-                            if ($checkRet = serendipity_common_openid::authenticate_openid($_GET, $this->get_config('storage_path'), true)) {
+                            if ($checkRet = serendipity_common_openid::authenticate_openid($_GET, $this->get_consumertest_path(), true)) {
                                 if (serendipity_common_openid::updateOpenID($checkRet['openID'], $serendipity['authorid'])) {
                                     echo '<strong>' . htmlspecialchars(PLUGIN_OPENID_UPDATE_SUCCESS) . '</strong><br /><br />';
                                 } else {
@@ -166,6 +169,12 @@ class serendipity_event_openid extends serendipity_event
         } else {
             return false;
         }
+    }
+
+    function get_consumertest_path() {
+        global $serendipity;
+        
+        return $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/_php_consumer_test';
     }
 }
 

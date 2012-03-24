@@ -4,9 +4,8 @@
 $probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
 if (file_exists($probelang)) {
     include $probelang;
-} else {
-    include dirname(__FILE__) . '/lang_en.inc.php';
 }
+include_once dirname(__FILE__) . '/lang_en.inc.php';
 
 function escape($message) {
     return htmlspecialchars($message, ENT_QUOTES);

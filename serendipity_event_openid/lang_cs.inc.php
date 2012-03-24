@@ -12,9 +12,6 @@
 
 @define('PLUGIN_EVENT_OPENID_SELECT', 'OpenID svázané s tímto úètem');
 
-@define('PLUGIN_OPENID_STORE_PATH', 'Cesta k OpenID úložišti');
-@define('PLUGIN_OPENID_STORE_PATH_DESC', 'Cesta na serveru pro ukládání doèasných dat seance OpenID');
-
 @define('PLUGIN_OPENID_SERVER', 'OpenID server');
 @define('PLUGIN_OPENID_SERVER_DESC', 'OpenID server pro použití delegáta (vyžaduje naplnìné OpenID delegáty)');
 

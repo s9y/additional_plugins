@@ -1123,7 +1123,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Rob Richards</author>
 <content:encoded>&lt;b&gt;serendipity_event_openid&lt;br /&gt;Přihlašování pomocí OpenID&lt;/b&gt;&lt;br /&gt;Umožňuje autorům přihlásit se pomocí OpenID.&lt;br/&gt;For: Serendipity 1.2</content:encoded>
-<pubDate>Sat, 24 Mar 2012 02:33:09 +0100</pubDate>
+<pubDate>Sun, 25 Mar 2012 05:13:14 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_openid</guid>
 </item>
 <item>
@@ -1260,6 +1260,15 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <content:encoded>&lt;b&gt;serendipity_event_oembed&lt;br /&gt;oEmbed&lt;/b&gt;&lt;br /&gt;oEmbed je formát, který umožňuje vkládat do blogu jiné stránky z internetu. Umožňuje zobrazovat v příspěvcích vložený obsah (jako tweety, fotky nebo videa), když autor příspěvku napíše odkaz na zdroj obsahu, aniž by bylo potřeba přímo parsovat cílovou stránku.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Sun, 19 Feb 2012 02:32:23 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_oembed</guid>
+</item>
+<item>
+<title>BrowserID Authentification: Allows authors to authenticate using the BrowserID service.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_browserid</link>
+<category>Event Plugins</category>
+<author>Grischa Brockhaus</author>
+<content:encoded>&lt;b&gt;serendipity_event_browserid&lt;br /&gt;BrowserID Authentification&lt;/b&gt;&lt;br /&gt;Allows authors to authenticate using the BrowserID service.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sun, 25 Mar 2012 05:13:00 +0200</pubDate>
+<guid isPermaLink="false">serendipity_event_browserid</guid>
 </item>
 <item>
 <title>Komentáře v reálném čase: Aktualizuje komentáře od ostatních uživatelů bez znovunačtení stránky.</title>

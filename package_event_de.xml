@@ -8573,9 +8573,9 @@
 <description>Ermöglicht es Autoren des Blogs, sich mit ihrer OpenID einzuloggen.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Rob Richards</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.5</version>
+  <version>0.6</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>
-  <date>2012-03-24</date>
+  <date>2012-03-25</date>
   <filelist>
 <dir name="serendipity_event_openid">
 <dir name="PHP-openid">
@@ -8650,6 +8650,7 @@
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
+<file>openid.png</file>
 </dir>
 
   </filelist>
@@ -8712,6 +8713,7 @@
     <file>serendipity_event_openid/lang_cs.inc.php</file>
     <file>serendipity_event_openid/lang_cz.inc.php</file>
     <file>serendipity_event_openid/lang_de.inc.php</file>
+    <file>serendipity_event_openid/openid.png</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -9773,6 +9775,40 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
     <file>serendipity_event_oembed/lang_cs.inc.php</file>
     <file>serendipity_event_oembed/lang_cz.inc.php</file>
     <file>serendipity_event_oembed/documentation_cz.html</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>serendipity_event_browserid</name>
+<license>GPL</license>
+<summary>BrowserID Authentifizierung</summary>
+<groups>BACKEND_USERMANAGEMENT</groups>
+<description>Ermöglicht Autoren, sich mittels de BrowserID Services einzuloggen.</description>
+<maintainers><maintainer><name>Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2012-03-25</date>
+  <filelist>
+<dir name="serendipity_event_browserid">
+<dir name="UTF-8">
+<file>lang_de.inc.php</file>
+</dir>
+<file>browserid_signin.png</file>
+<file>lang_de.inc.php</file>
+<file>lang_en.inc.php</file>
+<file>serendipity_event_browserid.js</file>
+<file>serendipity_event_browserid.php</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>serendipity_event_browserid/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_browserid/browserid_signin.png</file>
+    <file>serendipity_event_browserid/lang_de.inc.php</file>
+    <file>serendipity_event_browserid/lang_en.inc.php</file>
+    <file>serendipity_event_browserid/serendipity_event_browserid.js</file>
+    <file>serendipity_event_browserid/serendipity_event_browserid.php</file>
   </serendipityFilelist>
 </release>
 </package>

@@ -1,6 +1,6 @@
 Version 1.1 (brockhaus)
 ---------------------------------
-* Removed some depedencies to OpenID (copy and paste problem)
+* Removed depedencies to OpenID (was working only if OpenID was installed, too)
 
 Version 1.0 (brockhaus)
 ---------------------------------

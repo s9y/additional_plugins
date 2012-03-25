@@ -87,6 +87,10 @@ class serendipity_event_browserid extends serendipity_event
                     if ($eventData) {
                         return true;
                     }
+                    if ($_SESSION['serendipityAuthedUser'] == true) {
+                        $eventData = $this->reauth();
+                    }
+                    
                     return;
                 case 'backend_header':
                     $this->print_backend_header();
@@ -142,7 +146,8 @@ class serendipity_event_browserid extends serendipity_event
                     $_SESSION['serendipityUserlevel']   = $serendipity['serendipityUserlevel']    = $row['userlevel'];
                     $_SESSION['serendipityAuthedUser']  = $serendipity['serendipityAuthedUser']   = true;
                     $_SESSION['serendipityRightPublish']= $serendipity['serendipityRightPublish'] = $row['right_publish'];
-                    $_SESSION['serendipityBrowserID'] = true;
+                    // Prevent session manupulation:
+                    $_SESSION['serendipityBrowserID'] = $this->get_install_token();
                     serendipity_load_configuration($serendipity['authorid']);
                 }
                 else { // No user found for that email!
@@ -157,6 +162,35 @@ class serendipity_event_browserid extends serendipity_event
             $result = json_encode($response);
         }
         echo $result;
+    }
+    
+    function reauth() {
+         global $serendipity;
+         // Reauth only, if valid session
+         if (isset($_SESSION['serendipityBrowserID']) && $_SESSION['serendipityBrowserID']===$this->get_install_token()) {
+              $serendipity['serendipityUser']         = $_SESSION['serendipityUser'];
+              $serendipity['serendipityPassword']     = $_SESSION['serendipityPassword'];
+              $serendipity['serendipityEmail']        = $_SESSION['serendipityEmail'];
+              $serendipity['authorid']                = $_SESSION['serendipityAuthorid'];
+              $serendipity['serendipityUserlevel']    = $_SESSION['serendipityUserlevel'];
+              $serendipity['serendipityAuthedUser']   = $_SESSION['serendipityAuthedUser'];
+              $serendipity['serendipityRightPublish'] = $_SESSION['serendipityRightPublish'];
+              serendipity_load_configuration($serendipity['authorid']);
+              return true;
+         }
+         return false;
+    }
+    
+    /**
+     * Produces or loads a token unique to this installation.
+     */
+    function get_install_token() {
+        $token = $this->get_config("installationtoken");
+        if (empty($token)) {
+            $token = md5(time());
+            $this->set_config("installationtoken", $token);
+        }
+        return $token;
     }
     
     function print_backend_header() {

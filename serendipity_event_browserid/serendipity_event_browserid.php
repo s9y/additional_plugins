@@ -17,7 +17,7 @@ class serendipity_event_browserid extends serendipity_event
         $propbag->add('description', PLUGIN_BROWSERID_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Grischa Brockhaus');
-        $propbag->add('version',     '1.0');
+        $propbag->add('version',     '1.1');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -50,7 +50,7 @@ class serendipity_event_browserid extends serendipity_event
     }
 
     function generate_content(&$title) {
-        $title = PLUGIN_OPENID_NAME;
+        $title = PLUGIN_BROWSERID_NAME;
     }
 
     function event_hook($event, &$bag, &$eventData, $addData = null) {
@@ -142,7 +142,7 @@ class serendipity_event_browserid extends serendipity_event
                     $_SESSION['serendipityUserlevel']   = $serendipity['serendipityUserlevel']    = $row['userlevel'];
                     $_SESSION['serendipityAuthedUser']  = $serendipity['serendipityAuthedUser']   = true;
                     $_SESSION['serendipityRightPublish']= $serendipity['serendipityRightPublish'] = $row['right_publish'];
-                    $_SESSION['serendipityOpenID'] = true;
+                    $_SESSION['serendipityBrowserID'] = true;
                     serendipity_load_configuration($serendipity['authorid']);
                 }
                 else { // No user found for that email!

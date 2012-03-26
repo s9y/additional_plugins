@@ -13,7 +13,7 @@ class serendipity_event_openid extends serendipity_event
         $propbag->add('description', PLUGIN_OPENID_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Grischa Brockhaus, Rob Richards');
-        $propbag->add('version',     '0.8');
+        $propbag->add('version',     '0.9');
         $propbag->add('requirements',  array(
             'serendipity' => '1.2',
             'smarty'      => '2.6.7',
@@ -30,6 +30,7 @@ class serendipity_event_openid extends serendipity_event
 
         $propbag->add('configuration', array(
             'plugin_desc',
+            'select_authors',
             'delegation_desc',
             'server',
             'delegate',
@@ -43,6 +44,12 @@ class serendipity_event_openid extends serendipity_event
             case 'plugin_desc':
                 $propbag->add('type',        'content');
                 $propbag->add('default',     PLUGIN_OPENID_DESCRIPTION);
+                break;
+            case 'select_authors':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        PLUGIN_OPENID_LOGIN_USERS);
+                $propbag->add('description', PLUGIN_OPENID_LOGIN_USERS_DESC);
+                $propbag->add('default',     'true');
                 break;
             case 'delegation_desc':
                 $propbag->add('type',        'content');
@@ -138,8 +145,9 @@ class serendipity_event_openid extends serendipity_event
 
                 case 'backend_login_page':
                     $hidden = array('action'=>'admin');
+                    $useAutorSelector = $this->get_config('select_authors',true);
                     $eventData['header'] .= '<br/><div align="center">'.
-                         serendipity_common_openid::loginform('serendipity_admin.php', $hidden, NULL).
+                         serendipity_common_openid::loginform('serendipity_admin.php', $hidden, $useAutorSelector).
                          '</div>';
                     break;
 

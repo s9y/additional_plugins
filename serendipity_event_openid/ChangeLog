@@ -1,3 +1,8 @@
+Version 0.9 (brockhaus)
+---------------------------------
+* If no user has configured his OpenID yet, there will be no OpenID login but a info about that.
+* No need to enter your OpenID URL anymore, just choose the user and log in (can be switched back to old style)
+
 Version 0.8 (brockhaus)
 ---------------------------------
 * Added AOL shortcut

@@ -201,18 +201,53 @@ class serendipity_common_openid {
         return ($retVal===true)?true:false;
     }
 
-    function loginform($url, $hidden = array(), $instructions = '') {
+    function load_account_selectbox() {
+        global $serendipity;
+        
+        $query = "SELECT DISTINCT a.realname, a.username, oa.openid_url
+                 FROM
+                   {$serendipity['dbPrefix']}authors AS a, {$serendipity['dbPrefix']}openid_authors AS oa
+                 WHERE
+                   oa.authorid = a.authorid";
+       $rows = serendipity_db_query($query);
+       
+       // Singnal no existing OpenID URL.
+       if (!is_array($rows) || count($rows)==0) return false;
+       
+       $result = '<select name="serendipity[openid_url]">';
+       foreach ($rows as $row) {
+           $result .= '<option value="' . $row['openid_url'] . '">';
+           if (!empty($row['realname'])) {
+               $result .= $row['realname'];
+           }
+           else {
+               $result .= $row['username'];
+           }
+           $result .= '</option>';
+       }
+       $result .= '</select> ';
+       return $result;
+    }
+    
+    function loginform($url, $hidden = array(), $useAutorSelector = true) {
         global $serendipity;
         
         $imgopenid = $serendipity['baseURL'] . 'index.php?/plugin/openid.png';
+        
+        // Check, if we have any user with OpenID configured
+        $select = serendipity_common_openid::load_account_selectbox();
+        if ($select===false) { // No we don't. Say so
+            $result  = '<div class="no_openid_user">';
+            $result .= '<img src="' . $imgopenid . '" alt="OpenID">';
+            $result .= '<p>' . PLUGIN_OPENID_LOGIN_NOOPENID . '</p></div>';
+            return $result;
+        }
+        
         $imggoogle = $serendipity['baseURL'] . 'index.php?/plugin/oid_google.png';
         $imgyahoo = $serendipity['baseURL'] . 'index.php?/plugin/oid_yahoo.png';
         $imgaol = $serendipity['baseURL'] . 'index.php?/plugin/oid_aol.png';
         
         $form = '';
-        if (! empty($instructions)) {
-            $form = $instructions . '<br /><br />';
-        }
         
         // We need two forms in order to allow ENTER in the input line
         $form .= '<form name="openid" id="openid" method="post" action="' . $url . '">';
@@ -220,18 +255,26 @@ class serendipity_common_openid {
         foreach($hidden AS $key => $val) {
             $form .= '<input type="hidden" name="serendipity[' . $key . ']" value="' . htmlspecialchars($val) . '" />';
         }
-        $form .= '<img src="' . $imgopenid . '" alt="OpenID"> <input type="text" size="40" name="serendipity[openid_url]" value="" placeholder="' . PLUGIN_OPENID_LOGIN_INPUT . '"/>'."\n".
-             '<input type="submit" name="openIDLogin" value="Login" />';
-        $form .= '</form>';
+        $form .= '<img src="' . $imgopenid . '" alt="OpenID"> ';
         
-        $form .= '<form name="openid" id="openid" method="post" action="' . $url . '">';
-        $form .='<input type="hidden" name="serendipity[openidflag]" value="1" />';
-        foreach($hidden AS $key => $val) {
-            $form .= '<input type="hidden" name="serendipity[' . $key . ']" value="' . htmlspecialchars($val) . '" />';
+        if ($useAutorSelector) {
+            $form .= $select;
+            $form .= '<input type="submit" name="openIDLogin" value="Login with OpenID" />';
         }
-        $form .= '<input name="openIDLoginGoogle" type="image" src="' . $imggoogle . '" alt="' . PLUGIN_OPENID_LOGIN_WITH_GOOGLE . '" title="' . PLUGIN_OPENID_LOGIN_WITH_GOOGLE .'"/> ';
-        $form .= '<input name="openIDLoginYahoo" type="image" src="' . $imgyahoo . '" alt="' . PLUGIN_OPENID_LOGIN_WITH_YAHOO . '" title="' . PLUGIN_OPENID_LOGIN_WITH_YAHOO .'"/> ';
-        $form .= '<input name="openIDLoginAol" type="image" src="' . $imgaol . '" alt="' . PLUGIN_OPENID_LOGIN_WITH_AOL . '" title="' . PLUGIN_OPENID_LOGIN_WITH_AOL .'"/> ';
+        if (!$useAutorSelector) {
+            $form .= '<input type="text" size="40" name="serendipity[openid_url]" value="" placeholder="' . PLUGIN_OPENID_LOGIN_INPUT . '"/>';
+            $form .= '<input type="submit" name="openIDLogin" value="Login" />';
+            $form .= '</form>';
+            
+            $form .= '<form name="openid" id="openid" method="post" action="' . $url . '">';
+            $form .='<input type="hidden" name="serendipity[openidflag]" value="1" />';
+            foreach($hidden AS $key => $val) {
+                $form .= '<input type="hidden" name="serendipity[' . $key . ']" value="' . htmlspecialchars($val) . '" />';
+            }
+            $form .= '<input name="openIDLoginGoogle" type="image" src="' . $imggoogle . '" alt="' . PLUGIN_OPENID_LOGIN_WITH_GOOGLE . '" title="' . PLUGIN_OPENID_LOGIN_WITH_GOOGLE .'"/> ';
+            $form .= '<input name="openIDLoginYahoo" type="image" src="' . $imgyahoo . '" alt="' . PLUGIN_OPENID_LOGIN_WITH_YAHOO . '" title="' . PLUGIN_OPENID_LOGIN_WITH_YAHOO .'"/> ';
+            $form .= '<input name="openIDLoginAol" type="image" src="' . $imgaol . '" alt="' . PLUGIN_OPENID_LOGIN_WITH_AOL . '" title="' . PLUGIN_OPENID_LOGIN_WITH_AOL .'"/> ';
+        }
         $form .= '</form>';
         
         return $form;

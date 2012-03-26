@@ -24,6 +24,13 @@
 '<p>Settung up delegation is completely optional and not needed for logging into your blog with OpenID.</p>'
 );
 
+@define('PLUGIN_OPENID_LOGIN_USERS', 'Login with user selection');
+@define('PLUGIN_OPENID_LOGIN_USERS_DESC', 
+'After authors of this blog have configured their OpenID URL they can select their name and log in.
+As this is a very convenient way to log in it shows others the names of the authors of your blog.
+This should be no problem normaly as they are visible in your articles, too.
+But if you don\'t like that you can switch this off and there will be a normal OpenID URL input only.');
+
 @define('PLUGIN_OPENID_SERVER', 'OpenID server used for delegation');
 @define('PLUGIN_OPENID_SERVER_DESC', 'OpenID server to use for delegate (requires OpenID delegate to be populated)');
 
@@ -45,3 +52,6 @@
 @define('PLUGIN_OPENID_SET_YAHOO_OID', 'Set your Yahoo account as OpenID');
 @define('PLUGIN_OPENID_LOGIN_WITH_AOL', 'Login with your Aol account');
 @define('PLUGIN_OPENID_SET_AOL_OID', 'Set your Aol account as OpenID');
+
+@define('PLUGIN_OPENID_LOGIN_NOOPENID', 'At the moment, there is no author having an OpenID URL configured.<br/>
+If you want to log in using your OpenID please configure yours first in your personal settings.<br/>Thanks.');

@@ -126,41 +126,7 @@ class serendipity_common_openid {
                 $success .= "  Your fullname is '".escape($sreg['fullname']).
                     "'.";
             }
-/*
-        	$pape_resp = Auth_OpenID_PAPE_Response::fromSuccessResponse($response);
-        
-        	if ($pape_resp) {
-                    if ($pape_resp->auth_policies) {
-                        $success .= "<p>The following PAPE policies affected the authentication:</p><ul>";
-        
-                        foreach ($pape_resp->auth_policies as $uri) {
-                            $escaped_uri = escape($uri);
-                            $success .= "<li><tt>$escaped_uri</tt></li>";
-                        }
-        
-                        $success .= "</ul>";
-                    } else {
-                        $success .= "<p>No PAPE policies affected the authentication.</p>";
-                    }
-        
-                    if ($pape_resp->auth_age) {
-                        $age = ($pape_resp->auth_age);
-                        $success .= "<p>The authentication age returned by the " .
-                            "server is: <tt>".$age."</tt></p>";
-                    }
-        
-                    if ($pape_resp->nist_auth_level) {
-                        $auth_level = escape($pape_resp->nist_auth_level);
-                        $success .= "<p>The NIST auth level returned by the " .
-                            "server is: <tt>".$auth_level."</tt></p>";
-                    }
-        
-        	} else {
-                    $success .= "<p>No PAPE response was sent by the provider.</p>";
-        	}
-*/
         }
-        //print "Message: $success";
         
         if (! empty($openid)) {
             if ($returnData) {
@@ -238,18 +204,33 @@ class serendipity_common_openid {
     function loginform($url, $hidden = array(), $instructions = '') {
         global $serendipity;
         
-        $imgpath = $serendipity['baseURL'] . 'index.php?/plugin/openid.png';
+        $imgopenid = $serendipity['baseURL'] . 'index.php?/plugin/openid.png';
+        $imggoogle = $serendipity['baseURL'] . 'index.php?/plugin/oid_google.png';
+        $imgyahoo = $serendipity['baseURL'] . 'index.php?/plugin/oid_yahoo.png';
         $form = '';
         if (! empty($instructions)) {
             $form = $instructions . '<br /><br />';
         }
-        $form .= '<form name="openid" id="openid" method="post" action="' . $url . '">'.
-                  "\n   ".'   <input type="hidden" name="serendipity[openidflag]" value="1" />'."\n   ";
+        
+        // We need two forms in order to allow ENTER in the input line
+        $form .= '<form name="openid" id="openid" method="post" action="' . $url . '">';
+        $form .='<input type="hidden" name="serendipity[openidflag]" value="1" />';
         foreach($hidden AS $key => $val) {
-            $form .= '<input type="hidden" name="serendipity[' . $key . ']" value="' . htmlspecialchars($val) . '" />' . "\n";
+            $form .= '<input type="hidden" name="serendipity[' . $key . ']" value="' . htmlspecialchars($val) . '" />';
         }
-        $form .= '<img src="' . $imgpath . '" alt="OpenID"> <input type="text" size="40" name="serendipity[openid_url]" value="" placeholder="' . PLUGIN_OPENID_LOGIN_INPUT . '"/>'."\n".
-             '<input type="submit" name="openIDLogin" value="Login" /></form>';
+        $form .= '<img src="' . $imgopenid . '" alt="OpenID"> <input type="text" size="40" name="serendipity[openid_url]" value="" placeholder="' . PLUGIN_OPENID_LOGIN_INPUT . '"/>'."\n".
+             '<input type="submit" name="openIDLogin" value="Login" />';
+        $form .= '</form>';
+        
+        $form .= '<form name="openid" id="openid" method="post" action="' . $url . '">';
+        $form .='<input type="hidden" name="serendipity[openidflag]" value="1" />';
+        foreach($hidden AS $key => $val) {
+            $form .= '<input type="hidden" name="serendipity[' . $key . ']" value="' . htmlspecialchars($val) . '" />';
+        }
+        $form .= '<input name="openIDLoginGoogle" type="image" src="' . $imggoogle . '" alt="' . PLUGIN_OPENID_LOGIN_WITH_GOOGLE . '" title="' . PLUGIN_OPENID_LOGIN_WITH_GOOGLE .'"/> ';
+        $form .= '<input name="openIDLoginYahoo" type="image" src="' . $imgyahoo . '" alt="' . PLUGIN_OPENID_LOGIN_WITH_YAHOO . '" title="' . PLUGIN_OPENID_LOGIN_WITH_YAHOO .'"/> ';
+        $form .= '</form>';
+        
         return $form;
     }
 }

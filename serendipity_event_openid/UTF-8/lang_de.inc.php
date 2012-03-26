@@ -1,7 +1,7 @@
 <?php 
 
 @define('PLUGIN_OPENID_NAME',     'OpenID Authentifizierung');
-@define('PLUGIN_OPENID_DESC',     'Ermöglicht es Autoren des Blogs, sich mit ihrer OpenID einzuloggen.');
+@define('PLUGIN_OPENID_DESC',     'Ermöglicht es Autoren des Blogs, sich mit ihrer OpenID (oder Google/Yahoo Account) einzuloggen.');
 
 @define('PLUGIN_OPENID_EXISTS', 'Du bist bereits mit OpenID registriert.');
 @define('PLUGIN_OPENID_WRONG_ACTIVATION', 'Ungültige Aktivierungs URL!');
@@ -36,3 +36,8 @@
 @define('PLUGIN_OPENID_UPDATE_SUCCESS', 'Deine OpenID wurde erneuert.');
 @define('PLUGIN_OPENID_UPDATE_FAIL', 'Es trat ein Fehler beim Update Deiner OpenID auf.');
 @define('PLUGIN_OPENID_INVALID_RESPONSE', 'Ungültige OpenID eingegeben');
+
+@define('PLUGIN_OPENID_LOGIN_WITH_GOOGLE', 'Mit Deinem Google Account einloggen');
+@define('PLUGIN_OPENID_SET_GOOGLE_OID', 'Deinen Google Account als OpenID setzen');
+@define('PLUGIN_OPENID_LOGIN_WITH_YAHOO', 'Mit Deinem Yahoo Account einloggen');
+@define('PLUGIN_OPENID_SET_YAHOO_OID', 'Deinen Yahoo Account als OpenID setzen');

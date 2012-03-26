@@ -13,7 +13,7 @@ class serendipity_event_openid extends serendipity_event
         $propbag->add('description', PLUGIN_OPENID_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Grischa Brockhaus, Rob Richards');
-        $propbag->add('version',     '0.6');
+        $propbag->add('version',     '0.7');
         $propbag->add('requirements',  array(
             'serendipity' => '1.2',
             'smarty'      => '2.6.7',
@@ -92,7 +92,23 @@ class serendipity_event_openid extends serendipity_event
                 case 'external_plugin' :
                     if ($eventData=="openid.png") {
                         header('Content-Type: image/png');
-                        echo file_get_contents(dirname(__FILE__). '/openid.png');
+                        echo file_get_contents(dirname(__FILE__). '/img/openid.png');
+                    }
+                    elseif ($eventData=="oid_google.png") {
+                        header('Content-Type: image/png');
+                        echo file_get_contents(dirname(__FILE__). '/img/google.png');
+                    }
+                    elseif ($eventData=="oids_google.png") {
+                        header('Content-Type: image/png');
+                        echo file_get_contents(dirname(__FILE__). '/img/google_small.png');
+                    }
+                    elseif ($eventData=="oid_yahoo.png") {
+                        header('Content-Type: image/png');
+                        echo file_get_contents(dirname(__FILE__). '/img/yahoo.png');
+                    }
+                    elseif ($eventData=="oids_yahoo.png") {
+                        header('Content-Type: image/png');
+                        echo file_get_contents(dirname(__FILE__). '/img/yahoo_small.png');
                     }
                     break;
                 case 'frontend_header':
@@ -120,30 +136,43 @@ class serendipity_event_openid extends serendipity_event
                     break;
 
                 case 'backend_login':
-                    if ($eventData) {
+                    $inOpenIdChange = !empty($serendipity['POST']['openidflag']) && ($serendipity['POST']['openidflag']==3);
+                    if ($eventData && !$inOpenIdChange) { // Eventdata holds "isAuthentificated". So if she is, let her in.
                         return true;
                     }
+                    
+                    $openidurl = NULL;
+                    if (!empty($serendipity['POST']['openid_url'])) {
+                        $openidurl = $serendipity['POST']['openid_url'];
+                    }
+                    elseif (isset($_POST['openIDLoginGoogle_x']) || isset($_POST['openIDLoginGoogle_y'])) { // If the Google Button was pressed
+                        $openidurl = "https://www.google.com/accounts/o8/id";
+                    }
+                    elseif (isset($_POST['openIDLoginYahoo_x']) || isset($_POST['openIDLoginYahoo_y'])) { // If the Google Button was pressed
+                        $openidurl = "https://yahoo.com";
+                    }
+                    
                     if ($_SESSION['serendipityAuthedUser'] == true) {
                         $eventData = serendipity_common_openid::reauth_openid();
-                        if (! empty($serendipity['POST']['openid_url']) && ! empty($serendipity['POST']['openidflag'])) {
+                        if (!empty($openidurl) && !empty($serendipity['POST']['openidflag'])) {
                             /* Check that openid isn't already associated with another login */
-                            $tmpRet = serendipity_common_openid::redir_openidserver($serendipity['POST']['openid_url'], $this->get_consumertest_path(), 3);
+                            $tmpRet = serendipity_common_openid::redir_openidserver($openidurl, $this->get_consumertest_path(), 3);
 
                             /* If updating an OpenID it is not a real login attempt */
                             if (($tmpRet === false) && (($serendipity['GET']['openidflag']==3) || ($serendipity['POST']['openidflag']==3))) {
                                 return;
                             }
                             $eventData = $tmpRet;
-                        } else {
+                        } elseif (!empty($serendipity['POST']['openidflag'])) {
                             $eventData = serendipity_common_openid::reauth_openid();
                         }
                     } else if (! empty($serendipity['GET']['openidflag']) && ($serendipity['GET']['openidflag']==1)) {
                         $eventData = serendipity_common_openid::authenticate_openid($_GET, $this->get_consumertest_path());
-                    } else if (! empty($serendipity['POST']['openid_url']) && ! empty($serendipity['POST']['action'])) {
-                        $eventData = serendipity_common_openid::redir_openidserver($serendipity['POST']['openid_url'], $this->get_consumertest_path(), 1);
+                    } else if (! empty($openidurl) && ! empty($serendipity['POST']['action'])) {
+                        $eventData = serendipity_common_openid::redir_openidserver($openidurl, $this->get_consumertest_path(), 1);
                     }
-                    return;
-
+                    return $eventData;
+                                        
                 case 'backend_sidebar_entries_event_display_profiles':
                     if (($_SESSION['serendipityAuthedUser'] == true)) {
                         if (! empty($serendipity['GET']['openidflag']) && ($serendipity['GET']['openidflag']==3)) {
@@ -156,20 +185,37 @@ class serendipity_event_openid extends serendipity_event
                             } else {
                                 echo '<strong>' . htmlspecialchars(PLUGIN_OPENID_INVALID_RESPONSE) . '</strong><br /><br />';
                             }
+                            // Job done.
+                            unset($serendipity['GET']['openidflag']);
                         } elseif (! empty($serendipity['POST']['openidflag']) && ($serendipity['POST']['openidflag']==3)) {
                             echo '<strong>' . htmlspecialchars(PLUGIN_OPENID_INVALID_RESPONSE) . '</strong><br /><br />';
                         }
                     }
-                    $imgpath = $serendipity['baseURL'] . 'index.php?/plugin/openid.png';
+                    $imgopenid = $serendipity['baseURL'] . 'index.php?/plugin/openid.png';
+                    $imggoogle = $serendipity['baseURL'] . 'index.php?/plugin/oids_google.png';
+                    $imgyahoo = $serendipity['baseURL'] . 'index.php?/plugin/oids_yahoo.png';
+                    
+                    echo '<div>';
+                    echo '<strong>' . htmlspecialchars(PLUGIN_EVENT_OPENID_SELECT) . '</strong><br /><br />';
+                    
+                    // To allow ENTER in the input line we have to create two forms:
+                    
                     echo '<form action="?" method="post">';
                     echo '<input type="hidden" name="serendipity[adminModule]" value="event_display" />';
                     echo '<input type="hidden" name="serendipity[adminAction]" value="profiles" />';
                     echo '<input type="hidden" name="serendipity[openidflag]" value="3" />';
-                    echo '<div>';
-                    echo '<strong>' . htmlspecialchars(PLUGIN_EVENT_OPENID_SELECT) . '</strong><br /><br />';
-                    echo '<img src="' . $imgpath . '" alt="OpenID URL"> <input type="text" size="50" name="serendipity[openid_url]" value="'. serendipity_common_openid::getOpenID($serendipity['authorid']) .'" />';
-                    echo ' <input type="submit" name="submit" value="' . EDIT . '" />';
-                    echo '</div><br /><hr /></form>';
+                    echo '<img src="' . $imgopenid . '" alt="OpenID URL"> <input type="text" size="50" name="serendipity[openid_url]" value="'. serendipity_common_openid::getOpenID($serendipity['authorid']) .'" />';
+                    echo ' <input type="submit" name="submit" value="' . EDIT . '" placeholder="' . PLUGIN_OPENID_LOGIN_INPUT . '"/>';
+                    echo '</form>';
+                    echo '<form action="?" method="post">';
+                    echo '<input type="hidden" name="serendipity[adminModule]" value="event_display" />';
+                    echo '<input type="hidden" name="serendipity[adminAction]" value="profiles" />';
+                    echo '<input type="hidden" name="serendipity[openidflag]" value="3" />';
+                    echo '<input name="openIDLoginGoogle" type="image" src="' . $imggoogle . '" alt="' . PLUGIN_OPENID_SET_GOOGLE_OID .'" title="'. PLUGIN_OPENID_SET_GOOGLE_OID .'"/> ';
+                    echo '<input name="openIDLoginYahoo" type="image" src="' . $imgyahoo . '" alt="' . PLUGIN_OPENID_SET_YAHOO_OID .'" title="'. PLUGIN_OPENID_SET_YAHOO_OID .'"/> ';
+                    echo '</form>';
+                    
+                    echo '</div><br /><hr />';
                     return true;
                 default:
                     return false;

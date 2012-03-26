@@ -11,7 +11,7 @@ foreach($out AS $file) {
 		$file = str_replace('? ', '', $file);
 		echo "CVS ADD $file\n";
 		`cvs add -kk $file`;
-		`find $file -type d -exec cvs add {} \;`;
+		`find $file -type d -not -name CVS -exec cvs add {} \;`;
 		`find $file -type f -exec cvs add -kk {} \;`;
 	} elseif (preg_match('@^U @', $file)) {
 		$file = str_replace('U ', '', $file);

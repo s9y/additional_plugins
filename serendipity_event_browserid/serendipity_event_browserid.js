@@ -6,8 +6,6 @@
 		navigator.id.getVerifiedEmail(function(assertion) {
 			if (assertion) {
 				verify(assertion);
-			} else {
-				alert('I still don\'t know you. Did you cancel?');
 			}
 		});
 

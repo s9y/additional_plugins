@@ -19,7 +19,7 @@
 
 @define('PLUGIN_OPENID_DELEGATION_DESCRIPTION', 
 '<h3>Einstellungen für eine OpenID Delegation (Optional)</h3>' .
-'<p>Wenn Du Diene Blog URL als Open ID URL benutzen möchtest, kannst Du hier eine Delegation von Deinem Blog zu Deinem eigentlichen OpenID Provider einrichten.<br/>' .
+'<p>Wenn Du Deine Blog URL als Open ID URL benutzen möchtest, kannst Du hier eine Delegation von Deinem Blog zu Deinem eigentlichen OpenID Provider einrichten.<br/>' .
 'Das Plugin wird damit dann Informationen in dem HTML Deines Blogs hinterlassen, die die Services darüber informieren, wo Deine OpenID gehostet wird.</p>' .
 '<p>Das Aufsetzen der Delegation ist völlig optional und wird nicht für ein Login in Dein Blog mittels OpenID benötigt.</p>'
 );

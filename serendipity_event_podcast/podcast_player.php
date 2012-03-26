@@ -160,14 +160,14 @@ clip: {
 ');
 
 @DEFINE('PLUGIN_PODCAST_HTML5_AUDIOPLAYER', '
-<audio controls preload="none">
+<audio controls=1 preload="none">
     <source src="#url#" type="#mime#" />
     ' . PLUGIN_PODCAST_FLOWPLAYER . '
 </audio>
 ');
 
 @DEFINE('PLUGIN_PODCAST_HTML5_VIDEOPLAYER', '
-<video controls preload="none">
+<video controls=1 preload="none">
     <source src="#url#" type="#mime#" />
     ' . PLUGIN_PODCAST_FLOWPLAYER . '
 </video>

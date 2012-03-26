@@ -1,5 +1,7 @@
 # $Id$
-
+1.35:
+  * Use XML compliant controls=1 syntax
+  
 1.34: 
   * media links having a (configurable) CSS class style are ignored (not replaced by players or added to RSS).
 

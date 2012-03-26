@@ -1,0 +1,8 @@
+Known OpenID endpoints
+
+    Google : https://www.google.com/accounts/o8/id
+    Google profile : http://www.google.com/profiles/~YOURUSERNAME
+    Yahoo : https://me.yahoo.com
+    AOL : https://www.aol.com
+    Wordpress : http://YOURBLOG.wordpress.com
+    LiveJournal : http://www.livejournal.com/openid/server.bml

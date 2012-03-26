@@ -1,3 +1,8 @@
+Version 0.8 (brockhaus)
+---------------------------------
+* Added AOL shortcut
+* Added description about the shortcuts to the configuration screen.
+
 Version 0.7 (brockhaus)
 ---------------------------------
 * Was not able to change users OpenID url, if logged in with another external login (like BrowserID)

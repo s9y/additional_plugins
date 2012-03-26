@@ -13,7 +13,7 @@ class serendipity_event_openid extends serendipity_event
         $propbag->add('description', PLUGIN_OPENID_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Grischa Brockhaus, Rob Richards');
-        $propbag->add('version',     '0.7');
+        $propbag->add('version',     '0.8');
         $propbag->add('requirements',  array(
             'serendipity' => '1.2',
             'smarty'      => '2.6.7',
@@ -110,6 +110,14 @@ class serendipity_event_openid extends serendipity_event
                         header('Content-Type: image/png');
                         echo file_get_contents(dirname(__FILE__). '/img/yahoo_small.png');
                     }
+                    elseif ($eventData=="oid_aol.png") {
+                        header('Content-Type: image/png');
+                        echo file_get_contents(dirname(__FILE__). '/img/aol.png');
+                    }
+                    elseif ($eventData=="oids_aol.png") {
+                        header('Content-Type: image/png');
+                        echo file_get_contents(dirname(__FILE__). '/img/aol_small.png');
+                    }
                     break;
                 case 'frontend_header':
                     $server = $this->get_config('server');
@@ -149,7 +157,10 @@ class serendipity_event_openid extends serendipity_event
                         $openidurl = "https://www.google.com/accounts/o8/id";
                     }
                     elseif (isset($_POST['openIDLoginYahoo_x']) || isset($_POST['openIDLoginYahoo_y'])) { // If the Google Button was pressed
-                        $openidurl = "https://yahoo.com";
+                        $openidurl = "https://me.yahoo.com";
+                    }
+                    elseif (isset($_POST['openIDLoginAol_x']) || isset($_POST['openIDLoginAol_y'])) { // If the Google Button was pressed
+                        $openidurl = "https://www.aol.com";
                     }
                     
                     if ($_SESSION['serendipityAuthedUser'] == true) {
@@ -194,6 +205,7 @@ class serendipity_event_openid extends serendipity_event
                     $imgopenid = $serendipity['baseURL'] . 'index.php?/plugin/openid.png';
                     $imggoogle = $serendipity['baseURL'] . 'index.php?/plugin/oids_google.png';
                     $imgyahoo = $serendipity['baseURL'] . 'index.php?/plugin/oids_yahoo.png';
+                    $imgaol = $serendipity['baseURL'] . 'index.php?/plugin/oids_aol.png';
                     
                     echo '<div>';
                     echo '<strong>' . htmlspecialchars(PLUGIN_EVENT_OPENID_SELECT) . '</strong><br /><br />';
@@ -213,6 +225,7 @@ class serendipity_event_openid extends serendipity_event
                     echo '<input type="hidden" name="serendipity[openidflag]" value="3" />';
                     echo '<input name="openIDLoginGoogle" type="image" src="' . $imggoogle . '" alt="' . PLUGIN_OPENID_SET_GOOGLE_OID .'" title="'. PLUGIN_OPENID_SET_GOOGLE_OID .'"/> ';
                     echo '<input name="openIDLoginYahoo" type="image" src="' . $imgyahoo . '" alt="' . PLUGIN_OPENID_SET_YAHOO_OID .'" title="'. PLUGIN_OPENID_SET_YAHOO_OID .'"/> ';
+                    echo '<input name="openIDLoginAol" type="image" src="' . $imgaol . '" alt="' . PLUGIN_OPENID_SET_AOL_OID .'" title="'. PLUGIN_OPENID_SET_AOL_OID .'"/> ';
                     echo '</form>';
                     
                     echo '</div><br /><hr />';

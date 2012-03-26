@@ -207,6 +207,8 @@ class serendipity_common_openid {
         $imgopenid = $serendipity['baseURL'] . 'index.php?/plugin/openid.png';
         $imggoogle = $serendipity['baseURL'] . 'index.php?/plugin/oid_google.png';
         $imgyahoo = $serendipity['baseURL'] . 'index.php?/plugin/oid_yahoo.png';
+        $imgaol = $serendipity['baseURL'] . 'index.php?/plugin/oid_aol.png';
+        
         $form = '';
         if (! empty($instructions)) {
             $form = $instructions . '<br /><br />';
@@ -229,6 +231,7 @@ class serendipity_common_openid {
         }
         $form .= '<input name="openIDLoginGoogle" type="image" src="' . $imggoogle . '" alt="' . PLUGIN_OPENID_LOGIN_WITH_GOOGLE . '" title="' . PLUGIN_OPENID_LOGIN_WITH_GOOGLE .'"/> ';
         $form .= '<input name="openIDLoginYahoo" type="image" src="' . $imgyahoo . '" alt="' . PLUGIN_OPENID_LOGIN_WITH_YAHOO . '" title="' . PLUGIN_OPENID_LOGIN_WITH_YAHOO .'"/> ';
+        $form .= '<input name="openIDLoginAol" type="image" src="' . $imgaol . '" alt="' . PLUGIN_OPENID_LOGIN_WITH_AOL . '" title="' . PLUGIN_OPENID_LOGIN_WITH_AOL .'"/> ';
         $form .= '</form>';
         
         return $form;

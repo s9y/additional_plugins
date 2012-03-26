@@ -12,7 +12,9 @@
 '<h3>Using OpenID to log into your blog</h3>' .
 '<p>This plugin does not need any configuration to enable login into your blog using OpenID (OpenID is self configuring)</p>' .
 '<p>But users, who want to use OpenID for login have to configure the OpenID URL they want to be identified with. ' . 
-'So if you want to use OpenID as a login option, go to your <a href="serendipity_admin.php?serendipity[adminModule]=personal">Serendipity profile page</a> and configure your OpenID URL (at the bottom of the page).</p>'
+'So if you want to use OpenID as a login option, go to your <a href="serendipity_admin.php?serendipity[adminModule]=personal">Serendipity profile page</a> and configure your OpenID URL (at the bottom of the page).</p>' .
+'<p>There are buttons for <b>Google</b>, <b>Yahoo</b> and <b>Aol</b> accounts, too. These services are also OpenID providers and the buttons will assist you while setting up.<br/>' .
+'But there can <b>only be one OpenID connection for an account</b> configured at a time.</p>'
 );
 
 @define('PLUGIN_OPENID_DELEGATION_DESCRIPTION', 
@@ -41,3 +43,5 @@
 @define('PLUGIN_OPENID_SET_GOOGLE_OID', 'Set your Google account as OpenID');
 @define('PLUGIN_OPENID_LOGIN_WITH_YAHOO', 'Login with your Yahoo account');
 @define('PLUGIN_OPENID_SET_YAHOO_OID', 'Set your Yahoo account as OpenID');
+@define('PLUGIN_OPENID_LOGIN_WITH_AOL', 'Login with your Aol account');
+@define('PLUGIN_OPENID_SET_AOL_OID', 'Set your Aol account as OpenID');

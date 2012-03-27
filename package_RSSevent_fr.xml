@@ -221,7 +221,7 @@
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Hannes Gassert, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_podcast&lt;br /&gt;Easy Podcasting Plugin&lt;/b&gt;&lt;br /&gt;Ajoute des moyens pour le &quot;podcasting&quot; (RSS, boutons video/audio)&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 12 Mar 2012 02:32:14 +0100</pubDate>
+<pubDate>Tue, 27 Mar 2012 02:32:11 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_podcast</guid>
 </item>
 <item>
@@ -1116,12 +1116,12 @@
 <guid isPermaLink="false">serendipity_event_dejure</guid>
 </item>
 <item>
-<title>OpenID Authentication: Allows authors to authenticate using an OpenID.</title>
+<title>OpenID Authentication: Allows authors to authenticate using an OpenID, their Google or Yahoo account.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_openid</link>
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Rob Richards</author>
-<content:encoded>&lt;b&gt;serendipity_event_openid&lt;br /&gt;OpenID Authentication&lt;/b&gt;&lt;br /&gt;Allows authors to authenticate using an OpenID.&lt;br/&gt;For: Serendipity 1.2</content:encoded>
-<pubDate>Sun, 25 Mar 2012 05:13:14 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_openid&lt;br /&gt;OpenID Authentication&lt;/b&gt;&lt;br /&gt;Allows authors to authenticate using an OpenID, their Google or Yahoo account.&lt;br/&gt;For: Serendipity 1.2</content:encoded>
+<pubDate>Tue, 27 Mar 2012 02:32:06 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_openid</guid>
 </item>
 <item>
@@ -1267,7 +1267,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_browserid&lt;br /&gt;BrowserID Authentification&lt;/b&gt;&lt;br /&gt;Allows authors to authenticate using the BrowserID service.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Sun, 25 Mar 2012 05:13:00 +0200</pubDate>
+<pubDate>Mon, 26 Mar 2012 02:31:50 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_browserid</guid>
 </item>
 <item>

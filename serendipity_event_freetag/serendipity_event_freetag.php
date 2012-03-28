@@ -70,7 +70,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.36');
+        $propbag->add('version',       '3.37');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -776,7 +776,7 @@ class serendipity_event_freetag extends serendipity_event
                     if (function_exists('mb_internal_encoding')) {
                         mb_internal_encoding(LANG_CHARSET);
                     }
-                    if (!isset($serendipity['POST']['properties']) || !is_array($serendipity['POST']['properties']) || !isset($eventData['id'])) {
+                    if (!isset($eventData['id'])) {
                         return true;
                     }
 
@@ -819,8 +819,11 @@ class serendipity_event_freetag extends serendipity_event
                             }
                         }
                     }
+                    
+                    if (empty($tags)) {
+                        $tags = array();
+                    }
 
-                    if (!empty($tags)) {
                         if (serendipity_db_bool($this->get_config('cat2tag'))) {
                             if (is_array($cats = serendipity_fetchCategories())) {
                                 $cats = serendipity_walkRecursive($cats, 'categoryid', 'parentid', VIEWMODE_THREADED);
@@ -847,7 +850,8 @@ class serendipity_event_freetag extends serendipity_event
 
                         $this->deleteTagsForEntry($eventData['id']);
                         $this->addTagsToEntry($eventData['id'], $tags);
-                    } else {
+                        
+                    if ($serendipity['POST']['properties']['freetag_kill']) {    
                         $this->deleteTagsForEntry($eventData['id']);
                     }
 
@@ -859,7 +863,7 @@ class serendipity_event_freetag extends serendipity_event
                         mb_internal_encoding(LANG_CHARSET);
                     }
 
-                    if (isset($serendipity['POST']['properties']['freetag_tagList'])) {
+                    if (!empty($serendipity['POST']['properties']['freetag_tagList'])) {
                         $tagList = $serendipity['POST']['properties']['freetag_tagList'];
                     } else if (isset($eventData['id'])) {
                         $tagList = implode(',', $this->getTagsForEntry($eventData['id']));
@@ -961,6 +965,11 @@ class serendipity_event_freetag extends serendipity_event
                         <label for="serendipity[properties][freetag_tagList]" title="<?php echo PLUGIN_EVENT_FREETAG_TITLE; ?>">
                             <?php echo PLUGIN_EVENT_FREETAG_ENTERDESC; ?>:</label><br/>
                         <input type="text" name="serendipity[properties][freetag_tagList]" id="properties_freetag_tagList" class="wickEnabled input_textbox" value="<?php echo htmlspecialchars($tagList); ?>" style="width: 100%" />
+                        
+                        <input type="checkbox" name="serendipity[properties][freetag_kill]" id="properties_freetag_kill" class="input_checkbox" />
+                        <label for="serendipity[properties][freetag_kill]" title="<?php echo PLUGIN_EVENT_FREETAG_KILL; ?>">
+                            <?php echo PLUGIN_EVENT_FREETAG_KILL; ?></label><br/>
+
                     </fieldset>
 <?php
                     return true;

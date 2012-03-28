@@ -110,3 +110,4 @@
 
 @define('PLUGIN_EVENT_FREETAG_EXTENDED_SMARTY', 'Erweiteres Smarty');
 @define('PLUGIN_EVENT_FREETAG_EXTENDED_SMARTY_DESC', 'Nutze statt der HTML-Ausgabe, ob nun direkt oder per Smarty, verschiedene Smartyvariablen, die im Template zusammgefügt werden können. Dies überschreibt alle anderen diesbezüglichen Einstellungen. Ein Beispiel für die Nutzung findet sich im Readme.');
+@define('PLUGIN_EVENT_FREETAG_KILL', 'Wenn aktiviert werden alle zugeh&ouml;rigen Tags gel&ouml;scht.');

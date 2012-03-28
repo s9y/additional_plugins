@@ -1,3 +1,8 @@
+3.37:
+-----
+
+When publishing an entry, cat2tag replacement is now even executed when tags are empty, so that category tags will always be placed.
+
 3.36:
 -----
 

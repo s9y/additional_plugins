@@ -114,3 +114,4 @@
 @define('PLUGIN_EVENT_FREETAG_EXTENDED_SMARTY_DESC', 'Emit seperate Smarty-variables for later use in a template. This will override the other settings. An example for later use can be found in the Readme.');
 
 @define('PLUGIN_EVENT_FREETAG_COLLATION', '(MySQL) Database collation for the entrytags.tag column (auto-detected)');
+@define('PLUGIN_EVENT_FREETAG_KILL', 'When checked, all assigned tags to this entry will be removed.');

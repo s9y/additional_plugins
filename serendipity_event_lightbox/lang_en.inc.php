@@ -19,3 +19,5 @@
 @define('PLUGIN_EVENT_LIGHTBOX_GALLERY_ENTRY', 'Gallery with photos of the entry');
 @define('PLUGIN_EVENT_LIGHTBOX_GALLERY_PAGE', 'Gallery with photos of the page');
 
+@define('PLUGIN_EVENT_LIGHTBOX_INIT_JS', 'Initial JavaScript configuration object');
+@define('PLUGIN_EVENT_LIGHTBOX_INIT_JS_DESC', 'Some lightbox types (like prettyPhoto) allow to pass custom configuration objects, so you can enter "{social_tools: false}" for example.');

@@ -29,7 +29,7 @@ class serendipity_event_lightbox extends serendipity_event {
         $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_NAME);
         $propbag->add('description',    PLUGIN_EVENT_LIGHTBOX_DESC);
         $propbag->add('author',         'Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus');
-        $propbag->add('version',        '1.9.4');
+        $propbag->add('version',        '1.9.5');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',
@@ -64,6 +64,7 @@ class serendipity_event_lightbox extends serendipity_event {
         $conf_array[] = 'path';
         $conf_array[] = 'header_optimization';
         $conf_array[] = 'navigate_one_entry_only';
+        $conf_array[] = 'init_js';
         foreach($this->markup_elements as $element) {
             $conf_array[] = $element['name'];
         }
@@ -102,6 +103,13 @@ class serendipity_event_lightbox extends serendipity_event {
                 $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_PATH);
                 $propbag->add('description',    PLUGIN_EVENT_LIGHTBOX_PATH_DESC);
                 $propbag->add('default',        str_replace('//', '/', $serendipity['serendipityHTTPPath'] . preg_replace('@^.*(/plugins.*)@', '$1', dirname(__FILE__))));
+                break;
+
+            case 'init_js':
+                $propbag->add('type',           'text');
+                $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_INIT_JS);
+                $propbag->add('description',    PLUGIN_EVENT_LIGHTBOX_INIT_JS_DESC);
+                $propbag->add('default',        '');
                 break;
 
             case 'header_optimization':
@@ -195,10 +203,10 @@ class serendipity_event_lightbox extends serendipity_event {
 					// prettyPhoto code
 					elseif ($type == 'prettyPhoto') {
     					echo '<script type="text/javascript">var prettyphoto_path = "' . $pluginDir . '/prettyphoto";</script>' . "\n";
-    			if (!class_exists('serendipity_event_jquery')) echo '<script type="text/javascript" src="' . $pluginDir . '/prettyphoto/js/jquery-1.4.4.min.js"></script>' . "\n";
+    			if (!class_exists('serendipity_event_jquery')) echo '<script type="text/javascript" src="' . $pluginDir . '/prettyphoto/js/jquery-1.6.1.min.js"></script>' . "\n";
                         echo '<script type="text/javascript" src="' . $pluginDir . '/prettyphoto/js/jquery.prettyPhoto.js"></script>' . "\n";
                         echo '<link rel="stylesheet" type="text/css" href="' . $pluginDir.  '/prettyphoto/css/prettyPhoto.css" />' . "\n";
-                        echo '<script type="text/javascript" charset="utf-8">jQuery(document).ready(function(){ jQuery("a[rel^=\'prettyPhoto\']").prettyPhoto();});</script>' . "\n";
+                        echo '<script type="text/javascript" charset="utf-8">jQuery(document).ready(function(){ jQuery("a[rel^=\'prettyPhoto\']").prettyPhoto(' . $this->get_config('init_js') . ');});</script>' . "\n";
                     } 
 					// Thick Box code http://jquery.com/demo/thickbox/
 					elseif ($type == 'thickbox') {

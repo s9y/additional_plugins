@@ -40,6 +40,12 @@ But if you don\'t like that you can switch this off and there will be a normal O
 @define('PLUGIN_OPENID_XRDS_LOC', 'OpenID XRDS Location');
 @define('PLUGIN_OPENID_XRDS_LOC_DESC', 'URL for XRDS Document Location (not needed normaly)');
 
+@define('PLUGIN_OPENID_VERSION_SUPPORTED', 'OpenID Version');
+@define('PLUGIN_OPENID_VERSION_SUPPORTED_DESC', 'The version your OpenID provider is supporting. Normaly "both" is okay, but if you know your provider does support only version 1 or only version 2 you can configure it here.');
+@define('PLUGIN_OPENID_VERSION_SUPPORTED_V1', 'OpenID Version 1 only');
+@define('PLUGIN_OPENID_VERSION_SUPPORTED_V2', 'OpenID Version 2 only');
+@define('PLUGIN_OPENID_VERSION_SUPPORTED_BOTH', 'Both OpenID Versions');
+
 @define('PLUGIN_OPENID_LOGIN_INPUT', 'Logon using your OpenID.');
 
 @define('PLUGIN_OPENID_UPDATE_SUCCESS', 'Your OpenID has been updated');

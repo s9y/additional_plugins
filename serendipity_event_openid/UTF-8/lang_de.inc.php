@@ -40,6 +40,12 @@ Wenn Du das aber nicht magst, kannst Du diese Auswahl ausschalten. Dann wird bei
 @define('PLUGIN_OPENID_XRDS_LOC', 'OpenID XRDS Location');
 @define('PLUGIN_OPENID_XRDS_LOC_DESC', 'URL des XRDS Dokumentes (wird meist nicht benötigt)');
 
+@define('PLUGIN_OPENID_VERSION_SUPPORTED', 'OpenID Version');
+@define('PLUGIN_OPENID_VERSION_SUPPORTED_DESC', 'Die OpenID Version, die Dein Provider unterstützt. Normaler Weise ist "Beide" die richtige Einstellung, aber wenn Du weißt, dass Dein Provider nur Version 1 oder nur Version 2 unterstützt, dann kannst Du das hier einstellen..');
+@define('PLUGIN_OPENID_VERSION_SUPPORTED_V1', 'Nur OpenID Version 1');
+@define('PLUGIN_OPENID_VERSION_SUPPORTED_V2', 'Nur OpenID Version 2');
+@define('PLUGIN_OPENID_VERSION_SUPPORTED_BOTH', 'Beide OpenID Versionen');
+
 @define('PLUGIN_OPENID_LOGIN_INPUT', 'Melde Dich mit Deiner OpenID an.');
 
 @define('PLUGIN_OPENID_UPDATE_SUCCESS', 'Deine OpenID wurde erneuert.');

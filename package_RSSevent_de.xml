@@ -86,7 +86,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_freetag&lt;br /&gt;Freie Artikel-Tags&lt;/b&gt;&lt;br /&gt;Erlaubt das freie Tagging von Artikeln&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 08 Jan 2012 02:31:50 +0100</pubDate>
+<pubDate>Thu, 29 Mar 2012 02:32:00 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_freetag</guid>
 </item>
 <item>
@@ -914,7 +914,7 @@
 <category>Event Plugins</category>
 <author>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_lightbox&lt;br /&gt;Lightbox/Thickbox JS/Graybox&lt;/b&gt;&lt;br /&gt;Lightbox JS ist eine einfaches unauffälliges Skript, das Bilder auf der Seite überlagern kann, wenn die große Version angeklickt wurde. Es fügt sich selbstständig in die Seite ein und funktioniert mit jedem modernen Browser. Lightbox verschönert Bilder-Popups, während ThickBox auch HTML Popups verändert. Beide Skripte durchsuchen ihre Einträge und ersetzen jeden 'a href=&quot;XXX&quot;' so, dass die interne Darstellung benutzt wird. Wenn Sie also ein Thumbnail Bild mit einem Popup der großen Version haben wollen, so fügen Sie das Thumbnail in ihren Eintrag ein und verlinken dieses mit der großen Version. Wenn Sie Thickbox benutzen, können sie zusätzlich auch ein 'class=&quot;thickbox&quot;' Attribut in ihren 'a href' Link einfügen, um diese in einem Popup Fenster zu laden.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 25 Dec 2011 03:48:19 +0100</pubDate>
+<pubDate>Thu, 29 Mar 2012 02:32:00 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_lightbox</guid>
 </item>
 <item>

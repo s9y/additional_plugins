@@ -1121,7 +1121,7 @@
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Rob Richards</author>
 <content:encoded>&lt;b&gt;serendipity_event_openid&lt;br /&gt;OpenID Authentication&lt;/b&gt;&lt;br /&gt;Allows authors to authenticate using an OpenID, their Google or Yahoo account.&lt;br/&gt;For: Serendipity 1.2</content:encoded>
-<pubDate>Tue, 27 Mar 2012 02:32:06 +0200</pubDate>
+<pubDate>Fri, 30 Mar 2012 02:31:51 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_openid</guid>
 </item>
 <item>

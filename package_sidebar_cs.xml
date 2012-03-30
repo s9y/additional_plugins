@@ -1141,6 +1141,7 @@
 <file>lang_cs.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>DEADJOE</file>
 </dir>
 
   </filelist>
@@ -1155,6 +1156,7 @@
     <file>serendipity_plugin_authors/lang_cs.inc.php</file>
     <file>serendipity_plugin_authors/lang_en.inc.php</file>
     <file>serendipity_plugin_authors/lang_cz.inc.php</file>
+    <file>serendipity_plugin_authors/DEADJOE</file>
   </serendipityFilelist>
 </release>
 </package>

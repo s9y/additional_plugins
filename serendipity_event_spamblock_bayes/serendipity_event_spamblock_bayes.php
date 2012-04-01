@@ -36,7 +36,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '0.4.7' );
+		$propbag->add ( 'version', '0.4.8' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_spamblock_comments_shown' => true,
 		                                     'external_plugin' => true,
@@ -59,6 +59,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
             'menu',
             'recycler',
             'recyclerdelete',
+            'emptyAll',
 			'path',
 			'logtype',
             'logfile'
@@ -118,6 +119,12 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                 $propbag->add('default', '');
                 return true;
                 break;
+            case 'emptyAll':
+            	$propbag->add('type', 'boolean');
+            	$propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_EMPTY_ALL);
+            	$propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_EMPTY_ALL_DESC);
+            	$propbag->add('default', false);
+            	break;
             case 'path':
                 $propbag->add('type', 'string');
                 $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_BAYES_PATH);
@@ -839,7 +846,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                             }
                             if(isset($_REQUEST['empty'])) {
                                 if (isset($_REQUEST['recyclerSpam'])) {
-                                    if (empty($ids)) {
+                                    if ($this->get_config('emptyAll', false)) {
                                         $comments = $this->getAllRecyclerComments();
                                     } else {
                                         $comments = $this->getRecyclerComment($ids);
@@ -848,7 +855,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                                         $this->startLearn($comment, 'spam');
                                     }
                                 }
-                                if (empty($ids)) {
+                                if ($this->get_config('emptyAll', false)) {
                                     $success = $this->emptyRecycler();
                                 } else {
                                     $success = $this->deleteFromRecycler($ids);
@@ -1140,7 +1147,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     
                     $eventData['action_more'] = '<a id="ham'. $comment ['id'] .'"
 			class="serendipityIconLink spamblockBayesControls"
-			onclick="return ham('. $comment ['id'].')"
+			onclick="return ham('. $comment ['id'].');"
 			title="'. PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME . ': ' . PLUGIN_EVENT_SPAMBLOCK_BAYES_HAM .'"
             href="'. $serendipity['baseURL'] . 'index.php?/plugin/learnAction&action=approve&category=ham&id=' . $eventData['id'] . '&entry_id='. $eventData['entry_id'] . '"
             ><img
@@ -1148,7 +1155,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 			alt="" />'. PLUGIN_EVENT_SPAMBLOCK_BAYES_HAM.'</a> <a
 			id="spam'. $comment ['id'].'"
 			class="serendipityIconLink spamblockBayesControls"
-			onclick="return spam('. $comment ['id'] .')"
+			onclick="return spam('. $comment ['id'] .');"
 			title="'. PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME . ': ' . PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAM .'"
             href="'. $serendipity['baseURL'] . 'index.php?/plugin/learnAction&action=delete&category=spam&id=' . $eventData['id'] . '&entry_id='. $eventData['entry_id'] . '"
             ><img

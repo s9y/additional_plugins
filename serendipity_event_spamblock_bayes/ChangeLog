@@ -1,3 +1,6 @@
+0.4.8:
+    Added option to delete all comments when emptying recycler
+
 0.4.7:
     Added non-js-buttons in commentlist
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  @version $Revision: 1.10 $
+ *  @version $Revision$
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */
@@ -67,4 +67,6 @@ define('PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAMBUTTON', 'Als Spam lernen');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA_REGISTER', 'Blog hinzufügen');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA_REMOVE', 'Blog entfernen');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RATING', 'Bewertung');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_EMPTY_ALL', 'Papierkorb komplett leeren');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_EMPTY_ALL_DESC', 'Lösche alle Kommentare im Papierkorb, nicht nur die auf der momentanen Seite.');
 ?>

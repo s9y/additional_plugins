@@ -1,13 +1,13 @@
 <?php
 
 /**
- *  @version $Revision: 1.7 $
+ *  @version $Revision$
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */
 
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME',     'Spamblock (Bayes)');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC',     'Detects Spam via an algorithm which learns.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC',     'Detects Spam via an algorithmus which learns.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_HAM',      'Valid');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAM',     'Spam');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_AUTOLEARN',     'Learn');
@@ -51,7 +51,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_EMPTY', 'Empty Recycler');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RESTORE', 'Restore');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_MENU_ANALYSIS', 'Analysis');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_DELETE', 'Recyler Bypass');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_DELETE', 'Recyler: Bypass');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_DELETE_DESC', 'Comments with a rating equal or higher this value will not be thrown into the recycler, they will be deleted. Example: 98');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_IGNORE', 'Ignore');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_IGNORE_DESC', 'Parts of comments to be ignored. Possible values: ip, referer, author, body, email, url. Beispiel: "ip, referer".');
@@ -64,4 +64,6 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA_REGISTER', 'Add this blog');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA_REMOVE', 'Remove this blog');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RATING', 'Rating');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_EMPTY_ALL', 'Recycler: Empty Complete');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_EMPTY_ALL_DESC', 'When emptying the recycler, delete all comments, not only the ones on the current page.');
 ?>

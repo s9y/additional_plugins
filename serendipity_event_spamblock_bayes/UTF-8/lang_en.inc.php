@@ -1,13 +1,13 @@
 <?php
 
 /**
- *  @version $Revision: 1.7 $
+ *  @version $Revision$
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */
 
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME',     'Spamblock (Bayes)');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC',     'Detects Spam via an algorithm which learns.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC',     'Detects Spam via an algorithmus which learns.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_HAM',      'Valid');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAM',     'Spam');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_AUTOLEARN',     'Learn');
@@ -64,4 +64,6 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA_REGISTER', 'Add this blog');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA_REMOVE', 'Remove this blog');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RATING', 'Rating');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_EMPTY_ALL', 'Recycler: Empty Complete');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_EMPTY_ALL_DESC', 'When emptying the recycler, delete all comments, not only the ones on the current page.');
 ?>

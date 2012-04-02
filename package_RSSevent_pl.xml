@@ -1217,12 +1217,12 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <guid isPermaLink="false">serendipity_event_linktrimmer</guid>
 </item>
 <item>
-<title>Spamblock (Bayes): Detects Spam via an algorithm which learns.</title>
+<title>Spamblock (Bayes): Detects Spam via an algorithmus which learns.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_spamblock_bayes</link>
 <category>Event Plugins</category>
 <author>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</author>
-<content:encoded>&lt;b&gt;serendipity_event_spamblock_bayes&lt;br /&gt;Spamblock (Bayes)&lt;/b&gt;&lt;br /&gt;Detects Spam via an algorithm which learns.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 16 Feb 2012 02:32:29 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_spamblock_bayes&lt;br /&gt;Spamblock (Bayes)&lt;/b&gt;&lt;br /&gt;Detects Spam via an algorithmus which learns.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Mon, 02 Apr 2012 02:32:05 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_bayes</guid>
 </item>
 <item>

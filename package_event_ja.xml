@@ -9389,12 +9389,12 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <license>GPL</license>
 <summary>Spamblock (Bayes)</summary>
 <groups>ANTISPAM</groups>
-<description>Detects Spam via an algorithm which learns.</description>
+<description>Detects Spam via an algorithmus which learns.</description>
 <maintainers><maintainer><name>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.4.7</version>
+  <version>0.4.8</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-02-16</date>
+  <date>2012-04-02</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bayes">
 <dir name="UTF-8">

@@ -1,3 +1,8 @@
+3.38:
+-----
+
+Added missing fieldset in case of not set admin_show_taglist (thanks to gregman)
+
 3.37:
 -----
 

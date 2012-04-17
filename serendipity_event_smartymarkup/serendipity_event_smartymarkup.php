@@ -146,7 +146,7 @@ class serendipity_event_smartymarkup extends serendipity_event
         }
 
         if (!isset($serendipity['PLUGINDATA']['smartymarkupplugin'])) {
-            if( isset($serendipity['smarty']->_version) ) {
+            if( !defined('Smarty::SMARTY_VERSION') ) {
                 $serendipity['smarty']->register_resource("smartymarkupplugin", array(
                                        "smarty_resource_smartymarkupplugin_template",
                                        "smarty_resource_smartymarkupplugin_timestamp",

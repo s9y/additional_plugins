@@ -784,9 +784,9 @@
 <description>Medger fri etikettering av artiklar</description>
 <maintainers><maintainer><name>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.37</version>
+  <version>3.38</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-03-29</date>
+  <date>2012-04-18</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <dir name="UTF-8">
@@ -2899,7 +2899,7 @@
 <release>
   <version>1.10</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-02-02</date>
+  <date>2012-04-18</date>
   <filelist>
 <dir name="serendipity_event_smartymarkup">
 <file>serendipity_event_smartymarkup.php</file>

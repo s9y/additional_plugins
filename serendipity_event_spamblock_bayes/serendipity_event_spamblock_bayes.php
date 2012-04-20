@@ -36,7 +36,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '0.4.8' );
+		$propbag->add ( 'version', '0.4.9' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_spamblock_comments_shown' => true,
 		                                     'external_plugin' => true,
@@ -890,8 +890,10 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                             $url = 'serendipity_admin.php?serendipity[adminModule]=event_display';
                             $url .= '&amp;serendipity[adminAction]=spamblock_bayes';
                             $url .= '&amp;serendipity[subpage]=4';
-                            foreach ($comment_ids as $comment) {
-                                $url .= '&amp;serendipity[comments]['.$comment.']';
+                            if (isset($_REQUEST['comments'])) {
+                                foreach ($comment_ids as $comment) {
+                                    $url .= '&amp;serendipity[comments]['.$comment.']';
+                                }
                             }
                             if (!empty($msgtype)) {
                                 $url .= '&amp;serendipity['.$msgtype.']='. $msg .'"/>';

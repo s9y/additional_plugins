@@ -3849,9 +3849,9 @@
 <description>Umožňuje návštěvníkům blogu stáhnout obsah blogu ve formátu PDF</description>
 <maintainers><maintainer><name>Garvin Hicking, Olivier PLATHEY, Steven Wittens</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.8</version>
+  <version>1.81</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2012-04-20</date>
   <filelist>
 <dir name="serendipity_event_blogpdf">
 <dir name="font">

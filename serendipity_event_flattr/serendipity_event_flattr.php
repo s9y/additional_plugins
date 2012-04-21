@@ -4,7 +4,6 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-
 // Probe for a language include with constants. Still include defines later on, if some constants were missing
 $probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
 if (file_exists($probelang)) {
@@ -13,47 +12,54 @@ if (file_exists($probelang)) {
 
 include_once dirname(__FILE__) . '/lang_en.inc.php';
 
+/**
+ * Serendipity Flattr Plugin
+ */
 class serendipity_event_flattr extends serendipity_event {
+    /**
+     * @var string
+     */
     var $title = PLUGIN_FLATTR_NAME;
 
+    /**
+     * @param string $str
+     * @return string
+     */
     function _addslashes($str) {
         $str = str_replace(array("\r", "\n"), array(' ', ' '), $str);
         return addslashes($str);
-    }                 
+    }
 
+    /**
+     * @param serendipity_property_bag $propbag
+     */
     function introspect(&$propbag) {
-
         $events = array(
             'backend_display'                     => true,
-
             'frontend_display'                    => true,
-            
             'backend_publish'                     => true,
-            'backend_save'                        => true
+            'backend_save'                        => true,
+            'frontend_header'                     => true,
         );
-
         $propbag->add('name',        PLUGIN_FLATTR_NAME);
         $propbag->add('description', PLUGIN_FLATTR_DESC);
         $propbag->add('stackable',   false);
-
         $propbag->add('event_hooks',     $events);
-
         $propbag->add('configuration',   array(
             'userid',
             'placement',
             'flattr_btn',
             'flattr_cat',
-            'flattr_lng'
+            'flattr_lng',
+            'flattr_pop',
         ));
-
-        $propbag->add('author',  'Garvin Hicking, Joachim Breitner');
-        $propbag->add('version', '1.8');
+        $propbag->add('author',  'Garvin Hicking, Joachim Breitner', 'Matthias Gutjahr');
+        $propbag->add('version', '1.9');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        
         $this->flattr_cats = array(
             'text'      => 'text', 
             'images'    => 'images',
@@ -62,7 +68,6 @@ class serendipity_event_flattr extends serendipity_event {
             'software'  => 'software',
             'rest'      => 'rest'
         );
-
         $this->flattr_langs = array(
             'sq_AL' => 'Albanian',
             'ar_DZ' => 'Arabic',
@@ -109,7 +114,6 @@ class serendipity_event_flattr extends serendipity_event {
             'uk_UA' => 'Ukrainian',
             'vi_VN' => 'Vietnamese',
         );
-        
         $this->flattr_langs_alias = array(
             'en' => 'en_GB',
             'de' => 'de_DE',
@@ -139,7 +143,6 @@ class serendipity_event_flattr extends serendipity_event {
             'ko' => 'ko_KR',
             'sa' => 'ar_DZ'
         );
-        
         $this->flattr_attrs = array(
             'flattr_active' => PLUGIN_FLATTR_ACTIVE,
             'flattr_dsc' => PLUGIN_FLATTR_DSC,
@@ -147,13 +150,15 @@ class serendipity_event_flattr extends serendipity_event {
             'flattr_lng' => PLUGIN_FLATTR_LANG,
             'flattr_tag' => PLUGIN_FLATTR_TAG
         );
-
-
         $propbag->add('groups', array('FRONTEND_FEATURES'));
     }
 
-
-    function introspect_config_item($name, &$propbag)    {
+    /**
+     * @param string $name
+     * @param serendipity_property_bag $propbag
+     * @return bool
+     */
+    function introspect_config_item($name, &$propbag) {
         global $serendipity;
         switch($name) {
             case 'userid':
@@ -184,7 +189,6 @@ class serendipity_event_flattr extends serendipity_event {
                 $propbag->add('default',        'add_footer');
                 break;
 
-
             case 'flattr_cat':
                 $propbag->add('type',           'select');
                 $propbag->add('name',           PLUGIN_FLATTR_CATS);
@@ -200,14 +204,28 @@ class serendipity_event_flattr extends serendipity_event {
                 $propbag->add('select_values',  $this->flattr_langs);
                 $propbag->add('default',        $this->flatter_langs_alias[$serendipity['lang']]);
                 break;
+
+            case 'flattr_pop':
+                $propbag->add('type',           'boolean');
+                $propbag->add('name',           PLUGIN_FLATTR_POPOUT);
+                $propbag->add('description',    '');
+                $propbag->add('default',        false);
+                break;
         }
         
         return true;
     }
-    
-    function event_hook($event, &$bag, &$eventData, &$addData){
+
+    /**
+     * @param string $event
+     * @param serendipity_property_bag $bag
+     * @param mixed $eventData
+     * @param mixed $addData
+     * @return bool
+     */
+    function event_hook($event, &$bag, &$eventData, &$addData) {
         global $serendipity;
-        
+
         switch ($event) {
             case 'backend_publish':
             case 'backend_save':
@@ -263,6 +281,34 @@ class serendipity_event_flattr extends serendipity_event {
                     return true;
                     break;
 
+            case 'frontend_header':
+                $flattr_uid = substr($this->_addslashes($this->get_config('userid')), 0, 500);
+                $flattr_btn = $this->_addslashes($this->get_config('flattr_btn'));
+                $flattr_lng = substr($this->get_config('flattr_lng'), 0, 255);
+                $flattr_cat = substr($this->get_config('flattr_cat'), 0, 255);
+?>
+<script type="text/javascript">
+/* <![CDATA[ */
+(function() {
+    var s = document.createElement('script');
+    var t = document.getElementsByTagName('script')[0];
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+    s.src += '&popout=<?php echo (int)$this->get_config('flattr_pop'); ?>';
+    s.src += '&uid=<?php echo $flattr_uid; ?>';
+    s.src += '&language=<?php echo $flattr_lng; ?>';
+    s.src += '&category=<?php echo $flattr_cat; ?>';
+    <?php if (in_array($flattr_btn, array('default', 'compact'))): ?>
+    s.src += '&button=<?php echo $flattr_btn; ?>';
+    <?php endif; ?>
+    t.parentNode.insertBefore(s, t);
+ })();
+/* ]]> */
+</script>
+<?php
+                break;
+
             case 'frontend_display':
                 if (empty($eventData['properties'])) {
                     $eventData['properties'] =& serendipity_fetchEntryProperties($eventData['id']);
@@ -278,6 +324,7 @@ class serendipity_event_flattr extends serendipity_event {
                 
                 $flattr_uid = $this->_addslashes($this->get_config('userid'));
                 $flattr_tle = $this->_addslashes($eventData['title']);
+                $flattr_pop = (int) $this->get_config('flattr_pop');
 
                 $flattr_dsc = $this->_addslashes($eventData['properties']['ep_flattr_dsc']);
                 $flattr_cat = $this->_addslashes($eventData['properties']['ep_flattr_cat']);
@@ -323,21 +370,21 @@ class serendipity_event_flattr extends serendipity_event {
                              "title=".urlencode($flattr_tle)."&".
                              "description=".urlencode($flattr_dsc)."&".
                              "category=".urlencode($flattr_cat)."&".
+                             "popout=".urlencode($flattr_pop)."&".
                              "language=".urlencode($flattr_lng).
                              "\">" . $flattr_btn . "</a>";
                 } else {
                     $flattr = "
-<script type=\"text/javascript\">
-var flattr_uid = '{$flattr_uid}';
-var flattr_tle = '{$flattr_tle}';
-var flattr_dsc = '{$flattr_dsc}';
-var flattr_cat = '{$flattr_cat}';
-var flattr_lng = '{$flattr_lng}';
-var flattr_tag = '{$flattr_tag}';
-var flattr_url = '{$flattr_url}';
-var flattr_btn = '{$flattr_btn}';
-</script>
-<script src=\"http://api.flattr.com/button/load.js\" type=\"text/javascript\"></script>
+<a class='FlattrButton' style='display:none;'
+    title='" . $flattr_tle . "'
+    data-flattr-uid='" . $flattr_uid . "'
+    data-flattr-tags='" . $flattr_tag . "'
+    data-flattr-category='" . $flattr_cat . "'
+    data-flattr-language='" . $flattr_lng . "'
+    href='" . $flattr_url . "'>
+
+    " . $flattr_dsc . "
+</a>
     ";
                 }
 
@@ -358,7 +405,5 @@ var flattr_btn = '{$flattr_btn}';
 
                 break;
         }   
-        
     }
 }
-

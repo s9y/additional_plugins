@@ -85,7 +85,7 @@ class serendipity_event_staticpage extends serendipity_event
         $propbag->add('page_configuration', $this->config);
         $propbag->add('type_configuration', $this->config_types);
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian');
-        $propbag->add('version', '3.90');
+        $propbag->add('version', '3.91');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -2175,6 +2175,9 @@ class serendipity_event_staticpage extends serendipity_event
 
                     if (!$serendipity['wysiwyg'] && preg_match($serendipity['EditorBrowsers'], $_SERVER['HTTP_USER_AGENT']) ) {
 ?>                <nobr><script type="text/javascript" language="JavaScript">
+                        <?php if( $serendipity['nl2br']['iso2br'] ) { ?>
+                        document.write('<input type="button" class="serendipityPrettyButton input_button" name="insX" value="NoBR" accesskey="x" style="font-style: italic" onclick="wrapSelection(document.forms[\'serendipityEntry\'][\'serendipity[plugin][<?php echo $config_item ?>]\'],\'<nl>\',\'</nl>\')" />');
+                        <?php } ?>
                         document.write('<input type="button" class="serendipityPrettyButton input_button" name="insI" value="I" accesskey="i" style="font-style: italic" onclick="wrapSelection(document.forms[\'serendipityEntry\'][\'serendipity[plugin][<?php echo $config_item ?>]\'],\'<em>\',\'</em>\')" />');
                         document.write('<input type="button" class="serendipityPrettyButton input_button" name="insB" value="B" accesskey="b" style="font-weight: bold" onclick="wrapSelection(document.forms[\'serendipityEntry\'][\'serendipity[plugin][<?php echo $config_item ?>]\'],\'<strong>\',\'</strong>\')" />');
                         document.write('<input type="button" class="serendipityPrettyButton input_button" name="insU" value="U" accesskey="u" style="text-decoration: underline;" onclick="wrapSelection(document.forms[\'serendipityEntry\'][\'serendipity[plugin][<?php echo $config_item ?>]\'],\'<u>\',\'</u>\')" />');
@@ -2187,6 +2190,9 @@ class serendipity_event_staticpage extends serendipity_event
                 /* Do the "old" non-WYSIWYG editor */
                     } else { ?>
                           <nobr><script type="text/javascript" language="JavaScript">
+                                <?php if( $serendipity['nl2br']['iso2br'] ) { ?>
+                                document.write('<input type="button" class="serendipityPrettyButton input_button" value=" NoBR " onclick="serendipity_insBasic(document.forms[\'serendipityEntry\'][\'serendipity[plugin][<?php echo $config_item ?>]\'], \'x\')" />');
+                                <?php } ?>
                                 document.write('<input type="button" class="serendipityPrettyButton input_button" value=" B " onclick="serendipity_insBasic(document.forms[\'serendipityEntry\'][\'serendipity[plugin][<?php echo $config_item ?>]\'], \'b\')">');
                                 document.write('<input type="button" class="serendipityPrettyButton input_button" value=" U " onclick="serendipity_insBasic(document.forms[\'serendipityEntry\'][\'serendipity[plugin][<?php echo $config_item ?>]\'], \'u\')">');
                                 document.write('<input type="button" class="serendipityPrettyButton input_button" value=" I " onclick="serendipity_insBasic(document.forms[\'serendipityEntry\'][\'serendipity[plugin][<?php echo $config_item ?>]\'], \'i\')">');
@@ -2536,7 +2542,7 @@ class serendipity_event_staticpage extends serendipity_event
         $results = serendipity_db_query($querystring);
         if (!is_array($results)) {
             if ($results !== 1 && $results !== true) {
-                echo htmlspecialchars($results);
+                echo '<div style="margin: 1em 2em;">'.$results.'</div>';//htmlspecialchars($results); // htmlspecialchars already done by serendipity_db_query()
             }
             $results = array();
         }

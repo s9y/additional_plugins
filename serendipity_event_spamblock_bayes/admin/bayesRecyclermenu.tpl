@@ -33,8 +33,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{$comment.author|truncate:20:"..."}</td>
-                                    <td>{$comment.body|truncate:20:"..."}</td>
+                                    <td>{$comment.author|truncate:20:"..."|escape:"html"}</td>
+                                    <td>{$comment.body|truncate:20:"..."|escape:"html"}</td>
                                     <td>{$comment.timestamp|date_format:"%d.%m.%y, %R"}</td>
                                     <td>{$comment.rating|regex_replace:"/\..*/":""}%</td>
                                 </tr>
@@ -44,7 +44,7 @@
                     <dl class="bayesRecyclerList">
                     {foreach from=$types item=type}
                         <dt>{$type}</dt>
-                        <dd>{$comment.$type}</dd>
+                        <dd>{$comment.$type|escape:"html"}</dd>
                     {/foreach}
                     <dt>{$CONST.Article}</dt>
                     <dd><a href="{$comment.article_link}" target="_blank">{$comment.article_title}</a></dd>

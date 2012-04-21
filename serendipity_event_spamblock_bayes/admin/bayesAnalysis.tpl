@@ -5,7 +5,7 @@
         <ul class="plainList bayesAnalysis">
             {foreach from=$types item=type}
                 <li class="ratingBox"><div class="commentType">{$type}</div>
-                    <div class="commentPart">{$comment.$type|escape}</div>
+                    <div class="commentPart">{$comment.$type|escape:"html"}</div>
                     <div class="rating">
                         {if $comment.ratings.$type != "-"}
                             {$comment.ratings.$type|regex_replace:"/\..*/":""}%

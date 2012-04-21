@@ -1,3 +1,8 @@
+
+0.4.9:
+    Security: Escaped comments in backend
+    Fixed error when selecting no comments in analyse-menu
+
 0.4.8:
     Added option to delete all comments when emptying recycler
 

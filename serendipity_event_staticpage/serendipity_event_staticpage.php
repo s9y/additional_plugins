@@ -87,7 +87,7 @@ class serendipity_event_staticpage extends serendipity_event
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian');
         $propbag->add('version', '3.91');
         $propbag->add('requirements',  array(
-            'serendipity' => '0.8',
+            'serendipity' => '1.3',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
@@ -2554,14 +2554,8 @@ class serendipity_event_staticpage extends serendipity_event
         );
 
         $filename = 'plugin_staticpage_searchresults.tpl';
-        $tfile = serendipity_getTemplateFile($filename, 'serendipityPath');
-        if (!$tfile || $filename == $tfile) {
-            $tfile = dirname(__FILE__) . '/' . $filename;
-        }
-        $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-        $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
-        $content = $serendipity['smarty']->fetch('file:'. $tfile);
-        $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+        // use nativ API here - extends s9y version >= 1.3'
+        $content = $this->parseTemplate($filename);
         echo $content;
     }
 

@@ -26,7 +26,7 @@ class serendipity_event_trackback extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_MTRACKBACK_TITLEDESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Malte Paskuda');
-        $propbag->add('version',       '1.13');
+        $propbag->add('version',       '1.14');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -315,17 +315,26 @@ class serendipity_event_trackback extends serendipity_event
 	    global $serendipity;
 		$sql = "CREATE TABLE {$serendipity['dbPrefix']}delayed_trackbacks (
 id int(11) NOT NULL ,
+timestamp int(10) {UNSIGNED},
+PRIMARY KEY (id)
+)";
+		serendipity_db_schema_import ( $sql );
+
+// Hotfix; better to check for pgsql vs. mysql here, but I didn't have time and needed this fixed for my install
+		$sql = "CREATE TABLE {$serendipity['dbPrefix']}delayed_trackbacks (
+id int(11) NOT NULL ,
 timestamp int(10) {UNSIGNED}
 PRIMARY KEY (id)
 )";
 		serendipity_db_schema_import ( $sql );
+
     }
 
     function upgradeCheck() {
-        $db_upgrade = serendipity_db_bool($this->get_config('db_upgrade', false));
-        if ($db_upgrade == false || $db_upgrade === null) {
+        $db_upgrade = serendipity_db_bool($this->get_config('db_upgrade', 2));
+        if ((int)$db_upgrade !== 2) {
             $this->setupDB();
-            $this->set_config('db_upgrade', true);
+            $this->set_config('db_upgrade', 2);
         }
     }
     

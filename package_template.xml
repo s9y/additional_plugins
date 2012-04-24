@@ -5170,6 +5170,58 @@
 </release>
 </package>
 <package version="1.0">
+<name>RESY - Responsive Template for S9Y</name>
+<template>resy</template>
+<license>N/A (=GPL)</license>
+<summary></summary>
+<description></description>
+<maintainers><maintainer><name>Manuel Hiptmair, based on a template by Jonathan Verrecchia</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>Apr 21, 2012</date>
+  <filelist>
+<dir name="resy">
+<dir name="UTF-8">
+<file>lang_de.inc.php</file>
+<file>lang_en.inc.php</file>
+</dir>
+<dir name="js">
+<file>modernizr-2.5.3.min.js</file>
+</dir>
+<file>lang_de.inc.php</file>
+<file>entries.tpl</file>
+<file>colorset_lime_and_melon_salad.css</file>
+<file>colorset_serendipity.css</file>
+<file>config.inc.php</file>
+<file>index.tpl</file>
+<file>info.txt</file>
+<file>preview_fullsize.jpg</file>
+<file>lang_en.inc.php</file>
+<file>preview.png</file>
+<file>style.css</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>resy/UTF-8/lang_de.inc.php</file>
+    <file>resy/UTF-8/lang_en.inc.php</file>
+    <file>resy/js/modernizr-2.5.3.min.js</file>
+    <file>resy/lang_de.inc.php</file>
+    <file>resy/entries.tpl</file>
+    <file>resy/colorset_lime_and_melon_salad.css</file>
+    <file>resy/colorset_serendipity.css</file>
+    <file>resy/config.inc.php</file>
+    <file>resy/index.tpl</file>
+    <file>resy/info.txt</file>
+    <file>resy/preview_fullsize.jpg</file>
+    <file>resy/lang_en.inc.php</file>
+    <file>resy/preview.png</file>
+    <file>resy/style.css</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
 <name>andreas09 (2009-08-17)</name>
 <template>andreas09</template>
 <license>N/A (=GPL)</license>

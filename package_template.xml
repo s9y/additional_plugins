@@ -5179,7 +5179,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>Apr 21, 2012</date>
+  <date>Apr 25, 2012</date>
   <filelist>
 <dir name="resy">
 <dir name="UTF-8">
@@ -5200,6 +5200,7 @@
 <file>lang_en.inc.php</file>
 <file>preview.png</file>
 <file>style.css</file>
+<file>entries_archives.tpl</file>
 </dir>
 
   </filelist>
@@ -5218,6 +5219,7 @@
     <file>resy/lang_en.inc.php</file>
     <file>resy/preview.png</file>
     <file>resy/style.css</file>
+    <file>resy/entries_archives.tpl</file>
   </serendipityFilelist>
 </release>
 </package>

@@ -3365,7 +3365,6 @@
 <file>ChangeLog</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>DEADJOE</file>
 </dir>
 
   </filelist>
@@ -3390,7 +3389,6 @@
     <file>serendipity_event_popfetcher/ChangeLog</file>
     <file>serendipity_event_popfetcher/lang_cs.inc.php</file>
     <file>serendipity_event_popfetcher/lang_cz.inc.php</file>
-    <file>serendipity_event_popfetcher/DEADJOE</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7531,7 +7529,6 @@
 <file>plugin_findmore.js</file>
 <file>socialshareprivacy_on_off.png</file>
 <file>socialshareprivacy_on.png</file>
-<file>DEADJOE</file>
 </dir>
 <dir name="UTF-8">
 <file>lang_pl.inc.php</file>
@@ -7587,7 +7584,6 @@
     <file>serendipity_event_findmore/img/plugin_findmore.js</file>
     <file>serendipity_event_findmore/img/socialshareprivacy_on_off.png</file>
     <file>serendipity_event_findmore/img/socialshareprivacy_on.png</file>
-    <file>serendipity_event_findmore/img/DEADJOE</file>
     <file>serendipity_event_findmore/UTF-8/lang_pl.inc.php</file>
     <file>serendipity_event_findmore/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_event_findmore/UTF-8/lang_cs.inc.php</file>

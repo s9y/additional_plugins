@@ -1,0 +1,7 @@
+1.6:
+---
+
+Custom entry property field date fix:
+  Use UNIX_TIMESTAMP() to allow date formate like YYYY-MM-DD, like documented in the plugin.
+  Previously it worked only with unix timestamps, which was not a good user experience. ;)
+

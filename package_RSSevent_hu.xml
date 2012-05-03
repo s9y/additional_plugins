@@ -149,7 +149,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_outdate_entries&lt;br /&gt;Hide/delete entries for non-registered users after a specific timespan&lt;/b&gt;&lt;br /&gt;Hides all entries which are older than a specified age, so that they are only visible for registered users/authors.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 00:54:08 +0100</pubDate>
+<pubDate>Thu, 03 May 2012 02:32:06 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_outdate_entries</guid>
 </item>
 <item>

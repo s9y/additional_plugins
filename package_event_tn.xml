@@ -1230,15 +1230,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_outdate_entries</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_outdate_entries/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Hide/delete entries for non-registered users after a specific timespan</summary>
 <groups>FRONTEND_ENTRY_RELATED</groups>
 <description>Hides all entries which are older than a specified age, so that they are only visible for registered users/authors.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
+  <version>1.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2012-05-03</date>
   <filelist>
 <dir name="serendipity_event_outdate_entries">
 <file>serendipity_event_outdate_entries.php</file>
@@ -1253,6 +1254,7 @@
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -1267,6 +1269,7 @@
     <file>serendipity_event_outdate_entries/lang_bg.inc.php</file>
     <file>serendipity_event_outdate_entries/lang_cs.inc.php</file>
     <file>serendipity_event_outdate_entries/lang_cz.inc.php</file>
+    <file>serendipity_event_outdate_entries/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>

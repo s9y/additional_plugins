@@ -1,3 +1,8 @@
+3.39:
+----
+
+Added specific is_array($eventData) chack, thanks to gregman
+
 3.38:
 -----
 

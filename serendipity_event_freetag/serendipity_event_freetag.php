@@ -70,7 +70,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.38');
+        $propbag->add('version',       '3.39');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -1219,6 +1219,8 @@ class serendipity_event_freetag extends serendipity_event
 	# $entry: number of entry in $eventData
 	# for use in displayEntry
 	function addTags($entry, $tags, $eventData) {
+	        if (!is_array($eventData)) $eventData = array();
+	        
 		if ($this->get_config('extended_smarty', false)) {
 			$eventData[$entry]['freetag']['extended'] = true;
 			$eventData[$entry]['freetag']['tags']['description'] = str_replace('%s', '', PLUGIN_EVENT_FREETAG_LIST);

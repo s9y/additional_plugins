@@ -29,7 +29,7 @@ class serendipity_event_outdate_entries extends serendipity_event {
             'php'         => '4.1.0'
         ));
         $propbag->add('groups', array('FRONTEND_ENTRY_RELATED'));
-        $propbag->add('version', '1.5');
+        $propbag->add('version', '1.6');
         $propbag->add('stackable', false);
         $this->dependencies = array('serendipity_event_entryproperties' => 'keep');
     }
@@ -109,7 +109,7 @@ class serendipity_event_outdate_entries extends serendipity_event {
                                  WHERE e.isdraft = 'false'
                                    AND ep.property = 'ep_" . $timeout_custom . "' 
                                    AND ep.value != ''
-                                   AND ep.value < " . time();
+                                   AND UNIX_TIMESTAMP(ep.value) < " . time();
 
                         $rows = serendipity_db_query($sql);
                         if (is_array($rows)) {

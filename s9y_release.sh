@@ -9,7 +9,7 @@
 # 5. Write blog entry, change version number in sidebar
 # 6. Execute this script (make sure proper version numbers exists)
 # 7. Change s9y.org downloads page
-
+# 8. Write forum post
 
 cd git/s9y_16
 git archive --output release.tar --prefix serendipity/ 1.6.2

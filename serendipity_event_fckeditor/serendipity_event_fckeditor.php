@@ -31,7 +31,7 @@ class serendipity_event_fckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_FCKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Ziyad Saeed, Garvin Hicking');
-        $propbag->add('version',       '0.5');
+        $propbag->add('version',       '0.6');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',
@@ -82,7 +82,7 @@ class serendipity_event_fckeditor extends serendipity_event
                     break;
 
                 case 'backend_wysiwyg_finish':
-                    $path = $this->get_config('path');
+                    $path = htmlspecialchars($this->get_config('path'));
                     if ($this->init) {
                         return true;
                     }

@@ -734,7 +734,7 @@
 <category>Event Plugins</category>
 <author>Ziyad Saeed, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_fckeditor&lt;br /&gt;Uses FCKeditor as WYSIWYG editor&lt;/b&gt;&lt;br /&gt;Utilizes the FCKeditor WYSIWYG editor. Requires Serendipity 0.9. After installation, read the installation guide in the configuration screen for this plugin.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 25 Dec 2011 02:58:03 +0100</pubDate>
+<pubDate>Wed, 23 May 2012 02:32:25 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_fckeditor</guid>
 </item>
 <item>

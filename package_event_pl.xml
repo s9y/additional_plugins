@@ -5337,15 +5337,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_fckeditor</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_fckeditor/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Uses FCKeditor as WYSIWYG editor</summary>
 <groups>BACKEND_EDITOR</groups>
 <description>Utilizes the FCKeditor WYSIWYG editor. Requires Serendipity 0.9. After installation, read the installation guide in the configuration screen for this plugin.</description>
 <maintainers><maintainer><name>Ziyad Saeed, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.5</version>
+  <version>0.6</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2012-05-23</date>
   <filelist>
 <dir name="serendipity_event_fckeditor">
 <file>fckconfig.js</file>
@@ -5355,6 +5356,7 @@
 <file>lang_cz.inc.php</file>
 </dir>
 <file>lang_en.inc.php</file>
+<file>ChangeLog</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 </dir>
@@ -5366,6 +5368,7 @@
     <file>serendipity_event_fckeditor/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_fckeditor/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_fckeditor/lang_en.inc.php</file>
+    <file>serendipity_event_fckeditor/ChangeLog</file>
     <file>serendipity_event_fckeditor/lang_cs.inc.php</file>
     <file>serendipity_event_fckeditor/lang_cz.inc.php</file>
   </serendipityFilelist>

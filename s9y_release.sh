@@ -6,10 +6,12 @@
 # 3. In this script: Change version numbers, git checkout path
 # 4. Make sure docs/NEWS is updated
 # 4.1 Update docs/NEWS of all other branches (master, 2.0, etc.)
-# 5. Write blog entry, change version number in sidebar
-# 6. Execute this script (make sure proper version numbers exists)
-# 7. Change s9y.org downloads page
-# 8. Write forum post
+# 5. Make sure to change /docs/RELEASE file
+# 5.1 Update /docs/RELEASE of all other branches - in special in master (relies to dashboard/autoupdate)
+# 6. Write blog entry, change version number in sidebar
+# 7. Execute this script (make sure proper version numbers exists)
+# 8. Change s9y.org downloads page
+# 9. Write forum post
 
 cd git/s9y_16
 git archive --output release.tar --prefix serendipity/ 1.6.2

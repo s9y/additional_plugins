@@ -1,4 +1,7 @@
 # $Id$
+Version 1.51 (brockhaus):
+    * Support for system.multicall patched into the XMLRPC library.
+
 Version 1.50:
     * ifttt fix: Some clients send tags as arrays instead of csv's. Now we accept that, too.
 

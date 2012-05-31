@@ -1,3 +1,10 @@
+WARNING: This version is heavily patched in Server.php to support system.multicall!
+So it is not that easy to update to a newer PEAR version anymore. 
+But as this patched version is based on the last 1.x version existing
+this should not be needed.
+
+-----------------------
+OLD:
 - Remove: 
 RPC.php:
 include_once 'PEAR.php'
@@ -8,3 +15,4 @@ require_once 'RPC/RPC.php';
 if (!class_exists('XML_RPC_Base')) {
     require_once dirname(__FILE__) . '/../RPC.php';
 }
+

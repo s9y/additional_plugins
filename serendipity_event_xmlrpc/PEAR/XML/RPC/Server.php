@@ -106,7 +106,23 @@ $GLOBALS['XML_RPC_Server_dmap'] = array(
         'function'  => 'XML_RPC_Server_methodSignature',
         'signature' => $GLOBALS['XML_RPC_Server_methodSignature_sig'],
         'docstring' => $GLOBALS['XML_RPC_Server_methodSignature_doc']
-    )
+    ),
+    'system.multiCall' => array (
+        'function' => 'XML_RPC_Server_system_multiCall', 
+        'signature' => array (array ($GLOBALS['XML_RPC_Array'], $GLOBALS['XML_RPC_Array'])), 
+    	'docstring' => 'Executes multiple methods in sequence and returns the results '.
+        '(implements http://www.xmlrpc.com/discuss/msgReader$1208).'
+    ), 
+    'system.multicall' => array (
+        'function' => 'XML_RPC_Server_system_multiCall', 
+//        'signature' => array (array ($XML_RPC_Array, $XML_RPC_Array)), 
+        'docstring' => 'Executes multiple methods in sequence and returns the results '.
+        '(implements http://www.xmlrpc.com/discuss/msgReader$1208).'
+    ), 
+    'system.time' => array (
+        'function' => 'XML_RPC_Server_system_time', 
+        'signature' => array (array ()), 
+        'docstring' => 'Return the server time as unix time stamp')
 );
 
 /**
@@ -214,6 +230,110 @@ function XML_RPC_Server_methodHelp($server, $m)
                                      $XML_RPC_str['introspect_unknown']);
     }
     return $r;
+}
+    
+/**
+ * Executes multiple methods in sequence and returns the results 
+ * (implements http://www.xmlrpc.com/discuss/msgReader$1208)
+ *
+ * @return object  a new XML_RPC_Response object
+ */
+function XML_RPC_Server_system_multiCall($server, $msg) {
+    $dmap = $server->dmap;
+    
+    $array = $msg;
+    for ($i = 0; $i < $array->getNumParams(); $i ++) {
+        $details = $array->getParam($i);
+        
+        if ($details->kindOf() != 'struct') 
+        {
+            $resp = new XML_RPC_Response(0, $GLOBALS['XML_RPC_err']['incorrect_params'], 
+              "system_multiCall() expects _only_ struct datatypes wrapped in one array.");  
+        }
+        elseif ($details->arraysize() >= 1) {
+
+            // check if method name a string pointing to valid function
+            if ( !is_a($method_obj = $details->structmem('methodName'), 'XML_RPC_value') 
+                  || ($method_obj->kindOf() != 'scalar')
+                  || !($method = $method_obj->scalarVal()) 
+                  || !strlen($function = $dmap[$method]['function']) ) 
+            {
+              
+              $resp = new XML_RPC_Response(0, $GLOBALS['XML_RPC_err']['incorrect_params'], 
+                    "system_multiCall() method call '$method' type '".gettype($method).
+                    "' resolves to an invalid function. Parameter or dmap configuration problem?");         
+            }
+            // check params object valid
+            elseif ( ($params = $details->structmem('params')) && (!is_a($params, 'XML_RPC_Value') 
+                      || $params->kindOf() != 'array') ) 
+            {
+              
+              $resp = new XML_RPC_Response(0, $GLOBALS['XML_RPC_err']['incorrect_params'], 
+                    "system_multiCall() method call '$function' parameters container " .
+                    "is not a XML_RPC_Value type '$GLOBALS[XML_RPC_Array]'.");
+            }
+            // don't call multiCall recursive
+            elseif ( preg_match("/\bsystem_multiCall$/i", $function) ) 
+            {
+              
+              $resp = new XML_RPC_Response(0, $GLOBALS['XML_RPC_err']['incorrect_params'], 
+                            "system_multiCall() must not be called recursively.");
+            }
+            // process params, build a message, execute procedure call
+            else 
+            {
+                // build array containing xml_rpc_value of each param
+                $params_list = array ();
+                for ($j = 0; isset ($params) && $j < $params->arraysize(); $j ++) {
+                    $params_list[] = $param = $params->arraymem($j);
+                }
+              
+                $msg = new XML_RPC_Message($method, $params_list);
+                $msg->setSendEncoding($server->encoding);
+                $resp = $server->execute($function, $msg);
+            }
+
+        } 
+        else 
+        {
+            $resp = new XML_RPC_Response(0, $GLOBALS['XML_RPC_err']['incorrect_params'], 
+                                            "system_multiCall() must be called with at" . 
+                                            "least the functions name as parameter 1");
+        }
+
+        // convert error to struct (multiCall Spec)
+        if (!$resp->faultCode()) {
+            $xml_response = array();
+            $xml_response[] = $resp->value();
+            $values[] = new XML_RPC_Value($xml_response, 'array');
+            //$values[] = $resp->value();
+        } 
+        else {
+            $value = new XML_RPC_Value;
+            $value->addStruct( array( 'faultCode' => new XML_RPC_Value($resp->faultCode(), 
+                                                                       $GLOBALS['XML_RPC_Int']), 
+                                      'faultString' => new XML_RPC_Value($resp->faultString(), 
+                                                                         $GLOBALS['XML_RPC_String'])));
+            $values[] = $value;
+        }
+    }
+
+    $v = new XML_RPC_Value();
+    $v->addArray($values);
+
+    return new XML_RPC_Response($v);
+}
+
+/**
+ * Simply returns system time
+ *
+ * @return object  a new XML_RPC_Response object
+ */
+function XML_RPC_Server_system_time() 
+{
+    $val = new XML_RPC_Value(time(), 'int');
+    $resp = new XML_RPC_Response($val);
+    return $resp;
 }
 
 /**
@@ -639,7 +759,7 @@ class XML_RPC_Server
             } else {
                 // else prepare error response
                 $r = new XML_RPC_Response(0, $XML_RPC_err['unknown_method'],
-                                          $XML_RPC_str['unknown_method']);
+                                          $XML_RPC_str['unknown_method'] . ": " . $methName);
             }
         }
         return $r;
@@ -660,6 +780,81 @@ class XML_RPC_Server
         $r->xv = new XML_RPC_Value("'Aha said I: '" . $HTTP_RAW_POST_DATA, 'string');
         print $r->serialize();
     }
+
+    /**
+     * Executes the function defined in dmap and return result in response form 
+     * or return 'method not found' response error. 
+     * Note: 
+     *   It is expected that the called function/method returns a valid response
+     *   object.
+     * 
+     * Supported are:
+     * <ul>
+     *  <li>
+     *   Static class functions in form of 'Class::function'
+     *  </i>
+     *  <li>
+     *   Server objects methods in form of 'Classname.Methodname', whilst classname 
+     *   must be the classname of the XML_RPC_Server object serverside
+     *  </li>
+     *  <li>
+     *   Static functions in global namespace in form of 'function'
+     *  </li>
+     * </ul>
+     *
+     * @return object  a new XML_RPC_Response object
+     */
+    function execute($function, $msg) {
+        global $XML_RPC_err, $XML_RPC_str;
+        
+        /*
+        // if signature does not match
+        $result = $this->verifySignature($msg, $sig);
+        if (is_array($result) && $result[0]==1)
+        //if (PEAR :: isError($err = $this->verifySignature($msg, $sig)))
+        {
+            return new XML_RPC_Response(0, $XML_RPC_err['incorrect_params'], $XML_RPC_str['incorrect_params'].': '.$err->getMessage());
+        }
+        */
+        
+        if (!preg_match("/:|\./", $function) && is_callable($function, false)) 
+        {
+            //echo "<p>Function '$function'</p>";
+            $r = call_user_func($function, $msg);
+        }
+        elseif (preg_match("/^([^\.]+)\.([^\.]+)$/i", $function, $matches) 
+                && is_callable(array ($object = $matches[1], $method = $matches[2]), false) 
+                && preg_match("/^".preg_quote($object)."$/i", get_class($this))) 
+        {
+    
+            //echo "<p>ServerObject '$function' '".get_class($this)."'</p>";
+            $r = call_user_func(array ($this, $method), $msg);
+        }
+        elseif (preg_match("/^([\w]+)(?:::)([\w]+)$/i", $function, $matches) 
+                && class_exists($class = $matches[1]) 
+                && in_array(strtolower($classfunction = $matches[2]), get_class_methods($class)) ) 
+        {
+    
+            //echo "<p>StaticObject '$function'</p>";
+            $r = call_user_func(array($class,$classfunction),$msg);
+        } 
+        else 
+        {
+    
+            //echo "<p>Unknown '$function'</p>";      
+            $r = new XML_RPC_Response(0, $XML_RPC_err['unknown_method'], 'Serverside method '. ($this->debug() ? "'$function' " : "'enable serverside debug for the name' ").'unknown.'.' Server dmap configuration problem?');
+        }
+    
+        if (!is_a($r, 'XML_RPC_Response')) 
+        {
+            return new XML_RPC_Response(0, $XML_RPC_err['not_response_object'], $XML_RPC_str['not_response_object']);
+        } 
+        else 
+        {
+            return $r;
+        }
+    }
+
 }
 
 /*

@@ -1334,7 +1334,7 @@ function metaWeblog_createPostRpcValue($entry) {
         $values['wp_slug'] =  new XML_RPC_Value(serendipity_archiveURL($entry['id'], $entry['title'], 'baseURL', true, array('timestamp' => $entry['timestamp'])), 'string');
         $values['wp_author_id'] =  new XML_RPC_Value($entry['authorid'], 'string');
         $values['wp_author_display_name'] =  new XML_RPC_Value($entry['author'], 'string');
-        $values['wp_post_format'] =  new XML_RPC_Value('', 'string');
+        $values['wp_post_format'] =  new XML_RPC_Value('standard', 'string');
         $draft = isset($entry['isdraft']) && serendipity_db_bool($entry['isdraft']);
         $values['post_status'] =  new XML_RPC_Value($draft?'draft':'publish', 'string');
         $values['date_created_gmt'] =  new XML_RPC_Value(XML_RPC_iso8601_encode($entry['timestamp'], 1) . 'Z', 'dateTime.iso8601');

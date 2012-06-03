@@ -1339,6 +1339,10 @@ function metaWeblog_createPostRpcValue($entry) {
         $values['post_status'] =  new XML_RPC_Value($draft?'draft':'publish', 'string');
         $values['date_created_gmt'] =  new XML_RPC_Value(XML_RPC_iso8601_encode($entry['timestamp'], 1) . 'Z', 'dateTime.iso8601');
 
+        $modified = empty($entry['last_modified'])?$entry['timestamp']:$entry['last_modified'];
+        $values['date_modified'] =  new XML_RPC_Value(XML_RPC_iso8601_encode($modified, 1) . 'Z', 'dateTime.iso8601');
+        $values['date_modified_gmt'] =  new XML_RPC_Value(XML_RPC_iso8601_encode($modified, 1) . 'Z', 'dateTime.iso8601');
+        
         // Extended Article Properties supports passwords.
         $entry_properties = serendipity_fetchEntryProperties($entry['id']);
         if (is_array($entry_properties)) {

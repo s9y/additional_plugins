@@ -1,0 +1,6 @@
+1.4:
+----
+
+Removed old blacklist 'sbl-xbl.spamhaus.org, bl.spamcop.net' with 'list.blogspambl.com'
+and removed use of missing $dnsbl->getTxt() function in delivered old DNSBL.php, thanks to indigoxela
+

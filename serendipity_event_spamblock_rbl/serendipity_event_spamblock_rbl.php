@@ -109,6 +109,8 @@ class serendipity_event_spamblock_rbl extends serendipity_event
 
                             // known spammer
 // DEBUG                    $remoteIP = '206.51.226.106';
+                            // A quick tip for testing: change $remoteIP = '$_SERVER['REMOTE_ADDR']; on line 89 to e.g.
+                            // $remoteIP = '109.200.6.202'; // Comments should get rejected as this ip is on both blacklists right now.
                             $r=$h->query($remoteIP);
 
                             if ($r==2) {

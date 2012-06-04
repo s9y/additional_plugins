@@ -15,7 +15,7 @@ include dirname(__FILE__) . '/lang_en.inc.php';
 
 class serendipity_event_spamblock_rbl extends serendipity_event
 {
-var $filter_defaults;
+    var $filter_defaults;
 
     function introspect(&$propbag)
     {
@@ -31,12 +31,12 @@ var $filter_defaults;
             'serendipity' => '1.2',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.3');
+        $propbag->add('version',       '1.4');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true
         ));
         $propbag->add('configuration', array(
-			'rbllist',
+            'rbllist',
             'httpBL_key'));
         $propbag->add('groups', array('ANTISPAM'));
     }
@@ -51,7 +51,9 @@ var $filter_defaults;
                 $propbag->add('type', 'string');
                 $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_RBLLIST);
                 $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_RBLLIST_DESC);
-                $propbag->add('default', 'sbl-xbl.spamhaus.org, bl.spamcop.net');
+                // old - as not good for comment spam (indigoxela)
+                // $propbag->add('default', 'sbl-xbl.spamhaus.org, bl.spamcop.net');
+                $propbag->add('default', 'list.blogspambl.com');
                 break;
             case 'httpBL_key':
                 $propbag->add('type', 'string');
@@ -59,7 +61,7 @@ var $filter_defaults;
                 $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_HONEYPOT_KEY_DESC);
                 $propbag->add('default', '');
                 break;
-			default:
+            default:
                 return false;
         }
 
@@ -83,47 +85,49 @@ var $filter_defaults;
 
                         $serendipity['csuccess'] = 'true';
 
-	                // Check for IP listed in RBL
-					require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : 'bundled-libs/') . 'Net/DNSBL.php';
-					$dnsbl = new Net_DNSBL();
-					$remoteIP = $_SERVER['REMOTE_ADDR'];
+                        // Check for IP listed in RBL
+                        require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : 'bundled-libs/') . 'Net/DNSBL.php';
+                        $dnsbl = new Net_DNSBL();
+                        $remoteIP = $_SERVER['REMOTE_ADDR'];
 
-					$dnsbl->setBlacklists(explode(',', $this->get_config('rbllist')));
-					if ($dnsbl->isListed($remoteIP)) {
-					  $eventData = array('allow_comments' => false);
-					  $serendipity['messagestack']['comments'][] = PLUGIN_EVENT_SPAMBLOCK_ERROR_RBL . ' ('.implode(', ', $dnsbl->getTxt($remoteIP)).')';
-					  return false;
-					}
-					
-					// Check for IP listed in http:BL
-					require_once ('httpbl.php');
-					$honeypot_apikey = $this->get_config('httpBL_key');
+                        $dnsbl->setBlacklists(explode(',', $this->get_config('rbllist')));
+                        if ($dnsbl->isListed($remoteIP)) {
+                            $eventData = array('allow_comments' => false);
+                            // old - but missing $dnsbl->getTxt() function in delivered old DNSBL.php
+                            //$serendipity['messagestack']['comments'][] = PLUGIN_EVENT_SPAMBLOCK_ERROR_RBL . ' ('.implode(', ', $dnsbl->getTxt($remoteIP)).')';
+                            $serendipity['messagestack']['comments'][] = PLUGIN_EVENT_SPAMBLOCK_ERROR_RBL . ' ('.$remoteIP.')';
+                            return false;
+                        }
 
-					if (!empty($honeypot_apikey) ) {
-				
-						$h=new http_bl($honeypot_apikey);
-						
-						// known spammer
-// DEBUG					$remoteIP = '206.51.226.106';	
-						$r=$h->query($remoteIP);
-			
-						if ($r==2) {
-							$eventData = array('allow_comments' => false);
-							$reason = PLUGIN_EVENT_SPAMBLOCK_REASON_HONEYPOT . $h->type_txt .' ['.$h->type_num .'] with a score of '. $h->score . ', last seen since '. $h->days . ' days';
-							$serendipity['messagestack']['comments'][] = $reason;
-						}
-						return false;
-					}
-				}
-					return true;
-					break;
-				
+                        // Check for IP listed in http:BL
+                        require_once ('httpbl.php');
+                        $honeypot_apikey = $this->get_config('httpBL_key');
+
+                        if (!empty($honeypot_apikey) ) {
+
+                            $h=new http_bl($honeypot_apikey);
+
+                            // known spammer
+// DEBUG                    $remoteIP = '206.51.226.106';
+                            $r=$h->query($remoteIP);
+
+                            if ($r==2) {
+                                $eventData = array('allow_comments' => false);
+                                $reason = PLUGIN_EVENT_SPAMBLOCK_REASON_HONEYPOT . $h->type_txt .' ['.$h->type_num .'] with a score of '. $h->score . ', last seen since '. $h->days . ' days';
+                                $serendipity['messagestack']['comments'][] = $reason;
+                            }
+                            return false;
+                        }
+                    }
+                    return true;
+                    break;
+
                 default:
                     return false;
                     break;
             }
         } else {
-	  return false;
+            return false;
         }
     }
 

@@ -35,7 +35,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_IMAGESELECTORPLUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Vladimir Ajgl, Adam Charnock');
-        $propbag->add('version',       '0.29');
+        $propbag->add('version',       '0.30');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',
@@ -290,7 +290,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     if (is_array($cats = serendipity_fetchCategories())) {
                         $cats = serendipity_walkRecursive($cats, 'categoryid', 'parentid', VIEWMODE_THREADED);
                         foreach ($cats as $cat) {
-                            echo '<option value="'. $cat['categoryid'] .'"'. (in_array($cat['categoryid'], $selected) ? ' selected="selected"' : '') .'>'. str_repeat('&nbsp;', $cat['depth']) . $cat['category_name'] .'</option>' . "\n";
+                            echo '<option value="'. $cat['categoryid'] .'"'. '>'. str_repeat('&nbsp;', $cat['depth']) . $cat['category_name'] .'</option>' . "\n";
                         }
                     }
                     ?>

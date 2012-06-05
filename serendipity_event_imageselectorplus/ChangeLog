@@ -1,5 +1,10 @@
 latest: Smarty3 forward compatibility
 
+0.30:
+----
+
+Remove $selected, raises a smarty exception
+
 0.28:
 ----
 

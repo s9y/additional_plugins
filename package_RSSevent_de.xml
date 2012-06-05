@@ -536,7 +536,7 @@
 <category>Event Plugins</category>
 <author>Sebastian Nohn</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_rbl&lt;br /&gt;Spamschutz (RBL)&lt;/b&gt;&lt;br /&gt;Blockiert SPAM Anhand von IP-Blacklists. Wird diese Option aktiviert, werden Kommentare abgewiesen die von IPs stammen, die in einer RBL/Blacklist geführt werden. Die Aktivierung hiervon kann Dial-Up oder Proxy-User betreffen!&lt;br/&gt;For: Serendipity 1.2</content:encoded>
-<pubDate>Sun, 25 Dec 2011 02:19:46 +0100</pubDate>
+<pubDate>Tue, 05 Jun 2012 02:31:51 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_rbl</guid>
 </item>
 <item>

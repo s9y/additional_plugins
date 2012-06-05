@@ -536,7 +536,7 @@
 <category>Event Plugins</category>
 <author>Sebastian Nohn</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_rbl&lt;br /&gt;スパムプロテクター (RBL)&lt;/b&gt;&lt;br /&gt;URL に記録されたホストが作成したコメントを拒否します。これはプロキシユーザーやダイアルアップユーザーに影響することに注意してください。&lt;br/&gt;For: Serendipity 1.2</content:encoded>
-<pubDate>Sun, 25 Dec 2011 02:19:46 +0100</pubDate>
+<pubDate>Tue, 05 Jun 2012 02:31:51 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_rbl</guid>
 </item>
 <item>

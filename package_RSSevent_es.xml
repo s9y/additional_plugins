@@ -536,7 +536,7 @@
 <category>Event Plugins</category>
 <author>Sebastian Nohn</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_rbl&lt;br /&gt;Spam Protector (RBL)&lt;/b&gt;&lt;br /&gt;Will reject comments made from hosts which are listed in RBLs. Pay attention that this may affect proxy-users or dial-up users.&lt;br/&gt;For: Serendipity 1.2</content:encoded>
-<pubDate>Sun, 25 Dec 2011 02:19:46 +0100</pubDate>
+<pubDate>Tue, 05 Jun 2012 02:31:51 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_rbl</guid>
 </item>
 <item>

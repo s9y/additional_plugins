@@ -4221,15 +4221,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_spamblock_rbl</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_spamblock_rbl/ChangeLog</changelog>
 <license>GPL</license>
 <summary>スパムプロテクター (RBL)</summary>
 <groups>ANTISPAM</groups>
 <description>URL に記録されたホストが作成したコメントを拒否します。これはプロキシユーザーやダイアルアップユーザーに影響することに注意してください。</description>
 <maintainers><maintainer><name>Sebastian Nohn</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.3</version>
+  <version>1.4</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2012-06-05</date>
   <filelist>
 <dir name="serendipity_event_spamblock_rbl">
 <file>serendipity_event_spamblock_rbl.php</file>
@@ -4243,6 +4244,7 @@
 <file>httpbl.php</file>
 <file>lang_en.inc.php</file>
 <file>lang_ja.inc.php</file>
+<file>ChangeLog</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 </dir>
@@ -4258,6 +4260,7 @@
     <file>serendipity_event_spamblock_rbl/httpbl.php</file>
     <file>serendipity_event_spamblock_rbl/lang_en.inc.php</file>
     <file>serendipity_event_spamblock_rbl/lang_ja.inc.php</file>
+    <file>serendipity_event_spamblock_rbl/ChangeLog</file>
     <file>serendipity_event_spamblock_rbl/lang_cs.inc.php</file>
     <file>serendipity_event_spamblock_rbl/lang_cz.inc.php</file>
   </serendipityFilelist>

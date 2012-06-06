@@ -1,4 +1,5 @@
-
+0.4.9.5:
+    Changed menu-order to have the recycler first
 0.4.9:
     Security: Escaped comments in backend
     Fixed error when selecting no comments in analyse-menu

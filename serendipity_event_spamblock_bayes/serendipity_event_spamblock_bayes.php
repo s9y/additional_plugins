@@ -36,7 +36,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '0.4.9' );
+		$propbag->add ( 'version', '0.4.9.5' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_spamblock_comments_shown' => true,
 		                                     'external_plugin' => true,
@@ -485,7 +485,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		serendipity_db_schema_import($sql);
         #recycler-table
         if ($serendipity['dbType'] == 'mysql') {
-            $sql = "CREATE TABLE
+            $sql = "CREATE TABLE IF NOT EXISTS
                     {$serendipity['dbPrefix']}spamblock_bayes_recycler
                     LIKE
                     {$serendipity['dbPrefix']}comments";
@@ -766,7 +766,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                             $redirect= '<meta http-equiv="REFRESH" content="0;url=';
                             $url = 'serendipity_admin.php?serendipity[adminModule]=event_display';
                             $url .= '&amp;serendipity[adminAction]=spamblock_bayes';
-                            $url .= '&amp;serendipity[subpage]=1';
+                            $url .= '&amp;serendipity[subpage]=3';
                             $url .= '&amp;serendipity[success]=Learned comment as '.$category.'">';
                             echo $redirect . $url;
                             break;
@@ -814,9 +814,11 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                             if ( !empty($_REQUEST['serendipity']['selected'])) {
                                     $ids = array_keys($_REQUEST['serendipity']['selected']);
                                 } else {
-                                    $ids = array_keys($_REQUEST['serendipity']['comments']);
+                                    if ( !empty($_REQUEST['serendipity']['comments'])) {
+                                        $ids = array_keys($_REQUEST['serendipity']['comments']);
+                                    }
                                 }
-                            if(isset($_REQUEST['restore'])) {
+                            if (isset($_REQUEST['restore'])) {
                                 if ( !empty($ids)) {
                                     $ids = array_keys($_REQUEST['serendipity']['selected']);
                                     #When restoring a comment we can be pretty sure it's a valid one
@@ -844,7 +846,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                                     $msgtype = 'message';
                                 }
                             }
-                            if(isset($_REQUEST['empty'])) {
+                            if (isset($_REQUEST['empty'])) {
                                 if (isset($_REQUEST['recyclerSpam'])) {
                                     if ($this->get_config('emptyAll', false)) {
                                         $comments = $this->getAllRecyclerComments();
@@ -871,7 +873,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                             $redirect= '<meta http-equiv="REFRESH" content="0;url=';
                             $url = 'serendipity_admin.php?serendipity[adminModule]=event_display';
                             $url .= '&amp;serendipity[adminAction]=spamblock_bayes';
-                            $url .= '&amp;serendipity[subpage]=3';
+                            $url .= '&amp;serendipity[subpage]=1';
                             if (!empty($msgtype)) {
                                 $url .= '&amp;serendipity['.$msgtype.']='. $msg .'">';
                             } else {
@@ -1343,13 +1345,13 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 	    
         switch($subpage) {
             case '1':
-                $this->showLearnMenu();
+                $this->showRecyclerMenu($this->get['commentpage']);
                 break;
             case '2':
                 $this->showDBMenu($this->get['commentpage']);
                 break;
             case '3':
-                $this->showRecyclerMenu($this->get['commentpage']);
+                $this->showLearnMenu();
                 break;
             case '4':
                 $this->showAnalysisMenu($this->get['commentpage']);

@@ -27,7 +27,7 @@ class serendipity_event_dashboard extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.6.6');
+        $propbag->add('version',       '0.6.7');
         $propbag->add('author',        'Garvin Hicking');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array('read_only', 'limit_draft', 'limit_comments', 'limit_comments_pending', 'limit_future', 'sequence', 'update'));
@@ -371,7 +371,7 @@ class serendipity_event_dashboard extends serendipity_event {
     function compareVersion($newV, $actV) {
         $newV = explode('.', $newV);
         $actV = explode('.', $actV);
-        $length = ( count($newV) < count($actV) ? count($newV) : count($actV) );
+        $length = ( count($newV) > count($actV) ? count($newV) : count($actV) );
 
         for($i=0; $i < $length; $i++){
             if ($newV[$i] > $actV[$i]){

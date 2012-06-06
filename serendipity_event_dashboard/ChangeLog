@@ -1,3 +1,7 @@
+0.6.7:
+----
+*  fixed: 1.6 is older than 1.6.2, didn't check all digits
+
 0.6.6:
 ----
 * fixed missing global $serendipity in comments function

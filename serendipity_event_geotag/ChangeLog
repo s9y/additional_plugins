@@ -1,3 +1,8 @@
+1.29 (brockhaus)
+----------------------------------
+* If post was updated the location was cleared.
+* Added "clear location" button, because it was not possible to clear.
+
 1.28 (brockhaus)
 ----------------------------------
 * Deleting entries did not delete GeoTag db entries.

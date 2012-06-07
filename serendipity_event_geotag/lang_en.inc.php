@@ -108,3 +108,4 @@
 @define('PLUGIN_GEOTAG_GMAP_GEOCODE_MSG_PROGRESS',  "Trying to find the coordinates...");
 @define('PLUGIN_GEOTAG_GMAP_GEOCODE_NOT_FOUND',     "not found");
 @define('PLUGIN_GEOTAG_GMAP_GEOCODE_OK',        	"OK");
+@define('PLUGIN_EVENT_CLEAR_LOCATION',        		"Clear location");

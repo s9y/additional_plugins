@@ -107,3 +107,4 @@
 @define('PLUGIN_GEOTAG_GMAP_GEOCODE_MSG_PROGRESS',  "Versuche, die Koordinaten zu ermitteln...");
 @define('PLUGIN_GEOTAG_GMAP_GEOCODE_NOT_FOUND',     "nicht gefunden");
 @define('PLUGIN_GEOTAG_GMAP_GEOCODE_OK',        	"OK");
+@define('PLUGIN_EVENT_CLEAR_LOCATION',        		"Koordinaten löschen");

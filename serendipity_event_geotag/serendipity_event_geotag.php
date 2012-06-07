@@ -347,6 +347,7 @@ class serendipity_event_geotag extends serendipity_event
                             <label title="<?php echo PLUGIN_EVENT_GEOTAG_LONG; ?>" for="properties_geo_long">&nbsp;<?php echo PLUGIN_EVENT_GEOTAG_LONG; ?>&nbsp;&nbsp;</label>
                             <?php if ($this->get_config('api_key') !== ''): ?>
                             <input type="button" onClick="getCurrentPosition(true)" value="<?php echo PLUGIN_GEOTAG_GMAP_GEOCODE_GET_CODE; ?>" />
+                            <input type="button" onClick="clearLocation();" value="<?php echo PLUGIN_EVENT_CLEAR_LOCATION; ?>" />
                             <p /><p>
                             <input type="text" id="geoTagAddress" value="<?php echo PLUGIN_GEOTAG_GMAP_GEOCODE_TYPE_ADDRESS; ?>" onkeydown="if (event.keyCode == 13) {geoCode(); return false;}" onClick="clearAdressInput();"/>
                             <input type="button" onClick="geoCode()" value="<?php echo PLUGIN_GEOTAG_GMAP_GEOCODE; ?>" />
@@ -358,6 +359,11 @@ class serendipity_event_geotag extends serendipity_event
 							<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=<?php echo $this->get_config('api_key') ?>" type="text/javascript"></script>
 							<script type="text/javascript">
 							//<![CDATA[
+								function clearLocation() {
+									document.getElementById('properties_geo_lat').value = '#';
+									document.getElementById('properties_geo_long').value = '#';
+								}
+								
                                 var map;
 								function GLocationPicker(
                                 		pickerDivId,

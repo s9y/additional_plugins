@@ -23,7 +23,7 @@ class serendipity_event_autoupdate extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_AUTOUPDATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli');
-        $propbag->add('version',       '0.1.2');
+        $propbag->add('version',       '0.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8'
         ));
@@ -51,7 +51,6 @@ class serendipity_event_autoupdate extends serendipity_event {
         if (isset($hooks[$event])) {
             switch($event) {
                 case 'plugin_dashboard_updater':
-                        
                         $eventData = '<form action="?serendipity[adminModule]=event_display&serendipity[adminAction]=update" method="POST">
                         <input type="hidden" name="serendipity[newVersion]" value="'.$addData.'" />
                         <input type="submit" value="'.PLUGIN_EVENT_AUTOUPDATE_UPDATEBUTTON.'" />
@@ -72,8 +71,13 @@ class serendipity_event_autoupdate extends serendipity_event {
                                 $unpacked = $this->unpackUpdate($nv);
                                 if ($unpacked) {
                                     if ($this->checkIntegrity($nv)) {
-                                        $this->copyUpdate($nv);
-                                        $this->doUpdate();
+                                        $copied = $this->copyUpdate($nv);
+                                        if ($copied) {
+                                            $this->cleanTemplatesC();
+                                            $this->doUpdate();
+                                        } else {
+                                             echo '<p class="serendipityAdminMsgError">Copying the files for the update failed</p>';
+                                        }
                                      } else {
                                         $this->showChecksumErrors($nv);
                                         echo '<form action="?serendipity[adminModule]=event_display&serendipity[adminAction]=update" method="POST">
@@ -212,9 +216,17 @@ class serendipity_event_autoupdate extends serendipity_event {
             #2. copy them over
             foreach ($files as $file) {
                 $target = $serendipity['serendipityPath'] . substr($file, 12);
-                $success = copy($updateDir . $file, $target);
-                if (! $success && ! is_dir($target)) {
-                    echo $target;
+                if (is_dir($updateDir .$file)) {
+                    if (!file_exists($target)) {
+                        $success = mkdir($target);
+                    } else {
+                        $success = true;
+                    }
+                } else {
+                    $success = copy($updateDir . $file, $target);
+                }
+                if (! $success) {
+                    echo "Error copying file to $target";
                     return false;
                 }
             }
@@ -240,7 +252,7 @@ class serendipity_event_autoupdate extends serendipity_event {
             
             foreach ($files as $file) {
                 $target = $serendipity['serendipityPath'] . substr($file, 12);
-                if (! is_writable($target) ) {
+                if ( (! is_writable($target)) && file_exists($target) ) {
                     return false;
                 }
             }
@@ -265,7 +277,7 @@ class serendipity_event_autoupdate extends serendipity_event {
             
             foreach ($files as $file) {
                 $target = $serendipity['serendipityPath'] . substr($file, 12);
-                if (! is_writable($target) ) {
+                if ((! is_writable($target)) && file_exists($target) ) {
                     $notWriteable[] = $target;
                 }
             }
@@ -318,6 +330,15 @@ class serendipity_event_autoupdate extends serendipity_event {
     function doUpdate() {
         global $serendipity;
         echo '<meta http-equiv="REFRESH" content="0;url="'.$serendipity ['serendipityHTTPPath'].'" />';
+    }
+
+    #delete all cache-files in cache templates_c to prevent
+    #display-errors after update
+    function cleanTemplatesC() {
+        global $serendipity;
+        foreach (glob($serendipity['serendipityPath'] . "templates_c/*") as $file) {
+            unlink($file);
+        }
     }
 
     function debugMsg($msg) {

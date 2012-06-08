@@ -1,6 +1,11 @@
-
+0.2:
+    * Fixed: Didn't create new directories which were part of the new version
+    * Fixed: Choked on new files of the new version which didn't exist
+             in the old version
+    * Clean cachefiles in templates_c just before the upgrade to prevent
+      display-errors 
 0.1.2:
-    Fixed call-by-reference-warning in php 5.3
-    Added checksum-test prior to unpacking to kind of authenticate
-    the update
-    Added checksum-test after unpacking to check the integrity 
+    * Fixed call-by-reference-warning in php 5.3
+    * Added checksum-test prior to unpacking to kind of authenticate
+      the update
+    * Added checksum-test after unpacking to check the integrity 

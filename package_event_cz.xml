@@ -10203,15 +10203,16 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_disqus</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_disqus/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Komentáře Disqus</summary>
 <groups>FRONTEND_VIEWS</groups>
 <description>Disqus.com je webová služba pro správu komentářů. Ukládá a spravuje komentáře vně instalace serendipity a je do blogu vkládána pomocí JavaScriptu. Pro více informací přejděte na www.disqus.com.</description>
-<maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.1</version>
+  <version>0.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2012-06-11</date>
   <filelist>
 <dir name="serendipity_event_disqus">
 <dir name="UTF-8">
@@ -10222,6 +10223,7 @@ aplikovány další typografické úpravy.</description>
 <file>serendipity_event_disqus.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -10232,6 +10234,7 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_disqus/serendipity_event_disqus.php</file>
     <file>serendipity_event_disqus/lang_cs.inc.php</file>
     <file>serendipity_event_disqus/lang_cz.inc.php</file>
+    <file>serendipity_event_disqus/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>

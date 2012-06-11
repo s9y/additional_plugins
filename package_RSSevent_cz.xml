@@ -1337,9 +1337,9 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <title>Komentáře Disqus: Disqus.com je webová služba pro správu komentářů. Ukládá a spravuje komentáře vně instalace serendipity a je do blogu vkládána pomocí JavaScriptu. Pro více informací přejděte na www.disqus.com.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_disqus</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking</author>
+<author>Garvin Hicking, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_disqus&lt;br /&gt;Komentáře Disqus&lt;/b&gt;&lt;br /&gt;Disqus.com je webová služba pro správu komentářů. Ukládá a spravuje komentáře vně instalace serendipity a je do blogu vkládána pomocí JavaScriptu. Pro více informací přejděte na www.disqus.com.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 25 Dec 2011 10:42:48 +0000</pubDate>
+<pubDate>Mon, 11 Jun 2012 00:31:38 +0000</pubDate>
 <guid isPermaLink="false">serendipity_event_disqus</guid>
 </item>
 </channel>

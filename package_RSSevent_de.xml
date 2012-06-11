@@ -1337,9 +1337,9 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <title>Disqus comments: Disqus.com is a webservice that allows you to manage comments, with central logins. It stores and manages comments outside of your Serendipity installation, and is embedded using JavaScript. For more information see disqus.com.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_disqus</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking</author>
+<author>Garvin Hicking, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_disqus&lt;br /&gt;Disqus comments&lt;/b&gt;&lt;br /&gt;Disqus.com is a webservice that allows you to manage comments, with central logins. It stores and manages comments outside of your Serendipity installation, and is embedded using JavaScript. For more information see disqus.com.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 25 Dec 2011 10:42:48 +0000</pubDate>
+<pubDate>Mon, 11 Jun 2012 00:31:38 +0000</pubDate>
 <guid isPermaLink="false">serendipity_event_disqus</guid>
 </item>
 </channel>

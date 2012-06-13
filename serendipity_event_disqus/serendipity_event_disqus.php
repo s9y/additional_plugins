@@ -81,7 +81,7 @@ class serendipity_event_disqus extends serendipity_event {
         echo nl2br(PLUGIN_DISQUS_DESC2);
     }
     
-    function event_hook($event, &$bag, &$eventData, &$addData = null) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
         
         $hooks = &$bag->get('event_hooks');

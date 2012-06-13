@@ -2,7 +2,7 @@
 @define('PLUGIN_EVENT_COMMENTSPICE_CNAME_DBCONFIG', 'spicedb');
 
 class DbSpice {
-    function table_created($table = 'tweetbackhistory')  {
+    static function table_created($table = 'tweetbackhistory')  {
         global $serendipity;
 
         $q = "select count(*) from {$serendipity['dbPrefix']}" . $table;
@@ -15,7 +15,7 @@ class DbSpice {
         }
     }
     
-    function install(&$obj) {
+    static function install(&$obj) {
         global $serendipity;
         $dbversion = $obj->get_config(PLUGIN_EVENT_COMMENTSPICE_CNAME_DBCONFIG);
         if (empty($dbversion)) $dbversion=0;
@@ -59,7 +59,7 @@ class DbSpice {
         }
     }
     
-    function countComments($email) {
+    static function countComments($email) {
         global $serendipity;
         if (empty($email)) return 0;
         $db_email = serendipity_db_escape_string($email);
@@ -68,7 +68,7 @@ class DbSpice {
         return $row['commentcount'];
     }
     
-    function saveCommentSpice($commentid, $twittername, $promo_name, $promo_url, $boo_url) {
+    static function saveCommentSpice($commentid, $twittername, $promo_name, $promo_url, $boo_url) {
         global $serendipity;
         if (empty($commentid) || !is_numeric($commentid) || (empty($twittername) && empty($promo_name) && empty($boo_url)) ) return true;
         
@@ -81,7 +81,7 @@ class DbSpice {
         return serendipity_db_insert('commentspice', $spice);
     }
     
-    function loadCommentSpice($commentid) {
+    static function loadCommentSpice($commentid) {
         global $serendipity;
         if (empty($commentid) || !is_numeric($commentid)) return false;
         
@@ -90,7 +90,7 @@ class DbSpice {
         if (!is_array($row)) return false;
         return $row;
     }
-    function deleteCommentSpice($commentid) {
+    static function deleteCommentSpice($commentid) {
         global $serendipity;
         
         if (empty($commentid) || !is_numeric($commentid)) return;

@@ -284,7 +284,7 @@ class serendipity_event_commentspice extends serendipity_event
         return true;
     }
     
-    function event_hook($event, &$bag, &$eventData, $addData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

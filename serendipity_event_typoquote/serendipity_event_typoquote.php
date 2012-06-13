@@ -24,7 +24,7 @@ class serendipity_event_typoquote extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_QUOTES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Jonathan Spalink and Matthew Groeninger');
-        $propbag->add('version',       '1.4');
+        $propbag->add('version',       '1.5');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -67,7 +67,7 @@ class serendipity_event_typoquote extends serendipity_event
         serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
     }
 
-    function uninstall() {
+    function uninstall(&$propbag) {
         serendipity_plugin_api::hook_event('backend_cache_purge', $this->title);
         serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
     }
@@ -101,7 +101,7 @@ class serendipity_event_typoquote extends serendipity_event
         return true;
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

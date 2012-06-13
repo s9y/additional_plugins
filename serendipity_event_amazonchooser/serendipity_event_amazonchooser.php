@@ -28,7 +28,7 @@ class serendipity_event_amazonchooser extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_AMAZONCHOOSER_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Matthew Groeninger');
-        $propbag->add('version',       '0.71');
+        $propbag->add('version',       '0.72');
         $propbag->add('requirements',  array(
             'serendipity' => '1.4',
             'smarty'      => '2.6.7',
@@ -104,7 +104,7 @@ class serendipity_event_amazonchooser extends serendipity_event
     }
 
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

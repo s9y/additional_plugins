@@ -69,7 +69,7 @@ class serendipity_event_phpopentracker extends serendipity_event {
         $propbag->add('description',     S9YPOT_DESC);
         $propbag->add('stackable',       false);
         $propbag->add('author',          'Rene Schmidt');
-        $propbag->add('version',         '1.6');
+        $propbag->add('version',         '1.7');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',
@@ -114,7 +114,7 @@ class serendipity_event_phpopentracker extends serendipity_event {
     }
 
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

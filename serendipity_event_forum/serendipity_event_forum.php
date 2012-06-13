@@ -53,7 +53,7 @@ class serendipity_event_forum extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.34');
+        $propbag->add('version',       '0.35');
         $propbag->add('author',       'Alexander \'dma147\' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
@@ -733,7 +733,7 @@ class serendipity_event_forum extends serendipity_event {
 
 
 
-    function uninstall() {
+    function uninstall(&$propbag) {
         global $serendipity;
 
         serendipity_db_query("DROP TABLE {$serendipity['dbPrefix']}dma_forum_boards");
@@ -2315,7 +2315,7 @@ class serendipity_event_forum extends serendipity_event {
         }
     }
 
-    function event_hook($event, &$bag, &$eventData, $addData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         static $phpbb_mirror = null;

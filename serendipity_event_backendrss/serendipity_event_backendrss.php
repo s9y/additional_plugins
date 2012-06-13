@@ -27,7 +27,7 @@ class serendipity_event_backendrss extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_BACKENDRSS_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Sebastian Nohn');
-        $propbag->add('version',       '1.3');
+        $propbag->add('version',       '1.4');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '4.1.0'
@@ -121,7 +121,7 @@ class serendipity_event_backendrss extends serendipity_event
         $title = $this->title;
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

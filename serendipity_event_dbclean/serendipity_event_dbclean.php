@@ -24,7 +24,7 @@ class serendipity_event_dbclean extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_DBCLEAN_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda');
-        $propbag->add('version',       '0.2.3');
+        $propbag->add('version',       '0.2.4');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8'
         ));
@@ -47,7 +47,7 @@ class serendipity_event_dbclean extends serendipity_event {
     }*/
 
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
         $hooks = &$bag->get('event_hooks');
 

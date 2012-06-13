@@ -23,8 +23,8 @@ class serendipity_event_kubrickheader extends serendipity_event {
         $propbag->add('name',          PLUGIN_EVENT_KUBRICKHEADER_NAME);
         $propbag->add('description',   PLUGIN_EVENT_KUBRICKHEADER_DESC);
         $propbag->add('stackable',     false);
-        $propbag->add('author',        'Garvin Hicking extended by Sebastian Mayeres and Jude Anthony');
-        $propbag->add('version',       '1.4');
+        $propbag->add('author',        'Garvin Hicking, Sebastian Mayeres, Jude Anthony');
+        $propbag->add('version',       '1.5');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -92,7 +92,7 @@ class serendipity_event_kubrickheader extends serendipity_event {
         return true;
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

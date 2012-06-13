@@ -45,7 +45,7 @@ class serendipity_event_smartymarkup extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SMARTYMARKUP_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.10');
+        $propbag->add('version',       '1.11');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -93,7 +93,7 @@ class serendipity_event_smartymarkup extends serendipity_event
         serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
     }
 
-    function uninstall() {
+    function uninstall(&$propbag) {
         serendipity_plugin_api::hook_event('backend_cache_purge', $this->title);
         serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
     }

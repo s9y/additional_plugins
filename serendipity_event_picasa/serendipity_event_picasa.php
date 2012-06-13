@@ -256,7 +256,7 @@ class serendipity_event_picasa extends serendipity_event {
         ));
         $propbag->add('stackable',       false);
         $propbag->add('author',          'Thomas Nesges, Greg Greenway');
-        $propbag->add('version',         '1.13');
+        $propbag->add('version',         '1.14');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -362,7 +362,7 @@ class serendipity_event_picasa extends serendipity_event {
         return true;
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

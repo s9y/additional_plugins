@@ -30,7 +30,7 @@ class serendipity_event_tinymce extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_TINYMCE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Grischa Brockhaus');
-        $propbag->add('version',       '1.10');
+        $propbag->add('version',       '1.11');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',
@@ -149,7 +149,7 @@ class serendipity_event_tinymce extends serendipity_event
         $title = $this->title;
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

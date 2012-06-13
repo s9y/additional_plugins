@@ -15,7 +15,7 @@ class serendipity_event_mailcc extends serendipity_event
         $propbag->add('description',   '(Notice: Make sure that the all of your authors have the option to receiv comment notification emails activated, or else no mails will be created that can be CCed');
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.0');
+        $propbag->add('version',       '1.01');
         $propbag->add('requirements',  array('serendipity' => '0.8','smarty'      => '2.6.7','php'         => '4.1.0'
         ));
         $propbag->add('groups', array('BACKEND_FEATURES'));
@@ -39,7 +39,7 @@ class serendipity_event_mailcc extends serendipity_event
         return true;
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
         $hooks = &$bag->get('event_hooks');
 

@@ -297,7 +297,7 @@ class serendipity_event_geotag extends serendipity_event
         $title = $this->title;
     }
 
-    function event_hook($event, &$bag, &$eventData, &$addData = null) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

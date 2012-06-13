@@ -24,7 +24,7 @@ class serendipity_event_realtimecomments extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_REALTIMECOMMENTS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda');
-        $propbag->add('version',       '0.1.2');
+        $propbag->add('version',       '0.1.3');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8'
         ));
@@ -76,7 +76,7 @@ class serendipity_event_realtimecomments extends serendipity_event {
     }
 
 
-    function event_hook($event, &$bag, &$eventData, &$addData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

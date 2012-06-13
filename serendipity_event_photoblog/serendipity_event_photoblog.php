@@ -11,7 +11,7 @@ if (file_exists($probelang)) {
     include $probelang;
 }
 
-@define('PLUGIN_EVENT_PHOTOBLOG_VERSION', '1.5');
+@define('PLUGIN_EVENT_PHOTOBLOG_VERSION', '1.6');
 
 include dirname(__FILE__) . '/lang_en.inc.php';
 
@@ -240,7 +240,7 @@ class serendipity_event_photoblog extends serendipity_event
         }
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

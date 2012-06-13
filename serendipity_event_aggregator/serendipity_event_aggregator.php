@@ -72,7 +72,7 @@ class serendipity_event_aggregator extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.29');
+        $propbag->add('version',       '0.30');
         $propbag->add('author',       'Evan Nemerson, Garvin Hicking, Kristian Koehntopp, Thomas Schulz, Claus Schmidt');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
@@ -1663,7 +1663,7 @@ class serendipity_event_aggregator extends serendipity_event {
         return $content;
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

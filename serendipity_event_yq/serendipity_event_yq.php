@@ -28,7 +28,7 @@ class serendipity_event_yq extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_YQ_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rasmus Lerdorf');
-        $propbag->add('version',       '1.1');
+        $propbag->add('version',       '1.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -66,7 +66,7 @@ class serendipity_event_yq extends serendipity_event {
 		return true;
 	}
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity, $IE;
 		static $hookno = 0;
 

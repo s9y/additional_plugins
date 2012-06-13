@@ -25,7 +25,7 @@ class serendipity_event_phoneblogz extends serendipity_event
         $propbag->add('description', PLUGIN_EVENT_PHONEBLOGZ_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Garvin Hicking, phoneblogz.com');
-        $propbag->add('version',     '0.7');
+        $propbag->add('version',     '0.8');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -379,7 +379,7 @@ class serendipity_event_phoneblogz extends serendipity_event
         return true;
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

@@ -54,7 +54,7 @@ class serendipity_event_flattr extends serendipity_event {
             'flattr_pop',
         ));
         $propbag->add('author',  'Garvin Hicking, Joachim Breitner', 'Matthias Gutjahr');
-        $propbag->add('version', '1.9');
+        $propbag->add('version', '1.10');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
@@ -223,7 +223,7 @@ class serendipity_event_flattr extends serendipity_event {
      * @param mixed $addData
      * @return bool
      */
-    function event_hook($event, &$bag, &$eventData, &$addData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         switch ($event) {

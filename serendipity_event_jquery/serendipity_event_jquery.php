@@ -23,7 +23,7 @@ class serendipity_event_jquery extends serendipity_event {
         $propbag->add('description',   EVENT_JQUERY_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author', 'Malte Paskuda');
-        $propbag->add('version', '1.10');
+        $propbag->add('version', '1.11');
         $propbag->add('event_hooks', array('frontend_header' => true,
                                            'backend_header'  => true,
                                             'backend_plugins_new_instance'  => true
@@ -40,7 +40,7 @@ class serendipity_event_jquery extends serendipity_event {
     }
     
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
         $hooks = &$bag->get('event_hooks');
 

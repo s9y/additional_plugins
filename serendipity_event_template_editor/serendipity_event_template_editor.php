@@ -25,7 +25,7 @@ class serendipity_event_template_editor extends serendipity_event {
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda');
         $propbag->add('license',       'GPL');
-        $propbag->add('version',       '0.4');
+        $propbag->add('version',       '0.5');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8'
         ));
@@ -66,7 +66,7 @@ class serendipity_event_template_editor extends serendipity_event {
     }
 
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
     
         $hooks = &$bag->get('event_hooks');

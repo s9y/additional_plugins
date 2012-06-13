@@ -75,7 +75,7 @@ class serendipity_event_cachesimple extends serendipity_event
         $propbag->add('description', PLUGIN_EVENT_CACHESIMPLE_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Garvin Hicking');
-        $propbag->add('version',     '1.1');
+        $propbag->add('version',     '1.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -203,7 +203,7 @@ class serendipity_event_cachesimple extends serendipity_event
         return true;
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = array();
@@ -418,7 +418,7 @@ document.getElementById('serendipity_commentform_url').value   = getCommentCooki
         $this->cache->clean($this->cache_group);
     }
 
-    function uninstall() {
+    function uninstall(&$propbag) {
         global $serendipity;
 
         @include_once 'Cache/Lite.php';

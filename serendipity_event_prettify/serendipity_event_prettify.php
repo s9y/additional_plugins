@@ -23,7 +23,7 @@ class serendipity_event_prettify extends serendipity_event
         $propbag->add('description',   PLUGIN_PRETTIFY_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        PLUGIN_PRETTIFY_AUTH);
-        $propbag->add('version',       '1.6.0');
+        $propbag->add('version',       '1.6.1');
         $propbag->add('requirements',  array('serendipity' => '1.0',
                                              'smarty'      => '2.6.7',
                                              'php'         => '4.1.0'
@@ -144,7 +144,7 @@ class serendipity_event_prettify extends serendipity_event
         return $s;
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

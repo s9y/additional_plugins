@@ -24,7 +24,7 @@ class serendipity_event_unstrip_tags extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_UNSTRIP_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.02');
+        $propbag->add('version',       '1.03');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
@@ -37,7 +37,7 @@ class serendipity_event_unstrip_tags extends serendipity_event
     function generate_content(&$title) {
         $title = $this->title;
     }
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

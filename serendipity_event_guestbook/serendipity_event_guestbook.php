@@ -57,7 +57,7 @@ class serendipity_event_guestbook extends serendipity_event {
                         'dateformat'
                     ));
         $propbag->add('author',       'Ian (Timbalu)');
-        $propbag->add('version',      '3.29');
+        $propbag->add('version',      '3.30');
         $propbag->add('requirements', array(
                         'serendipity' => '0.7',
                         'smarty'      => '2.6.7',
@@ -137,7 +137,7 @@ class serendipity_event_guestbook extends serendipity_event {
     }
     
     /* event hook::guestbook table uninstall */
-    function uninstall() { 
+    function uninstall(&$propbag) {
         global $serendipity;
         
         if(isset($serendipity['guestbookdroptable']) === true) { 

@@ -24,7 +24,7 @@ class serendipity_event_externalauth extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_EXTERNALAUTH_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking/Justin Alcorn');
-        $propbag->add('version',       '1.22');
+        $propbag->add('version',       '1.23');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -249,7 +249,7 @@ class serendipity_event_externalauth extends serendipity_event
         return true;
     }
 
-    function event_hook($event, &$bag, &$eventData, &$addData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

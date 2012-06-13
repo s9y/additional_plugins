@@ -23,7 +23,7 @@ class serendipity_event_loginform extends serendipity_event
         $propbag->add('description', PLUGIN_EVENT_LOGINFORM_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Garvin Hicking');
-        $propbag->add('version',     '1.03');
+        $propbag->add('version',     '1.04');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
@@ -60,7 +60,7 @@ class serendipity_event_loginform extends serendipity_event
         $title = PLUGIN_EVENT_LOGINFORM_NAME;	
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

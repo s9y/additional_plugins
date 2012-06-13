@@ -53,7 +53,7 @@ class TwitterPluginDbAccess {
         }
     }
 
-    function load_short_urls( $article_url, $selected_services ) {
+    static function load_short_urls( $article_url, $selected_services ) {
         global $serendipity;
         
         $inservices = "'" . implode("','", $selected_services) . "'";
@@ -79,7 +79,7 @@ class TwitterPluginDbAccess {
         }
     }
     
-    function save_short_urls( $article_url, $shorturls, $loaded_shorturls = array() ) {
+    static function save_short_urls( $article_url, $shorturls, $loaded_shorturls = array() ) {
         global $serendipity;
 
         // insert all new (not yet known) shorturls.

@@ -30,7 +30,7 @@ class serendipity_event_emoticonchooser extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.7');
+        $propbag->add('version',       '1.8');
         $propbag->add('event_hooks',    array(
             'backend_entry_toolbar_extended' => true,
             'backend_entry_toolbar_body' => true,
@@ -75,7 +75,7 @@ class serendipity_event_emoticonchooser extends serendipity_event
     }
 
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         if (!class_exists('serendipity_event_emoticate')) {

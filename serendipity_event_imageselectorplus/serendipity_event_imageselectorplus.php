@@ -35,7 +35,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_IMAGESELECTORPLUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Vladimir Ajgl, Adam Charnock');
-        $propbag->add('version',       '0.30');
+        $propbag->add('version',       '0.31');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',
@@ -144,7 +144,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
     }
 
     // to recash all entries after uninstalling the plugin
-    function uninstall() {
+    function uninstall(&$propbag) {
         serendipity_plugin_api::hook_event('backend_cache_purge', $this->title);
         serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
     }
@@ -245,7 +245,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
         serendipity_makeThumbnail(basename($target), $dirname, $newsizes, $serendipity['thumbSuffix']);
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

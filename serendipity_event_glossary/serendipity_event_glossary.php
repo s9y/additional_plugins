@@ -34,7 +34,7 @@ class serendipity_event_glossary extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_GLOSSARY_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author', 'Rob Antonishen');
-        $propbag->add('version', '1.6');
+        $propbag->add('version', '1.7');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -78,7 +78,7 @@ class serendipity_event_glossary extends serendipity_event
         serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
     }
 
-    function uninstall() {
+    function uninstall(&$propbag) {
         serendipity_plugin_api::hook_event('backend_cache_purge', $this->title);
         serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
     }
@@ -136,7 +136,7 @@ class serendipity_event_glossary extends serendipity_event
     }
 
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

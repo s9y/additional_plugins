@@ -32,7 +32,7 @@ class serendipity_plugin_freetag extends serendipity_plugin
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.01');
+        $propbag->add('version',       '3.02');
         $propbag->add('groups',        array('FRONTEND_ENTRY_RELATED'));
         $propbag->add('configuration', array('title', 'show_xml','xml_image', 'show_newline', 'taglink', 'scale_tag', 'max_tags', 'min_percent', 'max_percent', 'use_flash', 'flash_tag_color', 'flash_bg_trans', 'flash_bg_color', 'flash_width', 'flash_speed', 'treshold_tag_count', 'order_by', 'template'));
         $this->dependencies = array('serendipity_event_freetag' => 'keep');
@@ -222,7 +222,8 @@ class serendipity_plugin_freetag extends serendipity_plugin
                                                serendipity_db_bool($this->get_config('use_flash')), 
                                                serendipity_db_bool($this->get_config('flash_bg_trans', true)), 
                                                $this->get_config('flash_tag_color', 'ff6600'), $this->get_config('flash_bg_color', 'ffffff'),
-                                               $this->get_config('flash_width', 190), $this->get_config('flash_speed', 100));
+                                               $this->get_config('flash_width', 190), $this->get_config('flash_speed', 100),
+                                               $this->get_config('taglink'), $this->get_config('template'), $this->get_config('xml_image','img/xml.gif'));
     }
 
     function cleanup() {

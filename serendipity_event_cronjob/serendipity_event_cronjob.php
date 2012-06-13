@@ -22,7 +22,7 @@ class serendipity_event_cronjob extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_CRONJOB_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '0.6');
+        $propbag->add('version',       '0.7');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '4.1.0'
@@ -122,7 +122,7 @@ class serendipity_event_cronjob extends serendipity_event {
         $r = serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}cronjoblog (timestamp, type, reason) VALUES ($now, '$type', '" . serendipity_db_escape_string($msg) . "')");
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

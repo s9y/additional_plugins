@@ -29,7 +29,7 @@ class serendipity_event_xinha extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_XINHA_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Ziyad Saeed, Garvin Hicking');
-        $propbag->add('version',       '0.6');
+        $propbag->add('version',       '0.7');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',
@@ -91,7 +91,7 @@ class serendipity_event_xinha extends serendipity_event
         return $o;
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

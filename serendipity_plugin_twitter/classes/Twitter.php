@@ -466,7 +466,7 @@ class Twitter {
         return $status;
     }
     
-    function create_status_ago_string($twitter_time_string){
+    static function create_status_ago_string($twitter_time_string){
 
         // Some strtotime versions are not able to handle the long date string. So shorten it!
         $datepart = explode(" ", $twitter_time_string);

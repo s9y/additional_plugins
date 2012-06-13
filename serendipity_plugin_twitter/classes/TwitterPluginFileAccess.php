@@ -19,7 +19,7 @@ class TwitterPluginFileAccess {
         }
     }
 
-    function get_permaplugin_path() {
+    static function get_permaplugin_path() {
         global $serendipity;
 
         // Get configured plugin path:         

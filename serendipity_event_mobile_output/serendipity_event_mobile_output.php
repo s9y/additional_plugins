@@ -14,7 +14,7 @@ TODO:
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
-@define('PLUGIN_EVENT_MOBILE_VERSION','1.01');
+@define('PLUGIN_EVENT_MOBILE_VERSION','1.02');
 @define('PLUGIN_EVENT_MOBILE_AUTHORS','Pelle Boese, Grischa Brockhaus');
 
 @define('PLUGIN_EVENT_MOBILE_TPL_IPHONE','iphone.app');
@@ -81,7 +81,7 @@ class serendipity_event_mobile_output extends serendipity_event
         }        
     } 
 
-    function uninstall() {
+    function uninstall(&$propbag) {
         global $serendipity;
         serendipity_plugin_api::hook_event('backend_cache_purge', $this->title);
         serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);

@@ -70,7 +70,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.39');
+        $propbag->add('version',       '3.40');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -384,7 +384,7 @@ class serendipity_event_freetag extends serendipity_event
         }
     }
 
-    function makeURLTag($tag) {
+    static function makeURLTag($tag) {
         return str_replace('.', '%FF', urlencode($tag));
     }
 
@@ -513,7 +513,7 @@ class serendipity_event_freetag extends serendipity_event
     /*  This method can be called statically.
         Tags should be an array with the key being the tag name, and val being
         the number of occurances. */
-    function displayTags($tags, $xml, $nl, $scaling, $maxSize = 200, $minSize = 100, $useFlash = false, $flashbgtrans = true, $flashtagcolor = 'ff6600', $flashbgcolor = 'ffffff', $flashwidth = 190, $flashspeed = 100)
+    static function displayTags($tags, $xml, $nl, $scaling, $maxSize = 200, $minSize = 100, $useFlash = false, $flashbgtrans = true, $flashtagcolor = 'ff6600', $flashbgcolor = 'ffffff', $flashwidth = 190, $flashspeed = 100, $cfg_taglink, $cfg_template, $xml_image = 'img/xml.gif')
     {
         global $serendipity;
 
@@ -523,12 +523,12 @@ class serendipity_event_freetag extends serendipity_event
 
         static $taglink = null;
         if ($taglink == null) {
-            $taglink = $this->get_config('taglink');
+            $taglink = $cfg_taglink;
         }
 
-        $template =  $this->get_config('template');
+        $template =  $cfg_template;
         if (!$template) {
-            serendipity_event_freetag::renderTags($tags, $xml, $nl, $scaling, $maxSize, $minSize, $useFlash, $flashbgtrans, $flashtagcolor, $flashbgcolor, $flashwidth, $flashspeed, $taglink);
+            serendipity_event_freetag::renderTags($tags, $xml, $nl, $scaling, $maxSize, $minSize, $useFlash, $flashbgtrans, $flashtagcolor, $flashbgcolor, $flashwidth, $flashspeed, $taglink, $xml_image);
         } else {
             arsort($tags);
             $tagsWithLinks = array();
@@ -546,12 +546,12 @@ class serendipity_event_freetag extends serendipity_event
     }
 
 
-     function renderTags($tags, $xml, $nl, $scaling, $maxSize, $minSize, $useFlash, $flashbgtrans, $flashtagcolor, $flashbgcolor, $flashwidth, $flashspeed, $taglink)
+     static function renderTags($tags, $xml, $nl, $scaling, $maxSize, $minSize, $useFlash, $flashbgtrans, $flashtagcolor, $flashbgcolor, $flashwidth, $flashspeed, $taglink, $xml_image = 'img/xml.gif')
      {
         global $serendipity;
 
         $rsslink = $serendipity['serendipityHTTPPath'] . 'rss.php?serendipity%5Btag%5D=';
-        $xmlImg  = serendipity_getTemplateFile($this->get_config('xml_image','img/xml.gif'));
+        $xmlImg  = serendipity_getTemplateFile($xml_image);
 
         $first   = true;
         $biggest = max($tags);
@@ -1188,7 +1188,7 @@ class serendipity_event_freetag extends serendipity_event
 			$eventData = $this->addTags($entry, $tags, $eventData);
 			
 			if ($show_related) {
-				$relatedEntries =& $this->getRelatedEntries($tags, $eventData[$entry]['id']);
+				$relatedEntries = $this->getRelatedEntries($tags, $eventData[$entry]['id']);
 				$eventData = $this->addRelatedEntries($entry, $manyEntries, $relatedEntries, $eventData);
 			}
 		}
@@ -1327,7 +1327,8 @@ class serendipity_event_freetag extends serendipity_event
                                                    serendipity_db_bool($this->get_config('use_flash')),
                                                    serendipity_db_bool($this->get_config('flash_bg_trans', true)),
                                                    $this->get_config('flash_tag_color', 'ff6600'), $this->get_config('flash_bg_color', 'ffffff'),
-                                                   $this->get_config('flash_width', 600), $this->get_config('flash_speed', 100));
+                                                   $this->get_config('flash_width', 600), $this->get_config('flash_speed', 100),
+                                                   $this->get_config('taglink'), $this->get_config('template'), $this->get_config('xml_image','img/xml.gif'));
             $tagout = ob_get_contents();
             ob_end_clean();
             $serendipity['smarty']->assign('freetag_displayTags', $tagout);

@@ -29,7 +29,7 @@ class serendipity_event_lightbox extends serendipity_event {
         $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_NAME);
         $propbag->add('description',    PLUGIN_EVENT_LIGHTBOX_DESC);
         $propbag->add('author',         'Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus');
-        $propbag->add('version',        '1.9.5');
+        $propbag->add('version',        '1.9.6');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',
@@ -130,7 +130,7 @@ class serendipity_event_lightbox extends serendipity_event {
         return true;
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
         static $regex = null;
         static $sub   = null;
@@ -299,7 +299,7 @@ class serendipity_event_lightbox extends serendipity_event {
         serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
     }
 
-    function uninstall() {
+    function uninstall(&$propbag) {
         serendipity_plugin_api::hook_event('backend_cache_purge', $this->title);
         serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
     }

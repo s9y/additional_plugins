@@ -279,16 +279,16 @@ class serendipity_plugin_twitter extends serendipity_plugin {
                     $toall_only = serendipity_db_bool($this->get_config('toall_only', false));
                     $filter_all_user = serendipity_db_bool($this->get_config('filter_all_user', false));
                     
-                    foreach ($xml as $key => $value) {
+                    foreach ($xml as $key => $status) {
                         // Change encoding of update to Visitors language
                         if (LANG_CHARSET!='UTF-8' && function_exists("mb_convert_encoding")) {
                             $status->text = mb_convert_encoding($status->text, LANG_CHARSET, 'auto');
                         }
                         $showit = true;
-                        if ($filter_all_user && preg_match('/@/',$value->text)) $showit=false;
-                        else if ($toall_only && preg_match('/^@/',$value->text)) $showit=false;
+                        if ($filter_all_user && preg_match('/@/',$status->text)) $showit=false;
+                        else if ($toall_only && preg_match('/^@/',$status->text)) $showit=false;
                         if ($showit) {
-                            $str_output[] = '<li class="twitter_update_' . $odd_css . '"><span> ' . $status->text = $api->replace_links_in_status($value->text, $this->get_config('linktext','link'), 'twitter_update_link', 'twitter_user') . '</span><a class="twitter_update_time" href="' . $status_url . $value->id_str . '">' . $this->makeDate($value->created_at,$dateformat) . '</a></li>';
+                            $str_output[] = '<li class="twitter_update_' . $odd_css . '"><span> ' . $status->text = $api->replace_links_in_status($status->text, $this->get_config('linktext','link'), 'twitter_update_link', 'twitter_user') . '</span><a class="twitter_update_time" href="' . $status_url . $status->id_str . '">' . $this->makeDate($status->created_at,$dateformat) . '</a></li>';
                             $odd_css = $odd_css=='odd'?'even':'odd';
                             $counter++;
                         }

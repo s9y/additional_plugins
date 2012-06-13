@@ -25,7 +25,7 @@ class serendipity_event_email_bot_obfuscator extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_EMAIL_BOT_OBFUSCATOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Stephan Manske');
-        $propbag->add('version',       '1.0');
+        $propbag->add('version',       '1.01');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -79,7 +79,7 @@ class serendipity_event_email_bot_obfuscator extends serendipity_event
         serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
     }
 
-    function uninstall() {
+    function uninstall(&$propbag) {
         serendipity_plugin_api::hook_event('backend_cache_purge', $this->title);
         serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
     }
@@ -197,7 +197,7 @@ function anti_email_spam ($text)
 }
 
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

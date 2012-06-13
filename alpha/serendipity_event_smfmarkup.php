@@ -24,7 +24,7 @@ class serendipity_event_smfmarkup extends serendipity_event
         $propbag->add('description',   'SMF Markup');
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.00');
+        $propbag->add('version',       '1.01');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -81,7 +81,7 @@ class serendipity_event_smfmarkup extends serendipity_event
         serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
     }
 
-    function uninstall() {
+    function uninstall(&$propbag) {
         serendipity_plugin_api::hook_event('backend_cache_purge', $this->title);
         serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
     }
@@ -116,7 +116,7 @@ class serendipity_event_smfmarkup extends serendipity_event
         return $input;
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

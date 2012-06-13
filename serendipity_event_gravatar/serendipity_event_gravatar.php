@@ -14,7 +14,7 @@ if (file_exists($probelang)) {
 include dirname(__FILE__) . '/lang_en.inc.php';
 
 // Actual version of this plugin
-@define('PLUGIN_EVENT_GRAVATAR_VERSION', '1.57');
+@define('PLUGIN_EVENT_GRAVATAR_VERSION', '1.58');
 
 // Defines the maximum available method  slots in the configuration.
 @define('PLUGIN_EVENT_GRAVATAR_METHOD_MAX', 6);
@@ -250,7 +250,8 @@ class serendipity_event_gravatar extends serendipity_event
         }
     }
     
-    function event_hook($event, &$bag, &$eventData, &$addData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) 
+    {
         global $serendipity;
         static $cache = null;
         static $method = null;

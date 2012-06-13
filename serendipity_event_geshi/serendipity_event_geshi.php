@@ -80,7 +80,7 @@ class serendipity_event_geshi extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '0.8');
+        $propbag->add('version',       '0.9');
         $propbag->add('event_hooks', array('frontend_display' => true, 'frontend_comment' => true));
         $propbag->add('groups', array('MARKUP'));
 
@@ -146,7 +146,7 @@ class serendipity_event_geshi extends serendipity_event
         return $input;
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

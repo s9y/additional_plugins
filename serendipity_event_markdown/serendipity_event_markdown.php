@@ -30,7 +30,7 @@ class serendipity_event_markdown extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.15');
+        $propbag->add('version',       '1.16');
         $propbag->add('cachable_events', array('frontend_display' => true));
         $propbag->add('event_hooks',   array('frontend_display' => true, 'frontend_comment' => true));
         $propbag->add('groups', array('MARKUP'));
@@ -67,7 +67,7 @@ class serendipity_event_markdown extends serendipity_event
         serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
     }
 
-    function uninstall() {
+    function uninstall(&$propbag) {
         serendipity_plugin_api::hook_event('backend_cache_purge', $this->title);
         serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
     }
@@ -102,7 +102,7 @@ class serendipity_event_markdown extends serendipity_event
     }
 
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         if($this->get_config('MARKDOWN_EXTRA', false)) {

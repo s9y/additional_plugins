@@ -38,7 +38,7 @@ class serendipity_event_backup extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.11');
+        $propbag->add('version',       '0.12');
         $propbag->add('author',       'Alexander \'dma147\' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
@@ -170,8 +170,8 @@ class serendipity_event_backup extends serendipity_event {
 
 
 
-	function uninstall() {
-		global $serendipity;
+    function uninstall(&$propbag) {
+        global $serendipity;
 
         serendipity_db_query("DROP TABLE {$serendipity['dbPrefix']}dma_sqlbackup");
         serendipity_db_query("DROP TABLE {$serendipity['dbPrefix']}dma_htmlbackup");
@@ -1394,7 +1394,7 @@ class serendipity_event_backup extends serendipity_event {
         $this->setupDB();
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

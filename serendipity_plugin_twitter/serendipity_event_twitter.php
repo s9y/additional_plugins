@@ -717,7 +717,7 @@ class serendipity_event_twitter extends serendipity_plugin {
         $title = PLUGIN_EVENT_TWITTER_NAME;
     }
 
-    function event_hook($event, &$bag, &$eventData, &$addData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
         static $cache = null;
         static $method = null;

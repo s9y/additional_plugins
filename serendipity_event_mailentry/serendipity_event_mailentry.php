@@ -19,7 +19,7 @@ class serendipity_event_mailentry extends serendipity_event {
         $propbag->add('name',        PLUGIN_MAILENTRY_NAME);
         $propbag->add('description', PLUGIN_MAILENTRY_DESC);
         $propbag->add('configuration', array('title'));
-        $propbag->add('version',     '1.22');
+        $propbag->add('version',     '1.23');
         $propbag->add('event_hooks',
                       array('frontend_display:html:per_entry' => true));
         $propbag->add('groups', array('FRONTEND_ENTRY_RELATED'));
@@ -50,7 +50,7 @@ class serendipity_event_mailentry extends serendipity_event {
        return str_replace(array("\n", "\r", "\t", "\0"), array('', '', '', ''), $str);
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         switch ($event) {

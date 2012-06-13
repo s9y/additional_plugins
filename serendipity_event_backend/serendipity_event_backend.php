@@ -34,7 +34,7 @@ class serendipity_event_backend extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.5');
+        $propbag->add('version',       '0.6');
         $propbag->add('author',       'Alexander \'dma147\' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
@@ -68,7 +68,7 @@ class serendipity_event_backend extends serendipity_event {
         $title = PLUGIN_BACKEND_TITLE;
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

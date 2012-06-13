@@ -14,7 +14,7 @@ if (file_exists($probelang)) {
 include_once dirname(__FILE__) . '/lang_en.inc.php';
 include_once dirname(__FILE__) . '/podcast_player.php';
 
-@define("SERENDIPITY_EVENT_PODCAST_VERSION", "1.35");
+@define("SERENDIPITY_EVENT_PODCAST_VERSION", "1.36");
 
 class serendipity_event_podcast extends serendipity_event {
 /**
@@ -422,7 +422,7 @@ class serendipity_event_podcast extends serendipity_event{
     /**
     @access public
     */
-    function event_hook($event, &$bag, &$eventData, &$addData){
+    function event_hook($event, &$bag, &$eventData, $addData = null){
         global $serendipity;
         static $use_player = null;
         static $firstmedia_only = null;

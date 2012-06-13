@@ -19,7 +19,7 @@ class serendipity_event_dpsyntaxhighlighter extends serendipity_event {
 
     var $title = PLUGIN_EVENT_DPSYNTAXHIGHLIGHTER_NAME;
 
-  var $version = '2.1.364'; // helps to be easily able to upgrade on upstream upgrade
+  var $version = '2.1.365'; // helps to be easily able to upgrade on upstream upgrade
   
   /* _get_directory_match support function:
    * read files from $dir that match regexp $tomatch and store matches in 
@@ -91,7 +91,7 @@ class serendipity_event_dpsyntaxhighlighter extends serendipity_event {
         return true;
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
         static $regex = null;
         static $sub   = null;

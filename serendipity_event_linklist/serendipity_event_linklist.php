@@ -30,7 +30,7 @@ class serendipity_event_linklist extends serendipity_event {
                                             'external_plugin'                                 => true
                                             ));
         $propbag->add('author',        'Matthew Groeninger, Omid Mottaghi Rad');
-        $propbag->add('version',       '1.98');
+        $propbag->add('version',       '1.99');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -439,7 +439,7 @@ class serendipity_event_linklist extends serendipity_event {
         $this->set_config('category','custom');
     }
 
-    function uninstall() {
+    function uninstall(&$propbag) {
         global $serendipity;
         // Drop table
         $q   = "DROP TABLE ".$serendipity['dbPrefix']."links";

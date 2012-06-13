@@ -76,7 +76,7 @@ class serendipity_event_cal extends serendipity_event {
                                         )
                     );
         $propbag->add('author',         'Ian (Timbalu)');
-        $propbag->add('version',        '1.66');
+        $propbag->add('version',        '1.67');
         $propbag->add('groups',         array('FRONTEND_FEATURES', 'BACKEND_FEATURES'));
         $propbag->add('requirements',   array(
                                             'serendipity' => '1.4',
@@ -2375,7 +2375,7 @@ class serendipity_event_cal extends serendipity_event {
         }
     }
 
-    function uninstall() { 
+    function uninstall(&$propbag) {
         global $serendipity;
         
         if(isset($serendipity['eventcaldroptable']) === true) { 

@@ -54,7 +54,7 @@ class serendipity_common_openid {
         exit;
     }
 
-    function reauth_openid() {
+    static function reauth_openid() {
          global $serendipity;
          if (isset($_SESSION['serendipityOpenID']) && $_SESSION['serendipityOpenID']) {
               $serendipity['serendipityUser']         = $_SESSION['serendipityUser'];

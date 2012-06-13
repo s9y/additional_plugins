@@ -21,7 +21,7 @@ class serendipity_event_google_analytics extends serendipity_event {
 		$propbag->add ('description', PLUGIN_EVENT_GOOGLE_ANALYTICS_DESC);
 		$propbag->add ('stackable', false);
 		$propbag->add ('author', '<a href="http://blog.kleinerChemiker.net/" target="_blank">kleinerChemiker</a>');
-		$propbag->add ('version', '1.2.9');
+		$propbag->add ('version', '1.3.0');
 		$propbag->add ('requirements', array ('serendipity' => '0.8', 'smarty' => '2.6.7', 'php' => '4.1.0' ));
 		$propbag->add ('groups', array ('STATISTICS' ));
 		$propbag->add ('cachable_events', array ('frontend_display' => true ));
@@ -120,8 +120,8 @@ class serendipity_event_google_analytics extends serendipity_event {
 		serendipity_plugin_api::hook_event ('backend_cache_entries', $this->title);
 	}
 	
-	function uninstall() {
-		serendipity_plugin_api::hook_event ('backend_cache_purge', $this->title);
+    function uninstall(&$propbag) {
+	    serendipity_plugin_api::hook_event ('backend_cache_purge', $this->title);
 		serendipity_plugin_api::hook_event ('backend_cache_entries', $this->title);
 	}
 	

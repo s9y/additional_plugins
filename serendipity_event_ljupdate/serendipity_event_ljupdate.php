@@ -26,7 +26,7 @@ class serendipity_event_ljupdate extends serendipity_event
             'php'         => '4.1.0'
         ));
         $propbag->add('author', 'Kaustubh Srikanth, Ivan Makhonin');
-        $propbag->add('version', '1.12');
+        $propbag->add('version', '1.13');
 
 
         $propbag->add('event_hooks',    array(
@@ -256,7 +256,7 @@ class serendipity_event_ljupdate extends serendipity_event
         echo "Updating finished.<br />\n";
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

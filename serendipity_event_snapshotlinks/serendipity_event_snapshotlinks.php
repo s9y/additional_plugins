@@ -27,7 +27,7 @@ class serendipity_event_snapshotlinks extends serendipity_plugin
         $propbag->add('name',          PLUGIN_SNAPSHOTLINKS_NAME);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Grischa Brockhaus');
-        $propbag->add('version',       '1.02');
+        $propbag->add('version',       '1.03');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -225,7 +225,7 @@ class serendipity_event_snapshotlinks extends serendipity_plugin
         $title       = PLUGIN_SNAPSHOTLINKS_NAME;
     }
 
-    function event_hook($event, &$bag, &$eventData, &$addData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
         static $state, $locked;
 

@@ -24,7 +24,7 @@ class serendipity_event_mimetex extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_MIMETEX_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Matthew Groeninger');
-        $propbag->add('version',       '1.2');
+        $propbag->add('version',       '1.3');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -170,7 +170,7 @@ class serendipity_event_mimetex extends serendipity_event
         $title = $this->title;
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

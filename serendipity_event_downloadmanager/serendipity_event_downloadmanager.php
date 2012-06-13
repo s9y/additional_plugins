@@ -48,7 +48,7 @@ class serendipity_event_downloadmanager extends serendipity_event {
             'php'         => '5.0.0'
         ));
 
-        $propbag->add('version',       '0.27');
+        $propbag->add('version',       '0.28');
         $propbag->add('author',       'Alexander \'dma147\' Mieland, Grischa Brockhaus, Ian (Timbalu)');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
@@ -414,7 +414,7 @@ class serendipity_event_downloadmanager extends serendipity_event {
 
     }
 
-    function uninstall() {
+    function uninstall(&$propbag) {
         global $serendipity;
 
         serendipity_db_query("DROP TABLE {$serendipity['dbPrefix']}dma_downloadmanager_files");
@@ -1708,7 +1708,7 @@ class serendipity_event_downloadmanager extends serendipity_event {
         $this->setupDB();
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

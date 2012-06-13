@@ -23,7 +23,7 @@ class serendipity_event_autoupdate extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_AUTOUPDATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli');
-        $propbag->add('version',       '0.2');
+        $propbag->add('version',       '0.3');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8'
         ));
@@ -43,7 +43,7 @@ class serendipity_event_autoupdate extends serendipity_event {
     }*/
 
 
-    function event_hook($event, &$bag, &$eventData, $addData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

@@ -25,7 +25,7 @@ class serendipity_event_xmlrpc extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_XMLRPC_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.51');
+        $propbag->add('version',       '1.52');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -190,7 +190,7 @@ class serendipity_event_xmlrpc extends serendipity_event
     }
 
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity, $HTTP_RAW_POST_DATA;
 
         $hooks = &$bag->get('event_hooks');

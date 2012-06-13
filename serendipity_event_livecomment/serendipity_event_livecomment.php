@@ -29,7 +29,7 @@ class serendipity_event_livecomment extends serendipity_event
             'serendipity' => '1.0',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '2.5.4');
+        $propbag->add('version',       '2.5.5');
         $propbag->add('event_hooks',   array(
         	'frontend_footer'               => true,
         	'external_plugin'               => true,
@@ -138,7 +138,7 @@ class serendipity_event_livecomment extends serendipity_event
         }
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
         static $variant = null;
 

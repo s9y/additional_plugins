@@ -18,7 +18,7 @@ class serendipity_event_flickrcss extends serendipity_event
         $propbag->add('description', PLUGIN_EVENT_FLICKRCSS_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Michael Kaiser');
-        $propbag->add('version',     '1.04');
+        $propbag->add('version',     '1.05');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.9',
@@ -41,7 +41,7 @@ class serendipity_event_flickrcss extends serendipity_event
         $title = PLUGIN_EVENT_FLICKRCSS;
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
 		global $serendipity;
 		
 		$hooks = &$bag->get('event_hooks');

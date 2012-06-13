@@ -31,7 +31,7 @@ class serendipity_event_autotitle extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_AUTOTITLE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda');
-        $propbag->add('version',       '0.1.9');
+        $propbag->add('version',       '0.1.10');
         $propbag->add('requirements',  array(
             'php'         => '4.1.0'
         ));
@@ -69,7 +69,7 @@ class serendipity_event_autotitle extends serendipity_event
         serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
     }
 
-    function uninstall() {
+    function uninstall(&$propbag) {
         serendipity_plugin_api::hook_event('backend_cache_purge', $this->title);
         serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
     }
@@ -97,7 +97,7 @@ class serendipity_event_autotitle extends serendipity_event
         return true;
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

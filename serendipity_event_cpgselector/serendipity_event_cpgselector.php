@@ -33,7 +33,7 @@ class serendipity_event_cpgselector extends serendipity_event
 
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Matthew Maude (modified by Jim Davies)');
-        $propbag->add('version',       '2.06');
+        $propbag->add('version',       '2.07');
         $propbag->add('requirements',  array('serendipity' => '0.8'));
 
 		$propbag->add('configuration', array('server', 'database', 'prefix', 'user', 'password', 'path', 'button', 'usenormal', 'maxwidth', 'maxheight'));
@@ -134,7 +134,7 @@ class serendipity_event_cpgselector extends serendipity_event
 
 	}
 
-	function event_hook($event, &$bag, &$eventData) {
+	function event_hook($event, &$bag, &$eventData, $addData = null) {
 
 		global $serendipity;
 		global $CPG;

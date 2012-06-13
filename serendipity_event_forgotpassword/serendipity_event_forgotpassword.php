@@ -23,7 +23,7 @@ class serendipity_event_forgotpassword extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_FORGOTPASSWORD_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Omid Mottaghi');
-        $propbag->add('version',       '0.11');
+        $propbag->add('version',       '0.12');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9.1',
             'smarty'      => '2.6.7',
@@ -65,7 +65,7 @@ class serendipity_event_forgotpassword extends serendipity_event
         return true;
     }
 
-    function event_hook($event, &$bag, &$eventData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');
@@ -262,8 +262,8 @@ class serendipity_event_forgotpassword extends serendipity_event
         serendipity_db_schema_import($q);
     }
 
-    function uninstall(){
-    global $serendipity;
+    function uninstall(&$propbag) {
+        global $serendipity;
 
     // Drop tables
         $q = "DROP TABLE ".$serendipity['dbPrefix']."forgotpassword";

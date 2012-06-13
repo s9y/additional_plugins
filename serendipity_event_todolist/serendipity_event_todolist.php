@@ -24,7 +24,7 @@ if (file_exists($probelang)) {
 
 include dirname(__FILE__) . '/lang_en.inc.php';
 
-@define('PLUGIN_EVENT_TODOLIST_DBVERSION', '1.11');
+@define('PLUGIN_EVENT_TODOLIST_DBVERSION', '1.12');
 
 class serendipity_event_todolist extends serendipity_event {
 
@@ -1214,7 +1214,7 @@ class serendipity_event_todolist extends serendipity_event {
         $this->set_config('catbd','done');
     }
 
-    function uninstall() {
+    function uninstall(&$propbag) {
         global $serendipity;
         // Don't Drop table to avoid losing data.
         // $q   = "DROP TABLE ".$serendipity['dbPrefix']."percentagedone";

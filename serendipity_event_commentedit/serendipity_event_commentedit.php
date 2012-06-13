@@ -30,7 +30,7 @@ class serendipity_event_commentedit extends serendipity_event
             'serendipity' => '1.5',
             'php'         => '5.2.0'
         ));
-        $propbag->add('version',       '0.2.2');
+        $propbag->add('version',       '0.2.3');
         $propbag->add('event_hooks',   array(
         	'frontend_saveComment_finish'               => true,
         	'fetchcomments'                           => true,
@@ -82,7 +82,7 @@ class serendipity_event_commentedit extends serendipity_event
         }
     }
 
-    function event_hook($event, &$bag, &$eventData, $addData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

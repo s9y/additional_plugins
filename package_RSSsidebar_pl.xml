@@ -86,7 +86,7 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_freetag&lt;br /&gt;Tagi&lt;/b&gt;&lt;br /&gt;Pokazuje listę tagów zdefiniowanych dla wpisów&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 24 Dec 2011 23:42:32 +0000</pubDate>
+<pubDate>Thu, 14 Jun 2012 00:32:03 +0000</pubDate>
 <guid isPermaLink="false">serendipity_plugin_freetag</guid>
 </item>
 <item>
@@ -167,7 +167,7 @@
 <category>Sidebar Plugins</category>
 <author>Jaap Boerma ( j@webbict.com ), Tadashi Jokagi &lt;elf2000@users.sourceforge.net&gt;, Ian (Timbalu)</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_guestbook&lt;br /&gt;Guestbook Sidebar&lt;/b&gt;&lt;br /&gt;Display the latest guestbook items in the sidebar&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Fri, 27 Jan 2012 01:31:36 +0000</pubDate>
+<pubDate>Thu, 14 Jun 2012 00:32:09 +0000</pubDate>
 <guid isPermaLink="false">serendipity_plugin_guestbook</guid>
 </item>
 <item>
@@ -470,7 +470,7 @@
 <category>Sidebar Plugins</category>
 <author>Grischa Brockhaus, Damian Luszczymak, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_twitter&lt;br /&gt;Twitter Timeline&lt;/b&gt;&lt;br /&gt;Show your current Twitter entries&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 25 Jan 2012 01:32:33 +0000</pubDate>
+<pubDate>Thu, 14 Jun 2012 00:32:24 +0000</pubDate>
 <guid isPermaLink="false">serendipity_plugin_twitter</guid>
 </item>
 <item>

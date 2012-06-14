@@ -703,9 +703,9 @@
 <description>Zeigt alle vorhandenen Tags</description>
 <maintainers><maintainer><name>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.01</version>
+  <version>3.02</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-12-24</date>
+  <date>2012-06-14</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <dir name="UTF-8">
@@ -1264,9 +1264,9 @@
 <description>Zeige die letzten Einträge des Gästebuchs</description>
 <maintainers><maintainer><name>Jaap Boerma ( j@webbict.com ), Tadashi Jokagi &lt;elf2000@users.sourceforge.net&gt;, Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.19</version>
+  <version>1.20</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2012-01-27</date>
+  <date>2012-06-14</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="UTF-8">
@@ -2137,7 +2137,7 @@
 <description>Dieses Plugin zeigt eine Google Map oder Openstreetmap mit geocodierten Einträgen an.</description>
 <maintainers><maintainer><name>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.29</version>
+  <version>1.30</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
   <date>2011-12-25</date>
   <filelist>
@@ -3050,9 +3050,9 @@
 <description>Zeigt die aktuellsten Twitter-Einträge an</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Damian Luszczymak, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.43</version>
+  <version>1.44</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-01-25</date>
+  <date>2012-06-14</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="classes">

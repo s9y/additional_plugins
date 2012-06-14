@@ -1,7 +1,7 @@
 <?php
 class GeoTagDb {
     
-    function delete($entryId, $supported_properties) {
+    static function delete($entryId, $supported_properties) {
         global $serendipity;
         
         if (empty($entryId)) return;
@@ -11,7 +11,7 @@ class GeoTagDb {
         }
     }
 
-    function addEntryProperties($entryId, $supported_properties, &$properties, $deleteMissing = true) {
+    static function addEntryProperties($entryId, $supported_properties, &$properties, $deleteMissing = true) {
         global $serendipity;
         // Get existing data
         $property = serendipity_fetchEntryProperties($entryId);

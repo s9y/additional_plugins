@@ -1,3 +1,7 @@
+1.30/31 (brockhaus)
+----------------------------------
+* Compatibility fixes.
+
 1.29 (brockhaus)
 ----------------------------------
 * If post was updated the location was cleared.

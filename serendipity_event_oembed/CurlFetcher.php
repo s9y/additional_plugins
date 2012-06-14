@@ -1,7 +1,7 @@
 <?php
 class CurlFetcher {
 
-    public function file_get_contents($fileurl, $allow_curl =TRUE) {
+    static public function file_get_contents($fileurl, $allow_curl =TRUE) {
         $max_redirects = 5;
         if (defined('OEMBED_USE_CURL') && OEMBED_USE_CURL && defined('CURLOPT_URL')) {
             $ch = curl_init();
@@ -32,7 +32,7 @@ class CurlFetcher {
      * - maxredirect is less or equal zero: no follow redirections
      * (see: http://php.net/manual/en/function.curl-setopt.php)
      */
-    private function curl_exec_follow(/*resource*/ $ch, /*int*/ &$maxredirect = null) {
+    static private function curl_exec_follow(/*resource*/ $ch, /*int*/ &$maxredirect = null) {
         $mr = $maxredirect === null ? 5 : intval($maxredirect);
         if (ini_get('open_basedir') == '' && ini_get('safe_mode' == 'Off')) {
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, $mr > 0);

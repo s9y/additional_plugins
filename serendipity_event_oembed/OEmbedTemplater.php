@@ -1,7 +1,8 @@
 <?php
 class OEmbedTemplater {
+
 	/* get the right template (s9y template path, then plugin path) and expand it */
-    function fetchTemplate($filename, $oembed, $url) { 
+    static function fetchTemplate($filename, $oembed, $url) { 
         global $serendipity;
 
         if (!is_object($serendipity['smarty']))

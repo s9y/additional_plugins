@@ -4,7 +4,7 @@
 
 class OEmbedDatabase {
 
-    function save_oembed($url, $oembed) {
+    static function save_oembed($url, $oembed) {
         if (empty($url) || !isset($oembed)) return false;
         if (isset($oembed->html)) {
             $oembed->html = OEmbedDatabase::cleanup_html($oembed->html);
@@ -18,7 +18,7 @@ class OEmbedDatabase {
         return $oembed;
     }
     
-    function load_oembed($url) {
+    static function load_oembed($url) {
         global $serendipity;
         if (empty($url)) return null;
         
@@ -42,13 +42,14 @@ class OEmbedDatabase {
         }
         return null;
     }
-    function clear_cache() {
+    
+    static function clear_cache() {
         global $serendipity;
         $q = "delete from {$serendipity['dbPrefix']}" . PLUGIN_OEMBED_DATABASEVNAME;
         serendipity_db_schema_import($q);
     }
     
-    function install(&$obj) {
+    static function install(&$obj) {
         global $serendipity;
 
         if (!OEmbedDatabase::table_created(PLUGIN_OEMBED_DATABASEVNAME)) {
@@ -71,7 +72,7 @@ class OEmbedDatabase {
     }
     
     
-    function table_created($table = PLUGIN_OEMBED_DATABASEVNAME)  {
+    static function table_created($table = PLUGIN_OEMBED_DATABASEVNAME)  {
         global $serendipity;
 
         $q = "select count(*) from {$serendipity['dbPrefix']}" . $table;
@@ -84,7 +85,7 @@ class OEmbedDatabase {
         }
     }
     
-    function cleanup_html( $str ) {
+    static function cleanup_html( $str ) {
         $str = trim($str);
         // Clear unicode stuff 
         $str=str_ireplace("\u003C","<",$str);

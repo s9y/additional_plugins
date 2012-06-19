@@ -8,7 +8,7 @@
  
 class TwitterPluginDbAccess {
 
-    function save_highest_id($article_id, $highest_id, $last_info) {
+    static function save_highest_id($article_id, $highest_id, $last_info) {
         global $serendipity;
         
         $now = time();
@@ -23,7 +23,7 @@ class TwitterPluginDbAccess {
         serendipity_db_query($update);
     }
     
-    function find_highest_twitterid() {
+    static function find_highest_twitterid() {
         global $serendipity;
         $query = "SELECT lasttweetid FROM {$serendipity['dbPrefix']}tweetbackhistory";
         $rows = serendipity_db_query($query);
@@ -36,7 +36,7 @@ class TwitterPluginDbAccess {
         return $highest_id;
     }
 
-    function load_tweetback_info($article_id, $obj = '') {
+    static function load_tweetback_info($article_id, $obj = '') {
         global $serendipity;
 
         // Assure, all tables exist!
@@ -97,7 +97,7 @@ class TwitterPluginDbAccess {
         }
     }
 
-    function table_created($table = 'tweetbackhistory')  {
+    static function table_created($table = 'tweetbackhistory')  {
         global $serendipity;
 
         $q = "select count(*) from {$serendipity['dbPrefix']}" . $table;
@@ -110,7 +110,7 @@ class TwitterPluginDbAccess {
         }
     }
 
-    function install(&$obj) {
+    static function install(&$obj) {
         global $serendipity;
 
         if ((int)$obj->get_config('tweetbackhistory_v') < 1) {
@@ -157,7 +157,7 @@ class TwitterPluginDbAccess {
         $row = serendipity_db_query($q, true, 'num');
     }
     
-    function entry_deleted($entryid) {
+    static function entry_deleted($entryid) {
         global $serendipity;
         $q = "delete from {$serendipity['dbPrefix']}tweetbackhistory where entryid=$entryid";
         serendipity_db_schema_import($q);

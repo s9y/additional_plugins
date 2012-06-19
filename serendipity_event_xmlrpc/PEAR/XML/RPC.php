@@ -1388,7 +1388,7 @@ class XML_RPC_Message extends XML_RPC_Base
      * @link   http://php.net/xml_parser_create
      * @since  Method available since Release 1.2.0
      */
-    function getEncoding($data)
+    static function getEncoding($data)
     {
         global $XML_RPC_defencoding;
 

@@ -334,7 +334,10 @@ class serendipity_event_commentspice extends serendipity_event
                     $this->commentSaved($eventData, $addData);
                     break;
                 case 'frontend_footer':
-                    $this->printHeader();
+                    // Comment header code only if in single article mode
+                    if (!empty($eventData['GET']['id'])) {
+                        $this->printHeader();
+                    }
                     break;
                 case 'frontend_display':        
                     $this->spiceComment($eventData, $addData);
@@ -415,8 +418,9 @@ class serendipity_event_commentspice extends serendipity_event
 <script type=\"text/javascript\" src=\"{$path}frontend_commentspice.js\"></script>
 ";
         }
+        
         if (serendipity_db_bool($this->get_config('followme_widget', false))) {
-            echo '<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>' . "\n";
+            echo '<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>' . "\n";
         }
     }
     function commentSaved($eventData, $addData) {
@@ -726,7 +730,7 @@ class serendipity_event_commentspice extends serendipity_event
         if (!isset($eventData['comment'])) {
             return true;                            
         }
-        // Called from sidbar:
+        // Called from sidebar:
         if ($addData['from'] == 'serendipity_plugin_comments:generate_content') {
             return true;
         }

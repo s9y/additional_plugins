@@ -13,7 +13,7 @@ function escape($message) {
 
 class serendipity_common_openid {
 
-    function redir_openidserver($openid_url, $store_path, $wfFlag=1) {
+    static function redir_openidserver($openid_url, $store_path, $wfFlag=1) {
         global $serendipity;
 
         $path_extra = dirname(__FILE__).DIRECTORY_SEPARATOR.'PHP-openid/';
@@ -70,7 +70,7 @@ class serendipity_common_openid {
          return false;
     }
     
-    function authenticate_openid($getData, $store_path, $returnData = false) {
+    static function authenticate_openid($getData, $store_path, $returnData = false) {
         global $serendipity;
 
         $trust_root = $serendipity['baseURL'] . 'serendipity_admin.php';
@@ -161,7 +161,7 @@ class serendipity_common_openid {
         return false;
    }
 
-    function getOpenID($userID, $checkExist=false) {
+    static function getOpenID($userID, $checkExist=false) {
         global $serendipity;
         $q = "SELECT openid_url, authorid FROM {$serendipity['dbPrefix']}openid_authors WHERE authorid = " . (int)$userID;
         $author = serendipity_db_query($q, true);
@@ -175,7 +175,7 @@ class serendipity_common_openid {
         return '';
     }
 
-    function updateOpenID($openid_url, $authorID) {
+    static function updateOpenID($openid_url, $authorID) {
         global $serendipity;
 
         if (!is_array(serendipity_db_query("SELECT username FROM {$serendipity['dbPrefix']}openid_authors LIMIT 1", true, 'both', false, false, false, true))) {
@@ -201,7 +201,7 @@ class serendipity_common_openid {
         return ($retVal===true)?true:false;
     }
 
-    function load_account_selectbox() {
+    static function load_account_selectbox() {
         global $serendipity;
         
         $query = "SELECT DISTINCT a.realname, a.username, oa.openid_url
@@ -229,7 +229,7 @@ class serendipity_common_openid {
        return $result;
     }
     
-    function loginform($url, $hidden = array(), $useAutorSelector = true) {
+    static function loginform($url, $hidden = array(), $useAutorSelector = true) {
         global $serendipity;
         
         $imgopenid = $serendipity['baseURL'] . 'index.php?/plugin/openid.png';

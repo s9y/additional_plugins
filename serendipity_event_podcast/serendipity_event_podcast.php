@@ -458,6 +458,7 @@ class serendipity_event_podcast extends serendipity_event{
             case 'frontend_header':
             case 'backend_header':
                 echo '<script type="text/javascript" src="' . $this->GetPluginHttpPath() . '/player/flowplayer/example/flowplayer-3.2.6.min.js"></script>' . "\n";
+                $this->log("Init\n--------------------------------------------------------------------------------------\n");
             break; 
 
             //////////////////////// RSS Entries ////////////////////////
@@ -1255,7 +1256,7 @@ class serendipity_event_podcast extends serendipity_event{
         
         if (!$this->debug) return;
         $fp = fopen($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/serendipity_event_podcast' . '.log','a');
-        fwrite($fp, $message . "\n");
+        fwrite($fp, date("d.m.Y H:i") . " - " . $_SERVER['REQUEST_URI'] . " - " . $_SERVER['REMOTE_ADDR'] . " - " . $message . "\n");
         fclose($fp);
     }
     

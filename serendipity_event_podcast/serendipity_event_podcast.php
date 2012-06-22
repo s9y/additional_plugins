@@ -14,7 +14,7 @@ if (file_exists($probelang)) {
 include_once dirname(__FILE__) . '/lang_en.inc.php';
 include_once dirname(__FILE__) . '/podcast_player.php';
 
-@define("SERENDIPITY_EVENT_PODCAST_VERSION", "1.36");
+@define("SERENDIPITY_EVENT_PODCAST_VERSION", "1.37");
 
 class serendipity_event_podcast extends serendipity_event {
 /**
@@ -849,6 +849,8 @@ class serendipity_event_podcast extends serendipity_event{
     }
     
     function getFileMime($ext, $fallback = '') {
+        $this->log("getFileMime: $ext, $fallback");
+
         switch(strtolower($ext)) {
             case 'm4a':
                 return 'audio/mp4';
@@ -872,7 +874,7 @@ class serendipity_event_podcast extends serendipity_event{
     function GetFileInfo($url) {
         global $serendipity;
 
-        $this->log("GetFileInfo");
+        $this->log("GetFileInfo for $url");
         
         $fileInfo = array();
 
@@ -893,7 +895,7 @@ class serendipity_event_podcast extends serendipity_event{
 
             $cache = new Cache_Lite($cacheOptions);
             if ($fileInfo = $cache->get($cacheId)){
-                $this->log("GetFileInfo: Cached infos found");
+                $this->log("GetFileInfo: Cached infos found in file $cacheId");
                 //return directly on cache hit
                 return $fileInfo;
             }
@@ -917,6 +919,8 @@ class serendipity_event_podcast extends serendipity_event{
         $localMediaFile = $serendipity['serendipityPath'] . $rel_path;
 
         $fileInfo['localMediaFile'] = $localMediaFile;
+
+        $this->log("Absolute_url: $absolute_url - Relative: $localMediaFile");
         
         // Remember extension of file
         list($sName, $fileInfo['extension']) = serendipity_parseFileName($localMediaFile);
@@ -946,6 +950,7 @@ class serendipity_event_podcast extends serendipity_event{
                 serendipity_request_start();
             }
 
+            $this->Log("Execute HTTP_Request for $url");
             $http = new HTTP_Request($url);
             $http->setMethod(HTTP_REQUEST_METHOD_HEAD);
 
@@ -953,6 +958,7 @@ class serendipity_event_podcast extends serendipity_event{
                 $fileInfo['length'] = intval($http->getResponseHeader('content-length'));
                 $fileInfo['md5']    = $http->getResponseHeader('content-md5'); //will return false if not present
                 $fileInfo['mime']   =$http->getResponseHeader('content-type');
+                $this->Log("Filling MIME with HTTP Header: " . print_r($fileInfo, true));
             }
 
             if (function_exists('serendipity_request_end')) {
@@ -1042,6 +1048,8 @@ class serendipity_event_podcast extends serendipity_event{
     function GetID3Infos($filename, &$fileInfoArray) {
         // Set default fileinformation:
         $fileInfoArray['mime'] = serendipity_guessMime($fileInfoArray['extension']);
+
+        $this->log("GetID3Infos, Guessed mime: " . $fileInfoArray['mime']);
         $fileInfoArray['width']     = 0;
         $fileInfoArray['height']    = 0;
 
@@ -1085,6 +1093,7 @@ class serendipity_event_podcast extends serendipity_event{
             
         } else {
             $fileInfoArray['mime'] 		= 'error/filenotfound';
+            $this->log("File $filename not found");
         } 
     }
     

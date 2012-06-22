@@ -1,4 +1,7 @@
 # $Id$
+1.37:
+  * Increased debug verbosity
+  
 1.35:
   * Use XML compliant controls=1 syntax
   

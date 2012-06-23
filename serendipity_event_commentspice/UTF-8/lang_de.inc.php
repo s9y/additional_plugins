@@ -1,7 +1,7 @@
 <?php
 
 @define('PLUGIN_EVENT_COMMENTSPICE_TITLE', 'Comment Spice');
-@define('PLUGIN_EVENT_COMMENTSPICE_DESC',  'Würze Deinen Kommentarbereich mit Extras wie einem Twitterlink oder einem Link auf den letzten Artikel des Kommentators.');
+@define('PLUGIN_EVENT_COMMENTSPICE_DESC',  'Würze Deinen Kommentarbereich mit Extras wie einem Twitterlink oder einem Link auf den letzten Artikel des Kommentators. Implementiert auch einige AntiSpam Routinen wie einen "Honeypot" und nofollow nach bestimmten Regeln.');
 
 @define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_TWITTERNAME', 'Twittername');
 @define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_ANNOUNC_RSS', 'Artikel bewerben');
@@ -60,6 +60,17 @@
 @define('PLUGIN_EVENT_COMMENTSPICE_REQUIRED_FIELDS', 'Pflichtfelder');
 @define('PLUGIN_EVENT_COMMENTSPICE_REQUIRED_FIELDS_DESC', 'Geben Sie die Liste von Pflichtfeldern bei der Abgabe eines Kommentars ein. Mehrere Felder können mit "," getrennt werden. Verfügbare Felder sind: name, email, url, replyTo, comment');
 @define('PLUGIN_EVENT_COMMENTSPICE_REASON_REQUIRED_FIELD', 'Sie haben das Feld "%s" nicht ausgefüllt!');
+
+@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM', 'Anti Spam');
+@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_HONEYPOT', 'Honeypot einsetzen');
+@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_HONEYPOT_DESC', 'Ein "Honeypot" ist ein verstecktes Kommentar Feld, das leer gelasen werden soll. Da Bots aber dazu tendieren, alle vorgefundenen Felder auszufüllen, ist dies ein einfacher und unkritischer Weg, viele der Bots auszusperren.');
+@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGTYPE', 'Spam Log Typ');
+@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGTYPE_DESC', 'Wohin sollen Kommentare, die von CommentSpice gefunden wurden, geloggt werden?');
+@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGTYPE_NONE', 'Nicht loggen');
+@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGTYPE_FILE', 'Textdatei');
+@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGTYPE_DATABASE', 'Spamlog Datenbank Tabelle');
+@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGFILE', 'Logdatei');
+@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGFILE_DESC', 'Wohin soll das Textfile für die Logs gespeichert werden?');
 
 @define('PLUGIN_EVENT_COMMENTSPICE_EXPERTSETTINGS', 'Erweiterte Einstellungen anzeigen');
 @define('PLUGIN_EVENT_COMMENTSPICE_STANDARDSETTINGS', 'Grundeinstellungen anzeigen');

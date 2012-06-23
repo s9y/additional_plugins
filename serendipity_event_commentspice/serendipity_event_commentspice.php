@@ -47,7 +47,7 @@ class serendipity_event_commentspice extends serendipity_event
             'css'				=> true,
             'avatar_fetch_userinfos' => true,
         ));
-        $propbag->add('groups', array('FRONTEND_VIEWS'));
+        $propbag->add('groups', array('FRONTEND_VIEWS','ANTISPAM'));
         
         $config_switchexpert = array('expert_switch');
         $config_twitter = array('title_twitter','twitterinput','followme_widget', 'followme_widget_counter','followme_widget_dark');

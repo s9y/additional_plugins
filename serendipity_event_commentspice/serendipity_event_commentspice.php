@@ -1127,7 +1127,7 @@ select.commentspice_rss_input option {
         
         switch($method) {
             case 'file':
-            	$reason = "CommentSpice Honeypot: " + $reason;
+            	$reason = "Honeypot=$reason";
                 if (empty($logfile)) {
                     return;
                 }

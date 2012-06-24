@@ -562,7 +562,7 @@ class serendipity_event_commentspice extends serendipity_event
             $this->rememberInputs();
             // Check for honeypot:
             $do_honepot = serendipity_db_bool($this->get_config('do_honeypot',true));
-            if ($do_honepot && !empty($serendipity['POST']['phone']) ) {
+            if ($do_honepot && (!empty($serendipity['POST']['phone']) || $serendipity['POST']['phone']=='0') ) {
                 $logfile = $this->get_config('spamlogfile', $serendipity['serendipityPath'] . 'spamblock.log');
                 $this->spamlog($logfile, $eventData['id'], 'REJECTED', $serendipity['POST']['phone'], $addData);
                 $eventData = array('allow_comments' => false);

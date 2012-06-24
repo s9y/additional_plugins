@@ -35,9 +35,9 @@
 @define('PLUGIN_EVENT_COMMENTSPICE_RULE_DOFOLLOW_COMMENTCOUNT_DESC', 'Minimale Anzahl von Kommentaren, die der Kommentator geschrieben haben muss, um dofollow Links frei zu schalten. 0 bedeutet: Immer frei schalten.');
 @define('PLUGIN_EVENT_COMMENTSPICE_RULE_DOFOLLOW_COMMENTLENGTH', 'Minimale Kommentarlänge, um dofollow Links frei zu schalten');
 @define('PLUGIN_EVENT_COMMENTSPICE_RULE_DOFOLLOW_COMMENTLENGTH_DESC', 'Minimale Kommentarlänge, um dofollow Links frei zu schalten. 0 bedeutet: Kommentarlänge egal.');
-@define('PLUGIN_EVENT_COMMENTSPICE_ENABLED', 'enabled');
-@define('PLUGIN_EVENT_COMMENTSPICE_DISABED', 'disabled');
-@define('PLUGIN_EVENT_COMMENTSPICE_RULES', 'use rules');
+@define('PLUGIN_EVENT_COMMENTSPICE_ENABLED', 'angeschaltet');
+@define('PLUGIN_EVENT_COMMENTSPICE_DISABED', 'ausgeschaltet');
+@define('PLUGIN_EVENT_COMMENTSPICE_RULES', 'Regeln verwenden');
 
 @define('PLUGIN_EVENT_COMMENTSPICE_SMARTIFY_TWITTER', 'Twittername Ausgabe smartifizieren');
 @define('PLUGIN_EVENT_COMMENTSPICE_SMARTIFY_TWITTER_DESC', 'Wenn angeschaltet, wird CommentSpice keinen Code für den Twitterlink darstellen sondern wird benötigte Informationen in den Smarty Hash stecken. Damit das funktioniert, muss die comments.tpl angepasst werden. Verfügbare Variablen sind $comment.spice_twitter_name (Twittername, sollte auf Vorhandensein gecheckt werden), $comment.spice_twitter_url (URL der Twitter Timeline), $comment.spice_twitter_nofollow (Nofollow Einstllung für Twitterlinks), $comment.spice_twitter_icon_html (HTML, das das twitter icon darstellt), $comment.spice_twitter_followme (HTML, das das followme widget darstellt).');

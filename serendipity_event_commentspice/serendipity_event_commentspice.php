@@ -913,7 +913,7 @@ class serendipity_event_commentspice extends serendipity_event
         if (serendipity_db_bool($this->get_config('do_honeypot',true))) {
             echo '<div id="serendipity_commentspice_phone" class="serendipity_commentDirection commentspice_phone_input" >' . "\n";
             echo '<img src="' . $serendipity['baseURL'] . 'index.php?/plugin/commentspice.png" class="commentspice_ico" title="' . PLUGIN_EVENT_COMMENTSPICE_TITLE . '">' . "\n";
-            echo '<label for="serendipity_commentform_phone">Phone</label>' . "\n";
+            echo '<label for="serendipity_commentform_phone">Phone*</label>' . "\n";
             echo '<input class="commentspice_phone_input" type="text" id="serendipity_commentform_phone" name="serendipity[phone]" value="" placeholder="You don\'t want to give me your number, do you? ;)"/>' . "\n";
             echo "</div>\n";
         }

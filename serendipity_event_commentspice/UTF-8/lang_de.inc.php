@@ -63,7 +63,7 @@
 
 @define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM', 'Anti Spam');
 @define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_HONEYPOT', 'Honeypot einsetzen');
-@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_HONEYPOT_DESC', 'Ein "Honeypot" ist ein verstecktes Kommentar Feld, das leer gelasen werden soll. Da Bots aber dazu tendieren, alle vorgefundenen Felder auszufüllen, ist dies ein einfacher und unkritischer Weg, viele der Bots auszusperren.');
+@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_HONEYPOT_DESC', 'Ein "Honeypot" ist ein verstecktes Kommentar Feld, das leer gelasen werden soll. Da Bots aber dazu tendieren, alle vorgefundenen Felder auszufüllen, ist dies ein einfacher und unkritischer Weg, viele der Bots auszusperren. Um den Honeypot besonders effektiv zu machen, setze CommentSpice als erstes AntiSpam plugin in Deiner Liste ein.');
 @define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGTYPE', 'Spam Log Typ');
 @define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGTYPE_DESC', 'Wohin sollen Kommentare, die von CommentSpice gefunden wurden, geloggt werden?');
 @define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGTYPE_NONE', 'Nicht loggen');

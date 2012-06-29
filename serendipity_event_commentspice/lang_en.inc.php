@@ -63,7 +63,7 @@
 
 @define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM', 'Anti Spam');
 @define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_HONEYPOT', 'Use Honeypot');
-@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_HONEYPOT_DESC', 'A "Honeypot" is a hidden comment form field that should be left empty but as most SPAM bots do fill any field found it is an easy way to detect automatic commenting. There is no risk to switch it on, but high benefit!');
+@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_HONEYPOT_DESC', 'A "Honeypot" is a hidden comment form field that should be left empty but as most SPAM bots do fill any field found it is an easy way to detect automatic commenting. There is no risk to switch it on, but high benefit! In order to make the honeypot more effective put CommentSpice at top of any anti spam plugin.');
 @define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGTYPE', 'Spam log type');
 @define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGTYPE_DESC', 'Where do you want to log spam found by CommentSpice?');
 @define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGTYPE_NONE', 'Don\'t log');

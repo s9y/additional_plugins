@@ -50,7 +50,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_gravatar&lt;br /&gt;Avatar Plugin&lt;/b&gt;&lt;br /&gt;Avatare bei Kommentaren anzeigen. Unterstützt werden Gravatare, Pavatare, Favatare, Twitter, Identica und MyBlogLog Avatare&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:32:03 +0200</pubDate>
+<pubDate>Sat, 30 Jun 2012 02:31:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_gravatar</guid>
 </item>
 <item>
@@ -1296,6 +1296,15 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <content:encoded>&lt;b&gt;serendipity_event_template_editor&lt;br /&gt;Template-Editor&lt;/b&gt;&lt;br /&gt;Bearbeite die Dateien des derzeit genutzen Templates direkt im Adminbereich.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Thu, 14 Jun 2012 02:32:19 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_template_editor</guid>
+</item>
+<item>
+<title>Comment Spice: Würze Deinen Kommentarbereich mit Extras wie einem Twitterlink oder einem Link auf den letzten Artikel des Kommentators. Implementiert auch einige AntiSpam Routinen wie einen &quot;Honeypot&quot; und nofollow nach bestimmten Regeln.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_commentspice</link>
+<category>Event Plugins</category>
+<author>Grischa Brockhaus</author>
+<content:encoded>&lt;b&gt;serendipity_event_commentspice&lt;br /&gt;Comment Spice&lt;/b&gt;&lt;br /&gt;Würze Deinen Kommentarbereich mit Extras wie einem Twitterlink oder einem Link auf den letzten Artikel des Kommentators. Implementiert auch einige AntiSpam Routinen wie einen &quot;Honeypot&quot; und nofollow nach bestimmten Regeln.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 30 Jun 2012 02:31:48 +0200</pubDate>
+<guid isPermaLink="false">serendipity_event_commentspice</guid>
 </item>
 <item>
 <title>Autoupdate (Experimental): Experimental. When the dashboard-plugin detects an update, this plugin adds the option to update the blog directly with one click from within the adminarea.</title>

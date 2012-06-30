@@ -285,7 +285,7 @@
 <release>
   <version>1.58</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2012-06-30</date>
   <filelist>
 <dir name="serendipity_event_gravatar">
 <file>serendipity_event_gravatar.php</file>
@@ -10017,6 +10017,68 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
     <file>serendipity_event_template_editor/codemirror/xmlcolors.css</file>
     <file>serendipity_event_template_editor/lang_cs.inc.php</file>
     <file>serendipity_event_template_editor/lang_cz.inc.php</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>serendipity_event_commentspice</name>
+<license>GPL</license>
+<summary>Comment Spice</summary>
+<groups>FRONTEND_VIEWS,ANTISPAM</groups>
+<description>Würze Deinen Kommentarbereich mit Extras wie einem Twitterlink oder einem Link auf den letzten Artikel des Kommentators. Implementiert auch einige AntiSpam Routinen wie einen &quot;Honeypot&quot; und nofollow nach bestimmten Regeln.</description>
+<maintainers><maintainer><name>Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion>0.8</requirements:s9yVersion>
+  <date>2012-06-30</date>
+  <filelist>
+<dir name="serendipity_event_commentspice">
+<dir name="UTF-8">
+<file>lang_de.inc.php</file>
+</dir>
+<dir name="img">
+<file>commentspice.png</file>
+<file>audioboo.png</file>
+<file>identica_icon.png</file>
+<file>microphone.png</file>
+<file>rss_icon.png</file>
+<file>twitter_icon.png</file>
+</dir>
+<dir name="json">
+<file>JSON.php</file>
+<file>json.php4.include.php</file>
+</dir>
+<dir name="tpl.examples">
+<dir name="2k11">
+<file>commentform.tpl</file>
+<file>comments.tpl</file>
+</dir>
+</dir>
+<file>frontend_commentspice.js</file>
+<file>DbSpice.class.php</file>
+<file>lang_de.inc.php</file>
+<file>lang_en.inc.php</file>
+<file>serendipity_event_commentspice.php</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>serendipity_event_commentspice/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_commentspice/img/commentspice.png</file>
+    <file>serendipity_event_commentspice/img/audioboo.png</file>
+    <file>serendipity_event_commentspice/img/identica_icon.png</file>
+    <file>serendipity_event_commentspice/img/microphone.png</file>
+    <file>serendipity_event_commentspice/img/rss_icon.png</file>
+    <file>serendipity_event_commentspice/img/twitter_icon.png</file>
+    <file>serendipity_event_commentspice/json/JSON.php</file>
+    <file>serendipity_event_commentspice/json/json.php4.include.php</file>
+    <file>serendipity_event_commentspice/tpl.examples/2k11/commentform.tpl</file>
+    <file>serendipity_event_commentspice/tpl.examples/2k11/comments.tpl</file>
+    <file>serendipity_event_commentspice/frontend_commentspice.js</file>
+    <file>serendipity_event_commentspice/DbSpice.class.php</file>
+    <file>serendipity_event_commentspice/lang_de.inc.php</file>
+    <file>serendipity_event_commentspice/lang_en.inc.php</file>
+    <file>serendipity_event_commentspice/serendipity_event_commentspice.php</file>
   </serendipityFilelist>
 </release>
 </package>

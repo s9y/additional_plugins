@@ -50,7 +50,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_gravatar&lt;br /&gt;Avatar Plugin&lt;/b&gt;&lt;br /&gt;Pokazuje avatary w komentarzach. Gravatars, Pavatars, Favatars und MyBlogLog avatars are supported.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:32:03 +0200</pubDate>
+<pubDate>Sat, 30 Jun 2012 02:31:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_gravatar</guid>
 </item>
 <item>
@@ -1296,6 +1296,15 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <content:encoded>&lt;b&gt;serendipity_event_template_editor&lt;br /&gt;Template Editor&lt;/b&gt;&lt;br /&gt;Edit the files of the currently used template directly form the adminarea.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Thu, 14 Jun 2012 02:32:19 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_template_editor</guid>
+</item>
+<item>
+<title>Comment Spice: Spice up your comments area with goodies like commenters twitter or last posted article link. Has some antispam stuff like a honeypot and nofollows by rules.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_commentspice</link>
+<category>Event Plugins</category>
+<author>Grischa Brockhaus</author>
+<content:encoded>&lt;b&gt;serendipity_event_commentspice&lt;br /&gt;Comment Spice&lt;/b&gt;&lt;br /&gt;Spice up your comments area with goodies like commenters twitter or last posted article link. Has some antispam stuff like a honeypot and nofollows by rules.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 30 Jun 2012 02:31:48 +0200</pubDate>
+<guid isPermaLink="false">serendipity_event_commentspice</guid>
 </item>
 <item>
 <title>Autoupdate (Experimental): Experimental. When the dashboard-plugin detects an update, this plugin adds the option to update the blog directly with one click from within the adminarea.</title>

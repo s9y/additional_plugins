@@ -634,6 +634,8 @@ class serendipity_event_podcast extends serendipity_event{
 
                 $eventData['display_dat'] .= "   xmlns:enc='http://purl.oclc.org/net/rss_2.0/enc#'\n";
                 $eventData['display_dat'] .= "   xmlns:podcast='http://ipodder.sourceforge.net/docs/podcast.html'\n";
+                $eventData['display_dat'] .= "   xmlns:atom=\"http://www.w3.org/2005/Atom\"\n";
+                $eventData['display_dat'] .= "   xmlns:sc=\"http://podlove.org/simple-chapters\"\n";
 
                 return true;
 
@@ -641,6 +643,9 @@ class serendipity_event_podcast extends serendipity_event{
             case 'frontend_display:rss-2.0:namespace':
 
                 $eventData['display_dat'] .= "   xmlns:itunes=\"http://www.itunes.com/dtds/podcast-1.0.dtd\"\n";
+                $eventData['display_dat'] .= "   xmlns:atom=\"http://www.w3.org/2005/Atom\"\n";
+                $eventData['display_dat'] .= "   xmlns:sc=\"http://podlove.org/simple-chapters\"\n";
+
                 
                 if (version_compare(preg_replace('@[^0-9\.]@', '', $serendipity['version']), '1.6', '<')) {
                 } else {

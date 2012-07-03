@@ -1,3 +1,6 @@
+1.15:
+    * Fixed foreach warning in some cases
+
 1.14:
     * Fixed bad SQL table create statement
 

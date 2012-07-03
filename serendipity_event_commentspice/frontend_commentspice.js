@@ -2,6 +2,9 @@ var inputCommentEmail = document.getElementById("serendipity_commentform_email")
 var inputCommentUrl = document.getElementById("serendipity_commentform_url");
 var inputCommentText = document.getElementById("serendipity_commentform_comment");
 var submitPreview = document.getElementById("serendipity_preview");
+var form = document.getElementById("serendipity_comment");
+var divSelectRss = document.getElementById("serendipity_commentspice_rss");
+var rememberedSelection = false;
 
 var lastUrlChecked = null;
 var lastEmailChecked = null;
@@ -34,11 +37,10 @@ function fetch_rss() {
 }
 
 function fetch_rss_ready(httpRequest){
-    var divSelectRss = document.getElementById("serendipity_commentspice_rss");
-    
     if (httpRequest.readyState == 4 && httpRequest.status == 200) {
         var response = httpRequest.responseText;
         var jsonResponse = eval('(' + response + ')');
+        var divSelectRss = document.getElementById("serendipity_commentspice_rss");
         var selectRss = document.getElementById("serendipity_commentform_rss");
         if (selectRss==null) return;
         var articles = jsonResponse.articles;
@@ -64,14 +66,12 @@ function fetch_rss_ready(httpRequest){
 					selectRss.add(option); // IE only
 				}
 	        }
+	        selectRss.selectedIndex = 0;
 	        showSpiceElement(divSelectRss);
 	        reloadSelection();
         }
         lastUrlChecked = jsonResponse.url;
         lastEmailChecked = jsonResponse.email;
-    }
-    else {
-    	hideSpiceElement(divSelectRss);
     }
 }
 
@@ -110,7 +110,7 @@ function rememberSelection() {
 	var selectRss = document.getElementById("serendipity_commentform_rss");
 	if (selectRss!=null) {
 		//alert("save: " + selectRss.value);
-		setCookie("commentspice[promo]",selectRss.value);
+		setCookie("commentspice[promo]",selectRss.selectedIndex);
 	}
 	return true;
 }
@@ -120,15 +120,29 @@ function reloadSelection() {
 	if (selectRss!=null) {
 		cookieval = getCookie("commentspice[promo]");
 		if (cookieval!='') {
-			selectRss.value = cookieval;
+			selectRss.selectedIndex = cookieval;
 			//setCookie("promotevalue",'');
 		}
 	}
+}
+function forgetSelection() {
+	if (rememberedSelection) {
+		rememberedSelection = false;
+		return true;
+	}
+	setCookie("commentspice[promo]",0);
+	return true;
+}
+
+function previewSubmit() {
+	rememberedSelection = true;
 }
 
 // Intialisation
 inputCommentEmail.onblur = fetch_rss;
 inputCommentUrl.onblur = fetch_rss;
 inputCommentText.onfocus = fetch_rss;
-submitPreview.onclick = rememberSelection;
+submitPreview.onclick = previewSubmit;
+form.onsubmit = forgetSelection;
+divSelectRss.onchange = rememberSelection;
 fetch_rss();

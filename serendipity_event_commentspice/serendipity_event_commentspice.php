@@ -52,7 +52,7 @@ class serendipity_event_commentspice extends serendipity_event
         $config_switchexpert = array('expert_switch');
         $config_twitter = array('title_twitter','twitterinput','followme_widget', 'followme_widget_counter','followme_widget_dark');
         $config_twitter_expert = array('twitterinput_nofollow','smartifytwitter','inputpatched_twitter');
-        $config_announce = array('title_announcerss', 'announcerss', 'announcerssmax');
+        $config_announce = array('title_announcerss', 'announcerss', 'announcerssmax', 'style_inputrss');
         $config_announce_expert = array('announcersscachemin','announcerss_nofollow','smartifyannouncerss','inputpatched_rss');
         
         $config_rules = array('title_rules', 'rule_extras_commentcount', 'rule_extras_commentlength');
@@ -191,6 +191,12 @@ class serendipity_event_commentspice extends serendipity_event
                 $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_SMARTIFY_RSS);
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_SMARTIFY_RSS_DESC);
                 $propbag->add('default',     false);
+                break;
+            case 'style_inputrss':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_STYLE_RSS);
+                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_STYLE_RSS_DESC);
+                $propbag->add('default',     true);
                 break;
             case 'inputpatched_twitter':
                 $propbag->add('type',        'boolean');
@@ -909,6 +915,8 @@ class serendipity_event_commentspice extends serendipity_event
         $do_twitter = $config_twitter!='disabled';
         $do_announce = $config_announce!='disabled';
         $do_boo = serendipity_db_bool($this->get_config('allow_boo',false));
+        $styleInputRss = serendipity_db_bool($this->get_config('style_inputrss',true));
+        
 
         // Honeypot
         if (serendipity_db_bool($this->get_config('do_honeypot',true))) {
@@ -932,7 +940,7 @@ class serendipity_event_commentspice extends serendipity_event
         if ($do_announce && !serendipity_db_bool($this->get_config('inputpatched_rss', false))) {
             echo '<div id="serendipity_commentspice_rss" class="spicehidden">' . "\n";
             echo '<label for="serendipity_commentform_rss">' . PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_LABEL . '</label>' . "\n";
-            echo '<select class="commentspice_rss_input" id="serendipity_commentform_rss" name="serendipity[promorss]"></select>' . "\n"; //  style="max-width: 20em; width: 100%"
+            echo '<select ' . ($styleInputRss?'class="commentspice_rss_input" ':'') . 'id="serendipity_commentform_rss" name="serendipity[promorss]"></select>' . "\n"; //  style="max-width: 20em; width: 100%"
             echo '</div>' . "\n";
         }
         if ($do_boo) {
@@ -1067,7 +1075,8 @@ margin: 0px; padding: 0px; border: none; display: block; max-width: 100%; width:
 }
 <?php
         }
-        if (!(strpos($eventData, '.commentspice_rss_input'))) {
+        $styleInputRss = serendipity_db_bool($this->get_config('style_inputrss',true));
+        if ($styleInputRss && !(strpos($eventData, '.commentspice_rss_input'))) {
 ?>
 #serendipity_commentspice_rss {
     max-width: 100%;

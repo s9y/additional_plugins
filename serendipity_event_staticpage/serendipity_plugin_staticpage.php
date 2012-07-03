@@ -24,7 +24,7 @@ class serendipity_plugin_staticpage extends serendipity_plugin {
         $propbag->add('description', PLUGIN_STATICPAGELIST_NAME_DESC);
         $propbag->add('author',      "Rob Antonishen, Falk Doering, Ian (Timbalu)");
         $propbag->add('stackable',   true);
-        $propbag->add('version',     '1.18');
+        $propbag->add('version',     '1.19');
         $propbag->add('configuration', array(
                 'title',
                 'limit',
@@ -118,7 +118,7 @@ class serendipity_plugin_staticpage extends serendipity_plugin {
     }
 
     function generate_content(&$title) { 
-        $title = STATICPAGE_TITLE;
+        $title = $this->get_config('title');//STATICPAGE_TITLE;
         // do not load the tpl in backend
         if(!defined('IN_serendipity_admin')) {
             $this->show_content();

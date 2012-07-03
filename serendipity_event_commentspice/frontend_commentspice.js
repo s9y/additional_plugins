@@ -34,10 +34,11 @@ function fetch_rss() {
 }
 
 function fetch_rss_ready(httpRequest){
+    var divSelectRss = document.getElementById("serendipity_commentspice_rss");
+    
     if (httpRequest.readyState == 4 && httpRequest.status == 200) {
         var response = httpRequest.responseText;
         var jsonResponse = eval('(' + response + ')');
-        var divSelectRss = document.getElementById("serendipity_commentspice_rss");
         var selectRss = document.getElementById("serendipity_commentform_rss");
         if (selectRss==null) return;
         var articles = jsonResponse.articles;
@@ -75,14 +76,14 @@ function fetch_rss_ready(httpRequest){
 }
 
 function showSpiceElement(element) {
-	element.className = element.className.replace( /(?:^|\s)spicehidden(?!\S)/ , '' );
-	element.className = element.className.replace( /(?:^|\s)spicerevealed(?!\S)/ , '' );
-	element.className += ' spicerevealed';
+	var elementClass = element.getAttribute("class");
+	elementClass = elementClass.replace( /(?:^|\s)spicehidden(?!\S)/ , '' ).replace( /(?:^|\s)spicerevealed(?!\S)/ , '' );
+	element.setAttribute("class", elementClass + ' spicerevealed');
 }
 function hideSpiceElement(element) {
-	element.className = element.className.replace( /(?:^|\s)spicehidden(?!\S)/ , '' );
-	element.className = element.className.replace( /(?:^|\s)spicerevealed(?!\S)/ , '' );
-	element.className += ' spicehidden';
+	var elementClass = element.getAttribute("class");
+	elementClass = elementClass.replace( /(?:^|\s)spicehidden(?!\S)/ , '' ).replace( /(?:^|\s)spicerevealed(?!\S)/ , '' );
+	element.setAttribute("class", elementClass + ' spicehidden');
 }
 
 function setCookie(c_name,value)

@@ -377,7 +377,7 @@ class serendipity_event_commentspice extends serendipity_event
                     }
                     break;
                 case 'frontend_display':        
-                    $this->spiceComment($eventData, $addData);
+                    $this->spiceComment($eventData, $addData, isset($serendipity['POST']['preview']));
                     break;
                 case 'frontend_comment':
                     $this->printCommentEditExtras($eventData, $addData);
@@ -769,7 +769,7 @@ class serendipity_event_commentspice extends serendipity_event
         $result = DbSpice::deleteCommentSpice($addData['cid']);
     }
     
-    function spiceComment(&$eventData, $addData) {
+    function spiceComment(&$eventData, $addData, $preview = FALSE) {
         global $serendipity;
         
         if (!isset($eventData['comment'])) {
@@ -779,7 +779,25 @@ class serendipity_event_commentspice extends serendipity_event
         if ($addData['from'] == 'serendipity_plugin_comments:generate_content') {
             return true;
         }
-        $spice = DbSpice::loadCommentSpice($eventData['id']);
+        if ($preview) {
+            // Fetch "spice" from form elements
+            $spice = array();
+            $spice['commentid'] = -1;
+            $spice['twittername'] = $serendipity['POST']['twitter'];
+            $spice['boo'] = $serendipity['POST']['boo'];
+            
+            // Get the input w/o checking if it's modified: We are in preview!
+            $promorss = $serendipity['POST']['promorss'];
+            $parts = explode("\n", $promorss);
+            $promo_hash = trim($parts[0]);
+            $promo_name = trim($parts[1]);
+            $promo_url = trim($parts[2]);
+            $spice['promo_name'] = $promo_name;
+            $spice['promo_url'] = $promo_url;
+        }
+        else {
+            $spice = DbSpice::loadCommentSpice($eventData['id']);
+        }
         if (!is_array($spice)) {
             return true;
         }

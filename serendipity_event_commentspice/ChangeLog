@@ -1,6 +1,7 @@
 Version 1.01
+* Preview of a comment is "spiced" now, too.
+* Preview comment is not loosing article promotion selection anymore.
 * The article selector was not hiding again on invalid URLs (only clearing options).
+* The internal styling of the article selector is optional now.
 * Added some css / templating fixes proposed by @yellowled. Thanks!
 * 2k11 commentform.tpl patchfile changed. Please update if you use it! 
-* The internal styling of the article announcement dropdown is optional now.
-* Preview comment is not loosing article promotion selection anymore.

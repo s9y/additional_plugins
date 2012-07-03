@@ -10,7 +10,8 @@ function fetch_rss() {
 	var url = inputCommentUrl.value;
 	if(!url.match(/^http/)) {
 		var divSelectRss = document.getElementById("serendipity_commentspice_rss");
-		divSelectRss.style.display='none';
+		hideSpiceElement(divSelectRss);
+		//divSelectRss.style.display='none';
 		lastUrlChecked = null;
 		return;
 	}
@@ -46,8 +47,8 @@ function fetch_rss_ready(httpRequest){
         	return;
         }
         selectRss.options.length = 0;
-        if (articles.length==0) {
-            divSelectRss.style.display='none';
+        if (articles==null || articles.length==0) {
+        	hideSpiceElement(divSelectRss);
         }
         else {
 	        for (idx in articles) {
@@ -62,12 +63,26 @@ function fetch_rss_ready(httpRequest){
 					selectRss.add(option); // IE only
 				}
 	        }
-	        divSelectRss.style.display='';
+	        showSpiceElement(divSelectRss);
 	        reloadSelection();
         }
         lastUrlChecked = jsonResponse.url;
         lastEmailChecked = jsonResponse.email;
     }
+    else {
+    	hideSpiceElement(divSelectRss);
+    }
+}
+
+function showSpiceElement(element) {
+	element.className = element.className.replace( /(?:^|\s)spicehidden(?!\S)/ , '' );
+	element.className = element.className.replace( /(?:^|\s)spicerevealed(?!\S)/ , '' );
+	element.className += ' spicerevealed';
+}
+function hideSpiceElement(element) {
+	element.className = element.className.replace( /(?:^|\s)spicehidden(?!\S)/ , '' );
+	element.className = element.className.replace( /(?:^|\s)spicerevealed(?!\S)/ , '' );
+	element.className += ' spicehidden';
 }
 
 function setCookie(c_name,value)

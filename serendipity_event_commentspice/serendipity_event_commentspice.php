@@ -34,7 +34,7 @@ class serendipity_event_commentspice extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.0');
+        $propbag->add('version',       '1.01');
         $propbag->add('event_hooks',    array(
             'entry_display' => true,
             'frontend_footer' => true,
@@ -852,11 +852,12 @@ class serendipity_event_commentspice extends serendipity_event
 	                if (isset($serendipity['COOKIE']['twitter'])) $twittername = $serendipity['COOKIE']['twitter'];
                     else  $twittername = '';
 		            $smarty_spice['inputtwitter'] = $this->get_config('twitterinput','disabled')!='disabled';
-		            $smarty_spice['inputtwitterlabel'] = 'Twitter';
+		            $smarty_spice['inputtwitterlabel'] = PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER_LABEL;
 		            $smarty_spice['inputtwittervalue'] = $twittername;
 		            $smarty_spice['inputtwitterplaceholder'] = PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER_PLACEHOLDER;
 	            }
 	            if ($patched_input_rss) {
+		            $smarty_spice['inputarticlelabel'] = PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_LABEL;
 	                $smarty_spice['inputarticle'] = $this->get_config('announcerss','disabled')!='disabled';
 	            }
 	            if (count($smarty_spice)) {
@@ -923,12 +924,14 @@ class serendipity_event_commentspice extends serendipity_event
             else  $twittername = '';
             if (!serendipity_db_bool($this->get_config('inputpatched_twitter', false))) {
                 echo '<div id="serendipity_commentspice_twitter">' . "\n";
+                echo '<label for="serendipity_commentform_twitter">' . PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER_LABEL . '</label>' . "\n";
                 echo '<input class="commentspice_twitter_input" type="text" id="serendipity_commentform_twitter" name="serendipity[twitter]" placeholder="' . PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER_PLACEHOLDER . '" value="' . $twittername . '"/>' . "\n";
                 echo '</div>' . "\n";
             }
         }
         if ($do_announce && !serendipity_db_bool($this->get_config('inputpatched_rss', false))) {
-            echo '<div id="serendipity_commentspice_rss" style="display:none;">' . "\n";
+            echo '<div id="serendipity_commentspice_rss" class="spicehidden">' . "\n";
+            echo '<label for="serendipity_commentform_rss">' . PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_LABEL . '</label>' . "\n";
             echo '<select class="commentspice_rss_input" id="serendipity_commentform_rss" name="serendipity[promorss]"></select>' . "\n"; //  style="max-width: 20em; width: 100%"
             echo '</div>' . "\n";
         }
@@ -942,16 +945,16 @@ class serendipity_event_commentspice extends serendipity_event
             echo '</div>' . "\n";
         }
         if ($do_twitter) {
-            echo '<div  id="serendipity_commentspice_twitter_desc" class="serendipity_commentDirection serendipity_comment_spice">' . "\n";
-            echo '<img src="' . $serendipity['baseURL'] . 'index.php?/plugin/commentspice.png" class="commentspice_ico" title="' . PLUGIN_EVENT_COMMENTSPICE_TITLE . '">' . "\n";
+            echo '<div  id="serendipity_commentspice_twitter_desc" class="commentspice_description serendipity_commentDirection serendipity_comment_spice">' . "\n";
+            //echo '<img src="' . $serendipity['baseURL'] . 'index.php?/plugin/commentspice.png" class="commentspice_ico" title="' . PLUGIN_EVENT_COMMENTSPICE_TITLE . '">' . "\n";
             echo PLUGIN_EVENT_COMMENTSPICE_PROMOTE_TWITTER_FOOTER;
             $requirements = $this->createRequirementsString($config_twitter);
             if (!empty($requirements)) echo "<br/>$requirements";
             echo '</div>' . "\n";
         }
         if ($do_announce) {
-            echo '<div  id="serendipity_commentspice_rss_desc" class="serendipity_commentDirection serendipity_comment_spice">' . "\n";
-            echo '<img src="' . $serendipity['baseURL'] . 'index.php?/plugin/commentspice.png" class="commentspice_ico" title="' . PLUGIN_EVENT_COMMENTSPICE_TITLE . '">' . "\n";
+            echo '<div  id="serendipity_commentspice_rss_desc" class="commentspice_description serendipity_commentDirection serendipity_comment_spice ">' . "\n";
+//            echo '<img src="' . $serendipity['baseURL'] . 'index.php?/plugin/commentspice.png" class="commentspice_ico" title="' . PLUGIN_EVENT_COMMENTSPICE_TITLE . '">' . "\n";
             echo PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_FOOTER;
             $requirements = $this->createRequirementsString($config_announce);
             if (!empty($requirements)) echo "<br/>$requirements";
@@ -981,8 +984,29 @@ class serendipity_event_commentspice extends serendipity_event
     }
     
     function printCss(&$eventData, &$addData) {
-        //             $booPlayer = '<iframe class="space_booplayer" style="" allowtransparency="allowtransparency" cellspacing="0" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" vspace="0" src="http://audioboo.fm/boos/649785-ein-erster-testboo/embed" title="Audioboo player"></iframe>';
         global $serendipity;
+
+        // Hide and reveal classes by @yellowled used be the RSS chooser:
+?>
+.spicehidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+.spicerevealed {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+<?php 
         if (!(strpos($eventData, '.commentspice_booplayer'))) {
 ?>
 .commentspice_booplayer {
@@ -1005,6 +1029,15 @@ margin: 0px; padding: 0px; border: none; display: block; max-width: 100%; width:
 	float:right;
 	margin-right:0px;
 	margin-left:10px;
+}
+<?php
+        }
+        if (!(strpos($eventData, '.commentspice_description'))) {
+?>
+.commentspice_description {
+	background-image: url("<?php echo $serendipity['baseURL'] . 'index.php?/plugin/commentspice.png'; ?>");
+    background-repeat: no-repeat;
+    background-position: right top;
 }
 <?php
         }
@@ -1045,7 +1078,9 @@ margin: 0px; padding: 0px; border: none; display: block; max-width: 100%; width:
  	background: url('<?php echo $serendipity['baseURL']; ?>index.php?/plugin/spiceicorss.png') no-repeat left #444444;
  	overflow: hidden;
     border: 0.1em solid #000000;
-    border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
     color: #FFFFFF;
 	padding-left: 1.5em;
 <?php if (!serendipity_db_bool($this->get_config('inputpatched_rss', false))) { ?>
@@ -1069,6 +1104,7 @@ select.commentspice_rss_input option {
 <?php
         }
     }
+    
     function hashString( $what ) {
         $installation_secret = $this->get_config('installation_secret');
         if (empty($installation_secret)) {

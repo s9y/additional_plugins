@@ -1004,9 +1004,9 @@
 <description>Позволява подробен контрол върху проследяванията при създаване на статии</description>
 <maintainers><maintainer><name>Garvin Hicking, Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.14</version>
+  <version>1.15</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-04-23</date>
+  <date>2012-07-04</date>
   <filelist>
 <dir name="serendipity_event_trackback">
 <file>serendipity_event_trackback.php</file>

@@ -1,4 +1,4 @@
-1.19: (sidebar) fixed sidebar title
+3.92: extends 1.19: (sidebar) fixed sidebar title
 
 3.91: added dependency nl2br(2.14)::$isobr [NoBR] Buttons
       fixed serendipity_db_query search error output

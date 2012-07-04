@@ -924,9 +924,12 @@ class serendipity_event_commentspice extends serendipity_event
             $this->log("avatar_hook filled. " . print_r($eventData,true) .  "\n" . print_r($addData, true));
         }
     }
-    
+
     function printCommentEditExtras(&$eventData, &$addData) {
         global $serendipity;
+
+        // Don't put extras on admin menu. They are not working there:
+        if (isset($eventData['GET']['action']) && $eventData['GET']['action']=='admin') return;
         
         $config_twitter = $this->get_config('twitterinput','enabled');
         $config_announce =$this->get_config('announcerss','disabled');
@@ -965,7 +968,6 @@ class serendipity_event_commentspice extends serendipity_event
             echo '<div  id="serendipity_commentspice_boo_desc" class="serendipity_commentDirection serendipity_comment_spice">' . "\n";
             echo '<a href="http://audioboo.fm/profile" target="_blank"><img src="' . $serendipity['baseURL'] . 'index.php?/plugin/audioboo.png" class="commentspice_ico" title="Audioboo.com"></a>' . "\n";
             echo PLUGIN_EVENT_COMMENTSPICE_BOO_FOOTER . '<br/>' . "\n";
-            
             echo '<a href="http://audioboo.fm/boos/new" target="_blank"><img src="' . $serendipity['baseURL'] . 'index.php?/plugin/spiceicorecord.png" class="commentspice_ico" title="create a boo" alt="record" onClick="window.open(\'http://audioboo.fm/boos/new\',\'recordboo\',\'width=600,height=300\');return false;"></a>' . "\n";
             echo '<input class="commentspice_boo_input" type="url" id="serendipity_commentform_boo" name="serendipity[boo]" placeholder="' . PLUGIN_EVENT_COMMENTSPICE_BOO_PLACEHOLDER . '" value=""/>' . "\n";
             echo '</div>' . "\n";

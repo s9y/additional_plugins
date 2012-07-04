@@ -4,7 +4,6 @@ var inputCommentText = document.getElementById("serendipity_commentform_comment"
 var submitPreview = document.getElementById("serendipity_preview");
 var form = document.getElementById("serendipity_comment");
 var divSelectRss = document.getElementById("serendipity_commentspice_rss");
-var rememberedSelection = false;
 
 var lastUrlChecked = null;
 var lastEmailChecked = null;
@@ -86,63 +85,75 @@ function hideSpiceElement(element) {
 	element.setAttribute("class", elementClass + ' spicehidden');
 }
 
-function setCookie(c_name,value)
-{
-	var exdate=new Date();
-	var c_value=escape(value);
-	document.cookie=c_name + "=" + c_value;
+function createCookie(name,value) {
+	var date = new Date();
+	date.setTime(date.getTime()+(60*60*1000)); // save 1h 
+	var expires = "; expires="+date.toGMTString();
+	document.cookie = name+"="+value+expires+"; path=/";
 }
-function getCookie(c_name)
-{
-var i,x,y,ARRcookies=document.cookie.split(";");
-for (i=0;i<ARRcookies.length;i++)
-{
-  x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
-  y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
-  x=x.replace(/^\s+|\s+$/g,"");
-  if (x==c_name)
-    {
-    return unescape(y);
-    }
-  }
+
+function getCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	var value = '';
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) {
+			value = c.substring(nameEQ.length,c.length); // Let last one return.
+		}
+	}
+	return value;
 }
+
+function eraseCookie(name) {
+	var date = new Date();
+	date.setTime(date.getTime()-1);  
+	var expires = "; expires="+date.toGMTString();
+	document.cookie = name+"="+value+expires+"; path=/";
+}
+
+
 function rememberSelection() {
 	var selectRss = document.getElementById("serendipity_commentform_rss");
 	if (selectRss!=null) {
-		//alert("save: " + selectRss.value);
-		setCookie("commentspice[promo]",selectRss.selectedIndex);
+		createCookie("commentspice[promo]",selectRss.selectedIndex);
+	}
+	var inputBoo = document.getElementById("serendipity_commentform_boo");
+	if (inputBoo!=null) {
+		createCookie("commentspice[boo]",inputBoo.value);
 	}
 	return true;
 }
 function reloadSelection() {
 	//alert("Reload");
+	if ('#feedback' != window.location.hash) return;
+
 	var selectRss = document.getElementById("serendipity_commentform_rss");
 	if (selectRss!=null) {
 		cookieval = getCookie("commentspice[promo]");
 		if (cookieval!='') {
 			selectRss.selectedIndex = cookieval;
-			//setCookie("promotevalue",'');
+		}
+	}
+	var inputBoo = document.getElementById("serendipity_commentform_boo");
+	if (inputBoo!=null) {
+		cookieval = getCookie("commentspice[boo]");
+		if (cookieval!='') {
+			inputBoo.value = cookieval;
 		}
 	}
 }
 function forgetSelection() {
-	if (rememberedSelection) {
-		rememberedSelection = false;
-		return true;
-	}
-	setCookie("commentspice[promo]",0);
+	eraseCookie("commentspice[promo]");
+	eraseCookie("commentspice[boo]");
 	return true;
 }
 
-function previewSubmit() {
-	rememberedSelection = true;
-}
 
-// Intialisation
 inputCommentEmail.onblur = fetch_rss;
 inputCommentUrl.onblur = fetch_rss;
 inputCommentText.onfocus = fetch_rss;
-submitPreview.onclick = previewSubmit;
-form.onsubmit = forgetSelection;
-divSelectRss.onchange = rememberSelection;
+submitPreview.onclick = rememberSelection;
+form.onsubmit= rememberSelection;
 fetch_rss();

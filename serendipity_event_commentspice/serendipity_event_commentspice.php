@@ -779,7 +779,7 @@ class serendipity_event_commentspice extends serendipity_event
         if ($addData['from'] == 'serendipity_plugin_comments:generate_content') {
             return true;
         }
-        if ($preview) {
+        if ($preview && empty($eventData['id'])) {
             // Fetch "spice" from form elements
             $spice = array();
             $spice['commentid'] = -1;

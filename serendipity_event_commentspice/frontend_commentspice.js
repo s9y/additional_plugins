@@ -123,12 +123,15 @@ function rememberSelection() {
 	if (inputBoo!=null) {
 		createCookie("commentspice[boo]",inputBoo.value);
 	}
+	var inputTwitter = document.getElementById("serendipity_commentform_twitter");
+	if (inputTwitter!=null) {
+		createCookie("commentspice[twitter]",inputTwitter.value);
+	}
 	return true;
 }
 function reloadSelection() {
-	//alert("Reload");
+	// reload former inputs on preview / message mode only
 	if ('#feedback' != window.location.hash) return;
-
 	var selectRss = document.getElementById("serendipity_commentform_rss");
 	if (selectRss!=null) {
 		cookieval = getCookie("commentspice[promo]");
@@ -143,10 +146,18 @@ function reloadSelection() {
 			inputBoo.value = cookieval;
 		}
 	}
+	var inputTwitter = document.getElementById("serendipity_commentform_twitter");
+	if (inputTwitter!=null) {
+		cookieval = getCookie("commentspice[twitter]");
+		if (cookieval!='') {
+			inputTwitter.value = cookieval;
+		}
+	}
 }
 function forgetSelection() {
 	eraseCookie("commentspice[promo]");
 	eraseCookie("commentspice[boo]");
+	eraseCookie("commentspice[twitter]");
 	return true;
 }
 

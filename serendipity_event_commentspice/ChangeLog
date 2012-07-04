@@ -1,6 +1,7 @@
 Version 1.01
 * Preview of a comment is "spiced" now, too.
 * Preview comment is not loosing article promotion selection anymore.
+* The twitter input is remembered now the same way the other inputs are (was not working for preview).
 * The article selector was not hiding again on invalid URLs (only clearing options).
 * The internal styling of the article selector is optional now.
 * Removed spice from admins comment editor.

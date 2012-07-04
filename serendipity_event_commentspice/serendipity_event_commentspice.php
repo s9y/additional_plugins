@@ -377,6 +377,9 @@ class serendipity_event_commentspice extends serendipity_event
                     }
                     break;
                 case 'frontend_display':        
+                    if (isset($serendipity['POST']['preview'])) {
+                        $this->rememberInputs();
+                    }
                     $this->spiceComment($eventData, $addData, isset($serendipity['POST']['preview']));
                     break;
                 case 'frontend_comment':
@@ -949,7 +952,9 @@ class serendipity_event_commentspice extends serendipity_event
         }
         
         if ($do_twitter) {
-            if (isset($serendipity['COOKIE']['twitter'])) $twittername = $serendipity['COOKIE']['twitter'];
+            if (isset($serendipity['COOKIE']['remember']) && isset($serendipity['COOKIE']['twitter'])) {
+                $twittername = $serendipity['COOKIE']['twitter'];
+            }
             else  $twittername = '';
             if (!serendipity_db_bool($this->get_config('inputpatched_twitter', false))) {
                 echo '<div id="serendipity_commentspice_twitter">' . "\n";

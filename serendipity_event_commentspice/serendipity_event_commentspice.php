@@ -50,6 +50,11 @@ class serendipity_event_commentspice extends serendipity_event
         ));
         $propbag->add('groups', array('FRONTEND_VIEWS'));
         
+        $config_bee = array();
+        if (!class_exists('serendipity_event_spamblock_bee')) { // Only do that, if spamblock is not installed.
+            $config_bee[] = 'hint_bee';
+        }
+        
         $config_switchexpert = array('expert_switch');
         $config_twitter = array('title_twitter','twitterinput','followme_widget', 'followme_widget_counter','followme_widget_dark');
         $config_twitter_expert = array('twitterinput_nofollow','smartifytwitter','inputpatched_twitter');
@@ -69,10 +74,10 @@ class serendipity_event_commentspice extends serendipity_event
         
         $open_expert_setting = isset($_GET['pluginexpert']);
         if ($open_expert_setting) {
-            $configuration = array_merge($config_switchexpert,$config_twitter, $config_twitter_expert, $config_announce, $config_announce_expert, $config_boo, $config_rules, $config_rules_extra, $config_general, $config_general_expert);
+            $configuration = array_merge($config_bee, $config_switchexpert,$config_twitter, $config_twitter_expert, $config_announce, $config_announce_expert, $config_boo, $config_rules, $config_rules_extra, $config_general, $config_general_expert);
         }
         else {
-            $configuration = array_merge($config_switchexpert,$config_twitter, $config_announce, $config_rules, $config_general);
+            $configuration = array_merge($config_bee, $config_switchexpert,$config_twitter, $config_announce, $config_rules, $config_general);
         }
         $propbag->add('configuration', $configuration );
     }
@@ -273,6 +278,11 @@ class serendipity_event_commentspice extends serendipity_event
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_FETCH_PINGBACK_DESC);
                 $propbag->add('select_values', $fetchPingbackValues);
                 $propbag->add('default',     'none');
+                break;
+
+            case 'hint_bee':
+                $propbag->add('type', 'content');
+                $propbag->add('default',   PLUGIN_EVENT_COMMENTSPICE_CONFIG_HINTBEE );
                 break;
 
             default:

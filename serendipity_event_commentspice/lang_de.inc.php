@@ -2,6 +2,7 @@
 
 @define('PLUGIN_EVENT_COMMENTSPICE_TITLE', 'Comment Spice');
 @define('PLUGIN_EVENT_COMMENTSPICE_DESC',  'Würze Deinen Kommentarbereich mit Extras wie einem Twitterlink oder einem Link auf den letzten Artikel des Kommentators und nofollow nach bestimmten Regeln.');
+@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_HINTBEE', '<strong>UPDATE WARNUNG!</strong>: Die AntiSpam bezogene Funktionalität in Comment Spice wurde in ein neues AntiSpam Plugin namens "Spamschutz Biene" verschoben. Wenn Du also die Honeypot Funktionalität weiterhin haben möchtest, installiere Dir dieses Plugin bitte zusätzlich.');
 
 @define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_TWITTERNAME', 'Twittername');
 @define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_ANNOUNC_RSS', 'Artikel bewerben');

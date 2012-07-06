@@ -2,6 +2,7 @@
 
 @define('PLUGIN_EVENT_COMMENTSPICE_TITLE', 'Comment Spice');
 @define('PLUGIN_EVENT_COMMENTSPICE_DESC',  'Spice up your comments area with goodies like commenters twitter or last posted article link and nofollows by rules.');
+@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_HINTBEE', '<strong>UPDATE NOTIFIER!</strong>: The anti spam related stuff of Comment Spice was moved to a new antispam plugin called "Spamblock Bee". If you want to use the honeypot that was formaly implemented here, install this extra plugin please.');
 
 @define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_TWITTERNAME', 'Twittername');
 @define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_ANNOUNC_RSS', 'Announce recent posts');

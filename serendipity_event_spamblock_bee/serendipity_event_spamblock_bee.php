@@ -32,11 +32,14 @@ class serendipity_event_spamblock_bee extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
+        
         $propbag->add('version',       '1.00');
+        
         $propbag->add('event_hooks',    array(
             'frontend_comment' => true,
             'frontend_saveComment' => true,
             'css'				=> true,
+            'external_plugin'  => true,
         ));
         $propbag->add('groups', array('ANTISPAM'));
         
@@ -60,7 +63,8 @@ class serendipity_event_spamblock_bee extends serendipity_event
         switch($name) {
             case 'header_desc': 
                 $propbag->add('type', 'content');
-                $propbag->add('default',   PLUGIN_EVENT_SPAMBLOCK_BEE_EXTRA_DESC);
+                $propbag->add('default',   PLUGIN_EVENT_SPAMBLOCK_BEE_EXTRA_DESC .
+					'<img src="' . $serendipity['baseURL'] . 'index.php?/plugin/spamblockbee.png" alt="" title="' . PLUGIN_EVENT_SPAMBLOCK_BEE_TITLE . '" style="float:right">'                );
                 break;
                 break;
             case 'do_honeypot':
@@ -113,6 +117,15 @@ class serendipity_event_spamblock_bee extends serendipity_event
         $hooks = &$bag->get('event_hooks');
         if (isset($hooks[$event])) {
             switch($event) {
+                case 'external_plugin':
+                    switch($eventData) {
+                        case 'spamblockbee.png':
+                            header('Content-Type: image/png');
+                            echo file_get_contents(dirname(__FILE__). '/spamblockbee.png');
+                            break;
+                    }
+                    break;
+                
                 case 'frontend_saveComment':
                     $result = $this->checkComment($eventData, $addData);
                     return $result;

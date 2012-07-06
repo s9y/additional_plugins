@@ -205,11 +205,9 @@ class serendipity_event_spamblock_bee extends serendipity_event
 ?>
 .comment_phone_input {
 	max-width: 100%;
-}
-/*
 	display:none;
 	visibility:hidden;
-*/
+}
 <?php
         }
     }

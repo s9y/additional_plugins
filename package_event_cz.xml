@@ -10022,15 +10022,16 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_commentspice</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_commentspice/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Comment Spice</summary>
 <groups>FRONTEND_VIEWS,ANTISPAM</groups>
 <description>Spice up your comments area with goodies like commenters twitter or last posted article link. Has some antispam stuff like a honeypot and nofollows by rules.</description>
 <maintainers><maintainer><name>Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.0</version>
+  <version>1.01</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-30</date>
+  <date>2012-07-06</date>
   <filelist>
 <dir name="serendipity_event_commentspice">
 <dir name="UTF-8">
@@ -10056,6 +10057,7 @@ aplikovány další typografické úpravy.</description>
 </dir>
 <file>frontend_commentspice.js</file>
 <file>DbSpice.class.php</file>
+<file>ChangeLog</file>
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_commentspice.php</file>
@@ -10076,6 +10078,7 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_commentspice/tpl.examples/2k11/comments.tpl</file>
     <file>serendipity_event_commentspice/frontend_commentspice.js</file>
     <file>serendipity_event_commentspice/DbSpice.class.php</file>
+    <file>serendipity_event_commentspice/ChangeLog</file>
     <file>serendipity_event_commentspice/lang_de.inc.php</file>
     <file>serendipity_event_commentspice/lang_en.inc.php</file>
     <file>serendipity_event_commentspice/serendipity_event_commentspice.php</file>

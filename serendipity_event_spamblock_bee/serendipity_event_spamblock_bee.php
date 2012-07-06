@@ -40,7 +40,11 @@ class serendipity_event_spamblock_bee extends serendipity_event
         ));
         $propbag->add('groups', array('ANTISPAM'));
         
-        $configuration = array('do_honeypot', 'spamlogtype', 'spamlogfile', 'plugin_path');
+        $configuration = array('header_desc','do_honeypot', 'spamlogtype', 'spamlogfile', );
+        if (!class_exists('serendipity_event_spamblock')) { // Only do that, if spamblock is not installed.
+            $configuration[] = 'required_fields';
+        }
+        $configuration[] = 'plugin_path';
         
         $propbag->add('configuration', $configuration );
     }
@@ -54,6 +58,11 @@ class serendipity_event_spamblock_bee extends serendipity_event
         global $serendipity;
         
         switch($name) {
+            case 'header_desc': 
+                $propbag->add('type', 'content');
+                $propbag->add('default',   PLUGIN_EVENT_SPAMBLOCK_BEE_EXTRA_DESC);
+                break;
+                break;
             case 'do_honeypot':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_HONEYPOT);
@@ -80,8 +89,8 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 break;
             case 'required_fields':
                 $propbag->add('type', 'string');
-                $propbag->add('name', PLUGIN_EVENT_EVENT_SPAMBLOCK_BEE_REQUIRED_FIELDS);
-                $propbag->add('description', PLUGIN_EVENT_EVENT_SPAMBLOCK_BEE_REQUIRED_FIELDS_DESC);
+                $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_BEE_REQUIRED_FIELDS);
+                $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_BEE_REQUIRED_FIELDS_DESC);
                 $propbag->add('default', '');
                 break;
                 
@@ -89,7 +98,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 $propbag->add('type', 'string');
                 $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_BEE_PATH);
                 $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_BEE_PATH_DESC);
-                $propbag->add('default', $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_commentspice/');
+                $propbag->add('default', $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_spamblock_bee/');
                 break;
 
             default:
@@ -169,9 +178,9 @@ class serendipity_event_spamblock_bee extends serendipity_event
         
         // Honeypot
         if (serendipity_db_bool($this->get_config('do_honeypot',true))) {
-            echo '<div id="serendipity_commentspice_phone" class="serendipity_commentDirection commentspice_phone_input" >' . "\n";
+            echo '<div id="serendipity_comment_phone" class="serendipity_commentDirection comment_phone_input" >' . "\n";
             echo '<label for="serendipity_commentform_phone">Phone*</label>' . "\n";
-            echo '<input class="commentspice_phone_input" type="text" id="serendipity_commentform_phone" name="serendipity[phone]" value="" placeholder="You don\'t want to give me your number, do you? ;)"/>' . "\n";
+            echo '<input class="comment_phone_input" type="text" id="serendipity_commentform_phone" name="serendipity[phone]" value="" placeholder="You don\'t want to give me your number, do you? ;)"/>' . "\n";
             echo "</div>\n";
         }
     }
@@ -179,13 +188,15 @@ class serendipity_event_spamblock_bee extends serendipity_event
     function printCss(&$eventData, &$addData) {
         global $serendipity;
 
-        if (!(strpos($eventData, '.commentspice_phone_input'))) {
+        if (!(strpos($eventData, '.comment_phone_input'))) {
 ?>
-.commentspice_phone_input {
+.comment_phone_input {
 	max-width: 100%;
+}
+/*
 	display:none;
 	visibility:hidden;
-}
+*/
 <?php
         }
     }
@@ -201,7 +212,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
     
     function log($message){
         if (!PLUGIN_EVENT_SPAMBLOCK_BEE_DEBUG) return;
-        $fp = fopen(dirname(__FILE__) . '/spice.log','a');
+        $fp = fopen(dirname(__FILE__) . '/spambee.log','a');
         fwrite($fp, date('Y.m.d H:i:s') . " - " . $message . "\n");
         fflush($fp);
         fclose($fp);

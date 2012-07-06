@@ -34,7 +34,8 @@ class serendipity_event_commentspice extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.01');
+        $propbag->add('version',       '1.02');
+
         $propbag->add('event_hooks',    array(
             'entry_display' => true,
             'frontend_footer' => true,
@@ -47,7 +48,7 @@ class serendipity_event_commentspice extends serendipity_event
             'css'				=> true,
             'avatar_fetch_userinfos' => true,
         ));
-        $propbag->add('groups', array('FRONTEND_VIEWS','ANTISPAM'));
+        $propbag->add('groups', array('FRONTEND_VIEWS'));
         
         $config_switchexpert = array('expert_switch');
         $config_twitter = array('title_twitter','twitterinput','followme_widget', 'followme_widget_counter','followme_widget_dark');
@@ -60,13 +61,7 @@ class serendipity_event_commentspice extends serendipity_event
         
         $config_boo = array('title_boo','allow_boo','moderate_boo');
         
-        $config_spam = array('title_spam', 'do_honeypot');
-        $config_spam_expert = array('spamlogtype', 'spamlogfile');
-        
         $config_general = array('title_general');
-        if (!class_exists('serendipity_event_spamblock')) { // Only do that, if spamblock is not installed.
-            $config_general[] = 'required_fields';
-        }
         if (function_exists('fetchPingbackData') && $this->isLocalConfigWritable()) {
             $config_general[] = 'fetchPingback';
         }
@@ -74,16 +69,16 @@ class serendipity_event_commentspice extends serendipity_event
         
         $open_expert_setting = isset($_GET['pluginexpert']);
         if ($open_expert_setting) {
-            $configuration = array_merge($config_switchexpert,$config_twitter, $config_twitter_expert, $config_announce, $config_announce_expert, $config_boo, $config_rules, $config_rules_extra, $config_spam, $config_spam_expert, $config_general, $config_general_expert);
+            $configuration = array_merge($config_switchexpert,$config_twitter, $config_twitter_expert, $config_announce, $config_announce_expert, $config_boo, $config_rules, $config_rules_extra, $config_general, $config_general_expert);
         }
         else {
-            $configuration = array_merge($config_switchexpert,$config_twitter, $config_announce, $config_rules, $config_spam, $config_general);
+            $configuration = array_merge($config_switchexpert,$config_twitter, $config_announce, $config_rules, $config_general);
         }
         $propbag->add('configuration', $configuration );
     }
 
     function generate_content(&$title) {
-        $title = PLUGIN_EVENT_EMOTICONCHOOSER_TITLE;
+        $title = PLUGIN_EVENT_COMMENTSPICE_TITLE;
     }
 
     function introspect_config_item($name, &$propbag)
@@ -257,44 +252,9 @@ class serendipity_event_commentspice extends serendipity_event
                 $propbag->add('default', 0);
                 break;
                 
-            case 'title_spam':
-                $propbag->add('type', 'content');
-                $propbag->add('default',   '<br/><h3>' . PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM .'</h3>');
-                break;
-            case 'do_honeypot':
-                $propbag->add('type',        'boolean');
-                $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_HONEYPOT);
-                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_HONEYPOT_DESC);
-                $propbag->add('default',     true);
-                break;
-            case 'spamlogtype':
-                $logtypevalues = array (
-                    'none' => PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGTYPE_NONE,
-                    'file' => PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGTYPE_FILE,
-                    'db' => PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGTYPE_DATABASE,
-                );
-                $propbag->add('type',       'select');
-                $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGTYPE);
-                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGTYPE_DESC);
-                $propbag->add('select_values', $logtypevalues);
-                $propbag->add('default',     'none');
-                break;
-            case 'spamlogfile':
-                $propbag->add('type', 'string');
-                $propbag->add('name', PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGFILE);
-                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGFILE_DESC);
-                $propbag->add('default', $serendipity['serendipityPath'] . 'spamblock.log');
-                break;
-                
             case 'title_general':
                 $propbag->add('type', 'content');
                 $propbag->add('default',   '<br/><h3>' . PLUGIN_EVENT_COMMENTSPICE_CONFIG_GENERAL .'</h3>');
-                break;
-            case 'required_fields':
-                $propbag->add('type', 'string');
-                $propbag->add('name', PLUGIN_EVENT_COMMENTSPICE_REQUIRED_FIELDS);
-                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_REQUIRED_FIELDS_DESC);
-                $propbag->add('default', '');
                 break;
             case 'plugin_path':
                 $propbag->add('type', 'string');
@@ -569,32 +529,7 @@ class serendipity_event_commentspice extends serendipity_event
         
         if ("NORMAL" == $addData['type']) { // only supported for normal comments
             $this->rememberInputs();
-            // Check for honeypot:
-            $do_honepot = serendipity_db_bool($this->get_config('do_honeypot',true));
-            if ($do_honepot && (!empty($serendipity['POST']['phone']) || $serendipity['POST']['phone']=='0') ) {
-                $logfile = $this->get_config('spamlogfile', $serendipity['serendipityPath'] . 'spamblock.log');
-                $this->spamlog($logfile, $eventData['id'], 'REJECTED', $serendipity['POST']['phone'], $addData);
-                $eventData = array('allow_comments' => false);
-                return false;
-            }
-            
-            // Check, if all required fields are set, but only if spamblock is not installed.
-            if (!class_exists('serendipity_event_spamblock')) {
-                $required_fields = $this->get_config('required_fields', '');
-                if (!empty($required_fields)) {
-                    $required_field_list = explode(',', $required_fields);
-                    foreach($required_field_list as $required_field) {
-                        $required_field = trim($required_field);
-                        if (empty($addData[$required_field])) {
-                            $this->log($logfile, $eventData['id'], 'REJECTED', PLUGIN_EVENT_COMMENTSPICE_REASON_REQUIRED_FIELD, $addData);
-                            $eventData = array('allow_comments' => false);
-                            $serendipity['messagestack']['comments'][] = sprintf(PLUGIN_EVENT_COMMENTSPICE_REASON_REQUIRED_FIELD, $required_field);
-                            return false;
-                        }
-                    }
-                }
-            }
-            
+
             // Check, if promoted URL is still valid (unmodified) 
             if (isset($serendipity['POST']['promorss']) && !empty($serendipity['POST']['promorss'])) {
                 $promorss = $serendipity['POST']['promorss'];
@@ -942,15 +877,6 @@ class serendipity_event_commentspice extends serendipity_event
         $styleInputRss = serendipity_db_bool($this->get_config('style_inputrss',true));
         
 
-        // Honeypot
-        if (serendipity_db_bool($this->get_config('do_honeypot',true))) {
-            echo '<div id="serendipity_commentspice_phone" class="serendipity_commentDirection commentspice_phone_input" >' . "\n";
-            echo '<img src="' . $serendipity['baseURL'] . 'index.php?/plugin/commentspice.png" class="commentspice_ico" title="' . PLUGIN_EVENT_COMMENTSPICE_TITLE . '">' . "\n";
-            echo '<label for="serendipity_commentform_phone">Phone*</label>' . "\n";
-            echo '<input class="commentspice_phone_input" type="text" id="serendipity_commentform_phone" name="serendipity[phone]" value="" placeholder="You don\'t want to give me your number, do you? ;)"/>' . "\n";
-            echo "</div>\n";
-        }
-        
         if ($do_twitter) {
             if (isset($serendipity['COOKIE']['remember']) && isset($serendipity['COOKIE']['twitter'])) {
                 $twittername = $serendipity['COOKIE']['twitter'];
@@ -1081,15 +1007,6 @@ margin: 0px; padding: 0px; border: none; display: block; max-width: 100%; width:
 }
 <?php
         }
-        if (!(strpos($eventData, '.commentspice_phone_input'))) {
-?>
-.commentspice_phone_input {
-	max-width: 100%;
-	display:none;
-	visibility:hidden;
-}
-<?php
-        }
         if (!(strpos($eventData, '.commentspice_twitter_input'))) {
 ?>
 .commentspice_twitter_input {
@@ -1189,69 +1106,4 @@ select.commentspice_rss_input option {
         fflush($fp);
         fclose($fp);
     }
-    
-	function spamlog($logfile, $id, $switch, $reason, $addData) {
-        global $serendipity;
-        $method = $this->get_config('spamlogtype', 'none');
-        if (empty($logfile)) $logfile = dirname(__FILE__) . '/spice_honeypot.log';
-        
-        switch($method) {
-            case 'file':
-            	$reason = "Honeypot=$reason";
-                if (empty($logfile)) {
-                    return;
-                }
-				if (strpos($logfile, '%') !== false) {
-					$logfile = strftime($logfile);
-				}
-
-                $fp = @fopen($logfile, 'a+');
-                if (!is_resource($fp)) {
-                    return;
-                }
-                fwrite($fp, sprintf(
-                    '[%s] - [%s: %s] - [#%s, Name "%s", E-Mail "%s", URL "%s", User-Agent "%s", IP %s] - [%s]' . "\n",
-                    date('Y-m-d H:i:s', serendipity_serverOffsetHour()),
-                    $switch,
-                    $reason,
-                    $id,
-                    str_replace("\n", ' ', $addData['name']),
-                    str_replace("\n", ' ', $addData['email']),
-                    str_replace("\n", ' ', $addData['url']),
-                    str_replace("\n", ' ', $_SERVER['HTTP_USER_AGENT']),
-                    $_SERVER['REMOTE_ADDR'],
-                    str_replace("\n", ' ', $addData['comment'])
-                ));
-
-                fclose($fp);
-                break;
-
-            case 'none':
-                return;
-                break;
-
-            case 'db':
-            default:
-                $reason = "CommentSpice Honeypot: " . serendipity_db_escape_string($reason);
-                $q = sprintf("INSERT INTO {$serendipity['dbPrefix']}spamblocklog
-                                          (timestamp, type, reason, entry_id, author, email, url,  useragent, ip,   referer, body)
-                                   VALUES (%d,        '%s',  '%s',  '%s',     '%s',   '%s',  '%s', '%s',      '%s', '%s',    '%s')",
-
-                           serendipity_serverOffsetHour(),
-                           serendipity_db_escape_string($switch),
-                           serendipity_db_escape_string($reason),
-                           serendipity_db_escape_string($id),
-                           serendipity_db_escape_string($addData['name']),
-                           serendipity_db_escape_string($addData['email']),
-                           serendipity_db_escape_string($addData['url']),
-                           substr(serendipity_db_escape_string($_SERVER['HTTP_USER_AGENT']), 0, 255),
-                           serendipity_db_escape_string($_SERVER['REMOTE_ADDR']),
-                           substr(serendipity_db_escape_string(isset($_SESSION['HTTP_REFERER']) ? $_SESSION['HTTP_REFERER'] : $_SERVER['HTTP_REFERER']), 0, 255),
-                           serendipity_db_escape_string($addData['comment'])
-                );
-
-                serendipity_db_schema_import($q);
-                break;
-        }
-    }    
 }

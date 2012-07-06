@@ -1,3 +1,6 @@
+Version 1.02
+* Removed all antispam related and put it into a new plugin "Spamblock Bee".
+
 Version 1.01
 * Preview of a comment is "spiced" now, too.
 * Preview comment is not loosing article promotion selection anymore.

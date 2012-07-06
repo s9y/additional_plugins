@@ -1,7 +1,7 @@
 <?php
 
 @define('PLUGIN_EVENT_COMMENTSPICE_TITLE', 'Comment Spice');
-@define('PLUGIN_EVENT_COMMENTSPICE_DESC',  'Spice up your comments area with goodies like commenters twitter or last posted article link. Has some antispam stuff like a honeypot and nofollows by rules.');
+@define('PLUGIN_EVENT_COMMENTSPICE_DESC',  'Spice up your comments area with goodies like commenters twitter or last posted article link and nofollows by rules.');
 
 @define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_TWITTERNAME', 'Twittername');
 @define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_ANNOUNC_RSS', 'Announce recent posts');
@@ -59,20 +59,6 @@
 
 @define('PLUGIN_EVENT_COMMENTSPICE_PATH', 'Plugins path');
 @define('PLUGIN_EVENT_COMMENTSPICE_PATH_DESC', 'In normal installations the default is correct.');
-@define('PLUGIN_EVENT_COMMENTSPICE_REQUIRED_FIELDS', 'Required comment fields');
-@define('PLUGIN_EVENT_COMMENTSPICE_REQUIRED_FIELDS_DESC', 'Enter a list of required fields that need to be filled when a user comments. Seperate multiple fields with a ",". Available keys are: name, email, url, replyTo, comment');
-@define('PLUGIN_EVENT_COMMENTSPICE_REASON_REQUIRED_FIELD', 'You did not specify the %s field!');
-
-@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM', 'Anti Spam');
-@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_HONEYPOT', 'Use Honeypot');
-@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_HONEYPOT_DESC', 'A "Honeypot" is a hidden comment form field that should be left empty but as most SPAM bots do fill any field found it is an easy way to detect automatic commenting. There is no risk to switch it on, but high benefit! In order to make the honeypot more effective put CommentSpice at top of any anti spam plugin.');
-@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGTYPE', 'Spam log type');
-@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGTYPE_DESC', 'Where do you want to log spam found by CommentSpice?');
-@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGTYPE_NONE', 'Don\'t log');
-@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGTYPE_FILE', 'Text logfile');
-@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGTYPE_DATABASE', 'Spamlog database table');
-@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGFILE', 'Logfile');
-@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_SPAM_LOGFILE_DESC', 'Where to save the logfile if used for logging?');
 
 @define('PLUGIN_EVENT_COMMENTSPICE_EXPERTSETTINGS', 'Show advanced settings');
 @define('PLUGIN_EVENT_COMMENTSPICE_STANDARDSETTINGS', 'Show basic settings');

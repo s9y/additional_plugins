@@ -10027,13 +10027,13 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_commentspice/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Comment Spice</summary>
-<groups>FRONTEND_VIEWS,ANTISPAM</groups>
-<description>Spice up your comments area with goodies like commenters twitter or last posted article link. Has some antispam stuff like a honeypot and nofollows by rules.</description>
+<groups>FRONTEND_VIEWS</groups>
+<description>Spice up your comments area with goodies like commenters twitter or last posted article link and nofollows by rules.</description>
 <maintainers><maintainer><name>Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.01</version>
+  <version>1.02</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-07-06</date>
+  <date>2012-07-07</date>
   <filelist>
 <dir name="serendipity_event_commentspice">
 <dir name="UTF-8">
@@ -10135,6 +10135,38 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
     <file>serendipity_event_autoupdate/lang_cz.inc.php</file>
     <file>serendipity_event_autoupdate/documentation_cs.html</file>
     <file>serendipity_event_autoupdate/documentation_cz.html</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>serendipity_event_spamblock_bee</name>
+<license>GPL</license>
+<summary>Spamblock Bee (Honeypot)</summary>
+<groups>ANTISPAM</groups>
+<description>Implements simple comment antispam mechanisms, that are easy to configure but very effective (Honeypot).</description>
+<maintainers><maintainer><name>Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.00</version>
+  <requirements:s9yVersion>0.8</requirements:s9yVersion>
+  <date>2012-07-07</date>
+  <filelist>
+<dir name="serendipity_event_spamblock_bee">
+<dir name="UTF-8">
+<file>lang_de.inc.php</file>
+</dir>
+<file>lang_de.inc.php</file>
+<file>lang_en.inc.php</file>
+<file>spamblockbee.png</file>
+<file>serendipity_event_spamblock_bee.php</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>serendipity_event_spamblock_bee/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_spamblock_bee/lang_de.inc.php</file>
+    <file>serendipity_event_spamblock_bee/lang_en.inc.php</file>
+    <file>serendipity_event_spamblock_bee/spamblockbee.png</file>
+    <file>serendipity_event_spamblock_bee/serendipity_event_spamblock_bee.php</file>
   </serendipityFilelist>
 </release>
 </package>

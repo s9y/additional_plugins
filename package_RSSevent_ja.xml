@@ -1302,12 +1302,12 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <guid isPermaLink="false">serendipity_event_template_editor</guid>
 </item>
 <item>
-<title>Comment Spice: Spice up your comments area with goodies like commenters twitter or last posted article link. Has some antispam stuff like a honeypot and nofollows by rules.</title>
+<title>Comment Spice: Spice up your comments area with goodies like commenters twitter or last posted article link and nofollows by rules.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_commentspice</link>
 <category>Event Plugins</category>
 <author>Grischa Brockhaus</author>
-<content:encoded>&lt;b&gt;serendipity_event_commentspice&lt;br /&gt;Comment Spice&lt;/b&gt;&lt;br /&gt;Spice up your comments area with goodies like commenters twitter or last posted article link. Has some antispam stuff like a honeypot and nofollows by rules.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 06 Jul 2012 02:32:08 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_commentspice&lt;br /&gt;Comment Spice&lt;/b&gt;&lt;br /&gt;Spice up your comments area with goodies like commenters twitter or last posted article link and nofollows by rules.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 07 Jul 2012 02:32:05 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_commentspice</guid>
 </item>
 <item>
@@ -1318,6 +1318,15 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <content:encoded>&lt;b&gt;serendipity_event_autoupdate&lt;br /&gt;Autoupdate (Experimental)&lt;/b&gt;&lt;br /&gt;Experimental. When the dashboard-plugin detects an update, this plugin adds the option to update the blog directly with one click from within the adminarea.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Thu, 14 Jun 2012 02:31:56 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_autoupdate</guid>
+</item>
+<item>
+<title>Spamblock Bee (Honeypot): Implements simple comment antispam mechanisms, that are easy to configure but very effective (Honeypot).</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_spamblock_bee</link>
+<category>Event Plugins</category>
+<author>Grischa Brockhaus</author>
+<content:encoded>&lt;b&gt;serendipity_event_spamblock_bee&lt;br /&gt;Spamblock Bee (Honeypot)&lt;/b&gt;&lt;br /&gt;Implements simple comment antispam mechanisms, that are easy to configure but very effective (Honeypot).&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 07 Jul 2012 02:32:21 +0200</pubDate>
+<guid isPermaLink="false">serendipity_event_spamblock_bee</guid>
 </item>
 <item>
 <title>DBClean: Cleanup database</title>

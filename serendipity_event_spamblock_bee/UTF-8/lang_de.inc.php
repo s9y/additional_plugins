@@ -13,7 +13,8 @@
 
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_TITLE', 'Kommentare abweisen, die als Text nur den Artikeltitel enthalten');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_TITLE_DESC', 'Einige Kommentar SpamBots wollen nur einen Link absetzen und füllen den Kommentar einfach mit dem, was im Seitentitel gefunden wird. Dies würde kein normaler Kommentator tun, somit ist es sicher, diese Option einzuschalten.');
-@define('PLUGIN_EVENT_SPAMBLOCK_BEE_REASON_TITLE', 'Artikeltitel ist derselbe wie der Kommentar');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_SAMEBODY', 'Kommentare abweisen, die einen bereits gespeicherten Text haben');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_SAMEBODY_DESC', 'Dies wird Kommentare abweisen, die einen Text haben, der im System bereits gespeichert wurde. Z.B. wenn ein Kommentator nach einer Kommentar Speicherung die Seite erneut lädt. Solche Kommentare können sicher abgewiesen werden.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_BODY', 'Antispam Maßnahme: Ungültiger Kommentar.');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_HONEYPOT', 'Honeypot einsetzen');

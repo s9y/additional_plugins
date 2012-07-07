@@ -47,7 +47,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
         
         $configuration = array('header_desc','do_honeypot', 'do_hiddencaptcha' );
         if (!class_exists('serendipity_event_spamblock')) { // Only do that, if spamblock is not installed.
-            $configuration =array_merge($configuration, array('entrytitle', 'required_fields'));
+            $configuration =array_merge($configuration, array('entrytitle', 'samebody', 'required_fields'));
         }
         $configuration =array_merge($configuration, array('spamlogtype', 'spamlogfile', 'plugin_path'));
         
@@ -115,6 +115,12 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 $propbag->add('type', 'boolean');
                 $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_TITLE);
                 $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_TITLE_DESC);
+                $propbag->add('default', true);
+                break;
+            case 'samebody':
+                $propbag->add('type', 'boolean');
+                $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_SAMEBODY);
+                $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_SAMEBODY_DESC);
                 $propbag->add('default', true);
                 break;
                 
@@ -209,6 +215,8 @@ class serendipity_event_spamblock_bee extends serendipity_event
 
         // AntiSpam check, the general spamblock supports, too: Only if spamblock is not installed.
         if (!class_exists('serendipity_event_spamblock')) {
+            
+            // Check for required fields. Don't log but tell the user about the fields.
             $spamdetected = false; 
             $required_fields = $this->get_config('required_fields', '');
             if (!empty($required_fields)) {
@@ -222,12 +230,34 @@ class serendipity_event_spamblock_bee extends serendipity_event
                     }
                 }
             }
+            if ($spamdetected) return false;
+            
             // Check if entry title is the same as comment body
             if (serendipity_db_bool($this->get_config('entrytitle', true)) && trim($eventData['title']) == trim($addData['comment'])) {
-                $this->spamlog($eventData['id'], 'REJECTED', PLUGIN_EVENT_SPAMBLOCK_BEE_REASON_TITLE, $addData);
+                $this->spamlog($eventData['id'], 'REJECTED', "BEE Body the same as title", $addData);
                 $eventData = array('allow_comments' => false);
                 $serendipity['messagestack']['comments'][] = PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_BODY;
-                $spamdetected = true;
+                return false;
+            }
+            
+            // This check loads from DB, so do it last!
+            // Check if we already have a comment with the same body. (it's a reload normaly)
+            if (serendipity_db_bool($this->get_config('samebody', true))) {
+                $query = "SELECT count(id) AS counter FROM {$serendipity['dbPrefix']}comments WHERE type = '" . $addData['type'] . "' AND body = '" . serendipity_db_escape_string($addData['comment']) . "'";
+                // This is a little different to the normal Spam Plugin: 
+                // We allow the same comment, if it is a trackback, but never on the same article
+                // (One article sending trackbacks to more than one local article)
+                if ($addData['type'] == 'PINGBACK' ||  $addData['type'] == 'TRACKBACK') {
+                    $query .= ' AND entry_id=' . $eventData['id'];                        
+                }
+                $row   = serendipity_db_query($query, true);
+                if (is_array($row) && $row['counter'] > 0) {
+                    $this->spamlog($eventData['id'], 'REJECTED', "BEE Body already saved", $addData);
+                    $eventData = array('allow_comments' => false);
+                    $serendipity['messagestack']['comments'][] = PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_BODY;
+                    return false;
+                }
+                
             }
             if ($spamdetected) return false;
         }

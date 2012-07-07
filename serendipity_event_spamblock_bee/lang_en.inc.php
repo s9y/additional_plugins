@@ -13,7 +13,10 @@
 
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_TITLE', 'Reject comments which only contain the entry title');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_TITLE_DESC', 'Some comment spam bots want to set a link only and produce comment content by reproducing what is found at the pages title only. No normal user would do that, so it is save to switch this option on.');
-@define('PLUGIN_EVENT_SPAMBLOCK_BEE_REASON_TITLE', 'Entry title equals comment');
+
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_SAMEBODY', 'Reject comments which body already existing');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_SAMEBODY_DESC', 'This will prevent comments already existing on this blog. I.e. if the user presses reload after saving the comment. These comments can savely be rejected.');
+
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_BODY', 'Spam Prevention: Invalid message.');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_HONEYPOT', 'Use Honeypot');

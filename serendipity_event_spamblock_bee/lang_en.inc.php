@@ -33,6 +33,10 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_LOGFILE', 'Logfile');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_LOGFILE_DESC', 'Where to save the logfile if used for logging?');
 
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_RESULT_OFF', 'Switched off');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_RESULT_MODERATE', 'Moderate comments');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_RESULT_REJECT', 'Reject comments');
+
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_0', 'zero');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_1', 'one');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_2', 'two');

@@ -16,6 +16,11 @@ require_once dirname(__FILE__) . '/json/json.php4.include.php';
 
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_DEBUG', FALSE);
 
+@define('PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF', 'OFF');
+@define('PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE', 'MODERATE');
+@define('PLUGIN_EVENT_SPAMBLOCK_SWTCH_REJECT', 'REJECT');
+
+
 class serendipity_event_spamblock_bee extends serendipity_event
 {
     var $title = PLUGIN_EVENT_SPAMBLOCK_BEE_TITLE;
@@ -68,6 +73,12 @@ class serendipity_event_spamblock_bee extends serendipity_event
     {
         global $serendipity;
         
+        $rejectType = array(
+            PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF => PLUGIN_EVENT_SPAMBLOCK_BEE_RESULT_OFF,
+            PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE => PLUGIN_EVENT_SPAMBLOCK_BEE_RESULT_MODERATE,
+        	PLUGIN_EVENT_SPAMBLOCK_SWTCH_REJECT => PLUGIN_EVENT_SPAMBLOCK_BEE_RESULT_REJECT,
+        );
+        
         switch($name) {
             case 'header_desc': 
                 $propbag->add('type', 'content');
@@ -75,6 +86,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
 					'<img src="' . $serendipity['baseURL'] . 'index.php?/plugin/spamblockbee.png" alt="" title="' . PLUGIN_EVENT_SPAMBLOCK_BEE_TITLE . '" style="float:right">'                );
                 break;
                 break;
+
             case 'do_honeypot':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_HONEYPOT);
@@ -82,11 +94,34 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 $propbag->add('default',     true);
                 break;
             case 'do_hiddencaptcha':
-                $propbag->add('type',        'boolean');
+                $propbag->add('type',        'select');
                 $propbag->add('name',        PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_HCAPTCHA);
                 $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_HCAPTCHA_DESC);
-                $propbag->add('default',     false);
+                $propbag->add('select_values', $rejectType);
+                $propbag->add('default',     PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE);
                 break;
+
+            case 'required_fields':
+                $propbag->add('type', 'string');
+                $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_BEE_REQUIRED_FIELDS);
+                $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_BEE_REQUIRED_FIELDS_DESC);
+                $propbag->add('default', '');
+                break;
+            case 'entrytitle':
+                $propbag->add('type',        'select');
+                $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_TITLE);
+                $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_TITLE_DESC);
+                $propbag->add('select_values', $rejectType);
+                $propbag->add('default',     PLUGIN_EVENT_SPAMBLOCK_SWTCH_REJECT);
+                break;
+            case 'samebody':
+                $propbag->add('type',        'select');
+                $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_SAMEBODY);
+                $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_SAMEBODY_DESC);
+                $propbag->add('select_values', $rejectType);
+                $propbag->add('default',     PLUGIN_EVENT_SPAMBLOCK_SWTCH_REJECT);
+                break;
+                
             case 'spamlogtype':
                 $logtypevalues = array (
                     'none' => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_LOGTYPE_NONE,
@@ -105,25 +140,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_LOGFILE_DESC);
                 $propbag->add('default', $serendipity['serendipityPath'] . 'spamblock.log');
                 break;
-            case 'required_fields':
-                $propbag->add('type', 'string');
-                $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_BEE_REQUIRED_FIELDS);
-                $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_BEE_REQUIRED_FIELDS_DESC);
-                $propbag->add('default', '');
-                break;
-            case 'entrytitle':
-                $propbag->add('type', 'boolean');
-                $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_TITLE);
-                $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_TITLE_DESC);
-                $propbag->add('default', true);
-                break;
-            case 'samebody':
-                $propbag->add('type', 'boolean');
-                $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_SAMEBODY);
-                $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_SAMEBODY_DESC);
-                $propbag->add('default', true);
-                break;
-                
+
             case 'plugin_path':
                 $propbag->add('type', 'string');
                 $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_BEE_PATH);
@@ -156,9 +173,13 @@ class serendipity_event_spamblock_bee extends serendipity_event
                     break;
                 
                 case 'frontend_saveComment':
-                    $result = $this->checkComment($eventData, $addData);
-                    return $result;
-                    break;
+                    // Check only, if noone else denied it before
+					if (!is_array ( $eventData ) || serendipity_db_bool ( $eventData ['allow_comments'] )) {
+                        $result = $this->checkComment($eventData, $addData);
+                        return $result;
+					}
+                    return true;
+					break;
                 case 'frontend_comment':
                     $this->printCommentEditExtras($eventData, $addData);
                     break;
@@ -189,6 +210,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
         global $serendipity;
         
         if ("NORMAL" == $addData['type']) { // only supported for normal comments
+            
             // Check for honeypot:
             $do_honepot = serendipity_db_bool($this->get_config('do_honeypot',true));
             if ($do_honepot && (!empty($serendipity['POST']['phone']) || $serendipity['POST']['phone']=='0') ) {
@@ -198,15 +220,14 @@ class serendipity_event_spamblock_bee extends serendipity_event
             }
             
             // Check hidden captcha
-            if (serendipity_db_bool($this->get_config('do_hiddencaptcha', false))) {
+            $reponseType = $this->get_config('do_hiddencaptcha', PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE);
+            if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $reponseType) {
                 $answer = trim($serendipity['POST']['beecaptcha']);
                 $correct = $_SESSION['spamblockbee']['captcha'];
                 if ($answer!=$correct) {
                     $test = $this->generateNumberString($answer);
                     if (strtolower($correct) != strtolower($test)) {
-                        $this->spamlog($eventData['id'], 'REJECTED', "BEE HiddenCaptcha [ $correct != $answer ]", $addData);
-                        $eventData = array('allow_comments' => false);
-                        $serendipity['messagestack']['comments'][] = PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_HCAPTCHA;
+                        $this->processComment($reponseType, $eventData, $addData, PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_HCAPTCHA, "BEE HiddenCaptcha [ $correct != $answer ]");
                         return false;
                     }
                 }
@@ -224,8 +245,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 foreach($required_field_list as $required_field) {
                     $required_field = trim($required_field);
                     if (empty($addData[$required_field])) {
-                        $eventData = array('allow_comments' => false);
-                        $serendipity['messagestack']['comments'][] = sprintf(PLUGIN_EVENT_SPAMBLOCK_BEE_REASON_REQUIRED_FIELD, $required_field);
+                        $this->reject($eventData, $addData, sprintf(PLUGIN_EVENT_SPAMBLOCK_BEE_REASON_REQUIRED_FIELD, $required_field));
                         $spamdetected = true;
                     }
                 }
@@ -233,16 +253,16 @@ class serendipity_event_spamblock_bee extends serendipity_event
             if ($spamdetected) return false;
             
             // Check if entry title is the same as comment body
-            if (serendipity_db_bool($this->get_config('entrytitle', true)) && trim($eventData['title']) == trim($addData['comment'])) {
-                $this->spamlog($eventData['id'], 'REJECTED', "BEE Body the same as title", $addData);
-                $eventData = array('allow_comments' => false);
-                $serendipity['messagestack']['comments'][] = PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_BODY;
+            $reponseType = $this->get_config('entrytitle', PLUGIN_EVENT_SPAMBLOCK_SWTCH_REJECT);
+            if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF!=$reponseType && trim($eventData['title']) == trim($addData['comment'])) {
+                $this->processComment($reponseType, $eventData, $addData, PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_BODY, "BEE Body the same as title");
                 return false;
             }
             
             // This check loads from DB, so do it last!
             // Check if we already have a comment with the same body. (it's a reload normaly)
-            if (serendipity_db_bool($this->get_config('samebody', true))) {
+            $reponseType = $this->get_config('samebody', PLUGIN_EVENT_SPAMBLOCK_SWTCH_REJECT);
+            if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF!=$reponseType) {
                 $query = "SELECT count(id) AS counter FROM {$serendipity['dbPrefix']}comments WHERE type = '" . $addData['type'] . "' AND body = '" . serendipity_db_escape_string($addData['comment']) . "'";
                 // This is a little different to the normal Spam Plugin: 
                 // We allow the same comment, if it is a trackback, but never on the same article
@@ -252,9 +272,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 }
                 $row   = serendipity_db_query($query, true);
                 if (is_array($row) && $row['counter'] > 0) {
-                    $this->spamlog($eventData['id'], 'REJECTED', "BEE Body already saved", $addData);
-                    $eventData = array('allow_comments' => false);
-                    $serendipity['messagestack']['comments'][] = PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_BODY;
+                    $this->processComment($reponseType, $eventData, $addData, PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_BODY, "BEE Body already saved");
                     return false;
                 }
                 
@@ -265,6 +283,41 @@ class serendipity_event_spamblock_bee extends serendipity_event
         return true;
     }
 
+    /**
+     * Rejects or moderate a comment. Convenience function.
+     */
+    function processComment($responseType, &$eventData, &$addData, $remoteResponse, $logResponse = NULL) {
+        if ($reponseType == PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE) {
+            $this->moderate($eventData, $addData, $remoteResponse);
+        }
+        else {
+            $this->reject($eventData, $addData, $remoteResponse, $logResponse);
+        }
+    }
+    
+    /**
+     * Rejects a comment with optional log entry
+     */
+    function reject(&$eventData, &$addData, $remoteResponse, $logResponse = NULL) {
+        global $serendipity;
+
+        if (!empty($logResponse)) {
+            $this->spamlog($eventData['id'], 'REJECTED', $logResponse, $addData);
+        }
+        $eventData = array('allow_comments' => false);
+        $serendipity['messagestack']['comments'][] = $remoteResponse;
+    }
+    /**
+     * Moderate a comment, no log entry
+     */
+    function moderate(&$eventData, &$addData, $remoteResponse) {
+        global $serendipity;
+        
+        $eventData['moderate_comments'] = true;
+        $serendipity['csuccess']        = 'moderate';
+        $serendipity['moderate_reason'] = $remoteResponse;
+    }
+    
     function produceCaptchaAnswer() {
         $correct = $_SESSION['spamblockbee']['captcha'];
         if (empty($correct)) $correct="ERROR";
@@ -274,7 +327,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
     function printJsExtras() {
         global $serendipity;
         
-        if (serendipity_db_bool($this->get_config('do_hiddencaptcha', false))) {
+        if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $this->get_config('do_hiddencaptcha', PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE)) {
             $path = $this->path = $this->get_config('plugin_path', $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_spamblock_bee/');
             echo "
 <script>
@@ -300,7 +353,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
         }
 
         // Captcha
-        if (serendipity_db_bool($this->get_config('do_hiddencaptcha', false))) {
+        if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $this->get_config('do_hiddencaptcha', PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE)) {
             $captchaData = $this->generateCaptchaData();
             $quest = $this->generateCaptchaQuestion($captchaData);
             //serendipity_rememberCommentDetails(array ('beeresult' => $captchaData['r']));
@@ -316,7 +369,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
         global $serendipity;
 
         // Hide and reveal classes by @yellowled used be the RSS chooser:
-        if (serendipity_db_bool($this->get_config('do_hiddencaptcha', false))) {
+        if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $this->get_config('do_hiddencaptcha', PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE)) {
 ?>
 .spambeehidden {
     border: 0;

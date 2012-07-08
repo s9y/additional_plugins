@@ -792,11 +792,17 @@ class serendipity_event_geotag extends serendipity_event
         
         $fp   = @fopen($filename, "rb");
         if ($fp) {
+            $nextcheck = time() + (60*60*24*7); // invalidate 7 days later
+            $expires_txt = date("D, d M Y H:i:s T",(int)$nextcheck);
+            
             $filemtime = filemtime($filename);
             header("Content-type: $mime_type");
             header("Content-Length: ". filesize($filename));
             header("Date: " . date("D, d M Y H:i:s T"));
             header("Last-Modified: " . date("D, d M Y H:i:s T", $filemtime), true);
+            header("Cache-Control: public, max-age=" . ((int)$nextcheck - time()) , true);
+            header("Expires: $expires_txt". true);
+            header("Pragma:", true);
             fpassthru($fp);
             fclose($fp);
         }

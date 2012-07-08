@@ -1,6 +1,7 @@
 Version 1.03
 * Optional allow the commentor to announce a single article only once per page.
 * "Choose article" was displayed in the language of the last user who triggered RSS fetching.
+* Announce description will be hidden, if nothing is left to announce.
 
 Version 1.02
 * Removed all antispam related and put it into a new plugin "Spamblock Bee".

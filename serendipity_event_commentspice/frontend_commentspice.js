@@ -42,6 +42,7 @@ function fetch_rss_ready(httpRequest){
         var divSelectRss = document.getElementById("serendipity_commentspice_rss");
         var selectRss = document.getElementById("serendipity_commentform_rss");
         if (selectRss==null) return;
+        var divDescription = document.getElementById("serendipity_commentspice_rss_desc");
         var articles = jsonResponse.articles;
         if (!comentspice_fetchrss_emailchanges && lastUrlChecked == jsonResponse.url) {
         	// nothing to do
@@ -51,6 +52,7 @@ function fetch_rss_ready(httpRequest){
         selectRss.options.length = 0;
         if (articles==null || articles.length==0) {
         	hideSpiceElement(divSelectRss);
+        	if (divDescription!=null) hideSpiceElement(divDescription);
         }
         else {
 	        for (idx in articles) {
@@ -67,6 +69,7 @@ function fetch_rss_ready(httpRequest){
 	        }
 	        selectRss.selectedIndex = 0;
 	        showSpiceElement(divSelectRss);
+        	if (divDescription!=null) showSpiceElement(divDescription);
 	        reloadSelection();
         }
         lastUrlChecked = jsonResponse.url;

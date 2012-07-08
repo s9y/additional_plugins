@@ -220,14 +220,14 @@ class serendipity_event_spamblock_bee extends serendipity_event
             }
             
             // Check hidden captcha
-            $reponseType = $this->get_config('do_hiddencaptcha', PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE);
-            if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $reponseType) {
+            $spamHandle = $this->get_config('do_hiddencaptcha', PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE);
+            if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $spamHandle) {
                 $answer = trim($serendipity['POST']['beecaptcha']);
                 $correct = $_SESSION['spamblockbee']['captcha'];
                 if ($answer!=$correct) {
                     $test = $this->generateNumberString($answer);
                     if (strtolower($correct) != strtolower($test)) {
-                        $this->processComment($reponseType, $eventData, $addData, PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_HCAPTCHA, "BEE HiddenCaptcha [ $correct != $answer ]");
+                        $this->processComment($spamHandle, $eventData, $addData, PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_HCAPTCHA, "BEE HiddenCaptcha [ $correct != $answer ]");
                         return false;
                     }
                 }
@@ -253,16 +253,16 @@ class serendipity_event_spamblock_bee extends serendipity_event
             if ($spamdetected) return false;
             
             // Check if entry title is the same as comment body
-            $reponseType = $this->get_config('entrytitle', PLUGIN_EVENT_SPAMBLOCK_SWTCH_REJECT);
-            if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF!=$reponseType && trim($eventData['title']) == trim($addData['comment'])) {
-                $this->processComment($reponseType, $eventData, $addData, PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_BODY, "BEE Body the same as title");
+            $spamHandle = $this->get_config('entrytitle', PLUGIN_EVENT_SPAMBLOCK_SWTCH_REJECT);
+            if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF!=$spamHandle && trim($eventData['title']) == trim($addData['comment'])) {
+                $this->processComment($spamHandle, $eventData, $addData, PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_BODY, "BEE Body the same as title");
                 return false;
             }
             
             // This check loads from DB, so do it last!
             // Check if we already have a comment with the same body. (it's a reload normaly)
-            $reponseType = $this->get_config('samebody', PLUGIN_EVENT_SPAMBLOCK_SWTCH_REJECT);
-            if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF!=$reponseType) {
+            $spamHandle = $this->get_config('samebody', PLUGIN_EVENT_SPAMBLOCK_SWTCH_REJECT);
+            if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF!=$spamHandle) {
                 $query = "SELECT count(id) AS counter FROM {$serendipity['dbPrefix']}comments WHERE type = '" . $addData['type'] . "' AND body = '" . serendipity_db_escape_string($addData['comment']) . "'";
                 // This is a little different to the normal Spam Plugin: 
                 // We allow the same comment, if it is a trackback, but never on the same article
@@ -272,7 +272,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 }
                 $row   = serendipity_db_query($query, true);
                 if (is_array($row) && $row['counter'] > 0) {
-                    $this->processComment($reponseType, $eventData, $addData, PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_BODY, "BEE Body already saved");
+                    $this->processComment($spamHandle, $eventData, $addData, PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_BODY, "BEE Body already saved");
                     return false;
                 }
                 
@@ -286,9 +286,9 @@ class serendipity_event_spamblock_bee extends serendipity_event
     /**
      * Rejects or moderate a comment. Convenience function.
      */
-    function processComment($responseType, &$eventData, &$addData, $remoteResponse, $logResponse = NULL) {
-        if ($reponseType == PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE) {
-            $this->moderate($eventData, $addData, $remoteResponse);
+    function processComment($spamHandle, &$eventData, &$addData, $remoteResponse, $logResponse = NULL) {
+        if ($spamHandle == PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE) {
+            $this->moderate($eventData, $addData, $remoteResponse, $logResponse);
         }
         else {
             $this->reject($eventData, $addData, $remoteResponse, $logResponse);
@@ -308,11 +308,14 @@ class serendipity_event_spamblock_bee extends serendipity_event
         $serendipity['messagestack']['comments'][] = $remoteResponse;
     }
     /**
-     * Moderate a comment, no log entry
+     * Moderate a comment with optional log entry
      */
-    function moderate(&$eventData, &$addData, $remoteResponse) {
+    function moderate(&$eventData, &$addData, $remoteResponse, $logResponse = NULL) {
         global $serendipity;
         
+        if (!empty($logResponse)) {
+            $this->spamlog($eventData['id'], 'REJECTED', $logResponse, $addData);
+        }
         $eventData['moderate_comments'] = true;
         $serendipity['csuccess']        = 'moderate';
         $serendipity['moderate_reason'] = $remoteResponse;

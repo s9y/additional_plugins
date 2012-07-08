@@ -650,15 +650,19 @@ class serendipity_event_commentspice extends serendipity_event
                             $newArticles[] = $article;
                         }
                     }
-                    // If only the "select article" is left: Remove all:
-                    if (count($newArticles)<2) {
-                        $newArticles = array();
-                    }
                     $result['articles'] = $newArticles;
                 }
             }
         }
-         
+        
+        // Add Chooser to the array, if something's to choose
+        if (count($result['articles'])>0) {
+            $article = array();
+            $article['title'] = PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_CHOOSE;
+            $article['url'] = "";
+            $result['articles'] = array_merge(array($article), $result['articles']);
+        }
+        
         echo json_encode($result);
     }
     function readRssRemote($url) {
@@ -701,10 +705,6 @@ class serendipity_event_commentspice extends serendipity_event
         }
     
         $articles = array();
-        $article = array();
-        $article['title'] = PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_CHOOSE;
-        $article['url'] = "";
-        $articles[] = $article;
         
         $itemCount = 0;
         $maxItems = $announcerssmax = $this->get_config('announcerssmax',3);

@@ -97,4 +97,13 @@ class DbSpice {
         $sql = "DELETE FROM {$serendipity['dbPrefix']}commentspice WHERE commentid=$commentid";
         return serendipity_db_query($sql, true);
     }
+    static function loadCommentSpiceByEntry($entryId) {
+        if (empty($entryId)) return FALSE;
+        $comments = serendipity_fetchComments($entryId);
+        $result = array();
+        foreach ($comments as $comment) {
+            $result[] = DbSpice::loadCommentSpice($comment['id']);
+        }
+        return $result;
+    }
 }

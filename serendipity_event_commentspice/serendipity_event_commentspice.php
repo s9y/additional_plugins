@@ -34,7 +34,7 @@ class serendipity_event_commentspice extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.02');
+        $propbag->add('version',       '1.03');
 
         $propbag->add('event_hooks',    array(
             'entry_display' => true,
@@ -58,7 +58,7 @@ class serendipity_event_commentspice extends serendipity_event
         $config_switchexpert = array('expert_switch');
         $config_twitter = array('title_twitter','twitterinput','followme_widget', 'followme_widget_counter','followme_widget_dark');
         $config_twitter_expert = array('twitterinput_nofollow','smartifytwitter','inputpatched_twitter');
-        $config_announce = array('title_announcerss', 'announcerss', 'announcerssmax', 'style_inputrss');
+        $config_announce = array('title_announcerss', 'announcerss', 'announcerssmax', 'announceonce', 'style_inputrss');
         $config_announce_expert = array('announcersscachemin','announcerss_nofollow','smartifyannouncerss','inputpatched_rss');
         
         $config_rules = array('title_rules', 'rule_extras_commentcount', 'rule_extras_commentlength');
@@ -174,6 +174,13 @@ class serendipity_event_commentspice extends serendipity_event
                 $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_MAXSELECT_DESC);
                 $propbag->add('default',     3);
                 break;
+            case 'announceonce':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_ONCEONLY);
+                $propbag->add('description', PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_ONCEONLY_DESC);
+                $propbag->add('default',     true);
+                break;
+
             case 'announcersscachemin':
                 $propbag->add('type',        'string');
                 $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_CACHEMIN);
@@ -317,7 +324,10 @@ class serendipity_event_commentspice extends serendipity_event
                             echo file_get_contents(dirname(__FILE__). '/img/commentspice.png');
                             break;
                         case 'commentspicefrss':
-                            //if (!serendipity_db_bool($this->get_config('announcerss', false))) break;
+                            if ('disabled' == $this->get_config('announcerss', 'disabled')) {
+                                echo "DISABLED!";
+                                break;
+                            }
                             $this->readRss();
                             break;
                         case 'audioboo.png':
@@ -343,7 +353,7 @@ class serendipity_event_commentspice extends serendipity_event
                 case 'frontend_footer':
                     // Comment header code only if in single article mode
                     if (!empty($eventData['GET']['id'])) {
-                        $this->printHeader();
+                        $this->printHeader($eventData);
                     }
                     break;
                 case 'frontend_display':        
@@ -411,7 +421,7 @@ class serendipity_event_commentspice extends serendipity_event
         }
     }
     
-    function printHeader() {
+    function printHeader($eventData) {
         global $serendipity;
         
         if ($this->get_config('announcerss','disabled')!='disabled')
@@ -423,6 +433,7 @@ class serendipity_event_commentspice extends serendipity_event
 <script>
     var comentspice_fetchrss = '{$serendipity['baseURL']}index.php?/plugin/commentspicefrss';
     var comentspice_fetchrss_emailchanges = $announce_changedby_email;
+    var comentspice_entryid = " . $eventData['GET']['id'] .";
     var s9yCharset = '".LANG_CHARSET."';
     </script>
 <script type=\"text/javascript\" src=\"{$path}frontend_commentspice.js\"></script>
@@ -592,6 +603,8 @@ class serendipity_event_commentspice extends serendipity_event
         $this->log("readRss for $comment_url");
         $comment_email = $_REQUEST ['coment_email'];
         $this->log("email=$comment_email");
+        $entryId = $_REQUEST ['entryid'];
+        $this->log("entryid=$entryId");
         
         $result= array("url"=>$comment_url, "email"=>$comment_email, "articles"=>array());
         
@@ -619,7 +632,33 @@ class serendipity_event_commentspice extends serendipity_event
             echo json_encode($result);
             return;
         }
-
+        
+        // If per article each remote article should be announced only once, filter the result
+        if (serendipity_db_bool($this->get_config('announceonce', true))) {
+            // filter
+            $entrySpices = DbSpice::loadCommentSpiceByEntry($entryId);
+            if (is_array($entrySpices)) {
+                $urlHash = array();
+                foreach($entrySpices as $entrySpice) {
+                    $urlHash[$entrySpice['promo_url']] = "used";
+                }
+                // Now that we have all urls of this article, remove matching urls from rss.
+                if (count($urlHash)>0) {
+                    $newArticles = array();
+                    foreach ($result['articles'] as $article) {
+                        if (empty($urlHash[$article['nohashUrl']])) {
+                            $newArticles[] = $article;
+                        }
+                    }
+                    // If only the "select article" is left: Remove all:
+                    if (count($newArticles)<2) {
+                        $newArticles = array();
+                    }
+                    $result['articles'] = $newArticles;
+                }
+            }
+        }
+         
         echo json_encode($result);
     }
     function readRssRemote($url) {
@@ -676,6 +715,7 @@ class serendipity_event_commentspice extends serendipity_event
             $article['title'] = $item['title'];
             $hash = $this->hashString($item['title'].$item['link']);
             $article['url'] = $hash . "\n" . $item['title'] . "\n" . $item['link'];
+            $article['nohashUrl'] = $item['link'];
             $articles[] = $article;
             $itemCount++;
         }

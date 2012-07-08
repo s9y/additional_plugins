@@ -24,6 +24,8 @@
 @define('PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_NOFOLLOW_DESC', 'If set to nofollow search engines will ignore the recent post link. It will make it less interesting for manual comment spammers but won\'t give search engine kudos to the real commenter.');
 @define('PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_MAXSELECT', 'Maximum article count for announcing');
 @define('PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_MAXSELECT_DESC', 'How many recent posts should be loaded at maximum the user can announce?');
+@define('PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_ONCEONLY', 'Announce a remote article only once per blog page');
+@define('PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_ONCEONLY_DESC', 'This options allows the commentor to announce a single article of his own only once per blog page. (First comment all of his artcles, second all minus the one already announced on that page, etc)');
 @define('PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_CACHEMIN', 'Minutes to cache fetched article results');
 @define('PLUGIN_EVENT_COMMENTSPICE_ANNOUNCE_RSS_CACHEMIN_DESC', 'How many minutes CommentSpice should cache fetched article informations? Don\'t set this too high, as new articles will pop up late. one to two hours (60-120min) seems to be a good value. Setting this to zero will switch off the cache.');
 

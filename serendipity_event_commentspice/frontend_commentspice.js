@@ -32,7 +32,7 @@ function fetch_rss() {
     // Method, url, Async = true / Sync = false
     httpRequest.open('POST', comentspice_fetchrss, true); // comentspice_fetchrss was set earlier.
     httpRequest.setRequestHeader('content-Type', 'application/x-www-form-urlencoded; charset='+s9yCharset);
-    httpRequest.send('coment_url='+url+'&coment_email='+email); // Start request
+    httpRequest.send('coment_url='+url+'&coment_email='+email + '&entryid=' + comentspice_entryid); // Start request
 }
 
 function fetch_rss_ready(httpRequest){

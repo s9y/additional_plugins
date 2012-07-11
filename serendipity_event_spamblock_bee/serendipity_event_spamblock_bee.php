@@ -305,20 +305,26 @@ class serendipity_event_spamblock_bee extends serendipity_event
             $this->spamlog($eventData['id'], 'REJECTED', $logResponse, $addData);
         }
         $eventData = array('allow_comments' => false);
+        $serendipity['csuccess']        = 'false';
         $serendipity['messagestack']['comments'][] = $remoteResponse;
+
+        $this->log(print_r($serendipity['messagestack'], true));
     }
     /**
      * Moderate a comment with optional log entry
      */
     function moderate(&$eventData, &$addData, $remoteResponse, $logResponse = NULL) {
         global $serendipity;
-        
+                
         if (!empty($logResponse)) {
-            $this->spamlog($eventData['id'], 'REJECTED', $logResponse, $addData);
+            $this->spamlog($eventData['id'], 'MODERATE', $logResponse, $addData);
         }
         $eventData['moderate_comments'] = true;
         $serendipity['csuccess']        = 'moderate';
         $serendipity['moderate_reason'] = $remoteResponse;
+        $serendipity['messagestack']['comments'][] = $remoteResponse;
+
+        $this->log(print_r($serendipity['messagestack'], true));
     }
     
     function produceCaptchaAnswer() {
@@ -351,7 +357,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
         if (serendipity_db_bool($this->get_config('do_honeypot',true))) {
             echo '<div id="serendipity_comment_phone" class="serendipity_commentDirection comment_phone_input" >' . "\n";
             echo '<label for="serendipity_commentform_phone">Phone*</label>' . "\n";
-            echo '<input class="comment_phone_input" type="text" id="serendipity_commentform_phone" name="serendipity[phone]" value="" placeholder="You don\'t want to give me your number, do you? ;)"/>' . "\n";
+            echo '<input class="comment_phone_input" type="text" id="serendipity_commentform_phone" name="serendipity[phone]" value="" placeholder="' . PLUGIN_EVENT_SPAMBLOCK_BEE_WARN_HONEPOT . '"/>' . "\n";
             echo "</div>\n";
         }
 

@@ -1,0 +1,7 @@
+Version 1.01
+
+* Added "hidden captcha", checking for bots not having JS.
+* Added a few methods from standard spam plugin, that are useful still.
+
+Version 1.00
+* Extracted honeypot function from commentspice

@@ -21,6 +21,7 @@
 
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_HONEYPOT', 'Use Honeypot');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_HONEYPOT_DESC', 'A "Honeypot" is a hidden comment form field that should be left empty but as most SPAM bots do fill any field found it is an easy way to detect automatic commenting. There is no risk to switch it on, but high benefit! In order to make the honeypot more effective put the Spamblock Bee at top of any anti spam plugin.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_WARN_HONEPOT', 'You don\'t want to give me your number, do you? ;)');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_HCAPTCHA', 'Use hidden captchas');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_HCAPTCHA_DESC', 'This produces a captcha, that is very simple to solve for humans (but not that easy for bots). If the user has Javascript enabled, it will even be answered automatically and hidden. As bots don\'t know Javascript, this is another nice trap for bots but invisible for normal commenters.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_HCAPTCHA', 'Spam Prevention: Wrong Captcha.');

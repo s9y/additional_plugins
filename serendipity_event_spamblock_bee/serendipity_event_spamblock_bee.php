@@ -39,7 +39,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
             'php'         => '4.1.0'
         ));
         
-        $propbag->add('version',       '1.01-beta');
+        $propbag->add('version',       '1.01');
         
         $propbag->add('event_hooks',    array(
             'frontend_comment' => true,

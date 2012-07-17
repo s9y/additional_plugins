@@ -34,7 +34,7 @@ class serendipity_event_commentspice extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.03');
+        $propbag->add('version',       '1.04');
 
         $propbag->add('event_hooks',    array(
             'entry_display' => true,
@@ -915,7 +915,10 @@ class serendipity_event_commentspice extends serendipity_event
 
     function printCommentEditExtras(&$eventData, &$addData) {
         global $serendipity;
-
+        
+        // Check for non entry pages like contact form:
+        if (empty($eventData) || empty($eventData['id'])) return;
+        
         // Don't put extras on admin menu. They are not working there:
         if (isset($eventData['GET']['action']) && $eventData['GET']['action']=='admin') return;
         

@@ -1079,7 +1079,7 @@ class serendipity_event_podcast extends serendipity_event{
         // Initialize getID3 engine
         $getID3 = new getID3;
         if (file_exists($filename)) {
-            $id3 =& $getID3->analyze($filename);
+            $id3 =$getID3->analyze($filename);
             getid3_lib::CopyTagsToComments($id3);
             if (isset($id3['error'])) {
                 $fileInfoArray['id3error'] = $id3['error']; 

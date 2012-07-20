@@ -17,10 +17,10 @@
   <filelist>
 <dir name="serendipity_event_staticpage">
 <file>lang_de.inc.php</file>
-<file>serendipity_event_staticpage.php</file>
 <file>lang_ko.inc.php</file>
 <file>lang_it.inc.php</file>
 <file>ChangeLog</file>
+<file>serendipity_event_staticpage.php</file>
 <file>plugin_staticpage.tpl</file>
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
@@ -80,10 +80,10 @@
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_staticpage/lang_de.inc.php</file>
-    <file>serendipity_event_staticpage/serendipity_event_staticpage.php</file>
     <file>serendipity_event_staticpage/lang_ko.inc.php</file>
     <file>serendipity_event_staticpage/lang_it.inc.php</file>
     <file>serendipity_event_staticpage/ChangeLog</file>
+    <file>serendipity_event_staticpage/serendipity_event_staticpage.php</file>
     <file>serendipity_event_staticpage/plugin_staticpage.tpl</file>
     <file>serendipity_event_staticpage/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_staticpage/UTF-8/lang_ko.inc.php</file>

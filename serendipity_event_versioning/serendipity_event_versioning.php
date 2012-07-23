@@ -34,7 +34,7 @@ class serendipity_event_versioning extends serendipity_event {
         ));
 
         $propbag->add('author', 'Garvin Hicking');
-        $propbag->add('version', '0.9');
+        $propbag->add('version', '0.10');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -42,7 +42,7 @@ class serendipity_event_versioning extends serendipity_event {
         ));
         $propbag->add('stackable', false);
         $propbag->add('groups', array('BACKEND_EDITOR', 'BACKEND_FEATURES'));
-        $propbag->add('configuration', array('public'));
+        $propbag->add('configuration', array('public','version_date'));
     }
 
     function introspect_config_item($name, &$propbag) {
@@ -54,6 +54,15 @@ class serendipity_event_versioning extends serendipity_event {
                 $propbag->add('name',           VERSIONING_PUBLIC);
                 $propbag->add('description',    '');
                 $propbag->add('default',        false);
+                break;
+				
+			case 'version_date':
+                $propbag->add('type',           'radio');
+                $propbag->add('name',           VERSIONING_DATE_FORMAT);
+                $propbag->add('var',    		'version_date_format');
+                $propbag->add('radio_per_row',	2);
+				$propbag->add('radio',			array('value' => array('long','short'),
+														'desc' => array(VERSIONING_DATE_LONG,VERSIONING_DATE_SHORT)));
                 break;
 
             default:
@@ -193,6 +202,18 @@ class serendipity_event_versioning extends serendipity_event {
         $hooks = &$bag->get('event_hooks');
 
         if (isset($hooks[$event])) {
+			switch($this->get_config('version_date')) {
+				case 'long':
+					$date_time_format = DATE_FORMAT_ENTRY;
+					break;
+				case 'short':
+					$date_time_format = DATE_FORMAT_SHORT;
+					break;
+				default:
+					$date_time_format = DATE_FORMAT_SHORT;
+					break;
+			}
+			
             switch ($event) {
                 case 'backend_entry_updertEntry':
                     $this->cache['body']     = $addData['body'];
@@ -242,7 +263,7 @@ class serendipity_event_versioning extends serendipity_event {
                         foreach($versions AS $version) {
                             $html .= '<li><a href="' . $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?' . serendipity_archiveURL($eventData[0]['id'], 'revision' . $version['version'], 'serendipityHTTPPath', false) . '&amp;serendipity[version_selected]=' . $version['id'] . '">' . htmlspecialchars(sprintf(VERSIONING_REVISION,
                                         $version['version'],
-                                        serendipity_strftime(DATE_FORMAT_SHORT, $version['version_date'], true),
+                                        serendipity_strftime($date_time_format, $version['version_date'], true),
                                         $version['realname'])) . '</a></li>';
                         }
                         $html .= '</ul>';
@@ -286,7 +307,7 @@ class serendipity_event_versioning extends serendipity_event {
                     foreach($versions AS $version) {
                         $text = htmlspecialchars(sprintf(VERSIONING_REVISION,
                                     $version['version'],
-                                    serendipity_strftime(DATE_FORMAT_SHORT, $version['version_date'], true),
+                                    serendipity_strftime($date_time_format, $version['version_date'], true),
                                     $version['realname']));
 
                         echo '<option value="' . $version['id'] . '" ' . ($serendipity['POST']['versioning'] == $version['id'] ? 'selected="selected"' : '') . '>' . $text . '</option>' . "\n";

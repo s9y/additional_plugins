@@ -2399,6 +2399,7 @@
 <file>lang_cs.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>DEADJOE</file>
 </dir>
 
   </filelist>
@@ -2413,6 +2414,7 @@
     <file>serendipity_event_filter_entries/lang_cs.inc.php</file>
     <file>serendipity_event_filter_entries/lang_en.inc.php</file>
     <file>serendipity_event_filter_entries/lang_cz.inc.php</file>
+    <file>serendipity_event_filter_entries/DEADJOE</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7229,39 +7231,46 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_versioning</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_versioning/ChangeLog</changelog>
 <license>GPL</license>
-<summary>Versioning of entries</summary>
+<summary></summary>
 <groups>BACKEND_EDITOR,BACKEND_FEATURES</groups>
-<description>Can store and retrieve older versions of an entry</description>
+<description></description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.9</version>
+  <version>0.10</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2012-07-24</date>
   <filelist>
 <dir name="serendipity_event_versioning">
 <file>serendipity_event_versioning.php</file>
 <file>lang_en.inc.php</file>
 <dir name="UTF-8">
+<file>lang_de.inc.php</file>
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 </dir>
+<file>ChangeLog</file>
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>lang_de.inc.php</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_versioning/serendipity_event_versioning.php</file>
     <file>serendipity_event_versioning/lang_en.inc.php</file>
+    <file>serendipity_event_versioning/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_versioning/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_event_versioning/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_versioning/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_versioning/ChangeLog</file>
     <file>serendipity_event_versioning/lang_bg.inc.php</file>
     <file>serendipity_event_versioning/lang_cs.inc.php</file>
     <file>serendipity_event_versioning/lang_cz.inc.php</file>
+    <file>serendipity_event_versioning/lang_de.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>

@@ -918,12 +918,12 @@
 <guid isPermaLink="false">serendipity_event_lightbox</guid>
 </item>
 <item>
-<title>Versioning of entries: Can store and retrieve older versions of an entry</title>
+<title></title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_versioning</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_versioning&lt;br /&gt;Versioning of entries&lt;/b&gt;&lt;br /&gt;Can store and retrieve older versions of an entry&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 03:56:28 +0100</pubDate>
+<content:encoded></content:encoded>
+<pubDate>Tue, 24 Jul 2012 02:32:14 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_versioning</guid>
 </item>
 <item>

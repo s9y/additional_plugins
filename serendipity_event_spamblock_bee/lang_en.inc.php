@@ -75,3 +75,6 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_PLUS', 'plus');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_MINUS', 'minus');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_QUEST', 'What is');
+
+@define('PLUGIN_SPAMBLOCK_BEE_TITLE', 'Spam Report');
+@define('PLUGIN_SPAMBLOCK_BEE_DESC', 'Prints out a statistic about your comment spam if your antispam plugins report to the DB.');

@@ -226,6 +226,7 @@ class serendipity_event_filter_entries extends serendipity_event
                             $this->fetchLimit          = $perPage;
 
                             $page    = (int)$serendipity['GET']['page'];
+                            if ($page == 0) $page = 1;
                             $offSet  = $perPage*($page-1);
 
                             if (empty($_SESSION['sort']['ordermode']) || $_SESSION['sort']['ordermode'] != 'ASC') {

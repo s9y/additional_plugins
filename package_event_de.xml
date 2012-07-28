@@ -2376,15 +2376,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_filter_entries</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_filter_entries/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Filtern von Einträgen im Frontend</summary>
 <groups>FRONTEND_VIEWS</groups>
 <description>Ermöglich Besuchern die Einträge im Blog nach Kriterien zu durchsuchen/sortieren</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
+  <version>1.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2012-07-28</date>
   <filelist>
 <dir name="serendipity_event_filter_entries">
 <file>serendipity_event_filter_entries.php</file>
@@ -2399,7 +2400,7 @@
 <file>lang_cs.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>DEADJOE</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -2414,7 +2415,7 @@
     <file>serendipity_event_filter_entries/lang_cs.inc.php</file>
     <file>serendipity_event_filter_entries/lang_en.inc.php</file>
     <file>serendipity_event_filter_entries/lang_cz.inc.php</file>
-    <file>serendipity_event_filter_entries/DEADJOE</file>
+    <file>serendipity_event_filter_entries/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>

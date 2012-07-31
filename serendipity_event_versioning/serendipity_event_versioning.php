@@ -34,7 +34,7 @@ class serendipity_event_versioning extends serendipity_event {
         ));
 
         $propbag->add('author', 'Garvin Hicking');
-        $propbag->add('version', '0.10');
+        $propbag->add('version', '0.11');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

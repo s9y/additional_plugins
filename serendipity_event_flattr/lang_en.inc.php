@@ -15,6 +15,7 @@
 @define('PLUGIN_FLATTR_DSC', 'Flattr posting description (defaults to entry body)');
 @define('PLUGIN_FLATTR_TAG', 'Flattr posting tags (defaults to freetag plugin, if used)');
 @define('PLUGIN_FLATTR_POPOUT', 'Show popout when hovering mouse over Flattr button');
+@define('PLUGIN_FLATTR_ADD_TO_FEED', 'Add Flattr button to RSS-/ATOM-Feed?');
 
 @define('PLUGIN_FLATTR_ACTIVE', 'Enable flattr');
 

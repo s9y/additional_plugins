@@ -19,6 +19,7 @@
 @define('PLUGIN_FLATTR_LANG', 'Flattr-Sprache');
 @define('PLUGIN_FLATTR_DSC', 'Flattr-Beschreibung (standardmäßig Artikeltext)');
 @define('PLUGIN_FLATTR_TAG', 'Flattr-Schlagwörter (standardmäßig vom Artikel-Tags-Plugin, falls verwendet)');
+@define('PLUGIN_FLATTR_ADD_TO_FEED', 'Flattr-Button zum RSS-/ATOM-Feed hinzufügen?');
 
 @define('PLUGIN_FLATTR_ACTIVE', 'Flattr aktivieren');
 

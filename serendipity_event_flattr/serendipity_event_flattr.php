@@ -40,6 +40,11 @@ class serendipity_event_flattr extends serendipity_event {
             'backend_publish'                     => true,
             'backend_save'                        => true,
             'frontend_header'                     => true,
+            'frontend_display:rss-2.0:per_entry'  => true,
+            'frontend_display:rss-2.0:namespace'  => true,
+            'frontend_display:rss-1.0:per_entry'  => true,
+            'frontend_display:rss-1.0:namespace'  => true,
+            'frontend_display:atom-1.0:per_entry' => true,
         );
         $propbag->add('name',        PLUGIN_FLATTR_NAME);
         $propbag->add('description', PLUGIN_FLATTR_DESC);
@@ -52,6 +57,7 @@ class serendipity_event_flattr extends serendipity_event {
             'flattr_cat',
             'flattr_lng',
             'flattr_pop',
+            'add_to_feed',
         ));
         $propbag->add('author',  'Garvin Hicking, Joachim Breitner', 'Matthias Gutjahr');
         $propbag->add('version', '1.10');
@@ -211,6 +217,13 @@ class serendipity_event_flattr extends serendipity_event {
                 $propbag->add('description',    '');
                 $propbag->add('default',        false);
                 break;
+
+            case 'add_to_feed':
+                $propbag->add('type',           'boolean');
+                $propbag->add('name',           PLUGIN_FLATTR_ADD_TO_FEED);
+                $propbag->add('description',    '');
+                $propbag->add('default',        false);
+                break;
         }
         
         return true;
@@ -223,7 +236,7 @@ class serendipity_event_flattr extends serendipity_event {
      * @param mixed $addData
      * @return bool
      */
-    function event_hook($event, &$bag, &$eventData, $addData = null) {
+    function event_hook($event, &$bag, &$eventData, &$addData) {
         global $serendipity;
 
         switch ($event) {
@@ -404,6 +417,40 @@ class serendipity_event_flattr extends serendipity_event {
                 }
 
                 break;
-        }   
+
+            case 'frontend_display:rss-1.0:namespace':
+            case 'frontend_display:rss-2.0:namespace':
+                if ($this->get_config('add_to_feed')) {
+                    $eventData['display_dat'] .= '
+   xmlns:atom="http://www.w3.org/2005/Atom"';
+                }
+                return true;
+                break;
+
+            case 'frontend_display:rss-1.0:per_entry':
+            case 'frontend_display:rss-2.0:per_entry':
+                if ($this->get_config('add_to_feed')) {
+                    $flattr_uid = $this->_addslashes($this->get_config('userid'));
+                    $flattr_uid = substr($flattr_uid, 0, 500);
+                    $flattr_url = $this->_addslashes(serendipity_archiveURL($eventData['id'], $eventData['title'], 'baseURL', true, array('timestamp' => $eventData['timestamp'])));
+                    $flattr_url = substr($flattr_url, 0, 2048);
+                    $eventData['display_dat'] .= '
+    <atom:link rel="payment" href="https://flattr.com/submit/auto?url=' . urlencode($flattr_url) . '&amp;user_id=' . $flattr_uid . '" type="text/html" />';
+                }
+                return true;
+                break;
+
+            case 'frontend_display:atom-1.0:per_entry':
+                if ($this->get_config('add_to_feed')) {
+                    $flattr_uid = $this->_addslashes($this->get_config('userid'));
+                    $flattr_uid = substr($flattr_uid, 0, 500);
+                    $flattr_url = $this->_addslashes(serendipity_archiveURL($eventData['id'], $eventData['title'], 'baseURL', true, array('timestamp' => $eventData['timestamp'])));
+                    $flattr_url = substr($flattr_url, 0, 2048);
+                    $eventData['display_dat'] .= '
+    <link rel="payment" href="https://flattr.com/submit/auto?url=' . $flattr_url . '&amp;user_id=' . $flattr_uid . '" type="text/html" />';
+                }
+                return true;
+                break;
+        }
     }
 }

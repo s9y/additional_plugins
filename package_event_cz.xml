@@ -9887,7 +9887,7 @@ aplikovány další typografické úpravy.</description>
 <release>
   <version>1.10</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2012-08-04</date>
   <filelist>
 <dir name="serendipity_event_flattr">
 <file>serendipity_event_flattr.php</file>

@@ -34,7 +34,7 @@ class serendipity_event_commentspice extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.04');
+        $propbag->add('version',       '1.05');
 
         $propbag->add('event_hooks',    array(
             'entry_display' => true,
@@ -419,6 +419,13 @@ class serendipity_event_commentspice extends serendipity_event
                 }
             }
         }
+        
+        // Clean up old configurations:
+        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config where name like 'serendipity_event_commentspice:%required_fields';");
+        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config where name like 'serendipity_event_commentspice:%do_honeypod';");
+        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config where name like 'serendipity_event_commentspice:%do_honeypot';");
+        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config where name like 'serendipity_event_commentspice:%spamlogtype';");
+        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config where name like 'serendipity_event_commentspice:%spamlogfile';");
     }
     
     function printHeader($eventData) {

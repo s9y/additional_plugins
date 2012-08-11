@@ -19,6 +19,9 @@
 
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_BODY', 'Spam Prevention: Invalid message.');
 
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SECTION_LOGGING', 'Files and Logging');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SECTION_ADVANCED', 'Advanced Captcha Configuration');
+
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_HONEYPOT', 'Use Honeypot');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_HONEYPOT_DESC', 'A "Honeypot" is a hidden comment form field that should be left empty but as most SPAM bots do fill any field found it is an easy way to detect automatic commenting. There is no risk to switch it on, but high benefit! In order to make the honeypot more effective put the Spamblock Bee at top of any anti spam plugin.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_WARN_HONEPOT', 'You don\'t want to give me your number, do you? ;)');
@@ -37,6 +40,25 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_RESULT_OFF', 'Switched off');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_RESULT_MODERATE', 'Moderate comments');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_RESULT_REJECT', 'Reject comments');
+
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_RM_DEFAULT', 'Default');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_RM_JSON', 'JSON');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_RM_SMARTY', 'Smarty');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QT_MATH', 'Math problems');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QT_CUSTOM', 'Custom questions');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_DESC', 'Advanced configuration options for the hidden Captcha. If the captcha is disabled, you can safely ignore this section.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_ANSWER_RETRIEVAL', 'Answer Retrieval Method');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_ANSWER_RETRIEVAL_DESC', 'Select how you want to retrieve to correct answer to the Captcha. If you select "JSON", you can send an Ajax request to index.php/plugin/spamblockbeecaptcha to get the answer. "Smarty" will provide the answer through the Smarty variable {$beeCaptchaAnswer}, whereas "Default" will hard code it into the page.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QUESTION_TYPE', 'Type of question');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QUESTION_TYPE_DESC', 'Spamblock Bee can automatically generate simple math problems for you or you can create your own questions and answers. Select which one you prefer');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QUESTIONS', 'Custom questions');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_DEFAULT_QUESTIONS', "Question1\nQuestion2");
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QUESTIONS_DESC', 'If you want to use custom questions for you Captcha, you can specify them here. Write down one question per line. Before the user can submit the form, he has to answer one randomly selected question from the list.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_ANSWERS', 'Answers to custom questions');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_ANSWERS_DESC', 'This field contains the correct answers for the questions specified above. Write down one answer per line in the same order as the corresponding questions. Questions that don\'t have a valid answer will be ignored. All answers are case-insensitive (i.e. "Answer" is the same as "answer").');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_DEFAULT_ANSWERS', "Answer1\nAnswer2");
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_USE_REGEXP', 'Use regular expressions');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_USE_REGEXP_DESC', 'Whether to interpret the answers given above as Perl compatible regular expressions (PCREs). This can be used to allow several variants of an answer.');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_0', 'zero');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_1', 'one');

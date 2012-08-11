@@ -55,13 +55,17 @@ class serendipity_event_spamblock_bee extends serendipity_event
             $configuration =array_merge($configuration, array('entrytitle', 'samebody', 'required_fields'));
         }
         $configuration =array_merge($configuration, array('spamlogtype', 'spamlogfile', 'plugin_path'));
+        $configuration =array_merge($configuration, array('advanced_cc_desc', 'answer_retrieval_method', 'question_type', 'questions', 'answers', 'use_regexp'));
         
         $propbag->add('configuration', $configuration );
         $propbag->add('config_groups', array(
-                'Files and Logging' => array(
+                PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SECTION_LOGGING => array(
         			'spamlogtype', 'spamlogfile', 'plugin_path'
+                ),
+                PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SECTION_ADVANCED => array(
+                    'advanced_cc_desc', 'answer_retrieval_method', 'question_type', 'questions', 'answers', 'use_regexp'
                 )
-               )
+            )
         );
     }
 
@@ -79,12 +83,22 @@ class serendipity_event_spamblock_bee extends serendipity_event
         	PLUGIN_EVENT_SPAMBLOCK_SWTCH_REJECT => PLUGIN_EVENT_SPAMBLOCK_BEE_RESULT_REJECT,
         );
         
+        $retrievalMethod = array(
+            'default' => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_RM_DEFAULT,
+            'json' => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_RM_JSON,
+            'smarty' => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_RM_SMARTY
+        );
+        
+        $questionType = array(
+            'math' => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QT_MATH,
+            'custom' => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QT_CUSTOM
+        );
+        
         switch($name) {
             case 'header_desc': 
-                $propbag->add('type', 'content');
-                $propbag->add('default',   PLUGIN_EVENT_SPAMBLOCK_BEE_EXTRA_DESC .
-					'<img src="' . $serendipity['baseURL'] . 'index.php?/plugin/spamblockbee.png" alt="" title="' . PLUGIN_EVENT_SPAMBLOCK_BEE_TITLE . '" style="float:right">'                );
-                break;
+                $propbag->add('type',    'content');
+                $propbag->add('default', PLUGIN_EVENT_SPAMBLOCK_BEE_EXTRA_DESC .
+                    '<img src="' . $serendipity['baseURL'] . 'index.php?/plugin/spamblockbee.png" alt="" title="' . PLUGIN_EVENT_SPAMBLOCK_BEE_TITLE . '" style="float:right">'                );
                 break;
 
             case 'do_honeypot':
@@ -93,6 +107,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_HONEYPOT_DESC);
                 $propbag->add('default',     true);
                 break;
+            
             case 'do_hiddencaptcha':
                 $propbag->add('type',        'select');
                 $propbag->add('name',        PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_HCAPTCHA);
@@ -102,24 +117,26 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 break;
 
             case 'required_fields':
-                $propbag->add('type', 'string');
-                $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_BEE_REQUIRED_FIELDS);
+                $propbag->add('type',        'string');
+                $propbag->add('name',        PLUGIN_EVENT_SPAMBLOCK_BEE_REQUIRED_FIELDS);
                 $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_BEE_REQUIRED_FIELDS_DESC);
-                $propbag->add('default', '');
+                $propbag->add('default',     '');
                 break;
+            
             case 'entrytitle':
-                $propbag->add('type',        'select');
-                $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_TITLE);
-                $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_TITLE_DESC);
-                $propbag->add('select_values', $rejectType);
-                $propbag->add('default',     PLUGIN_EVENT_SPAMBLOCK_SWTCH_REJECT);
+                $propbag->add('type',           'select');
+                $propbag->add('name',           PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_TITLE);
+                $propbag->add('description',    PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_TITLE_DESC);
+                $propbag->add('select_values',  $rejectType);
+                $propbag->add('default',        PLUGIN_EVENT_SPAMBLOCK_SWTCH_REJECT);
                 break;
+            
             case 'samebody':
-                $propbag->add('type',        'select');
-                $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_SAMEBODY);
-                $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_SAMEBODY_DESC);
+                $propbag->add('type',          'select');
+                $propbag->add('name',          PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_SAMEBODY);
+                $propbag->add('description',   PLUGIN_EVENT_SPAMBLOCK_BEE_FILTER_SAMEBODY_DESC);
                 $propbag->add('select_values', $rejectType);
-                $propbag->add('default',     PLUGIN_EVENT_SPAMBLOCK_SWTCH_REJECT);
+                $propbag->add('default',       PLUGIN_EVENT_SPAMBLOCK_SWTCH_REJECT);
                 break;
                 
             case 'spamlogtype':
@@ -128,26 +145,69 @@ class serendipity_event_spamblock_bee extends serendipity_event
                     'file' => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_LOGTYPE_FILE,
                     'db' => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_LOGTYPE_DATABASE,
                 );
-                $propbag->add('type',       'select');
-                $propbag->add('name',        PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_LOGTYPE);
-                $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_LOGTYPE_DESC);
+                $propbag->add('type',          'select');
+                $propbag->add('name',          PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_LOGTYPE);
+                $propbag->add('description',   PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_LOGTYPE_DESC);
                 $propbag->add('select_values', $logtypevalues);
-                $propbag->add('default',     'none');
+                $propbag->add('default',       'none');
                 break;
+            
             case 'spamlogfile':
-                $propbag->add('type', 'string');
-                $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_LOGFILE);
+                $propbag->add('type',        'string');
+                $propbag->add('name',        PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_LOGFILE);
                 $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SPAM_LOGFILE_DESC);
-                $propbag->add('default', $serendipity['serendipityPath'] . 'spamblock.log');
+                $propbag->add('default',     $serendipity['serendipityPath'] . 'spamblock.log');
                 break;
 
             case 'plugin_path':
-                $propbag->add('type', 'string');
-                $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_BEE_PATH);
+                $propbag->add('type',        'string');
+                $propbag->add('name',        PLUGIN_EVENT_SPAMBLOCK_BEE_PATH);
                 $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_BEE_PATH_DESC);
-                $propbag->add('default', $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_spamblock_bee/');
+                $propbag->add('default',     $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_spamblock_bee/');
                 break;
-
+            
+            case 'advanced_cc_desc':
+                $propbag->add('type',          'content');
+                $propbag->add('default',       PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_DESC);
+                break;
+            
+            case 'answer_retrieval_method':
+                $propbag->add('type',          'select');
+                $propbag->add('name',          PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_ANSWER_RETRIEVAL);
+                $propbag->add('description',   PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_ANSWER_RETRIEVAL_DESC);
+                $propbag->add('select_values', $retrievalMethod);
+                $propbag->add('default',       'default');
+                break;
+            
+            case 'question_type':
+                $propbag->add('type',          'select');
+                $propbag->add('name',          PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QUESTION_TYPE);
+                $propbag->add('description',   PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QUESTION_TYPE_DESC);
+                $propbag->add('select_values', $questionType);
+                $propbag->add('default',       'math');
+                break;
+            
+            case 'questions':
+                $propbag->add('type',          'text');
+                $propbag->add('name',          PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QUESTIONS);
+                $propbag->add('description',   PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QUESTIONS_DESC);
+                $propbag->add('default',       PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_DEFAULT_QUESTIONS);
+                break;
+            
+            case 'answers':
+                $propbag->add('type',          'text');
+                $propbag->add('name',          PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_ANSWERS);
+                $propbag->add('description',   PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_ANSWERS_DESC);
+                $propbag->add('default',       PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_DEFAULT_ANSWERS);
+                break;
+            
+            case 'use_regexp':
+                $propbag->add('type',          'boolean');
+                $propbag->add('name',          PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_USE_REGEXP);
+                $propbag->add('description',   PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_USE_REGEXP_DESC);
+                $propbag->add('default',       false);
+                break;
+            
             default:
                 return false;
         }
@@ -222,9 +282,18 @@ class serendipity_event_spamblock_bee extends serendipity_event
             // Check hidden captcha
             $spamHandle = $this->get_config('do_hiddencaptcha', PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE);
             if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $spamHandle) {
-                $answer = trim($serendipity['POST']['beecaptcha']);
-                $correct = $_SESSION['spamblockbee']['captcha'];
-                if ($answer!=$correct) {
+                $answer        = trim(strtolower($serendipity['POST']['beecaptcha']));
+                $correctAnswer = strtolower($_SESSION['spamblockbee']['captcha']);
+                
+                $correct = ($answer == $correctAnswer);
+                
+                // also allow numbers as words
+                if (!$correct && $this->get_config('question_type', 'math') == 'math') {
+                    $number = $this->generateNumberString($correctAnswer);
+                    $correct = ($answer == $number && $number != 'ERROR');
+                }
+                
+                if (!$correct) {
                     $test = $this->generateNumberString($answer);
                     if (strtolower($correct) != strtolower($test)) {
                         $this->processComment($spamHandle, $eventData, $addData, PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_HCAPTCHA, "BEE HiddenCaptcha [ $correct != $answer ]");
@@ -232,8 +301,8 @@ class serendipity_event_spamblock_bee extends serendipity_event
                     }
                 }
             }
-        }            
-
+        }
+        
         // AntiSpam check, the general spamblock supports, too: Only if spamblock is not installed.
         if (!class_exists('serendipity_event_spamblock')) {
             
@@ -328,22 +397,37 @@ class serendipity_event_spamblock_bee extends serendipity_event
     }
     
     function produceCaptchaAnswer() {
-        $correct = $_SESSION['spamblockbee']['captcha'];
-        if (empty($correct)) $correct="ERROR";
-        return json_encode(array("answer" => $correct));
+        $answer = isset($_SESSION['spamblockbee']['captcha']) ? $_SESSION['spamblockbee']['captcha'] : null;
+        if (null === $answer) {
+            $answer="ERROR";
+        }
+        return json_encode(array("answer" => $answer));
     }
     
     function printJsExtras() {
+        $method = $this->get_config('answer_retrieval_method', 'default');
+        if ($method == 'smarty') {
+            return;
+        }
+        
         global $serendipity;
         
         if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $this->get_config('do_hiddencaptcha', PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE)) {
-            $path = $this->path = $this->get_config('plugin_path', $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_spamblock_bee/');
-            echo "
-<script>
-    var spambee_fcap = '{$serendipity['baseURL']}index.php?/plugin/spamblockbeecaptcha';
-    </script>
-<script type=\"text/javascript\" src=\"{$path}serendipity_event_spamblock_bee.js\"></script>
-";
+            $path   = $this->path = $this->get_config('plugin_path', $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_spamblock_bee/');
+            $answer = $_SESSION['spamblockbee']['captcha'];
+            
+            echo '<script> var spamBeeData = {';
+            
+            if ($method == 'json') {
+                echo "'url': '" . $serendipity['baseURL'] . "index.php/plugin/spamblockbeecaptcha', " .
+                     "'method': 'json'";
+            } else {
+                echo "'answer': " . (is_numeric($answer) ? $answer : "'" . trim($answer) . "'") . ', ' .
+                     "'method': 'default'";
+            }
+            
+            echo '};</script>' . "\n" .
+                 '<script type="text/javascript" src="' . $path . 'serendipity_event_spamblock_bee.js"></script>';
         }
     }
     
@@ -362,13 +446,12 @@ class serendipity_event_spamblock_bee extends serendipity_event
         }
 
         // Captcha
-        if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $this->get_config('do_hiddencaptcha', PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE)) {
-            $captchaData = $this->generateCaptchaData();
-            $quest = $this->generateCaptchaQuestion($captchaData);
-            //serendipity_rememberCommentDetails(array ('beeresult' => $captchaData['r']));
-            $_SESSION['spamblockbee']['captcha'] = $captchaData['r'];
+        if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF !=
+            $this->get_config('do_hiddencaptcha', PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE)) {
+            $question = $this->generateCaptchaQuestion();
+            
             echo '<div id="serendipity_comment_beecaptcha" class="form_field">' . "\n";
-            echo '<label for="bee_captcha">'. PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_QUEST . " " .$quest. '?</label>' . "\n";
+            echo '<label for="bee_captcha">'. $question. '</label>' . "\n";
             echo '<input class="" type="text" id="bee_captcha" name="serendipity[beecaptcha]" value="" placeholder=""/>' . "\n";
             echo "</div>\n";
         }
@@ -413,39 +496,65 @@ class serendipity_event_spamblock_bee extends serendipity_event
         return md5($installation_secret . ':' . $what);
     }
     
-    function generateCaptchaData() {
+    function generateCaptchaQuestion() {
+        $questionType = $this->get_config('question_type', 'math');
+        
+        if ($questionType == 'custom') {
+            $question = $this->selectRandomCustomCaptchaQuestion();
+            if (null === $question) {
+                // no valid question could be selected, fall back to math questions
+                $questionType = 'math';
+                $this->set_config('question_type', 'math');
+            } else {
+                $_SESSION['spamblockbee']['captcha'] = $question['answer'];
+                return $question['question'];
+            }
+        }
+        
+        if ($questionType == 'math') {
+            $captchaData                         = $this->generateCaptchaMathProblem();
+            $_SESSION['spamblockbee']['captcha'] = $captchaData['answer'];
+            
+            $method = PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_PLUS;
+            if ($captchaData['operator'] == '-') {
+                $method = PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_MINUS;
+            }
+            
+            return PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_QUEST . ' ' .
+                   $this->generateNumberString($captchaData['n1']) . " " .
+                   $method . " " . $this->generateNumberString($captchaData['n2']) . '?'; 
+        }
+    }
+    
+    function generateCaptchaMathProblem() {
         $result = array();
         
         $number1 = rand(0,9);
         $number2 = rand(0,9);
         if (($number1 + $number2) > 10 ) {
             // Substract them
-            $result['m'] = "-";
+            $result['operator'] = '-';
             if ($number1>$number2) {
                 $result['n1'] = $number1;
                 $result['n2'] = $number2;
-                $result['r'] =  $number1 - $number2;
+                $result['answer'] =  $number1 - $number2;
             }
             else {
                 $result['n2'] = $number1;
                 $result['n1'] = $number2;
-                $result['r'] =  $number2 - $number1;
+                $result['answer'] =  $number2 - $number1;
             }                
-        } 
-        else {
+        } else {
                 // Add them
-                $result['m'] = "+";
+                $result['operator'] = '+';
                 $result['n1'] = $number1;
                 $result['n2'] = $number2;
-                $result['r'] =  $number1 + $number2;
+                $result['answer'] =  $number1 + $number2;
         }
+        
         return $result;
     }
     
-    function generateCaptchaQuestion($captchaData) {
-        $method = $captchaData['m'] == "+"? PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_PLUS : PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_MINUS;
-        return $this->generateNumberString($captchaData['n1']) . " " . $method . " " . $this->generateNumberString($captchaData['n2']); 
-    }
     function generateNumberString($number) {
         //$number = (int)$number;
         switch ($number) {
@@ -462,6 +571,33 @@ class serendipity_event_spamblock_bee extends serendipity_event
             case 10: return PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_10;
             default: return "ERROR";
         }
+    }
+    
+    function selectRandomCustomCaptchaQuestion() {
+        $questions = trim($this->get_config('questions', ''));
+        $answers   = trim($this->get_config('answers', ''));
+        if (empty($questions) || empty($answers)) {
+            return null;
+        }
+        
+        $questions = preg_split('/(?:\r?\n|\r)/', $questions);
+        $answers   = preg_split('/(?:\r?\n|\r)/', $answers);
+        
+        // ignore questions without answer
+        if (count($questions) > count($answers)) {
+            array_splice($questions, count($answers));
+        }
+        
+        // if no questions left
+        if (!count($questions)) {
+            return null;
+        }
+        
+        $questionIndex = rand(0, count($questions) - 1);
+        return array(
+            'question' => trim($questions[$questionIndex]),
+            'answer'   => trim($answers[$questionIndex])
+        );
     }
     
     function log($message){

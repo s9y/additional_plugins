@@ -21,16 +21,64 @@ require_once dirname(__FILE__) . '/json/json.php4.include.php';
 @define('PLUGIN_EVENT_SPAMBLOCK_SWTCH_REJECT', 'REJECT');
 
 
+/**
+ * Serendipity plug-in for providing spam protection via a
+ * Honey Pot field and a hidden Captcha.
+ * 
+ * @author Grischa Brockhaus
+ * @author Janek Bevendorff
+ */
 class serendipity_event_spamblock_bee extends serendipity_event
 {
-    var $title                 = PLUGIN_EVENT_SPAMBLOCK_BEE_TITLE;
-    var $useHoneyPot           = true;
-    var $hiddenCaptchaHandle   = null;
+    /**
+     * Plug-in title
+     * @var string
+     */
+    var $title = PLUGIN_EVENT_SPAMBLOCK_BEE_TITLE;
+    
+    /**
+     * Whether to use a Honey Pot
+     * @var boolean
+     */
+    var $useHoneyPot = true;
+    
+    /**
+     * Whether the Captcha is enabled and what to do when validation failed
+     * @var string
+     */
+    var $hiddenCaptchaHandle = null;
+    
+    /**
+     * Method for retrieving the correct answer of the hidden Captcha.
+     * Either 'default', 'json' or 'smarty'.
+     * @var string
+     */
     var $answerRetrievalMethod = null;
-    var $captchaAnswer         = array();
-    var $captchaQuestionType   = null;
+    
+    /**
+     * Correct answer for the Captcha. If RegExp matching is on, it'll
+     * also contain an index 'pattern'
+     * @var array
+     */
+    var $captchaAnswer = array('answer' => null);
+    
+    /**
+     * Type of question asked in the Captcha. This is either 'math' or 'custom'
+     * @var string
+     */
+    var $captchaQuestionType = null;
+    
+    /**
+     * Whether to use RegExp matching for the hidden Captcha
+     * @var boolean
+     */
     var $useRegularExpressions = false;
     
+    
+    /**
+     * Constructor. Initialize class variables from configuration
+     * @return void
+     */
     function serendipity_event_spamblock_bee() {
         $this->answerRetrievalMethod = $this->get_config('answer_retrieval_method', 'default');
         $this->captchaQuestionType   = $this->get_config('question_type', 'math');
@@ -40,6 +88,11 @@ class serendipity_event_spamblock_bee extends serendipity_event
         
     }
     
+    /**
+     * Declare Serendipity backend properties.
+     * 
+     * @param  serendipity_property_bag $propbag
+     */
     function introspect(&$propbag)
     {
         global $serendipity;
@@ -83,11 +136,23 @@ class serendipity_event_spamblock_bee extends serendipity_event
             )
         );
     }
-
+    
+    /**
+     * Set plug-in title.
+     * 
+     * @param  string $title
+     */
     function generate_content(&$title) {
         $title = PLUGIN_EVENT_SPAMBLOCK_BEE_TITLE;
     }
-
+    
+    /**
+     * Generate backend configuration fields
+     * 
+     * @param  string                   $name     field name
+     * @param  serendipity_property_bag $propbag properties
+     * @return bool
+     */
     function introspect_config_item($name, &$propbag)
     {
         global $serendipity;
@@ -229,9 +294,18 @@ class serendipity_event_spamblock_bee extends serendipity_event
         return true;
     }
     
+    /**
+     * Hook for Serendipity events, initialize plug-in features
+     * 
+     * @param  string                   $event
+     * @param  serendipity_property_bag $bag
+     * @param  array                    $eventData
+     * @param  array                    $addData
+     * @return bool
+     */
     function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
-
+        
         $hooks = &$bag->get('event_hooks');
         if (isset($hooks[$event])) {
             switch($event) {
@@ -282,12 +356,20 @@ class serendipity_event_spamblock_bee extends serendipity_event
     function cleanup() {
     }
     
+    /**
+     * Check if Honey Pot or Captcha have been filled correctly (or if any
+     * other indications for spam can be found).
+     * 
+     * @param  array $eventData
+     * @param  array $addData
+     * @return bool
+     */
     function checkComment(&$eventData, &$addData) {
         global $serendipity;
         
         if ("NORMAL" == $addData['type']) { // only supported for normal comments
             
-            // Check for honey pot:
+            // Check for Honey Pot:
             if ($this->useHoneyPot && (!empty($serendipity['POST']['phone']) || $serendipity['POST']['phone']=='0') ) {
                 $this->spamlog($eventData['id'], 'REJECTED', "BEE Honeypot [" . $serendipity['POST']['phone'] . "]", $addData);
                 $eventData = array('allow_comments' => false);
@@ -391,7 +473,14 @@ class serendipity_event_spamblock_bee extends serendipity_event
     }
 
     /**
-     * Rejects or moderate a comment. Convenience function.
+     * Reject or moderate a comment. Convenience function.
+     * 
+     * @param  string $spamHandle
+     * @param  array $eventData
+     * @param  array $addData
+     * @param  string $remoteResponse
+     * @param  string $logResponse
+     * @return void
      */
     function processComment($spamHandle, &$eventData, &$addData, $remoteResponse, $logResponse = NULL) {
         if ($spamHandle == PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE) {
@@ -403,22 +492,33 @@ class serendipity_event_spamblock_bee extends serendipity_event
     }
     
     /**
-     * Rejects a comment with optional log entry
+     * Reject a comment with optional log entry.
+     * 
+     * @param  array  $eventData
+     * @param  array  $addData
+     * @param  string $remoteResponse
+     * @param  string $logResponse
      */
     function reject(&$eventData, &$addData, $remoteResponse, $logResponse = NULL) {
         global $serendipity;
-
+        
         if (!empty($logResponse)) {
             $this->spamlog($eventData['id'], 'REJECTED', $logResponse, $addData);
         }
         $eventData = array('allow_comments' => false);
         $serendipity['csuccess']        = 'false';
         $serendipity['messagestack']['comments'][] = $remoteResponse;
-
+        
         $this->log(print_r($serendipity['messagestack'], true));
     }
+    
     /**
      * Moderate a comment with optional log entry
+     * @param  array  $eventData
+     * @param  array  $addData
+     * @param  string $remoteResponse
+     * @param  string $logResponse
+     * @return void
      */
     function moderate(&$eventData, &$addData, $remoteResponse, $logResponse = NULL) {
         global $serendipity;
@@ -434,6 +534,11 @@ class serendipity_event_spamblock_bee extends serendipity_event
         $this->log(print_r($serendipity['messagestack'], true));
     }
     
+    /**
+     * Produce JSON string with the correct for fetching via Ajax.
+     * 
+     * @return string The generated JSON string
+     */
     function produceCaptchaAnswerJson() {
         $answer = $this->getCaptchaAnswer();
         if (null === $answer['answer']) {
@@ -442,6 +547,41 @@ class serendipity_event_spamblock_bee extends serendipity_event
         return json_encode(array('answer' => $answer['answer']));
     }
     
+    /**
+     * Write the Honey Pot and Captcha field to the output buffer.
+     * 
+     * @param  array $eventData
+     * @param  array $addData
+     */
+    function printCommentEditExtras(&$eventData, &$addData) {
+        global $serendipity;
+
+        // Don't put extras on admin menu. They are not working there:
+        if (isset($eventData['GET']['action']) && $eventData['GET']['action']=='admin') return;
+             
+        // Honeypot
+        if (serendipity_db_bool($this->useHoneyPot)) {
+            echo '<div id="serendipity_comment_phone" class="serendipity_commentDirection comment_phone_input" >' . "\n";
+            echo '<label for="serendipity_commentform_phone">Phone*</label>' . "\n";
+            echo '<input class="comment_phone_input" type="text" id="serendipity_commentform_phone" name="serendipity[phone]" value="" placeholder="' . PLUGIN_EVENT_SPAMBLOCK_BEE_WARN_HONEPOT . '"/>' . "\n";
+            echo "</div>\n";
+        }
+
+        // Captcha
+        if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $this->hiddenCaptchaHandle) {
+            $question = $this->generateCaptchaQuestion();
+            
+            echo '<div id="serendipity_comment_beecaptcha" class="form_field">' . "\n";
+            echo '<label for="bee_captcha">'. $question. '</label>' . "\n";
+            echo '<input class="" type="text" id="bee_captcha" name="serendipity[beecaptcha]" value="" placeholder=""/>' . "\n";
+            echo "</div>\n";
+        }
+    }
+    
+    /**
+     * If retrieval method != 'smarty' and the hidden Captcha is turned on,
+     * print the needed JavaScript for filling out and hiding the Captcha to the buffer.
+     */
     function printJsExtras() {
         if ($this->answerRetrievalMethod == 'smarty') {
             return;
@@ -469,32 +609,18 @@ class serendipity_event_spamblock_bee extends serendipity_event
         }
     }
     
-    function printCommentEditExtras(&$eventData, &$addData) {
-        global $serendipity;
-
-        // Don't put extras on admin menu. They are not working there:
-        if (isset($eventData['GET']['action']) && $eventData['GET']['action']=='admin') return;
-             
-        // Honeypot
-        if (serendipity_db_bool($this->useHoneyPot)) {
-            echo '<div id="serendipity_comment_phone" class="serendipity_commentDirection comment_phone_input" >' . "\n";
-            echo '<label for="serendipity_commentform_phone">Phone*</label>' . "\n";
-            echo '<input class="comment_phone_input" type="text" id="serendipity_commentform_phone" name="serendipity[phone]" value="" placeholder="' . PLUGIN_EVENT_SPAMBLOCK_BEE_WARN_HONEPOT . '"/>' . "\n";
-            echo "</div>\n";
-        }
-
-        // Captcha
-        if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $this->hiddenCaptchaHandle) {
-            $question = $this->generateCaptchaQuestion();
-            
-            echo '<div id="serendipity_comment_beecaptcha" class="form_field">' . "\n";
-            echo '<label for="bee_captcha">'. $question. '</label>' . "\n";
-            echo '<input class="" type="text" id="bee_captcha" name="serendipity[beecaptcha]" value="" placeholder=""/>' . "\n";
-            echo "</div>\n";
-        }
-    }
-    
+    /**
+     * If retrieval method != 'json' and the hidden Captcha is enabled, print
+     * the needed CSS for hiding it to the output buffer.
+     * 
+     * @param  array $eventData
+     * @param  array $addData
+     */
     function printCss(&$eventData, &$addData) {
+        if ($this->answerRetrievalMethod == 'smarty') {
+            return;
+        }
+        
         global $serendipity;
 
         // Hide and reveal classes by @yellowled used be the RSS chooser:
@@ -533,6 +659,11 @@ class serendipity_event_spamblock_bee extends serendipity_event
         return md5($installation_secret . ':' . $what);
     }
     
+    /**
+     * Generate the question for the Captcha and save the answer to the session.
+     * 
+     * @return string the question
+     */
     function generateCaptchaQuestion() {
         if ($this->captchaQuestionType == 'custom') {
             $question = $this->selectRandomCustomCaptchaQuestion();
@@ -561,6 +692,17 @@ class serendipity_event_spamblock_bee extends serendipity_event
         }
     }
     
+    /**
+     * Get correct answer for current Captcha question.
+     * This method returns an array with one or two indices:
+     *     array(
+     *         'answer'  => the answer to the question
+     *         'pattern' => the pattern for matching the answer (only present
+     *                      when regExp matching is turned on)
+     *     )
+     * 
+     * @return array
+     */
     function getCaptchaAnswer() {
         if (!isset($this->captchaAnswer['answer']) && isset($_SESSION['spamblockbee']['captcha'])) {
             $this->captchaAnswer = $_SESSION['spamblockbee']['captcha'];
@@ -575,6 +717,13 @@ class serendipity_event_spamblock_bee extends serendipity_event
         return $this->captchaAnswer;
     }
     
+    /**
+     * Save the answer for the Captcha question.
+     * Call this method when you have changed the question.
+     * If RegExp matching is turned on, pass a string in the format /pattern/:answer.
+     * 
+     * @param string $answer
+     */
     function setCaptchaAnswer($answer) {
         $answer = array('answer' => $answer);
         
@@ -597,6 +746,12 @@ class serendipity_event_spamblock_bee extends serendipity_event
         $_SESSION['spamblockbee']['captcha'] = $this->captchaAnswer;
     }
     
+    /**
+     * Generate a simple arithmetic problem for use in the Captcha.
+     * Returns an array containing the operator, the operands and the result.
+     * 
+     * @return array
+     */
     function generateCaptchaMathProblem() {
         $result = array();
         
@@ -626,6 +781,12 @@ class serendipity_event_spamblock_bee extends serendipity_event
         return $result;
     }
     
+    /**
+     * Turn numbers between 0 and 10 into words.
+     * 
+     * @param  int $number
+     * @return string
+     */
     function generateNumberString($number) {
         //$number = (int)$number;
         switch ($number) {
@@ -644,6 +805,16 @@ class serendipity_event_spamblock_bee extends serendipity_event
         }
     }
     
+    /**
+     * Select a random question from the list of custom questions.
+     * Returns an array with to indices:
+     *     array(
+     *         'question' => the selected question
+     *         'answer'   => the answer for that question
+     *     )
+     * 
+     * @return array
+     */
     function selectRandomCustomCaptchaQuestion() {
         $questions = trim($this->get_config('questions', ''));
         $answers   = trim($this->get_config('answers', ''));
@@ -671,6 +842,10 @@ class serendipity_event_spamblock_bee extends serendipity_event
         );
     }
     
+    /**
+     * Log spam to file
+     * @param  string $message
+     */
     function log($message){
         if (!PLUGIN_EVENT_SPAMBLOCK_BEE_DEBUG) return;
         $fp = fopen(dirname(__FILE__) . '/spambee.log','a');
@@ -679,6 +854,13 @@ class serendipity_event_spamblock_bee extends serendipity_event
         fclose($fp);
     }
     
+    /**
+     * Log spam to database
+     * @param  string $id
+     * @param  string $switch
+     * @param  string $reason
+     * @param  string $addData
+     */
     function spamlog($id, $switch, $reason, $addData) {
         global $serendipity;
         

@@ -538,7 +538,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
             $question = $this->selectRandomCustomCaptchaQuestion();
             if (null === $question) {
                 // no valid question could be selected, fall back to math questions
-                $questionType = 'math';
+                $this->captchaQuestionType = 'math';
                 $this->set_config('question_type', 'math');
             } else {
                 $this->setCaptchaAnswer($question['answer']);

@@ -721,7 +721,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
         }
         
         // If for some reason RegExp matching is on, but no pattern is present,
-        // turn of RegExp matching
+        // turn off RegExp matching
         if ($this->useRegularExpressions && !isset($this->captchaAnswer['pattern'])) {
             $this->useRegularExpressions = false;
         }

@@ -28,7 +28,7 @@
                 document.addEventListener('load', eventHandler, true);
             } else if (window.attachEvent) {
                 // Internet Exploder
-                window.attachEvent('load', eventHandler);
+                window.attachEvent('onload', eventHandler);
             } else {
                 // Very, very old browsers
                 var oldOnload = typeof window.onload == 'function' ? window.onload : null;
@@ -51,9 +51,9 @@
         }
         
         this.hideBeeElement = function() {
-            var elementClass = divCaptcha.getAttribute('class');
+            var elementClass = divCaptcha.className;
             if (null === elementClass.match(/\bspambeehidden\b/)) {
-                divCaptcha.setAttribute('class', elementClass + ' spambeehidden');
+                divCaptcha.className = elementClass + ' spambeehidden';
             }
         }
         

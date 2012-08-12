@@ -612,7 +612,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 echo "'url': '" . $serendipity['baseURL'] . "index.php/plugin/spamblockbeecaptcha', " .
                      "'method': 'json'";
             } else {
-                echo "'answer': " . (is_numeric($answer) ? $answer : "'" . trim($answer) . "'") . ', ' .
+                echo "'answer': " . (is_numeric($answer) ? $answer : "'" . trim(addcslashes($answer, '\\"\'')) . "'") . ', ' .
                      "'method': 'default'";
             }
             

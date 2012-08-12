@@ -48,7 +48,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QT_CUSTOM', 'Custom questions');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_DESC', 'Advanced configuration options for the hidden Captcha. If the captcha is disabled, you can safely ignore this section.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_ANSWER_RETRIEVAL', 'Answer Retrieval Method');
-@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_ANSWER_RETRIEVAL_DESC', 'Select how you want to retrieve to correct answer to the Captcha. If you select "JSON", you can send an Ajax request to index.php/plugin/spamblockbeecaptcha to get the answer. "Smarty" will provide the answer through the Smarty variable {$beeCaptchaAnswer}, whereas "Default" will hard code it into the page.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_ANSWER_RETRIEVAL_DESC', 'Select how you want to retrieve to correct answer to the Captcha. If you select "JSON", you can send an Ajax request to index.php/plugin/spamblockbeecaptcha to get the answer. "Smarty" will provide the answer through the Smarty variable {$beeCaptchaAnswer}, whereas "Default" will hard code it into the page. NOTE: If "Smarty" is selected, no additional CSS or JavaScript will be included. You have to fill and hide the Captcha field yourself.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QUESTION_TYPE', 'Type of question');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QUESTION_TYPE_DESC', 'Spamblock Bee can automatically generate simple math problems for you or you can create your own questions and answers. Select which one you prefer');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QUESTIONS', 'Custom questions');

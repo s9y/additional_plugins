@@ -562,7 +562,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
      */
     function printCommentEditExtras(&$eventData, &$addData) {
         global $serendipity;
-
+        
         // Don't put extras on admin menu. They are not working there:
         if (isset($eventData['GET']['action']) && $eventData['GET']['action']=='admin') return;
              
@@ -582,6 +582,11 @@ class serendipity_event_spamblock_bee extends serendipity_event
             echo '<label for="bee_captcha">'. $question. '</label>' . "\n";
             echo '<input class="" type="text" id="bee_captcha" name="serendipity[beecaptcha]" value="" placeholder=""/>' . "\n";
             echo "</div>\n";
+            
+            if ($this->answerRetrievalMethod == 'smarty') {
+                $answer = $this->getCaptchaAnswer();
+                $serendipity['smarty']->assign('beeCaptchaAnswer', $answer['answer']);
+            }
         }
     }
     

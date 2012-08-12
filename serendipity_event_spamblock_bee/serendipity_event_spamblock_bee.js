@@ -80,7 +80,7 @@
                 
                 if (typeof answer != 'string' || 'ERROR' != answer.toUpperCase()) {
                     inputCaptcha.value = answer;
-                    this.hideBeeElement();
+                    that.hideBeeElement();
                 }
             }
         }

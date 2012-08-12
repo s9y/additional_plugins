@@ -58,7 +58,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_ANSWERS_DESC', 'This field contains the correct answers for the questions specified above. Write down one answer per line in the same order as the corresponding questions. Questions that don\'t have a valid answer will be ignored. All answers are case-insensitive (i.e. "Answer" is the same as "answer").');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_DEFAULT_ANSWERS', "Answer1\nAnswer2");
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_USE_REGEXP', 'Use regular expressions');
-@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_USE_REGEXP_DESC', 'Whether to interpret the answers given above as Perl compatible regular expressions (PCREs). This can be used to allow several variants of an answer.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_USE_REGEXP_DESC', "Whether to interpret the answers given above as Perl compatible regular expressions (PCREs). This can be used to allow several variants of an answer. Each answer line should follow the rule /pattern/:answer. NOTE: Only enable this if you know what you\'re doing. Filling in bad regular expressions causes validity checks to fail and in some rare cases might expose yourself to a so called Denial of Service attack! Answers longer than 1000 characters will be rejected when regular expression matching is on.");
 
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_0', 'zero');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_1', 'one');

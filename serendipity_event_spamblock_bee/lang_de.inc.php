@@ -56,7 +56,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_ANSWERS_DESC', 'Dieses Feld enthält die korrekten Antworten auf die oben angegebenen Fragen. Gib pro Zeile eine Antwort an in derselben Reihenfolge, die auch die Fragen haben. Fragen, für die es keine Antworten gibt, werden ignoriert. Groß- und Kleinschreibung spielt keine Rolle (d.h. "Antwort" ist dasselbe wie "antwort".');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_DEFAULT_ANSWERS', "Antwort1\nAntwort2");
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_USE_REGEXP', 'Reguläre Ausdrücke benutzen');
-@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_USE_REGEXP_DESC', 'Gibt an, ob Perl-kompatible reguläre Ausdrücke (PCREs) für die Antworten verwendet werden sollen. Diese können dazu benutzt werden, mehrere Varianten einer Antwort zuzulassen.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_USE_REGEXP_DESC', 'Gibt an, ob Perl-kompatible reguläre Ausdrücke (PCREs) für die Antworten verwendet werden sollen. Diese können dazu benutzt werden, mehrere Varianten einer Antwort zuzulassen. Jeder Antwortzeile sollte dabei dem Muster /pattern/:Antwort entsprechen. ACHTUNG: Aktiviere diese Option nur, wenn du weißt, was du tust. Ein ungültiger regulärer Ausdruck wird Validitäts-Prüfungen fehlschlagen lassen und könnte dein Blog in wenigen Fällen einer sogenannten Denial-of-Service-Attacke aussetzen. Antworten länger als 1000 Zeichen werden abgewiesen, wenn reguläre Ausdrücke eingeschaltet sind.');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_0', 'Null');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_1', 'Eins');

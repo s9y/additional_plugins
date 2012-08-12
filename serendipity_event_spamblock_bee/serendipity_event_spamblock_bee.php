@@ -23,7 +23,22 @@ require_once dirname(__FILE__) . '/json/json.php4.include.php';
 
 class serendipity_event_spamblock_bee extends serendipity_event
 {
-    var $title = PLUGIN_EVENT_SPAMBLOCK_BEE_TITLE;
+    var $title                 = PLUGIN_EVENT_SPAMBLOCK_BEE_TITLE;
+    var $useHoneyPot           = true;
+    var $hiddenCaptchaHandle   = null;
+    var $answerRetrievalMethod = null;
+    var $captchaAnswer         = array();
+    var $captchaQuestionType   = null;
+    var $useRegularExpressions = false;
+    
+    function serendipity_event_spamblock_bee() {
+        $this->answerRetrievalMethod = $this->get_config('answer_retrieval_method', 'default');
+        $this->captchaQuestionType   = $this->get_config('question_type', 'math');
+        $this->useHoneyPot           = $this->get_config('do_honeypot', true);
+        $this->hiddenCaptchaHandle   = $this->get_config('do_hiddencaptcha', PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE);
+        $this->useRegularExpressions = $this->get_config('use_regexp', false);
+        
+    }
     
     function introspect(&$propbag)
     {
@@ -44,8 +59,8 @@ class serendipity_event_spamblock_bee extends serendipity_event
         $propbag->add('event_hooks',    array(
             'frontend_comment' => true,
             'frontend_saveComment' => true,
-        	'frontend_footer'     => true,
-            'css'				=> true,
+            'frontend_footer'     => true,
+            'css'               => true,
             'external_plugin'  => true,
         ));
         $propbag->add('groups', array('ANTISPAM'));
@@ -60,7 +75,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
         $propbag->add('configuration', $configuration );
         $propbag->add('config_groups', array(
                 PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SECTION_LOGGING => array(
-        			'spamlogtype', 'spamlogfile', 'plugin_path'
+                    'spamlogtype', 'spamlogfile', 'plugin_path'
                 ),
                 PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SECTION_ADVANCED => array(
                     'advanced_cc_desc', 'answer_retrieval_method', 'question_type', 'questions', 'answers', 'use_regexp'
@@ -80,7 +95,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
         $rejectType = array(
             PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF => PLUGIN_EVENT_SPAMBLOCK_BEE_RESULT_OFF,
             PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE => PLUGIN_EVENT_SPAMBLOCK_BEE_RESULT_MODERATE,
-        	PLUGIN_EVENT_SPAMBLOCK_SWTCH_REJECT => PLUGIN_EVENT_SPAMBLOCK_BEE_RESULT_REJECT,
+            PLUGIN_EVENT_SPAMBLOCK_SWTCH_REJECT => PLUGIN_EVENT_SPAMBLOCK_BEE_RESULT_REJECT,
         );
         
         $retrievalMethod = array(
@@ -227,19 +242,18 @@ class serendipity_event_spamblock_bee extends serendipity_event
                             echo file_get_contents(dirname(__FILE__). '/spamblockbee.png');
                             break;
                         case 'spamblockbeecaptcha':
-                            echo $this->produceCaptchaAnswer();
+                            echo $this->produceCaptchaAnswerJson();
                             break;
                     }
                     break;
                 
                 case 'frontend_saveComment':
-                    // Check only, if noone else denied it before
-					if (!is_array ( $eventData ) || serendipity_db_bool ( $eventData ['allow_comments'] )) {
-                        $result = $this->checkComment($eventData, $addData);
-                        return $result;
-					}
+                    // Check only, if no one else denied it before
+                    if (!is_array ( $eventData ) || serendipity_db_bool ( $eventData ['allow_comments'] )) {
+                        return $this->checkComment($eventData, $addData);
+                    }
                     return true;
-					break;
+                    break;
                 case 'frontend_comment':
                     $this->printCommentEditExtras($eventData, $addData);
                     break;
@@ -261,8 +275,10 @@ class serendipity_event_spamblock_bee extends serendipity_event
             return false;
         }
     }
+    
     function install() {
     }
+    
     function cleanup() {
     }
     
@@ -271,35 +287,57 @@ class serendipity_event_spamblock_bee extends serendipity_event
         
         if ("NORMAL" == $addData['type']) { // only supported for normal comments
             
-            // Check for honeypot:
-            $do_honepot = serendipity_db_bool($this->get_config('do_honeypot',true));
-            if ($do_honepot && (!empty($serendipity['POST']['phone']) || $serendipity['POST']['phone']=='0') ) {
+            // Check for honey pot:
+            if ($this->useHoneyPot && (!empty($serendipity['POST']['phone']) || $serendipity['POST']['phone']=='0') ) {
                 $this->spamlog($eventData['id'], 'REJECTED', "BEE Honeypot [" . $serendipity['POST']['phone'] . "]", $addData);
                 $eventData = array('allow_comments' => false);
                 return false;
             }
             
-            // Check hidden captcha
-            $spamHandle = $this->get_config('do_hiddencaptcha', PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE);
-            if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $spamHandle) {
-                $answer        = trim(strtolower($serendipity['POST']['beecaptcha']));
-                $correctAnswer = strtolower($_SESSION['spamblockbee']['captcha']);
+            // Check hidden Captcha
+            if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $this->hiddenCaptchaHandle) {
+                $answer                  = trim(strtolower($serendipity['POST']['beecaptcha']));
+                $correctAnswer           = $this->getCaptchaAnswer();
+                $correctAnswer['answer'] = strtolower($correctAnswer['answer']);
+                $isCorrect               = false;
                 
-                $correct = ($answer == $correctAnswer);
-                
-                // also allow numbers as words
-                if (!$correct && $this->get_config('question_type', 'math') == 'math') {
-                    $number = $this->generateNumberString($correctAnswer);
-                    $correct = ($answer == $number && $number != 'ERROR');
+                // If provided answer is longer than 1000 characters and RegExp matching is on,
+                // reject comment for security reasons (minimize risk of ReDoS)
+                if ($this->useRegularExpressions && strlen($answer) > 1000) {
+                    return false;
                 }
                 
-                if (!$correct) {
-                    $test = $this->generateNumberString($answer);
-                    if (strtolower($correct) != strtolower($test)) {
-                        $this->processComment($spamHandle, $eventData, $addData, PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_HCAPTCHA, "BEE HiddenCaptcha [ $correct != $answer ]");
-                        return false;
+                if ($this->captchaQuestionType == 'custom' && $this->useRegularExpressions) {
+                    // Sanitize regular expression and remove answer part
+                    $pattern = preg_replace('/^\s*\/(.*)\/\s*[imsxeADSUXJu]*\s*$/s', '$1', $correctAnswer['pattern']);
+                    $pattern = addcslashes($pattern, '\\');
+                    
+                    // Try to match pattern with given answer
+                    $match = @preg_match('/' . $pattern . '/si', $answer);
+                    
+                    // If pattern contains errors, fall back to basic string comparison
+                    if ($match === false) {
+                        $this->useRegularExpressions = false;
+                    } else {
+                        $isCorrect = ($match === 1);
                     }
                 }
+                
+                if ($this->captchaQuestionType != 'custom' || !$this->useRegularExpressions) {
+                    $isCorrect = ($answer == $correctAnswer['answer']);
+                }
+                
+                // Also allow numbers as words
+                if (!$isCorrect && $this->captchaQuestionType == 'math') {
+                    $number    = $this->generateNumberString($correctAnswer['answer']);
+                    $isCorrect = ($answer == $number && $number != 'ERROR');
+                }
+                
+                if (!$isCorrect) {
+                    $this->processComment($this->hiddenCaptchaHandle, $eventData, $addData, PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_HCAPTCHA, "BEE HiddenCaptcha [ $correct != $answer ]");
+                }
+                
+                return $isCorrect;
             }
         }
         
@@ -396,29 +434,29 @@ class serendipity_event_spamblock_bee extends serendipity_event
         $this->log(print_r($serendipity['messagestack'], true));
     }
     
-    function produceCaptchaAnswer() {
-        $answer = isset($_SESSION['spamblockbee']['captcha']) ? $_SESSION['spamblockbee']['captcha'] : null;
-        if (null === $answer) {
-            $answer="ERROR";
+    function produceCaptchaAnswerJson() {
+        $answer = $this->getCaptchaAnswer();
+        if (null === $answer['answer']) {
+            $answer='ERROR';
         }
-        return json_encode(array("answer" => $answer));
+        return json_encode(array('answer' => $answer['answer']));
     }
     
     function printJsExtras() {
-        $method = $this->get_config('answer_retrieval_method', 'default');
-        if ($method == 'smarty') {
+        if ($this->answerRetrievalMethod == 'smarty') {
             return;
         }
         
         global $serendipity;
         
-        if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $this->get_config('do_hiddencaptcha', PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE)) {
+        if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $this->hiddenCaptchaHandle) {
             $path   = $this->path = $this->get_config('plugin_path', $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_spamblock_bee/');
-            $answer = $_SESSION['spamblockbee']['captcha'];
+            $answer = $this->getCaptchaAnswer();
+            $answer = $answer['answer'];
             
             echo '<script> var spamBeeData = {';
             
-            if ($method == 'json') {
+            if ($this->answerRetrievalMethod == 'json') {
                 echo "'url': '" . $serendipity['baseURL'] . "index.php/plugin/spamblockbeecaptcha', " .
                      "'method': 'json'";
             } else {
@@ -438,7 +476,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
         if (isset($eventData['GET']['action']) && $eventData['GET']['action']=='admin') return;
              
         // Honeypot
-        if (serendipity_db_bool($this->get_config('do_honeypot',true))) {
+        if (serendipity_db_bool($this->useHoneyPot)) {
             echo '<div id="serendipity_comment_phone" class="serendipity_commentDirection comment_phone_input" >' . "\n";
             echo '<label for="serendipity_commentform_phone">Phone*</label>' . "\n";
             echo '<input class="comment_phone_input" type="text" id="serendipity_commentform_phone" name="serendipity[phone]" value="" placeholder="' . PLUGIN_EVENT_SPAMBLOCK_BEE_WARN_HONEPOT . '"/>' . "\n";
@@ -446,8 +484,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
         }
 
         // Captcha
-        if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF !=
-            $this->get_config('do_hiddencaptcha', PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE)) {
+        if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $this->hiddenCaptchaHandle) {
             $question = $this->generateCaptchaQuestion();
             
             echo '<div id="serendipity_comment_beecaptcha" class="form_field">' . "\n";
@@ -461,7 +498,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
         global $serendipity;
 
         // Hide and reveal classes by @yellowled used be the RSS chooser:
-        if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $this->get_config('do_hiddencaptcha', PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE)) {
+        if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $this->hiddenCaptchaHandle) {
 ?>
 .spambeehidden {
     border: 0;
@@ -479,9 +516,9 @@ class serendipity_event_spamblock_bee extends serendipity_event
         if (!(strpos($eventData, '.comment_phone_input'))) {
 ?>
 .comment_phone_input {
-	max-width: 100%;
-	display:none;
-	visibility:hidden;
+    max-width: 100%;
+    display:none;
+    visibility:hidden;
 }
 <?php
         }
@@ -497,23 +534,21 @@ class serendipity_event_spamblock_bee extends serendipity_event
     }
     
     function generateCaptchaQuestion() {
-        $questionType = $this->get_config('question_type', 'math');
-        
-        if ($questionType == 'custom') {
+        if ($this->captchaQuestionType == 'custom') {
             $question = $this->selectRandomCustomCaptchaQuestion();
             if (null === $question) {
                 // no valid question could be selected, fall back to math questions
                 $questionType = 'math';
                 $this->set_config('question_type', 'math');
             } else {
-                $_SESSION['spamblockbee']['captcha'] = $question['answer'];
+                $this->setCaptchaAnswer($question['answer']);
                 return $question['question'];
             }
         }
         
-        if ($questionType == 'math') {
-            $captchaData                         = $this->generateCaptchaMathProblem();
-            $_SESSION['spamblockbee']['captcha'] = $captchaData['answer'];
+        if ($this->captchaQuestionType == 'math') {
+            $captchaData = $this->generateCaptchaMathProblem();
+            $this->setCaptchaAnswer($captchaData['answer']);
             
             $method = PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_PLUS;
             if ($captchaData['operator'] == '-') {
@@ -524,6 +559,42 @@ class serendipity_event_spamblock_bee extends serendipity_event
                    $this->generateNumberString($captchaData['n1']) . " " .
                    $method . " " . $this->generateNumberString($captchaData['n2']) . '?'; 
         }
+    }
+    
+    function getCaptchaAnswer() {
+        if (!isset($this->captchaAnswer['answer']) && isset($_SESSION['spamblockbee']['captcha'])) {
+            $this->captchaAnswer = $_SESSION['spamblockbee']['captcha'];
+        }
+        
+        // If for some reason RegExp matching is on, but no pattern is present,
+        // turn of RegExp matching
+        if ($this->useRegularExpressions && !isset($this->captchaAnswer['pattern'])) {
+            $this->useRegularExpressions = false;
+        }
+        
+        return $this->captchaAnswer;
+    }
+    
+    function setCaptchaAnswer($answer) {
+        $answer = array('answer' => $answer);
+        
+        // Split answer into array if RegExp matching is on
+        if ($this->captchaQuestionType == 'custom' && $this->useRegularExpressions) {
+            $delimiterIndex = strrpos($answer['answer'], ':');
+            
+            if ($delimiterIndex !== false) {
+                $answer = array(
+                    'pattern' => substr($answer['answer'], 0, $delimiterIndex),
+                    'answer'  => substr($answer['answer'], $delimiterIndex + 1)
+                );
+            } else {
+                // Answer contains either no pattern or no answer part, fall back to string matching
+                $this->useRegularExpressions = false;
+            }
+        }
+        
+        $this->captchaAnswer                 = $answer;
+        $_SESSION['spamblockbee']['captcha'] = $this->captchaAnswer;
     }
     
     function generateCaptchaMathProblem() {
@@ -608,7 +679,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
         fclose($fp);
     }
     
-	function spamlog($id, $switch, $reason, $addData) {
+    function spamlog($id, $switch, $reason, $addData) {
         global $serendipity;
         
         $method = $this->get_config('spamlogtype', 'none');
@@ -619,9 +690,9 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 if (empty($logfile)) {
                     return;
                 }
-				if (strpos($logfile, '%') !== false) {
-					$logfile = strftime($logfile);
-				}
+                if (strpos($logfile, '%') !== false) {
+                    $logfile = strftime($logfile);
+                }
 
                 $fp = @fopen($logfile, 'a+');
                 if (!is_resource($fp)) {

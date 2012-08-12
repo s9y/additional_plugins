@@ -3,7 +3,7 @@
         var that         = this;
         var inputCaptcha = document.getElementById("bee_captcha");
         var divCaptcha   = document.getElementById('serendipity_comment_beecaptcha');
-        var method       = (loadData.method == 'json')           ? loadData.method : 'default';
+        var method       = loadData.method        == 'json'      ? loadData.method : 'default';
         var url          = typeof loadData.url    != 'undefined' ? loadData.url    : null;
         var answer       = typeof loadData.answer != 'undefined' ? loadData.answer : null;
         
@@ -11,9 +11,7 @@
             var handlerCalled = false;
             var eventHandler = function() {
                 // Since we use multiple handlers, only run this function once
-                if (handlerCalled) {
-                    return;
-                }
+                if (handlerCalled) return;
                 handlerCalled = true;
                 
                 that.fillCaptcha();
@@ -33,18 +31,10 @@
                 window.attachEvent('load', eventHandler);
             } else {
                 // Very, very old browsers
-                if (typeof window.onload == 'function') {
-                    window.onload = function() {
-                        eventHandler();
-                    };
-                } else {
-                    var oldonload = window.onload;
-                    window.onload = function() {
-                        if (oldonload) {
-                            oldonload();
-                        }
-                        eventHandler();
-                    }
+                var oldOnload = typeof window.onload == 'function' ? window.onload : null;
+                window.onload = function() {
+                    if (null !== oldOnload) oldOnload();
+                    eventHandler();
                 }
             }
         }
@@ -52,6 +42,7 @@
         this.fillCaptcha = function() {
             if ('default' == method && null !== answer) {
                 inputCaptcha.value = answer;
+                this.hideBeeElement();
                 return;
             } else if ('json' == method && null !== url) {
                 fetchJsonData();
@@ -89,6 +80,7 @@
                 
                 if (typeof answer != 'string' || 'ERROR' != answer.toUpperCase()) {
                     inputCaptcha.value = answer;
+                    this.hideBeeElement();
                 }
             }
         }
@@ -96,5 +88,4 @@
 
     var spamBeeObj = new SpamBeeCaptcha(spamBeeData);
     spamBeeObj.attachToLoadEvent();
-    spamBeeObj.hideBeeElement();
 })();

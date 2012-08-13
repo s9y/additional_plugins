@@ -1,4 +1,10 @@
-latest: Smarty3 forward compatibility
+2.55:
+-----
+Template and translation improvements
+
+2.54:
+-----
+Smarty3 forward compatibility
 
 2.52:
 ----
@@ -6,6 +12,4 @@ Stricter array check to suppress warning message
 
 2.45:
 -----
-
 Allow to put linked image's original blog entry inside the RSS feed.
-

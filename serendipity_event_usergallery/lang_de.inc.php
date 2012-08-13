@@ -72,6 +72,10 @@
 @define('USERGALLERY_DOWNLOAD_HERE','Download der Datei');
 @define('USERGALLERY_LINKED_ENTRIES', 'Artikel, die dieses Bild verwenden:');
 @define('USERGALLERY_LINKED_STATICPAGES','Statische Seiten, die dieses Bild verwenden:');
+@define('PLUGIN_EVENT_USERGALLERY_DIRTAB_NAME','Einrückung der Unterverzeichnisse im Baum');
+@define('PLUGIN_EVENT_USERGALLERY_DIRTAB_DESC','Anzahl Pixel, um die Unterverzeichnisse im Verzeichnisbaum eingerückt werden.');
+@define('PLUGIN_EVENT_USERGALLERY_IMAGE_WIDTH_NAME','Max. Bildbreite in der Seite.');
+@define('PLUGIN_EVENT_USERGALLERY_IMAGE_WIDTH_DESC','Maximale Breite, in der ein Bild angezeigt werden kann, wenn "In Seite einpassen" gewählt wurde. Die Einstellung "0" bewirkt, dass Bilder in voller Größe angezeigt werden.');
 @define('PLUGIN_EVENT_USERGALLERY_SHOW_LINKED_ENTRY', 'Soll ein Link zu den Einträgen/statischen Seiten gezeigt werden, die auf das Bild verlinken?');
 
 //Media properties
@@ -83,3 +87,5 @@
 //Several consants used in the template
 @define('PLUGIN_EVENT_USERGALLERY_IMAGES', 'Bilder');
 @define('PLUGIN_EVENT_USERGALLERY_PAGINATION', 'Seite %s von %s, insgesamt %s Bilder');
+@define('PLUGIN_EVENT_USERGALLERY_RSS_FEED_BODY', 'Use original blog entry for the picture in RSS-Feed?');
+@define('PLUGIN_EVENT_USERGALLERY_RSS_FEED_BODY_DESC', 'Falls ausgewählt, wird zu einem Bild aus der Mediendatenbank, das in einem Blog-Eintrag verlinkt wurde, im RSS-Feed auch der Inhalt des Blog-Eintrages ausgegebn, anstatt (Standard) nur einen Link zum Blog-Eintrag und dem ursprünglichen Platz des Bildes.');

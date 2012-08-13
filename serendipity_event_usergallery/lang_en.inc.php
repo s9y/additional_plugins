@@ -39,7 +39,7 @@
 @define('PLUGIN_EVENT_USERGALLERY_DIRLIST_NAME', 'Show a directory listing');
 @define('PLUGIN_EVENT_USERGALLERY_DIRLIST_DESC', 'If set to "yes" the gallery will display a listing of all directories contained in your default directory.');
 @define('PLUGIN_EVENT_USERGALLERY_IMAGESTRICT_NAME', 'Output images strictly');
-@define('PLUGIN_EVENT_USERGALLERY_IMAGESTRICT_DESC', 'If set to "yes" the gallery will only display pictures in the current directory. If set to "no" the gallery will output all pictures in all subdirecteries.');
+@define('PLUGIN_EVENT_USERGALLERY_IMAGESTRICT_DESC', 'If set to "yes" the gallery will only display pictures in the current directory. If set to "no" the gallery will output all pictures in all subdirectories.');
 @define('PLUGIN_EVENT_USERGALLERY_IMAGEORDER_NAME', 'Order of images');
 @define('PLUGIN_EVENT_USERGALLERY_IMAGEORDER_DESC', 'Pick the order your would like images output.');
 @define('PLUGIN_EVENT_USERGALLERY_IMAGEORDER_NAMEACS', 'Name (Ascending)');
@@ -48,7 +48,7 @@
 @define('PLUGIN_EVENT_USERGALLERY_IMAGEORDER_DATEDESC', 'Date (Descending)');
 @define('PLUGIN_EVENT_USERGALLERY_DISPLAYDIR_NAME', 'Display the whole directory tree');
 @define('PLUGIN_EVENT_USERGALLERY_DISPLAYDIR_DESC', 'If set to "yes" the gallery will display the whole directory tree on each page.  If set to "no" the the gallery will display a directory list of only subfolders. (This behavior is also dependent on the template used to display the gallery.)');
-@define('PLUGIN_EVENT_USERGALLERY_1SUBLVL_NAME','Only show one directory level lower');  
+@define('PLUGIN_EVENT_USERGALLERY_1SUBLVL_NAME','Only show one directory level lower');
 @define('PLUGIN_EVENT_USERGALLERY_1SUBLVL_DESC','This will limit the directory output to only show one directory level below the current, and will summerize the number of pictures in all directories under the next level. This is not available if you are using the full directory tree.');
 @define('PLUGIN_EVENT_USERGALLERY_IMAGESPERPAGE_NAME', 'Images per page');
 @define('PLUGIN_EVENT_USERGALLERY_IMAGESPERPAGE_DESC', 'Set the number of images to display per page.  If set to "0" pagination will be turned off.');

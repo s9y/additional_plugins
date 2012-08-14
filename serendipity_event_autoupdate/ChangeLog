@@ -1,3 +1,9 @@
+0.4
+    * Fixed checksums var
+    * Enhanced cleanTemplatesC()
+    * Added some debug and process messages
+0.3
+    * Compatibility fixes [brockhaus]
 0.2:
     * Fixed: Didn't create new directories which were part of the new version
     * Fixed: Choked on new files of the new version which didn't exist

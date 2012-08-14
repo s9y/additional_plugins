@@ -1,3 +1,11 @@
+Version 1.2
+
+* Implemented a way to specify custom questions to use instead of just arithmetic problems
+* Added two more methods for retrieving the correct Captcha answer
+* Fixed bug occurring when Captcha answer is 0
+* Improved title spam detection
+* Various fixes and improvements
+
 Version 1.01
 
 * Added "hidden captcha", checking for bots not having JS.

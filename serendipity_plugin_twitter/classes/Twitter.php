@@ -215,24 +215,6 @@ class Twitter {
             }
             $entries = $newentries;
         }
-        
-        /*
-        // identica search. Doesn't support OR.. :-(
-        $api = new Twitter(true); // identica version
-        foreach ($keywords as $keyword) {
-            $newentries = $api->search(urlencode($keyword) . $filter, $keywords, $entries, false);
-            if ($newentries===false) { // Error occured, mostly resultet in an twitter overload!
-                $continue = false;
-                echo "<b>Search qry</b>: ".$api->get_search_url()."?q={$q}{$filter}<br/>";
-                echo "<b>Error code</b>: " . $api->twitter_errors[$api->last_error] . " ({$api->last_error})<br/>";
-                if (!empty($api->error_response)) {
-                    echo "<b>Error Resp</b>: {$api->error_response}<br/>";
-                }
-                break;
-            }
-            $entries = $newentries;
-        }
-        */
         return $entries;
     }
     
@@ -251,14 +233,15 @@ class Twitter {
 	"short_url_length":20
 }
      */
-    function get_twitter_config() {
+    static function get_twitter_config() {
         require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
         $config_url = "https://api.twitter.com/1/help/configuration.json";
 
         if (function_exists('serendipity_request_start')) serendipity_request_start();
         $req = new HTTP_Request($config_url, array('timeout' => 20, 'readTimeout' => array(5,0)));
         $req->sendRequest();
-        $this->last_error = $req->getResponseCode();
+        // We are static
+        //$this->last_error = $req->getResponseCode();
         if ($req->getResponseCode() != 200) {
             $this->last_error = $req->getResponseCode();
             $this->error_response = trim($req->getResponseBody());

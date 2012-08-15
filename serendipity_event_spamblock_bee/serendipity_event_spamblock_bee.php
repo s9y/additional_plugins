@@ -389,6 +389,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 // If provided answer is longer than 1000 characters and RegExp matching is on,
                 // reject comment for security reasons (minimize risk of ReDoS)
                 if ($this->useRegularExpressions && strlen($answer) > 1000) {
+                    $this->processComment($this->hiddenCaptchaHandle, $eventData, $addData, PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_HCAPTCHA, "BEE HiddenCaptcha [ Captcha input too long ]");
                     return false;
                 }
                 

@@ -74,6 +74,18 @@ class serendipity_event_spamblock_bee extends serendipity_event
      */
     var $useRegularExpressions = false;
     
+    /**
+     * Whether to scramble the Captcha answer
+     * @var boolean
+     */
+    var $captchaScrambleAnswer = false;
+    
+    /**
+     * Whether to obfuscate the JS code for the hidden Captcha
+     * @var boolean
+     */
+    var $captchaObfuscateCode = false;
+    
     
     /**
      * Constructor. Initialize class variables from configuration
@@ -86,6 +98,13 @@ class serendipity_event_spamblock_bee extends serendipity_event
         $this->hiddenCaptchaHandle   = $this->get_config('do_hiddencaptcha', PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE);
         $this->useRegularExpressions = $this->get_config('use_regexp', false);
         
+        $obfuscate = $this->get_config('obfuscate_answer', 'off');
+        if ($obfuscate == 'scramble_answer') {
+            $this->captchaScrambleAnswer = true;
+        } else if ($obfuscate == 'scramble_answer_and_js') {
+            $this->captchaScrambleAnswer = true;
+            $this->captchaObfuscateCode  = true;
+        }
     }
     
     /**
@@ -123,7 +142,10 @@ class serendipity_event_spamblock_bee extends serendipity_event
             $configuration =array_merge($configuration, array('entrytitle', 'samebody', 'required_fields'));
         }
         $configuration =array_merge($configuration, array('spamlogtype', 'spamlogfile', 'plugin_path'));
-        $configuration =array_merge($configuration, array('advanced_cc_desc', 'answer_retrieval_method', 'question_type', 'questions', 'answers', 'use_regexp'));
+        $configuration =array_merge($configuration, array(
+            'advanced_cc_desc', 'answer_retrieval_method', 'question_type',
+            'questions', 'answers', 'use_regexp', 'obfuscate_answer'
+        ));
         
         $propbag->add('configuration', $configuration );
         $propbag->add('config_groups', array(
@@ -131,7 +153,8 @@ class serendipity_event_spamblock_bee extends serendipity_event
                     'spamlogtype', 'spamlogfile', 'plugin_path'
                 ),
                 PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SECTION_ADVANCED => array(
-                    'advanced_cc_desc', 'answer_retrieval_method', 'question_type', 'questions', 'answers', 'use_regexp'
+                    'advanced_cc_desc', 'answer_retrieval_method', 'question_type',
+                    'questions', 'answers', 'use_regexp', 'obfuscate_answer'
                 )
             )
         );
@@ -172,6 +195,12 @@ class serendipity_event_spamblock_bee extends serendipity_event
         $questionType = array(
             'math' => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QT_MATH,
             'custom' => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QT_CUSTOM
+        );
+        
+        $obfuscateAnswer = array(
+            'off' => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_OBFUSCATE_OFF,
+            'scramble_answer' => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_OBFUSCATE_SCRAMBLE_JS,
+            'scramble_answer_and_js' => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_OBFUSCATE_SCRAMBLE_JS_AND_CODE
         );
         
         switch($name) {
@@ -288,6 +317,14 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 $propbag->add('name',          PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_USE_REGEXP);
                 $propbag->add('description',   PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_USE_REGEXP_DESC);
                 $propbag->add('default',       false);
+                break;
+            
+            case 'obfuscate_answer':
+                $propbag->add('type',          'select');
+                $propbag->add('name',          PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_OBFUSCATE);
+                $propbag->add('description',   PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_OBFUSCATE_DESC);
+                $propbag->add('select_values', $obfuscateAnswer);
+                $propbag->add('default',       'off');
                 break;
             
             default:
@@ -550,11 +587,17 @@ class serendipity_event_spamblock_bee extends serendipity_event
      * @return string The generated JSON string
      */
     function produceCaptchaAnswerJson() {
-        $answer = $this->getCaptchaAnswer();
-        if (null === $answer['answer']) {
-            $answer='ERROR';
+        $answer      = $this->getCaptchaAnswer();
+        $scrambleKey = rand();
+        
+        if (!isset($answer['answer'])) {
+            $answer = array('answer' => 'ERROR');
+        } else if ($this->captchaScrambleAnswer) {
+            $answer['answer']      = rawurlencode($this->xorScramble($answer['answer'], $scrambleKey));
+            $answer['scrambleKey'] = $scrambleKey;
         }
-        return json_encode(array('answer' => $answer['answer']));
+        
+        return json_encode($answer);
     }
     
     /**
@@ -588,6 +631,12 @@ class serendipity_event_spamblock_bee extends serendipity_event
             
             if ($this->answerRetrievalMethod == 'smarty') {
                 $answer = $this->getCaptchaAnswer();
+                if ($this->captchaScrambleAnswer) {
+                    $scrambleKey      = rand();
+                    $answer['answer'] = $this->xorScramble($answer['answer'], $scrambleKey);
+                    $serendipity['smarty']->assign('beeCaptchaScrambleKey', $scrambleKey);
+                }
+                
                 $serendipity['smarty']->assign('beeCaptchaAnswer', $answer['answer']);
             }
         }
@@ -605,23 +654,96 @@ class serendipity_event_spamblock_bee extends serendipity_event
         global $serendipity;
         
         if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $this->hiddenCaptchaHandle) {
-            $path   = $this->path = $this->get_config('plugin_path', $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_spamblock_bee/');
-            $answer = $this->getCaptchaAnswer();
-            $answer = $answer['answer'];
+            $path         = $this->path = $this->get_config('plugin_path', $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_spamblock_bee/');
+            $answer       = $this->getCaptchaAnswer();
+            $answer       = $answer['answer'];
+            $jsProperties = array('method' => $this->answerRetrievalMethod);
             
-            echo '<script> var spamBeeData = {';
             
             if ($this->answerRetrievalMethod == 'json') {
-                echo "'url': '" . $serendipity['baseURL'] . "index.php/plugin/spamblockbeecaptcha', " .
-                     "'method': 'json'";
+                $jsProperties['url'] = $serendipity['baseURL'] . 'index.php/plugin/spamblockbeecaptcha';
             } else {
-                echo "'answer': " . (is_numeric($answer) ? $answer : "'" . trim(addcslashes($answer, '\\"\'')) . "'") . ', ' .
-                     "'method': 'default'";
+                $scrambleKey = rand();
+                
+                if ($this->captchaScrambleAnswer) {
+                    $answer                      = rawurlencode($this->xorScramble($answer, $scrambleKey));
+                    $jsProperties['scrambleKey'] = $scrambleKey;
+                }
+                
+                $jsProperties['answer'] = is_numeric($answer) ? $answer : trim($answer);
             }
             
-            echo '};</script>' . "\n" .
-                 '<script type="text/javascript" src="' . $path . 'serendipity_event_spamblock_bee.js"></script>';
+            if ($this->answerRetrievalMethod == 'default' && $this->captchaObfuscateCode) {
+                // Do some weird obfuscation stuff to the JS code
+                $spamBeeVar = $this->generateUniqueVarName(array());
+                
+                // Shuffle array but preserve keys
+                $jsPropertiesKeys = array_keys($jsProperties);
+                shuffle($jsPropertiesKeys);
+                $jsProperties = array_merge(array_flip($jsPropertiesKeys) , $jsProperties);
+                
+                echo '<script>var spamBeeData = function() { var ' . $spamBeeVar . ' = {};';
+                
+                $jsVars       = array();
+                $existingKeys = array($spamBeeVar);
+                foreach($jsProperties as $property => $value) {
+                    $varName          = $this->generateUniqueVarName($existingKeys);
+                    $jsVars[$varName] = $property;
+                    $existingKeys[]   = $varName;
+                    
+                    // URL encode all characters to make values appear almost equal
+                    $encVal = '';
+                    $valLength = mb_strlen($value);
+                    for ($i = 0; $i < $valLength; ++$i) {
+                        $encVal .= '%' . bin2hex(mb_substr($value, $i, 1));
+                    }
+                    
+                    echo 'var ' . $varName . " = unescape('" . $encVal . "');";
+                }
+                
+                foreach ($jsVars as $var => $value) {
+                    echo $spamBeeVar . "['" . $value . "'] = " . $var . ';';
+                }
+                
+                echo 'return ' . $spamBeeVar . '; }();';
+                echo '</script>';
+            } else {
+                echo '<script>var spamBeeData = ' . json_encode($jsProperties) . ';</script>' . "\n";
+            }
+            echo '<script src="' . $path . 'serendipity_event_spamblock_bee.js"></script>';
         }
+    }
+    
+    /**
+     * Generate a unique random variable name. Used for generating obfuscated
+     * JS code. To make sure, the name is really unique, pass an array of all
+     * variable names already existing to this function.
+     * Returns an empty string if no unique variable name could be generated.
+     * 
+     * @param  array $existingVarNames
+     * @param  int   $length
+     * @return string
+     */
+    function generateUniqueVarName($existingVarNames, $length = 5) {
+        $varName = '';
+        $pool    = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_';
+        
+        $attempts = 0;
+        for ($i = 0; $i < $length; ++$i) {
+            $varName .= $pool[rand(0, strlen($pool))];
+            
+            // If variable name has been generated, but is not unique, start over again
+            if ($i == ($length - 1) && in_array($varName, $existingVarNames)) {
+                // If we already have 10 attempts, give up and return empty string (should not happen)
+                if ($attempts >= 9) {
+                    return '';
+                }
+                $i = 0;
+                ++$attempts;
+            }
+        }
+        
+        return $varName;
     }
     
     /**
@@ -855,6 +977,71 @@ class serendipity_event_spamblock_bee extends serendipity_event
             'question' => trim($questions[$questionIndex]),
             'answer'   => trim($answers[$questionIndex])
         );
+    }
+    
+    /**
+     * Scramble a UTF-8 string with a simple XOR cipher in order
+     * to perform string obfuscation.
+     * 
+     * @param  string $string
+     * @param  int    $key
+     * @return string
+     */
+    function xorScramble($string, $key) {
+        $scrambled = '';
+        $length    = mb_strlen($string, 'UTF-8');
+        
+        for ($i = 0; $i < $length; ++$i) {
+            $chr        = mb_substr($string, $i, 1, 'UTF-8');
+            $ord        = $this->ordUtf8($chr);
+            $scrambled .= $this->chrUtf8($ord ^ $key);
+        }
+        
+        return $scrambled;
+    }
+    
+    /**
+     * Multi-byte safe UTF-8 version of chr()
+     * Thanks to http://pastebin.com/fmiSnNin
+     * 
+     * @param  int    $ord
+     * @return string
+     */
+    function chrUtf8($ord) 
+    {
+        return mb_convert_encoding(pack('n', $ord) , 'UTF-8', 'UTF-16BE');
+    }
+    
+    /**
+     * Multi-byte safe UTF-8 version of ord().
+     * Thanks to http://pastebin.com/fmiSnNin
+     * Returns -1 on error.
+     * 
+     * @param  string $chr
+     * @return int
+     */
+    function ordUtf8($chr) 
+    {
+        // Return value of ord() if only single-byte
+        if (strlen($chr) == 1) {
+            return ord($chr);
+        }
+        
+        $codePoint = ord($chr[0]);
+        
+        if ($codePoint <= 0x7f) {
+            return $codePoint;
+        } else if ($codePoint < 0xc2) {
+            return -1;
+        } else if ($codePoint <= 0xdf) {
+            return ($codePoint & 0x1f) << 6 | (ord($chr[1]) & 0x3f);
+        } else if ($codePoint <= 0xef) {
+            return ($codePoint & 0x0f) << 12 | (ord($chr[1]) & 0x3f) << 6 | (ord($chr[2]) & 0x3f);
+        } else if ($codePoint <= 0xf4) {
+            return ($codePoint & 0x0f) << 18 | (ord($chr[1]) & 0x3f) << 12 | (ord($chr[2]) & 0x3f) << 6 | (ord($chr[3]) & 0x3f);
+        } else {
+            return -1;
+        }
     }
     
     /**

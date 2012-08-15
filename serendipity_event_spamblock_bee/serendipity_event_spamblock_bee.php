@@ -730,7 +730,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
         
         $attempts = 0;
         for ($i = 0; $i < $length; ++$i) {
-            $varName .= $pool[rand(0, strlen($pool))];
+            $varName .= $pool[rand(0, strlen($pool) - 1)];
             
             // If variable name has been generated, but is not unique, start over again
             if ($i == ($length - 1) && in_array($varName, $existingVarNames)) {

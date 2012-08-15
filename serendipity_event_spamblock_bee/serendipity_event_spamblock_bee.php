@@ -270,6 +270,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
             
             case 'questions':
                 $propbag->add('type',          'text');
+                $propbag->add('rows',          8);
                 $propbag->add('name',          PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QUESTIONS);
                 $propbag->add('description',   PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QUESTIONS_DESC);
                 $propbag->add('default',       PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_DEFAULT_QUESTIONS);
@@ -277,6 +278,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
             
             case 'answers':
                 $propbag->add('type',          'text');
+                $propbag->add('rows',          8);
                 $propbag->add('name',          PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_ANSWERS);
                 $propbag->add('description',   PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_ANSWERS_DESC);
                 $propbag->add('default',       PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_DEFAULT_ANSWERS);

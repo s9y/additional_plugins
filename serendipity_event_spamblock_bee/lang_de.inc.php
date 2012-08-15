@@ -73,3 +73,12 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_PLUS', 'plus');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_MINUS', 'minus');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_QUEST', 'Was ist');
+
+@define('PLUGIN_SPAMBLOCK_BEE_TITLE', 'Spam Report');
+@define('PLUGIN_SPAMBLOCK_BEE_DESC', 'Stellt eine Statistik dar über Kommentar Spam Einträge, wenn Deine AntiSpam Plugins in die spamblocklog Tabelle loggen.');
+@define('PLUGIN_SPAMBLOCK_BEE_DAYS', 'Anzuzeigende Tage');
+@define('PLUGIN_SPAMBLOCK_BEE_DAYS_DESC', 'Der Report wird für die letzten X Tage erstellt. Hier kannst Du mehrere Tage Komma separiert einstellen, für die jeweils ein Report dargestellt werden soll.');
+@define('PLUGIN_SPAMBLOCK_BEE_DBSEARCHES', 'Datenbank Suchen');
+@define('PLUGIN_SPAMBLOCK_BEE_DBSEARCHES_DESC', 'Dieses plugin durchsucht die spamblocklog Tabelle. Hier kannst Du Suchen für Deine AntiSpam Maßnamen einstellen, über die gezählt werden soll. In jede Zeile kommt eine Einstellung, Format ist DeinNameFürAntiSpamArt:DbSuche. Beispiel: "BayesPlugin:%Bayes%" wird alle Einträge zählen, die "Bayes" irgendwo in ihrem Titel haben und sie als "BayesPlugin" im Report darstellen.');
+@define('PLUGIN_SPAMBLOCK_BEE_LOGGEDIN', 'Nur für eingeloggte Benutzer');
+@define('PLUGIN_SPAMBLOCK_BEE_LOGGEDIN_DESC', 'Wenn Du dies anschaltest, dann können nur eingeloggte Benutzer des Blogs die Statistik in der Seitenleiste sehen.');

@@ -85,5 +85,5 @@
 @define('PLUGIN_SPAMBLOCK_BEE_LOGGEDIN', 'Only for logged in users');
 @define('PLUGIN_SPAMBLOCK_BEE_LOGGEDIN_DESC', 'If enabled, the sidebar will be visible only for logged in users (authors) of your blog.');
 @define('PLUGIN_SPAMBLOCK_BEE_CACHEMINS', 'Cache the report');
-@define('PLUGIN_SPAMBLOCK_BEE_CACHEMINS_DESC', 'Creating the report uses the database, so you shoul not create it with each pagecall but let it cache. Here you set up the wait time (in minutes) before a new statistic is created.');
+@define('PLUGIN_SPAMBLOCK_BEE_CACHEMINS_DESC', 'Creating the report uses the database, so you should not create it with each pagecall but let it be cached. Here you set up the wait time (in minutes) before a new statistic is created.');
 

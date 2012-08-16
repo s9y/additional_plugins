@@ -74,18 +74,6 @@ class serendipity_event_spamblock_bee extends serendipity_event
      */
     var $useRegularExpressions = false;
     
-    /**
-     * Whether to scramble the Captcha answer
-     * @var boolean
-     */
-    var $captchaScrambleAnswer = false;
-    
-    /**
-     * Whether to obfuscate the JS code for the hidden Captcha
-     * @var boolean
-     */
-    var $captchaObfuscateCode = false;
-    
     
     /**
      * Constructor. Initialize class variables from configuration
@@ -97,14 +85,6 @@ class serendipity_event_spamblock_bee extends serendipity_event
         $this->useHoneyPot           = $this->get_config('do_honeypot', true);
         $this->hiddenCaptchaHandle   = $this->get_config('do_hiddencaptcha', PLUGIN_EVENT_SPAMBLOCK_SWTCH_MODERATE);
         $this->useRegularExpressions = $this->get_config('use_regexp', false);
-        
-        $obfuscate = $this->get_config('obfuscate_answer', 'off');
-        if ($obfuscate == 'scramble_answer') {
-            $this->captchaScrambleAnswer = true;
-        } else if ($obfuscate == 'scramble_answer_and_js') {
-            $this->captchaScrambleAnswer = true;
-            $this->captchaObfuscateCode  = true;
-        }
     }
     
     /**
@@ -144,7 +124,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
         $configuration =array_merge($configuration, array('spamlogtype', 'spamlogfile', 'plugin_path'));
         $configuration =array_merge($configuration, array(
             'advanced_cc_desc', 'answer_retrieval_method', 'question_type',
-            'questions', 'answers', 'use_regexp', 'obfuscate_answer'
+            'questions', 'answers', 'use_regexp'
         ));
         
         $propbag->add('configuration', $configuration );
@@ -154,7 +134,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 ),
                 PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_SECTION_ADVANCED => array(
                     'advanced_cc_desc', 'answer_retrieval_method', 'question_type',
-                    'questions', 'answers', 'use_regexp', 'obfuscate_answer'
+                    'questions', 'answers', 'use_regexp'
                 )
             )
         );
@@ -187,20 +167,15 @@ class serendipity_event_spamblock_bee extends serendipity_event
         );
         
         $retrievalMethod = array(
-            'default' => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_RM_DEFAULT,
-            'json' => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_RM_JSON,
-            'smarty' => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_RM_SMARTY
+            'default'    => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_RM_DEFAULT,
+            'json'       => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_RM_JSON,
+            'smarty'     => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_RM_SMARTY,
+            'smarty_enc' => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_RM_SMARTY_ENC
         );
         
         $questionType = array(
-            'math' => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QT_MATH,
+            'math'   => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QT_MATH,
             'custom' => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QT_CUSTOM
-        );
-        
-        $obfuscateAnswer = array(
-            'off' => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_OBFUSCATE_OFF,
-            'scramble_answer' => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_OBFUSCATE_SCRAMBLE_JS,
-            'scramble_answer_and_js' => PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_OBFUSCATE_SCRAMBLE_JS_AND_CODE
         );
         
         switch($name) {
@@ -319,14 +294,6 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 $propbag->add('default',       false);
                 break;
             
-            case 'obfuscate_answer':
-                $propbag->add('type',          'select');
-                $propbag->add('name',          PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_OBFUSCATE);
-                $propbag->add('description',   PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_OBFUSCATE_DESC);
-                $propbag->add('select_values', $obfuscateAnswer);
-                $propbag->add('default',       'off');
-                break;
-            
             default:
                 return false;
         }
@@ -432,7 +399,6 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 if ($this->captchaQuestionType == 'custom' && $this->useRegularExpressions) {
                     // Sanitize regular expression and remove answer part
                     $pattern = preg_replace('/^\s*\/(.*)\/\s*[imsxeADSUXJu]*\s*$/s', '$1', $correctAnswer['pattern']);
-                    $pattern = addcslashes($pattern, '\\');
                     
                     // Try to match pattern with given answer
                     $match = @preg_match('/' . $pattern . '/si', $answer);
@@ -592,7 +558,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
         
         if (!isset($answer['answer'])) {
             $answer = array('answer' => 'ERROR');
-        } else if ($this->captchaScrambleAnswer) {
+        } else {
             $answer['answer']      = rawurlencode($this->xorScramble($answer['answer'], $scrambleKey));
             $answer['scrambleKey'] = $scrambleKey;
         }
@@ -629,9 +595,9 @@ class serendipity_event_spamblock_bee extends serendipity_event
             echo '<input class="" type="text" id="bee_captcha" name="serendipity[beecaptcha]" value="" placeholder=""/>' . "\n";
             echo "</div>\n";
             
-            if ($this->answerRetrievalMethod == 'smarty') {
+            if ($this->answerRetrievalMethod == 'smarty' || $this->answerRetrievalMethod == 'smarty_enc') {
                 $answer = $this->getCaptchaAnswer();
-                if ($this->captchaScrambleAnswer) {
+                if ($this->answerRetrievalMethod == 'smarty_enc') {
                     $scrambleKey      = rand();
                     $answer['answer'] = $this->xorScramble($answer['answer'], $scrambleKey);
                     $serendipity['smarty']->assign('beeCaptchaScrambleKey', $scrambleKey);
@@ -647,7 +613,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
      * print the needed JavaScript for filling out and hiding the Captcha to the buffer.
      */
     function printJsExtras() {
-        if ($this->answerRetrievalMethod == 'smarty') {
+        if ($this->answerRetrievalMethod == 'smarty' || $this->answerRetrievalMethod == 'smarty_enc') {
             return;
         }
         
@@ -662,18 +628,16 @@ class serendipity_event_spamblock_bee extends serendipity_event
             
             if ($this->answerRetrievalMethod == 'json') {
                 $jsProperties['url'] = $serendipity['baseURL'] . 'index.php/plugin/spamblockbeecaptcha';
+                echo '<script>var spamBeeData = ' . json_encode($jsProperties) . ';</script>' . "\n";
             } else {
-                $scrambleKey = rand();
-                
-                if ($this->captchaScrambleAnswer) {
-                    $answer                      = rawurlencode($this->xorScramble($answer, $scrambleKey));
-                    $jsProperties['scrambleKey'] = $scrambleKey;
-                }
-                
-                $jsProperties['answer'] = is_numeric($answer) ? $answer : trim($answer);
+                $scrambleKey                 = rand();
+                $answer                      = rawurlencode($this->xorScramble($answer, $scrambleKey));
+                $jsProperties['scrambleKey'] = $scrambleKey;
+                $jsProperties['answer']      = is_numeric($answer) ? $answer : trim($answer);
             }
+            unset($jsProperties['pattern']);
             
-            if ($this->answerRetrievalMethod == 'default' && $this->captchaObfuscateCode) {
+            if ($this->answerRetrievalMethod == 'default') {
                 // Do some weird obfuscation stuff to the JS code
                 $spamBeeVar = $this->generateUniqueVarName(array());
                 
@@ -706,10 +670,9 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 }
                 
                 echo 'return ' . $spamBeeVar . '; }();';
-                echo '</script>';
-            } else {
-                echo '<script>var spamBeeData = ' . json_encode($jsProperties) . ';</script>' . "\n";
+                echo "</script>\n";
             }
+            
             echo '<script src="' . $path . 'serendipity_event_spamblock_bee.js"></script>';
         }
     }
@@ -754,7 +717,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
      * @param  array $addData
      */
     function printCss(&$eventData, &$addData) {
-        if ($this->answerRetrievalMethod == 'smarty') {
+        if ($this->answerRetrievalMethod == 'smarty' || $this->answerRetrievalMethod == 'smarty_enc') {
             return;
         }
         

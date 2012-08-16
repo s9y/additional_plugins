@@ -44,11 +44,12 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_RM_DEFAULT', 'Default');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_RM_JSON', 'JSON');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_RM_SMARTY', 'Smarty');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_RM_SMARTY_ENC', 'Smarty + Encryption');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QT_MATH', 'Math problems');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QT_CUSTOM', 'Custom questions');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_DESC', 'Advanced configuration options for the hidden Captcha. If the captcha is disabled, you can safely ignore this section.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_ANSWER_RETRIEVAL', 'Answer retrieval method');
-@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_ANSWER_RETRIEVAL_DESC', 'Select how you want to retrieve to correct answer to the Captcha. If you select "JSON", you can send an Ajax request to index.php/plugin/spamblockbeecaptcha to get the answer. "Smarty" will provide the answer through the Smarty variable {$beeCaptchaAnswer}, whereas "Default" will hard code it into the page. NOTE: If "Smarty" is selected, no additional CSS or JavaScript will be included. You have to fill and hide the Captcha field yourself.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_ANSWER_RETRIEVAL_DESC', 'Select how you want to retrieve to correct answer to the Captcha. If you select "JSON", you can send an Ajax request to index.php/plugin/spamblockbeecaptcha to get the answer. "Smarty" will provide the answer through the Smarty variable {$beeCaptchaAnswer}, whereas "Default" will hard code it into the page. NOTE: If "Smarty" is selected, no additional CSS or JavaScript will be included. You have to fill and hide the Captcha field yourself. "Smarty + Encryption" is the same as "Smarty" with the difference that the answer in {$beeCaptchaAnswer} is scrambled with a simple XOR cipher. The variable {$beeCaptchaScrambleKey} contains the decryption key.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QUESTION_TYPE', 'Type of question');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QUESTION_TYPE_DESC', 'Spamblock Bee can automatically generate simple math problems for you or you can create your own questions and answers. Select which one you prefer');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QUESTIONS', 'Custom questions');
@@ -59,11 +60,6 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_DEFAULT_ANSWERS', "Answer1\nAnswer2");
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_USE_REGEXP', 'Use regular expressions');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_USE_REGEXP_DESC', "Whether to interpret the answers given above as Perl compatible regular expressions (PCREs). This can be used to allow several variants of an answer. Each answer line should follow the rule /pattern/:answer. NOTE: Only enable this if you know what you\'re doing. Filling in bad regular expressions causes validity checks to fail and in some rare cases might expose yourself to a so called Denial of Service attack! Answers longer than 1000 characters will be rejected when regular expression matching is on.");
-@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_OBFUSCATE', 'Obfuscate JavaScript');
-@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_OBFUSCATE_DESC', 'In some rare cases JavaScript obfuscation can make the hidden Captcha more effective by preventing spam bots from performing simple string pattern searches in order to extract the correct answer from the code. There are two methods of obfuscation: "Scramble Answer" will only scramble the answer with a simple XOR cipher instead of writing it in plain text to the HTML document. "Scramble Answer and Code" will also obfuscate the code to make it harder to understand (this only works with the "Default" answer retrieval method). If you are using the method "Smarty", the variable {$beeCaptchaScrambleKey} will contain the decryption key. Remember to URL encode the scrambled answer before writing it to the HTML document!');
-@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_OBFUSCATE_OFF', 'Don\'t obfuscate');
-@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_OBFUSCATE_SCRAMBLE_JS', 'Scramble Answer');
-@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_OBFUSCATE_SCRAMBLE_JS_AND_CODE', 'Scramble Answer and Code');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_0', 'zero');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_1', 'one');

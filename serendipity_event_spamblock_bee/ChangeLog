@@ -1,3 +1,6 @@
+Version 1.2.3
+* Fixed: If core spam plugin was not installed, the check for required fiels was rejecting trackbacks sometimes.
+
 Version 1.2.2
 * Simplified settings by removing obfuscation option. This is now turned on by default.
 * Fixed regular expression matching.

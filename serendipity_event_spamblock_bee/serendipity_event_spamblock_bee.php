@@ -106,7 +106,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
             'php'         => '4.1.0'
         ));
         
-        $propbag->add('version',       '1.2.2');
+        $propbag->add('version',       '1.2.3');
         
         $propbag->add('event_hooks',    array(
             'frontend_comment' => true,
@@ -426,26 +426,27 @@ class serendipity_event_spamblock_bee extends serendipity_event
                     return $isCorrect;
                 }
             }
+            // AntiSpam check, the general spamblock supports, too: Only if spamblock is not installed.
+            if (!class_exists('serendipity_event_spamblock')) {
+                
+                // Check for required fields. Don't log but tell the user about the fields.
+                $required_fields = $this->get_config('required_fields', '');
+                if (!empty($required_fields)) {
+                    $required_field_list = explode(',', $required_fields);
+                    foreach($required_field_list as $required_field) {
+                        $required_field = trim($required_field);
+                        if (empty($addData[$required_field])) {
+                            $this->reject($eventData, $addData, sprintf(PLUGIN_EVENT_SPAMBLOCK_BEE_REASON_REQUIRED_FIELD, $required_field));
+                            return false;
+                        }
+                    }
+                }
+            }
         }
         
         // AntiSpam check, the general spamblock supports, too: Only if spamblock is not installed.
         if (!class_exists('serendipity_event_spamblock')) {
-            
-            // Check for required fields. Don't log but tell the user about the fields.
-            $spamdetected = false; 
-            $required_fields = $this->get_config('required_fields', '');
-            if (!empty($required_fields)) {
-                $required_field_list = explode(',', $required_fields);
-                foreach($required_field_list as $required_field) {
-                    $required_field = trim($required_field);
-                    if (empty($addData[$required_field])) {
-                        $this->reject($eventData, $addData, sprintf(PLUGIN_EVENT_SPAMBLOCK_BEE_REASON_REQUIRED_FIELD, $required_field));
-                        $spamdetected = true;
-                    }
-                }
-            }
-            if ($spamdetected) return false;
-            
+
             // Check if entry title is the same as comment body
             $spamHandle = $this->get_config('entrytitle', PLUGIN_EVENT_SPAMBLOCK_SWTCH_REJECT);
             if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $spamHandle) {
@@ -479,7 +480,6 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 }
                 
             }
-            if ($spamdetected) return false;
         }
         
         return true;

@@ -42,11 +42,12 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_RM_DEFAULT', 'Standard');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_RM_JSON', 'JSON');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_RM_SMARTY', 'Smarty');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_RM_SMARTY_ENC', 'Smarty + Verschlüsselung');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QT_MATH', 'Rechenaufgaben');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QT_CUSTOM', 'Eigene Fragen');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_DESC', 'Fortgeschrittene Konfigurationsoptionen für das verstecke Captcha. Wenn dieses nicht aktiviert ist, kann dieser Abschnitt getrost übersprungen werden.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_ANSWER_RETRIEVAL', 'Methode für Abfrage der Antwort');
-@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_ANSWER_RETRIEVAL_DESC', 'Wähle hier aus, wie die korrekte Antwort abgefragt werden soll. Bei Auswahl von "JSON" kann ein Ajax-Request an index.php/plugin/spamblockbeecaptcha abgesetzt werden, um die richtige Antwort zu erhalten. Die Auswahl "Smarty" wird die Antwort über die Smarty-Variable {$beeCaptchaAnswer} bereitstellen, während "Standard" den Wert in der Seite hartkodiert. ACHTUNG: ist "Smarty" ausgewählt, wird keinerlei zusätzliches CSS oder JavaScript eingebunden. Das Captcha-Feld muss also selbst befüllt und versteckt werden.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_ANSWER_RETRIEVAL_DESC', 'Wähle hier aus, wie die korrekte Antwort abgefragt werden soll. Bei Auswahl von "JSON" kann ein Ajax-Request an index.php/plugin/spamblockbeecaptcha abgesetzt werden, um die richtige Antwort zu erhalten. Die Auswahl "Smarty" wird die Antwort über die Smarty-Variable {$beeCaptchaAnswer} bereitstellen, während "Standard" den Wert in der Seite hartkodiert. ACHTUNG: ist "Smarty" ausgewählt, wird keinerlei zusätzliches CSS oder JavaScript eingebunden. Das Captcha-Feld muss also selbst befüllt und versteckt werden. "Smarty + Verschlüsselung" ist dasselbe wie "Smarty" mit dem Unterschied, dass die {$beeCaptchaAnswer} mit einer simplen XOR-Verschlüsselung verschleiert wurde. Der Entschlüsselungs-Key steht in der Variablen {$beeCaptchaScrambleKey}.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QUESTION_TYPE', 'Art der Frage');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QUESTION_TYPE_DESC', 'Spamschutz Biene kann automatisch simple Rechenaufgaben generieren. Es können aber auch eigene Fragen und Antworten angegeben werden. Wähle aus, was du bevorzugst.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_QUESTIONS', 'Eigene Fragen');
@@ -57,11 +58,6 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_DEFAULT_ANSWERS', "Antwort1\nAntwort2");
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_USE_REGEXP', 'Reguläre Ausdrücke benutzen');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_USE_REGEXP_DESC', 'Gibt an, ob Perl-kompatible reguläre Ausdrücke (PCREs) für die Antworten verwendet werden sollen. Diese können dazu benutzt werden, mehrere Varianten einer Antwort zuzulassen. Jeder Antwortzeile sollte dabei dem Muster /pattern/:Antwort entsprechen. ACHTUNG: Aktiviere diese Option nur, wenn du weißt, was du tust. Ein ungültiger regulärer Ausdruck wird Validitäts-Prüfungen fehlschlagen lassen und könnte dein Blog in wenigen Fällen einer sogenannten Denial-of-Service-Attacke aussetzen. Antworten länger als 1000 Zeichen werden abgewiesen, wenn reguläre Ausdrücke eingeschaltet sind.');
-@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_OBFUSCATE', 'JavaScript verschleiern');
-@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_OBFUSCATE_DESC', 'In einigen wenigen Fällen kann eine JavaScript-Verschleierung die Effektivität des versteckten Captchas erhöhen, indem es Spam-Bots davon abhält, die korrekte Antwort durch eine simple String-Pattern-Suche aus dem Code zu extrahieren. Es stehen zwei Verschleierungs-Methoden zur Verfügung: "Verschleiere Antwort" verschleiert bloß die Antwort durch eine simple XOR-Verschlüsselung anstatt sie als Klartext in das HTML-Dokument zu schreiben. "Verschleiere Antwort und Code" verschleiert auch noch den JavaScript-Code, um ihn schwerer verständlich zu machen (dies funktioniert nur mit der Standard-Methode zur Abfrage der Antwort). Bei Verwendung der Methode "Smarty" enthält die Variable {$beeCaptchaScrambleKey} den Entschlüsselungs-Key. Denke daran, dass die verschlüsselte Antwort URL-enkodiert werden muss, bevor du sie ins HTML-Dokument schreiben kannst!');
-@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_OBFUSCATE_OFF', 'Nicht verschleiern');
-@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_OBFUSCATE_SCRAMBLE_JS', 'Verschleiere Antwort');
-@define('PLUGIN_EVENT_SPAMBLOCK_BEE_CONFIG_ADV_OBFUSCATE_SCRAMBLE_JS_AND_CODE', 'Verschleiere Antwort und Code');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_0', 'Null');
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_CAPTCHA_1', 'Eins');

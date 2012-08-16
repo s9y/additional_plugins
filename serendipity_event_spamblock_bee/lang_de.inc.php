@@ -82,3 +82,5 @@
 @define('PLUGIN_SPAMBLOCK_BEE_DBSEARCHES_DESC', 'Dieses plugin durchsucht die spamblocklog Tabelle. Hier kannst Du Suchen für Deine AntiSpam Maßnamen einstellen, über die gezählt werden soll. In jede Zeile kommt eine Einstellung, Format ist DeinNameFürAntiSpamArt:DbSuche. Beispiel: "BayesPlugin:%Bayes%" wird alle Einträge zählen, die "Bayes" irgendwo in ihrem Titel haben und sie als "BayesPlugin" im Report darstellen.');
 @define('PLUGIN_SPAMBLOCK_BEE_LOGGEDIN', 'Nur für eingeloggte Benutzer');
 @define('PLUGIN_SPAMBLOCK_BEE_LOGGEDIN_DESC', 'Wenn Du dies anschaltest, dann können nur eingeloggte Benutzer des Blogs die Statistik in der Seitenleiste sehen.');
+@define('PLUGIN_SPAMBLOCK_BEE_CACHEMINS', 'Reporting Cache');
+@define('PLUGIN_SPAMBLOCK_BEE_CACHEMINS_DESC', 'Das Erzeugen des Reports erzeugt Last auf er Datenbank, deshalb sollte der Report gecache werden. Hier wird eingestellt, wie viele Minuten mindestens gewartet werden soll, bevor ein neuer Report erstellt wird.');

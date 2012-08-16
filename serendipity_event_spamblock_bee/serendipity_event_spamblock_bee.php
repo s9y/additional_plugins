@@ -10,8 +10,8 @@ $probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $sere
 if (file_exists($probelang)) {
     include $probelang;
 }
-
 include dirname(__FILE__) . '/lang_en.inc.php';
+include dirname(__FILE__) . '/version.inc.php';
 require_once dirname(__FILE__) . '/json/json.php4.include.php';
 
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_DEBUG', FALSE);
@@ -106,7 +106,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
             'php'         => '4.1.0'
         ));
         
-        $propbag->add('version',       '1.2.4');
+        $propbag->add('version',       PLUGIN_SPAMBLOCK_BEE_VERSION); // setup via version.inc.php
         
         $propbag->add('event_hooks',    array(
             'frontend_comment' => true,
@@ -379,7 +379,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
             $phone = $serendipity['POST']['phone'];
             if ($this->useHoneyPot && (!empty($phone) || $phone == '0') ) {
                 if (mb_strlen($phone) > 40) {
-                    $phone = mb_substr($phone, 0, 40) . '…';
+                    $phone = mb_substr($phone, 0, 40) . '..';
                 }
                 $this->spamlog($eventData['id'], 'REJECTED', "BEE Honeypot [" . $phone . "]", $addData);
                 $eventData = array('allow_comments' => false);
@@ -427,7 +427,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 
                 if (!$isCorrect) {
                     if (mb_strlen($answer) > 40) {
-                        $answer = mb_substr($answer, 0, 40) . '…';
+                        $answer = mb_substr($answer, 0, 40) . '..';
                     }
                     $this->processComment($this->hiddenCaptchaHandle, $eventData, $addData, PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_HCAPTCHA, "BEE HiddenCaptcha [ $correctAnswer[answer] != $answer ]");
                     return $isCorrect;

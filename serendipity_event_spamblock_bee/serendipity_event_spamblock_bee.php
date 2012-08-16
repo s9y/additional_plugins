@@ -456,7 +456,6 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 // Now blog- and entry title was stripped from comment.
                 // Remove special letters, that might have been between them: 
                 $comment = trim(preg_replace('@[\s\-_:\(\)\|/]*@', '', $comment));
-                $comment = trim($comment);
 
                 // Now that we stripped blog and entry title: Do we have an empty comment?
                 if (empty($comment)) {

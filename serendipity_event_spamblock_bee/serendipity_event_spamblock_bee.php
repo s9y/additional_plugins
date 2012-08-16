@@ -356,12 +356,6 @@ class serendipity_event_spamblock_bee extends serendipity_event
         }
     }
     
-    function install() {
-    }
-    
-    function cleanup() {
-    }
-    
     /**
      * Check if Honey Pot or Captcha have been filled correctly (or if any
      * other indications for spam can be found).

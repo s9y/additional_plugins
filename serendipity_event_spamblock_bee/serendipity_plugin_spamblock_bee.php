@@ -158,4 +158,11 @@ Bayes:%Bayes%'
         return $this->cache_file;        
     }
     
+    function cleanup() {
+        $cacheFile = $this->getCacheFilename();
+        if (file_exists($cacheFile)) {
+            unlink($cacheFile);
+        }
+    }
+    
 }

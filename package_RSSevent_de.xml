@@ -1319,9 +1319,9 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <title>Spamschutz Biene (Honeypot, Verstecktes Captcha): Implementiert Kommentar AntiSpam Maßnahmen, die einfach zu konfigurieren aber sehr effektiv sind.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_spamblock_bee</link>
 <category>Event Plugins</category>
-<author>Grischa Brockhaus</author>
+<author>Grischa Brockhaus, Janek Bevendorff</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_bee&lt;br /&gt;Spamschutz Biene (Honeypot, Verstecktes Captcha)&lt;/b&gt;&lt;br /&gt;Implementiert Kommentar AntiSpam Maßnahmen, die einfach zu konfigurieren aber sehr effektiv sind.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 14 Jul 2012 02:32:48 +0200</pubDate>
+<pubDate>Thu, 16 Aug 2012 02:32:20 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_bee</guid>
 </item>
 <item>

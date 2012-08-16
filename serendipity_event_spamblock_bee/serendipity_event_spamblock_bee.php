@@ -452,11 +452,14 @@ class serendipity_event_spamblock_bee extends serendipity_event
             if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $spamHandle) {
                 // Remove the blog name from the comment which might be in <title>
                 $comment = str_replace($serendipity['blogTitle'], '', $addData['comment']);
-                $comment = preg_replace('/^[\s\-_:\(\)]*/', '', $comment);
-                $comment = preg_replace('/[\s\-_:\(\)]*$/', '', $comment);
-                
-                // Compare what's left to the entry title.
-                if (trim($eventData['title']) == $comment) {
+                $comment = str_replace($eventData['title'], '', $comment);
+                // Now blog- and entry title was stripped from comment.
+                // Remove special letters, that might have been between them: 
+                $comment = trim(preg_replace('@[\s\-_:\(\)\|/]*@', '', $comment));
+                $comment = trim($comment);
+
+                // Now that we stripped blog and entry title: Do we have an empty comment?
+                if (empty($comment)) {
                     $this->processComment($spamHandle, $eventData, $addData, PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_BODY, "BEE Body the same as title");
                     return false;
                 }

@@ -106,7 +106,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
             'php'         => '4.1.0'
         ));
         
-        $propbag->add('version',       '1.2.3');
+        $propbag->add('version',       '1.2.4');
         
         $propbag->add('event_hooks',    array(
             'frontend_comment' => true,
@@ -391,7 +391,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 
                 // If provided answer is longer than 1000 characters and RegExp matching is on,
                 // reject comment for security reasons (minimize risk of ReDoS)
-                if ($this->useRegularExpressions && strlen($answer) > 1000) {
+                if ($this->useRegularExpressions && mb_strlen($answer) > 1000) {
                     $this->processComment($this->hiddenCaptchaHandle, $eventData, $addData, PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_HCAPTCHA, "BEE HiddenCaptcha [ Captcha input too long ]");
                     return false;
                 }
@@ -422,7 +422,10 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 }
                 
                 if (!$isCorrect) {
-                    $this->processComment($this->hiddenCaptchaHandle, $eventData, $addData, PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_HCAPTCHA, "BEE HiddenCaptcha [ $correct != $answer ]");
+                    if (mb_strlen($answer) > 40) {
+                        $answer = substr($answer, 0, 40) . '…';
+                    }
+                    $this->processComment($this->hiddenCaptchaHandle, $eventData, $addData, PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_HCAPTCHA, "BEE HiddenCaptcha [ $correctAnswer[answer] != $answer ]");
                     return $isCorrect;
                 }
             }

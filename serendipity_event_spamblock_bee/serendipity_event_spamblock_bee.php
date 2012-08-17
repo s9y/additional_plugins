@@ -376,8 +376,12 @@ class serendipity_event_spamblock_bee extends serendipity_event
         if ("NORMAL" == $addData['type']) { // only supported for normal comments
             
             // Check for Honey Pot:
-            if ($this->useHoneyPot && (!empty($serendipity['POST']['phone']) || $serendipity['POST']['phone']=='0') ) {
-                $this->spamlog($eventData['id'], 'REJECTED', "BEE Honeypot [" . $serendipity['POST']['phone'] . "]", $addData);
+            $phone = $serendipity['POST']['phone'];
+            if ($this->useHoneyPot && (!empty($phone) || $phone == '0') ) {
+                if (mb_strlen($phone) > 40) {
+                    $phone = substr($phone, 0, 40) . '…';
+                }
+                $this->spamlog($eventData['id'], 'REJECTED', "BEE Honeypot [" . $phone . "]", $addData);
                 $eventData = array('allow_comments' => false);
                 return false;
             }

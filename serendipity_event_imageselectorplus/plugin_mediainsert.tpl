@@ -6,7 +6,7 @@
       <div class="serendipity_imageComment_img">
       <a class="serendipity_image_link" href="/uploads/{$medium.path}{$medium.realname}">
         <!-- s9ymdb:795 -->
-        <img width="{$medium.thumbwidth}" height="{$medium.thumbheight}"  src="{$serendipityHTTPPath}/uploads/{$medium.path}{$medium.name}.{$medium.thumbnail_name}.{$medium.extension}" />
+        <img width="{$medium.thumbwidth}" height="{$medium.thumbheight}"  src="{$serendipityHTTPPath}uploads/{$medium.path}{$medium.name}.{$medium.thumbnail_name}.{$medium.extension}" />
       </a>
       </div>
       <div class="serendipity_imageComment_txt">{$medium.comment1}</div>

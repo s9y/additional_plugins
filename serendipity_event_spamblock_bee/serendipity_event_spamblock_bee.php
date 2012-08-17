@@ -379,7 +379,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
             $phone = $serendipity['POST']['phone'];
             if ($this->useHoneyPot && (!empty($phone) || $phone == '0') ) {
                 if (mb_strlen($phone) > 40) {
-                    $phone = substr($phone, 0, 40) . '…';
+                    $phone = mb_substr($phone, 0, 40) . '…';
                 }
                 $this->spamlog($eventData['id'], 'REJECTED', "BEE Honeypot [" . $phone . "]", $addData);
                 $eventData = array('allow_comments' => false);
@@ -427,7 +427,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
                 
                 if (!$isCorrect) {
                     if (mb_strlen($answer) > 40) {
-                        $answer = substr($answer, 0, 40) . '…';
+                        $answer = mb_substr($answer, 0, 40) . '…';
                     }
                     $this->processComment($this->hiddenCaptchaHandle, $eventData, $addData, PLUGIN_EVENT_SPAMBLOCK_BEE_ERROR_HCAPTCHA, "BEE HiddenCaptcha [ $correctAnswer[answer] != $answer ]");
                     return $isCorrect;

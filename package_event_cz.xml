@@ -4454,9 +4454,9 @@
 <description>Rozšiřuje možnosti vkládání obrázků z knihovny médií - quickblog a hromadné vkládání obrázků (více v dokumentaci v adresáři plugins/serendipity_evnets_imageselectorplus) [verze Serendipity &gt;= 0.9].</description>
 <maintainers><maintainer><name>Garvin Hicking, Vladimir Ajgl, Adam Charnock</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.31</version>
+  <version>0.32</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2012-08-18</date>
   <filelist>
 <dir name="serendipity_event_imageselectorplus">
 <dir name="UTF-8">
@@ -10155,9 +10155,9 @@ aplikovány další typografické úpravy.</description>
 <description>Implements simple comment antispam mechanisms, that are easy to configure but very effective.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Janek Bevendorff</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.2.3</version>
+  <version>1.2.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-08-17</date>
+  <date>2012-08-18</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bee">
 <dir name="UTF-8">
@@ -10170,9 +10170,11 @@ aplikovány další typografické úpravy.</description>
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>spamblockbee.png</file>
+<file>version.inc.php</file>
 <file>serendipity_event_spamblock_bee.php</file>
 <file>ChangeLog</file>
 <file>serendipity_event_spamblock_bee.js</file>
+<file>serendipity_plugin_spamblock_bee.php</file>
 </dir>
 
   </filelist>
@@ -10183,9 +10185,11 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_spamblock_bee/lang_de.inc.php</file>
     <file>serendipity_event_spamblock_bee/lang_en.inc.php</file>
     <file>serendipity_event_spamblock_bee/spamblockbee.png</file>
+    <file>serendipity_event_spamblock_bee/version.inc.php</file>
     <file>serendipity_event_spamblock_bee/serendipity_event_spamblock_bee.php</file>
     <file>serendipity_event_spamblock_bee/ChangeLog</file>
     <file>serendipity_event_spamblock_bee/serendipity_event_spamblock_bee.js</file>
+    <file>serendipity_event_spamblock_bee/serendipity_plugin_spamblock_bee.php</file>
   </serendipityFilelist>
 </release>
 </package>

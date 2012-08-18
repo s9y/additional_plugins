@@ -581,7 +581,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Vladimir Ajgl, Adam Charnock</author>
 <content:encoded>&lt;b&gt;serendipity_event_imageselectorplus&lt;br /&gt;Erweiterte Optionen für Bildauswahl&lt;/b&gt;&lt;br /&gt;Ermöglicht erweiterte Optionen beim Einfügen von Bildern aus der Mediendatenbank. [Serendipity &gt;= 0.9]&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:32:09 +0200</pubDate>
+<pubDate>Sat, 18 Aug 2012 02:32:01 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_imageselectorplus</guid>
 </item>
 <item>
@@ -1321,7 +1321,7 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Janek Bevendorff</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_bee&lt;br /&gt;Spamschutz Biene (Honeypot, Verstecktes Captcha)&lt;/b&gt;&lt;br /&gt;Implementiert Kommentar AntiSpam Maßnahmen, die einfach zu konfigurieren aber sehr effektiv sind.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 17 Aug 2012 02:32:32 +0200</pubDate>
+<pubDate>Sat, 18 Aug 2012 02:32:09 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_bee</guid>
 </item>
 <item>

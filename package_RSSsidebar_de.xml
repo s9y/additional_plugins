@@ -510,6 +510,15 @@
 <guid isPermaLink="false">serendipity_plugin_frappr</guid>
 </item>
 <item>
+<title>Spam Report: Stellt eine Statistik dar über Kommentar Spam Einträge, wenn Deine AntiSpam Plugins in die spamblocklog Tabelle loggen.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_spamblock_bee</link>
+<category>Sidebar Plugins</category>
+<author>Grischa Brockhaus</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_spamblock_bee&lt;br /&gt;Spam Report&lt;/b&gt;&lt;br /&gt;Stellt eine Statistik dar über Kommentar Spam Einträge, wenn Deine AntiSpam Plugins in die spamblocklog Tabelle loggen.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 18 Aug 2012 02:32:09 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_spamblock_bee</guid>
+</item>
+<item>
 <title>IPv6-Check: Dieses Plugin zeigt in einem Sidebar-Element an, mit welcher IP-Version (IPv4 oder IPv6) der Besucher die Website aufgerufen hat.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_ipv6</link>
 <category>Sidebar Plugins</category>

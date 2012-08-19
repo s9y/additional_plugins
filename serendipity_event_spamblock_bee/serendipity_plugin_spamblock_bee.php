@@ -56,7 +56,7 @@ class serendipity_plugin_spamblock_bee extends serendipity_plugin {
                 $propbag->add('description',    PLUGIN_SPAMBLOCK_BEE_DBSEARCHES_DESC);
                 $propbag->add('rows', 4);
                 $propbag->add('default',        
-'Honepot:BEE Honeypot%
+'Honeypot:BEE Honeypot%
 HiddenCaptcha:BEE HiddenCaptcha%
 Bayes:%Bayes%'
                 );

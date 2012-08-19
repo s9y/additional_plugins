@@ -131,7 +131,9 @@ Bayes:%Bayes%'
                 }
                 
                 $searchResult = isset($stats[$day][$singleSearch[1]]) ? $stats[$day][$singleSearch[1]] : 0;
-                $statsString .= "{$singleSearch[0]}: {$searchResult}<br>";
+                if ($searchResult) {
+                    $statsString .= "{$singleSearch[0]}: {$searchResult}<br>";
+                }
             }
         }
         

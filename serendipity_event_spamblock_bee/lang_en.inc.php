@@ -81,9 +81,10 @@
 @define('PLUGIN_SPAMBLOCK_BEE_DAYS', 'Days to show');
 @define('PLUGIN_SPAMBLOCK_BEE_DAYS_DESC', 'You can have the report display what events happened the last X days. You can configure more than one days by seperating them with comma.');
 @define('PLUGIN_SPAMBLOCK_BEE_DBSEARCHES', 'Database searches');
-@define('PLUGIN_SPAMBLOCK_BEE_DBSEARCHES_DESC', 'This plugin scans the spamblocklog table to generate its reports. You can enter searches you want to do here. One line is one search. The line should look like YourNameForTheBlock:SqlSearch. For instance "BayesPlugin:%Bayes%" will count all entries having "Bayes" anywhere in there title and report them as "BayesPlugin" in the sidebar.');
+@define('PLUGIN_SPAMBLOCK_BEE_DBSEARCHES_DESC', 'This plugin scans the spamblocklog table to generate its reports. You can enter searches you want to do here. One line is one search. The line should look like YourNameForTheBlock:SearchTerm. You can use the character % as a wildcard. For instance "BayesPlugin:%Bayes%" will count all entries having "Bayes" anywhere in there title and report them as "BayesPlugin" in the sidebar.');
 @define('PLUGIN_SPAMBLOCK_BEE_LOGGEDIN', 'Only for logged in users');
 @define('PLUGIN_SPAMBLOCK_BEE_LOGGEDIN_DESC', 'If enabled, the sidebar will be visible only for logged in users (authors) of your blog.');
 @define('PLUGIN_SPAMBLOCK_BEE_CACHEMINS', 'Cache the report');
 @define('PLUGIN_SPAMBLOCK_BEE_CACHEMINS_DESC', 'Creating the report uses the database, so you should not create it with each pagecall but let it be cached. Here you set up the wait time (in minutes) before a new statistic is created.');
-
+@define('PLUGIN_SPAMBLOCK_BEE_TODAY', 'Today:');
+@define('PLUGIN_SPAMBLOCK_BEE_LAST_X_DAYS', 'The last %d days:');

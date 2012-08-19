@@ -33,7 +33,7 @@ class serendipity_plugin_spamblock_bee extends serendipity_plugin {
 
         $propbag->add('configuration', $configuration );
     }
-
+    
     function introspect_config_item($name, &$propbag) {
         global $serendipity;
 
@@ -71,7 +71,7 @@ Bayes:%Bayes%'
                 $propbag->add('type',           'boolean');
                 $propbag->add('name',           PLUGIN_SPAMBLOCK_BEE_LOGGEDIN);
                 $propbag->add('description',    PLUGIN_SPAMBLOCK_BEE_LOGGEDIN_DESC);
-                $propbag->add('default',		true);
+                $propbag->add('default',        true);
                 break;
             default:
                 return false;
@@ -87,42 +87,59 @@ Bayes:%Bayes%'
             if ($_SESSION['serendipityAuthedUser'] != true) return;
         }
         
-        $title = $this->get_config('title', $this->title);
+        $title       = $this->get_config('title', $this->title);
+        $statsCached = $this->loadCachedStats();
+        $stats       = array();
         
-        $stats = $this->loadCachedStats();
-        if (empty($stats)) {
-            $stats = "";
+        if (!empty($statsCached)) {
+            $stats = $statsCached;
+        }
+        
+        $days     = explode(',', $this->get_config('days'));
+        $searches = preg_split('/(?:\r?\n|\r)/', $this->get_config('db_search_pattern'));
+        
+        $todayAtMidnight = mktime(0,0,0, date("n"), date("j"), date("Y"));
+        $timestampDay    = 60 * 60 * 24;
+        $statsString     = '';
+        
+        foreach ($days as $day) {
+            if (!isset($stats[$day])) {
+                $stats[$day] = array();
+            }
             
-            $sql = "SELECT COUNT(*) as total FROM {$serendipity['dbPrefix']}spamblocklog WHERE reason like '%s' and timestamp>%d;";
-            $days = explode(',', $this->get_config('days'));
-            $searches = explode("\n", $this->get_config('db_search_pattern'));
+            $timestamp = $todayAtMidnight - ($timestampDay * (trim($day) -1));
+            if ($day==1) {
+                $statsString .= '<b>' . PLUGIN_SPAMBLOCK_BEE_TODAY . '</b> <br>';
+            } else {
+                $statsString .= '<b>' . sprintf(PLUGIN_SPAMBLOCK_BEE_LAST_X_DAYS, $day) . '</b><br>';
+            }
             
-            $todayAtMidnight = mktime(0,0,0, date("n"), date("j"), date("Y"));
-            //echo "today: $todayAtMidnight<br>";
-            
-            $timestampDay = 60 * 60 * 24;
-            //echo "diffDay: $timestampDay<br>";
-            foreach ($days as $day) {
-                $timestamp = $todayAtMidnight - ($timestampDay * (trim($day) -1));
-                if ($day==1) {
-                    $stats .= "<b>Heute:</b> <br>";
-                }   
-                else { 
-                    $stats .= "<b>Die letzen $day Tage:</b> <br>";
-                }
-                //echo "ts: $timestamp<br>";
-                foreach ($searches as $search) {
-                    $singleSearch = explode(':', $search,2);
-                    $singleSql = sprintf($sql, trim($singleSearch[1]), $timestamp);
-                    $result = serendipity_db_query($singleSql,TRUE);
+            foreach ($searches as $search) {
+                $singleSearch    = explode(':', $search, 2);
+                $singleSearch[0] = trim($singleSearch[0]);
+                $singleSearch[1] = trim($singleSearch[1]);
+                
+                if (empty($statsCached)) {
+                    $sql          = "SELECT COUNT(*) as total FROM {$serendipity['dbPrefix']}spamblocklog WHERE reason like '%s' and timestamp>%d;";
+                    $singleSql    = sprintf($sql, serendipity_db_escape_string($singleSearch[1]), $timestamp);
+                    $result       = serendipity_db_query($singleSql, true);
                     if (!empty($result['total'])) {
-                        $stats .= "{$singleSearch[0]}: {$result['total']}<br/>";
+                        $stats[$day][$singleSearch[1]] = $result['total'];
+                    } else {
+                        $stats[$day][$singleSearch[1]] = 0;
                     }
                 }
+                
+                $searchResult = isset($stats[$day][$singleSearch[1]]) ? $stats[$day][$singleSearch[1]] : 0;
+                $statsString .= "{$singleSearch[0]}: {$searchResult}<br>";
             }
+        }
+        
+        if (empty($statsCached)) {
             $this->cacheStats($stats);
         }
-        echo $stats;
+        
+        echo $statsString;
     }
     
     function loadCachedStats() {
@@ -136,11 +153,12 @@ Bayes:%Bayes%'
             }
             fflush($fh);
             fclose($fh);
-            return $stats;
+            return unserialize($stats);
         }
-        return null;
+        return array();
     }
     function cacheStats($stats) {
+        $stats = serialize($stats);
         $cacheFile = $this->getCacheFilename();
         $fh = fopen($cacheFile, 'w');
         fputs($fh, $stats, strlen($stats));
@@ -155,7 +173,7 @@ Bayes:%Bayes%'
         if ($this->cache_file === null) {
             $this->cache_file = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/serendipity_plugin_spamblog_bee';
         }
-        return $this->cache_file;        
+        return $this->cache_file;
     }
     
     function cleanup() {

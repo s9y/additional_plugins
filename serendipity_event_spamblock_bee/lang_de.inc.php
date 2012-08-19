@@ -79,7 +79,7 @@
 @define('PLUGIN_SPAMBLOCK_BEE_DAYS', 'Anzuzeigende Tage');
 @define('PLUGIN_SPAMBLOCK_BEE_DAYS_DESC', 'Der Report wird für die letzten X Tage erstellt. Hier kannst Du mehrere Tage Komma separiert einstellen, für die jeweils ein Report dargestellt werden soll.');
 @define('PLUGIN_SPAMBLOCK_BEE_DBSEARCHES', 'Datenbank Suchen');
-@define('PLUGIN_SPAMBLOCK_BEE_DBSEARCHES_DESC', 'Dieses plugin durchsucht die spamblocklog Tabelle. Hier kannst Du Suchen für Deine AntiSpam Maßnamen einstellen, über die gezählt werden soll. In jede Zeile kommt eine Einstellung, Format ist DeinNameFürAntiSpamArt:Suchbegriff. Das Zeichen % kann als Wildcard benutzt werden. Beispiel: "BayesPlugin:%Bayes%" wird alle Einträge zählen, die "Bayes" irgendwo in ihrem Titel haben und sie als "BayesPlugin" im Report darstellen.');
+@define('PLUGIN_SPAMBLOCK_BEE_DBSEARCHES_DESC', 'Dieses Plugin durchsucht die spamblocklog-Tabelle. Hier kannst Du Suchen für Deine AntiSpam Maßnamen einstellen, über die gezählt werden soll. In jede Zeile kommt eine Einstellung, Format ist DeinNameFürAntiSpamArt:Suchbegriff. Das Zeichen % kann als Wildcard benutzt werden. Beispiel: "BayesPlugin:%Bayes%" wird alle Einträge zählen, die "Bayes" irgendwo in ihrem Titel haben und sie als "BayesPlugin" im Report darstellen.');
 @define('PLUGIN_SPAMBLOCK_BEE_LOGGEDIN', 'Nur für eingeloggte Benutzer');
 @define('PLUGIN_SPAMBLOCK_BEE_LOGGEDIN_DESC', 'Wenn Du dies anschaltest, dann können nur eingeloggte Benutzer des Blogs die Statistik in der Seitenleiste sehen.');
 @define('PLUGIN_SPAMBLOCK_BEE_CACHEMINS', 'Reporting Cache');

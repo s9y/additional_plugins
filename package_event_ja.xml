@@ -10157,7 +10157,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>Implements simple comment antispam mechanisms, that are easy to configure but very effective.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Janek Bevendorff</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.2.4</version>
+  <version>1.2.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
   <date>2012-08-18</date>
   <filelist>

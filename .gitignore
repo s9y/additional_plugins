@@ -5,3 +5,5 @@
 /*.zip
 /testxmlrpc.php
 /test.php
+
+.DS_Store

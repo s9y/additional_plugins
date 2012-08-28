@@ -103,13 +103,6 @@
   </provider>
 
   <provider>
-    <name>PicPlz</name>
-    <jsononly/>
-    <url>http://*.picplz.com/*</url>
-    <endpoint>http://picplz.com/oembed</endpoint>
-  </provider>
-
-  <provider>
     <name>SoundCloud</name>
     <url>http://*.soundcloud.com/*</url>
     <endpoint>http://soundcloud.com/oembed</endpoint>

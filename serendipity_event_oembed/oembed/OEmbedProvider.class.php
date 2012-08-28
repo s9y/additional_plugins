@@ -79,7 +79,10 @@ class OEmbedProvider extends EmbedProvider{
         $xml = null;
         if (!$this->onlyJson) {
             try {
+                // Switch off warnings
+                $oldErrrorLevel = error_reporting(0);
                 $xml=simplexml_load_string($this->provideXML($url));
+                error_reporting($oldErrrorLevel);
             } catch (Exception $e) {
                 // something went wrong.
                 $xml = null;

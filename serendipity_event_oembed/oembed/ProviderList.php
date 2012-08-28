@@ -1,6 +1,6 @@
 <?php
 class ProviderList {
-    function ul_providernames($with_url=false) {
+    static function ul_providernames($with_url=false) {
         $provider_names = array();
         $xml = simplexml_load_file(PLUGIN_OEMBED_PROVIDER_XML_FILE);// PROVIDER_XML comes from config.php
         foreach($xml->provider as $provider){

@@ -1,3 +1,9 @@
+Version 1.09 (brockhaus)
+-----------------------
+* Switched off errorreporting while trying to fetch oembed code 
+  so it won't disturb output when service is down.
+* Removed pixplz provider as service is down. 
+
 Version 1.07 (brockhaus)
 -----------------------
 * New: dotsub.com video service. podomatic podcast service

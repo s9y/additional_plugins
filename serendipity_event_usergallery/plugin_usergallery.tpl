@@ -1,4 +1,4 @@
-<script language="Javascript" type="text/javascript">
+ <script language="Javascript" type="text/javascript">
 <!--
 function popImage(file_name,file_title,file_width,file_height) {ldelim}
 	if (parseInt(navigator.appVersion.charAt(0))>=4){ldelim}
@@ -37,20 +37,19 @@ function popImage(file_name,file_title,file_width,file_height) {ldelim}
 			{if $plugin_usergallery_display_dir_tree eq "yes"}
         	<!-- basefolder in treeview -->
             	<!-- considering singular/plural form of "image" depending on the filecount -->
-            	<li><a href="{$plugin_usergallery_httppath}">{$plugin_usergallery_title} ({$plugin_usergallery_maindir_filecount}{if $plugin_usergallery_maindir_filecount == 1}{$CONST.IMAGE}{else}{$CONST.PLUGIN_EVENT_USERGALLERY_IMAGES}{/if})</a></li>
+            	<li><a href="{$plugin_usergallery_httppath}">{$plugin_usergallery_title} ({$plugin_usergallery_maindir_filecount} {if $plugin_usergallery_maindir_filecount == 1}{$CONST.IMAGE}{else}{$CONST.PLUGIN_EVENT_USERGALLERY_IMAGES}{/if})</a></li>
 			{else}
 	   			{if $plugin_usergallery_toplevel eq 'no'}
 				<!-- 'up-one-level' link in galleries-->
 				<li><a href="{$plugin_usergallery_httppath_extend}gallery={$plugin_usergallery_uppath}">{$const.uponelevel} ({$plugin_usergallery_maindir_filecount} {if $plugin_usergallery_maindir_filecount == 1}{$CONST.IMAGE}{else}{$CONST.PLUGIN_EVENT_USERGALLERY_IMAGES}{/if})</a></li>
 	   			{else}
 				<!-- basefolder in listview -->
-				<li><a href="{$plugin_usergallery_httppath}">{$plugin_usergallery_title} ({$plugin_usergallery_maindir_filecount}{if $plugin_usergallery_maindir_filecount == 1}{$CONST.IMAGE}{else}{$CONST.PLUGIN_EVENT_USERGALLERY_IMAGES}{/if})</a></li>
+				<li><a href="{$plugin_usergallery_httppath}">{$plugin_usergallery_title} ({$plugin_usergallery_maindir_filecount} {if $plugin_usergallery_maindir_filecount == 1}{$CONST.IMAGE}{else}{$CONST.PLUGIN_EVENT_USERGALLERY_IMAGES}{/if})</a></li>
 	   			{/if}
 			{/if}
 			<!-- folders -->
    			{foreach name="dir_list" from=$plugin_usergallery_subdirectories item="dir"}
-            	<li style="padding-left: {$dir.pxdepth}px;"><a href="{$plugin_usergallery_httppath_extend}gallery={$dir.relpath}">{$dir.name} ({$dir.filecount}
-            	{if $dir.filecount == 1}{$CONST.IMAGE}{else}{$CONST.PLUGIN_EVENT_USERGALLERY_IMAGES}{/if})</a></li>
+            	<li style="padding-left: {$dir.pxdepth}px;"><a href="{$plugin_usergallery_httppath_extend}gallery={$dir.relpath}">{$dir.name} ({$dir.filecount} {if $dir.filecount == 1}{$CONST.IMAGE}{else}{$CONST.PLUGIN_EVENT_USERGALLERY_IMAGES}{/if})</a></li>
    			{/foreach}
    			</ul>
 		{/if}

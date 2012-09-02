@@ -284,6 +284,7 @@ class serendipity_plugin_twitter extends serendipity_plugin {
                         if (LANG_CHARSET!='UTF-8' && function_exists("mb_convert_encoding")) {
                             $status->text = mb_convert_encoding($status->text, LANG_CHARSET, 'auto');
                         }
+                        $status->text = htmlentities($status->text, ENT_QUOTES, 'UTF-8');
                         $showit = true;
                         if ($filter_all_user && preg_match('/@/',$status->text)) $showit=false;
                         else if ($toall_only && preg_match('/^@/',$status->text)) $showit=false;

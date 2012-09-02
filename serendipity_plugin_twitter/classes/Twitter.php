@@ -438,8 +438,8 @@ class Twitter {
         if (!empty($class_links)) $class =   'class="' . $class_links . '"';
         $status = preg_replace($pattern, '<a href="$1" ' .$class .'>' . $linktext_replace . '</a>', $status);
         if ($this->use_identica) {
-            $status = preg_replace('{#([\w_]*)}','#<a href="' . $this->get_base_url() . 'tag/$1"' . $class . '>$1</a>', $status);
-            $status = preg_replace('{!([\w_]*)}','!<a href="' . $this->get_base_url() . 'group/$1"' . $class . '>$1</a>', $status);
+            $status = preg_replace('{#([\w_]*)}','#<a href="' . $this->get_base_url() . 'tag/$1" ' . $class . '>$1</a>', $status);
+            $status = preg_replace('{!([\w_]*)}','!<a href="' . $this->get_base_url() . 'group/$1" ' . $class . '>$1</a>', $status);
         }
     
         $class = '';

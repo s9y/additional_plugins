@@ -1,5 +1,5 @@
 // DE lang variables
 
-tinyMCE.addToLang('',{
-s9ymdb_desc : 'Bild aus der Mediendatenbank hinzufügen'
+tinyMCE.addI18n('de.s9ymdb',{
+	desc : 'Bild aus der Mediendatenbank hinzufügen'
 });

@@ -1,5 +1,5 @@
-// UK lang variables
+// EN lang variables
 
-tinyMCE.addToLang('',{
-s9ymdb_desc : 'Add image from Mediadatabase'
+tinyMCE.addI18n('en.s9ymdb',{
+	desc : 'Add image from Mediadatabase'
 });

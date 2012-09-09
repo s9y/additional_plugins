@@ -1,7 +1,7 @@
-<?php # lang_cz.inc.php 1.6 2012-01-10 21:17:17 VladaAjgl $
+<?php # lang_cz.inc.php 1.7 2012-06-22 17:28:47 VladaAjgl $
 
 /**
- *  @version 1.6
+ *  @version 1.7
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  EN-Revision: Revision of lang_en.inc.php
  *  Revision-date: 2008/01/27 17:35:00
@@ -12,6 +12,8 @@
  *  @revisionDate 2009/08/15
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2012/01/10
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2012/06/22
  */
 
 //
@@ -72,6 +74,7 @@
 @define('PLUGIN_GEOTAG_GMAP_GEOCODE_OK',        'OK');
 
 // Next lines were translated on 2012/01/10
+
 @define('PLUGIN_EVENT_GEOTAG_WARNING_GEOURL_PLUGIN','VAROVÁNÍ: nalezen plugin GeoUrl. Odinstalujte ho prosím, je zastaralý a dále neudržovaný.<br/>Všechny jeho funkce jsou zajištěny i pluginem GeoTag. Plugin GeoTag je podrobnější, umí toho víc.');
 @define('PLUGIN_EVENT_GEOTAG_HEADER_EDITOR',    'Nastavení editoru příspěvku');
 @define('PLUGIN_EVENT_GEOTAG_HEADER_FOOTER',    'Nastavení patičky příspěvku');
@@ -108,3 +111,6 @@
 @define('PLUGIN_GEOTAG_SERVICE',                'Mapová služba');
 @define('PLUGIN_GEOTAG_SERVICE_DESC',           'Jako mapový podklad můžete použít buď mapy Googlu nebo Openstreetmap');
 @define('PLUGIN_GEOTAG_GMAP_GEOCODE_GET_CODE',  'vaše aktuální poloha');
+
+// Next lines were translated on 2012/06/22
+@define('PLUGIN_EVENT_CLEAR_LOCATION',           'Smazat polohu');

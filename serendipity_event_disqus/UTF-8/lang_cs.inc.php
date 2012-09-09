@@ -1,9 +1,11 @@
-<?php # lang_cs.inc.php 1.0 2011-06-19 09:27:10 VladaAjgl $
+<?php # lang_cs.inc.php 1.1 2012-06-22 17:28:17 VladaAjgl $
 
 /**
- *  @version 1.0
+ *  @version 1.1
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2011/06/19
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2012/06/22
  */
 @define('PLUGIN_DISQUS_TITLE', 'Komentáře Disqus');
 @define('PLUGIN_DISQUS_DESC', 'Disqus.com je webová služba pro správu komentářů. Ukládá a spravuje komentáře vně instalace serendipity a je do blogu vkládána pomocí JavaScriptu. Pro více informací přejděte na www.disqus.com.');
@@ -24,3 +26,9 @@ Plugin umístí výstup komentářů disqus do proměnné Smarty {$entry.plugin_
 @define('PLUGIN_DISQUS_ENABLE_SINCE_DESC', 'Zadejte datum (R-m-d), po kterém se budou zobrazovat komentáře disqus místo vestavěných komentářů serendipity. Starší komentáře se budou zobrazovat správně z databáze serendipity.');
 @define('PLUGIN_DISQUS_SHORTNAME', 'Krátký název účtu disqus');
 @define('PLUGIN_DISQUS_SHORTNAME_DESC', 'Zadejte krátký název (shortname), které jste si zaregistrovali pod účtem disqus.');
+
+// Next lines were translated on 2012/06/22
+@define('PLUGIN_DISQUS_FOOTERCOMMENTLINK', 'Nechat nastavit DISQUS počet komentářů v patičce');
+@define('PLUGIN_DISQUS_FOOTERCOMMENTLINK_DESC', 'Protože počet komentářů k příspěvku obecně není známý, tento plugin vkládá do patičky pouze text "Komentáře" místo správného "N komentářů". Můžete nechat DISQUS, aby tento text správně nahrazoval, ale v některých šablonách se to nemusí zobrazovat korektně. Pak zde můžete dynamické nahrazení počtu komentářů vypnout.');
+@define('PLUGIN_DISQUS_HIDE_COMMENTCSS', 'Skrýt css komentářů');
+@define('PLUGIN_DISQUS_HIDE_COMMENTCSS_DESC', 'Pokud jsou komentáře disqus.com nainstalovány a zapnuty, žádná z funkcí, která závisí na interních komentářích seerendipity nebude fungovat. Tento plugin interně používá CSS styly ke skrytí komentářů Serendipity a formuláře pro jejich vložení. Děje se tak prostým nastavením vlastnosti "display:none" pro příslušné CSS třídy. Zadejte zde prosím CSS třídy, které používáte ve vaší šabloně k zobrazení komentářů a formuláře pro jejich vložení. Výchozí nastavení bude fungovat na většině šablon (stylů vzhledu).');

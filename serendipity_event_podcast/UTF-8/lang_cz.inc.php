@@ -1,11 +1,13 @@
-<?php # lang_cz.inc.php 1.1 2011-06-19 09:40:00 VladaAjgl $
+<?php # lang_cz.inc.php 1.2 2012-05-13 14:20:13 VladaAjgl $
 
 /**
- *  @version 1.1
+ *  @version 1.2
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/05/28
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2011/06/19
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2012/05/13
  */
 
 @define('PLUGIN_PODCAST_NAME',             'Podcasting plugin');
@@ -78,6 +80,7 @@
 'Ve staženém archivu najdete soubory flvplayer.swf a swfobject.js. Zkopírujte je do adresáře tohoto pluginu. Pokud adresář obsahuje pouze soubory "mediaplayer.*", přejmenujte je na "flvplayer.*"</p>');
 
 // Next lines were translated on 2011/06/19
+
 @define('PLUGIN_PODCAST_EXPERT_HINT',      'TIP: Pomocí HTML značek si můžete přizpůsobit LIBOVOLNÝ přehrávač, takže můžete zadat seznam různých variant přehrávače pro různé typy souborů! Pamatujte, že jak jednou uložíte nastavení pluginu, bude vždy použito statické značkování <strong>namísto</strong> toho, které plugin poskytuje pomocí souboru <strong>podcast_player.php</strong>. Pokud chcete resetovat nastavení na výchozí hodnoty, jednoduše vymažte veškerý obsah pole pro značkování pluginu a uložte nastavení.');
 @define('PLUGIN_PODCAST_QTEXT_HTML',       'Značkování přehrávače Quicktime');
 @define('PLUGIN_PODCAST_WMEXT_HTML',       'Značkování Windows Media Player');
@@ -100,3 +103,7 @@ Toto nastavení například vloží do kanálu pouze soubory formátu "ogg". Mů
 @define('PLUGIN_PODCAST_MERGEMULTI',       'Sloučit více elementů HTML5 přehrávače');
 @define('PLUGIN_PODCAST_DOWNLOADLINK',     'Vždy připojit odkaz na stažení');
 @define('PLUGIN_PODCAST_DOWNLOADLINK_DESC','Pokud je vypnuto, můžete přidat vlastní prizpůsobený odkaz na stažení do značek přehrávače.');
+
+// Next lines were translated on 2012/05/13
+@define('PLUGIN_PODCAST_NOPODCASTING_CLASS','Ignorovat CSS třídy');
+@define('PLUGIN_PODCAST_NOPODCASTING_CLASS_DESC','Pokud mají odkazy na média zadanou tuto CSS třídu, pak budou ignorovány (tyto odkazy nebudou nahrazovány přehrávačem a nebudou se zobrazovat v RSS kanálu).');

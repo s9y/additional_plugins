@@ -1,14 +1,14 @@
-<?php # lang_cz.inc.php 1.1 2011-08-21 14:11:39 VladaAjgl $
+<?php # lang_cz.inc.php 1.1 2011-09-18 13:11:29 VladaAjgl $
 
 /**
  *  @version 1.1
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/05/23
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2011/08/21
+ *  @revisionDate 2011/09/18
  */
-@define('PLUGIN_SIDEBAR_FLICKR', 'Flickr Photostream');
-@define('PLUGIN_SIDEBAR_FLICKR_DESC', 'Zobrazuje nejnovější fotografie kanálu Flickr Photostream.');
+@define('PLUGIN_SIDEBAR_FLICKR', 'Flickr');
+@define('PLUGIN_SIDEBAR_FLICKR_DESC', 'Zobrazuje nejnovější fotografie z libovolného (což obvykle znamená z Vašeho) kanálu Flickr. Podrobnosti viz. http://www.flickr.com/.');
 @define('PLUGIN_EVENT_FLICKRCSS', 'Flickr Photostream CSS');
 @define('PLUGIN_EVENT_FLICKRCSS_DESC', 'Tento plugin je rozšířením postranního pluginu "Flickr Photostream" a přidává k němu stylování (CSS).');
 
@@ -59,6 +59,6 @@
 @define('PLUGIN_SIDEBAR_FLICKR_ERROR_WRONGUSER', 'Účet na Flickru neexistuje, nebo je špatně zadaný API klíč.');
 @define('PLUGIN_SIDEBAR_FLICKR_ERROR_NOIMG', 'Žádné obrázky.');
 
-// Next lines were translated on 2011/08/21
+// Next lines were translated on 2011/09/18
 @define('PLUGIN_SIDEBAR_FLICKR_NUMBEROFCHOICES', 'Počet vybraných obrázků');
 @define('PLUGIN_SIDEBAR_FLICKR_USECHOICES', 'Náhodně zamíchat vybrané obrázky?');

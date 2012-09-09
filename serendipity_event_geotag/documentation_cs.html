@@ -6,7 +6,7 @@
 	<body>
 	<h1>Dokumentace k pluginu 'Geotag'<br />
 	<small>(serendipity_event_geotag)</small></h1>
-		<p>Dokumentaci k tomuto pluginu pøeložil do èeštiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 22.9.2011. Od té doby mohl být plugin pozmìnìn nebo mohly být rozšíøené jeho funkce. Zkontrolujte pro jistotu i	<a href="ChangeLog">aktuální anglický ChangeLog</a>. 
+		<p>Dokumentaci k tomuto pluginu pøeložil do èeštiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) a naposledy zkontroloval dne 23.6.2012. Od té doby mohl být plugin pozmìnìn nebo mohly být rozšíøené jeho funkce. Zkontrolujte pro jistotu i	<a href="ChangeLog">aktuální anglický ChangeLog</a>. 
 		</p>
 		
 		<h2>Popis pluginu</h2>
@@ -14,6 +14,43 @@
 		
 		<h2>Historie verzí (ChangeLog)</h2>
 		<ul>
+			<li>verze 1.30 a 1.31 [brockhaus]</li>	
+			<ul>	
+				<li>Opravy - kompatibilita</li>	
+			</ul>
+			<li>verze 1.29 [brockhaus]</li>	
+			<ul>	
+				<li>Pokud byl pøíspìvek aktualizován, geografická data byla vymazána.</li>	
+				<li>Pøidáno tlaèítko "Smazat polohu", protože jinak nebylo možné se zadané polohy zbavit.</li>	
+			</ul>
+			<li>verze 1.28 [brockhaus]</li>	
+			<ul>	
+				<li>Vymazání pøíspìvku nevymazalo sdružené øádky v databázové tabulce GeoTag</li>	
+				<li>Pøidána podpora pro xml-rpc event hooks.</li>	
+			</ul>
+			<li>verze 1.27 [brockhaus]</li>	
+			<ul>	
+				<li>Nyní lze nastavit rùzné vlastnosti mapy pro seznam pøíspìvkù a pro zobrazení jediného pøíspìvku. (napø. vìtší mapa)</li>	
+				<li>Použití OpenStreetMap místo Google mapy pro mapu v patièce èlánku (nepovinné).</li>	
+				<li>Cachování map v patièce.</li>	
+				<li>Pøidání geourl meta-tagù do HTML hlavièky stránky.</li>	
+				<li>Importována funkce pluginu GeoURL, jelikož ponìkud duplikuje funkce tohoto pluginu. GeoURL je odteï zastaralý plugin, pøidáno varování na stránku s nastavením pluginù.</li>	
+				<li>Oprava - výbìr místa v editoru pøíspìvkù byl vypnut od verze 1.25, pokud místo nebylo automaticky pøedvyplnìno.</li>	
+			</ul>
+			<li>verze 1.26 [mgutjahr]</li>	
+			<ul>	
+				<li>Pøidána podpora OpenStreetMap pomocí OpenLayers (postranní sloupec)</li>	
+				<li>Opraveno zobrazení Google Maps a aktualizace na Google Maps JS API verze 3 (postranní sloupec)</li>	
+				<li>Opravena chyba, když nejsou nalezeny žádné pøíspìvky.</li>	
+			</ul>
+			<li>verze 1.25 [gbrockhaus]</li>	
+			<ul>	
+				<li>Opraveno vkládání nastavení støedu mapy a souèinitele mìøítka (zoom)</li>	
+				<li>Automatické získávání aktuální polohy, pokud tuto funkci podporuje prohlížeè</li>	
+				<li>Volitelné zobrazení obrázku mapy v patièce pøíspìvku místo nicneøíkajících souøadnic.</li>	
+				<li>Nebyl schopen zobrazovat záporné souøadnice.</li>	
+				<li>Pole pro hledání adresy se vymaže pøi kliknutí.</li>	
+			</ul>
 			<li>verze 1.24</li>	
 			<ul>	
 				<li>Pøidáno - kontrola správnosti zadání zìmìpisné délky a šíøky, díky uživateli [SSchurtz]!</li>	

@@ -1,11 +1,13 @@
-<?php # lang_cz.inc.php 1.1 2011-07-09 12:17:38 VladaAjgl $
+<?php # lang_cz.inc.php 1.2 2012-09-09 20:18:04 VladaAjgl $
 
 /**
- *  @version 1.1
+ *  @version 1.2
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2010/05/22
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2011/07/09
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2012/09/09
  */
 @define('PLUGIN_FLATTR_NAME', 'Flattr');
 @define('PLUGIN_FLATTR_DESC', 'Flattr je platforma pro sociální mikroplatby, která umo¾òuje zobrazit oblibu vìcí, které máte rádi. Tento plugin vkládá do pøíspìvkù a RSS kanálù známky "Flattr" (Flattr Badges). U ka¾dého pøíspìvku mù¾ete jednotlivì zadat volby flattru. Pokud tak neuèiníte, pou¾ije se globální nastavení.');
@@ -25,4 +27,9 @@
 @define('PLUGIN_FLATTR_ACTIVE', 'Povolit Flattr');
 
 // Next lines were translated on 2011/07/09
+
 @define('PLUGIN_FLATTR_BUTTON_DESC', 'Pokud zadáte cokoliv jiného ne¾ "výchozí" nebo "kompaktní", tento text bude pou¾ite pro statické tlaèítko. Mù¾ete zde zadat napøíklad "Kliknìte zde pro Flattr".');
+
+// Next lines were translated on 2012/09/09
+@define('PLUGIN_FLATTR_POPOUT', 'Zobrazovat popup okno bìhem pohybu my¹i nad tlaèítkem Flattr');
+@define('PLUGIN_FLATTR_ADD_TO_FEED', 'Pøidat tlaèítko "Flattr" do kanálù RSS/ATOM?');

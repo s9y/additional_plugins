@@ -1,7 +1,7 @@
-<?php # lang_cs.inc.php 1.5 2011-07-05 15:07:04 VladaAjgl $
+<?php # lang_cs.inc.php 1.6 2012-05-13 14:14:41 VladaAjgl $
 
 /**
- *  @version 1.5
+ *  @version 1.6
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/02/17
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
@@ -14,6 +14,8 @@
  *  @revisionDate 2011/01/11
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2011/07/05
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2012/05/13
  */
 
 //
@@ -133,4 +135,8 @@
 @define('PLUGIN_EVENT_FREETAG_MANAGE_CLEANUP_FAILED',		'Odstraňování přebytečných přiřazení se nezdařilo.');
 
 // Next lines were translated on 2011/07/05
+
 @define('PLUGIN_EVENT_FREETAG_COLLATION',		'Porovnání (MySQL) databáze pro sloupec entrytags.tag (automatická-detekce)');
+
+// Next lines were translated on 2012/05/13
+@define('PLUGIN_EVENT_FREETAG_KILL',		'Pokud je zaškrtnuto, budou smazány všechny tagy přiřazené k tomuto příspěvku.');

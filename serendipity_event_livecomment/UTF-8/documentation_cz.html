@@ -1,0 +1,89 @@
+<html>    
+	<head>        
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Dokumentace: Vylepšené políčko komentářů</title>        
+	</head>
+	<body>
+	<h1>Dokumentace k pluginu 'Vylepšené políčko komentářů'<br />
+	<small>(serendipity_event_livecomment)</small></h1>
+		<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 13.5.2012. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i	<a href="../ChangeLog">aktuální anglický ChangeLog</a> a <a href="../credits.txt">credits.txt</a>. 
+		</p>
+		
+		<h2>Popis pluginu</h2>
+		<p>
+		Používá JavaScript k ukázání náhledu komentáře a značkovací tlačítka.
+		</p>
+		
+		<h2>Použité zdroje</h2>
+		<ul>
+			<li>markup-Icons:</li>	
+			<ul>	
+				<li><a href="http://www.famfamfam.com/lab/icons/silk/">http://www.famfamfam.com/lab/icons/silk/</a><br /> Licence "Creative Commons Attribution 2.5"</li>	
+			</ul>
+			<li>jquery.elastic:</li>	
+			<ul>	
+				<li><a href="http://plugins.jquery.com/project/elastic">http://plugins.jquery.com/project/elastic</a></li>	
+			</ul>
+			<li>jquery.listen:</li>	
+			<ul>	
+				<li><a href="http://plugins.jquery.com/project/Listen">http://plugins.jquery.com/project/Listen</a></li>	
+			</ul>
+			<li>bbparser:</li>	
+			<ul>	
+				<li><a href="http://www.dreamincode.net/code/snippet304.htm">http://www.dreamincode.net/code/snippet304.htm</a></li>	
+			</ul>
+			<li>textileparser:</li>	
+			<ul>	
+				<li><a href="http://jrm.cc/extras/live-textile-preview.php">http://jrm.cc/extras/live-textile-preview.php</a></li>	
+			</ul>
+			<li>markdownparser:</li>	
+			<ul>	
+				<li><a href="http://attacklab.net/showdown/">http://attacklab.net/showdown/</a></li>	
+			</ul>
+			<li>jQuery-preview-idea:</li>	
+			<ul>	
+				<li><a href="http://www.learningjquery.com/2006/11/really-simple-live-comment-preview">http://www.learningjquery.com/2006/11/really-simple-live-comment-preview</a></li>	
+			</ul>
+		</ul>  
+		
+		<h2>Historie verzí (ChangeLog)</h2>
+		<ul>
+			<li>verze 2.5.4</li>	
+			<ul>	
+				<li>Upravení jQuery skriptů, aby byly kompatibilní s jinými frameworky</li>	
+				<li>Neodkazovat se na javascript, pokud není zobrazen jednotlivý příspěvek.</li>	
+			</ul>
+			
+			<li>verze 2.5.3</li>	
+			<ul>	
+				<li>Funkce:</li>	
+				<ul>	
+					<li>Přidáno tlačítko URL do komentářových tlačítek</li>	
+					<li>Přidán bublinový text při najetí na tlačítko</li>	
+					<li>Značkovací tlačítka nyní fungují, i když není vybrán žádný text</li>	
+					<li>Náhled lze nyní odznačit</li>	
+				</ul>
+				<li>Výkon:</li>	
+				<ul>	
+					<li>Redukce počtu HTTP požadavků</li>	
+					<li>Redukce velikosti JavaScriptových souborů</li>	
+					<li>Redukce počtu procházení DOM</li>	
+					<li>Ajaxové volání se už neprovádí dvakrát, pokud je jsou aktivována značkovací tlačítka i náhled</li>	
+					<li>Ajaxové volání používá metodu GET místo POST</li>	
+					<li>Přidána volba pro vložení javascriptu jako parametru</li>	
+					<li>Javascript se zastaví, pokud není žádný formulář pro komentář</li>	
+					<li>Javascript přesunut do patičky</li>	
+					<li>Přidána volba k zadání cesty, takže již není nutné ji zjišťovat dynamicky</li>	
+				</ul>
+				<li>Různé:</li>	
+				<ul>	
+					<li>lcnewbase se nyní inicializuje na správném místě</li>	
+					<li>Změn způsobu použití globálních proměnných</li>	
+					<li>Možnost použití značkovacích tlačítko, i když se používá jiný než standardní adresář pro pluginy</li>	
+					<li>Aktualizován jquery.elastic na verzi 1.3, který opravuje chybu s rámečkem v Opeře</li>	
+				</ul>
+			</ul>
+		</ul>  
+
+	</body>
+</html>

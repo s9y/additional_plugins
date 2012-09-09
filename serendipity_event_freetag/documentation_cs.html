@@ -14,9 +14,10 @@
 
 <body>
     
-<h1>Dokumentace k pluginu 'Freetag'</h1>
+<h1>Dokumentace k pluginu 'Freetag'<br />
+	<small>(serendipity_event_freetag)</small></h1>
 
-<p>Dokumentaci k tomuto pluginu pøeložil do èeštiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 22.8.2011. Od té doby mohl být plugin pozmìnìn nebo mohly být rozšíøené jeho funkce. Zkontrolujte pro jistotu i <a href="README">aktuální anglické "README"</a>, <a href="README.txt">"README.txt"</a> a <a href="ChangeLog">ChangeLog</a>.
+<p>Dokumentaci k tomuto pluginu pøeložil do èeštiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 13.5.2012. Od té doby mohl být plugin pozmìnìn nebo mohly být rozšíøené jeho funkce. Zkontrolujte pro jistotu i <a href="README">aktuální anglické "README"</a>, <a href="README.txt">"README.txt"</a> a <a href="ChangeLog">ChangeLog</a>.
 <p>
 
 <p>Následující kód ukazuje pøíklad, jak použít rozšíøený výstup do smarty šablony. Takto mùže napøíklad vypadat šablona "entries.tpl"
@@ -91,6 +92,22 @@ foreach($rows AS $row) {
 
 <h1>Historie verzí (ChangeLog)</h1>
 <ul>
+<li>verze 3.39</li>
+	<ul>
+	<li>pøidána specifická kontrola is_array($eventData), díky uživateli [gregman]</li>
+	</ul>
+<li>verze 3.38</li>
+	<ul>
+	<li>Doplnìn chybìjící fieldset v pøípadì, kdy nebylo zadáno nastavení admin_show_taglist (díky uživateli [gregman])</li>
+	</ul>
+<li>verze 3.37</li>
+	<ul>
+	<li>Pøi zveøejòování pøíspìvku, nahrazení cat2tag je nyní provádìnou i v pøípadì, že jsou tagy prázdné, takže pøíspìvek bude mít vždy alespoò tagy shodné se jmény kategorií.</li>
+	</ul>
+<li>verze 3.36</li>
+	<ul>
+	<li>Opraven [tag] v jedné instanci HTML formuláøového pole, díky uživateli [ascger] z diskuzního fóra</li>
+	</ul>
 <li>verze 3.35</li>
 	<ul>
 	<li>Opraveno - Zmìna nìkterých instancí [tag] na %5Btag%5D, který je kompatibilní s HTML - bug è.3427291</li>

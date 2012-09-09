@@ -1,9 +1,11 @@
-<?php # lang_cz.inc.php 1.0 2009-05-28 20:07:15 VladaAjgl $
+<?php # lang_cz.inc.php 1.1 2012-09-09 20:18:24 VladaAjgl $
 
 /**
- *  @version 1.0
+ *  @version 1.1
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/05/28
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2012/09/09
  */
 
 @define('VERSIONING_TITLE', 'Starší verze příspěvků');
@@ -15,3 +17,8 @@
 @define('VERSIONING_PUBLIC', 'Zobrazit starší verze návštěvníkům blogu?');
 
 /* vim: set sts=4 ts=4 expandtab : */
+
+// Next lines were translated on 2012/09/09
+@define('VERSIONING_DATE_FORMAT', 'Formát data');
+@define('VERSIONING_DATE_LONG', 'dlouhý');
+@define('VERSIONING_DATE_SHORT', 'krátký');

@@ -1,0 +1,64 @@
+<html>    
+	<head>        
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-2">
+		<title>Dokumentace: OpenID</title>        
+	</head>
+	<body>
+	<h1>Dokumentace k pluginu 'OpenID'<br />
+	<small>(serendipity_event_openid)</small></h1>
+		<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 22.6.2012. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="ChangeLog">aktuální anglický "ChangeLog"</a>. 
+		</p>
+
+		<h2>Popis pluginu</h2>
+		<p>
+Umožňuje autorům přihlásit se pomocí OpenID.
+		</p>
+		
+    <h2>Známé endpointy OpenID</h2>
+
+    <ul>
+    <li>Google : <a href="https://www.google.com/accounts/o8/id">https://www.google.com/accounts/o8/id</a></li>
+    <li>Google profile : <a href="http://www.google.com/profiles/">http://www.google.com/profiles/~VASE_UZIVATELSKE_JMENO</a></li>
+    <li>Yahoo : <a href="https://me.yahoo.com">https://me.yahoo.com</a></li>
+    <li>AOL : <a href="https://www.aol.com">https://www.aol.com</a></li>
+    <li>Wordpress : <a href="http://www.wordpress.com">http://VAS_BLOG.wordpress.com</a></li>
+    <li>LiveJournal : <a href="http://www.livejournal.com/openid/server.bml">http://www.livejournal.com/openid/server.bml</a></li>
+    </ul>
+
+		<h2>Historie verzí (ChangeLog)</h2>
+		<ul>
+		<li>Verze 1.0 [brockhaus]</li>
+			<ul>
+			<li>Možnost nastavení verze OpenID, kterou poskytovatel podporuje (Verze 1, 2 nebo obě dvě)</li>
+			<li>Drobný refactoring kódu pro zlepšení čitelnosti</li>
+			</ul>
+		<li>Verze 0.9 [brockhaus]</li>
+			<ul>
+			<li>Pokud ještě žádný uživatel nenastavil přihlášení pomocí OpenID, nebude se zobrazovat formulář k přihlášení pomocí OpenID, ale informace o možnosti takového přihlášení.</li>
+			<li>Už není nutné zadávat OpenID URL adresu. Jednoduše vyberte uživatele a přihlašte se. (Lze přepnout zpět do starého rozhraní.)</li>
+			</ul>
+		<li>Verze 0.8 [brockhaus]</li>
+			<ul>
+			<li>Přidán rychlý odkaz na AOL.</li>
+			<li>Přidán popis o rychlých odkazech na stránku s nastavením.</li>
+			</ul>
+		<li>Verze 0.7 [brockhaus]</li>
+			<ul>
+			<li>Nebylo možné změnit u uživatele OpenID URL adresu, pokud byl přihlášen nějakým jiným externím přihlašovačem (např. BrowserID)</li>
+			<li>Přidání Googlu a Yahoo do rychlých odkazů. Poskytují OpenID na univerzální URL adrese.</li>
+			</ul>
+		<li>Verze 0.6 [brockhaus]</li>
+			<ul>
+			<li>Opravena knihovna OpenID, aby poskytovala výstup pro případ chyby, kdy /dev/urandom není přístupný, místo toho, aby kompletně spadla.</li>
+			</ul>
+		<li>Verze 0.5 [brockhaus]</li>
+			<ul>
+			<li>Nová PHP-OpenId knihovna</li>
+			<li>Upraveno pomocí pull requestu z GitHubu, který řeší problémy se zastaralými funkcemi</li>
+			<li>Odstraněno nastavení cesty k adresáři temp ze stránky s nastavením (protože stejně žádný uživatel neví, co přesně sem zadat) a nahrazeno adresářem templates_c.</li>
+			<li>Přidána spousta dokumentace na stránku s nastavením pluginu.</li>
+			<li>Mnoho oprav.</li>
+			</ul>
+		</ul>
+	</body>
+</html>

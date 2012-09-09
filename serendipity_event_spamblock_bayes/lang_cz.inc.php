@@ -1,7 +1,7 @@
-<?php # lang_cz.inc.php 1.6 2012-01-11 23:24:56 VladaAjgl $
+<?php # lang_cz.inc.php 1.7 2012-05-13 14:22:17 VladaAjgl $
 
 /**
- *  @version 1.6
+ *  @version 1.7
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/11/07
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
@@ -16,6 +16,8 @@
  *  @revisionDate 2010/11/26
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2012/01/11
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2012/05/13
  */
 
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME',     'Spamblock (Bayes)');
@@ -86,9 +88,15 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_IMPORT_EXPLANATION',     'Iportovat døíve vygenerovaný CSV soubory. Naètená data filtru budou pøidána do databáze.');
 
 // Next lines were translated on 2012/01/11
+
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_MENU_IMPORT',     'Import');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA_EXPLANATION',     'Mù¾ete importovat databázi spamu z jiného blogu. Zaregistrujte se a ostatní blogy se budou uèit z va¹í databáze spamu.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA',     'Online Import');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA_IMPORT',     'Import');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA_REGISTER',     'Pøidat tento blog');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_TROJA_REMOVE',     'Odstranit tento blog');
+
+// Next lines were translated on 2012/05/13
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RATING',     'Hodnocení');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_EMPTY_ALL',     'Ko¹: Úplné vyèi¹tìní');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_EMPTY_ALL_DESC',     'Pøi vysypávání ko¹e smazat v¹echny komentáøe, nejen ty na aktuální stránce.');

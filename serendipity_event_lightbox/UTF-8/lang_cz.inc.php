@@ -1,7 +1,7 @@
-<?php # lang_cz.inc.php 1.4 2011-10-31 20:20:16 VladaAjgl $
+<?php # lang_cz.inc.php 1.5 2012-05-13 14:17:20 VladaAjgl $
 
 /**
- *  @version 1.4
+ *  @version 1.5
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  EN-Revision: Revision of lang_en.inc.php
  *  Translated on 2007/12/01
@@ -9,6 +9,8 @@
  *  @revisionDate 2009/02/15
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2011/10/31
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2012/05/13
  */
 
 @define('PLUGIN_EVENT_LIGHTBOX_NAME',		'Lightbox/Thickbox JS/Greybox');
@@ -23,3 +25,7 @@
 @define('PLUGIN_EVENT_LIGHTBOX_GALLERY_NONE',		'Žádná galerie');
 @define('PLUGIN_EVENT_LIGHTBOX_GALLERY_ENTRY',		'Galerie s fotkami z příspěvku');
 @define('PLUGIN_EVENT_LIGHTBOX_GALLERY_PAGE',		'Galerie s fotkami na této stránce');
+
+// Next lines were translated on 2012/05/13
+@define('PLUGIN_EVENT_LIGHTBOX_INIT_JS',		'Objekt s inicializačním nastavením JavaScriptu');
+@define('PLUGIN_EVENT_LIGHTBOX_INIT_JS_DESC',		'Některé typy Lightboxu (např. prettyPhoto) umožňují zadání libovolného objektu s nastavním, takže můžete zadat např. "(social_tools: false)".');

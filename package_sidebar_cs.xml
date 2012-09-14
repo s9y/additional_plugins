@@ -1374,9 +1374,9 @@
 <name>serendipity_plugin_flickr</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_flickr/ChangeLog</changelog>
 <license>GPL</license>
-<summary>Flickr Photostream</summary>
+<summary>Flickr</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES,IMAGES</groups>
-<description>Zobrazuje nejnovější fotografie kanálu Flickr Photostream.</description>
+<description>Zobrazuje nejnovější fotografie z libovolného (což obvykle znamená z Vašeho) kanálu Flickr. Podrobnosti viz. http://www.flickr.com/.</description>
 <maintainers><maintainer><name>Michael Kaiser</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.07</version>
@@ -3050,7 +3050,7 @@
 <release>
   <version>1.44</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2012-09-14</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="classes">

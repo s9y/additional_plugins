@@ -194,7 +194,7 @@
 <category>Event Plugins</category>
 <author>Arnan de Gans, Matthew Groeninger, and Stefan Willoughby</author>
 <content:encoded>&lt;b&gt;serendipity_event_usergallery&lt;br /&gt;Galerie&lt;/b&gt;&lt;br /&gt;Umožňuje nepřihlášeným uživatelům prohlížet Serendipity knihovnu médií&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 14 Aug 2012 02:32:19 +0200</pubDate>
+<pubDate>Fri, 14 Sep 2012 02:32:11 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_usergallery</guid>
 </item>
 <item>
@@ -1262,11 +1262,11 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <guid isPermaLink="false">serendipity_event_oembed</guid>
 </item>
 <item>
-<title>BrowserID Authentification: Allows authors to authenticate using the BrowserID service.</title>
+<title>BrowserID přihlašování: Umožňuje autorům přihlašovat se do blogu pomocí služby BrowserID</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_browserid</link>
 <category>Event Plugins</category>
 <author>Grischa Brockhaus</author>
-<content:encoded>&lt;b&gt;serendipity_event_browserid&lt;br /&gt;BrowserID Authentification&lt;/b&gt;&lt;br /&gt;Allows authors to authenticate using the BrowserID service.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_event_browserid&lt;br /&gt;BrowserID přihlašování&lt;/b&gt;&lt;br /&gt;Umožňuje autorům přihlašovat se do blogu pomocí služby BrowserID&lt;br/&gt;For: Serendipity 1.6</content:encoded>
 <pubDate>Mon, 26 Mar 2012 02:31:50 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_browserid</guid>
 </item>

@@ -3053,7 +3053,7 @@
 <release>
   <version>1.44</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2012-09-14</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="classes">

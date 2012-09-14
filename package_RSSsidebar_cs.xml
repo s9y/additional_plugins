@@ -171,11 +171,11 @@
 <guid isPermaLink="false">serendipity_plugin_guestbook</guid>
 </item>
 <item>
-<title>Flickr Photostream: Zobrazuje nejnovější fotografie kanálu Flickr Photostream.</title>
+<title>Flickr: Zobrazuje nejnovější fotografie z libovolného (což obvykle znamená z Vašeho) kanálu Flickr. Podrobnosti viz. http://www.flickr.com/.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_flickr</link>
 <category>Sidebar Plugins</category>
 <author>Michael Kaiser</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_flickr&lt;br /&gt;Flickr Photostream&lt;/b&gt;&lt;br /&gt;Zobrazuje nejnovější fotografie kanálu Flickr Photostream.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_plugin_flickr&lt;br /&gt;Flickr&lt;/b&gt;&lt;br /&gt;Zobrazuje nejnovější fotografie z libovolného (což obvykle znamená z Vašeho) kanálu Flickr. Podrobnosti viz. http://www.flickr.com/.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Sun, 25 Dec 2011 02:06:21 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_flickr</guid>
 </item>
@@ -466,7 +466,7 @@
 <category>Sidebar Plugins</category>
 <author>Grischa Brockhaus, Damian Luszczymak, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_twitter&lt;br /&gt;Twitter&lt;/b&gt;&lt;br /&gt;Zobrazuje Vaše nejnovější příspěvky na Twitteru&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:32:24 +0200</pubDate>
+<pubDate>Fri, 14 Sep 2012 02:32:17 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_twitter</guid>
 </item>
 <item>

@@ -1480,9 +1480,9 @@
 <description>Ermöglicht es den Besuchern, die Mediendatenbank anzusehen</description>
 <maintainers><maintainer><name>Arnan de Gans, Matthew Groeninger, and Stefan Willoughby</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.55</version>
+  <version>2.56</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-08-14</date>
+  <date>2012-09-14</date>
   <filelist>
 <dir name="serendipity_event_usergallery">
 <file>serendipity_event_usergallery.php</file>
@@ -1701,6 +1701,8 @@
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
 <file>lang_fr.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>ChangeLog</file>
 <file>lang_cs.inc.php</file>
@@ -1811,6 +1813,8 @@
 <file>xspf_player_slim.swf</file>
 </dir>
 </dir>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -1819,6 +1823,8 @@
     <file>serendipity_event_podcast/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_podcast/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_podcast/UTF-8/lang_fr.inc.php</file>
+    <file>serendipity_event_podcast/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_podcast/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_podcast/ChangeLog</file>
     <file>serendipity_event_podcast/lang_cs.inc.php</file>
     <file>serendipity_event_podcast/lang_cz.inc.php</file>
@@ -1912,6 +1918,8 @@
     <file>serendipity_event_podcast/player/xspf/xspf_player_slim.as</file>
     <file>serendipity_event_podcast/player/xspf/xspf_player_slim.fla</file>
     <file>serendipity_event_podcast/player/xspf/xspf_player_slim.swf</file>
+    <file>serendipity_event_podcast/documentation_cs.html</file>
+    <file>serendipity_event_podcast/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -6737,6 +6745,8 @@
 <file>lang_de.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>commentMarkup.js</file>
 <file>commentMarkup.listen.js</file>
@@ -6753,6 +6763,8 @@
 <file>serendipity_event_reallivecomment.js-def</file>
 <file>serendipity_event_reallivecomment.js-min</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -6772,6 +6784,8 @@
     <file>serendipity_event_livecomment/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_livecomment/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_livecomment/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_livecomment/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_livecomment/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_livecomment/commentMarkup.js</file>
     <file>serendipity_event_livecomment/commentMarkup.listen.js</file>
     <file>serendipity_event_livecomment/credits.txt</file>
@@ -6787,6 +6801,8 @@
     <file>serendipity_event_livecomment/serendipity_event_reallivecomment.js-def</file>
     <file>serendipity_event_livecomment/serendipity_event_reallivecomment.js-min</file>
     <file>serendipity_event_livecomment/lang_cz.inc.php</file>
+    <file>serendipity_event_livecomment/documentation_cs.html</file>
+    <file>serendipity_event_livecomment/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7985,6 +8001,8 @@
 <file>lang_de.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>lang_pl.inc.php</file>
 <file>lang_ru.inc.php</file>
@@ -7992,6 +8010,8 @@
 <file>serendipity_event_metadesc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -8003,12 +8023,16 @@
     <file>serendipity_event_metadesc/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_metadesc/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_metadesc/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_metadesc/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_metadesc/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_metadesc/lang_pl.inc.php</file>
     <file>serendipity_event_metadesc/lang_ru.inc.php</file>
     <file>serendipity_event_metadesc/lang_de.inc.php</file>
     <file>serendipity_event_metadesc/serendipity_event_metadesc.php</file>
     <file>serendipity_event_metadesc/lang_cs.inc.php</file>
     <file>serendipity_event_metadesc/lang_cz.inc.php</file>
+    <file>serendipity_event_metadesc/documentation_cs.html</file>
+    <file>serendipity_event_metadesc/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -8645,6 +8669,8 @@
 <file>lang_de.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>common.inc.php</file>
 <file>lang_en.inc.php</file>
@@ -8663,6 +8689,8 @@
 </dir>
 <file>lang_de.inc.php</file>
 <file>openind.endpoints.txt</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -8718,6 +8746,8 @@
     <file>serendipity_event_openid/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_openid/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_openid/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_openid/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_openid/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_openid/common.inc.php</file>
     <file>serendipity_event_openid/lang_en.inc.php</file>
     <file>serendipity_event_openid/serendipity_event_openid.php</file>
@@ -8733,6 +8763,8 @@
     <file>serendipity_event_openid/img/aol.png</file>
     <file>serendipity_event_openid/lang_de.inc.php</file>
     <file>serendipity_event_openid/openind.endpoints.txt</file>
+    <file>serendipity_event_openid/documentation_cs.html</file>
+    <file>serendipity_event_openid/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -9813,6 +9845,10 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <dir name="serendipity_event_browserid">
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
 </dir>
 <file>ChangeLog</file>
 <file>browserid_signin.png</file>
@@ -9820,17 +9856,29 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <file>lang_en.inc.php</file>
 <file>serendipity_event_browserid.js</file>
 <file>serendipity_event_browserid.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_browserid/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_browserid/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_browserid/UTF-8/documentation_cz.html</file>
+    <file>serendipity_event_browserid/UTF-8/lang_cs.inc.php</file>
+    <file>serendipity_event_browserid/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_browserid/ChangeLog</file>
     <file>serendipity_event_browserid/browserid_signin.png</file>
     <file>serendipity_event_browserid/lang_de.inc.php</file>
     <file>serendipity_event_browserid/lang_en.inc.php</file>
     <file>serendipity_event_browserid/serendipity_event_browserid.js</file>
     <file>serendipity_event_browserid/serendipity_event_browserid.php</file>
+    <file>serendipity_event_browserid/documentation_cs.html</file>
+    <file>serendipity_event_browserid/documentation_cz.html</file>
+    <file>serendipity_event_browserid/lang_cs.inc.php</file>
+    <file>serendipity_event_browserid/lang_cz.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -10340,23 +10388,31 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <dir name="UTF-8">
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_disqus.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>ChangeLog</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_disqus/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_disqus/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_disqus/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_disqus/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_disqus/lang_en.inc.php</file>
     <file>serendipity_event_disqus/serendipity_event_disqus.php</file>
     <file>serendipity_event_disqus/lang_cs.inc.php</file>
     <file>serendipity_event_disqus/lang_cz.inc.php</file>
     <file>serendipity_event_disqus/ChangeLog</file>
+    <file>serendipity_event_disqus/documentation_cs.html</file>
+    <file>serendipity_event_disqus/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>

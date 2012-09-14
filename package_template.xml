@@ -5185,6 +5185,8 @@
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
 </dir>
 <dir name="js">
 <file>modernizr-2.5.3.min.js</file>
@@ -5201,12 +5203,16 @@
 <file>preview.png</file>
 <file>style.css</file>
 <file>entries_archives.tpl</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>resy/UTF-8/lang_de.inc.php</file>
     <file>resy/UTF-8/lang_en.inc.php</file>
+    <file>resy/UTF-8/lang_cs.inc.php</file>
+    <file>resy/UTF-8/lang_cz.inc.php</file>
     <file>resy/js/modernizr-2.5.3.min.js</file>
     <file>resy/lang_de.inc.php</file>
     <file>resy/entries.tpl</file>
@@ -5220,6 +5226,8 @@
     <file>resy/preview.png</file>
     <file>resy/style.css</file>
     <file>resy/entries_archives.tpl</file>
+    <file>resy/lang_cs.inc.php</file>
+    <file>resy/lang_cz.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>

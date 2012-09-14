@@ -1,5 +1,5 @@
 <?php # $Id$
-// serendipity_plugin_guestbook.php, v.1.19 - 2012-01-26 ian
+// serendipity_plugin_guestbook.php, v.1.20 - 2012-06-13 ian
 /* guestbooksidebar plugin by Jaap Boerma // j@webbict.com // v1.02 // 18-10-2005 */
 
 
@@ -41,6 +41,9 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
                         'max_items', 
                         'dateformat')
         );
+        // Register (multiple) dependencies. KEY is the name of the depending plugin. VALUE is a mode of either 'remove' or 'keep'.
+        // If the mode 'remove' is set, removing the plugin results in a removal of the depending plugin. 'Keep' meens to
+        // not touch the depending plugin.
         $this->dependencies = array('serendipity_event_guestbook' => 'keep'); 
         
         #if(!is_array($serendipity['plugin_guestbook_dependency'])) { 

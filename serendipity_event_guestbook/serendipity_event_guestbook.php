@@ -1,5 +1,5 @@
 <?php # $Id$
-// serendipity_event_guestbook.php, v.3.29 - 2012-01-26 ian
+// serendipity_event_guestbook.php, v.3.31 - 2012-09-14 ian
 
 //error_reporting(E_ALL);
 
@@ -57,7 +57,7 @@ class serendipity_event_guestbook extends serendipity_event {
                         'dateformat'
                     ));
         $propbag->add('author',       'Ian (Timbalu)');
-        $propbag->add('version',      '3.30');
+        $propbag->add('version',      '3.31');
         $propbag->add('requirements', array(
                         'serendipity' => '0.7',
                         'smarty'      => '2.6.7',
@@ -1092,27 +1092,28 @@ class serendipity_event_guestbook extends serendipity_event {
                     }
                     break;
                     
-                /* put here all you css stuff you need for guestbook pages */
+                /* put here all you css stuff you need for frontend guestbook pages */
                 case 'css':
                     
-                    if (stristr($eventData, '.serendipity_guestbook')) { 
+                    if (stristr($eventData, '#guestbook_wrapper')) { 
                         // class exists in CSS, so a user has customized it and we don't need default
                         return true;
                     }
                     
-                    $tfile = serendipity_getTemplateFile('style_guestbook_backend.css', 'serendipityPath');
+                    $tfile = serendipity_getTemplateFile('style_guestbook_frontend.css', 'serendipityPath');
                     if($tfile) { 
                         $search       = array('{TEMPLATE_PATH}', '{PLUGIN_PATH}');
                         $replace      = array('templates/' . $serendipity['defaultTemplate'] . '/', $serendipity['guestbook']['pluginpath']);
                         $tfilecontent = str_replace($search, $replace, @file_get_contents($tfile));
                     }
                     
-                    if (!$tfile || $tfile == 'style_guestbook_backend.css') { 
-                        $tfile        = dirname(__FILE__) . '/style_guestbook_backend.css';
+                    if (!$tfile || $tfile == 'style_guestbook_frontend.css') { 
+                        $tfile        = dirname(__FILE__) . '/style_guestbook_frontend.css';
                         $search       = array('{TEMPLATE_PATH}', '{PLUGIN_PATH}');
                         $tfilecontent = str_replace($search, $serendipity['guestbook']['pluginpath'], @file_get_contents($tfile));
                     }
-                    
+                    if(!empty($tfilecontent)) $this->cssEventData($eventData, $tfilecontent);
+
                     return true;
                     break;
                 
@@ -1160,8 +1161,8 @@ class serendipity_event_guestbook extends serendipity_event {
                     }
                     
                     // add replaced css content to the end of serendipity_admin.css
-                    if(!empty($tfilecontent)) $this->backend_guestbook_css($eventData, $tfilecontent);
-                    
+                    if(!empty($tfilecontent)) $this->cssEventData($eventData, $tfilecontent);
+
                     return true;
                     break;
 
@@ -1180,8 +1181,8 @@ class serendipity_event_guestbook extends serendipity_event {
      * Backend administration functions
      **************************************************/
      
-    /* add backend css to serendipity_admin.css */
-    function backend_guestbook_css(&$eventData, &$becss) { 
+    /* add front- and backend css to serendipity(_admin).css */
+    function cssEventData(&$eventData, &$becss) { 
         $eventData .= $becss;
     }
 
@@ -1333,7 +1334,7 @@ class serendipity_event_guestbook extends serendipity_event {
                         $serendipity['smarty']->assign('is_show_url', true);
                     }
                 
-                    // extract admincomments to var
+                    // extract entry bodys admincomment to var
                     preg_match_all("/\[ac\](.*?)\[\/ac\]/", $entry['body'], $match);
                     $entry['acbody'] = $match[1][0];
                     $entry['body']   = preg_replace("/\[ac\](.*?)\[\/ac\]/","", $entry['body']);
@@ -1383,7 +1384,7 @@ class serendipity_event_guestbook extends serendipity_event {
             case 'droptable':
                 
                 $serendipity['guestbookdroptable'] = true;
-                $this->uninstall();
+                $this->uninstall($bag);
                 
                 $serendipity['GET']['guestbookdbclean'] = 'dberase';
                 $this->backend_guestbook_dbclean($reqbuild['month'], $reqbuild['year']);
@@ -1519,7 +1520,7 @@ class serendipity_event_guestbook extends serendipity_event {
                 case 'dberase':
                     
                     echo '<div class="backend_guestbook_dbclean_innercat"><h3>' . strtoupper(PLUGIN_GUESTBOOK_ADMIN_DBC_ERASE_TITLE) . '</h3></div>';
-                    $isTable =  $this->uninstall() ? true : false; // ok, questionaire
+                    $isTable =  $this->uninstall($bag) ? true : false; // ok, questionaire
                     
                     // give back ok
                     if(isset($serendipity['guestbookdroptable']) === true && $isTable) { 

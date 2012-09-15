@@ -1266,7 +1266,7 @@
 <release>
   <version>1.20</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2012-09-15</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="UTF-8">
@@ -1318,6 +1318,7 @@
 <file>plugin_guestbook_backend_entries.tpl</file>
 <file>plugin_guestbook_backend_form.tpl</file>
 <file>PIE.htc</file>
+<file>style_guestbook_frontend.css</file>
 </dir>
 
   </filelist>
@@ -1367,6 +1368,7 @@
     <file>serendipity_event_guestbook/plugin_guestbook_backend_entries.tpl</file>
     <file>serendipity_event_guestbook/plugin_guestbook_backend_form.tpl</file>
     <file>serendipity_event_guestbook/PIE.htc</file>
+    <file>serendipity_event_guestbook/style_guestbook_frontend.css</file>
   </serendipityFilelist>
 </release>
 </package>

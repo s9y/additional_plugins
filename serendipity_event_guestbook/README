@@ -81,10 +81,18 @@ S9Y :: GUESTBOOK :: DESIGN
 
 
 -------------------------------------
-| Version 3.28 [ 2012-06-13 ]       |
+| Version 3.30 [ 2012-06-13 ]       |
 -------------------------------------
 
     * PHP 5.4 combat issues
+
+
+-------------------------------------
+| Version 3.29 [ 2012-01-26 ]       |
+-------------------------------------
+
+    * bump version to support spartacus update for guestbooks sidebar plugin update
+    * fixed sidebar showed unapproved entries
 
 
 -------------------------------------

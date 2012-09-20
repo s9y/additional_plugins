@@ -53,3 +53,6 @@
 @define('PLUGIN_ADDUSER_CAPTCHA_DESC', 'Requires installed spamblock event plugin.');
 
 @define('PLUGIN_ADDUSER_ANTISPAM', 'You did not pass the anti-spam tests. Please check if you entered the CAPTCHA correctly.');
+
+@define('PLUGIN_ADDUSER_REGISTERED_ONLY_GROUP', 'Additionally: Only registered users in these authorgroups may post comments?');
+@define('PLUGIN_ADDUSER_REGISTERED_ONLY_GROUP_DESC', 'You also need to enable the option "Only registered users may post comments" to use this. If enabled, only registered users of specific authorgroups may post comments to your entries and need to be logged in to do so.');

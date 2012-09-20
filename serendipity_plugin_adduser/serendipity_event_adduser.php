@@ -12,7 +12,7 @@ class serendipity_event_adduser extends serendipity_event
         $propbag->add('description', PLUGIN_ADDUSER_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Garvin Hicking');
-        $propbag->add('version',     '2.34');
+        $propbag->add('version',     '2.35');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -57,6 +57,21 @@ class serendipity_event_adduser extends serendipity_event
                 $propbag->add('default',     false);
                 break;
 
+            case 'registered_only_group':
+                $propbag->add('name',        PLUGIN_ADDUSER_REGISTERED_ONLY_GROUP);
+                $propbag->add('description', PLUGIN_ADDUSER_REGISTERED_ONLY_GROUP_DESC);
+                $_groups =& serendipity_getAllGroups();
+                $groups = array();
+                foreach($_groups AS $group) {
+                    $groups[$group['confkey']] = $group['confvalue'];
+                }
+
+                $propbag->add('type', 'multiselect');
+                $propbag->add('select_values', $groups);
+                $propbag->add('select_size',   5);
+                $propbag->add('default', 'all');
+                break;
+
             case 'true_identities':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_ADDUSER_REGISTERED_CHECK);
@@ -72,6 +87,37 @@ class serendipity_event_adduser extends serendipity_event
 
     function generate_content(&$title) {
         $title = PLUGIN_ADDUSER_NAME;
+    }
+
+    // Checks whether the current author is contained in one of the gorups that need no spam checking
+    function inGroup() {
+        global $serendipity;
+
+        $checkgroups = explode('^', $this->get_config('registered_only_group'));
+
+        // Not configured, so this shall not apply.
+        if ($checkgroups[0] == '') {
+            return true;
+        }
+
+        if (!isset($serendipity['authorid']) || !is_array($checkgroups)) {
+            return false;
+        }
+
+        $mygroups =& serendipity_getGroups($serendipity['authorid'], true);
+        if (!is_array($mygroups)) {
+            return false;
+        }
+
+        foreach($checkgroups AS $key => $groupid) {
+            if ($groupid == 'all') {
+                return true;
+            } elseif (in_array($groupid, $mygroups)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     function event_hook($event, &$bag, &$eventData, $addData = null) {
@@ -91,12 +137,18 @@ class serendipity_event_adduser extends serendipity_event
                             $serendipity['csuccess'] = 'true';
                         }
 
-                        // Check for global emergency moderation
                         if (serendipity_db_bool($this->get_config('registered_only')) && !serendipity_userLoggedIn() && $addData['source2'] != 'adduser') {
                             $eventData = array('allow_comments' => false);
-                            $serendipity['messagestack']['comments'][] = PLUGIN_ADDUSER_REGISTERED_ONLY_REASON . 'x';
+                            $serendipity['messagestack']['comments'][] = PLUGIN_ADDUSER_REGISTERED_ONLY_REASON;
                             return false;
                         }
+
+                        if (serendipity_db_bool($this->get_config('registered_only')) && $this->inGroup() && $addData['source2'] != 'adduser') {
+                            $eventData = array('allow_comments' => false);
+                            $serendipity['messagestack']['comments'][] = PLUGIN_ADDUSER_REGISTERED_ONLY_REASON;
+                            return false;
+                        }
+
 
                         if (serendipity_db_bool($this->get_config('true_identities')) && !serendipity_userLoggedIn()) {
                             $user = serendipity_db_escape_string(trim($addData['name']));

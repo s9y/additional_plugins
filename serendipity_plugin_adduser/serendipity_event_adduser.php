@@ -31,6 +31,7 @@ class serendipity_event_adduser extends serendipity_event
         $propbag->add('configuration', array(
             'instructions',
             'registered_only',
+            'registered_only_group',
             'true_identities'
         ));
 
@@ -143,7 +144,7 @@ class serendipity_event_adduser extends serendipity_event
                             return false;
                         }
 
-                        if (serendipity_db_bool($this->get_config('registered_only')) && $this->inGroup() && $addData['source2'] != 'adduser') {
+                        if (serendipity_db_bool($this->get_config('registered_only')) && !$this->inGroup() && $addData['source2'] != 'adduser') {
                             $eventData = array('allow_comments' => false);
                             $serendipity['messagestack']['comments'][] = PLUGIN_ADDUSER_REGISTERED_ONLY_REASON;
                             return false;

@@ -203,7 +203,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_adduser&lt;br /&gt;Registrierung neuer User&lt;/b&gt;&lt;br /&gt;Ermöglicht es Blog-Besuchern sich einen eigenen Autoren-Account anzulegen. Zusammen mit dem Event-Plugin (index.php?serendipity[subpage]=adduser) kann eingestellt werden ob nur registrierte Benutzer Kommentare posten dürfen.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 01:04:55 +0100</pubDate>
+<pubDate>Fri, 21 Sep 2012 02:31:56 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_adduser</guid>
 </item>
 <item>

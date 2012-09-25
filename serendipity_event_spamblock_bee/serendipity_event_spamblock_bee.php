@@ -79,7 +79,9 @@ class serendipity_event_spamblock_bee extends serendipity_event
      * Constructor. Initialize class variables from configuration
      * @return void
      */
-    function serendipity_event_spamblock_bee() {
+    function serendipity_event_spamblock_bee($instance) {
+        $this->instance = $instance;
+        
         $this->answerRetrievalMethod = $this->get_config('answer_retrieval_method', 'default');
         $this->captchaQuestionType   = $this->get_config('question_type', 'math');
         $this->useHoneyPot           = $this->get_config('do_honeypot', true);

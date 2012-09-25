@@ -1,3 +1,6 @@
+Version 1.2.6
+* Fixed the plugin constrctor to make it compatible with the plugin api.
+
 Version 1.2.5
 * AntiSpam statistics sidebar plugin.
 

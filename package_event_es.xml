@@ -1595,6 +1595,7 @@
   <filelist>
 <dir name="serendipity_plugin_adduser">
 <file>common.inc.php</file>
+<file>DEADJOE</file>
 <file>ChangeLog</file>
 <file>serendipity_event_adduser.php</file>
 <file>lang_de.inc.php</file>
@@ -1618,6 +1619,7 @@
   </filelist>
   <serendipityFilelist>
     <file>serendipity_plugin_adduser/common.inc.php</file>
+    <file>serendipity_plugin_adduser/DEADJOE</file>
     <file>serendipity_plugin_adduser/ChangeLog</file>
     <file>serendipity_plugin_adduser/serendipity_event_adduser.php</file>
     <file>serendipity_plugin_adduser/lang_de.inc.php</file>

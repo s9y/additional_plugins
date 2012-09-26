@@ -1,3 +1,6 @@
+Version 1.2.7
+* Made it work more nice with the contactform plugin
+
 Version 1.2.6
 * Fixed the plugin constrctor to make it compatible with the plugin api.
 

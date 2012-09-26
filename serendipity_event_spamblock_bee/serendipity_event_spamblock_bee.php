@@ -74,7 +74,6 @@ class serendipity_event_spamblock_bee extends serendipity_event
      */
     var $useRegularExpressions = false;
     
-    
     /**
      * Constructor. Initialize class variables from configuration
      * @return void
@@ -340,8 +339,13 @@ class serendipity_event_spamblock_bee extends serendipity_event
                     $this->printCommentEditExtras($eventData, $addData);
                     break;
                 case 'frontend_footer':
-                    // Comment header code only if in single article mode
-                    if (!empty($eventData['GET']['id'])) {
+                    // Comment header code only if in single article mode or contactform
+                    // If contact form is installed, display on any page not being the article list
+                    // else display in single article only.
+                    $contactFormInstalled = class_exists('serendipity_event_contactform');
+                    if (($contactFormInstalled && empty($eventData['GET']['page']))
+                        || (!$contactFormInstalled && !empty($eventData['GET']['id'])))
+                    {
                         $this->printJsExtras();
                     }
                     break;

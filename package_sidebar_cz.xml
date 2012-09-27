@@ -3302,7 +3302,7 @@
 <description>Prints out a statistic about your comment spam if your antispam plugins report to the DB.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Janek Bevendorff</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.2.6</version>
+  <version>1.2.7</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
   <date>2012-08-21</date>
   <filelist>

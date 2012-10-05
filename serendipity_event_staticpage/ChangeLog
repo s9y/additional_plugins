@@ -1,3 +1,5 @@
+3.94: Add "timestamp" field to list of editable staticpage fields
+
 3.93: Add $serendipity['is_staticpage'] global variable to indicate if staticpage is selected
 
 3.92: extends 1.19: (sidebar) fixed sidebar title

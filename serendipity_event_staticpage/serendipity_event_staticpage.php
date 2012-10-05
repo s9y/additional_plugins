@@ -46,7 +46,8 @@ class serendipity_event_staticpage extends serendipity_event
             'is_404_page',
             'pageorder',
             'shownavi',
-            'showonnavi'
+            'showonnavi',
+            'timestamp'
         );
 
     var $config_types = array(
@@ -85,7 +86,7 @@ class serendipity_event_staticpage extends serendipity_event
         $propbag->add('page_configuration', $this->config);
         $propbag->add('type_configuration', $this->config_types);
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian');
-        $propbag->add('version', '3.93');
+        $propbag->add('version', '3.94');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -212,6 +213,13 @@ class serendipity_event_staticpage extends serendipity_event
                 $propbag->add('name',           STATICPAGE_PAGETITLE);
                 $propbag->add('description',    '');
                 $propbag->add('default',        'pagetitle');
+                break;
+
+            case 'timestamp':
+                $propbag->add('type',           'timestamp');
+                $propbag->add('name',           DATE);
+                $propbag->add('description',    GENERAL_PLUGIN_DATEFORMAT . ': ' . DATE_FORMAT_SHORT);
+                $propbag->add('default',        '');
                 break;
 
             case 'pass':
@@ -1393,6 +1401,24 @@ class serendipity_event_staticpage extends serendipity_event
             $this->staticpage['timestamp'] = time();
         }
 
+        // Try to auto-detect a timestamp
+        if (preg_match('@[:\.]@i', $this->staticpage['timestamp'])) {
+            if (function_exists('date_parse_from_format')) {
+                // Need to convert strftime format (with %) to plain date format (without %)
+                $d = DATE_FORMAT_SHORT;
+                $d = str_replace('%M', 'i', $d); // Minute is %M in one and i in the other format
+                $d = str_replace('%', '', $d); // All other modifiers (%d, %m, %Y %H) stay the same
+
+                $t = date_parse_from_format($d, $this->staticpage['timestamp']);
+                $this->staticpage['timestamp'] = mktime($t['hour'], $t['minute'], $t['second'], $t['month'], $t['day'], $t['year']);
+            } elseif (function_exists('strptime')) {
+                $t = strptime($this->staticpage['timestamp'], DATE_FORMAT_SHORT);
+                $this->staticpage['timestamp'] = mktime($t['tm_hour'], $t['tm_min'], $t['tm_sec'], $t['tm_mon'], $t['tm_mday'], $t['tm_year']);
+            } else {
+                $this->staticpage['timestamp'] = strtotime($this->staticpage['timestamp']);
+            }
+        }
+
         if (empty($this->staticpage['last_modified'])) {
             $this->staticpage['last_modified'] = time();
         }
@@ -2268,6 +2294,26 @@ class serendipity_event_staticpage extends serendipity_event
                 if (!$is_smarty) {?><tr><td colspan="2"><?php }
                 ?><input class="direction_<?php echo $lang_direction; ?>" type="hidden" name="serendipity[plugin][<?php echo $config_item; ?>]" value="<?php echo $value; ?>" /><?php
                 if (!$is_smarty) {?></td></tr><?php }
+                break;
+
+            case 'timestamp':
+                if (!$is_smarty) {
+?>
+        <tr>
+            <td style="border-bottom: 1px solid #000000">
+                    <strong><?php echo $cname; ?></strong>
+                    <br><span style="color: #5E7A94; font-size: 8pt;">&nbsp;<?php echo $cdesc; ?></span>
+            </td>
+            <td style="border-bottom: 1px solid #000000" width="250">
+                <div>
+<?php           } ?>
+                    <input class="input_textbox direction_<?php echo $lang_direction; ?>" type="text" name="serendipity[plugin][<?php echo $config_item; ?>]" value="<?php echo serendipity_strftime(DATE_FORMAT_SHORT, $hvalue); ?>" size="30" />
+<?php           if (!$is_smarty) { ?>
+                </div>
+            </td>
+        </tr>
+<?php
+                }
                 break;
         }
     }

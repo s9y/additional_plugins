@@ -120,6 +120,11 @@
                     {staticpage_input item="articleformat"}
             </div>
 
+           <div class="sp_sect">
+                <label class="sp_label" title="{staticpage_input item="timestamp" what="desc"|escape:js}">{staticpage_input item="timestamp" what="name"|escape:js}</label><br />
+                    {staticpage_input item="timestamp"}
+           </div>
+
         </fieldset>
 
         {* EXAMPLE FOR CUSTOM STATICPAGE PROPERTIES

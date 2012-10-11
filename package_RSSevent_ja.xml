@@ -23,7 +23,7 @@
 <category>Event Plugins</category>
 <author>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_staticpage&lt;br /&gt;静的ページ&lt;/b&gt;&lt;br /&gt;デザインとすべての書式化されたブログとウェブログ内部に静的ページを表示します。管理インターフェースに新しいメニューを追加します。&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Fri, 20 Jul 2012 02:31:57 +0200</pubDate>
+<pubDate>Sat, 06 Oct 2012 02:31:29 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_staticpage</guid>
 </item>
 <item>
@@ -86,7 +86,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_freetag&lt;br /&gt;エントリーのタグ&lt;/b&gt;&lt;br /&gt;エントリーの自由なタグを許可します。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:32:03 +0200</pubDate>
+<pubDate>Wed, 10 Oct 2012 13:34:29 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_freetag</guid>
 </item>
 <item>

@@ -58,9 +58,9 @@
 <description>Shows static pages inside your blog with your blogs design and all formattings. Adds a new menu item to the admin interface.</description>
 <maintainers><maintainer><name>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.93</version>
+  <version>3.94</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2012-07-20</date>
+  <date>2012-10-06</date>
   <filelist>
 <dir name="serendipity_event_staticpage">
 <file>lang_de.inc.php</file>
@@ -784,9 +784,9 @@
 <description>Allows freestyle tagging of entries</description>
 <maintainers><maintainer><name>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.40</version>
+  <version>3.42</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2012-10-10</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <dir name="UTF-8">
@@ -1595,7 +1595,6 @@
   <filelist>
 <dir name="serendipity_plugin_adduser">
 <file>common.inc.php</file>
-<file>DEADJOE</file>
 <file>ChangeLog</file>
 <file>serendipity_event_adduser.php</file>
 <file>lang_de.inc.php</file>
@@ -1619,7 +1618,6 @@
   </filelist>
   <serendipityFilelist>
     <file>serendipity_plugin_adduser/common.inc.php</file>
-    <file>serendipity_plugin_adduser/DEADJOE</file>
     <file>serendipity_plugin_adduser/ChangeLog</file>
     <file>serendipity_plugin_adduser/serendipity_event_adduser.php</file>
     <file>serendipity_plugin_adduser/lang_de.inc.php</file>

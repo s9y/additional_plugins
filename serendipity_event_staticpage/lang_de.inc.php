@@ -1,6 +1,6 @@
 <?php # $Id$
 
-@define('LANG_ALL', 'Alle Sprache');
+@define('LANG_ALL', 'Alle Sprachen');
 @define('LANG_BG', 'Bulgarisch');
 @define('LANG_CN', 'Vereinfachtes Chinesisch (UTF-8)');
 @define('LANG_CS', 'Tschechisch (Win-1250)');
@@ -123,6 +123,7 @@
 @define('STATICPAGE_SHOWONNAVI',                    'In der Navigation der Seitenleiste einbinden');
 @define('STATICPAGE_SHOWONNAVI_DEFAULT',            'Soll diese Seite in der Liste des Seitenleisten-Plugins gezeigt werden');
 @define('STATICPAGE_SHOWONNAVI_DESC',               'Diese Seite in der Liste des Seitenleisten-Plugins anzeigen');
+@define('STATICPAGE_SHOWMETA_DEFAULT',              'Zeige HTML Meta input Felder');
 @define('STATICPAGE_SHOWTEXTORHEADLINE_HEADLINE',   'Überschrift');
 @define('STATICPAGE_SHOWTEXTORHEADLINE_NAME',       'Überschriften oder Vor/Zurück-Navigation anzeigen?');
 @define('STATICPAGE_SHOWTEXTORHEADLINE_TEXT',       'Text: Vor/Zurück');
@@ -135,5 +136,11 @@
 
 @define('STATICPAGE_ARTICLE_OVERVIEW','Artikelübersicht');
 @define('STATICPAGE_NEW_HEADLINES','Aktuelle Schlagzeilen:');
+
+@define('STATICPAGES_CUSTOM_STRUCTURE_SHOW', 'Zeige Struktur Feld Optionen');
+@define('STATICPAGES_CUSTOM_META_SHOW', 'Zeige optionale META FELD Einträge');
+@define('STATICPAGES_CUSTOM_META_TITLE', 'HTML META Seitentitel (optional)');
+@define('STATICPAGES_CUSTOM_META_DESC', 'HTML META Seitenbeschreibung (optional)');
+@define('STATICPAGES_CUSTOM_META_KEYS', 'HTML META Seiten Schlüsselwörter (optional)');
 
 ?>

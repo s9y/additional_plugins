@@ -47,6 +47,7 @@ class serendipity_event_staticpage extends serendipity_event
             'pageorder',
             'shownavi',
             'showonnavi',
+            'showmeta',
             'timestamp'
         );
 
@@ -104,6 +105,7 @@ class serendipity_event_staticpage extends serendipity_event
             'shownavi',
             'showonnavi',
             'showtextorheadline',
+            'showmeta',
             'use_quicksearch'
         ));
         $this->cachefile = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/staticpage_pagelist.dat';
@@ -133,6 +135,13 @@ class serendipity_event_staticpage extends serendipity_event
                 $propbag->add('name',           STATICPAGE_SHOWONNAVI_DEFAULT);
                 $propbag->add('description',    STATICPAGE_DEFAULT_DESC);
                 $propbag->add('default',        '1');
+                break;
+
+            case 'showmeta':
+                $propbag->add('type',           'boolean');
+                $propbag->add('name',           STATICPAGE_SHOWMETA_DEFAULT);
+                $propbag->add('description',    STATICPAGE_DEFAULT_DESC);
+                $propbag->add('default',        'true');
                 break;
 
             case 'markup':
@@ -1670,7 +1679,7 @@ class serendipity_event_staticpage extends serendipity_event
             $serendipity['POST']['staticSubmit'] = true;
         }
 
-        echo '<script type="text/javascript" language="JavaScript" src="'.$serendipity['serendipityHTTPPath'].'serendipity_define.js.php"></script>';
+        echo '<script type="text/javascript" language="JavaScript" src="'.$serendipity['serendipityHTTPPath'].'serendipity_define.js.php"></script>'."\n";
         echo '<script type="text/javascript" language="JavaScript" src="'.$serendipity['serendipityHTTPPath'].'serendipity_editor.js"></script>';
 
 ?>
@@ -2094,17 +2103,13 @@ class serendipity_event_staticpage extends serendipity_event
             <td style="border-bottom: 1px solid #000000; vertical-align: middle" width="250">
                 <div>
                 <?php } ?>
-                    <select class="direction_<?php echo $lang_direction; ?>" name="serendipity[plugin][<?php echo $config_item; ?>]">
-<?php
-                foreach($select AS $select_value => $select_desc) {
-                    $id = htmlspecialchars($config_item . $select_value);
+<select class="direction_<?php echo $lang_direction; ?>" name="serendipity[plugin][<?php echo $config_item; ?>]">
+<?php 
+foreach($select AS $select_value => $select_desc) {
+    $id = htmlspecialchars($config_item . $select_value);
 ?>
-                        <option value="<?php echo $select_value; ?>" <?php echo ($select_value == $hvalue ? 'selected="selected"' : ''); ?> title="<?php echo htmlspecialchars($select_desc); ?>">
-                            <?php echo htmlspecialchars($select_desc); ?>
-                        </option>
-<?php
-                }
-?>
+                        <option title="<?php echo htmlspecialchars($select_desc); ?>"<?php echo ($select_value == $hvalue ? ' selected="selected"' : ''); ?> value="<?php echo $select_value; ?>"><?php echo htmlspecialchars($select_desc); ?></option>
+<?php } ?>
                     </select>
 <?php if (!$is_smarty) { ?>
                 </div>

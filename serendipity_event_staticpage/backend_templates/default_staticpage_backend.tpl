@@ -1,5 +1,11 @@
 <br />
-<div class="default_staticpage">
+
+<script type="text/javascript">
+    var img_plus = '{serendipity_getFile file="img/plus.png"}';
+    var img_minus = '{serendipity_getFile file="img/minus.png"}';
+</script>
+
+<div id="backend_sp_simple" class="default_staticpage">
 
     <div style="width: 69%; float: left">
         <!-- LEFT -->
@@ -20,50 +26,82 @@
                 <label class="sp_label" title="{staticpage_input item="content" what="desc"|escape:js}">{staticpage_input item="content" what="name"|escape:js}</label><br />
                     {staticpage_input item="content"}
             </div>
+
+            <div class="sp_sect">
+                {$CONST.STATICPAGES_CUSTOM_META_SHOW}
+                <p id="sp_toggle_optionall"><a style="border:0; text-decoration: none;" href="#" onClick="showConfig('el1'); return false" title="{$CONST.TOGGLE_OPTION}"><img src="{serendipity_getFile file="img/plus.png"}" id="optionel1" alt="+/-" border="0">&nbsp;{$CONST.TOGGLE_ALL}</a></p>
+            </div>
+
+            <div id="el1">
+              <div class="sp_sect">
+                <label class="sp_label" title="Custom Title Element">{$CONST.STATICPAGES_CUSTOM_META_TITLE}</label>
+                    <input class="input_textbox" type="text" name="serendipity[plugin][custom][title_element]" value="{$form_values.custom.title_element|@default:''}">
+              </div>
+
+              <div class="sp_sect">
+                <label class="sp_label" title="Custom META Description">{$CONST.STATICPAGES_CUSTOM_META_DESC}</label>
+                    <input class="input_textbox" type="text" name="serendipity[plugin][custom][meta_description]" value="{$form_values.custom.meta_description|@default:''}">
+              </div>
+
+              <div class="sp_sect">
+                <label class="sp_label" title="Custom META Keywords">{$CONST.STATICPAGES_CUSTOM_META_KEYS}</label>
+                    <input class="input_textbox" type="text" name="serendipity[plugin][custom][meta_keywords]" value="{$form_values.custom.meta_keywords|@default:''}">
+              </div>
+            </div>
+            <script type="text/javascript" language="JavaScript">document.getElementById("el1").style.display = "none";</script>
+
         </fieldset>
 
         <fieldset class="sect_struct">
             <legend>{$CONST.STATICPAGE_SECTION_STRUCT}</legend>
             <div class="sp_sect">
-                <label class="sp_label" title="{staticpage_input item="authorid" what="desc"|escape:js}">{staticpage_input item="authorid" what="name"|escape:js}</label><br />
-                    {staticpage_input item="authorid"}
+                {$CONST.STATICPAGES_CUSTOM_STRUCTURE_SHOW}
+                <p id="sp_toggle_optionall"><a style="border:0; text-decoration: none;" href="#" onClick="showConfig('el2'); return false" title="{$CONST.TOGGLE_OPTION}"><img src="{serendipity_getFile file="img/plus.png"}" id="optionel2" alt="+/-" border="0">&nbsp;{$CONST.TOGGLE_ALL}</a></p>
             </div>
 
-            <div class="sp_sect">
-                <label class="sp_label" title="{staticpage_input item="articletype" what="desc"|escape:js}">{staticpage_input item="articletype" what="name"|escape:js}</label><br />
-                    {staticpage_input item="articletype"}
-            </div>
+            <div id="el2">
+                <div class="sp_sect">
+                    <label class="sp_label" title="{staticpage_input item="authorid" what="desc"|escape:js}">{staticpage_input item="authorid" what="name"|escape:js}</label><br />
+                        {staticpage_input item="authorid"}
+                </div>
 
-            <div class="sp_sect">
-                <label class="sp_label" title="{staticpage_input item="language" what="desc"|escape:js}">{staticpage_input item="language" what="name"|escape:js}</label><br />
-                    {staticpage_input item="language"}
-            </div>
+                <div class="sp_sect">
+                    <label class="sp_label" title="{staticpage_input item="articletype" what="desc"|escape:js}">{staticpage_input item="articletype" what="name"|escape:js}</label><br />
+                        {staticpage_input item="articletype"}
+                </div>
 
-            <div class="sp_sect">
-                <label class="sp_label" title="{staticpage_input item="related_category_id" what="desc"|escape:js}">{staticpage_input item="related_category_id" what="name"|escape:js}</label><br />
-                    {staticpage_input item="related_category_id"}
-            </div>
+                <div class="sp_sect">
+                    <label class="sp_label" title="{staticpage_input item="language" what="desc"|escape:js}">{staticpage_input item="language" what="name"|escape:js}</label><br />
+                        {staticpage_input item="language"}
+                </div>
 
-            <div class="sp_sect">
-                <label class="sp_label" title="{staticpage_input item="parent_id" what="desc"|escape:js}">{staticpage_input item="parent_id" what="name"|escape:js}</label><br />
-                    {staticpage_input item="parent_id"}
-            </div>
+                <div class="sp_sect">
+                    <label class="sp_label" title="{staticpage_input item="related_category_id" what="desc"|escape:js}">{staticpage_input item="related_category_id" what="name"|escape:js}</label><br />
+                        {staticpage_input item="related_category_id"}
+                </div>
 
-            <div class="sp_sect">
-                <label class="sp_label" title="{staticpage_input item="show_childpages" what="desc"|escape:js}">{staticpage_input item="show_childpages" what="name"|escape:js}</label><br />
-                    {staticpage_input item="show_childpages"}
-            </div>
+                <div class="sp_sect">
+                    <label class="sp_label" title="{staticpage_input item="parent_id" what="desc"|escape:js}">{staticpage_input item="parent_id" what="name"|escape:js}</label><br />
+                        {staticpage_input item="parent_id"}
+                </div>
 
-            <div class="sp_sect">
-                <label class="sp_label" title="{staticpage_input item="shownavi" what="desc"|escape:js}">{staticpage_input item="shownavi" what="name"|escape:js}</label><br />
-                    {staticpage_input item="shownavi"}
-            </div>
+                <div class="sp_sect">
+                    <label class="sp_label" title="{staticpage_input item="show_childpages" what="desc"|escape:js}">{staticpage_input item="show_childpages" what="name"|escape:js}</label><br />
+                        {staticpage_input item="show_childpages"}
+                </div>
 
-            <div class="sp_sect">
-                <label class="sp_label" title="{staticpage_input item="pre_content" what="desc"|escape:js}">{staticpage_input item="pre_content" what="name"|escape:js}</label><br />
-                    {staticpage_input item="pre_content"}
-            </div>
+                <div class="sp_sect">
+                    <label class="sp_label" title="{staticpage_input item="shownavi" what="desc"|escape:js}">{staticpage_input item="shownavi" what="name"|escape:js}</label><br />
+                        {staticpage_input item="shownavi"}
+                </div>
 
+                <div class="sp_sect">
+                    <label class="sp_label" title="{staticpage_input item="pre_content" what="desc"|escape:js}">{staticpage_input item="pre_content" what="name"|escape:js}</label><br />
+                        {staticpage_input item="pre_content"}
+                </div>
+
+            </div>
+            <script type="text/javascript" language="JavaScript">document.getElementById("el2").style.display = "none";</script>
         </fieldset>
     </div>
 

@@ -66,6 +66,7 @@
 @define('STATICPAGE_SHOWONNAVI_DESC', 'Show this page on the list of static pages in your sidebar.');
 
 @define('STATICPAGE_SHOWNAVI_DEFAULT', 'Include navigation');
+@define('STATICPAGE_SHOWMETA_DEFAULT', 'Include HTML meta input fields');
 @define('STATICPAGE_DEFAULT_DESC', 'Default setting for new pages.');
 @define('STATICPAGE_SHOWONNAVI_DEFAULT', 'Show page on sidebar-navigation');
 @define('STATICPAGE_SHOWMARKUP_DEFAULT', 'Show markup');
@@ -118,6 +119,12 @@
 @define('LANG_KO', 'Korean');
 
 @define('STATICPAGE_STATUS', 'Status');
+
+@define('STATICPAGES_CUSTOM_STRUCTURE_SHOW', 'Show Structural field options');
+@define('STATICPAGES_CUSTOM_META_SHOW', 'Show optional META field entries');
+@define('STATICPAGES_CUSTOM_META_TITLE', 'HTML META title element (optional)');
+@define('STATICPAGES_CUSTOM_META_DESC', 'HTML META Description (optional)');
+@define('STATICPAGES_CUSTOM_META_KEYS', 'HTML META Keywords (optional)');
 
 //
 //  serendipity_plugin_staticpage.php

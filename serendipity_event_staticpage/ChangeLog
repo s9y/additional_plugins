@@ -1,4 +1,6 @@
-3.95: Fixed bad XHTML in <option> tag (Timbalu), added ability to preview staticpages, restrict viewing draft staticpages to logged in authors
+3.95: Fixed bad XHTML in <option> tag (Timbalu), 
+      added ability to preview staticpages, restrict viewing draft staticpages to logged in authors
+      added option to set META input fields, set structure and meta field box to javascript hidden content (Timbalu)
 
 3.94: Add "timestamp" field to list of editable staticpage fields
 

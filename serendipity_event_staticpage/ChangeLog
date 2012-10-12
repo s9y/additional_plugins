@@ -1,3 +1,5 @@
+3.95: Fixed bad XHTML in <option> tag (Timbalu), added ability to preview staticpages, restrict viewing draft staticpages to logged in authors
+
 3.94: Add "timestamp" field to list of editable staticpage fields
 
 3.93: Add $serendipity['is_staticpage'] global variable to indicate if staticpage is selected

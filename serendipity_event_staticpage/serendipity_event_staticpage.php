@@ -86,7 +86,7 @@ class serendipity_event_staticpage extends serendipity_event
         $propbag->add('page_configuration', $this->config);
         $propbag->add('type_configuration', $this->config_types);
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian');
-        $propbag->add('version', '3.94');
+        $propbag->add('version', '3.95');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -1343,10 +1343,19 @@ class serendipity_event_staticpage extends serendipity_event
             return true;
         }
 
+        $sql_where = '';
+        if (serendipity_userLoggedIn()) {
+            // User is authenticated; drafts and published pages are displayed as equals
+            // Previews will thus only work when being logged in.
+        } else {
+            // User is not authenticated. Only published documents shall be revealed.
+            $sql_where .= ' AND publishstatus = 1 ';
+        }
+
         $q = "SELECT *
                 FROM {$serendipity['dbPrefix']}staticpages
-               WHERE pagetitle = '" . serendipity_db_escape_string($serendipity['GET']['subpage']) . "'
-                  OR permalink = '" . serendipity_db_escape_string($serendipity['GET']['subpage']) . "'
+               WHERE (pagetitle = '" . serendipity_db_escape_string($serendipity['GET']['subpage']) . "'
+                  OR permalink = '" . serendipity_db_escape_string($serendipity['GET']['subpage']) . "') $sql_where
                LIMIT 1";
         $page = serendipity_db_query($q, true, 'assoc');
         if (is_array($page)) {
@@ -1591,14 +1600,19 @@ class serendipity_event_staticpage extends serendipity_event
         }
     }
 
-    function &fetchStaticPages($plugins = false)
+    function &fetchStaticPages($plugins = false, $match_permalink = '')
     {
         global $serendipity;
 
         $q = 'SELECT *
-                FROM '.$serendipity['dbPrefix'].'staticpages';
+                FROM '.$serendipity['dbPrefix'].'staticpages
+               WHERE 1 = 1';
         if(!$plugins) {
-            $q .= ' WHERE content != \'plugin\'';
+            $q .= ' AND content != \'plugin\'';
+        }
+
+        if ($match_permalink != '') {
+            $q .= " AND permalink = '" . serendipity_db_escape_string($match_permalink) . "' ";
         }
         $q .= ' ORDER BY parent_id, pageorder';
         return serendipity_db_query($q);
@@ -1934,12 +1948,25 @@ class serendipity_event_staticpage extends serendipity_event
                     }
                 }
                 echo '</select> <input class="serendipityPrettyButton input_button" type="submit" name="serendipity[staticSubmit]" value="' . GO . '" /> <strong>-' . WORD_OR . '-</strong> <input type="submit" name="serendipity[staticDelete]" onclick="return confirm(\'' . sprintf(DELETE_SURE, '\' + document.getElementById(\'staticpage_dropdown\').options[document.getElementById(\'staticpage_dropdown\').selectedIndex].text + \'') . '\');" class="serendipityPrettyButton input_button" value="' . DELETE . '" />';
-                if($sbplav) { 
+                echo ' <strong>-' . WORD_OR . '-</strong> <input class="serendipityPrettyButton input_button" type="submit" name="serendipity[staticPreview]" value="' . PREVIEW . '" />';
+
+                if ($sbplav) {
                     echo '<div style="cursor: pointer; float: right;">';
                     echo '<img style="vertical-align: middle;" class="attention" title="Staticpage Sidebar ' . STATICPAGE_PLUGIN_AVAILABLE.'" src="'.serendipity_getTemplateFile('admin/img/admin_msg_note.png').'" alt="info" />';
                     echo '</div>';
                 }
                 echo '</div>';
+
+                if (!empty($serendipity['POST']['staticPreview'])) {
+                    $link = $serendipity['baseURL'] . $serendipity['indexFile'] . '?serendipity[subpage]=' . $this->staticpage['pagetitle'] . '&serendipity[staticPreview]=1';
+                    echo '<script type="text/javascript">';
+                    echo 'var staticpage_preview = window.open("' . $link . '", "staticpage_preview");' . "\n";
+                    echo 'staticpage_preview.focus();' . "\n";
+                    echo '</script>';
+                    $serendipity['POST']['staticSubmit'] = true;
+                    echo '<p>' . sprintf(PLUGIN_STATICPAGE_PREVIEW, '<a href="' . $link . '">' . $this->staticpage['pagetitle'] . '</a>') . '</p>';
+                }
+
 
                 echo '<div>';
 
@@ -2072,7 +2099,7 @@ class serendipity_event_staticpage extends serendipity_event
                 foreach($select AS $select_value => $select_desc) {
                     $id = htmlspecialchars($config_item . $select_value);
 ?>
-                        <option value="<?php echo $select_value; ?>" <?php echo ($select_value == $hvalue ? 'selected="selected"' : ''); ?> title="<?php echo htmlspecialchars($select_desc); ?>" />
+                        <option value="<?php echo $select_value; ?>" <?php echo ($select_value == $hvalue ? 'selected="selected"' : ''); ?> title="<?php echo htmlspecialchars($select_desc); ?>">
                             <?php echo htmlspecialchars($select_desc); ?>
                         </option>
 <?php
@@ -2782,7 +2809,7 @@ class serendipity_event_staticpage extends serendipity_event
                     // This behavior might change in future releases.
                     $this->error_404 = ($_SERVER['REDIRECT_STATUS'] == '404');
                     
-                    $pages = $this->fetchStaticPages(true);
+                    $pages = $this->fetchStaticPages(true, $nice_url);
                     if (is_array($pages)) {
                     foreach ($pages as $page) {
                         if ($page['permalink'] == $nice_url) {

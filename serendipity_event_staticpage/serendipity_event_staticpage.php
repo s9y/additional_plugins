@@ -2233,32 +2233,32 @@ foreach($select AS $select_value => $select_desc) {
                     }
 
                     if (!$serendipity['wysiwyg'] && preg_match($serendipity['EditorBrowsers'], $_SERVER['HTTP_USER_AGENT']) ) {
-?>                <nobr><script type="text/javascript" language="JavaScript">
+?>                  <nobr><noscript><span name="jsOnly" style="display: none;"></noscript>
                         <?php if( $serendipity['nl2br']['iso2br'] ) { ?>
-                        document.write('<input type="button" class="serendipityPrettyButton input_button" name="insX" value="NoBR" accesskey="x" style="font-style: italic" onclick="wrapSelection(document.forms[\'serendipityEntry\'][\'serendipity[plugin][<?php echo $config_item ?>]\'],\'<nl>\',\'</nl>\')" />');
+                        <input type="button" class="serendipityPrettyButton input_button" name="insX" value="NoBR" accesskey="x" style="font-style: italic" onclick="wrapSelection(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'],'<nl>','</nl>')" />
                         <?php } ?>
-                        document.write('<input type="button" class="serendipityPrettyButton input_button" name="insI" value="I" accesskey="i" style="font-style: italic" onclick="wrapSelection(document.forms[\'serendipityEntry\'][\'serendipity[plugin][<?php echo $config_item ?>]\'],\'<em>\',\'</em>\')" />');
-                        document.write('<input type="button" class="serendipityPrettyButton input_button" name="insB" value="B" accesskey="b" style="font-weight: bold" onclick="wrapSelection(document.forms[\'serendipityEntry\'][\'serendipity[plugin][<?php echo $config_item ?>]\'],\'<strong>\',\'</strong>\')" />');
-                        document.write('<input type="button" class="serendipityPrettyButton input_button" name="insU" value="U" accesskey="u" style="text-decoration: underline;" onclick="wrapSelection(document.forms[\'serendipityEntry\'][\'serendipity[plugin][<?php echo $config_item ?>]\'],\'<u>\',\'</u>\')" />');
-                        document.write('<input type="button" class="serendipityPrettyButton input_button" name="insQ" value="<?php echo QUOTE ?>" accesskey="q" style="font-style: italic" onclick="wrapSelection(document.forms[\'serendipityEntry\'][\'serendipity[plugin][<?php echo $config_item ?>]\'],\'<blockquote>\',\'</blockquote>\')" />');
-                        document.write('<input type="button" class="serendipityPrettyButton input_button" name="insJ" value="img" accesskey="j" onclick="wrapInsImage(document.forms[\'serendipityEntry\'][\'serendipity[plugin][<?php echo $config_item ?>]\'])" />');
-                        document.write('<input type="button" class="serendipityPrettyButton input_button" name="insImage" value="<?php echo MEDIA; ?>" style="" onclick="window.open(\'serendipity_admin_image_selector.php?serendipity[textarea]=<?php echo urlencode('serendipity[plugin]['.$config_item.']'); ?>\', \'ImageSel\', \'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1\');" />');
-                        document.write('<input type="button" class="serendipityPrettyButton input_button" name="insU" value="URL" accesskey="l" style="color: blue; text-decoration: underline;" onclick="wrapSelectionWithLink(document.forms[\'serendipityEntry\'][\'serendipity[plugin][<?php echo $config_item ?>]\'])" />');
-                  </script></nobr>
+                        <input type="button" class="serendipityPrettyButton input_button" name="insI" value="I" accesskey="i" style="font-style: italic" onclick="wrapSelection(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'],'<em>','</em>')" />
+                        <input type="button" class="serendipityPrettyButton input_button" name="insB" value="B" accesskey="b" style="font-weight: bold" onclick="wrapSelection(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'],'<strong>','</strong>')" />
+                        <input type="button" class="serendipityPrettyButton input_button" name="insU" value="U" accesskey="u" style="text-decoration: underline;" onclick="wrapSelection(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'],'<u>','</u>')" />
+                        <input type="button" class="serendipityPrettyButton input_button" name="insQ" value="<?php echo QUOTE ?>" accesskey="q" style="font-style: italic" onclick="wrapSelection(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'],'<blockquote>','</blockquote>')" />
+                        <input type="button" class="serendipityPrettyButton input_button" name="insJ" value="img" accesskey="j" onclick="wrapInsImage(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'])" />
+                        <input type="button" class="serendipityPrettyButton input_button" name="insImage" value="<?php echo MEDIA; ?>" style="" onclick="window.open('serendipity_admin_image_selector.php?serendipity[textarea]=<?php echo urlencode('serendipity[plugin]['.$config_item.']'); ?>', 'ImageSel', 'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1');" />
+                        <input type="button" class="serendipityPrettyButton input_button" name="insU" value="URL" accesskey="l" style="color: blue; text-decoration: underline;" onclick="wrapSelectionWithLink(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'])" />
+                    <noscript></span></noscript></nobr>
 <?php
                 /* Do the "old" non-WYSIWYG editor */
-                    } else { ?>
-                          <nobr><script type="text/javascript" language="JavaScript">
-                                <?php if( $serendipity['nl2br']['iso2br'] ) { ?>
-                                document.write('<input type="button" class="serendipityPrettyButton input_button" value=" NoBR " onclick="serendipity_insBasic(document.forms[\'serendipityEntry\'][\'serendipity[plugin][<?php echo $config_item ?>]\'], \'x\')" />');
-                                <?php } ?>
-                                document.write('<input type="button" class="serendipityPrettyButton input_button" value=" B " onclick="serendipity_insBasic(document.forms[\'serendipityEntry\'][\'serendipity[plugin][<?php echo $config_item ?>]\'], \'b\')">');
-                                document.write('<input type="button" class="serendipityPrettyButton input_button" value=" U " onclick="serendipity_insBasic(document.forms[\'serendipityEntry\'][\'serendipity[plugin][<?php echo $config_item ?>]\'], \'u\')">');
-                                document.write('<input type="button" class="serendipityPrettyButton input_button" value=" I " onclick="serendipity_insBasic(document.forms[\'serendipityEntry\'][\'serendipity[plugin][<?php echo $config_item ?>]\'], \'i\')">');
-                                document.write('<input type="button" class="serendipityPrettyButton input_button" value="<img>" onclick="serendipity_insImage(document.forms[\'serendipityEntry\'][\'serendipity[plugin][<?php echo $config_item ?>]\'])">');
-                                document.write('<input type="button" class="serendipityPrettyButton input_button" value="<?php echo MEDIA; ?>" onclick="window.open(\'serendipity_admin_image_selector.php?serendipity[filename_only]=<?php echo $config_item ?>\', \'ImageSel\', \'width=800,height=600,toolbar=no\');">');
-                                document.write('<input type="button" class="serendipityPrettyButton input_button" value="Link" onclick="serendipity_insLink(document.forms[\'serendipityEntry\'][\'serendipity[plugin][<?php echo $config_item ?>]\'])">');
-                        </script></nobr>
+                    } else { 
+?>                  <nobr><noscript><span name="jsOnly" style="display: none;"></noscript>
+                        <?php if( $serendipity['nl2br']['iso2br'] ) { ?>
+                        <input type="button" class="serendipityPrettyButton input_button" value=" NoBR " onclick="serendipity_insBasic(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'], 'x')" />
+                        <?php } ?>
+                        <input type="button" class="serendipityPrettyButton input_button" value=" B " onclick="serendipity_insBasic(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'], 'b')">
+                        <input type="button" class="serendipityPrettyButton input_button" value=" U " onclick="serendipity_insBasic(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'], 'u')">
+                        <input type="button" class="serendipityPrettyButton input_button" value=" I " onclick="serendipity_insBasic(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'], 'i')">
+                        <input type="button" class="serendipityPrettyButton input_button" value="<img>" onclick="serendipity_insImage(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'])">
+                        <input type="button" class="serendipityPrettyButton input_button" value="<?php echo MEDIA; ?>" onclick="window.open('serendipity_admin_image_selector.php?serendipity[filename_only]=<?php echo $config_item ?>', 'ImageSel', 'width=800,height=600,toolbar=no');">
+                        <input type="button" class="serendipityPrettyButton input_button" value="Link" onclick="serendipity_insLink(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'])">
+                    </span></nobr>
 <?php               }
 
                     // add extra data in the entry's array so that emoticonchooser plugin

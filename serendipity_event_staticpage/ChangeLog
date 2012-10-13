@@ -1,4 +1,5 @@
 3.96: Added last commits missing code part for the javascript hidden boxes (Timbalu)
+      Workaround the use of document.write() for javascript enabled browsers
 
 3.95: Fixed bad XHTML in <option> tag (Timbalu), 
       added ability to preview staticpages, restrict viewing draft staticpages to logged in authors

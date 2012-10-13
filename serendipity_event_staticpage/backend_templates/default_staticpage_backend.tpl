@@ -59,6 +59,7 @@
                     {staticpage_input item="content"}
             </div>
 
+            {if $showmeta}
             <div class="sp_sect">
                 {$CONST.STATICPAGES_CUSTOM_META_SHOW}
                 <p id="sp_toggle_optionall"><a style="border:0; text-decoration: none;" href="#" onClick="showConfig('el1'); return false" title="{$CONST.TOGGLE_OPTION}"><img src="{serendipity_getFile file="img/plus.png"}" id="optionel1" alt="+/-" border="0">&nbsp;{$CONST.TOGGLE_ALL}</a></p>
@@ -102,6 +103,7 @@ Replace this part in the head of you templates index.tpl file:&#013;&#013;
               </div>
             </div>
             <script type="text/javascript" language="JavaScript">document.getElementById("el1").style.display = "none";</script>
+            {/if}
         </fieldset>
 
         <fieldset class="sect_struct">
@@ -146,11 +148,11 @@ Replace this part in the head of you templates index.tpl file:&#013;&#013;
                     <label class="sp_label" title="{staticpage_input item="shownavi" what="desc"|escape:js}">{staticpage_input item="shownavi" what="name"|escape:js}</label><br />
                         {staticpage_input item="shownavi"}
                 </div>
-				
-				<div class="sp_sect">
-					<label class="sp_label" title="{staticpage_input item="show_breadcrumb" what="desc"|escape:js}">{staticpage_input item="show_breadcrumb" what="name"|escape:js}</label><br />
-						{staticpage_input item="show_breadcrumb"}
-				</div>				
+
+                <div class="sp_sect">
+                    <label class="sp_label" title="{staticpage_input item="show_breadcrumb" what="desc"|escape:js}">{staticpage_input item="show_breadcrumb" what="name"|escape:js}</label><br />
+                        {staticpage_input item="show_breadcrumb"}
+                </div>
 
                 <div class="sp_sect">
                     <label class="sp_label" title="{staticpage_input item="pre_content" what="desc"|escape:js}">{staticpage_input item="pre_content" what="name"|escape:js}</label><br />

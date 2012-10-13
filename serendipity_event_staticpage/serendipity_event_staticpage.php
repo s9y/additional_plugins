@@ -2495,6 +2495,7 @@ foreach($select AS $select_value => $select_desc) {
             $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
             $serendipity['smarty']->assign(
                 array(
+                    'showmeta'       => serendipity_db_bool($this->get_config('showmeta')),
                     'form_keys'      => $form_values,
                     'form_container' => $this->staticpage,
                     'form_post'      => $serendipity['POST']['plugin'],

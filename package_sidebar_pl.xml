@@ -17,7 +17,6 @@
   <filelist>
 <dir name="serendipity_event_staticpage">
 <file>lang_de.inc.php</file>
-<file>DEADJOE</file>
 <file>lang_ko.inc.php</file>
 <file>lang_it.inc.php</file>
 <file>ChangeLog</file>
@@ -81,7 +80,6 @@
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_staticpage/lang_de.inc.php</file>
-    <file>serendipity_event_staticpage/DEADJOE</file>
     <file>serendipity_event_staticpage/lang_ko.inc.php</file>
     <file>serendipity_event_staticpage/lang_it.inc.php</file>
     <file>serendipity_event_staticpage/ChangeLog</file>

@@ -2258,7 +2258,7 @@ foreach($select AS $select_value => $select_desc) {
                         <input type="button" class="serendipityPrettyButton input_button" value="<img>" onclick="serendipity_insImage(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'])">
                         <input type="button" class="serendipityPrettyButton input_button" value="<?php echo MEDIA; ?>" onclick="window.open('serendipity_admin_image_selector.php?serendipity[filename_only]=<?php echo $config_item ?>', 'ImageSel', 'width=800,height=600,toolbar=no');">
                         <input type="button" class="serendipityPrettyButton input_button" value="Link" onclick="serendipity_insLink(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'])">
-                    </span></nobr>
+                    <noscript></span></noscript></nobr>
 <?php               }
 
                     // add extra data in the entry's array so that emoticonchooser plugin

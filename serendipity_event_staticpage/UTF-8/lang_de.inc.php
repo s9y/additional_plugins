@@ -143,4 +143,7 @@
 @define('STATICPAGES_CUSTOM_META_DESC', 'HTML META Seitenbeschreibung (optional)');
 @define('STATICPAGES_CUSTOM_META_KEYS', 'HTML META Seiten Schlüsselwörter (optional)');
 
+@define('STATICPAGE_SHOW_BREADCRUMB_DEFAULT', 'Zeige Navigationspfad (Breadcrumbs)');
+@define('STATICPAGE_SHOW_BREADCRUMB', 'Zeige Navigationspfad (Breadcrumbs)');
+@define('STATICPAGE_SHOW_BREADCRUMB_DESC', 'Zeige auf dieser Seite den Navigationspfad (Breadcrumbs) an');
 ?>

@@ -126,6 +126,11 @@
                     <label class="sp_label" title="{staticpage_input item="shownavi" what="desc"|escape:js}">{staticpage_input item="shownavi" what="name"|escape:js}</label><br />
                         {staticpage_input item="shownavi"}
                 </div>
+				
+				<div class="sp_sect">
+					<label class="sp_label" title="{staticpage_input item="show_breadcrumb" what="desc"|escape:js}">{staticpage_input item="show_breadcrumb" what="name"|escape:js}</label><br />
+						{staticpage_input item="show_breadcrumb"}
+				</div>				
 
                 <div class="sp_sect">
                     <label class="sp_label" title="{staticpage_input item="pre_content" what="desc"|escape:js}">{staticpage_input item="pre_content" what="name"|escape:js}</label><br />

@@ -176,4 +176,7 @@
 
 @define('PLUGIN_STATICPAGE_PREVIEW', 'The preview of your static page has been opened in a new pop-up window. If you can not see this, please click this link: %s');
 
+@define('STATICPAGE_SHOW_BREADCRUMB_DEFAULT', 'Show breadcrumb');
+@define('STATICPAGE_SHOW_BREADCRUMB', 'Show breadcrumb');
+@define('STATICPAGE_SHOW_BREADCRUMB_DESC', 'Show breadcrumb navigation on this page.');
 ?>

@@ -12,13 +12,16 @@
             <td class="staticpage_navigation_center" style="width: 60%; text-align: center"><a href="{$staticpage_navigation.top.link}" title="top">{$staticpage_navigation.top.name|@escape}</a></td>
             <td class="staticpage_navigation_right"  style="width: 20%; text-align: right"><a href="{$staticpage_navigation.next.link}" title="next">{$staticpage_navigation.next.name|@escape}</a></td>
         </tr>
-	<tr>
-	    <td class="staticpage_navigation_center">
-	    {foreach name="crumbs" from=$staticpage_navigation.crumbs item="crumb"}
-	        {if !$smarty.foreach.crumbs.first}&raquo;{/if}<a href="{$crumb.link}">{$crumb.name|@escape}</a>
-	    {/foreach}
-	    </td>
-	</tr>
+		{if $staticpage_show_breadcrumb}
+		<tr>
+			<td class="staticpage_navigation_center">
+				<a href="{$serendipityBaseURL}">{$CONST.HOME|lower|capitalize:true}</a>&nbsp;&raquo;
+				{foreach name="crumbs" from=$staticpage_navigation.crumbs item="crumb"}
+					{if !$smarty.foreach.crumbs.first}&raquo;&nbsp;{/if}{if !$smarty.foreach.crumbs.last}<a href="{$crumb.link}">{$crumb.name|@escape}</a>{else}{$crumb.name|@escape}{/if}
+				{/foreach}
+			</td>
+		</tr>
+		{/if}
     </table>
 {/if}
 

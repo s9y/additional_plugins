@@ -1,8 +1,9 @@
 <br />
 
 <script type="text/javascript">
-    var img_plus = '{serendipity_getFile file="img/plus.png"}';
+    var img_plus  = '{serendipity_getFile file="img/plus.png"}';
     var img_minus = '{serendipity_getFile file="img/minus.png"}';
+    var state     = '';
 {literal}
     function showConfig(id) {
         if (document.getElementById) {

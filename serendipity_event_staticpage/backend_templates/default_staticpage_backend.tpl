@@ -3,6 +3,37 @@
 <script type="text/javascript">
     var img_plus = '{serendipity_getFile file="img/plus.png"}';
     var img_minus = '{serendipity_getFile file="img/minus.png"}';
+{literal}
+    function showConfig(id) {
+        if (document.getElementById) {
+            el = document.getElementById(id);
+            if (el.style.display == 'none') {
+                document.getElementById('option' + id).src = img_minus;
+                el.style.display = '';
+            } else {
+                document.getElementById('option' + id).src = img_plus;
+                el.style.display = 'none';
+            }
+        }
+    }
+
+    function showConfigAll(count) {
+        if (document.getElementById) {
+            for (i = 1; i <= count; i++) {
+                document.getElementById('el' + i).style.display = state;
+                document.getElementById('optionel' + i).src = (state == '' ? img_minus : img_plus);
+            }
+
+            if (state == '') {
+                document.getElementById('optionall').src = img_minus;
+                state = 'none';
+            } else {
+                document.getElementById('optionall').src = img_plus;
+                state = '';
+            }
+        }
+    }
+{/literal}
 </script>
 
 <div id="backend_sp_simple" class="default_staticpage">

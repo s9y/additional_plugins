@@ -1,3 +1,5 @@
+3.96: Added last commits missing code part for the javascript hidden boxes (Timbalu)
+
 3.95: Fixed bad XHTML in <option> tag (Timbalu), 
       added ability to preview staticpages, restrict viewing draft staticpages to logged in authors
       added option to set META input fields, set structure and meta field box to javascript hidden content (Timbalu)

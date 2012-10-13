@@ -49,7 +49,7 @@ class serendipity_event_staticpage extends serendipity_event
             'showonnavi',
             'showmeta',
             'timestamp',
-			'show_breadcrumb'			
+            'show_breadcrumb'
         );
 
     var $config_types = array(
@@ -104,11 +104,11 @@ class serendipity_event_staticpage extends serendipity_event
             'is_startpage',
             'is_404_page',
             'shownavi',
-			'show_breadcrumb',			
+            'show_breadcrumb',
             'showonnavi',
             'showtextorheadline',
             'showmeta',
-            'use_quicksearch'	
+            'use_quicksearch'
         ));
         $this->cachefile = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/staticpage_pagelist.dat';
     }
@@ -142,8 +142,8 @@ class serendipity_event_staticpage extends serendipity_event
             case 'showmeta':
                 $propbag->add('type',           'boolean');
                 $propbag->add('name',           STATICPAGE_SHOWMETA_DEFAULT);
-                $propbag->add('description',    STATICPAGE_DEFAULT_DESC);
-                $propbag->add('default',        'true');
+                $propbag->add('description',    STATICPAGE_DEFAULT_DESC . STATICPAGE_SHOWMETA_DEFAULT_DESC);
+                $propbag->add('default',        'false');
                 break;
 
             case 'show_breadcrumb':
@@ -151,8 +151,8 @@ class serendipity_event_staticpage extends serendipity_event
                 $propbag->add('name',           STATICPAGE_SHOW_BREADCRUMB_DEFAULT);
                 $propbag->add('description',    STATICPAGE_DEFAULT_DESC);
                 $propbag->add('default',        '1');
-                break;					
-				
+                break;
+
             case 'markup':
                 $propbag->add('type',           'boolean');
                 $propbag->add('name',           STATICPAGE_SHOWMARKUP_DEFAULT);
@@ -334,14 +334,14 @@ class serendipity_event_staticpage extends serendipity_event
                 $propbag->add('default',         $this->get_config('showonnavi'));
                 break;
 
-			case 'show_breadcrumb':
+            case 'show_breadcrumb':
                 $propbag->add('type',            'boolean');
                 $propbag->add('name',            STATICPAGE_SHOW_BREADCRUMB);
                 $propbag->add('description',     STATICPAGE_SHOW_BREADCRUMB_DESC);
                 $propbag->add('default',         $this->get_config('show_breadcrumb'));
                 break;
 
-				case 'publishstatus':
+                case 'publishstatus':
                 $propbag->add('type',           'select');
                 $propbag->add('name',           STATICPAGE_PUBLISHSTATUS);
                 $propbag->add('description',    STATICPAGE_PUBLISHSTATUS_DESC);
@@ -789,7 +789,7 @@ class serendipity_event_staticpage extends serendipity_event
                     related_category_id int(4) default 0,
                     shownavi int(4) default '1',
                     showonnavi int(4) default '1',
-                    show_breadcrumb int(4) default '1',	
+                    show_breadcrumb int(4) default '1',
                     publishstatus int(4) default '1',
                     language varchar(10) default '') {UTF_8}");
 
@@ -925,10 +925,10 @@ class serendipity_event_staticpage extends serendipity_event
                         $sql .= ' AFTER is_startpage';
                     }
                     serendipity_db_schema_import($sql);
-			case 19:
+            case 19:
                 if (!$fresh) {
                     $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN show_breadcrumb int(4) default '1'";
-                    serendipity_db_schema_import($q);					
+                    serendipity_db_schema_import($q);
                 }
                 $this->set_config('db_built', 20);
                 break;

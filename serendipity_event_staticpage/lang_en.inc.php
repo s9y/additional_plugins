@@ -66,7 +66,9 @@
 @define('STATICPAGE_SHOWONNAVI_DESC', 'Show this page on the list of static pages in your sidebar.');
 
 @define('STATICPAGE_SHOWNAVI_DEFAULT', 'Include navigation');
+@define('STATICPAGE_SHOWMETA_DEFAULT_DESC', ' - Please view additional note in the staticpage form!');
 @define('STATICPAGE_SHOWMETA_DEFAULT', 'Include HTML meta input fields');
+@define('STATICPAGE_SHOWMETA_DEFAULT_METANOTE', 'If enabled, please hover me to see on how to change your templates index.tpl file.');
 @define('STATICPAGE_DEFAULT_DESC', 'Default setting for new pages.');
 @define('STATICPAGE_SHOWONNAVI_DEFAULT', 'Show page on sidebar-navigation');
 @define('STATICPAGE_SHOWMARKUP_DEFAULT', 'Show markup');

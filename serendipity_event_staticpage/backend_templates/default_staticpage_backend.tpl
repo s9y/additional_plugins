@@ -79,9 +79,29 @@
                 <label class="sp_label" title="Custom META Keywords">{$CONST.STATICPAGES_CUSTOM_META_KEYS}</label>
                     <input class="input_textbox" type="text" name="serendipity[plugin][custom][meta_keywords]" value="{$form_values.custom.meta_keywords|@default:''}">
               </div>
+              <div id="helper_note"><span title="{literal}
+Replace this part in the head of you templates index.tpl file:&#013;&#013;
+<title>{$head_title|@default:$blogTitle}{if $head_subtitle} - {$head_subtitle}{/if}</title>&#013;
+&#013;with&#013;&#013;
+{if $staticpage_custom.title_element}&#013;
+&#009;<title>{$staticpage_custom.title_element|escape:htmlall}</title>&#013;
+{else}&#013;
+&#009;<title>{$head_title|@default:$blogTitle}{if $head_subtitle} - {$head_subtitle}{/if}</title>&#013;
+{/if}&#013;
+{if $startpage}&#013;
+&#009;<meta name='description' content='{* YOUR DESCRIPTION FOR THE STARTPAGE *}'>&#013;
+&#009;<meta name='keywords' content='{* YOUR KEYWORDS FOR THE STARTPAGE *}'>&#013;
+&#009;<meta name='author' content='{* YOUR AUTHOR DESC FOR THE STARTPAGE *}'>&#013;
+{/if}&#013;
+{if $staticpage_custom.meta_description}&#013;
+&#009;<meta name='description' content='{$staticpage_custom.meta_description|escape:htmlall}'>&#013;
+{/if}&#013;
+{if $staticpage_custom.meta_keywords}&#013;
+&#009;<meta name='keywords' content='{$staticpage_custom.meta_keywords|escape:htmlall}'>&#013;
+{/if}&#013;{/literal}">{$CONST.STATICPAGE_SHOWMETA_DEFAULT_METANOTE},<br>or view <a href="http://board.s9y.org/viewtopic.php?f=4&p=10432412#p10432412" target="_blank" style="background-color: lightblue;">this forum post</a>.</span>
+              </div>
             </div>
             <script type="text/javascript" language="JavaScript">document.getElementById("el1").style.display = "none";</script>
-
         </fieldset>
 
         <fieldset class="sect_struct">

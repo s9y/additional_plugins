@@ -6,6 +6,7 @@
 
 3.96: Added last commits missing code part for the javascript hidden boxes (Timbalu)
       Workaround the use of document.write() for javascript enabled browsers
+      Added the need of templates index.tpl change note into forms meta block
 
 3.95: Fixed bad XHTML in <option> tag (Timbalu), 
       added ability to preview staticpages, restrict viewing draft staticpages to logged in authors

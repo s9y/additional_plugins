@@ -21,9 +21,9 @@
 <title>Static Pages: Shows static pages inside your blog with your blogs design and all formattings. Adds a new menu item to the admin interface.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_staticpage</link>
 <category>Event Plugins</category>
-<author>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian</author>
+<author>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers</author>
 <content:encoded>&lt;b&gt;serendipity_event_staticpage&lt;br /&gt;Static Pages&lt;/b&gt;&lt;br /&gt;Shows static pages inside your blog with your blogs design and all formattings. Adds a new menu item to the admin interface.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Sat, 13 Oct 2012 02:32:04 +0200</pubDate>
+<pubDate>Sun, 14 Oct 2012 02:31:36 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_staticpage</guid>
 </item>
 <item>

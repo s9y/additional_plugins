@@ -1,3 +1,6 @@
+3.98  Changed custom <title>, meta description, and meta keywords to be regular fields, 
+      not custom properties. 
+
 3.97: Changed breadcrumb navigation so it is an independent option.  Templates that use custom
       static page templates (plugin_staticpage.tpl, plugin_staticpage_aboutpage.tpl, 
       plugin_staticpage_related.tpl) must be modified to include the condition

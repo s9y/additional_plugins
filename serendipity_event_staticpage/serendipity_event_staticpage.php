@@ -49,7 +49,10 @@ class serendipity_event_staticpage extends serendipity_event
             'showonnavi',
             'showmeta',
             'timestamp',
-            'show_breadcrumb'
+            'show_breadcrumb',
+            'title_element',
+            'meta_description',
+            'meta_keywords'
         );
 
     var $config_types = array(
@@ -82,13 +85,14 @@ class serendipity_event_staticpage extends serendipity_event
             'frontend_fetchentries'                             => true,
             'backend_media_rename'                              => true,
             'frontend_fetchentries'                             => true,
-            'frontend_rss'                                      => true
+            'frontend_rss'                                      => true,
+            'frontend_header'                                   => true
         ));
 
         $propbag->add('page_configuration', $this->config);
         $propbag->add('type_configuration', $this->config_types);
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers');
-        $propbag->add('version', '3.97');
+        $propbag->add('version', '3.98');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -142,8 +146,8 @@ class serendipity_event_staticpage extends serendipity_event
             case 'showmeta':
                 $propbag->add('type',           'boolean');
                 $propbag->add('name',           STATICPAGE_SHOWMETA_DEFAULT);
-                $propbag->add('description',    STATICPAGE_DEFAULT_DESC . STATICPAGE_SHOWMETA_DEFAULT_DESC);
-                $propbag->add('default',        'false');
+                $propbag->add('description',    STATICPAGE_DEFAULT_DESC);
+                $propbag->add('default',        '1');
                 break;
 
             case 'show_breadcrumb':
@@ -209,6 +213,27 @@ class serendipity_event_staticpage extends serendipity_event
                 $propbag->add('description',    STATICPAGE_FILENAME_DESC);
                 $propbag->add('default',        'plugin_staticpage.tpl');
                 break;
+            
+            case 'title_element':
+                $propbag->add('type',          'string');
+                $propbag->add('name',           STATICPAGES_CUSTOM_META_TITLE);
+                $propbag->add('description',    STATICPAGES_CUSTOM_META_TITLE_BLAH_BLAH);
+                $propbag->add('default',        '');
+                break;           
+            
+            case 'meta_description':
+                $propbag->add('type',          'string');
+                $propbag->add('name',           STATICPAGES_CUSTOM_META_DESC);
+                $propbag->add('description',    STATICPAGES_CUSTOM_META_DESC_BLAH_BLAH);
+                $propbag->add('default',        '');
+                break;            
+            
+            case 'meta_keywords':
+                 $propbag->add('type',          'string');
+                $propbag->add('name',           STATICPAGES_CUSTOM_META_KEYS);
+                $propbag->add('description',    STATICPAGES_CUSTOM_META_KEYS_BLAH_BLAH);
+                $propbag->add('default',        '');
+                break;                  
 
             case 'content':
                 $propbag->add('type',           'html');
@@ -930,7 +955,16 @@ class serendipity_event_staticpage extends serendipity_event
                     $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN show_breadcrumb int(4) default '1'";
                     serendipity_db_schema_import($q);
                 }
-                $this->set_config('db_built', 20);
+            case 20:
+                if (!$fresh) {            
+                    $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN title_element varchar(255) not null default ''";
+                    serendipity_db_schema_import($q);
+                    $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN meta_description varchar(255) not null default ''";
+                    serendipity_db_schema_import($q);
+                    $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN meta_keywords varchar(255) not null default ''";
+                    serendipity_db_schema_import($q);                 
+                }
+                $this->set_config('db_built', 21);
                 break;
         }
     }
@@ -1232,7 +1266,10 @@ class serendipity_event_staticpage extends serendipity_event
                 $pagevar . 'lastchange'         => $this->get_static('last_modified'),
                 $pagevar . 'shownavi'           => $this->get_static('shownavi'),
                 $pagevar . 'show_breadcrumb'    => $this->get_static('show_breadcrumb'),
-                $pagevar . 'custom'             => $this->get_static('custom')
+                $pagevar . 'custom'             => $this->get_static('custom'),
+                $pagevar . 'title_element'      => $this->get_static('title_element'),
+                $pagevar . 'meta_description'   => $this->get_static('meta_description'),
+                $pagevar . 'meta_keywords'      => $this->get_static('meta_keywords')
 // same thing as above
 //                    $pagevar . 'related_category_entries'           => $related_category_entries
             )
@@ -2870,9 +2907,29 @@ foreach($select AS $select_value => $select_desc) {
                     }
 
                     if ($this->selected()) {
+                        $te = $this->get_static('title_element');
+                        if (!empty($te)) {
+                            $serendipity['head_title']    = htmlspecialchars($te);
+                            $serendipity['head_subtitle'] ='';
+                        } else {
                         $serendipity['head_title']    = $this->get_static('headline');
                         $serendipity['head_subtitle'] = $serendipity['blogTitle'];
+                        }
                     }
+                    break;
+
+                case 'frontend_header':
+                    $md = htmlspecialchars($this->get_static('meta_description'));
+                    $mk = htmlspecialchars($this->get_static('meta_keywords'));
+                    if (!empty($md))
+                    {
+                        echo '        <meta name="description" content="' . $md . '" />' . "\n";
+                    }                    
+                    
+                     if (!empty($mk))
+                    {
+                        echo '        <meta name="keywords" content="' . $mk . '" />' . "\n";
+                    }                   
                     break;
 
                 case 'frontend_fetchentries':

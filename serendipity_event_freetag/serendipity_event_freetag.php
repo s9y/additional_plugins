@@ -70,7 +70,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.42');
+        $propbag->add('version',       '3.43');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -1552,7 +1552,7 @@ class serendipity_event_freetag extends serendipity_event
         return $tags;
     }
 
-    function getTagsForEntries($entries) {
+    static function getTagsForEntries($entries) {
         global $serendipity;
 
         if (!is_array($entries) || count($entries) < 1 || implode(',', $entries) == '') {

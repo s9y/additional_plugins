@@ -1,3 +1,8 @@
+3.43:
+-----
+
+static fixes for freetag<->flattr compatibility (no PHP5 error)
+
 3.42:
 -----
 

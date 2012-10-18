@@ -228,6 +228,7 @@ class serendipity_plugin_twitter extends serendipity_plugin {
             $status_url = 'http://identi.ca/notice/';
             //$JSONcallback = 'identicaCallback2';
             $JSONcallback = 'twitterCallback2'; // We call the twitter widget. It is working with identi.ca too, but the callback name is twitter!
+            $timelineurl = 'http://identi.ca/api/statuses/user_timeline/' . $username . '.json?callback=' . $JSONcallback . '&amp;count=' . $number;
             $api = new Twitter(true);
         }
         else
@@ -236,6 +237,8 @@ class serendipity_plugin_twitter extends serendipity_plugin {
             $service_url = 'http://twitter.com';
             $status_url = 'http://twitter.com/' . $username . '/statuses/';
             $JSONcallback = 'twitterCallback2';
+            $timelineurl = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $username . '&amp;count=' . $number . '&amp;callback=' . $JSONcallback;
+
             $api = new Twitter(false);
         }
 
@@ -307,7 +310,7 @@ class serendipity_plugin_twitter extends serendipity_plugin {
         } else {
             echo '<ul id="twitter_update_list"><li style="display: none"></li></ul>' . "\n";            
             echo '<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>' . "\n";
-            echo '<script type="text/javascript" src="' . $service_url . '/statuses/user_timeline/' . $username . '.json?callback=' . $JSONcallback . '&amp;count=' . $number . '"></script>';
+            echo '<script type="text/javascript" src="' . $timelineurl . '"></script>';
         }  
         if (serendipity_db_bool($this->get_config('followme_link', false))) {
             echo '<p id="twitter_follow_me"><a href="' . $followme_url . '" class="twitter_follow_me">' . PLUGIN_TWITTER_FOLLOWME_LINK_TEXT . '</a></p>' . "\n";            
@@ -361,6 +364,7 @@ class serendipity_plugin_twitter extends serendipity_plugin {
     
     function updateTwitterTimelineCache($cachefile){
         global $serendipity;
+        
         $cachetime      = (int)$this->get_config('cachetime', 300);
 
         if (!file_exists($cachefile) || filemtime($cachefile) < (time()-$cachetime)) {
@@ -375,18 +379,16 @@ class serendipity_plugin_twitter extends serendipity_plugin {
     
             if ($service == 'identi.ca')
             {
-                $followme_url = 'http://identi.ca/' . $username;
                 $service_url = 'http://identi.ca/api';
                 $status_url = 'http://identi.ca/notice/';
-            }
-            else
-            {
+                $search_twitter_uri = $service_url . '/statuses/user_timeline/' . $username . '.json?count=' . $number;
+            } else {
                 $followme_url = 'http://twitter.com/' . $username;
-                $service_url = 'http://twitter.com';
+                $service_url = 'http://api.twitter.com';
                 $status_url = 'http://twitter.com/' . $username . '/statuses/';
+                $search_twitter_uri = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $username . '&count=' . $number;
             }
 
-            $search_twitter_uri = $service_url . '/statuses/user_timeline/' . $username . '.json?count=' . $number;
             serendipity_request_start();
             $req = new HTTP_Request($search_twitter_uri);
             $req->sendRequest();
@@ -531,9 +533,9 @@ class serendipity_plugin_twitter extends serendipity_plugin {
 
         if ($last_backup < 1) {
             // First time backup. Grab everything we can get.
-            $this->twitterGet('http://twitter.com/statuses/user_timeline/' . $username . '.json?count=100&page=');
+            $this->twitterGet('http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $username . '&count=100&page=');
         } else {
-            $this->twitterGet('http://twitter.com/statuses/user_timeline/' . $username . '.json?count=100&since_id=' . $this->get_config('last_tweetid') . '&page=');
+            $this->twitterGet('http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $username . '&count=100&since_id=' . $this->get_config('last_tweetid') . '&page=');
         }
     }
 

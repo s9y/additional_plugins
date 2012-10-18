@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # $Id: serendipity_event_twitter.php,v 1.54 2012/06/14 00:33:33 garvinhicking Exp $
 
 // Contributed by Grischa Brockhaus <s9ycoder@brockha.us>
 
@@ -1778,6 +1778,7 @@ a.twitter_update_time {
                 $service_url = 'http://identi.ca/api';
                 $status_url = 'http://identi.ca/notice/';
                 $JSONcallback = 'identicaCallback2';
+                $search_twitter_uri = $service_url . '/statuses/user_timeline/' . $username . '.json?count=' . $number;
             }
             else
             {
@@ -1785,9 +1786,9 @@ a.twitter_update_time {
                 $service_url = 'http://twitter.com';
                 $status_url = 'http://twitter.com/' . $username . '/statuses/';
                 $JSONcallback = 'twitterCallback2';
+                $search_twitter_uri = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $username . '&count=' . $number;
             }
     
-            $search_twitter_uri = $service_url . '/statuses/user_timeline/' . $username . '.json?count=' . $number;
             serendipity_request_start();
             $req = new HTTP_Request($search_twitter_uri);
             $req->sendRequest();

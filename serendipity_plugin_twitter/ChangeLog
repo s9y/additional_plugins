@@ -1,5 +1,11 @@
 TODO:
 
+** IMPORTANT **
+
+Migrate Twitter API 1 calls to 1.1. Now requires OAuth even for simple timeline requests. Blimey.
+
+****************
+
 * Collect all tweets of a day/week/whatever of the blog owner
   into one article and publish it dayly/weekly/whatever
 * "check tweetback" link should add new tweetbacks immediately

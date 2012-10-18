@@ -1,3 +1,5 @@
+Made event_hook() declaration the same as in s9y core
+
 0.13:
 
 Fixed misspell of $addData vs. $addlData

@@ -1,5 +1,7 @@
 # $Id$
 
+Made event_hook() declaration the same as in s9y core
+
 ------------------------------------------------------------------------
 Version 1.3 (brockhaus):
 

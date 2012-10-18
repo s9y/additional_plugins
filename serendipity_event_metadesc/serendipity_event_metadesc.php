@@ -25,7 +25,7 @@ class serendipity_event_metadesc extends serendipity_event {
         $propbag->add('description',   PLUGIN_METADESC_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Judebert, Don Chambers');
-        $propbag->add('version',       '0.13');
+        $propbag->add('version',       '0.14');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '4.1.0'
@@ -116,7 +116,7 @@ class serendipity_event_metadesc extends serendipity_event {
         return $results;
     }
 
-    function event_hook($event, &$bag, &$eventData, &$addlData) {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');
@@ -128,7 +128,7 @@ class serendipity_event_metadesc extends serendipity_event {
                     // variables before the template is called for the HTML head.
 
                     // Only modify the title on single-entry pages
-                    if ($addlData['view'] == 'entry') {
+                    if ($addData['view'] == 'entry') {
                         // Get the properties for this entry
                         $myid = $serendipity['GET']['id'];
                         // Requires a database fetch, but the only other way
@@ -305,17 +305,17 @@ class serendipity_event_metadesc extends serendipity_event {
                     break;
 
                 case 'frontend_entryproperties':
-                    if (class_exists('serendipity_event_entryproperties') || !is_array($addlData)) {
+                    if (class_exists('serendipity_event_entryproperties') || !is_array($addData)) {
                         // Fetching of properties is already done there, so this is just for poor users who don't have the entryproperties plugin enabled
                         return true;
                     }
-                    $q = "SELECT entryid, property, value FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid IN (" . implode(', ', array_keys($addlData)) . ") AND property LIKE '%meta_%'";
+                    $q = "SELECT entryid, property, value FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid IN (" . implode(', ', array_keys($addData)) . ") AND property LIKE '%meta_%'";
                     $properties = serendipity_db_query($q);
                     if (!is_array($properties)) {
                         return true;
                     }
                     foreach($properties AS $idx => $row) {
-                        $eventData[$addlData[$row['entryid']]]['properties'][$row['property']] = $row['value'];
+                        $eventData[$addData[$row['entryid']]]['properties'][$row['property']] = $row['value'];
                     }
                     return true;
                     break;

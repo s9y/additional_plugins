@@ -31,7 +31,7 @@ class serendipity_event_xsstrust extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '0.4');
+        $propbag->add('version',       '0.5');
         $propbag->add('event_hooks', array(
             'frontend_display' => true,
             'backend_media_check' => true));
@@ -118,7 +118,7 @@ class serendipity_event_xsstrust extends serendipity_event
         return serendipity_set_config_var($fname, $dbval);
     }
 
-    function event_hook($event, &$bag, &$eventData, $addData = '') {
+    function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');

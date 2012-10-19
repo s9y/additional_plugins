@@ -1818,6 +1818,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_xsstrust</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_xsstrust/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Show trusted users</summary>
 <groups>FRONTEND_VIEWS</groups>
@@ -1845,6 +1846,7 @@
 <file>lang_en.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -1860,6 +1862,7 @@
     <file>serendipity_event_xsstrust/lang_en.inc.php</file>
     <file>serendipity_event_xsstrust/lang_cs.inc.php</file>
     <file>serendipity_event_xsstrust/lang_cz.inc.php</file>
+    <file>serendipity_event_xsstrust/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -3052,9 +3055,9 @@
 <description>Show your current Twitter entries</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Damian Luszczymak, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.44</version>
+  <version>1.45</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-09-14</date>
+  <date>2012-10-19</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="classes">

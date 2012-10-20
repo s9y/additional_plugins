@@ -8973,7 +8973,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.45</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2012-10-19</date>
+  <date>2012-10-20</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="classes">

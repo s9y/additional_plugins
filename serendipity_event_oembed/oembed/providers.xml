@@ -8,7 +8,7 @@
   <provider>
     <name>Twitter Status</name>
     <url>https?://*.twitter.com/*/status(es)?/*</url>
-    <endpoint>https://api.twitter.com/1/statuses/oembed.{format}</endpoint>
+    <endpoint>https://api.twitter.com/1.1/statuses/oembed.{format}</endpoint>
   </provider>
   <provider>
     <url>http://*.vimeo.com/*</url>

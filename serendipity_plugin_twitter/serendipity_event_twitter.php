@@ -24,7 +24,7 @@ require_once dirname(__FILE__) . '/classes/TwitterPluginFileAccess.php';
 require_once dirname(__FILE__) . '/classes/twitter_entry_defs.include.php';
 
 // writes a debug log into templates_c
-@define('PLUGIN_TWITTER_DEBUG', FALSE);
+@define('PLUGIN_TWITTER_DEBUG', TRUE);
 
 // Consumer settings for the S9Y webapp
 @define('PLUGIN_TWITTER_OAUTH_TWITTER_CONSUMERKEY', 	'ScXsM6UiDU1nDl8u6tacrw');
@@ -1755,10 +1755,32 @@ a.twitter_update_time {
         global $serendipity;
         require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
         
-        if (count($parts)<5) return time()*2; // Dont load that rubbish again!
-
+        $this->log("parts: " . print_r($parts,true));
+        
+        if (count($parts)<5) return time() + (60 * 60); // params corrupted next try allowed one minute later 
+        
+        // Do we need to do OAuth?
+        if (count($parts)>6) {
+            $this->log("NEW OUATH FETCH");
+            $idx_twitter = $parts[5];
+            $this->log("idx: $idx_twitter");
+            $idxmd5 = $parts[6];
+            $this->log("idxmd5: $idxmd5");
+            $idxmd5_test = md5(serendipity_event_twitter::pluginSecret() . "_{$idx_twitter}");
+            $this->log("$idxmd5=?=$idxmd5_test");
+            if ($idxmd5_test != $idxmd5) { // Seems to be a hack!
+                return time() + (60 * 60); // params corrupted next try allowed one minute later
+            }
+        }
+        $show_rt = false;
+        if (count($parts)>7) {
+            $features = $parts[7];
+            $show_rt = (strpos($features, 'r')!==false);
+            
+        }
+        
         $cachetime      = (int)$parts[4];
-         
+        
         $service        = $parts[1];
         $username       = str_replace('!', '_', $parts[2]);
         $cache_user = md5($service) . md5($username);
@@ -1771,37 +1793,55 @@ a.twitter_update_time {
 
         if (!file_exists($cachefile) || filemtime($cachefile) < (time()-$cachetime)) {
             $number         = str_replace("!","_",$parts[3]);
-            
-            if ($service == 'identi.ca')
-            {
-                $followme_url = 'http://identi.ca/' . $username;
-                $service_url = 'http://identi.ca/api';
-                $status_url = 'http://identi.ca/notice/';
-                $JSONcallback = 'identicaCallback2';
-                $search_twitter_uri = $service_url . '/statuses/user_timeline/' . $username . '.json?count=' . $number;
-            }
-            else
-            {
-                $followme_url = 'http://twitter.com/' . $username;
-                $service_url = 'http://twitter.com';
-                $status_url = 'http://twitter.com/' . $username . '/statuses/';
-                $JSONcallback = 'twitterCallback2';
-                $search_twitter_uri = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $username . '&count=' . $number;
-            }
-    
-            serendipity_request_start();
-            $req = new HTTP_Request($search_twitter_uri);
-            $req->sendRequest();
-            $response = trim($req->getResponseBody());
-            $error = $req->getResponseCode();
-            serendipity_request_end();
 
+            $error=200; // Default is: All OK
+            
+            if (!empty($idx_twitter)) {
+                $this->log("Loading timeline via OAUTH");
+                $search_twitter_uri = 'http://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=' . $username . '&count=' . $number . '&trim_user=true';
+                if (!$show_rt) $search_twitter_uri .= '&include_rts=false';
+                if ($idx_twitter=='1') $idx_twitter=''; // First cfg is saved with empty suffix!
+                $connection = $this->twitteroa_connect($idx_twitter);
+                $connection->decode_json = false;
+                $response = $connection->get($search_twitter_uri);
+                $this->log(print_r(json_decode($response), true));
+            }
+            else {
+                if ($service == 'identi.ca')
+                {
+                    $followme_url = 'http://identi.ca/' . $username;
+                    $status_url = 'http://identi.ca/notice/';
+                    $JSONcallback = 'identicaCallback2';
+                    
+                    $service_url = 'http://identi.ca/api';
+                    $search_twitter_uri = $service_url . '/statuses/user_timeline/' . $username . '.json?count=' . $number;
+                }
+                else
+                {
+                    $followme_url = 'http://twitter.com/' . $username;
+                    $service_url = 'http://twitter.com';
+                    $status_url = 'http://twitter.com/' . $username . '/statuses/';
+                    $JSONcallback = 'twitterCallback2';
+                    $search_twitter_uri = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $username . '&count=' . $number;
+                }
+        
+                serendipity_request_start();
+                $req = new HTTP_Request($search_twitter_uri);
+                $req->sendRequest();
+                $response = trim($req->getResponseBody());
+                $error = $req->getResponseCode();
+                serendipity_request_end();
+            }
+
+            $this->log("error: {$error}");
             if ($error==200 && !empty($response)) {
+                $this->log("Writing response into cache.");
                 $fp = fopen($cachefile, 'w');
                 fwrite($fp, serialize($response));
                 fflush($fp);
                 fclose($fp);
                 $nextcheck = time() + (int)$cachetime;
+                $this->log("Writing response into cache. DONE");
             }
         }
         return $nextcheck;
@@ -2024,4 +2064,10 @@ a.twitter_update_time {
             $return = true;
         }
     }
+
+    // We generate a secret only known by the blog admit.
+    // We use the directory of this plugin md5'd
+    static function pluginSecret() {
+        return md5(dirname(__FILE__));
+    } 
 }

@@ -197,3 +197,10 @@ Du must aktuell bei Twitter entweder ausgeloggt oder mit dem <b>richtigen Twitte
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_ARTICLES_NO_DESC','Wenn aktiviert, werden neue Artikel nur dann via Microblogging veröffentlicht, wenn dies ausdrücklich angegeben wird.');
 
 @define('PLUGIN_EVENT_TWITTER_GENERALCONSUMER',        '<h3>Dein eigener Twitter Client</h3>Normaler Weise nimmt das Plugin einen Twitter Client namens \'s9y\'. Du kannst aber auch <a href="https://dev.twitter.com/apps" target="_blank">Deinen eigenen Twitter Client registrieren</a> und dann den consumer key und das secret hier eintragen, wenn Du möchtest.');
+
+@define('PLUGIN_TWITTER_FILTER_RT',                    	'Native Retweets filtern');
+@define('PLUGIN_TWITTER_FILTER_RT_DESC',               	'Sollen native Retweets gefiltert werden? (Nur für die Twitter API 1.1, API 1.0 filtert diese immer heraus)');
+@define('PLUGIN_TWITTER_API11',                    		'OAuth Twitter API 1.1 benutzen');
+@define('PLUGIN_TWITTER_API11_DESC',               		'Die Twitter API 1.0 ist "depreciated" und wird 2013 eingestellt. Also solltest Du die API 1.1 benutzen. Allerdings muss dafür bereits eine OAuth Verbindung im Hauptplugin zu Twitter hergestellt worden sein. Wenn Du in der Auswahl hier drunter enien Account siehst, dann wurde das bereits erledigt.');
+@define('PLUGIN_TWITTER_OAUTHACC',                    	'OAuth Verbindung für das Plugin');
+@define('PLUGIN_TWITTER_OAUTHACC_DESC',               	'Das Plugin benötigt für die neue OAuth Twitter API eine OAuth Verbindung. Der Account, der hier ausgewählt wird, wird auch der sein, auf dessen Rate Limit Calls des Plugins gerechnet werden. Der Account muss Dir gehören, kann aber beliebig sein (also zum Beispiel einer nur für das Plugin, um nur dort das Rate Limit zu belasten)');

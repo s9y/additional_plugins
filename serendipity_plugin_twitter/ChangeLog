@@ -14,6 +14,10 @@ Migrate Twitter API 1 calls to 1.1. Now requires OAuth even for simple timeline 
 * Twitter announcements/credentials etc. per author instead of
   only per central blog
 
+1.46 (brockhaus)
+--------------------------
+    * Sitebar plugin, PHP version, optional uses Twitter API 1.1 with OAuth now.
+
 1.43 (brockhaus)
 --------------------------
     * Announce article: check for real URL lenght, as twitter makes it longer sometimes. 

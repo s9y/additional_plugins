@@ -35,10 +35,16 @@ class serendipity_plugin_twitter extends serendipity_plugin {
         ));
         
         $configuration =  
-            array('title', 'number', 'service', 'username', 'showformat', 'toall_only', 'filter_all_user', 
+            array('title', 'number', 'service', 'username', 'showformat', 
+            'toall_only', 'filter_all_user', 'filter_rt', 
             'use_time_ago', 'dateformat', 'linktext',  
             'followme_link', 'followme_widget', 'followme_widget_counter','followme_widget_dark',
-            'cachetime', 'backup');
+            'cachetime', 'backup'
+            );
+        // Twitter API 1.1 is supported only via the event plugin
+        if (class_exists('serendipity_event_twitter')) {
+           $configuration = array_merge($configuration, array('twitter_api' , 'twitter_oauth'));
+        } 
 
         if (!class_exists('serendipity_event_twitter')) {
             $configuration = array_merge($configuration, array('event_not_installed'));
@@ -76,6 +82,24 @@ class serendipity_plugin_twitter extends serendipity_plugin {
                 $propbag->add('default', 'twitter.com');
                 break;
             
+            case 'twitter_api':
+                $propbag->add('type', 'radio');
+                $propbag->add('name',         PLUGIN_TWITTER_API11);
+                $propbag->add('description',  PLUGIN_TWITTER_API11_DESC);
+                $propbag->add('radio',        array(
+                    'value' => array('1.0', '1.1'),
+                    'desc'  => array('API 1.0 [depr]', 'API 1.1')
+                    ));
+                $propbag->add('default', '1.0');
+                break;
+            case 'twitter_oauth':
+                $propbag->add('name',         PLUGIN_TWITTER_OAUTHACC);
+                $propbag->add('description',  PLUGIN_TWITTER_OAUTHACC_DESC);
+                $propbag->add('type',         'select');
+                $propbag->add('select_values', serendipity_plugin_twitter::getTwitterOauths());
+                $propbag->add('default',      '1');
+                break;
+
             case 'username':
                 $propbag->add('type', 'string');
                 $propbag->add('name', PLUGIN_TWITTER_USERNAME);
@@ -103,7 +127,12 @@ class serendipity_plugin_twitter extends serendipity_plugin {
                 $propbag->add('description', PLUGIN_TWITTER_FILTER_ALL_DESC);
                 $propbag->add('default', false);
                 break;
-            
+            case 'filter_rt': // filter native retweets
+                $propbag->add('type', 'boolean');
+                $propbag->add('name', PLUGIN_TWITTER_FILTER_RT);
+                $propbag->add('description', PLUGIN_TWITTER_FILTER_RT_DESC);
+                $propbag->add('default', true);
+                break;
             case 'followme_link':
                 $propbag->add('type', 'boolean');
                 $propbag->add('name', PLUGIN_TWITTER_FOLLOWME_LINK);
@@ -231,16 +260,20 @@ class serendipity_plugin_twitter extends serendipity_plugin {
             $timelineurl = 'http://identi.ca/api/statuses/user_timeline/' . $username . '.json?callback=' . $JSONcallback . '&amp;count=' . $number;
             $api = new Twitter(true);
         }
-        else
+        else // if ($this->get_config('twitter_api','1.0') == '1.0')
         {
             $followme_url = 'http://twitter.com/' . $username;
             $service_url = 'http://twitter.com';
             $status_url = 'http://twitter.com/' . $username . '/statuses/';
             $JSONcallback = 'twitterCallback2';
             $timelineurl = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $username . '&amp;count=' . $number . '&amp;callback=' . $JSONcallback;
-
             $api = new Twitter(false);
         }
+        /*
+        else {
+            $api = new Twitter(false); // We only need Twitter object for replacements
+        }
+        */
 
         if (!$dateformat || strlen($dateformat) < 1) {
             $dateformat = '%A, %B %e %Y';
@@ -250,11 +283,14 @@ class serendipity_plugin_twitter extends serendipity_plugin {
 
             $cache_user = md5($service) . md5($username);
             $cachefile = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . "/twitterresult.$cache_user.json";
-
+            
             // If the Event Plugin is not installed, we have to fill the cachefile on our own..
             // To immidiately display a result, the file_exists check is added.
             if (!class_exists('serendipity_event_twitter') || !file_exists($cachefile)) {
-                $this->updateTwitterTimelineCache($cachefile);
+                // If we have twitter using API 1.1 the sidebarplugin *needs* the eventplugin to update
+                if ($this->get_config('service','twitter.com') == 'identi.ca' || $this->get_config('twitter_api','1.0') == '1.0') {
+                    $this->updateTwitterTimelineCache($cachefile);
+                }
             }
             
             // Get xml from cache:
@@ -359,7 +395,19 @@ class serendipity_plugin_twitter extends serendipity_plugin {
             $number = 50; // Fetch many in the hope, that there are enough globals with it.
         }
         $cachetime      = $this->get_config('cachetime', 300);
-        return "_{$service}_{$username}_{$number}_{$cachetime}";
+        $suffix = "_{$service}_{$username}_{$number}_{$cachetime}";
+        if ($this->get_config('twitter_api', '1.0') == '1.1') {
+            $idx = $this->get_config('twitter_oauth',0,FALSE);
+            if (!empty($idx)) {
+                $suffix = "{$suffix}_{$idx}_" . md5($this->pluginSecret() . "_{$idx}");
+            }
+            // This is relevant only for API 1.1
+            if (!serendipity_db_bool($this->get_config('filter_rt', true))) {
+                $suffix = "{$suffix}_r";
+            }
+        }
+        
+        return $suffix;
     }
     
     function updateTwitterTimelineCache($cachefile){
@@ -583,5 +631,41 @@ class serendipity_plugin_twitter extends serendipity_plugin {
         return $pluginPath;
         
     }
+    
+    static function get_config_event($name, $defaultvalue = null) {
+        global $serendipity;
+        
+        $db_event_search = "serendipity_event_twitter:%/" . $name;
+        $r = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE name like '" . $db_event_search . "' LIMIT 1", true);
+        if (is_array($r)) {
+            return $r[0];
+        } else {
+            return $defaultvalue;
+        }
+        
+    }
+    
+    static function getTwitterOauths() {
+        $idcount = serendipity_plugin_twitter::get_config_event('id_count');
+        if (empty($idcount)) {
+            return array();
+        }
+        $twitter_oauths = array();
+        for ($idx=1; $idx<=$idcount; $idx++) {
+            $suffix = $idx==1?'':$idx;
+            $service = serendipity_plugin_twitter::get_config_event('id_service' . $suffix);
+            if ($service == "twitter") {
+                $oautKey = serendipity_plugin_twitter::get_config_event('twitteroa_consumer_secret' . $suffix);
+                if (!empty($oautKey)) {
+                    $twitter_oauths[$idx] = serendipity_plugin_twitter::get_config_event('twittername' . $suffix);
+                }
+            }
+        }
+        return $twitter_oauths;
+    }
+    
+    function pluginSecret() {
+        return serendipity_event_twitter::pluginSecret();
+    } 
 
 }

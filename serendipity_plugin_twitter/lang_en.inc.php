@@ -197,3 +197,10 @@ You have to be logged out or logged in with the <b>matching twitter account</b> 
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_ARTICLES_NO_DESC', 'Enabled means, a new blog entry must explicitly be published to a microservice. Disabled means, by default an entry will get published to the microservice.');
 
 @define('PLUGIN_EVENT_TWITTER_GENERALCONSUMER',        '<h3>Your own twitter client</h3>Per default the plugin uses a twitter client named \'s9y\'. You may <a href="https://dev.twitter.com/apps" target="_blank">register your own client</a> and setup the consumer key and secret of your client here if you like.');
+
+@define('PLUGIN_TWITTER_FILTER_RT',                    	'Filter native retweets');
+@define('PLUGIN_TWITTER_FILTER_RT_DESC',               	'Should native retweets be filtered? (only for Twitter API 1.1, API 1.0 will always filter)');
+@define('PLUGIN_TWITTER_API11',                    		'Use OAuth Twitter API 1.1');
+@define('PLUGIN_TWITTER_API11_DESC',               		'Twitter API 1.0 is depreciated and will be closed 2013. So you should switch to API 1.1. But this requires to configure at least one OAuth connection in the main microblogging plugin. If you find some accout in the selector below, you already have done this.');
+@define('PLUGIN_TWITTER_OAUTHACC',                    	'OAuth acc to be used by this plugin');
+@define('PLUGIN_TWITTER_OAUTHACC_DESC',               	'The new OAuth Twitter API needs to be called using an OAuthorized twitter acc. This acc will be the one to use for rate limiting, too. You may use any acc owned by you, an acc never used anywhere else for example in order to have a seperate rate limit for this plugin.');

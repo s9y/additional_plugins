@@ -24,7 +24,7 @@ require_once dirname(__FILE__) . '/classes/TwitterPluginFileAccess.php';
 require_once dirname(__FILE__) . '/classes/twitter_entry_defs.include.php';
 
 // writes a debug log into templates_c
-@define('PLUGIN_TWITTER_DEBUG', TRUE);
+@define('PLUGIN_TWITTER_DEBUG', FALSE);
 
 // Consumer settings for the S9Y webapp
 @define('PLUGIN_TWITTER_OAUTH_TWITTER_CONSUMERKEY', 	'ScXsM6UiDU1nDl8u6tacrw');
@@ -1755,19 +1755,13 @@ a.twitter_update_time {
         global $serendipity;
         require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
         
-        $this->log("parts: " . print_r($parts,true));
-        
         if (count($parts)<5) return time() + (60 * 60); // params corrupted next try allowed one minute later 
         
         // Do we need to do OAuth?
         if (count($parts)>6) {
-            $this->log("NEW OUATH FETCH");
             $idx_twitter = $parts[5];
-            $this->log("idx: $idx_twitter");
             $idxmd5 = $parts[6];
-            $this->log("idxmd5: $idxmd5");
             $idxmd5_test = md5(serendipity_event_twitter::pluginSecret() . "_{$idx_twitter}");
-            $this->log("$idxmd5=?=$idxmd5_test");
             if ($idxmd5_test != $idxmd5) { // Seems to be a hack!
                 return time() + (60 * 60); // params corrupted next try allowed one minute later
             }
@@ -1797,14 +1791,12 @@ a.twitter_update_time {
             $error=200; // Default is: All OK
             
             if (!empty($idx_twitter)) {
-                $this->log("Loading timeline via OAUTH");
                 $search_twitter_uri = 'http://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=' . $username . '&count=' . $number . '&trim_user=true';
                 if (!$show_rt) $search_twitter_uri .= '&include_rts=false';
                 if ($idx_twitter=='1') $idx_twitter=''; // First cfg is saved with empty suffix!
                 $connection = $this->twitteroa_connect($idx_twitter);
                 $connection->decode_json = false;
                 $response = $connection->get($search_twitter_uri);
-                $this->log(print_r(json_decode($response), true));
             }
             else {
                 if ($service == 'identi.ca')

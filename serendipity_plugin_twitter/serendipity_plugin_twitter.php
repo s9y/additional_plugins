@@ -225,6 +225,12 @@ class serendipity_plugin_twitter extends serendipity_plugin {
 
         // Remove Cachefile
         @unlink($cachefile);
+        
+        // Recreate cache
+        serendipity_request_start();
+        $title = "#caching#";
+        $this->generate_content($title);
+        serendipity_request_end();
     }
     
     function output($out) {
@@ -237,7 +243,9 @@ class serendipity_plugin_twitter extends serendipity_plugin {
 
     function generate_content(&$title) {
         global $serendipity;
-
+        
+        $hideDisplay = "#caching#" == $title; 
+        
         $number         = $this->get_config('number');
         $service        = $this->get_config('service', 'twitter.com');
         $username       = $this->get_config('username');
@@ -269,11 +277,6 @@ class serendipity_plugin_twitter extends serendipity_plugin {
             $timelineurl = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $username . '&amp;count=' . $number . '&amp;callback=' . $JSONcallback;
             $api = new Twitter(false);
         }
-        /*
-        else {
-            $api = new Twitter(false); // We only need Twitter object for replacements
-        }
-        */
 
         if (!$dateformat || strlen($dateformat) < 1) {
             $dateformat = '%A, %B %e %Y';
@@ -338,30 +341,34 @@ class serendipity_plugin_twitter extends serendipity_plugin {
             }
             $str_output[] = '</ul>';
             // Display only, if we have something meaningful:
-            if (count($str_output)>2) {
+            if (!$hideDisplay && count($str_output)>2) {
                 $output = implode('', $str_output);
                 $this->output($output);
             }
             
         } else {
-            echo '<ul id="twitter_update_list"><li style="display: none"></li></ul>' . "\n";            
-            echo '<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>' . "\n";
-            echo '<script type="text/javascript" src="' . $timelineurl . '"></script>';
-        }  
-        if (serendipity_db_bool($this->get_config('followme_link', false))) {
-            echo '<p id="twitter_follow_me"><a href="' . $followme_url . '" class="twitter_follow_me">' . PLUGIN_TWITTER_FOLLOWME_LINK_TEXT . '</a></p>' . "\n";            
-        }
-        if ($service == 'twitter.com' && serendipity_db_bool($this->get_config('followme_widget', false))) {
-            $extra_style = '';
-            if (serendipity_db_bool($this->get_config('followme_widget_dark', false))) {
-                $extra_style .= ' data-button="grey" data-text-color="#FFFFFF" data-link-color="#00AEFF"';
+            if (!$hideDisplay) {
+                echo '<ul id="twitter_update_list"><li style="display: none"></li></ul>' . "\n";            
+                echo '<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>' . "\n";
+                echo '<script type="text/javascript" src="' . $timelineurl . '"></script>';
             }
-            if (!serendipity_db_bool($this->get_config('followme_widget_counter', true))) {
-                $extra_style .= '  data-show-count="false"';
+        } 
+        if (!$hideDisplay) {
+            if (serendipity_db_bool($this->get_config('followme_link', false))) {
+                echo '<p id="twitter_follow_me"><a href="' . $followme_url . '" class="twitter_follow_me">' . PLUGIN_TWITTER_FOLLOWME_LINK_TEXT . '</a></p>' . "\n";            
             }
-            echo '<a href="https://twitter.com/'.$username.'" class="twitter-follow-button"'.$extra_style.'>Follow @'.$username.'</a><script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>';
+            if ($service == 'twitter.com' && serendipity_db_bool($this->get_config('followme_widget', false))) {
+                $extra_style = '';
+                if (serendipity_db_bool($this->get_config('followme_widget_dark', false))) {
+                    $extra_style .= ' data-button="grey" data-text-color="#FFFFFF" data-link-color="#00AEFF"';
+                }
+                if (!serendipity_db_bool($this->get_config('followme_widget_counter', true))) {
+                    $extra_style .= '  data-show-count="false"';
+                }
+                echo '<a href="https://twitter.com/'.$username.'" class="twitter-follow-button"'.$extra_style.'>Follow @'.$username.'</a><script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>';
+            }
+            
         }
-        
         if ($showformat == 'PHP') {
             // If the twitter event plugin is installed, too, save cache file in background.
             // When twitter is blocking, the blog isn't when using this background caching.
@@ -372,10 +379,8 @@ class serendipity_plugin_twitter extends serendipity_plugin {
                 $png_url = $pluginurl . '/cacheplugintwitter' .$this->cache_img_link_pars();
                 echo '<img src="' . $png_url . '" width="1" height="1" alt="" class="twitter_plugin_cache_png" style="float:right;"/>';
             }
-
-            
         }
-        
+
         if (serendipity_db_bool($this->get_config('backup')) && $service == 'twitter.com') {
             $last_backup = $this->get_config('last_backup', 0);
             if (date('Ymd') == date('Ymd', $last_backup)) {

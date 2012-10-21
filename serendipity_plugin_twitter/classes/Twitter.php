@@ -59,6 +59,7 @@ class Twitter {
             return "http://identi.ca/api/";
         }
         else {
+             //TODO: Change Twtter API to 1.1
             return "http://twitter.com/";
         }
     }
@@ -73,6 +74,7 @@ class Twitter {
             return "http://identi.ca/api/search";
         }
         else {
+             //TODO: Change Twtter API to 1.1
             return "http://search.twitter.com/search";
         }
     }
@@ -89,11 +91,10 @@ class Twitter {
      * url_autor, url_img, url_tweet
      * 
      * @param string search urldecoded query
-     * @param string[] checkresultfor As twitter is casinsensitive, here you may specify al list of strings, from what *one* string must be found inside the result
      * @param entry[] a prior search result. Search result will be added, if not null or empty
      * @return entry[] results as array of entry arrays or false, if an error occured
      */
-    function search($search, $checkresultfor=null, $entries=null, $fetchall=true) {
+    function search($search, $entries=null, $fetchall=true) {
         require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
         
         $search_uri = $this->get_search_url() . '.json?q=' . $search;
@@ -107,7 +108,7 @@ class Twitter {
 
         $paging = true;
         
-        while ($paging) {        
+        while ($paging) {
         
             if (function_exists('serendipity_request_start')) serendipity_request_start();
             $req = new HTTP_Request($search_uri, array('timeout' => 20, 'readTimeout' => array(5,0)));
@@ -151,70 +152,40 @@ class Twitter {
      * @param string since_id Limit results to entries starting after since_id 
      * @param boolean search_or search using OR or AND
      */
-    function search_multiple($keywords, $since_id = null, $search_or = true) {
+    static function search_multiple($keyword, $since_id = null, $search_or = true) {
         $entries = array();
-        $query = '';
-        $queries = array();
         
         // Filter: tweeds containing links only. 
         // This Filter doesn't work at the moment, will produce an empty result!
         // It is not neccessary for us, only a hint for twitter.
         // rpp: results per page
-        $filter = '&rpp=100'; // +filter:links
+        $filter = ''; // +filter:links
         if (!empty($since_id)) {
             $filter .= "&since_id=$since_id";
         }
         
+        $query = $keyword; //urlencode($keyword);
+        
         // Filter will be added to the query, so substract it.
         $max_query_len = 139 - strlen($filter);
         
-        // Optimize twitter query with OR urls. But a query may not be longer than 140 chars! So split it.
-        foreach ($keywords as $keyword) {
-            $keyword = trim($keyword);
-            if (empty($keyword)) continue; // something whent wrong while fetching shorturls
-            $keyword = preg_replace("/^.*?\:\/\//i", "", $keyword); // twitter doesn't search http
-            $keyword_encoded = urlencode($keyword);
-            if (empty($query)) $query = $keyword_encoded;
-            else {
-                $test = $query . '+OR+' .$keyword_encoded;
-                if (strlen($test)> $max_query_len) {
-                    $queries[] = $query;
-                    $query = $keyword_encoded;
-                }
-                else {
-                    $query = $test;
-                }
-            }
-        }
-        
-        // Add query, something is left for sure!
-        $queries[] = $query;
-
         // Now execute the queries        
         $api = new Twitter();
-        foreach ($queries as $q) {
-            $continue = true;
-            $newentries = $api->search($q . $filter, $keywords, $entries);
-            if ($newentries===false) { // Error occured, mostly resultet in an twitter overload!
-                $continue = false;
-                echo "<b>Search qry</b>: ".$api->get_search_url()."?q={$q}{$filter}<br/>";
-                echo "<b>Error code</b>: " . $api->twitter_errors[$api->last_error] . " ({$api->last_error})<br/>";
-                if (!empty($api->error_response)) {
-                    $response = json_decode($api->error_response);
-                    if (!empty($response->error)) $errormsg=$response->error;
-                    else {
-                        $errormsg=$api->error_response;
-                        // TODO Twitter Fix: No result delivers http error at the moment!
-                        if ("Exceptions::NoResults"==$api->error_response) {
-                            $continue = true;
-                        }
-                    }
-                    echo "<b>Error Resp</b>: {$errormsg}<br/>";
+        $newentries = $api->search($query . $filter, $entries);
+        if ($newentries===false) { // Error occured, mostly resultet in an twitter overload!
+            echo "<b>Search qry</b>: ".$api->get_search_url().".json?q={$query}{$filter}<br/>";
+            echo "<b>Error code</b>: " . $api->twitter_errors[$api->last_error] . " ({$api->last_error})<br/>";
+            if (!empty($api->error_response)) {
+                $response = json_decode($api->error_response);
+                if (!empty($response->error)) $errormsg=$response->error;
+                else {
+                    $errormsg=$api->error_response;
                 }
-                if (!$continue) break;
+                echo "<b>Error Resp</b>: {$errormsg}<br/>";
             }
-            $entries = $newentries;
+            $newentries = array();
         }
+        $entries = $newentries;
         return $entries;
     }
     

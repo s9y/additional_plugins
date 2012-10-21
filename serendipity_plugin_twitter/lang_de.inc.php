@@ -201,6 +201,11 @@ Du must aktuell bei Twitter entweder ausgeloggt oder mit dem <b>richtigen Twitte
 @define('PLUGIN_TWITTER_FILTER_RT',                    	'Native Retweets filtern');
 @define('PLUGIN_TWITTER_FILTER_RT_DESC',               	'Sollen native Retweets gefiltert werden? (Nur für die Twitter API 1.1, API 1.0 filtert diese immer heraus)');
 @define('PLUGIN_TWITTER_API11',                    		'OAuth Twitter API 1.1 benutzen');
-@define('PLUGIN_TWITTER_API11_DESC',               		'Die Twitter API 1.0 ist "depreciated" und wird 2013 eingestellt. Also solltest Du die API 1.1 benutzen. Allerdings muss dafür bereits eine OAuth Verbindung im Hauptplugin zu Twitter hergestellt worden sein. Wenn Du in der Auswahl hier drunter enien Account siehst, dann wurde das bereits erledigt.');
+@define('PLUGIN_TWITTER_API11_DESC',               		'Die Twitter API 1.0 ist "auslaufend" und wird 2013 eingestellt. Also solltest Du die API 1.1 benutzen. Allerdings muss dafür bereits eine OAuth Verbindung im Hauptplugin zu Twitter hergestellt worden sein. Wenn Du in der Auswahl hier drunter enien Account siehst, dann wurde das bereits erledigt.');
 @define('PLUGIN_TWITTER_OAUTHACC',                    	'OAuth Verbindung für das Plugin');
 @define('PLUGIN_TWITTER_OAUTHACC_DESC',               	'Das Plugin benötigt für die neue OAuth Twitter API eine OAuth Verbindung. Der Account, der hier ausgewählt wird, wird auch der sein, auf dessen Rate Limit Calls des Plugins gerechnet werden. Der Account muss Dir gehören, kann aber beliebig sein (also zum Beispiel einer nur für das Plugin, um nur dort das Rate Limit zu belasten)');
+
+@define('PLUGIN_EVENT_TWITTER_API_TYPE',                'Twitter API Version');
+@define('PLUGIN_EVENT_TWITTER_API_TYPE_DESC',           'Die Twitter API 1.0 ist "auslaufend" und wird 2013 eingestellt. Also solltest Du die API 1.1 benutzen. Allerdings muss dafür bereits (bei Benutzerkonten) eine OAuth Verbindung zu Twitter hergestellt und hier eingestellt worden sein.');
+@define('PLUGIN_EVENT_TWITTER_API_10',                  'API 1.0 [auslaufend]');
+@define('PLUGIN_EVENT_TWITTER_API_11',                  'API 1.1 OAuth');

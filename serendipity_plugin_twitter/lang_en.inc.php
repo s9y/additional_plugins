@@ -203,4 +203,11 @@ You have to be logged out or logged in with the <b>matching twitter account</b> 
 @define('PLUGIN_TWITTER_API11',                    		'Use OAuth Twitter API 1.1');
 @define('PLUGIN_TWITTER_API11_DESC',               		'Twitter API 1.0 is depreciated and will be closed 2013. So you should switch to API 1.1. But this requires to configure at least one OAuth connection in the main microblogging plugin. If you find some accout in the selector below, you already have done this.');
 @define('PLUGIN_TWITTER_OAUTHACC',                    	'OAuth acc to be used by this plugin');
-@define('PLUGIN_TWITTER_OAUTHACC_DESC',               	'The new OAuth Twitter API needs to be called using an OAuthorized twitter acc. This acc will be the one to use for rate limiting, too. You may use any acc owned by you, an acc never used anywhere else for example in order to have a seperate rate limit for this plugin.');
+@define('PLUGIN_TWITTER_OAUTHACC_DESC',               	'The new OAuth Twitter API needs to be called using an OAuthorized twitter acc. This acc will be used for rate limiting, too. You may use any acc owned by you, an acc never used anywhere else for example in order to have a seperate rate limit for this plugin.');
+
+@define('PLUGIN_EVENT_TWITTER_API_TYPE',                 'Twitter API Version');
+@define('PLUGIN_EVENT_TWITTER_API_TYPE_DESC',            'Twitter API 1.0 is depreciated and will be closed 2013. So you should switch to API 1.1. But this requires to configure at least one OAuth connection (in the identities settings).');
+@define('PLUGIN_EVENT_TWITTER_API_10',                   'API 1.0 [depreciated]');
+@define('PLUGIN_EVENT_TWITTER_API_11',                   'API 1.1 OAuth');
+
+

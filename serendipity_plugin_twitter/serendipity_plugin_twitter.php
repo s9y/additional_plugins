@@ -96,7 +96,7 @@ class serendipity_plugin_twitter extends serendipity_plugin {
                 $propbag->add('name',         PLUGIN_TWITTER_OAUTHACC);
                 $propbag->add('description',  PLUGIN_TWITTER_OAUTHACC_DESC);
                 $propbag->add('type',         'select');
-                $propbag->add('select_values', serendipity_plugin_twitter::getTwitterOauths());
+                $propbag->add('select_values', serendipity_event_twitter::getTwitterOauths());
                 $propbag->add('default',      '1');
                 break;
 
@@ -635,38 +635,6 @@ class serendipity_plugin_twitter extends serendipity_plugin {
         
         return $pluginPath;
         
-    }
-    
-    static function get_config_event($name, $defaultvalue = null) {
-        global $serendipity;
-        
-        $db_event_search = "serendipity_event_twitter:%/" . $name;
-        $r = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE name like '" . $db_event_search . "' LIMIT 1", true);
-        if (is_array($r)) {
-            return $r[0];
-        } else {
-            return $defaultvalue;
-        }
-        
-    }
-    
-    static function getTwitterOauths() {
-        $idcount = serendipity_plugin_twitter::get_config_event('id_count');
-        if (empty($idcount)) {
-            return array();
-        }
-        $twitter_oauths = array();
-        for ($idx=1; $idx<=$idcount; $idx++) {
-            $suffix = $idx==1?'':$idx;
-            $service = serendipity_plugin_twitter::get_config_event('id_service' . $suffix);
-            if ($service == "twitter") {
-                $oautKey = serendipity_plugin_twitter::get_config_event('twitteroa_consumer_secret' . $suffix);
-                if (!empty($oautKey)) {
-                    $twitter_oauths[$idx] = serendipity_plugin_twitter::get_config_event('twittername' . $suffix);
-                }
-            }
-        }
-        return $twitter_oauths;
     }
     
     function pluginSecret() {

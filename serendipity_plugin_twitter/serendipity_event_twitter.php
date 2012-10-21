@@ -17,6 +17,7 @@ include dirname(__FILE__) . '/lang_en.inc.php';
 include dirname(__FILE__) . '/plugin_version.inc.php';
 
 require_once dirname(__FILE__) . '/classes/Twitter.php';
+require_once dirname(__FILE__) . '/classes/TwitterOAuthApi.php';
 require_once dirname(__FILE__) . '/classes/RedirectCheck.php';
 require_once dirname(__FILE__) . '/classes/UrlShortener.php';
 require_once dirname(__FILE__) . '/classes/TwitterPluginDbAccess.php';
@@ -109,7 +110,9 @@ class serendipity_event_twitter extends serendipity_plugin {
                     'tweeter_title', 'tweeter_show', 'tweeter_history', 'tweeter_history_count', 'tweeter_timeline'
                  );
         $config_tweetback = array(
-                    'tweetback_title', 'do_tweetbacks', 'tweetback_type', 'tweetback_moderate', 'ignore_tweetbacks_by_name', 'tweetback_url',  
+                    'tweetback_title', 'do_tweetbacks',
+                    'twitter_api', 'twitter_generic_acc', 
+                    'tweetback_type', 'tweetback_moderate', 'ignore_tweetbacks_by_name', 'tweetback_url',  
                     'tweetback_check_freq'
                  );
                  
@@ -481,7 +484,25 @@ class serendipity_event_twitter extends serendipity_plugin {
                 break;
                 
 // Tweetbacks 
-
+            case 'twitter_api' :
+                $apis = array(
+                    'api10'      => PLUGIN_EVENT_TWITTER_API_10,
+                    'api11'      => PLUGIN_EVENT_TWITTER_API_11,
+                );
+                $propbag->add('type',           'select');
+                $propbag->add('name',           PLUGIN_EVENT_TWITTER_API_TYPE);
+                $propbag->add('description',    PLUGIN_EVENT_TWITTER_API_TYPE_DESC);
+                $propbag->add('select_values',  $apis);
+                $propbag->add('default',        'api10');
+                break;
+            case 'twitter_generic_acc':
+                $propbag->add('name',         PLUGIN_TWITTER_OAUTHACC);
+                $propbag->add('description',  PLUGIN_TWITTER_OAUTHACC_DESC);
+                $propbag->add('type',         'select');
+                $propbag->add('select_values', serendipity_event_twitter::getTwitterOauths());
+                $propbag->add('default',      '1');
+                break;
+                
             case 'tweetback_title':
                 $propbag->add('type',           'content');
                 $propbag->add('default',        '<h3>' . PLUGIN_EVENT_TWITTER_TWEETBACKS_TITLE . '</h3>');
@@ -787,6 +808,12 @@ class serendipity_event_twitter extends serendipity_plugin {
                         }
                         return true;
                     }
+                    else if ($command=="gtweetback.png") {
+                        $nextcheck = $this->check_tweetbacks_global();
+                        if (empty($nextcheck)) $nextcheck = time() + (30 * 60); // Default for hackers 
+                        $this->show_img(dirname(__FILE__) . '/img/pixel.png', $nextcheck, 'image/png');
+                        return true;
+                    }
                     else if ($command == "twitteroa-del") {
                         $this->twitteroalog($command);
 
@@ -922,12 +949,6 @@ class serendipity_event_twitter extends serendipity_plugin {
                             </div>');
                         }
 
-                        return true;
-                    }
-                    else if ($command=="gtweetback.png") {
-                        $nextcheck = $this->check_tweetbacks_global();
-                        if (empty($nextcheck)) $nextcheck = time() + (30 * 60); // Default for hackers 
-                        $this->show_img(dirname(__FILE__) . '/img/pixel.png', $nextcheck, 'image/png');
                         return true;
                     }
                     return false;
@@ -1280,13 +1301,20 @@ a.twitter_update_time {
     }
     
     function search($article_url, $old_since_id) {
-        // Search Twitter
-        $shorturls  = $this->create_short_urls($article_url);
-        $api = new Twitter(true);
-        $entries = $api->search_multiple($shorturls, $old_since_id);
-
+        if ($this->get_config('twitter_api', 'api10') == 'api10') {
+            $entries = Twitter::search_multiple($article_url, $old_since_id);
+        }
+        else {
+            $idx = $this->get_config('twitter_generic_acc', '1');
+            if ($idx=='1') $idx = '';
+            $connection = $this->twitteroa_connect($idx);
+            $entries = TwitterOAuthApi::search_multiple($connection, $article_url, $old_since_id);
+        }
+        
+        
         return array_reverse  ( $entries, true );
     }
+    
     function comment_url($entry) {
         $use_url_kind = $this->get_config('tweetback_url','status');
         
@@ -1480,15 +1508,8 @@ a.twitter_update_time {
             $status = $api->update($account_name, $account_pwd, $update, $geo_lat, $geo_long);
         } else {
             $connection = $this->twitteroa_connect($account_index);
-
-            /* statuses/update */
-            $parameters = array('status' => $update);
-            if (!empty($geo_lat) && !empty($geo_long)) {
-                $parameters['lat'] = $geo_lat;
-                $parameters['long'] = $geo_long;
-                $parameters['display_coordinates'] = 'true'; 
-            }
-            $status = $connection->post('statuses/update', $parameters);
+            $api = new TwitterOAuthApi($connection);
+            $status = $api->update($update, $geo_lat, $geo_long);
         }
         
         // Information about status update
@@ -1529,7 +1550,7 @@ a.twitter_update_time {
     }
     
     /**
-     * adds an "check tweetbacks" to footer, if logged in 
+     * adds tweetthis, dentthis and "check tweetbacks" (if logged in) to footer 
      */
     function display_entry(&$eventData, $addData) {
         global $serendipity;
@@ -1929,13 +1950,8 @@ a.twitter_update_time {
                             $twit = $api->update( $account_name, $account_pwd, $update );
                         } else {
                             $connection = $this->twitteroa_connect($acc_number);
-
-                            /* statuses/update */
-                            $parameters = array('status' => $update);
-                            $status = $connection->post('statuses/update', $parameters);
-                            if (PLUGIN_TWITTER_DEBUG) {
-                                print_r($status);
-                            }
+                            $api = new TwitterOAuthApi($connection);
+                            $status = $api->update($update);
                             $twit = true;
                         }
 
@@ -2062,4 +2078,34 @@ a.twitter_update_time {
     static function pluginSecret() {
         return md5(dirname(__FILE__));
     } 
+    static function getTwitterOauths() {
+        $idcount = serendipity_event_twitter::get_config_event('id_count');
+        if (empty($idcount)) {
+            return array();
+        }
+        $twitter_oauths = array();
+        for ($idx=1; $idx<=$idcount; $idx++) {
+            $suffix = $idx==1?'':$idx;
+            $service = serendipity_event_twitter::get_config_event('id_service' . $suffix);
+            if ($service == "twitter") {
+                $oautKey = serendipity_event_twitter::get_config_event('twitteroa_consumer_secret' . $suffix);
+                if (!empty($oautKey)) {
+                    $twitter_oauths[$idx] = serendipity_event_twitter::get_config_event('twittername' . $suffix);
+                }
+            }
+        }
+        return $twitter_oauths;
+    }
+    static function get_config_event($name, $defaultvalue = null) {
+        global $serendipity;
+        
+        $db_event_search = "serendipity_event_twitter:%/" . $name;
+        $r = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE name like '" . $db_event_search . "' LIMIT 1", true);
+        if (is_array($r)) {
+            return $r[0];
+        } else {
+            return $defaultvalue;
+        }
+        
+    }
 }

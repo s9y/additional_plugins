@@ -204,7 +204,7 @@ class Twitter {
 	"short_url_length":20
 }
      */
-    static function get_twitter_config() {
+    function get_twitter_config() {
         require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
         $config_url = "https://api.twitter.com/1/help/configuration.json";
 

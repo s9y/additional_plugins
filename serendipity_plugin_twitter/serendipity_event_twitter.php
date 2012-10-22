@@ -1435,7 +1435,8 @@ a.twitter_update_time {
         $now = time();
         $daybefore = $now - (24 * 60 * 60); // One day in seconds
         if (empty($last_config_check) || $last_config_check<$daybefore) {
-            $config = Twitter::get_twitter_config();
+            $api = new Twitter();
+            $config = $api->get_twitter_config();
             if (!empty($config)) {
                 $max_http = $config->short_url_length;
                 $max_https = $config->short_url_length_https;

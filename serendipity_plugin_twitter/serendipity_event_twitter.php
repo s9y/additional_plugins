@@ -1975,6 +1975,14 @@ a.twitter_update_time {
             $http_length_str = str_repeat("=", $this->get_config('twitter_config_http_len'));
             $https_length_str = str_repeat("=", $this->get_config('twitter_config_https_len'));
             
+            // Hide shorten url input, if no url shorter is used!
+            if ('raw' == $this->get_config('anounce_url_service','7ax.de')) {
+                echo "<style type=\"text/css\">div#serendipity_admin_tweeter_shorturl {display: none;}</style>";
+                @define('PLUGIN_EVENT_TWITTER_TWEETER_SHORTEN_OR_UPDATE',  PLUGIN_EVENT_TWITTER_TWEETER_UPDATE);
+            }
+            else {
+                @define('PLUGIN_EVENT_TWITTER_TWEETER_SHORTEN_OR_UPDATE',  PLUGIN_EVENT_TWITTER_TWEETER_SHORTEN . ' / ' . PLUGIN_EVENT_TWITTER_TWEETER_UPDATE);
+            }                
             // Display the form
             include dirname(__FILE__) . '/tweeter/tweeter_client.inc.php';
             

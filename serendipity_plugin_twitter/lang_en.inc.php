@@ -84,6 +84,7 @@
 @define('PLUGIN_EVENT_TWITTER_TWEETER_FORM',            'Enter your tweet:');
 @define('PLUGIN_EVENT_TWITTER_TWEETER_CHARSLEFT',       'chars left');
 @define('PLUGIN_EVENT_TWITTER_TWEETER_SHORTEN',         'Shorten URL');
+@define('PLUGIN_EVENT_TWITTER_TWEETER_UPDATE',          'Update');
 @define('PLUGIN_EVENT_TWITTER_TWEETER_STORED',          'Tweet stored ');
 @define('PLUGIN_EVENT_TWITTER_TWEETER_STOREFAIL',       'Tweet couldn\'t be stored! Twitter error: ');
 

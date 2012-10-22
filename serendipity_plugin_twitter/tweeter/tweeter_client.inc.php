@@ -25,8 +25,10 @@ var twitter_https_length_str = '<?php echo $https_length_str?>';
 <input id="tweeter_change_identity" name="tweeter_change_identity" value="change" type="submit" /><br/>
 <?php echo PLUGIN_EVENT_TWITTER_TWEETER_FORM; ?><span id="tweeeter_charcount">140</span> <?php echo PLUGIN_EVENT_TWITTER_TWEETER_CHARSLEFT; ?>
  <textarea id="tweeter_tweet" rows="3" cols="40" id="tweet" name="tweet" onfocus="tweeter_char_count()" onkeydown="tweeter_char_count()" onkeyup="tweeter_char_count()" onkeypress="tweeter_char_count()"><?php if(isset($val_tweet)){ echo $val_tweet; } ?></textarea><br />
+ <div id="serendipity_admin_tweeter_shorturl">
  <label for="shorturl"><?php echo PLUGIN_EVENT_TWITTER_TWEETER_SHORTEN; ?>: </label><input type="text" id="shorturl" value="<?php echo empty($val_short) ? 'http://' : $val_short; ?>" name="shorturl"/><br />
- <input id="tweeter_submit" name="tweeter_submit" value="<?php echo PLUGIN_EVENT_TWITTER_TWEETER_SHORTEN; ?> / Update" type="submit" />
+ </div>
+ <input id="tweeter_submit" name="tweeter_submit" value="<?php echo PLUGIN_EVENT_TWITTER_TWEETER_SHORTEN_OR_UPDATE; ?>" type="submit" />
 </form>
 <?php if(isset($notice)) echo $notice; ?>
 <script type="text/javascript">

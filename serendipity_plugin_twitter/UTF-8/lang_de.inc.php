@@ -84,6 +84,7 @@
 @define('PLUGIN_EVENT_TWITTER_TWEETER_FORM',            'Tweet eingeben:');
 @define('PLUGIN_EVENT_TWITTER_TWEETER_CHARSLEFT',       'Zeichen übrig');
 @define('PLUGIN_EVENT_TWITTER_TWEETER_SHORTEN',         'URL kürzen');
+@define('PLUGIN_EVENT_TWITTER_TWEETER_UPDATE',          'Update');
 @define('PLUGIN_EVENT_TWITTER_TWEETER_STORED',          'Tweet gesichert. ');
 @define('PLUGIN_EVENT_TWITTER_TWEETER_STOREFAIL',       'Tweet konnte nicht übertragen werden! Fehler: ');
 

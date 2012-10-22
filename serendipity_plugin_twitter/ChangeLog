@@ -19,6 +19,7 @@ Migrate Twitter API 1 calls to 1.1. Now requires OAuth even for simple timeline 
     * Check tweetbacks (search) converted to API 1.1 (optional). You need to choose an OAuth acc handling the search.
     * Already implemented OAuth function will call API 1.1 instead of API 1.0 now.
     * Sitebar plugin, PHP version, optional uses Twitter API 1.1 with OAuth now.
+    * Tweeter hides URL shortener functionality now if URL shortener is set to "uncompressed".
 
 1.43 (brockhaus)
 --------------------------

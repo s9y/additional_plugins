@@ -2,6 +2,7 @@
 # Copyright by Aaron Axelsen
 # Modevia Web Services - http://www.modevia.com
 # axelseaa [at] modevia [dot] com
+# Damaged by Jesper Dramsch - http://www.dramsch.net
 
 if (IN_serendipity !== true) {
 	die("Don't Hack!");
@@ -91,7 +92,7 @@ class serendipity_plugin_feedburnersidebar extends serendipity_plugin {
 		global $serendipity;
 		$title = $this->get_config('title');
 		$feedid = $this->get_config('feedid');
-	if (empty($feedid) || !is_numeric($feedid)) {
+	if (empty($feedid)) {
 		echo "<p style='color:red;font-weight: bold;'>Numeric Feedburner ID Required!</p>";
   	} else {
 		$emailTitle = $this->get_config('email_title');
@@ -102,15 +103,15 @@ class serendipity_plugin_feedburnersidebar extends serendipity_plugin {
 			case 'none':
 				break;
 			case 'link':
-				$rv[] = '<a href="http://www.feedburner.com/fb/a/emailverifySubmit?feedId='.$feedid.'&amp;loc=en_US" target="_blank">'.$emailTitle.'</a>';
+				$rv[] = '<a href="http://feedburner.google.com/fb/a/mailverify?uri='.$feedid.'&amp;loc=en_US" target="_blank">'.$emailTitle.'</a>';
 				break;
 			case 'form':
-				$rv[] = '<form action="http://www.feedburner.com/fb/a/emailverify" 
-					method="post" target="popupwindow" onsubmit="window.open(\'http://www.feedburner.com/fb/a/emailverifySubmit?feedId='.$feedid.'\',
+				$rv[] = '<form action="http://feedburner.google.com/fb/a/mailverify" 
+					method="post" target="popupwindow" onsubmit="window.open(\'http://feedburner.google.com/fb/a/mailverify?uri='.$feedid.'\',
 					 \'popupwindow\', \'scrollbars=yes,width=550,height=520\');return true">';
 				$rv[] = '<p><label for="email">Enter your email address:</label></p>';
 				$rv[] = '<p><input type="text" style="width:140px" name="email" id="email" /></p>';
-				$rv[] = '<input type="hidden" value="http://feeds.feedburner.com/~e?ffid='.$feedid.'" name="url"/>';
+				$rv[] = '<input type="hidden" value="'.$feedid.'" name="uri"/>';
 				$rv[] = '<input type="hidden" name="loc" value="en_US"/>';
 				$rv[] = '<input type="submit" value="Subscribe" />';
 				$rv[] = '</form>';

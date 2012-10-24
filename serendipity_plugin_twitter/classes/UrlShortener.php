@@ -71,6 +71,9 @@ class UrlShortener {
             case 'twurl':
                 UrlShortener::shorten_via_twurl( $url, $shorturls );
                 break;
+            case 'piratly':
+                UrlShortener::shorten_via_piratly( $url, $shorturls );
+                break;
             // old removed service
             case 'snipr': 
             case 'tr.im':
@@ -115,7 +118,12 @@ class UrlShortener {
         $url = urlencode($url);
         UrlShortener::shorten_via_simple($shorturls, '7ax.de', "http://7ax.de/api.php?url=$url");
     }
-
+    
+    function shorten_via_piratly( $url, &$shorturls ) {
+        $url = urlencode($url);
+        UrlShortener::shorten_via_simple($shorturls, 'piratly', "http://pirat.ly/shortener/createplain/0/?$url");
+    }
+    
     // is.gd returns different short urls for same URL! How to handle this?!
     // works *sometimes*
     function shorten_via_isgd( $url, &$shorturls ) {

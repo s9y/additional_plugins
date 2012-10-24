@@ -37,6 +37,7 @@ class serendipity_event_twitter extends serendipity_plugin {
             'raw'       => "uncompressed",
             '7ax.de'    => "7ax.de",
             'bitly'     => "bit.ly",
+            'piratly'	=> "pirat.ly",
             'jmp'       => "j.mp",
     		'tinyurl'   => "tinyurl.com",
             'isgd'      => "is.gd",

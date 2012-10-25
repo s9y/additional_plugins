@@ -3055,9 +3055,9 @@
 <description>Zeigt die aktuellsten Twitter-Einträge an</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Damian Luszczymak, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.45</version>
+  <version>1.46</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-10-19</date>
+  <date>2012-10-25</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="UTF-8">
@@ -3085,6 +3085,7 @@
 <file>json.php4.include.php</file>
 <file>twitter_entry_defs.include.php</file>
 <file>UrlShortener.php.rej</file>
+<file>TwitterOAuthApi.php</file>
 </dir>
 <dir name="documentation">
 <file>documentation.css</file>
@@ -3133,6 +3134,7 @@
     <file>serendipity_plugin_twitter/classes/json.php4.include.php</file>
     <file>serendipity_plugin_twitter/classes/twitter_entry_defs.include.php</file>
     <file>serendipity_plugin_twitter/classes/UrlShortener.php.rej</file>
+    <file>serendipity_plugin_twitter/classes/TwitterOAuthApi.php</file>
     <file>serendipity_plugin_twitter/documentation/documentation.css</file>
     <file>serendipity_plugin_twitter/img/it-micro-black.png</file>
     <file>serendipity_plugin_twitter/img/it-micro-white.png</file>

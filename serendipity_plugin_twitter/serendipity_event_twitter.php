@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_twitter.php,v 1.54 2012/06/14 00:33:33 garvinhicking Exp $
+<?php 
 
 // Contributed by Grischa Brockhaus <s9ycoder@brockha.us>
 

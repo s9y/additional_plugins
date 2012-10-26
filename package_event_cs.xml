@@ -8971,7 +8971,7 @@ aplikovány další typografické úpravy.</description>
 <release>
   <version>1.46</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2012-10-25</date>
+  <date>2012-10-26</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="UTF-8">

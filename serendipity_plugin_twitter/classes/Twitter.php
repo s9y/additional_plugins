@@ -1,4 +1,5 @@
-<?php # $Id$
+<?php 
+
 /*
  * Contributed by Grischa Brockhaus <s9ycoder@brockha.us>
  *

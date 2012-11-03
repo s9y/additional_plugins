@@ -87,7 +87,7 @@ class serendipity_event_twitter extends serendipity_plugin {
         $config_announce = array(
                     'announce_articles_title', 'announce_articles', 'announce_via_accounts', 
                     'announce_format', 'announce_with_tags', 'anounce_url_service', 'announce_articles_default_no',
-                    'announce_bitly_description', 'announce_bitly_login','announce_bitly_apikey'
+                    'announce_bitly_description', 'announce_bitly_login','announce_bitly_apikey','announce_piratly_description', 'announce_piratly_apikey' 
                  );
 
         $config_twitter = array(
@@ -484,7 +484,17 @@ class serendipity_event_twitter extends serendipity_plugin {
                 $propbag->add('default',        'R_0da49e0a9118ff35f52f629d2d71bf07');
                 break;
                 
-// Tweetbacks 
+            case 'announce_piratly_description':
+                $propbag->add('type',           'content');
+                $propbag->add('default',        PLUGIN_EVENT_TWITTER_ANNOUNCE_PIRATLYDESC);
+                break;
+            case 'announce_piratly_apikey':
+                $propbag->add('type',           'string');
+                $propbag->add('name',           PLUGIN_EVENT_TWITTER_ANNOUNCE_PIRATLYAPIKEY);
+                $propbag->add('default',        '0');
+                break;
+
+            // Tweetbacks 
             case 'twitter_api' :
                 $apis = array(
                     'api10'      => PLUGIN_EVENT_TWITTER_API_10,
@@ -727,12 +737,14 @@ class serendipity_event_twitter extends serendipity_plugin {
     
     function get_urlshortener() {
         $urlshortener = new UrlShortener();
-        $login = $this->get_config('announce_bitly_login');
-        $apikey = $this->get_config('announce_bitly_apikey');
-        $this->log("blogin:" .  $login . " bapi: " . $apikey);
-        $urlshortener->setBitlyLogin($login, $apikey);
+        $bitlylogin = $this->get_config('announce_bitly_login');
+        $bitlyapikey = $this->get_config('announce_bitly_apikey');
+        $piratlyapikey = $this->get_config('announce_piratly_apikey','0');
+        $this->log("blogin:" .  $bitlylogin . " bapi: " . $bitlyapikey);
+        $urlshortener->setBitlyLogin($bitlylogin, $bitlyapikey);
         $this->log("slogin:" .  $urlshortener->bitly_login . " sapi: " . $urlshortener->bitly_apikey);
-        return $urlshortener;        
+        $urlshortener->setPiratlyToken($piratlyapikey);
+        return $urlshortener;     
     }
 
     function generate_content(&$title) {

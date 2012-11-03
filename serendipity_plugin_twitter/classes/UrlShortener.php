@@ -14,12 +14,18 @@ class UrlShortener {
     var $bitly_login = 'bitlyapidemo';
     var $bitly_apikey = 'R_0da49e0a9118ff35f52f629d2d71bf07';
     
+    var $piratly_apikey = "0"; // This is the generic API token representing anonymous user
+    
     function setBitlyLogin($login, $apikey) {
         if (empty($login) || empty($apikey)) return;
         $this->bitly_login = $login;
         $this->bitly_apikey = $apikey;
     }
     
+    function setPiratlyToken($apitoken) {
+        if (empty($apitoken)) return;
+        $this->piratly_apikey = $apitoken;
+    }
     /**
      * Fills up the shorturls hash with shorturls identified by service name. 
      */
@@ -121,7 +127,7 @@ class UrlShortener {
     
     function shorten_via_piratly( $url, &$shorturls ) {
         $url = urlencode($url);
-        UrlShortener::shorten_via_simple($shorturls, 'piratly', "http://pirat.ly/shortener/createplain/0/?$url");
+        UrlShortener::shorten_via_simple($shorturls, 'piratly', "http://pirat.ly/shortener/api/createplain/{$this->piratly_apikey}/?$url");
     }
     
     // is.gd returns different short urls for same URL! How to handle this?!

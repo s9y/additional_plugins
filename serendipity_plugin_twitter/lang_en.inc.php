@@ -143,6 +143,9 @@
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_BITLYLOGIN',    	'bit.ly username');
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_BITLYAPIKEY',	'bit.ly API key');
 
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_PIRATLYDESC',    '<h3>pirat.ly API token</h3>For <b>pirat.ly</b> shorturls you can <a href="http://pirat.ly/account" target="_blank">get an API token by registering for free at the piratly service</a>. By using this API token when announcing your articles you can watch the clickrate on the web interface or on your Android mobile using the <a href="http://pirat.ly/shortenerrr" target="_blank">Shortenerrr app</a>.');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_PIRATLYAPIKEY',  'Your personal piratly API token');
+
 @define('PLUGIN_EVENT_TWITTER_CFGTAB_TWEETTHIS',        'Tweet This!');
 @define('PLUGIN_EVENT_TWITTER_TWEETTHIS_TITLE',         'Tweet This!');
 @define('PLUGIN_EVENT_TWITTER_DO_TWEETTHIS',            'Enable Tweet This!');

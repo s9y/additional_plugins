@@ -8,6 +8,10 @@ TODO:
 * Twitter announcements/credentials etc. per author instead of
   only per central blog
 
+1.47 (brockhaus)
+--------------------------
+    * Added API token functionality for announcing articles via pirat.ly.
+    
 1.46 (brockhaus)
 --------------------------
     * Check tweetbacks (search) converted to API 1.1 (optional). You need to choose an OAuth acc handling the search.

@@ -1,3 +1,8 @@
+Version 1.11 (brockhaus)
+-----------------------
+* OEmbed result will be ignored now, if containing error field.
+* Restored twitter oEmbed to API 1, as 1.1 *does* need OAuth. :(
+
 Version 1.10 (brockhaus)
 -----------------------
 * Updated twitter oEmbed to API 1.1, what doesn't seem to need OAuth.

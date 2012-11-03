@@ -30,7 +30,7 @@ class serendipity_event_oembed extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_OEMBED_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Grischa Brockhaus');
-        $propbag->add('version',       '1.10');
+        $propbag->add('version',       '1.11');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -189,8 +189,14 @@ class serendipity_event_oembed extends serendipity_event
             $manager = ProviderManager::getInstance($maxwidth,$maxheight,$config);
             try {
                 $obj=$manager->provide($url,"object");
+                if (isset($obj)) {
+                    if (!empty($obj->error)) $obj=null; 
+                }
                 if (!isset($obj)) {
                     $obj = $this->expand_by_general_provider($url,$maxwidth,$maxheight);
+                    if (isset($obj)) {
+                        if (!empty($obj->error)) $obj=null; 
+                    }
                 }
                 if (isset($obj)) {
                     $obj = OEmbedDatabase::save_oembed($url,$obj);
@@ -222,7 +228,11 @@ class serendipity_event_oembed extends serendipity_event
         
         if (isset($manager)) {
             try {
-                return $manager->provide($url,'object');
+                $obj = $manager->provide($url,'object');
+                if (isset($obj)) {
+                    if (!empty($obj->error)) $obj=null; 
+                }
+                return $obj;
             } catch (Exception $e) {
                 return null;
             }

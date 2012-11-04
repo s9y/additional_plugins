@@ -3053,7 +3053,7 @@
 <description>Zobrazuje Vaše nejnovější příspěvky na Twitteru</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Damian Luszczymak, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.46</version>
+  <version>1.47</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
   <date>2012-10-25</date>
   <filelist>

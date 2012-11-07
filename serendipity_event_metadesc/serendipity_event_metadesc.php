@@ -171,7 +171,11 @@ class serendipity_event_metadesc extends serendipity_event {
 
                         $meta_description = $GLOBALS['entry'][0]['properties']['meta_description'];
                         if (empty($meta_description)) {
-                            $meta_description = $this->extract_description($GLOBALS['entry'][0]['body']);
+                            $description_body = $GLOBALS['entry'][0]['body'];
+                            if (isset($GLOBALS['entry'][0]['plaintext_body'])) {
+                                $description_body = trim($GLOBALS['entry'][0]['plaintext_body']);
+                            }
+                            $meta_description = $this->extract_description($description_body);
                         }
 
                         $meta_keywords = $GLOBALS['entry'][0]['properties']['meta_keywords'];

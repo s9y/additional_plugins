@@ -125,6 +125,7 @@ class serendipity_event_markdown extends serendipity_event
                             $eventData[$element] = str_replace('javascript:', '', Markdown($eventData[$element]));
                         }
                     }
+                    $this->setPlaintextBody($eventData);
                     return true;
                     break;
 
@@ -140,6 +141,21 @@ class serendipity_event_markdown extends serendipity_event
             }
         } else {
             return false;
+        }
+    }
+
+    /**
+     * Sets a GLOBAL plaintext body by first transforming the body to HTML, then stripping HTML tags from the body
+     * @see http://board.s9y.org/viewtopic.php?f=11&t=18351 Discussion of this feature in the S9y forum.
+     *
+     * @param array $eventData
+     */
+    function setPlaintextBody(array $eventData)
+    {
+        if (isset($GLOBALS['entry'][0]['plaintext_body'])) {
+            $GLOBALS['entry'][0]['plaintext_body'] = strip_tags(str_replace('javascript:', '', Markdown($GLOBALS['entry'][0]['plaintext_body'])));
+        } else {
+            $GLOBALS['entry'][0]['plaintext_body'] = strip_tags(str_replace('javascript:', '', Markdown($eventData['body'])));
         }
     }
 

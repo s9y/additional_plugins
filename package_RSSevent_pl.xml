@@ -167,7 +167,7 @@
 <category>Event Plugins</category>
 <author>Serendipity Team and Jan Lehnardt</author>
 <content:encoded>&lt;b&gt;serendipity_event_markdown&lt;br /&gt;Markup: Markdown&lt;/b&gt;&lt;br /&gt;Apply Markdown markup to entry text&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:32:14 +0200</pubDate>
+<pubDate>Thu, 08 Nov 2012 02:32:37 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_markdown</guid>
 </item>
 <item>
@@ -1040,7 +1040,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Judebert, Don Chambers</author>
 <content:encoded>&lt;b&gt;serendipity_event_metadesc&lt;br /&gt;HTML META-Tagi&lt;/b&gt;&lt;br /&gt;Sets HTML meta keywords/description tags and title element for single entry pages and default meta keywords/description tags for non-single entry pages.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 19 Oct 2012 02:31:45 +0200</pubDate>
+<pubDate>Thu, 08 Nov 2012 02:32:37 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_metadesc</guid>
 </item>
 <item>

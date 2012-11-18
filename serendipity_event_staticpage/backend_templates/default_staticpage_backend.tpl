@@ -139,7 +139,7 @@
                 </div>
 
             </div>
-            <script type="text/javascript" language="JavaScript">document.getElementById("el2").style.display = "none";</script>
+            {if $is_wysiwyg}<script type="text/javascript" language="JavaScript">document.getElementById("el2").style.display = "none";</script>{/if}
         </fieldset>
     </div>
 

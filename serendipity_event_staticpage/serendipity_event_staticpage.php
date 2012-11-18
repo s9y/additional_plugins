@@ -2515,6 +2515,9 @@ foreach($select AS $select_value => $select_desc) {
             $serendipity['smarty']->register_modifier('in_array', 'in_array');
             $serendipity['smarty']->register_function('staticpage_input', array($this, 'SmartyInspectConfig'));
             $serendipity['smarty']->register_function('staticpage_input_finish', array($this, 'SmartyInspectConfigFinish'));
+            if ($serendipity['wysiwyg']) {
+                $serendipity['smarty']->assign('is_wysiwyg', true);
+            }
 
             $filename = preg_replace('@[^a-z0-9\._-]@i', '', $serendipity['POST']['backend_template']);
             if ($filename == 'external' || empty($filename)) {

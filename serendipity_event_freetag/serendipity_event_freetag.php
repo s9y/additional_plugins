@@ -56,6 +56,8 @@ class serendipity_event_freetag extends serendipity_event
     var $displayTag = false;
     var $title = PLUGIN_EVENT_FREETAG_TITLE;
     var $TaggedEntries = null;
+    var $supported_properties = array();
+    var $dependencies = array();
 
     function introspect(&$propbag)
     {
@@ -70,7 +72,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.43');
+        $propbag->add('version',       '3.44');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -346,7 +348,7 @@ class serendipity_event_freetag extends serendipity_event
 
         serendipity_event_freetag::install();
     }
-    
+
     function install() {
         serendipity_event_freetag::static_install();
     }
@@ -1038,7 +1040,7 @@ class serendipity_event_freetag extends serendipity_event
                             $collate = $collateP = "";
                         }
                         
-
+                        $cond = $join = '';
                         if (is_string($showtag)) {
                             $join = "INNER JOIN {$serendipity['dbPrefix']}entrytags AS entrytags ON (e.id = entrytags.entryid) ";
                             $cond = "entrytags.tag = $collateP '$showtag' $collate";
@@ -1272,7 +1274,7 @@ class serendipity_event_freetag extends serendipity_event
     function makeTagsFromTaglist($tagList)
     {
         $freetags = explode(',', $tagList);
-        foreach($freetags AS $idx => $tag) {
+        foreach($freetags AS $tag) {
             $tag = trim($tag);
             if (!empty($tag)) {
                 $tags[] = $tag;
@@ -1567,7 +1569,7 @@ class serendipity_event_freetag extends serendipity_event
         }
 
         $return = array();
-        foreach($result as $idx => $row) {
+        foreach($result as $row) {
             if (isset($row['entryid'])) {
                 $return[$row['entryid']][] = $row['tag'];
             }
@@ -1704,7 +1706,7 @@ class serendipity_event_freetag extends serendipity_event
                 printf(PLUGIN_EVENT_FREETAG_REBUILD_TOTAL . '<br />', $total);
 
                 if (is_array($entries)) {
-                    foreach($entries AS $idx => $entry) {
+                    foreach($entries AS $entry) {
                         unset($entry['orderkey']);
                         unset($entry['loginname']);
                         unset($entry['email']);

@@ -293,7 +293,7 @@ class serendipity_event_freetag extends serendipity_event
         $title = $this->title;
     }
 
-    function tableCreated($table = 'entrytags')  {
+    static function tableCreated($table = 'entrytags')  {
         global $serendipity;
 
         $q = "select count(tag) from {$serendipity['dbPrefix']}" . $table;
@@ -306,7 +306,7 @@ class serendipity_event_freetag extends serendipity_event
         }
     }
 
-    function upgradeFromVersion1() {
+    static function upgradeFromVersion1() {
         global $serendipity;
 
         $q = "select count(*) from {$serendipity['dbPrefix']}entryproperties where property = 'ep_freetag_name'";
@@ -319,7 +319,7 @@ class serendipity_event_freetag extends serendipity_event
         }
     }
 
-    function convertEntryPropertiesTags() {
+    static function convertEntryPropertiesTags() {
         global $serendipity;
 
         $q = "select entryid, value from {$serendipity['dbPrefix']}entryproperties where property = 'ep_freetag_name'";

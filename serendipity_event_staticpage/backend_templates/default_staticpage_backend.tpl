@@ -87,10 +87,12 @@
 
         <fieldset class="sect_struct">
             <legend>{$CONST.STATICPAGE_SECTION_STRUCT}</legend>
+            {if !$is_wysiwyg}
             <div class="sp_sect">
                 {$CONST.STATICPAGES_CUSTOM_STRUCTURE_SHOW}
                 <p id="sp_toggle_optionall"><a style="border:0; text-decoration: none;" href="#" onClick="showConfig('el2'); return false" title="{$CONST.TOGGLE_OPTION}"><img src="{serendipity_getFile file="img/plus.png"}" id="optionel2" alt="+/-" border="0">&nbsp;{$CONST.TOGGLE_ALL}</a></p>
             </div>
+            {/if}
 
             <div id="el2">
                 <div class="sp_sect">
@@ -139,7 +141,7 @@
                 </div>
 
             </div>
-            {* <script type="text/javascript" language="JavaScript">document.getElementById("el2").style.display = "none";</script> *}
+            {if !$is_wysiwyg}<script type="text/javascript" language="JavaScript">document.getElementById("el2").style.display = "none";</script>{/if}
         </fieldset>
     </div>
 

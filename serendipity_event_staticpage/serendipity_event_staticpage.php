@@ -92,7 +92,7 @@ class serendipity_event_staticpage extends serendipity_event
         $propbag->add('page_configuration', $this->config);
         $propbag->add('type_configuration', $this->config_types);
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers');
-        $propbag->add('version', '3.98');
+        $propbag->add('version', '3.99');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -2515,8 +2515,8 @@ foreach($select AS $select_value => $select_desc) {
             $serendipity['smarty']->register_modifier('in_array', 'in_array');
             $serendipity['smarty']->register_function('staticpage_input', array($this, 'SmartyInspectConfig'));
             $serendipity['smarty']->register_function('staticpage_input_finish', array($this, 'SmartyInspectConfigFinish'));
-            if ($serendipity['wysiwyg']) {
-                $serendipity['smarty']->assign('is_wysiwyg', true);
+            if (isset($serendipity['wysiwyg'])) {
+                $serendipity['smarty']->assign('is_wysiwyg', $serendipity['wysiwyg']);
             }
 
             $filename = preg_replace('@[^a-z0-9\._-]@i', '', $serendipity['POST']['backend_template']);

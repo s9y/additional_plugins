@@ -30,7 +30,7 @@ class serendipity_event_markdown extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.17');
+        $propbag->add('version',       '1.18');
         $propbag->add('cachable_events', array('frontend_display' => true));
         $propbag->add('event_hooks',   array('frontend_display' => true, 'frontend_comment' => true));
         $propbag->add('groups', array('MARKUP'));
@@ -153,9 +153,11 @@ class serendipity_event_markdown extends serendipity_event
     function setPlaintextBody(array $eventData)
     {
         if (isset($GLOBALS['entry'][0]['plaintext_body'])) {
-            $GLOBALS['entry'][0]['plaintext_body'] = strip_tags(str_replace('javascript:', '', Markdown($GLOBALS['entry'][0]['plaintext_body'])));
+            $html = Markdown($GLOBALS['entry'][0]['plaintext_body']);
+            $GLOBALS['entry'][0]['plaintext_body'] = trim(strip_tags(str_replace('javascript:', '', $html)));
         } else {
-            $GLOBALS['entry'][0]['plaintext_body'] = strip_tags(str_replace('javascript:', '', Markdown($eventData['body'])));
+            $html = Markdown(html_entity_decode($eventData['body']));
+            $GLOBALS['entry'][0]['plaintext_body'] = trim(strip_tags(str_replace('javascript:', '', $html)));
         }
     }
 

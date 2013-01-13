@@ -92,7 +92,7 @@ class serendipity_event_staticpage extends serendipity_event
         $propbag->add('page_configuration', $this->config);
         $propbag->add('type_configuration', $this->config_types);
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers');
-        $propbag->add('version', '3.99');
+        $propbag->add('version', '4.00');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -2296,7 +2296,7 @@ foreach($select AS $select_value => $select_desc) {
                     }
 
                     if (!$serendipity['wysiwyg'] && preg_match($serendipity['EditorBrowsers'], $_SERVER['HTTP_USER_AGENT']) ) {
-?>                  <nobr><noscript><span name="jsOnly" style="display: none;"></noscript>
+?>                  <nobr><span id="tools_<?php echo $config_item ?>" style="display: none">
                         <?php if( $serendipity['nl2br']['iso2br'] ) { ?>
                         <input type="button" class="serendipityPrettyButton input_button" name="insX" value="NoBR" accesskey="x" style="font-style: italic" onclick="wrapSelection(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'],'<nl>','</nl>')" />
                         <?php } ?>
@@ -2307,11 +2307,11 @@ foreach($select AS $select_value => $select_desc) {
                         <input type="button" class="serendipityPrettyButton input_button" name="insJ" value="img" accesskey="j" onclick="wrapInsImage(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'])" />
                         <input type="button" class="serendipityPrettyButton input_button" name="insImage" value="<?php echo MEDIA; ?>" style="" onclick="window.open('serendipity_admin_image_selector.php?serendipity[textarea]=<?php echo urlencode('serendipity[plugin]['.$config_item.']'); ?>', 'ImageSel', 'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1');" />
                         <input type="button" class="serendipityPrettyButton input_button" name="insU" value="URL" accesskey="l" style="color: blue; text-decoration: underline;" onclick="wrapSelectionWithLink(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'])" />
-                    <noscript></span></noscript></nobr>
+                    </span></nobr>
 <?php
                 /* Do the "old" non-WYSIWYG editor */
                     } else { 
-?>                  <nobr><noscript><span name="jsOnly" style="display: none;"></noscript>
+?>                  <nobr><span id="tools_<?php echo $config_item ?>" style="display: none">
                         <?php if( $serendipity['nl2br']['iso2br'] ) { ?>
                         <input type="button" class="serendipityPrettyButton input_button" value=" NoBR " onclick="serendipity_insBasic(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'], 'x')" />
                         <?php } ?>
@@ -2321,8 +2321,13 @@ foreach($select AS $select_value => $select_desc) {
                         <input type="button" class="serendipityPrettyButton input_button" value="<img>" onclick="serendipity_insImage(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'])">
                         <input type="button" class="serendipityPrettyButton input_button" value="<?php echo MEDIA; ?>" onclick="window.open('serendipity_admin_image_selector.php?serendipity[filename_only]=<?php echo $config_item ?>', 'ImageSel', 'width=800,height=600,toolbar=no');">
                         <input type="button" class="serendipityPrettyButton input_button" value="Link" onclick="serendipity_insLink(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'])">
-                    <noscript></span></noscript></nobr>
-<?php               }
+                    </span></nobr>
+<?php               } ?>
+                    <script type="text/javascript" language="JavaScript">
+                        var tb_<?php echo $config_item ?> = document.getElementById('tools_<?php echo $config_item ?>');
+                        tb_<?php echo $config_item ?>.style.display = '';
+                    </script>
+<?php
 
                     // add extra data in the entry's array so that emoticonchooser plugin
                     // behaves well with wysiwyg editors, then clean up ;-) (same apply below)

@@ -1,3 +1,7 @@
+4.00 rewrote document.write replacement (81e9911) to be more html standard conform
+
+3.99  fixed disabling collapsible structure box in case of wysiwyg-editor use 
+
 3.98  Changed custom <title>, meta description, and meta keywords to be regular fields, 
       not custom properties. 
 

@@ -1,3 +1,6 @@
+0.1.11:
+    * Fixed Smarty3 API change issue
+
 0.1.9:
     * Fixed multiple insert of the title if link was a smaller part of
       another link

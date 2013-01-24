@@ -31,7 +31,7 @@ class serendipity_event_autotitle extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_AUTOTITLE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda');
-        $propbag->add('version',       '0.1.10');
+        $propbag->add('version',       '0.1.11');
         $propbag->add('requirements',  array(
             'php'         => '4.1.0'
         ));
@@ -179,11 +179,11 @@ class serendipity_event_autotitle extends serendipity_event
             $url = $url[1];
             
             //prepare cache:
-        	$this->cache->_setFileName($url, $this->cache_group);
+            $this->cache->_setFileName($url, $this->cache_group);
             //check cache:
             $title = $this->get_cached_title($url);
             if ($title === false) {
-            	//$page = a maximum of the first 4kb of the linked site
+                //$page = a maximum of the first 4kb of the linked site
                 $page = $this->getPage($url);
                 //fetch everything between <title>, only one is allowed
                 preg_match('|<title>([^<]*?)</title>|is', $page, $title);
@@ -193,11 +193,16 @@ class serendipity_event_autotitle extends serendipity_event
                 if (!is_object($serendipity['smarty'])) {
                     serendipity_smarty_init();
                 }
-                $own_charset = $serendipity['smarty']->get_template_vars('head_charset');
-
+                if (method_exists($serendipity['smarty'], 'get_template_vars')) {
+                    //handle with Smarty version 2
+                    $own_charset = $serendipity['smarty']->get_template_vars('head_charset');
+                } else {
+                    //handle with Smarty version 3 ...
+                    $own_charset = $serendipity['smarty']->tpl_vars['head_charset']->value;
+                }
                 //remove newlines to prevent issues with inserted brs by nl2br or textile
                 //1. Standardize line endings:
-	            //   DOS to Unix and Mac to Unix
+                //   DOS to Unix and Mac to Unix
                 $title = str_replace(array("\r\n", "\r"), "\n", $title[1]);
                 //2. remove nl, also \t because it looks like crap
                 $title = str_replace(array("\n", "\t"), '', $title);
@@ -258,7 +263,7 @@ class serendipity_event_autotitle extends serendipity_event
     }
 
     function get_cached_title($url) {
-    	return $this->cache->get($url, $this->cache_group);
+        return $this->cache->get($url, $this->cache_group);
     }
 
     function cache_title($url, $title) {
@@ -266,20 +271,20 @@ class serendipity_event_autotitle extends serendipity_event
     }
 
     function debugMsg($msg) {
-		global $serendipity;
-		
-		$this->debug_fp = @fopen ( $serendipity ['serendipityPath'] . 'templates_c/autotitle.log', 'a' );
-		if (! $this->debug_fp) {
-			return false;
-		}
-		
-		if (empty ( $msg )) {
-			fwrite ( $this->debug_fp, "failure \n" );
-		} else {
-			fwrite ( $this->debug_fp, print_r ( $msg, true ) );
-		}
-		fclose ( $this->debug_fp );
-	}
+        global $serendipity;
+
+        $this->debug_fp = @fopen ( $serendipity ['serendipityPath'] . 'templates_c/autotitle.log', 'a' );
+        if (! $this->debug_fp) {
+            return false;
+        }
+
+        if (empty ( $msg )) {
+            fwrite ( $this->debug_fp, "failure \n" );
+        } else {
+            fwrite ( $this->debug_fp, print_r ( $msg, true ) );
+        }
+        fclose ( $this->debug_fp );
+    }
 }
 
 /* vim: set sts=4 ts=4 expandtab : */

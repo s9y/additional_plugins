@@ -193,7 +193,7 @@ class serendipity_event_autotitle extends serendipity_event
                 if (!is_object($serendipity['smarty'])) {
                     serendipity_smarty_init();
                 }
-                if (method_exists($serendipity['smarty'], 'get_template_vars')) {
+                if( !defined('Smarty::SMARTY_VERSION') ) {
                     //handle with Smarty version 2
                     $own_charset = $serendipity['smarty']->get_template_vars('head_charset');
                 } else {
@@ -253,8 +253,7 @@ class serendipity_event_autotitle extends serendipity_event
     }
 
     function getCharset($page) {
-        preg_match( '@<meta\s+http-equiv="Content-Type"\s+content="([\w/]+)(;\s+charset=([^\s"]+))?@i',
-    $page, $matches );
+        preg_match( '@<meta\s+http-equiv="Content-Type"\s+content="([\w/]+)(;\s+charset=([^\s"]+))?@i', $page, $matches );
         if (isset($matches[3])) {
             return $matches[3];
         } else {

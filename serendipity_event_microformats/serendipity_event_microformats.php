@@ -59,7 +59,7 @@ class serendipity_event_microformats extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_MICROFORMATS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Matthias Gutjahr');
-        $propbag->add('version',       '0.45');
+        $propbag->add('version',       '0.46');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',
@@ -214,7 +214,17 @@ class serendipity_event_microformats extends serendipity_event
                     $serendipity['smarty']->assign('best', $this->get_config('best', 5.0));
                     $serendipity['smarty']->assign('step', $this->get_config('step', 1.0));
                     $serendipity['smarty']->assign('timezone', $this->get_config('timezone'));
-                    $serendipity['smarty']->register_function('microformats_show', 'microformats_serendipity_show');
+                    if( !defined('Smarty::SMARTY_VERSION') ) {
+                        // For Smarty 2
+                        if (!isset($serendipity['smarty']->_plugins['function']['microformats_show'])) {
+                            $serendipity['smarty']->register_function('microformats_show', 'microformats_serendipity_show');
+                        }
+                    } else {
+                        // For Smarty 3
+                        if (!isset($serendipity['smarty']->registered_plugins['function']['microformats_show'])) {
+                            $serendipity['smarty']->registerPlugin('function', 'microformats_show', 'microformats_serendipity_show');
+                        }
+                    }
                     break;
 
                 case 'frontend_header':
@@ -242,7 +252,17 @@ class serendipity_event_microformats extends serendipity_event
                         serendipity_smarty_init();
                     }
                     $serendipity['smarty']->assign('subnode', ($this->get_config('subnode') ? 1 : 0));
-                    $serendipity['smarty']->register_function('microformats_show', 'microformats_serendipity_show');
+                    if( !defined('Smarty::SMARTY_VERSION') ) {
+                        // For Smarty 2
+                        if (!isset($serendipity['smarty']->_plugins['function']['microformats_show'])) {
+                            $serendipity['smarty']->register_function('microformats_show', 'microformats_serendipity_show');
+                        }
+                    } else {
+                        // For Smarty 3
+                        if (!isset($serendipity['smarty']->registered_plugins['function']['microformats_show'])) {
+                            $serendipity['smarty']->registerPlugin('function', 'microformats_show', 'microformats_serendipity_show');
+                        }
+                    }
                     break;
 
                 case 'backend_display':

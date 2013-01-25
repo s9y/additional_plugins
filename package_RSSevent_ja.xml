@@ -1053,7 +1053,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Matthias Gutjahr</author>
 <content:encoded>&lt;b&gt;serendipity_event_microformats&lt;br /&gt;Microformats&lt;/b&gt;&lt;br /&gt;This plugin provides an easy way to publish reviews (or events); it supports the respective microformats.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 25 Dec 2011 04:20:19 +0100</pubDate>
+<pubDate>Fri, 25 Jan 2013 02:31:22 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_microformats</guid>
 </item>
 <item>
@@ -1199,7 +1199,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_autotitle&lt;br /&gt;Markup: Autotitle&lt;/b&gt;&lt;br /&gt;Set the title-tag into the links of the entry.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:31:56 +0200</pubDate>
+<pubDate>Fri, 25 Jan 2013 02:31:12 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_autotitle</guid>
 </item>
 <item>

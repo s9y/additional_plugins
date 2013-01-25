@@ -1051,7 +1051,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Matthias Gutjahr</author>
 <content:encoded>&lt;b&gt;serendipity_event_microformats&lt;br /&gt;Mikroformáty&lt;/b&gt;&lt;br /&gt;Tento plugin poskytuje jednoduché publikování přehledů (nebo událostí); podporuje příslušné mikroformáty.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 25 Dec 2011 04:20:19 +0100</pubDate>
+<pubDate>Fri, 25 Jan 2013 02:31:22 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_microformats</guid>
 </item>
 <item>
@@ -1195,7 +1195,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_autotitle&lt;br /&gt;Markup: Automatický titulek&lt;/b&gt;&lt;br /&gt;Nastaví automaticky parametr title=&quot;...&quot; v odkazech - &amp;lt;a href=&quot;...&quot; title=&quot;...&quot;&amp;gt;.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:31:56 +0200</pubDate>
+<pubDate>Fri, 25 Jan 2013 02:31:12 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_autotitle</guid>
 </item>
 <item>

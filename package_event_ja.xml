@@ -8052,9 +8052,9 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <description>This plugin provides an easy way to publish reviews (or events); it supports the respective microformats.</description>
 <maintainers><maintainer><name>Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.45</version>
+  <version>0.46</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2013-01-25</date>
   <filelist>
 <dir name="serendipity_event_microformats">
 <file>hReview.tpl</file>
@@ -9285,9 +9285,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>Set the title-tag into the links of the entry.</description>
 <maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.1.10</version>
+  <version>0.1.11</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2013-01-25</date>
   <filelist>
 <dir name="serendipity_event_autotitle">
 <file>lang_de.inc.php</file>

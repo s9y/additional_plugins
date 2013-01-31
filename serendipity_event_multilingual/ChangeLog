@@ -1,3 +1,6 @@
+2.14: Added genpage event hook so that blogTitle/Description gets replaced in other instances
+      where entries are not fetched (i.e. 'archives')
+      
 sidebar 1.11: Use proper "current url", thanks to timbalu
 
 2.13:

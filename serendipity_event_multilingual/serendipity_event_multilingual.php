@@ -34,7 +34,7 @@ class serendipity_event_multilingual extends serendipity_event
             'php'         => '4.1.0'
         ));
         $propbag->add('groups', array('FRONTEND_ENTRY_RELATED', 'BACKEND_EDITOR'));
-        $propbag->add('version',       '2.13');
+        $propbag->add('version',       '2.14');
         $propbag->add('configuration', array('copytext', 'placement', 'tagged_title', 'tagged_entries', 'tagged_sidebar'));
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
@@ -53,7 +53,7 @@ class serendipity_event_multilingual extends serendipity_event
             'frontend_entries_rss'                              => true,
             'frontend_comment'                                  => true,
             'frontend_sidebar_plugins'                          => true,
-            'genpage'                                           => true
+            'genpage'                                           => true,
         ));
         $this->supported_properties = array('lang_selected','lang_display');
         $this->dependencies = array('serendipity_plugin_multilingual' => 'remove');
@@ -254,6 +254,30 @@ class serendipity_event_multilingual extends serendipity_event
         return $msg;
     }
 
+    function tag_title() {
+        global $serendipity;
+
+                    if (serendipity_db_bool($this->get_config('tagged_title', 'true'))) {
+                    
+                        if ($serendipity['smarty']) {
+                            $serendipity['smarty']->assign('blogTitle',$this->strip_langs($serendipity['blogTitle']));
+                            $serendipity['smarty']->assign('blogDescription',$this->strip_langs($serendipity['blogDescription']));
+                            $head_title = $serendipity['smarty']->get_template_vars('head_title');
+                            if (!empty($head_title)) {
+                                $serendipity['smarty']->assign('head_title',$this->strip_langs($head_title));
+                            }
+
+                            $head_subtitle = $serendipity['smarty']->get_template_vars('head_subtitle');
+                            if (!empty($head_subtitle)) {
+                                $serendipity['smarty']->assign('head_subtitle',$this->strip_langs($head_subtitle));
+                            }
+                        } else {
+                            $serendipity['blogTitle'] = $this->strip_langs($serendipity['blogTitle']);
+                            $serendipity['blogDescription'] = $this->strip_langs($serendipity['blogDescription']);
+                        }    
+                    }    
+    }
+    
     function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
@@ -321,6 +345,8 @@ class serendipity_event_multilingual extends serendipity_event
                     break;
 
                 case 'genpage':
+                    $this->tag_title();
+
                     if ($serendipity['smarty']) {
                         $serendipity['smarty']->register_modifier('multilingual_lang', array($this, 'strip_lang'));
                     }
@@ -441,19 +467,7 @@ class serendipity_event_multilingual extends serendipity_event
                         }
                     }
                     // Tagged translation of Blog title and description
-                    if (serendipity_db_bool($this->get_config('tagged_title', 'true'))) {
-                        $serendipity['smarty']->assign('blogTitle',$this->strip_langs($serendipity['blogTitle']));
-                        $serendipity['smarty']->assign('blogDescription',$this->strip_langs($serendipity['blogDescription']));
-                        $head_title = $serendipity['smarty']->get_template_vars('head_title');
-                        if (!empty($head_title)) {
-                            $serendipity['smarty']->assign('head_title',$this->strip_langs($head_title));
-                        }
-
-                        $head_subtitle = $serendipity['smarty']->get_template_vars('head_subtitle');
-                        if (!empty($head_subtitle)) {
-                            $serendipity['smarty']->assign('head_subtitle',$this->strip_langs($head_subtitle));
-                        }
-                    }
+                    $this->tag_title();
                          
                     if (serendipity_db_bool($this->get_config('tagged_entries', 'true'))) {
                         foreach ($eventData as $key => $entry) {

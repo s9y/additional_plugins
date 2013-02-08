@@ -2440,7 +2440,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>CoSTa's Nature Theme v0.5 (2008-02-14)</name>
+<name>CoSTa's Nature Theme v0.6 (2013-02-07)</name>
 <template>costa-nature_theme</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -2449,7 +2449,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2006.05.02</date>
+  <date>2013.02.07</date>
   <filelist>
 <dir name="costa-nature_theme">
 <file>comments.tpl</file>
@@ -3745,7 +3745,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Mo3 (200-08-29)</name>
+<name>Mo3 (2013-02-07)</name>
 <template>mo3</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -4569,7 +4569,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>xkur (2009-08-17)</name>
+<name>xkur (2013-02-07)</name>
 <template>xkur</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -4578,7 +4578,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion>1.5</requirements:s9yVersion>
-  <date>26-01-2006</date>
+  <date>2013-02-07</date>
   <filelist>
 <dir name="xkur">
 <dir name="img">
@@ -5232,7 +5232,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>andreas09 (2009-08-17)</name>
+<name>andreas09 (2013-02-07)</name>
 <template>andreas09</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -5241,7 +5241,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion></requirements:s9yVersion>
-  <date>05-11-2006</date>
+  <date>2013-02-07</date>
   <filelist>
 <dir name="andreas09">
 <file>commentform.tpl</file>
@@ -6761,7 +6761,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Mimbo (2009-08-16)</name>
+<name>Mimbo (2013-02-07)</name>
 <template>mimbo</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -6770,7 +6770,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>
-  <date>2009-04-01</date>
+  <date>2013-02-07</date>
   <filelist>
 <dir name="mimbo">
 <dir name="img">
@@ -6945,7 +6945,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>xcur (2009-08-13)</name>
+<name>xcur (2013-02-07)</name>
 <template>axcur</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -6954,7 +6954,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion></requirements:s9yVersion>
-  <date>29/06/2009</date>
+  <date>2013-02-07</date>
   <filelist>
 <dir name="axcur">
 <dir name="img">
@@ -7164,7 +7164,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion>1.5</requirements:s9yVersion>
-  <date>2009-04-01</date>
+  <date>2013-02-07</date>
   <filelist>
 <dir name="Sagittarius-A">
 <file>comments.tpl</file>

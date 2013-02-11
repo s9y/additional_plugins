@@ -3745,7 +3745,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Mo3 (2013-02-07)</name>
+<name>Mo3 (2013-02-10)</name>
 <template>mo3</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -6761,7 +6761,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Mimbo (2013-02-07)</name>
+<name>Mimbo (2013-02-10)</name>
 <template>mimbo</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -6770,7 +6770,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>
-  <date>2013-02-07</date>
+  <date>2013-02-10</date>
   <filelist>
 <dir name="mimbo">
 <dir name="img">
@@ -6945,7 +6945,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>xcur (2013-02-07)</name>
+<name>xcur (2013-02-10)</name>
 <template>axcur</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -6954,7 +6954,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion></requirements:s9yVersion>
-  <date>2013-02-07</date>
+  <date>2013-02-10</date>
   <filelist>
 <dir name="axcur">
 <dir name="img">
@@ -7155,7 +7155,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Sagittarius-A (2009-08-16)</name>
+<name>Sagittarius-A (2013-02-10)</name>
 <template>Sagittarius-A</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -7164,7 +7164,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion>1.5</requirements:s9yVersion>
-  <date>2013-02-07</date>
+  <date>2013-02-10</date>
   <filelist>
 <dir name="Sagittarius-A">
 <file>comments.tpl</file>

@@ -1,3 +1,6 @@
+2.13:
+  - Use SQL RANDOM() instead of RAND() for db type, except mysql
+
 latest: Smarty3 forward compatibility
 
 2.0:

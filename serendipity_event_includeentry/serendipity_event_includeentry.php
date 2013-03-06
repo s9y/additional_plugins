@@ -38,7 +38,7 @@ class serendipity_event_includeentry extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_INCLUDEENTRY_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '2.12');
+        $propbag->add('version',       '2.13');
         $propbag->add('scrambles_true_content', true);
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
@@ -681,7 +681,11 @@ class serendipity_event_includeentry extends serendipity_event
                     /* Show randomized blocks */
                     if ($cache['show'] && $show_multi && $cache['loops'] >= $cache['first_show']) {
                         if ($cache['last_skip'] == 0) {
-                            $this->staticblock = $this->fetchStaticBlocks('block', 'RAND()', 1);
+                            if (stristr($serendipity['dbType'], 'mysql') === FALSE) {
+                                $this->staticblock = $this->fetchStaticBlocks('block', 'RANDOM()', 1);
+                            } else {
+                                $this->staticblock = $this->fetchStaticBlocks('block', 'RAND()', 1);
+                            }
                             $eventData['display_dat'] .= $this->smartyParse();
                         }
 

@@ -1,0 +1,49 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>D64 LSR-Stopper-Plugin: Dokumentation</title>
+</head>
+<body>
+<h1>D64 LSR-Stopper-Plugin für Serendipity</h1>
+<p>Mit diesem Plugin verhinderst du Verlinkungen zu Medien, deren Verlage das Leistungsschutzrecht unterstützen bzw. in
+    Anspruch nehmen.</p>
+<p>Dieses Plugin basiert auf dem <a href="http://wordpress.org/extend/plugins/d64-lsr-stopper/">Original-Plugin für
+    Wordpress</a>. Danke!</p>
+
+<h2>Beschreibung</h2>
+<p>Mit diesem Plugin werden Links zu Internetseiten und Medien, deren Verlage/Firmen das Leistungsschutzrecht
+    unterstützen bzw. in Anspruch nehmen, auf eine <a href="http://leistungsschutzrecht-stoppen.d-64.org/blacklisted/">spezielle
+        Seite</a> umgeleitet, die über das Leistungsschutzrecht aufklärt. Auf der Blacklist sind die Mitglieder des BDZV
+    (Bundesvereinigung deutscher Zeitungsverleger), des VDZ (Verband deutscher Zeitschriftenverleger) sowie der
+    Deutschen Content-Allianz. Medien, die sich explizit vom Leistungsschutzrecht distanziert haben werden wieder
+    entfernt.</p>
+<p>Die Blacklist wird von D64 angeboten und dort heruntergeladen. Alternativ geschieht die Einstufung über einen
+    DNS-Service (s.u.).</p>
+<ul>
+    <li><a href="http://leistungsschutzrecht-stoppen.d-64.org/">Weitere Informationen gibt es bei D64 →</a></li>
+    <li><a href="https://github.com/gglnx/d64-lsr-stopper">Plugin für Wordpress auf GitHub →</a></li>
+    <li><a href="http://dentaku.wazong.de/2013/03/01/lsrdnsbl/">Dentakus Blogpost zu seinem DNS-Service</a></li>
+</ul>
+<p><em>Hinweis: Keine Sorge, das Plugin lässt sich problemlos und rückstandslos entfernen (d.h. es werden keine
+    Änderungen an der Datenbank vorgenommen), nach Deinstallation funktionieren alle Links wie vorher.</em></p>
+
+<h2>Installation</h2>
+<h3>Installation via SPARTACUS (empfohlen)</h3>
+<p>Das Plugin kann via <a href="http://s9y.org/45.html#A8">SPARTACUS</a> installiert werden.</p>
+<p>Falls ihr das Plugin <code>serendipity_event_trackexits</code> verwendet, stellt sicher, dass es erst
+    <em>nach</em> <code>serendipity_event_lsrstopper</code> ausgeführt wird!
+</p>
+
+<h3>Manuelle Installation (für Entwickler)</h3>
+<ol>
+    <li>
+        <a href="https://github.com/mattsches/serendipity_event_lsrstopper/archive/master.zip">ZIP-Archiv</a>
+        herunterladen.
+    </li>
+    <li>ZIP-Archiv entpacken.</li>
+    <li>Dateien nach <code>/plugins/</code> hochladen.</li>
+    <li>Das Plugin im Admin-Bereich von Serendipity aktivieren.</li>
+</ol>
+
+</body>
+</html>

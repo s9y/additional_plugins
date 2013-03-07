@@ -5099,9 +5099,9 @@
 <description>Тази приставка дава възможност за включване на елементи от статия в друга статия. Използвайте този код: [s9y-include-entry:XXX:YYY]. Заменете XXX идентификатора на статията (цяло число), а YYY с идентификатор на частта за включване (например &quot;body&quot;, &quot;title&quot;, &quot;extended&quot;, ...). Освен това в административния панел е включено нова команда в менюто за поддръжка на шаблони (заготовки на статии) и блокове, които можете да включвате във Вашите статии.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.12</version>
+  <version>2.13</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2013-03-07</date>
   <filelist>
 <dir name="serendipity_event_includeentry">
 <file>serendipity_event_includeentry.php</file>

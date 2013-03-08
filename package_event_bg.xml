@@ -10300,6 +10300,57 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </release>
 </package>
 <package version="1.0">
+<name>serendipity_event_lsrstopper</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_lsrstopper/ChangeLog</changelog>
+<license>GPL</license>
+<summary>D64 LSR-Stopper</summary>
+<groups>MARKUP</groups>
+<description>With this plugin you prevent links to media that support the German &quot;Leistungsschutzrecht&quot;.</description>
+<maintainers><maintainer><name>Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>0.3</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2013-03-08</date>
+  <filelist>
+<dir name="serendipity_event_lsrstopper">
+<dir name="UTF-8">
+<file>lang_de.inc.php</file>
+</dir>
+<dir name="libs">
+<file>simple_html_dom.php</file>
+</dir>
+<dir name="tests">
+<dir name="fixtures">
+<file>blacklist.txt</file>
+</dir>
+<file>lsrstopperTest.php</file>
+</dir>
+<file>lang_de.inc.php</file>
+<file>ChangeLog</file>
+<file>LICENSE</file>
+<file>README.md</file>
+<file>serendipity_event_lsrstopper.php</file>
+<file>documentation_de.html</file>
+<file>lang_en.inc.php</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>serendipity_event_lsrstopper/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_lsrstopper/libs/simple_html_dom.php</file>
+    <file>serendipity_event_lsrstopper/tests/fixtures/blacklist.txt</file>
+    <file>serendipity_event_lsrstopper/tests/lsrstopperTest.php</file>
+    <file>serendipity_event_lsrstopper/lang_de.inc.php</file>
+    <file>serendipity_event_lsrstopper/ChangeLog</file>
+    <file>serendipity_event_lsrstopper/LICENSE</file>
+    <file>serendipity_event_lsrstopper/README.md</file>
+    <file>serendipity_event_lsrstopper/serendipity_event_lsrstopper.php</file>
+    <file>serendipity_event_lsrstopper/documentation_de.html</file>
+    <file>serendipity_event_lsrstopper/lang_en.inc.php</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
 <name>serendipity_event_facebook</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_facebook/ChangeLog</changelog>
 <license>GPL</license>

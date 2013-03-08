@@ -1334,6 +1334,15 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <guid isPermaLink="false">serendipity_event_dbclean</guid>
 </item>
 <item>
+<title>D64 LSR-Stopper: Mit diesem Plugin verhinderst du Verlinkungen zu Medien, deren Verlage das Leistungsschutzrecht unterstützen bzw. in Anspruch nehmen.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_lsrstopper</link>
+<category>Event Plugins</category>
+<author>Matthias Gutjahr</author>
+<content:encoded>&lt;b&gt;serendipity_event_lsrstopper&lt;br /&gt;D64 LSR-Stopper&lt;/b&gt;&lt;br /&gt;Mit diesem Plugin verhinderst du Verlinkungen zu Medien, deren Verlage das Leistungsschutzrecht unterstützen bzw. in Anspruch nehmen.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Fri, 08 Mar 2013 02:31:08 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_lsrstopper</guid>
+</item>
+<item>
 <title>Facebook (Experimental!): Imports comments made on facebook postings (like through RSS Graffiti) back into the blog. Also embeds Facebook OpenGraph Meta-Tags into the blog. Note that adding &quot;like&quot;-Buttons to blog entries is achieved via the serendipity_event_findmore plugin! </title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_facebook</link>
 <category>Event Plugins</category>

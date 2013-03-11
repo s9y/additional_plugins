@@ -1,3 +1,5 @@
+4.01 PHP 5.4 compat reference fix (~L 1097)
+
 4.00 rewrote document.write replacement (81e9911) to be more html standard conform
 
 3.99  fixed disabling collapsible structure box in case of wysiwyg-editor use 

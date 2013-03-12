@@ -23,7 +23,7 @@
 <category>Event Plugins</category>
 <author>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers</author>
 <content:encoded>&lt;b&gt;serendipity_event_staticpage&lt;br /&gt;고정 페이지&lt;/b&gt;&lt;br /&gt;블로그의 디자인을 그대로 따르는 고정 페이지를 블로그 속에 보여줍니다. 관리 메뉴에 새 메뉴 아이템을 생성합니다.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Mon, 14 Jan 2013 02:31:17 +0100</pubDate>
+<pubDate>Tue, 12 Mar 2013 02:31:09 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_staticpage</guid>
 </item>
 <item>

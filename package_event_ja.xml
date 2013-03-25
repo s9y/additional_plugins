@@ -10353,6 +10353,41 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 </release>
 </package>
 <package version="1.0">
+<name>serendipity_event_proxy_realip</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_proxy_realip/ChangeLog</changelog>
+<license>GPL</license>
+<summary>Proxy Real-IP</summary>
+<groups>BACKEND_FEATURES</groups>
+<description>Sets the correct Visitors IP when useing a Proxy for your webserver. Should be the first plugin in the list.</description>
+<maintainers><maintainer><name>&lt;a href=&quot;http://blog.kleinerChemiker.net/&quot; target=&quot;_blank&quot;&gt;kleinerChemiker&lt;/a&gt;</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0.0</version>
+  <requirements:s9yVersion>1.6.2</requirements:s9yVersion>
+  <date>2013-03-25</date>
+  <filelist>
+<dir name="serendipity_event_proxy_realip">
+<dir name="UTF-8">
+<file>lang_de.inc.php</file>
+<file>lang_en.inc.php</file>
+</dir>
+<file>lang_de.inc.php</file>
+<file>ChangeLog</file>
+<file>lang_en.inc.php</file>
+<file>serendipity_event_proxy_realip.php</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>serendipity_event_proxy_realip/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_proxy_realip/UTF-8/lang_en.inc.php</file>
+    <file>serendipity_event_proxy_realip/lang_de.inc.php</file>
+    <file>serendipity_event_proxy_realip/ChangeLog</file>
+    <file>serendipity_event_proxy_realip/lang_en.inc.php</file>
+    <file>serendipity_event_proxy_realip/serendipity_event_proxy_realip.php</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
 <name>serendipity_event_facebook</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_facebook/ChangeLog</changelog>
 <license>GPL</license>

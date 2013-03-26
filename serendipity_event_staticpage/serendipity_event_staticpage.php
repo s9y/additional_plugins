@@ -92,7 +92,7 @@ class serendipity_event_staticpage extends serendipity_event
         $propbag->add('page_configuration', $this->config);
         $propbag->add('type_configuration', $this->config_types);
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers');
-        $propbag->add('version', '4.01');
+        $propbag->add('version', '4.02');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -980,7 +980,7 @@ class serendipity_event_staticpage extends serendipity_event
      *
      */
 
-    function &get_static($key, $default = null)
+    function get_static($key, $default = null) /* no more & */
     {
         return (isset($this->staticpage[$key]) ? $this->staticpage[$key] : $default);
     }
@@ -995,7 +995,7 @@ class serendipity_event_staticpage extends serendipity_event
      *
      */
 
-    function &get_type($key, $default = null)
+    function get_type($key, $default = null) /* no more & */
     {
         return (isset($this->pagetype[$key]) ? $this->pagetype[$key] : $default);
     }
@@ -1105,7 +1105,7 @@ class serendipity_event_staticpage extends serendipity_event
         return $t['template'];
     }
 
-    function getImage(&$id)
+    function getImage($id)
     {
         global $serendipity;
 
@@ -1133,7 +1133,7 @@ class serendipity_event_staticpage extends serendipity_event
         }
     }
 
-    function &parseStaticPage($pagevar = 'staticpage_', $template = 'plugin_staticpage.tpl') {
+    function parseStaticPage($pagevar = 'staticpage_', $template = 'plugin_staticpage.tpl') { /* No more & */
         global $serendipity;
 
         $filename = $this->get_static('filename');
@@ -1146,6 +1146,7 @@ class serendipity_event_staticpage extends serendipity_event
         } else if ($this->get_static('articletype')) {
             $filename = $this->getTemplate($this->get_static('articletype'));
         }
+
 
         serendipity_smarty_init();
 
@@ -1174,9 +1175,11 @@ class serendipity_event_staticpage extends serendipity_event
                 $staticpage_precontent = $entry['body'];
             }
         } else {
-            $staticpage_content    =& $this->get_static('content');
-            $staticpage_precontent =& $this->get_static('pre_content');
+            $staticpage_content    = $this->get_static('content'); // no more &
+            $staticpage_precontent = $this->get_static('pre_content'); // no more &
         }
+
+
 
         if ($cpids = $this->getChildPagesID()) {
 
@@ -1186,9 +1189,9 @@ class serendipity_event_staticpage extends serendipity_event
 
             foreach($cpages as $cpage) {
                 if (strlen($cpage['pre_content'])) {
-                    $precontent =& $cpage['pre_content'];
+                    $precontent = $cpage['pre_content']; // no more &
                 } else {
-                    $precontent =& $cpage['content'];
+                    $precontent = $cpage['content']; // no more &
                 }
 
                 if (serendipity_db_bool($cpage['markup'])) {
@@ -1214,6 +1217,7 @@ class serendipity_event_staticpage extends serendipity_event
 
             }
         }
+
 
 /* this is probably unneeded for the solution with serendipity_fetchPrintEntries - see plugin_staticpage_related_category.tpl - so we can save the costs of a sql-query
 
@@ -1249,6 +1253,7 @@ class serendipity_event_staticpage extends serendipity_event
                 }
             }
 */
+
         $serendipity['smarty']->assign(
             array(
                 $pagevar . 'articleformat'      => serendipity_db_bool($this->get_static('articleformat')),
@@ -1274,7 +1279,6 @@ class serendipity_event_staticpage extends serendipity_event
 //                    $pagevar . 'related_category_entries'           => $related_category_entries
             )
         );
-
         $filename = basename($filename);
         $tfile    = serendipity_getTemplateFile($filename, 'serendipityPath');
         if (!$tfile || $tfile == $filename) {
@@ -1300,7 +1304,6 @@ class serendipity_event_staticpage extends serendipity_event
                 serendipity_header($_SERVER['SERVER_PROTOCOL'].' 404 Not Found');
                 serendipity_header('Status: 404 Not Found');
             }
-
 
             echo $this->parseStaticPage();
         }
@@ -1354,7 +1357,7 @@ class serendipity_event_staticpage extends serendipity_event
         return false;
     }
 
-    function getChildPage(&$id)
+    function getChildPage($id) // no more &
     {
         global $serendipity;
 
@@ -1367,7 +1370,7 @@ class serendipity_event_staticpage extends serendipity_event
 
     }
 
-    function getSystersID(&$id)
+    function getSystersID($id) // no more &
     {
         global $serendipity;
 
@@ -1385,7 +1388,7 @@ class serendipity_event_staticpage extends serendipity_event
         return is_array($pages) ? $pages : false;
     }
 
-    function getStaticPage(&$id)
+    function getStaticPage($id) // no more &
     {
         global $serendipity;
 
@@ -1437,7 +1440,7 @@ class serendipity_event_staticpage extends serendipity_event
         return false;
     }
 
-    function &fetchStaticPage($id)
+    function fetchStaticPage($id) // no more &
     {
         global $serendipity;
 
@@ -1452,7 +1455,7 @@ class serendipity_event_staticpage extends serendipity_event
         }
     }
 
-    function &fetchPageType($id)
+    function fetchPageType($id) // no more & 
     {
         global $serendipity;
 
@@ -1462,7 +1465,7 @@ class serendipity_event_staticpage extends serendipity_event
               LIMIT 1';
         $type = serendipity_db_query($q, true, 'assoc');
         if(is_array($type)) {
-            $this->pagetype =& $type;
+            $this->pagetype = $type; // no more &
         }
     }
 
@@ -1672,7 +1675,7 @@ class serendipity_event_staticpage extends serendipity_event
         }
     }
 
-    function &fetchStaticPages($plugins = false, $match_permalink = '')
+    function fetchStaticPages($plugins = false, $match_permalink = '') // no more &
     {
         global $serendipity;
 
@@ -1690,7 +1693,7 @@ class serendipity_event_staticpage extends serendipity_event
         return serendipity_db_query($q);
     }
 
-    function &fetchPublishedStaticPages()
+    function fetchPublishedStaticPages() // no more &
     {
         global $serendipity;
 
@@ -1698,14 +1701,14 @@ class serendipity_event_staticpage extends serendipity_event
         return is_array($pub) ? $pub : false;
     }
 
-    function &fetchPageTypes()
+    function fetchPageTypes() // no more &
     {
         global $serendipity;
 
         return serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}staticpages_types", false, 'assoc');
     }
 
-    function &fetchPlugins()
+    function fetchPlugins() // no more &
     {
         global $serendipity;
 
@@ -2056,7 +2059,7 @@ class serendipity_event_staticpage extends serendipity_event
         }
     }
 
-    function move_up(&$id)
+    function move_up($id) // no more &
     {
         global $serendipity;
 
@@ -2092,7 +2095,7 @@ class serendipity_event_staticpage extends serendipity_event
         @unlink($this->cachefile);
     }
 
-    function move_down(&$id) {
+    function move_down($id) { // no more &
         global $serendipity;
 
         $dospecial = false;

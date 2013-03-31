@@ -1,9 +1,11 @@
-<?php # lang_cz.inc.php 1.0 2009-02-18 14:31:18 VladaAjgl $
+<?php # lang_cz.inc.php 1.1 2013-03-13 16:16:41 VladaAjgl $
 
 /**
- *  @version 1.0
+ *  @version 1.1
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/02/18
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2013/03/13
  */
 
 @define('PLUGIN_ADDUSER_NAME',		'Samoregistrace nových u¾ivatelù');
@@ -53,3 +55,7 @@
 @define('PLUGIN_ADDUSER_CAPTCHA_DESC',		'Vy¾aduje nainstalovaný plugin událostí "spamblock".');
 
 @define('PLUGIN_ADDUSER_ANTISPAM',		'Nepro¹li jste protispamovým testem. Prosím zkontrolujte, jestli jste správnì opsali KRYPTOGRAM.');
+
+// Next lines were translated on 2013/03/13
+@define('PLUGIN_ADDUSER_REGISTERED_ONLY_GROUP',		'Pøídavná funkce: Pouze registrovaní u¾ivatelé z této skupiny smí pøidávat komentáøe?');
+@define('PLUGIN_ADDUSER_REGISTERED_ONLY_GROUP_DESC',		'Abyste toto mohli pou¾ít, musíte zároveò povolit volbu "Komentáøe smí posílat pouze registrovaní u¾ivatelé". Pokud je tato volba zapnutá, pak mohou posílat komentáøe pouze u¾ivatelé ze specifické skupiny u¾ivatelù a musí k tomu být pøihlá¹eni.');

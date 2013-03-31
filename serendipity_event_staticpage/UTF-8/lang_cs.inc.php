@@ -1,7 +1,7 @@
-<?php # lang_cs.inc.php 1.4 2011-06-30 20:07:24 VladaAjgl $
+<?php # lang_cs.inc.php 1.5 2013-03-31 13:14:21 VladaAjgl $
 
 /**
- *  @version 1.4
+ *  @version 1.5
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  EN-Revision: Revision of lang_en.inc.php
  *  Translated on 2007/11/30
@@ -11,6 +11,8 @@
  *  @revisionDate 2011/03/09
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2011/06/30
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2013/03/31
  */
 
 //
@@ -176,5 +178,21 @@
 @define('STATICPAGE_IS_404_PAGE_DESC',		'Místo vytváření zvláštního chybového dokumentu můžete nastavit tuto stránku jako chybovou stránku 404. Webserver musí toto nastavení umožňovat!');
 
 // Next lines were translated on 2011/06/30
+
 @define('PLUGIN_STATICPAGELIST_SMARTIFY',		'Postranní seznam pomocí Smarty');
 @define('PLUGIN_STATICPAGELIST_SMARTIFY_BLAHBLAH',		'Použijte šablonu Smarty: "plugin_staticpage_sidebar.tpl" pro zadání výstupu do postranního sloupce (umožňuje zkrátit délku pomocí funkcí Smarty).');
+
+// Next lines were translated on 2013/03/31
+@define('STATICPAGE_SHOWMETA_DEFAULT',		'Vkládat vstupní pole pro zadání HTML meta tagů');
+@define('STATICPAGES_CUSTOM_STRUCTURE_SHOW',		'Zobrazit možnosti strukturálních polí');
+@define('STATICPAGES_CUSTOM_META_SHOW',		'Zobrazit nepovinná META pole');
+@define('STATICPAGES_CUSTOM_META_TITLE',		'HTML TITLE (nepovinný)');
+@define('STATICPAGES_CUSTOM_META_TITLE_BLAH_BLAH',		'V HTML kódu bude vloženo jako <title>váš nadpis</title>');
+@define('STATICPAGES_CUSTOM_META_DESC',		'HTML META Description (nepovinné)');
+@define('STATICPAGES_CUSTOM_META_DESC_BLAH_BLAH',		'V HTML kódu bude vloženo jako <meta name="description" content="Tady bude váš html meta popis stránky">');
+@define('STATICPAGES_CUSTOM_META_KEYS',		'HTML META Keywords (nepovinné)');
+@define('STATICPAGES_CUSTOM_META_KEYS_BLAH_BLAH',		'V HTML kódu bude vloženo jako <meta name="keywords" content="vaše html meta klíčová slova">' );
+@define('PLUGIN_STATICPAGE_PREVIEW',		'Náhled statické stránky byl otevřen v novém pop-up okně. Pokud ho nevidíte, klikněte na následující odkaz: %s');
+@define('STATICPAGE_SHOW_BREADCRUMB_DEFAULT',		'Zobrazit breadcrumb');
+@define('STATICPAGE_SHOW_BREADCRUMB',		'Zobrazit navigační koláček (bradcrumb)');
+@define('STATICPAGE_SHOW_BREADCRUMB_DESC',		'Na této stránce zobrazí koláčkovou navigaci, tzv. breadcrumb.');

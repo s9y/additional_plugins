@@ -1,7 +1,7 @@
-<?php # lang_cz.inc.php 1.5 2012-01-11 23:45:25 VladaAjgl $
+<?php # lang_cz.inc.php 1.6 2013-03-31 13:49:43 VladaAjgl $
 
 /**
- *  @version 1.5
+ *  @version 1.6
  *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  @translated 2009/08/08
  *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
@@ -14,6 +14,8 @@
  *  @revisionDate 2011/03/09
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2012/01/11
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2013/03/31
  */
 @define('PLUGIN_TWITTER_TITLE',                         'Twitter');
 @define('PLUGIN_TWITTER_DESC',                          'Zobrazuje Va¹e nejnovìj¹í pøíspìvky na Twitteru');
@@ -204,6 +206,7 @@
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_ARTICLES_NO_DESC','Povolení znamená, ¾e nový pøíspìvek na blogu musí být výslovnì odeslán do twiteru. Vypnutí (výchozí hodnota) znamená, ¾e pøíspìvek bude do twiteru odeslán automaticky.');
 
 // Next lines were translated on 2012/01/11
+
 @define('PLUGIN_EVENT_TWITTER_SIGN_IN',                 'Kliknìte na tlaèítko ní¾e a pøipojte Twitter.<br/>
 <p><a style="color:red;">VAROVÁNÍ!</a><br/>
 Musíte se pøihlásit nebo odhlásit s <b>odpovídajícím úètem Twitteru</b>!<br/>
@@ -219,3 +222,18 @@ Musíte se pøihlásit nebo odhlásit s <b>odpovídajícím úètem Twitteru</b>!<br/>
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_BITLYLOGIN',     'U¾ivatelské jméno bit.ly');
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_BITLYAPIKEY',    'bit.ly API klíè');
 @define('PLUGIN_EVENT_TWITTER_GENERALCONSUMER',         '<h3>Vlastní twitter klient</h3>Ve výchozím nastavení pou¾ívá plugin klienta \'s9y\'. Mù¾ete si <a href="https://dev.twitter.com/apps" target="_blank">zaregistrovat vlastního klienta</a> a nastavit consumer klíè a heslo va¹eho klienta.');
+
+// Next lines were translated on 2013/03/31
+@define('PLUGIN_EVENT_TWITTER_TWEETER_UPDATE',           'Update');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_PIRATLYDESC',     '<h3>pirat.ly API token</h3>Pro zkrácené odkaz <b>pirat.ly</b> mù¾ete <a href="http://pirat.ly/account" target="_blank">získat API token tím, ¾e se zdarma registrujete na slu¾bì piratly</a>. Pou¾itím tohoto API tokenu pøi oznamování Va¹ich pøíspìvkù mù¾ete prohlí¾et poèty proklikù buï pomocí webového rozhraní nebo na zaøízení s Androidem pomocí <a href="http://pirat.ly/shortenerrr" target="_blank">aplikace Shortenerrr</a>.');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_PIRATLYAPIKEY',   'Vá¹ osobní piratly API token');
+@define('PLUGIN_TWITTER_FILTER_RT',                      'FIltrovat nativní retweety');
+@define('PLUGIN_TWITTER_FILTER_RT_DESC',                 'Mají se filtrovat nativní retweety? (pouze pro Twitter API 1.1; API 1.0 filtruje v¾dy)');
+@define('PLUGIN_TWITTER_API11',                          'Pou¾ít OAuth Twitter API 1.1');
+@define('PLUGIN_TWITTER_API11_DESC',                     'Twitter API 1.0 je zastaralé a bìhem roku 2013 bude úplnì zru¹eno. Mìli byste se tedy pøepnout na API 1.1. Nicménì to vy¾aduje, abyste nastavili alespoò jedno OAuth propojení v hlavním mikroblogovacím pluginu. Pokud v políèku ní¾e najdete nìjaký úèet, u¾ jste to udìlali.');
+@define('PLUGIN_TWITTER_OAUTHACC',                       'OAuth úèet, který se má pou¾ít tímto pluginem');
+@define('PLUGIN_TWITTER_OAUTHACC_DESC',                  'Nové OAuth Twitter API je tøeba volat pomocí OAuthorzied Twitter úètu. Tento úèet bude také pou¾it pro omezení pøístupu. Mù¾ete pou¾ít libovolný úèet, který vlastníte, tøeba úèet, který nikde jinde nepou¾íváte, napøíklad abyste mìli pro tento plugin samostatný limit pøístupu.');
+@define('PLUGIN_EVENT_TWITTER_API_TYPE',                 'Verze Twitter API');
+@define('PLUGIN_EVENT_TWITTER_API_TYPE_DESC',            'Twitter API 1.0 je zastaralé a bìhem roku 2013 bude úplnì zru¹eno. Mìli byste se tedy pøepnout na API 1.1. Nicménì to vy¾aduje, abyste nastavili alespoò jedno OAuth propojení (nastavení identity/u¾ivatele)');
+@define('PLUGIN_EVENT_TWITTER_API_10',                   'API 1.0 [zastaralé]');
+@define('PLUGIN_EVENT_TWITTER_API_11',                   'API 1.1 OAuth');

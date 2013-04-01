@@ -1316,11 +1316,11 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <guid isPermaLink="false">serendipity_event_autoupdate</guid>
 </item>
 <item>
-<title>Spamblock Bee (Honeypot, Hidden Captcha): Implements simple comment antispam mechanisms, that are easy to configure but very effective.</title>
+<title>Spamblock Bee (Honeypot, Skrytá Captcha): Implementuje jednoduché ale velmi účinné antispamové algoritmy.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_spamblock_bee</link>
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Janek Bevendorff</author>
-<content:encoded>&lt;b&gt;serendipity_event_spamblock_bee&lt;br /&gt;Spamblock Bee (Honeypot, Hidden Captcha)&lt;/b&gt;&lt;br /&gt;Implements simple comment antispam mechanisms, that are easy to configure but very effective.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_event_spamblock_bee&lt;br /&gt;Spamblock Bee (Honeypot, Skrytá Captcha)&lt;/b&gt;&lt;br /&gt;Implementuje jednoduché ale velmi účinné antispamové algoritmy.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Thu, 27 Sep 2012 02:32:13 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_bee</guid>
 </item>
@@ -1334,20 +1334,20 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <guid isPermaLink="false">serendipity_event_dbclean</guid>
 </item>
 <item>
-<title>D64 LSR-Stopper: With this plugin you prevent links to media that support the German &quot;Leistungsschutzrecht&quot;.</title>
+<title>D64 LSR-Stopper: Pomocí tohoto pluginu zablokujete odkazy na média, která porušují německý &quot;Leistungsschutzrecht&quot; (Ochrana duševního vlastnictví).</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_lsrstopper</link>
 <category>Event Plugins</category>
 <author>Matthias Gutjahr</author>
-<content:encoded>&lt;b&gt;serendipity_event_lsrstopper&lt;br /&gt;D64 LSR-Stopper&lt;/b&gt;&lt;br /&gt;With this plugin you prevent links to media that support the German &quot;Leistungsschutzrecht&quot;.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_event_lsrstopper&lt;br /&gt;D64 LSR-Stopper&lt;/b&gt;&lt;br /&gt;Pomocí tohoto pluginu zablokujete odkazy na média, která porušují německý &quot;Leistungsschutzrecht&quot; (Ochrana duševního vlastnictví).&lt;br/&gt;For: Serendipity 1.6</content:encoded>
 <pubDate>Fri, 08 Mar 2013 02:31:08 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_lsrstopper</guid>
 </item>
 <item>
-<title>Proxy Real-IP: Sets the correct Visitors IP when useing a Proxy for your webserver. Should be the first plugin in the list.</title>
+<title>Proxy Real-IP: Nastaví správnou návštěvnickou IP adresu pro čtenáře, kteří používají Proxy webserver. Měl by být prvním pluginem v seznamu pluginů.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_proxy_realip</link>
 <category>Event Plugins</category>
 <author>&lt;a href=&quot;http://blog.kleinerChemiker.net/&quot; target=&quot;_blank&quot;&gt;kleinerChemiker&lt;/a&gt;</author>
-<content:encoded>&lt;b&gt;serendipity_event_proxy_realip&lt;br /&gt;Proxy Real-IP&lt;/b&gt;&lt;br /&gt;Sets the correct Visitors IP when useing a Proxy for your webserver. Should be the first plugin in the list.&lt;br/&gt;For: Serendipity 1.6.2</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_event_proxy_realip&lt;br /&gt;Proxy Real-IP&lt;/b&gt;&lt;br /&gt;Nastaví správnou návštěvnickou IP adresu pro čtenáře, kteří používají Proxy webserver. Měl by být prvním pluginem v seznamu pluginů.&lt;br/&gt;For: Serendipity 1.6.2</content:encoded>
 <pubDate>Mon, 25 Mar 2013 02:31:07 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_proxy_realip</guid>
 </item>

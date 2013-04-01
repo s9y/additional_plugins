@@ -10205,9 +10205,9 @@ aplikovány další typografické úpravy.</description>
 <name>serendipity_event_spamblock_bee</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_spamblock_bee/ChangeLog</changelog>
 <license>GPL</license>
-<summary>Spamblock Bee (Honeypot, Hidden Captcha)</summary>
+<summary>Spamblock Bee (Honeypot, Skrytá Captcha)</summary>
 <groups>ANTISPAM</groups>
-<description>Implements simple comment antispam mechanisms, that are easy to configure but very effective.</description>
+<description>Implementuje jednoduché ale velmi účinné antispamové algoritmy.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Janek Bevendorff</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.2.7</version>
@@ -10217,6 +10217,8 @@ aplikovány další typografické úpravy.</description>
 <dir name="serendipity_event_spamblock_bee">
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
 </dir>
 <dir name="json">
 <file>JSON.php</file>
@@ -10230,11 +10232,15 @@ aplikovány další typografické úpravy.</description>
 <file>ChangeLog</file>
 <file>serendipity_event_spamblock_bee.js</file>
 <file>serendipity_plugin_spamblock_bee.php</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_spamblock_bee/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_spamblock_bee/UTF-8/lang_cs.inc.php</file>
+    <file>serendipity_event_spamblock_bee/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_spamblock_bee/json/JSON.php</file>
     <file>serendipity_event_spamblock_bee/json/json.php4.include.php</file>
     <file>serendipity_event_spamblock_bee/lang_de.inc.php</file>
@@ -10245,6 +10251,8 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_spamblock_bee/ChangeLog</file>
     <file>serendipity_event_spamblock_bee/serendipity_event_spamblock_bee.js</file>
     <file>serendipity_event_spamblock_bee/serendipity_plugin_spamblock_bee.php</file>
+    <file>serendipity_event_spamblock_bee/lang_cs.inc.php</file>
+    <file>serendipity_event_spamblock_bee/lang_cz.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -10305,7 +10313,7 @@ aplikovány další typografické úpravy.</description>
 <license>GPL</license>
 <summary>D64 LSR-Stopper</summary>
 <groups>MARKUP</groups>
-<description>With this plugin you prevent links to media that support the German &quot;Leistungsschutzrecht&quot;.</description>
+<description>Pomocí tohoto pluginu zablokujete odkazy na média, která porušují německý &quot;Leistungsschutzrecht&quot; (Ochrana duševního vlastnictví).</description>
 <maintainers><maintainer><name>Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>0.3</version>
@@ -10315,6 +10323,8 @@ aplikovány další typografické úpravy.</description>
 <dir name="serendipity_event_lsrstopper">
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
 </dir>
 <dir name="libs">
 <file>simple_html_dom.php</file>
@@ -10332,11 +10342,15 @@ aplikovány další typografické úpravy.</description>
 <file>serendipity_event_lsrstopper.php</file>
 <file>documentation_de.html</file>
 <file>lang_en.inc.php</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_lsrstopper/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_lsrstopper/UTF-8/lang_cs.inc.php</file>
+    <file>serendipity_event_lsrstopper/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_lsrstopper/libs/simple_html_dom.php</file>
     <file>serendipity_event_lsrstopper/tests/fixtures/blacklist.txt</file>
     <file>serendipity_event_lsrstopper/tests/lsrstopperTest.php</file>
@@ -10347,6 +10361,8 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_lsrstopper/serendipity_event_lsrstopper.php</file>
     <file>serendipity_event_lsrstopper/documentation_de.html</file>
     <file>serendipity_event_lsrstopper/lang_en.inc.php</file>
+    <file>serendipity_event_lsrstopper/lang_cs.inc.php</file>
+    <file>serendipity_event_lsrstopper/lang_cz.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -10356,7 +10372,7 @@ aplikovány další typografické úpravy.</description>
 <license>GPL</license>
 <summary>Proxy Real-IP</summary>
 <groups>BACKEND_FEATURES</groups>
-<description>Sets the correct Visitors IP when useing a Proxy for your webserver. Should be the first plugin in the list.</description>
+<description>Nastaví správnou návštěvnickou IP adresu pro čtenáře, kteří používají Proxy webserver. Měl by být prvním pluginem v seznamu pluginů.</description>
 <maintainers><maintainer><name>&lt;a href=&quot;http://blog.kleinerChemiker.net/&quot; target=&quot;_blank&quot;&gt;kleinerChemiker&lt;/a&gt;</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0.0</version>
@@ -10367,21 +10383,29 @@ aplikovány další typografické úpravy.</description>
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
 </dir>
 <file>lang_de.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_proxy_realip.php</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_proxy_realip/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_proxy_realip/UTF-8/lang_en.inc.php</file>
+    <file>serendipity_event_proxy_realip/UTF-8/lang_cs.inc.php</file>
+    <file>serendipity_event_proxy_realip/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_proxy_realip/lang_de.inc.php</file>
     <file>serendipity_event_proxy_realip/ChangeLog</file>
     <file>serendipity_event_proxy_realip/lang_en.inc.php</file>
     <file>serendipity_event_proxy_realip/serendipity_event_proxy_realip.php</file>
+    <file>serendipity_event_proxy_realip/lang_cs.inc.php</file>
+    <file>serendipity_event_proxy_realip/lang_cz.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>

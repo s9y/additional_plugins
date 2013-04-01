@@ -10217,6 +10217,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <dir name="serendipity_event_spamblock_bee">
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
 </dir>
 <dir name="json">
 <file>JSON.php</file>
@@ -10230,11 +10232,15 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <file>ChangeLog</file>
 <file>serendipity_event_spamblock_bee.js</file>
 <file>serendipity_plugin_spamblock_bee.php</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_spamblock_bee/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_spamblock_bee/UTF-8/lang_cs.inc.php</file>
+    <file>serendipity_event_spamblock_bee/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_spamblock_bee/json/JSON.php</file>
     <file>serendipity_event_spamblock_bee/json/json.php4.include.php</file>
     <file>serendipity_event_spamblock_bee/lang_de.inc.php</file>
@@ -10245,6 +10251,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
     <file>serendipity_event_spamblock_bee/ChangeLog</file>
     <file>serendipity_event_spamblock_bee/serendipity_event_spamblock_bee.js</file>
     <file>serendipity_event_spamblock_bee/serendipity_plugin_spamblock_bee.php</file>
+    <file>serendipity_event_spamblock_bee/lang_cs.inc.php</file>
+    <file>serendipity_event_spamblock_bee/lang_cz.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -10315,6 +10323,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <dir name="serendipity_event_lsrstopper">
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
 </dir>
 <dir name="libs">
 <file>simple_html_dom.php</file>
@@ -10332,11 +10342,15 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <file>serendipity_event_lsrstopper.php</file>
 <file>documentation_de.html</file>
 <file>lang_en.inc.php</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_lsrstopper/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_lsrstopper/UTF-8/lang_cs.inc.php</file>
+    <file>serendipity_event_lsrstopper/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_lsrstopper/libs/simple_html_dom.php</file>
     <file>serendipity_event_lsrstopper/tests/fixtures/blacklist.txt</file>
     <file>serendipity_event_lsrstopper/tests/lsrstopperTest.php</file>
@@ -10347,6 +10361,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
     <file>serendipity_event_lsrstopper/serendipity_event_lsrstopper.php</file>
     <file>serendipity_event_lsrstopper/documentation_de.html</file>
     <file>serendipity_event_lsrstopper/lang_en.inc.php</file>
+    <file>serendipity_event_lsrstopper/lang_cs.inc.php</file>
+    <file>serendipity_event_lsrstopper/lang_cz.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -10367,21 +10383,29 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
 </dir>
 <file>lang_de.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_proxy_realip.php</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_proxy_realip/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_proxy_realip/UTF-8/lang_en.inc.php</file>
+    <file>serendipity_event_proxy_realip/UTF-8/lang_cs.inc.php</file>
+    <file>serendipity_event_proxy_realip/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_proxy_realip/lang_de.inc.php</file>
     <file>serendipity_event_proxy_realip/ChangeLog</file>
     <file>serendipity_event_proxy_realip/lang_en.inc.php</file>
     <file>serendipity_event_proxy_realip/serendipity_event_proxy_realip.php</file>
+    <file>serendipity_event_proxy_realip/lang_cs.inc.php</file>
+    <file>serendipity_event_proxy_realip/lang_cz.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>

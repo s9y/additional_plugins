@@ -171,11 +171,11 @@
 <guid isPermaLink="false">serendipity_plugin_guestbook</guid>
 </item>
 <item>
-<title>Flickr: Zobrazuje nejnovější fotografie z libovolného (což obvykle znamená z Vašeho) kanálu Flickr. Podrobnosti viz. http://www.flickr.com/.</title>
+<title>Flickr Photostream: Zobrazuje nejnovější fotografie kanálu Flickr Photostream.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_flickr</link>
 <category>Sidebar Plugins</category>
 <author>Michael Kaiser</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_flickr&lt;br /&gt;Flickr&lt;/b&gt;&lt;br /&gt;Zobrazuje nejnovější fotografie z libovolného (což obvykle znamená z Vašeho) kanálu Flickr. Podrobnosti viz. http://www.flickr.com/.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_plugin_flickr&lt;br /&gt;Flickr Photostream&lt;/b&gt;&lt;br /&gt;Zobrazuje nejnovější fotografie kanálu Flickr Photostream.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Sun, 25 Dec 2011 02:06:21 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_flickr</guid>
 </item>
@@ -506,11 +506,11 @@
 <guid isPermaLink="false">serendipity_plugin_frappr</guid>
 </item>
 <item>
-<title>Spam Report: Prints out a statistic about your comment spam if your antispam plugins report to the DB.</title>
+<title>Spam report: Vypíše statistiku o komentářovém spamu, pokud plugin ukládá logy do databáze.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_spamblock_bee</link>
 <category>Sidebar Plugins</category>
 <author>Grischa Brockhaus, Janek Bevendorff</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_spamblock_bee&lt;br /&gt;Spam Report&lt;/b&gt;&lt;br /&gt;Prints out a statistic about your comment spam if your antispam plugins report to the DB.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_plugin_spamblock_bee&lt;br /&gt;Spam report&lt;/b&gt;&lt;br /&gt;Vypíše statistiku o komentářovém spamu, pokud plugin ukládá logy do databáze.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Tue, 21 Aug 2012 02:32:09 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_spamblock_bee</guid>
 </item>

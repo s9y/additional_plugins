@@ -5065,6 +5065,8 @@ aplikovány další typografické úpravy.</description>
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>README</file>
 <file>lang_ko.inc.php</file>
@@ -5073,6 +5075,8 @@ aplikovány další typografické úpravy.</description>
 <file>lang_en.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -5081,6 +5085,8 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_page_nugget/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_event_page_nugget/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_page_nugget/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_page_nugget/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_page_nugget/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_page_nugget/README</file>
     <file>serendipity_event_page_nugget/lang_ko.inc.php</file>
     <file>serendipity_event_page_nugget/serendipity_event_page_nugget.php</file>
@@ -5088,6 +5094,8 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_page_nugget/lang_en.inc.php</file>
     <file>serendipity_event_page_nugget/lang_cs.inc.php</file>
     <file>serendipity_event_page_nugget/lang_cz.inc.php</file>
+    <file>serendipity_event_page_nugget/documentation_cs.html</file>
+    <file>serendipity_event_page_nugget/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -10089,9 +10097,9 @@ aplikovány další typografické úpravy.</description>
 <name>serendipity_event_commentspice</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_commentspice/ChangeLog</changelog>
 <license>GPL</license>
-<summary>Comment Spice</summary>
+<summary>Komentářové koření</summary>
 <groups>FRONTEND_VIEWS</groups>
-<description>Spice up your comments area with goodies like commenters twitter or last posted article link and nofollows by rules.</description>
+<description>Okořeňte formulář pro zadání komentářů pomocí twitteru komentujícího, odkazem na poslední článek nebo pravidly pro ne-sledování.</description>
 <maintainers><maintainer><name>Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.05</version>
@@ -10101,6 +10109,10 @@ aplikovány další typografické úpravy.</description>
 <dir name="serendipity_event_commentspice">
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
 </dir>
 <dir name="img">
 <file>commentspice.png</file>
@@ -10126,11 +10138,19 @@ aplikovány další typografické úpravy.</description>
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_commentspice.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_commentspice/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_commentspice/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_commentspice/UTF-8/documentation_cz.html</file>
+    <file>serendipity_event_commentspice/UTF-8/lang_cs.inc.php</file>
+    <file>serendipity_event_commentspice/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_commentspice/img/commentspice.png</file>
     <file>serendipity_event_commentspice/img/audioboo.png</file>
     <file>serendipity_event_commentspice/img/identica_icon.png</file>
@@ -10147,6 +10167,10 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_commentspice/lang_de.inc.php</file>
     <file>serendipity_event_commentspice/lang_en.inc.php</file>
     <file>serendipity_event_commentspice/serendipity_event_commentspice.php</file>
+    <file>serendipity_event_commentspice/documentation_cs.html</file>
+    <file>serendipity_event_commentspice/documentation_cz.html</file>
+    <file>serendipity_event_commentspice/lang_cs.inc.php</file>
+    <file>serendipity_event_commentspice/lang_cz.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>

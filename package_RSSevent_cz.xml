@@ -1298,11 +1298,11 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <guid isPermaLink="false">serendipity_event_template_editor</guid>
 </item>
 <item>
-<title>Comment Spice: Spice up your comments area with goodies like commenters twitter or last posted article link and nofollows by rules.</title>
+<title>Komentářové koření: Okořeňte formulář pro zadání komentářů pomocí twitteru komentujícího, odkazem na poslední článek nebo pravidly pro ne-sledování.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_commentspice</link>
 <category>Event Plugins</category>
 <author>Grischa Brockhaus</author>
-<content:encoded>&lt;b&gt;serendipity_event_commentspice&lt;br /&gt;Comment Spice&lt;/b&gt;&lt;br /&gt;Spice up your comments area with goodies like commenters twitter or last posted article link and nofollows by rules.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_event_commentspice&lt;br /&gt;Komentářové koření&lt;/b&gt;&lt;br /&gt;Okořeňte formulář pro zadání komentářů pomocí twitteru komentujícího, odkazem na poslední článek nebo pravidly pro ne-sledování.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Sun, 12 Aug 2012 02:31:59 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_commentspice</guid>
 </item>

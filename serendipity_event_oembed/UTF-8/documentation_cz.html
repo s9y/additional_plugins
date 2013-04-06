@@ -6,7 +6,7 @@
 	<body>
 	<h1>Dokumentace k pluginu 'oEmbed'<br />
 	<small>(serendipity_event_oembed)</small></h1>
-		<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 4.2.2011. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="../ChangeLog">aktuální anglický ChangeLog</a>. 
+		<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) a naposledy zkontroloval dne 6.4.2013. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="../ChangeLog">aktuální anglický ChangeLog</a>. 
 		</p>
 		
 		<h2>Popis pluginu</h2>
@@ -16,6 +16,24 @@
 		
 		<h2>Historie verzí (ChangeLog)</h2>
 		<ul>
+			<li>verze 1.10 [brockhaus]</li>	
+			<ul>	
+				<li>Výstup OEmbed teď bude ignorován, pokud obsahuje chybové pole.</li>	
+				<li>Twitter oEmbed vráceno k API 1.0, protože 1.1 *potřebuje* OAuth :-(</li>	
+			</ul>
+			<li>verze 1.10 [brockhaus]</li>	
+			<ul>	
+				<li>Aktualizace twitter oEmbed na API 1.1, které vypadá, že nepotřebuje OAuth.</li>	
+			</ul>
+			<li>verze 1.09 [brockhaus]</li>	
+			<ul>	
+				<li>Vypnuto hlášení chyb při stahování oembed kódu, takže nebude narušovat výstup stránky, když je služba mimo provoz.</li>	
+				<li>Odstranění providera pixplz, protože je služba nedostupná.</li>	
+			</ul>
+			<li>verze 1.07 [brockhaus]</li>	
+			<ul>
+				<li>Nové: služby dotsub.com a podomatic podcast</li>	
+			</ul>
 			<li>verze 1.06 [brockhaus]</li>	
 			<ul>	
 				<li>Nový rozpoznávač AudioBoo, který podporuje 3 různé typy přehrávačů AudioBoo (jde nastavit, který se má použít). Starý "wordpress přehrávač" je nastaven jako výchozí kvůli zpětné kompatibilitě.</li>	

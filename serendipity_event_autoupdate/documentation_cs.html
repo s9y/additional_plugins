@@ -6,13 +6,29 @@
 	<body>
 	<h1>Dokumentace k pluginu 'Automatické aktualizace'<br />
 	<small>(serendipity_event_autoupdate)</small></h1>
-		<p>Dokumentaci k tomuto pluginu pøeložil do èeštiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) a naposledy zkontroloval dne 22.1.2012. Od té doby mohl být plugin pozmìnìn nebo mohly být rozšíøené jeho funkce. Zkontrolujte pro jistotu i	<a href="ChangeLog">aktuální anglický ChangeLog</a>. 
+		<p>Dokumentaci k tomuto pluginu pøeložil do èeštiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) a naposledy zkontroloval dne 6.4.2013. Od té doby mohl být plugin pozmìnìn nebo mohly být rozšíøené jeho funkce. Zkontrolujte pro jistotu i	<a href="ChangeLog">aktuální anglický ChangeLog</a>. 
 		</p>
 		
 		<h2>Popis pluginu</h2>
 		<p>Když plugin "tabule" detekuje aktualizace, tento plugin pøidá možnost automatické aktualizace blogu kliknutím na jediné tlaèítko v administraèní sekci.</p>
 		<h2>Historie verzí (ChangeLog)</h2>
 		<ul>
+			<li>verze 0.4</li>	
+			<ul>
+				<li>Opravena promìnná pro checksumy</li>	
+				<li>Rozšíøení cleanTemplatesC()</li>	
+				<li>Pøidání nìkolika ladicích zpráv a zpráv o prùbìhu aktualizace</li>	
+			</ul>
+			<li>verze 0.3 [brockhaus]</li>	
+			<ul>
+				<li>Opravy kompatibility</li>	
+			</ul>
+			<li>verze 0.2</li>	
+			<ul>
+				<li>Opraveno: Nevytváøel nové adresáøe, které byly souèástí nové instalace</li>	
+				<li>Opraveno: Zaseknul se na nových souborech v nové verzi, které neexistovaly ve staré verzi</li>	
+				<li>Vyèištìní cache v templates_c tìsnì pøed aktualizací, aby se zabránilo vykreslovacím chybám</li>	
+			</ul>
 			<li>verze 0.1.2</li>	
 			<ul>
 				<li>Opraveno varování o volání odkazem "call-by-reference" v PHP 5.3</li>	

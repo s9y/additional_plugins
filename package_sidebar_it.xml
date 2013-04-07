@@ -2070,10 +2070,14 @@
 <dir name="UTF-8">
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>lang_en.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -2084,9 +2088,13 @@
     <file>serendipity_plugin_shoutcast/shoutcast_plugin_setup.jpg</file>
     <file>serendipity_plugin_shoutcast/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_shoutcast/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_plugin_shoutcast/UTF-8/documentation_cs.html</file>
+    <file>serendipity_plugin_shoutcast/UTF-8/documentation_cz.html</file>
     <file>serendipity_plugin_shoutcast/lang_en.inc.php</file>
     <file>serendipity_plugin_shoutcast/lang_cs.inc.php</file>
     <file>serendipity_plugin_shoutcast/lang_cz.inc.php</file>
+    <file>serendipity_plugin_shoutcast/documentation_cs.html</file>
+    <file>serendipity_plugin_shoutcast/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>

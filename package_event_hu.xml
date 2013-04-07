@@ -5381,11 +5381,15 @@
 <dir name="UTF-8">
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>lang_en.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -5394,10 +5398,14 @@
     <file>serendipity_event_fckeditor/serendipity_event_fckeditor.php</file>
     <file>serendipity_event_fckeditor/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_fckeditor/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_fckeditor/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_fckeditor/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_fckeditor/lang_en.inc.php</file>
     <file>serendipity_event_fckeditor/ChangeLog</file>
     <file>serendipity_event_fckeditor/lang_cs.inc.php</file>
     <file>serendipity_event_fckeditor/lang_cz.inc.php</file>
+    <file>serendipity_event_fckeditor/documentation_cs.html</file>
+    <file>serendipity_event_fckeditor/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>

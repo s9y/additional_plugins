@@ -1,18 +1,20 @@
-<?php # lang_cs.inc.php 1.0 2009-03-07 18:47:33 VladaAjgl $
+<?php # lang_cs.inc.php 1.1 2013-04-13 15:04:03 VladaAjgl $
 
 /**
- *  @version 1.0
+ *  @version 1.1
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/03/07
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2013/04/13
  */
 
-@define('PLUGIN_GGOPIS_NAME',		'Status z Gadu-Gadu kecálku (IM = instant messenger)');
-@define('PLUGIN_GGOPIS_DESC',		'Zobrazuje popis stavu z Gadu-Gadu kecálku');
+@define('PLUGIN_GGOPIS_NAME',		'Status z Gadu-Gadu');
+@define('PLUGIN_GGOPIS_DESC',		'Zobrazuje popis stavu z Gadu-Gadu IM (Instant Messenger = protokol pro posílání zpráv, alternativa ICQ, Jabberu apod.)');
 @define('PLUGIN_GGOPIS_GGGATEID',		'UID identifikátor Gadu-Gadu brány');
 @define('PLUGIN_GGOPIS_GGGATEID_DESC',		' ');
-@define('PLUGIN_GGOPIS_GGGATEPASSWD',		'Gadu-Gadu heslo');
+@define('PLUGIN_GGOPIS_GGGATEPASSWD',		'Heslo ke Gadu-Gadu bránì');
 @define('PLUGIN_GGOPIS_GGGATEPASSWD_DESC',		' ');
-@define('PLUGIN_GGOPIS_GGID',		'Gadu-Gadu UID identifikátor');
+@define('PLUGIN_GGOPIS_GGID',		'Gadu-Gadu UID, jehož status se má sledovat');
 @define('PLUGIN_GGOPIS_GGID_DESC',		' ');
 
 @define('PLUGIN_GGOPIS_MSG_NOCONNTOAPPMSG',		'Spojení na appmsg.gadu-gadu.pl nebylo stanoveno, možná je zahlcen: ');
@@ -21,5 +23,4 @@
 @define('PLUGIN_GGOPIS_MSG_UNKNOWNERROR',		'Neznámá chyba');
 @define('PLUGIN_GGOPIS_MSG_INCORRPASSWD',		'Nesprávné heslo');
 @define('PLUGIN_GGOPIS_MSG_SENDCONTACTSERROR',		'Chyba pøi posílání seznamu kontaktù');
-@define('PLUGIN_GGOPIS_MSG_NOSTATUSDESC',		'Žádný status');
-
+@define('PLUGIN_GGOPIS_MSG_NOSTATUSDESC',		'Žádný popis statutu');

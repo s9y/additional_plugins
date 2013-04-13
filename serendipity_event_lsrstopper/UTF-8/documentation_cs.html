@@ -1,0 +1,79 @@
+<html>    
+	<head>        
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Dokumentace: D64 LSR-Stopper</title>        
+		<style>
+        	pre {
+				display: block;
+				padding: 5px;
+				border: solid 1px #333333;
+				background-color: #cccccc;
+			}         
+		</style>    
+	</head>
+	<body>
+	<h1>Dokumentace k pluginu 'D64 LSR-Stopper'<br />
+	<small>(serendipity_event_lsrstopper)</small></h1>
+		<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 13.4.2014. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i	<a href="../README.md">aktuální německé "README.md"</a> a <a href="../ChangeLog">ChangeLog</a>. 
+		</p>
+		
+    <h2>Licence</h2>
+    <p>
+    Tento plugin je licencován "MIT" licencí. Její plné znění naleznete v přiloženém souboru <a href="../LICENSE">"LICENSE"</a> (anglicky).
+    </p>
+    
+		<h2>O pluginu</h2>
+    <p>
+    Pomocí tohoto pluginu zablokujete odkazy na média, na která si vydavatelství či autoři nárokují ochranu duševního vlastnictví.
+    </p>
+    <p>Pozn. překladatele: Plugin využívá německou webovou službu, která hlídá ochranu duševního vlastnictví. Jeho použitelnost v Česku může být omezená. Sám jsem ho netestoval.
+    </p>
+    <p>
+    Plugin je založen na <a href="http://wordpress.org/extend/plugins/d64-lsr-stopper/">Původním pluginu pro Wordpress</a> (německy).
+    
+    <h2>Popis pluginu</h2>
+    <p>
+    Tento plugin zablokuje odkazy na internetové stránky a média, jejichž autoři/vydavatelé/firmy si nárokují svá autorská práva, přesměrovány na <a href="http://leistungsschutzrecht-stoppen.d-64.org/blacklisted/">speciální stránku (německy)</a>, která vysvětluje problematiku autorských práv a duševního vlastnictví. Na černé listině (tj. blokované, přesměrované odkazy) jsou členové Spolkového svazu německých vydavatelů novin (BDZV = Bundesvereinigung deutscher Zeitungsverleger), Svazu německých vydavatelů časopisů (VDZ = Verband deutscher Zeitschriftenverleger) a Německé obsahové aliance (Deutschen Content-Allianz). Média, která se vysloveně zřeknou svých autorských práv, budou ze seznamu odstraněna.
+    </p>
+    <p>
+    Černou listinu poskytuje D64 a na jejich stránkách je také ke stažení. Alternativně je možné použít zjišťování pomocí DNS služby (viz níže).
+    </p>
+
+<ul>
+	<li><a href="http://leistungsschutzrecht-stoppen.d-64.org/">Další informace na stránkách organizace D64 &rarr;</a> (německy)</li>
+	<li><a href="../https://github.com/gglnx/d64-lsr-stopper">Plugin pro Wordpress na GitHubu &rarr;</a> (německy)</li>
+	<li><a href="http://dentaku.wazong.de/2013/03/01/lsrdnsbl/">Dentakův blog k jeho DNS-službě</a> (německy)</li>
+</ul>
+
+<em>Poznámka: Nebojte se, plugin se dá bez problémů a beze zbytků odstranit (tzn. neprovádí žádné změny v databázi). Po odinstalaci budou všechny odkazy fungovat stejně jako před instalací.</em>
+
+<h2>Instalace</h2>
+
+<ol>
+<li>Stáhněte <a href="../https://github.com/mattsches/serendipity_event_lsrstopper/archive/master.zip">ZIP-archiv</a></li>
+<li>ZIP-archiv rozbalte.</li>
+<li>Data nahrajte do adresáře `/plugins/`.</li>
+<li>Plugin aktivujte v Administrační sekci.</li>
+<li>Pokud používáte plugin `serendipity_event_trackexits`, ujistěte se, že je v seznamu pluginů <b>až za</b> pluginem `serendipity_event_lsrstopper`!</li>
+</ol>
+		
+		<h2>Historie verzí (ChangeLog)</h2>
+		<ul>
+			<li>verze 0.3</li>	
+			<ul>	
+				<li>Přidán jednoduchý unitový test (s podporou lokálních blacklist souborů)</li>	
+				<li>Přidána dokumentace (německá)</li>	
+			</ul>
+			<li>verze 0.2</li>	
+			<ul>	
+				<li>Odstraněno použití namespace pro stdClass(), teď to funguje s PHP 5.2</li>	
+				<li>Přidána DNS služba poskytovaná wazong.de (<a href="http://dentaku.wazong.de/2013/03/01/lsrdnsbl/">http://dentaku.wazong.de/2013/03/01/lsrdnsbl/</a>)</li>	
+			</ul>
+			<li>verze 0.1</li>	
+			<ul>	
+				<li>první verze</li>	
+			</ul>
+		</ul>  
+    
+	</body>
+</html>

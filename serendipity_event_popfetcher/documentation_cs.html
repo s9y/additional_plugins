@@ -1,0 +1,163 @@
+<html>    
+	<head>        
+		<meta http-equiv="content-type" content="text/html; charset=windows-1250">
+		<title>Dokumentace: POP3 stahovač</title>        
+		<style>
+        	pre {
+				display: block;
+				padding: 5px;
+				border: solid 1px #333333;
+				background-color: #cccccc;
+			}         
+		</style>    
+	</head>
+	<body>
+	<h1>Dokumentace k pluginu 'POP3 stahovač'<br />
+	<small>(serendipity_event_popfetcher)</small></h1>
+		<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 14.4.2013. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i	<a href="docs.txt">aktuální anglickou dokumentaci</a> a <a href="ChangeLog">ChangeLog</a>. 
+		</p>
+		
+    <h2>Autor</h2>
+    Jason Levitt - <a href="mailto:fredb86@users.sourceforge.net">fredb86@users.sourceforge.net</a>
+
+		<h2>Popis pluginu</h2>
+    <p>Stáhuje zprávy z emailu a zobrazí je včetně příloh v bloku v postranním sloupci (obsahuje podporu pro mobilní telefony)</p>
+    
+    <h2>Obsah<h2>
+    <ul>
+    <li><a href="#nedostatky">Známé nedostatky</a></li>
+    <li><a href="#pozadavky">Požadavky</a></li>
+    <li><a href="#popis">Popis</a></li>
+    <li><a href="#externi_interni">Externí proti internímu použití</a></li>
+    <li><a href="#mobily">Podpora mobilních telefonů</a></li>    
+    </ul>
+
+    <a name="nedostatky"> </a>
+    <h2>Známé nedostatky</h2>
+    <ul>
+    <li>
+        <h3>emaily ve formátu HTML</h3>
+        POP3 stahovač očekává emaily ve formátu čistého textu. HTML emaily mohou fungovat, ale jejich zobrazení bude nejspíš méně než optimální.
+    </li> 
+    <li>
+        <h3>POP3 přes SSL</h3>
+        Pokud se snažíte přistupovat k POP3 přes SSL šifrované spojení (na portu 995) a nemáte nainstalované PHP rozšíření OpenSSL, uvidíte následující chybovou hlášku: <pre>ERROR: could not connect to mail server: POP3 connect: Error [0] [Unknown error: 0]</pre>  
+    </li>
+    </ul>
+
+    <a name="pozadavky"> </a>
+    <h2>Požadavky</h2>
+    
+    <ul>
+      <li>Serendipity 0.8 nebo novější</li>
+      <li>PHP 4.1 nebo novější, nebo PHP 5.x</li>
+      <li>Emailový účet přístupný pomocí protokolu POP3</li>
+    </ul>
+
+    Váš emailový POP3 server musí podporovat UIDL (všechny moderní POP3 servery podporují UIDL). Pokud chcete přistupovat k účtům Gmail, nebo k dalším účtům, které používají šifrování POP3 přes SSL, musíte mít nainstalované PHP rozšíření OpenSSL. K zapnutí POP3 přes SSL jednoduše změňte v nastavení pluginu port ze 110 na 995.
+
+    <a name="popis"> </a>
+    <h2>Popis</h2>
+    <p>
+    Plugin přidává do administračního menu položku "POP3 stahovač". Kliknutím na něj stáhnete všechny emaily i s přílohami z Vaší emailové schránky pomocí POP3 protokolu. Alternativně může být tento plugin spouštěn samostatně zvenku, typicky pluginem 'Plánovač úloh' nebo Cronem.
+    </p>
+    <p>
+     Přílohy jsou dekódovány a přesunuty do Knihovny médií. Navíc pokud je 'Příznak "Blog"' nastavený na 'Ano', každý email včetně příloh je zveřejněn jako příspěvek blogu.
+    </p>
+    <p>
+     SprintPCS (a na nižším stupni, tmobile, cingular a verizon) fotky, videa a audio přílohy jsou rozpoznány a "vyčištěny" před publikováním.
+    </p>
+
+
+    <a name="externi_interni"> </a>
+    <h2>Externí proti internímu použití</h2>
+    <p>
+    První nastavení v POP3 stahovači royhoduje, jestli POP3 stahovač funguje jako "interní" nebo "externí" plugin.   
+    </p>
+    <p>
+     Ve výchoyím stavu se POP3 stahovač spouští jako "interní". To znamená, že vytváří další položku menu v administračním rozhraní a spustí se pouze pokud manuálně kliknete na tuto položku menu "POP3 stahovač". Takhle jednoduché to je.
+    </p>
+    <p>
+    Alternativně ho můžete spouštět jako "externí" plugin. To znamená, že je spouštěn z vnějšku blogu přístupem na speciální URL adresu. Abyste nejrůznějším darebákům zabránili ve spouštění POP3 stahovače (nemělo by to vliv na bezpečnost, ale bylo by to otravné:-) ), tak si zvolíte hestlo, které zadáte v nastavení POP3 stahovače, které musí být zadáno na konci spouštěcí URL adresy.
+    </p>
+    <p>
+     URL adresa pro externí spouštění vypadá nějak takto:
+     <pre>http://www.vasblog.cz/serendipity/index.php?/plugin/VASE_HESLO</pre>
+     nebo pokud je zapnuté přepisování adres (neboli Apache mod_rewrite), můžete použít i následující formát:
+     <pre>http://www.vasblog.cz/serendipity/plugin/VASE_HESLO</pre>
+    </p>
+    <p>
+     Správnost nastavení byste měli být schopni ručně otestovat tak, že zadáte výše zmíněnou URL adresu do vašeho webového prohlížeče.
+    </p>
+    <p>
+     Pak můžete přidat položku do Cronu, který bude spouštět POP3 stahovač v přednastavených intervalech. Testoval jsem to pomocí lynxu, ale mělo by to fungovat i pomocí wget a curl. Tady je řádka do Cronu, kterou používám:
+     <pre>*/30 * * * * /usr/local/bin/lynx -dump http://www.mujblog.cz/serendipity/index.php?/plugin/MOJE_HESLO 
+>> /htdocs/serendipity/uploads/0000log.txt 2>&1</pre>
+     
+     samozřejmě, pokud máte zapnuté přepisování adres (neboli Apache mod_rewrite), můžete použít následující formát:
+     <pre>*/30 * * * * /usr/local/bin/lynx -dump http://www.mujblog.cz/serendipity/plugin/MOJE_HESLO 
+>> /htdocs/serendipity/uploads/0000log.txt 2>&1</pre>
+     
+     tady je verze pomocí wgetu:
+     <pre>*/30 * * * * /usr/local/bin/wget -O - -q http://www.mujblog.cz/serendipity/plugin/MOJE_HESLO 
+>> /htdocs/serendipity/uploads/0000log.txt 2>&1</pre>
+     
+     a verze pomocí GETu:
+     <pre>*/30 * * * * /usr/local/bin/GET http://www.mujblog.cz/serendipity/index.php?/plugin/MOJE_HESLO 
+>> /htdocs/serendipity/uploads/0000log.txt 2>&1</pre>
+    </p>
+    <p>
+    Tato Cronová úloha spustí POP3 stahovač každých 30 minut. Všechny logovací výstupy jsou zapsány do souboru "0000log.txt". Zvolil jsem toto jméno tak, aby skončilo v Knihovně médií až úplně na konci. Pokud zvolíte filtrování pomocí "názvu souboru" a "sestupně", skoro magicky se zobrazí jako první položka v Knihovně médií. Mohli byste si ho také pojmenovat "aaaalog.txt" a pak by se vždy zobrazoval na začátku. Můžete použít Knihovnu médií k přečtení tohoto logovacího souboru pokaždé, když máte podezření, že POP3 stahovač nefunguje správně.  
+    </p>
+
+    <a name="mobily"> </a>
+    <h2>Podpora mobilních telefonů</h2>
+    <p>
+    POP3 stahovač automaticky rozpozná některé přílohy z mobilních telefonů (aktuálně pouze u operátorů v USA) a přesune všechny fotky, videa a zvukové soubory do vaší Knihovny médií. Podpora této funkce ja daleko od ideálu, ale funguje docela dobře pro Sprint a celkem ujde pro některé telefony u ostatních operátorů.
+    </p>
+		
+		<h2>Historie verzí (ChangeLog)</h2>
+		<ul>
+			<li>verze 1.42</li>	
+			<ul>	
+				<li>Přidání syntxe [attach:X] k textovým přílohám, kde X označuje číslo přílohy (začíná od čísla 1), u příloh, které mají být vloženy inline</li>	
+			</ul>
+			<li>verze 1.41</li>	
+			<ul>	
+				<li>Nyní umí parsovat vložené HTML obrázky a nahradit je soubory z příloh</li>	
+			</ul>
+			<li>verze 1.37 [danst0]</li>	
+			<ul>	
+				<li>Změna funkce 'ereg' na 'preg_hatcm'</li>	
+				<li>Přidáno návěští k indikaci, jestli je zobrazen náhled nebo celý obrázek.</li>	
+			</ul>
+			<li>verze 1.36</li>	
+			<ul>	
+				<li>Umožnění nastavení podadresáře Maildir pro uložení emailů a ladění funkce pluginu.</li>	
+				<li>Zvyšování počítadla duplicit v přílohách, aby se zabránilo problémům v případě, že je ve stejné sekundě přijat víc než jeden email s přílohami.</li>	
+			</ul>
+			<li>verze 1.35</li>	
+			<ul>	
+				<li>Detekce format=flowed</li>	
+				<li>Opravena chyba, která nevyčistila správně "rozšířenou textovou část" pro následující email, což vedlo k tomu, že se míchaly texty různých emailů.</li>	
+			</ul>
+			<li>verze 1.34</li>	
+			<ul>	
+				<li>Přidána schopnost rozpoznat emaily poslané jako odpověď (Re:/Aw:/Wg:) a publikovat je jako komentáře spíše než jako příspěvky.</li>	
+				<li>Přidána schopnost rozpoznat datum importovaného emailu</li>	
+				<li>Přidána možnost pro zapnutí návěští $debug pro logování zpráv z výstupu Cronu</li>	
+				<li>Rozpoznání některých základních textových značek (->, >>, => apod.), aby byly escapovány.</li>	
+				<li>Odstranění všech CR/LF znaků ufnitř tagů &lt;embed&gt; a &lt;object&gt; a uvnitř všech HTML tagů.</li>	
+				<li>Nahrazení HTML uvnitř komentářových mailů značkami BBCode.</li>	
+				<li>Detekce znakové sady us-ascii jako ISO-8859-1</li>	
+				<li>Ukládání nahraných souborů v adresářové struktuře ROK/MĚSÍC.</li>	
+				<li>Zacházet s obrázky vloženými do textu tak, že budou vloženy do rozšířené textové části po prvním.</li>	
+			</ul>
+			<li>verze 1.33</li>	
+			<ul>	
+				<li>Vylepšeno dekódování řetězců, aby nefungovalo pouze UTF-8 <-> ISO. Díky uživateli [B. Tittelbach] (<a href="https://sourceforge.net/tracker/?func=detail&atid=542822&aid=2831116&group_id=75065">https://sourceforge.net/tracker/?func=detail&atid=542822&aid=2831116&group_id=75065</a>)</li>	
+			</ul>
+		</ul>  
+
+	</body>
+</html>

@@ -1,11 +1,13 @@
-<?php # lang_cz.inc.php 1.1 2009-11-21 11:44:52 VladaAjgl $
+<?php # lang_cz.inc.php 1.2 2013-04-14 14:27:38 VladaAjgl $
 
 /**
- *  @version 1.1
+ *  @version 1.2
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/08/14
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2009/11/21
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2013/04/14
  */
 
 @define('PLUGIN_CURRENTLY_NAME', 'Co právì dìlám');
@@ -32,6 +34,6 @@
 @define('PLUGIN_CURRENTLY_AMAZON_TAG','Amazon Associates Tag');
 @define('PLUGIN_CURRENTLY_AMAZON_TAG_DETAILS','Vá¹ Amazon Associates Tag');
 @define('PLUGIN_CURRENTLY_AMAZON_ID','Amazon Access Key ID');
-@define('PLUGIN_CURRENTLY_AMAZON_ID_DETAILS','Vá¹pøístupový Amazon klíè/identifikátor');
+@define('PLUGIN_CURRENTLY_AMAZON_ID_DETAILS','Vá¹ pøístupový Amazon klíè/identifikátor');
 @define('PLUGIN_CURRENTLY_AMAZON_KEY','Amazon Secret Access Key');
 @define('PLUGIN_CURRENTLY_AMAZON_KEY_DETAILS','Vá¹ tajný pøístupový Amazon klíè');

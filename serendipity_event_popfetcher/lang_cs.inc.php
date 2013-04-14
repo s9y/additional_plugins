@@ -1,7 +1,7 @@
-<?php # lang_cs.inc.php 1.3 2011-06-19 09:41:13 VladaAjgl $
+<?php # lang_cs.inc.php 1.4 2013-04-14 13:14:20 VladaAjgl $
 
 /**
- *  @version 1.3
+ *  @version 1.4
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/05/18
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
@@ -10,11 +10,13 @@
  *  @revisionDate 2009/11/21
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2011/06/19
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2013/04/14
  */
 
 @define('PLUGIN_MF_NAME', 'POP3 stahovaè');
 @define('PLUGIN_MF', 'POP3 stahovaè');
-@define('PLUGIN_MF_DESC', 'Stáhuje zprávy z emailu a zobrazí je vèetnì pøíloh v bloku v postranním sloupci (speciální podpora pro mobilní telefony)');
+@define('PLUGIN_MF_DESC', 'Stahuje zprávy z emailu a zobrazí je vèetnì pøíloh v bloku v postranním sloupci (speciální podpora pro mobilní telefony)');
 @define('PLUGIN_MF_AM', 'Typ pluginu');
 @define('PLUGIN_MF_AM_DESC', 'Pokud je nastaveno na "Interní", mùžete spustit POP3 stahovaè pouze z administraèní sekce. Pokud je nastaveno "Externí", mùžete spustit POP3 stahovaè pouze zvnìjšku (typicky jako úlohu cronu). Výchozí je "Interní".');
 @define('PLUGIN_MF_HN', 'Jméno pro externí spouštìní');
@@ -128,5 +130,6 @@
 @define('PLUGIN_MF_DEBUG', 'Ukládat ladicí zprávy do souboru uploads/popfetcher-RRRR-MM.log?');
 
 // Next lines were translated on 2011/06/19
+
 @define('THUMBNAIL_VIEW', 'Zobrazovat náhledy v tìle pøíspìvku');
 @define('THUMBNAIL_VIEW_DESC', 'Když chcete zobrazit v tìle pøíspìvku náhledy pøipojených obrázkù. Pokud nastavíte "NE", budou se zobrazovat obrázky v plné velikosti.');

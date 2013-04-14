@@ -1,11 +1,14 @@
-<?php # lang_cs.inc.php 1.1 2011-08-21 14:11:39 VladaAjgl $
+<?php # lang_cs.inc.php 1.0 2013-04-14 12:53:14 VladaAjgl $
 
 /**
- *  @version 1.1
+ *  @version 1.0
+/**
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/05/23
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2011/08/21
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @translated 2013/04/14
  */
 @define('PLUGIN_SIDEBAR_FLICKR', 'Flickr Photostream');
 @define('PLUGIN_SIDEBAR_FLICKR_DESC', 'Zobrazuje nejnovìjší fotografie kanálu Flickr Photostream.');
@@ -28,7 +31,7 @@
 @define('PLUGIN_SIDEBAR_FLICKR_LIGHTBOX_BLAHBLAH', 'Pro použití pluginu LIghtbox pro zobrazení obrázkù FlickrShow, zadejte pøiøazené tagy "rel". Pracuje pouze pokud je odkaz nastavený na "JPG". Výchozí: lightbox[lightbox_group_etnry_flickr]');
 
 @define('PLUGIN_SIDEBAR_FLICKR_SRCIMG_TITLE', 'Velikost náhledu');
-@define('PLUGIN_SIDEBAR_FLICKR_TGTIMG_TITLE', 'Odkaz');
+@define('PLUGIN_SIDEBAR_FLICKR_TGTIMG_TITLE', 'Velikost odkazovaného obrázku');
 
 @define('PLUGIN_SIDEBAR_FLICKR_SHOWDATE', 'Zobrazovat datum obrázku');
 @define('PLUGIN_SIDEBAR_FLICKR_SHOWTITLE', 'Zobrazovat popis obrázku');
@@ -47,7 +50,7 @@
 @define('PLUGIN_SIDEBAR_FLICKR_APISECRET_DESC', 'Tajný klíè - není povinný, umožòuje zabezpeèený pøenos dat. Tento tajný klíè mùžete obdržet/nastavit na Flickru na stránce s profilem.');
 
 @define('PLUGIN_SIDEBAR_FLICKR_CACHE_TITLE', 'Cache timeout');
-@define('PLUGIN_SIDEBAR_FLICKR_CACHE_DESC', 'Tento plugin používá cachování PEAR::Cache_Lite. Zadejte platnost cache ve vteøinách.');
+@define('PLUGIN_SIDEBAR_FLICKR_CACHE_DESC', 'Tento plugin používá cachování PEAR::Cache_Lite. Zadejte èas mezi aktualizacemi obrázkù ve vteøinách. Výchozí: 3600s = 1 hodina.');
 
 @define('PLUGIN_SIDEBAR_FLICKR_SHOWRSS', 'Zobrazit RSS odkaz');
 @define('PLUGIN_SIDEBAR_FLICKR_SHOWPHOTOSTREAM', 'Zobrazit odkaz na Flickr Photostream');

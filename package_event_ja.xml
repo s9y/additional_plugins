@@ -10357,8 +10357,10 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <dir name="serendipity_event_lsrstopper">
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
+<file>documentation_cs.html</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cz.html</file>
 </dir>
 <dir name="libs">
 <file>simple_html_dom.php</file>
@@ -10376,15 +10378,19 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <file>serendipity_event_lsrstopper.php</file>
 <file>documentation_de.html</file>
 <file>lang_en.inc.php</file>
+<file>documentation_cs.html</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_lsrstopper/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_lsrstopper/UTF-8/documentation_cs.html</file>
     <file>serendipity_event_lsrstopper/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_lsrstopper/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_lsrstopper/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_lsrstopper/libs/simple_html_dom.php</file>
     <file>serendipity_event_lsrstopper/tests/fixtures/blacklist.txt</file>
     <file>serendipity_event_lsrstopper/tests/lsrstopperTest.php</file>
@@ -10395,8 +10401,10 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
     <file>serendipity_event_lsrstopper/serendipity_event_lsrstopper.php</file>
     <file>serendipity_event_lsrstopper/documentation_de.html</file>
     <file>serendipity_event_lsrstopper/lang_en.inc.php</file>
+    <file>serendipity_event_lsrstopper/documentation_cs.html</file>
     <file>serendipity_event_lsrstopper/lang_cs.inc.php</file>
     <file>serendipity_event_lsrstopper/lang_cz.inc.php</file>
+    <file>serendipity_event_lsrstopper/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>

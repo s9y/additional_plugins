@@ -1280,11 +1280,11 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <guid isPermaLink="false">serendipity_event_realtimecomments</guid>
 </item>
 <item>
-<title>Flattr: Flattr je platforma pro sociální mikroplatby, která umožňuje zobrazit oblibu věcí, které máte rádi. Tento plugin vkládá do příspěvků a RSS kanálů známky &quot;Flattr&quot; (Flattr Badges). U každého příspěvku můžete jednotlivě zadat volby flattru. Pokud tak neučiníte, použije se globální nastavení.</title>
+<title>Flattr: Flattr je platforma pro sociální mikroplatby, která čtenáři umožňuje ocenit drobným příspěvkem obsah, který se mu líbí. Tento plugin vkládá do příspěvků a RSS kanálů tlačítka &quot;Flattr&quot; (tzv. Flattr Badges). U každého příspěvku můžete jednotlivě zadat nastavení Flattru. Pokud tak neučiníte, použije se globální nastavení.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_flattr</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Joachim Breitner</author>
-<content:encoded>&lt;b&gt;serendipity_event_flattr&lt;br /&gt;Flattr&lt;/b&gt;&lt;br /&gt;Flattr je platforma pro sociální mikroplatby, která umožňuje zobrazit oblibu věcí, které máte rádi. Tento plugin vkládá do příspěvků a RSS kanálů známky &quot;Flattr&quot; (Flattr Badges). U každého příspěvku můžete jednotlivě zadat volby flattru. Pokud tak neučiníte, použije se globální nastavení.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_event_flattr&lt;br /&gt;Flattr&lt;/b&gt;&lt;br /&gt;Flattr je platforma pro sociální mikroplatby, která čtenáři umožňuje ocenit drobným příspěvkem obsah, který se mu líbí. Tento plugin vkládá do příspěvků a RSS kanálů tlačítka &quot;Flattr&quot; (tzv. Flattr Badges). U každého příspěvku můžete jednotlivě zadat nastavení Flattru. Pokud tak neučiníte, použije se globální nastavení.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
 <pubDate>Fri, 19 Oct 2012 02:31:40 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_flattr</guid>
 </item>
@@ -1334,11 +1334,11 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <guid isPermaLink="false">serendipity_event_dbclean</guid>
 </item>
 <item>
-<title>D64 LSR-Stopper: Pomocí tohoto pluginu zablokujete odkazy na média, která porušují německý &quot;Leistungsschutzrecht&quot; (Ochrana duševního vlastnictví).</title>
+<title>D64 LSR-Stopper: Pomocí tohoto pluginu zablokujete odkazy na média, která si nárokují autorská práva podle německého &quot;Leistungsschutzrecht&quot; (Ochrana duševního vlastnictví).</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_lsrstopper</link>
 <category>Event Plugins</category>
 <author>Matthias Gutjahr</author>
-<content:encoded>&lt;b&gt;serendipity_event_lsrstopper&lt;br /&gt;D64 LSR-Stopper&lt;/b&gt;&lt;br /&gt;Pomocí tohoto pluginu zablokujete odkazy na média, která porušují německý &quot;Leistungsschutzrecht&quot; (Ochrana duševního vlastnictví).&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_event_lsrstopper&lt;br /&gt;D64 LSR-Stopper&lt;/b&gt;&lt;br /&gt;Pomocí tohoto pluginu zablokujete odkazy na média, která si nárokují autorská práva podle německého &quot;Leistungsschutzrecht&quot; (Ochrana duševního vlastnictví).&lt;br/&gt;For: Serendipity 1.6</content:encoded>
 <pubDate>Fri, 08 Mar 2013 02:31:08 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_lsrstopper</guid>
 </item>

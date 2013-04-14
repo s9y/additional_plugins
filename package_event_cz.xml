@@ -9953,7 +9953,7 @@ aplikovány další typografické úpravy.</description>
 <license>GPL</license>
 <summary>Flattr</summary>
 <groups>FRONTEND_FEATURES</groups>
-<description>Flattr je platforma pro sociální mikroplatby, která umožňuje zobrazit oblibu věcí, které máte rádi. Tento plugin vkládá do příspěvků a RSS kanálů známky &quot;Flattr&quot; (Flattr Badges). U každého příspěvku můžete jednotlivě zadat volby flattru. Pokud tak neučiníte, použije se globální nastavení.</description>
+<description>Flattr je platforma pro sociální mikroplatby, která čtenáři umožňuje ocenit drobným příspěvkem obsah, který se mu líbí. Tento plugin vkládá do příspěvků a RSS kanálů tlačítka &quot;Flattr&quot; (tzv. Flattr Badges). U každého příspěvku můžete jednotlivě zadat nastavení Flattru. Pokud tak neučiníte, použije se globální nastavení.</description>
 <maintainers><maintainer><name>Garvin Hicking, Joachim Breitner</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.11</version>
@@ -10345,7 +10345,7 @@ aplikovány další typografické úpravy.</description>
 <license>GPL</license>
 <summary>D64 LSR-Stopper</summary>
 <groups>MARKUP</groups>
-<description>Pomocí tohoto pluginu zablokujete odkazy na média, která porušují německý &quot;Leistungsschutzrecht&quot; (Ochrana duševního vlastnictví).</description>
+<description>Pomocí tohoto pluginu zablokujete odkazy na média, která si nárokují autorská práva podle německého &quot;Leistungsschutzrecht&quot; (Ochrana duševního vlastnictví).</description>
 <maintainers><maintainer><name>Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>0.3</version>
@@ -10355,8 +10355,10 @@ aplikovány další typografické úpravy.</description>
 <dir name="serendipity_event_lsrstopper">
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
+<file>documentation_cs.html</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cz.html</file>
 </dir>
 <dir name="libs">
 <file>simple_html_dom.php</file>
@@ -10374,15 +10376,19 @@ aplikovány další typografické úpravy.</description>
 <file>serendipity_event_lsrstopper.php</file>
 <file>documentation_de.html</file>
 <file>lang_en.inc.php</file>
+<file>documentation_cs.html</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_lsrstopper/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_lsrstopper/UTF-8/documentation_cs.html</file>
     <file>serendipity_event_lsrstopper/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_lsrstopper/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_lsrstopper/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_lsrstopper/libs/simple_html_dom.php</file>
     <file>serendipity_event_lsrstopper/tests/fixtures/blacklist.txt</file>
     <file>serendipity_event_lsrstopper/tests/lsrstopperTest.php</file>
@@ -10393,8 +10399,10 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_lsrstopper/serendipity_event_lsrstopper.php</file>
     <file>serendipity_event_lsrstopper/documentation_de.html</file>
     <file>serendipity_event_lsrstopper/lang_en.inc.php</file>
+    <file>serendipity_event_lsrstopper/documentation_cs.html</file>
     <file>serendipity_event_lsrstopper/lang_cs.inc.php</file>
     <file>serendipity_event_lsrstopper/lang_cz.inc.php</file>
+    <file>serendipity_event_lsrstopper/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>

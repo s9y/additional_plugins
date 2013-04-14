@@ -443,11 +443,11 @@
 <guid isPermaLink="false">serendipity_plugin_externalphp</guid>
 </item>
 <item>
-<title>Status z Gadu-Gadu kecálku (IM = instant messenger): Zobrazuje popis stavu z Gadu-Gadu kecálku</title>
+<title>Status z Gadu-Gadu: Zobrazuje popis stavu z Gadu-Gadu IM (Instant Messenger = protokol pro posílání zpráv, alternativa ICQ, Jabberu apod.)</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_ggopis</link>
 <category>Sidebar Plugins</category>
 <author>Piotr Borys</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_ggopis&lt;br /&gt;Status z Gadu-Gadu kecálku (IM = instant messenger)&lt;/b&gt;&lt;br /&gt;Zobrazuje popis stavu z Gadu-Gadu kecálku&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_plugin_ggopis&lt;br /&gt;Status z Gadu-Gadu&lt;/b&gt;&lt;br /&gt;Zobrazuje popis stavu z Gadu-Gadu IM (Instant Messenger = protokol pro posílání zpráv, alternativa ICQ, Jabberu apod.)&lt;br/&gt;For: Serendipity 0.9</content:encoded>
 <pubDate>Sun, 25 Dec 2011 04:31:00 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_ggopis</guid>
 </item>

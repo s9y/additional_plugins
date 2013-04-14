@@ -2998,10 +2998,14 @@
 <file>lang_pl.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>README</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -3015,9 +3019,13 @@
     <file>serendipity_plugin_ggopis/UTF-8/lang_pl.inc.php</file>
     <file>serendipity_plugin_ggopis/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_ggopis/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_plugin_ggopis/UTF-8/documentation_cs.html</file>
+    <file>serendipity_plugin_ggopis/UTF-8/documentation_cz.html</file>
     <file>serendipity_plugin_ggopis/README</file>
     <file>serendipity_plugin_ggopis/lang_cs.inc.php</file>
     <file>serendipity_plugin_ggopis/lang_cz.inc.php</file>
+    <file>serendipity_plugin_ggopis/documentation_cs.html</file>
+    <file>serendipity_plugin_ggopis/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>

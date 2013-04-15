@@ -3345,7 +3345,7 @@
 <license>GPL</license>
 <summary>POP3 stahovač</summary>
 <groups>BACKEND_FEATURES</groups>
-<description>Stáhuje zprávy z emailu a zobrazí je včetně příloh v bloku v postranním sloupci (speciální podpora pro mobilní telefony)</description>
+<description>Stahuje zprávy z emailu a zobrazí je včetně příloh v bloku v postranním sloupci (speciální podpora pro mobilní telefony)</description>
 <maintainers><maintainer><name>Jason Levitt</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.43</version>
@@ -3375,12 +3375,16 @@
 <file>lang_en.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>lang_en.inc.php</file>
 <file>lang_de.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -3400,11 +3404,15 @@
     <file>serendipity_event_popfetcher/UTF-8/lang_en.inc.php</file>
     <file>serendipity_event_popfetcher/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_popfetcher/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_popfetcher/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_popfetcher/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_popfetcher/lang_en.inc.php</file>
     <file>serendipity_event_popfetcher/lang_de.inc.php</file>
     <file>serendipity_event_popfetcher/ChangeLog</file>
     <file>serendipity_event_popfetcher/lang_cs.inc.php</file>
     <file>serendipity_event_popfetcher/lang_cz.inc.php</file>
+    <file>serendipity_event_popfetcher/documentation_cs.html</file>
+    <file>serendipity_event_popfetcher/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>

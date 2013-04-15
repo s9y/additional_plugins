@@ -1937,6 +1937,8 @@
 <file>lang_ja.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>soap.inc</file>
 <file>lang_ja.inc.php</file>
@@ -1944,6 +1946,8 @@
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>ChangeLog</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -1956,12 +1960,16 @@
     <file>serendipity_plugin_currently/UTF-8/lang_ja.inc.php</file>
     <file>serendipity_plugin_currently/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_currently/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_plugin_currently/UTF-8/documentation_cs.html</file>
+    <file>serendipity_plugin_currently/UTF-8/documentation_cz.html</file>
     <file>serendipity_plugin_currently/soap.inc</file>
     <file>serendipity_plugin_currently/lang_ja.inc.php</file>
     <file>serendipity_plugin_currently/lang_en.inc.php</file>
     <file>serendipity_plugin_currently/lang_cs.inc.php</file>
     <file>serendipity_plugin_currently/lang_cz.inc.php</file>
     <file>serendipity_plugin_currently/ChangeLog</file>
+    <file>serendipity_plugin_currently/documentation_cs.html</file>
+    <file>serendipity_plugin_currently/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>

@@ -14,10 +14,18 @@
 
 <body>
     
-<h1>Dokumentace k pluginu 'Freetag'</h1>
+<h1>Dokumentace k pluginu 'Freetag'<br />
+	<small>(serendipity_event_freetag)</small></h1>
 
-<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 22.8.2011. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="../README">aktuální anglické "README"</a>, <a href="../README.txt">"README.txt"</a> a <a href="../ChangeLog">ChangeLog</a>.
+<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) a naposledy zkontroloval dne 20.4.2013. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="../README">aktuální anglické "README"</a>, <a href="../README.txt">"README.txt"</a> a <a href="../ChangeLog">ChangeLog</a>.
 <p>
+
+		<h2>Popis pluginu</h2>
+<p>
+Umožňuje libovolné přidávání klíčových slov k příspěvkům
+</p>
+
+		<h2>Užitečné skripty</h2>
 
 <p>Následující kód ukazuje příklad, jak použít rozšířený výstup do smarty šablony. Takto může například vypadat šablona "entries.tpl"
 <pre>
@@ -90,7 +98,36 @@ foreach($rows AS $row) {
 </p>
 
 <h1>Historie verzí (ChangeLog)</h1>
+
 <ul>
+<li>verze 3.43</li>
+	<ul>
+	<li>Statické opravy pro kompatibilitu freetag<->flattr (žádné chyby PHP5)</li>
+	</ul>
+<li>verze 3.42</li>
+	<ul>
+	<li>Statické opravy pro generování spartacus</li>
+	</ul>
+<li>verze 3.41</li>
+	<ul>
+	<li>Deklarace metody install() jako statické</li>
+	</ul>
+<li>verze 3.39</li>
+	<ul>
+	<li>Přidána specifická kontrola is_array($eventData), díky uživateli [gregman]</li>
+	</ul>
+<li>verze 3.38</li>
+	<ul>
+	<li>Přidán chybějící fieldset v případě, že není nastavený admin_show_taglist (díky uživateli [gregman])</li>
+	</ul>
+<li>verze 3.37</li>
+	<ul>
+	<li>Při publikování příspěvku je nahrazení cat2tag provedeno, i když jsou tagy prázdné, takže název kategorie se v tagách objeví vždycky.</li>
+	</ul>
+<li>verze 3.36</li>
+	<ul>
+	<li>Opraven [tag] v jedné instanci formulářového pole v HTML, díky uživateli [ascger] z diskuzního fóra</li>
+	</ul>
 <li>verze 3.35</li>
 	<ul>
 	<li>Opraveno - Změna některých instancí [tag] na %5Btag%5D, který je kompatibilní s HTML - bug č.3427291</li>

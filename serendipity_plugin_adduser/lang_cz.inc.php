@@ -1,11 +1,13 @@
-<?php # lang_cz.inc.php 1.1 2013-03-13 16:16:41 VladaAjgl $
+<?php # lang_cz.inc.php 1.2 2013-04-20 18:02:01 VladaAjgl $
 
 /**
- *  @version 1.1
+ *  @version 1.2
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/02/18
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2013/03/13
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2013/04/20
  */
 
 @define('PLUGIN_ADDUSER_NAME',		'Samoregistrace nových u¾ivatelù');
@@ -15,8 +17,8 @@
 @define('PLUGIN_ADDUSER_INSTRUCTIONS_DEFAULT',		'Zde se mù¾ete zaregistrovat do blogu jako nový u¾ivatel. Jednodu¹e zadejte svá data, potvrïte formuláø a øiïte se dal¹ími pokyny, které Vám pøijdou mailem.');
 @define('PLUGIN_ADDUSER_USERLEVEL',		'Výchozí u¾ivatelská úroveò');
 @define('PLUGIN_ADDUSER_USERLEVEL_DESC',		'Jakou u¾ivatelskou úroveò (oprávnìní) má mít nový u¾ivatel');
-@define('PLUGIN_ADDUSER_USERLEVEL_CHIEF',		'Autor');
-@define('PLUGIN_ADDUSER_USERLEVEL_EDITOR',		'Redaktor');
+@define('PLUGIN_ADDUSER_USERLEVEL_CHIEF',		'©éfredaktor');
+@define('PLUGIN_ADDUSER_USERLEVEL_EDITOR',		'Autor');
 @define('PLUGIN_ADDUSER_USERLEVEL_ADMIN',		'Administrátor');
 @define('PLUGIN_ADDUSER_USERLEVEL_DENY',		'Pøístup odepøen');
 @define('PLUGIN_SIDEBAR_LOGIN',		'Zobrazit pøihla¹ovací formuláø v postranním sloupci?');
@@ -57,5 +59,6 @@
 @define('PLUGIN_ADDUSER_ANTISPAM',		'Nepro¹li jste protispamovým testem. Prosím zkontrolujte, jestli jste správnì opsali KRYPTOGRAM.');
 
 // Next lines were translated on 2013/03/13
+
 @define('PLUGIN_ADDUSER_REGISTERED_ONLY_GROUP',		'Pøídavná funkce: Pouze registrovaní u¾ivatelé z této skupiny smí pøidávat komentáøe?');
 @define('PLUGIN_ADDUSER_REGISTERED_ONLY_GROUP_DESC',		'Abyste toto mohli pou¾ít, musíte zároveò povolit volbu "Komentáøe smí posílat pouze registrovaní u¾ivatelé". Pokud je tato volba zapnutá, pak mohou posílat komentáøe pouze u¾ivatelé ze specifické skupiny u¾ivatelù a musí k tomu být pøihlá¹eni.');

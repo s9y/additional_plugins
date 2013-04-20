@@ -1,0 +1,62 @@
+<html>    
+	<head>        
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-2">
+		<title>Dokumentace: Samoregistrace nových uživatelů</title>        
+	</head>
+	<body>
+	<h1>Dokumentace k pluginu 'Samoregistrace nových uživatelů'<br />
+	<small>(serendipity_plugin_adduser)</small></h1>
+		<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 20.4.2013. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="ChangeLog">aktuální anglický ChangeLog</a>. 
+		</p>
+		
+		<h2>Popis pluginu</h2>
+		<p>
+    Umožňuje návštěvníkům webu vytvořit si vlastní uživatelský účet. Dohromady s pluginem událostí (index.php?serendipity[subpage]=adduser) můžete určit, jestli komentáře mohou posílat pouze registrovaní uživatelé.
+    </p>
+    
+		<h2>Historie verzí (ChangeLog)</h2>
+		<ul>
+			<li>verze 2.35</li>	
+			<ul>	
+				<li>Povolení publikovat příspěvky také pouze pro určité skupiny uživatelů.</li>	
+			</ul>
+			<li>verze 2.34</li>	
+			<ul>	
+				<li>Vložení hooku backend_smtp, aby byl podporován plugin serendipity_event_smtp</li>	
+			</ul>
+			<li>verze 2.33</li>	
+			<ul>	
+				<li>Nastavení aktuálního jazyku jako výchozího jazyku pro nového uživatele</li>	
+			</ul>
+			<li>verze 2.31</li>	
+			<ul>	
+				<li>Kompatibilita s heslem Serendipity 1.5</li>	
+			</ul>
+			<li>verze 2.30</li>	
+			<ul>	
+				<li>Oprava kontroly pole, když ještě neexistují žádné příspěvky blogu</li>	
+			</ul>
+			<li>verze 2.28 a 2.29</li>	
+			<ul>	
+				<li>Oprava chyby:<br/>Povolení registrací, i když je zapnuto nastavení "Příspěvky smí psát pouze přihlášení uživatelé"</li>	
+			</ul>
+			<li>verze 2.27</li>	
+			<ul>	
+				<li>Nezobrazovat postranní plugin, pokud je uživatel přihlášen.</li>	
+			</ul>
+			<li>verze 2.26</li>	
+			<ul>	
+				<li>Opraveno chybné ukládání členství ve skupinách</li>	
+			</ul>
+			<li>verze 2.25</li>	
+			<ul>	
+				<li>Přidána podpora pro použití kryptogramů</li>	
+			</ul>
+			<li>verze 2.21</li>	
+			<ul>	
+				<li>Přidána šablona Smarty registerbox.tpl, aby bylo možno upravit si registrační formulář.</li>	
+				<li>Přidána Smarty možnost pro zobrazení různých "podmínek použití"</li>	
+			</ul>
+		</ul>  
+	</body>
+</html>

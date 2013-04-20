@@ -1,7 +1,7 @@
-<?php # lang_cs.inc.php 1.6 2012-05-13 14:14:41 VladaAjgl $
+<?php # lang_cs.inc.php 1.7 2013-04-20 16:57:43 VladaAjgl $
 
 /**
- *  @version 1.6
+ *  @version 1.7
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/02/17
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
@@ -16,13 +16,15 @@
  *  @revisionDate 2011/07/05
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2012/05/13
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2013/04/20
  */
 
 //
 //  serendipity_event_freetag.php
 //
 
-@define('PLUGIN_EVENT_FREETAG_TITLE',		'Klíèová slova ');
+@define('PLUGIN_EVENT_FREETAG_TITLE',		'Klíèová slova');
 @define('PLUGIN_EVENT_FREETAG_DESC',		'Umožòuje libovolné pøidávání klíèových slov k pøíspìvkùm');
 @define('PLUGIN_EVENT_FREETAG_ENTERDESC',		'Vložte libovolné množství klíèových slov, která se k èlánku vztahují. Oddìlujte èárkou (,)');
 @define('PLUGIN_EVENT_FREETAG_LIST',		'Klíèová slova tohoto pøíspìvku: %s');
@@ -139,4 +141,5 @@
 @define('PLUGIN_EVENT_FREETAG_COLLATION',		'Porovnání (MySQL) databáze pro sloupec entrytags.tag (automatická-detekce)');
 
 // Next lines were translated on 2012/05/13
+
 @define('PLUGIN_EVENT_FREETAG_KILL',		'Pokud je zaškrtnuto, budou smazány všechny tagy pøiøazené k tomuto pøíspìvku.');

@@ -1605,6 +1605,8 @@
 <file>lang_fr.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>lang_en.inc.php</file>
 <file>loginbox.tpl</file>
@@ -1613,6 +1615,8 @@
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>serendipity_plugin_adduser.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -1627,6 +1631,8 @@
     <file>serendipity_plugin_adduser/UTF-8/lang_fr.inc.php</file>
     <file>serendipity_plugin_adduser/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_adduser/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_plugin_adduser/UTF-8/documentation_cs.html</file>
+    <file>serendipity_plugin_adduser/UTF-8/documentation_cz.html</file>
     <file>serendipity_plugin_adduser/lang_en.inc.php</file>
     <file>serendipity_plugin_adduser/loginbox.tpl</file>
     <file>serendipity_plugin_adduser/lang_fr.inc.php</file>
@@ -1634,6 +1640,8 @@
     <file>serendipity_plugin_adduser/lang_cs.inc.php</file>
     <file>serendipity_plugin_adduser/lang_cz.inc.php</file>
     <file>serendipity_plugin_adduser/serendipity_plugin_adduser.php</file>
+    <file>serendipity_plugin_adduser/documentation_cs.html</file>
+    <file>serendipity_plugin_adduser/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7887,12 +7895,16 @@
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>lang_en.inc.php</file>
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>ChangeLog</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -7905,11 +7917,15 @@
     <file>serendipity_event_suggest/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_event_suggest/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_suggest/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_suggest/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_suggest/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_suggest/lang_en.inc.php</file>
     <file>serendipity_event_suggest/lang_bg.inc.php</file>
     <file>serendipity_event_suggest/lang_cs.inc.php</file>
     <file>serendipity_event_suggest/lang_cz.inc.php</file>
     <file>serendipity_event_suggest/ChangeLog</file>
+    <file>serendipity_event_suggest/documentation_cs.html</file>
+    <file>serendipity_event_suggest/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>

@@ -1,20 +1,22 @@
-<?php # lang_cz.inc.php 1.0 2009-03-16 21:53:21 VladaAjgl $
+<?php # lang_cz.inc.php 1.1 2013-04-21 12:34:10 VladaAjgl $
 
 /**
- *  @version 1.0
+ *  @version 1.1
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/03/16
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2013/04/21
  */
 
 @define('PLUGIN_SIDEBAR_IMAGESIDEBAR_NAME',		'Jednotné zobrazování obrázků v postranním sloupci');
-@define('PLUGIN_SIDEBAR_IMAGESIDEBAR_DESC',		'Umožňuje zobrazovat obrázky v postranním sloupci. Zdrojů těchto obrázků může být vícero. Plugin se dokáže připojit do Menalto Gallery, do databáze Coppermine galerie (pouze pokud běží na MySQL), k webové službě Zooomr (http://beta.zooomr.com/home) a samozřejmě i k Meditéce Serendipity.');
+@define('PLUGIN_SIDEBAR_IMAGESIDEBAR_DESC',		'Umožňuje zobrazovat obrázky v postranním sloupci. Zdrojů těchto obrázků může být vícero. Plugin se dokáže připojit do Menalto Gallery, do databáze Coppermine galerie (pouze pokud běží na MySQL), k webové službě Zooomr (http://beta.zooomr.com/home) a samozřejmě i ke Knihovně médií Serendipity.');
 
 @define('PLUGIN_SIDEBAR_IMAGESIDEBAR_DISPLAYSRC_NAME',		'Zdroj obrázku');
 @define('PLUGIN_SIDEBAR_IMAGESIDEBAR_DISPLAYSRC_DESC',		'Vyberte ze seznamu zdroj obrázků');
 @define('PLUGIN_SIDEBAR_IMAGESIDEBAR_DISPLAYSRC_NONE',		'Ještě nebylo nic vybráno');
 @define('PLUGIN_SIDEBAR_IMAGESIDEBAR_DISPLAYSRC_MENALTO',		'Menalto Gallery');
 @define('PLUGIN_SIDEBAR_IMAGESIDEBAR_DISPLAYSRC_COPPERMINE',		'Databáze Coppermine');
-@define('PLUGIN_SIDEBAR_IMAGESIDEBAR_DISPLAYSRC_MEDIALIB',		'Mediatéka Serendipity');
+@define('PLUGIN_SIDEBAR_IMAGESIDEBAR_DISPLAYSRC_MEDIALIB',		'Knihovna médií Serendipity');
 
 @define('PLUGIN_GALLERYRANDOMBLOCK_NAME',		'Náhodné foto (Gallery Random Photo Block)');
 @define('PLUGIN_GALLERYRANDOMBLOCK_DESC',		'Přidává odkaz na skript Gallery Random Block (funkce Menalto Gallery, více viz. http://gallery.menalto.com)');
@@ -24,10 +26,10 @@
 @define('PLUGIN_GALLERYRANDOMBLOCK_NUMREPEAT_DESC',		'Počet fotek, které se mají zobrazovat v postranním bloku.');
 @define('PLUGIN_GALLERYRANDOMBLOCK_FILE_NAME',		'Jméno souboru vnořeného skriptu (pouze pro verze Gallery 1.x!)');
 @define('PLUGIN_GALLERYRANDOMBLOCK_VERSION',		'Kterou verzi Gallery používáte?');
-@define('PLUGIN_GALLERYRANDOMBLOCK_ERROR_CONNECT',		'CHYBA: URL adresa nemohla být použita. Žádná galerie pod ní není přeístupna.');
+@define('PLUGIN_GALLERYRANDOMBLOCK_ERROR_CONNECT',		'CHYBA: URL adresa nemohla být použita. Žádná galerie pod ní není přístupná.');
 @define('PLUGIN_GALLERYRANDOMBLOCK_ERROR_HTTP',		'CHYBA: HTTP server vrátil chybu nebo varování (výsledek: %d).');
 @define('PLUGIN_GALLERYRANDOMBLOCK_ITEMID',		'ID alba');
-@define('PLUGIN_GALLERYRANDOMBLOCK_ITEMID_DESC',		'Při prázdném poli budou zobrazeny všechna alba. Pouze pro verze Gallery 2.x.');
+@define('PLUGIN_GALLERYRANDOMBLOCK_ITEMID_DESC',		'Při prázdném poli budou zobrazena všechna alba. Pouze pro verze Gallery 2.x.');
 @define('PLUGIN_GALLERYRANDOMBLOCK_G2DISPLAYTYPE',		'Zobrazený obrázek');
 @define('PLUGIN_GALLERYRANDOMBLOCK_G2DISPLAYTYPE_RAND',		'Náhodný');
 @define('PLUGIN_GALLERYRANDOMBLOCK_G2DISPLAYTYPE_RENCENT',		'Poslední');
@@ -79,8 +81,8 @@
 @define('PLUGIN_CPGS_POPULAR',		'Nejčastěji zobrazované');
 @define('PLUGIN_CPGS_RANDOM',		'Náhodné');
 
-@define('PLUGIN_SIDEBAR_MEDIASIDEBAR_NAME',		'Zobrazení mediatéky v postranním sloupci');
-@define('PLUGIN_SIDEBAR_MEDIASIDEBAR_DESC',		'Zobrazit náhodný obrázek z mediatéky Serendipity v postranním sloupci. (Pozor, nerozlišuje mezi typy souborů, neodlišuje obrázky a jiné soubory!)');
+@define('PLUGIN_SIDEBAR_MEDIASIDEBAR_NAME',		'Zobrazení Knihovny médií v postranním sloupci');
+@define('PLUGIN_SIDEBAR_MEDIASIDEBAR_DESC',		'Zobrazit náhodný obrázek z Knihovny médií Serendipity v postranním sloupci. (Pozor, nerozlišuje mezi typy souborů, neodlišuje obrázky a jiné soubory!)');
 @define('PLUGIN_SIDEBAR_MEDIASIDEBAR_DIRECTORY_NAME',		'Výchozí adresář');
 @define('PLUGIN_SIDEBAR_MEDIASIDEBAR_DIRECTORY_DESC',		'Vyberte výchozí adresář, plugin bude vyhledávat obrázky pouze v něm.');
 @define('PLUGIN_SIDEBAR_MEDIASIDEBAR_IMAGESTRICT_NAME',		'Nerekurzivní zobrazování obrázků');
@@ -106,7 +108,7 @@
 @define('PLUGIN_SIDEBAR_MEDIASIDEBAR_NUMIMAGES_NAME',		'Počet zobrazených obrázků');
 @define('PLUGIN_SIDEBAR_MEDIASIDEBAR_NUMIMAGES_DESC',		'Kolik obrázků se má zobrazovat?');
 @define('PLUGIN_SIDEBAR_MEDIASIDEBAR_HOTLINKS_NAME',		'Omezit pouze na hotlink obrázky');
-@define('PLUGIN_SIDEBAR_MEDIASIDEBAR_HOTLINKS_DESC',		'Tato volba omezuje zobrazování obrázků v postranním sloupci pouze na ty, které jsou v mediatéce označeny jako hotlink.');
+@define('PLUGIN_SIDEBAR_MEDIASIDEBAR_HOTLINKS_DESC',		'Tato volba omezuje zobrazování obrázků v postranním sloupci pouze na ty, které jsou v Knihovně médií označeny jako hotlink (nejsou uložené na vašem blogu, ale jedná se pouze na odkazy na cizí servery).');
 @define('PLUGIN_SIDEBAR_MEDIASIDEBAR_HOTLINKBASE_NAME',		'Klíčové slovo');
 @define('PLUGIN_SIDEBAR_MEDIASIDEBAR_HOTLINKBASE_DESC',		'Vstupem pro tuto funkci je jediné klíčové slovo (bez mezer). Funkce omezuje zobrazování pouze na obrázky obsahující zadané slovo. Např. pokud máte hotlinky z více zdrojů, ale chcete zobrazovat pouze ty pocházející z jednoho zdroje, můžete sem napsat například "zdroj.cz".');
 
@@ -123,4 +125,3 @@
 
 @define('PLUGIN_CPGS_GROUP_NAME',		'Uživatelská skupina (usergroup)');
 @define('PLUGIN_CPGS_GROUP_DESC',		'Coppermine umožňuje omezit zobrazení obrázků pouze na zadanou skupinu uživatelů. Pokud potřebujete zobrazovat pouze některé obrázky, zadejte uživatelskou skupinu, za kterou se bude tento plugin maskovat. "Everybody" znamená, že nastavení uživatelské skupiny bude ignorováno.');
-

@@ -1,9 +1,11 @@
-<?php # lang_cz.inc.php 1.0 2009-06-22 09:18:01 VladaAjgl $
+<?php # lang_cz.inc.php 1.1 2013-04-21 12:17:55 VladaAjgl $
 
 /**
- *  @version 1.0
+ *  @version 1.1
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/06/22
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2013/04/21
  */
 
 @define('PLUGIN_EVENT_RECAPTCHA_TITLE', 'Recaptcha');
@@ -16,14 +18,14 @@
 @define('PLUGIN_EVENT_RECAPTCHA_RECAPTCHA', 'Použít kryptogramy Recaptcha');
 @define('PLUGIN_EVENT_RECAPTCHA_RECAPTCHA_DESC', 'Pokud je nastaveno, budou použity kryptogramy Recaptcha. To je speciální druh kryptogramů, který pomáhá při digitalizaci knih. Viz http://www.recaptcha.net. Uživatel si může vybrat, že místo zadávání zobrazených písmen mu bude přehrána krátká zpráva obsahující čísla, která slouží jako kód. Pokud nejsou generovány žádné kryptogramy, server je pravděpodobně mimo službu.');
 
-@define('PLUGIN_EVENT_RECAPTCHA_RECAPTCHA_STYLE', 'Který typ kraptogramů použít?');
+@define('PLUGIN_EVENT_RECAPTCHA_RECAPTCHA_STYLE', 'Který typ kryptogramů použít?');
 @define('PLUGIN_EVENT_RECAPTCHA_RECAPTCHA_STYLE_DESC', 'Vyberte jeden z následujících typů: red (červený), white (bílý), blackglass (černé sklo). Tato volba funguje pouze s povoleným javascriptem.');
 
 @define('PLUGIN_EVENT_RECAPTCHA_RECAPTCHA_PUB', 'Veřejný klíč pro kryptogramy Recaptcha');
-@define('PLUGIN_EVENT_RECAPTCHA_RECAPTCHA_PUB_DESC', 'Zadejte veřejnou část klíče pro komunikaci se serveren recaptcha.net. O vygenerování páru klíče (veřejný + soukromý klíč) můžete požádat na http://www.recaptcha.net/api/getkey');
+@define('PLUGIN_EVENT_RECAPTCHA_RECAPTCHA_PUB_DESC', 'Zadejte veřejnou (public) část klíče pro komunikaci se serveren recaptcha.net. O vygenerování páru klíče (veřejný + soukromý klíč) můžete požádat na http://www.recaptcha.net/api/getkey');
 
 @define('PLUGIN_EVENT_RECAPTCHA_RECAPTCHA_PRIV', 'Soukromý klíč recaptcha');
-@define('PLUGIN_EVENT_RECAPTCHA_RECAPTCHA_PRIV_DESC', 'Zadejte veřejnou část klíče pro komunikaci se serveren recaptcha.net. O vygenerování páru klíče (veřejný + soukromý klíč) můžete požádat na http://www.recaptcha.net/api/getkey');
+@define('PLUGIN_EVENT_RECAPTCHA_RECAPTCHA_PRIV_DESC', 'Zadejte soukromou (private) část klíče pro komunikaci se serveren recaptcha.net. O vygenerování páru klíče (veřejný + soukromý klíč) můžete požádat na http://www.recaptcha.net/api/getkey');
 
 @define('PLUGIN_EVENT_RECAPTCHA_CAPTCHAS_TTL', 'Vynutit kryptogramy po uplynutí kolika dní?');
 @define('PLUGIN_EVENT_RECAPTCHA_CAPTCHAS_TTL_DESC', 'Použití kryptogramů může být vynuceno v závislosti na stáří článků. Zadejte počet dní, po jejichž uplynutí od vydání článku je třeba zadat kryptogram. Hodnota 0 znamená, že kryptogramy budou použity vždy.');

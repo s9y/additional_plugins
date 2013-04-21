@@ -1,9 +1,11 @@
-<?php # lang_cz.inc.php 1.0 2009-06-22 09:18:01 VladaAjgl $
+<?php # lang_cz.inc.php 1.1 2013-04-21 12:17:55 VladaAjgl $
 
 /**
- *  @version 1.0
+ *  @version 1.1
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/06/22
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2013/04/21
  */
 
 @define('PLUGIN_EVENT_RECAPTCHA_TITLE', 'Recaptcha');
@@ -16,14 +18,14 @@
 @define('PLUGIN_EVENT_RECAPTCHA_RECAPTCHA', 'Pou¾ít kryptogramy Recaptcha');
 @define('PLUGIN_EVENT_RECAPTCHA_RECAPTCHA_DESC', 'Pokud je nastaveno, budou pou¾ity kryptogramy Recaptcha. To je speciální druh kryptogramù, který pomáhá pøi digitalizaci knih. Viz http://www.recaptcha.net. U¾ivatel si mù¾e vybrat, ¾e místo zadávání zobrazených písmen mu bude pøehrána krátká zpráva obsahující èísla, která slou¾í jako kód. Pokud nejsou generovány ¾ádné kryptogramy, server je pravdìpodobnì mimo slu¾bu.');
 
-@define('PLUGIN_EVENT_RECAPTCHA_RECAPTCHA_STYLE', 'Který typ kraptogramù pou¾ít?');
+@define('PLUGIN_EVENT_RECAPTCHA_RECAPTCHA_STYLE', 'Který typ kryptogramù pou¾ít?');
 @define('PLUGIN_EVENT_RECAPTCHA_RECAPTCHA_STYLE_DESC', 'Vyberte jeden z následujících typù: red (èervený), white (bílý), blackglass (èerné sklo). Tato volba funguje pouze s povoleným javascriptem.');
 
 @define('PLUGIN_EVENT_RECAPTCHA_RECAPTCHA_PUB', 'Veøejný klíè pro kryptogramy Recaptcha');
-@define('PLUGIN_EVENT_RECAPTCHA_RECAPTCHA_PUB_DESC', 'Zadejte veøejnou èást klíèe pro komunikaci se serveren recaptcha.net. O vygenerování páru klíèe (veøejný + soukromý klíè) mù¾ete po¾ádat na http://www.recaptcha.net/api/getkey');
+@define('PLUGIN_EVENT_RECAPTCHA_RECAPTCHA_PUB_DESC', 'Zadejte veøejnou (public) èást klíèe pro komunikaci se serveren recaptcha.net. O vygenerování páru klíèe (veøejný + soukromý klíè) mù¾ete po¾ádat na http://www.recaptcha.net/api/getkey');
 
 @define('PLUGIN_EVENT_RECAPTCHA_RECAPTCHA_PRIV', 'Soukromý klíè recaptcha');
-@define('PLUGIN_EVENT_RECAPTCHA_RECAPTCHA_PRIV_DESC', 'Zadejte veøejnou èást klíèe pro komunikaci se serveren recaptcha.net. O vygenerování páru klíèe (veøejný + soukromý klíè) mù¾ete po¾ádat na http://www.recaptcha.net/api/getkey');
+@define('PLUGIN_EVENT_RECAPTCHA_RECAPTCHA_PRIV_DESC', 'Zadejte soukromou (private) èást klíèe pro komunikaci se serveren recaptcha.net. O vygenerování páru klíèe (veøejný + soukromý klíè) mù¾ete po¾ádat na http://www.recaptcha.net/api/getkey');
 
 @define('PLUGIN_EVENT_RECAPTCHA_CAPTCHAS_TTL', 'Vynutit kryptogramy po uplynutí kolika dní?');
 @define('PLUGIN_EVENT_RECAPTCHA_CAPTCHAS_TTL_DESC', 'Pou¾ití kryptogramù mù¾e být vynuceno v závislosti na stáøí èlánkù. Zadejte poèet dní, po jejich¾ uplynutí od vydání èlánku je tøeba zadat kryptogram. Hodnota 0 znamená, ¾e kryptogramy budou pou¾ity v¾dy.');

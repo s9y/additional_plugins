@@ -1,4 +1,4 @@
-<?php # lang_cs.inc.php 1.3 2009-02-23 17:21:29 VladaAjgl $
+<?php # lang_cs.inc.php 1.3 2013-04-21 12:09:00 VladaAjgl $
 
 /**
  *  @version 1.3
@@ -8,12 +8,13 @@
  *  @author Vladimir Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2009/02/15
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2009/02/23
+ *  @revisionDate 2013/04/21
  */
 
 //
 //  serendipity_event_linklist.php
 //
+
 @define('PLUGIN_LINKLIST_TITLE',		'Link List');
 @define('PLUGIN_LINKLIST_DESC',		'Správce odkazů (linků) - V bočním panelu zobrazuje vaše oblíbené odkazy.');
 @define('PLUGIN_LINKLIST_LINK',		'Odkaz (Link)');
@@ -51,6 +52,7 @@
 //
 //  serendipity_plugin_linklist.php
 //
+
 @define('PLUGIN_LINKS_NAME',		'Link List');
 @define('PLUGIN_LINKS_BLAHBLAH',		'Správce odkazů (linků) - V bočním panelu zobrazuje vaše oblíbené odkazy.');
 @define('PLUGIN_LINKS_TITLE',		'Nadpis');
@@ -88,9 +90,9 @@
 @define('PLUGIN_LINKS_TARGET',		'Cíl - Target');
 @define('PLUGIN_LINKS_TARGET_BLAHBLAH',		'Cíl - Target pro zobrazování odkazů, možné hodnoty jsou "_blank", "_self", "_top", "_parent" nebo jakékoliv jméno rámu');
 @define('PLUGIN_LINKS_IMGDIR',		'Obrázky z adresáře v pluginu');
-@define('PLUGIN_LINKS_IMGDIR_BLAHBLAH',		'Pokud je nastaveno na ANO, plugin bude hledat obrázky pro odkazy/kategorie ve svém podadresáři. Pokud je nastaveno na NE, plugin se bude odkazovat do adresáře "/templates/default/img/". Nastavení volby na NE je nezbytné pro sdílené instalace, ale obrázky musíte přesunout do oadresáře šablony ručně.');
+@define('PLUGIN_LINKS_IMGDIR_BLAHBLAH',		'Pokud je nastaveno na ANO, plugin bude hledat obrázky pro odkazy/kategorie ve svém podadresáři. Pokud je nastaveno na NE, plugin se bude odkazovat do adresáře "/templates/default/img/". Nastavení volby na NE je nezbytné pro sdílené instalace, ale obrázky musíte přesunout do adresáře šablony ručně.');
 @define('PLUGIN_LINKLIST_CATEGORY_DEFAULT_OPEN_NAME',		'Strom kategorií otevřen nebo zavřen.');
-@define('PLUGIN_LINKLIST_CATEGORY_DEFAULT_OPEN_DESC',		'Při použití řazení odkazů podle "Kategorie", bude strom kategorií přednastaven jako otevřený/zavřený, pokud se nenajde nastavní o jeho stavu.');
+@define('PLUGIN_LINKLIST_CATEGORY_DEFAULT_OPEN_DESC',		'Při použití řazení odkazů podle "Kategorie", bude strom kategorií přednastaven jako otevřený/zavřený, pokud se nenajde nastavení o jeho stavu.');
 @define('PLUGIN_LINKLIST_CATEGORY_DEFAULT_OPEN_NAME_CLOSED',		'Zavřený');
 @define('PLUGIN_LINKLIST_CATEGORY_DEFAULT_OPEN_NAME_OPEN',		'Otevřený');
 @define('PLUGIN_LINKLIST_OUTSTYLE_DTREE',		'dtree');

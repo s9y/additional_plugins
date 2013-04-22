@@ -2632,6 +2632,8 @@
 <file>lang_de.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>coppermine_README</file>
 <file>coppermine_none.jpg</file>
@@ -2645,6 +2647,8 @@
 <file>zooomr_sidebar.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -2652,6 +2656,8 @@
     <file>serendipity_plugin_imagesidebar/UTF-8/lang_de.inc.php</file>
     <file>serendipity_plugin_imagesidebar/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_imagesidebar/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_plugin_imagesidebar/UTF-8/documentation_cs.html</file>
+    <file>serendipity_plugin_imagesidebar/UTF-8/documentation_cz.html</file>
     <file>serendipity_plugin_imagesidebar/coppermine_README</file>
     <file>serendipity_plugin_imagesidebar/coppermine_none.jpg</file>
     <file>serendipity_plugin_imagesidebar/coppermine_sidebar.php</file>
@@ -2664,6 +2670,8 @@
     <file>serendipity_plugin_imagesidebar/zooomr_sidebar.php</file>
     <file>serendipity_plugin_imagesidebar/lang_cs.inc.php</file>
     <file>serendipity_plugin_imagesidebar/lang_cz.inc.php</file>
+    <file>serendipity_plugin_imagesidebar/documentation_cs.html</file>
+    <file>serendipity_plugin_imagesidebar/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>

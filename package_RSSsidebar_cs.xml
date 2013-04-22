@@ -380,11 +380,11 @@
 <guid isPermaLink="false">serendipity_plugin_quicklink</guid>
 </item>
 <item>
-<title>Jednotné zobrazování obrázků v postranním sloupci: Umožňuje zobrazovat obrázky v postranním sloupci. Zdrojů těchto obrázků může být vícero. Plugin se dokáže připojit do Menalto Gallery, do databáze Coppermine galerie (pouze pokud běží na MySQL), k webové službě Zooomr (http://beta.zooomr.com/home) a samozřejmě i k Meditéce Serendipity.</title>
+<title>Jednotné zobrazování obrázků v postranním sloupci: Umožňuje zobrazovat obrázky v postranním sloupci. Zdrojů těchto obrázků může být vícero. Plugin se dokáže připojit do Menalto Gallery, do databáze Coppermine galerie (pouze pokud běží na MySQL), k webové službě Zooomr (http://beta.zooomr.com/home) a samozřejmě i ke Knihovně médií Serendipity.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_imagesidebar</link>
 <category>Sidebar Plugins</category>
 <author>Andrew Brown (Menalto code), Matthew Groeninger (Unified/Media Lib. Code), Stefan Lange-Hegermann (Zooomr Code), Matthew Maude (Coppermine code)</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_imagesidebar&lt;br /&gt;Jednotné zobrazování obrázků v postranním sloupci&lt;/b&gt;&lt;br /&gt;Umožňuje zobrazovat obrázky v postranním sloupci. Zdrojů těchto obrázků může být vícero. Plugin se dokáže připojit do Menalto Gallery, do databáze Coppermine galerie (pouze pokud běží na MySQL), k webové službě Zooomr (http://beta.zooomr.com/home) a samozřejmě i k Meditéce Serendipity.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_plugin_imagesidebar&lt;br /&gt;Jednotné zobrazování obrázků v postranním sloupci&lt;/b&gt;&lt;br /&gt;Umožňuje zobrazovat obrázky v postranním sloupci. Zdrojů těchto obrázků může být vícero. Plugin se dokáže připojit do Menalto Gallery, do databáze Coppermine galerie (pouze pokud běží na MySQL), k webové službě Zooomr (http://beta.zooomr.com/home) a samozřejmě i ke Knihovně médií Serendipity.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Sun, 25 Dec 2011 04:12:48 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_imagesidebar</guid>
 </item>

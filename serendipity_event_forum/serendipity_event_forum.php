@@ -53,15 +53,15 @@ class serendipity_event_forum extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.35');
+        $propbag->add('version',       '0.36');
         $propbag->add('author',       'Alexander \'dma147\' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
-                                            'entries_header' 		  => true,
-                                            'entry_display' 		  => true,
+                                            'entries_header'           => true,
+                                            'entry_display'           => true,
                                             'backend_sidebar_entries' => true,
                                             'backend_sidebar_entries_event_display_forum' => true,
-                                            'external_plugin'		  => true,
+                                            'external_plugin'          => true,
                                             'css'                     => true,
                                             'backend_save'            => true,
                                             'backend_publish'         => true,
@@ -376,47 +376,47 @@ class serendipity_event_forum extends serendipity_event {
         if (empty($installed) && !defined('FORUM_UPGRADE')) {
 
             $q = "CREATE TABLE {$serendipity['dbPrefix']}dma_forum_boards (
-                        boardid 		{AUTOINCREMENT} {PRIMARY},
-                        name 			varchar(80) NOT NULL 	default '',
-                        description		varchar(250) NOT NULL 	default '',
-                        sortorder		int(10)		NOT NULL	default '0',
-                        threads 		int(10)		NOT NULL	default '0',
-                        posts 			int(10) 	NOT NULL 	default '0',
-                        views 			int(10) 	NOT NULL 	default '0',
-                        flag			int(1)		NOT NULL	default '0',
-                        lastauthorid 	int(10) 	NOT NULL 	default '0',
-                        lastauthorname 	varchar(48)	NOT NULL	default '',
-                        lastthreadid	int(10)		NOT NULL	default '0',
-                        lastpostid		int(10)		NOT NULL	default '0',
-                        lastposttime	int(10)		NOT NULL	default '0'
+                        boardid         {AUTOINCREMENT} {PRIMARY},
+                        name             varchar(80) NOT NULL     default '',
+                        description        varchar(250) NOT NULL     default '',
+                        sortorder        int(10)        NOT NULL    default '0',
+                        threads         int(10)        NOT NULL    default '0',
+                        posts             int(10)     NOT NULL     default '0',
+                        views             int(10)     NOT NULL     default '0',
+                        flag            int(1)        NOT NULL    default '0',
+                        lastauthorid     int(10)     NOT NULL     default '0',
+                        lastauthorname     varchar(48)    NOT NULL    default '',
+                        lastthreadid    int(10)        NOT NULL    default '0',
+                        lastpostid        int(10)        NOT NULL    default '0',
+                        lastposttime    int(10)        NOT NULL    default '0'
                 )";
             $sql = serendipity_db_schema_import($q);
 
             $q = "CREATE TABLE {$serendipity['dbPrefix']}dma_forum_threads (
-                        boardid 		int(10)		NOT NULL 	default '0',
-                        threadid 		{AUTOINCREMENT} {PRIMARY},
-                        title 			varchar(80) NOT NULL 	default '',
-                        replies 		int(10)		NOT NULL	default '0',
-                        views 			int(10) 	NOT NULL 	default '0',
-                        flag			int(1)		NOT NULL	default '0',
-                        notifymails		text,
-                        lastauthorid 	int(10) 	NOT NULL 	default '0',
-                        lastauthorname 	varchar(48)	NOT NULL	default '',
-                        lastpostid		int(10)		NOT NULL	default '0',
-                        lastposttime	int(10)		NOT NULL	default '0'
+                        boardid         int(10)        NOT NULL     default '0',
+                        threadid         {AUTOINCREMENT} {PRIMARY},
+                        title             varchar(80) NOT NULL     default '',
+                        replies         int(10)        NOT NULL    default '0',
+                        views             int(10)     NOT NULL     default '0',
+                        flag            int(1)        NOT NULL    default '0',
+                        notifymails        text,
+                        lastauthorid     int(10)     NOT NULL     default '0',
+                        lastauthorname     varchar(48)    NOT NULL    default '',
+                        lastpostid        int(10)        NOT NULL    default '0',
+                        lastposttime    int(10)        NOT NULL    default '0'
                 )";
             $sql = serendipity_db_schema_import($q);
 
             $q = "CREATE TABLE {$serendipity['dbPrefix']}dma_forum_posts (
-                        threadid 		int(10)		NOT NULL 	default '0',
-                        postid 			{AUTOINCREMENT} {PRIMARY},
-                        postdate		int(10)		NOT NULL	default '0',
-                        title 			varchar(80) NOT NULL 	default '',
-                        message			text,
-                        flag			int(1)		NOT NULL	default '0',
-                        authorid 		int(10) 	NOT NULL 	default '0',
-                        authorname 		varchar(48)	NOT NULL	default '',
-                        editcount 		int(10) 	NOT NULL 	default '0'
+                        threadid         int(10)        NOT NULL     default '0',
+                        postid             {AUTOINCREMENT} {PRIMARY},
+                        postdate        int(10)        NOT NULL    default '0',
+                        title             varchar(80) NOT NULL     default '',
+                        message            text,
+                        flag            int(1)        NOT NULL    default '0',
+                        authorid         int(10)     NOT NULL     default '0',
+                        authorname         varchar(48)    NOT NULL    default '',
+                        editcount         int(10)     NOT NULL     default '0'
                 )";
             $sql = serendipity_db_schema_import($q);
 
@@ -528,12 +528,12 @@ class serendipity_event_forum extends serendipity_event {
                 }
                 if ($TABLE['uploads'] <= 0) {
                     $q = "CREATE TABLE {$serendipity['dbPrefix']}dma_forum_uploads (
-                                postid 			int(10)		NOT NULL 	default '0',
-                                uploadid		{AUTOINCREMENT} {PRIMARY},
-                                uploaddate		int(10)		NOT NULL	default '0',
-                                sysfilename		varchar(32) NOT NULL 	default '',
-                                realfilename	varchar(150) NOT NULL 	default '',
-                                dlcount			int(10)		NOT NULL	default '0'
+                                postid             int(10)        NOT NULL     default '0',
+                                uploadid        {AUTOINCREMENT} {PRIMARY},
+                                uploaddate        int(10)        NOT NULL    default '0',
+                                sysfilename        varchar(32) NOT NULL     default '',
+                                realfilename    varchar(150) NOT NULL     default '',
+                                dlcount            int(10)        NOT NULL    default '0'
                         )";
                     $sql = serendipity_db_schema_import($q);
                     $q = "CREATE INDEX postid ON {$serendipity['dbPrefix']}dma_forum_uploads (postid);";
@@ -545,12 +545,12 @@ class serendipity_event_forum extends serendipity_event {
                 }
                 if ($TABLE['users'] <= 0) {
                     $q = "CREATE TABLE {$serendipity['dbPrefix']}dma_forum_users (
-                                authorid		int(10)		NOT NULL	default '0',
-                                posts			int(10)		NOT NULL	default '0',
-                                visits			int(10)		NOT NULL	default '0',
-                                lastvisit		int(10)		NOT NULL	default '0',
-                                lastpost		int(10)		NOT NULL	default '0',
-                                uploadids		text
+                                authorid        int(10)        NOT NULL    default '0',
+                                posts            int(10)        NOT NULL    default '0',
+                                visits            int(10)        NOT NULL    default '0',
+                                lastvisit        int(10)        NOT NULL    default '0',
+                                lastpost        int(10)        NOT NULL    default '0',
+                                uploadids        text
                         )";
                     $sql = serendipity_db_schema_import($q);
                     $q = "CREATE INDEX authorid ON {$serendipity['dbPrefix']}dma_forum_users (authorid);";
@@ -1093,18 +1093,18 @@ class serendipity_event_forum extends serendipity_event {
             $thread = serendipity_db_query($sql);
             $serendipity['smarty']->assign(
                 array(
-                    'pagetitle'			=>	$this->get_config('pagetitle'),
-                    'headline'			=>	$this->get_config('headline'),
-                    'threadtitle'		=>	htmlspecialchars(stripslashes(trim($thread[0]['title']))),
-                    'bgcolor2'			=>	$this->get_config('bgcolor2'),
-                    'ACTUALURL'			=>	$serendipity['baseURL']."index.php?serendipity[subpage]=".$this->get_config('pageurl')."&amp;boardid=".intval($_GET['boardid'])."&amp;threadid=".intval($_GET['threadid']),
-                    'boardid'			=>	intval($_GET['boardid']),
-                    'threadid'			=>	intval($_GET['threadid']),
-                    'replyto'			=>	intval($_GET['replyto']),
+                    'pagetitle'            =>    $this->get_config('pagetitle'),
+                    'headline'            =>    $this->get_config('headline'),
+                    'threadtitle'        =>    htmlspecialchars(stripslashes(trim($thread[0]['title']))),
+                    'bgcolor2'            =>    $this->get_config('bgcolor2'),
+                    'ACTUALURL'            =>    $serendipity['baseURL']."index.php?serendipity[subpage]=".$this->get_config('pageurl')."&amp;boardid=".intval($_GET['boardid'])."&amp;threadid=".intval($_GET['threadid']),
+                    'boardid'            =>    intval($_GET['boardid']),
+                    'threadid'            =>    intval($_GET['threadid']),
+                    'replyto'            =>    intval($_GET['replyto']),
                     'relpath'           =>  $this->DMA_forum_getRelPath(),
-                    'POST_AUTHORNAME'	=>	htmlspecialchars($POST_AUTHORNAME),
-                    'POST_TITLE'		=>	htmlspecialchars($POST_TITLE),
-                    'POST_MESSAGE'		=>	htmlspecialchars($POST_MESSAGE),
+                    'POST_AUTHORNAME'    =>    htmlspecialchars($POST_AUTHORNAME),
+                    'POST_TITLE'        =>    htmlspecialchars($POST_TITLE),
+                    'POST_MESSAGE'        =>    htmlspecialchars($POST_MESSAGE),
                 )
             );
             $serendipity['smarty']->assign('bbcode', BBCODE);
@@ -1168,19 +1168,19 @@ class serendipity_event_forum extends serendipity_event {
             }
             $serendipity['smarty']->assign(
                 array(
-                    'pagetitle'			=>	$this->get_config('pagetitle'),
-                    'headline'			=>	$this->get_config('headline'),
-                    'threadtitle'		=>	htmlspecialchars(stripslashes(trim($thread[0]['title']))),
-                    'bgcolor2'			=>	$this->get_config('bgcolor2'),
-                    'ACTUALURL'			=>	$serendipity['baseURL']."index.php?serendipity[subpage]=".$this->get_config('pageurl')."&amp;boardid=".intval($_GET['boardid'])."&amp;threadid=".intval($_GET['threadid'])."&amp;page=".intval($_GET['page']),
-                    'boardid'			=>	intval($_GET['boardid']),
-                    'threadid'			=>	intval($_GET['threadid']),
+                    'pagetitle'            =>    $this->get_config('pagetitle'),
+                    'headline'            =>    $this->get_config('headline'),
+                    'threadtitle'        =>    htmlspecialchars(stripslashes(trim($thread[0]['title']))),
+                    'bgcolor2'            =>    $this->get_config('bgcolor2'),
+                    'ACTUALURL'            =>    $serendipity['baseURL']."index.php?serendipity[subpage]=".$this->get_config('pageurl')."&amp;boardid=".intval($_GET['boardid'])."&amp;threadid=".intval($_GET['threadid'])."&amp;page=".intval($_GET['page']),
+                    'boardid'            =>    intval($_GET['boardid']),
+                    'threadid'            =>    intval($_GET['threadid']),
                     'relpath'           =>  $this->DMA_forum_getRelPath(),
                     'page'              =>  intval($_GET['page']),
-                    'edit'				=>	intval($_GET['edit']),
-                    'POST_AUTHORNAME'	=>	htmlspecialchars(stripslashes(trim($post[0]['authorname']))),
-                    'POST_TITLE'		=>	htmlspecialchars(stripslashes(trim($post[0]['title']))),
-                    'POST_MESSAGE'		=>	htmlspecialchars(stripslashes(trim($post[0]['message'])))
+                    'edit'                =>    intval($_GET['edit']),
+                    'POST_AUTHORNAME'    =>    htmlspecialchars(stripslashes(trim($post[0]['authorname']))),
+                    'POST_TITLE'        =>    htmlspecialchars(stripslashes(trim($post[0]['title']))),
+                    'POST_MESSAGE'        =>    htmlspecialchars(stripslashes(trim($post[0]['message'])))
                 )
             );
             $serendipity['smarty']->assign('bbcode', BBCODE);
@@ -1262,32 +1262,32 @@ class serendipity_event_forum extends serendipity_event {
             }
             $serendipity['smarty']->assign(
                 array(
-                    'pagetitle'			=>	$this->get_config('pagetitle'),
-                    'headline'			=>	$this->get_config('headline'),
-                    'threadtitle'		=>	htmlspecialchars(stripslashes(trim($thread[0]['title']))),
-                    'bgcolor1'			=>	$this->get_config('bgcolor1'),
-                    'bgcolor2'			=>	$this->get_config('bgcolor2'),
-                    'ACTUALURL'			=>	$serendipity['baseURL']."index.php?serendipity[subpage]=".$this->get_config('pageurl')."&amp;boardid=".intval($_GET['boardid'])."&amp;threadid=".intval($_GET['threadid'])."&amp;page=".intval($_GET['page']),
-                    'boardid'			=>	intval($_GET['boardid']),
-                    'threadid'			=>	intval($_GET['threadid']),
+                    'pagetitle'            =>    $this->get_config('pagetitle'),
+                    'headline'            =>    $this->get_config('headline'),
+                    'threadtitle'        =>    htmlspecialchars(stripslashes(trim($thread[0]['title']))),
+                    'bgcolor1'            =>    $this->get_config('bgcolor1'),
+                    'bgcolor2'            =>    $this->get_config('bgcolor2'),
+                    'ACTUALURL'            =>    $serendipity['baseURL']."index.php?serendipity[subpage]=".$this->get_config('pageurl')."&amp;boardid=".intval($_GET['boardid'])."&amp;threadid=".intval($_GET['threadid'])."&amp;page=".intval($_GET['page']),
+                    'boardid'            =>    intval($_GET['boardid']),
+                    'threadid'            =>    intval($_GET['threadid']),
                     'page'              =>  intval($_GET['page']),
-                    'delete'			=>	intval($_GET['delete']),
-                    'POST_AUTHORNAME'	=>	htmlspecialchars(stripslashes(trim($post[0]['authorname']))),
-                    'POST_DATE'			=>	date($this->get_config('dateformat')." ".$this->get_config('timeformat'), $post[0]['postdate']),
-                    'POST_TITLE'		=>	htmlspecialchars(stripslashes(trim($post[0]['title']))),
-                    'POST_MESSAGE'		=>	$post['message'],
-                    'relpath'			=>	$this->DMA_forum_getRelPath()
+                    'delete'            =>    intval($_GET['delete']),
+                    'POST_AUTHORNAME'    =>    htmlspecialchars(stripslashes(trim($post[0]['authorname']))),
+                    'POST_DATE'            =>    date($this->get_config('dateformat')." ".$this->get_config('timeformat'), $post[0]['postdate']),
+                    'POST_TITLE'        =>    htmlspecialchars(stripslashes(trim($post[0]['title']))),
+                    'POST_MESSAGE'        =>    $post['message'],
+                    'relpath'            =>    $this->DMA_forum_getRelPath()
                 )
             );
         } elseif (isset($_GET['action']) && trim($_GET['action']) == "close") {
             $sql = "UPDATE {$serendipity['dbPrefix']}dma_forum_threads SET
                             flag = '1'
-                    WHERE	threadid = '".intval($_GET['threadid'])."'";
+                    WHERE    threadid = '".intval($_GET['threadid'])."'";
             serendipity_db_query($sql);
         } elseif (isset($_GET['action']) && trim($_GET['action']) == "reopen") {
             $sql = "UPDATE {$serendipity['dbPrefix']}dma_forum_threads SET
                             flag = '0'
-                    WHERE	threadid = '".intval($_GET['threadid'])."'";
+                    WHERE    threadid = '".intval($_GET['threadid'])."'";
             serendipity_db_query($sql);
         }
 
@@ -1341,16 +1341,16 @@ class serendipity_event_forum extends serendipity_event {
 
 
 
-		/** Jahr des getrigen Tages */
-		$yesterday_year = intval(date("Y", (time()-86400)));
-		/** Monat des getrigen Tages */
-		$yesterday_month = intval(date("n", (time()-86400)));
-		/** Tageszahl des getrigen Tages */
-		$yesterday_day = intval(date("j", (time()-86400)));
-		/** Letzter Timestamp des getrigen Tages (23:59:59 Uhr) */
-		$yesterday_lasttstamp = mktime(23,59,59,$yesterday_month,$yesterday_day,$yesterday_year);
-		/** Erster Timestamp des getrigen Tages (00:00:00 Uhr) */
-		$yesterday_firsttstamp = mktime(0,0,0,$yesterday_month,$yesterday_day,$yesterday_year);
+        /** Jahr des getrigen Tages */
+        $yesterday_year = intval(date("Y", (time()-86400)));
+        /** Monat des getrigen Tages */
+        $yesterday_month = intval(date("n", (time()-86400)));
+        /** Tageszahl des getrigen Tages */
+        $yesterday_day = intval(date("j", (time()-86400)));
+        /** Letzter Timestamp des getrigen Tages (23:59:59 Uhr) */
+        $yesterday_lasttstamp = mktime(23,59,59,$yesterday_month,$yesterday_day,$yesterday_year);
+        /** Erster Timestamp des getrigen Tages (00:00:00 Uhr) */
+        $yesterday_firsttstamp = mktime(0,0,0,$yesterday_month,$yesterday_day,$yesterday_year);
 
 
         if ((!isset($_GET['boardid']) || intval($_GET['boardid']) <= 0) && (!isset($_GET['replyto']) && !isset($_GET['edit']) && !isset($_GET['delete']) && !isset($_GET['quote']))) {
@@ -1370,13 +1370,13 @@ class serendipity_event_forum extends serendipity_event {
                 for ($a=0,$b=count($boards);$a<$b;$a++) {
                     if (intval($boards[$a]['threads']) >= 1) {
 
-                    	if (intval($boards[$a]['lastposttime']) >= (intval($yesterday_lasttstamp)+1)) {
-                    		$lastpost = "<span style=\"color:".$this->get_config('color_today').";font-weight:bolder\">".PLUGIN_FORUM_TODAY." ".date($this->get_config('timeformat'), $boards[$a]['lastposttime'])."</span><br />";
-						} elseif ((intval($boards[$a]['lastposttime']) <= intval($yesterday_lasttstamp)) && (intval($boards[$a]['lastposttime']) >= intval($yesterday_firsttstamp))) {
-                    		$lastpost = "<span style=\"color:".$this->get_config('color_yesterday')."\">".PLUGIN_FORUM_YESTERDAY." ".date($this->get_config('timeformat'), $boards[$a]['lastposttime'])."</span><br />";
-						} else {
-                        	$lastpost = date($this->get_config('dateformat')." ".$this->get_config('timeformat'), $boards[$a]['lastposttime'])."<br />";
-						}
+                        if (intval($boards[$a]['lastposttime']) >= (intval($yesterday_lasttstamp)+1)) {
+                            $lastpost = "<span style=\"color:".$this->get_config('color_today').";font-weight:bolder\">".PLUGIN_FORUM_TODAY." ".date($this->get_config('timeformat'), $boards[$a]['lastposttime'])."</span><br />";
+                        } elseif ((intval($boards[$a]['lastposttime']) <= intval($yesterday_lasttstamp)) && (intval($boards[$a]['lastposttime']) >= intval($yesterday_firsttstamp))) {
+                            $lastpost = "<span style=\"color:".$this->get_config('color_yesterday')."\">".PLUGIN_FORUM_YESTERDAY." ".date($this->get_config('timeformat'), $boards[$a]['lastposttime'])."</span><br />";
+                        } else {
+                            $lastpost = date($this->get_config('dateformat')." ".$this->get_config('timeformat'), $boards[$a]['lastposttime'])."<br />";
+                        }
 
                         $lastpost .= htmlspecialchars(stripslashes($boards[$a]['lastauthorname']))." ";
                         $sql = "SELECT COUNT(*) FROM {$serendipity['dbPrefix']}dma_forum_posts WHERE threadid='".intval($boards[$a]['lastthreadid'])."'";
@@ -1428,17 +1428,17 @@ class serendipity_event_forum extends serendipity_event {
 
                 $serendipity['smarty']->assign(
                     array(
-                        'pagetitle'			=>	$this->get_config('pagetitle'),
-                        'headline'			=>	$this->get_config('headline'),
-                        'bgcolor2'			=>	$this->get_config('bgcolor2'),
-                        'ACTUALURL'			=>	$serendipity['baseURL']."index.php?serendipity[subpage]=".$this->get_config('pageurl')."&amp;boardid=".intval($_GET['boardid']),
-                        'boardid'			=>	intval($_GET['boardid']),
-                        'POST_AUTHORNAME'	=>	htmlspecialchars($POST_AUTHORNAME),
-                        'POST_TITLE'		=>	htmlspecialchars($POST_TITLE),
-                        'POST_MESSAGE'		=>	htmlspecialchars($POST_MESSAGE),
-                        'relpath'			=>	$this->DMA_forum_getRelPath(),
-                        'newthreadurl'		=>	$serendipity['baseURL']."index.php?serendipity[subpage]=".$this->get_config('pageurl')."&amp;action=newthread&amp;boardid=".intval($_GET['boardid']),
-                        'boardname'			=>	htmlspecialchars(stripslashes(trim($board[0]['name'])))
+                        'pagetitle'            =>    $this->get_config('pagetitle'),
+                        'headline'            =>    $this->get_config('headline'),
+                        'bgcolor2'            =>    $this->get_config('bgcolor2'),
+                        'ACTUALURL'            =>    $serendipity['baseURL']."index.php?serendipity[subpage]=".$this->get_config('pageurl')."&amp;boardid=".intval($_GET['boardid']),
+                        'boardid'            =>    intval($_GET['boardid']),
+                        'POST_AUTHORNAME'    =>    htmlspecialchars($POST_AUTHORNAME),
+                        'POST_TITLE'        =>    htmlspecialchars($POST_TITLE),
+                        'POST_MESSAGE'        =>    htmlspecialchars($POST_MESSAGE),
+                        'relpath'            =>    $this->DMA_forum_getRelPath(),
+                        'newthreadurl'        =>    $serendipity['baseURL']."index.php?serendipity[subpage]=".$this->get_config('pageurl')."&amp;action=newthread&amp;boardid=".intval($_GET['boardid']),
+                        'boardname'            =>    htmlspecialchars(stripslashes(trim($board[0]['name'])))
                     )
                 );
 
@@ -1567,13 +1567,13 @@ class serendipity_event_forum extends serendipity_event {
                     for ($a=0,$b=count($threads);$a<$b;$a++) {
                         if (intval($threads[$a]['lastpostid']) >= 1) {
 
-							if (intval($threads[$a]['lastposttime']) >= (intval($yesterday_lasttstamp)+1)) {
-								$lastpost = "<span style=\"color:".$this->get_config('color_today').";font-weight:bolder\">".PLUGIN_FORUM_TODAY." ".date($this->get_config('timeformat'), $threads[$a]['lastposttime'])."</span><br />";
-							} elseif ((intval($threads[$a]['lastposttime']) <= intval($yesterday_lasttstamp)) && (intval($threads[$a]['lastposttime']) >= intval($yesterday_firsttstamp))) {
-								$lastpost = "<span style=\"color:".$this->get_config('color_yesterday')."\">".PLUGIN_FORUM_YESTERDAY." ".date($this->get_config('timeformat'), $threads[$a]['lastposttime'])."</span><br />";
-							} else {
-								$lastpost = date($this->get_config('dateformat')." ".$this->get_config('timeformat'), $threads[$a]['lastposttime'])."<br />";
-							}
+                            if (intval($threads[$a]['lastposttime']) >= (intval($yesterday_lasttstamp)+1)) {
+                                $lastpost = "<span style=\"color:".$this->get_config('color_today').";font-weight:bolder\">".PLUGIN_FORUM_TODAY." ".date($this->get_config('timeformat'), $threads[$a]['lastposttime'])."</span><br />";
+                            } elseif ((intval($threads[$a]['lastposttime']) <= intval($yesterday_lasttstamp)) && (intval($threads[$a]['lastposttime']) >= intval($yesterday_firsttstamp))) {
+                                $lastpost = "<span style=\"color:".$this->get_config('color_yesterday')."\">".PLUGIN_FORUM_YESTERDAY." ".date($this->get_config('timeformat'), $threads[$a]['lastposttime'])."</span><br />";
+                            } else {
+                                $lastpost = date($this->get_config('dateformat')." ".$this->get_config('timeformat'), $threads[$a]['lastposttime'])."<br />";
+                            }
 
                             $lastpost .= htmlspecialchars(stripslashes($threads[$a]['lastauthorname']))." ";
                             $sql = "SELECT COUNT(*) FROM {$serendipity['dbPrefix']}dma_forum_posts WHERE threadid='".intval($threads[$a]['threadid'])."'";
@@ -1868,15 +1868,15 @@ class serendipity_event_forum extends serendipity_event {
                     $posts[$a]['authordetails'] = $AUTHORDETAILS;
                     $posts[$a]['title'] = htmlspecialchars($posts[$a]['title']);
                     $posts[$a]['authorname'] = htmlspecialchars($posts[$a]['authorname']);
-					if (intval($posts[$a]['postdate']) >= (intval($yesterday_lasttstamp)+1)) {
-						$posts[$a]['postdate'] = "<span style=\"color:".$this->get_config('color_today').";font-weight:bolder\">".PLUGIN_FORUM_TODAY." ".date($this->get_config('timeformat'), $posts[$a]['postdate'])."</span>";
+                    if (intval($posts[$a]['postdate']) >= (intval($yesterday_lasttstamp)+1)) {
+                        $posts[$a]['postdate'] = "<span style=\"color:".$this->get_config('color_today').";font-weight:bolder\">".PLUGIN_FORUM_TODAY." ".date($this->get_config('timeformat'), $posts[$a]['postdate'])."</span>";
 
-					} elseif ((intval($posts[$a]['postdate']) <= intval($yesterday_lasttstamp)) && (intval($posts[$a]['postdate']) >= intval($yesterday_firsttstamp))) {
-						$posts[$a]['postdate'] = "<span style=\"color:".$this->get_config('color_yesterday')."\">".PLUGIN_FORUM_YESTERDAY." ".date($this->get_config('timeformat'), $posts[$a]['postdate'])."</span>";
+                    } elseif ((intval($posts[$a]['postdate']) <= intval($yesterday_lasttstamp)) && (intval($posts[$a]['postdate']) >= intval($yesterday_firsttstamp))) {
+                        $posts[$a]['postdate'] = "<span style=\"color:".$this->get_config('color_yesterday')."\">".PLUGIN_FORUM_YESTERDAY." ".date($this->get_config('timeformat'), $posts[$a]['postdate'])."</span>";
 
-					} else {
-						$posts[$a]['postdate'] = date($this->get_config('dateformat')." ".$this->get_config('timeformat'), $posts[$a]['postdate']);
-					}
+                    } else {
+                        $posts[$a]['postdate'] = date($this->get_config('dateformat')." ".$this->get_config('timeformat'), $posts[$a]['postdate']);
+                    }
                 }
 
 
@@ -1949,8 +1949,8 @@ class serendipity_event_forum extends serendipity_event {
             header('Status: 200 OK');
         }
         $adminurl = $serendipity['baseURL']."serendipity_admin.php?serendipity[adminModule]=event_display&serendipity[adminAction]=".$this->get_config('pageurl');
-        $up 	= "<img src=\"".$serendipity['baseURL']."templates/default/admin/img/uparrow.png\" width=\"16\" height=\"16\" border=\"0\" />";
-        $down 	= "<img src=\"".$serendipity['baseURL']."templates/default/admin/img/downarrow.png\" width=\"16\" height=\"16\" border=\"0\" />";
+        $up     = "<img src=\"".$serendipity['baseURL']."templates/default/admin/img/uparrow.png\" width=\"16\" height=\"16\" border=\"0\" />";
+        $down     = "<img src=\"".$serendipity['baseURL']."templates/default/admin/img/downarrow.png\" width=\"16\" height=\"16\" border=\"0\" />";
         $ERRORMSG = "";
         $OUTPUT = "";
         $OUTPUT .= "<h2>".PLUGIN_FORUM_TITLE."</h2>\n";
@@ -1991,7 +1991,7 @@ class serendipity_event_forum extends serendipity_event {
                                         $OUTPUT .= "<option value=\"".intval($board['boardid'])."\">".trim(stripslashes($board['name']))."</option>\n";
                                     }
                                 }
-                $OUTPUT .= "	</select>
+                $OUTPUT .= "    </select>
                         </td>
                     </tr>
                     <tr height=\"60\" style=\"background-color: ".$this->get_config('bgcolor1').";\">
@@ -2171,7 +2171,7 @@ class serendipity_event_forum extends serendipity_event {
                                     $OUTPUT .= "<option value=\"".intval($board['boardid'])."\">".trim(stripslashes($board['name']))."</option>\n";
                                 }
                             }
-            $OUTPUT .= "	</select>
+            $OUTPUT .= "    </select>
                     </td>
                 </tr>
                 <tr height=\"60\" style=\"background-color: ".$this->get_config('bgcolor1').";\">
@@ -2209,11 +2209,11 @@ class serendipity_event_forum extends serendipity_event {
             </table>\n";
         }
 
-		/*
-		echo "<pre>";
-		print_r($serendipity);
-		echo "</pre>";
-		*/
+        /*
+        echo "<pre>";
+        print_r($serendipity);
+        echo "</pre>";
+        */
 
         unset($_GET);
         unset($_POST);
@@ -2234,12 +2234,12 @@ class serendipity_event_forum extends serendipity_event {
                 $OUTPUT .= "<td width=\"60\" align=\"right\"><b>".PLUGIN_FORUM_POSTS."</b></td>\n";
                 $OUTPUT .= "<td width=\"60\"><b>".PLUGIN_FORUM_ORDER."</b></td>\n";
                 $OUTPUT .= "</tr>\n";
-                $OUTPUT .= "	<form action=\"?\" name=\"boardsdeleteform\" method=\"POST\">\n";
-                $OUTPUT .= "	    <div>\n";
-                $OUTPUT .= "	        <input type=\"hidden\" name=\"serendipity[adminModule]\" value=\"event_display\" />\n";
-                $OUTPUT .= "	        <input type=\"hidden\" name=\"serendipity[adminAction]\" value=\"".$this->get_config('pageurl')."\" />\n";
-                $OUTPUT .= "	        <input type=\"hidden\" name=\"serendipity[action]\" value=\"delete\" />\n";
-                $OUTPUT .= "	    </div>\n";
+                $OUTPUT .= "    <form action=\"?\" name=\"boardsdeleteform\" method=\"POST\">\n";
+                $OUTPUT .= "        <div>\n";
+                $OUTPUT .= "            <input type=\"hidden\" name=\"serendipity[adminModule]\" value=\"event_display\" />\n";
+                $OUTPUT .= "            <input type=\"hidden\" name=\"serendipity[adminAction]\" value=\"".$this->get_config('pageurl')."\" />\n";
+                $OUTPUT .= "            <input type=\"hidden\" name=\"serendipity[action]\" value=\"delete\" />\n";
+                $OUTPUT .= "        </div>\n";
                 foreach($boards AS $board) {
                     if ($thiscolor == $this->get_config('bgcolor2')) { $thiscolor = $this->get_config('bgcolor1'); } else { $thiscolor = $this->get_config('bgcolor2'); }
                     $OUTPUT .= "<tr style=\"background-color: ".$thiscolor.";\">\n";
@@ -2395,9 +2395,8 @@ class serendipity_event_forum extends serendipity_event {
                         setcookie("s9yread", "$READCOOKIE", time()+31536000, "/");
                     }
 
-
-
-                    $uri_parts = explode('?', str_replace('&amp;', '&', $eventData));
+                    $theUri = (string)str_replace('&amp;', '&', $eventData);
+                    $uri_parts = explode('?', $theUri);
 
                     // Try to get reguest parameters from eventData name
                     if (!empty($uri_parts[1])) {

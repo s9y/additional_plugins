@@ -6130,9 +6130,9 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <description>ユーザーに完全なディスカッションフォーラムを提供します。</description>
 <maintainers><maintainer><name>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.35</version>
+  <version>0.36</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2013-04-24</date>
   <filelist>
 <dir name="serendipity_event_forum">
 <dir name="include">

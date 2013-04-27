@@ -114,7 +114,7 @@ class serendipity_event_autoupdate extends serendipity_event {
                     $self_info = sprintf(USER_SELF_INFO, htmlspecialchars($serendipity['serendipityUser']), $serendipity['permissionLevels'][$serendipity['serendipityUserlevel']]);
                     $lang_char = LANG_CHARSET;
                     $ad_suite  = SERENDIPITY_ADMIN_SUITE;
-                    $css_upd   = file_get_contents(dirname(__FILE__) . '/upgrade2.min.css');
+                    $css_upd   = file_get_contents(dirname(__FILE__) . '/upgrade.min.css');
                     $nv        = htmlspecialchars($_REQUEST['serendipity']['newVersion']); // reduce to POST only?
                     $logmsg    = '';
                     echo <<<EOS

@@ -1314,9 +1314,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <title>Autoupdate (Experimental): Experimental. When the dashboard-plugin detects an update, this plugin adds the option to update the blog directly with one click from within the adminarea.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_autoupdate</link>
 <category>Event Plugins</category>
-<author>onli</author>
+<author>onli, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_autoupdate&lt;br /&gt;Autoupdate (Experimental)&lt;/b&gt;&lt;br /&gt;Experimental. When the dashboard-plugin detects an update, this plugin adds the option to update the blog directly with one click from within the adminarea.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 15 Aug 2012 02:32:08 +0200</pubDate>
+<pubDate>Sun, 28 Apr 2013 02:43:57 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_autoupdate</guid>
 </item>
 <item>

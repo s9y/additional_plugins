@@ -10223,11 +10223,11 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <summary>Autoupdate (Experimental)</summary>
 <groups>BACKEND_FEATURES</groups>
 <description>Experimental. When the dashboard-plugin detects an update, this plugin adds the option to update the blog directly with one click from within the adminarea.</description>
-<maintainers><maintainer><name>onli</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>onli, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.4</version>
+  <version>0.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-08-15</date>
+  <date>2013-04-28</date>
   <filelist>
 <dir name="serendipity_event_autoupdate">
 <dir name="UTF-8">
@@ -10241,6 +10241,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_autoupdate.php</file>
+<file>upgrade.min.css</file>
 <file>ChangeLog</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
@@ -10259,6 +10260,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
     <file>serendipity_event_autoupdate/lang_de.inc.php</file>
     <file>serendipity_event_autoupdate/lang_en.inc.php</file>
     <file>serendipity_event_autoupdate/serendipity_event_autoupdate.php</file>
+    <file>serendipity_event_autoupdate/upgrade.min.css</file>
     <file>serendipity_event_autoupdate/ChangeLog</file>
     <file>serendipity_event_autoupdate/lang_cs.inc.php</file>
     <file>serendipity_event_autoupdate/lang_cz.inc.php</file>

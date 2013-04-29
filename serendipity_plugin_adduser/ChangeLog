@@ -1,3 +1,8 @@
+2.36:
+-----
+
+Improved identity-faking check by removing whitespace
+
 2.35:
 ----
 

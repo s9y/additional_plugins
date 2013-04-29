@@ -152,7 +152,7 @@ class serendipity_event_adduser extends serendipity_event
 
 
                         if (serendipity_db_bool($this->get_config('true_identities')) && !serendipity_userLoggedIn()) {
-                            $user = serendipity_db_escape_string(preg_replace('@\s+', ' ', trim($addData['name'])));
+                            $user = serendipity_db_escape_string(preg_replace('@\s+@', ' ', trim($addData['name'])));
                             $authors = serendipity_db_query("SELECT authorid FROM {$serendipity['dbPrefix']}authors WHERE realname = '" . $user . "'");
                             if (is_array($authors) && isset($authors[0]['authorid'])) {
                                 $eventData = array('allow_comments' => false);

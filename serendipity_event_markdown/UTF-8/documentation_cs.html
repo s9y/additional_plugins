@@ -1,0 +1,70 @@
+<html>    
+	<head>        
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Dokumentace: Markup: Markdown</title>        
+		<style>
+        	pre {
+				display: block;
+				padding: 5px;
+				border: solid 1px #333333;
+				background-color: #cccccc;
+			}         
+		</style>    
+	</head>
+	<body>
+	<h1>Dokumentace k pluginu 'Markup: Markdown'<br />
+	<small>(serendipity_event_markdown)</small></h1>
+		<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 4.5.2013. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="../ChangeLog">aktuální anglický ChangeLog</a>. 
+		</p>
+		
+		<h2>Popis pluginu</h2>
+		<p>
+		Převádí značky Markdown Extra na HTML v textu příspěvku (Viz.: <a href="http://www.michelf.com/projects/php-markdown/extra/">http://www.michelf.com/projects/php-markdown/extra/</a>)
+		</p>
+
+		<h2>Historie verzí (ChangeLog)</h2>
+		<ul>
+			<li>verze 1.1.5 [Lukas Reindl] &lt;ljr_nbg [at] web [dot] de&gt;</li>	
+			<ul>	
+				<li>Přidán soubor ChangeLog</li>	
+				<li>Aktualizace PHP Markdown 1.0.1c na 1.0.1o</li>	
+				<li>Aktualizace PHP Markdown Extra 1.0.1 na 1.2.5</li>	
+				<li>Úprava PHP Markdown a PHP Markdown Extra:<br />
+					změna složených závorek pro přístup ke členům pole na hranaté závorky (viz detaily níže)
+					<hr />
+					Změny jsem udělal v následujících řádkách (původní řádky jsou zde vloženy):<br />
+					(Uloženy pouze pro dokumentaci. Měly by být odstraněny v budoucích aktualizacích.)
+					
+					<h3>PHP Markdown 1.0.1o</h3>
+<pre>
+- Line 910: $level = $matches[2]{0} == '=' ? 1 : 2;
+- Line 1206: $token_stack[0] = str_repeat($token{0}, 3-$token_len);
+- Line 1231: $em = $token{0};
+- Line 1560: switch ($token{0}) {
+- Line 1562: return $this->hashPart("&#". ord($token{1}). ";");
+</pre>
+
+					<h3>PHP Markdown Extra 1.2.5</h3>
+
+<pre>
+- Line 934: $level = $matches[2]{0} == '=' ? 1 : 2;
+- Line 1230: $token_stack[0] = str_repeat($token{0}, 3-$token_len);
+- Line 1255: $em = $token{0};
+- Line 1584: switch ($token{0}) {
+- Line 1586: return $this->hashPart("&#". ord($token{1}). ";");
+- Line 1934: if ($tag{0} == "`") {
+- Line 1970: else if ($tag{0} == "\n" || $tag{0} == " ") {
+- Line 1998: $tag{1} == '!' || $tag{1} == '?')
+- Line 2017: if ($tag{1} == '/')			$depth--;
+- Line 2018: else if ($tag{strlen($tag)-2} != '/'  $depth++;
+- Line 2122: return array($original_text{0}, substr($original_text, 1));
+- Line 2134: $tag{1} == '!' || $tag{1} == '?')
+- Line 2145: if ($tag{1} == '/')	  $depth--;
+- Line 2146: else if ($tag{strlen($tag)-2} != '/')      $depth++;
+- Line 2270: $level = $matches[3]{0} == '=' ? 1 : 2;
+</pre>
+					</li>	
+			</ul>
+		</ul>  
+	</body>
+</html>

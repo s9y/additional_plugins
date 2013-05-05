@@ -6,16 +6,20 @@
 	<body>
 	<h1>Dokumentace k pluginu 'Markup: Vlo¾ení pøíspìvku/¹ablony/bloku'<br />
 	<small>(serendipity_event_includeentry)</small></h1>
-		<p>Dokumentaci k tomuto pluginu pøelo¾il do èe¹tiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 29.10.2011. Od té doby mohl být plugin pozmìnìn nebo mohly být roz¹íøené jeho funkce. Zkontrolujte pro jistotu i <a href="ChangeLog">aktuální anglický ChangeLog</a>. 
+		<p>Dokumentaci k tomuto pluginu pøelo¾il do èe¹tiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) a naposledy zkontroloval dne 5.5.2013. Od té doby mohl být plugin pozmìnìn nebo mohly být roz¹íøené jeho funkce. Zkontrolujte pro jistotu i <a href="ChangeLog">aktuální anglický ChangeLog</a>. 
 		</p>
 		
 		<h2>Popis pluginu</h2>
 		<p>
-		Umo¾òuje pøidat do pøíspìvku tagy, které zajistí vlo¾ení èást jiného pøíspìvku. Pou¾ijte tuto znaèku: [s9y-include-entry:XXX:YYY]. Nahraïte XXX èíslem ID odkazovaného pøíspìvku a YYY nahraïte názvem pole pøíspìvku, které chcete vlo¾it (napø. "body", "title", "extended", ...). Také mù¾ete vyu¾ít nové funkce menu pro správu ¹ablon a blokù, které je mo¾no vlo¾it mezi pøíspìvky.
+		Umo¾òuje pøidat do pøíspìvku tagy, které zajistí vlo¾ení èásti jiného pøíspìvku. Pou¾ijte tuto znaèku: [s9y-include-entry:XXX:YYY]. Nahraïte XXX èíslem ID odkazovaného pøíspìvku a YYY nahraïte názvem pole pøíspìvku, které chcete vlo¾it (napø. "body", "title", "extended", ...). Také mù¾ete vyu¾ít nové funkce menu pro správu ¹ablon a blokù, které je mo¾no vlo¾it mezi pøíspìvky.
 		</p>
 		
 		<h2>Historie verzí (ChangeLog)</h2>
 		<ul>
+			<li>verze 2.13</li>	
+			<ul>	
+				<li>pou¾ití SQL RANDOM() místo RAND() pro typ db, vyjma mysql</li>	
+			</ul>
 			<li>poslední verze</li>	
 			<ul>	
 				<li>dopøedná kompatibilita se Smarty3</li>	

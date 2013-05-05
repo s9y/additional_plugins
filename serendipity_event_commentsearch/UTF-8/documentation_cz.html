@@ -4,8 +4,9 @@
 		<title>Dokumentace: Hledání v komentářích</title>        
 	</head>
 	<body>
-	<h1>Dokumentace k pluginu 'Hledání v komentářích'</h1>
-		<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 30.6.2011. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i	<a href="../ChangeLog">aktuální anglický ChangeLog</a>. 
+	<h1>Dokumentace k pluginu 'Hledání v komentářích'<br />
+	<small>(serendipity_event_commentsearch)</small></h1>
+		<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) a naposledy zkontroloval dne 5.5.2013. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="../ChangeLog">aktuální anglický ChangeLog</a>. 
 		</p>
 		
 		<h2>Popis pluginu</h2>
@@ -14,6 +15,11 @@
 		
 		<h2>Historie verzí (ChangeLog)</h2>
 		<ul>
+			<li>verze 1.4</li>	
+			<ul>	
+				<li>Neodstraňování HTML tagů z komentářů, takže se šablona může rozhodnout, jak bude zobrazovat komentáře</li>	
+				<li>Odstraňování HTML tagů před oříznutím komentáře v šabloně, jinak by komentáře mohly být oříznuty uprostřed tagu -> chyby v zobrazení</li>	
+			</ul>
 			<li>poslední verze</li>	
 			<ul>	
 				<li>dopředná kompatibilita se smarty 3</li>	

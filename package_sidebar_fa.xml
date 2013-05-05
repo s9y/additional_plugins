@@ -33,6 +33,8 @@
 <file>lang_tr.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <dir name="img">
 <file>base.gif</file>
@@ -72,9 +74,11 @@
 <dir name="backend_templates">
 <file>default_staticpage_backend.tpl</file>
 </dir>
+<file>documentation_cs.html</file>
 <file>documentation_en.html</file>
 <file>serendipity_plugin_staticpage.php</file>
 <file>plugin_staticpage_sidebar.tpl</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -95,6 +99,8 @@
     <file>serendipity_event_staticpage/UTF-8/lang_tr.inc.php</file>
     <file>serendipity_event_staticpage/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_staticpage/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_staticpage/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_staticpage/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_staticpage/img/base.gif</file>
     <file>serendipity_event_staticpage/img/empty.gif</file>
     <file>serendipity_event_staticpage/img/folder.gif</file>
@@ -129,9 +135,11 @@
     <file>serendipity_event_staticpage/README_FOR_RELATED_CATEGORIES.txt</file>
     <file>serendipity_event_staticpage/staticpage-entries-listing.tpl</file>
     <file>serendipity_event_staticpage/backend_templates/default_staticpage_backend.tpl</file>
+    <file>serendipity_event_staticpage/documentation_cs.html</file>
     <file>serendipity_event_staticpage/documentation_en.html</file>
     <file>serendipity_event_staticpage/serendipity_plugin_staticpage.php</file>
     <file>serendipity_event_staticpage/plugin_staticpage_sidebar.tpl</file>
+    <file>serendipity_event_staticpage/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -3245,6 +3253,8 @@
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>lang_de.inc.php</file>
 <file>serendipity_plugin_google_adsense.php</file>
@@ -3252,6 +3262,8 @@
 <file>ChangeLog</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -3261,12 +3273,16 @@
     <file>serendipity_plugin_google_adsense/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_plugin_google_adsense/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_google_adsense/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_plugin_google_adsense/UTF-8/documentation_cs.html</file>
+    <file>serendipity_plugin_google_adsense/UTF-8/documentation_cz.html</file>
     <file>serendipity_plugin_google_adsense/lang_de.inc.php</file>
     <file>serendipity_plugin_google_adsense/serendipity_plugin_google_adsense.php</file>
     <file>serendipity_plugin_google_adsense/lang_bg.inc.php</file>
     <file>serendipity_plugin_google_adsense/ChangeLog</file>
     <file>serendipity_plugin_google_adsense/lang_cs.inc.php</file>
     <file>serendipity_plugin_google_adsense/lang_cz.inc.php</file>
+    <file>serendipity_plugin_google_adsense/documentation_cs.html</file>
+    <file>serendipity_plugin_google_adsense/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>

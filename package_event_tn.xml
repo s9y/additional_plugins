@@ -80,6 +80,8 @@
 <file>lang_tr.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <dir name="img">
 <file>base.gif</file>
@@ -119,9 +121,11 @@
 <dir name="backend_templates">
 <file>default_staticpage_backend.tpl</file>
 </dir>
+<file>documentation_cs.html</file>
 <file>documentation_en.html</file>
 <file>serendipity_plugin_staticpage.php</file>
 <file>plugin_staticpage_sidebar.tpl</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -142,6 +146,8 @@
     <file>serendipity_event_staticpage/UTF-8/lang_tr.inc.php</file>
     <file>serendipity_event_staticpage/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_staticpage/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_staticpage/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_staticpage/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_staticpage/img/base.gif</file>
     <file>serendipity_event_staticpage/img/empty.gif</file>
     <file>serendipity_event_staticpage/img/folder.gif</file>
@@ -176,9 +182,11 @@
     <file>serendipity_event_staticpage/README_FOR_RELATED_CATEGORIES.txt</file>
     <file>serendipity_event_staticpage/staticpage-entries-listing.tpl</file>
     <file>serendipity_event_staticpage/backend_templates/default_staticpage_backend.tpl</file>
+    <file>serendipity_event_staticpage/documentation_cs.html</file>
     <file>serendipity_event_staticpage/documentation_en.html</file>
     <file>serendipity_event_staticpage/serendipity_plugin_staticpage.php</file>
     <file>serendipity_event_staticpage/plugin_staticpage_sidebar.tpl</file>
+    <file>serendipity_event_staticpage/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -1347,6 +1355,8 @@
 <file>lang_cs.inc.php</file>
 <file>lang_bg.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>lang_cs.inc.php</file>
 <file>lang_bg.inc.php</file>
@@ -1354,6 +1364,8 @@
 <file>lang_en.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>ChangeLog</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -1367,12 +1379,16 @@
     <file>serendipity_event_markdown/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_markdown/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_event_markdown/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_markdown/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_markdown/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_markdown/lang_cs.inc.php</file>
     <file>serendipity_event_markdown/lang_bg.inc.php</file>
     <file>serendipity_event_markdown/markdown_extra.php</file>
     <file>serendipity_event_markdown/lang_en.inc.php</file>
     <file>serendipity_event_markdown/lang_cz.inc.php</file>
     <file>serendipity_event_markdown/ChangeLog</file>
+    <file>serendipity_event_markdown/documentation_cs.html</file>
+    <file>serendipity_event_markdown/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -8984,6 +9000,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <file>lang_en.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>ChangeLog</file>
 <file>lang_de.inc.php</file>
@@ -8991,6 +9009,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <file>serendipity_event_snapshotlinks.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -8999,12 +9019,16 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
     <file>serendipity_event_snapshotlinks/UTF-8/lang_en.inc.php</file>
     <file>serendipity_event_snapshotlinks/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_snapshotlinks/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_snapshotlinks/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_snapshotlinks/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_snapshotlinks/ChangeLog</file>
     <file>serendipity_event_snapshotlinks/lang_de.inc.php</file>
     <file>serendipity_event_snapshotlinks/lang_en.inc.php</file>
     <file>serendipity_event_snapshotlinks/serendipity_event_snapshotlinks.php</file>
     <file>serendipity_event_snapshotlinks/lang_cs.inc.php</file>
     <file>serendipity_event_snapshotlinks/lang_cz.inc.php</file>
+    <file>serendipity_event_snapshotlinks/documentation_cs.html</file>
+    <file>serendipity_event_snapshotlinks/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>

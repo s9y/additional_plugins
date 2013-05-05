@@ -1,3 +1,5 @@
+4.03 changed wrong place of ending form tag
+
 4.02 Removed some & references, trying to fix issues with more recent PHP versions and core dumps / memory corruption
 
 4.01 PHP 5.4 compat reference fix (~L 1097)

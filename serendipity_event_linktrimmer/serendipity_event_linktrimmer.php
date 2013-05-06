@@ -26,7 +26,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.8');
+        $propbag->add('version',       '0.9');
         $propbag->add('author',        'Garvin Hicking');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array('prefix', 'domain'));
@@ -103,20 +103,20 @@ class serendipity_event_linktrimmer extends serendipity_event {
         $title = PLUGIN_LINKTRIMMER_NAME;
     }
 
-	function base62($var)  {
-    	static $base_characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    function base62($var) {
+        static $base_characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 
-		$stack = array();
-		while (bccomp($var, 0) != 0) {
-			$remainder = bcmod($var, 62);
-		    $var = bcdiv(bcsub($var, $remainder), 62);
-	
-			array_push($stack, $base_characters[$remainder]);
-		}
-	
-		return implode('', array_reverse($stack));
-	}
-	
+        $stack = array();
+        while (bccomp($var, 0) != 0) {
+            $remainder = bcmod($var, 62);
+            $var = bcdiv(bcsub($var, $remainder), 62);
+
+            array_push($stack, $base_characters[$remainder]);
+        }
+
+        return implode('', array_reverse($stack));
+    }
+
     function lookup($url, $custom_hash = '') {
         global $serendipity;
 
@@ -237,7 +237,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
             if ($has_jquery === null) {
                 $has_jquery = class_exists('serendipity_event_jquery');
                 if ($serendipity['capabilities']['jquery']) {
-                	$has_jquery = true;
+                    $has_jquery = true;
                 }
             }
             
@@ -278,6 +278,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
                         'name'       => PLUGIN_LINKTRIMMER_NAME,
                         'javascript' => 'function() { window.open(\'' . $link . '\', \'LinkTrimmer\', \'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1\') }',
                         'img_url'    => $serendipity['serendipityHTTPPath'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/linktrimmergif',
+                        'img_path'   => 'serendipity_event_linktrimmer/serendipity_event_linktrimmer.gif',
                         'toolbar'    => 'other' // TOOLBAR_WEB is buggy in s9y 1.4 :-/
                     );
                     return true;

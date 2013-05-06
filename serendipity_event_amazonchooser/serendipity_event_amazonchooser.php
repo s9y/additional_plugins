@@ -28,7 +28,7 @@ class serendipity_event_amazonchooser extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_AMAZONCHOOSER_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Matthew Groeninger');
-        $propbag->add('version',       '0.72');
+        $propbag->add('version',       '0.73');
         $propbag->add('requirements',  array(
             'serendipity' => '1.4',
             'smarty'      => '2.6.7',
@@ -156,6 +156,7 @@ class serendipity_event_amazonchooser extends serendipity_event
                         'id'         => 'amazonchooser' . $eventData['jsname'],
                         'name'       => PLUGIN_EVENT_AMAZONCHOOSER_MEDIA_BUTTON,
                         'javascript' => 'function() { window.open(\'' . $link . '\', \'AmazonImageSel\', \'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1\') }',
+                        'img_path'   => 'serendipity_event_amazonchooser/serendipity_event_amazonchooser.gif',
                         'img_url'    => serendipity_rewriteURL('plugin/amazongif'),
                         'toolbar'    => 'other' // TOOLBAR_WEB is buggy in s9y 1.4 :-/
                     );

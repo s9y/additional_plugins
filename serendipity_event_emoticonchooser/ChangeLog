@@ -1,0 +1,5 @@
+1.9:
+----
+added CKEDITOR ready js
+fixed multi-textarea targeting being unique ...
+some lang (de/en) corrections

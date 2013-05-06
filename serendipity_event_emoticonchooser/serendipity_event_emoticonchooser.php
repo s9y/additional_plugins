@@ -24,13 +24,13 @@ class serendipity_event_emoticonchooser extends serendipity_event
         $propbag->add('name',          PLUGIN_EVENT_EMOTICONCHOOSER_TITLE);
         $propbag->add('description',   PLUGIN_EVENT_EMOTICONCHOOSER_DESC);
         $propbag->add('stackable',     false);
-        $propbag->add('author',        'Garvin Hicking, Jay Bertrandt');
+        $propbag->add('author',        'Garvin Hicking, Jay Bertrandt, Ian');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.8');
+        $propbag->add('version',       '1.9');
         $propbag->add('event_hooks',    array(
             'backend_entry_toolbar_extended' => true,
             'backend_entry_toolbar_body' => true,
@@ -117,6 +117,13 @@ class serendipity_event_emoticonchooser extends serendipity_event
                         }
                     }
 
+                    // CKEDITOR needs this little switch
+                    if (preg_match('@^nugget@i', $func)) {
+                        $cke_txtarea = $func;
+                    } else {
+                        $cke_txtarea = $txtarea;
+                    }
+
                     if (!isset($popcl)) {
                         $popcl = ' serendipityPrettyButton';
                     }
@@ -129,7 +136,7 @@ class serendipity_event_emoticonchooser extends serendipity_event
                     $popuplink  = '';
                     if (serendipity_db_bool($this->get_config('popup', false))) {
                         $popupstyle = '; display: none';
-                        $popuplink  = '<a class="serendipity_toggle_emoticon_bar' . $popcl . '" href="#" onclick="toggle_emoticon_bar(); return false">' . $this->get_config('popuptext') . '</a>';
+                        $popuplink  = '<a class="serendipity_toggle_emoticon_bar' . $popcl . '" href="#" onclick="toggle_emoticon_bar_' . $func . '(); return false">' . $this->get_config('popuptext') . '</a>';
                     }
 
                     $i = 1;
@@ -144,8 +151,8 @@ class serendipity_event_emoticonchooser extends serendipity_event
 ?>
 <script type="text/javascript">
 <!--
-function toggle_emoticon_bar() {
-   el = document.getElementById('serendipity_emoticonchooser');
+function toggle_emoticon_bar_<?php echo $func; ?>() {
+   el = document.getElementById('serendipity_emoticonchooser_<?php echo $func; ?>');
    if (el.style.display == 'none') {
       el.style.display = 'block';
    } else {
@@ -154,7 +161,10 @@ function toggle_emoticon_bar() {
 }
 
 function use_emoticon_<?php echo $func; ?>(img) {
-    if(typeof(FCKeditorAPI) != 'undefined') {
+    if(typeof(CKEDITOR) != 'undefined') {
+        var oEditor = CKEDITOR.instances['<?php echo $cke_txtarea; ?>'];
+        oEditor.insertHtml(img);
+    } else if(typeof(FCKeditorAPI) != 'undefined') {
         var oEditor = FCKeditorAPI.GetInstance('<?php echo $txtarea; ?>') ;
         oEditor.InsertHtml(img);
     } else if(typeof(xinha_editors) != 'undefined') {
@@ -202,7 +212,7 @@ function use_emoticon_<?php echo $func; ?>(img) {
 </script>
 <?php
                     echo $popuplink;
-                    echo '<div id="serendipity_emoticonchooser" style="' . $style . $popupstyle . '">';
+                    echo '<div id="serendipity_emoticonchooser_' . $func . '" style="' . $style . $popupstyle . '">';
                     foreach($unique as $value => $key) {
                         echo '<a href="javascript:use_emoticon_' . $func . '(\'' . addslashes($key) . '\')" title="' . $key . '"><img src="'. $value .'" style="border: 0px" alt="' . $key . '" /></a>&nbsp;';
                         if ($i++ % 10 == 0) {

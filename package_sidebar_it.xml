@@ -3113,6 +3113,8 @@
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>ChangeLog</file>
 <file>documentation_de.html</file>
@@ -3157,6 +3159,8 @@
 <file>OAuth.php</file>
 <file>twitteroauth.php</file>
 </dir>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -3164,6 +3168,8 @@
     <file>serendipity_plugin_twitter/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_twitter/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_plugin_twitter/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_plugin_twitter/UTF-8/documentation_cs.html</file>
+    <file>serendipity_plugin_twitter/UTF-8/documentation_cz.html</file>
     <file>serendipity_plugin_twitter/ChangeLog</file>
     <file>serendipity_plugin_twitter/documentation_de.html</file>
     <file>serendipity_plugin_twitter/documentation_en.html</file>
@@ -3197,6 +3203,8 @@
     <file>serendipity_plugin_twitter/tweeter/tweeter_history.inc.php</file>
     <file>serendipity_plugin_twitter/twitteroauth/OAuth.php</file>
     <file>serendipity_plugin_twitter/twitteroauth/twitteroauth.php</file>
+    <file>serendipity_plugin_twitter/documentation_cs.html</file>
+    <file>serendipity_plugin_twitter/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>

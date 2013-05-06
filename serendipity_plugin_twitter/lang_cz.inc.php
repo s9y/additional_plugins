@@ -1,7 +1,7 @@
-<?php # lang_cz.inc.php 1.6 2013-03-31 13:49:43 VladaAjgl $
+<?php # lang_cz.inc.php 1.7 2013-05-05 10:47:30 VladaAjgl $
 
 /**
- *  @version 1.6
+ *  @version 1.7
  *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  @translated 2009/08/08
  *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
@@ -16,9 +16,11 @@
  *  @revisionDate 2012/01/11
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2013/03/31
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2013/05/05
  */
 @define('PLUGIN_TWITTER_TITLE',                         'Twitter');
-@define('PLUGIN_TWITTER_DESC',                          'Zobrazuje Va¹e nejnovìj¹í pøíspìvky na Twitteru');
+@define('PLUGIN_TWITTER_DESC',                          'Zobrazuje Va¹e nejnovìj¹í pøíspìvky z Twitteru');
 @define('PLUGIN_TWITTER_NUMBER',                        'Poèet pøíspìvkù');
 @define('PLUGIN_TWITTER_NUMBER_DESC',                   'Kolik pøíspìvkù z Twitteru má být zobrazeno? (Výchozí: 10)');
 @define('PLUGIN_TWITTER_TOALL_ONLY',                    'Pouze tweety adresované v¹em');
@@ -224,6 +226,7 @@ Musíte se pøihlásit nebo odhlásit s <b>odpovídajícím úètem Twitteru</b>!<br/>
 @define('PLUGIN_EVENT_TWITTER_GENERALCONSUMER',         '<h3>Vlastní twitter klient</h3>Ve výchozím nastavení pou¾ívá plugin klienta \'s9y\'. Mù¾ete si <a href="https://dev.twitter.com/apps" target="_blank">zaregistrovat vlastního klienta</a> a nastavit consumer klíè a heslo va¹eho klienta.');
 
 // Next lines were translated on 2013/03/31
+
 @define('PLUGIN_EVENT_TWITTER_TWEETER_UPDATE',           'Update');
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_PIRATLYDESC',     '<h3>pirat.ly API token</h3>Pro zkrácené odkaz <b>pirat.ly</b> mù¾ete <a href="http://pirat.ly/account" target="_blank">získat API token tím, ¾e se zdarma registrujete na slu¾bì piratly</a>. Pou¾itím tohoto API tokenu pøi oznamování Va¹ich pøíspìvkù mù¾ete prohlí¾et poèty proklikù buï pomocí webového rozhraní nebo na zaøízení s Androidem pomocí <a href="http://pirat.ly/shortenerrr" target="_blank">aplikace Shortenerrr</a>.');
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_PIRATLYAPIKEY',   'Vá¹ osobní piratly API token');

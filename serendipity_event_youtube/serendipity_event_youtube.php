@@ -30,7 +30,7 @@ class serendipity_event_youtube extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.2');
+        $propbag->add('version',       '1.3');
         $propbag->add('event_hooks',    array(
             'backend_entry_toolbar_extended' => true,
             'backend_entry_toolbar_body' => true,
@@ -125,6 +125,13 @@ class serendipity_event_youtube extends serendipity_event
                             $func    = 'body';
                         }
                     }
+                    // CKEDITOR needs this little switch
+                    if (preg_match('@^nugget@i', $func)) {
+                        $cke_txtarea = $func;
+                    } else {
+                        $cke_txtarea = $txtarea;
+                    }
+
 ?>
 <script type="text/javascript">
 <!--
@@ -161,7 +168,10 @@ function use_text_<?php echo $func; ?>(img) {
         + '<noscript><a href="http://www.youtube.com/watch?v='+ videoid + '"></a></noscript>'
         + "\n";
 
-    if(typeof(FCKeditorAPI) != 'undefined') {
+    if(typeof(CKEDITOR) != 'undefined') {
+        var oEditor = CKEDITOR.instances['<?php echo $cke_txtarea; ?>'];
+        oEditor.insertHtml(img);
+    } else if(typeof(FCKeditorAPI) != 'undefined') {
         var oEditor = FCKeditorAPI.GetInstance('<?php echo $txtarea; ?>') ;
         oEditor.InsertHtml(img);
     } else if(typeof(xinha_editors) != 'undefined') {

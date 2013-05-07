@@ -30,7 +30,7 @@ class serendipity_event_wikilinks extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_WIKILINKS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Grischa Brockhaus');
-        $propbag->add('version',       '0.23');
+        $propbag->add('version',       '0.24');
         $propbag->add('requirements',  array(
             'serendipity' => '1.0',
             'smarty'      => '2.6.7',
@@ -45,7 +45,7 @@ class serendipity_event_wikilinks extends serendipity_event
             'backend_publish' => true,
             'backend_save' => true,
             'backend_sidebar_entries_event_display_wikireferences' => true,
-            'backend_sidebar_entries'                           => true,
+            'backend_sidebar_entries' => true,
         ));
 
         $this->markup_elements = array(
@@ -138,8 +138,8 @@ class serendipity_event_wikilinks extends serendipity_event
                 $propbag->add('default', PLUGIN_EVENT_WIKILINKS_REFDOC);
                 break;
 
-			case 'db_built':
-				return false;
+            case 'db_built':
+                return false;
 
             default:
                 $propbag->add('type',        'boolean');
@@ -158,66 +158,65 @@ class serendipity_event_wikilinks extends serendipity_event
         if (isset($hooks[$event])) {
             switch($event) {
             
-            	case 'backend_publish':
-            	case 'backend_save':
-            		// Purge, so that the data within the entry takes precedence over other changes
-            		serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}wikireferences WHERE entryid = " . (int)$eventData['id']);
-            		break;
+                case 'backend_publish':
+                case 'backend_save':
+                    // Purge, so that the data within the entry takes precedence over other changes
+                    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}wikireferences WHERE entryid = " . (int)$eventData['id']);
+                    break;
 
                 case 'backend_sidebar_entries':
                     $this->setupDB();
                     echo '<li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks"><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=wikireferences">' . PLUGIN_EVENT_WIKILINKS_MAINT . '</a></li>';
                     break;
 
+                case 'backend_sidebar_entries_event_display_wikireferences':
+                    $entries = serendipity_db_query("SELECT id, refname FROM {$serendipity['dbPrefix']}wikireferences ORDER BY refname ASC");
 
-				case 'backend_sidebar_entries_event_display_wikireferences':
-					$entries = serendipity_db_query("SELECT id, refname FROM {$serendipity['dbPrefix']}wikireferences ORDER BY refname ASC");
-					
-					echo '<p>' . PLUGIN_EVENT_WIKILINKS_MAINT_DESC . '</p>';
+                    echo '<p>' . PLUGIN_EVENT_WIKILINKS_MAINT_DESC . '</p>';
 
-					echo '<form action="serendipity_admin.php" method="post" name="serendipityEntry">';
-					echo '<input type="hidden" name="serendipity[adminModule]" value="event_display" />';
-					echo '<input type="hidden" name="serendipity[adminAction]" value="wikireferences" />';
-					echo '<select name="serendipity[wikireference]">';
-					echo '<option value="">...</option>';
-					foreach((array)$entries AS $idx => $row) {
-						echo '<option value="' . $row['id'] . '" ' . ($row['id'] == $serendipity['POST']['wikireference'] ? 'selected="selected"' : '') . '>' . $row['refname'] . '</option>' . "\n";
-					}
-					echo '</select>';
-					echo '<input type="submit" class="serendipityPrettyButton input_button" name="serendipity[typeSubmit]" value="' . GO . '" />';
-					echo '<br /><br />';
-					
-					if ($serendipity['POST']['wikireference'] > 0) {
-					
-						if ($serendipity['POST']['saveSubmit']) {
-							serendipity_db_update('wikireferences', array('id' => $serendipity['POST']['wikireference']), array('refname' => $serendipity['POST']['wikireference_refname'], 'ref' => $serendipity['POST']['wikireference_ref']));
-							echo '<div class="serendipityAdminMsgSuccess"><img style="height: 22px; width: 22px; border: 0px; padding-right: 4px; vertical-align: middle" src="' . serendipity_getTemplateFile('admin/img/admin_msg_success.png') . '" alt="" />' . DONE .': '. sprintf(SETTINGS_SAVED_AT, serendipity_strftime('%H:%M:%S')) . '</div>';
-						}
+                    echo '<form action="serendipity_admin.php" method="post" name="serendipityEntry">';
+                    echo '<input type="hidden" name="serendipity[adminModule]" value="event_display" />';
+                    echo '<input type="hidden" name="serendipity[adminAction]" value="wikireferences" />';
+                    echo '<select name="serendipity[wikireference]">';
+                    echo '<option value="">...</option>';
+                    foreach((array)$entries AS $idx => $row) {
+                        echo '<option value="' . $row['id'] . '" ' . ($row['id'] == $serendipity['POST']['wikireference'] ? 'selected="selected"' : '') . '>' . $row['refname'] . '</option>' . "\n";
+                    }
+                    echo '</select>';
+                    echo '<input type="submit" class="serendipityPrettyButton input_button" name="serendipity[typeSubmit]" value="' . GO . '" />';
+                    echo '<br /><br />';
 
-						$ref = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}wikireferences WHERE id = " . (int)$serendipity['POST']['wikireference'], true, 'assoc');
-						$entry = serendipity_fetchEntry('id', $ref['entryid']);
-						
-						echo '<div>';
-						echo '<label>' . PLUGIN_EVENT_WIKILINKS_DB_REFNAME . '</label><br />';
-						echo '<input type="text" name="serendipity[wikireference_refname]" value="' . htmlspecialchars($ref['refname']) . '" />';
-						echo '<input type="submit" class="serendipityPrettyButton input_button" name="serendipity[saveSubmit]" value="' . SAVE . '" />';
-						echo '</div>';
+                    if ($serendipity['POST']['wikireference'] > 0) {
 
-						echo '<div>';
-						echo '<label>' . PLUGIN_EVENT_WIKILINKS_DB_REF . '</label><br />';
-						echo '<textarea cols="80" rows="20" name="serendipity[wikireference_ref]">' . htmlspecialchars($ref['ref']) . '</textarea>';
-						echo '</div>';
-						
-						echo '<div>';
-						echo '<label>' . PLUGIN_EVENT_WIKILINKS_DB_ENTRYDID . '</label>';
-						echo '<a href="' . serendipity_archiveUrl($ref['entryid'], $entry['title']) . '">' . $entry['title'] . '</a>';
-						echo '<p><a class="serendipityPrettyButton" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]=' . $entry['id'] . '">' . EDIT_ENTRY . '</a></p>';
+                        if ($serendipity['POST']['saveSubmit']) {
+                            serendipity_db_update('wikireferences', array('id' => $serendipity['POST']['wikireference']), array('refname' => $serendipity['POST']['wikireference_refname'], 'ref' => $serendipity['POST']['wikireference_ref']));
+                            echo '<div class="serendipityAdminMsgSuccess"><img style="height: 22px; width: 22px; border: 0px; padding-right: 4px; vertical-align: middle" src="' . serendipity_getTemplateFile('admin/img/admin_msg_success.png') . '" alt="" />' . DONE .': '. sprintf(SETTINGS_SAVED_AT, serendipity_strftime('%H:%M:%S')) . '</div>';
+                        }
 
-						echo '</div>';
-					}
-					echo '</form>';
-				
-					break;
+                        $ref = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}wikireferences WHERE id = " . (int)$serendipity['POST']['wikireference'], true, 'assoc');
+                        $entry = serendipity_fetchEntry('id', $ref['entryid']);
+
+                        echo '<div>';
+                        echo '<label>' . PLUGIN_EVENT_WIKILINKS_DB_REFNAME . '</label><br />';
+                        echo '<input type="text" name="serendipity[wikireference_refname]" value="' . htmlspecialchars($ref['refname']) . '" />';
+                        echo '<input type="submit" class="serendipityPrettyButton input_button" name="serendipity[saveSubmit]" value="' . SAVE . '" />';
+                        echo '</div>';
+
+                        echo '<div>';
+                        echo '<label>' . PLUGIN_EVENT_WIKILINKS_DB_REF . '</label><br />';
+                        echo '<textarea cols="80" rows="20" name="serendipity[wikireference_ref]">' . htmlspecialchars($ref['ref']) . '</textarea>';
+                        echo '</div>';
+
+                        echo '<div>';
+                        echo '<label>' . PLUGIN_EVENT_WIKILINKS_DB_ENTRYDID . '</label>';
+                        echo '<a href="' . serendipity_archiveUrl($ref['entryid'], $entry['title']) . '">' . $entry['title'] . '</a>';
+                        echo '<p><a class="serendipityPrettyButton" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]=' . $entry['id'] . '">' . EDIT_ENTRY . '</a></p>';
+
+                        echo '</div>';
+                    }
+                    echo '</form>';
+
+                    break;
 
                 case 'frontend_display':
                     $this->out_references = array();
@@ -227,7 +226,7 @@ class serendipity_event_wikilinks extends serendipity_event
                             !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
                             $element = $temp['element'];
 
-							$is_body = false;
+                            $is_body = false;
                             if ($element == 'body' || $element == 'extended') {
                                 $source =& $this->getFieldReference($element, $eventData);
                                 if ($source === '') {
@@ -242,9 +241,9 @@ class serendipity_event_wikilinks extends serendipity_event
                             $this->references = $this->refcount = array();
                             $this->ref_entry = $eventData['id'];
                             $source = preg_replace_callback(
-                            	'^' . $this->get_config('reference_match') . '^imsU',
-                            	array($this, '_reference'),
-                            	$source
+                                '^' . $this->get_config('reference_match') . '^imsU',
+                                array($this, '_reference'),
+                                $source
                             );
 
                             $source = preg_replace_callback(
@@ -256,7 +255,7 @@ class serendipity_event_wikilinks extends serendipity_event
                             $source .= $this->reference_parse();
                             if ($is_body) {
                                 if (!is_array($eventData['properties']['references'])) $eventData['properties']['references'] = array();
-                            	$eventData['properties']['references'] += $this->references;
+                                $eventData['properties']['references'] += $this->references;
                             }
                         }
                     }
@@ -348,6 +347,13 @@ class serendipity_event_wikilinks extends serendipity_event
                         }
                     }
 
+                    // CKEDITOR needs this little switch
+                    if (preg_match('@^nugget@i', $func)) {
+                        $cke_txtarea = $func;
+                    } else {
+                        $cke_txtarea = $txtarea;
+                    }
+
                     if (!isset($popcl)) {
                         $popcl = ' serendipityPrettyButton';
                     }
@@ -365,7 +371,10 @@ function use_link_<?php echo $func; ?>(txt) {
     serendipity_imageSelector_addToBody(txt, '<?php echo $func; ?>' );
     return;
 
-    if (typeof(FCKeditorAPI) != 'undefined') {
+    if(typeof(CKEDITOR) != 'undefined') {
+        var oEditor = CKEDITOR.instances['<?php echo $cke_txtarea; ?>'];
+        oEditor.insertHtml(txt);
+    } else if(typeof(FCKeditorAPI) != 'undefined') {
         var oEditor = FCKeditorAPI.GetInstance('<?php echo $txtarea; ?>') ;
         oEditor.InsertHtml(txt);
     } else if(typeof(xinha_editors) != 'undefined') {
@@ -438,111 +447,111 @@ function use_link_<?php echo $func; ?>(txt) {
                     entryid int(11) default '0',
                     refname text,
                     ref text)");
-			serendipity_db_schema_import("CREATE INDEX wikiref_refname ON {$serendipity['dbPrefix']}wikireferences (refname(200));");
-			serendipity_db_schema_import("CREATE INDEX wikiref_comb ON {$serendipity['dbPrefix']}wikireferences (entryid,refname(200));");
-			serendipity_db_schema_import("CREATE INDEX wikiref_entry ON {$serendipity['dbPrefix']}wikireferences (entryid);");
-			$this->set_config('db_built', 1);
-		}
-	}		
+            serendipity_db_schema_import("CREATE INDEX wikiref_refname ON {$serendipity['dbPrefix']}wikireferences (refname(200));");
+            serendipity_db_schema_import("CREATE INDEX wikiref_comb ON {$serendipity['dbPrefix']}wikireferences (entryid,refname(200));");
+            serendipity_db_schema_import("CREATE INDEX wikiref_entry ON {$serendipity['dbPrefix']}wikireferences (entryid);");
+            $this->set_config('db_built', 1);
+        }
+    }
 
-	function _reference($buffer) {
-		global $serendipity;
-		static $count = 0;
-		
-		$count++;
+    function _reference($buffer) {
+        global $serendipity;
+        static $count = 0;
 
-		if (!empty($buffer['ref']) && !empty($buffer['refname']) && !empty($this->ref_entry)) {
-			// New refname, needs to be stored in the database IF NOT CURRENTLY EXISTING
-			$exists = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}wikireferences WHERE refname = '" . serendipity_db_escape_string($buffer['refname']) . "'", true, 'assoc');
-			
-			if ($exists['entryid'] == $this->ref_entry) {
-				#serendipity_db_update('wikireferences', array('entryid' => $this->ref_entry, 'refname' => $buffer['refname']), array('ref' => $buffer['ref']));
-			} elseif (empty($exists['entryid'])) {
-				serendipity_db_insert('wikireferences', array('entryid' => $this->ref_entry, 'refname' => $buffer['refname'], 'ref' => $buffer['ref']));
-			}
-		}
+        $count++;
 
-		if (empty($buffer['ref']) && !empty($buffer['refname'])) {
-			// We found a referenced pattern like <ref name="XXX" />, so let's fetch that from the database!
-			$exists = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}wikireferences WHERE refname = '" . serendipity_db_escape_string($buffer['refname']) . "'", true, 'assoc');
+        if (!empty($buffer['ref']) && !empty($buffer['refname']) && !empty($this->ref_entry)) {
+            // New refname, needs to be stored in the database IF NOT CURRENTLY EXISTING
+            $exists = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}wikireferences WHERE refname = '" . serendipity_db_escape_string($buffer['refname']) . "'", true, 'assoc');
 
-			$buffer['ref'] = $exists['ref'];
-		}
-		
-		if (empty($buffer['refname'])) {
-			$buffer['refname'] = $count;
-		}
-		
-		$refix = $count;
-		if (isset($this->references[$buffer['refname']])) {
-			if ($this->references[$buffer['refname']] == $buffer['ref']) {
-				$refix = $this->refcount[$buffer['refname']];
-			} else {
-				$this->references[$buffer['refname'] . $count] = $buffer['ref'];
-				$this->refcount[$buffer['refname'] . $count] = $count;
-			}
-		} else {
-			$this->references[$buffer['refname']] = $buffer['ref'];
-			$this->refcount[$buffer['refname']] = $count;
-		}		
+            if ($exists['entryid'] == $this->ref_entry) {
+                #serendipity_db_update('wikireferences', array('entryid' => $this->ref_entry, 'refname' => $buffer['refname']), array('ref' => $buffer['ref']));
+            } elseif (empty($exists['entryid'])) {
+                serendipity_db_insert('wikireferences', array('entryid' => $this->ref_entry, 'refname' => $buffer['refname'], 'ref' => $buffer['ref']));
+            }
+        }
 
-		$result = $this->get_config('target_match');
-		$result = str_replace(
-			array(
-				'{count}',
-				'{text}',
-				'{refname}'
-			),
-			
-			array(
-				$refix,
-				htmlspecialchars($buffer['ref']),
-				htmlspecialchars($buffer['refname']),
-			),
-			$result
-		);
-		
-		return $result;
-	}
-	
-	function reference_parse() {
-		global $serendipity;
-		static $count = 0;
-		static $count2 = 0;
-		
-		$count++;
-		
-		$format =  $this->get_config('target_match2');
-		
-		if ($format == '-') return;
-		if (count($this->references) == 0) return;
-		
-		$block = "\n\n" . '<ol class="serendipity_referencelist" id="serendipity_referencelist' . $count . '">' . "\n";
-		
-		foreach($this->references AS $key => $buffer) {
-			$count2++;
-			$result = str_replace(
-				array(
-					'{count}',
-					'{text}',
-					'{refname}'
-				),
-				
-				array(
-					$count2,
-					htmlspecialchars($buffer),
-					$key
-				),
-				$format
-			);
+        if (empty($buffer['ref']) && !empty($buffer['refname'])) {
+            // We found a referenced pattern like <ref name="XXX" />, so let's fetch that from the database!
+            $exists = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}wikireferences WHERE refname = '" . serendipity_db_escape_string($buffer['refname']) . "'", true, 'assoc');
 
-			$block .= $result . "\n";
-		}
-		
-		$block .= '</ol>' . "\n";
-		
-		return $block;
-	}
+            $buffer['ref'] = $exists['ref'];
+        }
+
+        if (empty($buffer['refname'])) {
+            $buffer['refname'] = $count;
+        }
+
+        $refix = $count;
+        if (isset($this->references[$buffer['refname']])) {
+            if ($this->references[$buffer['refname']] == $buffer['ref']) {
+                $refix = $this->refcount[$buffer['refname']];
+            } else {
+                $this->references[$buffer['refname'] . $count] = $buffer['ref'];
+                $this->refcount[$buffer['refname'] . $count] = $count;
+            }
+        } else {
+            $this->references[$buffer['refname']] = $buffer['ref'];
+            $this->refcount[$buffer['refname']] = $count;
+        }
+
+        $result = $this->get_config('target_match');
+        $result = str_replace(
+            array(
+                '{count}',
+                '{text}',
+                '{refname}'
+            ),
+
+            array(
+                $refix,
+                htmlspecialchars($buffer['ref']),
+                htmlspecialchars($buffer['refname']),
+            ),
+            $result
+        );
+
+        return $result;
+    }
+
+    function reference_parse() {
+        global $serendipity;
+        static $count = 0;
+        static $count2 = 0;
+
+        $count++;
+
+        $format =  $this->get_config('target_match2');
+
+        if ($format == '-') return;
+        if (count($this->references) == 0) return;
+
+        $block = "\n\n" . '<ol class="serendipity_referencelist" id="serendipity_referencelist' . $count . '">' . "\n";
+
+        foreach($this->references AS $key => $buffer) {
+            $count2++;
+            $result = str_replace(
+                array(
+                    '{count}',
+                    '{text}',
+                    '{refname}'
+                ),
+
+                array(
+                    $count2,
+                    htmlspecialchars($buffer),
+                    $key
+                ),
+                $format
+            );
+
+            $block .= $result . "\n";
+        }
+
+        $block .= '</ol>' . "\n";
+
+        return $block;
+    }
 
     /**
     * Wikifies:

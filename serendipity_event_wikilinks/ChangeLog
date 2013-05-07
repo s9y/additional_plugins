@@ -1,5 +1,9 @@
 # $Id$
 
+0.24:
+-----------------
+   * Get ready for CKEDITOR (untested)
+
 0.21:
 -----------------
    * Fixed references smarty variable

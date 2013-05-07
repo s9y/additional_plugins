@@ -117,12 +117,12 @@
 <guid isPermaLink="false">serendipity_event_trackback</guid>
 </item>
 <item>
-<title>Smilie-Auswahlleiste: Zeigt eine Auswahlleiste bei der Erstellung eines Eintrags um Smilies einzufügen. Funktioniert NICHT im WYSIWYG-Editor!</title>
+<title>Smiley-Auswahlleiste: Zeigt eine Auswahlleiste bei der Erstellung eines Eintrags um Smileys einzufügen.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_emoticonchooser</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking, Jay Bertrandt</author>
-<content:encoded>&lt;b&gt;serendipity_event_emoticonchooser&lt;br /&gt;Smilie-Auswahlleiste&lt;/b&gt;&lt;br /&gt;Zeigt eine Auswahlleiste bei der Erstellung eines Eintrags um Smilies einzufügen. Funktioniert NICHT im WYSIWYG-Editor!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:32:02 +0200</pubDate>
+<author>Garvin Hicking, Jay Bertrandt, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_event_emoticonchooser&lt;br /&gt;Smiley-Auswahlleiste&lt;/b&gt;&lt;br /&gt;Zeigt eine Auswahlleiste bei der Erstellung eines Eintrags um Smileys einzufügen.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Tue, 07 May 2013 02:31:08 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_emoticonchooser</guid>
 </item>
 <item>
@@ -131,7 +131,7 @@
 <category>Event Plugins</category>
 <author>Matthew Groeninger</author>
 <content:encoded>&lt;b&gt;serendipity_event_amazonchooser&lt;br /&gt;Amazon Medien-Button&lt;/b&gt;&lt;br /&gt;Fügt einen Button zum Artikeleditor hinzu, über den eine Amazon.com Suche für Produkte ausgeführt werden kann und die Ergebnisse in den Eintrag eingebettet werden&lt;br/&gt;For: Serendipity 1.4</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:31:56 +0200</pubDate>
+<pubDate>Tue, 07 May 2013 02:31:08 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_amazonchooser</guid>
 </item>
 <item>
@@ -1213,7 +1213,7 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_linktrimmer&lt;br /&gt;Linktrimmer&lt;/b&gt;&lt;br /&gt;Allows you to truncate any link for redirection on your own blog, like tr.im, tinyurl.com etc.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 25 Dec 2011 11:21:52 +0100</pubDate>
+<pubDate>Tue, 07 May 2013 02:31:14 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_linktrimmer</guid>
 </item>
 <item>

@@ -120,9 +120,9 @@
 <title>Lišta smajlíků: Zobrazí lištu se smajlíky, které je možné vložit do textu příspěvku/komentáře. NEFUNGUJE ve WYSIWYG editoru!</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_emoticonchooser</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking, Jay Bertrandt</author>
+<author>Garvin Hicking, Jay Bertrandt, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_emoticonchooser&lt;br /&gt;Lišta smajlíků&lt;/b&gt;&lt;br /&gt;Zobrazí lištu se smajlíky, které je možné vložit do textu příspěvku/komentáře. NEFUNGUJE ve WYSIWYG editoru!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:32:02 +0200</pubDate>
+<pubDate>Tue, 07 May 2013 02:31:08 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_emoticonchooser</guid>
 </item>
 <item>
@@ -131,7 +131,7 @@
 <category>Event Plugins</category>
 <author>Matthew Groeninger</author>
 <content:encoded>&lt;b&gt;serendipity_event_amazonchooser&lt;br /&gt;Tlačítko médií Amazon&lt;/b&gt;&lt;br /&gt;Přidává tlačítko, které umožňuje vkládat do příspěvků výsledky hledání na Amazon.com&lt;br/&gt;For: Serendipity 1.4</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:31:56 +0200</pubDate>
+<pubDate>Tue, 07 May 2013 02:31:08 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_amazonchooser</guid>
 </item>
 <item>
@@ -1213,7 +1213,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_linktrimmer&lt;br /&gt;Zkracovač adres&lt;/b&gt;&lt;br /&gt;Umožňuje zkrátit odkaz na Váš blog, podobně jako třeba tr.im, tinyurl.com apod.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 25 Dec 2011 11:21:52 +0100</pubDate>
+<pubDate>Tue, 07 May 2013 02:31:14 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_linktrimmer</guid>
 </item>
 <item>

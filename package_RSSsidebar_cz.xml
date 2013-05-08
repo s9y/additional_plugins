@@ -63,11 +63,11 @@
 <guid isPermaLink="false">serendipity_plugin_hitmaps</guid>
 </item>
 <item>
-<title>Top odkazovače (Top Referers): Nejčastější připojení k tomuto weblogu</title>
+<title>Top odkazovače (Top Referers): Zobarzuje stránky nejčastěji odkazující na Váš blog</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_topreferers</link>
 <category>Sidebar Plugins</category>
 <author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_topreferers&lt;br /&gt;Top odkazovače (Top Referers)&lt;/b&gt;&lt;br /&gt;Nejčastější připojení k tomuto weblogu&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_plugin_topreferers&lt;br /&gt;Top odkazovače (Top Referers)&lt;/b&gt;&lt;br /&gt;Zobarzuje stránky nejčastěji odkazující na Váš blog&lt;br/&gt;For: Serendipity 0.7</content:encoded>
 <pubDate>Sun, 25 Dec 2011 00:34:53 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_topreferers</guid>
 </item>
@@ -299,11 +299,11 @@
 <guid isPermaLink="false">serendipity_plugin_shoutcast</guid>
 </item>
 <item>
-<title>Google Rychlé hledání: Hledání záznamu (Google)</title>
+<title>Google Rychlé hledání: Hledání příspěvků (Google)</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_google_quicksearch</link>
 <category>Sidebar Plugins</category>
 <author>Wesley Hwang-Chung</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_google_quicksearch&lt;br /&gt;Google Rychlé hledání&lt;/b&gt;&lt;br /&gt;Hledání záznamu (Google)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_plugin_google_quicksearch&lt;br /&gt;Google Rychlé hledání&lt;/b&gt;&lt;br /&gt;Hledání příspěvků (Google)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Sun, 25 Dec 2011 03:01:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_google_quicksearch</guid>
 </item>

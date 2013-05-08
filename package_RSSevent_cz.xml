@@ -952,7 +952,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_wikilinks&lt;br /&gt;Wiki odkazy v příspěvcích&lt;/b&gt;&lt;br /&gt;V příspěvcích můžete zadat odkazy na existující/nové příspěvky pomocí [[nadpis příspěvku]], na statické stránky pomocí ((nadpis stránky)) a na obojí pomocí {{nadpis}}.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Wed, 28 Dec 2011 02:32:01 +0100</pubDate>
+<pubDate>Wed, 08 May 2013 02:31:19 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_wikilinks</guid>
 </item>
 <item>
@@ -1186,7 +1186,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_youtube&lt;br /&gt;Rozšířená tlačítka editoru: Youtube apod.&lt;/b&gt;&lt;br /&gt;Přidává tlačítka do editačního formuláře pro lehčí vkládání HTML/JS akriptů jako např. Youtube apod.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:32:19 +0200</pubDate>
+<pubDate>Wed, 08 May 2013 02:31:19 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_youtube</guid>
 </item>
 <item>

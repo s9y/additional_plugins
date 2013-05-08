@@ -950,7 +950,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_wikilinks&lt;br /&gt;Free Wiki links for your entries&lt;/b&gt;&lt;br /&gt;You can specify new/existing links to your blog entries via [[title]], link to staticpages via ((title)) and link to both via {{title}}. References can be automatically appended to the blog entry.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Wed, 28 Dec 2011 02:32:01 +0100</pubDate>
+<pubDate>Wed, 08 May 2013 02:31:19 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_wikilinks</guid>
 </item>
 <item>
@@ -1186,7 +1186,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_youtube&lt;br /&gt;Extended Editor Buttons: Youtube etc.&lt;/b&gt;&lt;br /&gt;Offers more buttons to the editing screen to implement easy access to HTML/JS snippets like Youtube etc.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:32:19 +0200</pubDate>
+<pubDate>Wed, 08 May 2013 02:31:19 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_youtube</guid>
 </item>
 <item>

@@ -30,11 +30,12 @@ class serendipity_event_emoticonchooser extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.9');
+        $propbag->add('version',       '2.0');
         $propbag->add('event_hooks',    array(
             'backend_entry_toolbar_extended' => true,
             'backend_entry_toolbar_body' => true,
-            'frontend_comment' => true
+            'frontend_comment' => true,
+            'css_backend' => true
         ));
         $propbag->add('groups', array('BACKEND_EDITOR'));
         $propbag->add('configuration', array('frontend', 'popup', 'popuptext'));
@@ -117,7 +118,7 @@ class serendipity_event_emoticonchooser extends serendipity_event
                         }
                     }
 
-                    // CKEDITOR needs this little switch
+                    // CKEDITOR needs a little switch
                     if (preg_match('@^nugget@i', $func)) {
                         $cke_txtarea = $func;
                     } else {
@@ -129,7 +130,7 @@ class serendipity_event_emoticonchooser extends serendipity_event
                     }
 
                     if (!isset($style)) {
-                        $style = 'text-align: right; margin-top: 5px';
+                        $style = 'float: right; margin-left: 5px; margin-top: 5px;';
                     }
 
                     $popupstyle = '';
@@ -154,7 +155,7 @@ class serendipity_event_emoticonchooser extends serendipity_event
 function toggle_emoticon_bar_<?php echo $func; ?>() {
    el = document.getElementById('serendipity_emoticonchooser_<?php echo $func; ?>');
    if (el.style.display == 'none') {
-      el.style.display = 'block';
+      el.style.display = 'inline-block';
    } else {
       el.style.display = 'none';
    }
@@ -222,6 +223,18 @@ function use_emoticon_<?php echo $func; ?>(img) {
                     echo '</div>';
 
                     return true;
+                    break;
+
+                case 'css_backend':
+?>
+.serendipity_toggle_emoticon_bar.serendipityPrettyButton {
+    display: inline-block;
+    margin: 3px auto 0;
+}
+.serendipityEntryEdit tr:nth-of-type(3) td:last-child {
+    text-align: right;
+}
+<?php
                     break;
 
                 default:

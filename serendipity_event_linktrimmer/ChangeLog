@@ -1,26 +1,28 @@
+1.0:
+----
+do not show in Dashboard (POC)
+
 0.9:
 ----
 added CKEDITOR ready eventData image path
 
-latest: Smarty3 forward compatibility
-
 0.8:
 ----
+latest: Smarty3 forward compatibility
 
+0.7:
+----
 Use latin1_general_cs charset due to lower/uppercase lookups,
 thanks to danst0
 
 0.6:
 ----
-
 Allow to be used in other plugins (danst0)
 
 0.5:
 ----
-
 Remove unneeded die()
 
 0.1:
 ----
-
 Initial Release. See Documentation.

@@ -26,7 +26,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.9');
+        $propbag->add('version',       '1.0');
         $propbag->add('author',        'Garvin Hicking');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array('prefix', 'domain'));
@@ -301,7 +301,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
                     break;
 
                 case 'backend_frontpage_display':
-                    $this->show();
+                    if (!isset($serendipity['plugin_dashboard_version'])) $this->show();
                     break;
 
                 case 'external_plugin':

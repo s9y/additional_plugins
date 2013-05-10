@@ -8,6 +8,10 @@ TODO:
 * Twitter announcements/credentials etc. per author instead of
   only per central blog
 
+1.48
+-----
+    * Static PHP5 fixes
+    
 1.47 (brockhaus)
 --------------------------
     * Added API token functionality for announcing articles via pirat.ly.

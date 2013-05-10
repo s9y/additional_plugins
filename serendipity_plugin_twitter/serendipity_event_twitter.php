@@ -1034,7 +1034,7 @@ class serendipity_event_twitter extends serendipity_plugin {
 
     }
 
-    function twitteroalog($cmd) {
+    static function twitteroalog($cmd) {
         static $debug = false;
         global $serendipity;
 

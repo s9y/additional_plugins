@@ -30,7 +30,7 @@ class serendipity_event_emoticonchooser extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '2.0');
+        $propbag->add('version',       '2.1');
         $propbag->add('event_hooks',    array(
             'backend_entry_toolbar_extended' => true,
             'backend_entry_toolbar_body' => true,
@@ -141,11 +141,28 @@ class serendipity_event_emoticonchooser extends serendipity_event
                     }
 
                     $i = 1;
-                    $emoticons = serendipity_event_emoticate::getEmoticons();
+
+                    // This plugin wants to access serendipity_event_emoticate. Its methods are non-static
+                    // and it's not properly working with PHP5 to call. So to perform properly, let's take
+                    // the actual plugin:
+                    $plugins = serendipity_plugin_api::get_event_plugins();
+                    $emoticate_plugin = null;
+                    while(list($plugin, $plugin_data) = each($plugins)) {
+                        if (strpos($plugin, 'serendipity_event_emoticate') !== FALSE) {
+                            $emoticate_plugin =& $plugin_data['p'];
+                            break;
+                        }
+                    }
+
+                    if ($emoticate_plugin === null) {
+                        return;
+                    }
+
+                    $emoticons = $emoticate_plugin->getEmoticons();
                     $unique = array();
                     foreach($emoticons as $key => $value) {
-                        if (is_callable(array('serendipity_event_emoticate', 'humanReadableEmoticon'))) {
-                            $key = serendipity_event_emoticate::humanReadableEmoticon($key);
+                        if (is_callable(array($emoticate_plugin, 'humanReadableEmoticon'))) {
+                            $key = $emoticate_plugin->humanReadableEmoticon($key);
                         }
                         $unique[$value] = $key;
                     }

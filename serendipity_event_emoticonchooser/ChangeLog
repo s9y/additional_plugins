@@ -1,3 +1,8 @@
+2.1:
+----
+
+Fix for static calling of the plugin
+
 2.0:
 ----
 tweaked and added backend css

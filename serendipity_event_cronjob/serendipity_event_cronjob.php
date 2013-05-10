@@ -22,7 +22,7 @@ class serendipity_event_cronjob extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_CRONJOB_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '0.7');
+        $propbag->add('version',       '0.8');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '4.1.0'
@@ -40,7 +40,7 @@ class serendipity_event_cronjob extends serendipity_event {
         $this->dependencies = array();
     }
 
-    function getValues($mode = 'select') {
+    static function getValues($mode = 'select') {
         // Add future timespans here
         static $timespan = array(
             '5min'      => 300,
@@ -115,7 +115,7 @@ class serendipity_event_cronjob extends serendipity_event {
         }
     }
 
-    function log($msg, $type = 'global') {
+    static function log($msg, $type = 'global') {
         global $serendipity;
         $now = time();
         echo '[' . date('d.m.Y H:i', $now) . '] ' . $msg . "<br />\n";

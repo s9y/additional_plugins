@@ -25,7 +25,7 @@ class serendipity_event_regexpmarkup extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_REGEXPMARKUP_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rob Antonishen');
-        $propbag->add('version',       '0.8');
+        $propbag->add('version',       '0.9');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -98,7 +98,7 @@ class serendipity_event_regexpmarkup extends serendipity_event
                             !$eventData['properties']['ep_disable_markup_' . $this->instance] &&
                             !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
                         $element = $temp['element'];
-                        serendipity_event_regexpmarkup::markup($eventData[$element]);
+                        $this->markup($eventData[$element]);
                     }
                 }
                 return true;

@@ -72,7 +72,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.44');
+        $propbag->add('version',       '3.45');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -346,7 +346,7 @@ class serendipity_event_freetag extends serendipity_event
     function cleanup() {
         global $serendipity;
 
-        serendipity_event_freetag::install();
+        serendipity_event_freetag::static_install();
     }
 
     function install() {
@@ -1271,7 +1271,7 @@ class serendipity_event_freetag extends serendipity_event
      * the SQL query once
      */
     // static
-    function makeTagsFromTaglist($tagList)
+    static function makeTagsFromTaglist($tagList)
     {
         $freetags = explode(',', $tagList);
         foreach($freetags AS $tag) {
@@ -1283,7 +1283,7 @@ class serendipity_event_freetag extends serendipity_event
         return $tags;
     }
 
-    function getAllTags()
+    static function getAllTags()
     {
         global $serendipity;
 
@@ -1591,7 +1591,7 @@ class serendipity_event_freetag extends serendipity_event
     }
 
     // Static
-    function addTagsToEntry($entryId, $tags) {
+    static function addTagsToEntry($entryId, $tags) {
         global $serendipity;
 
         if (!is_array($tags)) {

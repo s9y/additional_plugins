@@ -26,7 +26,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '1.1');
+        $propbag->add('version',       '1.2');
         $propbag->add('author',        'Garvin Hicking');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array('prefix', 'domain'));
@@ -117,22 +117,9 @@ class serendipity_event_linktrimmer extends serendipity_event {
         return implode('', array_reverse($stack));
     }
 
-    static function lookup($url, $custom_hash = '', $is_static = true) {
+    static function lookup($url, $custom_hash = '', $pref = '') {
         global $serendipity;
 
-        // When called statically (like from the twitter plugin), $this is not available.
-        // Static calls like in that plugin put the $pref config values in front of the return
-        // by their own.
-        if ($is_static) {
-            $pref = '';
-        } else {
-            $pref = $this->get_config('domain') . $this->get_config('prefix') . '/';
-            if ($this->get_config('domain') == $serendipity['baseURL'])  {
-                $pref = $this->get_config('domain') . $this->get_config('prefix') . '/';
-            } else {
-                $pref = $this->get_config('domain');
-            }
-        }
         
         $custom_hash = trim($custom_hash);
         $url = trim($url);
@@ -193,9 +180,16 @@ class serendipity_event_linktrimmer extends serendipity_event {
         }
 
         $this->setupDB();
+        
+        $pref = $this->get_config('domain') . $this->get_config('prefix') . '/';
+        if ($this->get_config('domain') == $serendipity['baseURL'])  {
+            $pref = $this->get_config('domain') . $this->get_config('prefix') . '/';
+        } else {
+            $pref = $this->get_config('domain');
+        }
 
         if (isset($_REQUEST['submit']) && !empty($_REQUEST['linktrimmer_url'])) {
-            $url = $this->lookup($_REQUEST['linktrimmer_url'], $_REQUEST['linktrimmer_hash'], false);
+            $url = $this->lookup($_REQUEST['linktrimmer_url'], $_REQUEST['linktrimmer_hash'], $pref);
             if ($url == false) {
                 $error = PLUGIN_LINKTRIMMER_ERROR;
             }

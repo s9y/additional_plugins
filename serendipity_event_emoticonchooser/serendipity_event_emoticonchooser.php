@@ -251,7 +251,7 @@ function use_emoticon_<?php echo $func; ?>(img) {
     margin: 0 auto 1px;
 }
 .serendipity_emoticon_bar {
-    margin: 0 auto;
+    margin: 3px auto 0;
     text-align: right;
 }
 <?php

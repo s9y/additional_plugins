@@ -31,14 +31,13 @@ class serendipity_event_linktrimmer extends serendipity_event {
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array('prefix', 'domain'));
         $propbag->add('event_hooks',   array(
-                                            'backend_frontpage_display'                         => true,
-                                            'css_backend'                                       => true,
-                                            'frontend_configure'                                => true,
-
-                                            'backend_entry_toolbar_extended'    => true,
-                                            'backend_entry_toolbar_body'        => true,
-                                            'backend_wysiwyg'                   => true,
-                                            'external_plugin'                   => true,
+                                            'backend_frontpage_display'      => true,
+                                            'css_backend'                    => true,
+                                            'frontend_configure'             => true,
+                                            'backend_entry_toolbar_extended' => true,
+                                            'backend_entry_toolbar_body'     => true,
+                                            'backend_wysiwyg'                => true,
+                                            'external_plugin'                => true,
 
                                         )
         );
@@ -65,7 +64,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
                 break;
 
             default:
-                    return false;
+                return false;
         }
         return true;
     }
@@ -119,11 +118,10 @@ class serendipity_event_linktrimmer extends serendipity_event {
 
     static function lookup($url, $custom_hash = '', $pref = '') {
         global $serendipity;
-
         
         $custom_hash = trim($custom_hash);
         $url = trim($url);
-        
+
         if (!preg_match('@https?://@i', $url)) {
             $url = 'http://' . $url;
         }
@@ -145,16 +143,16 @@ class serendipity_event_linktrimmer extends serendipity_event {
                 return $pref . $hash;
             }
         }
-        
+
         return $pref . $res['hash'];
     }
 
     static function create($url, $hash = '') {
         global $serendipity;
-        
+
         serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}linktrimmer (url) VALUES ('" . serendipity_db_escape_string($url) . "')");
         $id = serendipity_db_insert_id();
-        
+
         if (empty($id)) return false;
 
         if (empty($hash)) {
@@ -180,7 +178,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
         }
 
         $this->setupDB();
-        
+
         $pref = $this->get_config('domain') . $this->get_config('prefix') . '/';
         if ($this->get_config('domain') == $serendipity['baseURL'])  {
             $pref = $this->get_config('domain') . $this->get_config('prefix') . '/';
@@ -194,7 +192,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
                 $error = PLUGIN_LINKTRIMMER_ERROR;
             }
         }
-        
+
         $serendipity['smarty']->assign(array(
             'linktrimmer_error'     => $error,
             'linktrimmer_url'       => $url,
@@ -227,7 +225,6 @@ class serendipity_event_linktrimmer extends serendipity_event {
 <?php
     }
 
-
     function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
         static $has_jquery = null;
@@ -241,7 +238,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
                     $has_jquery = true;
                 }
             }
-            
+
             switch($event) {
                 case 'backend_entry_toolbar_extended':
                     if (isset($eventData['backend_entry_toolbar_extended:textarea'])) {

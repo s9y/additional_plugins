@@ -86,7 +86,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_freetag&lt;br /&gt;Marquage des entrées&lt;/b&gt;&lt;br /&gt;Autorise le marquage libre des billets&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 20 Nov 2012 02:31:28 +0100</pubDate>
+<pubDate>Sat, 11 May 2013 02:31:13 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_freetag</guid>
 </item>
 <item>
@@ -122,7 +122,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jay Bertrandt, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_emoticonchooser&lt;br /&gt;Show Emoticon/Smiley toolbar&lt;/b&gt;&lt;br /&gt;Shows a toolbar to select emoticons to insert into your entry.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 10 May 2013 02:31:11 +0200</pubDate>
+<pubDate>Sat, 11 May 2013 02:31:08 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_emoticonchooser</guid>
 </item>
 <item>
@@ -869,7 +869,7 @@
 <category>Event Plugins</category>
 <author>Rob Antonishen</author>
 <content:encoded>&lt;b&gt;serendipity_event_regexpmarkup&lt;br /&gt;Markup: RegexpMarkup&lt;/b&gt;&lt;br /&gt;Mark up via user custom regexp files. See example files in &quot;regexps&quot; subdirectory of this plugin.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:32:14 +0200</pubDate>
+<pubDate>Sat, 11 May 2013 02:31:18 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_regexpmarkup</guid>
 </item>
 <item>
@@ -1031,7 +1031,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_cronjob&lt;br /&gt;Cronjob scheduler&lt;/b&gt;&lt;br /&gt;This plugin periodically executes plugins that provide/require periodic tasks. See the configuration of this plugin for details.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:31:56 +0200</pubDate>
+<pubDate>Sat, 11 May 2013 02:31:08 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_cronjob</guid>
 </item>
 <item>
@@ -1150,7 +1150,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Peter Heimann</author>
 <content:encoded>&lt;b&gt;serendipity_event_twitter&lt;br /&gt;Microblogging (Twitter,Identica)&lt;/b&gt;&lt;br /&gt;Adds a twitter/identica client to the admininistration interface, searches for tweetbacks and announces new articles to a microblogging account.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 04 Nov 2012 02:34:50 +0100</pubDate>
+<pubDate>Sat, 11 May 2013 02:31:22 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_twitter</guid>
 </item>
 <item>
@@ -1213,7 +1213,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_linktrimmer&lt;br /&gt;Linktrimmer&lt;/b&gt;&lt;br /&gt;Allows you to truncate any link for redirection on your own blog, like tr.im, tinyurl.com etc.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Fri, 10 May 2013 02:31:16 +0200</pubDate>
+<pubDate>Sat, 11 May 2013 02:31:13 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_linktrimmer</guid>
 </item>
 <item>

@@ -792,9 +792,9 @@
 <description>Umožňuje libovolné přidávání klíčových slov k příspěvkům</description>
 <maintainers><maintainer><name>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.44</version>
+  <version>3.45</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-11-20</date>
+  <date>2013-05-11</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <dir name="UTF-8">
@@ -1065,9 +1065,9 @@
 <description>Zobrazí lištu se smajlíky, které je možné vložit do textu příspěvku/komentáře. NEFUNGUJE ve WYSIWYG editoru!</description>
 <maintainers><maintainer><name>Garvin Hicking, Jay Bertrandt, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.0</version>
+  <version>2.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-05-10</date>
+  <date>2013-05-11</date>
   <filelist>
 <dir name="serendipity_event_emoticonchooser">
 <file>serendipity_event_emoticonchooser.php</file>
@@ -6619,9 +6619,9 @@ aplikovány další typografické úpravy.</description>
 <description>Provádí převod značek použitím libovolného uživatelem zadaného souboru s regexp výrazy. Podívejte se na příklady v podadresáři &quot;regexps&quot; tohoto pluginu.</description>
 <maintainers><maintainer><name>Rob Antonishen</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.8</version>
+  <version>0.9</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2013-05-11</date>
   <filelist>
 <dir name="serendipity_event_regexpmarkup">
 <file>lang_en.inc.php</file>
@@ -8016,9 +8016,9 @@ aplikovány další typografické úpravy.</description>
 <description>Tento plugin periodicky vykonává pluginy, které poskytují/vyžadují opakované vykonávání. Podrobnosti v konfiguraci pluginu.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.7</version>
+  <version>0.8</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2013-05-11</date>
   <filelist>
 <dir name="serendipity_event_cronjob">
 <file>serendipity_event_cronjob.php</file>
@@ -9052,9 +9052,9 @@ aplikovány další typografické úpravy.</description>
 <description>Přidává klienta Twitter/Identica do administrační sekce a stahuje nové tweety a oznámuje nové články na účtu mikroblogu.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Peter Heimann</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.47</version>
+  <version>1.48</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2012-11-04</date>
+  <date>2013-05-11</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="UTF-8">
@@ -9482,9 +9482,9 @@ aplikovány další typografické úpravy.</description>
 <description>Umožňuje zkrátit odkaz na Váš blog, podobně jako třeba tr.im, tinyurl.com apod.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.0</version>
+  <version>1.1</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-05-10</date>
+  <date>2013-05-11</date>
   <filelist>
 <dir name="serendipity_event_linktrimmer">
 <file>serendipity_event_linktrimmer.php</file>

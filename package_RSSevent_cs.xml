@@ -86,7 +86,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_freetag&lt;br /&gt;Klíčová slova&lt;/b&gt;&lt;br /&gt;Umožňuje libovolné přidávání klíčových slov k příspěvkům&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 20 Nov 2012 02:31:28 +0100</pubDate>
+<pubDate>Sat, 11 May 2013 02:31:13 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_freetag</guid>
 </item>
 <item>
@@ -122,7 +122,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jay Bertrandt, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_emoticonchooser&lt;br /&gt;Lišta smajlíků&lt;/b&gt;&lt;br /&gt;Zobrazí lištu se smajlíky, které je možné vložit do textu příspěvku/komentáře. NEFUNGUJE ve WYSIWYG editoru!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 10 May 2013 02:31:11 +0200</pubDate>
+<pubDate>Sat, 11 May 2013 02:31:08 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_emoticonchooser</guid>
 </item>
 <item>
@@ -871,7 +871,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Rob Antonishen</author>
 <content:encoded>&lt;b&gt;serendipity_event_regexpmarkup&lt;br /&gt;Markup: RegexpMarkup&lt;/b&gt;&lt;br /&gt;Provádí převod značek použitím libovolného uživatelem zadaného souboru s regexp výrazy. Podívejte se na příklady v podadresáři &quot;regexps&quot; tohoto pluginu.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:32:14 +0200</pubDate>
+<pubDate>Sat, 11 May 2013 02:31:18 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_regexpmarkup</guid>
 </item>
 <item>
@@ -1033,7 +1033,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_cronjob&lt;br /&gt;Plánovač úloh&lt;/b&gt;&lt;br /&gt;Tento plugin periodicky vykonává pluginy, které poskytují/vyžadují opakované vykonávání. Podrobnosti v konfiguraci pluginu.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:31:56 +0200</pubDate>
+<pubDate>Sat, 11 May 2013 02:31:08 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_cronjob</guid>
 </item>
 <item>
@@ -1150,7 +1150,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Peter Heimann</author>
 <content:encoded>&lt;b&gt;serendipity_event_twitter&lt;br /&gt;Mikroblogování (Twitter, Identica)&lt;/b&gt;&lt;br /&gt;Přidává klienta Twitter/Identica do administrační sekce a stahuje nové tweety a oznámuje nové články na účtu mikroblogu.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 04 Nov 2012 02:34:50 +0100</pubDate>
+<pubDate>Sat, 11 May 2013 02:31:22 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_twitter</guid>
 </item>
 <item>
@@ -1213,7 +1213,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_linktrimmer&lt;br /&gt;Zkracovač adres&lt;/b&gt;&lt;br /&gt;Umožňuje zkrátit odkaz na Váš blog, podobně jako třeba tr.im, tinyurl.com apod.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Fri, 10 May 2013 02:31:16 +0200</pubDate>
+<pubDate>Sat, 11 May 2013 02:31:13 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_linktrimmer</guid>
 </item>
 <item>

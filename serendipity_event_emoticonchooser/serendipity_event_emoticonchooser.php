@@ -30,7 +30,7 @@ class serendipity_event_emoticonchooser extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '2.1');
+        $propbag->add('version',       '2.2');
         $propbag->add('event_hooks',    array(
             'backend_entry_toolbar_extended' => true,
             'backend_entry_toolbar_body' => true,
@@ -118,7 +118,7 @@ class serendipity_event_emoticonchooser extends serendipity_event
                         }
                     }
 
-                    // CKEDITOR needs a little switch
+                    // CKEDITOR needs this little switch
                     if (preg_match('@^nugget@i', $func)) {
                         $cke_txtarea = $func;
                     } else {
@@ -130,7 +130,7 @@ class serendipity_event_emoticonchooser extends serendipity_event
                     }
 
                     if (!isset($style)) {
-                        $style = 'float: right; margin-left: 5px; margin-top: 5px;';
+                        $style = 'margin-top: 5px; vertical-align: bottom';
                     }
 
                     $popupstyle = '';
@@ -167,6 +167,7 @@ class serendipity_event_emoticonchooser extends serendipity_event
                         $unique[$value] = $key;
                     }
 ?>
+<div class="serendipity_emoticon_bar">
 <script type="text/javascript">
 <!--
 function toggle_emoticon_bar_<?php echo $func; ?>() {
@@ -229,15 +230,16 @@ function use_emoticon_<?php echo $func; ?>(img) {
 //-->
 </script>
 <?php
-                    echo $popuplink;
-                    echo '<div id="serendipity_emoticonchooser_' . $func . '" style="' . $style . $popupstyle . '">';
+                    echo $popuplink."\n";
+                    echo '    <div id="serendipity_emoticonchooser_' . $func . '" style="' . $style . $popupstyle . '">'."\n";
                     foreach($unique as $value => $key) {
-                        echo '<a href="javascript:use_emoticon_' . $func . '(\'' . addslashes($key) . '\')" title="' . $key . '"><img src="'. $value .'" style="border: 0px" alt="' . $key . '" /></a>&nbsp;';
+                        echo '        <a href="javascript:use_emoticon_' . $func . '(\'' . addslashes($key) . '\')" title="' . $key . '"><img src="'. $value .'" style="border: 0px" alt="' . $key . '" /></a>&nbsp;'."\n";
                         if ($i++ % 10 == 0) {
-                            echo '<br />';
+                            echo "        <br />\n";
                         }
                     }
-                    echo '</div>';
+                    echo '    </div>'."\n";
+                    echo '</div>'."\n";
 
                     return true;
                     break;
@@ -246,9 +248,10 @@ function use_emoticon_<?php echo $func; ?>(img) {
 ?>
 .serendipity_toggle_emoticon_bar.serendipityPrettyButton {
     display: inline-block;
-    margin: 3px auto 0;
+    margin: 0 auto 1px;
 }
-.serendipityEntryEdit tr:nth-of-type(3) td:last-child {
+.serendipity_emoticon_bar {
+    margin: 0 auto;
     text-align: right;
 }
 <?php

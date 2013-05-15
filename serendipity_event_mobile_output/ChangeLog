@@ -1,5 +1,10 @@
 # $Id$
 
+1.03:
+-----
+- fixed deinstall in case of empty plugin_mobile_output/ dir
+  (No, I did not clean up this tab mess!)
+
 ------------------------------------------------------------------------
 Version 1.01 (brockhaus):
 

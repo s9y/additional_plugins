@@ -14,7 +14,7 @@ TODO:
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
-@define('PLUGIN_EVENT_MOBILE_VERSION','1.02');
+@define('PLUGIN_EVENT_MOBILE_VERSION','1.03');
 @define('PLUGIN_EVENT_MOBILE_AUTHORS','Pelle Boese, Grischa Brockhaus');
 
 @define('PLUGIN_EVENT_MOBILE_TPL_IPHONE','iphone.app');
@@ -87,12 +87,15 @@ class serendipity_event_mobile_output extends serendipity_event
         serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
         // delete directory with external images from articles
         $upload_dir = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . 'plugin_mobile_output/';
-        if(is_dir($upload_dir)) {
-          // delete all files in the upload directory
-          $files = glob($upload_dir.'*');
-          foreach($files as $file)
-            unlink($file);
-          rmdir($upload_dir);
+        if( is_dir($upload_dir) ) {
+            // delete all files in the upload directory
+            $files = glob($upload_dir.'*');
+            if( is_array($files) && !empty($files) ) {
+                foreach($files as $file) {
+                    @unlink($file);
+                }
+            }
+            @rmdir($upload_dir);
         }
     }
 

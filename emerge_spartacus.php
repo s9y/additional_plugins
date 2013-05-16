@@ -203,7 +203,7 @@ class emerge_spartacus {
             if ($d = opendir($path)) {
                 $this->helper['xml'] .= '<dir name="' . basename($path) . '">' . "\n";
                 while (($f = readdir($d)) !== false) {
-                    if ($f != '.' && $f != '..' && $f != 'CVS') {
+                    if ($f[0] != '.' && $f != 'CVS') {
                         if (is_dir($path . '/' . $f)) {
                             $this->get_files($path . '/' . $f, false);
                         } else {

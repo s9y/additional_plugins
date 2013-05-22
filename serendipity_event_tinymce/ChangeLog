@@ -1,6 +1,15 @@
 # $Id$
+------------------------------------------------------------------------
+Version 1.12 (project0): 
+	* Contributed a new S9Y MediaDB plugin for TinyMCE 3.x
 
-1.10: Added ?js=1 parameter to gzip loader to properly load TinyMCE
+------------------------------------------------------------------------
+Version 1.11 (unknown): 
+	* unknown
+	
+------------------------------------------------------------------------
+Version 1.10 (unknown): 
+	* Added ?js=1 parameter to gzip loader to properly load TinyMCE
 
 ------------------------------------------------------------------------
 Version 1.9 (brockhaus):

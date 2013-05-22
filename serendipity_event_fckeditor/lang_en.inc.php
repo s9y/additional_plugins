@@ -24,7 +24,7 @@
 <li>If you want more functionality like filemanager, <span style="text-decoration: line-through; color: #777 !important">table operations etc, you can overwrite the fckconfig.js file in the fckeditor directory with the one supplied.</span> [Note: Do not do this any more, if not in great distress. This strucked through was for the previous version only.]</li>
 <ul>
 	<li>then go to <em style="color: #777">serendipity_event_fckeditor/fckeditor/editor/filemanager/connectors/php/config.php</em></li>
-	<li>and change the variable <strong>$Config["Enabled"]</strong> to <em style="color: #777">true</em> and change <strong>$Config["UserFilesPath"]</strong> to <em style="color: #777">"/uploads/"</em>, which is the blogs relative path to Serendipity uploads directory and also <strong>$Config[\'UserFilesAbsolutePath\']</strong> to <em style="color: #777">"/var/www/.?./uploads/"</em>, which is the same target, but needs the full relative system path.</li>
+	<li>and change the variable <strong>$Config["Enabled"]</strong> to <em style="color: #777">true</em> and change <strong>$Config["UserFilesPath"]</strong> to <em style="color: #777">"/uploads/"</em>, which is the blogs relative path to Serendipity uploads directory and also <strong>$Config[\'UserFilesAbsolutePath\']</strong> to <em style="color: #777">"/var/www/example/path/to/serendipity/uploads/"</em>, which is the same target, but needs the full relative system path.</li>
 	<li><u>Note:</u> The both path directives need the real path names on system (not the already lowersized Blogurls Browser Address)!</li>
 </ul>
 <li>There are 3 different skins included in FCKeditor, default, office2003 and silver. They can be configured in fckeditor/fckconfig.js file.</li>

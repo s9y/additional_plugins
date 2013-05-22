@@ -246,7 +246,7 @@ if (window.jQuery && typeof(CKEDITOR) != 'undefined') { jQuery(function ($) {
         })
         .mouseout(function() {
             if (mouse_button) {
-                drop_handler($(this)[0].outerHTML, '<?php echo $txtarea; ?>');
+                drop_handler($(this)[0].outerHTML, '<?php echo $cke_txtarea; ?>');
                 mouse_button = false;
             }
         });

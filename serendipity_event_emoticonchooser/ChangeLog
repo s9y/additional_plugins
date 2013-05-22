@@ -1,3 +1,7 @@
+2.3:
+----
+added faked drag and drop replacement handler for dragged and dropped emoticons into CKEditor WYSIWYG-Editor
+
 2.2:
 ----
 added new <div class="serendipity_emoticon_bar"> and changed css to better support backend textareas

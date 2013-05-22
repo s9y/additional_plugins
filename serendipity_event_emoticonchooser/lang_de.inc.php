@@ -1,4 +1,4 @@
-<?php # lang_de.inc.php 1.0 2011-11-22 10:22:45 VladaAjgl $
+<?php # $Id$
 
 /**
  *  @version 1.0

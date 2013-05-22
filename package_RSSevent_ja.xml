@@ -1107,7 +1107,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Pelle Boese, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_mobile_output&lt;br /&gt;Markup: Mobile Output&lt;/b&gt;&lt;br /&gt;This plugin handles mobile devices and outputs optimized XHTML MP markup if it detects a mobile browser and a specially optimized site for iPhone and iPod Touch. It also scales images to fit the display size.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:32:14 +0200</pubDate>
+<pubDate>Thu, 16 May 2013 02:31:17 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_mobile_output</guid>
 </item>
 <item>

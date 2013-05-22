@@ -7,10 +7,11 @@
  */
 
 @define('PLUGIN_EVENT_FCKEDITOR_NAME',     'Použití FCKeditoru jako WYSIWYG editoru');
+/* temporary diabled as changed in <en> lang file. Sorry Vladi!
 @define('PLUGIN_EVENT_FCKEDITOR_DESC',     'Používá FCKeditor jako WYSIWYG editor. Vyžaduje Serendipity 0.9 nebo vyšší. Po instalaci si pøeètìte instalaèního prùvodce na stránce s nastavením pluginu.');
 @define('PLUGIN_EVENT_FCKEDITOR_INSTALL', '<br /><br /><strong>Instalaèní prùvodce:</strong><br />
 <ul>
-<li>Stáhnìte FCKeditor v2.1 nebo vyšší z http://www.fckeditor.net/</li>
+<li>Stáhnìte FCKeditor v2.6.10+ nebo vyšší z http://sourceforge.net/projects/fckeditor/</li>
 <li>Rozbalte do podadresáøe "FCKeditor" v adresáøi ' . dirname(__FILE__) . '</li>
 <li>Zadejte zde do nastavení pluginu relativní cestuk adresáøi "FCKeditor".</li>
 <li>Vìtšinou je tato cesta "plugins/serendipity_event_fckeditor/fckeditor/"</li>
@@ -29,5 +30,5 @@
 	<ul><li>Jednoduše pøepište promìnnou FCKConfig.SkinPath = FCKConfig.BasePath + "skins/default/" ;. nahraïte office2003 nebo silver</li></ul>
 
 </ul>');
-
+*/
 ?>

@@ -1,1 +1,8 @@
-0.6: Add escpaing of path, thanks to Stefan Schurtz (not really 'exploitable', but not nice also)
+0.8:
+- Changed download URL to sourceforge.net, since fckeditor.com is now ckeditor.com 
+  and has no available downloads for this FCKeditor plugin.
+  The new rewritten CKeditor package is now supported within the new serendipity_event_ckeditor plugin.
+- Fixed bug with default path setting in config (missing global $serendipity and unsupported MS windows path).
+  
+
+0.6: Add escapaing of path, thanks to Stefan Schurtz (not really 'exploitable', but not nice also)

@@ -1,6 +1,5 @@
 <?php # $Id$
 
-
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -19,6 +18,7 @@ class serendipity_event_fckeditor extends serendipity_event
     var $is_init = false;
 
     function example() {
+        echo PLUGIN_EVENT_FCKEDITOR_UPDATE;
         echo PLUGIN_EVENT_FCKEDITOR_INSTALL;
         echo PLUGIN_EVENT_FCKEDITOR_CONFIG;
     }
@@ -30,8 +30,8 @@ class serendipity_event_fckeditor extends serendipity_event
         $propbag->add('name',          PLUGIN_EVENT_FCKEDITOR_NAME);
         $propbag->add('description',   PLUGIN_EVENT_FCKEDITOR_DESC);
         $propbag->add('stackable',     false);
-        $propbag->add('author',        'Ziyad Saeed, Garvin Hicking');
-        $propbag->add('version',       '0.7');
+        $propbag->add('author',        'Ziyad Saeed, Garvin Hicking, Ian');
+        $propbag->add('version',       '0.8');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',
@@ -48,12 +48,14 @@ class serendipity_event_fckeditor extends serendipity_event
 
     function introspect_config_item($name, &$propbag)
     {
+        global $serendipity;
+
         switch($name) {
             case 'path':
                 $propbag->add('type', 'string');
                 $propbag->add('name', INSTALL_RELPATH);
                 $propbag->add('description', '');
-                $propbag->add('default', str_replace($serendipity['serendipityPath'], '', dirname(__FILE__) . '/fckeditor/'));
+                $propbag->add('default', str_replace(strtolower($serendipity['serendipityPath']), '', str_replace('\\', '/',  strtolower(dirname(__FILE__))) . '/fckeditor/'));
                 break;
 
             default:
@@ -86,8 +88,8 @@ class serendipity_event_fckeditor extends serendipity_event
                     if ($this->init) {
                         return true;
                     }
-
 ?>
+
 <script language="javascript" type="text/javascript" src="<?php echo $path; ?>fckeditor.js"></script>
 <script type="text/javascript">
         function fck_addLoadEvent(func) {
@@ -104,19 +106,19 @@ class serendipity_event_fckeditor extends serendipity_event
 
         function fck_init() {
             if (document.getElementById('serendipity[body]')) {
-                var oFCKeditor_bd = new FCKeditor( 'serendipity[body]' ) ;
-                oFCKeditor_bd.BasePath = "<?php echo $path; ?>" ;
-                oFCKeditor_bd.ToolbarSet = "Default" ;
-                oFCKeditor_bd.Height = 400 ;
-                oFCKeditor_bd.ReplaceTextarea() ;
+                var oFCKeditor_bd = new FCKeditor('serendipity[body]');
+                oFCKeditor_bd.BasePath = '<?php echo $path; ?>';
+                oFCKeditor_bd.ToolbarSet = 'Default';
+                oFCKeditor_bd.Height = 400;
+                oFCKeditor_bd.ReplaceTextarea();
             }
 
             if (document.getElementById('serendipity[extended]')) {
-                var oFCKeditor_ext = new FCKeditor( 'serendipity[extended]' ) ;
-                oFCKeditor_ext.BasePath = "<?php echo $path; ?>" ;
-                oFCKeditor_ext.ToolbarSet = "Default" ;
-                oFCKeditor_ext.Height = 400 ;
-                oFCKeditor_ext.ReplaceTextarea() ;
+                var oFCKeditor_ext = new FCKeditor('serendipity[extended]');
+                oFCKeditor_ext.BasePath = '<?php echo $path; ?>';
+                oFCKeditor_ext.ToolbarSet = 'Default';
+                oFCKeditor_ext.Height = 400;
+                oFCKeditor_ext.ReplaceTextarea();
             }
         }
 
@@ -128,14 +130,15 @@ class serendipity_event_fckeditor extends serendipity_event
                 fckid = el.id;
 
                 oFCKeditor_nuggets[item] = new FCKeditor(fckid);
-                oFCKeditor_nuggets[item].BasePath = "<?php echo $path; ?>" ;
-                oFCKeditor_nuggets[item].ToolbarSet = "Default" ;
-                oFCKeditor_nuggets[item].Height = 400 ;
-                oFCKeditor_nuggets[item].ReplaceTextarea() ;
+                oFCKeditor_nuggets[item].BasePath = '<?php echo $path; ?>';
+                oFCKeditor_nuggets[item].ToolbarSet = 'Default';
+                oFCKeditor_nuggets[item].Height = 400;
+                oFCKeditor_nuggets[item].ReplaceTextarea();
             }
         }
 
         fck_addLoadEvent(fck_init);
+
 </script>
 <?php
 

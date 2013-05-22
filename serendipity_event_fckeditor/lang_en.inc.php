@@ -21,7 +21,7 @@
 </ul>');
 @define('PLUGIN_EVENT_FCKEDITOR_CONFIG',   '<h2>Configuration Guide:</h2>
 <ul style="line-height: 1.6">
-<li>If you want more functionality like filemanager, table operations etc, <span style="text-decoration: line-through; color: #777 !important">you can overwrite the fckconfig.js file in the fckeditor directory with the one supplied.</span> [Note: Do not do this any more, if not in great distress. This last was for the previous versions.]</li>
+<li>If you want more functionality like filemanager, <span style="text-decoration: line-through; color: #777 !important">table operations etc, you can overwrite the fckconfig.js file in the fckeditor directory with the one supplied.</span> [Note: Do not do this any more, if not in great distress. This strucked through was for the previous version only.]</li>
 <ul>
 	<li>then go to <em style="color: #777">serendipity_event_fckeditor/fckeditor/editor/filemanager/connectors/php/config.php</em></li>
 	<li>and change the variable <strong>$Config["Enabled"]</strong> to <em style="color: #777">true</em> and change <strong>$Config["UserFilesPath"]</strong> to <em style="color: #777">"/uploads/"</em>, which is the blogs relative path to Serendipity uploads directory and also <strong>$Config[\'UserFilesAbsolutePath\']</strong> to <em style="color: #777">"/var/www/.?./uploads/"</em>, which is the same target, but needs the full relative system path.</li>

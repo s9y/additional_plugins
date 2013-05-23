@@ -51,9 +51,11 @@
 <file>page.gif</file>
 <file>plus.gif</file>
 <file>plusbottom.gif</file>
+<file>.htaccess</file>
 </dir>
 <file>dtree.css</file>
 <file>dtree.js</file>
+<file>.htaccess</file>
 <file>TODO</file>
 <file>plugin_staticpage_aboutpage.tpl</file>
 <file>Smarty_and_CSS_Tags</file>
@@ -115,8 +117,10 @@
     <file>serendipity_event_staticpage/img/page.gif</file>
     <file>serendipity_event_staticpage/img/plus.gif</file>
     <file>serendipity_event_staticpage/img/plusbottom.gif</file>
+    <file>serendipity_event_staticpage/img/.htaccess</file>
     <file>serendipity_event_staticpage/dtree.css</file>
     <file>serendipity_event_staticpage/dtree.js</file>
+    <file>serendipity_event_staticpage/.htaccess</file>
     <file>serendipity_event_staticpage/TODO</file>
     <file>serendipity_event_staticpage/plugin_staticpage_aboutpage.tpl</file>
     <file>serendipity_event_staticpage/Smarty_and_CSS_Tags</file>
@@ -1326,6 +1330,7 @@
 <file>plugin_guestbook_entries.tpl</file>
 <file>plugin_guestbook_form.tpl</file>
 <file>style_guestbook_backend.css</file>
+<file>.htaccess</file>
 <file>lang_pl.inc.php</file>
 <file>lang_se.inc.php</file>
 <file>documentation_en.html</file>
@@ -1376,6 +1381,7 @@
     <file>serendipity_event_guestbook/plugin_guestbook_entries.tpl</file>
     <file>serendipity_event_guestbook/plugin_guestbook_form.tpl</file>
     <file>serendipity_event_guestbook/style_guestbook_backend.css</file>
+    <file>serendipity_event_guestbook/.htaccess</file>
     <file>serendipity_event_guestbook/lang_pl.inc.php</file>
     <file>serendipity_event_guestbook/lang_se.inc.php</file>
     <file>serendipity_event_guestbook/documentation_en.html</file>
@@ -2471,6 +2477,7 @@
 <file>line.gif</file>
 <file>join.gif</file>
 <file>page.gif</file>
+<file>.htaccess</file>
 <file>nolines_minus.gif</file>
 <file>plusbottom.gif</file>
 <file>minusbottom.gif</file>
@@ -2523,6 +2530,7 @@
     <file>serendipity_event_faq/img/line.gif</file>
     <file>serendipity_event_faq/img/join.gif</file>
     <file>serendipity_event_faq/img/page.gif</file>
+    <file>serendipity_event_faq/img/.htaccess</file>
     <file>serendipity_event_faq/img/nolines_minus.gif</file>
     <file>serendipity_event_faq/img/plusbottom.gif</file>
     <file>serendipity_event_faq/img/minusbottom.gif</file>
@@ -2570,6 +2578,7 @@
   <filelist>
 <dir name="serendipity_plugin_smiletag">
 <file>serendipity_plugin_smiletag.php</file>
+<file>.htaccess</file>
 <dir name="UTF-8">
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
@@ -2582,6 +2591,7 @@
   </filelist>
   <serendipityFilelist>
     <file>serendipity_plugin_smiletag/serendipity_plugin_smiletag.php</file>
+    <file>serendipity_plugin_smiletag/.htaccess</file>
     <file>serendipity_plugin_smiletag/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_smiletag/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_plugin_smiletag/lang_cs.inc.php</file>
@@ -3116,6 +3126,8 @@
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
 </dir>
+<file>.cvsignore</file>
+<file>.htaccess</file>
 <file>ChangeLog</file>
 <file>documentation_de.html</file>
 <file>documentation_en.html</file>
@@ -3170,6 +3182,8 @@
     <file>serendipity_plugin_twitter/UTF-8/lang_de.inc.php</file>
     <file>serendipity_plugin_twitter/UTF-8/documentation_cs.html</file>
     <file>serendipity_plugin_twitter/UTF-8/documentation_cz.html</file>
+    <file>serendipity_plugin_twitter/.cvsignore</file>
+    <file>serendipity_plugin_twitter/.htaccess</file>
     <file>serendipity_plugin_twitter/ChangeLog</file>
     <file>serendipity_plugin_twitter/documentation_de.html</file>
     <file>serendipity_plugin_twitter/documentation_en.html</file>

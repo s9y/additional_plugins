@@ -98,9 +98,11 @@
 <file>page.gif</file>
 <file>plus.gif</file>
 <file>plusbottom.gif</file>
+<file>.htaccess</file>
 </dir>
 <file>dtree.css</file>
 <file>dtree.js</file>
+<file>.htaccess</file>
 <file>TODO</file>
 <file>plugin_staticpage_aboutpage.tpl</file>
 <file>Smarty_and_CSS_Tags</file>
@@ -162,8 +164,10 @@
     <file>serendipity_event_staticpage/img/page.gif</file>
     <file>serendipity_event_staticpage/img/plus.gif</file>
     <file>serendipity_event_staticpage/img/plusbottom.gif</file>
+    <file>serendipity_event_staticpage/img/.htaccess</file>
     <file>serendipity_event_staticpage/dtree.css</file>
     <file>serendipity_event_staticpage/dtree.js</file>
+    <file>serendipity_event_staticpage/.htaccess</file>
     <file>serendipity_event_staticpage/TODO</file>
     <file>serendipity_event_staticpage/plugin_staticpage_aboutpage.tpl</file>
     <file>serendipity_event_staticpage/Smarty_and_CSS_Tags</file>
@@ -466,6 +470,7 @@
 </dir>
 <file>documentation_de.html</file>
 <file>documentation_en.html</file>
+<file>.cvsignore</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>documentation_cs.html</file>
@@ -630,6 +635,7 @@
     <file>serendipity_event_gravatar/ycon/ycon.php</file>
     <file>serendipity_event_gravatar/documentation_de.html</file>
     <file>serendipity_event_gravatar/documentation_en.html</file>
+    <file>serendipity_event_gravatar/.cvsignore</file>
     <file>serendipity_event_gravatar/lang_cs.inc.php</file>
     <file>serendipity_event_gravatar/lang_cz.inc.php</file>
     <file>serendipity_event_gravatar/documentation_cs.html</file>
@@ -1065,9 +1071,9 @@
 <description>Показва лента за избор на картинки, изразяващи емоции (emoticons). Не работи с WYSIWYG редактор.</description>
 <maintainers><maintainer><name>Garvin Hicking, Jay Bertrandt, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.2</version>
+  <version>2.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-05-12</date>
+  <date>2013-05-23</date>
   <filelist>
 <dir name="serendipity_event_emoticonchooser">
 <file>serendipity_event_emoticonchooser.php</file>
@@ -1731,6 +1737,7 @@
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
 </dir>
+<file>.cvsignore</file>
 <file>ChangeLog</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
@@ -1852,6 +1859,7 @@
     <file>serendipity_event_podcast/UTF-8/lang_fr.inc.php</file>
     <file>serendipity_event_podcast/UTF-8/documentation_cs.html</file>
     <file>serendipity_event_podcast/UTF-8/documentation_cz.html</file>
+    <file>serendipity_event_podcast/.cvsignore</file>
     <file>serendipity_event_podcast/ChangeLog</file>
     <file>serendipity_event_podcast/lang_cs.inc.php</file>
     <file>serendipity_event_podcast/lang_cz.inc.php</file>
@@ -2222,6 +2230,7 @@
 <file>plugin_guestbook_entries.tpl</file>
 <file>plugin_guestbook_form.tpl</file>
 <file>style_guestbook_backend.css</file>
+<file>.htaccess</file>
 <file>lang_pl.inc.php</file>
 <file>lang_se.inc.php</file>
 <file>documentation_en.html</file>
@@ -2272,6 +2281,7 @@
     <file>serendipity_event_guestbook/plugin_guestbook_entries.tpl</file>
     <file>serendipity_event_guestbook/plugin_guestbook_form.tpl</file>
     <file>serendipity_event_guestbook/style_guestbook_backend.css</file>
+    <file>serendipity_event_guestbook/.htaccess</file>
     <file>serendipity_event_guestbook/lang_pl.inc.php</file>
     <file>serendipity_event_guestbook/lang_se.inc.php</file>
     <file>serendipity_event_guestbook/documentation_en.html</file>
@@ -4999,6 +5009,7 @@
 <dir name="images">
 <file>s9ymdb.gif</file>
 </dir>
+<file>.cvsignore</file>
 <file>editor_plugin.js</file>
 <file>editor_plugin_src.js</file>
 <dir name="langs">
@@ -5010,6 +5021,7 @@
 </dir>
 </dir>
 </dir>
+<file>.htaccess</file>
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
 <file>lang_cs.inc.php</file>
@@ -5026,10 +5038,12 @@
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_tinymce/tinymce/jscripts/tiny_mce/plugins/s9ymdb/images/s9ymdb.gif</file>
+    <file>serendipity_event_tinymce/tinymce/jscripts/tiny_mce/plugins/s9ymdb/.cvsignore</file>
     <file>serendipity_event_tinymce/tinymce/jscripts/tiny_mce/plugins/s9ymdb/editor_plugin.js</file>
     <file>serendipity_event_tinymce/tinymce/jscripts/tiny_mce/plugins/s9ymdb/editor_plugin_src.js</file>
     <file>serendipity_event_tinymce/tinymce/jscripts/tiny_mce/plugins/s9ymdb/langs/de.js</file>
     <file>serendipity_event_tinymce/tinymce/jscripts/tiny_mce/plugins/s9ymdb/langs/en.js</file>
+    <file>serendipity_event_tinymce/.htaccess</file>
     <file>serendipity_event_tinymce/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_tinymce/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_tinymce/UTF-8/lang_cz.inc.php</file>
@@ -5289,6 +5303,7 @@
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
 </dir>
+<file>.gitignore</file>
 <file>lang_en.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_cs.inc.php</file>
@@ -5311,6 +5326,7 @@
     <file>serendipity_event_xmlrpc/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_xmlrpc/UTF-8/documentation_cs.html</file>
     <file>serendipity_event_xmlrpc/UTF-8/documentation_cz.html</file>
+    <file>serendipity_event_xmlrpc/.gitignore</file>
     <file>serendipity_event_xmlrpc/lang_en.inc.php</file>
     <file>serendipity_event_xmlrpc/ChangeLog</file>
     <file>serendipity_event_xmlrpc/lang_cs.inc.php</file>
@@ -5411,12 +5427,12 @@
 <license>GPL</license>
 <summary>Uses FCKeditor as WYSIWYG editor</summary>
 <groups>BACKEND_EDITOR</groups>
-<description>Utilizes the FCKeditor WYSIWYG editor. Requires Serendipity 0.9. After installation, read the installation guide in the configuration screen for this plugin.</description>
-<maintainers><maintainer><name>Ziyad Saeed, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
+<description>Utilizes the FCKeditor WYSIWYG editor. Note: This is the old, but still developed version, of the famous new CKEditor package. This plugin does not support other Serendipity Plugin &quot;hook-in buttons&quot;! After installation, read the installation guide in the configuration screen for this plugin.</description>
+<maintainers><maintainer><name>Ziyad Saeed, Garvin Hicking, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.7</version>
+  <version>0.8</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2013-05-23</date>
   <filelist>
 <dir name="serendipity_event_fckeditor">
 <file>fckconfig.js</file>
@@ -5427,6 +5443,7 @@
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
 </dir>
+<file>.htaccess</file>
 <file>lang_en.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_cs.inc.php</file>
@@ -5443,6 +5460,7 @@
     <file>serendipity_event_fckeditor/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_fckeditor/UTF-8/documentation_cs.html</file>
     <file>serendipity_event_fckeditor/UTF-8/documentation_cz.html</file>
+    <file>serendipity_event_fckeditor/.htaccess</file>
     <file>serendipity_event_fckeditor/lang_en.inc.php</file>
     <file>serendipity_event_fckeditor/ChangeLog</file>
     <file>serendipity_event_fckeditor/lang_cs.inc.php</file>
@@ -5466,6 +5484,7 @@
   <filelist>
 <dir name="serendipity_event_xinha">
 <file>serendipity_event_xinha.php</file>
+<file>.htaccess</file>
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
 <file>lang_cs.inc.php</file>
@@ -5480,6 +5499,7 @@
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_xinha/serendipity_event_xinha.php</file>
+    <file>serendipity_event_xinha/.htaccess</file>
     <file>serendipity_event_xinha/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_xinha/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_xinha/UTF-8/lang_cz.inc.php</file>
@@ -6291,6 +6311,7 @@
 <file>thread_unread_announce.png</file>
 <file>yes.png</file>
 <file>yes_no.xcf</file>
+<file>.htaccess</file>
 <file>blanc.png</file>
 </dir>
 <file>ChangeLog</file>
@@ -6422,6 +6443,7 @@
     <file>serendipity_event_forum/img/thread_unread_announce.png</file>
     <file>serendipity_event_forum/img/yes.png</file>
     <file>serendipity_event_forum/img/yes_no.xcf</file>
+    <file>serendipity_event_forum/img/.htaccess</file>
     <file>serendipity_event_forum/img/blanc.png</file>
     <file>serendipity_event_forum/ChangeLog</file>
     <file>serendipity_event_forum/documentation_cs.html</file>
@@ -6902,6 +6924,7 @@
 <file>line.gif</file>
 <file>join.gif</file>
 <file>page.gif</file>
+<file>.htaccess</file>
 <file>nolines_minus.gif</file>
 <file>plusbottom.gif</file>
 <file>minusbottom.gif</file>
@@ -6954,6 +6977,7 @@
     <file>serendipity_event_faq/img/line.gif</file>
     <file>serendipity_event_faq/img/join.gif</file>
     <file>serendipity_event_faq/img/page.gif</file>
+    <file>serendipity_event_faq/img/.htaccess</file>
     <file>serendipity_event_faq/img/nolines_minus.gif</file>
     <file>serendipity_event_faq/img/plusbottom.gif</file>
     <file>serendipity_event_faq/img/minusbottom.gif</file>
@@ -7053,6 +7077,7 @@
 <file>loadingAnimation.gif</file>
 </dir>
 <file>serendipity_event_lightbox.php</file>
+<file>.htaccess</file>
 <file>lang_cs.inc.php</file>
 <dir name="greybox">
 <file>AJS.js</file>
@@ -7080,6 +7105,7 @@
 <file>next.gif</file>
 <file>prev.gif</file>
 <file>w_close.gif</file>
+<file>.htaccess</file>
 </dir>
 <file>graycode_samples.txt</file>
 <file>lang_en.inc.php</file>
@@ -7096,6 +7122,7 @@
 </dir>
 <dir name="images">
 <dir name="backgrounds">
+<file>.empty</file>
 </dir>
 <dir name="fullscreen">
 <file>high.gif</file>
@@ -7222,6 +7249,7 @@
     <file>serendipity_event_lightbox/thickbox/macFFBgHack.png</file>
     <file>serendipity_event_lightbox/thickbox/loadingAnimation.gif</file>
     <file>serendipity_event_lightbox/serendipity_event_lightbox.php</file>
+    <file>serendipity_event_lightbox/.htaccess</file>
     <file>serendipity_event_lightbox/lang_cs.inc.php</file>
     <file>serendipity_event_lightbox/greybox/AJS.js</file>
     <file>serendipity_event_lightbox/greybox/AJS_fx.js</file>
@@ -7246,6 +7274,7 @@
     <file>serendipity_event_lightbox/graybox/next.gif</file>
     <file>serendipity_event_lightbox/graybox/prev.gif</file>
     <file>serendipity_event_lightbox/graybox/w_close.gif</file>
+    <file>serendipity_event_lightbox/graybox/.htaccess</file>
     <file>serendipity_event_lightbox/graycode_samples.txt</file>
     <file>serendipity_event_lightbox/lang_en.inc.php</file>
     <file>serendipity_event_lightbox/lang_pl.inc.php</file>
@@ -7254,6 +7283,7 @@
     <file>serendipity_event_lightbox/lang_de.inc.php</file>
     <file>serendipity_event_lightbox/prettyphoto/js/jquery.prettyPhoto.js</file>
     <file>serendipity_event_lightbox/prettyphoto/js/jquery-1.6.1.min.js</file>
+    <file>serendipity_event_lightbox/prettyphoto/images/backgrounds/.empty</file>
     <file>serendipity_event_lightbox/prettyphoto/images/fullscreen/high.gif</file>
     <file>serendipity_event_lightbox/prettyphoto/images/fullscreen/huge.gif</file>
     <file>serendipity_event_lightbox/prettyphoto/images/fullscreen/wide.gif</file>
@@ -7477,6 +7507,7 @@
 </dir>
 <file>edit_staticpage.png</file>
 <file>edit_internal.png</file>
+<file>.htaccess</file>
 <file>ChangeLog</file>
 <file>create_internal.png</file>
 <file>create_staticpage.png</file>
@@ -7496,6 +7527,7 @@
     <file>serendipity_event_wikilinks/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_wikilinks/edit_staticpage.png</file>
     <file>serendipity_event_wikilinks/edit_internal.png</file>
+    <file>serendipity_event_wikilinks/.htaccess</file>
     <file>serendipity_event_wikilinks/ChangeLog</file>
     <file>serendipity_event_wikilinks/create_internal.png</file>
     <file>serendipity_event_wikilinks/create_staticpage.png</file>
@@ -8735,7 +8767,9 @@
 </dir>
 <dir name="Services">
 <dir name="Yadis">
+<file>.empty</file>
 </dir>
+<file>.empty</file>
 </dir>
 <file>COPYING</file>
 <file>README</file>
@@ -8816,6 +8850,8 @@
     <file>serendipity_event_openid/PHP-openid/Auth/Yadis/XRDS.php</file>
     <file>serendipity_event_openid/PHP-openid/Auth/Yadis/XRI.php</file>
     <file>serendipity_event_openid/PHP-openid/Auth/Yadis/Yadis.php</file>
+    <file>serendipity_event_openid/PHP-openid/Services/Yadis/.empty</file>
+    <file>serendipity_event_openid/PHP-openid/Services/.empty</file>
     <file>serendipity_event_openid/PHP-openid/COPYING</file>
     <file>serendipity_event_openid/PHP-openid/README</file>
     <file>serendipity_event_openid/PHP-openid/README.Debian</file>
@@ -8862,6 +8898,7 @@
   <date>2012-06-14</date>
   <filelist>
 <dir name="serendipity_event_dpsyntaxhighlighter">
+<file>.htaccess</file>
 <dir name="dp.SyntaxHighlighter">
 <dir name="Scripts">
 </dir>
@@ -8937,6 +8974,7 @@
 
   </filelist>
   <serendipityFilelist>
+    <file>serendipity_event_dpsyntaxhighlighter/.htaccess</file>
     <file>serendipity_event_dpsyntaxhighlighter/lang_en.inc.php</file>
     <file>serendipity_event_dpsyntaxhighlighter/serendipity_event_dpsyntaxhighlighter.php</file>
     <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushBash.js</file>
@@ -9064,6 +9102,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
 </dir>
+<file>.cvsignore</file>
+<file>.htaccess</file>
 <file>ChangeLog</file>
 <file>documentation_de.html</file>
 <file>documentation_en.html</file>
@@ -9118,6 +9158,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
     <file>serendipity_plugin_twitter/UTF-8/lang_de.inc.php</file>
     <file>serendipity_plugin_twitter/UTF-8/documentation_cs.html</file>
     <file>serendipity_plugin_twitter/UTF-8/documentation_cz.html</file>
+    <file>serendipity_plugin_twitter/.cvsignore</file>
+    <file>serendipity_plugin_twitter/.htaccess</file>
     <file>serendipity_plugin_twitter/ChangeLog</file>
     <file>serendipity_plugin_twitter/documentation_de.html</file>
     <file>serendipity_plugin_twitter/documentation_en.html</file>
@@ -9793,6 +9835,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
   <date>2012-06-14</date>
   <filelist>
 <dir name="serendipity_event_email_bot_obfuscator">
+<file>.htaccess</file>
 <file>documentation.css</file>
 <file>documentation_en.html</file>
 <file>lang_de.inc.php</file>
@@ -9815,6 +9858,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 
   </filelist>
   <serendipityFilelist>
+    <file>serendipity_event_email_bot_obfuscator/.htaccess</file>
     <file>serendipity_event_email_bot_obfuscator/documentation.css</file>
     <file>serendipity_event_email_bot_obfuscator/documentation_en.html</file>
     <file>serendipity_event_email_bot_obfuscator/lang_de.inc.php</file>

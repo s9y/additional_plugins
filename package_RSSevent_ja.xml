@@ -122,7 +122,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jay Bertrandt, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_emoticonchooser&lt;br /&gt;表情アイコンツールバーの表示&lt;/b&gt;&lt;br /&gt;エントリに挿入する表情アイコンとスマイルを選択するツールバーを表示します。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 12 May 2013 02:31:05 +0200</pubDate>
+<pubDate>Thu, 23 May 2013 02:31:10 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_emoticonchooser</guid>
 </item>
 <item>
@@ -729,12 +729,12 @@
 <guid isPermaLink="false">serendipity_event_comics</guid>
 </item>
 <item>
-<title>Uses FCKeditor as WYSIWYG editor: Utilizes the FCKeditor WYSIWYG editor. Requires Serendipity 0.9. After installation, read the installation guide in the configuration screen for this plugin.</title>
+<title>Uses FCKeditor as WYSIWYG editor: Utilizes the FCKeditor WYSIWYG editor. Note: This is the old, but still developed version, of the famous new CKEditor package. This plugin does not support other Serendipity Plugin &quot;hook-in buttons&quot;! After installation, read the installation guide in the configuration screen for this plugin.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_fckeditor</link>
 <category>Event Plugins</category>
-<author>Ziyad Saeed, Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_fckeditor&lt;br /&gt;Uses FCKeditor as WYSIWYG editor&lt;/b&gt;&lt;br /&gt;Utilizes the FCKeditor WYSIWYG editor. Requires Serendipity 0.9. After installation, read the installation guide in the configuration screen for this plugin.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:32:03 +0200</pubDate>
+<author>Ziyad Saeed, Garvin Hicking, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_event_fckeditor&lt;br /&gt;Uses FCKeditor as WYSIWYG editor&lt;/b&gt;&lt;br /&gt;Utilizes the FCKeditor WYSIWYG editor. Note: This is the old, but still developed version, of the famous new CKEditor package. This plugin does not support other Serendipity Plugin &quot;hook-in buttons&quot;! After installation, read the installation guide in the configuration screen for this plugin.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Thu, 23 May 2013 02:31:10 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_fckeditor</guid>
 </item>
 <item>

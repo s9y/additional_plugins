@@ -30,7 +30,7 @@ class serendipity_event_emoticonchooser extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '2.3');
+        $propbag->add('version',       '2.4');
         $propbag->add('event_hooks',    array(
             'backend_entry_toolbar_extended' => true,
             'backend_entry_toolbar_body' => true,
@@ -38,7 +38,7 @@ class serendipity_event_emoticonchooser extends serendipity_event
             'css_backend' => true
         ));
         $propbag->add('groups', array('BACKEND_EDITOR'));
-        $propbag->add('configuration', array('frontend', 'popup', 'popuptext'));
+        $propbag->add('configuration', array('frontend', 'popup', 'button', 'popuptext'));
     }
 
     function generate_content(&$title) {
@@ -60,6 +60,14 @@ class serendipity_event_emoticonchooser extends serendipity_event
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_EVENT_EMOTICONCHOOSER_POPUP);
                 $propbag->add('description', '');
+                $propbag->add('default',     false);
+                return true;
+                break;
+
+            case 'button':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        PLUGIN_EVENT_EMOTICONCHOOSER_POPUP_BUTTON);
+                $propbag->add('description', 'default: as link');
                 $propbag->add('default',     false);
                 return true;
                 break;
@@ -137,7 +145,9 @@ class serendipity_event_emoticonchooser extends serendipity_event
                     $popuplink  = '';
                     if (serendipity_db_bool($this->get_config('popup', false))) {
                         $popupstyle = '; display: none';
-                        $popuplink  = '<a class="serendipity_toggle_emoticon_bar' . $popcl . '" href="#" onclick="toggle_emoticon_bar_' . $func . '(); return false">' . $this->get_config('popuptext') . '</a>';
+                        $popuplink  = serendipity_db_bool($this->get_config('button', false)) 
+                                    ? '<input type="button" onclick="toggle_emoticon_bar_' . $func . '(); return false" href="#" class="serendipity_toggle_emoticon_bar' . $popcl . '" value="' . $this->get_config('popuptext') . '">' 
+                                    : '<a class="serendipity_toggle_emoticon_bar' . $popcl . '" href="#" onclick="toggle_emoticon_bar_' . $func . '(); return false">' . $this->get_config('popuptext') . '</a>';
                     }
 
                     $i = 1;

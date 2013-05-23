@@ -12,5 +12,6 @@
 @define('PLUGIN_EVENT_EMOTICONCHOOSER_POPUP', 'Only show emoticon selector as a "popup" element?');
 @define('PLUGIN_EVENT_EMOTICONCHOOSER_POPUPTEXT', 'Title of the link to show available Smileys');
 @define('PLUGIN_EVENT_EMOTICONCHOOSER_POPUPTEXT_DEFAULT', 'Smileys');
+@define('PLUGIN_EVENT_EMOTICONCHOOSER_POPUP_BUTTON', 'Style frontend emoticon selector as button?');
 
 ?>

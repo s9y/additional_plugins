@@ -1,3 +1,7 @@
+2.4:
+----
+added config option to show frontends emoticon selector as button
+
 2.3:
 ----
 added faked drag and drop replacement handler for dragged and dropped emoticons into CKEditor WYSIWYG-Editor

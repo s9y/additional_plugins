@@ -13,3 +13,6 @@
 @define('PLUGIN_EVENT_EMOTICONCHOOSER_POPUP', 'Zeige die Smiley-Auswahl nur als Aufklappmenü?');
 @define('PLUGIN_EVENT_EMOTICONCHOOSER_POPUPTEXT', 'Linkbezeichnung um die vorhandenen Smileys anzuzeigen');
 @define('PLUGIN_EVENT_EMOTICONCHOOSER_POPUPTEXT_DEFAULT', 'Smileys');
+
+// Next lines were translated on 2013/05/23
+@define('PLUGIN_EVENT_EMOTICONCHOOSER_POPUP_BUTTON', 'Zeige Smiley-Auswahl im Frontend als Button?');

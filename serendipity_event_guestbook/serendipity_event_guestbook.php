@@ -57,7 +57,7 @@ class serendipity_event_guestbook extends serendipity_event {
                         'dateformat'
                     ));
         $propbag->add('author',       'Ian (Timbalu)');
-        $propbag->add('version',      '3.31');
+        $propbag->add('version',      '3.32');
         $propbag->add('requirements', array(
                         'serendipity' => '0.7',
                         'smarty'      => '2.6.7',

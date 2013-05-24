@@ -2569,9 +2569,9 @@
 <description>Vloží blok se vzkazy systému SmileTag do postranního sloupce. Samotný SmileTag není přiložen k tomuto přídavnému modulu.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.02</version>
+  <version>1.03</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2013-05-24</date>
   <filelist>
 <dir name="serendipity_plugin_smiletag">
 <file>serendipity_plugin_smiletag.php</file>
@@ -3111,7 +3111,7 @@
 <description>Zobrazuje Vaše nejnovější příspěvky z Twitteru</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Damian Luszczymak, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.48</version>
+  <version>1.49</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
   <date>2012-10-25</date>
   <filelist>

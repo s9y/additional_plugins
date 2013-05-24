@@ -58,9 +58,9 @@
 <description>Zobrazuje v blogu statické stránky se stejným designem jako mají běžné přspěvky. Přidá nové menu do adminstrátorského rozhraní.</description>
 <maintainers><maintainer><name>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>4.03</version>
+  <version>4.04</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2013-05-06</date>
+  <date>2013-05-24</date>
   <filelist>
 <dir name="serendipity_event_staticpage">
 <file>lang_de.inc.php</file>
@@ -1071,9 +1071,9 @@
 <description>Zobrazí lištu se smajlíky, které je možné vložit do textu příspěvku/komentáře. NEFUNGUJE ve WYSIWYG editoru!</description>
 <maintainers><maintainer><name>Garvin Hicking, Jay Bertrandt, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.3</version>
+  <version>2.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-05-23</date>
+  <date>2013-05-24</date>
   <filelist>
 <dir name="serendipity_event_emoticonchooser">
 <file>serendipity_event_emoticonchooser.php</file>
@@ -2184,9 +2184,9 @@
 <description>Zobrazuje návštěvní knihu jako stránku blogu. Vzhled je totožný s ostatními stránkami.</description>
 <maintainers><maintainer><name>Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.31</version>
+  <version>3.32</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2012-09-15</date>
+  <date>2013-05-24</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="UTF-8">
@@ -4997,9 +4997,9 @@ aplikovány další typografické úpravy.</description>
 <description>Použije TiniMCE WYSIWYG editor pro psaní příspěvků. Vyžaduje Serendipity 0.9 nebo novější. Po instalaci si přečtěte instalačního průvodce v nastavení tohoto pluginu.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.11</version>
+  <version>1.12</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2013-05-24</date>
   <filelist>
 <dir name="serendipity_event_tinymce">
 <dir name="tinymce">
@@ -5479,9 +5479,9 @@ aplikovány další typografické úpravy.</description>
 <description>Pozor! Xinha je experimentální! Používá XINHA WYSIWYG editor. Vyžaduje Serendipity 0.9 nebo vyšší. Po nainstalování pluginu si přečtěte průvodce instalací na konfigurační stránce pluginu.</description>
 <maintainers><maintainer><name>Ziyad Saeed, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.7</version>
+  <version>0.8</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2013-05-24</date>
   <filelist>
 <dir name="serendipity_event_xinha">
 <file>serendipity_event_xinha.php</file>
@@ -6176,9 +6176,9 @@ aplikovány další typografické úpravy.</description>
 <description>Poskytuje kompletní diskusní fórum. Alternativě umožňuje přístup do diskusního fóra phpBB.</description>
 <maintainers><maintainer><name>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.36</version>
+  <version>0.37</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-04-24</date>
+  <date>2013-05-24</date>
   <filelist>
 <dir name="serendipity_event_forum">
 <dir name="include">
@@ -6902,9 +6902,9 @@ aplikovány další typografické úpravy.</description>
 <description>Správa FAQ - často kladených otázek</description>
 <maintainers><maintainer><name>Falk Doering</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.11</version>
+  <version>1.12</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2013-05-24</date>
   <filelist>
 <dir name="serendipity_event_faq">
 <dir name="UTF-8">
@@ -7021,9 +7021,9 @@ aplikovány další typografické úpravy.</description>
 <description>Lightbox je jednoduchý nenápadný skript používaný k zobrazení obrázů přes aktuální stranu. Během okamžiku ho nastavíte. Funguje ve všech moderních prohlížečích. Lightbox zobrazuje obrázky, zatímco Thickbox umí zobrazit také vyskakovací HTML bloky. Oba skripty fungují následovně: Vyhledávají v příspěvcích a nahrazují každý výskyt odkazu 'a href=&quot;XXX&quot;' odkazem na zobrazení nad aktuální stránkou. Takže pokud chcete zobrazovat zvětšené obrázky, stačí do článku vložit odkazy na tyto velké obrázky. Při použití Thickboxu vložte atribut 'class=&quot;thickbox&quot;' do odkazu 'a href', tento odkaz se pak zobrazí ve vyskakovacím okně.</description>
 <maintainers><maintainer><name>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.9.6</version>
+  <version>1.9.7</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2013-05-24</date>
   <filelist>
 <dir name="serendipity_event_lightbox">
 <dir name="lightbox">
@@ -7493,9 +7493,9 @@ aplikovány další typografické úpravy.</description>
 <description>V příspěvcích můžete zadat odkazy na existující/nové příspěvky pomocí [[nadpis příspěvku]], na statické stránky pomocí ((nadpis stránky)) a na obojí pomocí {{nadpis}}.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.24</version>
+  <version>0.25</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2013-05-08</date>
+  <date>2013-05-24</date>
   <filelist>
 <dir name="serendipity_event_wikilinks">
 <file>serendipity_event_wikilinks.php</file>
@@ -9090,7 +9090,7 @@ aplikovány další typografické úpravy.</description>
 <description>Přidává klienta Twitter/Identica do administrační sekce a stahuje nové tweety a oznámuje nové články na účtu mikroblogu.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Peter Heimann</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.48</version>
+  <version>1.49</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
   <date>2013-05-11</date>
   <filelist>
@@ -9830,9 +9830,9 @@ aplikovány další typografické úpravy.</description>
 <description>Umožňuje vložit do blogu klikatelnou emailovou adresu, ale vkládá ji upravenou tak, aby ji nepoznaly internetové roboty, které hledají mailové adresy.</description>
 <maintainers><maintainer><name>Stephan Manske</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.01</version>
+  <version>1.02</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2013-05-24</date>
   <filelist>
 <dir name="serendipity_event_email_bot_obfuscator">
 <file>.htaccess</file>

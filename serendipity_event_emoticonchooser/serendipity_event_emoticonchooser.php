@@ -30,7 +30,7 @@ class serendipity_event_emoticonchooser extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '2.4');
+        $propbag->add('version',       '2.5');
         $propbag->add('event_hooks',    array(
             'backend_entry_toolbar_extended' => true,
             'backend_entry_toolbar_body' => true,
@@ -239,7 +239,7 @@ function use_emoticon_<?php echo $func; ?>(img) {
 }
 //-->
 if (window.jQuery && typeof(CKEDITOR) != 'undefined') { jQuery(function ($) {
-    function drop_handler (emo, target) {
+    function drop_handler_<?php echo $func; ?>(emo, target) {
         var rdata = CKEDITOR.instances[target].getSnapshot(); // this is equal to emo!!! while .getData() changes attributes order!!
         var rdata = rdata.replace(rdata.match(/<a href="javascript:use_emoticon_.*>.*<\/a>/g), emo); // [OK]
         CKEDITOR.instances[target].setData(rdata);
@@ -256,7 +256,7 @@ if (window.jQuery && typeof(CKEDITOR) != 'undefined') { jQuery(function ($) {
         })
         .mouseout(function() {
             if (mouse_button) {
-                drop_handler($(this)[0].outerHTML, '<?php echo $cke_txtarea; ?>');
+                drop_handler_<?php echo $func; ?>($(this)[0].outerHTML, '<?php echo $cke_txtarea; ?>');
                 mouse_button = false;
             }
         });

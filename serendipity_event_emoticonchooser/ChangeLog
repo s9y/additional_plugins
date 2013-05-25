@@ -1,3 +1,7 @@
+2.5:
+----
+fixed v.2.3 drag&drop replacement handler to properly work with multiple textareas
+
 2.4:
 ----
 added config option to show frontends emoticon selector as button

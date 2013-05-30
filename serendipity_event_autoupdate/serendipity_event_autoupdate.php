@@ -22,7 +22,7 @@ class serendipity_event_autoupdate extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_AUTOUPDATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Ian');
-        $propbag->add('version',       '0.5');
+        $propbag->add('version',       '0.6');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '5.1'
@@ -37,6 +37,13 @@ class serendipity_event_autoupdate extends serendipity_event {
         $title = $this->title;
     }
 
+    function install() {
+        global $serendipity;
+
+        if (!$serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN) {
+            return false;
+        }
+    }
 
     /*function introspect_config_item($name, &$propbag) {
         

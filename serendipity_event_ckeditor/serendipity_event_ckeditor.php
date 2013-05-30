@@ -53,7 +53,7 @@ class serendipity_event_ckeditor extends serendipity_event
     /**
      * Access property checkUpdateVersion
      * Verify release package versions - do update on upgrades!
-     * @var string
+     * @var array
      */
     protected  $checkUpdateVersion = array('ckeditor:4.1.1', 'kcfinder:2.52-1');
 

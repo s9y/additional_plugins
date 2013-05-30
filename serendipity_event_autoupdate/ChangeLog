@@ -1,5 +1,7 @@
 0.6
     * Added install by USERLEVEL_ADMIN only
+    * changed some lang <en> <de> Constants
+      this also removed the experimental status
 
 0.5
     * View and follow upgrade process

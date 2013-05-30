@@ -1,7 +1,7 @@
 <?php
 
-@define('PLUGIN_EVENT_AUTOUPDATE_NAME',     'Autoupdate (Experimental)');
-@define('PLUGIN_EVENT_AUTOUPDATE_DESC',     'Experimental. When the dashboard-plugin detects an update, this plugin adds the option to update the blog directly with one click from within the adminarea.');
-@define('PLUGIN_EVENT_AUTOUPDATE_UPDATEBUTTON',     'Update now automatically');
+@define('PLUGIN_EVENT_AUTOUPDATE_NAME',     'Serendipity Autoupdate');
+@define('PLUGIN_EVENT_AUTOUPDATE_DESC',     'Sobald das Dashboard Plugin (einmal am Tag) ein Serendipity Update entdeckt, setzt dieses Plugin eine Ein-Klick Option in das Dashboard des Backends, um ein manuelles Download oder ein automatisches und gesichertes Upgrade der Blogsoftware zu starten.');
+@define('PLUGIN_EVENT_AUTOUPDATE_UPDATEBUTTON',     'Automatisches Upgrade starten');
 
 ?>

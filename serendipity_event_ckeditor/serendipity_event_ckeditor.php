@@ -157,11 +157,12 @@ class serendipity_event_ckeditor extends serendipity_event
     function example() {
 
         $installer = $this->get_config('installer'); // Can't use method return value in write context in '' with substr(), get_config() and isset()
+        $parts     = explode(':', $this->checkUpdateVersion[0]); // this is ckeditor only
 
         if( isset($installer) && !empty($installer) ) {
             switch ($installer[0]) {
                 case '4': // this won't happen, since case 2 is true - just a fake
-                    echo '<p class="msg_notice"><span class="icon-info-circle"></span><strong>Check Plugin Update Message:</strong> NO CONFIG SET OR NO MATCH -> config_set: "last_'.$package.'_version:'. $match[1].'"</p>'; // here no vars available
+                    echo '<p class="msg_notice"><span class="icon-info-circle"></span><strong>Check Plugin Update Message:</strong> NO CONFIG SET OR NO MATCH -> config_set: "last_'.$parts[0].'_version:'. $parts[1].'"</p>';
                     break;
                 case '3':
                     echo '<p class="msg_success"><span class="icon-ok-circle"></span><strong>Installer Update Message:</strong> Check Update found false, no unpack needed. Plugin upgrade successfully done!</p>';
@@ -185,8 +186,8 @@ class serendipity_event_ckeditor extends serendipity_event
 
     /**
      * Check update versions and create config values
-     * 
      * @access    private
+     * @return    boolean
      */
     private function CheckUpdate() {
 

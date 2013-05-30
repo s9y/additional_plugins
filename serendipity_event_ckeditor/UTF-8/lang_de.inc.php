@@ -30,7 +30,7 @@
 Wenn jemals ein manuelles oder persönliches Update des mitgelieferten CKEditor Paketes benötigt wird (*), bitte:
 <ol style="line-height: 1.6">
 <li><a href="http://ckeditor.com/download" target="_blank">Download CKEditor</a></li>
-<li>Extrahiere in: <em>' . dirname(__FILE__) . '</em> (dies sollte das <em>"ckeditor"</em> Sub-Verzeichnis automatisch erstellen)</li>
+<li>Extrahiere in: <em>' . realpath(dirname(__FILE__) . '/..') . '</em> (dies sollte das <em>"ckeditor"</em> Sub-Verzeichnis automatisch erstellen)</li>
 </ol>
 (*) <em><strong>Note:</strong> Dies wird die KCFinder\'s Integration überschreiben, die am unteren Ende der ckeditor/config.js Datei zu finden ist: <a style="border:0; text-decoration: none;" href="#" onClick="showConfig(\'el1\'); return false" title="auf-/einklappen"><img src="'.serendipity_getTemplateFile('img/plus.png').'" id="optionel1" alt="+/-" border="0">&nbsp;auf-/einklappen</a></em>
 <div id="el1" style="margin-top: 0.5em; border: 1px solid #BBB;background-color: #EEE; padding: 0.5em">

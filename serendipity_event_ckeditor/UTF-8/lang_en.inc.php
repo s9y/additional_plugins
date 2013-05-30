@@ -30,7 +30,7 @@
 If you - in follow - ever need to manually upgrade the delivered CKEditor package to a personal package (*), please:
 <ol style="line-height: 1.6">
 <li><a href="http://ckeditor.com/download" target="_blank">Download CKEditor</a></li>
-<li>Extract to: <em>' . dirname(__FILE__) . '</em> (should create <em>"ckeditor"</em> subdirectory)</li>
+<li>Extract to: <em>' . realpath(dirname(__FILE__) . '/..') . '</em> (should create <em>"ckeditor"</em> subdirectory)</li>
 </ol>
 (*) <em><strong>Note:</strong> This will disable (overwrite) the KCFinder\'s integration added to the end of ckeditor/config.js file: <a style="border:0; text-decoration: none;" href="#" onClick="showConfig(\'el1\'); return false" title="TOGGLE_OPTION"><img src="'.serendipity_getTemplateFile('img/plus.png').'" id="optionel1" alt="+/-" border="0">&nbsp;TOGGLE_OPTION</a></em>
 <div id="el1" style="margin-top: 0.5em; border: 1px solid #BBB;background-color: #EEE; padding: 0.5em">

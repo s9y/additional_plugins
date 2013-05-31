@@ -1307,12 +1307,12 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <guid isPermaLink="false">serendipity_event_commentspice</guid>
 </item>
 <item>
-<title>Autoupdate (Experimental): Experimental. When the dashboard-plugin detects an update, this plugin adds the option to update the blog directly with one click from within the adminarea.</title>
+<title>Serendipity Autoupdate: Sobald das Dashboard Plugin (einmal am Tag) ein Serendipity Update entdeckt, setzt dieses Plugin eine Ein-Klick Option in das Dashboard des Backends, um ein manuelles Download oder ein automatisches und gesichertes Upgrade der Blogsoftware zu starten.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_autoupdate</link>
 <category>Event Plugins</category>
 <author>onli, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_autoupdate&lt;br /&gt;Autoupdate (Experimental)&lt;/b&gt;&lt;br /&gt;Experimental. When the dashboard-plugin detects an update, this plugin adds the option to update the blog directly with one click from within the adminarea.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 28 Apr 2013 02:43:57 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_autoupdate&lt;br /&gt;Serendipity Autoupdate&lt;/b&gt;&lt;br /&gt;Sobald das Dashboard Plugin (einmal am Tag) ein Serendipity Update entdeckt, setzt dieses Plugin eine Ein-Klick Option in das Dashboard des Backends, um ein manuelles Download oder ein automatisches und gesichertes Upgrade der Blogsoftware zu starten.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Fri, 31 May 2013 02:31:11 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_autoupdate</guid>
 </item>
 <item>
@@ -1350,6 +1350,15 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <content:encoded>&lt;b&gt;serendipity_event_proxy_realip&lt;br /&gt;Proxy Real-IP&lt;/b&gt;&lt;br /&gt;Setzt die richtige IP des Besuchers bei Benutzung eines Proxy vor dem Webserver. Sollte das erste Plugin in der Liste sein.&lt;br/&gt;For: Serendipity 1.6.2</content:encoded>
 <pubDate>Mon, 25 Mar 2013 02:31:07 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_proxy_realip</guid>
+</item>
+<item>
+<title>CKEditor: Nutzt CKEditor als den Standard WYSIWYG Editor. Dieser ist zur Zeit der state-of-the-art Editor im Internet. Benutzung: Empfohlen! Nach der Installation, lies die Plugin Konfigurations Seite für weitere Informationen.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_ckeditor</link>
+<category>Event Plugins</category>
+<author>Rustam Abdullaev, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_event_ckeditor&lt;br /&gt;CKEditor&lt;/b&gt;&lt;br /&gt;Nutzt CKEditor als den Standard WYSIWYG Editor. Dieser ist zur Zeit der state-of-the-art Editor im Internet. Benutzung: Empfohlen! Nach der Installation, lies die Plugin Konfigurations Seite für weitere Informationen.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
+<pubDate>Fri, 31 May 2013 02:31:11 +0200</pubDate>
+<guid isPermaLink="false">serendipity_event_ckeditor</guid>
 </item>
 <item>
 <title>Facebook (Experimental!): Imports comments made on facebook postings (like through RSS Graffiti) back into the blog. Also embeds Facebook OpenGraph Meta-Tags into the blog. Note that adding &quot;like&quot;-Buttons to blog entries is achieved via the serendipity_event_findmore plugin! </title>

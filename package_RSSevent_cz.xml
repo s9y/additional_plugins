@@ -1312,7 +1312,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>onli, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_autoupdate&lt;br /&gt;Automatické aktualizace (experimentální)&lt;/b&gt;&lt;br /&gt;Experimentální. Když plugin &quot;tabule&quot; detekuje aktualizace, tento plugin přidá možnost automatické aktualizace blogu kliknutím na jediné tlačítko v administrační sekci.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 28 Apr 2013 02:43:57 +0200</pubDate>
+<pubDate>Fri, 31 May 2013 02:31:11 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_autoupdate</guid>
 </item>
 <item>
@@ -1350,6 +1350,15 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <content:encoded>&lt;b&gt;serendipity_event_proxy_realip&lt;br /&gt;Proxy Real-IP&lt;/b&gt;&lt;br /&gt;Nastaví správnou návštěvnickou IP adresu pro čtenáře, kteří používají Proxy webserver. Měl by být prvním pluginem v seznamu pluginů.&lt;br/&gt;For: Serendipity 1.6.2</content:encoded>
 <pubDate>Mon, 25 Mar 2013 02:31:07 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_proxy_realip</guid>
+</item>
+<item>
+<title>CKEditor: Uses CKEditor as the default WYSIWYG editor. This currently is the state-of-the-art Editor itself. Usage: Recommended! After installation, go to the configuration screen of this plugin for further instructions.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_ckeditor</link>
+<category>Event Plugins</category>
+<author>Rustam Abdullaev, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_event_ckeditor&lt;br /&gt;CKEditor&lt;/b&gt;&lt;br /&gt;Uses CKEditor as the default WYSIWYG editor. This currently is the state-of-the-art Editor itself. Usage: Recommended! After installation, go to the configuration screen of this plugin for further instructions.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
+<pubDate>Fri, 31 May 2013 02:31:11 +0200</pubDate>
+<guid isPermaLink="false">serendipity_event_ckeditor</guid>
 </item>
 <item>
 <title>Facebook (experimentální!): Importuje do blogu komentáře u příspěvků na facebooku (pomocí RSS Graffiti). Také do blogu vloží facebookové OpenGraph Meta-Tagy. Pamatujte, že přidání talčítka &quot;Líbí se mi&quot; k příspěvkům blogu je zajišťováno pluginem serendipity_event_findmore!</title>

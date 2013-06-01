@@ -6945,7 +6945,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>xcur (2013-02-10)</name>
+<name>xcur (2013-05-31)</name>
 <template>axcur</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -6954,7 +6954,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion></requirements:s9yVersion>
-  <date>2013-02-10</date>
+  <date>2013-05-31</date>
   <filelist>
 <dir name="axcur">
 <dir name="img">

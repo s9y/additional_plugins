@@ -55,7 +55,7 @@ class serendipity_event_ckeditor extends serendipity_event
      * Verify release package versions - do update on upgrades!
      * @var array
      */
-    protected  $checkUpdateVersion = array('ckeditor:4.1.1', 'kcfinder:2.52-1');
+    protected  $checkUpdateVersion = array('ckeditor:4.1.1', 'kcfinder:2.52-2');
 
 
     function install() {
@@ -100,7 +100,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '1.1');
+        $propbag->add('version',       '1.1.1');
         $propbag->add('copyright',     'GPL & LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',

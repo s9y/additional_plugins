@@ -100,7 +100,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '1.1.1');
+        $propbag->add('version',       '1.1.2');
         $propbag->add('copyright',     'GPL & LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
@@ -109,10 +109,11 @@ class serendipity_event_ckeditor extends serendipity_event
         ));
 
         $propbag->add('event_hooks',   array(
-            'backend_header'         => true,
-            'css_backend'            => true,
-            'backend_wysiwyg'        => true,
-            'backend_wysiwyg_finish' => true
+            'backend_header'                         => true,
+            'css_backend'                            => true,
+            'backend_media_path_exclude_directories' => true,
+            'backend_wysiwyg'                        => true,
+            'backend_wysiwyg_finish'                 => true
         ));
         $propbag->add('configuration', array('path', 'plugpath', 'toolbar_break'));
         $propbag->add('groups', array('BACKEND_EDITOR'));
@@ -308,6 +309,11 @@ class serendipity_event_ckeditor extends serendipity_event
 }
 <?php
                     }
+                    break;
+
+                case 'backend_media_path_exclude_directories':
+                    $eventData[".thumbs"] = true;
+                    return true;
                     break;
 
                 case 'backend_wysiwyg':

@@ -21,7 +21,7 @@
 </ol>
 <h3>Plugin includes</h3>
 <ul>
-<li>CKEditor 4.1.1 (revision 5a2a7e3, standard package, 2013-05-01)</li>
+<li>CKEditor 4.1.2 (revision d6f1e0e, standard package, 2013-06-10)</li>
 <li>KCFinder 2.52-dev (git package, 2013-05-04)</li>
 </ul>
 
@@ -49,6 +49,7 @@ CKEDITOR.editorConfig = function(config) {
 </p>');
 @define('PLUGIN_EVENT_CKEDITOR_CONFIG', '');
 @define('PLUGIN_EVENT_CKEDITOR_INSTALL_PLUGPATH', 'HTTP path to s9y plugins directory');
+@define('PLUGIN_EVENT_CKEDITOR_CKEACF_OPTION', 'Disable Advanced-Content-Filter (ACF)');
 @define('PLUGIN_EVENT_CKEDITOR_TBLB_OPTION', 'Use default 2-liner toolbar-group linebreak');
 
 ?>

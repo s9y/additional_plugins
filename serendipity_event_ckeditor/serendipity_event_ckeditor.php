@@ -48,14 +48,14 @@ class serendipity_event_ckeditor extends serendipity_event
      * @access protected
      * @var string
      */
-    protected  $cke_zipfile = 'ckeditor_4.1.1_standard-plus.zip';
+    protected  $cke_zipfile = 'ckeditor_4.1.2_standard-plus.zip';
 
     /**
      * Access property checkUpdateVersion
      * Verify release package versions - do update on upgrades!
      * @var array
      */
-    protected  $checkUpdateVersion = array('ckeditor:4.1.1', 'kcfinder:2.52-2');
+    protected  $checkUpdateVersion = array('ckeditor:4.1.2', 'kcfinder:2.52-2');
 
 
     function install() {
@@ -81,6 +81,7 @@ class serendipity_event_ckeditor extends serendipity_event
                 $zip->extractTo($this->cke_path);
                 $zip->close();
                 $this->set_config('installer', '2-'.date('Ymd-H:i:s')); // returned by string[0], which is better than substr in this case
+                @unlink($this->cke_path . '/ckeditor_4.1.1_standard-plus.zip'); // remove old zip file
             } else {
                 $this->set_config('installer', '1-'.date('Ymd-H:i:s'));
                 return false;
@@ -100,7 +101,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '1.1.2');
+        $propbag->add('version',       '1.2.0');
         $propbag->add('copyright',     'GPL & LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
@@ -115,7 +116,7 @@ class serendipity_event_ckeditor extends serendipity_event
             'backend_wysiwyg'                        => true,
             'backend_wysiwyg_finish'                 => true
         ));
-        $propbag->add('configuration', array('path', 'plugpath', 'toolbar_break'));
+        $propbag->add('configuration', array('path', 'plugpath', 'acf_off', 'toolbar_break'));
         $propbag->add('groups', array('BACKEND_EDITOR'));
     }
 
@@ -136,6 +137,13 @@ class serendipity_event_ckeditor extends serendipity_event
                 $propbag->add('name', PLUGIN_EVENT_CKEDITOR_INSTALL_PLUGPATH);
                 $propbag->add('description', '');
                 $propbag->add('default', $serendipity['serendipityHTTPPath'] . 'plugins/');
+                break;
+
+            case 'acf_off':
+                $propbag->add('type', 'boolean');
+                $propbag->add('name', PLUGIN_EVENT_CKEDITOR_CKEACF_OPTION);
+                $propbag->add('description', 'http://ckeditor.com/blog/Integrating-Plugins-with-Advanced-Content-Filter');
+                $propbag->add('default', 'false');
                 break;
 
             case 'toolbar_break':
@@ -234,6 +242,7 @@ class serendipity_event_ckeditor extends serendipity_event
                     if (isset($serendipity['wysiwyg']) && $serendipity['wysiwyg'] && isset($eventData)) {
                         $relpath = htmlspecialchars($this->get_config('path'));
                         $plgpath = htmlspecialchars($this->get_config('plugpath'));
+                        $acfoff  = serendipity_db_bool($this->get_config('acf_off')) ? 'true' : 'false';
                         if(!isset($_COOKIE['KCFINDER_uploadurl']) || empty($_COOKIE['KCFINDER_uploadurl'])) {
                             setcookie('KCFINDER_uploadurl', serialize($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath']), time()+60*60*24*30, $serendipity['serendipityHTTPPath'], $_SERVER['HTTP_HOST'], false);
                         }
@@ -249,6 +258,7 @@ class serendipity_event_ckeditor extends serendipity_event
         CKEDITOR.config['skin'] = 'moono';
         CKEDITOR.config['height'] = 400;
         CKEDITOR.config.removePlugins = 'flash,iframe';
+        CKEDITOR.config.allowedContent = <?php echo $acfoff; ?>;
         CKEDITOR.config.removeButtons = 'Styles';
         CKEDITOR.config.toolbarGroups = [
             { name: 'styles' },

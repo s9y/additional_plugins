@@ -67,7 +67,7 @@ class serendipity_event_ckeditor extends serendipity_event
         // do we already have it?
         if (is_dir($this->cke_dir) && is_file($this->cke_dir . '/ckeditor.js')) {
             // this is running while getting a new Plugin version
-            if ($this->CheckUpdate()) {
+            if ($this->checkUpdate()) {
                 $this->set_config('installer', '4-'.date('Ymd-H:i:s')); // this is a faked debug notice, since falldown is extract true with case 0, 1 or 2
             } else {
                 $this->set_config('installer', '3-'.date('Ymd-H:i:s')); // this will happen, if no further extract is necessary in case of an update
@@ -101,7 +101,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '1.2.0');
+        $propbag->add('version',       '1.2.1');
         $propbag->add('copyright',     'GPL & LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
@@ -194,25 +194,26 @@ class serendipity_event_ckeditor extends serendipity_event
     }
 
     /**
-     * Check update versions and create config values
+     * Check update versions to perform unzip and create config values
      * @access    private
      * @return    boolean
      */
-    private function CheckUpdate() {
+    private function checkUpdate() {
 
         $doupdate = false;
 
         foreach(array_values($this->checkUpdateVersion) AS $package) {
+            $match = explode(':', $package);
             // always set and extract if not match
-            if( preg_match('/^' . $package . ':(.+$)/', $line, $match) ) {
-                if ($this->get_config('last_'.$match[0].'_version') == $match[1]){
-                    $doupdate = false;
-                } else {
-                    $this->set_config('last_'.$match[0].'_version', $match[1]);
-                    $doupdate = true;
-                }
+            if ($this->get_config('last_'.$match[0].'_version') == $match[1]) {
+                $doupdate = false;
+            } else {
+                $this->set_config('last_'.$match[0].'_version', $match[1]);
+                $doupdate = true;
+                break; // this is possibly needed to force install upgrade routines
             }
         }
+
         return $doupdate ? true : false;
     }
 

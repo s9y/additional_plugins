@@ -21,15 +21,15 @@ class serendipity_event_linktrimmer extends serendipity_event {
         $propbag->add('name',          PLUGIN_LINKTRIMMER_NAME);
         $propbag->add('description',   PLUGIN_LINKTRIMMER_DESC);
         $propbag->add('requirements',  array(
-            'serendipity' => '0.9',
+            'serendipity' => '1.3',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '1.2');
+        $propbag->add('version',       '1.3');
         $propbag->add('author',        'Garvin Hicking');
         $propbag->add('stackable',     false);
-        $propbag->add('configuration', array('prefix', 'domain'));
+        $propbag->add('configuration', array('prefix', 'frontpage', 'domain'));
         $propbag->add('event_hooks',   array(
                                             'backend_frontpage_display'      => true,
                                             'css_backend'                    => true,
@@ -54,6 +54,13 @@ class serendipity_event_linktrimmer extends serendipity_event {
                 $propbag->add('name',        PLUGIN_LINKTRIMMER_LINKPREFIX);
                 $propbag->add('description', PLUGIN_LINKTRIMMER_LINKPREFIX_DESC);
                 $propbag->add('default',     'l');
+                break;
+
+            case 'frontpage':
+                $propbag->add('type', 'boolean');
+                $propbag->add('name', PLUGIN_LINKTRIMMER_FRONTPAGE_OPTION);
+                $propbag->add('description', '');
+                $propbag->add('default', 'true');
                 break;
 
             case 'domain':
@@ -202,16 +209,8 @@ class serendipity_event_linktrimmer extends serendipity_event {
             'linktrimmer_css'       => file_get_contents(dirname(__FILE__) . '/linktrimmer.css')
         ));
 
-        $tfile = serendipity_getTemplateFile('plugin_linktrimmer.tpl', 'serendipityPath');
-        if (!$tfile || $tfile == 'plugin_linktrimmer.tpl') {
-           $tfile = dirname(__FILE__) . '/plugin_linktrimmer.tpl';
-        }
-
-        $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-        $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
-        $content = $serendipity['smarty']->fetch('file:'. $tfile);
-        $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
-        echo $content;
+        // use nativ API here - extends S9y version >= 1.3
+        echo $this->parseTemplate('plugin_linktrimmer.tpl');
     }
 
     function generate_button ($txtarea) {
@@ -299,7 +298,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
                     break;
 
                 case 'backend_frontpage_display':
-                    if (!isset($serendipity['plugin_dashboard_version'])) $this->show();
+                    if (!isset($serendipity['plugin_dashboard_version']) && serendipity_db_bool($this->get_config('frontpage', true)) ) $this->show();
                     break;
 
                 case 'external_plugin':

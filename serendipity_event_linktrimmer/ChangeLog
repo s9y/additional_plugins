@@ -1,33 +1,37 @@
+1.3: 
+----
+* Added new option to hide lintrimmer on backend frontpage
+* Use nativ API method here - extends S9y version >= 1.3
+
 1.1, 1.2:
 ----
-
-static php5 function fixes
+* Static php5 function fixes
 
 1.0:
 ----
-do not show in Dashboard (POC)
+* Do not show in Dashboard (POC)
 
 0.9:
 ----
-added CKEDITOR ready eventData image path
+* Added CKEDITOR ready eventData image path
 
 0.8:
 ----
-latest: Smarty3 forward compatibility
+* Latest: Smarty3 forward compatibility
 
 0.7:
 ----
-Use latin1_general_cs charset due to lower/uppercase lookups,
-thanks to danst0
+* Use latin1_general_cs charset due to lower/uppercase lookups,
+  thanks to danst0
 
 0.6:
 ----
-Allow to be used in other plugins (danst0)
+* Allow to be used in other plugins (danst0)
 
 0.5:
 ----
-Remove unneeded die()
+* Remove unneeded die()
 
 0.1:
 ----
-Initial Release. See Documentation.
+* Initial Release. See Documentation.

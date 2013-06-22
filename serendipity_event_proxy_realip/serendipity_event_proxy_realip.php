@@ -23,7 +23,7 @@ class serendipity_event_proxy_realip extends serendipity_event {
     $propbag->add('description', PLUGIN_EVENT_PROXY_REALIP_DESC);
     $propbag->add('stackable', false);
     $propbag->add('author', '<a href="http://blog.kleinerChemiker.net/" target="_blank">kleinerChemiker</a>');
-    $propbag->add('version', '1.0.0');
+    $propbag->add('version', '1.0.1');
     $propbag->add('requirements', array('serendipity' => '1.6.2', 'smarty' => '2.6.7', 'php' => '5.3.0'));
     $propbag->add('groups', array('BACKEND_FEATURES'));
     $propbag->add('event_hooks', array('frontend_configure' => true));
@@ -40,7 +40,8 @@ class serendipity_event_proxy_realip extends serendipity_event {
         $propbag->add('type', 'string');
         $propbag->add('name', PLUGIN_EVENT_PROXY_REALIP);
         $propbag->add('description', PLUGIN_EVENT_PROXY_REALIP_VAR_DESC);
-        $propbag->add('default', '_SERVER[\'X-FORWARDED-FOR\']');
+        $propbag->add('validate', '/^\$[^;]+$/');
+        $propbag->add('default', '$_SERVER[\'X-FORWARDED-FOR\']');
         break;
       default :
         $propbag->add('type', 'boolean');
@@ -57,11 +58,18 @@ class serendipity_event_proxy_realip extends serendipity_event {
 
     $hooks = &$bag->get('event_hooks');
 
-    if ($realip_var === null) {
-      $realip_var = $this->get_config('realip_var', FALSE);
-      eval('$realip_ip = ' . $realip_var . ';');
-      $realip_ip = filter_var($realip_ip, FILTER_VALIDATE_IP);
-    }
+        if ($realip_var === null) {
+            $realip_var = $this->get_config('realip_var', '$_SERVER[\'X-FORWARDED-FOR\']');
+            $regex = '/^\$_(\w*) ?\[[\'"](\w*)[\'"]\]$/i';
+            preg_match($regex, $realip_var, $matches);
+            if (strtolower($matches[1]) == 'server') {
+                $tmp = $matches[2];
+                $realip_ip = filter_var($_SERVER[$tmp], FILTER_VALIDATE_IP);
+            } elseif (strtolower($matches[1]) == 'env') {
+                $tmp = $matches[2];
+                $realip_ip = filter_var($_ENV[$tmp], FILTER_VALIDATE_IP);
+            }
+        }
 
     if (isset($hooks[$event])) {
       switch ($event) {

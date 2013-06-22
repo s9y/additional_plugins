@@ -1,3 +1,9 @@
+1.0.1
+----
+# Vulnerability fixed.
+# realip_var default fixed
+# Fix when $realip_var not set
+
 1.0.0:
 ----
 # Release

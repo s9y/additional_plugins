@@ -1,15 +1,13 @@
-<?php # lang_cs.inc.php 1.1 2013-05-05 12:45:54 VladaAjgl $
+<?php # lang_cs.inc.php 1.0 2009-07-07 12:06:23 VladaAjgl $
 
 /**
- *  @version 1.1
+ *  @version 1.0
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/07/07
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2013/05/05
  */
 
 @define('PLUGIN_EVENT_INCLUDEENTRY_NAME',     'Markup: Vložení příspěvku/šablony/bloku');
-@define('PLUGIN_EVENT_INCLUDEENTRY_DESC',     'Umožňuje přidat do příspěvku tagy, které zajistí vložení části jiného příspěvku. Použijte tuto značku: [s9y-include-entry:XXX:YYY]. Nahraďte XXX číslem ID odkazovaného příspěvku a YYY nahraďte názvem pole příspěvku, které chcete vložit (např. "body", "title", "extended", ...). Také můžete využít nové funkce menu pro správu šablon a bloků, které je možno vložit mezi příspěvky.');
+@define('PLUGIN_EVENT_INCLUDEENTRY_DESC',     'Umožňuje přidat do příspěvku tagy, které zajistí vložení část jiného příspěvku. Použijte tuto značku: [s9y-include-entry:XXX:YYY]. Nahraďte XXX číslem ID odkazovaného příspěvku a YYY nahraďte názvem pole příspěvku, které chcete vložit (např. "body", "title", "extended", ...). Také můžete využít nové funkce menu pro správu šablon a bloků, které je možno vložit mezi příspěvky.');
 @define('PLUGIN_EVENT_INCLUDEENTRY_BLOCKS',   'Bloky šablon');
 @define('PLUGIN_EVENT_INCLUDEENTRY_DBVERSION', '1.0');
 @define('PLUGIN_EVENT_INCLUDEENTRY_FILENAME_NAME', 'Šablona (Smarty)');
@@ -30,3 +28,5 @@
 
 @define('STATICBLOCK_SHOW_MULTI', 'Povolit vícenásobné bloky');
 @define('STATICBLOCK_SHOW_MULTI_DESC', 'Pokud vložíte blok do příspěvku, má přesto funkce náhodné vkládání bloků vkládat bloky po příspěvku? Pokud je nastaveno "Ne", každý příspěvek nebude obsahovat více než jeden náhodný blok.');
+
+?>

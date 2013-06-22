@@ -1,20 +1,16 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
-		<meta name="generator" content="PSPad editor, www.pspad.com">
-		<title>Dokumentace: Plugin linktrimmer
-		</title>
+		<title>Dokumentace: Zkracovač adres</title>
 	</head>
-	<body>     <h1>Dokumentace k pluginu 'Linktrimmer'</h1>
-		<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 29.9.2010. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i 
-			<a href="../documentation_en.html">aktuální anglickou dokumentaci</a>.
-		</p>
+	<body>
+       <h1>Dokumentace k pluginu 'Linktrimmer'<br />
+	<small>(serendipity_event_linktrimmer)</small></h1>
+		<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) a naposledy zkontroloval dne 22.6.2013. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i <a href="../documentation_en.html">aktuální anglickou dokumentaci</a> a <a href="../ChangeLog">ChangeLog</a>.
 
+		<h2>Popis pluginu</h2>
 
-<h1>Co dělá tento plugin?</h1>
-
-<p>Plugin Link-trimmer Vám umožňuje provozovat na blogu vlastní zkracovač adres.</p>
+<p>Plugin Link-trimmer Vám umožňuje provozovat na blogu vlastní zkracovač adres. Podobně jako třeba tr.im nebo tinyurl.com.</p>
 
 <p>Můžete zadat libovolnou interní (uvnitř blogu) nebo externí (jakákoliv jiná) URL adresu. Plugin si zapíše tuto adresu do databáze a přiřadí k ní krátký identifikátor. Pak můžete posílat jiným lidem místo původní dlouhé adresy tuto novou krátkou, která lze lépe zapamatovat. V podstatě budete mít na blogu vlastní malou službu podobnou komerčním službám tr.im nebo tinyurl.
 </p>
@@ -60,5 +56,46 @@
 
 <p>To znamená, že server leto.com nejdříve provede přesměrování adresy na plnou dlouhou adresu na server, kde běží blog. Tam plugin vytvoří zbytek přesměrovací práce. Všimněte si, že v tomto příkladu byl použit hash (zkratka) dlouhý 3 znaky. Pokud máte více odkazů než několik tisíc, budete to chtít změnit např. na pět , tj. {1,5}. Dejte si jenom pozor, že toto přesměrování nekoliduje se jmény existujícíh adresářů. (pozn. překladatele: To se dá řešit pomocí direktivy RewriteCond. V každém případě je lepší se kolizím vyhnout.)</p>
 		
+    
+		<h2>Historie verzí (ChangeLog)</h2>
+		<ul>
+			<li>verze 1.3</li>	
+			<ul>	
+				<li>přidána volba pro schování zkracovače adres na hlavní stránce administrační sekce</li>	
+				<li>Použití nativní funkce API - rozšiřuje serendipity verzi >= 1.3</li>	
+			</ul>
+			<li>verze 1.1 a 1.2</li>	
+			<ul>	
+				<li>oprava statických php5 funkcí</li>	
+			</ul>
+			<li>verze 1.0</li>	
+			<ul>	
+				<li>Nezobrazovat na tabuli (POC)</li>	
+			</ul>
+			<li>verze 0.9</li>	
+			<ul>	
+				<li>Přidána cesta k obrázku CKEDITOR ready</li>	
+			</ul>
+			<li>verze 0.8</li>	
+			<ul>	
+				<li>dopředná kompatibilita se Smarty3</li>	
+			</ul>
+			<li>verze 0.7</li>	
+			<ul>	
+				<li>Použití znakové sady latin1_general_cs kvůli hledání s malými/velkými písmeny. Díky uživateli [danst0]</li>	
+			</ul>
+			<li>verze 0.6 [danst0]</li>	
+			<ul>	
+				<li>Umožnení použití v jiných pluginech</li>	
+			</ul>
+			<li>verze 0.5</li>	
+			<ul>	
+				<li>Odstranění nepotřebného die()</li>	
+			</ul>
+			<li>verze 0.1</li>	
+			<ul>	
+				<li>Úvodní release. Viz dokumentace.</li>	
+			</ul>
+		</ul>  
 	</body>
 </html>		

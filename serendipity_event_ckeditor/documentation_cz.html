@@ -1,0 +1,75 @@
+<html>    
+	<head>        
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-2">
+		<title>Dokumentace: CKEditor</title>        
+		<style>
+        	pre {
+				display: block;
+				padding: 5px;
+				border: solid 1px #333333;
+				background-color: #cccccc;
+			}         
+		</style>    
+	</head>
+	<body>
+	<h1>Dokumentace k pluginu 'CKEditor'<br />
+	<small>(serendipity_event_ckeditor)</small></h1>
+		<p>Dokumentaci k tomuto pluginu přeložil do češtiny Vladimír Ajgl (vlada [zavinac] ajgl [tecka] cz) dne 22.6.2013. Od té doby mohl být plugin pozměněn nebo mohly být rozšířené jeho funkce. Zkontrolujte pro jistotu i	<a href="ChangeLog">aktuální anglický ChangeLog</a>. 
+		</p>
+		
+		<h2>Popis pluginu</h2>
+    <p>Používá CKEditor jako výchozí WYSIWYG editor. Tento editor je aktuálním state-of-art. Použití: Doporučeno! Po instalaci přejděte na stránku s nastavením tohoto pluginu a čtěte další instrukce.
+    </p>
+		
+    <h2>Instalace</h2>
+<ol style="line-height: 1.6">
+<li>V nastavení pluginu zadejte relativní HTTP cestu k adresáři <em>"ckeditor"</em>.
+    <div><strong>Poznámka:</strong> ve většině instalací je tato cesta <em>"plugins/serendipity_event_ckeditor/ckeditor/"</em></div>
+</li>
+<li>V nastavení pluginu zadejte plnou HTTP cestu k serendipity adresáři <em>"plugins"</em> (včetně ukončujícího lomítka).
+    <div><strong>Poznámka:</strong> ve většině instalací je tato cesta <em>"http://www.vasblog.cz/plugins/"</em></div>
+</li>
+<li>Abyste umožnili ostatním uživatelům použití CKEditoru, umístěte tento plugin (CKEditor) blízko konce seznamu pluginů.</li>
+<li>Ujistěte se, že máte v osobním nastavení zapnuto použití WYSIWYG módu.</li>
+</ol>
+<h3>Plugin obsahuje</h3>
+<ul>
+<li>CKEditor 4.1.2 (revize d6f1e0e, standardní balíček, 2013-06-10)</li>
+<li>KCFinder 2.52-dev (git package, 2013-05-04)</li>
+</ul>
+
+<h3>Aktualizace</h3>
+<p>Tento plugin bude čas od času umožňovat aktualizace pomocí pluginu Spartacus.<hr>
+Pokud vůbec někdy budete potřebovat ručně aktualizovat dodané CKEditor balíčky na vlastní balíčky (*), pak prosím:
+<ol style="line-height: 1.6">
+<li><a href="http://ckeditor.com/download" target="_blank">stáhněte CKEditor</a></li>
+<li>Rozbalte jej do: <em>adresar_se_serednipity/pluginsserendipity_event_ckeditor</em> (měl by být vytvořen podadresář <em>"ckeditor"</em>)</li>
+</ol>
+(*) <em><strong>Poznámka:</strong> Toto vypnete (přepíše) integraci KCFinderu přidanou na konec souboru ckeditor/config.js: </em>
+<pre>
+/* KCFinder integration - 2013-05-04 */
+CKEDITOR.editorConfig = function(config) {
+   config.filebrowserBrowseUrl = CKEDITOR_BASEPATH + \'../kcfinder/browse.php?type=files\';
+   config.filebrowserImageBrowseUrl = CKEDITOR_BASEPATH + \'../kcfinder/browse.php?type=images\';
+   config.filebrowserFlashBrowseUrl = CKEDITOR_BASEPATH + \'../kcfinder/browse.php?type=flash\';
+   config.filebrowserUploadUrl = CKEDITOR_BASEPATH + \'../kcfinder/upload.php?type=files\';
+   config.filebrowserImageUploadUrl = CKEDITOR_BASEPATH + \'../kcfinder/upload.php?type=images\';
+   config.filebrowserFlashUploadUrl = CKEDITOR_BASEPATH + \'../kcfinder/upload.php?type=flash\';
+};
+</pre>
+</p>
+
+		<h2>Historie verzí (ChangeLog)</h2>
+		<ul>
+			<li>verze 1.2.1</li>	
+			<ul>	
+				<li>opravena chyba v kontrole aktualizace</li>	
+			</ul>
+			<li>verze 1.0</li>	
+			<ul>	
+				<li>aktualizace na CKEDITOR 4.1.2, 2013, 10.června</li>	
+				<li>Přidána volba pro vypnutí ACF (výchozí vypnutá)</li>	
+			</ul>
+		</ul>  
+	</body>
+</html>

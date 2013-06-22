@@ -1,7 +1,7 @@
-<?php # lang_cz.inc.php 1.7 2013-05-05 10:47:30 VladaAjgl $
+<?php # lang_cz.inc.php 1.6 2013-03-31 13:49:43 VladaAjgl $
 
 /**
- *  @version 1.7
+ *  @version 1.6
  *  @author VladimĂ­r Ajgl <vlada@ajgl.cz>
  *  @translated 2009/08/08
  *  @author VladimĂ­r Ajgl <vlada@ajgl.cz>
@@ -16,11 +16,9 @@
  *  @revisionDate 2012/01/11
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2013/03/31
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2013/05/05
  */
 @define('PLUGIN_TWITTER_TITLE',                         'Twitter');
-@define('PLUGIN_TWITTER_DESC',                          'Zobrazuje Vaše nejnovější příspěvky z Twitteru');
+@define('PLUGIN_TWITTER_DESC',                          'Zobrazuje Vaše nejnovější příspěvky na Twitteru');
 @define('PLUGIN_TWITTER_NUMBER',                        'Počet příspěvků');
 @define('PLUGIN_TWITTER_NUMBER_DESC',                   'Kolik příspěvků z Twitteru má být zobrazeno? (Výchozí: 10)');
 @define('PLUGIN_TWITTER_TOALL_ONLY',                    'Pouze tweety adresované všem');
@@ -226,7 +224,6 @@ Musíte se přihlásit nebo odhlásit s <b>odpovídajícím účtem Twitteru</b>
 @define('PLUGIN_EVENT_TWITTER_GENERALCONSUMER',         '<h3>Vlastní twitter klient</h3>Ve výchozím nastavení používá plugin klienta \'s9y\'. Můžete si <a href="https://dev.twitter.com/apps" target="_blank">zaregistrovat vlastního klienta</a> a nastavit consumer klíč a heslo vašeho klienta.');
 
 // Next lines were translated on 2013/03/31
-
 @define('PLUGIN_EVENT_TWITTER_TWEETER_UPDATE',           'Update');
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_PIRATLYDESC',     '<h3>pirat.ly API token</h3>Pro zkrácené odkaz <b>pirat.ly</b> můžete <a href="http://pirat.ly/account" target="_blank">získat API token tím, že se zdarma registrujete na službě piratly</a>. Použitím tohoto API tokenu při oznamování Vašich příspěvků můžete prohlížet počty prokliků buď pomocí webového rozhraní nebo na zařízení s Androidem pomocí <a href="http://pirat.ly/shortenerrr" target="_blank">aplikace Shortenerrr</a>.');
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_PIRATLYAPIKEY',   'Váš osobní piratly API token');

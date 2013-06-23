@@ -1085,12 +1085,16 @@
 <file>lang_cs.inc.php</file>
 <file>lang_bg.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>lang_cs.inc.php</file>
 <file>lang_bg.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>ChangeLog</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -1103,11 +1107,15 @@
     <file>serendipity_event_emoticonchooser/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_emoticonchooser/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_event_emoticonchooser/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_emoticonchooser/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_emoticonchooser/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_emoticonchooser/lang_cs.inc.php</file>
     <file>serendipity_event_emoticonchooser/lang_bg.inc.php</file>
     <file>serendipity_event_emoticonchooser/lang_en.inc.php</file>
     <file>serendipity_event_emoticonchooser/lang_cz.inc.php</file>
     <file>serendipity_event_emoticonchooser/ChangeLog</file>
+    <file>serendipity_event_emoticonchooser/documentation_cs.html</file>
+    <file>serendipity_event_emoticonchooser/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -10595,23 +10603,39 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
 </dir>
+<file>documentation_cs.html</file>
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_ckeditor.php</file>
 <file>ChangeLog</file>
+<file>documentation_cz.html</file>
 <file>ckeditor_4.1.2_standard-plus.zip</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_ckeditor/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_ckeditor/UTF-8/lang_en.inc.php</file>
+    <file>serendipity_event_ckeditor/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_ckeditor/UTF-8/documentation_cz.html</file>
+    <file>serendipity_event_ckeditor/UTF-8/lang_cs.inc.php</file>
+    <file>serendipity_event_ckeditor/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_ckeditor/documentation_cs.html</file>
     <file>serendipity_event_ckeditor/lang_de.inc.php</file>
     <file>serendipity_event_ckeditor/lang_en.inc.php</file>
     <file>serendipity_event_ckeditor/serendipity_event_ckeditor.php</file>
     <file>serendipity_event_ckeditor/ChangeLog</file>
+    <file>serendipity_event_ckeditor/documentation_cz.html</file>
     <file>serendipity_event_ckeditor/ckeditor_4.1.2_standard-plus.zip</file>
+    <file>serendipity_event_ckeditor/lang_cs.inc.php</file>
+    <file>serendipity_event_ckeditor/lang_cz.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>

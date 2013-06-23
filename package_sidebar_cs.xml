@@ -3108,7 +3108,7 @@
 <license>GPL</license>
 <summary>Twitter</summary>
 <groups>FRONTEND_VIEWS</groups>
-<description>Zobrazuje Vaše nejnovější příspěvky z Twitteru</description>
+<description>Zobrazuje Vaše nejnovější příspěvky na Twitteru</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Damian Luszczymak, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.49</version>

@@ -461,11 +461,11 @@
 <guid isPermaLink="false">serendipity_plugin_feedburnersidebar</guid>
 </item>
 <item>
-<title>Twitter: Zobrazuje Vaše nejnovější příspěvky z Twitteru</title>
+<title>Twitter: Zobrazuje Vaše nejnovější příspěvky na Twitteru</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_twitter</link>
 <category>Sidebar Plugins</category>
 <author>Grischa Brockhaus, Damian Luszczymak, Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_twitter&lt;br /&gt;Twitter&lt;/b&gt;&lt;br /&gt;Zobrazuje Vaše nejnovější příspěvky z Twitteru&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_plugin_twitter&lt;br /&gt;Twitter&lt;/b&gt;&lt;br /&gt;Zobrazuje Vaše nejnovější příspěvky na Twitteru&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Thu, 25 Oct 2012 02:32:11 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_twitter</guid>
 </item>

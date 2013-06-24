@@ -1033,6 +1033,8 @@
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>lang_en.inc.php</file>
 <file>lang_pl.inc.php</file>
@@ -1040,6 +1042,8 @@
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>ChangeLog</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -1053,12 +1057,16 @@
     <file>serendipity_event_trackback/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_event_trackback/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_trackback/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_trackback/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_trackback/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_trackback/lang_en.inc.php</file>
     <file>serendipity_event_trackback/lang_pl.inc.php</file>
     <file>serendipity_event_trackback/lang_bg.inc.php</file>
     <file>serendipity_event_trackback/lang_cs.inc.php</file>
     <file>serendipity_event_trackback/lang_cz.inc.php</file>
     <file>serendipity_event_trackback/ChangeLog</file>
+    <file>serendipity_event_trackback/documentation_cs.html</file>
+    <file>serendipity_event_trackback/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -2450,12 +2458,16 @@
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>ChangeLog</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
 </dir>
 
   </filelist>
@@ -2466,11 +2478,15 @@
     <file>serendipity_event_filter_entries/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_event_filter_entries/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_filter_entries/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_filter_entries/UTF-8/documentation_cs.html</file>
+    <file>serendipity_event_filter_entries/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_filter_entries/lang_bg.inc.php</file>
     <file>serendipity_event_filter_entries/lang_cs.inc.php</file>
     <file>serendipity_event_filter_entries/lang_en.inc.php</file>
     <file>serendipity_event_filter_entries/lang_cz.inc.php</file>
     <file>serendipity_event_filter_entries/ChangeLog</file>
+    <file>serendipity_event_filter_entries/documentation_cs.html</file>
+    <file>serendipity_event_filter_entries/documentation_cz.html</file>
   </serendipityFilelist>
 </release>
 </package>

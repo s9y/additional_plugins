@@ -12,7 +12,7 @@ class serendipity_event_adduser extends serendipity_event
         $propbag->add('description', PLUGIN_ADDUSER_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Garvin Hicking');
-        $propbag->add('version',     '2.36');
+        $propbag->add('version',     '2.37');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -152,7 +152,9 @@ class serendipity_event_adduser extends serendipity_event
 
 
                         if (serendipity_db_bool($this->get_config('true_identities')) && !serendipity_userLoggedIn()) {
-                            $user = serendipity_db_escape_string(preg_replace('@\s+@', ' ', trim($addData['name'])));
+                            $user = str_replace("\xc2\xa0b", '', $addData['name']);
+                            $user = serendipity_db_escape_string(preg_replace('@\s+@', ' ', trim($user)));
+                            $user = trim($user);
                             $authors = serendipity_db_query("SELECT authorid FROM {$serendipity['dbPrefix']}authors WHERE realname = '" . $user . "'");
                             if (is_array($authors) && isset($authors[0]['authorid'])) {
                                 $eventData = array('allow_comments' => false);

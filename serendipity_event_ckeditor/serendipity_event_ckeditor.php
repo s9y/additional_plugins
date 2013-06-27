@@ -101,8 +101,8 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '1.2.1');
-        $propbag->add('copyright',     'GPL & LGPL License');
+        $propbag->add('version',       '1.2.2');
+        $propbag->add('copyright',     'GPL or LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
             'smarty'      => '3.1.13',
@@ -359,8 +359,19 @@ class serendipity_event_ckeditor extends serendipity_event
                     command:  '<?php echo $button['id']; ?>'
                 });
 <?php 
-            } // close foreach
+            } // close foreach - follow up ML button into 'other' toolbar needs no textarea GET name, since the right instance dropping is done by this plugin
 ?>
+                editor.addCommand( 'openML', {
+                    exec : function( editor ) {
+                        window.open('serendipity_admin_image_selector.php', 'ImageSel', 'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1');
+                    }
+                });
+                editor.ui.addButton('openML', {
+                    label:   'S9yMedia',
+                    title:   'Serendipity Media Library',
+                    command: 'openML',
+                    icon: '<?php echo serendipity_rewriteURL('plugins/serendipity_event_ckeditor/img/mls9y.png'); ?>'
+                });
             }
         });
 <?php 
@@ -411,8 +422,19 @@ class serendipity_event_ckeditor extends serendipity_event
                             command:  '<?php echo $button['id']; ?>'
                         });
 <?php
-        } // close foreach 
+        } // close foreach - follow up ML button into 'other' toolbar needs no textarea GET name, since the right instance dropping is done by this plugin
 ?>
+                        editor.addCommand( 'openML', {
+                            exec : function( editor ) {
+                                window.open('serendipity_admin_image_selector.php', 'ImageSel', 'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1');
+                            }
+                        });
+                        editor.ui.addButton('openML', {
+                            label:   'S9yMedia',
+                            title:   'Serendipity Media Library',
+                            command: 'openML',
+                            icon: '<?php echo serendipity_rewriteURL('plugins/serendipity_event_ckeditor/img/mls9y.png'); ?>'
+                        });
                     }
                 });
 <?php
@@ -430,7 +452,7 @@ class serendipity_event_ckeditor extends serendipity_event
         }
     </script>
 <?php
-                    // kcfinder has a fallback media library mode if not properly loaded, or an other error occurs - get rid of it by default!
+                    // kcfinder has a fallback media library mode if not properly loaded, or an other error occurs - get rid of it by default, since it stops image browser executing!
                     if( is_file(dirname(__FILE__) . '/kcfinder/.htaccess') ) {
                         @unlink(dirname(__FILE__) . '/kcfinder/.htaccess');
                         $this->empty_dir(dirname(__FILE__) . '/kcfinder/.thumbs');

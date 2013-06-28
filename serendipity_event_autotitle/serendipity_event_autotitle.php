@@ -31,7 +31,7 @@ class serendipity_event_autotitle extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_AUTOTITLE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda');
-        $propbag->add('version',       '0.1.11');
+        $propbag->add('version',       '0.1.12');
         $propbag->add('requirements',  array(
             'php'         => '4.1.0'
         ));
@@ -177,6 +177,9 @@ class serendipity_event_autotitle extends serendipity_event
             //grab the real url
             preg_match('|href="([^\"]*?)"|is', $link, $url);
             $url = $url[1];
+            if (empty($url)) {
+                continue;
+            }
             
             //prepare cache:
             $this->cache->_setFileName($url, $this->cache_group);

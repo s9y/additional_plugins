@@ -9440,9 +9440,9 @@ aplikovány další typografické úpravy.</description>
 <description>Nastaví automaticky parametr title=&quot;...&quot; v odkazech - &amp;lt;a href=&quot;...&quot; title=&quot;...&quot;&amp;gt;.</description>
 <maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.1.11</version>
+  <version>0.1.12</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-01-25</date>
+  <date>2013-06-29</date>
   <filelist>
 <dir name="serendipity_event_autotitle">
 <file>lang_de.inc.php</file>

@@ -1348,7 +1348,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>&lt;a href=&quot;http://blog.kleinerChemiker.net/&quot; target=&quot;_blank&quot;&gt;kleinerChemiker&lt;/a&gt;</author>
 <content:encoded>&lt;b&gt;serendipity_event_proxy_realip&lt;br /&gt;Proxy Real-IP&lt;/b&gt;&lt;br /&gt;Nastaví správnou návštěvnickou IP adresu pro čtenáře, kteří používají Proxy webserver. Měl by být prvním pluginem v seznamu pluginů.&lt;br/&gt;For: Serendipity 1.6.2</content:encoded>
-<pubDate>Mon, 25 Mar 2013 02:31:07 +0100</pubDate>
+<pubDate>Tue, 02 Jul 2013 02:31:23 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_proxy_realip</guid>
 </item>
 <item>

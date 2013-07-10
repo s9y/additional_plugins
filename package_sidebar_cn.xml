@@ -680,6 +680,7 @@
 <file>lang_cn.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>DEADJOE</file>
 </dir>
 
   </filelist>
@@ -703,6 +704,7 @@
     <file>serendipity_plugin_wikipedia_finder/lang_cn.inc.php</file>
     <file>serendipity_plugin_wikipedia_finder/lang_cs.inc.php</file>
     <file>serendipity_plugin_wikipedia_finder/lang_cz.inc.php</file>
+    <file>serendipity_plugin_wikipedia_finder/DEADJOE</file>
   </serendipityFilelist>
 </release>
 </package>

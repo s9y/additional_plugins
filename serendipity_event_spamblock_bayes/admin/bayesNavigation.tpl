@@ -1,6 +1,6 @@
 
 {if $jquery_needed == true}
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
 {/if}
 <style> {$css} </style>
 <script src="{$path}serendipity_event_spamblock_bayes.js" type="text/javascript"></script>

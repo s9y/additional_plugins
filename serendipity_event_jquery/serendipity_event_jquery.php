@@ -23,7 +23,7 @@ class serendipity_event_jquery extends serendipity_event {
         $propbag->add('description',   EVENT_JQUERY_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author', 'Malte Paskuda');
-        $propbag->add('version', '1.11');
+        $propbag->add('version', '1.12');
         $propbag->add('event_hooks', array('frontend_header' => true,
                                            'backend_header'  => true,
                                             'backend_plugins_new_instance'  => true
@@ -50,7 +50,7 @@ class serendipity_event_jquery extends serendipity_event {
                 case 'backend_header':
                     // Serendipity 1.6 has jquery bundled.
                     if ($serendipity['capabilities']['jquery']) return '';
-                    echo '<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>' . "\n";
+                    echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>' . "\n";
                     break;
 
                 case 'backend_plugins_new_instance':

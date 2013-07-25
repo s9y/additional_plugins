@@ -1,3 +1,6 @@
+0.4:
+ * Fetch jquery via https
+
 0.3:
  * Check if template directory is writeable
  * Don't save php-files with syntax-errors

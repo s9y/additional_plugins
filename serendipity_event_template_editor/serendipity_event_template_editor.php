@@ -25,7 +25,7 @@ class serendipity_event_template_editor extends serendipity_event {
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda');
         $propbag->add('license',       'GPL');
-        $propbag->add('version',       '0.5');
+        $propbag->add('version',       '0.6');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8'
         ));
@@ -208,7 +208,7 @@ class serendipity_event_template_editor extends serendipity_event {
                     }
                     
 					if (!$serendipity['capabilities']['jquery']) {
-	                    echo '<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>';
+	                    echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>';
 					}
                     echo '<script src="'.$pluginPath.'jquery.jeditable.js" type="text/javascript"></script>
                     <script src="'.$pluginPath.'serendipity_event_template_editor.js" type="text/javascript"></script>

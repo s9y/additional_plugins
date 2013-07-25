@@ -1,4 +1,7 @@
-0.4:
+0.7:
+* Fetch jQuery without protocol
+
+0.6:
  * Fetch jquery via https
 
 0.3:

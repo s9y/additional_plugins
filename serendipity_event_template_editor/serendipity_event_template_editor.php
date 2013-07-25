@@ -25,7 +25,7 @@ class serendipity_event_template_editor extends serendipity_event {
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda');
         $propbag->add('license',       'GPL');
-        $propbag->add('version',       '0.6');
+        $propbag->add('version',       '0.7');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8'
         ));
@@ -68,7 +68,7 @@ class serendipity_event_template_editor extends serendipity_event {
 
     function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
-    
+
         $hooks = &$bag->get('event_hooks');
         if (isset($hooks[$event])) {
             switch($event) {
@@ -199,23 +199,23 @@ class serendipity_event_template_editor extends serendipity_event {
                         echo '<p class="serendipityAdminMsgError">'.htmlspecialchars($serendipity['GET']['error']).'</p>';
                     }
 
-                    
-                    
+
+
                     #only necessary for delivering the javascript and css
                     $pluginPath = $this->pluginPath = $this->get_config('path', '');
                     if (empty($pluginPath) || $pluginPath == 'default' || $pluginPath == 'none' || $pluginPath == 'empty') {
                         $pluginPath = $this->pluginPath = $serendipity['baseURL'] . 'index.php?/plugin/';
                     }
-                    
+
 					if (!$serendipity['capabilities']['jquery']) {
-	                    echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>';
+	                    echo '<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>';
 					}
                     echo '<script src="'.$pluginPath.'jquery.jeditable.js" type="text/javascript"></script>
                     <script src="'.$pluginPath.'serendipity_event_template_editor.js" type="text/javascript"></script>
-                    <link rel="stylesheet" type="text/css" href="'.$pluginPath.'serendipity_event_template_editor.css" /> 
+                    <link rel="stylesheet" type="text/css" href="'.$pluginPath.'serendipity_event_template_editor.css" />
                     <script type="text/javascript">pluginPath = "'.$pluginPath.'";</script>';
 
-                        
+
                     if (empty($serendipity['GET']['template_editor_path'])||is_dir($serendipity['serendipityPath'] . $serendipity['GET']['template_editor_path'])) {
                         #The path is our basic argument for selecting a file or a folder
                         $path = false;
@@ -232,7 +232,7 @@ class serendipity_event_template_editor extends serendipity_event {
                             $this->showDirectories($path);
                             $this->showCreator($path);
                         }
-                        
+
                     } else {
                         if ($this->get_config('highlight', true)) {
                             echo '<script src="'.$pluginPath.'codemirror/codemirror.js" type="text/javascript"></script>';
@@ -276,7 +276,7 @@ class serendipity_event_template_editor extends serendipity_event {
                 <input class="serendipityPrettyButton input_button" type="submit" value="'.PLUGIN_EVENT_TEMPLATE_EDITOR_UPLOAD.'" />
                 </form></div>';
         }
-        
+
     }
 
     function showCreator($path) {
@@ -310,7 +310,7 @@ class serendipity_event_template_editor extends serendipity_event {
                 return;
             }
         }
-        
+
         $heading = $this->linkify("?&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=template_editor&serendipity[template_editor_path]=", $path, $serendipity['template']);
 
         echo '<h3>'.$heading.'</h3>
@@ -319,7 +319,7 @@ class serendipity_event_template_editor extends serendipity_event {
             <textarea name="content" id="template_editor" cols="80" rows="38">'.htmlspecialchars($content).'</textarea>
             <input class="serendipityPrettyButton input_button" type="submit" value="'.SAVE.'" />
         </form>';
-        
+
     }
 
     function showFiles($path=false) {
@@ -333,7 +333,7 @@ class serendipity_event_template_editor extends serendipity_event {
 
 
         $heading = $this->linkify("?&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=template_editor&serendipity[template_editor_path]=", $path, $cur_template);
-        
+
         echo '<h3 id="templateEditorPath">'. $heading.'</h3>';
         if (empty($files)) {
             return;
@@ -379,7 +379,7 @@ class serendipity_event_template_editor extends serendipity_event {
             return;
         }
         echo '<h3>'.PLUGIN_EVENT_TEMPLATE_SUBFOLDERS.'</h3>';
-       
+
         echo '<ul id="templateEditorFolderList" class="templateEditorList" >';
         foreach ($dirs as $dir) {
             echo "<li>
@@ -389,7 +389,7 @@ class serendipity_event_template_editor extends serendipity_event {
                     </a>
                 </li>";
         }
-        echo '</ul>';    
+        echo '</ul>';
 
     }
 
@@ -448,7 +448,7 @@ class serendipity_event_template_editor extends serendipity_event {
         global $serendipity;
         $template_path = $serendipity['serendipity_path'] . $serendipity['templatePath'];
         $cur_template =  $serendipity['template'];
-       
+
 
         //fork only if not already forked
         $info_txt = file_get_contents($template_path . $cur_template . '/info.txt');
@@ -456,18 +456,18 @@ class serendipity_event_template_editor extends serendipity_event {
         if (strpos($info_txt, 'Fork_of:') !== false) {
             $forked = true;
         }
-        
+
         if (! $forked) {
             $fork_template = $cur_template . '_fork';
             if (is_writable($template_path)) {
                 if ( ! is_dir($template_path . $fork_template)) {
                     $this->copy_directory($template_path . $cur_template, $template_path . $fork_template);
-               
+
                     $info_txt = preg_replace('/Name: (.*)/', 'Name: ${1}_fork', $info_txt);
                     $info_txt = $info_txt . "\nFork_of: $cur_template";
                     file_put_contents($template_path . $fork_template . '/info.txt', $info_txt);
                 }
-                
+
                 //Now that the fork is created we need to set it instantly
                 //but only if copying succeeded
                 if (is_dir($template_path . $fork_template)) {
@@ -508,14 +508,14 @@ class serendipity_event_template_editor extends serendipity_event {
                 if ( $readdirectory == '.' || $readdirectory == '..' ) {
                     continue;
                 }
-                $PathDir = $source . '/' . $readdirectory; 
+                $PathDir = $source . '/' . $readdirectory;
                 if ( is_dir( $PathDir ) ) {
                     $this->copy_directory( $PathDir, $destination . '/' . $readdirectory );
                     continue;
                 }
                 copy( $PathDir, $destination . '/' . $readdirectory );
             }
-     
+
             $directory->close();
         } else {
             copy( $source, $destination );
@@ -524,12 +524,12 @@ class serendipity_event_template_editor extends serendipity_event {
 
     function debugMsg($msg) {
 		global $serendipity;
-		
+
 		$this->debug_fp = @fopen ( $serendipity ['serendipityPath'] . 'templates_c/template_editor.log', 'a' );
 		if (! $this->debug_fp) {
 			return false;
 		}
-		
+
 		if (empty ( $msg )) {
 			fwrite ( $this->debug_fp, "failure \n" );
 		} else {

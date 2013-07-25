@@ -23,13 +23,13 @@ class serendipity_event_jquery extends serendipity_event {
         $propbag->add('description',   EVENT_JQUERY_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author', 'Malte Paskuda');
-        $propbag->add('version', '1.12');
+        $propbag->add('version', '1.13');
         $propbag->add('event_hooks', array('frontend_header' => true,
                                            'backend_header'  => true,
                                             'backend_plugins_new_instance'  => true
                      ));
         $propbag->add('groups', array('BACKEND_FEATURES'));
-    }    
+    }
 
     function generate_content(&$title) {
         $title = $this->title;
@@ -38,7 +38,7 @@ class serendipity_event_jquery extends serendipity_event {
     function install() {
         $this->order_to_first();
     }
-    
+
 
     function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
@@ -50,7 +50,7 @@ class serendipity_event_jquery extends serendipity_event {
                 case 'backend_header':
                     // Serendipity 1.6 has jquery bundled.
                     if ($serendipity['capabilities']['jquery']) return '';
-                    echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>' . "\n";
+                    echo '<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>' . "\n";
                     break;
 
                 case 'backend_plugins_new_instance':
@@ -75,7 +75,7 @@ class serendipity_event_jquery extends serendipity_event {
         // Fetch current sort_order of current plugin.
         $q   = "SELECT sort_order FROM {$serendipity['dbPrefix']}plugins WHERE name = '" . $this->instance . "'";
         $cur = serendipity_db_query($q, true, 'num');
-        
+
         // Increase sort_order of all plugins before current plugin by one.
         $q = "UPDATE {$serendipity['dbPrefix']}plugins SET sort_order = sort_order + 1 WHERE placement = '" . $addData['default_placement'] . "' AND sort_order < " . intval($cur[0]);
         serendipity_db_query($q);

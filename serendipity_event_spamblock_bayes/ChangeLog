@@ -1,29 +1,33 @@
-0.4.9.6: 
-    Fetch jquery via https
+0.4.9.7:
+    * Fetch jQuery without protocol
+
+0.4.9.6:
+    * Fetch jquery via https
+
 0.4.9.5:
-    Changed menu-order to have the recycler first
+    * Changed menu-order to have the recycler first
+
 0.4.9:
-    Security: Escaped comments in backend
-    Fixed error when selecting no comments in analyse-menu
+    * Security: Escaped comments in backend
+    * Fixed error when selecting no comments in analyse-menu
 
 0.4.8:
-    Added option to delete all comments when emptying recycler
+    * Added option to delete all comments when emptying recycler
 
 0.4.7:
-    Added non-js-buttons in commentlist
+    * Added non-js-buttons in commentlist
 
 0.4.6:
-    Smartified backend-menu
-    Added pagination to database-table
-    Added pagination to recycler
-    Fixed "race-condition" in recycler, will now only delete displayed
-    comments
-    Recycler will now show rating of comments
-    Added missing label for approval email link
-    
+    * Smartified backend-menu
+    * Added pagination to database-table
+    * Added pagination to recycler
+    * Fixed "race-condition" in recycler, will now only delete displayed comments
+    * Recycler will now show rating of comments
+    * Added missing label for approval email link
+
 0.4.5:
-    Fixed analysis-menu
-    Fixed error in classification, ignored some commentcomponents
+    * Fixed analysis-menu
+    * Fixed error in classification, ignored some commentcomponents
 
 0.4.4:
     * Added menu options in import menu for troja
@@ -51,7 +55,7 @@
 0.3.9.2:
     * Deleting and recreating the database will now create the table with
       the key
-    * Fixed php-error when requesting all comments from an empty 
+    * Fixed php-error when requesting all comments from an empty
       database
 
 0.3.9.1:
@@ -80,7 +84,7 @@
     * Added a button to learn comments in the recycler again as spam when
       emptying it.
     * Added menu for analysing the ratings of a comment, showing the
-      the rating of each part    
+      the rating of each part
 
 0.3.6.1:
     * Fixing restore of recyclercontent
@@ -89,13 +93,13 @@
     * Upon Request: Added date to recycler
     * Added a "Mark all as ham"-button to the commentpage, using
       fieldsets to separate plugin-buttons from the normal ones
-    
+
 0.3.5:
     * Fixed possible infinite-loop when marking as spam
     * Made the "mark selected as spam"-function more robust
     * Upgrade: Fixed saving of old counter into the new system
     * Named treatment "custom" better
-    
+
 0.3.4:
     * Added workaround for "empty" pingbacks
 

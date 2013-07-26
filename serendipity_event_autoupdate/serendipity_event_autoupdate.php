@@ -22,7 +22,7 @@ class serendipity_event_autoupdate extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_AUTOUPDATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Ian');
-        $propbag->add('version',       '0.6');
+        $propbag->add('version',       '0.7');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '5.1'
@@ -167,6 +167,7 @@ class serendipity_event_autoupdate extends serendipity_event {
 EOS;
 
                     $this->show_message('<p class="msg_notice"><span class="icon-attention-circle"></span>Download, verify, check, unzip, copy, remove temporary stuff for Serendipity Update: ' . $_REQUEST['serendipity']['newVersion'] . ' may take a little while...<br>Please don\'t get nervous and do not close this page while in progress!</p><hr>');
+                    $this->show_message('<p class="msg_notice" style="font-size: small;color: #999;"><span class="icon-attention-circle"></span>Please note: If this page ever stops with an error message during procession, you can normally just RELOAD your browser [by keyboard shortcut] to get another run. This does not do any harm to a continued upgrade.</p>');
                     $this->show_message('<p class="msg_notice"><span class="icon-attention"></span>PHP max execution time set to 210 seconds</p>');
                     $start = microtime(true);
                     if(false === ($update = $this->fetchUpdate($nv))) {

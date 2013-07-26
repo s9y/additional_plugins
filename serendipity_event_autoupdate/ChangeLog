@@ -1,3 +1,6 @@
+0.7
+    * Added on error RELOAD note
+
 0.6
     * Added install by USERLEVEL_ADMIN only
     * changed some lang <en> <de> Constants

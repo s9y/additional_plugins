@@ -1177,7 +1177,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_jquery&lt;br /&gt;Implementace jQuery&lt;/b&gt;&lt;br /&gt;Umožňuje ostatnám pluginům používat jQuery&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:32:09 +0200</pubDate>
+<pubDate>Fri, 26 Jul 2013 02:31:18 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_jquery</guid>
 </item>
 <item>
@@ -1222,7 +1222,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_bayes&lt;br /&gt;Spamblock (Bayes)&lt;/b&gt;&lt;br /&gt;Detekce spamu pomocí adaptivního algoritmu, který se dokáže sám učit.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 07 Jun 2012 02:32:10 +0200</pubDate>
+<pubDate>Fri, 26 Jul 2013 02:31:23 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_bayes</guid>
 </item>
 <item>
@@ -1294,7 +1294,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_template_editor&lt;br /&gt;Editor stylů vzhledu&lt;/b&gt;&lt;br /&gt;Upravujte soubory aktuálního stylu vzhledu/šablony přímo z adminstrační sekce.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:32:19 +0200</pubDate>
+<pubDate>Fri, 26 Jul 2013 02:31:28 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_template_editor</guid>
 </item>
 <item>

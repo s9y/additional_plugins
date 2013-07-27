@@ -10334,9 +10334,9 @@ aplikovány další typografické úpravy.</description>
 <description>Experimentální. Když plugin &quot;tabule&quot; detekuje aktualizace, tento plugin přidá možnost automatické aktualizace blogu kliknutím na jediné tlačítko v administrační sekci.</description>
 <maintainers><maintainer><name>onli, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.6</version>
+  <version>0.7</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-05-31</date>
+  <date>2013-07-27</date>
   <filelist>
 <dir name="serendipity_event_autoupdate">
 <dir name="UTF-8">

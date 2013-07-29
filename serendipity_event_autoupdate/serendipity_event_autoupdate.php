@@ -22,7 +22,7 @@ class serendipity_event_autoupdate extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_AUTOUPDATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Ian');
-        $propbag->add('version',       '0.7');
+        $propbag->add('version',       '0.8');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '5.1'
@@ -584,7 +584,7 @@ EOS;
         $this->close_page();
 
         // this is working for me.... is it for you?
-        if(die("<script type='text/javascript'>alert('".mysql_real_escape_string($msg)."'); window.location = '".$serendipity['serendipityHTTPPath']."';</script>\n")) {
+        if(die("<script type='text/javascript'>alert('".serendipity_db_escape_string($msg)."'); window.location = '".$serendipity['serendipityHTTPPath']."';</script>\n")) {
             return;
         } else {
             if(!headers_sent()) {

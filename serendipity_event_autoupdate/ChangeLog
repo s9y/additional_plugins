@@ -1,3 +1,6 @@
+0.8
+    * Use native API method serendipity_db_escape_string()
+
 0.7
     * Added on error RELOAD note
 

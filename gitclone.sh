@@ -1,11 +1,11 @@
 #!/bin/bash
 cd ~/cvs/serendipity/git/additional_plugins/
 git pull
-git rebase
+git rebase master
 
 cd ~/cvs/serendipity/git/additional_themes/
 git pull
-git rebase
+git rebase master
 
 rsync \
       --exclude=/*.zip --exclude=/*.tgz --exclude=.project \

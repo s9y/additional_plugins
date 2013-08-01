@@ -58,7 +58,7 @@ rsync --partial -v -r ~/cvs/serendipity/additional_plugins/homepage/ \
 cp ~/cvs/serendipity/additional_plugins/*.xml ~/cvs/serendipity/git/additional_plugins/
 cd ~/cvs/serendipity/git/additional_plugins
 git pull
-git rebase
+git rebase master
 git add *.xml
 git commit -m "Automagic XML sync"
 git push origin

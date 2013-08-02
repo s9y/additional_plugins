@@ -81,7 +81,7 @@ class serendipity_event_ckeditor extends serendipity_event
                 $zip->extractTo($this->cke_path);
                 $zip->close();
                 $this->set_config('installer', '2-'.date('Ymd-H:i:s')); // returned by string[0], which is better than substr in this case
-                @unlink($this->cke_path . '/ckeditor_4.1.1_standard-plus.zip'); // remove old zip file
+                @unlink($this->cke_path . '/ckeditor_4.1.2_standard-plus.zip'); // remove old zip file
             } else {
                 $this->set_config('installer', '1-'.date('Ymd-H:i:s'));
                 return false;

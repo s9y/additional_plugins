@@ -63,8 +63,8 @@ class serendipity_event_ckeditor extends serendipity_event
      * @var array
      */
     protected $revisionPackage = array('CKEditor 4.1.3 (revision 1baa4c5, standard package, 2013-07-18)',
-                                       'KCFinder 2.52-dev (git package, 2013-05-04)',
-                                       'CKEditor-Plugin: mediaembed, author Fabian Vogelsteller [frozeman.de] (git package, 2013-07-25)');
+                                       'KCFinder 2.52-dev (http://kcfinder.sunhater.com/ git package, 2013-05-04)',
+                                       'CKEditor-Plugin: mediaembed 0.5+ (https://github.com/frozeman/MediaEmbed, 2013-07-25)');
 
 
     function install() {

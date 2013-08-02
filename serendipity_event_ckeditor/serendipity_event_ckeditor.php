@@ -48,14 +48,14 @@ class serendipity_event_ckeditor extends serendipity_event
      * @access protected
      * @var string
      */
-    protected  $cke_zipfile = 'ckeditor_4.1.2_standard-plus.zip';
+    protected  $cke_zipfile = 'ckeditor_4.1.3_standard-plus.zip';
 
     /**
      * Access property checkUpdateVersion
      * Verify release package versions - do update on upgrades!
      * @var array
      */
-    protected  $checkUpdateVersion = array('ckeditor:4.1.2', 'kcfinder:2.52-2');
+    protected  $checkUpdateVersion = array('ckeditor:4.1.3', 'kcfinder:2.52-2');
 
 
     function install() {
@@ -101,7 +101,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '1.2.2');
+        $propbag->add('version',       '1.3.0');
         $propbag->add('copyright',     'GPL or LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
@@ -112,6 +112,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('event_hooks',   array(
             'backend_header'                         => true,
             'css_backend'                            => true,
+            'backend_plugins_update'                 => true,
             'backend_media_path_exclude_directories' => true,
             'backend_wysiwyg'                        => true,
             'backend_wysiwyg_finish'                 => true
@@ -174,7 +175,7 @@ class serendipity_event_ckeditor extends serendipity_event
                     echo '<p class="msg_notice"><span class="icon-info-circle"></span><strong>Check Plugin Update Message:</strong> NO CONFIG SET OR NO MATCH -> config_set: "last_'.$parts[0].'_version:'. $parts[1].'"</p>';
                     break;
                 case '3':
-                    echo '<p class="msg_success"><span class="icon-ok-circle"></span><strong>Installer Update Message:</strong> Check Update found false, no unpack needed. Plugin upgrade successfully done!</p>';
+                    echo '<p class="msg_success"><span class="icon-ok-circle"></span><strong>Installer Update Message:</strong> Check Update found false, no unpack needed. Plugin upgrade successfully done <strong>or</strong> has been triggered to be checked by an other Spartacus Plugin update!</p>';
                     break;
                 case '2':
                     echo '<p class="msg_success"><span class="icon-ok-circle"></span><strong>Installer Message:</strong> Extracting the zip to ' . $this->cke_path . ' directory done!</p>';
@@ -258,7 +259,7 @@ class serendipity_event_ckeditor extends serendipity_event
     <script type="text/javascript">
         CKEDITOR.config['skin'] = 'moono';
         CKEDITOR.config['height'] = 400;
-        CKEDITOR.config.removePlugins = 'flash,iframe';
+        //CKEDITOR.config.removePlugins = 'flash,iframe';
         CKEDITOR.config.allowedContent = <?php echo $acfoff; ?>;
         CKEDITOR.config.removeButtons = 'Styles';
         CKEDITOR.config.toolbarGroups = [
@@ -272,6 +273,7 @@ class serendipity_event_ckeditor extends serendipity_event
             { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
             { name: 'editing', groups: [ 'find', 'selection', 'spellchecker' ] },
             { name: 'others' },
+            { name: 'mediaembed' },
             { name: 'tools' },
             { name: 'about' }
         ];
@@ -322,6 +324,10 @@ class serendipity_event_ckeditor extends serendipity_event
                     }
                     break;
 
+                case 'backend_plugins_update':
+                    $this->install();
+                    break;
+
                 case 'backend_media_path_exclude_directories':
                     $eventData[".thumbs"] = true;
                     return true;
@@ -340,7 +346,7 @@ class serendipity_event_ckeditor extends serendipity_event
 <?php 
         if (isset($eventData) && (is_array($eventData['buttons']) && !empty($eventData['buttons']))) { 
 ?>
-        CKEDITOR.config.extraPlugins = 'entryforms<?php echo $eventData['jsname']; ?>';
+        CKEDITOR.config.extraPlugins = 'entryforms<?php echo $eventData['jsname']; ?>,mediaembed'; // no spaces allowed!
         CKEDITOR.plugins.add('entryforms<?php echo $eventData['jsname']; ?>', {
             init: function(editor) {
 <?php 
@@ -403,7 +409,7 @@ class serendipity_event_ckeditor extends serendipity_event
 <?php
     if (isset($eventData) && (is_array($eventData['buttons']) && !empty($eventData['buttons']))) {
 ?>
-                CKEDITOR.config.extraPlugins = 'nuggets' + item;
+                CKEDITOR.config.extraPlugins = 'nuggets'+item+',mediaembed'; // no spaces allowed!;
                 CKEDITOR.plugins.add('nuggets' + item, {
                     init: function(editor) {
 <?php

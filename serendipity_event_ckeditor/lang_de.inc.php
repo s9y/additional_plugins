@@ -21,9 +21,15 @@
 </ol>
 <h3>Das Plugin enthält</h3>
 <ul>
-<li>CKEditor 4.1.2 (revision d6f1e0e, standard package, 2013-06-10)</li>
+<li>CKEditor 4.1.3 (revision 1baa4c5, standard package, 2013-07-18)</li>
 <li>KCFinder 2.52-dev (git package, 2013-05-04)</li>
 </ul>
+
+<h3>Manuelle Erweiterungen mit CKEDITOR Plugins</h3>
+<ol style="line-height: 1.6">
+<li>Definiere manuell hinzugefügte Plugins (analog zu { name: \'mediaembed\' },) in ckeditor/config.js, in die <em>CKEDITOR.config.toolbarGroups = [...]</em> Definition in der serendipity_event_ckeditor.php Datei.</li>
+<li>Außerdem füge den neuen Pluginnamen (analog zu mediaembed) zu beiden Vorkommen der <em>CKEDITOR.config.extraPlugins = \'...,...\'</em> Definitionen in der serendipity_event_ckeditor.php Datei hinzu.</li>
+</ol>
 
 <h3>Upgrading</h3>
 <p>Dieses Plugin wird von Zeit zu Zeit selber Updates via Spartacus bereitstellen.<hr>

@@ -8,6 +8,7 @@
 
 @define('PLUGIN_EVENT_CKEDITOR_NAME', 'CKEditor');
 @define('PLUGIN_EVENT_CKEDITOR_DESC', 'Nutzt CKEditor als den Standard WYSIWYG Editor. Dieser ist zur Zeit der state-of-the-art Editor im Internet. Benutzung: Empfohlen! Nach der Installation, lies die Plugin Konfigurations Seite für weitere Informationen.');
+@define('PLUGIN_EVENT_CKEDITOR_REVISION_TITLE', '<h3>Das Plugin enthält:</h3>');
 @define('PLUGIN_EVENT_CKEDITOR_INSTALL', '<h2>Installation</h2>
 <ol style="line-height: 1.6">
 <li>Gebe den relativen HTTP Pfad des <em>"ckeditor"</em> Verzeichnisses in die Plugin Konfiguration ein.
@@ -19,11 +20,6 @@
 <li>Um anderen Plugins Zugriff auf das Plugin oder dessen Hook zu gewähren, plaziere das (CKEditor) Plugin nahe dem Ende deiner Pluginliste.</li>
 <li>Versichere dich, dass der WYSIWYG Modus in den "Persönlichen Einstellungen" eingeschaltet ist.</li>
 </ol>
-<h3>Das Plugin enthält</h3>
-<ul>
-<li>CKEditor 4.1.3 (revision 1baa4c5, standard package, 2013-07-18)</li>
-<li>KCFinder 2.52-dev (git package, 2013-05-04)</li>
-</ul>
 
 <h3>Manuelle Erweiterungen mit CKEDITOR Plugins</h3>
 <ol style="line-height: 1.6">

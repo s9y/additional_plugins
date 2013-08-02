@@ -18,11 +18,6 @@
 <li>Abyste umožnili ostatním uživatelům použití CKEditoru, umístěte tento plugin (CKEditor) blízko konce seznamu pluginů.</li>
 <li>Ujistěte se, že máte v osobním nastavení zapnuto použití WYSIWYG módu.</li>
 </ol>
-<h3>Plugin obsahuje</h3>
-<ul>
-<li>CKEditor 4.1.2 (revize d6f1e0e, standardní balíček, 2013-06-10)</li>
-<li>KCFinder 2.52-dev (git package, 2013-05-04)</li>
-</ul>
 
 <h3>Aktualizace</h3>
 <p>Tento plugin bude čas od času umožňovat aktualizace pomocí pluginu Spartacus.<hr>

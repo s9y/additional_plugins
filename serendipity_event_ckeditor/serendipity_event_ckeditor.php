@@ -57,6 +57,15 @@ class serendipity_event_ckeditor extends serendipity_event
      */
     protected  $checkUpdateVersion = array('ckeditor:4.1.3', 'kcfinder:2.52-2');
 
+    /**
+     * Access property revisionPackage
+     * Note revisions of ckeditor, kcfinder and plugin additions to lang files
+     * @var array
+     */
+    protected $revisionPackage = array("    <li>CKEditor 4.1.3 (revision 1baa4c5, standard package, 2013-07-18)</li>\n", 
+                                       "    <li>KCFinder 2.52-dev (git package, 2013-05-04)</li>\n",
+                                       "    <li>Ckeditor-Plugin: mediaembed, author Fabian Vogelsteller [frozeman.de] (git package, 2013-07-25)</li>\n");
+
 
     function install() {
         global $serendipity;
@@ -168,6 +177,10 @@ class serendipity_event_ckeditor extends serendipity_event
 
         $installer = $this->get_config('installer'); // Can't use method return value in write context in '' with substr(), get_config() and isset()
         $parts     = explode(':', $this->checkUpdateVersion[0]); // this is ckeditor only
+
+        echo PLUGIN_EVENT_CKEDITOR_REVISION_TITLE;
+        // hook this as a scalar value into this plugins lang files
+        echo "\n<ul>\n" . implode('', $this->revisionPackage) . "</ul>\n\n";
 
         if( isset($installer) && !empty($installer) ) {
             switch ($installer[0]) {

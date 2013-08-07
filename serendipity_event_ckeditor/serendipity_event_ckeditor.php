@@ -360,14 +360,12 @@ class serendipity_event_ckeditor extends serendipity_event
 
     <script type="text/javascript">
         CKEDITOR.replace('<?php echo $eventData['item']; ?>', {});
-<?php 
-        if (isset($eventData) && (is_array($eventData['buttons']) && !empty($eventData['buttons']))) { 
-?>
         CKEDITOR.config.extraPlugins = 'entryforms<?php echo $eventData['jsname']; ?>,mediaembed'; // no spaces allowed!
         CKEDITOR.plugins.add('entryforms<?php echo $eventData['jsname']; ?>', {
             init: function(editor) {
 <?php 
-            foreach ($eventData['buttons'] as $button) { 
+        if (isset($eventData) && (is_array($eventData['buttons']) && !empty($eventData['buttons']))) {
+            foreach ($eventData['buttons'] as $button) {
 ?>
                 editor.addCommand( '<?php echo $button['id']; ?>', {
                     exec: function( editor ) {
@@ -383,6 +381,7 @@ class serendipity_event_ckeditor extends serendipity_event
                 });
 <?php 
             } // close foreach - follow up ML button into 'other' toolbar needs no textarea GET name, since the right instance dropping is done by this plugin
+        } // close isset $eventData
 ?>
                 editor.addCommand( 'openML', {
                     exec : function( editor ) {
@@ -397,9 +396,6 @@ class serendipity_event_ckeditor extends serendipity_event
                 });
             }
         });
-<?php 
-        } // close isset $eventData
-?>
     </script>
 <?php 
                     }

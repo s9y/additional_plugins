@@ -27,35 +27,35 @@ class serendipity_event_ckeditor extends serendipity_event
      * @access public
      * @var string
      */
-    public     $title = PLUGIN_EVENT_CKEDITOR_NAME;
+    public    $title = PLUGIN_EVENT_CKEDITOR_NAME;
 
     /**
      * Access property cke_path
      * @access protected
      * @var string
      */
-    protected  $cke_path = CKEDITOR_DIRNAME_PLUGIN_PATH;
+    protected $cke_path = CKEDITOR_DIRNAME_PLUGIN_PATH;
 
     /**
      * Access property cke_dir
      * @access protected
      * @var string
      */
-    protected  $cke_dir = CKEDITOR_DIRNAME_CKEDITOR_PATH;
+    protected $cke_dir = CKEDITOR_DIRNAME_CKEDITOR_PATH;
 
     /**
      * Access property cke_zipfile
      * @access protected
      * @var string
      */
-    protected  $cke_zipfile = 'ckeditor_4.1.3_standard-plus.zip';
+    protected $cke_zipfile = 'ckeditor_4.1.3_standard-plus.zip';
 
     /**
      * Access property checkUpdateVersion
      * Verify release package versions - do update on upgrades!
      * @var array
      */
-    protected  $checkUpdateVersion = array('ckeditor:4.1.3', 'kcfinder:2.52-2');
+    protected $checkUpdateVersion = array('ckeditor:4.1.3', 'kcfinder:2.52-2');
 
     /**
      * Access property revisionPackage
@@ -90,7 +90,12 @@ class serendipity_event_ckeditor extends serendipity_event
                 $zip->extractTo($this->cke_path);
                 $zip->close();
                 $this->set_config('installer', '2-'.date('Ymd-H:i:s')); // returned by string[0], which is better than substr in this case
-                @unlink($this->cke_path . '/ckeditor_4.1.2_standard-plus.zip'); // remove old zip file
+                // Check to remove every old ckeditor_(*)_standard-plus.zip files
+                foreach (glob($this->cke_path . '/*.zip') as $filename) {
+                    if($this->cke_path . '/' . $this->cke_zipfile != $filename) {
+                        @unlink($filename);
+                    }
+                }
             } else {
                 $this->set_config('installer', '1-'.date('Ymd-H:i:s'));
                 return false;
@@ -180,7 +185,7 @@ class serendipity_event_ckeditor extends serendipity_event
 
         echo PLUGIN_EVENT_CKEDITOR_REVISION_TITLE;
         echo "\n<ul>\n";
-        // hook this as a scalar value into this plugins lang files
+        // hook this as a scalar value into this plugins lang files (would be needed by adding this to a constant)
         foreach( $this->revisionPackage AS $revision ) {
             echo '    <li>' . $revision . "</li>\n";
         }
@@ -294,6 +299,63 @@ class serendipity_event_ckeditor extends serendipity_event
             { name: 'tools' },
             { name: 'about' }
         ];
+
+        CKEDITOR.on( 'instanceReady', function( event ) {
+            event.editor.on( 'focus', function() {
+                // console.log( 'focused', this );
+                isinstance = this;
+            });
+        });
+
+        // this is nugget only area, spawned by head! (textareas of staticpage nuggets, html nugget plugins, etc.)
+        // called via Spawnnugget(), set by real plugins like staticpages and cores functions_plugins_admin.inc in case of $ev['skip_nuggets'] === false
+        function Spawnnuggets(item) {
+            // console.log(item);
+            if (document.getElementById('nuggets' + item)) {
+                CKEDITOR.replace('nuggets' + item, {
+                    // Reset toolbar Groups settings
+                    // toolbarGroups: null
+                });
+
+                CKEDITOR.config.extraPlugins = 'nuggets'+item +',mediaembed'; // no spaces allowed!
+                CKEDITOR.plugins.add('nuggets' + item, {
+                    init: function(editor) {
+<?php
+    if (isset($eventData) && (is_array($eventData['buttons']) && !empty($eventData['buttons']))) {
+        foreach ($eventData['buttons'] as $button) {
+?>
+                        editor.addCommand( '<?php echo $button['id']; ?>', {
+                            exec: function( editor ) {
+                                <?php echo str_replace(array('function() { ',' }'), '', $button['javascript']); ?>;
+                            }
+                        });
+                        editor.ui.addButton('<?php echo $button['id']; ?>', {
+                            label:    '<?php echo $button['name']; ?>',
+                            title:    '<?php echo $button['name']; ?> Plugin',
+                            icon:     '<?php echo $serendipity['serendipityHTTPPath'] . 'plugins/' . $button['img_path']; ?>',
+                            iconName: '<?php echo $button['id']; ?>_icon',
+                            command:  '<?php echo $button['id']; ?>'
+                        });
+<?php
+        } // end foreach - follow-up ML button into 'other' toolbar needs no textarea GET name, since the right instance dropping is done by this plugin
+    } // end isset $eventData
+?>
+                        editor.addCommand( 'openML', {
+                            exec : function( editor ) {
+                                window.open('serendipity_admin_image_selector.php', 'ImageSel', 'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1');
+                            }
+                        });
+                        editor.ui.addButton('openML', {
+                            label:   'S9yMedia',
+                            title:   'Serendipity Media Library',
+                            icon: '<?php echo $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_ckeditor/img/mls9y.png'; ?>',
+                            iconName: 'openML_icon',
+                            command: 'openML'
+                        });
+                    }
+                });
+            }
+        }
     </script>
 
 <?php
@@ -354,8 +416,10 @@ class serendipity_event_ckeditor extends serendipity_event
                     $eventData['skip'] = true; // this skips htmlarea drop-in
 
                     if (preg_match('@^nugget@i', $eventData['item'])) {
+                        // switch to finisher, in case of nuggets
                         $this->event_hook('backend_wysiwyg_finish', $bag, $eventData);
                     } else {
+                        // this builds both textareas of entry forms only
 ?>
 
     <script type="text/javascript">
@@ -374,9 +438,9 @@ class serendipity_event_ckeditor extends serendipity_event
                 });
                 editor.ui.addButton('<?php echo $button['id']; ?>', {
                     label:    '<?php echo $button['name']; ?>',
-                    title:    '<?php echo $button['name']; ?>',
-                    icon:     '<?php echo serendipity_rewriteURL('plugins/'.$button['img_path']); ?>',
-                    iconName: '<?php echo $button['id']; ?>',
+                    title:    '<?php echo $button['name']; ?> Plugin',
+                    icon:     '<?php echo $serendipity['serendipityHTTPPath'] . 'plugins/' . $button['img_path']; ?>',
+                    iconName: '<?php echo $button['id']; ?>_icon',
                     command:  '<?php echo $button['id']; ?>'
                 });
 <?php 
@@ -391,8 +455,9 @@ class serendipity_event_ckeditor extends serendipity_event
                 editor.ui.addButton('openML', {
                     label:   'S9yMedia',
                     title:   'Serendipity Media Library',
-                    command: 'openML',
-                    icon: '<?php echo serendipity_rewriteURL('plugins/serendipity_event_ckeditor/img/mls9y.png'); ?>'
+                    icon: '<?php echo $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_ckeditor/img/mls9y.png'; ?>',
+                    iconName: 'openML_icon',
+                    command: 'openML'
                 });
             }
         });
@@ -403,74 +468,23 @@ class serendipity_event_ckeditor extends serendipity_event
                     break;
 
                 case 'backend_wysiwyg_finish':
+                    // Run once only, save ressources
+                    // This should better move into a future 'backend_footer' hook, to not happen twice on multiple textareas, or has to get rewritten in serendipity_html_nugget_plugin textarea, since only needed there!
+                    if (isset($eventData['item']) && !empty($eventData['item'])) {
 ?>
-
     <script type="text/javascript">
-        CKEDITOR.on( 'instanceReady', function( event ) {
-            event.editor.on( 'focus', function() {
-                //console.log( 'focused', this );
-                isinstance = this;
-            });
-        });
-
-        function Spawnnuggets(item) {
-            if (document.getElementById('nuggets' + item)) {
-                CKEDITOR.replace('nuggets' + item, {
-                    // Reset toolbar Groups settings
-                    // toolbarGroups: null
-                });
-<?php
-    if (isset($eventData) && (is_array($eventData['buttons']) && !empty($eventData['buttons']))) {
-?>
-                CKEDITOR.config.extraPlugins = 'nuggets'+item+',mediaembed'; // no spaces allowed!;
-                CKEDITOR.plugins.add('nuggets' + item, {
-                    init: function(editor) {
-<?php
-        foreach ($eventData['buttons'] as $button) {
-?>
-                        editor.addCommand( '<?php echo $button['id']; ?>', {
-                            exec: function( editor ) {
-                                <?php echo str_replace(array('function() { ',' }'), '', $button['javascript']); ?>;
-                            }
-                        });
-                        editor.ui.addButton('<?php echo $button['id']; ?>', {
-                            label:    '<?php echo $button['name']; ?>',
-                            title:    '<?php echo $button['name']; ?>',
-                            icon:     '<?php echo serendipity_rewriteURL('plugins/'.$button['img_path']); ?>',
-                            iconName: '<?php echo $button['id']; ?>',
-                            command:  '<?php echo $button['id']; ?>'
-                        });
-<?php
-        } // close foreach - follow up ML button into 'other' toolbar needs no textarea GET name, since the right instance dropping is done by this plugin
-?>
-                        editor.addCommand( 'openML', {
-                            exec : function( editor ) {
-                                window.open('serendipity_admin_image_selector.php', 'ImageSel', 'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1');
-                            }
-                        });
-                        editor.ui.addButton('openML', {
-                            label:   'S9yMedia',
-                            title:   'Serendipity Media Library',
-                            command: 'openML',
-                            icon: '<?php echo serendipity_rewriteURL('plugins/serendipity_event_ckeditor/img/mls9y.png'); ?>'
-                        });
-                    }
-                });
-<?php
-    } // close isset $eventData
-?>
-            }
-        }
-
+        // Avoid TypeError: parent.self.opener.serendipity_imageSelector_addToBody is not a function in serendipity_html_nugget_plugin textarea (nuggets3) in S9y 1.7 Series
         function serendipity_imageSelector_addToBody (str, textarea) {
             var oEditor = isinstance; // WHOW this was easy...!!!!
             //console.log(oEditor);
             if (oEditor.mode == "wysiwyg") {
                 oEditor.insertHtml(str);
-            } 
+            }
         }
     </script>
 <?php
+                    }
+
                     // kcfinder has a fallback media library mode if not properly loaded, or an other error occurs - get rid of it by default, since it stops image browser executing!
                     if( is_file(dirname(__FILE__) . '/kcfinder/.htaccess') ) {
                         @unlink(dirname(__FILE__) . '/kcfinder/.htaccess');

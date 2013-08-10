@@ -1,6 +1,7 @@
 1.3.1:
 -----
-    * Better workflow between nuggets and entry textareas
+    * (Better workflow between nuggets and entry textareas - reverted)
+    * changed lang files revision message to be automatically set
     * Fixed bug not showing media library button, if not using other hooked-in plugins (thanks to ICE)
     * Fixed bug not proceeding image button path correctly, with non_rewrite_mode sites (thanks to ICE)
     * Enhanced old (multiple) zip file removement

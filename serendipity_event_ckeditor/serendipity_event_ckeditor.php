@@ -307,55 +307,6 @@ class serendipity_event_ckeditor extends serendipity_event
             });
         });
 
-        // this is nugget only area, spawned by head! (textareas of staticpage nuggets, html nugget plugins, etc.)
-        // called via Spawnnugget(), set by real plugins like staticpages and cores functions_plugins_admin.inc in case of $ev['skip_nuggets'] === false
-        function Spawnnuggets(item) {
-            // console.log(item);
-            if (document.getElementById('nuggets' + item)) {
-                CKEDITOR.replace('nuggets' + item, {
-                    // Reset toolbar Groups settings
-                    // toolbarGroups: null
-                });
-
-                CKEDITOR.config.extraPlugins = 'nuggets'+item +',mediaembed'; // no spaces allowed!
-                CKEDITOR.plugins.add('nuggets' + item, {
-                    init: function(editor) {
-<?php
-    if (isset($eventData) && (is_array($eventData['buttons']) && !empty($eventData['buttons']))) {
-        foreach ($eventData['buttons'] as $button) {
-?>
-                        editor.addCommand( '<?php echo $button['id']; ?>', {
-                            exec: function( editor ) {
-                                <?php echo str_replace(array('function() { ',' }'), '', $button['javascript']); ?>;
-                            }
-                        });
-                        editor.ui.addButton('<?php echo $button['id']; ?>', {
-                            label:    '<?php echo $button['name']; ?>',
-                            title:    '<?php echo $button['name']; ?> Plugin',
-                            icon:     '<?php echo $serendipity['serendipityHTTPPath'] . 'plugins/' . $button['img_path']; ?>',
-                            iconName: '<?php echo $button['id']; ?>_icon',
-                            command:  '<?php echo $button['id']; ?>'
-                        });
-<?php
-        } // end foreach - follow-up ML button into 'other' toolbar needs no textarea GET name, since the right instance dropping is done by this plugin
-    } // end isset $eventData
-?>
-                        editor.addCommand( 'openML', {
-                            exec : function( editor ) {
-                                window.open('serendipity_admin_image_selector.php', 'ImageSel', 'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1');
-                            }
-                        });
-                        editor.ui.addButton('openML', {
-                            label:   'S9yMedia',
-                            title:   'Serendipity Media Library',
-                            icon: '<?php echo $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_ckeditor/img/mls9y.png'; ?>',
-                            iconName: 'openML_icon',
-                            command: 'openML'
-                        });
-                    }
-                });
-            }
-        }
     </script>
 
 <?php
@@ -473,6 +424,57 @@ class serendipity_event_ckeditor extends serendipity_event
                     if (isset($eventData['item']) && !empty($eventData['item'])) {
 ?>
     <script type="text/javascript">
+        // this is nugget only area, spawned by head! (textareas of staticpage nuggets, html nugget plugins, etc.)
+        // called via Spawnnugget(), set by real plugins like staticpages and cores functions_plugins_admin.inc in case of $ev['skip_nuggets'] === false
+        // eventData can only be executed here, if not pushing this via js var into a 'backend_header' set global nugget function
+        function Spawnnuggets(item) {
+            // console.log(item);
+            if (document.getElementById('nuggets' + item)) {
+                CKEDITOR.replace('nuggets' + item, {
+                    // Reset toolbar Groups settings
+                    // toolbarGroups: null
+                });
+
+                CKEDITOR.config.extraPlugins = 'nuggets'+item +',mediaembed'; // no spaces allowed!
+                CKEDITOR.plugins.add('nuggets' + item, {
+                    init: function(editor) {
+<?php
+    if (isset($eventData['buttons']) && (is_array($eventData['buttons']) && !empty($eventData['buttons']))) {
+        foreach ($eventData['buttons'] as $button) {
+?>
+                        editor.addCommand( '<?php echo $button['id']; ?>', {
+                            exec: function( editor ) {
+                                <?php echo str_replace(array('function() { ',' }',$serendipity['defaultBaseURL']), '', $button['javascript']); ?>;
+                            }
+                        });
+                        editor.ui.addButton('<?php echo $button['id']; ?>', {
+                            label:    '<?php echo $button['name']; ?>',
+                            title:    '<?php echo $button['name']; ?> Plugin',
+                            icon:     '<?php echo $serendipity['serendipityHTTPPath'] . 'plugins/' . $button['img_path']; ?>',
+                            iconName: '<?php echo $button['id']; ?>_icon',
+                            command:  '<?php echo $button['id']; ?>'
+                        });
+<?php
+        } // end foreach - follow-up ML button into 'other' toolbar needs no textarea GET name, since the right instance dropping is done by this plugin
+    } // end isset $eventData['buttons']
+?>
+                        editor.addCommand( 'openML', {
+                            exec : function( editor ) {
+                                window.open('serendipity_admin_image_selector.php', 'ImageSel', 'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1');
+                            }
+                        });
+                        editor.ui.addButton('openML', {
+                            label:   'S9yMedia',
+                            title:   'Serendipity Media Library',
+                            icon: '<?php echo $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_ckeditor/img/mls9y.png'; ?>',
+                            iconName: 'openML_icon',
+                            command: 'openML'
+                        });
+                    }
+                });
+            }
+        }
+
         // Avoid TypeError: parent.self.opener.serendipity_imageSelector_addToBody is not a function in serendipity_html_nugget_plugin textarea (nuggets3) in S9y 1.7 Series
         function serendipity_imageSelector_addToBody (str, textarea) {
             var oEditor = isinstance; // WHOW this was easy...!!!!

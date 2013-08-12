@@ -1,7 +1,7 @@
 <?php # 
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Holger Mitterwald <murgul@sourceforge.net>
  *  EN-Revision: Revision of lang_de.inc.php
  */

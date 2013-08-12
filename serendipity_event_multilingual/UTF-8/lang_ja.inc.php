@@ -1,7 +1,7 @@
 <?php # 
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Tadashi Jokagi <elf2000@users.sourceforge.net>
  *  EN-Revision: 1.6 (plguin) 1.20(event)
  */

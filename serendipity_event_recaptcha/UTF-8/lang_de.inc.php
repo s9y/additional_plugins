@@ -1,7 +1,7 @@
 <?php # 
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Translator Andy Blank <andy.blank@gmx.net>
  *  DE-Revision: Revision of lang_en.inc.php
  */

@@ -1,7 +1,7 @@
 <?php # 
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @Rikkie Neutelings <nb@3gz.com>
   */
 

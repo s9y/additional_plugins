@@ -1,7 +1,7 @@
 <?php # 
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Ivan Cenov
  *  EN-Revision: 1.1
  */

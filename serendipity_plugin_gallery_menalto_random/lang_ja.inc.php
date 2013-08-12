@@ -1,7 +1,7 @@
 <?php # 
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: 1.2
  */

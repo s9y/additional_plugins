@@ -1,7 +1,7 @@
 <?php # 
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Ivan Cenov jwalker@hotmail.bg
  *  EN-Revision: Revision of 1.1
  */

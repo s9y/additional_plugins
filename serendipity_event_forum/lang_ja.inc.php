@@ -6,7 +6,7 @@
 # japanese language file
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Tadashi Jokagi <elf2000@users.sourceforge.net>
  *  EN-Revision: 1.8
  */

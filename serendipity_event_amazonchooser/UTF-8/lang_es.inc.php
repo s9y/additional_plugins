@@ -1,7 +1,7 @@
 <?php # 
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Translator Luis Sieira García <jaimito.hendrix@gmail.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */

@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Brendon Kozlowski
  *  EN-Revision: Revision of lang_en.inc.php
  */

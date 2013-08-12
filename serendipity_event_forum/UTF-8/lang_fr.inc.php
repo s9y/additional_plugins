@@ -5,7 +5,7 @@
 # french language file
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Translator Name <contact@remundia.com>
  *  FR-Revision: Revision of lang_fr.inc.php
  */

@@ -1,7 +1,7 @@
 <?php # 
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Ahmet Usal <ahmetusal@gmail.com>
  *  TR-version: First Public Release of lang_tr.inc.php
  */

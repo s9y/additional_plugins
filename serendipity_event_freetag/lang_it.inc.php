@@ -1,7 +1,7 @@
 <?php # 
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Alberto Mucignat <alberto.mucignat@gmail.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */

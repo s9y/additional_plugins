@@ -1,7 +1,7 @@
 <?php # 
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Norbert Mocsnik <norbert@mocsnik.hu>
  *  EN-Revision: 1.15
  */

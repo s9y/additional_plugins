@@ -1,7 +1,7 @@
 <?php # $Id: lang_it.inc.php,v 1.2
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Giulio Malventi <giulio@vene.ws>
  *  EN-Revision: Revision of lang_en.inc.php
  */

@@ -1,7 +1,7 @@
 <?php # 
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Ivo Jansch <ivo@ibuildings.nl>
  *  NL-Revision: Revision of lang_nl.inc.php
  */

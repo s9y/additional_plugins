@@ -1,7 +1,7 @@
 <?php # 
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Demin Yin <damon@deminy.net>
  *  CN-Revision: Revision of lang_cn.inc.php
  */

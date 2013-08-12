@@ -6,7 +6,7 @@
 # english language file
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */

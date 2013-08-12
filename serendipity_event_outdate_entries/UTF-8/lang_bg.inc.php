@@ -1,7 +1,7 @@
 <?php # $Id: serendipity_event_staticpage.php, v0.3 2004/10/16
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Ivan Cenov jwalker@hotmail.bg
  *  EN-Revision: 1.3
  */

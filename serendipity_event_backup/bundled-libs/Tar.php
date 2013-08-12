@@ -29,7 +29,7 @@ if (!class_exists('pear')) {
 * Creates a (compressed) Tar archive
 *
 * @author   Vincent Blavet <vincent@blavet.net>
-* @version  $Revision$
+* @version  
 * @package  Archive
 */
 class Archive_Tar extends PEAR

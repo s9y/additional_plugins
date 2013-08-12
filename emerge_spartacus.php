@@ -111,7 +111,7 @@ class emerge_spartacus {
         $x = &$this->xmlData['template'];
 
         $x[] = '<?xml version="1.0" encoding="UTF-8" ?>';
-        $x[] = '<!-- $Revision$ -->' . "\n";
+        $x[] = '<!--  -->' . "\n";
         $x[] = '<packages>';
 
         $t = array();
@@ -246,7 +246,7 @@ class emerge_spartacus {
         $x = &$this->xmlData[$key];
 
         $x[] = '<?xml version="1.0" encoding="UTF-8" ?>';
-        $x[] = '<!-- $Revision$ -->' . "\n";
+        $x[] = '<!--  -->' . "\n";
         $x[] = '<packages>';
 
         foreach($this->plugins[$key] AS $plugin_name => $plugin_data) {

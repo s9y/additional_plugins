@@ -1,7 +1,7 @@
 <?php # 
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Tadeusz Sasnal <tadeksasnal@gmail.com>
  *  EN-Revision: 1.7
  */

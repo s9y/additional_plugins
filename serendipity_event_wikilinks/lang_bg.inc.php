@@ -1,7 +1,7 @@
 <?php # 
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Translator Name <JWalker@hotmail.bg>
  *  EN-Revision: 1.5
  */

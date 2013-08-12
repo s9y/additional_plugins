@@ -1,7 +1,7 @@
 <?php
 
     /**
-     * @version $Revision$
+     * @version 
      * @author Jabrwock <jabrwock@gmail.com>
      * EN-Revision: Revision of lang_en.inc.php
      * Mar 02, 2006

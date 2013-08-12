@@ -3,7 +3,7 @@
 # (c) 2005 http://www.tool-box.info/
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Ivan Cenov jwalker@hotmail.bg
  *  EN-Revision: 1.1
  */

@@ -1,7 +1,7 @@
 <?php # 
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Kostas CoSTa Brzezinski <costa@kofeina.net>
  *  EN-Revision: 1.2
  */

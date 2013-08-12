@@ -1,7 +1,7 @@
 <?php # 
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Translator Name <zoran@kovacevic.nl>
  *  NL-Revision: Revision of lang_nl.inc.php
  */

@@ -1,7 +1,7 @@
 <?php # 
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Wilco Wietsma <wilco@line-movies.net>
  *  EN-Revision: Revision of lang_en.inc.php
  */

@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  @version $Revision$
+ *  @version 
  *  @author Alexey Noskov <alexey.noskov@gmail.com>
  *  EN-Revision: Revision of lang_ru.inc.php
  */

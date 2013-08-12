@@ -7,7 +7,7 @@
  * Release Version: 1.0.7.4
  * CVS Revision Version: 
  * Date Started: 2004/06/20
- * Last Modified: $Date$
+ * Last Modified: 
  *
  * Actionscript language file for GeSHi.
  *

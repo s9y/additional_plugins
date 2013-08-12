@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -22,7 +22,7 @@ The Serendipity Podcasting Plugin
 
 @author Hannes Gassert <hannes@mediagonal.ch>
 @package serendipity
-@version $Id$
+@version 
 class serendipity_event_podcast extends serendipity_event{
 **/
     var $title = PLUGIN_PODCAST_NAME;

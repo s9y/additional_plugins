@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
         @define('PLUGIN_EVENT_YQ_NAME', 'Y!Q / Verwandte Suche');
         @define('PLUGIN_EVENT_YQ_DESC', 'Stellt verwandte Seiten zu der eigenen mittels der Yahoo kontextsensitiven Suche dar.');

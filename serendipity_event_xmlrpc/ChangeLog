@@ -1,4 +1,4 @@
-# $Id$
+# 
 Version 1.51 (brockhaus):
     * Support for system.multicall patched into the XMLRPC library.
     * dateModified attributes (delivered by WP) supported.

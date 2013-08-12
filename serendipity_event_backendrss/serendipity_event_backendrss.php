@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 /** We reuse most of that code and language constants, so include this before we
     do anything else */

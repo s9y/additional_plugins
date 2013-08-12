@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 // Zoran Kovacevic http://www.kovacevic.nl/blog
 // Shameless copy of serendipity_event_entryproperties and serendipity_event_multilingual

@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 @define('PLUGIN_EVENT_ENTRYCHECK_TITLE', 'Regeln für Veröffentlichungen');
 @define('PLUGIN_EVENT_ENTRYCHECK_DESC', 'Führt einige Prüfungen vor der Veröffentlichung eines Artikels durch');

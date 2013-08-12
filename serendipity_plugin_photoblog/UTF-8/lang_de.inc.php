@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
         @define('PLUGIN_PHOTOBLOG_TITLE',           'Photoblog Einträge');
         @define('PLUGIN_PHOTOBLOG_BLAHBLAH',        'Zeigt die Vorschaubilder der letzten Photoblog Einträge (siehe Ereignis-Plugin).');

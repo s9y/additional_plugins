@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 // 20050923 Zoran Kovacevic (http://www.kovacevic.nl/blog).
 // The plugin is a shameless copy from Rob Antonishen (http://ffaat.pointclark.net/).

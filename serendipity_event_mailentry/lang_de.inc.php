@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
         @define('PLUGIN_MAILENTRY_NAME',         'Eintrag per E-Mail verschicken');
         @define('PLUGIN_MAILENTRY_DESC',         'Erlaubt es Besuchern einen Eintrag per E-Mail an einen Freund zu verschicken');

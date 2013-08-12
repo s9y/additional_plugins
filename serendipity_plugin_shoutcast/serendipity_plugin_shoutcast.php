@@ -1,6 +1,6 @@
 <?php
 
-/* $Id$*/
+/* */
 
 
 if (IN_serendipity !== true) {

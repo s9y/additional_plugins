@@ -1,6 +1,6 @@
 <?php
 
-/* $Id$*/
+/* */
 // Spanish translation by Francisco Ortiz <frortiz@gmail.com>
 
 

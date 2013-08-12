@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 @define('PLUGIN_CATEGORYTEMPLATES_NAME', 'Eigenschaften/Templates von Kategorien');
 @define('PLUGIN_CATEGORYTEMPLATES_DESC', 'Dieses Plugin ermöglicht erweitete Eigenschaften für Kategorien und deren Einträge festzulegen: speziell angepassete Templates, Anzeigereihenfolge, Anzeigeanzahl, Passwort-Schutz und Ausschluss aus dem RSS-Feed.');

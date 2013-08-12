@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
         @define('PLUGIN_EVENT_KUBRICKHEADER_STYLE_DESC',     'Welchen Style benutzen Sie ?');
         @define('PLUGIN_EVENT_KUBRICKHEADER_STYLE_DESC_BLAH',	'Wählen Sie den Style, den Sie für den Blog benutzen');

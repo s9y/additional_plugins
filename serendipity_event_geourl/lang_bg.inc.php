@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 /**
  * lang_bg.inc.php

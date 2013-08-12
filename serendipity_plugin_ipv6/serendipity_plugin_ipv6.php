@@ -1,4 +1,4 @@
-<?php // $Id$
+<?php // 
 
 if (IN_serendipity !== TRUE) {
     die('Don\'t hack!');

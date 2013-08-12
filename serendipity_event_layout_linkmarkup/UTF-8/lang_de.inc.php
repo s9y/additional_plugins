@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
         @define('PLUGIN_LAYOUT_LINKMARKUP_VERSION', '1.0');
         @define('PLUGIN_LAYOUT_LINKMARKUP_NAME', 'Layout-Plugin: Link-Formatierung');

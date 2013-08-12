@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 /*
  * EXPERIMANTEL CACHING PLUGIN

@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
         @define('PLUGIN_EVENT_HTMLVALIDATOR_NAME', 'HTML Validator');
         @define('PLUGIN_EVENT_HTMLVALIDATOR_DESC', 'Überprüft, ob ein Artikel XML-konform ist');

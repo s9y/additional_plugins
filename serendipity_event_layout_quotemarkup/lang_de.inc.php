@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
         @define('PLUGIN_LAYOUT_QUOTEMARKUP_VERSION', '1.0');
         @define('PLUGIN_LAYOUT_QUOTEMARKUP_NAME', 'Layout-Plugin: Quote-Formatierung');

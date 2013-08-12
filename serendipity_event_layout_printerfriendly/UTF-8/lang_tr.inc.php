@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
         @define('PLUGIN_LAYOUT_PRINTERFRIENDLY_VERSION', '1.0');
         @define('PLUGIN_LAYOUT_PRINTERFRIENDLY_NAME', 'Sayfa Mizanpajı-Eklentisi: Yazıcı Dostu Sürümü');

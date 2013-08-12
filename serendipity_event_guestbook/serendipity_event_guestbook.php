@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 // serendipity_event_guestbook.php, v.3.31 - 2012-09-14 ian
 
 //error_reporting(E_ALL);

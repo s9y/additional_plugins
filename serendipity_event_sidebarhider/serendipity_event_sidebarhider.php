@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 // serendipity_event_sidebarhide
 

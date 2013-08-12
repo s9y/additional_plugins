@@ -1,4 +1,4 @@
-<?php // $Id$
+<?php // 
 
 @define('PLUGIN_IPV6_NAME', 'IPv6 Check');
 @define('PLUGIN_IPV6_DESC', 'This plugin displays within a sidebar element the IP version used for accessing the website.');

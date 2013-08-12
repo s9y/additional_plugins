@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 @define('PLUGIN_STATICPAGELIST_NAME',             'lista med statiska sidorna');
 @define('PLUGIN_STATICPAGELIST_NAME_DESC',        'Den här plugin visar en konfigurerbar lista den statiska sidorna. StaticPage-Plugin behöver version 1.22 eller högre.');

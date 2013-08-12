@@ -4,7 +4,7 @@
  * @author Sebastian Bauer <sbauer@gjl-network.net>
  * @license PHP
  * @package additional_plugins
- * @version $Id$
+ * @version 
  */
 
 

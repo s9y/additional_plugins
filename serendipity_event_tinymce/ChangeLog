@@ -1,4 +1,4 @@
-# $Id$
+# 
 
 1.10: Added ?js=1 parameter to gzip loader to properly load TinyMCE
 

@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
         @define('PLUGIN_EVENT_WORDWRAP_NAME',     'Textformatierung: Texte umbrechen');
         @define('PLUGIN_EVENT_WORDWRAP_DESC',     'Fügt Umbrüche für lange Einträge/Kommentare ein.');

@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 /**
  *  @version 0.1

@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 /* This file creates a package XML file for all additional_plugins CVS files
  *

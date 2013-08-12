@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 // ClickableURL preg replace markup
 // turns urls into clickable links
 //

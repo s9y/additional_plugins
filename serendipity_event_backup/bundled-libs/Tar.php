@@ -19,7 +19,7 @@
 // | to fit our needs for serendipity (s9y)                               |
 // +----------------------------------------------------------------------*
 //
-// $Id$
+// 
 
 if (!class_exists('pear')) {
 	include_once $serendipity['serendipityPath'].'bundled-libs/PEAR.php';

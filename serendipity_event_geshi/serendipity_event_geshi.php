@@ -22,7 +22,7 @@
  * in the /geshi/ subdirectory.  See the GeSHi project page for more
  * information.
  *
- * $Id$
+ * 
  * @package Serendipity
  * @author David Rolston <gizmo@gizmola.com>
  * @version 05

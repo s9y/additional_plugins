@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
         @define('PLUGIN_SIDEBAR_MULTILINGUAL_TITLE', 'Sprachauswahl');
         @define('PLUGIN_SIDEBAR_MULTILINGUAL_DESC', 'Ermöglicht Besuchern die Ausgabesprache von Serendipity zu ändern');

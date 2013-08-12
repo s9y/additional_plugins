@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
         @define('STATICPAGE_HEADLINE', 'Intestazione');
         @define('STATICPAGE_HEADLINE_BLAHBLAH', 'Mostra un\'intestazione sopra il contenuto, che viene mostrata come tutte le altre intestazioni all\'interno del blog');

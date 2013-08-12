@@ -24,7 +24,7 @@
  * ***** END LICENSE BLOCK ***** */
 
 /*
- * $Id$
+ * 
  * $RCSfile$ v2.1 beta2 (Apr, 16 2005)
  * Author: Andrea Trasatti ( atrasatti AT users DOT sourceforge DOT net )
  * Multicache implementation: Herouth Maoz ( herouth AT spamcop DOT net )

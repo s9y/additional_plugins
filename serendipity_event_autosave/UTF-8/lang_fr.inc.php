@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 @define('PLUGIN_EVENT_AUTOSAVE_TITLE', 'Sauvegarde automatique');
 @define('PLUGIN_EVENT_AUTOSAVE_DESC', 'Effectue une copie de sauvegarde des posts lors de leur rédaction');

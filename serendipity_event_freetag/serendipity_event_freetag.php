@@ -1,4 +1,4 @@
-<?php #$Id$
+<?php #
 /*
  * ULTRA HIGH PRIORITY
  * - get some kind of data-sharing protocol in action.  It is very difficult

@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
         @define('PLUGIN_EVENT_MARKDOWN_NAME', 'Textformatierung: Markdown');
         @define('PLUGIN_EVENT_MARKDOWN_DESC', 'Markdown Textformatierung durchführen');

@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 // Built from serendipity_event_entryproperties, with help from serendipity_event_includeentries
 

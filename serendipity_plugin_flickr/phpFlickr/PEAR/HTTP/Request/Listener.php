@@ -39,7 +39,7 @@
  * @author      Alexey Borzov <avb@php.net>
  * @copyright   2002-2007 Richard Heyes
  * @license     http://opensource.org/licenses/bsd-license.php New BSD License
- * @version     CVS: $Id$
+ * @version     CVS: 
  * @link        http://pear.php.net/package/HTTP_Request/ 
  */
 

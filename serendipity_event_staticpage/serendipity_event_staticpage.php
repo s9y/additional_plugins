@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
      #http://board.s9y.org/viewtopic.php?p=57348#57348
 
 if (IN_serendipity !== true) {

@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 // MyBold preg replace markup
 // turns [mybold]xxx[/mybold] markup to a bold weighted span
 //

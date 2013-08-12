@@ -1,4 +1,4 @@
-<?php # $Id$ #
+<?php #  #
 
 //
 // Credit to Matthew Groeninger, whose linklist plugin was the basis for this

@@ -1,4 +1,4 @@
-<?php # $Id$ #
+<?php #  #
 
 		@define('PLUGIN_ZOOOMR_NAME', 'Zooomr Plugin');
 		@define('PLUGIN_ZOOOMR_DESC', 'Stellt die neuesten Bilder eines Zooomr-Feeds dar');

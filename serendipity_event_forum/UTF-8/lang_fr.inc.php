@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 # (c) 2009 by remundia , http://www.remundia.com, <http://www.remundia.com>
 

@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 //* s9y Comics Plug-in  by Wesley Hwang-Chung *//
 //* http://tool-box.info | wesley96@gmail.com *//
 

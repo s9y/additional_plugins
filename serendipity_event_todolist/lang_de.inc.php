@@ -1,4 +1,4 @@
-<?php # $Id$ #
+<?php #  #
 
         @define('PLUGIN_EVENT_TODOLIST_TITLE', 'ToDo/Projekt-Liste');
         @define('PLUGIN_EVENT_TODOLIST_DESC', 'Verwaltet eine Liste von Projekten und deren aktuellem Status');

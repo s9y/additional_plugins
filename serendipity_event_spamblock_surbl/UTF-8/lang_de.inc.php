@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
    @define('PLUGIN_EVENT_SPAMBLOCKSURBL_TITLE', 'Spamschutz (SURBL)');
    @define('PLUGIN_EVENT_SPAMBLOCKSURBL_DESC', 'URL abweisen die als SPAM geblacklistet sind.');

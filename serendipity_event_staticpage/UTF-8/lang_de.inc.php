@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 @define('LANG_ALL', 'Alle Sprachen');
 @define('LANG_BG', 'Bulgarisch');

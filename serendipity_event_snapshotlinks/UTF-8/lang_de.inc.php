@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 @define('PLUGIN_SNAPSHOTLINKS_NAME',                'Link Vorschau mit snap.com');
 @define('PLUGIN_SNAPSHOTLINKS_DESC',                "Dieses Plugin zeigt eine Vorschau auf eine verlinkte Seite, wenn die Maus über dem Link schwebt. Dafür wird der SnapShot Service www.snap.com benutzt. Sie müssen sich dort vorher einmal mit Ihrer Domain und EMail registrieren, um einen Key zu erhalten, der benötigt wird, um die SnapShot Funktionalität aufzurufen.\nSnap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com möglich wäre, Datenprofile über Benutzer IPs, die einen Link auf dieser Seite anschauen, zu erstellen. Snap.com verspricht jedoch, dies nicht zu tun.");
 @define('PLUGIN_SNAPSHOTLINKS_DESC_DUMMY',          "Dieses Plugin zeigt eine Vorschau auf eine verlinkte Seite, wenn die Maus über dem Link schwebt. Dafür wird der SnapShot Service www.snap.com benutzt.\nSnap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com möglich wäre, Datenprofile über Benutzer IPs, die einen Link auf dieser Seite anschauen, zu erstellen. Snap.com verspricht jedoch, dies nicht zu tun.");

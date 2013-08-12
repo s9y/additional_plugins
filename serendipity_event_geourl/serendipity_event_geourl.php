@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 // GeoURL Plugin for Serendipity
 //

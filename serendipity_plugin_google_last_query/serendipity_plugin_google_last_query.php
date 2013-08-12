@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 // Google Last Query Plugin for Serendipity
 // 10/2004 by Thomas Nesges <thomas@tnt-computer.de>

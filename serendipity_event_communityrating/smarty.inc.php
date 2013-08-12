@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 function communityrating_serendipity_show_image($file, $alt = '*') {
 	return '<img alt="' . $alt . '" src="' . $file . '" />';

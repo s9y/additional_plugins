@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 function microformats_serendipity_show_image($file, $alt = '*')
 {

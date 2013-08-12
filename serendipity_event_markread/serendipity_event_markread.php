@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 // Done for augusto @ bauer - online . org :-)
 

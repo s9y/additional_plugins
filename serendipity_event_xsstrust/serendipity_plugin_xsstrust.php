@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 /* Author: Nicola Zanoni, (nicola.zanoni@gmail.com) */
 

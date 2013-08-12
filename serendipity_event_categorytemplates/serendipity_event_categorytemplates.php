@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 // TODO:
 // Use parent category template for a child category, but allow child categories to override template of parent category.

@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 // TODO:
 // Show existing references for insertion in 'Extended options' panel for 'edit entry' screen

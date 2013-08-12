@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 /** *  @version $Revision$
  *  @author Translator Name <yourmail@example.com>

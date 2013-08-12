@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 @define('PLUGIN_SNAPSHOTLINKS_NAME',                'Link SnapShots using snap.com');
 @define('PLUGIN_SNAPSHOTLINKS_DESC',                "This plugin shows page previews, while the user is hovering over a link. To reach this aim the SnapShot service at www.snap.com is used. You have to register your domain and email once, to get a key for your domain needed for calling the SnapShot functionality.\nSnap.com is a free service, but be aware that snap.com *might* be able to collect data profiles about user IPs loading links from this blog site, although their privacy statement promise not to do so.");
 @define('PLUGIN_SNAPSHOTLINKS_DESC_DUMMY',          "This plugin shows page previews, while the user is hovering over a link. To reach this aim the SnapShot service at www.snap.com is used. \nSnap.com is a free service, but be aware that snap.com *might* be able to collect data profiles about user IPs loading links from this blog site, although their privacy statement promise not to do so.");

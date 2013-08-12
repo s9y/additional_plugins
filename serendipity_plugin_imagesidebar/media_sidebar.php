@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 class media_sidebar extends subplug_sidebar {
 

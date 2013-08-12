@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 # serendipity_plugin_staticpage.php, v1.0 2005/06/01 (c) by Rob Antonishen
 

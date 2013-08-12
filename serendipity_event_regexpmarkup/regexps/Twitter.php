@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 // Twitter preg replace markup
 // turns usernames like @user to twitter-links
 //

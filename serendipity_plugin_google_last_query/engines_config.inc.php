@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 /*
  * Created on 05.06.2009
  *

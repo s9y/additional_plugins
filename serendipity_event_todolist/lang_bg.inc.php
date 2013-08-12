@@ -1,4 +1,4 @@
-<?php # $Id$ #
+<?php #  #
 
 /*
  * Bulgarian Translation version 1.0

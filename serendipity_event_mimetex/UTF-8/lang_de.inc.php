@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
         @define('PLUGIN_EVENT_MIMETEX_NAME', 'MimeTex Tex Interpreter');
         @define('PLUGIN_EVENT_MIMETEX_NAME_BUTTON', 'Tex');

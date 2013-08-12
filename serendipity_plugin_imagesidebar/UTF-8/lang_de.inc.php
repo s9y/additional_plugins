@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
         @define('PLUGIN_GALLERYRANDOMBLOCK_NAME',           'Zufälliges Bild aus einer Menalto-Gallery');
         @define('PLUGIN_GALLERYRANDOMBLOCK_DESC',           'Fügt den Zufallscode der Menalto-Gallery in die Seitenleiste ein (siehe http://gallery.menalto.com). HINWEIS: Dieses Plugin kann nur mit Administratorrechten konfiguriert werden da es potentiell jedes PHP-Script einbinden könnte!');

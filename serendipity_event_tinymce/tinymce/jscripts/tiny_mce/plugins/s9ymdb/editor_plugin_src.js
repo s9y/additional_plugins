@@ -1,5 +1,5 @@
 /**
- * $Id$
+ * 
  *
  * @author Grischa Brockhaus
  * @copyright Copyright © 2004-2007, bitmotor.de, All rights reserved.

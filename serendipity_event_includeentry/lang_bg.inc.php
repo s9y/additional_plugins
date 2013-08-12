@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 
 @define('PLUGIN_EVENT_INCLUDEENTRY_NAME',     'Markup: Включване на статия/шаблон/блок в статия');

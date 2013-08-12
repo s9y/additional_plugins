@@ -1,4 +1,4 @@
-# $Id$
+# 
     * Allows other plugins to fetch user metadata via 
       avatar_fetch_userinfos hook.
     * supports !# twitter links now, too.

@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : S9Y_INCLUDE_PATH . 'bundled-libs/') . 'HTTP/Request.php';
 

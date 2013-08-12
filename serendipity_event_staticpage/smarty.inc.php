@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php # 
 
 // You can fetch static pages via smarty as well. Syntax:
 //

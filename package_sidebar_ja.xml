@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- $Revision: 1.44 $ -->
+<!-- $Revision: 1.45 $ -->
 
 <packages>
 <package version="1.0">
@@ -13,7 +13,7 @@
 <release>
   <version>1.19</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_staticpage">
 <file>Smarty_and_CSS_Tags</file>
@@ -198,7 +198,7 @@
 <release>
   <version>1.20</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <file>lang_de.inc.php</file>
@@ -448,7 +448,7 @@
 <release>
   <version>1.22</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_amazon">
 <file>lang_de.inc.php</file>
@@ -596,7 +596,7 @@
 <release>
   <version>0.13</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_mycalendar">
 <file>lang_de.inc.php</file>
@@ -655,7 +655,7 @@
 <release>
   <version>1.0.0</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_ipv6">
 <file>lang_de.inc.php</file>
@@ -704,7 +704,7 @@
 <release>
   <version>1.32</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_geotag">
 <file>lang_de.inc.php</file>
@@ -764,7 +764,7 @@
 <release>
   <version>1.05</version>
   <requirements:s9yVersion>0.8.4</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_shoutcast">
 <file>shoutcast_plugin_setup.jpg</file>
@@ -860,7 +860,7 @@
 <release>
   <version>1.5</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_weather">
 <file>lang_de.inc.php</file>
@@ -1094,7 +1094,7 @@
 <release>
   <version>0.97</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_imagesidebar">
 <file>lang_de.inc.php</file>
@@ -1189,7 +1189,7 @@
 <release>
   <version>3.03</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <file>lang_de.inc.php</file>
@@ -1290,7 +1290,7 @@
 <release>
   <version>1.20</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_linklist">
 <file>ChangeLog</file>
@@ -1562,7 +1562,7 @@
 <release>
   <version>1.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_xsstrust">
 <file>lang_de.inc.php</file>
@@ -1740,7 +1740,7 @@
 <release>
   <version>1.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_userprofiles">
 <file>lang_de.inc.php</file>
@@ -1799,7 +1799,7 @@
 <release>
   <version>0.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_userprofiles">
 <file>lang_de.inc.php</file>
@@ -1857,7 +1857,7 @@
 <release>
   <version>0.11</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_authors">
 <file>lang_de.inc.php</file>
@@ -1899,7 +1899,7 @@
 <release>
   <version>1.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_photoblog">
 <file>lang_de.inc.php</file>
@@ -2006,7 +2006,7 @@
 <release>
   <version>1.11</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_multilingual">
 <file>lang_de.inc.php</file>
@@ -2116,7 +2116,7 @@
 <release>
   <version>1.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_nugget_multilingual">
 <file>lang_de.inc.php</file>
@@ -2202,7 +2202,7 @@
 <release>
   <version>1.3</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_ggopis">
 <dir name="UTF-8">
@@ -2259,7 +2259,7 @@
 <release>
   <version>1.18</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_google_last_query">
 <file>lang_de.inc.php</file>
@@ -2330,7 +2330,7 @@
 <release>
   <version>0.2</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_faq">
 <file>lang_de.inc.php</file>
@@ -2448,7 +2448,7 @@
 <release>
   <version>1.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_externalphp">
 <file>lang_de.inc.php</file>
@@ -2491,7 +2491,7 @@
 <release>
   <version>1.8</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_showentries">
 <file>ChangeLog</file>
@@ -2545,7 +2545,7 @@
 <release>
   <version>1.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_karmaranking">
 <file>lang_de.inc.php</file>
@@ -2583,7 +2583,7 @@
 <release>
   <version>1.3</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_topreferers">
 <file>lang_de.inc.php</file>
@@ -2802,7 +2802,7 @@
 <release>
   <version>2.08</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_pollbox">
 <file>lang_de.inc.php</file>
@@ -2852,7 +2852,7 @@
 <release>
   <version>1.8</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_gallery_menalto_random">
 <file>lang_de.inc.php</file>
@@ -2936,7 +2936,7 @@
 <release>
   <version>0.3</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_zooomr">
 <file>lang_de.inc.php</file>
@@ -2976,7 +2976,7 @@
 <release>
   <version>1.12</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_category_dhtml_menu">
 <file>serendipity_plugin_category_dhtml_menu.php</file>
@@ -3019,7 +3019,7 @@
 <release>
   <version>2.34</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_adduser">
 <file>lang_de.inc.php</file>
@@ -3126,7 +3126,7 @@
 <release>
   <version>1.10</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_popularentries">
 <file>lang_de.inc.php</file>
@@ -3186,7 +3186,7 @@
 <release>
   <version>1.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_google_quicksearch">
 <dir name="UTF-8">
@@ -3231,7 +3231,7 @@
 <release>
   <version>1.2</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_communityrating">
 <file>serendipity_plugin_communityrating.php</file>
@@ -3306,7 +3306,7 @@
 <release>
   <version>1.09</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_loginform">
 <file>lang_de.inc.php</file>
@@ -3420,7 +3420,7 @@
 <release>
   <version>1.03</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_smiletag">
 <file>.htaccess</file>

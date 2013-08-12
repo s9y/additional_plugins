@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- $Revision: 1.44 $ -->
+<!-- $Revision: 1.45 $ -->
 
 <packages>
 <package version="1.0">
@@ -14,7 +14,7 @@
 <release>
   <version>4.04</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_staticpage">
 <file>Smarty_and_CSS_Tags</file>
@@ -197,7 +197,7 @@
 <release>
   <version>0.9</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_regexpmarkup">
 <file>lang_de.inc.php</file>
@@ -253,7 +253,7 @@
 <release>
   <version>1.04</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_wordwrap">
 <file>lang_de.inc.php</file>
@@ -296,7 +296,7 @@
 <release>
   <version>3.32</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <file>lang_de.inc.php</file>
@@ -415,7 +415,7 @@
 <release>
   <version>0.30</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_aggregator">
 <file>lang_de.inc.php</file>
@@ -512,7 +512,7 @@
 <release>
   <version>1.24</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_sidebarhider">
 <file>lang_de.inc.php</file>
@@ -561,7 +561,7 @@
 <release>
   <version>0.15</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_metadesc">
 <file>lang_de.inc.php</file>
@@ -711,7 +711,7 @@
 <release>
   <version>1.3</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_linktrimmer">
 <file>ChangeLog</file>
@@ -764,7 +764,7 @@
 <release>
   <version>0.12</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_backup">
 <dir name="UTF-8">
@@ -815,7 +815,7 @@
 <release>
   <version>0.25</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_wikilinks">
 <file>lang_de.inc.php</file>
@@ -870,7 +870,7 @@
 <release>
   <version>0.16</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_mycalendar">
 <file>lang_de.inc.php</file>
@@ -1006,7 +1006,7 @@
 <release>
   <version>1.23</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_externalauth">
 <file>lang_de.inc.php</file>
@@ -1060,7 +1060,7 @@
 <release>
   <version>1.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_dejure">
 <file>lang_de.inc.php</file>
@@ -1099,7 +1099,7 @@
 <release>
   <version>1.32</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_geotag">
 <file>lang_de.inc.php</file>
@@ -1223,7 +1223,7 @@
 <release>
   <version>1.9</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_entrylastmodified">
 <file>lang_de.inc.php</file>
@@ -1269,7 +1269,7 @@
 <release>
   <version>0.6</version>
   <requirements:s9yVersion>1.0-alpha1</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_newsbox">
 <dir name="UTF-8">
@@ -1305,7 +1305,7 @@
 <release>
   <version>0.4</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_flickr">
 <dir name="phpFlickr">
@@ -1360,7 +1360,7 @@
 <release>
   <version>2.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_emoticonchooser">
 <file>lang_de.inc.php</file>
@@ -1484,7 +1484,7 @@
 <release>
   <version>1.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_layout_linkmarkup">
 <file>lang_de.inc.php</file>
@@ -1528,7 +1528,7 @@
 <release>
   <version>1.7</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_babelfish">
 <file>lang_de.inc.php</file>
@@ -1575,7 +1575,7 @@
 <release>
   <version>1.8</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_relatedlinks">
 <file>lang_de.inc.php</file>
@@ -1634,7 +1634,7 @@
 <release>
   <version>0.58</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_google_sitemap">
 <file>lang_de.inc.php</file>
@@ -1754,7 +1754,7 @@
 <release>
   <version>0.10</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_suggest">
 <file>lang_de.inc.php</file>
@@ -1811,7 +1811,7 @@
 <release>
   <version>1.4</version>
   <requirements:s9yVersion>1.1</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_getid3">
 <file>lang_de.inc.php</file>
@@ -1907,7 +1907,7 @@
 <release>
   <version>1.02</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_email_bot_obfuscator">
 <file>lang_de.inc.php</file>
@@ -1964,7 +1964,7 @@
 <release>
   <version>0.10</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_recaptcha">
 <file>lang_de.inc.php</file>
@@ -2062,7 +2062,7 @@
 <release>
   <version>0.11</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_textlinkads">
 <file>lang_bg.inc.php</file>
@@ -2217,7 +2217,7 @@
 <release>
   <version>0.35</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_categorytemplates">
 <file>lang_de.inc.php</file>
@@ -2274,7 +2274,7 @@
 <release>
   <version>2.56</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_usergallery">
 <file>lang_de.inc.php</file>
@@ -2382,7 +2382,7 @@
 <release>
   <version>1.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_httpauth">
 <dir name="UTF-8">
@@ -2416,7 +2416,7 @@
 <release>
   <version>0.7</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_adminnotes">
 <file>lang_de.inc.php</file>
@@ -2498,7 +2498,7 @@
 <release>
   <version>0.2.2</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_autosave">
 <file>lang_de.inc.php</file>
@@ -2557,7 +2557,7 @@
 <release>
   <version>1.37</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_podcast">
 <file>lang_de.inc.php</file>
@@ -2799,7 +2799,7 @@
 <release>
   <version>1.3</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_thumbnails">
 <file>lang_de.inc.php</file>
@@ -2845,7 +2845,7 @@
 <release>
   <version>1.5.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_entrysplit">
 <file>lang_de.inc.php</file>
@@ -2896,7 +2896,7 @@
 <release>
   <version>3.45</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <file>lang_de.inc.php</file>
@@ -2997,7 +2997,7 @@
 <release>
   <version>1.99</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_linklist">
 <file>ChangeLog</file>
@@ -3093,7 +3093,7 @@
 <release>
   <version>0.8</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_phoneblogz">
 <file>xmlrpc.inc</file>
@@ -3138,7 +3138,7 @@
 <release>
   <version>0.4</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_facebook">
 <file>ChangeLog</file>
@@ -3183,7 +3183,7 @@
 <release>
   <version>1.12</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_tinymce">
 <file>lang_de.inc.php</file>
@@ -3251,7 +3251,7 @@
 <release>
   <version>1.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_cachesimple">
 <file>lang_de.inc.php</file>
@@ -3294,7 +3294,7 @@
 <release>
   <version>1.13</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_jquery">
 <file>lang_de.inc.php</file>
@@ -3402,7 +3402,7 @@
 <release>
   <version>1.1</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_openid">
 <file>lang_de.inc.php</file>
@@ -3583,7 +3583,7 @@
 <release>
   <version>2.5.5</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_livecomment">
 <file>lang_de.inc.php</file>
@@ -3966,7 +3966,7 @@
 <release>
   <version>0.8</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_xinha">
 <file>lang_de.inc.php</file>
@@ -4007,7 +4007,7 @@
 <release>
   <version>0.8</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_fckeditor">
 <file>ChangeLog</file>
@@ -4226,7 +4226,7 @@
 <release>
   <version>1.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_photoblog">
 <file>lang_de.inc.php</file>
@@ -4275,7 +4275,7 @@
 <release>
   <version>0.6.7</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_dashboard">
 <file>lang_de.inc.php</file>
@@ -4325,7 +4325,7 @@
 <release>
   <version>1.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_mimetex">
 <file>lang_de.inc.php</file>
@@ -4376,7 +4376,7 @@
 <release>
   <version>0.32</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_imageselectorplus">
 <file>lang_de.inc.php</file>
@@ -4585,7 +4585,7 @@
 <release>
   <version>0.27</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_userprofiles">
 <file>lang_de.inc.php</file>
@@ -4643,7 +4643,7 @@
 <release>
   <version>1.11</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_galleryimage">
 <dir name="UTF-8">
@@ -4757,7 +4757,7 @@
 <release>
   <version>1.15</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_trackback">
 <file>lang_de.inc.php</file>
@@ -4817,7 +4817,7 @@
 <release>
   <version>1.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_typoquote">
 <file>lang_de.inc.php</file>
@@ -4898,7 +4898,7 @@
 <release>
   <version>2.14</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_multilingual">
 <file>lang_de.inc.php</file>
@@ -5023,7 +5023,7 @@
 <release>
   <version>1.6.1</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_prettify">
 <file>serendipity_event_prettify.php</file>
@@ -5083,7 +5083,7 @@
 <release>
   <version>1.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_htmlvalidator">
 <file>lang_de.inc.php</file>
@@ -5189,7 +5189,7 @@
 <release>
   <version>1.01</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="alpha">
 <file>serendipity_event_mailcc.php</file>
@@ -5227,7 +5227,7 @@
 <release>
   <version>1.01</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="stalkerbuster">
 <file>serendipity_event_stalkerbuster.php</file>
@@ -5251,7 +5251,7 @@
 <release>
   <version>1.01</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="alpha">
 <file>serendipity_event_mailcc.php</file>
@@ -5380,7 +5380,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_filter_entries">
 <file>lang_de.inc.php</file>
@@ -5433,7 +5433,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>0.11</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_versioning">
 <file>lang_de.inc.php</file>
@@ -5477,7 +5477,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_comics">
 <dir name="UTF-8">
@@ -5525,7 +5525,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_assigncategories">
 <file>lang_de.inc.php</file>
@@ -5571,7 +5571,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.23</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_mailentry">
 <file>lang_de.inc.php</file>
@@ -5633,7 +5633,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_yq">
 <file>lang_de.inc.php</file>
@@ -5672,7 +5672,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_commentsearch">
 <file>lang_de.inc.php</file>
@@ -5727,7 +5727,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>0.9</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_geshi">
 <file>lang_de.inc.php</file>
@@ -6021,7 +6021,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.3</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_head_nugget">
 <file>lang_de.inc.php</file>
@@ -6068,7 +6068,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.18</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_markdown">
 <file>lang_de.inc.php</file>
@@ -6128,7 +6128,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_backendrss">
 <file>lang_de.inc.php</file>
@@ -6168,7 +6168,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.10</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_page_nugget">
 <file>lang_bg.inc.php</file>
@@ -6220,7 +6220,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_markread">
 <file>lang_bg.inc.php</file>
@@ -6259,7 +6259,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>0.8</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_cronjob">
 <file>ChangeLog</file>
@@ -6304,7 +6304,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.12</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_faq">
 <file>lang_de.inc.php</file>
@@ -6480,7 +6480,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.15</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_contactform">
 <file>lang_de.inc.php</file>
@@ -6561,7 +6561,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.58</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_gravatar">
 <file>lang_de.inc.php</file>
@@ -6918,7 +6918,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.52</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_xmlrpc">
 <file>lang_de.inc.php</file>
@@ -7034,7 +7034,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.16</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_entrycheck">
 <file>lang_de.inc.php</file>
@@ -7496,7 +7496,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>1.11</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_flattr">
 <file>lang_de.inc.php</file>
@@ -7544,7 +7544,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>1.04</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_loginform">
 <file>lang_de.inc.php</file>
@@ -7710,7 +7710,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>1.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_kubrickheader">
 <file>lang_de.inc.php</file>
@@ -7795,7 +7795,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>1.38</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_entrypaging">
 <file>lang_de.inc.php</file>
@@ -7904,7 +7904,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>0.1.12</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_autotitle">
 <file>serendipity_event_autotitle.php</file>
@@ -8138,7 +8138,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>0.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_disqus">
 <file>ChangeLog</file>
@@ -8224,7 +8224,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>1.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_layout_quotemarkup">
 <file>lang_de.inc.php</file>
@@ -8262,7 +8262,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>1.03</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_unstrip_tags">
 <file>lang_de.inc.php</file>
@@ -8351,7 +8351,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>1.11</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_smartymarkup">
 <file>lang_de.inc.php</file>
@@ -8501,7 +8501,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>1.4</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_spamblock_rbl">
 <file>lang_de.inc.php</file>
@@ -8593,7 +8593,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>1.82</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_blogpdf">
 <file>lang_de.inc.php</file>
@@ -8754,7 +8754,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>2.37</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_plugin_adduser">
 <file>lang_de.inc.php</file>
@@ -8920,7 +8920,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>1.24</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_todolist">
 <file>lang_de.inc.php</file>
@@ -9086,7 +9086,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>1.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_layout_printerfriendly">
 <file>lang_de.inc.php</file>
@@ -9133,7 +9133,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>1.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_youtube">
 <file>ChangeLog</file>
@@ -9204,7 +9204,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>1.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_geourl">
 <file>lang_de.inc.php</file>
@@ -9402,7 +9402,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>1.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_spamblock_surbl">
 <file>lang_de.inc.php</file>
@@ -9445,7 +9445,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>0.2.3</version>
   <requirements:s9yVersion>1.5</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_commentedit">
 <file>lang_de.inc.php</file>
@@ -9501,7 +9501,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>1.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_tooltips">
 <file>lang_de.inc.php</file>
@@ -9649,7 +9649,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>1.11</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_communityrating">
 <file>serendipity_plugin_communityrating.php</file>
@@ -9761,7 +9761,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>1.22</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_findmore">
 <file>ChangeLog</file>
@@ -9882,7 +9882,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>0.12</version>
   <requirements:s9yVersion>0.9.1</requirements:s9yVersion>
-  <date>2013-08-11</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_forgotpassword">
 <file>lang_de.inc.php</file>

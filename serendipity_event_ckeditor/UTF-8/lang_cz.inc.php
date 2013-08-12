@@ -1,10 +1,12 @@
-<?php # lang_cz.inc.php 1.0 2013-06-22 11:15:15 VladaAjgl $
+<?php # 
 
 /**
- *  @version 1.0
+ *  @file UTF-8/lang_cz.inc.php 1.1 2013-06-22 11:15:15 VladaAjgl
+ *  @version 1.1
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2013/06/22
  */
+
 @define('PLUGIN_EVENT_CKEDITOR_NAME', 'CKEditor');
 @define('PLUGIN_EVENT_CKEDITOR_DESC', 'Používá CKEditor jako výchozí WYSIWYG editor. Tento editor je aktuálním state-of-art. Použití: Doporučeno! Po instalaci přejděte na stránku s nastavením tohoto pluginu a čtěte další instrukce.');
 @define('PLUGIN_EVENT_CKEDITOR_INSTALL', '<h2>Instalace</h2>

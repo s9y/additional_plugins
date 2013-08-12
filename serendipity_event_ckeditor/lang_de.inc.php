@@ -1,10 +1,11 @@
 <?php # 
 
 /**
-* @version 
-* @author Translator Name <yourmail@example.com>
-* EN-Revision: Revision of lang_en.inc.php
-*/
+ *  @file lang_de.inc.php 1.4 2013-08-02 12:23:59 Ian
+ *  @version 1.4
+ *  @author Translator Name <yourmail@example.com>
+ *  DE-Revision: Revision of lang_de.inc.php
+ */
 
 @define('PLUGIN_EVENT_CKEDITOR_NAME', 'CKEditor');
 @define('PLUGIN_EVENT_CKEDITOR_DESC', 'Nutzt CKEditor als den Standard WYSIWYG Editor. Dieser ist zur Zeit der state-of-the-art Editor im Internet. Benutzung: Empfohlen! Nach der Installation, lies die Plugin Konfigurations Seite für weitere Informationen.');

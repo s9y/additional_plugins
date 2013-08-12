@@ -485,7 +485,7 @@ class serendipity_event_ckeditor extends serendipity_event
         }
     </script>
 <?php
-                    }
+                    } // end isset $eventData['item']
 
                     // kcfinder has a fallback media library mode if not properly loaded, or an other error occurs - get rid of it by default, since it stops image browser executing!
                     if( is_file(dirname(__FILE__) . '/kcfinder/.htaccess') ) {

@@ -8,6 +8,15 @@ TODO:
 * Twitter announcements/credentials etc. per author instead of
   only per central blog
 
+1.50
+-----
+    * Added empty $entries, $validated_entries, $highest_ids checks to avoid foreach errors
+    * Some extended whitespace, tabs and other minors cleanup
+
+1.49
+-----
+    * Bump version to propagate new .htaccess in Spartacus sync and mirrors
+
 1.48
 -----
     * Static PHP5 fixes

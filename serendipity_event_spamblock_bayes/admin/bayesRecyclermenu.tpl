@@ -25,9 +25,9 @@
                         <table class="bayesRecyclerSummary">
                             <thead>
                                 <tr>
-                                    <th>{$CONST.Autor}</th>
-                                    <th>{$CONST.Comment}</th>
-                                    <th>{$CONST.Date}</th>
+                                    <th>{$CONST.AUTHOR}</th>
+                                    <th>{$CONST.COMMENT}</th>
+                                    <th>{$CONST.DATE}</th>
                                     <th>{$CONST.PLUGIN_EVENT_SPAMBLOCK_BAYES_RATING}</th>
                                 </tr>
                             </thead>

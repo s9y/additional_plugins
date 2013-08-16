@@ -1227,6 +1227,7 @@ a.twitter_update_time {
         }
         $connection = $this->twitteroa_connect($idx);
         $twitterapi = new TwitterOAuthApi($connection);
+        $twittersearch = $this->generate_domain_url(false) . "&since_id=".$search_since_id;
         $entries = $twitterapi->search($twittersearch);
 
         if (is_array($entries) && !empty($entries) ) {

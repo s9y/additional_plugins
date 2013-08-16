@@ -8,6 +8,10 @@ TODO:
 * Twitter announcements/credentials etc. per author instead of
   only per central blog
 
+1.51 (mattsches)
+--------------------------
+    * Switched tweetback search to API 1.1
+
 1.50
 -----
     * Added empty $entries, $validated_entries, $highest_ids checks to avoid foreach errors

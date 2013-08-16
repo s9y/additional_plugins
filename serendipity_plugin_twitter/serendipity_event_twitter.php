@@ -1221,8 +1221,12 @@ a.twitter_update_time {
         }
 
         // Start searching
-        $twitterapi = new Twitter();
-        $twittersearch = $this->generate_domain_url(false) . "&since_id=".$search_since_id;
+        $idx = $this->get_config('twitter_generic_acc', '1');
+        if ($idx == '1') {
+            $idx = '';
+        }
+        $connection = $this->twitteroa_connect($idx);
+        $twitterapi = new TwitterOAuthApi($connection);
         $entries = $twitterapi->search($twittersearch);
 
         if (is_array($entries) && !empty($entries) ) {

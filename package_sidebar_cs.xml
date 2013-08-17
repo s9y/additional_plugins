@@ -1440,7 +1440,7 @@
 <description>Zobrazuje Vaše nejnovější příspěvky na Twitteru</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Damian Luszczymak, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.50</version>
+  <version>1.51</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
   <date>2013-08-01</date>
   <filelist>

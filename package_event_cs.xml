@@ -4106,9 +4106,9 @@
 <description>Přidává klienta Twitter/Identica do administrační sekce a stahuje nové tweety a oznámuje nové články na účtu mikroblogu.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Peter Heimann</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.50</version>
+  <version>1.51</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-16</date>
+  <date>2013-08-17</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <file>lang_de.inc.php</file>

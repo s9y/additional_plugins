@@ -1,6 +1,6 @@
 {* 
-  plugin_guestbook_entries.tpl v.3.27 - 2011-06-27 ian
- *}
+    plugin_guestbook_entries.tpl v.3.40 - 2013-08-21 Ian
+*}
 
 {if $plugin_guestbook_articleformat}
   <div class="serendipity_Entry_Date serendipity_guestbook">
@@ -58,9 +58,12 @@
                     <dl class="guestbook_entrybottom"><dt>{$entry.body}</dt></dl>
                   </div> <!-- //- class:guestbook_entrytop end -->
                 </div> <!-- //- id:guestbook_entrybundle end -->
+
                 <div class="guestbook_splitentries">&#160;</div>
               {/foreach}
             {/if}
+
+            {if $guestbook_entry_paging}<div id="guestbook_entrypaging">{$guestbook_paging}</div>{/if}
 
             </div><!-- //- class:entry-body end -->
 
@@ -73,5 +76,6 @@
 {if $plugin_guestbook_articleformat}
       </div>  <!-- //- class:serendipity_entry_body end -->
     </div> <!-- //- class:serendipity_entry end -->
-  </div> <!-- //- class:serendipity_Entry_Date end -->       
+  </div> <!-- //- class:serendipity_Entry_Date end -->
+
 {/if}

@@ -1,6 +1,11 @@
 <?php # 
-# Translated by: Wesley Hwang-Chung <wesley96@gmail.com> 
-# (c) 2005 http://www.tool-box.info/
+
+/**
+ *  @version 
+ *  @file serendipity_event_guestbook.php, langfile(UTF-8/ko)
+ *  @author Wesley Hwang-Chung <wesley96@gmail.com> 2005 http://www.tool-box.info/
+ *  EN-Revision: 
+ */
 
 @define('GUESTBOOK_HEADLINE', '부제목');
 @define('GUESTBOOK_HEADLINE_BLAHBLAH', '페이지에 보일 부제목(헤드라인)');
@@ -32,7 +37,7 @@
 @define('TEXT_NAME', '이름');
 @define('TEXT_HOMEPAGE', '홈페이지');
 @define('TEXT_EMAILSUBJECT', '블로그: 새 방명록 글');
-@define('TEXT_EMAILTEXT', "%s(이)가 당신의 방명록에 글을 남겼습니다:\n%s");
+@define('TEXT_EMAILTEXT', "%s(이)가 당신의 방명록에 글을 남겼습니다:\n%s\n%s\n");
 @define('ERROR_TIMELOCK', '글 두 개를 적을 때에는 최소한 %s초의 간격을 두어야 합니다.');
 @define('ERROR_NAMEEMPTY', '이름을 입력하세요.');
 @define('ERROR_TEXTEMPTY', '내용을 적어주세요.');
@@ -52,4 +57,3 @@
 @define('PLUGIN_GUESTSIDE_MAXITEMS', '최대 아이템 수');
 @define('PLUGIN_GUESTSIDE_MAXITEMS_BLAHBLAH', '보여줄 아이템의 수를 설정합니다.');		
 
-?>

@@ -1,4 +1,12 @@
-<?php # $Id: serendipity_event_guestbook.php, langfile(utf-8/de) v.3.26 - 2011-03-07 ian
+<?php #
+
+/**
+ *  @version 3.40
+ *  @file serendipity_event_guestbook.php, langfile(utf-8/de) v.3.40 - 2013-08-21 Ian
+ *  @translated 
+ *  @author Ian
+ *  @revisionDate 2013-08-21
+ */
 
 @define('PLUGIN_GUESTBOOK_HEADLINE', 'Überschrift');
 @define('PLUGIN_GUESTBOOK_HEADLINE_BLAHBLAH', 'Was für eine Überschrift soll die Seite haben?');
@@ -14,7 +22,6 @@
 @define('PLUGIN_GUESTBOOK_FORMORDER_TOP', 'Oben');
 @define('PLUGIN_GUESTBOOK_FORMORDER_BOTTOM', 'Unten');
 
-@define('PLUGIN_GUESTBOOK_E-MailADMIN', 'E-Mail Admin');
 @define('PLUGIN_GUESTBOOK_EMAILADMIN_BLAHBLAH', 'Soll der Administrator bei jedem neuen Eintrag eine E-Mail bekommen?');
 @define('PLUGIN_GUESTBOOK_TARGETMAILADMIN', 'E-Mailadresse des Admin');
 @define('PLUGIN_GUESTBOOK_TARGETMAILADMIN_BLAHBLAH', 'Bitte eine gültige E-Mailadresse eintragen. Wenn "E-Mail Admin" aktiviert, dann wird diese Adresse über jeden neuen Eintrag per Mail informiert.');
@@ -35,7 +42,6 @@
 @define('PLUGIN_GUESTBOOK_SHOWEMAIL_BLAHBLAH', 'Soll die E-Mail-Adresse des Besuchers abgefragt werden?');
 @define('PLUGIN_GUESTBOOK_SUBMITFORM', 'Neuer Gästebucheintrag');
 
-@define('PLUGIN_GUESTBOOK_E-Mail', 'E-Mail Adresse für Kontaktmails');
 @define('PLUGIN_GUESTBOOK_INTRO', 'Einführungstext (optional)');
 @define('PLUGIN_GUESTBOOK_MESSAGE', 'Nachricht');
 @define('PLUGIN_GUESTBOOK_SENT', 'Dargestellter Text nach Übermittlung der Nachricht.');
@@ -68,8 +74,8 @@
 @define('TEXT_NAME', 'Name');
 @define('TEXT_HOMEPAGE', 'Homepage');
 @define('TEXT_BODY', 'Eintrag');
-@define('TEXT_EMAILSUBJECT', 'Neuer Gästebuch Eintrag');
-@define('TEXT_EMAILTEXT', "%s hat gerade folgendes ins Gästebuch geschrieben:\n%s");
+@define('TEXT_EMAILSUBJECT', 'Neuer Gaestebuch Eintrag');//this is email
+@define('TEXT_EMAILTEXT', "%s hat gerade folgendes in das Gästebuch geschrieben:\n%s\n%s\n");
 @define('TEXT_CONVERTBOLDUNDERLINE', 'Umschließende Sterne heben ein Wort hervor (*wort*), per _wort_ kann ein Wort unterstrichen werden.');
 @define('TEXT_CONVERTSMILIES', 'Standard-Text Smilies wie :-) und ;-) werden zu Bildern konvertiert.');
 @define('TEXT_IMG_DELETEENTRY', 'Eintrag löschen');
@@ -80,7 +86,8 @@
 @define('ERROR_TEXTEMPTY', 'Bitte geben Sie einen Text an.');
 @define('ERROR_EMAILEMPTY', 'Bitte geben Sie eine gültige E-Mail an.');
 @define('ERROR_DATATOSHORT', 'Ihre Eingabe sollte mindestens 3, im Textfeld 10 Zeichen lang sein.');
-@define('ERROR_DATANOTAGS', 'Ihre Nachricht ist durch einen aktiven Wortfilter ungültig.');
+@define('ERROR_DATASTRIPPED', 'Ein aktiver Security-Filter hat ihren Eintrag als ungültig eingestuft. Senden Sie die bereinigte Version erneut.');
+@define('ERROR_DATANOTAGS', 'Ihre Nachricht wurde durch einen aktiven Plugin-Wortfilter als ungültig eingestuft.');
 @define('ERROR_NOVALIDEMAIL', 'Ihre E-Mailadresse scheint nicht gültig zu sein: ');
 @define('ERROR_NOINPUT', 'Bitte füllen Sie immer Name, E-Mail und Kommentar aus');
 @define('ERROR_ISFALSECAPTCHA', 'Die Spamschutz-Grafik-Zeichen stimmen nicht überein!');
@@ -169,3 +176,4 @@
 @define('PLUGIN_GUESTSIDE_MAXCHARS_BLAHBLAH', 'Die Länge der Eintrag in Buchstaben');
 @define('PLUGIN_GUESTSIDE_MAXITEMS', 'Max. Einträge');
 @define('PLUGIN_GUESTSIDE_MAXITEMS_BLAHBLAH', 'Die Anzahl der Einträge, die gezeigt werden sollen');
+

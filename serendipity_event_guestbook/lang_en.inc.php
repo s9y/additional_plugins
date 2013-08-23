@@ -1,4 +1,12 @@
-<?php # $Id: serendipity_event_guestbook.php, langfile(en) v.3.26 - 2011-03-07 ian
+<?php #
+
+/**
+ *  @version 3.40
+ *  @file serendipity_event_guestbook.php, langfile(utf-8/en) v.3.40 - 2013-08-21 Ian
+ *  @translated 
+ *  @author Ian
+ *  @revisionDate 2013-08-21
+ */
 
 @define('PLUGIN_GUESTBOOK_HEADLINE', 'Headline');
 @define('PLUGIN_GUESTBOOK_HEADLINE_BLAHBLAH', 'The headline of the page.');
@@ -65,7 +73,9 @@
 @define('TEXT_NAME', 'Name');
 @define('TEXT_HOMEPAGE', 'Homepage');
 @define('TEXT_EMAILSUBJECT', 'New guestbook entry');
-@define('TEXT_EMAILTEXT', "%s just wrote to your guestbook:\n%s");
+@define('TEXT_EMAILMODERATE', "\n\nThis guestbook entry was set to moderate (%s)!");
+@define('TEXT_EMAILFOOTER', "\n\nSent by Serendipity Guestbook Plugin.");
+@define('TEXT_EMAILTEXT', "%s just wrote to your guestbook:\n%s\n%s\n");
 @define('TEXT_CONVERTBOLDUNDERLINE', 'Enclosing asterisks marks text as bold (*word*), underscore are made via _word_.');
 @define('TEXT_CONVERTSMILIES', 'Standard emoticons like :-) and ;-) are converted to images.');
 @define('TEXT_IMG_DELETEENTRY', 'Delete entry');
@@ -76,7 +86,8 @@
 @define('ERROR_TEXTEMPTY', 'Please insert a text.');
 @define('ERROR_EMAILEMPTY', 'Please insert a valid e-mail.');
 @define('ERROR_DATATOSHORT', 'Your entry should have at least 3, in the comment field at least 10 characters.');
-@define('ERROR_DATANOTAGS', 'An active wordfilter consists your entry is unvalid.');
+@define('ERROR_DATASTRIPPED', 'An active security-filter consists your entry is unvalid. Please send the already cleared entry again.');
+@define('ERROR_DATANOTAGS', 'An active plugin-wordfilter consists your entry is unvalid.');
 @define('ERROR_NOVALIDEMAIL', 'Your e-mail address appears to be invalid: ');
 @define('ERROR_NOINPUT', 'Please enter your name, e-mail address and a comment');
 @define('ERROR_ISFALSECAPTCHA', 'The CAPTCHAS of your entry did not match!');
@@ -166,3 +177,4 @@
 @define('PLUGIN_GUESTSIDE_MAXITEMS', 'Max. items');
 @define('PLUGIN_GUESTSIDE_MAXITEMS_BLAHBLAH', 'Set the number of items to be displayed');
 @define('PLUGIN_GUESTSIDE_NOENTRIES', 'No guestbook entries available.');
+

@@ -43,7 +43,7 @@
 @define('TEXT_HOMEPAGE', 'ホームページ');
 @define('TEXT_COMMENT', 'テキスト');
 @define('TEXT_EMAILSUBJECT', 'ブログ: 新規ゲストブックエントリ');
-@define('TEXT_EMAILTEXT', '%s さんがゲストブックにちょうど書き込みました:\n%s');
+@define('TEXT_EMAILTEXT', "%s さんがゲストブックにちょうど書き込みました:\n%s\n%s\n");
 @define('ERROR_TIMELOCK', '2 つのエントリの間は少なくとも %s 秒必要です!');
 @define('ERROR_NAMEEMPTY', '名前を入力してください。');
 @define('ERROR_TEXTEMPTY', 'テキストを入力してください。');
@@ -66,4 +66,3 @@
 @define('PLUGIN_GUESTSIDE_MAXITEMS', '最大項目数');
 @define('PLUGIN_GUESTSIDE_MAXITEMS_BLAHBLAH', '表示する項目の数を設定します。');
 
-?>

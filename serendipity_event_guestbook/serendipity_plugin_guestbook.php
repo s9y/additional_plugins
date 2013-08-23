@@ -1,7 +1,9 @@
 <?php # 
-// serendipity_plugin_guestbook.php, v.1.20 - 2012-06-13 ian
-/* guestbooksidebar plugin by Jaap Boerma // j@webbict.com // v1.02 // 18-10-2005 */
 
+/**
+ * serendipity_plugin_guestbook.php, v.1.21 - 2013-08-23 Ian
+ * guestbooksidebar plugin by Jaap Boerma // j@webbict.com // v1.02 // 18-10-2005
+ */
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -18,7 +20,7 @@ include dirname(__FILE__) . '/lang_en.inc.php';
 class serendipity_plugin_guestbook extends serendipity_plugin {
     var $title = PLUGIN_GUESTSIDE_NAME;
     #var $conty = array('%serendipity_event_guestbook%/showapp', '%serendipity_event_guestbook%/automoderate');
-    
+
     function introspect(&$propbag) {
         global $serendipity;
 
@@ -26,7 +28,7 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_GUESTSIDE_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Jaap Boerma ( j@webbict.com ), Tadashi Jokagi <elf2000@users.sourceforge.net>, Ian (Timbalu)');
-        $propbag->add('version',       '1.20');
+        $propbag->add('version',       '1.21');
         $propbag->add('requirements', array(
                         'serendipity' => '0.7',
                         'smarty'      => '2.6.7',
@@ -34,19 +36,19 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
                     ));
         $propbag->add('groups',        array('FRONTEND_FEATURES'));
         $propbag->add('configuration', array(
-                        'title', 
-                        'showemail', 
-                        'showhomepage', 
-                        'max_chars', 
-                        'max_items', 
+                        'title',
+                        'showemail',
+                        'showhomepage',
+                        'max_chars',
+                        'max_items',
                         'dateformat')
         );
         // Register (multiple) dependencies. KEY is the name of the depending plugin. VALUE is a mode of either 'remove' or 'keep'.
         // If the mode 'remove' is set, removing the plugin results in a removal of the depending plugin. 'Keep' meens to
         // not touch the depending plugin.
-        $this->dependencies = array('serendipity_event_guestbook' => 'keep'); 
-        
-        #if(!is_array($serendipity['plugin_guestbook_dependency'])) { 
+        $this->dependencies = array('serendipity_event_guestbook' => 'keep');
+
+        #if(!is_array($serendipity['plugin_guestbook_dependency'])) {
         #    $this->dependency_config_merge($this->conty);
         #}
     }
@@ -94,7 +96,7 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
                 $propbag->add('description', sprintf(GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH, '%a, %m.%m.%Y %H:%M'));
                 $propbag->add('default', '%a, %d.%m.%Y %H:%M');
             break;
-            
+
             default:
                 return false;
         }
@@ -110,21 +112,21 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
         }
         return $carr;
     }
-    
-    
+
+
     /* require dependency event plugins config setting 
      * @param  $merge   = array(searchstrings)
      * @return db array
     **/
-    function dependency_config_merge($merge) { 
+    function dependency_config_merge($merge) {
         global $serendipity;
         $sql = "SELECT SUBSTRING_INDEX(name,'/',-1) AS dbname, value FROM {$serendipity['dbPrefix']}config WHERE (name LIKE '" . $merge[0] . "'";
-        foreach ($merge AS $key => $value) { 
+        foreach ($merge AS $key => $value) {
             if($key > 0) $sql .= " OR name LIKE '" . $value . "'";
         }
         $sql .= ")";
-        $centries = serendipity_db_schema_import($sql, true, 'assoc', true); 
-        if(is_array($centries)) { 
+        $centries = serendipity_db_schema_import($sql, true, 'assoc', true);
+        if(is_array($centries)) {
             $serendipity['plugin_guestbook_dependency'] = $this->array_collapse($centries, 'dbname', 'value');
             return true;
         }
@@ -162,18 +164,18 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
         if ($showemail){
             $sql .=", email";
         }
-        
-        #if($this->get_config('dbversion') == '3.0') { 
+
+        #if($this->get_config('dbversion') == '3.0') {
         #    $sql .=", approved";
         #}
-        
+
         #$whe = (serendipity_db_bool($serendipity['plugin_guestbook_dependency']['showapp']) === true || 
         #        serendipity_db_bool($serendipity['plugin_guestbook_dependency']['automoderate']) === true) 
         #        ? "WHERE approved=1" 
         #        : '';
         // as of 2012/01/19 disabled all this dependency tweaks, while not in real nead for the sidebar (why did I do this then?)
         $whe = "WHERE approved=1";
-        
+
         $sql .=", body FROM {$serendipity['dbPrefix']}guestbook $whe ORDER BY timestamp DESC";
         $sql .=" LIMIT ".$max_items;
 
@@ -182,6 +184,7 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
             foreach($entries as $e => $row) {
                 echo "<strong>" . htmlspecialchars(serendipity_strftime($dateformat, $row['timestamp'])) . '</strong> <br />' . "\n";
                 $row['body'] = htmlspecialchars($row['body']);
+                $row['body'] = serendipity_event_guestbook::bbc_reverse($row['body']);
                 if (strlen($row['body'])>$max_chars) {
                     if (function_exists('mb_strimwidth')) {
                         $row['body'] = mb_strimwidth($row['body'],0,$max_chars,"...");
@@ -213,6 +216,5 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
         }
     }
 }
-
 
 /* vim: set sts=4 ts=4 expandtab : */

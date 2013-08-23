@@ -1,5 +1,11 @@
-<?php # $Id: erendipity_event_guestbook.php, langfile(se) v2.1 2006/10/17 crapmaster
+<?php # 
 
+/**
+ *  @version 
+ *  @file serendipity_event_guestbook.php, langfile(se) v2.1 2006/10/17 crapmaster
+ *  @author crapmaster
+ *  EN-Revision: 
+ */
 
 @define('PLUGIN_GUESTBOOK_HEADLINE', 'Rubrik');
 @define('PLUGIN_GUESTBOOK_HEADLINE_BLAHBLAH', 'Rubriken på sidan.');
@@ -63,7 +69,7 @@
 @define('TEXT_NAME', 'Namn');
 @define('TEXT_HOMEPAGE', 'Hemsida');
 @define('TEXT_EMAILSUBJECT', 'Blog: nytt inlägg i gästboken');
-@define('TEXT_EMAILTEXT', "%s skrev precis nåt i din gästbok:\n%s");
+@define('TEXT_EMAILTEXT', "%s skrev precis nåt i din gästbok:\n%s\n%s\n");
 
 @define('TEXT_CONVERTBOLDUNDERLINE', 'Omslutande asterisker markerar text som fetstil (*ord*), underscore görs med hjälp av _ord_.');
 @define('TEXT_CONVERTSMILIES', 'Standard emoticons som :-) och ;-) konverteras till bilder.');

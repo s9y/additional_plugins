@@ -5,9 +5,10 @@
  * Added entry set auto-moderate state into email body
  * Use nativ API parseTemplate() method, extends Serendipity >= 1.3
  * Improved security overall
- * Added bottom paginator to entry pagea (both front- & backend)
+ * Added bottom paginator to entry pages (both front- & backend)
  * Added new option to resize backend pagination amounts
  * Fixed multiple issues, eg entries homepage not showing up, while not inserted
+ * Lang files cleanup and added some new constants
 
 
 3.32:

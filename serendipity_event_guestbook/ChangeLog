@@ -1,4 +1,14 @@
-3.40:
+3.41:
+-----
+
+ * Be more strict in types for automoderate messages
+ * Removed trim() in strip_security()
+ * Removed bbc_reverse() pattern \! part
+ * Filter guestbook comment checks, if not in admin group
+ * Added constant bypass guestbook comment checks
+
+
+ 3.40:
 -----
 
  * Added some powered by guestbook note to email in body and headers
@@ -15,6 +25,7 @@
 -----
 
  * Bump version to propagate new .htaccess access by Spartacus
+
 
 3.31:
 -----

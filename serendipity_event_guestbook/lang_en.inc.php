@@ -1,11 +1,11 @@
 <?php #
 
 /**
- *  @version 3.40
- *  @file serendipity_event_guestbook.php, langfile(utf-8/en) v.3.40 - 2013-08-21 Ian
+ *  @version 3.41
+ *  @file serendipity_event_guestbook.php, langfile(en) v.3.41 - 2013-08-24 Ian
  *  @translated 
  *  @author Ian
- *  @revisionDate 2013-08-21
+ *  @revisionDate 2013-08-24
  */
 
 @define('PLUGIN_GUESTBOOK_HEADLINE', 'Headline');
@@ -73,9 +73,6 @@
 @define('TEXT_NAME', 'Name');
 @define('TEXT_HOMEPAGE', 'Homepage');
 @define('TEXT_EMAILSUBJECT', 'New guestbook entry');
-@define('TEXT_EMAILMODERATE', "\n\nThis guestbook entry was set to moderate (%s)!");
-@define('TEXT_EMAILFOOTER', "\n\nSent by Serendipity Guestbook Plugin.");
-@define('TEXT_EMAILTEXT', "%s just wrote to your guestbook:\n%s\n%s\n");
 @define('TEXT_CONVERTBOLDUNDERLINE', 'Enclosing asterisks marks text as bold (*word*), underscore are made via _word_.');
 @define('TEXT_CONVERTSMILIES', 'Standard emoticons like :-) and ;-) are converted to images.');
 @define('TEXT_IMG_DELETEENTRY', 'Delete entry');
@@ -86,8 +83,6 @@
 @define('ERROR_TEXTEMPTY', 'Please insert a text.');
 @define('ERROR_EMAILEMPTY', 'Please insert a valid e-mail.');
 @define('ERROR_DATATOSHORT', 'Your entry should have at least 3, in the comment field at least 10 characters.');
-@define('ERROR_DATASTRIPPED', 'An active security-filter consists your entry is unvalid. Please send the already cleared entry again.');
-@define('ERROR_DATANOTAGS', 'An active plugin-wordfilter consists your entry is unvalid.');
 @define('ERROR_NOVALIDEMAIL', 'Your e-mail address appears to be invalid: ');
 @define('ERROR_NOINPUT', 'Please enter your name, e-mail address and a comment');
 @define('ERROR_ISFALSECAPTCHA', 'The CAPTCHAS of your entry did not match!');
@@ -124,6 +119,14 @@
 /* config v.3.26 additions */
 @define('PLUGIN_GUESTBOOK_FILTER_ENTRYCHECKS', 'Special body checks');
 @define('PLUGIN_GUESTBOOK_FILTER_ENTRYCHECKS_BLAHBLAH', 'List individual guestbook entry body checks. Regular Expressions are allowed, separate strings by semicolons (;). You have to escape special chars with "\". If you leave this field empty, no special checks are done.');
+/* config v.3.40 additions */
+@define('TEXT_EMAILMODERATE', "\n\nThis guestbook entry was set to moderate (%s)!");
+@define('TEXT_EMAILFOOTER', "\n\nSent by Serendipity Guestbook Plugin.");
+@define('TEXT_EMAILTEXT', "%s just wrote to your guestbook:\n%s\n%s\n");
+@define('ERROR_DATASTRIPPED', 'An active security-filter consists your entry is unvalid. Please send the already cleared entry again.');
+@define('ERROR_DATANOTAGS', 'An active plugin-wordfilter consists your entry is unvalid.');
+/* config v.3.41 additions */
+@define('PLUGIN_GUESTBOOK_FILTER_ENTRYCHECKS_BYPASS', '(Bypassed by USERLEVEL_ADMIN only!)');
 
 /* Backend main constants */
 @define('PLUGIN_GUESTBOOK_ADMIN_NAME', 'Guestbook');

@@ -34,7 +34,7 @@
 <body>
     <div><a name="top" id="top"></a></div>
     <div id="wrapper">
-        <div class="doc_edited">serendipity_event_guestbook/documentation_en.html, last modified 2013-08-24</div>
+        <div class="doc_edited">serendipity_event_guestbook/documentation_en.html, last modified 2013-08-25</div>
         <div class="doc_block"><span class="white">PLEASE NOTE</span><br />
             <br />
             This Serendipity guestbook plugin is TEMPLATE based, configurable by its own stylesheet, has a FRONTEND and a BACKEND.<br />
@@ -45,24 +45,25 @@
             <div class="skip"><a href="#top">Top</a></div>
             <div class="readme_title">S9Y :: GUESTBOOK :: CONFIG SETTINGS</div>
             <ul class="readme config">
-                <li>The <span class="eye">'Permalink'</span> setting defines a permalink for the URL. Needs the absolute HTTP path and needs to end with .htm or .html!<br />
+                <li>The <span class="eye">'Permalink'</span> defines a permalink for the URL. Needs the absolute HTTP path and needs to end with .htm or .html!<br />
                     The Serendipity default value is "<em>/blogname/pages/guestbook.html</em>", or, in case you are not using mod_rewrite, "<em>/blogname/index.php?/pages/guestbook.html</em>".</li>
-                <li>The <span class="eye">'Static Pagetitle &amp; URL'</span> setting defines the staticpage title of the page.<br />
+                <li>The <span class="eye">'Static Pagetitle &amp; URL'</span> defines the staticpage title of the page.<br />
                     Attention: this also defines the URL of the page (<em>index.php?serendipity[subpage]=name</em>). Just one short name without whitespaces (<em>default: guestbook</em>).</li>
-                <li>The <span class="eye">'Headline'</span> setting defines the headline of the page inside your blog with your normal blog design (<em>optional</em>).</li>
-                <li>The <span class="eye">'Intro'</span> setting defines additional introductory Text (<em>optional</em>).</li>
-                <li>The <span class="eye">'Guestbook form order'</span> setting defines the place of your guestbook form, on top or bottom of the entries (<em>default: top</em>).</li>
-                <li>The <span class="eye">'Entries per page'</span> setting defines how many entries to display per page (<em>default: 10</em>).</li>
-                <li>The <span class="eye">'Characters per line (Wordwrap)'</span> setting defines after how many characters a guestbook text line will be automatically wrapped (<em>default: 120</em>).</li>
-                <li>The <span class="eye">'Format as article'</span> setting defines if the output is automatically formatted as an article (colors, borders, etc.) (<em>default: yes</em>).</li>
-                <li>The <span class="eye">'Send e-mail to admin'</span> setting defines email information of entries. The admin gets an e-mail for each new entry. Insert email address on next step (<em>default: false</em>).</li>
-                <li>The <span class="eye">'User Email'</span> setting defines a form field for the e-mail of the user (<em>default: yes</em>).</li>
-                <li>The <span class="eye">'User Homepage'</span> setting defines a form field for the homepage of the user (<em>default: false</em>).</li>
-                <li>The <span class="eye">'Show Captchas'</span> setting defines the use of Serendipity CAPTCHAS (requires Spamblock plugin activated) to prevent comment SPAM (<em>default: yes</em>).</li>
-                <li>The <span class="eye">'Approve entries'</span> setting defines the guestbook entries to be verified by admin generally before they show up in frontend (<em>default: false</em>).</li>
-                <li>The <span class="eye">'Auto-moderate'</span> setting defines the same behaviour for a single entry, if the SPAMBLOCK-plugin wordfilter option is activ and set to 'moderate', caused by stopword matches (<em>default: false</em>). The guestbook content evaluation will still return captcha checking, if any spam check evaluates true. This differs from normal spamblock behaviour!</li>
-                <li>The <span class="eye">'Entry checks'</span> setting sets an active and individual wordfilter array (<em>default: pre-filled</em>). Regular Expressions are allowed, separate strings by semicolons (;). You have to escape special chars with "\". If you leave this field empty, no special checks are done. (Bypassed by USERLEVEL_ADMIN only!)</li>
-                <li>The <span class="eye">'Date format'</span> setting defines an individual strftime() code for the entry datetime (<em>default: %a, %d.%m.%Y %H:%M</em>).</li>
+                <li>The <span class="eye">'Headline'</span> defines the headline of the guestbooks frontpage page view with your normal blog design (<em>optional</em>).</li>
+                <li>The <span class="eye">'Intro'</span> defines additional introductory Text (<em>optional</em>).</li>
+                <li>The <span class="eye">'Guestbook form order'</span> defines the place of your guestbook form, on top or bottom of the entries (<em>default: top</em>).</li>
+                <li>The <span class="eye">'Entries per page'</span> defines how many entries to display per page (<em>default: 10</em>)</li>
+                <li>The <span class="eye">'Entries per page (backend)'</span> dito (<em>default: 15</em>).</li>
+                <li>The <span class="eye">'Characters per line (Wordwrap)'</span> defines after how many characters a guestbook text line will be automatically wrapped (<em>default: 120</em>).</li>
+                <li>The <span class="eye">'Format as article'</span> defines if the output is automatically formatted as an article (colors, borders, etc.) (<em>default: yes</em>).</li>
+                <li>The <span class="eye">'Send e-mail to admin'</span> defines email information of each new entry. Insert email address on next step (<em>default: false</em>).</li>
+                <li>The <span class="eye">'User Email'</span> defines a form field for the e-mail of the user (<em>default: yes</em>).</li>
+                <li>The <span class="eye">'Show Captchas'</span> defines the use of Serendipity CAPTCHAS (requires Spamblock plugin activated) to prevent comment SPAM (<em>default: yes</em>).</li>
+                <li>The <span class="eye">'User Homepage'</span> defines a form field for the homepage of the user (<em>default: false</em>).</li>
+                <li>The <span class="eye">'Approve entries'</span> defines the guestbook entries to be verified by admin generally before they show up in frontend (<em>default: false</em>).</li>
+                <li>The <span class="eye">'Auto-moderate'</span> defines the same behaviour for a single entry, if the SPAMBLOCK-plugin wordfilter option is activ and set to 'moderate', caused by stopword matches (<em>default: false</em>). The guestbook content evaluation will still return captcha checking, if any spam check evaluates true. This differs from normal spamblock behaviour!</li>
+                <li>The <span class="eye">'Entry checks'</span> sets an active and individual wordfilter array (<em>default: pre-filled</em>). Regular Expressions are allowed, separate strings by semicolons (;). You have to escape special chars with "\". If you leave this field empty, no special checks are done. This check is bypassed for users with USERLEVEL_ADMIN only!</li>
+                <li>The <span class="eye">'Date format'</span> defines an individual strftime() code for the entry datetime (<em>default: %a, %d.%m.%Y %H:%M</em>).</li>
             </ul>
             <a name="admin" id="admin"></a>
             <div class="skip"><a href="#top">Top</a></div>
@@ -84,7 +85,7 @@
             <ul class="readme design">
                 <li>All smarty tpls, images and the one main stylesheet of this plugin are located in the plugin folder and remain to stay there.</li>
                 <li>If you are skilled and wish to have an individual frontend design, copy the files to change to your template folder only<br />
-                    ( plugin_guestbook_entries.tpl, plugin_guestbook_form.tpl, style_guestbook_backend.css ).</li>
+                    ( plugin_guestbook_entries.tpl, plugin_guestbook_form.tpl, style_guestbook_frontend.css ).</li>
                 <li>In case you wish to change the <span class="eye">frontend entry background colors</span> only, copy these neutral white css directives:<br />
                     <span class="cssblock"><em>/* styles guestbook entry colors neutral */</em><br />
                     <span style="background-color: #FFB90F;;">/* the entry headline */</span> <em>.guestbook_entrytop { background:none repeat scroll 0 0 #FFF; }</em><br />
@@ -92,7 +93,7 @@
                     <span style="background-color: wheat;color: #444">/* the admin comment line */</span> <em>span.guestbook_admin_comment { background:none repeat scroll 0 0 #FFF; }</em><br />
                     <span style="background-color: #555555;color: #A8A8A8">/* the bottom shadow line */</span> <em>#guestbook_entrybundle { -moz-border-radius: 0 0; background:none repeat scroll 0 0 #FFF; }</em></span>
                         to the end of your templates user.css file, if you have one (suggested approach!).<br />
-                        If your template does not support an individual stylesheet, <u>copy</u> the style_guestbook_backend.css file to your template folder,<br />
+                        If your template does not support an individual stylesheet, <u>copy</u> the style_guestbook_frontend.css file to your template folder,<br />
                         set the directives to the end and change the #FFF to your prefered color (#FFF is neutral white).</li>
                 <li>If you want to purge the <span class="eye">frontend entry borders</span> too, add: <em>border: 0 none;</em> to each of them.</li>
                 <li>If you even wish to change all <span class="eye">frontend entry text colors</span>, add:<br />

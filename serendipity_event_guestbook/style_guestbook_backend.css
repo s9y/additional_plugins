@@ -136,8 +136,12 @@ span.frontend_guestbook_paginator_right { color: #BBB; }
 }
 #backend_guestbook_wrapper .guestbook_entries dt { display: inline-block; }
 #backend_guestbook_wrapper .guestbook_move {
-    padding: 0 4px;
+    background: none repeat scroll 0 0 ButtonFace;
+    margin: 0 4px; //neu auf margin
     vertical-align: text-top;
+}
+#backend_guestbook_wrapper img.guestbook_move {
+    background: none repeat scroll 0 0 transparent;
 }
 div.backend_guestbook_nav { 
     border: thin solid;

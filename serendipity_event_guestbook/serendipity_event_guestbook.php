@@ -23,6 +23,11 @@ class serendipity_event_guestbook extends serendipity_event {
     var $title = PLUGIN_GUESTBOOK_TITLE;
     var $filter_defaults;
 
+    /**
+     * Declare Serendipity backend properties.
+     *
+     * @param serendipity_property_bag $propbag
+     */
     function introspect(&$propbag) {
 
         global $serendipity;
@@ -74,6 +79,10 @@ class serendipity_event_guestbook extends serendipity_event {
     }
 
 
+    /**
+     * serendipity_plugin::example method
+     * 
+     */
     function example() {
         echo "\n<ul>\n";
         echo "    <li><strong>Note to v. 3.40:</strong> If have, please update copied guestbook tpl files in your template!</li>\n";
@@ -81,6 +90,11 @@ class serendipity_event_guestbook extends serendipity_event {
     }
 
 
+    /**
+     * serendipity_plugin::cleanup method
+     * 
+     * @return boolean
+     */
     function cleanup() {
         global $serendipity;
 
@@ -98,13 +112,18 @@ class serendipity_event_guestbook extends serendipity_event {
     }
 
 
+    /**
+     * serendipity_plugin::install method
+     * 
+     */
     function install() {
         $this->createTable();
     }
 
 
     /**
-     * event hook:::guestbook table install
+     * Create table install
+     * 
      */
     function createTable() {
         global $serendipity;
@@ -123,7 +142,12 @@ class serendipity_event_guestbook extends serendipity_event {
     }
 
 
-    function alter_db($db_config_version) {
+    /**
+     * Upgrade Alter Table
+     * 
+     * @param  string version
+     */
+   function alter_db($db_config_version) {
         global $serendipity;
         if ($db_config_version == '1.0') {
             $q = "ALTER TABLE {$serendipity['dbPrefix']}guestbook CHANGE name name varchar(100)";
@@ -155,7 +179,9 @@ class serendipity_event_guestbook extends serendipity_event {
 
 
     /**
-     * event hook::guestbook table uninstall
+     * serendipity_plugin::uninstall method
+     * 
+     * @return boolean
      */
     function uninstall(&$propbag) {
         global $serendipity;
@@ -172,7 +198,44 @@ class serendipity_event_guestbook extends serendipity_event {
 
 
     /**
-     * guestbook config items::$propbag->add('configuration')
+     * This function is a s9y plugin standard starter
+     * sets $serendipity['GET']['subpage']
+     * 
+     * @return boolean
+     */
+    function selected() {
+        global $serendipity;
+
+        if (!empty($serendipity['POST']['subpage'])) {
+            $serendipity['GET']['subpage'] = $serendipity['POST']['subpage'];
+        }
+
+        if ($serendipity['GET']['subpage'] == $this->get_config('pagetitle') ||
+            preg_match('@^' . preg_quote($this->get_config('permalink')) . '@i', $serendipity['GET']['subpage'])) {
+            return true;
+        }
+
+        return false;
+    }
+
+
+    /**
+     * serendipity_plugin::generate_content
+     * This function is used for sidebar plugins only
+     * 
+     * @param string $title is somehow important to indicate the title of a plugin in the plugin configuration manager.
+     */
+    function generate_content(&$title) {
+        $title = PLUGIN_GUESTBOOK_TITLE.' (' . $this->get_config('pagetitle') . ')'; // do we need to set this to headline now?
+    }
+
+
+    /**
+     * Generate backend configuration fields
+     *
+     * @param string $name field name
+     * @param serendipity_property_bag $propbag properties
+     * @return boolean
      */
     function introspect_config_item($name, &$propbag) {
         global $serendipity;
@@ -324,7 +387,6 @@ class serendipity_event_guestbook extends serendipity_event {
      * Try to make email address printing safe (protect from spammers)
      * 
      * @param  string   $string   entry email checks
-     * 
      * @return string
      */
     function safeEmail($email) {
@@ -350,8 +412,7 @@ class serendipity_event_guestbook extends serendipity_event {
      * Check if email is valid
      * 
      * @param  string   $string   entry email checks
-     * 
-     * @return boolean/string
+     * @return mixed    string/boolean
      */
      function is_valid_email($postmail) {
         // Email needs to match this pattern to be a good email address
@@ -371,7 +432,6 @@ class serendipity_event_guestbook extends serendipity_event {
      * Adds match to $serendipity['messagestack']['comments'] array, if not in admin group
      * 
      * @param  string   $string   mostly entry body checks
-     * 
      * @return boolean
      */
     function strip_input($string) {
@@ -405,8 +465,7 @@ class serendipity_event_guestbook extends serendipity_event {
      * @param  array    $keys    array of keys only
      * @param  boolean  $single  loop array or return string
      * @param  boolean  $compare allow is stripped by key note
-     * 
-     * @return $serendipity['POST'] array or single string
+     * @return mixed    array $serendipity['POST'] or single string
      */
     function strip_security($parr = null, $keys = null, $single = false, $compare = true) {
         $authenticated_user = serendipity_userLoggedIn() ? true : false;
@@ -429,14 +488,57 @@ class serendipity_event_guestbook extends serendipity_event {
 
 
     /**
+     * BBCode replacements
+     * old preg_replace had issues with whitespaces
+     * 
+     * @param  string   $string   entry comment replacements
+     * @return string
+     */
+    function text_pattern_bbc($text) {
+        $pattern     = array('[b]', '[/b]', '[u]', '[/u]', '[i]', '[/i]', '[s]', '[/s]', '[q]', '[/q]', '[ac]', '[/ac]');
+        $replacement = array('<strong>', '</strong>', '<u>', '</u>', '<em>', '</em>', '<del>', '</del>', '<q>', '</q>', '<br /><span class="guestbook_admin_comment"><blockquote cite="#"><p>', '</p></blockquote></span>');
+        return str_replace($pattern, $replacement, $text);
+    }
+
+
+    /**
+     * BBCode reverse
+     * 
+     * @param  string   $string   entry comment replacements
+     * @return string
+     */
+    function bbc_reverse($text) {
+        $pattern = '|[[\/]*?[^\[\]]*?]|si';
+        $replace = '';
+        return preg_replace($pattern, $replace, $text);
+    }
+
+
+    /**
+     * Cut string between two other strings
+     * 
+     * @param  string  $str  given string
+     * @param  string  $from left string for cutting
+     * @param  string  $to   right string for cutting
+     * @return string  cut part
+     */
+    function cut_string($str, $from, $to){
+        $start = strpos($str,$from) + strlen($from);
+        if (strpos($str,$from) === false) return false;
+        $length = strpos($str,$to,$start) - $start;
+        if (strpos($str,$to,$start) === false) return false;
+        return substr($str,$start,$length);
+    }
+
+
+    /**
      * Set frontend pagination to global var
      * 
      * @param  int      $c      counted entries
      * @param  boolean  $ap     approved yes/no = 1/0
      * @param  string   $pname  frontend Url with ? or & depending mod_rewrite settings
      * @param  int      $maxpp  max entries per page
-     * 
-     * @return entries array
+     * @return array    $entries
      */
     function frontend_guestbook_paginator($c, $ap, $pname, $maxpp) {
         global $serendipity;
@@ -496,92 +598,12 @@ class serendipity_event_guestbook extends serendipity_event {
 
 
     /**
-     * This function is a s9y plugin standard starter
-     * sets $serendipity['GET']['subpage']
-     * 
-     * @return boolean
-     */
-    function selected() {
-        global $serendipity;
-
-        if (!empty($serendipity['POST']['subpage'])) {
-            $serendipity['GET']['subpage'] = $serendipity['POST']['subpage'];
-        }
-
-        if ($serendipity['GET']['subpage'] == $this->get_config('pagetitle') ||
-            preg_match('@^' . preg_quote($this->get_config('permalink')) . '@i', $serendipity['GET']['subpage'])) {
-            return true;
-        }
-
-        return false;
-    }
-
-
-    /**
-     * This function is used for sidebar plugins only
-     * 
-     * @param string $title is somehow important to indicate the title of a plugin in the plugin configuration manager.
-     */
-    function generate_content(&$title) {
-        $title = PLUGIN_GUESTBOOK_TITLE.' (' . $this->get_config('pagetitle') . ')'; // do we need to set this to headline now?
-    }
-
-
-    /**
-     * BBCode replacements
-     * old preg_replace had issues with whitespaces
-     * 
-     * @param  string   $string   entry comment replacements
-     * 
-     * @return string
-     */
-    function text_pattern_bbc($text) {
-        $pattern     = array('[b]', '[/b]', '[u]', '[/u]', '[i]', '[/i]', '[s]', '[/s]', '[q]', '[/q]', '[ac]', '[/ac]');
-        $replacement = array('<strong>', '</strong>', '<u>', '</u>', '<em>', '</em>', '<del>', '</del>', '<q>', '</q>', '<br /><span class="guestbook_admin_comment"><blockquote cite="#"><p>', '</p></blockquote></span>');
-        return str_replace($pattern, $replacement, $text);
-    }
-
-
-    /**
-     * BBCode reverse
-     * 
-     * @param  string   $string   entry comment replacements
-     * 
-     * @return string
-     */
-    function bbc_reverse($text) {
-        $pattern = '|[[\/]*?[^\[\]]*?]|si';
-        $replace = '';
-        return preg_replace($pattern, $replace, $text);
-    }
-
-
-    /**
-     * Cut string between two other strings
-     * 
-     * @param string $str  given string
-     * @param string $from left string for cutting
-     * @param string $to   right string for cutting
-     * 
-     * @return cut string part
-     */
-    function cut_string($str, $from, $to){
-        $start = strpos($str,$from) + strlen($from);
-        if (strpos($str,$from) === false) return false;
-        $length = strpos($str,$to,$start) - $start;
-        if (strpos($str,$to,$start) === false) return false;
-        return substr($str,$start,$length);
-    }
-
-
-    /**
      * Generate entries checks
      * 
      * @param array  $entries       given string
      * @param string $is_guestbook_ url create url
      * @param int    $wordwrap      linebreak
-     * 
-     * @return array entries for output
+     * @return array $entries for output
      */
     function generate_EntriesArray($entries, $is_guestbook_url, $wordwrap) {
         global $serendipity;
@@ -626,16 +648,15 @@ class serendipity_event_guestbook extends serendipity_event {
     /**
      * Insert guestbook entry into database and send mail
      * 
-     * @param int       $id
-     * @param string    $ip
-     * @param string    $name
-     * @param string    $url
-     * @param string    $email
-     * @param string    $body
-     * @param int       $app    approved
-     * @param int       $ts     timestamp
-     * @param boolean   $old    Insert/Replace
-     * 
+     * @param  int       $id
+     * @param  string    $ip
+     * @param  string    $name
+     * @param  string    $url
+     * @param  string    $email
+     * @param  string    $body
+     * @param  int       $app    approved
+     * @param  int       $ts     timestamp
+     * @param  boolean   $old    Insert/Replace
      * @return boolean
      */
     function insertEntriesDB($id=false, $ip=false, $name, $url, $email, $body, $app=false, $ts=false, $old=false) {
@@ -687,8 +708,7 @@ class serendipity_event_guestbook extends serendipity_event {
      * Guestbook entries count db
      * 
      * @param  int   $ap   approved
-     * 
-     * @return boolean/int
+     * @return mixed boolean/int
      */
     function countEntriesDB($ap) {
         global $serendipity;
@@ -709,8 +729,7 @@ class serendipity_event_guestbook extends serendipity_event {
      * @param  int   $cp   limit from
      * @param  int   $rp   limit to
      * @param  int   $ap   approved
-     * 
-     * @return boolean/array entries
+     * @return mixed boolean/array $entries
      */
     function getEntriesDB($cp, $rp, $ap) {
         global $serendipity;
@@ -732,7 +751,7 @@ class serendipity_event_guestbook extends serendipity_event {
     /**
      * Guestbook form submit POST checks, validate & insert into db
      * 
-     * @return boolean
+     * @return boolean on error
      */
     function checkSubmit() {
         global $serendipity;
@@ -956,6 +975,8 @@ class serendipity_event_guestbook extends serendipity_event {
 
     /**
      * Guestbook create output page assignment and fetch template file
+     * 
+     * @return boolean on error
      */
     function generate_Page() {
         global $serendipity;
@@ -1049,6 +1070,7 @@ class serendipity_event_guestbook extends serendipity_event {
 
     /**
      * Guestbook create form page assignment and fetch template file
+     * 
      */
     function generate_FormPage() {
 
@@ -1181,8 +1203,14 @@ class serendipity_event_guestbook extends serendipity_event {
 
 
     /**
-     * event hook items::$propbag->add('event_hooks')
-     */
+     * Hook for Serendipity events, initialize plug-in features
+     * 
+     * @param  string                   $event
+     * @param  serendipity_property_bag $bag
+     * @param  array                    $eventData
+     * @param  array                    $addData
+     * @return boolean
+     */ 
     function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
@@ -1376,8 +1404,8 @@ class serendipity_event_guestbook extends serendipity_event {
     /**
      * Add front- and backend css to serendipity(_admin).css
      * 
-     * @param  array   $eventSata
-     * @param  array   $addata
+     * @param  array   $eventData
+     * @param  array   $addData
      * 
      */
     function cssEventData(&$eventData, &$becss) {
@@ -1400,9 +1428,14 @@ class serendipity_event_guestbook extends serendipity_event {
             serendipity_smarty_init(); // if not set to avoid member function assign() on a non-object error, start Smarty templating
         }
 
-        $moderate   = ( serendipity_db_bool($this->get_config('showapp')) || serendipity_db_bool($this->get_config('automoderate')) ) ? true : false;
+        $moderate   = (serendipity_db_bool($this->get_config('showapp')) || serendipity_db_bool($this->get_config('automoderate'))) ? true : false;
         $attention  = '<img class="backend_attention" src="' . $serendipity['serendipityHTTPPath'] . 'templates/default/admin/img/admin_msg_note.png" alt="" />';
         $gbcat      = !empty($serendipity['GET']['guestbookcategory']) ? $serendipity['GET']['guestbookcategory'] : $serendipity['POST']['guestbookcategory'];
+
+        $gbviewact  = (!isset($serendipity['GET']['guestbookcategory']) || $serendipity['GET']['guestbookcategory'] == 'gbview') ? ' id="active"' : '';
+        $gbappact   = ($serendipity['GET']['guestbookcategory'] == 'gbapp' || $serendipity['POST']['guestbook_category'] == 'gbapp') ? ' id="active"' : '';
+        $gbaddact   = (($serendipity['GET']['guestbookcategory'] == 'gbadd' || $serendipity['POST']['guestbookcategory'] == 'gbadd') && $serendipity['POST']['guestbook_category'] != 'gbapp') ? ' id="active"' : '';
+        $gbgbact    = $serendipity['GET']['guestbookcategory'] == 'gbdb' ? ' id="active"' : '';
 
         echo "\n<div id='backend_guestbook_wrapper'>\n\n";
 
@@ -1411,18 +1444,24 @@ class serendipity_event_guestbook extends serendipity_event {
         if (!isset($serendipity['POST']['guestbookadmin'])) {
             echo '
 <div class="backend_guestbook_nav">
-<ul>
-<li '.(@$serendipity['GET']['guestbookcategory'] == 'gbview' ? 'id="active"' : '').'><a href="'.$serendipity['serendipityHTTPPath'].'serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=guestbook&amp;serendipity[guestbookcategory]=gbview">'.PLUGIN_GUESTBOOK_ADMIN_VIEW.'</a></li>
-';
+    <ul>
+        <li'.$gbviewact.'>
+            <a href="'.$serendipity['serendipityHTTPPath'].'serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=guestbook&amp;serendipity[guestbookcategory]=gbview">'.PLUGIN_GUESTBOOK_ADMIN_VIEW.'</a>
+        </li>';
             if ($moderate === true) {
-            echo '
-<li '.((@$serendipity['GET']['guestbookcategory'] == 'gbapp' || @$serendipity['POST']['guestbook_category'] == 'gbapp') ? 'id="active"' : '').'><a href="'.$serendipity['serendipityHTTPPath'].'serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=guestbook&amp;serendipity[guestbookcategory]=gbapp">'.PLUGIN_GUESTBOOK_ADMIN_APP.'</a></li>
-';
+                echo '
+        <li'.$gbappact.'>
+            <a href="'.$serendipity['serendipityHTTPPath'].'serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=guestbook&amp;serendipity[guestbookcategory]=gbapp">'.PLUGIN_GUESTBOOK_ADMIN_APP.'</a>
+        </li>';
             }
             echo '
-<li '.(((@$serendipity['GET']['guestbookcategory'] == 'gbadd' || @$serendipity['POST']['guestbookcategory'] == 'gbadd') && @$serendipity['POST']['guestbook_category'] != 'gbapp') ? 'id="active"' : '').'><a href="'.$serendipity['serendipityHTTPPath'].'serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=guestbook&amp;serendipity[guestbookcategory]=gbadd">'.PLUGIN_GUESTBOOK_ADMIN_ADD.'</a></li>
-<li '.(@$serendipity['GET']['guestbookcategory'] == 'gbdb' ? 'id="active"' : '').'><a href="'.$serendipity['serendipityHTTPPath'].'serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=guestbook&amp;serendipity[guestbookcategory]=gbdb">'.PLUGIN_GUESTBOOK_ADMIN_DBC.'</a></li>
-</ul>
+        <li'.$gbaddact.'>
+            <a href="'.$serendipity['serendipityHTTPPath'].'serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=guestbook&amp;serendipity[guestbookcategory]=gbadd">'.PLUGIN_GUESTBOOK_ADMIN_ADD.'</a>
+        </li>
+        <li'.$gbgbact.'>
+            <a href="'.$serendipity['serendipityHTTPPath'].'serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=guestbook&amp;serendipity[guestbookcategory]=gbdb">'.PLUGIN_GUESTBOOK_ADMIN_DBC.'</a>
+        </li>
+    </ul>
 </div>
             '."\n";
         }
@@ -1607,10 +1646,9 @@ class serendipity_event_guestbook extends serendipity_event {
     /**
      * Get sql results and assign them to smarty
      * 
-     * @param  $ap  = approved yes/no = 1/0
-     * @param  $cat = serendipity[guestbookcategory]
-     * 
-     * @return (true/false)
+     * @param  int     $ap    approved yes/no = 1/0
+     * @param  string  $cat   serendipity[guestbookcategory]
+     * @return boolean is_arrray($entries)
      */
     function backend_guestbook_view($ap, $cat) {
         global $serendipity;
@@ -1628,7 +1666,7 @@ class serendipity_event_guestbook extends serendipity_event {
 
         if (isset($result['paginator'])) {
             // slice and save last element of $result
-            $paginator = array_pop($result);#print_r($result);
+            $paginator = array_pop($result);
         }
 
         // this assigns db entries output to guestbooks smarty array: {$entries} in entries.tpl
@@ -1675,6 +1713,7 @@ class serendipity_event_guestbook extends serendipity_event {
      * plugins panel administration
      * switch into dump, insert, erase, download 
      *
+     * @return boolean
      */
     function backend_guestbook_dbclean() {
         global $serendipity;
@@ -1811,6 +1850,9 @@ class serendipity_event_guestbook extends serendipity_event {
 
     /**
      * Read the sqldump backup directory - function scanDir() >= php5
+     *
+     * @param  string $dpath      relative path
+     * @param  string $delpath    url path
      */
     function backend_read_backup_dir($dpath, $delpath) {
         global $serendipity;
@@ -1834,7 +1876,6 @@ class serendipity_event_guestbook extends serendipity_event {
      * @param  string url    - the url string to pass
      * @param  string addno  - the add to url string in case of no proceed
      * @param  string addyes - the add to url string in case of YES
-     * 
      * @return string
      */
     function backend_guestbook_questionaire($text, $url, $addno, $addyes) {
@@ -1916,7 +1957,7 @@ class serendipity_event_guestbook extends serendipity_event {
      * @param  int      $ap  = approved yes/no = 1/0
      * @param  string   $cat = serendipity[guestbookcategory]
      * 
-     * @return result array
+     * @return mixed array/boolean $result
      */
     function backend_guestbook_paginator($c, $ap, $cat) {
         global $serendipity;
@@ -1982,7 +2023,8 @@ class serendipity_event_guestbook extends serendipity_event {
 
     /**
      * set global $serendipity['guestbook_message_header'] to true in case of approve or erase entry
-     * return entry array to re-edit and change
+     * 
+     * @return array $entry to re-edit and change
      */
     function backend_request_checks() {
         global $serendipity;

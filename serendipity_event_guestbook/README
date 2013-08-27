@@ -1,5 +1,5 @@
 /******************************************************************************
- *    serendipty_event_guestbook.php, README, last modified 2013-08-25        *
+ *    serendipty_event_guestbook.php, README, last modified 2013-08-27        *
  *    if you have a interesting hack or want to help,                         *
  *    please leave a message in http://www.s9y.org/forums/                    *
  *    have fun! Ian                                                           *
@@ -53,21 +53,21 @@ S9Y :: GUESTBOOK :: ADMINISTRATION
       2.   view unapproved entries (if 'Approve entries' is set to true),
       3.   edit or insert an entry,
       4.   the database section.
-    * Each of the first two, have the ability to (confirm,) erase (immediately!), or re-edit a single entry.
-    * The database section will allow: backup and download, or erase the SQL table instantly. (Be careful!)
+    * Each of the first 2, have the ability to (confirm), erase (immediately!), or re-edit a single entry
+    * The database section will allow: backup & download, or purge the SQL table instantly. (Be careful!)
     * A link to SQL insert is shown, but not active, since this isn't trivial enough by now.
 
 S9Y :: GUESTBOOK :: DESIGN
 
     * All smarty tpls, images and the one main stylesheet of this plugin are located in the plugin folder 
       and remain to stay there.
-    * If you are skilled and wish to have an individual frontend design, copy these files to change to your 
+    * If you are skilled and wish to have an individual frontend design, copy these files to your 
       template ( plugin_guestbook_entries.tpl, plugin_guestbook_form.tpl, style_guestbook_frontend.css ).
     * For changing the frontend entry background colors only, copy these neutral white css directives:
       /* styles guestbook entry colors neutral */
       /* the entry headline */ .guestbook_entrytop { background:none repeat scroll 0 0 #FFF; }
       /* the entry background color */ .guestbook_entrybottom { background:none repeat scroll 0 0 #FFF; }
-      /* the admin comment line */ span.guestbook_admin_comment { background:none repeat scroll 0 0 #FFF; }
+      /* admin comment line */ span.guestbook_admin_comment { background:none repeat scroll 0 0 #FFF; }
       /* the bottom shadow line */ 
       #guestbook_entrybundle { -moz-border-radius: 0 0; background:none repeat scroll 0 0 #FFF; }
       to the end of your templates user.css file, if you have one (suggested approach!).
@@ -90,6 +90,15 @@ S9Y :: GUESTBOOK :: DESIGN
       padding: 0 none; text-align: left; border: 0 none; background:none repeat scroll 0 0 #FFF; }
     * You can find a nice list of available web colours here: http://www.wackerart.de/rgbfarben.html. 
       Happy designing!
+
+
+-------------------------------------
+NOT RELEASED | Version 3.xx [ 2013-00-00 ]       |
+-------------------------------------
+
+    * correct linebreaks in README to fit Github content width
+    * fixed and added to README, documentation_en, php DOC Headers
+    * tiny tweak to backend css
 
 
 -------------------------------------
@@ -221,6 +230,7 @@ S9Y :: GUESTBOOK :: DESIGN
 
     * latest: Smarty3 forward compatibility 
 
+
 -------------------------------------
 | Version 3.22 [ 2011-02-15 ]       |
 -------------------------------------
@@ -228,6 +238,7 @@ S9Y :: GUESTBOOK :: DESIGN
     * changed smarty->fetch method call to be less strict to support smarty 2 to smarty3 parameter 
       order change - removed param 4
     * Added restriction of backend functionality and administration sidebar link to admin only
+
 
 -------------------------------------
 | Version 3.21 [ 2011-01-24 ]       |
@@ -244,161 +255,136 @@ S9Y :: GUESTBOOK :: DESIGN
 | Version 3.20 - 2010-07-17          |
 -------------------------------------
 
-- ATTENTION: This version needs you to verify and set/submit the guestbook config again!
+    * ATTENTION: This version needs you to verify and set/submit the guestbook config again!
 
-- This edition adds backend administration and now supports admin moderation to guestbook entries.
-- Therefor it adds a new database table field 'approve' and a new config variable 'showapp' to true 
-  or false (default is false).
-- Changes will affect old entries to be set as approved.
-- Updated Serendipity guestbook sidebar plugin to select these entries only to v.1.12.
-- Changed and added lang constants. The lang files <en>, <de> and <de-utf8> are now up to date.
-- Some small tweaks to both of the frontend tpls and some more to the stylesheet.
-- Some small tweaks to the frontend paginator and the url building, to be more friendly to mod_rewrite 
-  setting via permalink or subpage.
-- This upgrade may effect individual design settings. Please make sure to have a look to your frontend 
-  tpls and the stylesheet!
+    * This edition adds backend administration and now supports admin moderation to guestbook entries.
+    * Therefor it adds a new database table field 'approve' and a new config variable 'showapp' to true 
+      or false (default is false).
+    * Changes will affect old entries to be set as approved.
+    * Updated Serendipity guestbook sidebar plugin to select these entries only to v.1.12.
+    * Changed and added lang constants. The lang files <en>, <de> and <de-utf8> are now up to date.
+    * Some small tweaks to both of the frontend tpls and some more to the stylesheet.
+    * Some small tweaks to the frontend paginator and the url building, to be more friendly to mod_rewrite 
+      setting via permalink or subpage.
+    * This upgrade may effect individual design settings. Please make sure to have a look to your frontend 
+      tpls and the stylesheet!
 
 
 -------------------------------------
 | Version 2.8 to 3.11 - 2007-2009   |
 -------------------------------------
-- some tweaks by Garvin see ChangeLog
+    * some tweaks by Garvin see ChangeLog
 
 
 -------------------------------------
 | Version 2.8 - 2007-07-23          |
 -------------------------------------
 
-- ATTENTION: This version needs you to verify and set/submit the guestbook config again!
+    * ATTENTION: This version needs you to verify and set/submit the guestbook config again!
 
-- Changed lang files. The lang files <en>, <de> and <de-utf8> are now up to date. 
-    *    If you update other lang files please change the first line to 
-         $Id: serendipity_event_guestbook.php, langfile(short name) v2.8 200x/xx/xx name
+    * Changed lang files. The lang files <en>, <de> and <de-utf8> are now up to date. 
+    * If you update other lang files please change the first line to 
+      $Id: serendipity_event_guestbook.php, langfile(short name) v2.8 200x/xx/xx name
 
-- Images new and moved and old files clean up.
-    *    Deleted the very old 'plugin_guestbook.tpl' file: this confuses newbies. Please do the same!
-    *    button_background.png and shorttime.gif belong into plugins img folder. 
-    *    Please delete them in plugin folder to not confuse anybody. 
-    *    Added a blank.gif and a info.gif, which actually is the config help picture, into plugins img folder. 
+    * Images new and moved and old files clean up.
+    * Deleted the very old 'plugin_guestbook.tpl' file: this confuses newbies. Please do the same!
+    * button_background.png and shorttime.gif belong into plugins img folder. 
+    * Please delete them in plugin folder to not confuse anybody. 
+    * Added a blank.gif and a info.gif, which actually is the config help picture, into plugins img folder. 
 
-- Changed plugin_guestbook_form.tpl. 
-    *    make use of the new smarty vars 
-    *    if set: popup and show messages
-    *    Now a user using the popup issue can view his entry after DB INSERT. 
-    *    changed action="{$plugin_guestbook_action}#entry" to action="{$commentform_action}?frontpage#feedback" 
-         inside plugin_guestbook_form.tpl. This seems necessary if you use a static page as your start page. 
-         Be sure to have the staticpage plugin in order before the contactform and guestbook plugin.
-         Well, actually the '?frontpage' will be done in serendipity_event_guestbook.php. 
-    *    added admin stuff
-    *    modified some css
+    * Changed plugin_guestbook_form.tpl. 
+    * make use of the new smarty vars 
+    * if set: popup and show messages
+    * Now a user using the popup issue can view his entry after DB INSERT. 
+    * changed action="{$plugin_guestbook_action}#entry" to 
+      action="{$commentform_action}?frontpage#feedback" inside plugin_guestbook_form.tpl. 
+      This seems necessary if you use a static page as your start page. 
+      Be sure to have the staticpage plugin in order before the contactform and guestbook plugin.
+      Well, actually the '?frontpage' will be done in serendipity_event_guestbook.php. 
+    * added admin stuff
+    * modified some css
 
-- Changed plugin_guestbook_entries.tpl. 
-    *    make use of the new smarty vars 
-    *    if set: order form on top or end and be able to even link to the form
-    *    moved some things around
-    *    added admin stuff and a missing <td></td>, which seems nessessary!
-    *    modified some css
+    * Changed plugin_guestbook_entries.tpl. 
+    * make use of the new smarty vars 
+    * if set: order form on top or end and be able to even link to the form
+    * moved some things around
+    * added admin stuff and a missing <td></td>, which seems nessessary!
+    * modified some css
 
-- Changed, cleaned and modified the style_guestbook_backend.css 
-    *    you may put a very own version of both tpl and css files inside your template folder.
+    * Changed, cleaned and modified the style_guestbook_backend.css 
+    * you may put a very own version of both tpl and css files inside your template folder.
 
 >> GH: TEMPORARILY DEACTIVATED
-- One extra dynamic field added (dyn).
-    ***    I don't think there is any need to use mgroeninger's excellent dynamic function from contactform.
+    * One extra dynamic field added (dyn).
+    * I don't think there is any need to use mgroeninger's excellent dynamic function from contactform.
 
-- In order to make things more configurable, these vars were changed or added (see also the lang files):
-
-    * 'headline'      *     staticpage headline on top of page, by Garvin (v. 2.7).
-    
-    * 'intro'         *     is used for free additional text entry on top of guestbook page.
-    
-    * 'pageurl'       *     now called permalink, while pagetitle is used as the original (1.x) pageurl and for 
-                            staticpage_pagetitle, see below. (Sounds a bit messy, I know, but this is more straight!)
-    
-    * 'pagetitle'     *     is used in staticpages and other templates and defines the URL of the page 
-                            'index.php?serendipity[subpage]=name'.
-    
-    * 'formorder'     *     decide to have form appear first, default is form at end of entries.
-    
-    * 'formpopup'     *     decide to have the form appear in a popup page, default (yes) is no popup.
+    * In order to make things more configurable, these vars were changed or added (see also the lang files):
+    * 'headline'      staticpage headline on top of page, by Garvin (v. 2.7).
+    * 'intro'         is used for free additional text entry on top of guestbook page.
+    * 'pageurl'       now called permalink, while pagetitle is used as the original (1.x) pageurl and for 
+                      staticpage_pagetitle, see below. (Sounds a bit messy, I know, but this is more straight!)
+    * 'pagetitle'     is used in staticpages and other templates and defines the URL of the page 
+                      'index.php?serendipity[subpage]=name'.
+    * 'formorder'     decide to have form appear first, default is form at end of entries.
+    * 'formpopup'     decide to have the form appear in a popup page, default (yes) is no popup.
 
     >>GH:TEMPORARILY DEACTIVATED!
-    * 'showdynfield'  *     this is a basic dynamic field as a mysql varchar(100) field. 
-                    Use with a input field in plugin_guestbook_form.tpl 
-                    and as a text output in plugin_guestbook_entries.tpl.
-                    I tried it with a tinyblob field, but it is not a very good idea 
-                    to store binary data in databases, and so I came back to this small input text field.
-                    If you want to change this field with another label name, set config dynfield to the new name and submit.
-
-- Fixed a small bug in paginator function.
-
-- General code clean up and moved things around. More documented code.
-
-- Now this really is a fully template version (99.9% ;-)). 
+    * 'showdynfield'  this is a basic dynamic field as a mysql varchar(100) field. 
+                      Use with a input field in plugin_guestbook_form.tpl 
+                      and as a text output in plugin_guestbook_entries.tpl.
+                      I tried it with a tinyblob field, but it is not a very good idea 
+                      to store binary data in databases, and so I came back to this small input text field.
+                      If you want to change this field with another label name, set config dynfield to the 
+                      new name and submit.
+    * Fixed a small bug in paginator function.
+    * General code clean up and moved things around. More documented code.
+    * Now this really is a fully template version (99.9% ;-)). 
     * Moved some remaining divs and some admin stuff into the tpls.
-    * Sorry, there are still some needs inside functions for remaining line breaks and the urls of the paginator function.
-
-- Good news! The code for the staticpage plugin at the end oft this page is obsolet by now. 
-    * We'll keep the compatibility to 1.x until next 3.x release. Well, actually this version should be 3.0.
+    * Sorry, there are still some needs inside functions for remaining line breaks and the urls of 
+      the paginator function.
+    * Good news! The code for the staticpage plugin at the end oft this page is obsolet by now. 
+    * We'll keep the compatibility to 1.x until next 3.x release.
 
 
 -------------------------------------
 | Version 2.5 to 2.7 - 2007-??-??   |
 -------------------------------------
-- some tweaks by Garvin
-
+    * some tweaks by Garvin
 
 
 -------------------------------------
 | Version 2.0 to 2.4 - 2006-10-06   |
 -------------------------------------
 
-- Some link generation changes to function generate_EntriesPage() to make it work with/without mode_rewrite
-
-- Entries SQL query and show now execute only when user is in 'entries view' or 'entry done' mode
-
-- Guestbookform tpl action url is now: $serendipity['baseURL'] . $serendipity['indexFile'] . '#entry'
-
-- Changed sidebar serendipity_event_staticpage.php to be compatible to guestbook 2.0 version too (code1). 
-  In case you allready used this plugin to show a link to the guestbook plugin in your sidebar, 
-  please go into admin panel, go to static pages, and say yes again to show guestbook plugin. 
-  Doing this, changes to code will take effect.
-
-- Made sidebar serendipity_plugin_guestbook work with 2.0 version only
-
-- Target admin mail address should now be compatible to old guestbook version 1.38 - just one targetmail used
-
-- Markup config var makes tpl based entries textfield output get parsed through S9y standard text formatting 
-  and converting standard smilies
-
-- Change old guestbook table now works for mysql (only?)
-
-- More cleanup / renaming and reconfigured wordwrap in config for 2.0 final
-
-- Now the guestbook should work well with/without CAPTCHAS - this needed a new config variable 
-  so please check your Captchas settings in spamblock and! guestbook plugins
-
-- Generell clean up and messages tweaks.
-
-- Now serendipity_event_guestbook is nearly full template based (see plugin_guestbook_entries.tpl 
-  and plugin_guestbook_form.tpl)
-
-- You will find images shorttime.gif, button_background.png and delete.png in $this_plugin/img dir now.
-
-- Change css (style_guestbook_backend.css) and template files to your needs
-
-- Please check other lang files - actualy only <en>, <de> and <de-utf8> will work!
-
-- Permalink ("pageurl") is a full path from http root eg. "/serendipity/pages/guestbook.html" 
-  or "/serendipity/index.php?/pages/guestbook.html" (see mod_rewrite)
-
-- Please Note: This version is making use of plugin::spamblock features and captchas (disabled for admins),
-
-- Please Note: timelock and sessionlock config vars will not be used anymore - removed by table update
+    * Some link generation changes to function generate_EntriesPage() to make it work with/without mode_rewrite
+    * Entries SQL query and show now execute only when user is in 'entries view' or 'entry done' mode
+    * Guestbookform tpl action url is now: $serendipity['baseURL'] . $serendipity['indexFile'] . '#entry'
+    * Changed sidebar serendipity_event_staticpage.php to be compatible to guestbook 2.0 version too (code1). 
+      In case you allready used this plugin to show a link to the guestbook plugin in your sidebar, 
+      please go into admin panel, go to static pages, and say yes again to show guestbook plugin. 
+      Doing this, changes to code will take effect.
+    * Made sidebar serendipity_plugin_guestbook work with 2.0 version only
+    * Target admin mail address should now be compat to old guestbook version 1.38, just one targetmail used
+    * Markup config var makes tpl based entries output get parsed through S9y standard text formatting
+      and converting standard smilies
+    * Change old guestbook table now works for MySql (only?)
+    * More cleanup / renaming and reconfigured wordwrap in config for 2.0 final
+    * Now the guestbook should work well with/without CAPTCHAS - this needed a new config variable 
+      so please check your Captchas settings in spamblock and! guestbook plugins
+    * Generell clean up and messages tweaks.
+    * Now serendipity_event_guestbook is nearly full template based (see plugin_guestbook_entries.tpl 
+      and plugin_guestbook_form.tpl)
+    * You will find images shorttime.gif, button_background.png and delete.png in $this_plugin/img dir now.
+    * Change css (style_guestbook_backend.css) and template files to your needs
+    * Please check other lang files - actualy only <en>, <de> and <de-utf8> will work!
+    * Permalink ("pageurl") is a full path from http root eg. "/serendipity/pages/guestbook.html" 
+      or "/serendipity/index.php?/pages/guestbook.html" (see mod_rewrite)
+    * Note: This version is making use of plugin::spamblock features and captchas (disabled for admins),
+    * Note: timelock and sessionlock config vars will not be used anymore - removed by table update
 
 
 ------------------------------------------------------
 | Version 1.0 to 1.38 [ 2005-02-11 to 2006-08-21 ]   |
 ------------------------------------------------------
 
-- originally developed by Philipp Schneider aka boelkstoff
+    * originally developed by Philipp Schneider aka boelkstoff

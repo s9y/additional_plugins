@@ -35,7 +35,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_IMAGESELECTORPLUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Vladimir Ajgl, Adam Charnock');
-        $propbag->add('version',       '0.32');
+        $propbag->add('version',       '0.33');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',
@@ -108,7 +108,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                 $propbag->add('description', '');
                 $propbag->add('default', '0');
                 break;
-            
+
             case 'unzipping':
                 if (class_exists('ZipArchive')) {
                     $propbag->add('type', 'boolean');
@@ -268,7 +268,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
             </p>
 <?php
                     }
-?>                      
+?>
             <br />
             <strong><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_QUICKBLOG; ?>:</strong><br />
             <em><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_QUICKBLOG_DESC; ?></em>
@@ -331,7 +331,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                         if ($res === TRUE) {
                             $files_to_unzip   = array();
                             $extracted_images = array();
-                            
+
                             for($i=0; $i < $zip->numFiles; $i++) {
                                 $file_to_extract = $zip->getNameIndex($i);
                                 if (file_exists($target_dir.$file_to_extract)) {
@@ -341,15 +341,13 @@ class serendipity_event_imageselectorplus extends serendipity_event
                                     $extracted_images[] = $target_dir.$file_to_extract;
                                 }
                             }
-                            
-                            
+
                             $zip->extractTo($target_dir,$files_to_unzip);
                             $zip->close();
                             echo PLUGIN_EVENT_IMAGESELECTORPLUS_UNZIP_OK;
                         } else {
                             echo PLUGIN_EVENT_IMAGESELECTORPLUS_UNZIP_FAILED;
-                        }                        
-                        
+                        }
 
                         // now proceed all unzipped images
                         foreach ($extracted_images as $target) {
@@ -360,21 +358,21 @@ class serendipity_event_imageselectorplus extends serendipity_event
                             $tfile      = $basename.".".$extension;
                             preg_match('@'.$serendipity['uploadPath'].'(.*/)@',$target,$matches);
                             $image_directory = $matches[1];  
-                            
-                            // make thumbnails for new images        
+
+                            // make thumbnails for new images
                             $thumbs = array(array(
                                 'thumbSize' => $serendipity['thumbSize'],
                                 'thumb'     => $serendipity['thumbSuffix']
                             ));
                             serendipity_plugin_api::hook_event('backend_media_makethumb', $thumbs);
-                       
+
                             foreach($thumbs as $thumb) {
                                 // Create thumbnail
                                 if ( $created_thumbnail = serendipity_makeThumbnail($tfile, $image_directory, $thumb['thumbSize'], $thumb['thumb']) ) {
                                     echo PLUGIN_EVENT_IMAGESELECTORPLUS_UNZIP_IMAGE_FROM_ARCHIVE . " - " . THUMB_CREATED_DONE . '<br />';
-                                } 
+                                }
                             }
-        
+
                             // Insert into database
                             $image_id = serendipity_insertImageInDatabase($tfile, $image_directory, $authorid, null, $realname);
                             echo PLUGIN_EVENT_IMAGESELECTORPLUS_UNZIP_IMAGE_FROM_ARCHIVE." ($tfile) ".PLUGIN_EVENT_IMAGESELECTORPLUS_UNZIP_ADD_TO_DB."<br />";
@@ -424,7 +422,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     break;
 
                 case 'frontend_display':
-                    
+
                     // auto resizing images based on width and/or height attributes in img tag
                     if (serendipity_db_bool($this->get_config('autoresize'))) {
                         if (!empty($eventData['body'])) {
@@ -435,7 +433,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                             $eventData['extended'] = $this->substituteImages($eventData['extended']);
                         }
                     }
-                    
+
                     if (empty($eventData['body'])) {
                         return;
                     }
@@ -444,7 +442,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     if (is_object($serendipity['smarty']) && preg_match('@<!--quickblog:(.+)-->@imsU', $eventData['body'], $filematch)) {
                         $eventData['body'] = $this->parse_quickblog_post($filematch[1], $eventData['body']);
                     }
-                    
+
                     // displaying galleries introduced by markup
                     foreach ($this->markup_elements as $temp) {
                         if (serendipity_db_bool($this->get_config($temp['name'], true)) && isset($eventData[$temp['element']]) &&
@@ -454,7 +452,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                             $eventData[$element] = $this->media_insert($eventData[$element], $eventData);
                         }
                     }
-                    
+
                     return true;
 
                     break;
@@ -530,7 +528,6 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     echo $link . '&lt;&lt; ' . BACK . '</a>';
 
                     echo '</div></div></div>';
-                    
 
                     return true;
                     break;
@@ -565,24 +562,23 @@ class serendipity_event_imageselectorplus extends serendipity_event
             return false;
         }
     }
-    
+
     /*
      *  function parse_quickblog_post makes a quickblog post from the picture
      *  given by $path @string
-     */          
-    
+     */
     function parse_quickblog_post($path, &$body) {
         global $serendipity;
         $file = basename($path);
         $dir  = dirname($path) . '/';
-    
+
         $t       = serendipity_parseFileName($file);
         $f       = $t[0];
         $suf     = $t[1];
-    
+
         $infile  = $dir . $file;
         $outfile = $dir . $f . '.quickblog.' . $suf;
-    
+
         if (function_exists('exif_read_data') && file_exists($infile) && !serendipity_db_bool($this->get_config('force_jhead'))) {
             $exif      = exif_read_data($infile);
             $exif_mode = 'internal';
@@ -590,7 +586,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
             $exif_mode = 'jhead';
             $exif_raw  = explode("\n", @`jhead $infile`);
             $exif      = array();
-    
+
             foreach((array)$exif_raw AS $line) {
                 preg_match('@^(.+):(.+)$@U', $line, $data);
                 $key = preg_replace('@[^a-z0-9]@i', '_', trim($data[1]));
@@ -599,7 +595,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                 }
                 $exif[$key] .= trim($data[2]) . "\n";
             }
-    
+
             if (count($exif) < 1) {
                 $exif = false;
             }
@@ -607,10 +603,10 @@ class serendipity_event_imageselectorplus extends serendipity_event
             $exif = false;
             $exif_mode = 'none';
         }
-    
+
         $http_infile  = $this->httpize($infile);
         $http_outfile = $this->httpize($outfile);
-    
+
         $quickblog = array(
             'image'     => $http_outfile,
             'fullimage' => $http_infile,
@@ -618,28 +614,27 @@ class serendipity_event_imageselectorplus extends serendipity_event
             'exif'      => &$exif,
             'exif_mode' => $exif_mode
         );
-    
+
         $tfile = serendipity_getTemplateFile('quickblog.tpl', 'serendipityPath');
         if (!$tfile || $tfile == 'quickblog.tpl') {
             $tfile = dirname(__FILE__) . '/quickblog.tpl';
         }
-    
+
         $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
         $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
         $serendipity['smarty']->assign('quickblog', $quickblog);
         $content = $serendipity['smarty']->fetch('file:'. $tfile);
         $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
-        
+
         return $content;
     }
-    
-    
+
+
     /*
      *  display_target_selectbox()
      *  displays select box for choosing target of image in the image selector
      *  depreceated, in new version >0.9 already in admin_image_selector.php     
      */          
-    
     function display_target_selectbox() {
 ?>
 <label id="select_image_target"><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_TARGET; ?></label>
@@ -651,14 +646,14 @@ class serendipity_event_imageselectorplus extends serendipity_event
     </select>
 <br />
 <?php
-    
+
     }
-    
+
     /*
      *  display_sript()
      *  displays script necessary for inserting target for images chosen by
-     *  image selector      
-     *  depreceated, in new version >0.9 already in admin_image_selector.php     
+     *  image selector
+     *  depreceated, in new version >0.9 already in admin_image_selector.php
      */          
     function display_script() {
 ?>
@@ -749,31 +744,34 @@ function serendipity_imageSelectorPlus_done(textarea)
 }
 </script>
 <?php
-    
+
     }
 
 
-/*
- * media_insert
- * this function replaces xml-like structure in the $text @string
- *  by images from media gallery
- */  
+    /*
+     * media_insert
+     * this function replaces xml-like structure in the $text @string
+     *  by images from media gallery
+     */
     function media_insert($text, &$eventData) {
         global $serendipity;
         // find in text parts which are mediainsert
-        
+
         $entry_parts = preg_split('@(<mediainsert>[\S\s]*?</mediainsert>)@', $text, -1, PREG_SPLIT_DELIM_CAPTURE);
-        
+
         // parse mediainserts 
         // (if xml parser is present at php installation
         //         - SimpleXMLElement in PHP > 5.0, users of older version could have troubles )
         // text is splitted into parts
         if (class_exists('SimpleXMLElement')) {
             for ($i=0, $pcount = count($entry_parts); $i < $pcount; $i++) {
-                if (!(strpos($entry_parts[$i],"<mediainsert>") === false)) {  
-                    $xml     = new SimpleXMLElement($entry_parts[$i]);           
+                if (!(strpos($entry_parts[$i],"<mediainsert>") === false)) {
+                    // There is a problem with wysiwyg-ckeditor: which removes linebreaks and sometimes inserts ending tags
+                    // To not error, we remove at least the ending tags and possibly single-tags missing trailing slashes
+                    $epart   = str_replace(array('</media>','</gallery>','">'), array('','','" />'), $entry_parts[$i]);
+                    $xml     = new SimpleXMLElement($epart);
                     $gallery = $xml->gallery['name'];
-                 
+
                     $medias        = array();
                     $whole_gallery = false;
                     foreach ($xml->media as $medium) {
@@ -796,10 +794,10 @@ function serendipity_imageSelectorPlus_done(textarea)
                             break;
                         }
                     }
-                  
+
                     // here we have desired gallery and desired pictures
                     // now read available ones from database
-                    
+
                     if ($whole_gallery) {
                         $q = "SELECT id,name,extension,thumbnail_name,realname,path,value as comment1,dimensions_width as width, dimensions_height as height
                               FROM {$serendipity['dbPrefix']}images as i 
@@ -812,13 +810,13 @@ function serendipity_imageSelectorPlus_done(textarea)
                               LEFT JOIN {$serendipity['dbPrefix']}mediaproperties as p ON (p.mediaid = i.id AND p.property='COMMENT1') 
                               WHERE i.path = '" . serendipity_db_escape_string($gallery) . "' AND i.name IN ($images_suggestions)";
                     }
-    
+
                     $t = serendipity_db_query($q);
-                    
+
                     // here we have to order the results from database to respect
                     // the order of pictures in xml entry
                     // and at the same time we calculate thumbs size
-                    
+
                     $thumb_size = $serendipity['thumbSize'];
                     $order      = array();
                     if (is_array($t)) {
@@ -832,11 +830,11 @@ function serendipity_imageSelectorPlus_done(textarea)
                                 $t[$j]["thumbheight"] = round($thumb_size);
                                 $t[$j]["thumbwidth"]  = round($thumb_size*$w/$h);
                             }
-                            
+
                             if (strlen($t[$j]["comment1"]) == 0) {
                                 $t[$j]["comment1"] = $t[$j]["name"];
                             }
-    
+
                             $order[$j] = array_search($t[$j]["name"], $medias);
                             if (strlen($t[$j]["thumbnail_name"]) == 0) {
                                 array_splice($t,$j,1);
@@ -844,11 +842,11 @@ function serendipity_imageSelectorPlus_done(textarea)
                                 $tcount--;
                             }
                         }
-    
+
                         array_multisort($order, SORT_ASC, SORT_NUMERIC, $t);
-                        
+
                         // now make an output using template
-    
+
                         $tfile = serendipity_getTemplateFile('plugin_mediainsert.tpl', 'serendipityPath');
                         if (!$tfile || $tfile == 'plugin_mediainsert.tpl') {
                             $tfile = dirname(__FILE__) . '/plugin_mediainsert.tpl';
@@ -863,8 +861,8 @@ function serendipity_imageSelectorPlus_done(textarea)
                         // if there are no available images, do no output
                         $content= "";
                     }
-                    
-                    // fetch the output          
+
+                    // fetch the output
                     $entry_parts[$i] = $content;
                 }
             }
@@ -872,11 +870,11 @@ function serendipity_imageSelectorPlus_done(textarea)
 
         return implode("", $entry_parts);
     }
-    
-    
+
+
     //////////////////////////////////////////////////////////////
     /// The following methods are used for the auto image resizing
-    
+
     /**
      * Substitute img src attributes in $html with auto resize urls
      *
@@ -889,7 +887,7 @@ function serendipity_imageSelectorPlus_done(textarea)
         //We need to make sure we substitute the last images first otherwise 
         //our char offsets will get messed up
         $imgTags = array_reverse($imgTags);
-        
+
         foreach ($imgTags as $attrs) {
             $newTag = '<img';
             $attrPairs = array();
@@ -903,17 +901,17 @@ function serendipity_imageSelectorPlus_done(textarea)
                 }
             }
             $newTag .= ' ' . implode(' ', $attrPairs) . ' />';
-            
+
             //Now we need to splice the new tag into the HTML
             $firstHalf = substr($html, 0, $attrs['_offset']);
             $secondHalf = substr($html, $attrs['_offset'] + $attrs['_length']);
-            
+
             $html = $firstHalf . $newTag . $secondHalf;
         }
-        
+
         return $html;
     }
-    
+
     /**
      * Gets an image ID based on the URL
      * 
@@ -931,7 +929,7 @@ function serendipity_imageSelectorPlus_done(textarea)
      */
     function getImageIdByUrl($url){
         global $serendipity;
-        
+
         if (preg_match('#.*templates_c/mediacache/cache_img(\d+)_(\d*)_(\d*)#i', $url, $m)) {
             $imageId = $m[1];
         } else if (preg_match('#.*uploads(.*/)([^/]+)\.([a-z0-9]+)#i', $url, $m)) {
@@ -946,10 +944,10 @@ function serendipity_imageSelectorPlus_done(textarea)
             //We got an unrecognised url so return false
             $imageId = false;
         }
-        
+
         return $imageId;
     }
-    
+
     /**
      * Get the transformed src for an img tag
      *
@@ -959,7 +957,7 @@ function serendipity_imageSelectorPlus_done(textarea)
      */
     function getTransformImg($attrs) {
         global $serendipity;
-        
+
         /*
         Image URLs can be expected to look like either:
         <maybe-something-here>/uploads/fireworks.jpg
@@ -969,19 +967,19 @@ function serendipity_imageSelectorPlus_done(textarea)
         if (!isset($attrs['src']) || !$attrs['src']) {
             trigger_error('The $attrs parameter must contain a "src" key', E_USER_ERROR);
         }
-        
+
         if ((!isset($attrs['height']) || !$attrs['height']) && (!isset($attrs['width']) || !$attrs['width'])) {
             //Without any height or width values we cannot do anything
             return $attrs['src'];
         }
-        
+
         $url = $attrs['src'];
         $imageId = $this->getImageIdByUrl($url);
         if (!$imageId) {
             //We got an unrecognised url so don't do anything to it, just send it right back
             return $url;
         }
-        
+
         //Create the new, transformed URL
         $newUrl = rtrim($serendipity['baseURL'], '/') . '/serendipity_admin_image_selector.php?serendipity[image]=%d&serendipity[disposition]=inline&serendipity[step]=showItem';
         if (isset($attrs['height']) && $attrs['height']) {
@@ -990,12 +988,12 @@ function serendipity_imageSelectorPlus_done(textarea)
         if (isset($attrs['width']) && $attrs['width']) {
             $newUrl .= '&serendipity[resizeWidth]=' . (int)($attrs['width']);
         }
-        
+
         $newUrl = sprintf($newUrl, $imageId);
         return $newUrl;
-        
+
     }
-    
+
     /**
      * Parses image tags out of a chunk of HTML
      * 
@@ -1008,9 +1006,9 @@ function serendipity_imageSelectorPlus_done(textarea)
         //http://kev.coolcavemen.com/2007/03/ultimate-regular-expression-for-html-tag-parsing-with-php/
         preg_match_all("/<\/?(\w+)((\s+\w+(\s*=\s*(?:\".*?\"|'.*?'|[^'\">\s]+))?)+\s*|\s*)\/?>/i", $html, $m, PREG_OFFSET_CAPTURE);
         $tags = array('types' => $m[1], 'attrs' => $m[2], 'wholetags' => $m[0]);
-        
+
         //At this stage $tags['attrs'] is just an unparsed string
-        
+
         $imgTags = array();
         for ($i=0; $i<count($tags['attrs']); $i++) {
             if ($tags['types'][$i][0] == 'img') {
@@ -1022,10 +1020,10 @@ function serendipity_imageSelectorPlus_done(textarea)
                 }
             }
         }
-        
+
         return $imgTags;
     }
-    
+
     /**
      * Parse the attribute portion of an HTML/XHTML/XML tag
      * 
@@ -1056,10 +1054,10 @@ function serendipity_imageSelectorPlus_done(textarea)
         $parsedAttrs = array();
         $currentAttrName = '';
         $currentAttrValue = '';
-        
+
         //We append an extra space to ensure the last attr gets processd
         $chars = str_split($attrs . ' ', 1);
-        
+
         $state = 'read-name';
         $quote = '';
         foreach ($chars as $c) {
@@ -1100,7 +1098,7 @@ function serendipity_imageSelectorPlus_done(textarea)
                     break;
             }
         }
-        
+
         return $parsedAttrs;
     }
 

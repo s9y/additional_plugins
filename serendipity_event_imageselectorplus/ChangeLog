@@ -1,3 +1,17 @@
+0.33:
+----
+
+Fix some wrong mediainserts by CKEDITOR
+
+
+0.32:
+----
+
+fixed upload path
+
+0.31:
+-----
+
 latest: Smarty3 forward compatibility
 
 0.30:
@@ -9,6 +23,7 @@ Remove $selected, raises a smarty exception
 ----
 
 Passed $eventData to the plugin_mediainsert.tpl file, as {$plugin_mediainsert_entry}.
+
 
 Version 0.20:
 ------------

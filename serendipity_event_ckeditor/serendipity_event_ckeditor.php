@@ -80,7 +80,7 @@ class serendipity_event_ckeditor extends serendipity_event
                 $this->set_config('installer', '4-'.date('Ymd-H:i:s')); // this is a faked debug notice, since falldown is extract true with case 0, 1 or 2
             } else {
                 $this->set_config('installer', '3-'.date('Ymd-H:i:s')); // this will happen, if no further extract is necessary in case of an update
-                return true;
+                return;
             }
         }
 
@@ -115,7 +115,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '1.3.1');
+        $propbag->add('version',       '1.3.2');
         $propbag->add('copyright',     'GPL or LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
@@ -283,6 +283,7 @@ class serendipity_event_ckeditor extends serendipity_event
         CKEDITOR.config['height'] = 400;
         //CKEDITOR.config.removePlugins = 'flash,iframe';
         CKEDITOR.config.allowedContent = <?php echo $acfoff; ?>;
+        CKEDITOR.config.protectedSource.push(/<mediainsert>.*<\/mediainsert>/ig); // protect imageselectorplus galleries [OK] - still very sensitive!
         CKEDITOR.config.removeButtons = 'Styles';
         CKEDITOR.config.toolbarGroups = [
             { name: 'styles' },
@@ -307,6 +308,72 @@ class serendipity_event_ckeditor extends serendipity_event
             });
         });
 
+        if (!Array.prototype.forEach) {
+            Array.prototype.forEach = function (fn, scope) {
+                'use strict';
+                var i, len;
+                for (i = 0, len = this.length; i < len; ++i) {
+                    if (i in this) {
+                        fn.call(scope, this[i], i, this);
+                    }
+                }
+            };
+        }
+
+        function exefit(execcom) {
+            execcom = execcom.replace('function() { ', '');
+            execcom = execcom.replace(' }', '');
+            execcom = execcom.replace('<?php echo $serendipity['defaultBaseURL']; ?>', '');
+            return execcom;
+        }
+
+        // this is nugget only area, spawned by head! (textareas of staticpage nuggets, html nugget plugins, etc.)
+        // called via Spawnnugget(), set by real plugins like staticpages and cores functions_plugins_admin.inc in case of $ev['skip_nuggets'] === false
+        function Spawnnuggets(item) {
+            // console.log(item);
+            if (document.getElementById('nuggets' + item)) {
+                CKEDITOR.replace('nuggets' + item, {
+                    // Reset toolbar Groups settings
+                    // toolbarGroups: null
+                });
+
+                CKEDITOR.config.extraPlugins = 'nuggets'+item +',mediaembed'; // no spaces allowed!
+                CKEDITOR.plugins.add('nuggets' + item, {
+                    init: function(editor) {
+                        if(typeof jsEventData !== 'undefined') {
+                            jsEventData.forEach( function(k, i) {
+                                var execcom = jsEventData[i].javascript;
+                                    execcom = exefit(execcom);
+                                editor.addCommand( jsEventData[i].id, {
+                                    exec: function( editor ) {
+                                        eval(execcom);
+                                    }
+                                });
+                                editor.ui.addButton(jsEventData[i].id, {
+                                    label:    jsEventData[i].name,
+                                    title:    jsEventData[i].name+' Plugin',
+                                    icon:     '<?php echo $serendipity['serendipityHTTPPath'] . 'plugins/'; ?>'+jsEventData[i].img_path,
+                                    iconName: jsEventData[i].id+'_icon',
+                                    command:  jsEventData[i].id
+                                });
+                            });
+                        }
+                        editor.addCommand( 'openML', {
+                            exec : function( editor ) {
+                                window.open('serendipity_admin_image_selector.php', 'ImageSel', 'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1');
+                            }
+                        });
+                        editor.ui.addButton('openML', {
+                            label:   'S9yMedia',
+                            title:   'Serendipity Media Library',
+                            icon: '<?php echo $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_ckeditor/img/mls9y.png'; ?>',
+                            iconName: 'openML_icon',
+                            command: 'openML'
+                        });
+                    }
+                });
+            }
+        }
     </script>
 
 <?php
@@ -355,7 +422,11 @@ class serendipity_event_ckeditor extends serendipity_event
                     break;
 
                 case 'backend_plugins_update':
-                    $this->install();
+                    if ($this->install() === true) {
+                        // make sure it really falls down to plugins config
+                        echo '<script type="text/javascript">location.href = \'' . $serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=plugins&serendipity[plugin_to_conf]=serendipity_event_ckeditor\';</script>';
+                        die();
+                    }
                     break;
 
                 case 'backend_media_path_exclude_directories':
@@ -424,56 +495,14 @@ class serendipity_event_ckeditor extends serendipity_event
                     if (isset($eventData['item']) && !empty($eventData['item'])) {
 ?>
     <script type="text/javascript">
-        // this is nugget only area, spawned by head! (textareas of staticpage nuggets, html nugget plugins, etc.)
-        // called via Spawnnugget(), set by real plugins like staticpages and cores functions_plugins_admin.inc in case of $ev['skip_nuggets'] === false
-        // eventData can only be executed here, if not pushing this via js var into a 'backend_header' set global nugget function
-        function Spawnnuggets(item) {
-            // console.log(item);
-            if (document.getElementById('nuggets' + item)) {
-                CKEDITOR.replace('nuggets' + item, {
-                    // Reset toolbar Groups settings
-                    // toolbarGroups: null
-                });
-
-                CKEDITOR.config.extraPlugins = 'nuggets'+item +',mediaembed'; // no spaces allowed!
-                CKEDITOR.plugins.add('nuggets' + item, {
-                    init: function(editor) {
 <?php
     if (isset($eventData['buttons']) && (is_array($eventData['buttons']) && !empty($eventData['buttons']))) {
-        foreach ($eventData['buttons'] as $button) {
 ?>
-                        editor.addCommand( '<?php echo $button['id']; ?>', {
-                            exec: function( editor ) {
-                                <?php echo str_replace(array('function() { ',' }',$serendipity['defaultBaseURL']), '', $button['javascript']); ?>;
-                            }
-                        });
-                        editor.ui.addButton('<?php echo $button['id']; ?>', {
-                            label:    '<?php echo $button['name']; ?>',
-                            title:    '<?php echo $button['name']; ?> Plugin',
-                            icon:     '<?php echo $serendipity['serendipityHTTPPath'] . 'plugins/' . $button['img_path']; ?>',
-                            iconName: '<?php echo $button['id']; ?>_icon',
-                            command:  '<?php echo $button['id']; ?>'
-                        });
+        // send eventData as json encoded array into the javascript stream, which can be pulled by 'backend_header' hooks global Spawnnuggets() nugget function
+        jsEventData = <?php echo json_encode($eventData['buttons']); ?>;
 <?php
-        } // end foreach - follow-up ML button into 'other' toolbar needs no textarea GET name, since the right instance dropping is done by this plugin
-    } // end isset $eventData['buttons']
+    }
 ?>
-                        editor.addCommand( 'openML', {
-                            exec : function( editor ) {
-                                window.open('serendipity_admin_image_selector.php', 'ImageSel', 'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1');
-                            }
-                        });
-                        editor.ui.addButton('openML', {
-                            label:   'S9yMedia',
-                            title:   'Serendipity Media Library',
-                            icon: '<?php echo $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_ckeditor/img/mls9y.png'; ?>',
-                            iconName: 'openML_icon',
-                            command: 'openML'
-                        });
-                    }
-                });
-            }
-        }
 
         // Avoid TypeError: parent.self.opener.serendipity_imageSelector_addToBody is not a function in serendipity_html_nugget_plugin textarea (nuggets3) in S9y 1.7 Series
         function serendipity_imageSelector_addToBody (str, textarea) {
@@ -484,7 +513,7 @@ class serendipity_event_ckeditor extends serendipity_event
             }
         }
     </script>
-<?php
+<?php 
                     } // end isset $eventData['item']
 
                     // kcfinder has a fallback media library mode if not properly loaded, or an other error occurs - get rid of it by default, since it stops image browser executing!

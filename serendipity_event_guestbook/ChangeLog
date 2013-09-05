@@ -84,7 +84,7 @@
  * erased moderate option in sidebar plugin, which came with v.3.21, while sidebar now extends event plugin option setting.
  * rebuild sidebar <serendipity_plugin_guestbook> to support event plugins 'auto-moderation' and 'showapp option' changes.
  * added lang constant in <en>, <de> and <de-utf8>.
- * added new config option to allow entry set auto-moderate via spamblock plugin, if its wordfilter option is activ and set to 'moderate'.
+ * added new config option to allow entry set auto-moderate via spamblock plugin, if its wordfilter option is active and set to 'moderate'.
  * corrected small typo in german lang files.
  * tweaked some small issues in guestbook CSS file.
  * added spamblock return 'moderate_comments' value, to support adding entries to non-approved; this extends guestbooks config setting.

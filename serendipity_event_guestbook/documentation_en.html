@@ -34,7 +34,7 @@
 <body>
     <div><a name="top" id="top"></a></div>
     <div id="wrapper">
-        <div class="doc_edited">serendipity_event_guestbook/documentation_en.html, last modified 2013-08-25</div>
+        <div class="doc_edited">serendipity_event_guestbook/documentation_en.html, last modified 2013-08-28</div>
         <div class="doc_block"><span class="white">PLEASE NOTE</span><br />
             <br />
             This Serendipity guestbook plugin is TEMPLATE based, configurable by its own stylesheet, has a FRONTEND and a BACKEND.<br />
@@ -61,7 +61,7 @@
                 <li>The <span class="eye">'Show Captchas'</span> defines the use of Serendipity CAPTCHAS (requires Spamblock plugin activated) to prevent comment SPAM (<em>default: yes</em>).</li>
                 <li>The <span class="eye">'User Homepage'</span> defines a form field for the homepage of the user (<em>default: false</em>).</li>
                 <li>The <span class="eye">'Approve entries'</span> defines the guestbook entries to be verified by admin generally before they show up in frontend (<em>default: false</em>).</li>
-                <li>The <span class="eye">'Auto-moderate'</span> defines the same behaviour for a single entry, if the SPAMBLOCK-plugin wordfilter option is activ and set to 'moderate', caused by stopword matches (<em>default: false</em>). The guestbook content evaluation will still return captcha checking, if any spam check evaluates true. This differs from normal spamblock behaviour!</li>
+                <li>The <span class="eye">'Auto-moderate'</span> defines the same behaviour for a single entry, if the SPAMBLOCK-plugin wordfilter option is active and set to 'moderate', caused by stopword matches (<em>default: false</em>). The guestbook content evaluation will still return captcha checking, if any spam check evaluates true. This differs from normal spamblock behaviour!</li>
                 <li>The <span class="eye">'Entry checks'</span> sets an active and individual wordfilter array (<em>default: pre-filled</em>). Regular Expressions are allowed, separate strings by semicolons (;). You have to escape special chars with "\". If you leave this field empty, no special checks are done. This check is bypassed for users with USERLEVEL_ADMIN only!</li>
                 <li>The <span class="eye">'Date format'</span> defines an individual strftime() code for the entry datetime (<em>default: %a, %d.%m.%Y %H:%M</em>).</li>
             </ul>
@@ -69,12 +69,12 @@
             <div class="skip"><a href="#top">Top</a></div>
             <div class="readme_title">S9Y :: GUESTBOOK :: ADMINISTRATION</div>
             <ul class="readme administration">
-                <li>Backend and frontend administration is possible, if logged in. The frontend administration allows erasing entries only, but will ask you to proceed.<br />Frontend administration got removed with 3.24 version.</li>
-                <li>The backend sidebar has a new link to administer the guestbook. There are 4 main points to show up:<br /> 
-                    1. &nbsp; view approved entries,<br />
-                    2. &nbsp; view unapproved entries (if <span class="eye">'Approve entries'</span> is set to true),<br />
-                    3. &nbsp; edit or insert an entry,<br />
-                    4. &nbsp; the database section.</li>
+                <li>The administration area is in backend only.</li>
+                <li>The backend sidebar carries a link to administer the guestbook. There are 4 main points to show up:<br /> 
+                    - &nbsp; view approved entries,<br />
+                    - &nbsp; view unapproved entries (if <span class="eye">'Approve entries'</span> is set to true),<br />
+                    - &nbsp; edit or insert an entry,<br />
+                    - &nbsp; the database section.</li>
                 <li>Each of the first two, have the ability to (confirm,) erase (immediately!), or re-edit a single entry.</li>
                 <li>The database section will allow: backup and download the plugin database table, or erase the SQL table instantly. Be careful working here!</li>
                 <li>A link to SQL insert is shown, but not active, since this isn't trivial enough by now.</li>
@@ -83,8 +83,8 @@
             <div class="skip"><a href="#top">Top</a></div>
             <div class="readme_title">S9Y :: GUESTBOOK :: DESIGN</div>
             <ul class="readme design">
-                <li>All smarty tpls, images and the one main stylesheet of this plugin are located in the plugin folder and remain to stay there.</li>
-                <li>If you are skilled and wish to have an individual frontend design, copy the files to change to your template folder only<br />
+                <li>All smarty tpls, images and stylesheets of this plugin are located in the plugin folder and remain to stay there.</li>
+                <li>If you are skilled and wish to have a personal frontend design, copy the files to change to your template folder:<br />
                     ( plugin_guestbook_entries.tpl, plugin_guestbook_form.tpl, style_guestbook_frontend.css ).</li>
                 <li>In case you wish to change the <span class="eye">frontend entry background colors</span> only, copy these neutral white css directives:<br />
                     <span class="cssblock"><em>/* styles guestbook entry colors neutral */</em><br />
@@ -189,7 +189,7 @@
                 <li>erased moderate option in sidebar plugin, which came with v.3.21, while sidebar now extends event plugin option setting.</li>
                 <li>rebuild sidebar &lt;serendipity_plugin_guestbook&gt; to support event plugins 'auto-moderation' and 'showapp option' changes.</li>
                 <li>added lang constant in &lt;en&gt;, &lt;de&gt; and &lt;de-utf8&gt;.</li>
-                <li>added new config option to allow entry set auto-moderate via spamblock plugin, if its wordfilter option is activ and set to 'moderate'.</li>
+                <li>added new config option to allow entry set auto-moderate via spamblock plugin, if its wordfilter option is active and set to 'moderate'.</li>
                 <li>corrected small typo in german lang files.</li>
                 <li>tweaked some small issues in guestbook CSS file.</li>
                 <li>added spamblock return 'moderate_comments' value, to support adding entries to non-approved; this extends guestbooks config setting.</li>

@@ -581,7 +581,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Vladimir Ajgl, Adam Charnock</author>
 <content:encoded>&lt;b&gt;serendipity_event_imageselectorplus&lt;br /&gt;Erweiterte Optionen für Bildauswahl&lt;/b&gt;&lt;br /&gt;Ermöglicht erweiterte Optionen beim Einfügen von Bildern aus der Mediendatenbank. [Serendipity &gt;= 0.9]&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:42 +0200</pubDate>
+<pubDate>Fri, 06 Sep 2013 02:31:16 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_imageselectorplus</guid>
 </item>
 <item>
@@ -1357,7 +1357,7 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <category>Event Plugins</category>
 <author>Rustam Abdullaev, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_ckeditor&lt;br /&gt;CKEditor&lt;/b&gt;&lt;br /&gt;Nutzt CKEditor als den Standard WYSIWYG Editor. Dieser ist zur Zeit der state-of-the-art Editor im Internet. Benutzung: Empfohlen! Nach der Installation, lies die Plugin Konfigurations Seite für weitere Informationen.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:38 +0200</pubDate>
+<pubDate>Fri, 06 Sep 2013 02:31:11 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_ckeditor</guid>
 </item>
 <item>

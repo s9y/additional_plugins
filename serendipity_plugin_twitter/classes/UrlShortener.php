@@ -16,10 +16,19 @@ class UrlShortener {
     
     var $piratly_apikey = "0"; // This is the generic API token representing anonymous user
     
+    var $yourls_url = 'http://www.yourls.org';
+    var $yourls_apikey = 'signature';
+    
     function setBitlyLogin($login, $apikey) {
         if (empty($login) || empty($apikey)) return;
         $this->bitly_login = $login;
         $this->bitly_apikey = $apikey;
+    }
+    
+    function setYourlsLogin($yourl, $apikey) {
+        if (empty($yourl) || empty($apikey)) return;
+        $this->yourls_url = $yourl;
+        $this->yourls_apikey = $apikey;
     }
     
     function setPiratlyToken($apitoken) {
@@ -67,6 +76,9 @@ class UrlShortener {
                 break;
             case 'bitly':
                 UrlShortener::shorten_via_bitly( $url, $shorturls );
+                break;
+            case 'yourls':
+                UrlShortener::shorten_via_yourls( $url, $shorturls );
                 break;
             case 'jmp':
                 UrlShortener::shorten_via_jmp( $url, $shorturls );
@@ -167,6 +179,15 @@ class UrlShortener {
             $shorturls['bitly'] = $short_url;
         }
     }
+    
+    function shorten_via_yourls( $url, &$shorturls ) {
+        if (!empty($shorturls['yourls'])) return;
+        
+        $url = urlencode($url);
+        UrlShortener::shorten_via_simple($shorturls, 'yourls', "http://{$this->yourls_url}/yourls-api.php?signature={$this->yourls_apikey}&action=shorturl&format=simple&url=$url");
+        
+    }
+    
 
     function shorten_via_jmp( $url, &$shorturls ) {
         // if we already evaluated the shorturl, stop here

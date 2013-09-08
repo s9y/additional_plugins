@@ -16,12 +16,21 @@ class UrlShortener {
     
     var $piratly_apikey = "0"; // This is the generic API token representing anonymous user
     
+	var $yourls_url = 'http://www.yourls.org';
+    var $yourls_apikey = 'signature';
+	
     function setBitlyLogin($login, $apikey) {
         if (empty($login) || empty($apikey)) return;
         $this->bitly_login = $login;
         $this->bitly_apikey = $apikey;
     }
     
+	function setYourlsLogin($yourl, $apikey) {
+        if (empty($yourl) || empty($apikey)) return;
+        $this->yourls_url = $yourl;
+        $this->yourls_apikey = $apikey;
+    }
+	
     function setPiratlyToken($apitoken) {
         if (empty($apitoken)) return;
         $this->piratly_apikey = $apitoken;

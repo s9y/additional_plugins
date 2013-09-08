@@ -144,7 +144,7 @@
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_BITLYAPIKEY',	'bit.ly API Key');
 
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSDESC',    	'<h3>Yourls Domain und API Signatur</h3><b>yourls</b> Braucht einen eigenen Yourls URL service.<br/>Die Defaults sind nur Platzhalter.<br/><a href="http://yourls.org/" target="_blank">Hier den yourls URL shortener runterladen und auf Server installieren.</a>.');
-@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSLOGIN',    'Deine Yourls Domain');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSURL',    'Deine Yourls Domain');
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSAPIKEY',	'Yourls API Schluessel');
 
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_PIRATLYDESC',    '<h3>pirat.ly API Token</h3>Für <b>pirat.ly</b> KurzURLs kannst Du Dir ein API token abholen, <a href="http://pirat.ly/account" target="_blank">indem Du Dich kostenlos bei dem Service registrierst</a>. Wenn das API Token bei der Artikel Ankündigung verwendet wird, kannst Du die Klick Raten der URL über das piratly Webinterface oder auf dem Android Handy mittels der <a href="http://pirat.ly/shortenerrr" target="_blank">Shortenerrr App</a> beobachten.');

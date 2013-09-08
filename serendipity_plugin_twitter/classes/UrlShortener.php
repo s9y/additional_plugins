@@ -77,6 +77,9 @@ class UrlShortener {
             case 'bitly':
                 UrlShortener::shorten_via_bitly( $url, $shorturls );
                 break;
+		    case 'yourls':
+                UrlShortener::shorten_via_yourls( $url, $shorturls );
+                break;
             case 'jmp':
                 UrlShortener::shorten_via_jmp( $url, $shorturls );
                 break;

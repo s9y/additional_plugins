@@ -141,11 +141,6 @@ class UrlShortener {
         $url = urlencode($url);
         UrlShortener::shorten_via_simple($shorturls, 'piratly', "http://pirat.ly/shortener/api/createplain/{$this->piratly_apikey}/?$url");
     }
-
-    function shorten_via_yourls( $url, &$shorturls ) {
-        $url = urlencode($url);
-        UrlShortener::shorten_via_simple($shorturls, 'yourls', "http://{$this->yourls_url}/yourls-api.php?signature={$this->yourls_apikey}&action=shorturl&format=simple&url=$url");
-    }
     
     // is.gd returns different short urls for same URL! How to handle this?!
     // works *sometimes*
@@ -184,6 +179,15 @@ class UrlShortener {
             $shorturls['bitly'] = $short_url;
         }
     }
+	
+	function shorten_via_yourls( $url, &$shorturls ) {
+		if (!empty($shorturls['yourls'])) return;
+		
+        $url = urlencode($url);
+        UrlShortener::shorten_via_simple($shorturls, 'yourls', "http://{$this->yourls_url}/yourls-api.php?signature={$this->yourls_apikey}&action=shorturl&format=simple&url=$url");
+		
+    }
+	
 
     function shorten_via_jmp( $url, &$shorturls ) {
         // if we already evaluated the shorturl, stop here

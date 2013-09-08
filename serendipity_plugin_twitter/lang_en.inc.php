@@ -143,6 +143,10 @@
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_BITLYLOGIN',    	'bit.ly username');
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_BITLYAPIKEY',	'bit.ly API key');
 
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSDESC',    	'<h3>Yourls Domain and API signature</h3><b>yourls</b> short urls need an own yourls setup and an API signature. If you don\'t have one you won\'t need this.<br/>The default key is not working<br/><a href="http://yourls.org/" target="_blank">See about yourls URL shortener</a>.');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSLOGIN',    'Your Yourls Domain');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSAPIKEY',	'Yourls API key');
+
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_PIRATLYDESC',    '<h3>pirat.ly API token</h3>For <b>pirat.ly</b> shorturls you can <a href="http://pirat.ly/account" target="_blank">get an API token by registering for free at the piratly service</a>. By using this API token when announcing your articles you can watch the clickrate on the web interface or on your Android mobile using the <a href="http://pirat.ly/shortenerrr" target="_blank">Shortenerrr app</a>.');
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_PIRATLYAPIKEY',  'Your personal piratly API token');
 

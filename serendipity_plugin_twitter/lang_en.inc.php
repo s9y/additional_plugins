@@ -143,7 +143,7 @@
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_BITLYLOGIN',    	'bit.ly username');
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_BITLYAPIKEY',	'bit.ly API key');
 
-@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSDESC',    	'<h3>Yourls Domain and API signature</h3><b>yourls</b> short urls need an own yourls setup and an API signature. If you don\'t have one you won\'t need this.<br/>The default key is not working<br/><a href="http://yourls.org/" target="_blank">See about yourls URL shortener</a>.');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSDESC',    	'<h3>Yourls Domain and API signature</h3><b>yourls</b> short urls need an own yourls setup and an API signature. If you don\'t have one you won\'t need this.<br/>The default key is not working<br/><a href="http://yourls.org/" target="_blank">See about yourls URL shortener</a>. Please do not use without the YOURLS plugin <a href="https://bitbucket.org/laceous/yourls-concurrency-fix" target="_blank">Concurency fix</a>.');
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSURL',      'Your Yourls Domain');
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSAPIKEY',	'Yourls API key');
 

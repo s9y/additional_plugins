@@ -38,6 +38,7 @@ class serendipity_event_twitter extends serendipity_plugin {
             '7ax.de'      => "7ax.de",
             'bitly'       => "bit.ly",
             'piratly'     => "pirat.ly",
+            'yourls'      => "yourls",
             'jmp'         => "j.mp",
             'tinyurl'     => "tinyurl.com",
             'isgd'        => "is.gd",
@@ -87,7 +88,8 @@ class serendipity_event_twitter extends serendipity_plugin {
         $config_announce = array(
                     'announce_articles_title', 'announce_articles', 'announce_via_accounts', 
                     'announce_format', 'announce_with_tags', 'anounce_url_service', 'announce_articles_default_no',
-                    'announce_bitly_description', 'announce_bitly_login','announce_bitly_apikey','announce_piratly_description', 'announce_piratly_apikey' 
+                    'announce_bitly_description', 'announce_bitly_login','announce_bitly_apikey','announce_piratly_description', 'announce_piratly_apikey',
+					'announce_yourls_description', 'announce_yourls_url', 'announce_yourls_apikey'
                  );
 
         $config_twitter = array(
@@ -494,6 +496,23 @@ class serendipity_event_twitter extends serendipity_plugin {
                 $propbag->add('name',           PLUGIN_EVENT_TWITTER_ANNOUNCE_PIRATLYAPIKEY);
                 $propbag->add('default',        '0');
                 break;
+				            
+			case 'announce_yourls_description':
+                $propbag->add('type',           'content');
+                $propbag->add('default',        PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSDESC);
+                break;
+			
+			case 'announce_yourls_url':
+                $propbag->add('type',           'string');
+                $propbag->add('name',           PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSURL);
+                $propbag->add('default',        'http://www.yourls.org');
+                break;
+				
+            case 'announce_yourls_apikey':
+                $propbag->add('type',           'string');
+                $propbag->add('name',           PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSAPIKEY);
+                $propbag->add('default',        'API key');
+                break;
 
             // Tweetbacks 
             case 'twitter_api' :
@@ -743,11 +762,14 @@ class serendipity_event_twitter extends serendipity_plugin {
         $urlshortener = new UrlShortener();
         $bitlylogin = $this->get_config('announce_bitly_login');
         $bitlyapikey = $this->get_config('announce_bitly_apikey');
+		$yourlsurl = $this->get_config('announce_yourls_url');
+        $yourlsapikey = $this->get_config('announce_yourls_apikey');
         $piratlyapikey = $this->get_config('announce_piratly_apikey','0');
         $this->log("blogin:" .  $bitlylogin . " bapi: " . $bitlyapikey);
         $urlshortener->setBitlyLogin($bitlylogin, $bitlyapikey);
         $this->log("slogin:" .  $urlshortener->bitly_login . " sapi: " . $urlshortener->bitly_apikey);
         $urlshortener->setPiratlyToken($piratlyapikey);
+		$urlshortener->setYourlsLogin($yourlsurl,$yourlsapikey);
         return $urlshortener;
     }
 

@@ -1,4 +1,4 @@
-<?php # 
+<?php #
 
 
 if (IN_serendipity !== true) {
@@ -30,12 +30,14 @@ class serendipity_event_emoticonchooser extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '2.5');
+        $propbag->add('version',       '2.6');
         $propbag->add('event_hooks',    array(
             'backend_entry_toolbar_extended' => true,
-            'backend_entry_toolbar_body' => true,
-            'frontend_comment' => true,
-            'css_backend' => true
+            'backend_entry_toolbar_body'     => true,
+            'frontend_comment'               => true,
+            'backend_header'                 => true,
+            'frontend_header'                => true,
+            'css_backend'                    => true
         ));
         $propbag->add('groups', array('BACKEND_EDITOR'));
         $propbag->add('configuration', array('frontend', 'popup', 'button', 'popuptext'));
@@ -178,92 +180,10 @@ class serendipity_event_emoticonchooser extends serendipity_event
                     }
 ?>
 <div class="serendipity_emoticon_bar">
-<script type="text/javascript">
-<!--
-function toggle_emoticon_bar_<?php echo $func; ?>() {
-   el = document.getElementById('serendipity_emoticonchooser_<?php echo $func; ?>');
-   if (el.style.display == 'none') {
-      el.style.display = 'inline-block';
-   } else {
-      el.style.display = 'none';
-   }
-}
+    <script type="text/javascript">
+        emoticonchooser('<?php echo $func; ?>', '<?php echo $txtarea; ?>', '<?php echo $cke_txtarea; ?>');
+    </script>
 
-function use_emoticon_<?php echo $func; ?>(img) {
-    if(typeof(CKEDITOR) != 'undefined') {
-        var oEditor = CKEDITOR.instances['<?php echo $cke_txtarea; ?>'];
-        oEditor.insertHtml(img);
-    } else if(typeof(FCKeditorAPI) != 'undefined') {
-        var oEditor = FCKeditorAPI.GetInstance('<?php echo $txtarea; ?>') ;
-        oEditor.InsertHtml(img);
-    } else if(typeof(xinha_editors) != 'undefined') {
-        if(typeof(xinha_editors['<?php echo $txtarea; ?>']) != 'undefined') {
-            // this is good for the two default editors (body & extended)
-            xinha_editors['<?php echo $txtarea; ?>'].insertHTML(img);
-        } else if(typeof(xinha_editors['<?php echo $func; ?>']) != 'undefined') {
-            // this should work in any other cases than previous one
-            xinha_editors['<?php echo $func; ?>'].insertHTML(img);
-        } else {
-            // this is the last chance to retrieve the instance of the editor !
-            // editor has not been registered by the name of it's textarea
-            // so we must iterate over editors to find the good one
-            for (var editorName in xinha_editors) {
-                if('<?php echo $txtarea; ?>' == xinha_editors[editorName]._textArea.name) {
-                    xinha_editors[editorName].insertHTML(img);
-                    return;
-                }
-            }
-            // not found ?!?
-        }
-    } else if(typeof(HTMLArea) != 'undefined') {
-        if(typeof(editor<?php echo $func; ?>) != 'undefined')
-            editor<?php echo $func; ?>.insertHTML(img);
-        else if(typeof(htmlarea_editors) != 'undefined' && typeof(htmlarea_editors['<?php echo $func; ?>']) != 'undefined')
-            htmlarea_editors['<?php echo $func; ?>'].insertHTML(img);
-    } else if(typeof(TinyMCE) != 'undefined') {
-        //tinyMCE.execCommand('mceInsertContent', false, img);
-        tinyMCE.execInstanceCommand('<?php echo $txtarea; ?>', 'mceInsertContent', false, img);
-    } else  {
-        // default case: no wysiwyg editor
-        txtarea = document.getElementById('<?php echo $txtarea; ?>');
-        if (txtarea.createTextRange && txtarea.caretPos) {
-            caretPos = txtarea.caretPos;
-            caretPos.text = caretPos.text.charAt(caretPos.text.length - 1) == ' ' ? caretPos.text + ' ' + img + ' ' : caretPos.text + ' ' + img + ' ';
-        } else {
-            txtarea.value  += ' ' + img + ' ';
-        }
-
-        // alert(obj);
-        txtarea.focus();
-    }
-}
-//-->
-if (window.jQuery && typeof(CKEDITOR) != 'undefined') { jQuery(function ($) {
-    function drop_handler_<?php echo $func; ?>(emo, target) {
-        var rdata = CKEDITOR.instances[target].getSnapshot(); // this is equal to emo!!! while .getData() changes attributes order!!
-        var rdata = rdata.replace(rdata.match(/<a href="javascript:use_emoticon_.*>.*<\/a>/g), emo); // [OK]
-        CKEDITOR.instances[target].setData(rdata);
-        return true;
-    }
-    // fake drag&drop
-    var mouse_button = false;
-    $('#serendipity_emoticonchooser_<?php echo $func; ?>').find('img')
-        .mousedown(function() {
-            mouse_button = true;
-        })
-        .mouseup(function() {
-            mouse_button = false;
-        })
-        .mouseout(function() {
-            if (mouse_button) {
-                drop_handler_<?php echo $func; ?>($(this)[0].outerHTML, '<?php echo $cke_txtarea; ?>');
-                mouse_button = false;
-            }
-        });
-    });
-}
-
-</script>
 <?php
                     echo $popuplink."\n";
                     echo '    <div id="serendipity_emoticonchooser_' . $func . '" style="' . $style . $popupstyle . '">'."\n";
@@ -276,6 +196,14 @@ if (window.jQuery && typeof(CKEDITOR) != 'undefined') { jQuery(function ($) {
                     echo '    </div>'."\n";
                     echo '</div>'."\n";
 
+                    return true;
+                    break;
+
+                case 'backend_header':
+                case 'frontend_header':
+?>
+    <script language="javascript" type="text/javascript" src="<?php echo $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_emoticonchooser/emoticonchooser.js'; ?>"></script>
+<?php
                     return true;
                     break;
 

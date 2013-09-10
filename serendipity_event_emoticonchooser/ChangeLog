@@ -1,3 +1,7 @@
+2.6:
+----
+outsourced main functions to emoticonchooser.js file
+
 2.5:
 ----
 fixed v.2.3 drag&drop replacement handler to properly work with multiple textareas

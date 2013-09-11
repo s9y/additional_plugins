@@ -139,9 +139,13 @@
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_FORMAT',         'Announce format');
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_FORMAT_DESC',    'Define the format of your announcement. You should use placeholders. #title#: replaced with article title (and matching tags); #link#: link to your article; #author#: Author of the article; #tags#: tags that are left.');
 
-@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_BITLYDESC',    	'<h3>bitly username and API key</h3><b>bit.ly</b> and <b>j.mp</b> short urls need a bit.ly login and an API key. If you use none of them you won\'t need this.<br/>The default key is not working most of the times, as it is a demo key and it\'s ratio is exceeded. If you have a bit.ly account, you should enter your own.<br/><a href="http://bitly.com/a/your_api_key/" target="_blank">You will find it here</a>.');
-@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_BITLYLOGIN',    	'bit.ly username');
-@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_BITLYAPIKEY',	'bit.ly API key');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_BITLYDESC',        '<h3>bitly username and API key</h3><b>bit.ly</b> and <b>j.mp</b> short urls need a bit.ly login and an API key. If you use none of them you won\'t need this.<br/>The default key is not working most of the times, as it is a demo key and it\'s ratio is exceeded. If you have a bit.ly account, you should enter your own.<br/><a href="http://bitly.com/a/your_api_key/" target="_blank">You will find it here</a>.');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_BITLYLOGIN',        'bit.ly username');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_BITLYAPIKEY',    'bit.ly API key');
+
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSDESC',        '<h3>Yourls Domain and API signature</h3><b>yourls</b> short urls need an own yourls setup and an API signature. If you don\'t have one you won\'t need this.<br/>The default key is not working<br/><a href="http://yourls.org/" target="_blank">See about yourls URL shortener</a>. Please do not use without the YOURLS plugin <a href="https://bitbucket.org/laceous/yourls-concurrency-fix" target="_blank">Concurency fix</a>.');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSURL',      'Your Yourls Domain');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSAPIKEY',    'Yourls API key');
 
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_PIRATLYDESC',    '<h3>pirat.ly API token</h3>For <b>pirat.ly</b> shorturls you can <a href="http://pirat.ly/account" target="_blank">get an API token by registering for free at the piratly service</a>. By using this API token when announcing your articles you can watch the clickrate on the web interface or on your Android mobile using the <a href="http://pirat.ly/shortenerrr" target="_blank">Shortenerrr app</a>.');
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_PIRATLYAPIKEY',  'Your personal piratly API token');
@@ -202,12 +206,12 @@ You have to be logged out or logged in with the <b>matching twitter account</b> 
 
 @define('PLUGIN_EVENT_TWITTER_GENERALCONSUMER',        '<h3>Your own twitter client</h3>Per default the plugin uses a twitter client named \'s9y\'. You may <a href="https://dev.twitter.com/apps" target="_blank">register your own client</a> and setup the consumer key and secret of your client here if you like.');
 
-@define('PLUGIN_TWITTER_FILTER_RT',                    	'Filter native retweets');
-@define('PLUGIN_TWITTER_FILTER_RT_DESC',               	'Should native retweets be filtered? (only for Twitter API 1.1, API 1.0 will always filter)');
-@define('PLUGIN_TWITTER_API11',                    		'Use OAuth Twitter API 1.1');
-@define('PLUGIN_TWITTER_API11_DESC',               		'Twitter API 1.0 is depreciated and will be closed 2013. So you should switch to API 1.1. But this requires to configure at least one OAuth connection in the main microblogging plugin. If you find some accout in the selector below, you already have done this.');
-@define('PLUGIN_TWITTER_OAUTHACC',                    	'OAuth acc to be used by this plugin');
-@define('PLUGIN_TWITTER_OAUTHACC_DESC',               	'The new OAuth Twitter API needs to be called using an OAuthorized twitter acc. This acc will be used for rate limiting, too. You may use any acc owned by you, an acc never used anywhere else for example in order to have a seperate rate limit for this plugin.');
+@define('PLUGIN_TWITTER_FILTER_RT',                        'Filter native retweets');
+@define('PLUGIN_TWITTER_FILTER_RT_DESC',                   'Should native retweets be filtered? (only for Twitter API 1.1, API 1.0 will always filter)');
+@define('PLUGIN_TWITTER_API11',                            'Use OAuth Twitter API 1.1');
+@define('PLUGIN_TWITTER_API11_DESC',                       'Twitter API 1.0 is depreciated and will be closed 2013. So you should switch to API 1.1. But this requires to configure at least one OAuth connection in the main microblogging plugin. If you find some accout in the selector below, you already have done this.');
+@define('PLUGIN_TWITTER_OAUTHACC',                        'OAuth acc to be used by this plugin');
+@define('PLUGIN_TWITTER_OAUTHACC_DESC',                   'The new OAuth Twitter API needs to be called using an OAuthorized twitter acc. This acc will be used for rate limiting, too. You may use any acc owned by you, an acc never used anywhere else for example in order to have a seperate rate limit for this plugin.');
 
 @define('PLUGIN_EVENT_TWITTER_API_TYPE',                 'Twitter API Version');
 @define('PLUGIN_EVENT_TWITTER_API_TYPE_DESC',            'Twitter API 1.0 is depreciated and will be closed 2013. So you should switch to API 1.1. But this requires to configure at least one OAuth connection (in the identities settings).');

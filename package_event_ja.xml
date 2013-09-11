@@ -1079,9 +1079,9 @@
 <description>エントリに挿入する表情アイコンとスマイルを選択するツールバーを表示します。</description>
 <maintainers><maintainer><name>Garvin Hicking, Jay Bertrandt, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.5</version>
+  <version>2.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2013-09-11</date>
   <filelist>
 <dir name="serendipity_event_emoticonchooser">
 <file>serendipity_event_emoticonchooser.php</file>
@@ -1100,6 +1100,7 @@
 <file>lang_bg.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>emoticonchooser.js</file>
 <file>ChangeLog</file>
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
@@ -1121,6 +1122,7 @@
     <file>serendipity_event_emoticonchooser/lang_bg.inc.php</file>
     <file>serendipity_event_emoticonchooser/lang_en.inc.php</file>
     <file>serendipity_event_emoticonchooser/lang_cz.inc.php</file>
+    <file>serendipity_event_emoticonchooser/emoticonchooser.js</file>
     <file>serendipity_event_emoticonchooser/ChangeLog</file>
     <file>serendipity_event_emoticonchooser/documentation_cs.html</file>
     <file>serendipity_event_emoticonchooser/documentation_cz.html</file>

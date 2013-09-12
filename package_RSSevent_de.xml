@@ -1150,7 +1150,7 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Peter Heimann</author>
 <content:encoded>&lt;b&gt;serendipity_event_twitter&lt;br /&gt;Microblogging (Twitter,Identica)&lt;/b&gt;&lt;br /&gt;Fügt einen Twitter/Identica Client zum Administrator Interface hinzu, sucht nach Tweetbacks und kündigt neue Artikel über Twitter/Identica Accounts an.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:47 +0200</pubDate>
+<pubDate>Thu, 12 Sep 2013 02:31:32 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_twitter</guid>
 </item>
 <item>

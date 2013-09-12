@@ -9120,7 +9120,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.51</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2013-09-12</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="UTF-8">

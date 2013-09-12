@@ -371,7 +371,11 @@ class serendipity_event_facebook extends serendipity_event {
                     echo '<meta property="og:url" content="http' . ($_SERVER['HTTPS'] ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . htmlspecialchars($_SERVER['REQUEST_URI']) . '" />' . "\n";
                     
                     if (preg_match('@<img.*src=["\'](.+)["\']@imsU', $GLOBALS['entry'][0]['body'] . $GLOBALS['entry'][0]['extended'], $im)) {
-                        echo '<meta property="og:image" content="' . $im[1] . '" />' . "\n";
+                        if (preg_match('/^http/i', $im[1])) {
+                          echo '<meta property="og:image" content="' . $im[1] . '" />' . "\n";
+                        } else {
+                          echo '<meta property="og:image" content="http' . ($_SERVER['HTTPS'] ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . $im[1] . '" />' . "\n";
+                       }
                     }
 
                     return true;

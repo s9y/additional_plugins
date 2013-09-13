@@ -10672,7 +10672,7 @@ aplikovány další typografické úpravy.</description>
 <release>
   <version>0.4</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2013-09-13</date>
   <filelist>
 <dir name="serendipity_event_facebook">
 <dir name="UTF-8">

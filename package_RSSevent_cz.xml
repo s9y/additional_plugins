@@ -1366,7 +1366,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_facebook&lt;br /&gt;Facebook (experimentální!)&lt;/b&gt;&lt;br /&gt;Importuje do blogu komentáře u příspěvků na facebooku (pomocí RSS Graffiti). Také do blogu vloží facebookové OpenGraph Meta-Tagy. Pamatujte, že přidání talčítka &quot;Líbí se mi&quot; k příspěvkům blogu je zajišťováno pluginem serendipity_event_findmore!&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:40 +0200</pubDate>
+<pubDate>Fri, 13 Sep 2013 02:31:14 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_facebook</guid>
 </item>
 <item>

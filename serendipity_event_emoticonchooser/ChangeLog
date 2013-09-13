@@ -1,3 +1,7 @@
+2.7:
+----
+fixed wrong instance name for plain editor drop
+
 2.6:
 ----
 outsourced main functions to emoticonchooser.js file

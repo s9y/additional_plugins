@@ -50,7 +50,7 @@ function emoticonchooser(instance_name = '', this_instance = '', cke_txtarea = '
             tinyMCE.execInstanceCommand(this_instance, 'mceInsertContent', false, img);
         } else  {
             // default case: no wysiwyg editor
-            txtarea = document.getElementById(this_instance);
+            txtarea = document.getElementById(instance_name);
             if (txtarea.createTextRange && txtarea.caretPos) {
                 caretPos = txtarea.caretPos;
                 caretPos.text = caretPos.text.charAt(caretPos.text.length - 1) == ' ' ? caretPos.text + ' ' + img + ' ' : caretPos.text + ' ' + img + ' ';

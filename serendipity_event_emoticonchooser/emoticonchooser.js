@@ -50,7 +50,7 @@ function emoticonchooser(instance_name = '', this_instance = '', cke_txtarea = '
             tinyMCE.execInstanceCommand(this_instance, 'mceInsertContent', false, img);
         } else  {
             // default case: no wysiwyg editor
-            txtarea = document.getElementById(instance_name);
+            txtarea = document.getElementById(cke_txtarea); // must be this, since staticpages and entryforms set the [id] different
             if (txtarea.createTextRange && txtarea.caretPos) {
                 caretPos = txtarea.caretPos;
                 caretPos.text = caretPos.text.charAt(caretPos.text.length - 1) == ' ' ? caretPos.text + ' ' + img + ' ' : caretPos.text + ' ' + img + ' ';

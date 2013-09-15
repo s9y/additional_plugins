@@ -1079,9 +1079,9 @@
 <description>Zobrazí lištu se smajlíky, které je možné vložit do textu příspěvku nebo komentáře.</description>
 <maintainers><maintainer><name>Garvin Hicking, Jay Bertrandt, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.7</version>
+  <version>2.8</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-09-14</date>
+  <date>2013-09-15</date>
   <filelist>
 <dir name="serendipity_event_emoticonchooser">
 <file>serendipity_event_emoticonchooser.php</file>

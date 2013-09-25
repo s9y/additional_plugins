@@ -23,7 +23,7 @@ class serendipity_event_assigncategories extends serendipity_event
         $propbag->add('description',   PLUGIN_ASSIGNCATEGORIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.2');
+        $propbag->add('version',       '1.3');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '4.1.0'
@@ -140,8 +140,10 @@ class serendipity_event_assigncategories extends serendipity_event
             echo '<tr>' . "\n";
             echo '<td valign="top"><strong>' . htmlspecialchars($cat_data['category_name']) . '</strong></td>' . "\n";
             echo '<td><select size="5" name="serendipity[assigncat][' . $cat_data['categoryid'] . '][]" multiple="true">' . "\n";
-            foreach($entries AS $entryid => $entry) {
-                echo '<option value="' . $entryid . '" ' . (in_array($cat_data['categoryid'], $entry['categories']) ? 'selected="selected"' : '') . '>' . htmlspecialchars($entry['title']) . '</option>' . "\n";
+            if (is_array($entries) && !empty($entries)) {
+                foreach($entries AS $entryid => $entry) {
+                    echo '<option value="' . $entryid . '" ' . (in_array($cat_data['categoryid'], (array)$entry['categories']) ? 'selected="selected"' : '') . '>' . htmlspecialchars($entry['title']) . '</option>' . "\n";
+                }
             }
             echo '</select></td>' . "\n";
             echo '</tr>' . "\n";

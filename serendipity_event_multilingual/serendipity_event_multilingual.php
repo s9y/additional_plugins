@@ -34,8 +34,8 @@ class serendipity_event_multilingual extends serendipity_event
             'php'         => '4.1.0'
         ));
         $propbag->add('groups', array('FRONTEND_ENTRY_RELATED', 'BACKEND_EDITOR'));
-        $propbag->add('version',       '2.14');
-        $propbag->add('configuration', array('copytext', 'placement', 'tagged_title', 'tagged_entries', 'tagged_sidebar'));
+        $propbag->add('version',       '2.15');
+        $propbag->add('configuration', array('copytext', 'placement', 'tagged_title', 'tagged_entries', 'tagged_sidebar', 'langswitch'));
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -131,6 +131,13 @@ class serendipity_event_multilingual extends serendipity_event
                 $propbag->add('default',     'false');
                 break;
 
+            case 'langswitch':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        PLUGIN_EVENT_MULTILINGUAL_LANGSWITCH);
+                $propbag->add('description', PLUGIN_EVENT_MULTILINGUAL_LANGSWITCH_DESC);
+                $propbag->add('default',     'true');
+                break;
+
             case 'tagged_sidebar':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_EVENT_MULTILINGUAL_TAGSIDEBAR);
@@ -166,6 +173,21 @@ class serendipity_event_multilingual extends serendipity_event
         $title = $this->title;
     }
 
+    function urlparam($key) {
+        static $langswitch = null;
+        
+        if ($langswitch === null) {
+            $langswitch = serendipity_db_bool($this->get_config('langswitch'));
+        }
+        
+        if ($langswitch) {
+        // user_language
+            return 'serendipity[lang_selected]=' . $key . '&amp;serendipity[user_language]=' . $key;
+        } else {
+            return 'serendipity[lang_selected]=' . $key;
+        }    
+    }
+    
     function &getLang($id, &$properties) {
         global $serendipity;
         static $default_lang = null;
@@ -181,7 +203,7 @@ class serendipity_event_multilingual extends serendipity_event
         while(list($key,) = each($properties)) {
             preg_match('@^multilingual_body_(.+)$@', $key, $match);
             if (isset($match[1])) {
-                $langs[] = '<a class="multilingual_' . $match[1] . '" href="' . $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?' . serendipity_archiveURL($id, $serendipity['languages'][$match[1]], 'serendipityHTTPPath', false) . '&amp;serendipity[lang_selected]=' . $match[1] . '">' . $serendipity['languages'][$match[1]] . '</a>';
+                $langs[$match[1]] = '<a class="multilingual_' . $match[1] . '" href="' . $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?' . serendipity_archiveURL($id, $serendipity['languages'][$match[1]], 'serendipityHTTPPath', false) . '&amp;' . $this->urlparam($match[1]) . '">' . $serendipity['languages'][$match[1]] . '</a>';
             }
         }
 
@@ -203,7 +225,9 @@ class serendipity_event_multilingual extends serendipity_event
             }
         }
 
-        $langs[] = '<a class="multilingual_default multilingual_' . $default_lang . '" href="' . $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?' . serendipity_archiveURL($id, 'Default', 'serendipityHTTPPath', false) . '&amp;serendipity[lang_selected]=default">' . $default_lang . '</a>';
+        if (!isset($langs[$default_lang])) {
+            $langs[$default_lang] = '<a class="multilingual_default multilingual_' . $default_lang . '" href="' . $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?' . serendipity_archiveURL($id, 'Default', 'serendipityHTTPPath', false) . '&amp;' . $this->urlparam('default') . '">' . $default_lang . '</a>';
+        }    
         $lang = implode(', ', $langs);
         return $lang;
     }

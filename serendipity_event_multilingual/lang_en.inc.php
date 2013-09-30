@@ -36,4 +36,7 @@
 @define('PLUGIN_SIDEBAR_MULTILINGUAL_SUBMIT_DESC',   'Show a submit button?');
 @define('PLUGIN_SIDEBAR_MULTILINGUAL_SIZE', 'Font size');
 
+@define('PLUGIN_SIDEBAR_MULTILINGUAL_LANGSWITCH',   'Force full language switch?');
+@define('PLUGIN_SIDEBAR_MULTILINGUAL_LANGSWITCH_DESC',   'Choosing a translation for a blog entry will also switch the whole language of the blog?');
+
 ?>

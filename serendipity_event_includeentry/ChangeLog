@@ -1,3 +1,6 @@
+2.14
+  - fixed $serendipity['author'] to be $serendipity['serendipityUser'];
+
 2.13:
   - Use SQL RANDOM() instead of RAND() for db type, except mysql
 

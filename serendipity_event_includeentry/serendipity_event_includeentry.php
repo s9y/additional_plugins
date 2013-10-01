@@ -38,7 +38,7 @@ class serendipity_event_includeentry extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_INCLUDEENTRY_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '2.13');
+        $propbag->add('version',       '2.14');
         $propbag->add('scrambles_true_content', true);
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
@@ -357,7 +357,7 @@ class serendipity_event_includeentry extends serendipity_event
             $this->staticblock['authorid'] = $serendipity['authorid'];
         }
         if (empty($this->staticblock['author'])) {
-            $this->staticblock['author'] = $serendipity['author'];
+            $this->staticblock['author'] = $serendipity['serendipityUser'];
         }
         if (empty($this->staticblock['type'])) {
             if (isset($serendipity['POST']['type'])) {

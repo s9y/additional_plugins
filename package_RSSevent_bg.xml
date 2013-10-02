@@ -689,7 +689,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_includeentry&lt;br /&gt;Markup: Включване на статия/шаблон/блок в статия&lt;/b&gt;&lt;br /&gt;Тази приставка дава възможност за включване на елементи от статия в друга статия. Използвайте този код: [s9y-include-entry:XXX:YYY]. Заменете XXX идентификатора на статията (цяло число), а YYY с идентификатор на частта за включване (например &quot;body&quot;, &quot;title&quot;, &quot;extended&quot;, ...). Освен това в административния панел е включено нова команда в менюто за поддръжка на шаблони (заготовки на статии) и блокове, които можете да включвате във Вашите статии.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 07 Mar 2013 02:31:04 +0100</pubDate>
+<pubDate>Wed, 02 Oct 2013 02:31:13 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_includeentry</guid>
 </item>
 <item>

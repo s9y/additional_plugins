@@ -689,7 +689,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_includeentry&lt;br /&gt;Textformatierung: Eintragsdaten einfügen&lt;/b&gt;&lt;br /&gt;Ermöglicht das Hinzufügen von HTML-ähnlichen Tags um Teile von anderen Einträgen einzubinden. Benutzen Sie folgende Formatierung: [s9y-include-entry:XXX:YYY]. Ersetzen Sie XXX mit der Ziel-ID des Eintrags und YYY mit dem Zielfeldnamen der Datenbank (z.B. &quot;body&quot;, &quot;extended&quot;, &quot;title&quot; usw.).&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 07 Mar 2013 02:31:04 +0100</pubDate>
+<pubDate>Wed, 02 Oct 2013 02:31:13 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_includeentry</guid>
 </item>
 <item>

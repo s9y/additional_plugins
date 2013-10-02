@@ -5191,9 +5191,9 @@ aplikovány další typografické úpravy.</description>
 <description>Umožňuje přidat do příspěvku tagy, které zajistí vložení část jiného příspěvku. Použijte tuto značku: [s9y-include-entry:XXX:YYY]. Nahraďte XXX číslem ID odkazovaného příspěvku a YYY nahraďte názvem pole příspěvku, které chcete vložit (např. &quot;body&quot;, &quot;title&quot;, &quot;extended&quot;, ...). Také můžete využít nové funkce menu pro správu šablon a bloků, které je možno vložit mezi příspěvky.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.13</version>
+  <version>2.14</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-03-07</date>
+  <date>2013-10-02</date>
   <filelist>
 <dir name="serendipity_event_includeentry">
 <file>serendipity_event_includeentry.php</file>

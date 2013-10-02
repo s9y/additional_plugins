@@ -5190,9 +5190,9 @@
 <description>Allows you to add HTML-style tags to your entry that includes parts of other entrys. Use this markup: [s9y-include-entry:XXX:YYY]. Replace XXX with the target entryid and YYY with the target field name (i.e. &quot;body&quot;, &quot;title&quot;, &quot;extended&quot;, ...). You can also use the new menu functions to maintain templates and blocks that can get inserted in between your entries.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.13</version>
+  <version>2.14</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-03-07</date>
+  <date>2013-10-02</date>
   <filelist>
 <dir name="serendipity_event_includeentry">
 <file>serendipity_event_includeentry.php</file>

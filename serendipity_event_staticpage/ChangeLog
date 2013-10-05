@@ -1,3 +1,7 @@
+4.05 Bump version to propagate changed plugin_staticpage_related_category.tpl
+
+4.04 Bump version to propagate new .htaccess
+
 4.03 changed wrong place of ending form tag
 
 4.02 Removed some & references, trying to fix issues with more recent PHP versions and core dumps / memory corruption

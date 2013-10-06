@@ -1,3 +1,6 @@
+0.9
+    * Check if ZIP extension is installed and loaded
+
 0.8
     * Use native API method serendipity_db_escape_string()
 

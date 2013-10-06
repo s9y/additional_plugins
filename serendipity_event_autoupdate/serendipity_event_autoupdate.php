@@ -22,7 +22,7 @@ class serendipity_event_autoupdate extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_AUTOUPDATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Ian');
-        $propbag->add('version',       '0.8');
+        $propbag->add('version',       '0.9');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '5.1'
@@ -106,6 +106,10 @@ class serendipity_event_autoupdate extends serendipity_event {
 
                 case 'backend_sidebar_entries_event_display_update':
                     if (! (serendipity_checkPermission('siteConfiguration') || serendipity_checkPermission('blogConfiguration'))) {
+                        return;
+                    }
+                    if (!extension_loaded('zip')) {
+                        trigger_error(' ZIP extension has not been compiled or loaded in php.', E_USER_WARNING);
                         return;
                     }
                     @ini_set('max_execution_time', 210); // 180 + (21+9 gui happenings)

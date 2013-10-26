@@ -1,7 +1,7 @@
-<?php # lang_cs.inc.php 1.6 2013-03-31 13:49:58 VladaAjgl $
+<?php # lang_cs.inc.php 1.7 2013-10-26 13:59:43 VladaAjgl $
 
 /**
- *  @version 1.6
+ *  @version 1.7
  *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
  *  @translated 2009/08/08
  *  @author VladimÃ­r Ajgl <vlada@ajgl.cz>
@@ -16,6 +16,8 @@
  *  @revisionDate 2012/01/11
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2013/03/31
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2013/10/26
  */
 @define('PLUGIN_TWITTER_TITLE',                         'Twitter');
 @define('PLUGIN_TWITTER_DESC',                          'Zobrazuje Vaše nejnovìjší pøíspìvky na Twitteru');
@@ -224,6 +226,7 @@ Musíte se pøihlásit nebo odhlásit s <b>odpovídajícím úètem Twitteru</b>!<br/>
 @define('PLUGIN_EVENT_TWITTER_GENERALCONSUMER',         '<h3>Vlastní twitter klient</h3>Ve výchozím nastavení používá plugin klienta \'s9y\'. Mùžete si <a href="https://dev.twitter.com/apps" target="_blank">zaregistrovat vlastního klienta</a> a nastavit consumer klíè a heslo vašeho klienta.');
 
 // Next lines were translated on 2013/03/31
+
 @define('PLUGIN_EVENT_TWITTER_TWEETER_UPDATE',           'Update');
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_PIRATLYDESC',     '<h3>pirat.ly API token</h3>Pro zkrácené odkaz <b>pirat.ly</b> mùžete <a href="http://pirat.ly/account" target="_blank">získat API token tím, že se zdarma registrujete na službì piratly</a>. Použitím tohoto API tokenu pøi oznamování Vašich pøíspìvkù mùžete prohlížet poèty proklikù buï pomocí webového rozhraní nebo na zaøízení s Androidem pomocí <a href="http://pirat.ly/shortenerrr" target="_blank">aplikace Shortenerrr</a>.');
 @define('PLUGIN_EVENT_TWITTER_ANNOUNCE_PIRATLYAPIKEY',   'Váš osobní piratly API token');
@@ -237,3 +240,8 @@ Musíte se pøihlásit nebo odhlásit s <b>odpovídajícím úètem Twitteru</b>!<br/>
 @define('PLUGIN_EVENT_TWITTER_API_TYPE_DESC',            'Twitter API 1.0 je zastaralé a bìhem roku 2013 bude úplnì zrušeno. Mìli byste se tedy pøepnout na API 1.1. Nicménì to vyžaduje, abyste nastavili alespoò jedno OAuth propojení (nastavení identity/uživatele)');
 @define('PLUGIN_EVENT_TWITTER_API_10',                   'API 1.0 [zastaralé]');
 @define('PLUGIN_EVENT_TWITTER_API_11',                   'API 1.1 OAuth');
+
+// Next lines were translated on 2013/10/26
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSDESC',      '<h3>Yourls doména a API klíè</h3>Zkracovaè adres <b>yourls</b> vlastní nastavení a API klíè. Pokud žádné nemáte, nebudete toto nastavení potøebovat.<br/>Výchozí klíè není funkèní<br/><a href="http://yourls.org/" target="_blank">Pøeètìte si o zkracovaèi URL adres yourls</a>. Nepoužívejte prosím bez <a href="https://bitbucket.org/laceous/yourls-concurrency-fix" target="_blank">opravy konfliktù</a> pluginu YOURIS.');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSURL',       'Vaše Yourls doména');
+@define('PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSAPIKEY',    'Yourls API klíè');

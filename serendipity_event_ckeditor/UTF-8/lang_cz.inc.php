@@ -1,10 +1,12 @@
-<?php # 
+<?php # lang_cz.inc.php 1.2 2013-10-26 13:46:03 VladaAjgl $
 
 /**
- *  @file UTF-8/lang_cz.inc.php 1.1 2013-06-22 11:15:15 VladaAjgl
- *  @version 1.1
+ *  @version 1.2
+ *  @file lang_cs.inc.php 1.1 2013-06-22 11:15:21 VladaAjgl
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2013/06/22
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2013/10/26
  */
 
 @define('PLUGIN_EVENT_CKEDITOR_NAME', 'CKEditor');
@@ -47,3 +49,6 @@ CKEDITOR.editorConfig = function(config) {
 @define('PLUGIN_EVENT_CKEDITOR_INSTALL_PLUGPATH', 'HTTP cesta do serendipity dresáře s pluginy');
 @define('PLUGIN_EVENT_CKEDITOR_CKEACF_OPTION', 'Vypnout "Pokročilé fitrlování obsahu" (tzv. ACF = Advanced-Content-Filter)');
 @define('PLUGIN_EVENT_CKEDITOR_TBLB_OPTION', 'Použít výchozí dvouřádkové zobrazení nástrojové lišty');
+
+// Next lines were translated on 2013/10/26
+@define('PLUGIN_EVENT_CKEDITOR_REVISION_TITLE', '<h3>Tento plugin zahrnuje:</h3>');

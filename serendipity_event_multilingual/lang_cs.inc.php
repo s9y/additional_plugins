@@ -1,12 +1,14 @@
-<?php # lang_cs.inc.php 1.2 2009-08-25 20:10:24 VladaAjgl $
+<?php # lang_cs.inc.php 1.3 2013-10-26 13:53:20 VladaAjgl $
 
 /**
- *  @version 1.2
+ *  @version 1.3
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  EN-Revision: Revision of lang_en.inc.php
  *  Translated on 2007/11/23
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2009/08/25
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2013/10/26
  */
 
 //
@@ -36,9 +38,14 @@
 @define('PLUGIN_SIDEBAR_MULTILINGUAL_SIZE',         'Velikost fontu');
 
 // Next lines were translated on 2009/08/25
+
 @define('PLUGIN_EVENT_MULTILINGUAL_TAGTITLE',           'Pøekládání nadpisu pøíspìvku pomocí tagù');
 @define('PLUGIN_EVENT_MULTILINGUAL_TAGTITLE_DESC',      'Zapne možnost pøekládání nadpisu pomocí taug {{!<jazyk>}}<text>{{--}}');
 @define('PLUGIN_EVENT_MULTILINGUAL_TAGENTRIES',         'Pøekládání pøíspìvkù a nadpisù pøíspìvkù pomocí tagù v textu');
 @define('PLUGIN_EVENT_MULTILINGUAL_TAGENTRIES_DESC',    'Zapne možnost pøekládání pøíspìvkù pomocí tagu {{!<jazyk>}}<text>{{--}}');
 @define('PLUGIN_EVENT_MULTILINGUAL_TAGSIDEBAR',         'Pøekládání položek postranních sloupcù pomocí tagù');
 @define('PLUGIN_EVENT_MULTILINGUAL_TAGSIDEBAR_DESC',    'Zapne možnost pøekládání obsahu postranních sloupcù pomocí tagu {{!<jazyk>}}<text>{{--}}');
+
+// Next lines were translated on 2013/10/26
+@define('PLUGIN_SIDEBAR_MULTILINGUAL_LANGSWITCH',        'Vynutit plné pøepnutí jazyka?');
+@define('PLUGIN_SIDEBAR_MULTILINGUAL_LANGSWITCH_DESC',   'Má se pøi vybrání jazykové verze jednotlivého pøíspìvku pøepnout do zvoleného jazyka kompletnì i celé rozhraní blogu?');

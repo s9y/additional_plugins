@@ -1,12 +1,14 @@
-<?php #
+<?php # lang_cz.inc.php 1.2 2013-10-26 13:51:12 VladaAjgl $
 
 /**
- *  @version 1.1
- *  @file lang_cz.inc.php 1.1 2011-04-17 14:21:59 VladaAjgl
+ *  @version 1.2
+ *  @file lang_cs.inc.php 1.1 2011-04-17 14:21:59 VladaAjgl
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/02/20
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @revisionDate 2011/04/17
+ *  @author Vladimír Ajgl <vlada@ajgl.cz>
+ *  @revisionDate 2013/10/26
  */
 
 @define('PLUGIN_GUESTBOOK_HEADLINE', 'Hlavní nadpis');
@@ -106,6 +108,7 @@
 //
 //  serendipity_plugin_guestbook.php
 //
+
 @define('PLUGIN_GUESTSIDE_NAME', 'Náv¹tìvní kniha - postranní blok');
 @define('PLUGIN_GUESTSIDE_BLAHBLAH', 'Zobrazuje nejnovìj¹í vzkazy z náv¹tìvní knihy v bloku v postranním sloupci');
 @define('PLUGIN_GUESTSIDE_TITLE', 'Nadpis bloku');
@@ -121,6 +124,7 @@
 @define('PLUGIN_GUESTSIDE_NOENTRIES', 'Je¹tì nikdo nezanechal vzkaz v náv¹tìvní knize.');
 
 // Next lines were translated on 2011/04/17
+
 @define('PLUGIN_GUESTBOOK_DBDONE_APP', '(Jakmile bude pøíspìvek odsouhlasen, objeví se v náv¹tìvní knize.)');
 @define('ERROR_DATANOTAGS', 'Pøíspìvek není platný. Nejsou povoleny html tagy nebo bbcode.');
 @define('PLUGIN_GUESTBOOK_SHOWAPP', 'Schvalovat pøíspìvky?');
@@ -169,3 +173,8 @@
 @define('PLUGIN_GUESTBOOK_ADMIN_DBC_NIXDA_TITLE', 'Adminsitrace - chyba');
 @define('PLUGIN_GUESTBOOK_ADMIN_DBC_NIXDA_NOBACKUP', 'Vybraná databázová tabulka nemohla být zálohována!');
 
+// Next lines were translated on 2013/10/26
+@define('TEXT_EMAILMODERATE', "\n\nTento pøíspìvek do náv¹tìvní knihy byl nastaven, ¾e vy¾aduje schválení (%s)!");
+@define('TEXT_EMAILFOOTER', "\n\nOdesláno Serendipity pluginem Guestbook.");
+@define('ERROR_DATASTRIPPED', 'Aktivní bezpeènostní filtr vyhodnotil Vá¹ pøíspìvek jako neplatný. Ode¹lete prosím pøíspìvek znovu.');
+@define('PLUGIN_GUESTBOOK_FILTER_ENTRYCHECKS_BYPASS', '(Pøeskoèeno pouze u¾ivatelským oprávnìním USERLEVEL_ADMIN!)');

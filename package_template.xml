@@ -911,7 +911,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Truth (2008-02-14)</name>
+<name>Truth (2013-10-26)</name>
 <template>truth</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -920,7 +920,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>7/11-2005</date>
+  <date>2013-10-26</date>
   <filelist>
 <dir name="truth">
 <file>atom.css</file>
@@ -1313,7 +1313,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Andreas06 v1.1 (2009-08-17)</name>
+<name>Andreas06 v1.1 (2013-10-26)</name>
 <template>andreas06</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -1322,7 +1322,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion></requirements:s9yVersion>
-  <date>28 August 2006</date>
+  <date>2013-10-26</date>
   <filelist>
 <dir name="andreas06">
 <dir name="img">
@@ -1503,7 +1503,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Green Mile 1.1 (2008-02-14)</name>
+<name>Green Mile 1.1 (2013-10-26)</name>
 <template>GreenMile</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -1512,7 +1512,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion></requirements:s9yVersion>
-  <date>27-02-2006</date>
+  <date>2013-10-26</date>
   <filelist>
 <dir name="GreenMile">
 <dir name="admin">
@@ -1781,7 +1781,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Andreas08 s9y v2.0 (2009-08-17)</name>
+<name>Andreas08 s9y v2.0 (2013-10-26)</name>
 <template>andreas08</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -1790,7 +1790,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion></requirements:s9yVersion>
-  <date>23-10-2006</date>
+  <date>2013-10-26</date>
   <filelist>
 <dir name="andreas08">
 <dir name="img">
@@ -2151,7 +2151,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Bex01 (2009-08-27)</name>
+<name>Bex01 (2013-10-26)</name>
 <template>bex01</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -2160,7 +2160,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion></requirements:s9yVersion>
-  <date>May 5 2006</date>
+  <date>2013-10-26</date>
   <filelist>
 <dir name="bex01">
 <file>bex01_screenshot.jpg</file>
@@ -2528,7 +2528,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Kamouflage v1.1 (2008-09-09)</name>
+<name>Kamouflage v1.1 (2013-10-26)</name>
 <template>kamouflage</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -2537,7 +2537,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion></requirements:s9yVersion>
-  <date>8-4-06</date>
+  <date>2013-10-26</date>
   <filelist>
 <dir name="kamouflage">
 <dir name="admin">
@@ -3479,7 +3479,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>i3Theme 1.6 (2009-08-13)</name>
+<name>i3Theme 1.6 (2013-10-26)</name>
 <template>i3theme</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -3488,7 +3488,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion>1.1</requirements:s9yVersion>
-  <date>2009-04-01</date>
+  <date>2013-10-26</date>
   <filelist>
 <dir name="i3theme">
 <dir name="UTF-8">
@@ -3745,7 +3745,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Mo3 (2013-02-10)</name>
+<name>Mo3 (2013-10-26)</name>
 <template>mo3</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -3754,7 +3754,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>
-  <date></date>
+  <date>2013-10-26</date>
   <filelist>
 <dir name="mo3">
 <file>comments.tpl</file>
@@ -4569,7 +4569,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>xkur (2013-02-07)</name>
+<name>xkur (2013-10-26)</name>
 <template>xkur</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -4578,7 +4578,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion>1.5</requirements:s9yVersion>
-  <date>2013-02-07</date>
+  <date>2013-10-26</date>
   <filelist>
 <dir name="xkur">
 <dir name="img">
@@ -4947,7 +4947,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>One True Layout (2009-08-27)</name>
+<name>One True Layout (2013-10-26)</name>
 <template>one_true_layout</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -4956,7 +4956,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion></requirements:s9yVersion>
-  <date>23-07-2006</date>
+  <date>2013-10-26</date>
   <filelist>
 <dir name="one_true_layout">
 <file>commentform.tpl</file>
@@ -5053,7 +5053,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>SPLAT! v1.0.1 (2008-07-10)</name>
+<name>SPLAT! v1.0.1 (2013-10-26)</name>
 <template>splat</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -5062,7 +5062,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion></requirements:s9yVersion>
-  <date>24-01-07
+  <date>2013-10-26
 </date>
   <filelist>
 <dir name="splat">
@@ -5578,7 +5578,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Plus9 (2009-08-13)</name>
+<name>Plus9 (2013-10-26)</name>
 <template>plus9</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -5587,7 +5587,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion>1.4</requirements:s9yVersion>
-  <date>2009-02-14</date>
+  <date>2013-10-26</date>
   <filelist>
 <dir name="plus9">
 <file>AJS.js</file>
@@ -6463,7 +6463,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Greenway (2009-08-26)</name>
+<name>Greenway (2013-10-26)</name>
 <template>greenway</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -6472,7 +6472,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion></requirements:s9yVersion>
-  <date>27-07-2007</date>
+  <date>2013-10-26</date>
   <filelist>
 <dir name="greenway">
 <dir name="admin">
@@ -6761,7 +6761,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Mimbo (2013-02-10)</name>
+<name>Mimbo (2013-10-26)</name>
 <template>mimbo</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -6770,7 +6770,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>
-  <date>2013-02-10</date>
+  <date>2013-10-26</date>
   <filelist>
 <dir name="mimbo">
 <dir name="img">
@@ -6945,7 +6945,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>xcur (2013-05-31)</name>
+<name>xcur (2013-10-26)</name>
 <template>axcur</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -6954,7 +6954,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion></requirements:s9yVersion>
-  <date>2013-05-31</date>
+  <date>2013-10-26</date>
   <filelist>
 <dir name="axcur">
 <dir name="img">
@@ -7155,7 +7155,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Sagittarius-A (2013-02-10)</name>
+<name>Sagittarius-A (2013-10-26)</name>
 <template>Sagittarius-A</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -7164,7 +7164,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion>1.5</requirements:s9yVersion>
-  <date>2013-02-10</date>
+  <date>2013-10-26</date>
   <filelist>
 <dir name="Sagittarius-A">
 <file>comments.tpl</file>
@@ -7379,7 +7379,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Pixel</name>
+<name>Pixel (2013-10-26)</name>
 <template>pixel</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -7388,7 +7388,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion>1.1</requirements:s9yVersion>
-  <date>2010-11-30</date>
+  <date>2013-10-26</date>
   <filelist>
 <dir name="pixel">
 <file>botbar.tpl</file>

@@ -66,7 +66,7 @@ class serendipity_event_guestbook extends serendipity_event {
                         'dateformat'
                     ));
         $propbag->add('author',       'Ian');
-        $propbag->add('version',      '3.41');
+        $propbag->add('version',      '3.42');
         $propbag->add('requirements', array(
                         'serendipity' => '1.3',
                         'smarty'      => '2.6.7',
@@ -130,7 +130,7 @@ class serendipity_event_guestbook extends serendipity_event {
 
         $q = "CREATE TABLE IF NOT EXISTS {$serendipity['dbPrefix']}guestbook (
                         id {AUTOINCREMENT} {PRIMARY},
-                        ip varchar(15) default NULL,
+                        ip varchar(39) default NULL,
                         name varchar(100),
                         homepage varchar(100),
                         email varchar(100),
@@ -175,6 +175,9 @@ class serendipity_event_guestbook extends serendipity_event {
             $q   = "DROP TABLE IF EXISTS {$serendipity['dbPrefix']}guestbook_dyn";
             serendipity_db_schema_import($q);
         }
+        if ($db_config_version == '3.0') {
+            $q = "ALTER TABLE {$serendipity['dbPrefix']}guestbook CHANGE COLUMN `ip` `ip` VARCHAR(39)";
+            serendipity_db_schema_import($q);
     }
 
 
@@ -1249,10 +1252,13 @@ class serendipity_event_guestbook extends serendipity_event {
                         $this->set_config('dbversion', '3.0');
                         $this->cleanup();
                     } elseif ($cur == '3.0') {
+                        $this->alter_db($cur);
+                        $this->set_config('dbversion', '4');
+                    } elseif ($cur == '4') {
                         continue;
                     } else {
                         $this->install();
-                        $this->set_config('dbversion', '3.0');
+                        $this->set_config('dbversion', '4');
                     }
                     break;
 

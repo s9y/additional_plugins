@@ -1,3 +1,8 @@
+3.42:
+-----
+ * fixed db table guestbook, ip column to IPv6 length
+
+
 3.41:
 -----
 

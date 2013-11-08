@@ -176,7 +176,7 @@ class serendipity_event_guestbook extends serendipity_event {
             serendipity_db_schema_import($q);
         }
         if ($db_config_version == '3.0') {
-            $q = "ALTER TABLE {$serendipity['dbPrefix']}guestbook CHANGE COLUMN `ip` `ip` VARCHAR(45)";
+            $q = "ALTER TABLE {$serendipity['dbPrefix']}guestbook CHANGE COLUMN ip ip VARCHAR(45)";
             serendipity_db_schema_import($q);
     }
 

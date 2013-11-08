@@ -130,7 +130,7 @@ class serendipity_event_guestbook extends serendipity_event {
 
         $q = "CREATE TABLE IF NOT EXISTS {$serendipity['dbPrefix']}guestbook (
                         id {AUTOINCREMENT} {PRIMARY},
-                        ip varchar(39) default NULL,
+                        ip varchar(45) default NULL,
                         name varchar(100),
                         homepage varchar(100),
                         email varchar(100),
@@ -176,7 +176,7 @@ class serendipity_event_guestbook extends serendipity_event {
             serendipity_db_schema_import($q);
         }
         if ($db_config_version == '3.0') {
-            $q = "ALTER TABLE {$serendipity['dbPrefix']}guestbook CHANGE COLUMN `ip` `ip` VARCHAR(39)";
+            $q = "ALTER TABLE {$serendipity['dbPrefix']}guestbook CHANGE COLUMN `ip` `ip` VARCHAR(45)";
             serendipity_db_schema_import($q);
     }
 
@@ -615,38 +615,37 @@ class serendipity_event_guestbook extends serendipity_event {
         if (is_array($entries)) {
             foreach($entries AS $i => $entry) {
                 // entry items
-                $entry['email']               = $this->strip_security($this->safeEmail($entry['email']), null, true);
-                $entry['name']                = $this->strip_security($entry['name'], null, true);
-                $entry['homepage']            = !empty($entry['homepage']) && strpos($entry['homepage'],'http://') !== 0 && strpos($entry['homepage'],'https://') !== 0
-                                              ? 'http://' . $this->strip_security($entry['homepage'], null, true)
-                                              : $this->strip_security($entry['homepage'], null, true);
-                $entry['pluginpath']          = $serendipity['serendipityHTTPPath'] . $serendipity['guestbook']['pluginpath'];
-                $entry['timestamp']           = strftime($this->get_config('dateformat'), (int)$entry['timestamp']); // mysql would use SELECT *, FROM_UNIXTIME(timestamp) AS ts FROM `s9y_guestbook`
+                $entry['email']         = $this->strip_security($this->safeEmail($entry['email']), null, true);
+                $entry['name']          = $this->strip_security($entry['name'], null, true);
+                $entry['homepage']      = !empty($entry['homepage']) && strpos($entry['homepage'],'http://') !== 0 && strpos($entry['homepage'],'https://') !== 0
+                                        ? 'http://' . $this->strip_security($entry['homepage'], null, true)
+                                        : $this->strip_security($entry['homepage'], null, true);
+                $entry['pluginpath']    = $serendipity['serendipityHTTPPath'] . $serendipity['guestbook']['pluginpath'];
+                $entry['timestamp']     = strftime($this->get_config('dateformat'), (int)$entry['timestamp']); // mysql would use SELECT *, FROM_UNIXTIME(timestamp) AS ts FROM `s9y_guestbook`
 
-                $entry['page']                = $is_guestbook_url . (($serendipity['rewrite'] == 'rewrite') ? '?' : '&') . 'noclean=true&serendipity[adminAction]=guestbookdelete&serendipity[page]=' . (int)$serendipity['GET']['page'] . '&serendipity[gbid]=' . $entry['id'];
+                $entry['page']          = $is_guestbook_url . (($serendipity['rewrite'] == 'rewrite') ? '?' : '&') . 'noclean=true&serendipity[adminAction]=guestbookdelete&serendipity[page]=' . (int)$serendipity['GET']['page'] . '&serendipity[gbid]=' . $entry['id'];
 
-                $replace_ac                   = $this->cut_string($entry['body'], '[ac]', '[/ac]');
-                $stripped_body                = $this->strip_security($entry['body'], null, true);
-                $search_ac                    = $this->cut_string($stripped_body, '[ac]', '[/ac]');
-                $entry['body']                = str_replace($search_ac, $replace_ac, $stripped_body);
+                $replace_ac             = $this->cut_string($entry['body'], '[ac]', '[/ac]');
+                $stripped_body          = $this->strip_security($entry['body'], null, true);
+                $search_ac              = $this->cut_string($stripped_body, '[ac]', '[/ac]');
+                $entry['body']          = str_replace($search_ac, $replace_ac, $stripped_body);
 
                 if (serendipity_db_bool($this->get_config('markup'))) {
                     // parse  $entry['text'] through hook events standard formatting and smilies
-                    $markup = array('body' => $entry['body']);
+                    $markup             = array('body' => $entry['body']);
                     serendipity_plugin_api::hook_event('frontend_display', $markup, 'body');
-                    $entry['body']             = wordwrap($markup['body'], $wordwrap, "\n", 1);
+                    $entry['body']      = wordwrap($markup['body'], $wordwrap, "\n", 1);
                 } else {
-                    $entry['bodywrap']         = wordwrap($entry['body'], $wordwrap, "\n", 1);
-                    $entry['body']             = nl2br($entry['bodywrap']);
+                    $entry['bodywrap']  = wordwrap($entry['body'], $wordwrap, "\n", 1);
+                    $entry['body']      = nl2br($entry['bodywrap']);
                 }
-                $entry['body']                = $this->text_pattern_bbc($entry['body']);
+                $entry['body']          = $this->text_pattern_bbc($entry['body']);
 
-                $entries[$i] = $entry;
+                $entries[$i]            = $entry;
             }
         }
         return is_array($entries) ? $entries : false;
     }
-
 
     /**
      * Insert guestbook entry into database and send mail

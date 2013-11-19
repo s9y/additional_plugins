@@ -1,5 +1,4 @@
 <?php # $Id $
-
 /* Contributed by Adam Krause (http://www.pigslipstick.com/) */
 
 
@@ -14,52 +13,6 @@ if (file_exists($probelang)) {
 }
 
 include dirname(__FILE__) . '/lang_en.inc.php';
-//include dirname(__FILE__) . '/sidebar_logo_style.css.php';
-
-@define('PLUGIN_SIDEBARLOGO_STYLE_CODE', '
-<style type="text/css">
-#sblsitename {
-    text-align: center;
-    font-size: 120%;
-    font-weight: bold;
-    text-decoration: none;
-}
-#sblsitetag {
-    text-align: center;
-    font-size: 105%;
-    font-weight: bold;
-    text-decoration: none;
-}
-#sblimage {
-    text-align: center;
-    border: 0px solid red;
-}
-#sbldescription {
-    text-align: justify;
-    font-size: 100%;
-    font-weight: normal;
-    text-decoration: none;
-}
-#sblcontact {
-    text-align: right;
-    font-size: 100%;
-    font-weight: normal;
-    text-decoration: none;
-}
-#sblcopyright {
-    text-align: right;
-    font-size: 80%;
-    font-weight: normal;
-    text-decoration: overline underline;
-}
-/*********** NOTES ************
-1. Suggest setting style attribute "display: none;"
-   on SideBar Logo elements that are left blank to
-   reduce empty space on the panel.
-************ NOTES ***********/
-</style>
-
-');
 
 class serendipity_plugin_sidebarlogo extends serendipity_plugin
 {
@@ -73,50 +26,34 @@ class serendipity_plugin_sidebarlogo extends serendipity_plugin
             $propbag->add('description',   PLUGIN_SIDEBARLOGO_DESC);
             $propbag->add('stackable',     true);
             $propbag->add('author',        PLUGIN_SIDEBARLOGO_AUTH);
-            $propbag->add('version',       '0.0.2');
+            $propbag->add('version',       '0.3');
             $propbag->add('requirements',  array('serendipity' => '0.9',
                                                  'smarty'      => '2.6.7',
                                                  'php'         => '4.1.0'
                                                  ));
 
             $propbag->add('configuration', array('title',
-                                                 'sitename',
-                                                 'sitetag',
                                                  'image',
                                                  'imagewidth',
                                                  'imageheight',
+                                                 'imagetext',
                                                  'description',
-                                                 'contact',
-                                                 'copyright',
-                                                 'style',
-                                                 'sequence'
+                                                 'imagestyle',
+                                                 'descriptionstyle',
                                                  ));
             $propbag->add('groups',        array('FRONTEND_FEATURES'));
     }
 
     function introspect_config_item($name, &$propbag)
     {
-        switch($name) {
+        switch($name)
+        {
 
             case 'title':
                 $propbag->add('type',        'string');
                 $propbag->add('name',        PLUGIN_SIDEBARLOGO_TITLE);
                 $propbag->add('description', PLUGIN_SIDEBARLOGO_TITLE_DESC);
                 $propbag->add('default',     'My Logo');
-                break;
-
-            case 'sitename':
-                $propbag->add('type',        'string');
-                $propbag->add('name',        PLUGIN_SIDEBARLOGO_SITENAME);
-                $propbag->add('description', PLUGIN_SIDEBARLOGO_SITENAME_DESC);
-                $propbag->add('default',     '');
-                break;
-
-            case 'sitetag':
-                $propbag->add('type',        'string');
-                $propbag->add('name',        PLUGIN_SIDEBARLOGO_SITETAG);
-                $propbag->add('description', PLUGIN_SIDEBARLOGO_SITETAG_DESC);
-                $propbag->add('default',     '');
                 break;
 
             case 'image':
@@ -140,46 +77,32 @@ class serendipity_plugin_sidebarlogo extends serendipity_plugin
                 $propbag->add('default',     '');
                 break;
 
+            case 'imagetext':
+                $propbag->add('type',        'string');
+                $propbag->add('name',        PLUGIN_SIDEBARLOGO_IMAGETEXT);
+                $propbag->add('description', PLUGIN_SIDEBARLOGO_IMAGETEXT_DESC);
+                $propbag->add('default',     PLUGIN_SIDEBARLOGO_IMAGETEXT_MISSING);
+                break;
+
             case 'description':
                 $propbag->add('type',        'text');
                 $propbag->add('name',        PLUGIN_SIDEBARLOGO_DESCRIPTION);
                 $propbag->add('description', PLUGIN_SIDEBARLOGO_DESCRIPTION_DESC);
-                $propbag->add('default',     '');
+                $propbag->add('default',     'Your text here.\n<div style="clear:left;"></div>');
                 break;
 
-            case 'contact':
+            case 'imagestyle':
                 $propbag->add('type',        'string');
-                $propbag->add('name',        PLUGIN_SIDEBARLOGO_CONTACT);
-                $propbag->add('description', PLUGIN_SIDEBARLOGO_CONTACT_DESC);
-                $propbag->add('default',     '');
+                $propbag->add('name',        PLUGIN_SIDEBARLOGO_IMAGESTYLE);
+                $propbag->add('description', PLUGIN_SIDEBARLOGO_IMAGESTYLE_DESC);
+                $propbag->add('default',     '.serendipity_imageComment_left');
                 break;
 
-            case 'copyright':
+            case 'descriptionstyle':
                 $propbag->add('type',        'string');
-                $propbag->add('name',        PLUGIN_SIDEBARLOGO_COPYRIGHT);
-                $propbag->add('description', PLUGIN_SIDEBARLOGO_COPYRIGHT_DESC);
+                $propbag->add('name',        PLUGIN_SIDEBARLOGO_DESCRIPTIONSTYLE);
+                $propbag->add('description', PLUGIN_SIDEBARLOGO_DESCRIPTIONSTYLE_DESC);
                 $propbag->add('default',     '');
-                break;
-
-            case 'style':
-                $propbag->add('type',        'html');
-                $propbag->add('name',        PLUGIN_SIDEBARLOGO_STYLE);
-                $propbag->add('description', PLUGIN_SIDEBARLOGO_STYLE_DESC);
-                $propbag->add('default',     PLUGIN_SIDEBARLOGO_STYLE_CODE);
-                break;
-
-            case 'sequence':
-                $propbag->add('var',         'category_sequence');
-                $propbag->add('type',        'sequence');
-                $propbag->add('name',        PLUGIN_SIDEBARLOGO_SEQUENCE);
-                $propbag->add('description', PLUGIN_SIDEBARLOGO_SEQUENCE_DESC);
-                $propbag->add('values',      array('sitename'    => array('display' => PLUGIN_SIDEBARLOGO_SITENAME),
-                                                   'sitetag'     => array('display' => PLUGIN_SIDEBARLOGO_SITETAG),
-                                                   'image'       => array('display' => PLUGIN_SIDEBARLOGO_IMAGE),
-                                                   'description' => array('display' => PLUGIN_SIDEBARLOGO_DESCRIPTION),
-                                                   'contact'     => array('display' => PLUGIN_SIDEBARLOGO_CONTACT),
-                                                   'copyright'   => array('display' => PLUGIN_SIDEBARLOGO_COPYRIGHT)
-                                                   ));
                 break;
 
             default:
@@ -192,58 +115,60 @@ class serendipity_plugin_sidebarlogo extends serendipity_plugin
     {
         global $serendipity;
 
-        $title          = $this->get_config('title');
-        $sitename       = $this->get_config('sitename');
-        $sitetag        = $this->get_config('sitetag');
-        $image          = $this->get_config('image');
-        $imagewidth     = $this->get_config('imagewidth');
-        $imageheight    = $this->get_config('imageheight');
-        $description    = $this->get_config('description');
-        $contact        = $this->get_config('contact');
-        $copyright      = $this->get_config('copyright');
-        $style          = $this->get_config('style');
-        $sequence       = $this->get_config('sequence');
-        $sequence       = explode(",", $sequence);
-
-        if ($imagewidth != "") {
-            $iwidth = "width='$imagewidth'";
+        $title              = $this->get_config('title');
+        $image              = $this->get_config('image');
+        $imagewidth         = $this->get_config('imagewidth');
+        $imageheight        = $this->get_config('imageheight');
+        $imagetext          = $this->get_config('imagetext');
+        $description        = $this->get_config('description');
+        $imagestyle         = $this->get_config('imagestyle');
+        $descriptionstyle   = $this->get_config('descriptionstyle');
+        
+        // prepare for output
+        if ($imagewidth != "")
+        {
+            $iwidth = "width='".$imagewidth."'";
         }
-        if ($imageheight != "") {
-            $iheight = "height='$imageheight'";
+        
+        if ($imageheight != "")
+        {
+            $iheight = "height='".$imageheight."'";
         }
-
-    echo $style;
-    echo "<div style='margin: 0px; padding: 0px; text-align: left;'>";
-    foreach($sequence as $val) {
-        switch($val) {
-            case 'sitename':
-                echo "<div id='sblsitename'>".$sitename."</div>";
-                break;
-
-            case 'sitetag':
-                echo "<div id='sblsitetag'>".$sitetag."</div>";
-                break;
-
-            case 'image':
-                echo "<div id='sblimage'><img $iwidth $iheight src=".$image." /></div>";
-                break;
-
-            case 'description':
-                echo "<div id='sbldescription'>".$description."</div>";
-                break;
-
-            case 'contact':
-                echo "<div id='sblcontact'>".$contact."</div>";
-                break;
-
-            case 'copyright':
-                echo "<div id='sblcopyright'>".$copyright."</div>";
-                break;
+        
+        $imagestyle = $this->generate_style_attribute($imagestyle);
+        $descriptionstyle = $this->generate_style_attribute($descriptionstyle);
+        
+        // output
+        if ($image != "")
+        {
+            echo "<img ".$iwidth." ".$iheight." src='".$image."' alt='".$imagetext."' ".$imagestyle."/>";
         }
+        
+        if ( $descriptionstyle != "" )
+            echo "<div ".$descriptionstyle.">\n";
+            
+        echo $description."\n";
+        
+        if ( $descriptionstyle != "" )
+            echo "</div>\n";
     }
-    echo "</div>";
 
+    function generate_style_attribute(&$stylestring)
+    {
+       if ( $stylestring != "" )
+       {
+           if ( $stylestring[0] == "." )
+	       return "class='".substr($stylestring,1)."'";
+	   else if ( $stylestring[0] == "#" )
+	       return "id='".substr($stylestring,1)."'";
+	   else
+	       return "style='".$stylestring."'";
+	  return "";
+       }
+       else
+           return "";
     }
 }
 
 /* vim: set sts=4 ts=4 expandtab : */
+?>

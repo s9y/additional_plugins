@@ -2,7 +2,7 @@
 
 /**
  *  @version 0.3
- *  @author Oliver Gerlach <programmer@stumblingpilgrim.net>
+ *  @author Oliver Gerlach (http://www.stumblingpilgrim.net/)
  *  EN-Revision: Revision of lang_en.inc.php
  */
 

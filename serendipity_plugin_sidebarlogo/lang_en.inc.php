@@ -2,7 +2,7 @@
 
 /**
  *  @version 0.3
- *  @author Oliver Gerlach <programmer@stumblingpilgrim.net>
+ *  @author Adam Krause (http://www.pigslipstick.com/), Oliver Gerlach (http://stumblingpilgrim.net/)
  *  EN-Revision: Revision of lang_en.inc.php
  */
 

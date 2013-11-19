@@ -1,5 +1,5 @@
 <?php # $Id $
-/* Contributed by Adam Krause (http://www.pigslipstick.com/) */
+/* Contributed by Adam Krause (http://www.pigslipstick.com/), Oliver Gerlach (http://www.stumblingpilgrim.net/) */
 
 
 if (IN_serendipity !== true) {

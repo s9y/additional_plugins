@@ -1,3 +1,7 @@
+1.44:
+-----
+* Added debug_file option as new config string
+
 1.42:
 ----
 

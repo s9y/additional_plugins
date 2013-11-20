@@ -12,7 +12,7 @@ require_once('tmobile.php');
 require_once('o2.php');
 
 // Default values
-define('POPFETCHER_VERSION',  '1.43');       // This version of Popfetcher
+define('POPFETCHER_VERSION',  '1.44');       // This version of Popfetcher
 define('DEFAULT_ADMINMENU',   'true');       // True if run as sidebar plugin. False if external plugin.
 define('DEFAULT_HIDENAME',    'popfetcher'); // User should set this to something unguessable
 define('DEFAULT_MAILSERVER',  '');
@@ -66,7 +66,7 @@ class serendipity_event_popfetcher extends serendipity_event
         $propbag->add('groups', array('BACKEND_FEATURES'));
         $propbag->add('configuration', array('cronjob', 'adminmenu', 'hidename', 'author', 'mailserver', 'mailuser', 'mailpass', 'onlyfrom', 'category', 'maildir', 'subfolder', 'blogflag', 'plaintext_is_body', 'plaintext_use_extended', 'textpref', 'adflag', 'striptext', 'striptagsflag', 'splittext', 'usetext', 'publishflag', 'default_moderate', 'default_comments', 'thumbnail_view',
         'usedate', 
-        'deleteflag', 'apopflag', 'mailport', 'timeout', 'debug'));
+        'deleteflag', 'apopflag', 'mailport', 'timeout', 'debug', 'debug_mail'));
     }
     
     function introspect_config_item($name, &$propbag) {
@@ -91,6 +91,13 @@ class serendipity_event_popfetcher extends serendipity_event
                 $propbag->add('name',        PLUGIN_MF_DEBUG);
                 $propbag->add('description', '');
                 $propbag->add('default',     false);
+                break;
+
+            case 'debug_mail':
+                $propbag->add('type',        'string');
+                $propbag->add('name',        PLUGIN_MF_DEBUGFILE);
+                $propbag->add('description', '');
+                $propbag->add('default',     '');
                 break;
 
             case 'author':
@@ -891,6 +898,10 @@ class serendipity_event_popfetcher extends serendipity_event
         $this->out('<h3>' . PLUGIN_MF_NAME . ' v' . POPFETCHER_VERSION . ' @ ' . date("D M j G:i:s T Y") . '</h3>');
 
         $debug_file    = null; // DEVELOPERS: If set to a filename, you can bypass fetching POP and use a file instead.
+        $debug_mail = $this->get_config('debug_mail');
+        if (strlen($debug_mail) != '' && file_exists($debug_mail)) {
+            $debug_file = $debug_mail;
+        }
         if ($debug_file != null) {
         	$this->debug = true;
         }

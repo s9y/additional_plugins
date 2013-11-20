@@ -94,4 +94,5 @@
 @define('PLUGIN_MF_SPLITTEXT', 'Define a string which separates body/extended parts');
 @define('PLUGIN_MF_SPLITTEXT_DESC', 'If you want to use a special string which separates the body and the extended body text in your emails, enter that string here. Serendipity will look for the occurence of that string, and put everything before that string in the body part, and everything after the string in the extended section. Be sure to use a unique string that does not occur as usual text, like "xxx-SPLIT-xxx". If you leave this option empty, the email will be computed as usual - but if you configure a magic string here, some of the other options will be overridden!');
 
+@define('PLUGIN_MF_DEBUGMAIL', 'For developers: You can enter a filename (including path) here to a EML file to debug popfetcher with such file');
 ?>

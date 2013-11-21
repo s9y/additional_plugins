@@ -39,7 +39,7 @@ CKEDITOR.editorConfig = function( config ) {
         // allow imageselectorplus mediainsert tag code
         config.protectedSource.push( /<(mediainsert)[^>]*>[\s\S]*?<\/mediainsert>/img );
         // allow a Smarty like {} tag syntax without starting whitespace, which would be some other code part.
-        config.protectedSource.push( /\{[a-zA-Z\$]*?\}/gi );
+        config.protectedSource.push( /\{[a-zA-Z\$].*?\}/gi );
 
         // set placeholder tag cases - elements [attributes]{styles}(classes)
         config.extraAllowedContent = 'mediainsert[*]{*}(*);script[*]{*}(*)'; // changed to ACF right order: attr style class

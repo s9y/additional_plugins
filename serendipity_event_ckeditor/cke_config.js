@@ -38,11 +38,11 @@ CKEDITOR.editorConfig = function( config ) {
         config.protectedSource.push( /<(script)[^>]*>.*<\/script>/ig ); // set default in ckeditor.js [/<script[\s\S]*?<\/script>/gi,/<noscript[\s\S]*?<\/noscript>/gi]
         // allow imageselectorplus mediainsert tag code
         config.protectedSource.push( /<(mediainsert)[^>]*>[\s\S]*?<\/mediainsert>/img );
-        // allow a Smarty like {} tag syntax.
-        config.protectedSource.push( /\{.*?\}/gi ); // or as config.protectedSource = [/\{.*?\}/gi]; // { } tags.
+        // allow a Smarty like {} tag syntax without starting whitespace, which would be some other code part.
+        config.protectedSource.push( /\{[a-zA-Z\$]*?\}/gi );
 
         // set placeholder tag cases - elements [attributes]{styles}(classes)
-        config.extraAllowedContent = 'mediainsert[*]{*}(*);script[*]{*}(*);php'; // changed to ACF right order: attr style class
+        config.extraAllowedContent = 'mediainsert[*]{*}(*);script[*]{*}(*)'; // changed to ACF right order: attr style class
 
         // CKEDITOR.protectedSource patterns used regex Escape sequences
         //            \s any whitespace character; 

@@ -8,6 +8,7 @@
          the new 'procurator' CKEDITOR Plugin (s9y-specific) was added, which acts like a hidden event plugin and takes care for the placeholder wysiwyg-mode replacements.
     * In order to be able to place prettified code snippets into entries, the 
          'pbckcode' CKEDITOR Plugin was added (v 1.1.0, https://github.com/prbaron/PBCKCode).
+         Including local prettify (js/css) by (current, http://code.google.com/p/google-code-prettify/)
     * Updated 'mediaembed' CKEDITOR Plugin, which removed a useless loop, issue #6
     * Fixed 'backend_plugins_update' update hook to config fallback
     * Updated CKEDITOR Library to version 4.2.3

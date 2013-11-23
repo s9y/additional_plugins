@@ -49,7 +49,9 @@ class serendipity_plugin_sidebarlogo extends serendipity_plugin
                                                  'copyrightstyle',
                                                  'sequence',
                                                  ));
+	    // sselect the appropriate groups in spartacus that match this plugin                                                 
             $propbag->add('groups',        array('FRONTEND_FEATURES'));
+            // group config options. All options not in this list remain ungrouped and are visible always
             $propbag->add('config_groups', array(
                         PLUGIN_SIDEBARLOGO_GROUP_MOREOPTIONS => array(
                         'sitename',
@@ -311,6 +313,15 @@ class serendipity_plugin_sidebarlogo extends serendipity_plugin
 	}
     }
 
+    /**
+    * @brief create a full HTML attribute from style information
+    * @param stylestring input string to parse for style information
+    * @return attribute containing the resulting attribute
+    *
+    * Depending on the input string this method either creates a style attribute, a class attribute or an id attribute.
+    * The choice is made on the first character of the input string.
+    * A leading '#' denotes an id while a leading '.' denotes a class and everything else is taken as inline CSS.
+    */
     function generate_style_attribute(&$stylestring)
     {
        if ( $stylestring != "" )

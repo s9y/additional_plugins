@@ -1,14 +1,16 @@
 <?php # 
 
 /**
- *  @version 0.3
+ *  @version 0.4
  *  @author Adam Krause (http://www.pigslipstick.com/), Oliver Gerlach (http://stumblingpilgrim.net/)
  *  EN-Revision: Revision of lang_en.inc.php
  */
 
-@define('PLUGIN_SIDEBARLOGO_NAME', 'SideBar Logo 0.3');
-@define('PLUGIN_SIDEBARLOGO_DESC', 'Displays a panel containing your logo with a description including all relevant information about your site.');
-@define('PLUGIN_SIDEBARLOGO_AUTH', 'Adam Krause');
+@define('PLUGIN_SIDEBARLOGO_NAME', 'SideBar Logo');
+@define('PLUGIN_SIDEBARLOGO_DESC', 'Displays a panel containing your logo with a description including all relevant information about your site (an about box).');
+@define('PLUGIN_SIDEBARLOGO_AUTH', 'Adam Krause & Oliver Gerlach');
+@define('PLUGIN_SIDEBARLOGO_GROUP_MOREOPTIONS', 'More Fields & Options');
+@define('PLUGIN_SIDEBARLOGO_GROUP_STYLES', 'Styling');
 @define('PLUGIN_SIDEBARLOGO_TITLE', 'Title');
 @define('PLUGIN_SIDEBARLOGO_TITLE_DESC', 'Text for sidebar item title bar');
 @define('PLUGIN_SIDEBARLOGO_IMAGE', 'Logo');
@@ -26,4 +28,26 @@
 @define('PLUGIN_SIDEBARLOGO_IMAGESTYLE_DESC', 'style to use for your logo. Start text with "." to provide a CSS id, with a "#" to provide a class or use inline styling directly');
 @define('PLUGIN_SIDEBARLOGO_DESCRIPTIONSTYLE', 'Description Style');
 @define('PLUGIN_SIDEBARLOGO_DESCRIPTIONSTYLE_DESC', 'style to use for your description. Start text with "." to provide a CSS id, with a "#" to provide a class, use direct styling or leave it blank to use default sidebar styling (recommended)');
+@define('PLUGIN_SIDEBARLOGO_DEFAULT_DESCRIPTION', 'Enter your text here');
+@define('PLUGIN_SIDEBARLOGO_SITENAME', 'Site Name');
+@define('PLUGIN_SIDEBARLOGO_SITENAME_DESC', 'The name of your web site (e.g. My New Blog)');
+@define('PLUGIN_SIDEBARLOGO_SITENAMESTYLE', 'Site Name Style');
+@define('PLUGIN_SIDEBARLOGO_SITENAMESTYLE_DESC', 'style to use for your site name. Start text with "." to provide a CSS id, with a "#" to provide a class or use inline styling directly');
+@define('PLUGIN_SIDEBARLOGO_SITETAG', 'Tag Line');
+@define('PLUGIN_SIDEBARLOGO_SITETAG_DESC', 'a slogan or tag line (e.g. Blogging for life)');
+@define('PLUGIN_SIDEBARLOGO_SITETAGSTYLE', 'Site Tag Style');
+@define('PLUGIN_SIDEBARLOGO_SITETAGSTYLE_DESC', 'style to use for your site tag. Start text with "." to provide a CSS id, with a "#" to provide a class or use inline styling directly');
+@define('PLUGIN_SIDEBARLOGO_CONTACT', 'Contact Information');
+@define('PLUGIN_SIDEBARLOGO_CONTACT_DESC', 'An email address or mailto link ("Contact me: <a href=mailto:john@doe.com>John Doe</a>")');
+@define('PLUGIN_SIDEBARLOGO_CONTACTSTYLE', 'Contact style');
+@define('PLUGIN_SIDEBARLOGO_CONTACTSTYLE_DESC', 'style to use for your contact information. Start text with "." to provide a CSS id, with a "#" to provide a class or use inline styling directly');
+@define('PLUGIN_SIDEBARLOGO_COPYRIGHT', 'Copyright');
+@define('PLUGIN_SIDEBARLOGO_COPYRIGHT_DESC', 'Tiny text, best used for copyright or legal statement (copyright symbol: "&copy;")');
+@define('PLUGIN_SIDEBARLOGO_COPYRIGHTSTYLE', 'Copyright Style');
+@define('PLUGIN_SIDEBARLOGO_COPYRIGHTSTYLE_DESC', 'style to use for your contact information. Start text with "." to provide a CSS id, with a "#" to provide a class or use inline styling directly');
+@define('PLUGIN_SIDEBARLOGO_DELIMITER', 'Delimiter');
+@define('PLUGIN_SIDEBARLOGO_DELIMITERSTYLE', 'Delimiter Styling');
+@define('PLUGIN_SIDEBARLOGO_DELIMITERSTYLE_DESC', 'Styling for the delimiter. The delimiter is a text flow control elment. It forces the rest of the box or the page to continue below the logo. Normally you do not need to change this style. Only do if you change your image style as well.');
+@define('PLUGIN_SIDEBARLOGO_SEQUENCE', 'Sequence');
+@define('PLUGIN_SIDEBARLOGO_SEQUENCE_DESC', 'Define the sequence of your SideBar Logo elements and enable or disable them (Default is logo, description, delimiter).');
 ?>

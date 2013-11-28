@@ -474,12 +474,12 @@
 <guid isPermaLink="false">serendipity_plugin_twitter</guid>
 </item>
 <item>
-<title>SideBar Logo 0.0.2: Displays a panel containing your logo, site name, and other relevant informaion about your site.</title>
+<title>SideBar Logo: Zeigt ein Logo mit einer Beschreibung und allen relevanten Informationen in der Seitenleiste (eine Aboutbox).</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_sidebarlogo</link>
 <category>Sidebar Plugins</category>
-<author>Adam Krause</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_sidebarlogo&lt;br /&gt;SideBar Logo 0.0.2&lt;/b&gt;&lt;br /&gt;Displays a panel containing your logo, site name, and other relevant informaion about your site.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 25 Dec 2011 04:53:20 +0100</pubDate>
+<author>Adam Krause &amp; Oliver Gerlach</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_sidebarlogo&lt;br /&gt;SideBar Logo&lt;/b&gt;&lt;br /&gt;Zeigt ein Logo mit einer Beschreibung und allen relevanten Informationen in der Seitenleiste (eine Aboutbox).&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Thu, 28 Nov 2013 02:31:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_sidebarlogo</guid>
 </item>
 <item>

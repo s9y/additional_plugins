@@ -3235,14 +3235,15 @@
 <description>Zobrazuje panel/blok, který obsahuje Vaše logo, jméno stránky a další informační údaje.</description>
 <maintainers><maintainer><name>Adam Krause</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.0.2</version>
+  <version>0.4</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2013-11-28</date>
   <filelist>
 <dir name="serendipity_plugin_sidebarlogo">
 <file>lang_en.inc.php</file>
 <file>serendipity_plugin_sidebarlogo.php</file>
 <dir name="UTF-8">
+<file>lang_de.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 </dir>
@@ -3254,6 +3255,7 @@
   <serendipityFilelist>
     <file>serendipity_plugin_sidebarlogo/lang_en.inc.php</file>
     <file>serendipity_plugin_sidebarlogo/serendipity_plugin_sidebarlogo.php</file>
+    <file>serendipity_plugin_sidebarlogo/UTF-8/lang_de.inc.php</file>
     <file>serendipity_plugin_sidebarlogo/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_sidebarlogo/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_plugin_sidebarlogo/lang_cs.inc.php</file>

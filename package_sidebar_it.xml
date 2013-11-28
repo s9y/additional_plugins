@@ -3233,19 +3233,20 @@
 <package version="1.0">
 <name>serendipity_plugin_sidebarlogo</name>
 <license>GPL</license>
-<summary>SideBar Logo 0.0.2</summary>
+<summary>SideBar Logo</summary>
 <groups>FRONTEND_FEATURES</groups>
-<description>Displays a panel containing your logo, site name, and other relevant informaion about your site.</description>
-<maintainers><maintainer><name>Adam Krause</name><role>lead</role></maintainer></maintainers>
+<description>Displays a panel containing your logo with a description including all relevant information about your site (an about box).</description>
+<maintainers><maintainer><name>Adam Krause &amp; Oliver Gerlach</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.0.2</version>
+  <version>0.4</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2013-11-28</date>
   <filelist>
 <dir name="serendipity_plugin_sidebarlogo">
 <file>lang_en.inc.php</file>
 <file>serendipity_plugin_sidebarlogo.php</file>
 <dir name="UTF-8">
+<file>lang_de.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 </dir>
@@ -3257,6 +3258,7 @@
   <serendipityFilelist>
     <file>serendipity_plugin_sidebarlogo/lang_en.inc.php</file>
     <file>serendipity_plugin_sidebarlogo/serendipity_plugin_sidebarlogo.php</file>
+    <file>serendipity_plugin_sidebarlogo/UTF-8/lang_de.inc.php</file>
     <file>serendipity_plugin_sidebarlogo/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_sidebarlogo/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_plugin_sidebarlogo/lang_cs.inc.php</file>

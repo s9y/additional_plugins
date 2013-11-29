@@ -9,6 +9,7 @@
 @define('PLUGIN_ENTRYPAGING_NAME', 'Links to next/previous entry');
 @define('PLUGIN_ENTRYPAGING_BLAHBLAH', 'Allows viewing the next/previous entry when viewing');
 @define('PLUGIN_ENTRYPAGING_PLACE', 'Placement');
+@define('PLUGIN_ENTRYPAGING_PLACE_BLAHBLAH', 'If Smarty, write block into content.tpl.');
 @define('PLUGIN_ENTRYPAGING_TOP', 'Top');
 @define('PLUGIN_ENTRYPAGING_BOTTOM', 'Bottom');
 @define('PLUGIN_ENTRYPAGING_RANDOM', 'Show Random Entry');

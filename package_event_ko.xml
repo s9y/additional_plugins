@@ -240,9 +240,9 @@
 <description>글을 읽으면서 다음이나 이전 글로 갈 수 있도록 함</description>
 <maintainers><maintainer><name>Garvin Hicking, Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.38</version>
+  <version>1.39</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2013-11-30</date>
   <filelist>
 <dir name="serendipity_event_entrypaging">
 <file>serendipity_event_entrypaging.php</file>

@@ -240,9 +240,9 @@
 <description>Umieszcza w widoku wpisu linki do następnego/poprzedniego wpisu</description>
 <maintainers><maintainer><name>Garvin Hicking, Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.38</version>
+  <version>1.39</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2013-11-30</date>
   <filelist>
 <dir name="serendipity_event_entrypaging">
 <file>serendipity_event_entrypaging.php</file>

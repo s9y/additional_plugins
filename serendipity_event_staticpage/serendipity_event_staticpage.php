@@ -1406,7 +1406,7 @@ class serendipity_event_staticpage extends serendipity_event
 
         static $cached = false;
 
-        if (empty($serendipity['GET']['subpage'])) {
+        if (empty($serendipity['GET']['subpage']) && empty($serendipity['GET']['staticid'])) {
             return false;
         }
 
@@ -1423,11 +1423,21 @@ class serendipity_event_staticpage extends serendipity_event
             $sql_where .= ' AND publishstatus = 1 ';
         }
 
-        $q = "SELECT *
-                FROM {$serendipity['dbPrefix']}staticpages
-               WHERE (pagetitle = '" . serendipity_db_escape_string($serendipity['GET']['subpage']) . "'
-                  OR permalink = '" . serendipity_db_escape_string($serendipity['GET']['subpage']) . "') $sql_where
-               LIMIT 1";
+        if ( empty($serendipity['GET']['staticid']) )
+        {
+            $q = "SELECT *
+                    FROM {$serendipity['dbPrefix']}staticpages
+                   WHERE (pagetitle = '" . serendipity_db_escape_string($serendipity['GET']['subpage']) . "'
+                      OR permalink = '" . serendipity_db_escape_string($serendipity['GET']['subpage']) . "') $sql_where
+                   LIMIT 1";
+        }
+        else
+        {
+            $q = "SELECT *
+                    FROM {$serendipity['dbPrefix']}staticpages
+                  WHERE (id = '" . serendipity_db_escape_string($serendipity['GET']['staticid']) . "') $sql_where
+                  LIMIT 1";
+        }
         $page = serendipity_db_query($q, true, 'assoc');
         if (is_array($page)) {
             $this->staticpage =& $page;
@@ -2033,7 +2043,7 @@ class serendipity_event_staticpage extends serendipity_event
                 echo '</div>';
 
                 if (!empty($serendipity['POST']['staticPreview'])) {
-                    $link = $serendipity['baseURL'] . $serendipity['indexFile'] . '?serendipity[subpage]=' . $this->staticpage['pagetitle'] . '&serendipity[staticPreview]=1';
+                    $link = $serendipity['baseURL'] . $serendipity['indexFile'] . '?serendipity[staticid]=' . $this->staticpage['id'] . '&serendipity[staticPreview]=1';
                     echo '<script type="text/javascript">';
                     echo 'var staticpage_preview = window.open("' . $link . '", "staticpage_preview");' . "\n";
                     echo 'staticpage_preview.focus();' . "\n";
@@ -2042,17 +2052,22 @@ class serendipity_event_staticpage extends serendipity_event
                     echo '<p>' . sprintf(PLUGIN_STATICPAGE_PREVIEW, '<a href="' . $link . '">' . $this->staticpage['pagetitle'] . '</a>') . '</p>';
                 }
 
-
                 echo '<div>';
 
                 if ($serendipity['POST']['staticSubmit'] || isset($serendipity['GET']['staticid'])) {
                     $serendipity['POST']['plugin']['custom'] = $this->staticpage['custom'];
                     echo '<input type="hidden" name="serendipity[staticSave]" value="true" />';
                     $this->showForm($this->config, $this->staticpage);
-                }
+                    echo "</div>\n";
+                    echo '</form>';
 
-                echo "</div>\n";
-                echo '</form>';
+                }
+                else
+                {
+                    echo "</div>\n";
+                    echo '</form>';
+		    $this->listStaticPages();
+		}
 
                 break;
 
@@ -2629,8 +2644,170 @@ foreach($select AS $select_value => $select_desc) {
     </div>
 <?php
     }
+    
+     /**
+    * generate header for static page overview panel
+    *
+    * Show a introducing headline to the list.
+    */
+    function showListHeader()
+    {
+    ?>
+        <h3> <?php echo STATICPAGE_LIST_EXISTING_PAGES ?> </h3>
+    <?php
+    }
 
+     /**
+    * generate entry row for static page overview panel
+    *
+    * Show a row for a given static page.
+    * This row is similar to the one used for entries.
+    * It contains the linked title, the author and quick access for preview, editing and deletion of the page.
+    * The background color of the table produced differs for even rows and uneven rows.
+    *
+    * @param entry array with database information for the static page
+    * @param is_even true for even rows and wrong for uneven rows.
+    * @return null
+    */
+    function showListEntry($entry, $is_even)
+    {
+        global $serendipity;
+        // Find out if the entry has been modified later than 30 minutes after creation
+        if ( $entry['timestamp'] <= ($entry['last_modified'] - 60*30) )
+        {
+            $lm = '<a href="#" title="' . LAST_UPDATED . ': ' . serendipity_formatTime(DATE_FORMAT_SHORT, $entry['last_modified']) . '" onclick="alert(this.title)"><img src="'. serendipity_getTemplateFile('admin/img/clock.png') .'" alt="*" style="border: 0px none ; vertical-align: bottom;" /></a>';
+        }
+        else
+        {
+            $lm = '';
+        }
+    
+        $entry_pre = '';
+        if ( !serendipity_db_bool($entry['publishstatus']) )
+        {
+            $entry_pre .= ' ' . DRAFT . ': ';
+        }
+        
+        ?>
+            <div class="serendipity_admin_list_item serendipity_admin_list_item_<?php echo ($is_even) ? 'even' : 'uneven'; ?>">
+                <table width="100%" cellspacing="0" cellpadding="3">
+                    <tr>
+                        <td>
+                            <strong><?php echo $entry_pre; ?><a href="?serendipity[action]=admin&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=staticpages&amp;serendipity[staticpagecategory]=pages&amp;serendipity[staticid]=<?php echo $entry['id']; ?>" title="#<?php echo $entry['pagetitle']; ?>"><?php echo serendipity_truncateString(htmlspecialchars($entry['headline']),50) ?></a></strong>
+                            </td>
+                            <td align="right">
+                                <?php echo serendipity_formatTime(DATE_FORMAT_SHORT, $entry['timestamp']) . ' ' .$lm; ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <?php echo POSTED_BY . ' ' . htmlspecialchars($this->selectAuthor($entry['authorid'])); ?>
+                            </td>
+                            <td align="right">
+                                <?php
+                                    $link = $serendipity['baseURL'] . $serendipity['indexFile'];
+                                    $link .= '?serendipity[staticid]=' . $entry['id'] . '&serendipity[staticPreview]=1';
+                                ?>
+                                <form action="serendipity_admin.php" method="post" name="serendipityEntry">
+                                <a target="_blank" href="<?php echo $link ?>" title="<?php echo VIEW . ' #' . $entry['pagetitle']; ?>" class="serendipityIconLink"><img src="<?php echo serendipity_getTemplateFile('admin/img/zoom.png'); ?>" alt="<?php echo VIEW . "#" . $entry['pagetitle']; ?>" /></a>
+                                    <input type="hidden" name="serendipity[adminModule]" value="event_display" />
+                                    <input type="hidden" name="serendipity[adminAction]" value="staticpages" />
+                                    <input type="hidden" name="serendipity[staticpagecategory]" value="pages" />
+                                    <input type="hidden" name="serendipity[staticpage]" value="<?php echo $entry['id']; ?>" />
+                                    <input type="image" name="serendipity[staticSubmit]" src="<?php echo serendipity_getTemplateFile('admin/img/edit.png'); ?>" alt="<?php echo EDIT . "#" . $entry['pagetitle']; ?>">
+                                    <input type="image" name="serendipity[staticDelete]" src="<?php echo serendipity_getTemplateFile('admin/img/delete.png'); ?>" onclick="return confirm('<?php echo sprintf(DELETE_SURE, $entry['pagetitle']); ?>');" alt="<?php echo DELETE . "#" . $entry['pagetitle']; ?>" />
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </div>        
+            <?php
+    }
+    
+     /**
+    * generate footer for static page overview panel
+    *
+    * Show a footline with id-based access to static pages.
+    * This footer is similar to the one used for entries.
+    * The background color of the table produced differs for even rows and uneven rows.
+    *
+    * @param is_even true for even rows and wrong for uneven rows.
+    * @return null
+    */
+    function showListFooter($is_even)
+    {
+    ?>
+        <div class="serendipity_admin_list_item serendipity_admin_list_item_<?php echo ($is_even ? 'even' : 'uneven'); ?>">
+            <table width="100%" cellspacing="0" cellpadding="3">
+                <tr>
+                    <td>
+                        <form action="serendipity_admin.php" method="post" name="serendipityEntry">
+                            <input type="hidden" name="serendipity[adminModule]" value="event_display" />
+                            <input type="hidden" name="serendipity[adminAction]" value="staticpages" />
+                            <input type="hidden" name="serendipity[staticpagecategory]" value="pages" />
+                            <?php echo EDIT_ENTRY ?>: #<input class="input_textbox" type="text" size="3" name="serendipity[staticpage]" /> 
+                            <input class="serendipityPrettyButton input_button" type="submit" name="serendipity[staticSubmit]" value="<?php echo GO; ?>" />
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    <?php
+    }
 
+     /**
+    * generate content for empty overview panel
+    *
+    * Show a message instead of static page list if no static pages exist.
+    *
+    * @return null
+    */
+   function showEmptyList()
+    {
+    ?>
+        <table class="serendipity_admin_list" cellpadding="5" width="100%">
+	    <tr>
+		<td align="center" class="serendipityAdminMsgNote">
+		    <img style="width: 22px; height: 22px; border: 0px; padding-right: 4px; vertical-align: middle" src="<?php echo serendipity_getTemplateFile('admin/img/admin_msg_note.png'); ?>" alt="" />
+		    <?php echo NO_ENTRIES_TO_PRINT ?>
+		</td>
+	    </tr>
+	</table>
+    <?php
+    }
+    
+    /**
+    * Shows the static page panel overview
+    *
+    * Shows a list of all existing static pages.
+    *
+    * @access public
+    * @return null
+    */
+    function listStaticPages()
+    {
+        // get and list static pages
+        $pages = $this->fetchStaticPages();
+        if(is_array($pages))
+        {
+            $this->showListHeader();
+            
+            $pages = serendipity_walkRecursive($pages);
+            $rows = 1;	// start with uneven row
+            foreach ($pages as $page)
+            {
+                $this->showListEntry($page, $rows % 2);
+                $rows++;
+            }
+
+            $this->showListFooter($is_even);
+	}
+	else
+	{
+	    $this->showEmptyList();
+	}
+    }
+    
     function generate_content(&$title)
     {
         $title = STATICPAGE_TITLE;
@@ -2791,8 +2968,6 @@ foreach($select AS $select_value => $select_desc) {
         }
         return true;
     }
-
-
 
     function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
@@ -3066,5 +3241,7 @@ foreach($select AS $select_value => $select_desc) {
         }
         return false;
     }
+
 }
+
 /* vim: set sts=4 ts=4 expandtab : */

@@ -1,3 +1,7 @@
+2.9:
+----
+fixed Chrome Browser Exception
+
 2.8:
 ----
 fixed 2.7, since staticpages and entryforms set the [id] different

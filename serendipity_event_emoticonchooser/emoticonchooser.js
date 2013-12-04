@@ -1,4 +1,7 @@
-function emoticonchooser(instance_name = '', this_instance = '', cke_txtarea = '') {
+function emoticonchooser(instance_name, this_instance, cke_txtarea) {
+    if (!instance_name) var instance_name = '';
+    if (!this_instance) var this_instance = '';
+    if (!cke_txtarea)   var cke_txtarea   = '';
 
     var editor_instance = 'editor'+instance_name;
     var use_emoticon    = 'use_emoticon_'+instance_name;

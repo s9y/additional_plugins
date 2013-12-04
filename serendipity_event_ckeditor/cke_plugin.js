@@ -47,7 +47,11 @@ function ecfit(str) {
  * @param string        $eventData['jsname']
  * @param array/object  jsEventData/json_encode($eventData['buttons'])
  **/
-function Spawnnuggets(item = null, addEP = null, jsED = null) {
+function Spawnnuggets(item, addEP, jsED) {
+
+    if (!item)  var item  = null;
+    if (!addEP) var addEP = null;
+    if (!jsED)  var jsED  = null;
 
     var textarea_instance = !isNaN(item) ? 'nuggets' + item : item;
     var name_extraPlugins = (addEP !== null) ? addEP : textarea_instance;

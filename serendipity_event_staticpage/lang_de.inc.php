@@ -36,6 +36,7 @@
 @define('PLUGIN_STATICPAGELIST_FRONTPAGE_DESC',     'Einen Link zur Startseite erstellen');
 @define('PLUGIN_STATICPAGELIST_FRONTPAGE_LINKNAME', 'Startseite');
 
+@define('STATICPAGE_LIST_EXISTING_PAGES',           'Liste vorhandener statischer Seiten');
 @define('STATICPAGE_HEADLINE',                      'Kopfzeile');
 @define('STATICPAGE_HEADLINE_BLAHBLAH',             'Zeigt eine Kopfzeile als Titel der statischen Seite an');
 @define('STATICPAGE_TITLE',                         'Statische Seiten');

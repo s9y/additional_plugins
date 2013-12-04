@@ -9,6 +9,7 @@
 //
 //  serendipity_event_staticpage.php
 //
+@define('STATICPAGE_LIST_EXISTING_PAGES', 'List of existing static pages');
 @define('STATICPAGE_HEADLINE', 'Headline');
 @define('STATICPAGE_HEADLINE_BLAHBLAH', 'Shows a headline above the content which is rendered as every other headline in your blog');
 @define('STATICPAGE_TITLE', 'Static Pages');

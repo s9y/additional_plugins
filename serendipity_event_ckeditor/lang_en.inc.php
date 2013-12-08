@@ -1,8 +1,8 @@
 <?php # 
 
 /**
- *  @file lang_en.inc.php 1.4.2 2013-10-24 Ian
- *  @version 1.4.2
+ *  @file lang_en.inc.php 1.4.3 2013-12-08 Ian
+ *  @version 1.4.3
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */
@@ -39,3 +39,6 @@ If you - in follow - ever need to manually upgrade the delivered CKEditor packag
 @define('PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION', 'Allow prettify code in frontend?');
 @define('PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION_BLAHBLAH', 'Extends to "allowed code button" option. Adds locally loaded prettify.js and prettify.ccs (code by Google) to frontend.');
 @define('PLUGIN_EVENT_CKEDITOR_OPTION_BLAHBLAH', 'Usually: ');
+
+@define('PLUGIN_EVENT_CKEDITOR_FORCEINSTALL_OPTION', 'Force install process');
+@define('PLUGIN_EVENT_CKEDITOR_FORCEINSTALL_OPTION_BLAHBLAH', 'On upgrade errors: Force the immediate zip deflation of ');

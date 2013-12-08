@@ -40,9 +40,11 @@ CKEDITOR.editorConfig = function( config ) {
         config.protectedSource.push( /<(mediainsert)[^>]*>[\s\S]*?<\/mediainsert>/img );
         // allow a Smarty like {} tag syntax without starting whitespace, which would be some other code part.
         config.protectedSource.push( /\{[a-zA-Z\$].*?\}/gi );
+        // allow multiline HTML5 audio tags
+        config.protectedSource.push( /<(audio)[^>]*>[\s\S]*?<\/audio>/img );
 
         // set placeholder tag cases - elements [attributes]{styles}(classes)
-        config.extraAllowedContent = 'mediainsert[*]{*}(*);script[*]{*}(*)'; // changed to ACF right order: attr style class
+        config.extraAllowedContent = 'mediainsert[*]{*}(*);script[*]{*}(*)audio[*]{*}(*);'; // changed to ACF right order: attr style class
 
         // CKEDITOR.protectedSource patterns used regex Escape sequences
         //            \s any whitespace character; 

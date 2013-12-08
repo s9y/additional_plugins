@@ -1,8 +1,8 @@
 <?php # 
 
 /**
- *  @file UTF-8/lang_de.inc.php 1.4.2 2013-10-24 Ian
- *  @version 1.4.2
+ *  @file UTF-8/lang_de.inc.php 1.4.3 2013-12-08 Ian
+ *  @version 1.4.3
  *  @author Translator Name <yourmail@example.com>
  *  DE-Revision: Revision of lang_de.inc.php
  */
@@ -39,3 +39,6 @@ Wenn jemals ein manuelles oder persönliches Update des mitgelieferten CKEditor P
 @define('PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION', 'Nutze "prettify code" im Frontend?');
 @define('PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION_BLAHBLAH', 'Erweitert "code toolbar button" Option, um lokal geladene prettify.js und prettify.ccs Dateien (code by Google) im Frontend.');
 @define('PLUGIN_EVENT_CKEDITOR_OPTION_BLAHBLAH', 'Normalerweise: ');
+
+@define('PLUGIN_EVENT_CKEDITOR_FORCEINSTALL_OPTION', 'Entpacke Zip Datei');
+@define('PLUGIN_EVENT_CKEDITOR_FORCEINSTALL_OPTION_BLAHBLAH', 'Bei upgrade Fehlern: Entpacke augenblicklich die mitgelieferte ');

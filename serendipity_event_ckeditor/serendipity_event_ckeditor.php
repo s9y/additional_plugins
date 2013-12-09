@@ -377,10 +377,12 @@ class serendipity_event_ckeditor extends serendipity_event
 
 
                 case 'css_backend': // do not use in 2.0 versions
-                    if ($serendipity['version'][0] == '1') {
 ?>
 /* CKE BACKEND MESSAGES
    ----------------------------------------------------------------- */
+<?php
+                    if ($serendipity['version'][0] == '1') {
+?>
 .msg_error,
 .msg_success,
 .msg_notice,
@@ -413,6 +415,9 @@ class serendipity_event_ckeditor extends serendipity_event
     border: 1px solid #aaa;
     color: #777;
 }
+<?php
+                    }
+?>
 
 .cke_config_block {
     opacity: 0.7;
@@ -421,8 +426,10 @@ class serendipity_event_ckeditor extends serendipity_event
     font-size: smaller;
     border: 1px dashed;
 }
+
+/* CKE end ----------------------------------------------------------------- */
+
 <?php
-                    }
                     break;
 
 

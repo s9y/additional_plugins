@@ -1,3 +1,17 @@
+2.3.3:
+-----
+    * Some tweaks to en, de lang files.
+    * Fixed force_install to set new values to database config table.
+    * Fixed Spartacus upgrade 'plugin_to_conf' again, by using 'external_plugin' hook, 
+      which now forces a real HTTP request and falls down to plugins instance config.
+      The previous (2.3.2) 'install_plugin' did do, but created another plugin instance.
+      If you were hit by this, please just purge other ckeditor instances in your plugin list.
+      To push to "all" upgraders, the zip version num was bumped to force a deflate.
+
+      [PLEASE NOTE: For Upgraders coming from 2.3.1 and earlier, the upgrade zip effect 
+       may possibly happen on next future upgrade only, thus force the zip upgrade by the
+       new 'force_install' emergency option, if not happen automatically.]
+
 2.3.2:
 -----
     * Added config option to force zip install on demand, 

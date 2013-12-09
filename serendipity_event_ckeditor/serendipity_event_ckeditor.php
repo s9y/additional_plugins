@@ -48,14 +48,14 @@ class serendipity_event_ckeditor extends serendipity_event
      * @access protected
      * @var string
      */
-    protected $cke_zipfile = 'ckeditor_4.2.3.2_standard-plus.zip';
+    protected $cke_zipfile = 'ckeditor_4.2.3.3_standard-plus.zip';
 
     /**
      * Access property checkUpdateVersion
      * Verify release package versions - do update on upgrades!
      * @var array
      */
-    protected $checkUpdateVersion = array('ckeditor:4.2.3.2', 'kcfinder:2.52-2');
+    protected $checkUpdateVersion = array('ckeditor:4.2.3.3', 'kcfinder:2.52-2');
 
     /**
      * Access property revisionPackage
@@ -66,7 +66,7 @@ class serendipity_event_ckeditor extends serendipity_event
                                        'KCFinder 2.52-dev (http://kcfinder.sunhater.com/ git package, 2013-05-04)',
                                        'CKEditor-Plugin: mediaembed, v. 0.5+ (https://github.com/frozeman/MediaEmbed, 2013-09-12)',
                                        'CKEditor-Plugin: pbckcode, v. 1.1.0 (https://github.com/prbaron/PBCKCode, 2013-09-06)',
-                                       'CKEditor-Plugin: procurator, v. 1.2 (Serendipity placeholder Plugin, 2013-12-08)');
+                                       'CKEditor-Plugin: procurator, v. 1.2 (Serendipity placeholder Plugin, 2013-12-06)');
 
 
     function install($force=false) {
@@ -120,6 +120,10 @@ class serendipity_event_ckeditor extends serendipity_event
         return true;
     }
 
+    function uninstall() {
+        // todo? uninstall old instances which may be in there caused by a duplicating bug using installer fallback without right instance
+    }
+
     function introspect(&$propbag)
     {
         global $serendipity;
@@ -128,7 +132,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '2.3.2'); // is CKEDITOR Series 4 (hidden) - revision .2.3 - and appended serendipity_event_ckeditor revision .2
+        $propbag->add('version',       '2.3.3'); // is CKEDITOR Series 4 (hidden) - revision .2.3 - and appended serendipity_event_ckeditor revision .3
         $propbag->add('copyright',     'GPL or LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
@@ -219,6 +223,11 @@ class serendipity_event_ckeditor extends serendipity_event
         if (serendipity_db_bool($this->get_config('force_install'))) {
             $this->install(true);
             $this->set_config('force_install', 'false');
+            // install(true) forces to surround the checkUpdate function, thus we set config database table to keep track
+            foreach(array_values($this->checkUpdateVersion) AS $package) {
+                $match = explode(':', $package);
+                $this->set_config('last_'.$match[0].'_version', $match[1]);
+            }
         }
 
         $installer = $this->get_config('installer'); // Can't use method return value in write context in '' with substr(), get_config() and isset()
@@ -370,7 +379,7 @@ class serendipity_event_ckeditor extends serendipity_event
                 case 'css_backend': // do not use in 2.0 versions
                     if ($serendipity['version'][0] == '1') {
 ?>
-/* BACKEND MESSAGES
+/* CKE BACKEND MESSAGES
    ----------------------------------------------------------------- */
 .msg_error,
 .msg_success,
@@ -404,6 +413,14 @@ class serendipity_event_ckeditor extends serendipity_event
     border: 1px solid #aaa;
     color: #777;
 }
+
+.cke_config_block {
+    opacity: 0.7;
+    background: none repeat scroll 0% 0% rgb(238, 238, 238);
+    padding: 0.5em;
+    font-size: smaller;
+    border: 1px dashed;
+}
 <?php
                     }
                     break;
@@ -413,8 +430,7 @@ class serendipity_event_ckeditor extends serendipity_event
                     switch($eventData) {
                         case 'triggerckeinstall':
                             if ($this->install()) {
-                                //echo 'CKEDITOR update check and/or deflation complete!';
-                                header('Location: ' . $serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=plugins&serendipity[pluginPath]=serendipity_event_ckeditor&serendipity[install_plugin]=serendipity_event_ckeditor');
+                                header('Location: ' . $serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=plugins&serendipity[plugin_to_conf]='.urlencode($this->instance));
                             } else {
                                 header('Location: ' . $serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=plugins&serendipity[adminAction]=addnew&serendipity[only_group]=UPGRADE&serendipity[type]=event');
                             }
@@ -423,8 +439,10 @@ class serendipity_event_ckeditor extends serendipity_event
 
 
                 case 'backend_plugins_update':
-                    // make sure a spartacus update really falls down to plugins config, when an update deflating zip has returned true
-                    header('Location: ' . $serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=plugins&serendipity[pluginPath]=serendipity_event_ckeditor&serendipity[install_plugin]=serendipity_event_ckeditor');
+                    // Make sure a Spartacus update really falls down to plugins config, for the need to deflate the zip, if necessary.
+                    // This needs a *real* new HTTP request! Using plugin_to_conf:instance (see above) would not do here!!
+                    // A request to ...&serendipity[install_plugin]=serendipity_event_ckeditor would force a deflate, but would install another plugin instance!
+                    header('Location: ' . $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/triggerckeinstall');
                     break;
 
 

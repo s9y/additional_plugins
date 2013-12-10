@@ -1,3 +1,7 @@
+2.3.4:
+-----
+    * some fixes to force zip install on demand method and some compat issues
+
 2.3.3:
 -----
     * Some tweaks to en, de lang files.
@@ -31,11 +35,12 @@
     * Removed most of the inline code into 2 new files, which are:
          cke_config.js - the custom config.js file, which now substitutes every config option to CKE
          cke_plugin.js - the render and add button/plugin file, which loads the custom config file and now renders all backend textareas.
-    * To take care about placed javascript, smarty tags and other protected source tags (like mediainsert by imageselectorplus galleries), 
-         the new 'procurator' CKEDITOR Plugin (s9y-specific) was added, which acts like a hidden event plugin and takes care for the placeholder wysiwyg-mode replacements.
+    * To take care about placed javascript, smarty tags and other protected source tags (like 'mediainsert' by imageselectorplus galleries), 
+         the new 'procurator' CKEDITOR Plugin (s9y-specific) was added, which acts like a hidden event plugin 
+         and takes care for the placeholder wysiwyg-mode replacements.
     * In order to be able to place prettified code snippets into entries, the 
          'pbckcode' CKEDITOR Plugin was added (v 1.1.0, https://github.com/prbaron/PBCKCode).
-         Including local prettify (js/css) by (current, http://code.google.com/p/google-code-prettify/)
+         Including local prettify (js/css) by (current version, http://code.google.com/p/google-code-prettify/)
     * Updated 'mediaembed' CKEDITOR Plugin, which removed a useless loop, issue #6
     * Fixed 'backend_plugins_update' update hook to config fallback
     * Updated CKEDITOR Library to version 4.2.3

@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -44,6 +44,13 @@ class serendipity_event_ckeditor extends serendipity_event
     protected $cke_dir = CKEDITOR_DIRNAME_CKEDITOR_PATH;
 
     /**
+     * Access property forceZipInstall
+     * @access protected
+     * @var bool
+     */
+    protected $forceZipInstall = false;
+
+    /**
      * Access property cke_zipfile
      * @access protected
      * @var string
@@ -69,14 +76,14 @@ class serendipity_event_ckeditor extends serendipity_event
                                        'CKEditor-Plugin: procurator, v. 1.2 (Serendipity placeholder Plugin, 2013-12-06)');
 
 
-    function install($force=false) {
+    function install() {
         global $serendipity;
 
         if (!$serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN) {
             return false;
         }
         // do we already have it?
-        if (!force && is_dir($this->cke_dir) && is_file($this->cke_dir . '/ckeditor.js')) {
+        if (!$this->forceZipInstall && is_dir($this->cke_dir) && is_file($this->cke_dir . '/ckeditor.js')) {
             // this is running while getting a new Plugin version
             if ($this->checkUpdate()) {
                 $this->set_config('installer', '4-'.date('Ymd-H:i:s')); // this is a faked debug notice, since falldown is extract true with case 0, 1 or 2
@@ -117,11 +124,13 @@ class serendipity_event_ckeditor extends serendipity_event
             $this->set_config('installer', '0-'.date('Ymd-H:i:s')); // do it again, Sam
             return false;
         }
+        // make sure the new versions are set to last_ckeditor_version and last_kcfinder_version
+        $this->updateTableZip();
         return true;
     }
 
-    function uninstall() {
-        // todo? uninstall old instances which may be in there caused by a duplicating bug using installer fallback without right instance
+    function uninstall(&$propbag) {
+        // todo? uninstall old instances which may be in there, caused by a duplicating bug using installer fallback without right instance in 2.3.2 for one day online
     }
 
     function introspect(&$propbag)
@@ -132,7 +141,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '2.3.3'); // is CKEDITOR Series 4 (hidden) - revision .2.3 - and appended serendipity_event_ckeditor revision .3
+        $propbag->add('version',       '2.3.4'); // is CKEDITOR Series 4 (hidden) - revision .2.3 - and appended serendipity_event_ckeditor revision .4
         $propbag->add('copyright',     'GPL or LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
@@ -221,13 +230,13 @@ class serendipity_event_ckeditor extends serendipity_event
     function example() {
 
         if (serendipity_db_bool($this->get_config('force_install'))) {
-            $this->install(true);
+            $this->forceZipInstall = true;
+            $this->install();
+            $this->forceZipInstall = false;
             $this->set_config('force_install', 'false');
-            // install(true) forces to surround the checkUpdate function, thus we set config database table to keep track
-            foreach(array_values($this->checkUpdateVersion) AS $package) {
-                $match = explode(':', $package);
-                $this->set_config('last_'.$match[0].'_version', $match[1]);
-            }
+            // forceZipInstall forces to surround the checkUpdate function, thus we set config database table to keep track
+            $this->updateTableZip();
+            echo '<p class="msg_success"><span class="icon-ok-circle"></span><strong>Force deflate done:</strong> Please reload this page <a href="'.$serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=plugins&serendipity[plugin_to_conf]='.urlencode($this->instance).'" target="_self">here</a>!</p>';
         }
 
         $installer = $this->get_config('installer'); // Can't use method return value in write context in '' with substr(), get_config() and isset()
@@ -267,34 +276,43 @@ class serendipity_event_ckeditor extends serendipity_event
     }
 
     /**
+     * Set config database table to keep track to zip updates
+     * @access    private
+     */
+    private function updateTableZip() {
+        foreach(array_values($this->checkUpdateVersion) AS $package) {
+            $match = explode(':', $package);
+            $this->set_config('last_'.$match[0].'_version', $match[1]);
+        }
+    }
+
+    /**
      * Check update versions to perform unzip and create config values
      * @access    private
      * @return    boolean
      */
     private function checkUpdate() {
-
         $doupdate = false;
-
         foreach(array_values($this->checkUpdateVersion) AS $package) {
             $match = explode(':', $package);
             // always set and extract if not match
             if ($this->get_config('last_'.$match[0].'_version') == $match[1]) {
                 $doupdate = false;
             } else {
-                $this->set_config('last_'.$match[0].'_version', $match[1]);
+                $this->set_config('last_'.$match[0].'_version', $match[1]); // redundant, since now done for both in updateTableZip, but leave here until new is proofed
                 $doupdate = true;
                 break; // this is possibly needed to force install upgrade routines
             }
         }
-
         return $doupdate ? true : false;
     }
 
     /**
      * empty a directory using the Standard PHP Library (SPL) iterator
+     * @access    private
      * @param   string directory
      */
-    function empty_dir($dir) {
+    private function empty_dir($dir) {
         $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir), RecursiveIteratorIterator::CHILD_FIRST);
         foreach ($iterator as $file) {
             if ($file->isFile()) {

@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_cal.php, v.1.66 2011-02-23 12:55
+<?php
 
 ##error_reporting(E_ALL); 
 
@@ -76,7 +76,7 @@ class serendipity_event_cal extends serendipity_event {
                                         )
                     );
         $propbag->add('author',         'Ian (Timbalu)');
-        $propbag->add('version',        '1.67');
+        $propbag->add('version',        '1.68');
         $propbag->add('groups',         array('FRONTEND_FEATURES', 'BACKEND_FEATURES'));
         $propbag->add('requirements',   array(
                                             'serendipity' => '1.4',
@@ -370,22 +370,6 @@ class serendipity_event_cal extends serendipity_event {
     function fetchPluginUri() { 
         global $serendipity;
         return ($serendipity['rewrite'] != 'errordocs') ? $this->get_config('permalink') : $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?serendipity[subpage]=' . $this->get_config('pagetitle');
-    }
-    
-    
-    /* get the right template path - as default in template folder or the fallback plugin folder */
-    function fetchTemplatePath($filename) { 
-        global $serendipity;
-        $tfile = serendipity_getTemplateFile($filename, 'serendipityPath');
-        if (!$tfile || $filename == $tfile) { 
-            $tfile = dirname(__FILE__) . '/' . $filename;
-        }
-        $inclusion = $serendipity['smarty']->security_settings[@INCLUDE_ANY];
-        $serendipity['smarty']->security_settings[@INCLUDE_ANY] = true;
-        // be smarty 3 compat including the serendipity_smarty class wrappers ->fetch and ->display methods and removed unused parameters
-        $content = $serendipity['smarty']->fetch('file:'. $tfile);
-        $serendipity['smarty']->security_settings[@INCLUDE_ANY] = $inclusion;
-        return $content;
     }
 
     /** mysql db function 
@@ -1275,7 +1259,7 @@ class serendipity_event_cal extends serendipity_event {
                 )
         );
         
-        $icl = $this->fetchTemplatePath('plugin_eventcal_ical.tpl');
+        $icl = $this->parseTemplate('plugin_eventcal_ical.tpl');
         $icl = $this->strip_ical_data($icl, '##STARTICAL##', '##ENDICAL##'); // make sure we get rid of every serendipity html output around ical file
         
         return $icl;
@@ -1404,7 +1388,7 @@ class serendipity_event_cal extends serendipity_event {
             /* and assign the event calendar table weekview to smarty */
             $serendipity['smarty']->assign('plugin_eventcal_cal_sedweek', $sdw);
             /* fetch the smarty weekly template file */
-            $weekdata = $this->fetchTemplatePath('plugin_eventcal_calweek.tpl');
+            $weekdata = $this->parseTemplate('plugin_eventcal_calweek.tpl');
             /* assign result to our main plugin_eventcal_cal.tpl file */
             $serendipity['smarty']->assign('plugin_eventcal_cal_buildweektable', $weekdata);
         }
@@ -1456,7 +1440,7 @@ class serendipity_event_cal extends serendipity_event {
         }
                 
         if (is_array($months)) { 
-            echo $this->fetchTemplatePath('plugin_eventcal_cal.tpl');
+            echo $this->parseTemplate('plugin_eventcal_cal.tpl');
         }
      
     } /* end of draw_cal() function */
@@ -1559,7 +1543,7 @@ class serendipity_event_cal extends serendipity_event {
         
         /* get the show_single_event page template file */
         if (is_array($event) && count($event)) { 
-            $sedata = $this->fetchTemplatePath('plugin_eventcal_entry.tpl');
+            $sedata = $this->parseTemplate('plugin_eventcal_entry.tpl');
         }
         return $sedata;
         
@@ -1600,7 +1584,7 @@ class serendipity_event_cal extends serendipity_event {
         
         /* get the add form page template file */
         if (is_array($events) && count($events)) { 
-            $appdata = $this->fetchTemplatePath('plugin_eventcal_app.tpl');
+            $appdata = $this->parseTemplate('plugin_eventcal_app.tpl');
         }
         
         return isset($appdata) ? $appdata : false;
@@ -1726,7 +1710,7 @@ class serendipity_event_cal extends serendipity_event {
         
         /* get the add form page template file */
         if (is_array($months)) { 
-            $add_data = $this->fetchTemplatePath('plugin_eventcal_add.tpl');
+            $add_data = $this->parseTemplate('plugin_eventcal_add.tpl');
         }
         return $add_data;
     } /* end of draw_add() function */
@@ -2892,7 +2876,7 @@ class serendipity_event_cal extends serendipity_event {
         }
         
         if (is_array($events)) { 
-            echo $this->fetchTemplatePath('plugin_eventcal_cal.tpl');
+            echo $this->parseTemplate('plugin_eventcal_cal.tpl');
         }
     }
 
@@ -2993,7 +2977,7 @@ class serendipity_event_cal extends serendipity_event {
         }
         
         if (is_array($events)) { 
-            echo $this->fetchTemplatePath('plugin_eventcal_cal.tpl');
+            echo $this->parseTemplate('plugin_eventcal_cal.tpl');
         }
     }
 
@@ -3039,7 +3023,7 @@ class serendipity_event_cal extends serendipity_event {
             $serendipity['smarty']->assign('plugin_eventcal_cal_buildaddtable', $add_form);
         }
         
-        echo $this->fetchTemplatePath('plugin_eventcal_cal.tpl');
+        echo $this->parseTemplate('plugin_eventcal_cal.tpl');
         
     }
 

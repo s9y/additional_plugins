@@ -1,4 +1,6 @@
-<?php # $Id: serendipity_event_downloadmanager.php, v.0.26 - 2011-02-15 20:21 ian
+<?php
+
+# serendipity_event_downloadmanager.php, v.0.26 - 2011-02-15 20:21 ian
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -43,12 +45,12 @@ class serendipity_event_downloadmanager extends serendipity_event {
         $propbag->add('name',          PLUGIN_DOWNLOADMANAGER_TITLE);
         $propbag->add('description',   PLUGIN_DOWNLOADMANAGER_DESC);
         $propbag->add('requirements',  array(
-            'serendipity' => '0.8',
+            'serendipity' => '1.3',
             'smarty'      => '2.6.7',
             'php'         => '5.0.0'
         ));
 
-        $propbag->add('version',       '0.28');
+        $propbag->add('version',       '0.29');
         $propbag->add('author',       'Alexander \'dma147\' Mieland, Grischa Brockhaus, Ian (Timbalu)');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
@@ -1014,7 +1016,7 @@ class serendipity_event_downloadmanager extends serendipity_event {
         }
 
         /* get the frontend dlm template file */
-        echo $this->fetchTemplatePath($filename);
+        echo $this->parseTemplate($filename);
     }
 
 
@@ -1466,22 +1468,6 @@ class serendipity_event_downloadmanager extends serendipity_event {
     }
 
 
-    /* get the right template path - as default in template folder or the fallback plugin folder */
-    function fetchTemplatePath($filename) { 
-        global $serendipity;
-        $tfile = serendipity_getTemplateFile($filename, 'serendipityPath');
-        if (!$tfile || $filename == $tfile) { 
-            $tfile = dirname(__FILE__) . '/' . $filename;
-        }
-        $inclusion = $serendipity['smarty']->security_settings[@INCLUDE_ANY];
-        $serendipity['smarty']->security_settings[@INCLUDE_ANY] = true;
-        // be smarty 3 compat including the serendipity_smarty class wrappers ->fetch and ->display methods and remove changed parameter number 4
-        $content = $serendipity['smarty']->fetch('file:'. $tfile);//, false
-        $serendipity['smarty']->security_settings[@INCLUDE_ANY] = $inclusion;
-        return $content;
-    }
-    
-
     function ADMIN_showDownloads() {
         global $serendipity;
         
@@ -1694,7 +1680,7 @@ class serendipity_event_downloadmanager extends serendipity_event {
         }
         
         /* get the backend dlm index template file */
-        echo $this->fetchTemplatePath('backend.dlm.index.tpl');
+        echo $this->parseTemplate('backend.dlm.index.tpl');
         
         } // logged-in end
     }

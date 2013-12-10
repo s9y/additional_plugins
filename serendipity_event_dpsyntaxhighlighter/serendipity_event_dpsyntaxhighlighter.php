@@ -156,7 +156,7 @@ class serendipity_event_dpsyntaxhighlighter extends serendipity_event {
         //
     }
 
-    function uninstall() {
+    function uninstall(&$propbag) {
         //
     }
 /****************************************************/

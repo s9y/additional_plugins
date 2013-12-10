@@ -1,7 +1,7 @@
 <?php
 class OEmbedTemplater {
 
-	/* get the right template (s9y template path, then plugin path) and expand it */
+    /* get the right template (s9y template path, then plugin path) and expand it */
     static function fetchTemplate($filename, $oembed, $url) { 
         global $serendipity;
 

@@ -1,6 +1,7 @@
-<?php # $Id: serendipity_event_wrapURL.php, v0.1 2005/05/04
+<?php
 
 # (c) by Rob Antonishen
+# serendipity_event_wrapURL.php, v0.1 2005/05/04
 # Very much copied from the static page event plugin by Marco Rinck, Garvin Hicking, David Rolston
 #
 

@@ -1,7 +1,8 @@
-<?php # $Id: lang_it.inc.php,v 1.2
+<?php
 
 /**
  *  @version 
+ *  lang_it.inc.php,v 1.2
  *  @author Giulio Malventi <giulio@vene.ws>
  *  EN-Revision: Revision of lang_en.inc.php
  */
@@ -21,4 +22,3 @@
 @define('PLUGIN_CONTACTFORM_ARTICLEFORMAT', 'Formatta come articolo?');
 @define('PLUGIN_CONTACTFORM_ARTICLEFORMAT_BLAHBLAH', 'se sì l\'output viene automaticamente formattato come un articolo (colori, bordi, ecc.) (predefinito: sì).');
 
-?>

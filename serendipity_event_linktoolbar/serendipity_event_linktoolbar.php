@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_guestbook.php, v1.2 2005/02/04
+<?php
 
 
 if (IN_serendipity !== true) {

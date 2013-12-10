@@ -1,4 +1,6 @@
-<?php # $Id: serendipity_event_cal.php, langfile(utf-8/de) v1.64 2011-02-05 ian
+<?php
+
+# serendipity_event_cal.php, langfile(utf-8/de) v1.64 2011-02-05 ian
 
 @define('PLUGIN_EVENTCAL_HEADLINE', 'Kopfzeile (optional)');
 @define('PLUGIN_EVENTCAL_HEADLINE_BLAHBLAH', 'Was für eine Überschrift soll die Seite haben?');

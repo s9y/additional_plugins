@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_amazonchooser.php,v 0.1 12/21/2004 18:08:24
+<?php
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");

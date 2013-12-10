@@ -1,5 +1,7 @@
-<?php # $Id: serendipity_event_glossary.php,v 1.3 2005/06/14 Rob Antonishen
+<?php
+
 /* By Rob Antonishen */
+/* serendipity_event_glossary.php,v 1.3 2005/06/14 Rob Antonishen */
 /* Copied in chunks from the s9y markup plugin */
 /* and the Highlight Search Queries plugin by Tom Sommer */
 /* Change log:

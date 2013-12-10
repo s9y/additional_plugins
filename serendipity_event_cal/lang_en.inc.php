@@ -1,4 +1,6 @@
-<?php # $Id: serendipity_event_cal.php, langfile(en) v1.64 2011-02-05 ian
+<?php
+
+# serendipity_event_cal.php, langfile(en) v1.64 2011-02-05 ian
 
 @define('PLUGIN_EVENTCAL_HEADLINE', 'Headline (optional)');
 @define('PLUGIN_EVENTCAL_HEADLINE_BLAHBLAH', 'The headline of the page.');

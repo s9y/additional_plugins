@@ -1,4 +1,4 @@
-<?php # $Id: serendipity_event_staticpage.php, v0.3 2004/10/16
+<?php
 
 
 if (IN_serendipity !== true) {

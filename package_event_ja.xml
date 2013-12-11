@@ -1140,7 +1140,7 @@
 <release>
   <version>0.73</version>
   <requirements:s9yVersion>1.4</requirements:s9yVersion>
-  <date>2013-05-07</date>
+  <date>2013-12-11</date>
   <filelist>
 <dir name="serendipity_event_amazonchooser">
 <file>lang_de.inc.php</file>
@@ -1274,7 +1274,7 @@
 <release>
   <version>1.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-05-03</date>
+  <date>2013-12-11</date>
   <filelist>
 <dir name="serendipity_event_outdate_entries">
 <file>serendipity_event_outdate_entries.php</file>
@@ -2369,7 +2369,7 @@
 <release>
   <version>1.13</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2013-12-11</date>
   <filelist>
 <dir name="serendipity_event_custom_permalinks">
 <file>serendipity_event_custom_permalinks.php</file>
@@ -3374,7 +3374,7 @@
 <release>
   <version>0.11</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2013-12-11</date>
   <filelist>
 <dir name="serendipity_event_typesetbuttons">
 <file>serendipity_event_typesetbuttons.php</file>
@@ -3741,7 +3741,7 @@
 <release>
   <version>1.4</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2013-12-11</date>
   <filelist>
 <dir name="serendipity_event_linktoolbar">
 <file>serendipity_event_linktoolbar.php</file>
@@ -4452,7 +4452,7 @@
 <release>
   <version>2.12</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2013-12-11</date>
   <filelist>
 <dir name="serendipity_plugin_pollbox">
 <file>serendipity_plugin_pollbox.php</file>
@@ -5373,7 +5373,7 @@
 <release>
   <version>0.9</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2013-12-11</date>
   <filelist>
 <dir name="serendipity_event_wrapurl">
 <file>serendipity_event_wrapurl.php</file>
@@ -5586,9 +5586,9 @@
 s9yに十分なダウンロードマネージャーの能力を提供します。インストール解除する時、関連するテーブルがすべて破棄されるでしょう!</description>
 <maintainers><maintainer><name>Alexander 'dma147' Mieland, Grischa Brockhaus, Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.28</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <version>0.29</version>
+  <requirements:s9yVersion>1.3</requirements:s9yVersion>
+  <date>2013-12-11</date>
   <filelist>
 <dir name="serendipity_event_downloadmanager">
 <dir name="img">
@@ -6489,7 +6489,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>1.7</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2013-12-11</date>
   <filelist>
 <dir name="serendipity_event_glossary">
 <dir name="UTF-8">
@@ -8923,7 +8923,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>2.1.365</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2013-12-11</date>
   <filelist>
 <dir name="serendipity_event_dpsyntaxhighlighter">
 <file>.htaccess</file>
@@ -9702,9 +9702,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>Shows an event calendar inside your blogs with your normal blog design. It supports backend/frontend administration, multiple events and iCal export.</description>
 <maintainers><maintainer><name>Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.67</version>
+  <version>1.68</version>
   <requirements:s9yVersion>1.4</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2013-12-11</date>
   <filelist>
 <dir name="serendipity_event_cal">
 <dir name="UTF-8">
@@ -10615,9 +10615,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>Uses CKEditor as the default WYSIWYG editor. This currently is the state-of-the-art Editor itself. Usage: Recommended! After installation, go to the configuration screen of this plugin for further instructions.</description>
 <maintainers><maintainer><name>Rustam Abdullaev, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.3.3</version>
+  <version>2.3.4</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2013-12-10</date>
+  <date>2013-12-11</date>
   <filelist>
 <dir name="serendipity_event_ckeditor">
 <dir name="UTF-8">

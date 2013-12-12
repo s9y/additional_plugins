@@ -341,7 +341,8 @@ class serendipity_event_ckeditor extends serendipity_event
         if( is_file(dirname(__FILE__) . '/kcfinder/.htaccess') ) {
             @unlink(dirname(__FILE__) . '/kcfinder/.htaccess');
             $this->empty_dir(dirname(__FILE__) . '/kcfinder/.thumbs');
-            if (!is_dir(dirname(__FILE__) . '/kcfinder/.thumbs')) @rmdir(dirname(__FILE__) . '/kcfinder/.thumbs');
+            /*if (!is_dir(dirname(__FILE__) . '/kcfinder/.thumbs'))*/
+            @rmdir(dirname(__FILE__) . '/kcfinder/.thumbs');
         }
     }
 
@@ -380,6 +381,12 @@ class serendipity_event_ckeditor extends serendipity_event
                         $pbck_on = serendipity_db_bool($this->get_config('codebutton')) ? 'true' : 'false'; // same here for cke_plugins.js
                         if(!isset($_COOKIE['KCFINDER_uploadurl']) || empty($_COOKIE['KCFINDER_uploadurl'])) {
                             setcookie('KCFINDER_uploadurl', serialize($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath']), time()+60*60*24*30, $serendipity['serendipityHTTPPath'], $_SERVER['HTTP_HOST'], false);
+                            // Google Chrome browser does not set  cookies for domain "localhost" or other dotless hostnames. $_SERVER['HTTP_HOST'] must be NULL explicitely. Also do not use httponly parameter.
+                            if(!isset($_COOKIE['KCFINDER_uploadurl']) || empty($_COOKIE['KCFINDER_uploadurl'])) {
+                                setcookie('KCFINDER_uploadurl', serialize($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath']), time()+60*60*24*30, $serendipity['serendipityHTTPPath'], NULL, false);
+                                //setcookie($AUTH_COOKIE_NAME, $cookie_value, time() + cookie_expiration(),  $BASE_DIRECTORY,  null,  false,  true);
+                                //this solved, Chrome still has some follow-up errors, not easy to solve. Please do not use Chrome with KCFINDER for domain "localhost" and similar local servers
+                            }
                         }
     /* set some global vars */
     /* bind ckeditor */

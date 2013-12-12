@@ -5,6 +5,8 @@
       a new config option was set, to enable KCFINDER integration by user only.
         NOTE: This changes the previous enabled KCFINDER integration to disabled!!
     * To better document KCFINDER and ACF some en/de lang file constants changed
+    * Chrome Browser does not really work with KCFINDER on domains like "localhost"
+      or other dotless local domain names. Please disable use for Chrome on local servers!
 
 2.3.4:
 -----

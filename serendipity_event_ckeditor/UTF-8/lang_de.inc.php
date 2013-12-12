@@ -1,8 +1,8 @@
 <?php # 
 
 /**
- *  @file UTF-8/lang_de.inc.php 1.4.4 2013-12-09 Ian
- *  @version 1.4.4
+ *  @file UTF-8/lang_de.inc.php 1.4.5 2013-12-12 Ian
+ *  @version 1.4.5
  *  @author Translator Name <yourmail@example.com>
  *  DE-Revision: Revision of UTF-8/lang_de.inc.php
  */
@@ -32,12 +32,17 @@
 @define('PLUGIN_EVENT_CKEDITOR_CONFIG', '');
 @define('PLUGIN_EVENT_CKEDITOR_INSTALL_PLUGPATH', 'HTTP Pfad des S9y Plugins Verzeichnisses');
 @define('PLUGIN_EVENT_CKEDITOR_CKEACF_OPTION', 'Stelle Advanced-Content-Filter (ACF) ab?');
-@define('PLUGIN_EVENT_CKEDITOR_TBLB_OPTION', 'Nutze den (default) 2-Zeiler toolbar-group Umbruch?');
+@define('PLUGIN_EVENT_CKEDITOR_TOOLBAR_OPTION', 'Nutze den (default) 2-Zeiler toolbar-group Umbruch?');
 
 @define('PLUGIN_EVENT_CKEDITOR_CODEBUTTON_OPTION', 'Nutze "code toolbar button"?');
 @define('PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION', 'Nutze "prettify code" im Frontend?');
-@define('PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION_BLAHBLAH', 'Erweitert "code toolbar button" Option, um lokal geladene prettify.js und prettify.ccs Dateien (code by Google) im Frontend.');
+@define('PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION_BLAHBLAH', 'Erweitert "code toolbar button" Option, um lokal geladene prettify.js und prettify.ccs Dateien im Frontend. (Apache License v. 2.0)');
 @define('PLUGIN_EVENT_CKEDITOR_OPTION_BLAHBLAH', 'Normalerweise: ');
 
 @define('PLUGIN_EVENT_CKEDITOR_FORCEINSTALL_OPTION', 'Entpacke Zip Datei (im Notfall)');
 @define('PLUGIN_EVENT_CKEDITOR_FORCEINSTALL_OPTION_BLAHBLAH', 'Nur bei upgrade Fehlern: Entpacke augenblicklich die mitgelieferte ');
+
+@define('PLUGIN_EVENT_CKEDITOR_KCFINDER_OPTION', 'Erlaube KCFINDER Integration?');
+@define('PLUGIN_EVENT_CKEDITOR_KCFINDER_OPTION_BLAHBLAH', 'Nutze dies unabhängige Paket im CKEDITOR [Bild] Widget, um eine nahezu vollständige S9y Medien-Datenbank-Integration in CKEDITOR zu ermöglichen. Das es jedoch Kompatibilitäts Beschränkungen gibt, lese bitte sorgfältig die diesbezüglichen Aussagen unter "http://kcfinder.sunhater.com/" (Compat Section), bevor du die Integration hier erlaubst.');
+
+@define('PLUGIN_EVENT_CKEDITOR_CKEACF_OPTION_BLAHBLAH', 'Dieser CKEDITOR "Housekeeper" Filter erlaubt nur bestimmtes Markup. Normalerweise ist dies gut und sollte als Einstellung erhalten bleiben, da es bereits eingebaute Workarounds für auffälliges Markup, zB. "iframe" Video-Media via den "Embed Media"-Knopf, oder "audio" und "andere Serendipity" tags via "Quellcode"-Anzeige, gibt. Bitte lese dazu auch: "http://ckeditor.com/blog/Integrating-Plugins-with-Advanced-Content-Filter".');

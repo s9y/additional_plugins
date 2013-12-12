@@ -10,12 +10,12 @@ if (file_exists($probelang)) {
     include $probelang;
 }
 
-include dirname(__FILE__) . '/lang_en.inc.php';
+include_once dirname(__FILE__) . '/lang_en.inc.php';
 
- /**
-  * Class member instance attribute values
-  * Members must be initialized with a constant expression (like a string constant, numeric literal, etc), not a dynamic expression!
-  **/
+/**
+ * Class member instance attribute values
+ * Members must be initialized with a constant expression (like a string constant, numeric literal, etc), not a dynamic expression!
+ **/
 if (!defined('CKEDITOR_DIRNAME_PLUGIN_PATH')) define('CKEDITOR_DIRNAME_PLUGIN_PATH', dirname(__FILE__));
 if (!defined('CKEDITOR_DIRNAME_CKEDITOR_PATH')) define('CKEDITOR_DIRNAME_CKEDITOR_PATH', dirname(__FILE__) . '/ckeditor');
 
@@ -73,7 +73,8 @@ class serendipity_event_ckeditor extends serendipity_event
                                        'KCFinder 2.52-dev (http://kcfinder.sunhater.com/ git package, 2013-05-04)',
                                        'CKEditor-Plugin: mediaembed, v. 0.5+ (https://github.com/frozeman/MediaEmbed, 2013-09-12)',
                                        'CKEditor-Plugin: pbckcode, v. 1.1.0 (https://github.com/prbaron/PBCKCode, 2013-09-06)',
-                                       'CKEditor-Plugin: procurator, v. 1.2 (Serendipity placeholder Plugin, 2013-12-06)');
+                                       'CKEditor-Plugin: procurator, v. 1.2 (Serendipity placeholder Plugin, 2013-12-06)',
+                                       'Prettify: JS & CSS files, v. "current", (http://code.google.com/p/google-code-prettify/, 2013-03-04)');
 
 
     function install() {
@@ -141,7 +142,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '2.3.4'); // is CKEDITOR Series 4 (hidden) - revision .2.3 - and appended serendipity_event_ckeditor revision .4
+        $propbag->add('version',       '2.3.5'); // is CKEDITOR Series 4 (hidden) - revision .2.3 - and appended plugin revision .5
         $propbag->add('copyright',     'GPL or LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
@@ -159,7 +160,7 @@ class serendipity_event_ckeditor extends serendipity_event
             'backend_wysiwyg'                        => true,
             'backend_wysiwyg_finish'                 => true
         ));
-        $propbag->add('configuration', array('path', 'plugpath', 'codebutton', 'prettify', 'acf_off', 'toolbar_break', 'force_install'));
+        $propbag->add('configuration', array('path', 'plugpath', 'codebutton', 'prettify', 'kcfinder', 'acf_off', 'toolbar_break', 'force_install'));
         $propbag->add('groups', array('BACKEND_EDITOR'));
     }
 
@@ -196,16 +197,23 @@ class serendipity_event_ckeditor extends serendipity_event
                 $propbag->add('default', 'false');
                 break;
 
+            case 'kcfinder':
+                $propbag->add('type', 'boolean');
+                $propbag->add('name', PLUGIN_EVENT_CKEDITOR_KCFINDER_OPTION);
+                $propbag->add('description', PLUGIN_EVENT_CKEDITOR_KCFINDER_OPTION_BLAHBLAH);
+                $propbag->add('default', 'false');
+                break;
+
             case 'acf_off':
                 $propbag->add('type', 'boolean');
                 $propbag->add('name', PLUGIN_EVENT_CKEDITOR_CKEACF_OPTION);
-                $propbag->add('description', 'http://ckeditor.com/blog/Integrating-Plugins-with-Advanced-Content-Filter');
+                $propbag->add('description', PLUGIN_EVENT_CKEDITOR_CKEACF_OPTION_BLAHBLAH);
                 $propbag->add('default', 'false');
                 break;
 
             case 'toolbar_break':
                 $propbag->add('type', 'boolean');
-                $propbag->add('name', PLUGIN_EVENT_CKEDITOR_TBLB_OPTION);
+                $propbag->add('name', PLUGIN_EVENT_CKEDITOR_TOOLBAR_OPTION);
                 $propbag->add('description', '');
                 $propbag->add('default', 'true');
                 break;
@@ -344,19 +352,17 @@ class serendipity_event_ckeditor extends serendipity_event
 
         if (isset($hooks[$event])) {
             switch($event) {
+
                 case 'frontend_footer':
-                    // set prettify.css and prettify.js in frontend by plugin option
+                    // set prettify.css and prettify.js in frontend footer by plugin option (too much overhead to split this into head css and food js!)
                     if ($this->get_config('prettify')) {
+                        $plugingpath = htmlspecialchars($this->get_config('plugpath'));
 ?>
-    <link rel="stylesheet" type="text/css" href="<?php echo $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_ckeditor/prettify.css'; ?>" />
-<?php
-                    }
-                    if ($this->get_config('codebutton')) {
-?>
-    <script language="javascript" type="text/javascript" src="<?php echo $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_ckeditor/prettify.js'; ?>"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo $plugingpath . 'serendipity_event_ckeditor/prettify.css'; ?>" />
+    <script language="javascript" type="text/javascript" src="<?php echo $plugingpath . 'serendipity_event_ckeditor/prettify.js'; ?>"></script>
     <script>
     jQuery(function($){
-        // relaunch the prettify code
+        // launch the prettify code
         prettyPrint();
     });
     </script>
@@ -369,7 +375,9 @@ class serendipity_event_ckeditor extends serendipity_event
                     if (isset($serendipity['wysiwyg']) && $serendipity['wysiwyg'] && isset($eventData)) {
                         $relpath = htmlspecialchars($this->get_config('path'));
                         $plgpath = htmlspecialchars($this->get_config('plugpath'));
-                        $acfoff  = serendipity_db_bool($this->get_config('acf_off')) ? 'true' : 'false'; // need this, to be passed correctly as boolean true/false to custom config.js
+                        $acf_off = serendipity_db_bool($this->get_config('acf_off')) ? 'true' : 'false'; // need this, to be passed correctly as boolean true/false to custom cke_config.js
+                        $kcfd_on = serendipity_db_bool($this->get_config('kcfinder')) ? 'true' : 'false'; // same here
+                        $pbck_on = serendipity_db_bool($this->get_config('codebutton')) ? 'true' : 'false'; // same here for cke_plugins.js
                         if(!isset($_COOKIE['KCFINDER_uploadurl']) || empty($_COOKIE['KCFINDER_uploadurl'])) {
                             setcookie('KCFINDER_uploadurl', serialize($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath']), time()+60*60*24*30, $serendipity['serendipityHTTPPath'], $_SERVER['HTTP_HOST'], false);
                         }
@@ -384,7 +392,9 @@ class serendipity_event_ckeditor extends serendipity_event
         CKEDITOR_MLIMGPATH   = '<?php echo $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_ckeditor/img/mls9y.png'; ?>';
         KCFINDER_UPLOADPATH  = '<?php echo $serendipity['serendipityHTTPPath'] . $serendipity['uploadPath'] ?>';
         S9Y_BASEURL          = '<?php echo $serendipity['defaultBaseURL']; ?>';
-        CONFIG_ACF_OFF       = <?php echo $acfoff; ?>;
+        CONFIG_ACF_OFF       = <?php echo $acf_off; ?>;
+        CONFIG_PBCK_ON       = <?php echo $pbck_on; ?>;
+        CONFIG_KCFD_ON       = <?php echo $kcfd_on; ?>;
         CONFIG_TOOLBAR_BREAK = <?php echo (serendipity_db_bool($this->get_config('toolbar_break'))) ? "'/'" : "''"; ?>;
     </script>
     <script language="javascript" type="text/javascript" src="<?php echo $serendipity['serendipityHTTPPath'] . $relpath; ?>ckeditor.js"></script>
@@ -513,18 +523,14 @@ class serendipity_event_ckeditor extends serendipity_event
                     // This should better move into a future(!) 'backend_footer' hook, to not happen for every of any multiple textareas!
                     // but there $eventData['item'] isn't availabale yet...
                     if (isset($eventData['item']) && !empty($eventData['item'])) {
+                        if (isset($eventData['buttons']) && (is_array($eventData['buttons']) && !empty($eventData['buttons']))) {
 ?>
     <script type="text/javascript">
-<?php
-    if (isset($eventData['buttons']) && (is_array($eventData['buttons']) && !empty($eventData['buttons']))) {
-?>
         // send eventData as json encoded array into the javascript stream, which can be pulled by 'backend_header' hooks global Spawnnuggets() nugget function
         jsEventData = <?php echo json_encode($eventData['buttons']); ?>;
-<?php
-    }
-?>
     </script>
 <?php 
+                        }
                     } // end isset $eventData['item']
 
                     $this->checkFallback();

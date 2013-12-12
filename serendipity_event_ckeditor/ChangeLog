@@ -1,6 +1,14 @@
+2.3.5:
+-----
+    * Fixed config option to disable the codebutton plugin.
+    * Due to some server compat constraints, marked by the KCFINDER homepage,
+      a new config option was set, to enable KCFINDER integration by user only.
+        NOTE: This changes the previous enabled KCFINDER integration to disabled!!
+    * To better document KCFINDER and ACF some en/de lang file constants changed
+
 2.3.4:
 -----
-    * some fixes to force zip install on demand method and some compat issues
+    * Some fixes to force zip install on demand method and some compat issues
 
 2.3.3:
 -----

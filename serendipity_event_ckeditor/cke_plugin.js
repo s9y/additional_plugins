@@ -1,3 +1,11 @@
+/**
+ * @license Copyright (c) from 2013, Author: Ian. All rights reserved.
+ */
+
+/**
+ * @fileOverview A Serendipity serendipity_event_ckeditor custom CKEDITOR additional plugin creator file: cke_plugin.js, v. 1.2, 2013-12-12
+ */
+
 /*
  * Get the instance ready event and set global instance var
  * This is read by serendipity_editor.js and in case of serendipity_html_nugget_plugin by below serendipity_imageSelector_addToBody()
@@ -56,7 +64,8 @@ function Spawnnuggets(item, addEP, jsED) {
     var textarea_instance = !isNaN(item) ? 'nuggets' + item : item;
     var name_extraPlugins = (addEP !== null) ? addEP : textarea_instance;
     var jsEventData       = (jsED  !== null) ? jsED  : window.jsEventData; // global set by 'backend_wysiwyg_finish' hook
-    var extraPluginList   = (CONFIG_ACF_OFF === true) ? name_extraPlugins+',mediaembed,pbckcode' : name_extraPlugins+',mediaembed,pbckcode,procurator'; // no spaces allowed!
+    var extraPluginACF    = (CONFIG_ACF_OFF === true) ? name_extraPlugins+',mediaembed' : name_extraPlugins+',mediaembed,procurator'; // no spaces allowed!
+    var extraPluginList   = (CONFIG_PBCK_ON === true) ? extraPluginACF+',pbckcode' : extraPluginACF; // no spaces allowed!
 
     if (document.getElementById(textarea_instance)) {
         CKEDITOR.replace(textarea_instance, {

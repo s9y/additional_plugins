@@ -1,16 +1,25 @@
 /**
- * This is the serendipity_event_ckeditor plugins CKEDITOR custom config.js file
+ * @license Copyright (c) from 2013, Author: Ian. All rights reserved.
+ */
+
+/**
+ * @fileOverview A Serendipity serendipity_event_ckeditor CKEDITOR custom config file: cke_config.js, v. 1.4, 2013-12-12
+ */
+
+/**
  * Substitute every config option to CKE in here
  */
 CKEDITOR.editorConfig = function( config ) {
 
-    // KCFinder integration - 2013-05-04
-    config.filebrowserBrowseUrl      = CKEDITOR_BASEPATH +'../kcfinder/browse.php?type=files';
-    config.filebrowserImageBrowseUrl = CKEDITOR_BASEPATH +'../kcfinder/browse.php?type=images';
-    config.filebrowserFlashBrowseUrl = CKEDITOR_BASEPATH +'../kcfinder/browse.php?type=flash';
-    config.filebrowserUploadUrl      = CKEDITOR_BASEPATH +'../kcfinder/upload.php?type=files';
-    config.filebrowserImageUploadUrl = CKEDITOR_BASEPATH +'../kcfinder/upload.php?type=images';
-    config.filebrowserFlashUploadUrl = CKEDITOR_BASEPATH +'../kcfinder/upload.php?type=flash';
+    // KCFinder integration
+    if (CONFIG_KCFD_ON === true) {
+        config.filebrowserBrowseUrl      = CKEDITOR_BASEPATH +'../kcfinder/browse.php?type=files';
+        config.filebrowserImageBrowseUrl = CKEDITOR_BASEPATH +'../kcfinder/browse.php?type=images';
+        config.filebrowserFlashBrowseUrl = CKEDITOR_BASEPATH +'../kcfinder/browse.php?type=flash';
+        config.filebrowserUploadUrl      = CKEDITOR_BASEPATH +'../kcfinder/upload.php?type=files';
+        config.filebrowserImageUploadUrl = CKEDITOR_BASEPATH +'../kcfinder/upload.php?type=images';
+        config.filebrowserFlashUploadUrl = CKEDITOR_BASEPATH +'../kcfinder/upload.php?type=flash';
+    }
 
     // Set ACF by serendipity_event_ckeditor plugin option - default (false)
     // The automatic mode is on (false) when the CKEDITOR.config.allowedContent option is not set in your editor configuration. 
@@ -27,10 +36,10 @@ CKEDITOR.editorConfig = function( config ) {
     //     true – will disable the filter (data will not be filtered, all features will be activated).
     //     default – the filter will be configured by loaded features (toolbar items, commands, etc.).
     // In all cases filter configuration may be extended by extraAllowedContent. This option may be especially useful when you want to use the default allowedContent value along with some additional rules.
-    // console.log('Double check - ACF is boolean: '+CONFIG_ACF_OFF);
+    //
     if (CONFIG_ACF_OFF === true) {
         config.allowedContent = CONFIG_ACF_OFF;
-    } else { // this is ACF default
+    } else { // this is ACF ON by default
 
         // List of regular expressions to be executed on ***input HTML***, indicating HTML source code that, when matched, must not be available in the WYSIWYG mode for editing. 
 
@@ -38,10 +47,10 @@ CKEDITOR.editorConfig = function( config ) {
         config.protectedSource.push( /<(script)[^>]*>.*<\/script>/ig ); // set default in ckeditor.js [/<script[\s\S]*?<\/script>/gi,/<noscript[\s\S]*?<\/noscript>/gi]
         // allow imageselectorplus mediainsert tag code
         config.protectedSource.push( /<(mediainsert)[^>]*>[\s\S]*?<\/mediainsert>/img );
-        // allow a Smarty like {} tag syntax without starting whitespace, which would be some other code part.
-        config.protectedSource.push( /\{[a-zA-Z\$].*?\}/gi );
         // allow multiline HTML5 audio tags
         config.protectedSource.push( /<(audio)[^>]*>[\s\S]*?<\/audio>/img );
+        // allow a Smarty like {} tag syntax without starting whitespace, which would be some other code part.
+        config.protectedSource.push( /\{[a-zA-Z\$].*?\}/gi );
 
         // set placeholder tag cases - elements [attributes]{styles}(classes)
         config.extraAllowedContent = 'mediainsert[*]{*}(*);script[*]{*}(*)audio[*]{*}(*);'; // changed to ACF right order: attr style class
@@ -89,6 +98,7 @@ CKEDITOR.editorConfig = function( config ) {
 
     // set the serendipity_event_ckeditor custom toolbar group
     // Note: indent is disabled, mediaembed and pbckcode plugins are set here, and procurator placeholders for "protected Source" is buttonless
+    //       when plugins config options denies codebutton, there is no need to disable it in here too (this is possibly done automatically if not set in extraPlugins list)
     config.toolbarGroups = [
         { name: 'styles' },
         { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },

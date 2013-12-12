@@ -1,8 +1,8 @@
 <?php # 
 
 /**
- *  @file UTF-8/lang_en.inc.php 1.4.4 2013-12-09 Ian
- *  @version 1.4.4
+ *  @file UTF-8/lang_en.inc.php 1.4.5 2013-12-12 Ian
+ *  @version 1.4.5
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of UTF-8/lang_en.inc.php
  */
@@ -32,12 +32,17 @@
 @define('PLUGIN_EVENT_CKEDITOR_CONFIG', '');
 @define('PLUGIN_EVENT_CKEDITOR_INSTALL_PLUGPATH', 'HTTP path to s9y plugins directory');
 @define('PLUGIN_EVENT_CKEDITOR_CKEACF_OPTION', 'Disable Advanced-Content-Filter (ACF)?');
-@define('PLUGIN_EVENT_CKEDITOR_TBLB_OPTION', 'Use default 2-liner toolbar-group linebreak?');
+@define('PLUGIN_EVENT_CKEDITOR_TOOLBAR_OPTION', 'Use default 2-liner toolbar-group linebreak?');
 
 @define('PLUGIN_EVENT_CKEDITOR_CODEBUTTON_OPTION', 'Allow code toolbar button?');
 @define('PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION', 'Allow prettify code in frontend?');
-@define('PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION_BLAHBLAH', 'Extends to "allowed code button" option. Adds locally loaded prettify.js and prettify.ccs (code by Google) to frontend.');
+@define('PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION_BLAHBLAH', 'Extends to "allowed code button" option. Adds locally loaded prettify.js and prettify.ccs to frontend. (Apache License v. 2.0)');
 @define('PLUGIN_EVENT_CKEDITOR_OPTION_BLAHBLAH', 'Usually: ');
 
 @define('PLUGIN_EVENT_CKEDITOR_FORCEINSTALL_OPTION', 'Force install process (in emergencies)');
 @define('PLUGIN_EVENT_CKEDITOR_FORCEINSTALL_OPTION_BLAHBLAH', 'Only on upgrade failures: Force the immediate zip deflation of ');
+
+@define('PLUGIN_EVENT_CKEDITOR_KCFINDER_OPTION', 'Allow KCFINDER integration?');
+@define('PLUGIN_EVENT_CKEDITOR_KCFINDER_OPTION_BLAHBLAH', 'Use independent package S9y MediaLibrary integration (wellnigh) in CKEDITORs [image] widget. Since there are compatibility constraints, please read about them carefully under "http://kcfinder.sunhater.com/" (Compat Section), before you enable its use here.');
+
+@define('PLUGIN_EVENT_CKEDITOR_CKEACF_OPTION_BLAHBLAH', 'The CKEDITOR built-in "Housekeeper" filter restricts custom html markup to follow its rules! Normally this is good and you will want to keep it working in the backyard and use the already built-in workarounds for certain markup, like "iframe"d media via the "Embed Media"-button, or "audio" and "other Serendipity" tags via the "Sourcecode-view"-mode. Please also read: "http://ckeditor.com/blog/Integrating-Plugins-with-Advanced-Content-Filter".');

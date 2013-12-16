@@ -72,7 +72,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.45');
+        $propbag->add('version',       '3.46');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -1364,15 +1364,18 @@ class serendipity_event_freetag extends serendipity_event
         foreach((array)$rows as $r) {
         	$tags[$r['tag']] = $r['total'];
 
-			#get also tags which are related only by other tags
+                #get also tags which are related only by other tags
            	if($descend) {
-           		$descended_tags = $this->getTagCloudTags($r['tag'], false);
-				foreach($descended_tags AS $dtag => $value) {
-					$descended_tags[$dtag] = $value / 2;
+                    $descended_tags = $this->getTagCloudTags($r['tag'], false);
+                    if (is_array($descended_tags)) {
+                        foreach($descended_tags AS $dtag => $value) {
+                            $descended_tags[$dtag] = $value / 2;
         		}
+           		
            		#$tags = array_merge($tags, $descended_tags);
            		$tags = $tags + $descended_tags;
-			}
+                    }
+                }
         }
         }
         unset($tags["$tag"]);

@@ -35,7 +35,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_IMAGESELECTORPLUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Vladimir Ajgl, Adam Charnock');
-        $propbag->add('version',       '0.33');
+        $propbag->add('version',       '0.34');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',
@@ -811,7 +811,7 @@ function serendipity_imageSelectorPlus_done(textarea)
                               WHERE i.path = '" . serendipity_db_escape_string($gallery) . "' AND i.name IN ($images_suggestions)";
                     }
 
-                    $t = serendipity_db_query($q);
+                    $t = serendipity_db_query($q, false, 'assoc');
 
                     // here we have to order the results from database to respect
                     // the order of pictures in xml entry
@@ -823,6 +823,8 @@ function serendipity_imageSelectorPlus_done(textarea)
                         for ($j=0, $tcount = count($t) ; $j < $tcount ; $j++) {
                             $h = intval($t[$j]["height"]);
                             $w = intval($t[$j]["width"]);
+                            $h = $h==0 ? 1 : $h; // avoid 'Division by zero' errors for height
+                            $w = $w==0 ? 1 : $w; // dito for width
                             if ($w > $h) {
                                 $t[$j]["thumbheight"] = round($thumb_size*$h/$w);
                                 $t[$j]["thumbwidth"]  = round($thumb_size);
@@ -832,6 +834,7 @@ function serendipity_imageSelectorPlus_done(textarea)
                             }
 
                             if (strlen($t[$j]["comment1"]) == 0) {
+                                #$t[$j][6] = $t[$j]["name"];// add missing new num key if not using assoc select
                                 $t[$j]["comment1"] = $t[$j]["name"];
                             }
 

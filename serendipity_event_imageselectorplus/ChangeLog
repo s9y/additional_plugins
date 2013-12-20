@@ -1,3 +1,10 @@
+0.34:
+----
+
+Fix some 'Division by zero' errors and possible 
+array_multisort(): Array sizes are inconsistent in blah blah errors
+
+
 0.33:
 ----
 

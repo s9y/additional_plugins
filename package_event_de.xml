@@ -4543,9 +4543,9 @@
 <description>Ermöglicht erweiterte Optionen beim Einfügen von Bildern aus der Mediendatenbank. [Serendipity &gt;= 0.9]</description>
 <maintainers><maintainer><name>Garvin Hicking, Vladimir Ajgl, Adam Charnock</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.33</version>
+  <version>0.34</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-09-06</date>
+  <date>2013-12-21</date>
   <filelist>
 <dir name="serendipity_event_imageselectorplus">
 <dir name="UTF-8">

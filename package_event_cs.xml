@@ -4543,9 +4543,9 @@
 <description>Rozšiřuje možnosti vkládání obrázků z knihovny médií - quickblog a hromadné vkládání obrázků (více v dokumentaci v adresáři plugins/serendipity_evnets_imageselectorplus) [verze Serendipity &gt;= 0.9].</description>
 <maintainers><maintainer><name>Garvin Hicking, Vladimir Ajgl, Adam Charnock</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.33</version>
+  <version>0.34</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-09-06</date>
+  <date>2013-12-21</date>
   <filelist>
 <dir name="serendipity_event_imageselectorplus">
 <dir name="UTF-8">

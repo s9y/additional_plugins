@@ -1,7 +1,6 @@
-<?php # lang_cz.inc.php 1.2 2009-02-15 21:33:23 VladaAjgl $
+/<?php
 
 /**
- *  @version 1.2
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  EN-Revision: Revision of lang_en.inc.php
  *  Czech translation to userprofiles plugin

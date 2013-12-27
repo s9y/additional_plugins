@@ -1,7 +1,6 @@
-<?php # lang_cs.inc.php 1.0 2009-06-05 18:02:18 VladaAjgl $
+/<?php
 
 /**
- *  @version 1.0
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/06/05
  */@define('PLUGIN_ADMINNOTES_TITLE', 'Rychlé poznámky');

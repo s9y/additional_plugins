@@ -1,7 +1,6 @@
-<?php # lang_cs.inc.php 1.0 2009-07-14 20:16:59 VladaAjgl $
+/<?php
 
 /**
- *  @version 1.0
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/07/14
  */

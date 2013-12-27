@@ -1,7 +1,6 @@
-<?php # lang_cz.inc.php 1.0 2009-05-31 15:54:45 VladaAjgl $
+/<?php
 
 /**
- *  @version 1.0
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2009/05/31
  */@define('PLUGIN_SNAPSHOTLINKS_NAME',                'Odkazy s náhledy pomocí služby www.snap.com');

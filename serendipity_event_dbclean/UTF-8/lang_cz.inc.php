@@ -1,7 +1,6 @@
-<?php # lang_cz.inc.php 1.0 2011-02-11 00:01:08 VladaAjgl $
+/<?php
 
 /**
- *  @version 1.0
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  @translated 2011/02/11
  */

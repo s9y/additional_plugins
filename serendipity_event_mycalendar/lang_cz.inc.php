@@ -1,7 +1,6 @@
-<?php # 
+/<?php
 
 /**
- *  @version 
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
  *  EN-Revision: Revision of lang_en.inc.php
  *  Translated on 2007/11/23

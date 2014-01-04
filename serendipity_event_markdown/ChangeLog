@@ -1,3 +1,17 @@
+Version 1.21:
+=============
+
+- update to PHP Markdown 1.0.2
+  read http://michelf.ca/projects/php-markdown/
+- update to PHP Markdown Extra 1.2.8
+- include new lib version 1.4.0
+- added optional SmartyPants library, of August, 2013 dev.
+  This is a library package that includes the PHP SmartyPants and its 
+  sibling PHP SmartyPants Typographer with additional features.
+  SmartyPants is a free web typography prettifyier tool for web writers.
+  It easily translates plain ASCII punctuation characters into "smart" 
+  typographic punctuation HTML entities.
+- extend to PHP >= 5.3 only (while lib using namespaces)
 
 
 Version 1.1.5:

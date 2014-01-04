@@ -1,5 +1,6 @@
 <?php # 
 
+use \Michelf\Markdown, \Michelf\MarkdownExtra, \Michelf\SmartyPants, \Michelf\SmartyPantsTypographer;
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -28,9 +29,9 @@ class serendipity_event_markdown extends serendipity_event
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
-            'php'         => '4.1.0'
+            'php'         => '5.3.0'
         ));
-        $propbag->add('version',       '1.18');
+        $propbag->add('version',       '1.21');
         $propbag->add('cachable_events', array('frontend_display' => true));
         $propbag->add('event_hooks',   array('frontend_display' => true, 'frontend_comment' => true));
         $propbag->add('groups', array('MARKUP'));
@@ -59,6 +60,8 @@ class serendipity_event_markdown extends serendipity_event
             $conf_array[] = $element['name'];
         }
         $conf_array[] = 'MARKDOWN_EXTRA';
+        $conf_array[] = 'MARKDOWN_VERSION';
+        $conf_array[] = 'MARKDOWN_SMARTYPANTS';
 
         $propbag->add('configuration', $conf_array);
     }
@@ -80,24 +83,48 @@ class serendipity_event_markdown extends serendipity_event
     function introspect_config_item($name, &$propbag)
     {
         switch($name) {
-        case 'ENTRY_BODY':
-        case 'EXTENDED_BODY':
-        case 'COMMENT':
-        case 'HTML_NUGGET':
-            $propbag->add('type',        'boolean');
-            $propbag->add('name',        constant($name));
-            $propbag->add('description', sprintf(APPLY_MARKUP_TO, constant($name)));
-            $propbag->add('default', 'true');
-            return true;
-            break;
+            case 'ENTRY_BODY':
+            case 'EXTENDED_BODY':
+            case 'COMMENT':
+            case 'HTML_NUGGET':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        constant($name));
+                $propbag->add('description', sprintf(APPLY_MARKUP_TO, constant($name)));
+                $propbag->add('default', 'true');
+                return true;
+                break;
 
-        case 'MARKDOWN_EXTRA':
-            $propbag->add('type', 'boolean');
-            $propbag->add('name', PLUGIN_EVENT_MARKDOWN_EXTRA_NAME);
-            $propbag->add('description', PLUGIN_EVENT_MARKDOWN_EXTRA_DESC);
-            $propbag->add('default', false);
-            return true;
-            break;
+            case 'MARKDOWN_EXTRA':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        PLUGIN_EVENT_MARKDOWN_EXTRA_NAME);
+                $propbag->add('description', PLUGIN_EVENT_MARKDOWN_EXTRA_DESC);
+                $propbag->add('default',     false);
+                return true;
+                break;
+
+            case 'MARKDOWN_SMARTYPANTS':
+                $propbag->add('type',        'radio');
+                $propbag->add('name',        PLUGIN_EVENT_MARKDOWN_SMARTYPANTS_NAME);
+                $propbag->add('description', PLUGIN_EVENT_MARKDOWN_SMARTYPANTS_DESC);
+                $propbag->add('radio',       array(
+                                                'value' => array(1, 2, 0),
+                                                'desc'  => array(YES, PLUGIN_EVENT_MARKDOWN_SMARTYPANTS_EXTENDED, PLUGIN_EVENT_MARKDOWN_SMARTYPANTS_NEVER)
+                                             ));
+                $propbag->add('default',     0);
+                return true;
+                break;
+
+            case 'MARKDOWN_VERSION':
+                $propbag->add('type',        'radio');
+                $propbag->add('name',        PLUGIN_EVENT_MARKDOWN_VERSION);
+                $propbag->add('description', PLUGIN_EVENT_MARKDOWN_VERSION_BLABLAH);
+                $propbag->add('radio',       array(
+                                                'value' => array(1, 2),
+                                                'desc'  => array('classic', 'lib'),
+                                             ));
+                $propbag->add('default',     2);
+                return true;
+                break;
         }
     }
 
@@ -105,10 +132,31 @@ class serendipity_event_markdown extends serendipity_event
     function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
-        if($this->get_config('MARKDOWN_EXTRA', false)) {
-            include_once  dirname(__FILE__) . '/markdown_extra.php';
-        } else {
-            include_once  dirname(__FILE__) . '/markdown.php';
+        $mdsp = $this->get_config('MARKDOWN_SMARTYPANTS');
+        $mdv  = $this->get_config('MARKDOWN_VERSION');
+
+        switch($mdv) {
+            case 2:
+                if ($this->get_config('MARKDOWN_EXTRA', false)) {
+                    require_once dirname(__FILE__) . '/lib/Michelf/MarkdownExtra.inc.php';
+                } else {
+                    require_once dirname(__FILE__) . '/lib/Michelf/Markdown.inc.php';
+                }
+                if ($mdsp > 0) {
+                    require_once dirname(__FILE__) . '/lib/Michelf/SmartyPants.php';
+                }
+                if ($mdsp == 2) {
+                    require_once dirname(__FILE__) . '/lib/Michelf/SmartyPantsTypographer.php';
+                }
+                break;
+
+            case 1:
+                if (serendipity_db_bool($this->get_config('MARKDOWN_EXTRA', false))) {
+                    include_once  dirname(__FILE__) . '/markdown_extra.php';
+                } else {
+                    include_once  dirname(__FILE__) . '/markdown.php';
+                }
+                break;
         }
 
         $hooks = &$bag->get('event_hooks');
@@ -122,10 +170,16 @@ class serendipity_event_markdown extends serendipity_event
                             !$eventData['properties']['ep_disable_markup_' . $this->instance] &&
                             !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
                             $element = $temp['element'];
-                            $eventData[$element] = str_replace('javascript:', '', Markdown($eventData[$element]));
+                            if ($mdv == 2) {
+                                $eventData[$element] = str_replace('javascript:', '', Markdown::defaultTransform($eventData[$element]));
+                                if ($mdsp == 1) $eventData[$element] = SmartyPants::defaultTransform($eventData[$element]);
+                                if ($mdsp == 2) $eventData[$element] = SmartyPantsTypographer::defaultTransform($eventData[$element]);
+                            } else {
+                                $eventData[$element] = str_replace('javascript:', '', Markdown($eventData[$element]));
+                            }
                         }
                     }
-                    $this->setPlaintextBody($eventData);
+                    $this->setPlaintextBody($eventData, $mdv, $mdsp);
                     return true;
                     break;
 
@@ -149,16 +203,18 @@ class serendipity_event_markdown extends serendipity_event
      * @see http://board.s9y.org/viewtopic.php?f=11&t=18351 Discussion of this feature in the S9y forum.
      *
      * @param array $eventData
+     * @param int   $version    Markdown Classic or Lib  default 2
+     * @param int   $pants      SmartyPants option       default 0
      */
-    function setPlaintextBody(array $eventData)
+    function setPlaintextBody(array $eventData, $version=2, $pants=0)
     {
         if (isset($GLOBALS['entry'][0]['plaintext_body'])) {
-            $html = Markdown($GLOBALS['entry'][0]['plaintext_body']);
-            $GLOBALS['entry'][0]['plaintext_body'] = trim(strip_tags(str_replace('javascript:', '', $html)));
+            $html =  ($version == 2) ? Markdown::defaultTransform($GLOBALS['entry'][0]['plaintext_body']) : Markdown($GLOBALS['entry'][0]['plaintext_body']);
         } else {
-            $html = Markdown(html_entity_decode($eventData['body']));
-            $GLOBALS['entry'][0]['plaintext_body'] = trim(strip_tags(str_replace('javascript:', '', $html)));
+            $html =  ($version == 2) ? Markdown::defaultTransform(html_entity_decode($eventData['body'])) : Markdown(html_entity_decode($eventData['body']));
         }
+        if ($pants > 0) $html =  ($pants == 2) ? SmartyPantsTypographer::defaultTransform($html) : SmartyPants::defaultTransform($html);
+        $GLOBALS['entry'][0]['plaintext_body'] = trim(strip_tags(str_replace('javascript:', '', $html)));
     }
 
     /* disabled, probably used in later versions

@@ -1313,7 +1313,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Andreas06 v1.1 (2013-10-26)</name>
+<name>Andreas06 v1.1.1 (2014-01-08)</name>
 <template>andreas06</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -1322,7 +1322,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion></requirements:s9yVersion>
-  <date>2013-10-26</date>
+  <date>2014-01-08</date>
   <filelist>
 <dir name="andreas06">
 <dir name="img">

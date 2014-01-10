@@ -163,7 +163,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>leaf (2008-02-14)</name>
+<name>leaf (2014-01-09)</name>
 <template>leaf</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -172,7 +172,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion></requirements:s9yVersion>
-  <date>01/09/2005</date>
+  <date>2014-01-09</date>
   <filelist>
 <dir name="leaf">
 <dir name="img">
@@ -805,7 +805,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>blix (2008-11-23)</name>
+<name>blix (2014-01-09)</name>
 <template>blix</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -814,7 +814,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion></requirements:s9yVersion>
-  <date>03/01/2006</date>
+  <date>2014-01-09</date>
   <filelist>
 <dir name="blix">
 <file>commentform.tpl</file>
@@ -1701,7 +1701,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>glossy white (2008-02-14)</name>
+<name>glossy white (2014-01-09)</name>
 <template>glossy_white</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -1710,7 +1710,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion></requirements:s9yVersion>
-  <date>13/12/2005</date>
+  <date>2014-01-09</date>
   <filelist>
 <dir name="glossy_white">
 <file>entries.tpl</file>
@@ -3745,7 +3745,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Mo3 (2013-10-26)</name>
+<name>Mo3 (2014-01-09)</name>
 <template>mo3</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -3754,7 +3754,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>
-  <date>2013-10-26</date>
+  <date>2014-01-09</date>
   <filelist>
 <dir name="mo3">
 <file>comments.tpl</file>
@@ -4536,6 +4536,7 @@
 <file>style.css</file>
 <file>content.tpl</file>
 <file>iui.js</file>
+<file>preview.png</file>
 </dir>
 
   </filelist>
@@ -4565,6 +4566,7 @@
     <file>iphone.app/style.css</file>
     <file>iphone.app/content.tpl</file>
     <file>iphone.app/iui.js</file>
+    <file>iphone.app/preview.png</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -4688,6 +4690,7 @@
 <dir name="img">
 <file>border.gif</file>
 </dir>
+<file>preview.png</file>
 </dir>
 
   </filelist>
@@ -4699,6 +4702,7 @@
     <file>xhtml_mp/style.css</file>
     <file>xhtml_mp/info.txt</file>
     <file>xhtml_mp/img/border.gif</file>
+    <file>xhtml_mp/preview.png</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -5578,7 +5582,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Plus9 (2013-10-26)</name>
+<name>Plus9 (2014-01-09)</name>
 <template>plus9</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -5587,7 +5591,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion>1.4</requirements:s9yVersion>
-  <date>2013-10-26</date>
+  <date>2014-01-09</date>
   <filelist>
 <dir name="plus9">
 <file>AJS.js</file>
@@ -5978,7 +5982,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Hemingway WP-port &amp;#160;&amp;#160;&lt;i&gt;&lt;small&gt;Requires Serendipity v1.1&lt;/small&gt;&lt;/i&gt; (2009-08-25)</name>
+<name>Hemingway WP-port &amp;#160;&amp;#160;&lt;i&gt;&lt;small&gt;Requires Serendipity v1.1&lt;/small&gt;&lt;/i&gt; (2014-01-09)</name>
 <template>hemingway</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -5987,7 +5991,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion>1.1</requirements:s9yVersion>
-  <date>27 August 2006</date>
+  <date>2014-01-09</date>
   <filelist>
 <dir name="hemingway">
 <file>404.tpl</file>
@@ -7155,7 +7159,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Sagittarius-A (2013-10-26)</name>
+<name>Sagittarius-A (2014-01-09)</name>
 <template>Sagittarius-A</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -7164,7 +7168,7 @@
 <release>
   <version>1.0</version>
   <requirements:s9yVersion>1.5</requirements:s9yVersion>
-  <date>2013-10-26</date>
+  <date>2014-01-09</date>
   <filelist>
 <dir name="Sagittarius-A">
 <file>comments.tpl</file>

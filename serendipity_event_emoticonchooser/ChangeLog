@@ -1,3 +1,7 @@
+2.9.1:
+----
+fixed language attribute on the script element is obsolete
+
 2.9:
 ----
 fixed Chrome Browser Exception

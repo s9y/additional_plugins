@@ -8,6 +8,13 @@ TODO:
 * Twitter announcements/credentials etc. per author instead of
   only per central blog
 
+1.60
+--------------------------
+
+    * Adapted http://twitter.com to https://twitter.com due to Twitter
+      enforcing SSL now (well, they could have done a redirect to be nice
+      to people, but...)
+      
 1.51 (mattsches)
 --------------------------
     * Switched tweetback search to API 1.1

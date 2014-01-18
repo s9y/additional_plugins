@@ -47,7 +47,7 @@ class Twitter {
             return "http://identi.ca/";
         }
         else {
-            return "http://twitter.com/";
+            return "https://twitter.com/";
         }
     }
     
@@ -61,7 +61,7 @@ class Twitter {
         }
         else {
              //TODO: Change Twtter API to 1.1
-            return "http://twitter.com/";
+            return "https://twitter.com/";
         }
     }
     
@@ -76,7 +76,7 @@ class Twitter {
         }
         else {
              //TODO: Change Twtter API to 1.1
-            return "http://search.twitter.com/search";
+            return "https://search.twitter.com/search";
         }
     }
     

@@ -1861,7 +1861,7 @@ a.twitter_update_time {
             $error=200; // Default is: All OK
 
             if (!empty($idx_twitter)) {
-                $search_twitter_uri = 'http://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=' . $username . '&count=' . $number . '&trim_user=true';
+                $search_twitter_uri = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=' . $username . '&count=' . $number . '&trim_user=true';
                 if (!$show_rt) $search_twitter_uri .= '&include_rts=false';
                 if ($idx_twitter=='1') $idx_twitter=''; // First cfg is saved with empty suffix!
                 $connection = $this->twitteroa_connect($idx_twitter);
@@ -1880,11 +1880,11 @@ a.twitter_update_time {
                 }
                 else
                 {
-                    $followme_url = 'http://twitter.com/' . $username;
-                    $service_url = 'http://twitter.com';
-                    $status_url = 'http://twitter.com/' . $username . '/statuses/';
+                    $followme_url = 'https://twitter.com/' . $username;
+                    $service_url = 'https://twitter.com';
+                    $status_url = 'https://twitter.com/' . $username . '/statuses/';
                     $JSONcallback = 'twitterCallback2';
-                    $search_twitter_uri = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $username . '&count=' . $number;
+                    $search_twitter_uri = 'https://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $username . '&count=' . $number;
                 }
 
                 serendipity_request_start();

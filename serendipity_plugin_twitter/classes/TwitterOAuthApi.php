@@ -99,7 +99,7 @@ class TwitterOAuthApi {
      * @access   private
      */
     static function get_base_url() {
-        return "http://twitter.com/";
+        return "https://twitter.com/";
     }
     
     static function parse_entry_json( $item ) {

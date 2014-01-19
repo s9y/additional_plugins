@@ -9150,9 +9150,9 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <description>Fügt einen Twitter/Identica Client zum Administrator Interface hinzu, sucht nach Tweetbacks und kündigt neue Artikel über Twitter/Identica Accounts an.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Peter Heimann</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.51</version>
+  <version>1.60</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-09-12</date>
+  <date>2014-01-19</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="UTF-8">

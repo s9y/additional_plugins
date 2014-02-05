@@ -2482,9 +2482,9 @@
 <description>Umožňuje návštěvníkům blogu filtrovat/řadit příspěvky podle různých pravidel</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6</version>
+  <version>1.7</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-02-05</date>
   <filelist>
 <dir name="serendipity_event_filter_entries">
 <file>serendipity_event_filter_entries.php</file>

@@ -48,7 +48,7 @@ CKEDITOR.editorConfig = function( config ) {
         // allow imageselectorplus mediainsert tag code
         config.protectedSource.push( /<(mediainsert)[^>]*>[\s\S]*?<\/mediainsert>/img );
         // allow multiline HTML5 audio tags
-        config.protectedSource.push( /<(audio)[^>]*>[\s\S]*?<\/audio>/img );
+        //config.protectedSource.push( /<(audio)[^>]*>[\s\S]*?<\/audio>/img ); //looks like we dont need this any more and placeholding replaces bad now switching mode
         // allow a Smarty like {} tag syntax without starting whitespace, which would be some other code part.
         config.protectedSource.push( /\{[a-zA-Z\$].*?\}/gi );
 

@@ -1,3 +1,10 @@
+3.2.0:
+-----
+    * Upgrade to CKEDITOR 4.3 Series update 2
+    * Added new cheatsheet plugin 
+    * Fixed MediaLibrary insert code to be left untouched by ACF
+    * Better workflow between nuggets and entry textareas
+
 2.3.5:
 -----
     * Fixed config option to disable the codebutton plugin.

@@ -64,7 +64,7 @@ function Spawnnuggets(item, addEP, jsED) {
     var textarea_instance = !isNaN(item) ? 'nuggets' + item : item;
     var name_extraPlugins = (addEP !== null) ? addEP : textarea_instance;
     var jsEventData       = (jsED  !== null) ? jsED  : window.jsEventData; // global set by 'backend_wysiwyg_finish' hook
-    var extraPluginACF    = (CONFIG_ACF_OFF === true) ? name_extraPlugins+',mediaembed' : name_extraPlugins+',mediaembed,procurator'; // no spaces allowed!
+    var extraPluginACF    = (CONFIG_ACF_OFF === true) ? name_extraPlugins+',mediaembed,cheatsheet' : name_extraPlugins+',mediaembed,procurator,cheatsheet'; // no spaces allowed!
     var extraPluginList   = (CONFIG_PBCK_ON === true) ? extraPluginACF+',pbckcode' : extraPluginACF; // no spaces allowed!
 
     if (document.getElementById(textarea_instance)) {

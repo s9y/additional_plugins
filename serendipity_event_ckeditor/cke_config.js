@@ -3,7 +3,7 @@
  */
 
 /**
- * @fileOverview A Serendipity serendipity_event_ckeditor CKEDITOR custom config file: cke_config.js, v. 1.4, 2013-12-12
+ * @fileOverview A Serendipity serendipity_event_ckeditor CKEDITOR custom config file: cke_config.js, v. 1.5, 2014-02-09
  */
 
 /**
@@ -53,7 +53,8 @@ CKEDITOR.editorConfig = function( config ) {
         config.protectedSource.push( /\{[a-zA-Z\$].*?\}/gi );
 
         // set placeholder tag cases - elements [attributes]{styles}(classes)
-        config.extraAllowedContent = 'mediainsert[*]{*}(*);script[*]{*}(*)audio[*]{*}(*);'; // changed to ACF right order: attr style class
+        // allowed div is a need for Media Library inserts - which tells ACF to not touch the code!
+        config.extraAllowedContent = 'mediainsert[*]{*}(*);script[*]{*}(*);audio[*]{*}(*);div[*]{*}(*);'; // changed to ACF right order: attr style class
 
         // CKEDITOR.protectedSource patterns used regex Escape sequences
         //            \s any whitespace character; 
@@ -73,6 +74,16 @@ CKEDITOR.editorConfig = function( config ) {
     //config.ignoreEmptyParagraph = false; // default(true) - Whether the editor must output an empty value ('') if it's contents is made by an empty paragraph only. (extends to config.fillEmptyBlocks)
     // It will still generate an empty <p></p> though.
     config.autoParagraph = false; // but this one definitely prevents adding multiple empty paragraphs when switching source mode!!!
+
+    // The configuration setting that controls the ENTER mode is "config.enterMode" and it offers three options:
+    // (1) The default creates a paragraph element each time the "enter" key is pressed:
+    //config.enterMode = CKEDITOR.ENTER_P; // inserts <p></p>
+    // (2) You can choose to create a "div" element instead of a paragraph:
+    //config.enterMode = CKEDITOR.ENTER_DIV; // inserts <div></div>
+    // (3) If you prefer to not wrap the text in anything, you can choose to insert a line break tag:
+    //config.enterMode = CKEDITOR.ENTER_BR; // inserts <br />
+    // You can always use SHIFT+ENTER to set a br in the P-mode default option or change the SHIFT-mode to something else
+    //config.shiftEnterMode = CKEDITOR.ENTER_BR;
 
     //config.entities = false;
     //config.htmlEncodeOutput = false;
@@ -113,7 +124,8 @@ CKEDITOR.editorConfig = function( config ) {
         { name: 'others' },
         { name: 'mediaembed' },
         { name: 'tools' },
-        { name: 'about' }
+        { name: 'about' },
+        { name: 'cheatsheet' }
     ];
 
 };

@@ -122,7 +122,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jay Bertrandt, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_emoticonchooser&lt;br /&gt;Smiley-Auswahlleiste&lt;/b&gt;&lt;br /&gt;Zeigt eine Auswahlleiste bei der Erstellung eines Eintrags um Smileys einzufügen.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 05 Dec 2013 02:31:07 +0100</pubDate>
+<pubDate>Sun, 12 Jan 2014 02:31:23 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_emoticonchooser</guid>
 </item>
 <item>
@@ -302,7 +302,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_filter_entries&lt;br /&gt;Filtern von Einträgen im Frontend&lt;/b&gt;&lt;br /&gt;Ermöglich Besuchern die Einträge im Blog nach Kriterien zu durchsuchen/sortieren&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:41 +0200</pubDate>
+<pubDate>Wed, 05 Feb 2014 02:31:14 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_filter_entries</guid>
 </item>
 <item>
@@ -1150,7 +1150,7 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Peter Heimann</author>
 <content:encoded>&lt;b&gt;serendipity_event_twitter&lt;br /&gt;Microblogging (Twitter,Identica)&lt;/b&gt;&lt;br /&gt;Fügt einen Twitter/Identica Client zum Administrator Interface hinzu, sucht nach Tweetbacks und kündigt neue Artikel über Twitter/Identica Accounts an.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Thu, 12 Sep 2013 02:31:32 +0200</pubDate>
+<pubDate>Sun, 19 Jan 2014 02:31:20 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_twitter</guid>
 </item>
 <item>

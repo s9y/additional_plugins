@@ -1079,9 +1079,9 @@
 <description>Shows a toolbar to select emoticons to insert into your entry.</description>
 <maintainers><maintainer><name>Garvin Hicking, Jay Bertrandt, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.9</version>
+  <version>2.9.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-12-05</date>
+  <date>2014-01-12</date>
   <filelist>
 <dir name="serendipity_event_emoticonchooser">
 <file>serendipity_event_emoticonchooser.php</file>
@@ -2482,9 +2482,9 @@
 <description>Allows visitors to filter/order your entries by several options</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6</version>
+  <version>1.7</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-02-05</date>
   <filelist>
 <dir name="serendipity_event_filter_entries">
 <file>serendipity_event_filter_entries.php</file>
@@ -9150,9 +9150,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>Adds a twitter/identica client to the admininistration interface, searches for tweetbacks and announces new articles to a microblogging account.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Peter Heimann</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.51</version>
+  <version>1.60</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-09-12</date>
+  <date>2014-01-19</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="UTF-8">

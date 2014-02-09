@@ -26,7 +26,7 @@ class serendipity_event_filter_entries extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_FILTER_ENTRIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.6');
+        $propbag->add('version',       '1.7');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -96,7 +96,7 @@ class serendipity_event_filter_entries extends serendipity_event
                     $users = serendipity_fetchUsers();
                     if (is_array($users)) {
                         foreach ($users AS $user) {
-                            echo '<option value="' . $user['authorid'] . '" ' . (isset($_SESSION['filter']['author']) && $_SESSION['filter']['author'] == $user['authorid'] ? 'selected="selected"' : '') . '>' . $user['realname'] . '</option>' . "\n";
+                            echo '<option value="' . $user['authorid'] . '" ' . (isset($_SESSION['filter']['author']) && $_SESSION['filter']['author'] == $user['authorid'] ? 'selected="selected"' : '') . '>' . htmlspecialchars($user['realname']) . '</option>' . "\n";
                         }
                     }
 ?>              </select>

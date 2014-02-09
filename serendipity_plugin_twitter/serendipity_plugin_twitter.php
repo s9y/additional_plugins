@@ -270,11 +270,11 @@ class serendipity_plugin_twitter extends serendipity_plugin {
         }
         else // if ($this->get_config('twitter_api','1.0') == '1.0')
         {
-            $followme_url = 'http://twitter.com/' . $username;
-            $service_url = 'http://twitter.com';
-            $status_url = 'http://twitter.com/' . $username . '/statuses/';
+            $followme_url = 'https://twitter.com/' . $username;
+            $service_url = 'https://twitter.com';
+            $status_url = 'https://twitter.com/' . $username . '/statuses/';
             $JSONcallback = 'twitterCallback2';
-            $timelineurl = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $username . '&amp;count=' . $number . '&amp;callback=' . $JSONcallback;
+            $timelineurl = 'https://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $username . '&amp;count=' . $number . '&amp;callback=' . $JSONcallback;
             $api = new Twitter(false);
         }
 
@@ -349,7 +349,7 @@ class serendipity_plugin_twitter extends serendipity_plugin {
         } else {
             if (!$hideDisplay) {
                 echo '<ul id="twitter_update_list"><li style="display: none"></li></ul>' . "\n";            
-                echo '<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>' . "\n";
+                echo '<script type="text/javascript" src="https://twitter.com/javascripts/blogger.js"></script>' . "\n";
                 echo '<script type="text/javascript" src="' . $timelineurl . '"></script>';
             }
         } 
@@ -436,10 +436,10 @@ class serendipity_plugin_twitter extends serendipity_plugin {
                 $status_url = 'http://identi.ca/notice/';
                 $search_twitter_uri = $service_url . '/statuses/user_timeline/' . $username . '.json?count=' . $number;
             } else {
-                $followme_url = 'http://twitter.com/' . $username;
-                $service_url = 'http://api.twitter.com';
-                $status_url = 'http://twitter.com/' . $username . '/statuses/';
-                $search_twitter_uri = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $username . '&count=' . $number;
+                $followme_url = 'https://twitter.com/' . $username;
+                $service_url = 'https://api.twitter.com';
+                $status_url = 'https://twitter.com/' . $username . '/statuses/';
+                $search_twitter_uri = 'https://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $username . '&count=' . $number;
             }
 
             serendipity_request_start();
@@ -586,9 +586,9 @@ class serendipity_plugin_twitter extends serendipity_plugin {
 
         if ($last_backup < 1) {
             // First time backup. Grab everything we can get.
-            $this->twitterGet('http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $username . '&count=100&page=');
+            $this->twitterGet('https://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $username . '&count=100&page=');
         } else {
-            $this->twitterGet('http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $username . '&count=100&since_id=' . $this->get_config('last_tweetid') . '&page=');
+            $this->twitterGet('https://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $username . '&count=100&since_id=' . $this->get_config('last_tweetid') . '&page=');
         }
     }
 

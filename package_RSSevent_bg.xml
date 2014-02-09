@@ -122,7 +122,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jay Bertrandt, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_emoticonchooser&lt;br /&gt;Показва лента с картинки - &quot;усмивки&quot;&lt;/b&gt;&lt;br /&gt;Показва лента за избор на картинки, изразяващи емоции (emoticons). Не работи с WYSIWYG редактор.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 05 Dec 2013 02:31:07 +0100</pubDate>
+<pubDate>Sun, 12 Jan 2014 02:31:23 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_emoticonchooser</guid>
 </item>
 <item>
@@ -302,7 +302,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_filter_entries&lt;br /&gt;Филтриране на статии&lt;/b&gt;&lt;br /&gt;Позволява посетителите да филтрират статиите по различни критерии&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:41 +0200</pubDate>
+<pubDate>Wed, 05 Feb 2014 02:31:14 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_filter_entries</guid>
 </item>
 <item>
@@ -1150,7 +1150,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Peter Heimann</author>
 <content:encoded>&lt;b&gt;serendipity_event_twitter&lt;br /&gt;Microblogging (Twitter,Identica)&lt;/b&gt;&lt;br /&gt;Adds a twitter/identica client to the admininistration interface, searches for tweetbacks and announces new articles to a microblogging account.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Thu, 12 Sep 2013 02:31:32 +0200</pubDate>
+<pubDate>Sun, 19 Jan 2014 02:31:20 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_twitter</guid>
 </item>
 <item>

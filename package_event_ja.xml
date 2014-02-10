@@ -10649,9 +10649,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>Uses CKEditor as the default WYSIWYG editor. This currently is the state-of-the-art Editor itself. Usage: Recommended! After installation, go to the configuration screen of this plugin for further instructions.</description>
 <maintainers><maintainer><name>Rustam Abdullaev, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.3.5</version>
+  <version>3.2.0</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2013-12-13</date>
+  <date>2014-02-10</date>
   <filelist>
 <dir name="serendipity_event_ckeditor">
 <dir name="UTF-8">
@@ -10677,7 +10677,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <file>lang_cz.inc.php</file>
 <file>prettify.css</file>
 <file>prettify.js</file>
-<file>ckeditor_4.2.3.3_standard-plus.zip</file>
+<file>ckeditor_4.3.2.0_standard-plus.zip</file>
 </dir>
 
   </filelist>
@@ -10701,7 +10701,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
     <file>serendipity_event_ckeditor/lang_cz.inc.php</file>
     <file>serendipity_event_ckeditor/prettify.css</file>
     <file>serendipity_event_ckeditor/prettify.js</file>
-    <file>serendipity_event_ckeditor/ckeditor_4.2.3.3_standard-plus.zip</file>
+    <file>serendipity_event_ckeditor/ckeditor_4.3.2.0_standard-plus.zip</file>
   </serendipityFilelist>
 </release>
 </package>

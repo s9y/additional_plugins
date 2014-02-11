@@ -1,9 +1,19 @@
+3.2.1:
+-----
+    * "Fixed" MediaLibrary img tag code implementation in case of responsive templates
+      (see http://board.s9y.org/viewtopic.php?f=11&t=19738)
+    * Fixed ACF still touching img code parts; when OFF
+    * Fixed procurator placeholder plugin, since CKE core 4.3.2 
+      broke prior behaviour with mediainsert code parts
+
 3.2.0:
 -----
     * Upgrade to CKEDITOR 4.3 Series update 2
     * Added new cheatsheet plugin 
     * Fixed MediaLibrary insert code to be left untouched by ACF
     * Better workflow between nuggets and entry textareas
+    * Reverted internal audio procurator protection
+    * Added nl2br config note
 
 2.3.5:
 -----

@@ -3,7 +3,7 @@
  */
 
 /**
- * @fileOverview A Serendipity serendipity_event_ckeditor CKEDITOR custom config file: cke_config.js, v. 1.5, 2014-02-09
+ * @fileOverview A Serendipity serendipity_event_ckeditor CKEDITOR custom config file: cke_config.js, v. 1.6, 2014-02-11
  */
 
 /**
@@ -52,9 +52,11 @@ CKEDITOR.editorConfig = function( config ) {
         // allow a Smarty like {} tag syntax without starting whitespace, which would be some other code part.
         config.protectedSource.push( /\{[a-zA-Z\$].*?\}/gi );
 
-        // set placeholder tag cases - elements [attributes]{styles}(classes)
-        // allowed div is a need for Media Library inserts - which tells ACF to not touch the code!
-        config.extraAllowedContent = 'mediainsert[*]{*}(*);script[*]{*}(*);audio[*]{*}(*);div[*]{*}(*);'; // changed to ACF right order: attr style class
+        // Set placeholder tag cases - elements [attributes]{styles}(classes)
+        // Allowed mediainsert, gallery, media tags (imageselectorplus galleries) - which tells ACF to not touch the code!
+        // Allowed div is a need for Media Library inserts - which tells ACF to not touch the code!
+        // img[height] is even needed to avoid ACF OFF removement of height attribute
+        config.extraAllowedContent = 'mediainsert[*]{*}(*);gallery[*]{*}(*);media[*]{*}(*);script[*]{*}(*);audio[*]{*}(*);div[*]{*}(*);img[height,width];';
 
         // CKEDITOR.protectedSource patterns used regex Escape sequences
         //            \s any whitespace character; 

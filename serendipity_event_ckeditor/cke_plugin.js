@@ -3,7 +3,7 @@
  */
 
 /**
- * @fileOverview A Serendipity serendipity_event_ckeditor custom CKEDITOR additional plugin creator file: cke_plugin.js, v. 1.2, 2013-12-12
+ * @fileOverview A Serendipity serendipity_event_ckeditor custom CKEDITOR additional plugin creator file: cke_plugin.js, v. 1.3, 2014-02-11
  */
 
 /*
@@ -85,7 +85,7 @@ function Spawnnuggets(item, addEP, jsED) {
             // Set the startup mode view [OK]
             // startupMode: 'source',
 
-            // listen on load - do I need this still?
+            // listen on load - do I need this still? YES!!!
             on: {
                 loaded: function( evt ) {
                     var editor = evt.editor,
@@ -115,9 +115,30 @@ function Spawnnuggets(item, addEP, jsED) {
                                             });
                                         }
                                     }
+                                },
+                                // Output dimensions of w/h images, since we either need an unchanged MediaLibrary image code for responsive templates or tweak some replacements!
+                                img: function( element ) {
+                                    var style = element.attributes.style;
+
+                                    if ( style )
+                                    {
+                                        // Get the height from the style.
+                                        var  match = /(?:^|\s)height\s*:\s*(\d+)px/i.exec( style );
+                                        var height = match && match[1];
+
+                                        if ( height )
+                                        {
+                                            element.attributes.style = element.attributes.style.replace( /(?:^|\s)height\s*:\s*(\d+)px;?/i , '' );
+                                            //element.attributes.height = height;
+                                            // Do not add to element attribute height, since then the height will be automatically (re-) added to style again by ckeditor or image js
+                                            // The current result is now: img alt class src style{width}. That is the only working state to get arround this issue in a relative simple way!
+                                            // Remember: Turning ACF OFF, will leave code alone, but still removes the height="" attribute! (workaround in extraAllowedContent added img[height]!)
+                                        }
+                                    }
                                 }
                             }
                         };
+
                     // It's good to set both filters - dataFilter is used when loading data and htmlFilter when retrieving.
                     editor.dataProcessor.htmlFilter.addRules( rules );
                     editor.dataProcessor.dataFilter.addRules( rules );

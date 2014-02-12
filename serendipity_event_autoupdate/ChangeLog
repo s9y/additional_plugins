@@ -1,3 +1,6 @@
+1.0
+    * Trying to enable flush on FastCGI servers
+
 0.9
     * Check if ZIP extension is installed and loaded
 

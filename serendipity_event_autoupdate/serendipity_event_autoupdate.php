@@ -22,7 +22,7 @@ class serendipity_event_autoupdate extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_AUTOUPDATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Ian');
-        $propbag->add('version',       '0.9');
+        $propbag->add('version',       '1.0');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '5.1'
@@ -58,6 +58,8 @@ class serendipity_event_autoupdate extends serendipity_event {
             // Total processes
             $total = 3;
 
+            ob_implicit_flush(1);
+
             // fake processing loop
             for($i=1; $i<=$total; $i++){
                 // Calculate the percentation
@@ -69,6 +71,9 @@ class serendipity_event_autoupdate extends serendipity_event {
     document.getElementById("progress").innerHTML="<div style=\"width:'.$percent.';background-color:#ddd;\">&nbsp;</div>";
     document.getElementById("information").innerHTML="'.$percent.' processed.";
 </script>';
+
+                //this is for the buffer achieve the minimum size in order to flush data
+                echo str_repeat(' ',1024*64);
 
                 // Send output to browser immediately
                 flush();

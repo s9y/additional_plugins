@@ -1,8 +1,8 @@
 <?php # 
 
 /**
- *  @file UTF-8/lang_de.inc.php 1.4.6 2014-92-09 Ian
- *  @version 1.4.6
+ *  @file lang_de.inc.php 1.4.7 2014-02-12 Ian
+ *  @version 1.4.7
  *  @author Translator Name <yourmail@example.com>
  *  DE-Revision: Revision of lang_de.inc.php
  */
@@ -11,14 +11,14 @@
 @define('PLUGIN_EVENT_CKEDITOR_DESC', 'Nutzt CKEditor als den Standard WYSIWYG Editor. Dieser ist zur Zeit der state-of-the-art Editor im Internet. Benutzung: Empfohlen! Nach der Installation, lies die Plugin Konfigurations Seite für weitere Informationen.');
 @define('PLUGIN_EVENT_CKEDITOR_REVISION_TITLE', '<h3>Das Plugin enthält:</h3>');
 @define('PLUGIN_EVENT_CKEDITOR_INSTALL', '<h2>Installation</h2>
-<div class="cke_config_block">
-    <p><strong>PLEASE NOTE:</strong> Deaktiviere body, extended und nugget parsing im <strong>NL2BR</strong> plugin!</p>
+<div class="msg_notice">
+    <p><strong>Abhängigkeiten:</strong> Deaktiviere body, extended und nugget parsing im <strong>NL2BR</strong> plugin!</p>
 </div>
 <ol style="line-height: 1.6">
     <li>Um anderen Plugins Zugriff auf das Plugin oder dessen Hook zu gewähren, plaziere das (CKEditor) Plugin nahe dem Ende deiner Pluginliste.</li>
     <li>Versichere dich, dass der WYSIWYG Modus in den "Persönlichen Einstellungen" eingeschaltet ist.</li>
 </ol>
-<div class="cke_config_block">
+<div class="cke_config_block msg_dialogue">
     <h3>Manuelle Erweiterungen mit anderen CKEDITOR Plugins</h3>
     <ol style="line-height: 1.6">
         <li>Definiere manuell hinzugefügte Plugins (analog zu <em>{ name: \'mediaembed\' },</em>) in der custom cke_config.js, in der <em>CKEDITOR.config.toolbarGroups = [...]</em> Definition.</li>

@@ -458,8 +458,6 @@ class serendipity_event_ckeditor extends serendipity_event
 
 .cke_config_block {
     opacity: 0.7;
-    background: none repeat scroll 0% 0% rgb(238, 238, 238);
-    padding: 0.5em;
     font-size: smaller;
     border: 1px dashed;
 }

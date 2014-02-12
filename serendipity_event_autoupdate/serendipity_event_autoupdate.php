@@ -76,6 +76,7 @@ class serendipity_event_autoupdate extends serendipity_event {
                 echo str_repeat(' ',1024*64);
 
                 // Send output to browser immediately
+                ob_flush();
                 flush();
 
                 // Sleep one second so we can see the delay

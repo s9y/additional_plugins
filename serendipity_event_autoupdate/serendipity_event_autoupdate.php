@@ -73,7 +73,7 @@ class serendipity_event_autoupdate extends serendipity_event {
 </script>';
 
                 //this is for the buffer achieve the minimum size in order to flush data
-                echo str_repeat(' ',1024*64);
+                echo str_repeat(' ',1024*64); // need to keep here since this also flushes the progress bar on fastCGI
 
                 // Send output to browser immediately
                 ob_flush();
@@ -92,6 +92,7 @@ class serendipity_event_autoupdate extends serendipity_event {
         for ($i=0; $i<$levels; $i++) {
             ob_end_flush();
         }
+        ob_flush();
         flush();
     }
 

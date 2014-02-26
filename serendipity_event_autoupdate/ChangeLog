@@ -1,5 +1,9 @@
+1.1
+    * Translated and faked message unicode-icons to Chrome Browser, since this 
+      does not work with all native unicodes (like clock and triangled <!>).
+
 1.0
-    * Trying to enable flush on FastCGI servers
+    * Enable flush to work on FastCGI servers
 
 0.9
     * Check if ZIP extension is installed and loaded

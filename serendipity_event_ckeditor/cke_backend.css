@@ -1,0 +1,17 @@
+
+.icon-ok:before{content:'\2714'}
+.icon-error:before{content:'\26a0';}
+.icon-attention:before{content:'\2757';}
+.icon-attention:before{content:'!';font-weight:bold;} /* fake for chrome, since exclamation mark ! not supported as native \2757 */
+
+.icon-error:before{content:'\2716'} /* fake for chrome, since origin triangled exclamation mark <!> not supported as native unicode */
+
+.icon-attention:before, .icon-error:before {color:red;}
+.icon-ok:before {color:green;}
+.icon-ok:before, .icon-error:before, .icon-attention:before {font-size:131%;}
+
+.cke_config_block {
+    opacity: 0.7;
+    font-size: smaller;
+    border: 1px dashed;
+}

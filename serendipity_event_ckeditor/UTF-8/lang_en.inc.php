@@ -1,8 +1,8 @@
 <?php # 
 
 /**
- *  @file UTF-8/lang_en.inc.php 1.4.7 2014-02-12 Ian
- *  @version 1.4.7
+ *  @file UTF-8/lang_en.inc.php 1.4.8 2014-02-28 Ian
+ *  @version 1.4.8
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of UTF-8/lang_en.inc.php
  */
@@ -12,7 +12,7 @@
 @define('PLUGIN_EVENT_CKEDITOR_REVISION_TITLE', '<h3>This Plugin includes:</h3>');
 @define('PLUGIN_EVENT_CKEDITOR_INSTALL', '<h2>Installation</h2>
 <div class="msg_notice">
-    <p><strong>Dependencies:</strong> Disable body, extended and nugget parsing in the <strong>NL2BR</strong> plugin!</p>
+    <p><span class="icon-attention"></span> <strong>Dependencies:</strong> Disable body, extended and nugget parsing in the <strong>NL2BR</strong> plugin, OR by entry with entryproperties plugin event and/or for staticpages by entry "Perform Markup Transformations" option!</p>
 </div>
 <ol style="line-height: 1.6">
     <li>To allow other plugins to use or hook into the editor, place this (CKEditor) plugin near the end of your plugin list.</li>

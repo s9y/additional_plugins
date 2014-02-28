@@ -55,21 +55,21 @@ class serendipity_event_ckeditor extends serendipity_event
      * @access protected
      * @var string
      */
-    protected $cke_zipfile = 'ckeditor_4.3.2.1_standard-plus.zip';
+    protected $cke_zipfile = 'ckeditor_4.3.3.0_standard-plus.zip';
 
     /**
      * Access property checkUpdateVersion
      * Verify release package versions - do update on upgrades!
      * @var array
      */
-    protected $checkUpdateVersion = array('ckeditor:4.3.2.1', 'kcfinder:2.52-2');
+    protected $checkUpdateVersion = array('ckeditor:4.3.3.0', 'kcfinder:2.52-2');
 
     /**
      * Access property revisionPackage
      * Note revisions of ckeditor, kcfinder and plugin additions to lang files
      * @var array
      */
-    protected $revisionPackage = array('CKEditor 4.3.2 (revision ba625e6, standard package, 2014-01-21)',
+    protected $revisionPackage = array('CKEditor 4.3.3 (revision 7841b02, standard package, 2014-02-22)',
                                        'KCFinder 2.52-dev (http://kcfinder.sunhater.com/ git package, 2013-05-04)',
                                        'CKEditor-Plugin: mediaembed, v. 0.5+ (https://github.com/frozeman/MediaEmbed, 2013-09-12)',
                                        'CKEditor-Plugin: pbckcode, v. 1.1.0 (https://github.com/prbaron/PBCKCode, 2013-09-06)',
@@ -145,7 +145,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '3.2.1'); // is CKEDITOR Series 4 (hidden) - revision .3.2 - and appended plugin revision .1
+        $propbag->add('version',       '3.3.0'); // is CKEDITOR Series 4 (hidden) - revision .3.3 - and appended plugin revision .0
         $propbag->add('copyright',     'GPL or LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
@@ -247,7 +247,7 @@ class serendipity_event_ckeditor extends serendipity_event
             $this->set_config('force_install', 'false');
             // forceZipInstall forces to surround the checkUpdate function, thus we set config database table to keep track
             $this->updateTableZip();
-            echo '<p class="msg_success"><span class="icon-ok-circle"></span><strong>Force deflate done:</strong> Please reload this page <a href="'.$serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=plugins&serendipity[plugin_to_conf]='.urlencode($this->instance).'" target="_self">here</a>!</p>';
+            echo '<p class="msg_success"><span class="icon-ok"></span><strong>Force deflate done:</strong> Please reload this page <a href="'.$serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=plugins&serendipity[plugin_to_conf]='.urlencode($this->instance).'" target="_self">here</a>!</p>';
         }
 
         $installer = $this->get_config('installer'); // Can't use method return value in write context in '' with substr(), get_config() and isset()
@@ -264,19 +264,19 @@ class serendipity_event_ckeditor extends serendipity_event
         if( isset($installer) && !empty($installer) ) {
             switch ($installer[0]) {
                 case '4': // this won't happen, since case 2 is true - just a fake
-                    echo '<p class="msg_notice"><span class="icon-info-circle"></span><strong>Check Plugin Update Message:</strong> NO CONFIG SET OR NO MATCH -> config_set: "last_'.$parts[0].'_version:'. $parts[1].'"</p>';
+                    echo '<p class="msg_notice"><span class="icon-attention"></span> <strong>Check Plugin Update Message:</strong> NO CONFIG SET OR NO MATCH -> config_set: "last_'.$parts[0].'_version:'. $parts[1].'"</p>';
                     break;
                 case '3':
-                    echo '<p class="msg_success"><span class="icon-ok-circle"></span><strong>Installer Update Message:</strong> Check Update found false, no unpack needed. Plugin upgrade successfully done <strong>or</strong> has been triggered to be checked by an other Spartacus Plugin update!</p>';
+                    echo '<p class="msg_success"><span class="icon-ok"></span> <strong>Installer Update Message:</strong> Check Update found false, no unpack needed. Plugin upgrade successfully done <strong>or</strong> has been triggered to be checked by an other Spartacus Plugin update!</p>';
                     break;
                 case '2':
-                    echo '<p class="msg_success"><span class="icon-ok-circle"></span><strong>Installer Message:</strong> Extracting the zip to ' . $this->cke_path . ' directory done!</p>';
+                    echo '<p class="msg_success"><span class="icon-ok"></span> <strong>Installer Message:</strong> Extracting the zip to ' . $this->cke_path . ' directory done!</p>';
                     break;
                 case '1':
-                    echo '<p class="msg_error"><span class="icon-attention-circle"></span><strong>Installer Error[1]:</strong> Extracting the zip to ' . $this->cke_path . ' directory failed!<br>Please extract ' . $this->cke_zipfile . ' by hand.</p>';
+                    echo '<p class="msg_error"><span class="icon-error"></span> <strong>Installer Error[1]:</strong> Extracting the zip to ' . $this->cke_path . ' directory failed!<br>Please extract ' . $this->cke_zipfile . ' by hand.</p>';
                     break;
                 case '0':
-                    echo '<p class="msg_error"><span class="icon-attention-circle"></span><strong>Installer Error[0]:</strong> Due to a writing permission error, extracting the zip to ' . $this->cke_path . ' directory failed!<br>Please set "/plugins" or "/plugins/serendipity_event_ckeditor" directory and files correct writing permissions and extract ' . $this->cke_zipfile . ' by hand or try again and <u>remove(!)</u> this plugin from your plugin list and install it again.</p>';
+                    echo '<p class="msg_error"><span class="icon-error"></span> <strong>Installer Error[0]:</strong> Due to a writing permission error, extracting the zip to ' . $this->cke_path . ' directory failed!<br>Please set "/plugins" or "/plugins/serendipity_event_ckeditor" directory and files correct writing permissions and extract ' . $this->cke_zipfile . ' by hand or try again and <u>remove(!)</u> this plugin from your plugin list and install it again.</p>';
                     break;
             }
             $this->set_config('installer', ''); // can't use serendipity_plugin_api::remove_plugin_value($this->instance, array('installer')); here, since it delivers the wrong instance
@@ -413,56 +413,21 @@ class serendipity_event_ckeditor extends serendipity_event
                     break;
 
 
-                case 'css_backend': // do not use in 2.0 versions
+                case 'css_backend':
 ?>
-/* CKE BACKEND MESSAGES
-   ----------------------------------------------------------------- */
+/* CKE styles start ----------------------------------------------------------------- */
+
 <?php
+                    // do not use in 2.0 versions
                     if ($serendipity['version'][0] == '1') {
-?>
-.msg_error,
-.msg_success,
-.msg_notice,
-.msg_dialogue {
-    display:block;
-    margin: 1.5em 0;
-    padding: 10px;
-}
-
-.msg_error {
-    background: #f2dede;
-    border: 1px solid #e4b9b9;
-    color: #b94a48;
-}
-
-.msg_success {
-    background: #dff0d8;
-    border: 1px solid #c1e2b3;
-    color: #468847;
-}
-
-.msg_notice {
-    background: #fcf8e3;
-    border: 1px solid #f7ecb5;
-    color: #c09853;
-}
-
-.msg_dialogue {
-    background: #eee;
-    border: 1px solid #aaa;
-    color: #777;
-}
-<?php
+                        echo file_get_contents(dirname(__FILE__) . '/cke_olds9y.css');
                     }
+                    if (!strpos($eventData, '.cke_config_block')) {
+                        echo file_get_contents(dirname(__FILE__) . '/cke_backend.css');
+                    }
+
 ?>
-
-.cke_config_block {
-    opacity: 0.7;
-    font-size: smaller;
-    border: 1px dashed;
-}
-
-/* CKE end ----------------------------------------------------------------- */
+/* CKE styles end ----------------------------------------------------------------- */
 
 <?php
                     break;

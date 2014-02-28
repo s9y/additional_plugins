@@ -1,3 +1,9 @@
+3.3.0:
+-----
+    * Upgrade to CKEDITOR 4.3 Series update 3
+    * Moved styles to files and changed icon-font minors
+    * Be a little more verbose in the dependencies note
+
 3.2.1:
 -----
     * "Fixed" MediaLibrary img tag code implementation in case of responsive templates

@@ -1,8 +1,8 @@
 <?php # 
 
 /**
- *  @file lang_de.inc.php 1.4.7 2014-02-12 Ian
- *  @version 1.4.7
+ *  @file lang_de.inc.php 1.4.8 2014-02-28 Ian
+ *  @version 1.4.8
  *  @author Translator Name <yourmail@example.com>
  *  DE-Revision: Revision of lang_de.inc.php
  */
@@ -12,7 +12,7 @@
 @define('PLUGIN_EVENT_CKEDITOR_REVISION_TITLE', '<h3>Das Plugin enthält:</h3>');
 @define('PLUGIN_EVENT_CKEDITOR_INSTALL', '<h2>Installation</h2>
 <div class="msg_notice">
-    <p><strong>Abhängigkeiten:</strong> Deaktiviere body, extended und nugget parsing im <strong>NL2BR</strong> plugin!</p>
+    <p><span class="icon-attention"></span> <strong>Abhängigkeiten:</strong> Deaktiviere body, extended und nugget parsing im <strong>NL2BR</strong> Plugin, oder per entry über das entryproperty plugin event und/oder für statische Seiten über die Entry "Textformatierungs" Option!</p>
 </div>
 <ol style="line-height: 1.6">
     <li>Um anderen Plugins Zugriff auf das Plugin oder dessen Hook zu gewähren, plaziere das (CKEditor) Plugin nahe dem Ende deiner Pluginliste.</li>

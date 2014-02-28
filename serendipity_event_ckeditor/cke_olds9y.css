@@ -1,0 +1,33 @@
+
+.msg_error,
+.msg_success,
+.msg_notice,
+.msg_dialogue {
+    display:block;
+    margin: 1.5em 0;
+    padding: 10px;
+}
+
+.msg_error {
+    background: #f2dede;
+    border: 1px solid #e4b9b9;
+    color: #b94a48;
+}
+
+.msg_success {
+    background: #dff0d8;
+    border: 1px solid #c1e2b3;
+    color: #468847;
+}
+
+.msg_notice {
+    background: #fcf8e3;
+    border: 1px solid #f7ecb5;
+    color: #c09853;
+}
+
+.msg_dialogue {
+    background: #eee;
+    border: 1px solid #aaa;
+    color: #777;
+}

@@ -1,6 +1,6 @@
 3.3.0:
 -----
-    * Upgrade to CKEDITOR 4.3 Series update 3
+    * Upgrade to CKEDITOR 4.3 Series update 3 (http://ckeditor.com/node/134732)
     * Moved styles to files and changed icon-font minors
     * Be a little more verbose in the dependencies note
 

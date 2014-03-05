@@ -66,7 +66,7 @@ class serendipity_event_guestbook extends serendipity_event {
                         'dateformat'
                     ));
         $propbag->add('author',       'Ian');
-        $propbag->add('version',      '3.42');
+        $propbag->add('version',      '3.43');
         $propbag->add('requirements', array(
                         'serendipity' => '1.3',
                         'smarty'      => '2.6.7',
@@ -84,9 +84,10 @@ class serendipity_event_guestbook extends serendipity_event {
      * 
      */
     function example() {
-        echo "\n<ul>\n";
-        echo "    <li><strong>Note to v. 3.40:</strong> If have, please update copied guestbook tpl files in your template!</li>\n";
-        echo "</ul>\n\n";
+        return 
+        "\n<ul>\n" .
+        "    <li><strong>Note to v. 3.40:</strong> If you want to customize the template of this guestbook, please copy those  guestbook tpl files to your template directory!</li>\n" .
+        "</ul>\n\n";
     }
 
 

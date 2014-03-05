@@ -17,7 +17,7 @@ class serendipity_event_flickr extends serendipity_event
 {
     // called just after installation, to display post install notes
     function example() {
-        echo PLUGIN_EVENT_FLICKR_INSTALL;
+        return PLUGIN_EVENT_FLICKR_INSTALL;
     }
 
     // should describe the plugin: author, version, requirements, ...
@@ -31,7 +31,7 @@ class serendipity_event_flickr extends serendipity_event
         $propbag->add('stackable',     false);
         $propbag->add('license',       'GPL');
         $propbag->add('author',        'Jay Bertrand');
-        $propbag->add('version',       '0.4');
+        $propbag->add('version',       '0.5');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',

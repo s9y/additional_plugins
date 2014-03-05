@@ -18,7 +18,7 @@ class serendipity_event_xinha extends serendipity_event
     var $title = PLUGIN_EVENT_XINHA_NAME;
 
     function example() {
-        echo PLUGIN_EVENT_XINHA_INSTALL;
+        return PLUGIN_EVENT_XINHA_INSTALL;
     }
 
     function introspect(&$propbag)
@@ -29,7 +29,7 @@ class serendipity_event_xinha extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_XINHA_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Ziyad Saeed, Garvin Hicking');
-        $propbag->add('version',       '0.8');
+        $propbag->add('version',       '0.9');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',

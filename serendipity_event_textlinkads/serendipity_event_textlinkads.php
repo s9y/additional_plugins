@@ -30,7 +30,7 @@ class serendipity_event_textlinkads extends serendipity_event
             'php'         => '4.1.0'
         ));
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
-        $propbag->add('version',       '0.11');
+        $propbag->add('version',       '0.12');
         $propbag->add('configuration', array('htmlid', 'xmlfilename'));
         $propbag->add('event_hooks',    array(
             'css'                  => true,
@@ -40,7 +40,7 @@ class serendipity_event_textlinkads extends serendipity_event
     }
 
     function example() {
-        echo PLUGIN_EVENT_TEXTLINKADS_INFO;
+        return PLUGIN_EVENT_TEXTLINKADS_INFO;
     }
     
     function introspect_config_item($name, &$propbag) {

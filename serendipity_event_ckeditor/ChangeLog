@@ -1,3 +1,4 @@
+3.3.1: Properly use the example() API method by returning, not echo'ing. Unimportant update.
 3.3.0:
 -----
     * Upgrade to CKEDITOR 4.3 Series update 3 (http://ckeditor.com/node/134732)

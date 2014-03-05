@@ -25,7 +25,7 @@ class serendipity_plugin_smiletag extends serendipity_plugin
         $propbag->add('description',   PLUGIN_SMILETAG_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.03');
+        $propbag->add('version',       '1.04');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -55,7 +55,7 @@ class serendipity_plugin_smiletag extends serendipity_plugin
     }
 
     function example() {
-        echo '<p>' . PLUGIN_SMILETAG_INSTALL . '</p>';
+        return '<p>' . PLUGIN_SMILETAG_INSTALL . '</p>';
     }
 
     function generate_content(&$title)

@@ -145,7 +145,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '3.3.0'); // is CKEDITOR Series 4 (hidden) - revision .3.3 - and appended plugin revision .0
+        $propbag->add('version',       '3.3.1'); // is CKEDITOR Series 4 (hidden) - revision .3.3 - and appended plugin revision .0
         $propbag->add('copyright',     'GPL or LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
@@ -239,7 +239,7 @@ class serendipity_event_ckeditor extends serendipity_event
     }
 
     function example() {
-
+        $s = '';
         if (serendipity_db_bool($this->get_config('force_install'))) {
             $this->forceZipInstall = true;
             $this->install();
@@ -247,43 +247,44 @@ class serendipity_event_ckeditor extends serendipity_event
             $this->set_config('force_install', 'false');
             // forceZipInstall forces to surround the checkUpdate function, thus we set config database table to keep track
             $this->updateTableZip();
-            echo '<p class="msg_success"><span class="icon-ok"></span><strong>Force deflate done:</strong> Please reload this page <a href="'.$serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=plugins&serendipity[plugin_to_conf]='.urlencode($this->instance).'" target="_self">here</a>!</p>';
+            $s .= '<p class="msg_success"><span class="icon-ok"></span><strong>Force deflate done:</strong> Please reload this page <a href="'.$serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=plugins&serendipity[plugin_to_conf]='.urlencode($this->instance).'" target="_self">here</a>!</p>';
         }
 
         $installer = $this->get_config('installer'); // Can't use method return value in write context in '' with substr(), get_config() and isset()
         $parts     = explode(':', $this->checkUpdateVersion[0]); // this is ckeditor only
 
-        echo PLUGIN_EVENT_CKEDITOR_REVISION_TITLE;
-        echo "\n<ul>\n";
+        $s .= PLUGIN_EVENT_CKEDITOR_REVISION_TITLE;
+        $s .= "\n<ul>\n";
         // hook this as a scalar value into this plugins lang files (would be needed by adding this to a constant)
         foreach( $this->revisionPackage AS $revision ) {
-            echo '    <li>' . $revision . "</li>\n";
+            $s .= '    <li>' . $revision . "</li>\n";
         }
-        echo "</ul>\n\n";
+        $s .= "</ul>\n\n";
 
         if( isset($installer) && !empty($installer) ) {
             switch ($installer[0]) {
                 case '4': // this won't happen, since case 2 is true - just a fake
-                    echo '<p class="msg_notice"><span class="icon-attention"></span> <strong>Check Plugin Update Message:</strong> NO CONFIG SET OR NO MATCH -> config_set: "last_'.$parts[0].'_version:'. $parts[1].'"</p>';
+                    $s .= '<p class="msg_notice"><span class="icon-attention"></span> <strong>Check Plugin Update Message:</strong> NO CONFIG SET OR NO MATCH -> config_set: "last_'.$parts[0].'_version:'. $parts[1].'"</p>';
                     break;
                 case '3':
-                    echo '<p class="msg_success"><span class="icon-ok"></span> <strong>Installer Update Message:</strong> Check Update found false, no unpack needed. Plugin upgrade successfully done <strong>or</strong> has been triggered to be checked by an other Spartacus Plugin update!</p>';
+                    $s .= '<p class="msg_success"><span class="icon-ok"></span> <strong>Installer Update Message:</strong> Check Update found false, no unpack needed. Plugin upgrade successfully done <strong>or</strong> has been triggered to be checked by an other Spartacus Plugin update!</p>';
                     break;
                 case '2':
-                    echo '<p class="msg_success"><span class="icon-ok"></span> <strong>Installer Message:</strong> Extracting the zip to ' . $this->cke_path . ' directory done!</p>';
+                    $s .= '<p class="msg_success"><span class="icon-ok"></span> <strong>Installer Message:</strong> Extracting the zip to ' . $this->cke_path . ' directory done!</p>';
                     break;
                 case '1':
-                    echo '<p class="msg_error"><span class="icon-error"></span> <strong>Installer Error[1]:</strong> Extracting the zip to ' . $this->cke_path . ' directory failed!<br>Please extract ' . $this->cke_zipfile . ' by hand.</p>';
+                    $s .= '<p class="msg_error"><span class="icon-error"></span> <strong>Installer Error[1]:</strong> Extracting the zip to ' . $this->cke_path . ' directory failed!<br>Please extract ' . $this->cke_zipfile . ' by hand.</p>';
                     break;
                 case '0':
-                    echo '<p class="msg_error"><span class="icon-error"></span> <strong>Installer Error[0]:</strong> Due to a writing permission error, extracting the zip to ' . $this->cke_path . ' directory failed!<br>Please set "/plugins" or "/plugins/serendipity_event_ckeditor" directory and files correct writing permissions and extract ' . $this->cke_zipfile . ' by hand or try again and <u>remove(!)</u> this plugin from your plugin list and install it again.</p>';
+                    $s .= '<p class="msg_error"><span class="icon-error"></span> <strong>Installer Error[0]:</strong> Due to a writing permission error, extracting the zip to ' . $this->cke_path . ' directory failed!<br>Please set "/plugins" or "/plugins/serendipity_event_ckeditor" directory and files correct writing permissions and extract ' . $this->cke_zipfile . ' by hand or try again and <u>remove(!)</u> this plugin from your plugin list and install it again.</p>';
                     break;
             }
             $this->set_config('installer', ''); // can't use serendipity_plugin_api::remove_plugin_value($this->instance, array('installer')); here, since it delivers the wrong instance
         }
         #echo $installer[0] . ' - ' . $this->instance; // this debug message on the other hand will do well, if all went through w/o install() returning false
-        echo PLUGIN_EVENT_CKEDITOR_INSTALL;
-        echo PLUGIN_EVENT_CKEDITOR_CONFIG;
+        $s .= PLUGIN_EVENT_CKEDITOR_INSTALL;
+        $s .= PLUGIN_EVENT_CKEDITOR_CONFIG;
+        return $s;
     }
 
     /**

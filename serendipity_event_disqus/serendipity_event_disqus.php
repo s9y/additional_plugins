@@ -27,7 +27,7 @@ class serendipity_event_disqus extends serendipity_event {
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '0.2');
+        $propbag->add('version',       '0.3');
         $propbag->add('groups', array('FRONTEND_VIEWS'));
         $propbag->add('event_hooks', array(
             'frontend_display:html:per_entry' => true,
@@ -78,7 +78,7 @@ class serendipity_event_disqus extends serendipity_event {
     }
     
     function example() {
-        echo nl2br(PLUGIN_DISQUS_DESC2);
+        return nl2br(PLUGIN_DISQUS_DESC2);
     }
     
     function event_hook($event, &$bag, &$eventData, $addData = null) {

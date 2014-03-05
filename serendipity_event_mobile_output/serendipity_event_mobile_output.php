@@ -14,7 +14,7 @@ TODO:
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
-@define('PLUGIN_EVENT_MOBILE_VERSION','1.03');
+@define('PLUGIN_EVENT_MOBILE_VERSION','1.04');
 @define('PLUGIN_EVENT_MOBILE_AUTHORS','Pelle Boese, Grischa Brockhaus');
 
 @define('PLUGIN_EVENT_MOBILE_TPL_IPHONE','iphone.app');
@@ -151,22 +151,25 @@ class serendipity_event_mobile_output extends serendipity_event
     function example() {
         $template = $this->get_config('iphone_template');
         $template_meta = new serendipity_template_meta($template);
+        $s = '';
         if (!@file_exists($template_meta->getTemplateDir())) {
-            echo "Template " . $template . " not installed. You will find one for each type in the plugin directory.";
-            echo "<br/>";
+            $s .= "Template " . $template . " not installed. You will find one for each type in the plugin directory.";
+            $s .= "<br/>";
         }
         $template = $this->get_config('android_template');
         $template_meta = new serendipity_template_meta($template);
         if (!@file_exists($template_meta->getTemplateDir())) {
-            echo "Template " . $template . " not installed. You will find one for each type in the plugin directory.";
-            echo "<br/>";
+            $s .= "Template " . $template . " not installed. You will find one for each type in the plugin directory.";
+            $s .= "<br/>";
         }
         $template = $this->get_config('mobile_template');
         $template_meta = new serendipity_template_meta($template);
         if (!@file_exists($template_meta->getTemplateDir())) {
-            echo "Template " . $template . " not installed. You will find one for each type in the plugin directory.";
-            echo "<br/>";
+            $s .= "Template " . $template . " not installed. You will find one for each type in the plugin directory.";
+            $s .= "<br/>";
         }
+        
+        return $s;
     }
     
     function event_hook($event, &$bag, &$eventData, $addData = null) {

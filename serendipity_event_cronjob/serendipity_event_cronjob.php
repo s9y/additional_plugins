@@ -22,7 +22,7 @@ class serendipity_event_cronjob extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_CRONJOB_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '0.8');
+        $propbag->add('version',       '0.9');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '4.1.0'
@@ -65,16 +65,18 @@ class serendipity_event_cronjob extends serendipity_event {
 
     function example() {
         global $serendipity;
-        echo '<br /><div style="border: 1px solid red; padding: 5px;">' . PLUGIN_EVENT_CRONJOB_DETAILS . '</div>';
-        echo '<br /><fieldset><legend>' . PLUGIN_EVENT_CRONJOB_LOG . '</legend><table cellspacing=1 cellpadding=2>';
-        echo '<tr><th>' . DATE . '</th><th>' . TYPE . '</th><th>' . DESCRIPTION . '</th></tr>';
+        $s = '';
+        $s .= '<br /><div style="border: 1px solid red; padding: 5px;">' . PLUGIN_EVENT_CRONJOB_DETAILS . '</div>';
+        $s .= '<br /><fieldset><legend>' . PLUGIN_EVENT_CRONJOB_LOG . '</legend><table cellspacing=1 cellpadding=2>';
+        $s .= '<tr><th>' . DATE . '</th><th>' . TYPE . '</th><th>' . DESCRIPTION . '</th></tr>';
         $res = serendipity_db_query("SELECT timestamp, type, reason FROM {$serendipity['dbPrefix']}cronjoblog ORDER BY timestamp DESC");
         if (is_array($res)) {
             foreach($res AS $row) {
-                echo '<tr><td>' . date('d.m.Y H:i', $row['timestamp']) . '</td><td>' . htmlspecialchars($row['type']) . '</td><td>' . htmlspecialchars($row['reason']) . '</td></tr>' . "\n";
+                $s .= '<tr><td>' . date('d.m.Y H:i', $row['timestamp']) . '</td><td>' . htmlspecialchars($row['type']) . '</td><td>' . htmlspecialchars($row['reason']) . '</td></tr>' . "\n";
             }
         }
-        echo '</table></fieldset>';
+        $s .= '</table></fieldset>';
+        return $s;
     }
 
     function introspect_config_item($name, &$propbag) {

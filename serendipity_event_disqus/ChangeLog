@@ -1,3 +1,4 @@
+0.3: Properly use the example() API method by returning, not echo'ing. Unimportant update.
 Version 0.2
 * Made it work with articles not having an extended part.
 * Made trackbacks visible again (for templates supporting it), css class to be hidden configurable now.

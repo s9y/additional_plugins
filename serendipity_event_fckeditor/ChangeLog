@@ -1,3 +1,4 @@
+0.9: Properly use the example() API method by returning, not echo'ing. Unimportant update.    
 0.8:
 - Changed download URL to sourceforge.net, since fckeditor.com is now ckeditor.com 
   and has no available downloads for this (old) FCKeditor plugin.

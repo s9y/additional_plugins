@@ -18,9 +18,7 @@ class serendipity_event_fckeditor extends serendipity_event
     var $is_init = false;
 
     function example() {
-        echo PLUGIN_EVENT_FCKEDITOR_UPDATE;
-        echo PLUGIN_EVENT_FCKEDITOR_INSTALL;
-        echo PLUGIN_EVENT_FCKEDITOR_CONFIG;
+        return PLUGIN_EVENT_FCKEDITOR_UPDATE . PLUGIN_EVENT_FCKEDITOR_INSTALL . PLUGIN_EVENT_FCKEDITOR_CONFIG;
     }
 
     function introspect(&$propbag)
@@ -31,7 +29,7 @@ class serendipity_event_fckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_FCKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Ziyad Saeed, Garvin Hicking, Ian');
-        $propbag->add('version',       '0.8');
+        $propbag->add('version',       '0.9');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',

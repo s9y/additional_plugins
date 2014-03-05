@@ -1,5 +1,6 @@
 # 
 
+1.11: Properly use the example() API method by returning, not echo'ing. Unimportant update.    
 1.10: Added ?js=1 parameter to gzip loader to properly load TinyMCE
 
 ------------------------------------------------------------------------

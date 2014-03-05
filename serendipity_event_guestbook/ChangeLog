@@ -1,3 +1,5 @@
+3.43: Properly use the example() API method by returning, not echo'ing. Unimportant update.    
+
 3.42:
 -----
  * fixed db table guestbook, ip column to IPv6 length

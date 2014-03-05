@@ -26,7 +26,7 @@ class serendipity_event_trackback extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_MTRACKBACK_TITLEDESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Malte Paskuda');
-        $propbag->add('version',       '1.15');
+        $propbag->add('version',       '1.16');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -286,6 +286,13 @@ class serendipity_event_trackback extends serendipity_event
                         unset($stored_entry['email']);
                     }
                     
+                    # Convert fetched categories to storable categories.    
+                    $current_cat = $stored_entry['categories'];
+                    $stored_entry['categories'] = array();
+                    foreach($current_cat AS $categoryidx => $category_data) {
+	                $stored_entry['categories'][$category_data['categoryid']] = $category_data['categoryid'];
+                    }
+
                     ob_start();
                     serendipity_updertEntry($stored_entry);
                     ob_end_clean();

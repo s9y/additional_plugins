@@ -1,3 +1,6 @@
+1.16: 
+   * Fixed error when saving an entry, which would loose its category association
+
 1.15:
     * Fixed foreach warning in some cases
 

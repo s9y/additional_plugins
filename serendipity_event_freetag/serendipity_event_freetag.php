@@ -72,7 +72,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.46');
+        $propbag->add('version',       '3.47');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -1715,6 +1715,12 @@ class serendipity_event_freetag extends serendipity_event
                         unset($entry['email']);
                         printf('%d - "%s"<br />', $entry['id'], htmlspecialchars($entry['title']));
                         $serendipity['POST']['properties']['fake'] = 'fake';
+                        $current_cat = $entry['categories'];
+                        $entry['categories'] = array();
+                        foreach($current_cat AS $categoryidx => $category_data) {
+	                    $entry['categories'][$category_data['categoryid']] = $category_data['categoryid'];
+                        }
+
                         $up = serendipity_updertEntry($entry);
                         if (is_string($up)) {
                             echo "<div>$up</div>\n";

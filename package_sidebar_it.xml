@@ -2566,15 +2566,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_smiletag</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_smiletag/ChangeLog</changelog>
 <license>GPL</license>
 <summary>SmileTag shoutbox</summary>
 <groups>FRONTEND_FEATURES</groups>
 <description>Uses the SmileTag shoutbox inside your sidebar. SmileTag itself is not distributed with this plugin.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.03</version>
+  <version>1.04</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_plugin_smiletag">
 <file>serendipity_plugin_smiletag.php</file>
@@ -2585,6 +2586,7 @@
 </dir>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>ChangeLog</file>
 <file>lang_en.inc.php</file>
 </dir>
 
@@ -2596,6 +2598,7 @@
     <file>serendipity_plugin_smiletag/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_plugin_smiletag/lang_cs.inc.php</file>
     <file>serendipity_plugin_smiletag/lang_cz.inc.php</file>
+    <file>serendipity_plugin_smiletag/ChangeLog</file>
     <file>serendipity_plugin_smiletag/lang_en.inc.php</file>
   </serendipityFilelist>
 </release>

@@ -798,9 +798,9 @@
 <description>Medger fri etikettering av artiklar</description>
 <maintainers><maintainer><name>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.46</version>
+  <version>3.47</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-12-17</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <dir name="UTF-8">
@@ -1018,9 +1018,9 @@
 <description>Allows granular control over how trackbacks are sent when creating entries</description>
 <maintainers><maintainer><name>Garvin Hicking, Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.15</version>
+  <version>1.16</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_trackback">
 <file>serendipity_event_trackback.php</file>
@@ -2236,9 +2236,9 @@
 <description>Visa en gästbol i din blog med ditt vanlig blog-utseende.</description>
 <maintainers><maintainer><name>Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.42</version>
+  <version>3.43</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2013-11-22</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="UTF-8">
@@ -5056,9 +5056,9 @@
 <description>Utilizes the TinyMCE WYSIWYG editor. Requires Serendipity 0.9 or later. After installation, read the installation guide in the configuration screen for this plugin.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.12</version>
+  <version>1.13</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_tinymce">
 <dir name="tinymce">
@@ -5490,9 +5490,9 @@
 <description>Utilizes the FCKeditor WYSIWYG editor. Note: This is the old, but still developed version, of the famous new CKEditor package. This plugin does not support other Serendipity Plugin &quot;hook-in buttons&quot;! After installation, read the installation guide in the configuration screen for this plugin.</description>
 <maintainers><maintainer><name>Ziyad Saeed, Garvin Hicking, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.8</version>
+  <version>0.9</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_fckeditor">
 <file>fckconfig.js</file>
@@ -5532,15 +5532,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_xinha</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_xinha/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Uses XINHA as WYSIWYG editor</summary>
 <groups>BACKEND_EDITOR</groups>
 <description>Warning! Xinha is experimental. Utilizes the XINHA WYSIWYG editor. Requires Serendipity 0.9. After installation, read the installation guide in the configuration screen for this plugin.</description>
 <maintainers><maintainer><name>Ziyad Saeed, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.8</version>
+  <version>0.9</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_xinha">
 <file>serendipity_event_xinha.php</file>
@@ -5554,6 +5555,7 @@
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -5567,6 +5569,7 @@
     <file>serendipity_event_xinha/lang_cs.inc.php</file>
     <file>serendipity_event_xinha/lang_cz.inc.php</file>
     <file>serendipity_event_xinha/lang_de.inc.php</file>
+    <file>serendipity_event_xinha/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7491,15 +7494,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_flickr</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_flickr/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Import from Flickr</summary>
 <groups>IMAGES</groups>
 <description>Import images from flickr.com into the media library</description>
 <maintainers><maintainer><name>Jay Bertrand</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.4</version>
+  <version>0.5</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_flickr">
 <file>lang_en.inc.php</file>
@@ -7517,6 +7521,7 @@
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
 </dir>
+<file>ChangeLog</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>documentation_cs.html</file>
@@ -7536,6 +7541,7 @@
     <file>serendipity_event_flickr/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_flickr/UTF-8/documentation_cs.html</file>
     <file>serendipity_event_flickr/UTF-8/documentation_cz.html</file>
+    <file>serendipity_event_flickr/ChangeLog</file>
     <file>serendipity_event_flickr/lang_cs.inc.php</file>
     <file>serendipity_event_flickr/lang_cz.inc.php</file>
     <file>serendipity_event_flickr/documentation_cs.html</file>
@@ -8050,15 +8056,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_textlinkads</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_textlinkads/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Embed Ads (TextLinkAds.com, Custom)</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
 <description>Embeds Ads into your page.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.11</version>
+  <version>0.12</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_textlinkads">
 <file>serendipity_event_textlinkads.php</file>
@@ -8077,6 +8084,7 @@
 <file>1.html</file>
 <file>2.html</file>
 </dir>
+<file>ChangeLog</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 </dir>
@@ -8093,6 +8101,7 @@
     <file>serendipity_event_textlinkads/headers/1.html</file>
     <file>serendipity_event_textlinkads/footers/1.html</file>
     <file>serendipity_event_textlinkads/footers/2.html</file>
+    <file>serendipity_event_textlinkads/ChangeLog</file>
     <file>serendipity_event_textlinkads/lang_cs.inc.php</file>
     <file>serendipity_event_textlinkads/lang_cz.inc.php</file>
   </serendipityFilelist>
@@ -8107,9 +8116,9 @@
 <description>This plugin periodically executes plugins that provide/require periodic tasks. See the configuration of this plugin for details.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.8</version>
+  <version>0.9</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_cronjob">
 <file>serendipity_event_cronjob.php</file>
@@ -8547,9 +8556,9 @@
 <description>This plugin handles mobile devices and outputs optimized XHTML MP markup if it detects a mobile browser and a specially optimized site for iPhone and iPod Touch. It also scales images to fit the display size.</description>
 <maintainers><maintainer><name>Pelle Boese, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.03</version>
+  <version>1.04</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2013-05-16</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_mobile_output">
 <file>serendipity_event_mobile_output.php</file>
@@ -10647,9 +10656,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>Uses CKEditor as the default WYSIWYG editor. This currently is the state-of-the-art Editor itself. Usage: Recommended! After installation, go to the configuration screen of this plugin for further instructions.</description>
 <maintainers><maintainer><name>Rustam Abdullaev, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.3.0</version>
+  <version>3.3.1</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2014-03-01</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_ckeditor">
 <dir name="UTF-8">
@@ -10716,9 +10725,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>Imports comments made on facebook postings (like through RSS Graffiti) back into the blog. Also embeds Facebook OpenGraph Meta-Tags into the blog. Note that adding &quot;like&quot;-Buttons to blog entries is achieved via the serendipity_event_findmore plugin! </description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.4</version>
+  <version>0.5</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-09-13</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_facebook">
 <dir name="UTF-8">
@@ -10795,9 +10804,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>Disqus.com is a webservice that allows you to manage comments, with central logins. It stores and manages comments outside of your Serendipity installation, and is embedded using JavaScript. For more information see disqus.com.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.2</version>
+  <version>0.3</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_disqus">
 <dir name="UTF-8">

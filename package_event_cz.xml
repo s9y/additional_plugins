@@ -798,9 +798,9 @@
 <description>Umožňuje libovolné přidávání klíčových slov k příspěvkům</description>
 <maintainers><maintainer><name>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.46</version>
+  <version>3.47</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-12-17</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <dir name="UTF-8">
@@ -1018,9 +1018,9 @@
 <description>Umožňuje podrobnou kontrolu chování odezev, jak jsou posílány při vytváření příspěvků</description>
 <maintainers><maintainer><name>Garvin Hicking, Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.15</version>
+  <version>1.16</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_trackback">
 <file>serendipity_event_trackback.php</file>
@@ -2236,9 +2236,9 @@
 <description>Zobrazuje návštěvní knihu jako stránku blogu. Vzhled je totožný s ostatními stránkami.</description>
 <maintainers><maintainer><name>Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.42</version>
+  <version>3.43</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2013-11-22</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="UTF-8">
@@ -5057,9 +5057,9 @@ aplikovány další typografické úpravy.</description>
 <description>Použije TiniMCE WYSIWYG editor pro psaní příspěvků. Vyžaduje Serendipity 0.9 nebo novější. Po instalaci si přečtěte instalačního průvodce v nastavení tohoto pluginu.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.12</version>
+  <version>1.13</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_tinymce">
 <dir name="tinymce">
@@ -5491,9 +5491,9 @@ aplikovány další typografické úpravy.</description>
 <description>Používá FCKeditor jako WYSIWYG editor. Vyžaduje Serendipity 0.9 nebo vyšší. Po instalaci si přečtěte instalačního průvodce na stránce s nastavením pluginu.</description>
 <maintainers><maintainer><name>Ziyad Saeed, Garvin Hicking, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.8</version>
+  <version>0.9</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_fckeditor">
 <file>fckconfig.js</file>
@@ -5533,15 +5533,16 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_xinha</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_xinha/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Použít XINHA jako WYSIWYG editor</summary>
 <groups>BACKEND_EDITOR</groups>
 <description>Pozor! Xinha je experimentální! Používá XINHA WYSIWYG editor. Vyžaduje Serendipity 0.9 nebo vyšší. Po nainstalování pluginu si přečtěte průvodce instalací na konfigurační stránce pluginu.</description>
 <maintainers><maintainer><name>Ziyad Saeed, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.8</version>
+  <version>0.9</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_xinha">
 <file>serendipity_event_xinha.php</file>
@@ -5555,6 +5556,7 @@ aplikovány další typografické úpravy.</description>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -5568,6 +5570,7 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_xinha/lang_cs.inc.php</file>
     <file>serendipity_event_xinha/lang_cz.inc.php</file>
     <file>serendipity_event_xinha/lang_de.inc.php</file>
+    <file>serendipity_event_xinha/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7492,15 +7495,16 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_flickr</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_flickr/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Import z Flickru</summary>
 <groups>IMAGES</groups>
 <description>Importuje obrázky z flickr.com do knihovny médií</description>
 <maintainers><maintainer><name>Jay Bertrand</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.4</version>
+  <version>0.5</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_flickr">
 <file>lang_en.inc.php</file>
@@ -7518,6 +7522,7 @@ aplikovány další typografické úpravy.</description>
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
 </dir>
+<file>ChangeLog</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>documentation_cs.html</file>
@@ -7537,6 +7542,7 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_flickr/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_flickr/UTF-8/documentation_cs.html</file>
     <file>serendipity_event_flickr/UTF-8/documentation_cz.html</file>
+    <file>serendipity_event_flickr/ChangeLog</file>
     <file>serendipity_event_flickr/lang_cs.inc.php</file>
     <file>serendipity_event_flickr/lang_cz.inc.php</file>
     <file>serendipity_event_flickr/documentation_cs.html</file>
@@ -8051,15 +8057,16 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_textlinkads</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_textlinkads/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Vložené reklamy (TextLinkAds.com, vlastní)</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
 <description>Vkládá reklamy do blogu.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.11</version>
+  <version>0.12</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_textlinkads">
 <file>serendipity_event_textlinkads.php</file>
@@ -8078,6 +8085,7 @@ aplikovány další typografické úpravy.</description>
 <file>1.html</file>
 <file>2.html</file>
 </dir>
+<file>ChangeLog</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 </dir>
@@ -8094,6 +8102,7 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_textlinkads/headers/1.html</file>
     <file>serendipity_event_textlinkads/footers/1.html</file>
     <file>serendipity_event_textlinkads/footers/2.html</file>
+    <file>serendipity_event_textlinkads/ChangeLog</file>
     <file>serendipity_event_textlinkads/lang_cs.inc.php</file>
     <file>serendipity_event_textlinkads/lang_cz.inc.php</file>
   </serendipityFilelist>
@@ -8108,9 +8117,9 @@ aplikovány další typografické úpravy.</description>
 <description>Tento plugin periodicky vykonává pluginy, které poskytují/vyžadují opakované vykonávání. Podrobnosti v konfiguraci pluginu.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.8</version>
+  <version>0.9</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_cronjob">
 <file>serendipity_event_cronjob.php</file>
@@ -8548,9 +8557,9 @@ aplikovány další typografické úpravy.</description>
 <description></description>
 <maintainers><maintainer><name>Pelle Boese, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.03</version>
+  <version>1.04</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2013-05-16</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_mobile_output">
 <file>serendipity_event_mobile_output.php</file>
@@ -10647,9 +10656,9 @@ aplikovány další typografické úpravy.</description>
 <description>Používá CKEditor jako výchozí WYSIWYG editor. Tento editor je aktuálním state-of-art. Použití: Doporučeno! Po instalaci přejděte na stránku s nastavením tohoto pluginu a čtěte další instrukce.</description>
 <maintainers><maintainer><name>Rustam Abdullaev, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.3.0</version>
+  <version>3.3.1</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2014-03-01</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_ckeditor">
 <dir name="UTF-8">
@@ -10716,9 +10725,9 @@ aplikovány další typografické úpravy.</description>
 <description>Importuje do blogu komentáře u příspěvků na facebooku (pomocí RSS Graffiti). Také do blogu vloží facebookové OpenGraph Meta-Tagy. Pamatujte, že přidání talčítka &quot;Líbí se mi&quot; k příspěvkům blogu je zajišťováno pluginem serendipity_event_findmore!</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.4</version>
+  <version>0.5</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-09-13</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_facebook">
 <dir name="UTF-8">
@@ -10795,9 +10804,9 @@ aplikovány další typografické úpravy.</description>
 <description>Disqus.com je webová služba pro správu komentářů. Ukládá a spravuje komentáře vně instalace serendipity a je do blogu vkládána pomocí JavaScriptu. Pro více informací přejděte na www.disqus.com.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.2</version>
+  <version>0.3</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-03-06</date>
   <filelist>
 <dir name="serendipity_event_disqus">
 <dir name="UTF-8">

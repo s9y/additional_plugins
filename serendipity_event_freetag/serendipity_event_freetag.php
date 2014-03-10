@@ -873,7 +873,6 @@ class serendipity_event_freetag extends serendipity_event
 
                 case 'js':
                     // autocomplete with serendipity 2.0
-                    echo "alert('js');\n";
                     echo "addLoadEvent(enableAutocomplete);\n";
                     break;
                     

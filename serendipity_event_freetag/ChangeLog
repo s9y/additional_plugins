@@ -1,3 +1,9 @@
+3.48:
+----
+
+Support serendipity 2.0 "js" event hook for autocomplete (still broken though)
+Do not loose tags when recreating entry
+
 3.47:
 -----
 Make updertEntry not loose possible category associations

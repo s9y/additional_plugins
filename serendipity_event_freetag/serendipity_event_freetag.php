@@ -72,7 +72,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.47');
+        $propbag->add('version',       '3.48');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -98,6 +98,7 @@ class serendipity_event_freetag extends serendipity_event
             'xmlrpc_fetchEntry'                                 => true,
             'xmlrpc_deleteEntry'                                => true,
             'css'                                               => true,
+            'js'                                                => true
         ));
         $propbag->add('groups', array('BACKEND_EDITOR'));
         $this->supported_properties = array('freetag_name', 'freetag_tagList');
@@ -798,6 +799,12 @@ class serendipity_event_freetag extends serendipity_event
                         }
                     }
 
+                    // When this variable is not set, the entry might be saved i.e. by recreating cache or automatted trackback.
+                    // Do not loose such tags. :)
+                    if (!isset($serendipity['POST']['properties']['freetag_tagList'])) {
+                        $serendipity['POST']['properties']['freetag_tagList'] = implode(',', $this->getTagsForEntry($eventData['id']));
+                    }
+                    
                     $tags = $this->makeTagsFromTagList($serendipity['POST']['properties']['freetag_tagList']);
 
                     if (serendipity_db_bool($this->get_config('keyword2tag'))) {
@@ -864,6 +871,12 @@ class serendipity_event_freetag extends serendipity_event
                     return true;
                     break;
 
+                case 'js':
+                    // autocomplete with serendipity 2.0
+                    echo "alert('js');\n";
+                    echo "addLoadEvent(enableAutocomplete);\n";
+                    break;
+                    
                 case 'backend_display':
                     if (function_exists('mb_internal_encoding')) {
                         mb_internal_encoding(LANG_CHARSET);
@@ -911,7 +924,7 @@ class serendipity_event_freetag extends serendipity_event
                                         autoFill: false
                                     })};
 
-                         addLoadEvent(enableAutocomplete);
+                         ' . ($serendipity['version'][0] == 1 ? 'addLoadEvent(enableAutocomplete);' : '') . '
                         </script>';
                     }
 

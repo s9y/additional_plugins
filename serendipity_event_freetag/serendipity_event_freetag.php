@@ -873,7 +873,18 @@ class serendipity_event_freetag extends serendipity_event
 
                 case 'js':
                     // autocomplete with serendipity 2.0
-                    echo "addLoadEvent(enableAutocomplete);\n";
+                    echo '
+                        function enableAutocomplete() {
+                            $("#properties_freetag_tagList").autocomplete(tags, {
+                                        minChars: 0,
+                                        multiple: true,
+                                        scrollHeight: 200,
+                                        matchContains: "word",
+                                        autoFill: false
+                                    })};
+
+                    addLoadEvent(enableAutocomplete);
+                    ';
                     break;
                     
                 case 'backend_display':
@@ -908,12 +919,15 @@ class serendipity_event_freetag extends serendipity_event
                         foreach ($taglist as $k => $v) {
                             $wicktags[] = '\'' . addslashes($k) . '\'';
                         }
+                        // jQuery Migrate is used due to $.browser of autocomplete plugin not being available in jquery 1.9+
                         echo '
-                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+                        ' . ($serendipity['version'][0] == 1 ? '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>' : '') . '
                         <link rel="stylesheet" type="text/css" href="' . $serendipity['baseURL'] . 'plugins/serendipity_event_freetag/jquery.autocomplete.css" />
+                        <script src="https://code.jquery.com/jquery-migrate-1.1.1.js"></script>
                         <script type="text/javascript" language="Javascript" src="' . $serendipity['baseURL'] . 'plugins/serendipity_event_freetag/jquery.autocomplete.min.js"></script>
                         <script type="text/javascript" language="Javascript">
                         var tags = [' . implode(',', $wicktags) . '];
+                         ' . ($serendipity['version'][0] == 1 ? '
                         function enableAutocomplete() {
                             $("#properties_freetag_tagList").autocomplete(tags, {
                                         minChars: 0,
@@ -922,8 +936,8 @@ class serendipity_event_freetag extends serendipity_event
                                         matchContains: "word",
                                         autoFill: false
                                     })};
-
-                         ' . ($serendipity['version'][0] == 1 ? 'addLoadEvent(enableAutocomplete);' : '') . '
+                         addLoadEvent(enableAutocomplete);
+                         ' : '') . '
                         </script>';
                     }
 

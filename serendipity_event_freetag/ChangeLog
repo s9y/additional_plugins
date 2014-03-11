@@ -1,7 +1,9 @@
+3.49: Repair autocomplete for 2.0
+
 3.48:
 ----
 
-Support serendipity 2.0 "js" event hook for autocomplete (still broken though)
+Support serendipity 2.0 "js" event hook for autocomplete
 Do not loose tags when recreating entry
 
 3.47:

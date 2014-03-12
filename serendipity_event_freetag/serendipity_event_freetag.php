@@ -72,7 +72,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.49');
+        $propbag->add('version',       '3.50');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -873,7 +873,8 @@ class serendipity_event_freetag extends serendipity_event
 
                 case 'js':
                     // autocomplete with serendipity 2.0
-                    echo '
+                    if ($this->get_config('admin_ftayt')) {
+                        echo '
                         function enableAutocomplete() {
                             $("#properties_freetag_tagList").autocomplete(tags, {
                                         minChars: 0,
@@ -883,8 +884,9 @@ class serendipity_event_freetag extends serendipity_event
                                         autoFill: false
                                     })};
 
-                    addLoadEvent(enableAutocomplete);
-                    ';
+                        addLoadEvent(enableAutocomplete);
+                        ';
+                    }
                     break;
                     
                 case 'backend_display':

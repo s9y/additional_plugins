@@ -29,7 +29,7 @@ class serendipity_event_xinha extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_XINHA_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Ziyad Saeed, Garvin Hicking');
-        $propbag->add('version',       '0.9');
+        $propbag->add('version',       '0.10');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',
@@ -106,6 +106,9 @@ class serendipity_event_xinha extends serendipity_event
                 case 'backend_wysiwyg_nuggets':
                 case 'backend_wysiwyg_finish':
                     $path = $this->get_config('path');
+                    $pparts = explode('/', $path);
+                    array_pop($pparts);
+                    $mainpath = implode('/', $pparts);
 ?>
 <!--Xinha Stuff Starts-->
 <script type="text/javascript">
@@ -140,9 +143,9 @@ class serendipity_event_xinha extends serendipity_event
        'EditTag',
        <?php echo (serendipity_db_bool($this->get_config('imanager')) ? "'imanager',\n" : ""); ?>
        'Equation',
-       'EnterParagraphs',
+       // 'EnterParagraphs',
        'FindReplace',
-       'FullScreen',
+       //'FullScreen',
        'ImageManager',
        'InsertAnchor',
        'InsertSmiley',
@@ -225,7 +228,7 @@ class serendipity_event_xinha extends serendipity_event
            xinha_config.ImageManager.backend_config_hash = '<?php echo sha1($IMConfig . $_SESSION['Xinha:ImageManager'])?>';
        }
 
-       xinha_config.registerButton('image_selector', 'Manage Images', 'htmlarea/images/ed_s9yimage.gif', false,
+       xinha_config.registerButton('image_selector', '<?php echo MANAGE_IMAGES; ?>', '<?php echo $mainpath; ?>../ed_s9yimage.gif', false,
             function(editor, id) {
                 window.open('serendipity_admin_image_selector.php?serendipity[textarea]=body', 'ImageSel', 'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1');
                 editorref = xinha_editors['serendipity[body]'];
@@ -267,7 +270,7 @@ class serendipity_event_xinha extends serendipity_event
                     foreach($fields AS $fid => $field) {
 ?>
        if (document.getElementById('<?php echo $field; ?>')) {
-           xinha_editors['<?php echo $field; ?>'].config.registerButton('image_selector', 'Manage Images', 'htmlarea/images/ed_s9yimage.gif', false,
+           xinha_editors['<?php echo $field; ?>'].config.registerButton('image_selector', '<?php echo MANAGE_IMAGES; ?>', '<?php echo $mainpath; ?>/../ed_s9yimage.gif', false,
                 function(editor, id) {
                     window.open('serendipity_admin_image_selector.php?serendipity[textarea]=<?php echo $fid; ?>', 'ImageSel', 'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1');
                     editorref = xinha_editors['<?php echo $field; ?>'];

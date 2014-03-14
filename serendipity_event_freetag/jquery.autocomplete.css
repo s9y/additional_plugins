@@ -4,6 +4,7 @@
  * @license MIT | GPL | Apache 2.0, see LICENSE.txt
  * @see https://github.com/dyve/jquery-autocomplete
  */
+.ac_results,
 .acResults {
 	padding: 0px;
 	border: 1px solid WindowFrame;
@@ -11,6 +12,7 @@
 	overflow: hidden;
 }
 
+.ac_results ul,
 .acResults ul {
 	margin: 0px;
 	padding: 0px;
@@ -18,6 +20,7 @@
 	list-style: none;
 }
 
+.ac_results li,
 .acResults ul li {
 	margin: 0px;
 	padding: 2px 5px;
@@ -28,10 +31,15 @@
 	overflow: hidden;
 }
 
+.ac_loading,
 .acLoading {
 	background : url('indicator.gif') right center no-repeat;
 }
+.ac_odd {
+	background-color: #eee;
+}
 
+.ac_over,
 .acSelect {
 	background-color: Highlight;
 	color: HighlightText;

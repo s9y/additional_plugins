@@ -72,7 +72,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.51');
+        $propbag->add('version',       '3.50');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -886,7 +886,8 @@ function enableAutocomplete() {
 };
 
 addLoadEvent(enableAutocomplete);
-                        ';
+
+';
                     }
                     break;
                     
@@ -922,11 +923,13 @@ addLoadEvent(enableAutocomplete);
                         foreach ($taglist as $k => $v) {
                             $wicktags[] = '\'' . addslashes($k) . '\'';
                         }
+                        // jQuery Migrate is used due to $.browser of autocomplete plugin not being available in jquery 1.9+
                         echo '
                         ' . ($serendipity['version'][0] == 1 ? '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>' : '') . '
                         <link rel="stylesheet" type="text/css" href="' . $serendipity['baseURL'] . 'plugins/serendipity_event_freetag/jquery.autocomplete.css" />
-                        <script type="text/javascript" src="' . $serendipity['baseURL'] . 'plugins/serendipity_event_freetag/jquery.autocomplete.min.js"></script>
-                        <script type="text/javascript">
+                        <script src="https://code.jquery.com/jquery-migrate-1.1.1.js"></script>
+                        <script type="text/javascript" language="Javascript" src="' . $serendipity['baseURL'] . 'plugins/serendipity_event_freetag/jquery.autocomplete.min.js"></script>
+                        <script type="text/javascript" language="Javascript">
                         var tags = [' . implode(',', $wicktags) . '];
                          ' . ($serendipity['version'][0] == 1 ? '
                         function enableAutocomplete() {

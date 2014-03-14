@@ -72,7 +72,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.50');
+        $propbag->add('version',       '3.51');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -875,16 +875,17 @@ class serendipity_event_freetag extends serendipity_event
                     // autocomplete with serendipity 2.0
                     if ($this->get_config('admin_ftayt')) {
                         echo '
-                        function enableAutocomplete() {
-                            $("#properties_freetag_tagList").autocomplete(tags, {
-                                        minChars: 0,
-                                        multiple: true,
-                                        scrollHeight: 200,
-                                        matchContains: "word",
-                                        autoFill: false
-                                    })};
+function enableAutocomplete() {
+    $("#properties_freetag_tagList").autocomplete(tags, {
+        minChars: 0,
+        multiple: true,
+        scrollHeight: 200,
+        matchContains: "word",
+        autoFill: false
+    })
+};
 
-                        addLoadEvent(enableAutocomplete);
+addLoadEvent(enableAutocomplete);
                         ';
                     }
                     break;
@@ -921,13 +922,11 @@ class serendipity_event_freetag extends serendipity_event
                         foreach ($taglist as $k => $v) {
                             $wicktags[] = '\'' . addslashes($k) . '\'';
                         }
-                        // jQuery Migrate is used due to $.browser of autocomplete plugin not being available in jquery 1.9+
                         echo '
                         ' . ($serendipity['version'][0] == 1 ? '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>' : '') . '
                         <link rel="stylesheet" type="text/css" href="' . $serendipity['baseURL'] . 'plugins/serendipity_event_freetag/jquery.autocomplete.css" />
-                        <script src="https://code.jquery.com/jquery-migrate-1.1.1.js"></script>
-                        <script type="text/javascript" language="Javascript" src="' . $serendipity['baseURL'] . 'plugins/serendipity_event_freetag/jquery.autocomplete.min.js"></script>
-                        <script type="text/javascript" language="Javascript">
+                        <script type="text/javascript" src="' . $serendipity['baseURL'] . 'plugins/serendipity_event_freetag/jquery.autocomplete.min.js"></script>
+                        <script type="text/javascript">
                         var tags = [' . implode(',', $wicktags) . '];
                          ' . ($serendipity['version'][0] == 1 ? '
                         function enableAutocomplete() {

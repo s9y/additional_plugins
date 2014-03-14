@@ -5539,9 +5539,9 @@
 <description>Warung: XINGHA ist experimentell! Es wird mindestens Serendipity Version 0.9 benätigt. Nach der Installation sollte die Installationsanleitung im Konfigurationsfenster dieses Plugins gelesen werden. Ab Version 1.4 ist XINHA standardmäßig in S9Y enthalten. Dieses Plugin wird dafür nicht mehr benötigt.</description>
 <maintainers><maintainer><name>Ziyad Saeed, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.9</version>
+  <version>0.10</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2014-03-06</date>
+  <date>2014-03-14</date>
   <filelist>
 <dir name="serendipity_event_xinha">
 <file>serendipity_event_xinha.php</file>
@@ -5555,6 +5555,7 @@
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
+<file>ed_s9yimage.gif</file>
 <file>ChangeLog</file>
 </dir>
 
@@ -5569,6 +5570,7 @@
     <file>serendipity_event_xinha/lang_cs.inc.php</file>
     <file>serendipity_event_xinha/lang_cz.inc.php</file>
     <file>serendipity_event_xinha/lang_de.inc.php</file>
+    <file>serendipity_event_xinha/ed_s9yimage.gif</file>
     <file>serendipity_event_xinha/ChangeLog</file>
   </serendipityFilelist>
 </release>

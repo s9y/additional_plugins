@@ -5540,9 +5540,9 @@ aplikovány další typografické úpravy.</description>
 <description>Pozor! Xinha je experimentální! Používá XINHA WYSIWYG editor. Vyžaduje Serendipity 0.9 nebo vyšší. Po nainstalování pluginu si přečtěte průvodce instalací na konfigurační stránce pluginu.</description>
 <maintainers><maintainer><name>Ziyad Saeed, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.9</version>
+  <version>0.10</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2014-03-06</date>
+  <date>2014-03-14</date>
   <filelist>
 <dir name="serendipity_event_xinha">
 <file>serendipity_event_xinha.php</file>
@@ -5556,6 +5556,7 @@ aplikovány další typografické úpravy.</description>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
+<file>ed_s9yimage.gif</file>
 <file>ChangeLog</file>
 </dir>
 
@@ -5570,6 +5571,7 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_xinha/lang_cs.inc.php</file>
     <file>serendipity_event_xinha/lang_cz.inc.php</file>
     <file>serendipity_event_xinha/lang_de.inc.php</file>
+    <file>serendipity_event_xinha/ed_s9yimage.gif</file>
     <file>serendipity_event_xinha/ChangeLog</file>
   </serendipityFilelist>
 </release>

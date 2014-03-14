@@ -743,7 +743,7 @@
 <category>Event Plugins</category>
 <author>Ziyad Saeed, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_xinha&lt;br /&gt;Benutze XINHA als WYSIWYG editor &lt;/b&gt;&lt;br /&gt;Warung: XINGHA ist experimentell! Es wird mindestens Serendipity Version 0.9 benätigt. Nach der Installation sollte die Installationsanleitung im Konfigurationsfenster dieses Plugins gelesen werden. Ab Version 1.4 ist XINHA standardmäßig in S9Y enthalten. Dieses Plugin wird dafür nicht mehr benötigt.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Thu, 06 Mar 2014 02:31:18 +0100</pubDate>
+<pubDate>Fri, 14 Mar 2014 02:31:14 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_xinha</guid>
 </item>
 <item>

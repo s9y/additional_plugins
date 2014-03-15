@@ -753,6 +753,7 @@
 <file>serendipity_plugin_freetag.php</file>
 <file>swfobject.js</file>
 <file>tagcloud.swf</file>
+<file>DEADJOE</file>
 <dir name="img">
 <file>technorati.jpg</file>
 </dir>
@@ -797,6 +798,7 @@
     <file>serendipity_event_freetag/serendipity_plugin_freetag.php</file>
     <file>serendipity_event_freetag/swfobject.js</file>
     <file>serendipity_event_freetag/tagcloud.swf</file>
+    <file>serendipity_event_freetag/DEADJOE</file>
     <file>serendipity_event_freetag/img/technorati.jpg</file>
     <file>serendipity_event_freetag/README.txt</file>
     <file>serendipity_event_freetag/documentation_cs.html</file>

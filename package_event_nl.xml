@@ -800,7 +800,7 @@
 <release>
   <version>3.50</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-03-13</date>
+  <date>2014-03-15</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <dir name="UTF-8">
@@ -836,6 +836,7 @@
 <file>serendipity_plugin_freetag.php</file>
 <file>swfobject.js</file>
 <file>tagcloud.swf</file>
+<file>DEADJOE</file>
 <dir name="img">
 <file>technorati.jpg</file>
 </dir>
@@ -880,6 +881,7 @@
     <file>serendipity_event_freetag/serendipity_plugin_freetag.php</file>
     <file>serendipity_event_freetag/swfobject.js</file>
     <file>serendipity_event_freetag/tagcloud.swf</file>
+    <file>serendipity_event_freetag/DEADJOE</file>
     <file>serendipity_event_freetag/img/technorati.jpg</file>
     <file>serendipity_event_freetag/README.txt</file>
     <file>serendipity_event_freetag/documentation_cs.html</file>

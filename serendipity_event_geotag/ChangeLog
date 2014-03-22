@@ -1,3 +1,7 @@
+1.33 (mattsches)
+----------------------------------
+* Fix bug when post title contains apostrophe.
+
 1.30/31 (brockhaus)
 ----------------------------------
 * Compatibility fixes.

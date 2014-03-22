@@ -422,13 +422,13 @@ map.setCenter(lonLat, zoom);
         $counter = 0;
         foreach ($tt as $t) { ?>
 
-titles.push('<?php echo $t['title']; ?>');
+titles.push('<?php echo addslashes($t['title']); ?>');
 urls.push('<?php echo $t['permalink']; ?>');
 setMarkerOsm(
     {
         lat: <?php echo $t['lat']; ?>,
         lng: <?php echo $t['lng']; ?>,
-        title: '<?php echo $t['title']; ?>',
+        title: '<?php echo addslashes($t['title']); ?>',
         url: '<?php echo $t['permalink']; ?>'
     },
     null

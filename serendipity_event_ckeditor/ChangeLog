@@ -1,4 +1,11 @@
+3.4.0:
+-----
+    * Upgrade to CKEDITOR 4.3 Series update 4 (http://ckeditor.com/node/135140)
+    * Enhance allowed content tags in cke_custom.js
+
 3.3.1: Properly use the example() API method by returning, not echo'ing. Unimportant update.
+-----
+
 3.3.0:
 -----
     * Upgrade to CKEDITOR 4.3 Series update 3 (http://ckeditor.com/node/134732)

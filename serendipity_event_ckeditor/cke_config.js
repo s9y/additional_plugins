@@ -3,7 +3,7 @@
  */
 
 /**
- * @fileOverview A Serendipity serendipity_event_ckeditor CKEDITOR custom config file: cke_config.js, v. 1.6, 2014-02-11
+ * @fileOverview A Serendipity serendipity_event_ckeditor CKEDITOR custom config file: cke_config.js, v. 1.7, 2014-03-30
  */
 
 /**
@@ -54,9 +54,10 @@ CKEDITOR.editorConfig = function( config ) {
 
         // Set placeholder tag cases - elements [attributes]{styles}(classes)
         // Allowed mediainsert, gallery, media tags (imageselectorplus galleries) - which tells ACF to not touch the code!
-        // Allowed div is a need for Media Library inserts - which tells ACF to not touch the code!
-        // img[height] is even needed to avoid ACF OFF removement of height attribute
-        config.extraAllowedContent = 'mediainsert[*]{*}(*);gallery[*]{*}(*);media[*]{*}(*);script[*]{*}(*);audio[*]{*}(*);div[*]{*}(*);img[height,width];';
+        // Allowed audio/div tag attributes, styles and classes - was a need for Media Library inserts, which tells ACF to not touch the code!
+        // Allowed further p/span tag styles and/or classes, since commonly used by authors  - which tells ACF to not touch the code!
+        // img[height] is even needed to avoid ACF OFF removement of height attributes
+        config.extraAllowedContent = 'mediainsert;gallery[*];media[*];script[*];audio[*](*);div[*]{*}(*);p{*}(*);span{*}(*);img[height,width];';
 
         // CKEDITOR.protectedSource patterns used regex Escape sequences
         //            \s any whitespace character; 

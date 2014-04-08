@@ -76,7 +76,7 @@ class serendipity_event_cal extends serendipity_event {
                                         )
                     );
         $propbag->add('author',         'Ian (Timbalu)');
-        $propbag->add('version',        '1.68');
+        $propbag->add('version',        '1.69');
         $propbag->add('groups',         array('FRONTEND_FEATURES', 'BACKEND_FEATURES'));
         $propbag->add('requirements',   array(
                                             'serendipity' => '1.4',
@@ -2198,7 +2198,9 @@ class serendipity_event_cal extends serendipity_event {
             
             /* templates detection that this is not a regular entry view and avoid processing entries.tpl, 
                which will obviously contain serendipity_Entry_Date, etc. */
-            $serendipity['smarty']->assign('staticpage_pagetitle', preg_replace('@[^a-z0-9]@i', '_', $this->get_config('pagetitle')));
+            $pt = preg_replace('@[^a-z0-9]@i', '_', $this->get_config('pagetitle'));
+            $serendipity['smarty']->assign('staticpage_pagetitle', $pt);
+            $_ENV['staticpage_pagetitle'] = $pt;
             
             if ($this->get_config('articleformat') == true) { 
                 $serendipity['smarty']->assign('is_eventcal_articleformat', true);

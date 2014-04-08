@@ -27,7 +27,7 @@ class serendipity_event_wrapURL extends serendipity_event {
         $propbag->add('event_hooks',  array('entries_header' => true, 'entry_display' => true, 'genpage' => true, 'frontend_generate_plugins' => true, 'css' => true));
         $propbag->add('configuration', array('headline', 'permalink', 'pagetitle', 'wrapurl', 'height', 'wrapurl_append', 'hide_sidebar'));
         $propbag->add('author', 'Rob Antonishen, Ian (Timbalu)');
-        $propbag->add('version', '0.9');
+        $propbag->add('version', '0.10');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
@@ -130,7 +130,8 @@ class serendipity_event_wrapURL extends serendipity_event {
                 }
             }
             
-            $serendipity['smarty']->assign('staticpage_pagetitle', preg_replace('@[^a-z0-9]@i', '_',$this->get_config('pagetitle')));
+            $_ENV['staticpage_pagetitle'] = preg_replace('@[^a-z0-9]@i', '_',$this->get_config('pagetitle'));
+            $serendipity['smarty']->assign('staticpage_pagetitle', $_ENV['staticpage_pagetitle']);
             echo '<h4 class="serendipity_title"><a href="#">' . $this->get_config('headline') . '</a></h4>';
 
             echo '<div id="plugin_wrapurl_'.$serendipity['wrapurl']['id_name'].'">';

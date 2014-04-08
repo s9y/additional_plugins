@@ -50,7 +50,7 @@ class serendipity_event_downloadmanager extends serendipity_event {
             'php'         => '5.0.0'
         ));
 
-        $propbag->add('version',       '0.29');
+        $propbag->add('version',       '0.30');
         $propbag->add('author',       'Alexander \'dma147\' Mieland, Grischa Brockhaus, Ian (Timbalu)');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
@@ -322,7 +322,8 @@ class serendipity_event_downloadmanager extends serendipity_event {
             }
 
             serendipity_smarty_init();
-            $serendipity['smarty']->assign('staticpage_pagetitle', preg_replace('@[^a-z0-9]@i', '_',$this->get_config('pagetitle')));
+            $_ENV['staticpage_pagetitle'] = preg_replace('@[^a-z0-9]@i', '_',$this->get_config('pagetitle'));
+            $serendipity['smarty']->assign('staticpage_pagetitle', $_ENV['staticpage_pagetitle']);
             $this->showShoutPage();
         }
     }

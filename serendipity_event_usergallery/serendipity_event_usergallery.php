@@ -24,7 +24,7 @@ class serendipity_event_usergallery extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_USERGALLERY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Arnan de Gans, Matthew Groeninger, and Stefan Willoughby');
-        $propbag->add('version',       '2.56');
+        $propbag->add('version',       '2.57');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -488,7 +488,8 @@ class serendipity_event_usergallery extends serendipity_event
            return;
         }
 
-        $serendipity['smarty']->assign('staticpage_pagetitle', preg_replace('@[^a-z0-9]@i', '_',$this->get_config('base_directory')));
+        $_ENV['staticpage_pagetitle'] = preg_replace('@[^a-z0-9]@i', '_',$this->get_config('base_directory'));
+        $serendipity['smarty']->assign('staticpage_pagetitle', $_ENV['staticpage_pagetitle']);
         $serendipity['smarty']->assign('const', array('filesize'      => PLUGIN_EVENT_USERGALLERY_FILESIZE,
                                                       'filename'      => PLUGIN_EVENT_USERGALLERY_FILENAME,
                                                       'dimension'     => PLUGIN_EVENT_USERGALLERY_DIMENSION,

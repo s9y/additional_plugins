@@ -94,7 +94,7 @@ class serendipity_event_customarchive extends serendipity_event {
         $propbag->add('event_hooks',  array('entries_header' => true, 'entry_display' => true, 'genpage' => true));
         $propbag->add('configuration', array('permalink', 'pagetitle', 'articleformat'));
         $propbag->add('author', 'Garvin Hicking');
-        $propbag->add('version', '1.11');
+        $propbag->add('version', '1.12');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -259,7 +259,9 @@ class serendipity_event_customarchive extends serendipity_event {
             if (!is_object($serendipity['smarty'])) {
                 serendipity_smarty_init();
             }
-            $serendipity['smarty']->assign('staticpage_pagetitle', preg_replace('@[^a-z0-9]@i', '_',$this->get_config('pagetitle')));
+            $pt = preg_replace('@[^a-z0-9]@i', '_',$this->get_config('pagetitle'));
+            $_ENV['staticpage_pagetitle'] = $pt;
+            $serendipity['smarty']->assign('staticpage_pagetitle', $pt);
 
 
             if ($this->get_config('articleformat') == TRUE) {

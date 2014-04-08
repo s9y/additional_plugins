@@ -1,6 +1,7 @@
 ChangeLog:
 """"""""""
 
+Propagate $smarty.env.staticpage_pagetitle (and the others) so that it can be used in entries.tpl
 latest: Smarty3 forward compatibility
 
 [Version 0.26 2011/02/15] by Ian (Timbalu)

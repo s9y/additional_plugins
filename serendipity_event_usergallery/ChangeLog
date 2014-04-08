@@ -1,3 +1,5 @@
+Propagate $smarty.env.staticpage_pagetitle (and the others) so that it can be used in entries.tpl
+
 2.55:
 -----
 Template and translation improvements

@@ -66,7 +66,7 @@ class serendipity_event_guestbook extends serendipity_event {
                         'dateformat'
                     ));
         $propbag->add('author',       'Ian');
-        $propbag->add('version',      '3.43');
+        $propbag->add('version',      '3.44');
         $propbag->add('requirements', array(
                         'serendipity' => '1.3',
                         'smarty'      => '2.6.7',
@@ -1003,11 +1003,14 @@ class serendipity_event_guestbook extends serendipity_event {
             }
 
             // Carl wanted the staticpage_pagetitle - see s9y-1.1 new hemingway theme index.tpl {$staticpage_pagetitle}
+            $_ENV['staticpage_pagetitle'] = preg_replace('@[^a-z0-9]@i', '_',$this->get_config('pagetitle'));
+            $_ENV['staticpage_headline']  = $this->get_config('headline');
+            $_ENV['staticpage_formorder'] = $this->get_config('formorder');
             $serendipity['smarty']->assign(
               array(
-                  'staticpage_headline'  => $this->get_config('headline'),
-                  'staticpage_pagetitle' => preg_replace('@[^a-z0-9]@i', '_',$this->get_config('pagetitle')),
-                  'staticpage_formorder' => $this->get_config('formorder')
+                  'staticpage_headline'  => $_ENV['staticpage_headline'],
+                  'staticpage_pagetitle' => $_ENV['staticpage_pagetitle'],
+                  'staticpage_formorder' => $_ENV['staticpage_formorder']
               )    
             );
 

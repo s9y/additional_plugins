@@ -20,7 +20,7 @@ class serendipity_event_pollbox extends serendipity_event {
         $propbag->add('configuration', array('permalink', "articleformat", "pagetitle", "articleformattitle"));
         $propbag->add('author', 'Garvin Hicking');
         $propbag->add('groups', array('STATISTICS'));
-        $propbag->add('version', '2.12');
+        $propbag->add('version', '2.13');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -117,7 +117,8 @@ class serendipity_event_pollbox extends serendipity_event {
             if (!is_object($serendipity['smarty'])) {
                 serendipity_smarty_init();
             }
-            $serendipity['smarty']->assign('staticpage_pagetitle', preg_replace('@[^a-z0-9]@i', '_',$this->get_config('pagetitle')));
+            $_ENV['staticpage_pagetitle'] = preg_replace('@[^a-z0-9]@i', '_',$this->get_config('pagetitle'));
+            $serendipity['smarty']->assign('staticpage_pagetitle', $_ENV['staticpage_pagetitle']);
 
             echo '<div class="serendipity_poll">';
             if (serendipity_db_bool($this->get_config('articleformat'))) {

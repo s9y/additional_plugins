@@ -96,7 +96,7 @@ class serendipity_event_userprofiles extends serendipity_event {
             'genpage' => true
         ));
         $propbag->add('author', 'Garvin Hicking, Falk Doering');
-        $propbag->add('version', '0.27');
+        $propbag->add('version', '0.28');
         $propbag->add('requirements', array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -291,7 +291,7 @@ class serendipity_event_userprofiles extends serendipity_event {
             if ('USERLEVEL_' == substr($group['name'], 0, 10)) {
                 $group['name'] = constant($group['name']);
             }
-
+            $_ENV['staticpage_pagetitle'] = 'userprofiles';
             $serendipity['smarty']->assign(array(
                 'staticpage_pagetitle' => 'userprofiles',
                 'userprofile_groups'   => serendipity_getAllGroups(),

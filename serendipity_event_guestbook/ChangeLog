@@ -1,3 +1,4 @@
+3.44: Propagate $smarty.env.staticpage_pagetitle (and the others) so that it can be used in entries.tpl
 3.43: Properly use the example() API method by returning, not echo'ing. Unimportant update.    
 
 3.42:

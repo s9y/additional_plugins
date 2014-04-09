@@ -1493,6 +1493,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_pollbox</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_pollbox/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Umfragen</summary>
 <groups>STATISTICS</groups>
@@ -1520,6 +1521,7 @@
 <file>lang_en.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -1538,6 +1540,7 @@
     <file>serendipity_plugin_pollbox/lang_en.inc.php</file>
     <file>serendipity_plugin_pollbox/lang_cs.inc.php</file>
     <file>serendipity_plugin_pollbox/lang_cz.inc.php</file>
+    <file>serendipity_plugin_pollbox/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>

@@ -30,7 +30,7 @@ class serendipity_event_custom_permalinks extends serendipity_event {
                                         'backend_display'                   => true));
 
         $propbag->add('author', 'Garvin Hicking');
-        $propbag->add('version', '1.13');
+        $propbag->add('version', '1.14');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -125,8 +125,10 @@ class serendipity_event_custom_permalinks extends serendipity_event {
 
                     $query = "SELECT entryid,value FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid IN (" . implode(', ', $ids) . ") AND property = 'permalink'";
                     $retval = serendipity_db_query($query);
+                    if (is_array($retval)) {
                     foreach((array)$retval AS $pl) {
                         $this->ids[$pl['entryid']] = $pl['value'];
+                    }
                     }
 
                     break;

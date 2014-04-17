@@ -2398,15 +2398,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_custom_permalinks</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_custom_permalinks/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Frei-definierbare Permalinks zu Einträgen</summary>
 <groups>BACKEND_EDITOR</groups>
 <description>Ermöglicht die Eingabe eines individuellen Permalinks (dauerhafter Link) um spezifische Artikel aufzurufen. Es können nur URL-Muster verwendet werden, die nicht bereits intern verwendet werden - eigene Permalinks innerhalb der /archives/ Struktur sind daher nicht möglich. Aber andere, auch nicht existierende, Verzeichnisse können verwendet werden.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.13</version>
+  <version>1.14</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-12-11</date>
+  <date>2014-04-17</date>
   <filelist>
 <dir name="serendipity_event_custom_permalinks">
 <file>serendipity_event_custom_permalinks.php</file>
@@ -2421,6 +2422,7 @@
 <file>lang_en.inc.php</file>
 <file>lang_bg.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -2435,6 +2437,7 @@
     <file>serendipity_event_custom_permalinks/lang_en.inc.php</file>
     <file>serendipity_event_custom_permalinks/lang_bg.inc.php</file>
     <file>serendipity_event_custom_permalinks/lang_cz.inc.php</file>
+    <file>serendipity_event_custom_permalinks/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>

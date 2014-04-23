@@ -1,5 +1,9 @@
 <?php
 
+if (IN_serendipity !== true) {
+    die ("Don't hack!");
+}
+
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
 /**
@@ -238,6 +242,9 @@ class serendipity_event_lsrstopper extends serendipity_event
     protected function getCacheFilename($url)
     {
         global $serendipity;
+        if (!defined('PATH_SMARTY_COMPILE')) {
+            return '';
+        }
         return $serendipity['serendipityPath'] . '/' . PATH_SMARTY_COMPILE . '/lsrstopper/' . md5($url);
     }
 

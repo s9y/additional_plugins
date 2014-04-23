@@ -1,7 +1,7 @@
 <?php
 
 require_once S9Y_INCLUDE_PATH . 'tests/plugins/PluginTest.php';
-require_once S9Y_INCLUDE_PATH . 'plugins/serendipity_event_lsrstopper/serendipity_event_lsrstopper.php';
+require_once S9Y_INCLUDE_PATH . 'plugins/additional_plugins/serendipity_event_lsrstopper/serendipity_event_lsrstopper.php';
 
 /**
  * Class serendipity_event_lsrstopperTest

@@ -19,7 +19,7 @@ class serendipity_event_dpsyntaxhighlighter extends serendipity_event {
 
     var $title = PLUGIN_EVENT_DPSYNTAXHIGHLIGHTER_NAME;
 
-  var $version = '2.1.365'; // helps to be easily able to upgrade on upstream upgrade
+  var $version = '3.0.83'; // helps to be easily able to upgrade on upstream upgrade
   
   /* _get_directory_match support function:
    * read files from $dir that match regexp $tomatch and store matches in 
@@ -59,6 +59,13 @@ class serendipity_event_dpsyntaxhighlighter extends serendipity_event {
         $conf_array = array();
         $conf_array[] = 'path';
         $conf_array[] = 'theme';
+        $conf_array[] = 'toolbar';
+        $conf_array[] = 'auto-links';
+        $conf_array[] = 'class-name';
+        $conf_array[] = 'collapse';
+        $conf_array[] = 'gutter';
+        $conf_array[] = 'smart-tabs';
+        $conf_array[] = 'tab-size';
         $propbag->add('configuration', $conf_array);
     }
 
@@ -87,6 +94,49 @@ class serendipity_event_dpsyntaxhighlighter extends serendipity_event {
                 $propbag->add('select_values',  $themes);
                 $propbag->add('default',        'Default');
                 break;
+            case 'toolbar':
+                $propbag->add('type',           'boolean');
+                $propbag->add('name',           PLUGIN_EVENT_DPSYNTAXHIGHLIGHTER_TOOLBAR);
+                $propbag->add('description',    PLUGIN_EVENT_DPSYNTAXHIGHLIGHTER_TOOLBAR_DESC);
+                $propbag->add('default',        true);
+                break;
+            case 'auto-links':
+                $propbag->add('type',           'boolean');
+                $propbag->add('name',           PLUGIN_EVENT_DPSYNTAXHIGHLIGHTER_AUTOLINS);
+                $propbag->add('description',    PLUGIN_EVENT_DPSYNTAXHIGHLIGHTER_AUTOLINKS_DESC);
+                $propbag->add('default',        true);
+                break;
+            case 'class-name':
+                $propbag->add('type',           'string');
+                $propbag->add('name',           PLUGIN_EVENT_DPSYNTAXHIGHLIGHTER_CLASSNAME);
+                $propbag->add('description',    PLUGIN_EVENT_DPSYNTAXHIGHLIGHTER_CLASSNAME_DESC);
+                $propbag->add('default',        '');
+                break;
+            case 'collapse':
+                $propbag->add('type',           'boolean');
+                $propbag->add('name',           PLUGIN_EVENT_DPSYNTAXHIGHLIGHTER_COLLAPSE);
+                $propbag->add('description',    PLUGIN_EVENT_DPSYNTAXHIGHLIGHTER_COLLAPSE_DESC);
+                $propbag->add('default',        false);
+                break;
+            case 'gutter':
+                $propbag->add('type',           'boolean');
+                $propbag->add('name',           PLUGIN_EVENT_DPSYNTAXHIGHLIGHTER_GUTTER);
+                $propbag->add('description',    PLUGIN_EVENT_DPSYNTAXHIGHLIGHTER_GUTTER_DESC);
+                $propbag->add('default',        true);
+                break;
+            case 'smart-tabs':
+                $propbag->add('type',           'boolean');
+                $propbag->add('name',           PLUGIN_EVENT_DPSYNTAXHIGHLIGHTER_SMARTTABS);
+                $propbag->add('description',    PLUGIN_EVENT_DPSYNTAXHIGHLIGHTER_SMARTTABS_DESC);
+                $propbag->add('default',        true);
+                break;
+            case 'tab-size':
+                $propbag->add('type',           'string');
+                $propbag->add('name',           PLUGIN_EVENT_DPSYNTAXHIGHLIGHTER_TABSIZE);
+                $propbag->add('description',    PLUGIN_EVENT_DPSYNTAXHIGHLIGHTER_TABSIZE_DESC);
+                $propbag->add('default',        '4');
+                $propbag->add('validate',       'number');
+                break;
         }
         return true;
     }
@@ -108,7 +158,7 @@ class serendipity_event_dpsyntaxhighlighter extends serendipity_event {
 
 	    $header_add = '
 <script type="text/javascript" src="'.$pluginDir.'/sh/'.$this->version.'/scripts/shCore.js"></script>
-<script type="text/javascript" src="'.$pluginDir.'/sh/'.$this->version.'/scripts/shLegacy.js"></script>
+
 <link type="text/css" rel="stylesheet" href="'.$pluginDir.'/sh/'.$this->version.'/styles/shCore.css"/>
 <link type="text/css" rel="stylesheet" href="'.$pluginDir.'/sh/'.$this->version.'/styles/shTheme'.(empty($theme)?'Default':$theme).'.css" id="shTheme"/>';
 	    
@@ -121,9 +171,38 @@ class serendipity_event_dpsyntaxhighlighter extends serendipity_event {
 ';
 	    }
 	    $footer_add .= '<script type="text/javascript">
-  SyntaxHighlighter.config.clipboardSwf = \''.$pluginDir.'/sh/'.$this->version.'/scripts/clipboard.swf\';
-  SyntaxHighlighter.all();
-  dp.SyntaxHighlighter.HighlightAll(\'code\');
+  SyntaxHighlighter.config.clipboardSwf = \''.$pluginDir.'/sh/'.$this->version.'/scripts/clipboard.swf\';';
+            
+            $toolbar = $this->get_config('toolbar');
+            if (!$toolbar) {
+                $footer_add .=  'SyntaxHighlighter.defaults[\'toolbar\'] = false;';
+            }
+            $autoLinks = $this->get_config('auto-links');
+            if (!$autoLinks) {
+                $footer_add .=  'SyntaxHighlighter.defaults[\'auto-links\'] = false;';
+            }
+            $className = $this->get_config('class-name');
+            if ($className !== '') {
+                $footer_add .=  'SyntaxHighlighter.defaults[\'class-name\'] = \'' . $className . '\';';
+            }
+            $collapse = $this->get_config('collapse');
+            if ($collapse) {
+                $footer_add .=  'SyntaxHighlighter.defaults[\'collapse\'] = true;';
+            }
+            $gutter = $this->get_config('gutter');
+            if (!$gutter) {
+                $footer_add .=  'SyntaxHighlighter.defaults[\'gutter\'] = false;';
+            }
+            $smartTabs = $this->get_config('smart-tabs');
+            if (!$smartTabs) {
+                $footer_add .=  'SyntaxHighlighter.defaults[\'smart-tabs\'] = false;';
+            }
+            $tabSize = $this->get_config('tab-size');
+            if ($tabSize !== '4') {
+                $footer_add .=  'SyntaxHighlighter.defaults[\'tab-size\'] = ' . intval($tabSize) . ';';
+            }
+            
+  $footer_add .=  'SyntaxHighlighter.all();
 </script>
 ';
 

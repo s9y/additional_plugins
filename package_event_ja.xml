@@ -10556,7 +10556,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>0.3</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2013-03-08</date>
+  <date>2014-04-24</date>
   <filelist>
 <dir name="serendipity_event_lsrstopper">
 <dir name="UTF-8">

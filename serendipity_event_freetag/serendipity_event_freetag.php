@@ -72,7 +72,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.50');
+        $propbag->add('version',       '3.51');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -852,7 +852,7 @@ class serendipity_event_freetag extends serendipity_event
                                     $names = explode(',', $cat['category_name']);
                                     foreach($names AS $name) {
                                         $name = trim($name);
-                                        if (in_array($cat['categoryid'], $eventData['categories']) && !in_array($name, $tags)) {
+                                        if (is_array($eventData['categories']) && in_array($cat['categoryid'], $eventData['categories']) && !in_array($name, $tags)) {
                                             $tags[] = $name;
                                         }
                                     }

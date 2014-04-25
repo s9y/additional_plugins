@@ -1,37 +1,46 @@
 <?php
 
- # serendipity_event_typesetbuttons.php,v 0.1 12/21/2004 18:08:24
-
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
-
+/**
+ * Class serendipity_event_typesetbuttons
+ */
 class serendipity_event_typesetbuttons extends serendipity_event
 {
-    var $title = PLUGIN_EVENT_TYPESETBUTTONS_TITLE;
+    /**
+     * @var string
+     */
+    public $title = PLUGIN_EVENT_TYPESETBUTTONS_TITLE;
 
-    function introspect(&$propbag)
+    /**
+     * @var string
+     */
+    protected $txtarea;
+
+    /**
+     * @var bool
+     */
+    protected $legacy = false;
+
+    /**
+     * @param serendipity_property_bag $propbag
+     * @return true|void
+     */
+    public function introspect(&$propbag)
     {
-        global $serendipity;
-
-        $propbag->add('name',          PLUGIN_EVENT_TYPESETBUTTONS_TITLE);
-        $propbag->add('description',   PLUGIN_EVENT_TYPESETBUTTONS_DESC);
-        $propbag->add('stackable',     false);
-        $propbag->add('author',        'Matthew Groeninger, Malte Diers');
-        $propbag->add('version',       '0.11');
-        $propbag->add('requirements',  array(
-            'serendipity' => '0.8',
+        $propbag->add('name', PLUGIN_EVENT_TYPESETBUTTONS_TITLE);
+        $propbag->add('description', PLUGIN_EVENT_TYPESETBUTTONS_DESC);
+        $propbag->add('stackable', false);
+        $propbag->add('author', 'Matthew Groeninger, Malte Diers, Matthias Gutjahr');
+        $propbag->add('version', '0.22');
+        $propbag->add('requirements', array(
+            'serendipity' => '1.7',
             'smarty'      => '2.6.7',
-            'php'         => '4.1.0'
+            'php'         => '5.3.3'
         ));
         $propbag->add('configuration', array(
             'enable_center',
@@ -55,14 +64,19 @@ class serendipity_event_typesetbuttons extends serendipity_event
             'use_named_ents',
             'custom'
         ));
-        $propbag->add('event_hooks',    array(
+        $propbag->add('event_hooks', array(
             'backend_entry_toolbar_extended' => true,
             'backend_entry_toolbar_body' => true
         ));
         $propbag->add('groups', array('BACKEND_EDITOR'));
     }
 
-    function introspect_config_item($name, &$propbag)
+    /**
+     * @param string $name
+     * @param serendipity_property_bag $propbag
+     * @return bool
+     */
+    public function introspect_config_item($name, &$propbag)
     {
         switch ($name) {
             case 'custom':
@@ -291,357 +305,166 @@ class serendipity_event_typesetbuttons extends serendipity_event
         return true;
     }
 
-
-    function event_hook($event, &$bag, &$eventData, $addData = null) {
+    /**
+     * @param string $event
+     * @param serendipity_property_bag $bag
+     * @param array $eventData
+     * @return bool|true
+     */
+    public function event_hook($event, &$bag, &$eventData) {
         global $serendipity;
-
+        if (intval($serendipity['version'][0]) < 2) {
+            $this->legacy = true;
+        }
         $hooks = &$bag->get('event_hooks');
+        $pluginConfigurationKeys = $bag->get('configuration');
         if (isset($hooks[$event])) {
-            switch($event) {
+            switch ($event) {
                 case 'backend_entry_toolbar_extended':
-                    if (!$serendipity['wysiwyg']) {
-                        if (isset($eventData['backend_entry_toolbar_extended:textarea'])) {
-                            $txtarea = $eventData['backend_entry_toolbar_extended:textarea'];
-                        } else {
-                            $txtarea = "serendipity[extended]";
-                        }
-                        $this->generate_button($txtarea);
-                        return true;
-                    } else {
-                        return false;
-                    }
+                    return $this->processEvent('extended', $eventData, $pluginConfigurationKeys);
                     break;
-
                 case 'backend_entry_toolbar_body':
-                    if (!$serendipity['wysiwyg']) {
-                        if (isset($eventData['backend_entry_toolbar_body:textarea'])) {
-                            $txtarea = $eventData['backend_entry_toolbar_body:textarea'];
-                        } else {
-                            $txtarea = "serendipity[body]";
-                        }
-                        $this->generate_button($txtarea);
-                        return true;
-                    } else {
-                        return false;
-                    }
+                    return $this->processEvent('body', $eventData, $pluginConfigurationKeys);
                     break;
-
                 default:
                     return false;
                     break;
             }
-        } else {
-            return false;
         }
+        return false;
     }
 
-    function generate_content(&$title) {
+    /**
+     * @param string $type
+     * @param array $eventData
+     * @param array $pluginConfigurationKeys
+     * @return bool
+     */
+    private function processEvent($type, $eventData, $pluginConfigurationKeys)
+    {
+        global $serendipity;
+        if (!$serendipity['wysiwyg']) {
+            if (isset($eventData['backend_entry_toolbar_' . $type . ':textarea'])) {
+                $txtarea = $eventData['backend_entry_toolbar_' . $type . ':textarea'];
+            } else {
+                $txtarea = "serendipity[" . $type . "]";
+            }
+            $this->generate_button($txtarea, $pluginConfigurationKeys);
+            return true;
+        }
+        return false;
+    }
+    /**
+     * @param string $title
+     * @return null|void
+     */
+    public function generate_content(&$title) {
             $title = PLUGIN_EVENT_TYPESETBUTTONS_TITLE;
     }
 
-    function generate_button($txtarea)  {
-        global $serendipity;
-            if (!isset($txtarea)) {
-                $txtarea = 'body';
+    /**
+     * @param string $txtarea
+     * @param array $pluginConfigurationKeys
+     */
+    private function generate_button($txtarea, array $pluginConfigurationKeys)  {
+        global $serendipity; // required for optional logging of exceptions
+        if (!isset($txtarea)) {
+            $txtarea = 'body';
+        }
+        $this->txtarea = $txtarea;
+        foreach ($pluginConfigurationKeys as $configKey) {
+            $keyParts = explode('_', $configKey);
+            if ($keyParts[0] !== 'enable' || $this->get_config($configKey) !== 'yes') {
+                continue;
             }
-            if ($this->get_config('enable_center') == 'yes') {
-                if ($this->get_config('use_xhtml11','yes') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="inscenter" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_CENTER_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'<div class=\'s9y_typeset s9y_typeset_center\' style=\'text-align: center; margin: 0px auto 0px auto\'>','</div>')" />
-<?php
+            try {
+                if ($keyParts[1] === 'dquotes') {
+                    echo $html = $this->getButton($keyParts[1], $this->get_config('type_dquotes', 'type1'));
+                } elseif ($keyParts[1] === 'squotes') {
+                    echo $html = $this->getButton($keyParts[1], $this->get_config('type_squotes', 'type1'));
                 } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="inscenter" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_CENTER_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'<center>','</center>')" />
-<?php
+                    echo $html = $this->getButton($keyParts[1]);
                 }
+            } catch (Exception $e) {
+                // Uncomment the next three lines for debugging:
+                // $fp = fopen($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/' . get_class($this) . '.log', 'a');
+                // fwrite($fp, $e->getMessage() . PHP_EOL);
+                // fclose($fp);
+                continue;
             }
-            if ($this->get_config('enable_strike') == 'yes') {
-                if ($this->get_config('use_xhtml11','yes') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insstrike" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_STRIKE_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'<del>','</del>')" />
-<?php
-                } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insstrike" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_STRIKE_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'<s>','</s>')" />
-<?php
+        }
+        $custom = $this->get_config('custom');
+        $custom = trim($custom);
+        if (!empty($custom)) {
+            echo '<br />';
+            $parts = explode('|', $custom);
+            foreach ($parts as $part) {
+                $part = trim($part);
+                if (empty($part)) {
+                    continue;
                 }
+                echo $this->getCustomButton($txtarea, $part);
             }
-            if ($this->get_config('enable_space') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insSpace" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_SPACE_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#160\;','')" />
-<?php
-            }
-            if ($this->get_config('enable_amp') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insamp" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_AMP_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#38\;','')" />
-<?php
-            }
-            if ($this->get_config('enable_emdash') == 'yes') {
-                if ($this->get_config('use_named_ents') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insemd" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_EMDASH_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&mdash\;','')" />
-<?php
-                } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insemd" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_EMDASH_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#8212\;','')" />
-<?php
-                }
-            }
-            if ($this->get_config('enable_endash') == 'yes') {
-                if ($this->get_config('use_named_ents') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insend" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_ENDASH_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&ndash\;','')" />
-<?php
-                } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insend" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_ENDASH_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#8211\;','')" />
-<?php
-                }
-            }
-            if ($this->get_config('enable_bullet') == 'yes') {
-                if ($this->get_config('use_named_ents') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insbull" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_BULLET_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&bull\;','')" />
-<?php
-                } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insbull" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_BULLET_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#8226\;','')" />
-<?php
-                }
-            }
-            if ($this->get_config('enable_dquotes') == 'yes') {
-                switch($this->get_config('type_dquotes','type1')) {
-                    case'type1':
-                        if ($this->get_config('use_named_ents') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insdquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_DBQUOTES1_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&ldquo\;','\&rdquo\;')" />
-<?php
-                        } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insdquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_DBQUOTES1_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#8220\;','\&\#8221\;')" />
-<?php
-                        }
-                    break;
-                    case'type2':
-                        if ($this->get_config('use_named_ents') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insdquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_DBQUOTES2_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&bdquo\;','\&ldquo\;')" />
-<?php
-                        } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insdquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_DBQUOTES2_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#8222\;','\&\#8220\;')" />
-<?php
-                        }
-                    break;
-                    case'type3':
-                        if ($this->get_config('use_named_ents') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insdquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_DBQUOTES3_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&bdquo\;','\&rdquo\;')" />
-<?php
-                        } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insdquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_DBQUOTES3_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#8222\;','\&\#8221\;')" />
-<?php
-                        }
-                    break;
-                    case'type4':
-                        if ($this->get_config('use_named_ents') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insdquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_DBQUOTES4_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&rdquo\;','\&rdquo\;')" />
-<?php
-                        } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insdquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_DBQUOTES4_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#8221\;','\&\#8221\;')" />
-<?php
-                        }
-                    break;
-                    case'type5':
-                        if ($this->get_config('use_named_ents') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insdquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_DBQUOTES5_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&ldquo\;','\&bdquo\;')" />
-<?php
-                        } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insdquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_DBQUOTES5_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#8220\;','\&\#8222\;')" />
-<?php
-                        }
-                    break;
-                    case'type6':
-                        if ($this->get_config('use_named_ents') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insdquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_DBQUOTES6_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#171\;\&\#160\;','\&\#160\;\&\#187\;')" />
-<?php
-                        } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insdquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_DBQUOTES6_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#171\;\&\#160\;','\&\#160\;\&\#187\;')" />
-<?php
-                        }
-                    break;
-                    case'type7':
-                        if ($this->get_config('use_named_ents') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insdquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_DBQUOTES7_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#187\;','\&\#171\;')" />
-<?php
-                        } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insdquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_DBQUOTES7_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#187\;','\&\#171\;')" />
-<?php
-                        }
-                    break;
-                    case'type8':
-                        if ($this->get_config('use_named_ents') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insdquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_DBQUOTES8_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#187\;','\&\#187\;')" />
-<?php
-                        } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insdquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_DBQUOTES8_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#187\;','\&\#187\;')" />
-<?php
-                        }
-                    break;
+        }
+    }
 
-                }
+    /**
+     * @param string $name
+     * @param string|null $type
+     * @throws Exception
+     * @return string
+     */
+    private function getButton($name, $type = null)
+    {
+        $name = ucfirst($name);
+        $class = $name . 'Button';
+        $classFile = 'buttons/' . $name . 'Button.php';
+        if (!file_exists(__DIR__ . DIRECTORY_SEPARATOR . $classFile)) {
+            throw new Exception($classFile . ' not found.');
+        }
+        require_once $classFile;
+        /** @var ButtonInterface $button */
+        $button = new $class($this->txtarea);
+        $button->setIsLegacyMode($this->legacy);
+        if ($this->get_config('use_xhtml11') !== 'yes') {
+            $button->setIsXhtml11(false);
+        }
+        if ($this->get_config('use_named_ents') !== 'yes') {
+            $button->setUseNamedEnts(false);
+        }
+        if ($type !== null && method_exists($button, 'setType')) {
+            $button->setType($type);
+        }
+        if (method_exists($button, 'setUseRealApos')) {
+            if ($this->get_config('real_apos', 'yes') === 'no') {
+                $button->setUseRealApos(false);
+            } else {
+                $button->setUseRealApos(true);
             }
-            if ($this->get_config('enable_squotes') == 'yes') {
-                switch($this->get_config('type_squotes','type1')) {
-                    case'type1':
-                        if ($this->get_config('use_named_ents') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="inssquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_SQUOTES1_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&lsquo\;','\&rsquo\;')" />
-<?php
-                        } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="inssquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_SQUOTES1_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#8216\;','\&\#8217\;')" />
-<?php
-                        }
-                    break;
-                    case'type2':
-                        if ($this->get_config('use_named_ents') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="inssquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_SQUOTES2_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&sbquo\;','\&lsquo\;')" />
-<?php
-                        } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="inssquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_SQUOTES2_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#8218\;','\&\#8216\;')" />
-<?php
-                        }
-                    break;
-                    case'type3':
-                        if ($this->get_config('use_named_ents') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="inssquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_SQUOTES3_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&sbquo\;','\&rsquo\;')" />
-<?php
-                        } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="inssquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_SQUOTES3_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#8218\;','\&\#8217\;')" />
-<?php
-                        }
-                    break;
-                    case'type4':
-                        if ($this->get_config('use_named_ents') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="inssquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_SQUOTES4_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&rsquo\;','\&rsquo\;')" />
-<?php
-                        } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="inssquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_SQUOTES4_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#8217\;','\&\#8217\;')" />
-<?php
-                        }
-                    break;
-                    case'type5':
-                        if ($this->get_config('use_named_ents') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="inssquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_SQUOTES5_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&lsquo\;','\&sbquo\;')" />
-<?php
-                        } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="inssquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_SQUOTES5_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#8216\;','\&\#8218\;')" />
-<?php
-                        }
-                    break;
-                    case'type6':
-                        if ($this->get_config('use_named_ents') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="inssquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_SQUOTES6_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&lsaquo\;','\&rsaquo\;')" />
-<?php
-                        } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="inssquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_SQUOTES6_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#8249\;','\&\#8250\;')" />
-<?php
-                        }
-                    break;
-                    case'type7':
-                        if ($this->get_config('use_named_ents') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="inssquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_SQUOTES7_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&rsaquo\;','\&lsaquo\;')" />
-<?php
-                        } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="inssquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_SQUOTES7_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#8250\;','\&\#8249\;')" />
-<?php
-                        }
-                    break;
-                    case'type8':
-                        if ($this->get_config('use_named_ents') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="inssquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_SQUOTES8_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&rsaquo\;','\&rsaquo\;')" />
-<?php
-                        } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="inssquote" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_SQUOTES8_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#8250\;','\&\#8250\;')" />
-<?php
-                        }
-                    break;
+        }
+        return $button->render();
+    }
 
-                }
-            }
-            if ($this->get_config('enable_apos') == 'yes') {
-                 if ($this->get_config('real_apos','yes') == 'no') {
-                        if ($this->get_config('use_named_ents') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insapos" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_APOS_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&rsquo\;','')" />
-<?php
-                        } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insapos" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_APOS_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#8217\;','')" />
-<?php
-                        }
-                } else {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insapos" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_APOS_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#39\;','')" />
-<?php
-                }
-            }
-            if ($this->get_config('enable_accent') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insaccent" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_ACCENT_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#x0301\;','')" />
-<?php
-            }
-            if ($this->get_config('enable_gaccent') == 'yes') {
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="insgaccent" value="<?php echo PLUGIN_EVENT_TYPESETBUTTONS_GACCENT_BUTTON ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'],'\&\#x0300\;','')" />
-<?php
-            }
-
-            $custom = $this->get_config('custom');
-            $custom = trim($custom);
-            if (!empty($custom)) {
-                echo '<br />';
-                $parts = explode('|', $custom);
-                foreach($parts AS $idx => $part) {
-                    $part = trim($part);
-                    if (empty($part)) continue;
-                    
-                    $buttons = explode('@', $part);
-                    $b_name  = htmlspecialchars($buttons[0]);
-                    $b_title = preg_replace('@[^a-z0-9]@i', '_', $buttons[0]);
-                    $b_open  = str_replace(array('"', "'"), array('&quot;', "\\'"), $buttons[1]);
-                    $b_close = str_replace(array('"', "'"), array('&quot;', "\\'"), $buttons[2]);
-?>
-            <input type="button" class="serendipityPrettyButton input_button" name="ins_custom_<?php echo $b_title; ?>" value="<?php echo $b_name; ?>" onclick="wrapSelection(document.forms['serendipityEntry']['<?php echo $txtarea ?>'], '<?php echo $b_open; ?>', '<?php echo $b_close; ?>')" />
-<?php                    
-                }
-            }
+    /**
+     * @param string $txtarea
+     * @param string $part
+     * @return string
+     */
+    private function getCustomButton($txtarea, $part)
+    {
+        $buttons = explode('@', $part);
+        $b_name = htmlspecialchars($buttons[0]);
+        $b_title = preg_replace('@[^a-z0-9]@i', '_', $buttons[0]);
+        $b_open = str_replace(array('"', "'"), array('&quot;', "\\'"), $buttons[1]);
+        $b_close = str_replace(array('"', "'"), array('&quot;', "\\'"), $buttons[2]);
+        require_once 'buttons/CustomButton.php';
+        $button = new CustomButton($txtarea);
+        $button->setIsLegacyMode($this->legacy);
+        $button->setName('ins_custom_' . $b_name);
+        $button->setValue($b_title);
+        $button->setOpen($b_open);
+        $button->setClose($b_close);
+        return $button->render();
     }
 }
 

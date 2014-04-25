@@ -798,9 +798,9 @@
 <description>Maakt het mogelijk om bijdragen van tags te voorzien</description>
 <maintainers><maintainer><name>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.50</version>
+  <version>3.51</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-03-15</date>
+  <date>2014-04-25</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <dir name="UTF-8">
@@ -8976,9 +8976,9 @@
 <description>This plugin is a JavaScript code highlighter based on the code of the same name by Alex Gorbatchev.   This plugin takes less server-side resources than GeSHi and displays less markup in the actual HTML code.  It's a lighter, cleaner alternative. This plugin requires the supporting theme to provide the following hooks: frontend_header, frontend_footer (and optionally backend_preview on the administrative theme only).</description>
 <maintainers><maintainer><name>Alex Gorbatchev (core), Brendon Kozlowski and J.M. Roth (plugin)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.1.365</version>
+  <version>3.0.83</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2013-12-11</date>
+  <date>2014-04-25</date>
   <filelist>
 <dir name="serendipity_event_dpsyntaxhighlighter">
 <file>.htaccess</file>
@@ -8997,49 +8997,60 @@
 <dir name="sh">
 <dir name="2.1.364">
 <dir name="scripts">
-<file>shBrushBash.js</file>
-<file>shBrushColdFusion.js</file>
-<file>shBrushDiff.js</file>
-<file>shBrushVb.js</file>
-<file>clipboard.swf</file>
+</dir>
+<dir name="styles">
+</dir>
+</dir>
+<dir name="3.0.83">
+<dir name="scripts">
+<file>shBrushAppleScript.js</file>
+<file>shAutoloader.js</file>
 <file>shBrushAS3.js</file>
+<file>shBrushColdFusion.js</file>
+<file>shBrushBash.js</file>
 <file>shBrushCSharp.js</file>
-<file>shBrushSql.js</file>
-<file>shBrushPerl.js</file>
-<file>shBrushCss.js</file>
-<file>shBrushCpp.js</file>
-<file>shBrushScala.js</file>
-<file>shBrushPython.js</file>
-<file>shBrushErlang.js</file>
-<file>shCore.js</file>
-<file>shBrushJava.js</file>
-<file>shBrushPlain.js</file>
-<file>shBrushDelphi.js</file>
-<file>shBrushRuby.js</file>
-<file>shBrushPhp.js</file>
 <file>shBrushJScript.js</file>
+<file>shBrushCpp.js</file>
+<file>shBrushCss.js</file>
+<file>shBrushDelphi.js</file>
+<file>shBrushDiff.js</file>
+<file>shBrushErlang.js</file>
 <file>shBrushGroovy.js</file>
-<file>shBrushJavaFX.js</file>
 <file>shBrushPowerShell.js</file>
+<file>shBrushJava.js</file>
+<file>shBrushJavaFX.js</file>
+<file>shBrushPerl.js</file>
+<file>shBrushPhp.js</file>
+<file>shBrushPlain.js</file>
+<file>shBrushPython.js</file>
+<file>shBrushRuby.js</file>
+<file>shBrushSass.js</file>
+<file>shBrushScala.js</file>
+<file>shBrushSql.js</file>
+<file>shBrushVb.js</file>
 <file>shBrushXml.js</file>
+<file>shCore.js</file>
 <file>shLegacy.js</file>
 </dir>
 <dir name="styles">
-<file>shThemeFadeToGrey.css</file>
+<file>shCoreDefault.css</file>
 <file>shCore.css</file>
+<file>shCoreEclipse.css</file>
+<file>shCoreDjango.css</file>
+<file>shCoreFadeToGrey.css</file>
+<file>shCoreEmacs.css</file>
+<file>shThemeFadeToGrey.css</file>
+<file>shCoreMDUltra.css</file>
+<file>shCoreMidnight.css</file>
+<file>shCoreRDark.css</file>
 <file>shThemeDefault.css</file>
 <file>shThemeDjango.css</file>
-<file>page_white_code.png</file>
-<file>page_white_copy.png</file>
-<file>shThemeMidnight.css</file>
-<file>magnifier.png</file>
 <file>shThemeEclipse.css</file>
-<file>shThemeRDark.css</file>
-<file>help.png</file>
 <file>shThemeEmacs.css</file>
-<file>printer.png</file>
+<file>shThemeMDUltra.css</file>
+<file>shThemeMidnight.css</file>
+<file>shThemeRDark.css</file>
 </dir>
-<file>LGPLv3.txt</file>
 </dir>
 </dir>
 <dir name="UTF-8">
@@ -9060,46 +9071,51 @@
     <file>serendipity_event_dpsyntaxhighlighter/.htaccess</file>
     <file>serendipity_event_dpsyntaxhighlighter/lang_en.inc.php</file>
     <file>serendipity_event_dpsyntaxhighlighter/serendipity_event_dpsyntaxhighlighter.php</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushBash.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushColdFusion.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushDiff.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushVb.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/clipboard.swf</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushAS3.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushCSharp.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushSql.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushPerl.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushCss.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushCpp.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushScala.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushPython.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushErlang.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shCore.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushJava.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushPlain.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushDelphi.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushRuby.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushPhp.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushJScript.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushGroovy.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushJavaFX.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushPowerShell.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shBrushXml.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/scripts/shLegacy.js</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/styles/shThemeFadeToGrey.css</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/styles/shCore.css</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/styles/shThemeDefault.css</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/styles/shThemeDjango.css</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/styles/page_white_code.png</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/styles/page_white_copy.png</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/styles/shThemeMidnight.css</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/styles/magnifier.png</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/styles/shThemeEclipse.css</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/styles/shThemeRDark.css</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/styles/help.png</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/styles/shThemeEmacs.css</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/styles/printer.png</file>
-    <file>serendipity_event_dpsyntaxhighlighter/sh/2.1.364/LGPLv3.txt</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushAppleScript.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shAutoloader.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushAS3.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushColdFusion.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushBash.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushCSharp.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushJScript.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushCpp.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushCss.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushDelphi.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushDiff.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushErlang.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushGroovy.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushPowerShell.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushJava.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushJavaFX.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushPerl.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushPhp.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushPlain.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushPython.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushRuby.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushSass.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushScala.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushSql.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushVb.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shBrushXml.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shCore.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/scripts/shLegacy.js</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/styles/shCoreDefault.css</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/styles/shCore.css</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/styles/shCoreEclipse.css</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/styles/shCoreDjango.css</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/styles/shCoreFadeToGrey.css</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/styles/shCoreEmacs.css</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/styles/shThemeFadeToGrey.css</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/styles/shCoreMDUltra.css</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/styles/shCoreMidnight.css</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/styles/shCoreRDark.css</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/styles/shThemeDefault.css</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/styles/shThemeDjango.css</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/styles/shThemeEclipse.css</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/styles/shThemeEmacs.css</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/styles/shThemeMDUltra.css</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/styles/shThemeMidnight.css</file>
+    <file>serendipity_event_dpsyntaxhighlighter/sh/3.0.83/styles/shThemeRDark.css</file>
     <file>serendipity_event_dpsyntaxhighlighter/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_dpsyntaxhighlighter/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_dpsyntaxhighlighter/UTF-8/documentation_cs.html</file>

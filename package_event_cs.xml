@@ -3413,11 +3413,11 @@
 <summary>Rozšířená tlačítka pro ne-WYSIWYG editor</summary>
 <groups>BACKEND_EDITOR</groups>
 <description>Přidá tlačítka pro vložení kódů různých html entit (čárky, tečky, uvozovky) + další akce.</description>
-<maintainers><maintainer><name>Matthew Groeninger, Malte Diers</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Matthew Groeninger, Malte Diers, Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.11</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-12-11</date>
+  <version>0.22</version>
+  <requirements:s9yVersion>1.7</requirements:s9yVersion>
+  <date>2014-04-26</date>
   <filelist>
 <dir name="serendipity_event_typesetbuttons">
 <file>serendipity_event_typesetbuttons.php</file>
@@ -3430,6 +3430,41 @@
 <file>lang_en.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<dir name="buttons">
+<file>ButtonInterface.php</file>
+<file>AccentButton.php</file>
+<file>AmpButton.php</file>
+<file>AposButton.php</file>
+<file>BulletButton.php</file>
+<file>Button.php</file>
+<file>DquotesButton.php</file>
+<file>CenterButton.php</file>
+<file>CustomButton.php</file>
+<file>GaccentButton.php</file>
+<file>EmdashButton.php</file>
+<file>EndashButton.php</file>
+<file>SquotesButton.php</file>
+<file>SpaceButton.php</file>
+<file>StrikeButton.php</file>
+</dir>
+<dir name="tests">
+<dir name="buttons">
+<file>DquotesButtonTest.php</file>
+<file>AccentButtonTest.php</file>
+<file>AmpButtonTest.php</file>
+<file>AposButtonTest.php</file>
+<file>BulletButtonTest.php</file>
+<file>CenterButtonTest.php</file>
+<file>CustomButtonTest.php</file>
+<file>GaccentButtonTest.php</file>
+<file>EmdashButtonTest.php</file>
+<file>EndashButtonTest.php</file>
+<file>SquotesButtonTest.php</file>
+<file>SpaceButtonTest.php</file>
+<file>StrikeButtonTest.php</file>
+</dir>
+<file>typesetbuttonsTest.php</file>
+</dir>
 </dir>
 
   </filelist>
@@ -3442,6 +3477,35 @@
     <file>serendipity_event_typesetbuttons/lang_en.inc.php</file>
     <file>serendipity_event_typesetbuttons/lang_cs.inc.php</file>
     <file>serendipity_event_typesetbuttons/lang_cz.inc.php</file>
+    <file>serendipity_event_typesetbuttons/buttons/ButtonInterface.php</file>
+    <file>serendipity_event_typesetbuttons/buttons/AccentButton.php</file>
+    <file>serendipity_event_typesetbuttons/buttons/AmpButton.php</file>
+    <file>serendipity_event_typesetbuttons/buttons/AposButton.php</file>
+    <file>serendipity_event_typesetbuttons/buttons/BulletButton.php</file>
+    <file>serendipity_event_typesetbuttons/buttons/Button.php</file>
+    <file>serendipity_event_typesetbuttons/buttons/DquotesButton.php</file>
+    <file>serendipity_event_typesetbuttons/buttons/CenterButton.php</file>
+    <file>serendipity_event_typesetbuttons/buttons/CustomButton.php</file>
+    <file>serendipity_event_typesetbuttons/buttons/GaccentButton.php</file>
+    <file>serendipity_event_typesetbuttons/buttons/EmdashButton.php</file>
+    <file>serendipity_event_typesetbuttons/buttons/EndashButton.php</file>
+    <file>serendipity_event_typesetbuttons/buttons/SquotesButton.php</file>
+    <file>serendipity_event_typesetbuttons/buttons/SpaceButton.php</file>
+    <file>serendipity_event_typesetbuttons/buttons/StrikeButton.php</file>
+    <file>serendipity_event_typesetbuttons/tests/buttons/DquotesButtonTest.php</file>
+    <file>serendipity_event_typesetbuttons/tests/buttons/AccentButtonTest.php</file>
+    <file>serendipity_event_typesetbuttons/tests/buttons/AmpButtonTest.php</file>
+    <file>serendipity_event_typesetbuttons/tests/buttons/AposButtonTest.php</file>
+    <file>serendipity_event_typesetbuttons/tests/buttons/BulletButtonTest.php</file>
+    <file>serendipity_event_typesetbuttons/tests/buttons/CenterButtonTest.php</file>
+    <file>serendipity_event_typesetbuttons/tests/buttons/CustomButtonTest.php</file>
+    <file>serendipity_event_typesetbuttons/tests/buttons/GaccentButtonTest.php</file>
+    <file>serendipity_event_typesetbuttons/tests/buttons/EmdashButtonTest.php</file>
+    <file>serendipity_event_typesetbuttons/tests/buttons/EndashButtonTest.php</file>
+    <file>serendipity_event_typesetbuttons/tests/buttons/SquotesButtonTest.php</file>
+    <file>serendipity_event_typesetbuttons/tests/buttons/SpaceButtonTest.php</file>
+    <file>serendipity_event_typesetbuttons/tests/buttons/StrikeButtonTest.php</file>
+    <file>serendipity_event_typesetbuttons/tests/typesetbuttonsTest.php</file>
   </serendipityFilelist>
 </release>
 </package>

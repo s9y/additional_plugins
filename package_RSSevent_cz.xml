@@ -426,9 +426,9 @@
 <title>Rozšířená tlačítka pro ne-WYSIWYG editor: Přidá tlačítka pro vložení kódů různých html entit (čárky, tečky, uvozovky) + další akce.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_typesetbuttons</link>
 <category>Event Plugins</category>
-<author>Matthew Groeninger, Malte Diers</author>
-<content:encoded>&lt;b&gt;serendipity_event_typesetbuttons&lt;br /&gt;Rozšířená tlačítka pro ne-WYSIWYG editor&lt;/b&gt;&lt;br /&gt;Přidá tlačítka pro vložení kódů různých html entit (čárky, tečky, uvozovky) + další akce.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 11 Dec 2013 02:31:19 +0100</pubDate>
+<author>Matthew Groeninger, Malte Diers, Matthias Gutjahr</author>
+<content:encoded>&lt;b&gt;serendipity_event_typesetbuttons&lt;br /&gt;Rozšířená tlačítka pro ne-WYSIWYG editor&lt;/b&gt;&lt;br /&gt;Přidá tlačítka pro vložení kódů různých html entit (čárky, tečky, uvozovky) + další akce.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
+<pubDate>Sat, 26 Apr 2014 02:31:40 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_typesetbuttons</guid>
 </item>
 <item>

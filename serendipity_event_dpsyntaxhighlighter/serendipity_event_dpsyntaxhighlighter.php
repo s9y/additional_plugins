@@ -66,6 +66,7 @@ class serendipity_event_dpsyntaxhighlighter extends serendipity_event {
         $conf_array[] = 'gutter';
         $conf_array[] = 'smart-tabs';
         $conf_array[] = 'tab-size';
+        $conf_array[] = 'stripBrs';
         $propbag->add('configuration', $conf_array);
     }
 
@@ -137,6 +138,12 @@ class serendipity_event_dpsyntaxhighlighter extends serendipity_event {
                 $propbag->add('default',        '4');
                 $propbag->add('validate',       'number');
                 break;
+            case 'stripBrs':
+                $propbag->add('type',           'boolean');
+                $propbag->add('name',           PLUGIN_EVENT_DPSYNTAXHIGHLIGHTER_STRIPBRS);
+                $propbag->add('description',    PLUGIN_EVENT_DPSYNTAXHIGHLIGHTER_STRIPBRS_DESC);
+                $propbag->add('default',        'false');
+                break;
         }
         return true;
     }
@@ -172,6 +179,11 @@ class serendipity_event_dpsyntaxhighlighter extends serendipity_event {
 	    }
 	    $footer_add .= '<script type="text/javascript">
   SyntaxHighlighter.config.clipboardSwf = \''.$pluginDir.'/sh/'.$this->version.'/scripts/clipboard.swf\';';
+            
+            $stripBrs = $this->get_config('stripBrs');
+            if ($stripBrs) {
+                $footer_add .=  'SyntaxHighlighter.config.stripBrs = true;';
+            }
             
             $toolbar = $this->get_config('toolbar');
             if (!$toolbar) {

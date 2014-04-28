@@ -309,9 +309,10 @@ class serendipity_event_typesetbuttons extends serendipity_event
      * @param string $event
      * @param serendipity_property_bag $bag
      * @param array $eventData
+     * @param null $addData
      * @return bool|true
      */
-    public function event_hook($event, &$bag, &$eventData) {
+    public function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
         if (intval($serendipity['version'][0]) < 2) {
             $this->legacy = true;

@@ -3417,7 +3417,7 @@
 <release>
   <version>0.22</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2014-04-26</date>
+  <date>2014-04-29</date>
   <filelist>
 <dir name="serendipity_event_typesetbuttons">
 <file>serendipity_event_typesetbuttons.php</file>
@@ -9042,7 +9042,7 @@
 <release>
   <version>3.0.83</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2014-04-25</date>
+  <date>2014-04-29</date>
   <filelist>
 <dir name="serendipity_event_dpsyntaxhighlighter">
 <file>.htaccess</file>

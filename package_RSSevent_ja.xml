@@ -428,7 +428,7 @@
 <category>Event Plugins</category>
 <author>Matthew Groeninger, Malte Diers, Matthias Gutjahr</author>
 <content:encoded>&lt;b&gt;serendipity_event_typesetbuttons&lt;br /&gt;Typeset/Extended Buttons for non-WYSIWYG editors&lt;/b&gt;&lt;br /&gt;Adds buttons for various encoded typeset entities and other extended actions.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
-<pubDate>Sat, 26 Apr 2014 02:31:40 +0200</pubDate>
+<pubDate>Tue, 29 Apr 2014 02:31:30 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_typesetbuttons</guid>
 </item>
 <item>
@@ -1134,7 +1134,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Alex Gorbatchev (core), Brendon Kozlowski and J.M. Roth (plugin)</author>
 <content:encoded>&lt;b&gt;serendipity_event_dpsyntaxhighlighter&lt;br /&gt;Markup: Syntax Highlighter&lt;/b&gt;&lt;br /&gt;This plugin is a JavaScript code highlighter based on the code of the same name by Alex Gorbatchev.   This plugin takes less server-side resources than GeSHi and displays less markup in the actual HTML code.  It's a lighter, cleaner alternative. This plugin requires the supporting theme to provide the following hooks: frontend_header, frontend_footer (and optionally backend_preview on the administrative theme only).&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Fri, 25 Apr 2014 02:31:07 +0200</pubDate>
+<pubDate>Tue, 29 Apr 2014 02:31:19 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_dpsyntaxhighlighter</guid>
 </item>
 <item>

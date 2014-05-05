@@ -22,7 +22,7 @@ class serendipity_event_linktoolbar extends serendipity_event {
         $propbag->add('description',   PLUGIN_LINKTOOLBAR_TITLE_DESC);
         $propbag->add('event_hooks', array('frontend_header' => true));
         $propbag->add('author', 'Garvin Hicking');
-        $propbag->add('version', '1.4');
+        $propbag->add('version', '1.5');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
@@ -35,6 +35,11 @@ class serendipity_event_linktoolbar extends serendipity_event {
     function backAndForth($link = null) {
         global $serendipity;
 
+        if (!empty($serendipity['GET']['staticid']) || !empty($serendipity['GET']['subpage'])) {
+            // This is actually not used for staticpages/contact forms etc, it has no back/forth.
+            return true;
+        }
+        
         if (!is_array($link)) {
             $link = array();
 

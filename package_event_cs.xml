@@ -3846,9 +3846,9 @@
 <description>Zobrazuje metatagy &lt;link rel=&quot;start|up|prev|next&quot;&gt; v HTML hlavičce stránky blogu. To umožňuje v některých prohlížečích lepší navigaci ve stránkách.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4</version>
+  <version>1.5</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-12-11</date>
+  <date>2014-05-05</date>
   <filelist>
 <dir name="serendipity_event_linktoolbar">
 <file>serendipity_event_linktoolbar.php</file>

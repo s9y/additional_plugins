@@ -482,7 +482,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_linktoolbar&lt;br /&gt;HTML リンクのメタタグ&lt;/b&gt;&lt;br /&gt;よりよいナビゲーションのためにフロントエンドに link rel=&quot;start|up|prev|next|canonical&quot; メタタグを挿入します。&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 11 Dec 2013 02:31:14 +0100</pubDate>
+<pubDate>Mon, 05 May 2014 11:13:20 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_linktoolbar</guid>
 </item>
 <item>

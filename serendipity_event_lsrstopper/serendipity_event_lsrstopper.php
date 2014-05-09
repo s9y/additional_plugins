@@ -96,7 +96,7 @@ class serendipity_event_lsrstopper extends serendipity_event
                 $propbag->add('default',     'true');
                 break;
             case 'blacklist_url':
-                $propbag->add('type',        'hidden');
+                $propbag->add('type',        'string');
                 $propbag->add('name',        'blacklist_url');
                 $propbag->add('description', 'blacklist_url');
                 $propbag->add('default',     'http://leistungsschutzrecht-stoppen.d-64.org/blacklist.txt');
@@ -162,12 +162,22 @@ class serendipity_event_lsrstopper extends serendipity_event
         }
         $blacklist = $this->readCache();
         if ($blacklist === null) {
-            require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : S9Y_INCLUDE_PATH . 'bundled-libs/') . 'HTTP/Request.php';
-            $req = new HTTP_Request($this->get_config('blacklist_url'), array('allowRedirects' => true, 'maxRedirects' => 3));
-            if (PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200') {
+            require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : S9Y_INCLUDE_PATH . 'bundled-libs/') . 'HTTP/Request2.php';
+            $req = new HTTP_Request2(
+                $this->get_config('blacklist_url'),
+                HTTP_Request2::METHOD_GET,
+                array('follow_redirects' => true, 'max_redirects' => 3)
+            );
+            try {
+                $response = $req->send();
+                if (200 == $response->getStatus()) {
+                    $blacklist = $response->getBody();
+                } else {
+                    return null;
+                }
+            } catch (HTTP_Request2_Exception $e) {
                 return null;
             }
-            $blacklist = $req->getResponseBody();
             $this->writeCache($blacklist);
         }
         return $blacklist;

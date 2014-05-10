@@ -10634,7 +10634,7 @@ aplikovány další typografické úpravy.</description>
 <release>
   <version>0.3</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2014-04-24</date>
+  <date>2014-05-10</date>
   <filelist>
 <dir name="serendipity_event_lsrstopper">
 <dir name="UTF-8">

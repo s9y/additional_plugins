@@ -1,3 +1,6 @@
+4.07.1 Fix search with pdo-sqlite
+       Remove doubled fetchentries-event 
+
 4.07 Propagate $smarty.env.staticpage_pagetitle (and the others) so that it can be used in entries.tpl
 
 4.06 Serendipity 2.0 compatibility fix for the editorbuttons (wysiwyg and default)

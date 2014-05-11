@@ -84,7 +84,6 @@ class serendipity_event_staticpage extends serendipity_event
             'css_backend'                                       => true,
             'frontend_fetchentries'                             => true,
             'backend_media_rename'                              => true,
-            'frontend_fetchentries'                             => true,
             'frontend_rss'                                      => true,
             'frontend_header'                                   => true
         ));
@@ -92,7 +91,7 @@ class serendipity_event_staticpage extends serendipity_event
         $propbag->add('page_configuration', $this->config);
         $propbag->add('type_configuration', $this->config_types);
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers');
-        $propbag->add('version', '4.07');
+        $propbag->add('version', '4.07.1');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -2848,7 +2847,7 @@ foreach($select AS $select_value => $select_desc) {
             $group     = '';
             $distinct  = 'DISTINCT';
             $find_part = "(headline ILIKE '%$term%' OR content ILIKE '%$term%')";
-        } elseif ($serendipity['dbType'] == 'sqlite') {
+        } elseif ($serendipity['dbType'] == 'sqlite' || $serendipity['dbType'] == 'sqlite3' || $serendipity['dbType'] == 'pdo-sqlite') {
             $group     = 'GROUP BY id';
             $distinct  = '';
             $term      = serendipity_mb('strtolower', $term);

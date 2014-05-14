@@ -45,7 +45,7 @@ class serendipity_event_lsrstopper extends serendipity_event
         $propbag->add('author',        'Matthias Gutjahr');
         $propbag->add('version',       '0.3');
         $propbag->add('requirements',  array(
-            'serendipity' => '1.6',
+            'serendipity' => '2.0',
             'smarty'      => '2.6.7',
             'php'         => '5.2'
         ));

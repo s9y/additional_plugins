@@ -26,6 +26,11 @@ class serendipity_event_lsrstopperTest extends PluginTest
     protected $eventData;
 
     /**
+     * @var string
+     */
+    protected $cacheDir;
+
+    /**
      * Set up
      */
     public function setUp()
@@ -41,6 +46,14 @@ class serendipity_event_lsrstopperTest extends PluginTest
      */
     public function tearDown()
     {
+        $cacheDir = S9Y_INCLUDE_PATH . 'plugins/additional_plugins/serendipity_event_lsrstopper/tests/data/lsrstopper';
+        $cacheFile = $cacheDir . '/' . '91a4de9d7038da7d2af7d375dd4a7df4';
+        if (file_exists($cacheFile)) {
+            unlink($cacheFile);
+        }
+        if (is_dir($cacheDir)) {
+            rmdir($cacheDir);
+        }
         parent::tearDown();
     }
 
@@ -81,6 +94,7 @@ class serendipity_event_lsrstopperTest extends PluginTest
      */
     public function testFrontendDisplay()
     {
+        define('PATH_SMARTY_COMPILE', 'plugins/additional_plugins/serendipity_event_lsrstopper/tests/data');
         $this->object->introspect($this->propBag);
         $this->object->set_config('blacklist_url', S9Y_INCLUDE_PATH . 'plugins/serendipity_event_lsrstopper/tests/fixtures/blacklist.txt');
         $this->object->event_hook('frontend_display', $this->propBag, $this->eventData);

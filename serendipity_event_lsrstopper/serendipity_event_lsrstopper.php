@@ -45,7 +45,7 @@ class serendipity_event_lsrstopper extends serendipity_event
         $propbag->add('author',        'Matthias Gutjahr');
         $propbag->add('version',       '0.3');
         $propbag->add('requirements',  array(
-            'serendipity' => '2.0',
+            'serendipity' => '1.6',
             'smarty'      => '2.6.7',
             'php'         => '5.2'
         ));
@@ -162,22 +162,7 @@ class serendipity_event_lsrstopper extends serendipity_event
         }
         $blacklist = $this->readCache();
         if ($blacklist === null) {
-            require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : S9Y_INCLUDE_PATH . 'bundled-libs/') . 'HTTP/Request2.php';
-            $req = new HTTP_Request2(
-                $this->get_config('blacklist_url'),
-                HTTP_Request2::METHOD_GET,
-                array('follow_redirects' => true, 'max_redirects' => 3)
-            );
-            try {
-                $response = $req->send();
-                if (200 == $response->getStatus()) {
-                    $blacklist = $response->getBody();
-                } else {
-                    return null;
-                }
-            } catch (HTTP_Request2_Exception $e) {
-                return null;
-            }
+            $blacklist = $this->fetchRemoteBlacklist();
             $this->writeCache($blacklist);
         }
         return $blacklist;
@@ -255,7 +240,7 @@ class serendipity_event_lsrstopper extends serendipity_event
         if (!defined('PATH_SMARTY_COMPILE')) {
             return '';
         }
-        return $serendipity['serendipityPath'] . '/' . PATH_SMARTY_COMPILE . '/lsrstopper/' . md5($url);
+        return $serendipity['serendipityPath']  . PATH_SMARTY_COMPILE . '/lsrstopper/' . md5($url);
     }
 
     /**
@@ -297,5 +282,43 @@ class serendipity_event_lsrstopper extends serendipity_event
     protected function isUrl($url)
     {
     	return filter_var($url, FILTER_VALIDATE_URL);
+    }
+
+    /**
+     * Fetch blacklist from remote server
+     *
+     * @return mixed|null|string
+     * @throws Exception
+     */
+    protected function fetchRemoteBlacklist() {
+        $httpDirname = (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : S9Y_INCLUDE_PATH . 'bundled-libs/') . 'HTTP/';
+        if (file_exists($httpDirname . 'Request2.php')) {
+            set_include_path(get_include_path() . PATH_SEPARATOR . $httpDirname . '/..');
+            require_once $httpDirname . 'Request2.php';
+            $req = new HTTP_Request2(
+                $this->get_config('blacklist_url'),
+                HTTP_Request2::METHOD_GET,
+                array('follow_redirects' => true, 'max_redirects' => 3)
+            );
+            try {
+                $res = $req->send();
+                if (200 == $res->getStatus()) {
+                    $blacklist = $res->getBody();
+                } else {
+                    return null;
+                }
+            } catch (HTTP_Request2_Exception $e) {
+                return null;
+            }
+        } else {
+            // Fallback to old solution
+            require_once $httpDirname . 'Request.php';
+            $req = new HTTP_Request($this->get_config('blacklist_url'), array('allowRedirects' => true, 'maxRedirects' => 3));
+            if (PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200') {
+                return null;
+            }
+            $blacklist = $req->getResponseBody();
+        }
+        return $blacklist;
     }
 }

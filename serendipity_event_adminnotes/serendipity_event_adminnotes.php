@@ -1,4 +1,4 @@
-<?php # 
+<?php #
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -27,8 +27,8 @@ class serendipity_event_adminnotes extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.7');
-        $propbag->add('author',        'Garvin Hicking');
+        $propbag->add('version',       '0.8');
+        $propbag->add('author',        'Garvin Hicking, Matthias Mees');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array('feedback', 'limit', 'html', 'markup', 'cutoff'));
         $propbag->add('event_hooks',   array(
@@ -165,7 +165,12 @@ class serendipity_event_adminnotes extends serendipity_event {
     function shownotes() {
         global $serendipity;
 
-        echo '<h3>' . PLUGIN_ADMINNOTES_TITLE . '</h3>';
+        if ($serendipity['version'][0] == '1') {
+            echo '<h3>' . PLUGIN_ADMINNOTES_TITLE . '</h3>';
+        } else {
+            echo '<h2>' . PLUGIN_ADMINNOTES_TITLE . '</h2>';
+        }
+
         if (!serendipity_db_bool($this->get_config('feedback')) && $serendipity['serendipityUserlevel'] < USERLEVEL_CHIEF) {
             return false;
         }
@@ -223,7 +228,11 @@ class serendipity_event_adminnotes extends serendipity_event {
                         }
                     }
 
-                    echo '<div class="serendipityAdminMsgSuccess"><img style="width: 22px; height: 22px; border: 0px; padding-right: 4px; vertical-align: middle" src="' . serendipity_getTemplateFile('admin/img/admin_msg_success.png') . '" alt="" />' . DONE . ': '. sprintf(SETTINGS_SAVED_AT, serendipity_strftime('%H:%M:%S')) . '</div>';
+                    if ($serendipity['version'][0] == '1') {
+                        echo '<div class="serendipityAdminMsgSuccess"><img style="width: 22px; height: 22px; border: 0px; padding-right: 4px; vertical-align: middle" src="' . serendipity_getTemplateFile('admin/img/admin_msg_success.png') . '" alt="" />' . DONE . ': '. sprintf(SETTINGS_SAVED_AT, serendipity_strftime('%H:%M:%S')) . '</div>';
+                    } else {
+                        echo '<span class="msg_success"><span class="icon-ok-circled"></span> ' . DONE . ': '. sprintf(SETTINGS_SAVED_AT, serendipity_strftime('%H:%M:%S')) . '</span>';
+                    }
                 }
 
                 echo '<p>' . PLUGIN_ADMINNOTES_FEEDBACK_INFO . '</p>';
@@ -236,10 +245,22 @@ class serendipity_event_adminnotes extends serendipity_event {
                 echo '<input type="hidden" name="note" value="' . $entry['noteid'] . '" />';
                 echo '<input type="hidden" name="note_notetype" value="note" />';
 
-                echo TITLE . '<br />';
-                echo '<input class="input_textbox" type="text" name="note_subject" value="' . htmlspecialchars($entry['subject']) . '" /><br /><br />';
+                if ($serendipity['version'][0] == '1') {
+                    echo TITLE . '<br />';
+                    echo '<input class="input_textbox" type="text" name="note_subject" value="' . htmlspecialchars($entry['subject']) . '" /><br /><br />';
+                } else {
+                    echo '<div class="form_field">';
+                    echo '<label for="note_subject" class="block_level">' . TITLE . '</label>';
+                    echo '<input id="note_subject" type="text" name="note_subject" value="' . htmlspecialchars($entry['subject']) . '">';
+                    echo '</div>';
+                }
 
-                echo USERCONF_GROUPS . '<br />';
+                if ($serendipity['version'][0] == '1') {
+                    echo USERCONF_GROUPS . '<br />';
+                } else {
+                    echo '<div class="form_multiselect">';
+                    echo '<label for="note_target" class="block_level">' . USERCONF_GROUPS . '</label>';
+                }
                 $valid_groups = serendipity_getAllGroups($serendipity['authorid']);
                 if (isset($_REQUEST['note_target'])) {
                     $selected = $_REQUEST['note_target'];
@@ -251,7 +272,7 @@ class serendipity_event_adminnotes extends serendipity_event {
                     }
                 }
 
-                echo '<select name="note_target[]" multiple="multiple" size="5">';
+                echo '<select id="note_target" name="note_target[]" multiple="multiple" size="5">';
                 foreach($valid_groups AS $group) {
                     # PRESELECT!
                     if (in_array($group['confkey'], (array)$selected) || count($selected) == 0) {
@@ -261,13 +282,27 @@ class serendipity_event_adminnotes extends serendipity_event {
                     }
                     echo '<option ' . $is_selected . ' value="' . $group['confkey'] . '">' . htmlspecialchars($group['confvalue']) . '</option>' . "\n";
                 }
-                echo '</select><br /><br />';
+                if ($serendipity['version'][0] == '1') {
+                    echo '</select><br /><br />';
+                } else {
+                    echo '</select></div>';
+                }
 
-                echo ENTRY_BODY . '<br />';
-                echo '<textarea rows=10 cols=80 name="note_body">' . htmlspecialchars($entry['body']) . '</textarea>';
-                echo '<br /><br />';
+                if ($serendipity['version'][0] == '1') {
+                    echo ENTRY_BODY . '<br />';
+                } else {
+                    echo '<div class="form_area">';
+                    echo '<label for="note_body" class="block_level">' . ENTRY_BODY . '</label>';
+                }
+                    echo '<textarea id="note_body" rows=10 cols=80 name="note_body">' . htmlspecialchars($entry['body']) . '</textarea>';
+                if ($serendipity['version'][0] == '1') {
+                    echo '<br /><br />';
+                    echo '<input type="submit" name="submit" value="' . SAVE . '" class="serendipityPrettyButton input_button" />';
+                } else {
+                    echo '</div>';
+                    echo '<div class="form_buttons"><input type="submit" name="submit" value="' . SAVE . '"></div>';
+                }
 
-                echo '<input type="submit" name="submit" value="' . SAVE . '" class="serendipityPrettyButton input_button" />';
                 echo '</form>';
 
                 break;
@@ -276,16 +311,34 @@ class serendipity_event_adminnotes extends serendipity_event {
                 $newLoc = '?' . serendipity_setFormToken('url') . '&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=adminnotes&amp;action=isdelete&amp;note=' . (int)$_REQUEST['note'];
 
                 $entry = $this->getMyNotes((int)$_REQUEST['note']);
+
+                if ($serendipity['version'][0] == '2') {
+                    echo '<span class="msg_hint"><span class="icon-help-circled"></span> ';
+                }
                 printf(DELETE_SURE, $entry['noteid'] . ' - ' . htmlspecialchars($entry['subject']));
-        ?>
-        <br />
-        <br />
-        <div>
-            <a href="<?php echo htmlspecialchars($_SERVER["HTTP_REFERER"]); ?>" class="serendipityPrettyButton"><?php echo NOT_REALLY; ?></a>
-            <?php echo str_repeat('&nbsp;', 10); ?>
-            <a href="<?php echo $newLoc; ?>" class="serendipityPrettyButton"><?php echo DUMP_IT; ?></a>
-        </div>
-        <?php
+                if ($serendipity['version'][0] == '2') {
+                    echo '</span>';
+                }
+
+                if ($serendipity['version'][0] == '1') {
+?>
+                    <br />
+                    <br />
+                    <div>
+                        <a href="<?php echo htmlspecialchars($_SERVER["HTTP_REFERER"]); ?>" class="serendipityPrettyButton"><?php echo NOT_REALLY; ?></a>
+                        <?php echo str_repeat('&nbsp;', 10); ?>
+                        <a href="<?php echo $newLoc; ?>" class="serendipityPrettyButton"><?php echo DUMP_IT; ?></a>
+                    </div>
+<?php
+                } else {
+?>
+                    <div class="form_buttons">
+                        <a class="button_link state_submit" href="<?php echo $newLoc; ?>"><?php echo DUMP_IT; ?></a>
+                        <a class="button_link state_cancel" href="<?php echo htmlspecialchars($_SERVER["HTTP_REFERER"]); ?>"><?php echo NOT_REALLY; ?></a>
+                    </div>
+<?php
+                }
+
                 break;
 
             case 'isdelete':
@@ -298,22 +351,38 @@ class serendipity_event_adminnotes extends serendipity_event {
                     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}adminnotes           WHERE noteid = " . (int)$_REQUEST['note']);
                     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}adminnotes_to_groups WHERE noteid = " . (int)$_REQUEST['note']);
                 }
-                printf(RIP_ENTRY, $entry['noteid'] . ' - ' . htmlspecialchars($entry['subject']));
+                if ($serendipity['version'][0] == '2') {
+                    echo '<span class="msg_success"><span class="icon-ok-circled"></span> ';
+                }
+                    printf(RIP_ENTRY, $entry['noteid'] . ' - ' . htmlspecialchars($entry['subject']));
+                if ($serendipity['version'][0] == '2') {
+                    echo '</span>';
+                }
                 break;
 
             default:
                 $notes = $this->getMyNotes(false);
-                echo '<ol class="note_list">';
+                echo '<ol class="note_list plainList">';
                 if (is_array($notes)) {
                     foreach($notes AS $note) {
-                        echo '<li><strong>' . $note['subject'] . '</strong> ' . POSTED_BY . ' ' . $note['realname'] . ' ' . ON . ' ' . serendipity_strftime(DATE_FORMAT_SHORT, $note['notetime']) . '<br />';
-                        echo '<a class="serendipityPrettyButton" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=adminnotes&amp;action=edit&amp;note=' . $note['noteid'] . '">' . EDIT . '</a> ';
-                        echo '<a class="serendipityPrettyButton" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=adminnotes&amp;action=delete&amp;note=' . $note['noteid'] . '">' . DELETE . '</a> ';
-                        echo '<br /><br /></li>';
+                        if ($serendipity['version'][0] == '1') {
+                            echo '<li><strong>' . $note['subject'] . '</strong> ' . POSTED_BY . ' ' . $note['realname'] . ' ' . ON . ' ' . serendipity_strftime(DATE_FORMAT_SHORT, $note['notetime']) . '<br />';
+                            echo '<a class="serendipityPrettyButton" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=adminnotes&amp;action=edit&amp;note=' . $note['noteid'] . '">' . EDIT . '</a> ';
+                            echo '<a class="serendipityPrettyButton" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=adminnotes&amp;action=delete&amp;note=' . $note['noteid'] . '">' . DELETE . '</a> ';
+                            echo '<br /><br /></li>';
+                        } else {
+                            echo '<li><h3>' . $note['subject'] . '</h3><p>' . POSTED_BY . ' ' . $note['realname'] . ' ' . ON . ' ' . serendipity_strftime(DATE_FORMAT_SHORT, $note['notetime']) . '</p>';
+                            echo '<div class="form_buttons"><a class="button_link state_submit" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=adminnotes&amp;action=edit&amp;note=' . $note['noteid'] . '">' . EDIT . '</a> ';
+                            echo '<a class="button_link state_cancel" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=adminnotes&amp;action=delete&amp;note=' . $note['noteid'] . '">' . DELETE . '</a></div></li>';
+                        }
                     }
                 }
                 echo '</ol>';
-                echo '<a class="serendipityPrettyButton" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=adminnotes&amp;action=new">' . NEW_ENTRY . '</a>';
+                if ($serendipity['version'][0] == '1') {
+                    echo '<a class="serendipityPrettyButton" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=adminnotes&amp;action=new">' . NEW_ENTRY . '</a>';
+                } else {
+                    echo '<div class="form_buttons"><a class="button_link state_submit" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=adminnotes&amp;action=new">' . NEW_ENTRY . '</a></div>';
+                }
                 break;
         }
     }
@@ -360,9 +429,15 @@ class serendipity_event_adminnotes extends serendipity_event {
         if (isset($hooks[$event])) {
             switch($event) {
                 case 'backend_sidebar_entries':
+                    if ($serendipity['version'][0] == '1') {
 ?>
-                    <li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks"><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=adminnotes"><?php echo PLUGIN_ADMINNOTES_TITLE; ?></a></li>
+                        <li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks"><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=adminnotes"><?php echo PLUGIN_ADMINNOTES_TITLE; ?></a></li>
 <?php
+                    } else {
+?>
+                        <li><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=adminnotes"><?php echo PLUGIN_ADMINNOTES_TITLE; ?></a></li>
+<?php
+                    }
 
                     break;
 

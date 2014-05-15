@@ -23,8 +23,8 @@ class serendipity_event_dbclean extends serendipity_event {
         $propbag->add('name',          PLUGIN_EVENT_DBCLEAN_NAME);
         $propbag->add('description',   PLUGIN_EVENT_DBCLEAN_DESC);
         $propbag->add('stackable',     false);
-        $propbag->add('author',        'Malte Paskuda');
-        $propbag->add('version',       '0.2.4');
+        $propbag->add('author',        'Malte Paskuda, Matthias Mees');
+        $propbag->add('version',       '0.2.5');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8'
         ));
@@ -159,12 +159,21 @@ class serendipity_event_dbclean extends serendipity_event {
     }
 
     function displayMenu() {
-        echo '<style>#dbcleanTable { width: 100%; text-align: center; } #dbcleanTable th { text-align: center; }</style>';
+        if ($serendipity['version'][0] == '1') {
+            echo '<style>#dbcleanTable { width: 100%; text-align: center; } #dbcleanTable th { text-align: center; }</style>';
+        }
 
         echo '<h2>' . PLUGIN_EVENT_DBCLEAN_NAME_MENU . '</h2>';
 
         echo '<form action="'.$serendipity ['baseURL'] . 'index.php?/plugin/dbclean' .'" method="post">';
-        echo PLUGIN_EVENT_DBCLEAN_MENU_KEEP . ' <input type="string" name="days" value="30" size="3" maxlength="3" /> ' . DAYS;
+        if ($serendipity['version'][0] == '1') {
+            echo PLUGIN_EVENT_DBCLEAN_MENU_KEEP . ' <input type="text" name="days" value="30" size="3" maxlength="3" /> ' . DAYS;
+        } else {
+            echo '<div class="form_field">';
+            echo '<label for="dbcleanup_days">' . PLUGIN_EVENT_DBCLEAN_MENU_KEEP . ' (' . DAYS . ')' . '</label>';
+            echo ' <input id="dbcleanup_days" type="text" name="days" value="30" size="3" maxlength="3">';
+            echo '</div>';
+        }
 
         echo '<table id="dbcleanTable">';
         echo '<thead>';
@@ -201,8 +210,11 @@ class serendipity_event_dbclean extends serendipity_event {
         echo '<td>' . $this->countElements('exits') . '</td>';
         echo '</tr>';
         echo '</table>';
-
-        echo '<input type="submit" value="' . GO . '" tabindex="2" />';
+        if ($serendipity['version'][0] == '1') {
+            echo '<input type="submit" value="' . GO . '" tabindex="2" />';
+        } else {
+            echo '<div class="form_buttons"><input class="state_cancel" type="submit" value="' . DELETE . '"></div>';
+        }
         echo '</form>';
     }
 

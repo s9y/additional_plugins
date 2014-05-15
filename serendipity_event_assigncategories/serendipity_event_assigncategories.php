@@ -1,4 +1,4 @@
-<?php # 
+<?php #
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -22,8 +22,8 @@ class serendipity_event_assigncategories extends serendipity_event
         $propbag->add('name',          PLUGIN_ASSIGNCATEGORIES_NAME);
         $propbag->add('description',   PLUGIN_ASSIGNCATEGORIES_DESC);
         $propbag->add('stackable',     false);
-        $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.3');
+        $propbag->add('author',        'Garvin Hicking, Matthias Mees');
+        $propbag->add('version',       '1.4');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '4.1.0'
@@ -46,7 +46,11 @@ class serendipity_event_assigncategories extends serendipity_event
             switch($event) {
                 case 'backend_sidebar_entries':
                     if ($this->check()) {
-                        echo '<li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks"><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=assigncategories">' . PLUGIN_ASSIGNCATEGORIES_NAME . '</a></li>';
+                        if ($serendipity['version'][0] == '1') {
+                            echo '<li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks"><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=assigncategories">' . PLUGIN_ASSIGNCATEGORIES_NAME . '</a></li>';
+                        } else {
+                            echo '<li><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=assigncategories">' . PLUGIN_ASSIGNCATEGORIES_NAME . '</a></li>';
+                        }
                     }
                     return true;
                     break;
@@ -113,7 +117,11 @@ class serendipity_event_assigncategories extends serendipity_event
             }
         }
 
-        echo '<div class="serendipityAdminMsgSuccess"><img style="width: 22px; height: 22px; border: 0px; padding-right: 4px; vertical-align: middle" src="' . serendipity_getTemplateFile('admin/img/admin_msg_success.png') . '" alt="" />'. CATEGORY_SAVED .'</div>';
+        if ($serendipity['version'][0] == '1') {
+            echo '<div class="serendipityAdminMsgSuccess"><img style="width: 22px; height: 22px; border: 0px; padding-right: 4px; vertical-align: middle" src="' . serendipity_getTemplateFile('admin/img/admin_msg_success.png') . '" alt="" />'. CATEGORY_SAVED .'</div>';
+        } else {
+            echo '<span class="msg_success"><span class="icon-ok-circled"></span> '. CATEGORY_SAVED .'</span>';
+        }
     }
 
     function showAssignment() {
@@ -121,6 +129,10 @@ class serendipity_event_assigncategories extends serendipity_event
 
         if (!$this->check()) {
             return false;
+        }
+
+        if ($serendipity['version'][0] == '2') {
+            echo '<h2>' . PLUGIN_ASSIGNCATEGORIES_NAME . '</h2>';
         }
 
         $entries = $this->getAllEntries();
@@ -133,25 +145,41 @@ class serendipity_event_assigncategories extends serendipity_event
         echo '<input type="hidden" name="serendipity[adminModule]" value="event_display" />' . "\n";
         echo '<input type="hidden" name="serendipity[adminAction]" value="assigncategories" />' . "\n";
 
-        echo '<table>';
-
         $cats = serendipity_fetchCategories('all');
-        foreach ($cats as $cat_data) {
-            echo '<tr>' . "\n";
-            echo '<td valign="top"><strong>' . htmlspecialchars($cat_data['category_name']) . '</strong></td>' . "\n";
-            echo '<td><select size="5" name="serendipity[assigncat][' . $cat_data['categoryid'] . '][]" multiple="true">' . "\n";
-            if (is_array($entries) && !empty($entries)) {
-                foreach($entries AS $entryid => $entry) {
-                    echo '<option value="' . $entryid . '" ' . (in_array($cat_data['categoryid'], (array)$entry['categories']) ? 'selected="selected"' : '') . '>' . htmlspecialchars($entry['title']) . '</option>' . "\n";
+
+        if ($serendipity['version'][0] == '1') {
+            echo '<table>';
+            foreach ($cats as $cat_data) {
+                echo '<tr>' . "\n";
+                echo '<td valign="top"><strong>' . htmlspecialchars($cat_data['category_name']) . '</strong></td>' . "\n";
+                echo '<td><select size="5" name="serendipity[assigncat][' . $cat_data['categoryid'] . '][]" multiple="true">' . "\n";
+                if (is_array($entries) && !empty($entries)) {
+                    foreach($entries AS $entryid => $entry) {
+                        echo '<option value="' . $entryid . '" ' . (in_array($cat_data['categoryid'], (array)$entry['categories']) ? 'selected="selected"' : '') . '>' . htmlspecialchars($entry['title']) . '</option>' . "\n";
+                    }
                 }
+                echo '</select></td>' . "\n";
+                echo '</tr>' . "\n";
             }
-            echo '</select></td>' . "\n";
-            echo '</tr>' . "\n";
+
+            echo '</table>' . "\n";
+
+            echo '<input class="serendipityPrettyButton input_button" type="submit" name="serendipity[submit]" value="' . GO . '" />';
+        } else {
+            foreach ($cats as $cat_data) {
+                echo '<div class="form_multiselect">';
+                echo '<label for="serendipity_assigncat_'  . $cat_data['categoryid'] . '" class="block_level">' . htmlspecialchars($cat_data['category_name']) . '</label>';
+                echo '<select id="serendipity_assigncat_'  . $cat_data['categoryid'] . '" size="5" name="serendipity[assigncat][' . $cat_data['categoryid'] . '][]" multiple="true">';
+                if (is_array($entries) && !empty($entries)) {
+                    foreach($entries AS $entryid => $entry) {
+                        echo '<option value="' . $entryid . '" ' . (in_array($cat_data['categoryid'], (array)$entry['categories']) ? 'selected="selected"' : '') . '>' . htmlspecialchars($entry['title']) . '</option>';
+                    }
+                }
+                echo '</select></div>';
+            }
+
+            echo '<div class="form_buttons"><input type="submit" name="serendipity[submit]" value="' . SAVE . '"></div>';
         }
-
-        echo '</table>' . "\n";
-
-        echo '<input class="serendipityPrettyButton input_button" type="submit" name="serendipity[submit]" value="' . GO . '" />';
         echo '</form>';
     }
 }

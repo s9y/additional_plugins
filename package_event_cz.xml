@@ -10634,7 +10634,7 @@ aplikovány další typografické úpravy.</description>
 <release>
   <version>0.3</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2014-05-10</date>
+  <date>2014-05-15</date>
   <filelist>
 <dir name="serendipity_event_lsrstopper">
 <dir name="UTF-8">
@@ -10650,6 +10650,9 @@ aplikovány další typografické úpravy.</description>
 <dir name="tests">
 <dir name="fixtures">
 <file>blacklist.txt</file>
+</dir>
+<dir name="data">
+<file>.empty</file>
 </dir>
 <file>lsrstopperTest.php</file>
 </dir>
@@ -10675,6 +10678,7 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_lsrstopper/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_lsrstopper/libs/simple_html_dom.php</file>
     <file>serendipity_event_lsrstopper/tests/fixtures/blacklist.txt</file>
+    <file>serendipity_event_lsrstopper/tests/data/.empty</file>
     <file>serendipity_event_lsrstopper/tests/lsrstopperTest.php</file>
     <file>serendipity_event_lsrstopper/lang_de.inc.php</file>
     <file>serendipity_event_lsrstopper/ChangeLog</file>

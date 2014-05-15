@@ -250,7 +250,6 @@ class serendipity_event_aggregator extends serendipity_event {
 
         # Schema extension (version 3)
         if ($this->get_config('db_version') < 3) {
-            error_reporting(E_ALL);
             echo "*** setup DB version " . $this->get_config('db_version'). "<br />\n";
             $sql = "CREATE TABLE {$serendipity['dbPrefix']}aggregator_feedcat (
                          feedid int(11) not null,

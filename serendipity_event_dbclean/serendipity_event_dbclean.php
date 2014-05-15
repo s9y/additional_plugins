@@ -43,7 +43,7 @@ class serendipity_event_dbclean extends serendipity_event {
 
 
     /*function introspect_config_item($name, &$propbag) {
-        
+
     }*/
 
 
@@ -54,7 +54,7 @@ class serendipity_event_dbclean extends serendipity_event {
         if (isset($hooks[$event])) {
             switch($event) {
                 case 'external_plugin':
-                    
+
                     switch ($eventData) {
                         case 'dbclean':
                             if (! (serendipity_checkPermission('siteConfiguration') || serendipity_checkPermission('blogConfiguration'))) {
@@ -85,7 +85,7 @@ class serendipity_event_dbclean extends serendipity_event {
                         }
                         return true;
                         break;
-                    
+
                 case 'backend_sidebar_admin':
                         echo '<li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks">
                             <a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=dbclean">
@@ -159,97 +159,61 @@ class serendipity_event_dbclean extends serendipity_event {
     }
 
     function displayMenu() {
-        echo '<style>
-        #dbcleanTable {
-            width: 100%;
-            text-align: center;
-        }
-        </style>
+        echo '<style>#dbcleanTable { width: 100%; text-align: center; } #dbcleanTable th { text-align: center; }</style>';
 
-        <h2>'. PLUGIN_EVENT_DBCLEAN_NAME_MENU .'</h2>
+        echo '<h2>' . PLUGIN_EVENT_DBCLEAN_NAME_MENU . '</h2>';
 
-        <form action="'.$serendipity ['baseURL'] . 'index.php?/plugin/dbclean' .'" method="post">
-        ' .PLUGIN_EVENT_DBCLEAN_MENU_KEEP .' <input type="string" name="days" value="30" size="3" maxlength="3" /> '.DAYS.'.
-        <table id="dbcleanTable">
-            <thead>
-                <td>
-                '.DELETE.'
-                </td>
-                <td>
-                '. PLUGIN_EVENT_DBCLEAN_TABLE .'
-                </td>
-                <td>
-                '. ENTRIES .'
-                </td>
-            </thead>
-            <tr>
-                <td>
-                <input class="input_checkbox" type="checkbox" name="spamblocklog"  value="spamblocklog"  checked="checked" tabindex="1" />
-                </td>
-                <td>
-                spamblocklog
-                </td>
-                <td>
-                '.$this->countElements('spamblocklog').'
-                </td>
-            </tr>
-             <tr>
-                <td>
-                <input class="input_checkbox" type="checkbox" name="spamblock_htaccess"  value="spamblock_htaccess"  checked="checked" tabindex="1" />
-                </td>
-                <td>
-                spamblock_htaccess
-                </td>
-                <td>
-                '.$this->countElements('spamblock_htaccess').'
-                </td>
-            </tr>
-             <tr>
-                <td>
-                <input class="input_checkbox" type="checkbox" name="visitors"  value="visitors"  checked="checked" tabindex="1" />
-                </td>
-                <td>
-                visitors
-                </td>
-                <td>
-                '.$this->countElements('visitors').'
-                </td>
-            </tr>
-            <tr>
-                <td>
-                <input class="input_checkbox" type="checkbox" name="referrers"  value="referrers"  checked="checked" tabindex="1" />
-                </td>
-                <td>
-                referrers
-                </td>
-                <td>
-                '.$this->countElements('referrers').'
-                </td>
-            </tr>
-            <tr>
-                <td>
-                <input class="input_checkbox" type="checkbox" name="exits"  value="exits"  checked="checked" tabindex="1" />
-                </td>
-                <td>
-                exits
-                </td>
-                <td>
-                '.$this->countElements('exits').'
-                </td>
-            </tr>
-        </table>
-        <input type="submit" value="'. GO .'" tabindex="2" />
-        </form>';
+        echo '<form action="'.$serendipity ['baseURL'] . 'index.php?/plugin/dbclean' .'" method="post">';
+        echo PLUGIN_EVENT_DBCLEAN_MENU_KEEP . ' <input type="string" name="days" value="30" size="3" maxlength="3" /> ' . DAYS;
+
+        echo '<table id="dbcleanTable">';
+        echo '<thead>';
+        echo '<tr>';
+        echo '<th>' . DELETE . '</th>';
+        echo '<th>' . PLUGIN_EVENT_DBCLEAN_TABLE . '</th>';
+        echo '<th>' . ENTRIES . '</th>';
+        echo '</tr>';
+        echo '</thead>';
+        echo '<tbody>';
+        echo '<tr>';
+        echo '<td><input class="input_checkbox" type="checkbox" name="spamblocklog"  value="spamblocklog"  checked="checked" tabindex="1" /></td>';
+        echo '<td>spamblocklog</td>';
+        echo '<td>' . $this->countElements('spamblocklog') . '</td>';
+        echo '</tr>';
+        echo '<tr>';
+        echo '<td><input class="input_checkbox" type="checkbox" name="spamblock_htaccess"  value="spamblock_htaccess"  checked="checked" tabindex="1" /></td>';
+        echo '<td>spamblock_htaccess</td>';
+        echo '<td>' . $this->countElements('spamblock_htaccess') . '</td>';
+        echo '</tr>';
+        echo '<tr>';
+        echo '<td><input class="input_checkbox" type="checkbox" name="visitors"  value="visitors"  checked="checked" tabindex="1" /></td>';
+        echo '<td>visitors</td>';
+        echo '<td>' . $this->countElements('visitors') . '</td>';
+        echo '</tr>';
+        echo '<tr>';
+        echo '<td><input class="input_checkbox" type="checkbox" name="referrers"  value="referrers"  checked="checked" tabindex="1" /></td>';
+        echo '<td>referrers</td>';
+        echo '<td>' . $this->countElements('referrers') . '</td>';
+        echo '</tr>';
+        echo '<tr>';
+        echo '<td><input class="input_checkbox" type="checkbox" name="exits"  value="exits"  checked="checked" tabindex="1" /></td>';
+        echo '<td>exits</td>';
+        echo '<td>' . $this->countElements('exits') . '</td>';
+        echo '</tr>';
+        echo '</table>';
+
+        echo '<input type="submit" value="' . GO . '" tabindex="2" />';
+        echo '</form>';
     }
 
     function countElements($table, $timespan=false) {
         global $serendipity;
         if (! $timespan) {
-            $sql = "SELECT COUNT(*) 
+            $sql = "SELECT COUNT(*)
                     FROM {$serendipity['dbPrefix']}$table";
         } else {
             if ($table=='visitors') {
-                $sql = "SELECT COUNT(*) 
+                $sql = "SELECT COUNT(*)
                     FROM {$serendipity['dbPrefix']}visitors
                     WHERE unix_timestamp(concat(day,' ',time)) < $timespan";
             } else if ($table =='referrers') {
@@ -273,12 +237,12 @@ class serendipity_event_dbclean extends serendipity_event {
 
     function debugMsg($msg) {
 		global $serendipity;
-		
+
 		$this->debug_fp = @fopen ( $serendipity ['serendipityPath'] . 'templates_c/dbclean.log', 'a' );
 		if (! $this->debug_fp) {
 			return false;
 		}
-		
+
 		if (empty ( $msg )) {
 			fwrite ( $this->debug_fp, "failure \n" );
 		} else {

@@ -383,7 +383,7 @@
 <category>Event Plugins</category>
 <author>Evan Nemerson, Garvin Hicking, Kristian Koehntopp, Thomas Schulz, Claus Schmidt</author>
 <content:encoded>&lt;b&gt;serendipity_event_aggregator&lt;br /&gt;RSS agregátor&lt;/b&gt;&lt;br /&gt;Zobrazuje zprávy z mnoha RSS kanálů. DŮLEŽITÁ POZNÁMKA: Aktualizace a &quot;krmení&quot; agregátoru je v současnosti nutno dělat ručně pomocí Cronjobs nebo podobně. Volejte následující adresu v libovolných časových intervalech: index.php?/plugin/aggregator&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:37 +0200</pubDate>
+<pubDate>Fri, 16 May 2014 02:31:17 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_aggregator</guid>
 </item>
 <item>
@@ -561,9 +561,9 @@
 <title>Ankety: Správa anket</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_pollbox</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking</author>
+<author>Garvin Hicking, Matthias Mees</author>
 <content:encoded>&lt;b&gt;serendipity_event_pollbox&lt;br /&gt;Ankety&lt;/b&gt;&lt;br /&gt;Správa anket&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 09 Apr 2014 02:31:16 +0200</pubDate>
+<pubDate>Fri, 16 May 2014 02:31:37 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_pollbox</guid>
 </item>
 <item>
@@ -635,9 +635,9 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <title>Přiřazení více kategorií: Umožňuje přiřadit příspěvku více kategorií</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_assigncategories</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking</author>
+<author>Garvin Hicking, Matthias Mees</author>
 <content:encoded>&lt;b&gt;serendipity_event_assigncategories&lt;br /&gt;Přiřazení více kategorií&lt;/b&gt;&lt;br /&gt;Umožňuje přiřadit příspěvku více kategorií&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 26 Sep 2013 02:31:20 +0200</pubDate>
+<pubDate>Fri, 16 May 2014 02:31:17 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_assigncategories</guid>
 </item>
 <item>
@@ -1058,9 +1058,9 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <title>Rychlé poznámky: Zobrazuje v administrační sekci oznámení přihlášeným uživatelům</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_adminnotes</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking</author>
+<author>Garvin Hicking, Matthias Mees</author>
 <content:encoded>&lt;b&gt;serendipity_event_adminnotes&lt;br /&gt;Rychlé poznámky&lt;/b&gt;&lt;br /&gt;Zobrazuje v administrační sekci oznámení přihlášeným uživatelům&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:37 +0200</pubDate>
+<pubDate>Fri, 16 May 2014 02:31:17 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_adminnotes</guid>
 </item>
 <item>
@@ -1328,9 +1328,9 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <title>Vyčištění databáze: Čistí databázi</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_dbclean</link>
 <category>Event Plugins</category>
-<author>Malte Paskuda</author>
+<author>Malte Paskuda, Matthias Mees</author>
 <content:encoded>&lt;b&gt;serendipity_event_dbclean&lt;br /&gt;Vyčištění databáze&lt;/b&gt;&lt;br /&gt;Čistí databázi&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:31:56 +0200</pubDate>
+<pubDate>Fri, 16 May 2014 02:31:20 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_dbclean</guid>
 </item>
 <item>

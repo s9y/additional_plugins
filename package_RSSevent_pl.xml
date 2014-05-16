@@ -383,7 +383,7 @@
 <category>Event Plugins</category>
 <author>Evan Nemerson, Garvin Hicking, Kristian Koehntopp, Thomas Schulz, Claus Schmidt</author>
 <content:encoded>&lt;b&gt;serendipity_event_aggregator&lt;br /&gt;RSS Aggregator&lt;/b&gt;&lt;br /&gt;Display entries from multiple RSS feeds (&quot;Planet&quot;). IMPORTANT NOTE: Updating and &quot;feeding&quot; your Aggregator must currently still happen manually via Cronjobs or similar. Call this URL with your custom timing interval: index.php?/plugin/aggregator&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:37 +0200</pubDate>
+<pubDate>Fri, 16 May 2014 02:31:17 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_aggregator</guid>
 </item>
 <item>
@@ -561,9 +561,9 @@
 <title>Głosowania: Obsługuje Twoje głosowania (polle)</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_pollbox</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking</author>
+<author>Garvin Hicking, Matthias Mees</author>
 <content:encoded>&lt;b&gt;serendipity_event_pollbox&lt;br /&gt;Głosowania&lt;/b&gt;&lt;br /&gt;Obsługuje Twoje głosowania (polle)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 09 Apr 2014 02:31:16 +0200</pubDate>
+<pubDate>Fri, 16 May 2014 02:31:37 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_pollbox</guid>
 </item>
 <item>
@@ -633,9 +633,9 @@
 <title>Category Assignment: Lets you assign multiple categories to entries</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_assigncategories</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking</author>
+<author>Garvin Hicking, Matthias Mees</author>
 <content:encoded>&lt;b&gt;serendipity_event_assigncategories&lt;br /&gt;Category Assignment&lt;/b&gt;&lt;br /&gt;Lets you assign multiple categories to entries&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 26 Sep 2013 02:31:20 +0200</pubDate>
+<pubDate>Fri, 16 May 2014 02:31:17 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_assigncategories</guid>
 </item>
 <item>
@@ -1056,9 +1056,9 @@
 <title>QuickNotes: Displays information for authors on the administration panel</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_adminnotes</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking</author>
+<author>Garvin Hicking, Matthias Mees</author>
 <content:encoded>&lt;b&gt;serendipity_event_adminnotes&lt;br /&gt;QuickNotes&lt;/b&gt;&lt;br /&gt;Displays information for authors on the administration panel&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:37 +0200</pubDate>
+<pubDate>Fri, 16 May 2014 02:31:17 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_adminnotes</guid>
 </item>
 <item>
@@ -1328,9 +1328,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <title>DBClean: Cleanup database</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_dbclean</link>
 <category>Event Plugins</category>
-<author>Malte Paskuda</author>
+<author>Malte Paskuda, Matthias Mees</author>
 <content:encoded>&lt;b&gt;serendipity_event_dbclean&lt;br /&gt;DBClean&lt;/b&gt;&lt;br /&gt;Cleanup database&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:31:56 +0200</pubDate>
+<pubDate>Fri, 16 May 2014 02:31:20 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_dbclean</guid>
 </item>
 <item>

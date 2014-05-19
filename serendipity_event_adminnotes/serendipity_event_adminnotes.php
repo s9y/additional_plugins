@@ -27,13 +27,14 @@ class serendipity_event_adminnotes extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.8');
+        $propbag->add('version',       '0.9');
         $propbag->add('author',        'Garvin Hicking, Matthias Mees');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array('feedback', 'limit', 'html', 'markup', 'cutoff'));
         $propbag->add('event_hooks',   array(
                                             'backend_frontpage_display'                         => true,
                                             'backend_sidebar_entries'                           => true,
+                                            'backend_sidebar_admin'                             => true,
                                             'backend_sidebar_entries_event_display_adminnotes'  => true,
                                             'css_backend'                                       => true,
                                         )
@@ -433,12 +434,15 @@ class serendipity_event_adminnotes extends serendipity_event {
 ?>
                         <li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks"><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=adminnotes"><?php echo PLUGIN_ADMINNOTES_TITLE; ?></a></li>
 <?php
-                    } else {
+                    }
+                    // Serendipity 2.0  now uses the new backend_sidebar_admin hook
+
+                    break;
+
+                case 'backend_sidebar_admin':
 ?>
                         <li><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=adminnotes"><?php echo PLUGIN_ADMINNOTES_TITLE; ?></a></li>
 <?php
-                    }
-
                     break;
 
                 case 'backend_sidebar_entries_event_display_adminnotes':

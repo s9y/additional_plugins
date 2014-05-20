@@ -8384,9 +8384,9 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <description>Displays information for authors on the administration panel</description>
 <maintainers><maintainer><name>Garvin Hicking, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.8</version>
+  <version>0.9</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2014-05-16</date>
+  <date>2014-05-20</date>
   <filelist>
 <dir name="serendipity_event_adminnotes">
 <file>serendipity_event_adminnotes.php</file>

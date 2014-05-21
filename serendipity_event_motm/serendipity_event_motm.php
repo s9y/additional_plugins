@@ -28,7 +28,7 @@ class serendipity_event_motm extends serendipity_event {
         $propbag->add('description',   PLUGIN_SIDEBAR_MOTM_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Tys von Gaza');
-        $propbag->add('version',       '1.4');
+        $propbag->add('version',       '1.5');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '4.1.0'
@@ -37,6 +37,7 @@ class serendipity_event_motm extends serendipity_event {
             'external_plugin'    => true,
             'css'                => true,
             'backend_sidebar_entries'   => true,
+            'backend_sidebar_admin'     => true,
             'backend_sidebar_entries_event_display_motm'    => true
         ));
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
@@ -142,7 +143,14 @@ class serendipity_event_motm extends serendipity_event {
             switch($event)
             {
                 case 'backend_sidebar_entries':
-                    echo '<li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks"><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=motm">'.PLUGIN_SIDEBAR_MOTM_ADMIN_LINK.'</a></li>';
+                    if ($serendipity['version'][0] == '1') {
+                        echo '<li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks"><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=motm">'.PLUGIN_SIDEBAR_MOTM_ADMIN_LINK.'</a></li>';
+                    }
+                    return true;
+                    break;
+
+                case 'backend_sidebar_admin':
+                    echo '<li><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=motm">'.PLUGIN_SIDEBAR_MOTM_ADMIN_LINK.'</a></li>';
                     return true;
                     break;
 

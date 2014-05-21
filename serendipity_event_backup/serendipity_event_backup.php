@@ -1,4 +1,4 @@
-<?php  # 
+<?php  #
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -38,13 +38,14 @@ class serendipity_event_backup extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.12');
+        $propbag->add('version',       '0.13');
         $propbag->add('author',       'Alexander \'dma147\' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
         									'frontend_footer'		  => true,
                                             'external_plugin'         => true,
                                             'backend_sidebar_entries' => true,
+                                            'backend_sidebar_admin'   => true,
                                             'backend_sidebar_entries_event_display_backup' => true
                                         )
         );
@@ -1403,14 +1404,20 @@ class serendipity_event_backup extends serendipity_event {
 
 
                 case 'backend_sidebar_entries':
-                    if ($serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN && ($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli')) {
-					?>
-                    <li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks"><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=backup"><?php echo PLUGIN_BACKUP_TITLE; ?></a></li>
-					<?php
+                    if ($serendipity['version'][0] == '1') {
+                        if ($serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN && ($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli')) {
+?>
+                            <li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks"><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=backup"><?php echo PLUGIN_BACKUP_TITLE; ?></a></li>
+<?php
+                        }
                     }
                     break;
 
-
+                case 'backend_sidebar_admin':
+?>
+                    <li><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=backup"><?php echo PLUGIN_BACKUP_TITLE; ?></a></li>
+<?php
+                    break;
 
                 case 'backend_sidebar_entries_event_display_backup':
                     $this->backup_interface();

@@ -1,4 +1,4 @@
-<?php # 
+<?php #
 
 // serendipity_event_sidebarhide
 
@@ -26,7 +26,7 @@ class serendipity_event_sidebarhider extends serendipity_event
         $propbag->add('description',   PLUGIN_SIDEBAR_HIDER_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Tys von Gaza, Garvin Hicking');
-        $propbag->add('version',       '1.24');
+        $propbag->add('version',       '1.25');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'php'         => '4.1.0'
@@ -36,6 +36,7 @@ class serendipity_event_sidebarhider extends serendipity_event
             'frontend_header'    => true,
             'css'                => true,
             'backend_sidebar_entries'   => true,
+            'backend_sidebar_admin'     => true,
             'backend_sidebar_entries_event_display_sidebarhider'    => true,
             'frontend_generate_plugins' => true
         ));
@@ -185,7 +186,14 @@ class serendipity_event_sidebarhider extends serendipity_event
                     break;
 
                 case 'backend_sidebar_entries':
-                    echo '<li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks"><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=sidebarhider">'.PLUGIN_SIDEBAR_HIDER_ADMINLINK.'</a></li>';
+                    if ($serendipity['version'][0] == '1') {
+                        echo '<li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks"><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=sidebarhider">'.PLUGIN_SIDEBAR_HIDER_ADMINLINK.'</a></li>';
+                    }
+                    return true;
+                    break;
+
+                case 'backend_sidebar_admin':
+                    echo '<li><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=sidebarhider">'.PLUGIN_SIDEBAR_HIDER_ADMINLINK.'</a></li>';
                     return true;
                     break;
 
@@ -322,7 +330,7 @@ class serendipity_event_sidebarhider extends serendipity_event
         serendipity_smarty_init();
 
         $template_option = $serendipity['smarty']->get_template_vars('template_option');
-        
+
         if (isset($template_vars['sidebars'])) {
             $sidebars = explode(',', $template_vars['sidebars']);
         } elseif (isset($serendipity['sidebars'])) {
@@ -343,13 +351,13 @@ class serendipity_event_sidebarhider extends serendipity_event
             <div><?php echo PLUGIN_SIDEBAR_HIDER_CONF_DESC;?></div>
             <br />
             <input class="serendipityPrettyButton input_button" type="submit" name="submit" value="<?php echo SAVE_CHANGES_TO_LAYOUT;?>" /><br /><br />
-            
+
             <table id="mainpane">
                 <tr>
 <?php
         foreach($sidebars AS $sidebar) {
             $plugins = serendipity_plugin_api::enum_plugins($sidebar);
-            
+
             $up = strtoupper($sidebar);
             if ($sidebar == 'hide') {
                 $opts[$sidebar] = HIDDEN;
@@ -360,7 +368,7 @@ class serendipity_event_sidebarhider extends serendipity_event
             } else {
                 $opts[$sidebar] = $up;
             }
-            
+
             if ($sidebar == 'left') {
                 $pside = 0;
             } elseif ($sidebar == 'right') {

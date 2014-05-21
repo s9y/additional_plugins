@@ -1,3 +1,6 @@
+0.4.9.11:
+    * Move to the correct nav section for 2.0 backend (yellowled)
+
 0.4.9.7:
     * Fetch jQuery without protocol
 

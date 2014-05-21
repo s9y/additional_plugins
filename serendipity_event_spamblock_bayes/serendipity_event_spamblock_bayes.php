@@ -36,7 +36,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '0.4.10' );
+		$propbag->add ( 'version', '0.4.11' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_spamblock_comments_shown' => true,
 		                                     'external_plugin' => true,
@@ -44,6 +44,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		                                     'backend_comments_top' => true,
 		                                     'backend_sendcomment' => true,
 		                                     'backend_sidebar_entries' => true,
+                                             'backend_sidebar_admin_appearance' => true,
 		                                     'backend_sidebar_entries_event_display_spamblock_bayes' => true,
                                              'xmlrpc_comment_spam' => true,
                                              'xmlrpc_comment_ham' => true,
@@ -435,7 +436,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
         //preg_split won't accept e.g. Umlaute as part of \w
         mb_regex_encoding('UTF-8');
         $tokens = mb_split("\W", $text );
-        #preg_match_all('/[\w]+/u', "aaaÂ´bbb", $words);
+        #preg_match_all('/[\w]+/u', "aaa´bbb", $words);
 
 		$temp = array ();
 		foreach ( $tokens as $token ) {
@@ -1228,12 +1229,24 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     if (!serendipity_checkPermission('adminComments')) {
                         break;
                     }
+                    if ($serendipity['version'][0] == '1') {
+                        if ($this->get_config('menu', true)) {
+                            echo '<li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks">
+                                <a href="?serendipity[adminModule]=event_display&serendipity[adminAction]=spamblock_bayes&serendipity[subpage]=1">
+                                    '. PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME .'
+                                </a>
+                            </li>';
+                        }
+                    }
+                    return true;
+                    break;
+
+                case 'backend_sidebar_admin_appearance':
+                    if (!serendipity_checkPermission('adminComments')) {
+                        break;
+                    }
                     if ($this->get_config('menu', true)) {
-                        echo '<li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks">
-                            <a href="?serendipity[adminModule]=event_display&serendipity[adminAction]=spamblock_bayes&serendipity[subpage]=1">
-                                '. PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME .'
-                            </a>
-                        </li>';
+                        echo '<li><a href="?serendipity[adminModule]=event_display&serendipity[adminAction]=spamblock_bayes&serendipity[subpage]=1">' . PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME . '</a></li>';
                     }
                     return true;
                     break;

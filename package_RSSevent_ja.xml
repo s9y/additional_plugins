@@ -374,7 +374,7 @@
 <category>Event Plugins</category>
 <author>Tys von Gaza</author>
 <content:encoded>&lt;b&gt;serendipity_event_motm&lt;br /&gt;Music of the Moment&lt;/b&gt;&lt;br /&gt;Real time music status from iTunes using iTunesBlogger: http://www.ituneshacking.com/wiki/wakka.php?wakka=iTunesBloggerHomePage&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 01:47:35 +0100</pubDate>
+<pubDate>Thu, 22 May 2014 02:31:24 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_motm</guid>
 </item>
 <item>
@@ -446,7 +446,7 @@
 <category>Event Plugins</category>
 <author>Tys von Gaza, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_sidebarhider&lt;br /&gt;サイドバーの状態切り替え (折り畳み/展開)&lt;/b&gt;&lt;br /&gt;Shrinks Sidebars to just their titles.  Extra configuration in Entries -&gt; Manage Sidebars in the Admin Suite.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:44 +0200</pubDate>
+<pubDate>Thu, 22 May 2014 02:31:27 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_sidebarhider</guid>
 </item>
 <item>
@@ -819,7 +819,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <author>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</author>
 <content:encoded>&lt;b&gt;serendipity_event_backup&lt;br /&gt;バックアップインターフェース&lt;/b&gt;&lt;br /&gt;
 自動的に s9y のデータベース内テーブル、データベース全体およびファイルからバックアップを作る能力を提供します。現在 MySQL(i) データベースのみサポートしています。警告: このプラグインは大きなデータベースやディレクトリーでは正しく処理できません。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:38 +0200</pubDate>
+<pubDate>Thu, 22 May 2014 02:31:16 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_backup</guid>
 </item>
 <item>
@@ -1226,7 +1226,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_bayes&lt;br /&gt;Spamblock (Bayes)&lt;/b&gt;&lt;br /&gt;Detects Spam via an algorithmus which learns.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:44 +0200</pubDate>
+<pubDate>Thu, 22 May 2014 02:31:27 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_bayes</guid>
 </item>
 <item>

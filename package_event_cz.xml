@@ -3061,15 +3061,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_motm</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_motm/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Hudba, kterou právě poslouchám</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
 <description>Okamžitý stav hudby z iTunes s pomocí iTunesBloggeru: http://www.ituneshacking.com/wiki/wakka.php?wakka=iTunesBloggerHomePage</description>
 <maintainers><maintainer><name>Tys von Gaza</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4</version>
+  <version>1.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2014-05-22</date>
   <filelist>
 <dir name="serendipity_event_motm">
 <dir name="amazon">
@@ -3091,6 +3092,7 @@
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
 </dir>
+<file>ChangeLog</file>
 <file>lang_en.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
@@ -3115,6 +3117,7 @@
     <file>serendipity_event_motm/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_motm/UTF-8/documentation_cs.html</file>
     <file>serendipity_event_motm/UTF-8/documentation_cz.html</file>
+    <file>serendipity_event_motm/ChangeLog</file>
     <file>serendipity_event_motm/lang_en.inc.php</file>
     <file>serendipity_event_motm/lang_cs.inc.php</file>
     <file>serendipity_event_motm/lang_cz.inc.php</file>
@@ -3595,9 +3598,9 @@
 <description>Smrští postranní sloupce pouze na jejich nadpisy. Přidává nastavení do psaní příspěvků a také položku &quot;Správa postranních sloupců&quot; do administrační sekce.</description>
 <maintainers><maintainer><name>Tys von Gaza, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.24</version>
+  <version>1.25</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-05-22</date>
   <filelist>
 <dir name="serendipity_event_sidebarhider">
 <file>serendipity_event_sidebarhider.php</file>
@@ -6263,15 +6266,16 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_backup</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_backup/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Zálohování</summary>
 <groups>FRONTEND_FULL_MODS,BACKEND_FEATURES</groups>
 <description>Zpřístupňuje možnost automatického zálohování Serendepity - databázových tabulek i souborů. V současnosti je podporována pouze databáze MySQL(i). VAROVÁNÍ: Plugin nefunguje optimálně s velkou databází nebo velkým množstvím souborů.</description>
 <maintainers><maintainer><name>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.12</version>
+  <version>0.13</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-05-22</date>
   <filelist>
 <dir name="serendipity_event_backup">
 <dir name="UTF-8">
@@ -6290,6 +6294,7 @@ aplikovány další typografické úpravy.</description>
 </dir>
 <file>lang_en.inc.php</file>
 <file>lang_ja.inc.php</file>
+<file>ChangeLog</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 </dir>
@@ -6306,6 +6311,7 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_backup/img/e.gif</file>
     <file>serendipity_event_backup/lang_en.inc.php</file>
     <file>serendipity_event_backup/lang_ja.inc.php</file>
+    <file>serendipity_event_backup/ChangeLog</file>
     <file>serendipity_event_backup/lang_cs.inc.php</file>
     <file>serendipity_event_backup/lang_cz.inc.php</file>
   </serendipityFilelist>
@@ -9746,9 +9752,9 @@ aplikovány další typografické úpravy.</description>
 <description>Detekce spamu pomocí adaptivního algoritmu, který se dokáže sám učit.</description>
 <maintainers><maintainer><name>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.4.10</version>
+  <version>0.4.11</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-05-22</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bayes">
 <dir name="UTF-8">

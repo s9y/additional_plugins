@@ -374,7 +374,7 @@
 <category>Event Plugins</category>
 <author>Tys von Gaza</author>
 <content:encoded>&lt;b&gt;serendipity_event_motm&lt;br /&gt;Hudba, kterou právě poslouchám&lt;/b&gt;&lt;br /&gt;Okamžitý stav hudby z iTunes s pomocí iTunesBloggeru: http://www.ituneshacking.com/wiki/wakka.php?wakka=iTunesBloggerHomePage&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 01:47:35 +0100</pubDate>
+<pubDate>Thu, 22 May 2014 02:31:24 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_motm</guid>
 </item>
 <item>
@@ -446,7 +446,7 @@
 <category>Event Plugins</category>
 <author>Tys von Gaza, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_sidebarhider&lt;br /&gt;Přepínání stavu postranního sloupce (sbalený/rozbalený)&lt;/b&gt;&lt;br /&gt;Smrští postranní sloupce pouze na jejich nadpisy. Přidává nastavení do psaní příspěvků a také položku &quot;Správa postranních sloupců&quot; do administrační sekce.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:44 +0200</pubDate>
+<pubDate>Thu, 22 May 2014 02:31:27 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_sidebarhider</guid>
 </item>
 <item>
@@ -817,7 +817,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</author>
 <content:encoded>&lt;b&gt;serendipity_event_backup&lt;br /&gt;Zálohování&lt;/b&gt;&lt;br /&gt;Zpřístupňuje možnost automatického zálohování Serendepity - databázových tabulek i souborů. V současnosti je podporována pouze databáze MySQL(i). VAROVÁNÍ: Plugin nefunguje optimálně s velkou databází nebo velkým množstvím souborů.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:38 +0200</pubDate>
+<pubDate>Thu, 22 May 2014 02:31:16 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_backup</guid>
 </item>
 <item>
@@ -1222,7 +1222,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_bayes&lt;br /&gt;Spamblock (Bayes)&lt;/b&gt;&lt;br /&gt;Detekce spamu pomocí adaptivního algoritmu, který se dokáže sám učit.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:44 +0200</pubDate>
+<pubDate>Thu, 22 May 2014 02:31:27 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_bayes</guid>
 </item>
 <item>

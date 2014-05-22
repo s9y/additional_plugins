@@ -374,7 +374,7 @@
 <category>Event Plugins</category>
 <author>Tys von Gaza</author>
 <content:encoded>&lt;b&gt;serendipity_event_motm&lt;br /&gt;Musik des Augenblicks&lt;/b&gt;&lt;br /&gt;Live-Darstellung der von ihnen aktuell abgespielten Musik mittels iTunes und iTunesBlogger: http://www.ituneshacking.com/wiki/wakka.php?wakka=iTunesBloggerHomePage&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 01:47:35 +0100</pubDate>
+<pubDate>Thu, 22 May 2014 02:31:24 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_motm</guid>
 </item>
 <item>
@@ -446,7 +446,7 @@
 <category>Event Plugins</category>
 <author>Tys von Gaza, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_sidebarhider&lt;br /&gt;Seitenleisten ein/ausklappbar machen&lt;/b&gt;&lt;br /&gt;Verkleinert Seitenleisten-Elemente auf ihren Titel und ermöglicht das individuelle Ausklappen. Zusätzliche Konfiguration siehe Einträge -&gt; Seitenleisten verwalten in der Administrationsoberfläche.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:44 +0200</pubDate>
+<pubDate>Thu, 22 May 2014 02:31:27 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_sidebarhider</guid>
 </item>
 <item>
@@ -815,7 +815,7 @@
 <category>Event Plugins</category>
 <author>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</author>
 <content:encoded>&lt;b&gt;serendipity_event_backup&lt;br /&gt;Backup Interface&lt;/b&gt;&lt;br /&gt;Provides the ability to automatically make backups from your s9y, the database-tables, the whole database and the files. Only MySQL(i) databases are currently supported. WARNING: This plugin does not work well with large databases or directories.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:38 +0200</pubDate>
+<pubDate>Thu, 22 May 2014 02:31:16 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_backup</guid>
 </item>
 <item>
@@ -1222,7 +1222,7 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <category>Event Plugins</category>
 <author>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_bayes&lt;br /&gt;Spamschutz (Bayes)&lt;/b&gt;&lt;br /&gt;Filtert Kommentare mittels eines lernenden Algorithmus.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:44 +0200</pubDate>
+<pubDate>Thu, 22 May 2014 02:31:27 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_bayes</guid>
 </item>
 <item>

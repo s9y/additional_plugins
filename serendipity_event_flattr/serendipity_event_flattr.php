@@ -60,7 +60,7 @@ class serendipity_event_flattr extends serendipity_event {
             'add_to_feed',
         ));
         $propbag->add('author',  'Garvin Hicking, Joachim Breitner', 'Matthias Gutjahr');
-        $propbag->add('version', '1.11');
+        $propbag->add('version', '1.12');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
@@ -307,7 +307,7 @@ class serendipity_event_flattr extends serendipity_event {
     var t = document.getElementsByTagName('script')[0];
     s.type = 'text/javascript';
     s.async = true;
-    s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+    s.src = 'https://api.flattr.com/js/0.6/load.js?mode=auto';
     s.src += '&popout=<?php echo (int)$this->get_config('flattr_pop'); ?>';
     s.src += '&uid=<?php echo $flattr_uid; ?>';
     s.src += '&language=<?php echo $flattr_lng; ?>';

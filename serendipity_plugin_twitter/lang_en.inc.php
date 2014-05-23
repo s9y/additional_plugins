@@ -1,4 +1,4 @@
-<?php 
+<?php
 @define('PLUGIN_TWITTER_TITLE',                         'Twitter Timeline');
 @define('PLUGIN_TWITTER_DESC',                          'Show your current Twitter entries');
 @define('PLUGIN_TWITTER_NUMBER',                        'Number of entries');
@@ -39,7 +39,7 @@
 
 @define('PLUGIN_TWITTER_PROBLEM_TWITTER_ACCESS',        'Problem, accessing twitter at the moment. <br/>Please reload later..');
 
-// Twitter Event Plugin 
+// Twitter Event Plugin
 @define('PLUGIN_EVENT_TWITTER_NAME',                    'Microblogging (Twitter,Identica)');
 @define('PLUGIN_EVENT_TWITTER_DESC',                    'Adds a twitter/identica client to the admininistration interface, searches for tweetbacks and announces new articles to a microblogging account.');
 
@@ -106,7 +106,7 @@
 @define('PLUGIN_EVENT_TWITTER_IDENTITIES',              'Identities');
 @define('PLUGIN_EVENT_TWITTER_ACCOUNT_IDCOUNT',         'Number of Accounts');
 @define('PLUGIN_EVENT_TWITTER_ACCOUNT_IDCOUNT_DESC',    'After saving this, the configuration will give you inputs for the number of accounts. Perhaps you have to save it twice, to see the inputs.');
-@define('PLUGIN_EVENT_TWITTER_IDENTITY',                'Indentity');
+@define('PLUGIN_EVENT_TWITTER_IDENTITY',                'Identity');
 @define('PLUGIN_EVENT_TWITTER_ACCOUNT_SERVICE',         'Account Service');
 @define('PLUGIN_EVENT_TWITTER_ACCOUNT_SERVICE_DESC',    'Specify, if this is a twitter or identi.ca account');
 @define('PLUGIN_EVENT_TWITTER_ACCOUNT_SERVICE_TWITTER', 'twitter');

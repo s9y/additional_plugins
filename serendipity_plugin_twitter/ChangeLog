@@ -11,6 +11,8 @@ TODO:
 
 1.61
 --------------------------
+    * Adapted backend markup (tweeter_client.inc.php) for 2.0 backend (yellowled)
+    * Fixed a typo in the English lang file (yellowled)
     * Added int-casting to str_repeat() to prevent PHP notice
     * Added additional backend markup (backend_display) for 2.0 backend (yellowled)
     * Moved backend menu item to proper backend nav section (yellowled)

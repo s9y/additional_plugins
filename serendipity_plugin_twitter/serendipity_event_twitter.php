@@ -1023,6 +1023,7 @@ class serendipity_event_twitter extends serendipity_plugin {
                     return true;
 
                 case 'backend_sidebar_entries_event_display_tweeter':
+                    echo '<h2>' . PLUGIN_EVENT_TWITTER_TWEETER_SIDEBARTITLE . '</h2>';
                     $this->display_twitter_client(true);
                     return true;
 

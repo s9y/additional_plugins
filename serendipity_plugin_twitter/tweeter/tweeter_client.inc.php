@@ -70,11 +70,12 @@ var twitter_https_length_str = '<?php echo $https_length_str?>';
 <?php
     if ($GLOBALS['serendipity']['version'][0] == '1') {
         echo '<br />';
+        echo '<div id="serendipity_admin_tweeter_shorturl">';
     } else {
         echo '</div>';
+        echo '<div id="serendipity_admin_tweeter_shorturl" class="form_field">';
     }
 ?>
-        <div id="serendipity_admin_tweeter_shorturl">
             <label for="shorturl"><?php echo PLUGIN_EVENT_TWITTER_TWEETER_SHORTEN; ?>:</label>
             <input type="text" id="shorturl" value="<?php echo empty($val_short) ? 'http://' : $val_short; ?>" name="shorturl"/>
 <?php
@@ -83,8 +84,17 @@ var twitter_https_length_str = '<?php echo $https_length_str?>';
     }
 ?>
         </div>
-
-        <input id="tweeter_submit" name="tweeter_submit" value="<?php echo PLUGIN_EVENT_TWITTER_TWEETER_SHORTEN_OR_UPDATE; ?>" type="submit" />
+<?php
+    if ($GLOBALS['serendipity']['version'][0] == '2') {
+        echo '<div class="form_buttons">';
+    }
+?>
+            <input id="tweeter_submit" name="tweeter_submit" value="<?php echo PLUGIN_EVENT_TWITTER_TWEETER_SHORTEN_OR_UPDATE; ?>" type="submit" />
+<?php
+    if ($GLOBALS['serendipity']['version'][0] == '2') {
+        echo '</div>';
+    }
+?>
     </form>
 <?php if(isset($notice)) echo $notice; ?>
 <script type="text/javascript">

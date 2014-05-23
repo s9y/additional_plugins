@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // Contributed by Grischa Brockhaus <s9ycoder@brockha.us>
 
@@ -50,7 +50,7 @@ class serendipity_event_twitter extends serendipity_plugin {
     function introspect(&$propbag)
     {
         global $serendipity;
-        
+
         $propbag->add('name',          PLUGIN_EVENT_TWITTER_NAME);
         $propbag->add('description',   PLUGIN_EVENT_TWITTER_DESC);
         $propbag->add('stackable',     false);
@@ -71,6 +71,7 @@ class serendipity_event_twitter extends serendipity_plugin {
             'backend_publish'           => true, // An entry was puplished (was draft before or saved from the scratch).
             'backend_frontpage_display' => true,
             'backend_sidebar_entries'   => true,
+            'backend_sidebar_admin_appearance' => true,
             'backend_sidebar_entries_event_display_tweeter' => true,
             'backend_delete_entry'      => true,
             'css'                       => true,
@@ -79,14 +80,14 @@ class serendipity_event_twitter extends serendipity_plugin {
             ));
 
         $configuration = array();
-        
+
         if (class_exists('serendipity_event_twittertweeter')) {
             $configuration[] = "tweeter_warning";
         }
         $configuration[] = "config_tab";
-        
+
         $config_announce = array(
-                    'announce_articles_title', 'announce_articles', 'announce_via_accounts', 
+                    'announce_articles_title', 'announce_articles', 'announce_via_accounts',
                     'announce_format', 'announce_with_tags', 'anounce_url_service', 'announce_articles_default_no',
                     'announce_bitly_description', 'announce_bitly_login','announce_bitly_apikey','announce_piratly_description', 'announce_piratly_apikey',
                     'announce_yourls_description', 'announce_yourls_url', 'announce_yourls_apikey'
@@ -114,11 +115,11 @@ class serendipity_event_twitter extends serendipity_plugin {
                  );
         $config_tweetback = array(
                     'tweetback_title', 'do_tweetbacks',
-                    'twitter_api', 'twitter_generic_acc', 
-                    'tweetback_type', 'tweetback_moderate', 'ignore_tweetbacks_by_name', 'tweetback_url',  
+                    'twitter_api', 'twitter_generic_acc',
+                    'tweetback_type', 'tweetback_moderate', 'ignore_tweetbacks_by_name', 'tweetback_url',
                     'tweetback_check_freq'
                  );
-                 
+
 
         $config_tweetthis = array(
                     'tweetthis_title', 'do_tweetthis', 'do_identicathis', 'tweetthis_format', 'tweetthis_button',
@@ -129,35 +130,35 @@ class serendipity_event_twitter extends serendipity_plugin {
         $config_general = array(
                     'general_title', 'plugin_rel_url', 'general_oa_consumerdesc', 'general_oa_consumerkey', 'general_oa_consumersecret'
                  );
-        
+
         switch ($_GET['plugintab']) {
             case 'announce':
-                $configuration = array_merge($configuration, 
+                $configuration = array_merge($configuration,
                     $config_announce
                 );
                 break;
             case 'tweeter':
-                $configuration = array_merge($configuration, 
+                $configuration = array_merge($configuration,
                     $config_tweeter
                 );
                 break;
             case 'tweetback':
-                $configuration = array_merge($configuration, 
+                $configuration = array_merge($configuration,
                     $config_tweetback
                 );
                 break;
             case 'tweetthis':
-                $configuration = array_merge($configuration, 
+                $configuration = array_merge($configuration,
                     $config_tweetthis
                 );
                 break;
             case 'global':
-                $configuration = array_merge($configuration, 
+                $configuration = array_merge($configuration,
                     $config_general
                 );
                 break;
             case 'all':
-                $configuration = array_merge($configuration, 
+                $configuration = array_merge($configuration,
                     $config_twitter,
                     $config_tweeter,
                     $config_announce,
@@ -167,13 +168,13 @@ class serendipity_event_twitter extends serendipity_plugin {
                 break;
             case 'identities':
             default:
-                $configuration = array_merge($configuration, 
+                $configuration = array_merge($configuration,
                     $config_twitter
                 );
         }
-        
+
         $propbag->add('configuration', $configuration);
-        
+
     }
 
     function handleConfig($name, &$propbag, $idx = '') {
@@ -195,9 +196,9 @@ class serendipity_event_twitter extends serendipity_plugin {
                 }
                 break;
 
-            case 'twitteroa_consumer_key':                                        
+            case 'twitteroa_consumer_key':
                 if (!$this->get_config('id_service' . $idx) OR $this->get_config('id_service' . $idx) == "twitter") {
-                    
+
                     $u  = $this->get_config('twittername' . $idx);
                     $kd = $this->get_config('twitteroa_key_' . $idx . $u);
                     $td = $this->get_config('twitteroa_token_' . $idx . $u);
@@ -211,7 +212,7 @@ class serendipity_event_twitter extends serendipity_plugin {
                     }
                 }
                 break;
-                
+
             case 'twitteroa_sign_in':
                 if (!$this->get_config('id_service' . $idx) OR $this->get_config('id_service' . $idx) == "twitter") {
                     $u  = $this->get_config('twittername' . $idx);
@@ -220,7 +221,7 @@ class serendipity_event_twitter extends serendipity_plugin {
 
                     $csecret = $this->get_config('twitteroa_consumer_secret' . $idx);
                     $ckey = $this->get_config('twitteroa_consumer_key' . $idx);
-                    // Use s9y consumer stuff, if old plugin versions did not set this up already 
+                    // Use s9y consumer stuff, if old plugin versions did not set this up already
                     if (empty($ckey) || empty($csecret)) {
                         $consumer = $this->twitteroa_global_consumersettings();
                         $csecret  = $consumer['secret'];
@@ -228,7 +229,7 @@ class serendipity_event_twitter extends serendipity_plugin {
                         $this->set_config('twitteroa_consumer_secret' . $idx, $csecret);
                         $this->set_config('twitteroa_consumer_key' . $idx, $ckey);
                     }
-                    
+
                     if (!empty($kd) && !empty($td)) {
                         // OAuth token and key is setup: Delete connection
                         $linkdel = $serendipity['baseURL'] . $serendipity['indexFile'] . '?/' . TwitterPluginFileAccess::get_permaplugin_path() . '/twitteroa-del=' . $idx;
@@ -496,25 +497,25 @@ class serendipity_event_twitter extends serendipity_plugin {
                 $propbag->add('name',           PLUGIN_EVENT_TWITTER_ANNOUNCE_PIRATLYAPIKEY);
                 $propbag->add('default',        '0');
                 break;
-                            
+
             case 'announce_yourls_description':
                 $propbag->add('type',           'content');
                 $propbag->add('default',        PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSDESC);
                 break;
-            
+
             case 'announce_yourls_url':
                 $propbag->add('type',           'string');
                 $propbag->add('name',           PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSURL);
                 $propbag->add('default',        'http://www.yourls.org');
                 break;
-                
+
             case 'announce_yourls_apikey':
                 $propbag->add('type',           'string');
                 $propbag->add('name',           PLUGIN_EVENT_TWITTER_ANNOUNCE_YOURLSAPIKEY);
                 $propbag->add('default',        'API key');
                 break;
 
-            // Tweetbacks 
+            // Tweetbacks
             case 'twitter_api' :
                 $apis = array(
                     'api10'      => PLUGIN_EVENT_TWITTER_API_10,
@@ -751,7 +752,7 @@ class serendipity_event_twitter extends serendipity_plugin {
         }
 
         $format = $default_prefix . '#title# #link#';
-        
+
         if (serendipity_db_bool($this->get_config('announce_with_all_tags',false))) {
             $format .= ' #tags#';
         }
@@ -849,7 +850,7 @@ class serendipity_event_twitter extends serendipity_plugin {
                     }
                     else if ($command=="gtweetback.png") {
                         $nextcheck = $this->check_tweetbacks_global();
-                        if (empty($nextcheck)) $nextcheck = time() + (30 * 60); // Default for hackers 
+                        if (empty($nextcheck)) $nextcheck = time() + (30 * 60); // Default for hackers
                         $this->show_img(dirname(__FILE__) . '/img/pixel.png', $nextcheck, 'image/png');
                         return true;
                     }
@@ -1004,10 +1005,20 @@ class serendipity_event_twitter extends serendipity_plugin {
                     return true;
 
                 case 'backend_sidebar_entries':
+                    if ($serendipity['version'][0] == '1') {
+                        if ($this->get_config('tweeter_show', 'disable') == 'sidebar') {
+?>
+                            <li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks"><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=tweeter"><?php echo PLUGIN_EVENT_TWITTER_TWEETER_SIDEBARTITLE; ?></a></li>
+<?php
+                        }
+                    }
+                    return true;
+
+                case 'backend_sidebar_admin_appearance':
                     if ($this->get_config('tweeter_show', 'disable') == 'sidebar') {
-                    ?>
-                    <li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks"><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=tweeter"><?php echo PLUGIN_EVENT_TWITTER_TWEETER_SIDEBARTITLE; ?></a></li>
-                    <?php
+?>
+                    <li><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=tweeter"><?php echo PLUGIN_EVENT_TWITTER_TWEETER_SIDEBARTITLE; ?></a></li>
+<?php
                     }
                     return true;
 
@@ -1042,19 +1053,38 @@ class serendipity_event_twitter extends serendipity_plugin {
                     if (serendipity_db_bool($this->get_config('announce_articles_default_no'))) {
                         $checked_dontannounce = "checked='checked'";
                     }
+                    if ($serendipity['version'][0] == '1') {
 ?>
-                    <fieldset style="margin: 5px">
-                        <a name="microbloggingAnchor"></a>
-                        <legend><?php echo PLUGIN_EVENT_TWITTER_NAME; ?></legend>
-                        <div class="entryproperties_microblogging_dontannounce">
-                        <input id="properties_microblogging_dontannounce" class="input_checkbox" type="checkbox" name="serendipity[properties][microblogging_dontannounce]" <?php echo $checked_dontannounce; ?>/>
-                        <label for="properties_microblogging_dontannounce" title="<?php echo PLUGIN_EVENT_TWITTER_BACKEND_DONTANNOUNCE; ?>"> <?php echo PLUGIN_EVENT_TWITTER_BACKEND_DONTANNOUNCE; ?>  </label>
-                        </div>
-                        <label for="serendipity[properties][microblogging_tagList]" title="<?php echo PLUGIN_EVENT_TWITTER_NAME; ?>">
-                            <?php echo PLUGIN_EVENT_TWITTER_BACKEND_ENTERDESC; ?></label><br/>
-                        <input type="text" name="serendipity[properties][microblogging_tagList]" id="properties_microblogging_tagList" class="wickEnabled input_textbox" value="<?php echo htmlspecialchars($tagList); ?>" style="width: 100%" />
-                    </fieldset>
+                        <fieldset style="margin: 5px">
+                            <a name="microbloggingAnchor"></a>
+                            <legend><?php echo PLUGIN_EVENT_TWITTER_NAME; ?></legend>
+                            <div class="entryproperties_microblogging_dontannounce">
+                            <input id="properties_microblogging_dontannounce" class="input_checkbox" type="checkbox" name="serendipity[properties][microblogging_dontannounce]" <?php echo $checked_dontannounce; ?>/>
+                            <label for="properties_microblogging_dontannounce" title="<?php echo PLUGIN_EVENT_TWITTER_BACKEND_DONTANNOUNCE; ?>"> <?php echo PLUGIN_EVENT_TWITTER_BACKEND_DONTANNOUNCE; ?>  </label>
+                            </div>
+                            <label for="serendipity[properties][microblogging_tagList]" title="<?php echo PLUGIN_EVENT_TWITTER_NAME; ?>">
+                                <?php echo PLUGIN_EVENT_TWITTER_BACKEND_ENTERDESC; ?></label><br/>
+                            <input type="text" name="serendipity[properties][microblogging_tagList]" id="properties_microblogging_tagList" class="wickEnabled input_textbox" value="<?php echo htmlspecialchars($tagList); ?>" style="width: 100%" />
+                        </fieldset>
 <?php
+                    } else {
+?>
+                        <fieldset class="entryproperties">
+                            <a name="microbloggingAnchor"></a>
+                            <span class="wrap_legend"><legend><?php echo PLUGIN_EVENT_TWITTER_NAME; ?></legend></span>
+
+                            <div class="entryproperties_microblogging_dontannounce form_check">
+                                <input id="properties_microblogging_dontannounce" name="serendipity[properties][microblogging_dontannounce]" type="checkbox" <?php echo $checked_dontannounce; ?>>
+                                <label for="properties_microblogging_dontannounce"><?php echo PLUGIN_EVENT_TWITTER_BACKEND_DONTANNOUNCE; ?></label>
+                            </div>
+
+                            <div class="form_field">
+                                <label for="serendipity[properties][microblogging_tagList]" class="block_level"><?php echo PLUGIN_EVENT_TWITTER_BACKEND_ENTERDESC; ?></label>
+                                <input id="properties_microblogging_tagList"  class="wickEnabled" name="serendipity[properties][microblogging_tagList]" type="text" value="<?php echo htmlspecialchars($tagList); ?>">
+                            </div>
+                        </fieldset>
+<?php
+                    }
                     return true;
             }
         }
@@ -1081,7 +1111,7 @@ class serendipity_event_twitter extends serendipity_plugin {
 
         TwitterPluginDbAccess::install($this);
 
-        // Save highest twitter id of all ids saved for single articles  
+        // Save highest twitter id of all ids saved for single articles
         $highest_id_single = TwitterPluginDbAccess::find_highest_twitterid();
         if ($this->get_config('highest_id_global','0')<$highest_id_single) {
             $this->set_config('highest_id_global', TwitterPluginDbAccess::find_highest_twitterid());
@@ -1212,7 +1242,7 @@ a.twitter_update_time {
         if (!is_numeric($check_freq) || $check_freq < 5) {
             $check_freq = 5;
         }
-        $check_freq = $check_freq * 60; // we need seconds 
+        $check_freq = $check_freq * 60; // we need seconds
         if (!$complete && !empty($lastcheck)  && (time() - $lastcheck) < $check_freq){
             // Search already done.
             return $lastcheck + $check_freq;
@@ -1416,7 +1446,7 @@ a.twitter_update_time {
 
         $author = !empty($entry['author'])?$entry['author']:$serendipity['serendipityRealname'];
         $announce_format = str_replace(
-            array('#author#','#autor#','#link#'), 
+            array('#author#','#autor#','#link#'),
             array($author,$author,$url_placeholder),
             $announce_format);
 
@@ -1573,7 +1603,7 @@ a.twitter_update_time {
         }
 
     }
-    
+
     function twitteroa_global_consumersettings() {
         // Return local client setup with fallback to the s9y client
         $result = array();
@@ -1600,7 +1630,7 @@ a.twitter_update_time {
     }
 
     /**
-     * adds tweetthis, dentthis and "check tweetbacks" (if logged in) to footer 
+     * adds tweetthis, dentthis and "check tweetbacks" (if logged in) to footer
      */
     function display_entry(&$eventData, $addData) {
         global $serendipity;
@@ -1657,7 +1687,7 @@ a.twitter_update_time {
                     $eventData[$event_index]['add_footer'] .= '<div class="serendipity_shorturl_link"><a class="serendipity_shorturl_link" rel="nofollow" title="' . $onclick . '" href="'. $shorturl . '" onclick="alert(\'' . $onclick . '\');return false">' . PLUGIN_EVENT_TWITTER_SHORTURL_TITLE . '</a></div>';
                 }
             }
-        
+
             if ($do_tweetthis || $do_identicathis) {
 
                 $update = $update = $this->create_update_from_entry($eventData[$event_index], $tweetthis_format);
@@ -1826,7 +1856,7 @@ a.twitter_update_time {
         global $serendipity;
         require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
 
-        if (count($parts)<5) return time() + (60 * 60); // params corrupted next try allowed one minute later 
+        if (count($parts)<5) return time() + (60 * 60); // params corrupted next try allowed one minute later
 
         // Do we need to do OAuth?
         if (count($parts)>6) {
@@ -1920,12 +1950,12 @@ a.twitter_update_time {
         fflush($fp);
         fclose($fp);
     }
-    
+
     function load_timeline() {
         $status_timeline = array(
-            "public_timeline", 
-            "home_timeline", 
-            "friends_timeline", 
+            "public_timeline",
+            "home_timeline",
+            "friends_timeline",
             "user_timeline",
             "mentions",
             "retweeted_by_me",
@@ -1939,25 +1969,25 @@ a.twitter_update_time {
         if (!is_numeric($idcount)) $idcount = 1;
         $identities = array();
         $identities[] = $this->get_config('id_service','twitter') . ': ' . $this->get_config('twittername');
-        
+
         for ($idx=2; $idx<=$idcount; $idx++) {
             $identities[] = $this->get_config('id_service'. $idx,'twitter') . ': ' . $this->get_config('twittername'. $idx);
         }
         return $identities;
     }
-    
+
     function display_twitter_client($tweeter_in_sidbar = false) {
         $identities             = $this->load_identities();
         $status_timeline     = $this->load_timeline();
         $tweeter_has_timeline = ($this->get_config('tweeter_history', false) === true);
-        
+
         if ($_POST['tweeter_timeline']){
             $pstatus_timeline = $_POST['tweeter_timeline'];
         } else {
             $pstatus_timeline = $this->get_config('tweeter_timeline');
         }
 
-        // Always remember last set identity            
+        // Always remember last set identity
         $val_identitiy = $_POST['tweeter_account'];
         $acc_number = '';
         if (empty($val_identitiy) || $val_identitiy==0) {
@@ -2106,7 +2136,7 @@ a.twitter_update_time {
                         $retweet_link = '';
                     }
 
-                    // Twitter delivers the complete status ID in an extra field! 
+                    // Twitter delivers the complete status ID in an extra field!
                     $status_id = $account_type=='identica'?$status->id:$status->id_str;
                     // Add each status formatted to a html buffer
                     $buffer .= '<li class="tweeter_line">
@@ -2156,7 +2186,7 @@ a.twitter_update_time {
 
     static function get_config_event($name, $defaultvalue = null) {
         global $serendipity;
-        
+
         $db_event_search = "serendipity_event_twitter:%/" . $name;
         $r = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE name like '" . $db_event_search . "' LIMIT 1", true);
         if (is_array($r)) {

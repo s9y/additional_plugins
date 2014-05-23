@@ -2021,8 +2021,8 @@ a.twitter_update_time {
 
             // Create strings of twitter URL length:
             $this->twitter_check_config();
-            $http_length_str = str_repeat("=", $this->get_config('twitter_config_http_len'));
-            $https_length_str = str_repeat("=", $this->get_config('twitter_config_https_len'));
+            $http_length_str = str_repeat("=", (int)$this->get_config('twitter_config_http_len'));
+            $https_length_str = str_repeat("=", (int)$this->get_config('twitter_config_https_len'));
 
             // Hide shorten url input, if no url shorter is used!
             if ('raw' == $this->get_config('anounce_url_service','7ax.de')) {

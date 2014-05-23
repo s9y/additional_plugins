@@ -1,5 +1,6 @@
 TODO:
 
+
 * Collect all tweets of a day/week/whatever of the blog owner
   into one article and publish it dayly/weekly/whatever
 * "check tweetback" link should add new tweetbacks immediately
@@ -7,6 +8,10 @@ TODO:
   twitter acc should be able to create tweets with that acc.
 * Twitter announcements/credentials etc. per author instead of
   only per central blog
+
+1.61
+--------------------------
+    * Added int-casting to str_repeat() to prevent PHP notice
 
 1.60
 --------------------------

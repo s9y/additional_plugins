@@ -12,6 +12,8 @@ TODO:
 1.61
 --------------------------
     * Added int-casting to str_repeat() to prevent PHP notice
+    * Added additional backend markup (backend_display) for 2.0 backend (yellowled)
+    * Moved backend menu item to proper backend nav section (yellowled)
 
 1.60
 --------------------------
@@ -19,7 +21,7 @@ TODO:
     * Adapted http://twitter.com to https://twitter.com due to Twitter
       enforcing SSL now (well, they could have done a redirect to be nice
       to people, but...)
-      
+
 1.51 (mattsches)
 --------------------------
     * Switched tweetback search to API 1.1
@@ -36,11 +38,11 @@ TODO:
 1.48
 -----
     * Static PHP5 fixes
-    
+
 1.47 (brockhaus)
 --------------------------
     * Added API token functionality for announcing articles via pirat.ly.
-    
+
 1.46 (brockhaus)
 --------------------------
     * Check tweetbacks (search) converted to API 1.1 (optional). You need to choose an OAuth acc handling the search.
@@ -51,7 +53,7 @@ TODO:
 
 1.43 (brockhaus)
 --------------------------
-    * Announce article: check for real URL lenght, as twitter makes it longer sometimes. 
+    * Announce article: check for real URL lenght, as twitter makes it longer sometimes.
     * Tweeter: Count chars directly after a short URL was added. Counts URLs as twitter URL length always.
     * Article announcement with "uncompressed" urls did not work very well.
 
@@ -104,25 +106,25 @@ TODO:
 1.32
 --------------------------
     * Added German translation for the new option for default setting of "Announce article"
-    
+
 1.31
 --------------------------
     * Added new option for default setting of "Announce article"
-    
+
 1.30
 --------------------------
 
     * Fix bad Twitter link to a tweet in PHP mode
     * Improve XHTML
-    
+
 1.28
 -------------------------
     * When twitter username contains a "_" properly update
       cache reference for Tweet display (only when using "PHP" format)
-      
+
 1.27 (brockhaus)
 -------------------------
-    * Tweeter was showing invalid status links in twitter mode. 
+    * Tweeter was showing invalid status links in twitter mode.
 
 1.26 (Garvinhicking)
 -------------------------
@@ -149,7 +151,7 @@ TODO:
 1.20
 ----------------------
     * Only show option to suppress announces when configured.
-    
+
 1.18 (brockhaus)
 ----------------------
     * FIX: Tweet This buttons always requestet short urls again
@@ -159,17 +161,17 @@ TODO:
 1.17 (brockhaus)
 ----------------------
     * FIX: In some s9y installations the plugin continiously
-      saved the same tweetbacks again and again.    
-    * removed snipr service as it doesn't support creating 
-      shorturls w/o an account anymore. 
+      saved the same tweetbacks again and again.
+    * removed snipr service as it doesn't support creating
+      shorturls w/o an account anymore.
 
 1.16 (brockhaus)
 ----------------------
-    * Finaly found the problem producing the white page / 500 
+    * Finaly found the problem producing the white page / 500
       error. Thanks to a sandbox installation given to me by
       Silvio Kunze. THANKS!
     * Updated the sidebar plugins default css a little to make
-      it look nicer. 
+      it look nicer.
 
 1.15 (garvin)
 ----------------------
@@ -179,7 +181,7 @@ TODO:
 ----------------------
     * Overworked the tweetback moderation again. Now it should
       work as intended.
-    * FIX: Reported warnings while saving, if backtweet was used 
+    * FIX: Reported warnings while saving, if backtweet was used
       straiht from the beginning. (cmscritic reported this)
     * FIX: Backtweet search didn't save the last highest ID.
       For luck this was only a little performance problem.
@@ -198,14 +200,14 @@ TODO:
 1.12 (brockhaus)
 ----------------------
     * Added backtweets.com support! Now the search for tweetbacks
-      is a lot more efficient and even produces more search 
+      is a lot more efficient and even produces more search
       results by supporting user short urls.
     * One global search for tweetbacks using backtweets instead of
       one for each article. Huge performance win and *all* articles
       will be checked.
     * The event plugin now emits CSS for the sidebar plugin to
       look good. The sidebar plugin can't do it itself.
-    * Sidebar plugins cachefile deleted after saving 
+    * Sidebar plugins cachefile deleted after saving
       configuration in order to reflect new settings.
     * Tweetbacks will be loaded oldest first, so they are in
       correct order if more than one is found.
@@ -215,15 +217,15 @@ TODO:
 
 1.11 (brockhaus)
 ----------------------
-    * FIX: Tweet backup didn't work anymore because of int 
+    * FIX: Tweet backup didn't work anymore because of int
       overflow in the database. :-(
     * FIX: Sidebar was not realy stackable with different accs.
       (only one cachefile was defined)
     * FIX: First time loading of sidebar with installed event
       plugin reported wrong "Twitter not accessable".
-    * Optional: Sidebar plugin displays only tweets/dents to 
+    * Optional: Sidebar plugin displays only tweets/dents to
       all (only for PHP version available)
-    * Disable backup, if in identica mode (this was never 
+    * Disable backup, if in identica mode (this was never
       implemented)
     * Password inputs are now displayed as such with newest s9y
       version from CVS.
@@ -232,9 +234,9 @@ TODO:
 ----------------------
     * Extended Article Attributes: special tags, announce yes/no
     * Doesn't announce future entries anymore.
-    * If an article is deleted, the tweetback history is 
+    * If an article is deleted, the tweetback history is
       deleted, too.
-    * default announce format now doesn't change after 
+    * default announce format now doesn't change after
       upgrading (sorry yellowled ;))
     * Exchanged "identi.ca this" buttons with "IDENT THIS".
       Looks nicer near the "TWEET THIS" button.
@@ -257,7 +259,7 @@ TODO:
     * !Group linking for identi.ca timeline (PHP version only)
     * Announcing of articles may now freely formated with more
       infos like autor and stuff
-    * TweetThis / IdenticaThis button below articles. 
+    * TweetThis / IdenticaThis button below articles.
       There is a new configuration tab for this!
 
 1.06 (brockhaus)
@@ -267,7 +269,7 @@ TODO:
     * Warning inside of the sidebar plugins configuration if the
       event plugin was not installed yet. Too many people were
       confused about "missing options".
-    * Removed debug output on static pages. Thanks yellowled for 
+    * Removed debug output on static pages. Thanks yellowled for
       reporting.
     * "check tweetback" link now apears on entries without footer,
       too. (thanks RobLen for reporting the problem).
@@ -299,9 +301,9 @@ TODO:
     * Article announcement now possible using twitter and/or identica
     * added cli.gs as URL shortener
     * Fix: Tweetbacks containing "&" where saved with "&amp;"
-    * Fix: "ignore my tweeds" while tweetback adding didn't work, 
+    * Fix: "ignore my tweeds" while tweetback adding didn't work,
       if the acc was written in wrong case.
-    * Fix: Tweetback fetching PNG produced problems on *some* static 
+    * Fix: Tweetback fetching PNG produced problems on *some* static
       page installations.
     * Doesn't save or load corrupted short urls anymore. "Error" short
       urls will be deleted when saving configuration.
@@ -319,7 +321,7 @@ TODO:
       (announcement and twittertweeter were involved)
     * Some PHP installations had a strtotime function not able
       to evaluate twitter time strings. Now they are "reparsed"
-      to something working. (tweeter showing "42 years ago" for 
+      to something working. (tweeter showing "42 years ago" for
       tweets.)
     * Completed German translation (I hope ;))
 
@@ -351,9 +353,9 @@ TODO:
     * added 7ax.de. It has the same benefits like tinyurl.com
       but it's URLs are shorter.
     * added tr.im.
-    
+
     Sidebar
-    * PHP version didn't work if the event plugin was not 
+    * PHP version didn't work if the event plugin was not
       installed, too. It always (false) reported, that twitter
       is not accessible at the moment.
 
@@ -373,7 +375,7 @@ TODO:
     * PHP Version: Replaced written links with an html link
     * PHP Version: Added links to the userprofile where @name
       is found.
-    * Replaced simplexml with json code in order to make it 
+    * Replaced simplexml with json code in order to make it
       PHP4 compatible
     * Caching Dateformat was dependend on the visitors country
       who triggered the caching! Japanese Dates shown up at my
@@ -384,7 +386,7 @@ TODO:
 
     Event:
     * Tweetback check functionality.
-    * Announce articles on twitter. 
+    * Announce articles on twitter.
     * Implemented db cache for shorturls
     * Merged TwitterTweeter plugin into the event plugin,
       cleaned it up and enhanced it a little.

@@ -1,4 +1,4 @@
-/* 
+/*
  * You may copy this in your templates root path and edit it
  *
  */
@@ -12,8 +12,12 @@
 	display:inline;
 }
 
+.serendipity_admin_tweeter_header,
 #serendipity_admin_tweeter_statuses {
-	clear:both;
+    clear:both;
+}
+
+#serendipity_admin_tweeter_statuses {
 	width:400px;
 	margin:0;
 	padding:0;

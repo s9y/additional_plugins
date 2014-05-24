@@ -2112,9 +2112,9 @@ a.twitter_update_time {
             else {
                 if ($account_type == "twitter"){
                     if ($_POST['tweeter_timeline']){
-                        $buffer .= "<h2>".PLUGIN_EVENT_TWITTER_TIMELINE.": ".$_POST['tweeter_timeline']."</h2>";
+                        $buffer_header = PLUGIN_EVENT_TWITTER_TIMELINE.": ".$_POST['tweeter_timeline'];
                     } else {
-                        $buffer .= "<h2>".PLUGIN_EVENT_TWITTER_TIMELINE.": ".$this->get_config('tweeter_timeline')."</h2>";
+                        $buffer_header = PLUGIN_EVENT_TWITTER_TIMELINE.": ".$this->get_config('tweeter_timeline');
                     }
                 }
 

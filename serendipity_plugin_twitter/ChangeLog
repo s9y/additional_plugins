@@ -11,6 +11,9 @@ TODO:
 
 1.62
 --------------------------
+    * Emit the twitter timeline header at the proper place in the markup,
+      including a CSS fix and making it more flexible for markup changes
+      in 2.x (yellowled)
     * Fixed a markup bug for twitter timeline (yellowled)
 
 1.61

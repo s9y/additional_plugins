@@ -9,6 +9,10 @@ TODO:
 * Twitter announcements/credentials etc. per author instead of
   only per central blog
 
+1.62
+--------------------------
+    * Fixed a markup bug for twitter timeline (yellowled)
+
 1.61
 --------------------------
     * Adapted backend markup (tweeter_client.inc.php) for 2.0 backend (yellowled)

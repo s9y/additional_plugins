@@ -2143,7 +2143,7 @@ a.twitter_update_time {
                     $buffer .= '<li class="tweeter_line">
                                     <div class="tweeter_profile_img">
                                         <img src="'.$status->user->profile_image_url.'" width="48" height="48" alt="" title="' . $status->user->screen_name . '"/>
-                                    </div
+                                    </div>
                                     <div  class="tweeter_profile_text">
                                         <a href="' . $api->get_base_url() .$status->user->screen_name.'">'.$status->user->screen_name.'</a> '.$status->text.'
                                     </div>

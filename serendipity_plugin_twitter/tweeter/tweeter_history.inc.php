@@ -5,8 +5,10 @@ if (IN_serendipity !== true) {
 ?>
 
 <ul id="serendipity_admin_tweeter_statuses">
-
 <?php echo $buffer; ?>
-
 </ul>
-<div class="tweeter_clearfix"></div>
+<?php
+    if ($GLOBALS['serendipity']['version'][0] == '1') {
+        echo '<div class="tweeter_clearfix"></div>';
+    }
+?>

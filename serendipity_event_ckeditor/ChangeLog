@@ -1,7 +1,14 @@
+4.1.0:
+-----
+    * Upgrade to CKEDITOR 4.4 Series update 1 (http://ckeditor.com/node/136041)
+    * Reviewed protectedSource to allow WP-like [[mytag]] tags in cke_config.js
+    * Enhance extraAllowedContent tags in cke_config.js
+    * Add Serendipity image float CSS to wysiwyg-mode view, by new file wysiwyg-style.css
+
 3.4.0:
 -----
     * Upgrade to CKEDITOR 4.3 Series update 4 (http://ckeditor.com/node/135140)
-    * Enhance allowed content tags in cke_custom.js
+    * Enhance allowed content tags in cke_config.js
 
 3.3.1: Properly use the example() API method by returning, not echo'ing. Unimportant update.
 -----

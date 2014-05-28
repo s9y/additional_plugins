@@ -1,4 +1,4 @@
-<?php # 
+<?php # $Id$
 
 // Probe for a language include with constants. Still include defines later on, if some constants were missing
 $probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
@@ -13,7 +13,7 @@ function escape($message) {
 
 class serendipity_common_openid {
 
-    static function redir_openidserver($openid_url, $store_path, $wfFlag=1) {
+    function redir_openidserver($openid_url, $store_path, $wfFlag=1) {
         global $serendipity;
 
         $path_extra = dirname(__FILE__).DIRECTORY_SEPARATOR.'PHP-openid/';
@@ -57,6 +57,7 @@ class serendipity_common_openid {
     static function reauth_openid() {
          global $serendipity;
          if (isset($_SESSION['serendipityOpenID']) && $_SESSION['serendipityOpenID']) {
+              $serendipity['serendipityRealname']     = $_SESSION['serendipityRealname'];
               $serendipity['serendipityUser']         = $_SESSION['serendipityUser'];
               $serendipity['serendipityPassword']     = $_SESSION['serendipityPassword'];
               $serendipity['serendipityEmail']        = $_SESSION['serendipityEmail'];
@@ -70,7 +71,7 @@ class serendipity_common_openid {
          return false;
     }
     
-    static function authenticate_openid($getData, $store_path, $returnData = false) {
+    function authenticate_openid($getData, $store_path, $returnData = false) {
         global $serendipity;
 
         $trust_root = $serendipity['baseURL'] . 'serendipity_admin.php';
@@ -133,7 +134,7 @@ class serendipity_common_openid {
                 return array('realname'=>$realname, 'email'=>$email, 'openID'=>$openid);
             }
             $password = md5($openid);
-            $query = "SELECT DISTINCT a.email, a.authorid, a.userlevel, a.right_publish
+            $query = "SELECT DISTINCT a.email, a.authorid, a.userlevel, a.right_publish, a.realname
                      FROM
                        {$serendipity['dbPrefix']}authors AS a, {$serendipity['dbPrefix']}openid_authors AS oa
                      WHERE
@@ -143,13 +144,14 @@ class serendipity_common_openid {
            if (is_array($row)) {
                serendipity_setCookie('old_session', session_id());
                serendipity_setAuthorToken();
-               $_SESSION['serendipityUser']        = $serendipity['serendipityUser']         = $realname;
+               $_SESSION['serendipityUser']        = $serendipity['serendipityUser']         = $row['realname'];
                $_SESSION['serendipityPassword']    = $serendipity['serendipityPassword']     = $password;
                $_SESSION['serendipityEmail']       = $serendipity['serendipityEmail']        = $email;
                $_SESSION['serendipityAuthorid']    = $serendipity['authorid']                = $row['authorid'];
                $_SESSION['serendipityUserlevel']   = $serendipity['serendipityUserlevel']    = $row['userlevel'];
                $_SESSION['serendipityAuthedUser']  = $serendipity['serendipityAuthedUser']   = true;
                $_SESSION['serendipityRightPublish']= $serendipity['serendipityRightPublish'] = $row['right_publish'];
+               $_SESSION['serendipityRealname']    = $serendipity['serendipityRealname']     = $row['realname'];
                $_SESSION['serendipityOpenID'] = true;
                serendipity_load_configuration($serendipity['authorid']);
                return true;
@@ -161,7 +163,7 @@ class serendipity_common_openid {
         return false;
    }
 
-    static function getOpenID($userID, $checkExist=false) {
+    function getOpenID($userID, $checkExist=false) {
         global $serendipity;
         $q = "SELECT openid_url, authorid FROM {$serendipity['dbPrefix']}openid_authors WHERE authorid = " . (int)$userID;
         $author = serendipity_db_query($q, true);
@@ -175,7 +177,7 @@ class serendipity_common_openid {
         return '';
     }
 
-    static function updateOpenID($openid_url, $authorID) {
+    function updateOpenID($openid_url, $authorID) {
         global $serendipity;
 
         if (!is_array(serendipity_db_query("SELECT username FROM {$serendipity['dbPrefix']}openid_authors LIMIT 1", true, 'both', false, false, false, true))) {
@@ -201,7 +203,7 @@ class serendipity_common_openid {
         return ($retVal===true)?true:false;
     }
 
-    static function load_account_selectbox() {
+    function load_account_selectbox() {
         global $serendipity;
         
         $query = "SELECT DISTINCT a.realname, a.username, oa.openid_url
@@ -229,7 +231,7 @@ class serendipity_common_openid {
        return $result;
     }
     
-    static function loginform($url, $hidden = array(), $useAutorSelector = true) {
+    function loginform($url, $hidden = array(), $useAutorSelector = true) {
         global $serendipity;
         
         $imgopenid = $serendipity['baseURL'] . 'index.php?/plugin/openid.png';

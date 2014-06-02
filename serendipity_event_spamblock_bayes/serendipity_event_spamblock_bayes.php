@@ -1150,29 +1150,54 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     $comment[$this->type['body']] = $comment['fullBody'];
                     unset($comment['fullBody']);
 
-                    $eventData['action_more'] = '<a id="ham'. $comment ['id'] .'"
-			class="serendipityIconLink spamblockBayesControls"
-			onclick="return ham('. $comment ['id'].');"
-			title="'. PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME . ': ' . PLUGIN_EVENT_SPAMBLOCK_BAYES_HAM .'"
-            href="'. $serendipity['baseURL'] . 'index.php?/plugin/learnAction&action=approve&category=ham&id=' . $eventData['id'] . '&entry_id='. $eventData['entry_id'] . '"
-            ><img
-			src="'. serendipity_getTemplateFile ( 'admin/img/accept.png' ) .'"
-			alt="" />'. PLUGIN_EVENT_SPAMBLOCK_BAYES_HAM.'</a> <a
-			id="spam'. $comment ['id'].'"
-			class="serendipityIconLink spamblockBayesControls"
-			onclick="return spam('. $comment ['id'] .');"
-			title="'. PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME . ': ' . PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAM .'"
-            href="'. $serendipity['baseURL'] . 'index.php?/plugin/learnAction&action=delete&category=spam&id=' . $eventData['id'] . '&entry_id='. $eventData['entry_id'] . '"
-            ><img
-			src="'. $imgpath . 'spamblock_bayes.spam.png' .'"
-			alt="" />'. PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAM.'</a>
-            <span class="spamblockBayesRating">
-            <a href="serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=4&amp;serendipity[comments]['.$comment['id'].']">
-                <span id="'. $comment ['id'] .'_rating">'. preg_replace('/\..*/', '', $this->startClassify($comment) * 100) .'%</span>
-            </a>
-            <img src="'.serendipity_getTemplateFile ('admin/img/admin_msg_note.png').'" title="'. PLUGIN_EVENT_SPAMBLOCK_BAYES_RATING_EXPLANATION.'" />
-            </span>
-            ';
+                    if ($serendipity['version'][0] == '1') {
+                        $eventData['action_more'] = '<a id="ham'. $comment ['id'] .'"
+                class="serendipityIconLink spamblockBayesControls"
+                onclick="return ham('. $comment ['id'].');"
+                title="'. PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME . ': ' . PLUGIN_EVENT_SPAMBLOCK_BAYES_HAM .'"
+                href="'. $serendipity['baseURL'] . 'index.php?/plugin/learnAction&action=approve&category=ham&id=' . $eventData['id'] . '&entry_id='. $eventData['entry_id'] . '"
+                ><img
+                src="'. serendipity_getTemplateFile ( 'admin/img/accept.png' ) .'"
+                alt="" />'. PLUGIN_EVENT_SPAMBLOCK_BAYES_HAM.'</a> <a
+                id="spam'. $comment ['id'].'"
+                class="serendipityIconLink spamblockBayesControls"
+                onclick="return spam('. $comment ['id'] .');"
+                title="'. PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME . ': ' . PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAM .'"
+                href="'. $serendipity['baseURL'] . 'index.php?/plugin/learnAction&action=delete&category=spam&id=' . $eventData['id'] . '&entry_id='. $eventData['entry_id'] . '"
+                ><img src="'. $imgpath . 'spamblock_bayes.spam.png' .'" alt="" />'. PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAM.'</a>
+                <span class="spamblockBayesRating">
+                <a href="serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=4&amp;serendipity[comments]['.$comment['id'].']">
+                    <span id="'. $comment ['id'] .'_rating">'. preg_replace('/\..*/', '', $this->startClassify($comment) * 100) .'%</span>
+                </a>
+                <img src="'.serendipity_getTemplateFile ('admin/img/admin_msg_note.png').'" title="'. PLUGIN_EVENT_SPAMBLOCK_BAYES_RATING_EXPLANATION.'" />
+                </span>
+                ';
+                    } else {
+                        $eventData['action_more'] = '<ul id="bayes_actions" class="plainList clearfix actions">
+                <li>
+                <a id="ham'. $comment ['id'] .'"
+                class="button_link spamblockBayesControls"
+                onclick="return ham('. $comment ['id'].');"
+                title="'. PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME . ': ' . PLUGIN_EVENT_SPAMBLOCK_BAYES_HAM .'"
+                href="'. $serendipity['baseURL'] . 'index.php?/plugin/learnAction&action=approve&category=ham&id=' . $eventData['id'] . '&entry_id='. $eventData['entry_id'] . '"
+                ><span class="icon-ok-circled"></span><span class="visuallyhidden"> ' . PLUGIN_EVENT_SPAMBLOCK_BAYES_HAM .'</span></a>
+                </li>
+                <li>
+                <a id="spam'. $comment ['id'].'"
+                class="button_link spamblockBayesControls"
+                onclick="return spam('. $comment ['id'] .');"
+                title="'. PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME . ': ' . PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAM .'"
+                href="'. $serendipity['baseURL'] . 'index.php?/plugin/learnAction&action=delete&category=spam&id=' . $eventData['id'] . '&entry_id='. $eventData['entry_id'] . '"
+                ><span class="icon-cancel"></span><span class="visuallyhidden"> ' . PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAM .'</span></a>
+                </li>
+                <li class="bayes_spamrating">
+                <a href="serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=4&amp;serendipity[comments]['.$comment['id'].']" title="' . PLUGIN_EVENT_SPAMBLOCK_BAYES_RATING_EXPLANATION .'">
+                <span id="' . $comment ['id'] . '_rating"> ' . preg_replace('/\..*/', '', $this->startClassify($comment) * 100) . '%</span>
+                </a>
+                </li>
+                </ul>
+                ';
+                    }
                     return true;
                     break;
 
@@ -1265,13 +1290,25 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     }
                     global $serendipity;
                     if (isset($serendipity['GET']['message'])) {
-                        echo '<p class="serendipityAdminMsgNote">'.htmlspecialchars($serendipity['GET']['message']).'</p>';
+                        if ($serendipity['version'][0] == '1') {
+                            echo '<p class="serendipityAdminMsgNote">'.htmlspecialchars($serendipity['GET']['message']).'</p>';
+                        } else {
+                            echo '<span class="msg_notice"><span class="icon-info-circled"></span> ' . htmlspecialchars($serendipity['GET']['message']) . '</span>';
+                        }
                     }
                     if (isset($serendipity['GET']['success'])) {
-                        echo '<p class="serendipityAdminMsgSuccess">'.htmlspecialchars($serendipity['GET']['success']).'</p>';
+                        if ($serendipity['version'][0] == '1') {
+                            echo '<p class="serendipityAdminMsgSuccess">'.htmlspecialchars($serendipity['GET']['success']).'</p>';
+                        } else {
+                            echo '<span class="msg_success"><span class="icon-ok-circled"></span> ' . htmlspecialchars($serendipity['GET']['success']) . '</span>';
+                        }
                     }
                     if (isset($serendipity['GET']['error'])) {
-                        echo '<p class="serendipityAdminMsgError">'.htmlspecialchars($serendipity['GET']['error']).'</p>';
+                        if ($serendipity['version'][0] == '1') {
+                            echo '<p class="serendipityAdminMsgError">'.htmlspecialchars($serendipity['GET']['error']).'</p>';
+                        } else {
+                            echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . htmlspecialchars($serendipity['GET']['error']) . '</span>';
+                        }
                     }
                     $this->get = $serendipity['GET'];
 

@@ -1,3 +1,4 @@
+3.52: Added additional backend markup for 2.0 backend (yellowled)
 3.51: Stricter array check
 3.50: Optimize autocomplete for 2.0, fixes
 3.49: Repair autocomplete for 2.0

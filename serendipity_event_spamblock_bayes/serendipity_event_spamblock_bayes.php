@@ -11,6 +11,12 @@ if (file_exists($probelang)) {
 
 include dirname(__FILE__) . '/lang_en.inc.php';
 
+if ($serendipity['version'][0] == '1') {
+    $s9ybackend = '1';
+} else {
+    $s9ybackend = '2';
+}
+
 class serendipity_event_spamblock_bayes extends serendipity_event {
 	var $lastRating;
 	//store serendipity[GET] when loading the menu for later use in the
@@ -1390,7 +1396,8 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
         echo $this->smarty_show('admin/bayesNavigation.tpl', array('css' => $css,
                                                                 'jquery_needed' => $jquery_needed,
                                                                 'path' => $this->path,
-                                                                'subpage' => $subpage
+                                                                'subpage' => $subpage,
+                                                                's9ybackend' => $s9ybackend
                                                                 ));
 
         switch($subpage) {
@@ -1441,7 +1448,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
     }
 
     function showLearnMenu() {
-        echo $this->smarty_show('admin/bayesLearnmenu.tpl');
+        echo $this->smarty_show('admin/bayesLearnmenu.tpl', array('s9ybackend' => $s9ybackend));
     }
 
     function showDBMenu($commentpage) {
@@ -1470,6 +1477,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
         }
 
         $data['path'] = $this->path;
+        $data['s9ybackend'] = $s9ybackend;
         echo $this->smarty_show('admin/bayesDBmenu.tpl', $data);
     }
 
@@ -1494,7 +1502,8 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
         echo $this->smarty_show('admin/bayesRecyclermenu.tpl', array('comments' => $comments,
                                                         'types' => array_values($this->type),
                                                         'commentpage' => $commentpage,
-                                                        'path' => $this->path
+                                                        'path' => $this->path,
+                                                        's9ybackend' => $s9ybackend
                                                         ));
     }
 
@@ -1519,15 +1528,18 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
             echo $this->smarty_show('admin/bayesAnalysismenu.tpl', array(
                                                                     'comments' => $comments,
                                                                     'commentpage' => $commentpage,
-                                                                    'path' => $this->path
-                                                                     )
-                                    );
+                                                                    'path' => $this->path,
+                                                                    's9ybackend' => $s9ybackend
+                                                                ));
         }
     }
 
     function showImportMenu() {
         global $serendipity;
-        echo $this->smarty_show('admin/bayesImportmenu.tpl', array('trojaRegistered' => $this->get_config('troja_registered', false) == true));
+        echo $this->smarty_show('admin/bayesImportmenu.tpl', array(
+                                                                    'trojaRegistered' => $this->get_config('troja_registered', false) == true,
+                                                                    's9ybackend' => $s9ybackend
+                                                                ));
     }
 
     function showAnalysis($comment_id) {
@@ -1552,7 +1564,8 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
             $comments[$i] = $comment;
         }
         echo $this->smarty_show('admin/bayesAnalysis.tpl', array('comments' => $comments,
-                                                        'types' => array_values($this->type)
+                                                        'types' => array_values($this->type),
+                                                        's9ybackend' => $s9ybackend
                                                         ));
     }
 

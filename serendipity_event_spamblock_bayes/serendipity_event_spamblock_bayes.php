@@ -12,9 +12,9 @@ if (file_exists($probelang)) {
 include dirname(__FILE__) . '/lang_en.inc.php';
 
 if ($serendipity['version'][0] == '1') {
-    $s9ybackend = '1';
+    $s9ybackend = 1;
 } else {
-    $s9ybackend = '2';
+    $s9ybackend = 0;
 }
 
 class serendipity_event_spamblock_bayes extends serendipity_event {

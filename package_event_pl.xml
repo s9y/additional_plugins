@@ -798,9 +798,9 @@
 <description>Umożliwia dowolne tagowanie wpisów</description>
 <maintainers><maintainer><name>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.51</version>
+  <version>3.53</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-04-25</date>
+  <date>2014-06-03</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <dir name="UTF-8">
@@ -9754,7 +9754,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>0.4.11</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-05-22</date>
+  <date>2014-06-03</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bayes">
 <dir name="UTF-8">

@@ -24,7 +24,7 @@ class serendipity_event_dbclean extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_DBCLEAN_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda, Matthias Mees');
-        $propbag->add('version',       '0.2.5');
+        $propbag->add('version',       '0.2.6');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8'
         ));
@@ -87,11 +87,11 @@ class serendipity_event_dbclean extends serendipity_event {
                         break;
 
                 case 'backend_sidebar_admin':
-                        echo '<li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks">
-                            <a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=dbclean">
-                                ' .PLUGIN_EVENT_DBCLEAN_NAME .'
-                            </a>
-                        </li>';
+                    if ($serendipity['version'][0] == '1') {
+                        echo '<li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks"><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=dbclean">' .PLUGIN_EVENT_DBCLEAN_NAME .'</a></li>';
+                    } else {
+                        echo '<li><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=dbclean">' .PLUGIN_EVENT_DBCLEAN_NAME .'</a></li>';
+                    }
                     return true;
                     break;
 

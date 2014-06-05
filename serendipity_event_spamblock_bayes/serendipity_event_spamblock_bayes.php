@@ -1268,6 +1268,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                                 </a>
                             </li>';
                         }
+                    } else {
                     }
                     return true;
                     break;

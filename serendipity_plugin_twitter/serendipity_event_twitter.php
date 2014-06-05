@@ -1010,6 +1010,7 @@ class serendipity_event_twitter extends serendipity_plugin {
 ?>
                             <li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks"><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=tweeter"><?php echo PLUGIN_EVENT_TWITTER_TWEETER_SIDEBARTITLE; ?></a></li>
 <?php
+                        } else {
                         }
                     }
                     return true;

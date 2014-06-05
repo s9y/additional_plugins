@@ -9754,7 +9754,7 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <release>
   <version>0.4.11</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-06-03</date>
+  <date>2014-06-04</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bayes">
 <dir name="UTF-8">

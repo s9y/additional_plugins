@@ -6,16 +6,30 @@
         </div>
 
         <div id="bayesRecycler">
+            {if $s9ybackend == 1}
             <div class="bayesRecyclerTableNavigation">
+            {else}
+            <ul class="bayesRecyclerTableNavigation plainList clearfix">
+            {/if}
                 {if $commentpage > 0}
-                     <a class="serendipityIconLink" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=1&amp;serendipity[commentpage]={$commentpage-1}">
-                     <img src="{serendipity_getFile file="admin/img/previous.png"}"/>{$CONST.PREVIOUS}</a>
+                    {if $s9ybackend == 1}
+                    <a class="serendipityIconLink" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=1&amp;serendipity[commentpage]={$commentpage-1}"><img src="{serendipity_getFile file="admin/img/previous.png"}"/>{$CONST.PREVIOUS}</a>
+                    {else}
+                    <li class="prev"><a class="button_link" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=1&amp;serendipity[commentpage]={$commentpage-1}" title="{$CONST.PREVIOUS}"><span class="icon-left-dir"></span><span class="visuallyhidden"> {$CONST.PREVIOUS}</span></a></li>
+                    {/if}
                 {/if}
-
-                {if $comments|@count > 20}
-                   <a class="serendipityIconLinkRight" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=1&amp;serendipity[commentpage]={$commentpage+1}">{$CONST.NEXT} <img src="{serendipity_getFile file="admin/img/next.png"}"/></a>
+                {if ($commentpage+1)*20 < $comments|@count}
+                    {if $s9ybackend == 1}
+                    <a class="serendipityIconLinkRight" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=1&amp;serendipity[commentpage]={$commentpage+1}">{$CONST.NEXT} <img src="{serendipity_getFile file="admin/img/next.png"}"/></a>
+                    {else}
+                    <li class="next"><a class="button_link" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=1&amp;serendipity[commentpage]={$commentpage+1}" title="{$CONST.NEXT}"><span class="visuallyhidden">{$CONST.NEXT} </span><span class="icon-right-dir"></span></a></li>
+                    {/if}
                 {/if}
+            {if $s9ybackend == 1}
             </div>
+            {else}
+            </ul>
+            {/if}
             {if $s9ybackend != 1}
             <ul id="serendipity_comments_list" class="clearfix plainList zebra_list">
             {/if}
@@ -84,14 +98,14 @@
                     {if $s9ybackend == 1}
                     <a class="serendipityIconLink" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=1&amp;serendipity[commentpage]={$commentpage-1}"><img src="{serendipity_getFile file="admin/img/previous.png"}"/>{$CONST.PREVIOUS}</a>
                     {else}
-                    <li class="prev"><a class="" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=1&amp;serendipity[commentpage]={$commentpage-1}">{$CONST.PREVIOUS}</a></li>
+                    <li class="prev"><a class="button_link" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=1&amp;serendipity[commentpage]={$commentpage-1}" title="{$CONST.PREVIOUS}"><span class="icon-left-dir"></span><span class="visuallyhidden"> {$CONST.PREVIOUS}</span></a></li>
                     {/if}
                 {/if}
                 {if ($commentpage+1)*20 < $comments|@count}
                     {if $s9ybackend == 1}
                     <a class="serendipityIconLinkRight" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=1&amp;serendipity[commentpage]={$commentpage+1}">{$CONST.NEXT} <img src="{serendipity_getFile file="admin/img/next.png"}"/></a>
                     {else}
-                    <li class="next"><a class="" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=1&amp;serendipity[commentpage]={$commentpage+1}">{$CONST.NEXT}</a></li>
+                    <li class="next"><a class="button_link" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=1&amp;serendipity[commentpage]={$commentpage+1}" title="{$CONST.NEXT}"><span class="visuallyhidden">{$CONST.NEXT} </span><span class="icon-right-dir"></span></a></li>
                     {/if}
                 {/if}
             {if $s9ybackend == 1}

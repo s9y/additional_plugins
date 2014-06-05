@@ -1385,6 +1385,8 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 
     #Show the whole additional configuration, specifiy subpage for a specific tab
 	function displayMenu($subpage=0) {
+        global $serendipity;
+
 	    $css = file_get_contents(dirname(__FILE__). '/admin/serendipity_event_spamblock_bayes.css');
 	    #add javascript for usability
 		if ($serendipity['capabilities']['jquery']) {

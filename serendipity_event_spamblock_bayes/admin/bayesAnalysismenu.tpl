@@ -15,7 +15,7 @@
                 {foreach from=$comments item=comment }
                     <li>
                         <input type="checkbox" id="{$comment.id}" name="comments[{$comment.id}]" />
-                        <label for="{$comment.id}"" >{$comment.id}</label>:
+                        <label for="{$comment.id}">{$comment.id}:</label>
                         <div class="bayesComments">
                             {$comment.author|escape:"html"}, {$comment.body|escape:"html"}
                         </div>

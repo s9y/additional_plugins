@@ -34,7 +34,7 @@ function shortenAll(textclass, lines) {
 
 function shorten($element, lines) {
     var o = $element.text();
-    $r = $('><a href="#" style="padding-left: 5px;">... show</a>');
+    $r = $('<a href="#" style="padding-left: 5px;">... show</a>');
     $element.excerpt({ lines: lines, end: $r});
     $element.find('a').click(function(e){
         e.preventDefault();

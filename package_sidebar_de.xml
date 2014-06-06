@@ -3127,7 +3127,7 @@
 <description>Zeigt die aktuellsten Twitter-Einträge an</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Damian Luszczymak, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.62</version>
+  <version>1.63</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
   <date>2014-01-19</date>
   <filelist>

@@ -72,7 +72,7 @@ class serendipity_event_aggregator extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.30');
+        $propbag->add('version',       '0.31');
         $propbag->add('author',       'Evan Nemerson, Garvin Hicking, Kristian Koehntopp, Thomas Schulz, Claus Schmidt');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
@@ -643,6 +643,8 @@ class serendipity_event_aggregator extends serendipity_event {
         # Shows feeds in admin area
         global $serendipity;
 
+        echo '<h2>' . PLUGIN_AGGREGATOR_TITLE . '</h2>';
+
         if (!empty($serendipity['POST']['aggregatorAction'])) {
             $this->createFeeds();
         } elseif (!empty($serendipity['POST']['aggregatorOPMLImport'])) {
@@ -662,24 +664,47 @@ class serendipity_event_aggregator extends serendipity_event {
             'last_update'       => time()
         );
 
-        echo '<h2>' . PLUGIN_AGGREGATOR_TITLE . '</h2>';
-        echo PLUGIN_AGGREGATOR_DESC . '<br /><br />';
-        echo PLUGIN_AGGREGATOR_FEEDLIST . '<br /><br />';
+        if ($serendipity['version'][0] == '2') {
+            echo '<span class="msg_notice"><span class="icon-info-circled"></span> ';
+        }
+            echo PLUGIN_AGGREGATOR_DESC;
+        if ($serendipity['version'][0] == '1') {
+            echo '<br /><br />';
+        } else {
+            echo '</span>';
+        }
+        if ($serendipity['version'][0] == '2') {
+            echo '<span class="msg_hint"><span class="icon-help-circled"></span> ';
+        }
+            echo PLUGIN_AGGREGATOR_FEEDLIST;
+        if ($serendipity['version'][0] == '1') {
+            echo '<br /><br />';
+        } else {
+            echo '</span>';
+        }
 
         echo '
             <form action="?" method="post">
             <div>
                 <input type="hidden" name="serendipity[adminModule]" value="event_display" />
                 <input type="hidden" name="serendipity[adminAction]" value="aggregator" />
-            </div>
-            <table align="center" width="100%" cellpadding="5" cellspacing="0" border=0>
+            </div>';
+        if ($serendipity['version'][0] == '1') {
+            echo '<table align="center" width="100%" cellpadding="5" cellspacing="0" border=0>';
+        } else {
+            echo '<table>';
+        }
+        echo '
+            <thead>
                 <tr>
                     <th>#</th>
                     <th>' . PLUGIN_AGGREGATOR_FEEDNAME . '</th>
-                    <th width="100%">' . PLUGIN_AGGREGATOR_FEEDURI . ' / ' . PLUGIN_AGGREGATOR_HTMLURI . '</th>
+                    <th>' . PLUGIN_AGGREGATOR_FEEDURI . ' / ' . PLUGIN_AGGREGATOR_HTMLURI . '</th>
                     <th>' . PLUGIN_AGGREGATOR_CATEGORIES . '</th>
                     <th>' . PLUGIN_AGGREGATOR_MATCH_EXPRESSION . '* / ' . PLUGIN_AGGREGATOR_FEEDICON . '</th>
-                </tr>';
+                </tr>
+            </thead>
+            <tbody>';
 
         $evenidx = 0;
         foreach($feeds AS $idx => $feed) {
@@ -714,6 +739,7 @@ class serendipity_event_aggregator extends serendipity_event {
                     <input type="submit" name="serendipity[aggregatorAction]" value="' . GO . '" class="serendipityPrettyButton input_button" />
                 </td>
             </tr>
+            </tbody>
             </table>
             * ' . PLUGIN_AGGREGATOR_MATCH_EXPRESSION_DESC . '
             </form>';
@@ -723,8 +749,10 @@ class serendipity_event_aggregator extends serendipity_event {
             <div>
                 <input type="hidden" name="serendipity[adminModule]" value="event_display" />
                 <input type="hidden" name="serendipity[adminAction]" value="aggregator" />
-            </div>
+            </div>';
 
+        if ($serendipity['version'][0] == '1') {
+        echo '
             <div>
                 <hr /><strong>
                 ' . PLUGIN_AGGREGATOR_IMPORTFEEDLIST. '</strong><br /><br />
@@ -734,14 +762,35 @@ class serendipity_event_aggregator extends serendipity_event {
                 <input class="input_checkbox" type="checkbox" id="import_categories2" name="serendipity[aggregatorOPMLCategoriesNoNesting]" value="true" /><label for="import_categories2">' . PLUGIN_AGGREGATOR_IMPORTCATEGORIES2 . '</label>
                 <br /><br />
                 <input type="submit" name="serendipity[aggregatorOPMLImport]" value="' . PLUGIN_AGGREGATOR_IMPORTFEEDLIST_BUTTON . '" class="serendipityPrettyButton input_button" />
+            </div>';
+        } else {
+        echo '
+            <h3>' . PLUGIN_AGGREGATOR_IMPORTFEEDLIST . '</h3>
+            <span class="msg_hint"><span class="icon-help-circled"></span> ' . PLUGIN_AGGREGATOR_IMPORTFEEDLIST_DESC . '</span>
+            <div class="form_field">
+                <label for="serendipity_aggregator_opml">URL</label>
+                <input id="serendipity_aggregator_opml" type="text" name="serendipity[aggregatorOPML]" value="http://">
             </div>
+            <div class="form_check">
+                <input type="checkbox" id="import_categories" name="serendipity[aggregatorOPMLCategories]" value="true"><label for="import_categories">' . PLUGIN_AGGREGATOR_IMPORTCATEGORIES . '</label>
+                <input type="checkbox" id="import_categories2" name="serendipity[aggregatorOPMLCategoriesNoNesting]" value="true"><label for="import_categories2">' . PLUGIN_AGGREGATOR_IMPORTCATEGORIES2 . '</label>
+            </div>';
+        }
 
+        if ($serendipity['version'][0] == '1') {
+        echo'
             <div>
                 <hr /><strong>
                 ' . PLUGIN_AGGREGATOR_EXPORTFEEDLIST. '</strong><br /><br />
                 <a href="' . serendipity_rewriteURL('plugin/opmlfeeds.xml') . '" class="serendipityPrettyButton">' . PLUGIN_AGGREGATOR_EXPORTFEEDLIST_BUTTON . '</a>
             </div>
             </form>';
+        } else {
+        echo '
+            <h3>' . PLUGIN_AGGREGATOR_EXPORTFEEDLIST . '</h3>
+            <a class="button_link" href="' . serendipity_rewriteURL('plugin/opmlfeeds.xml') .'"><span class="icon-rss"></span> ' . PLUGIN_AGGREGATOR_EXPORTFEEDLIST_BUTTON . '</a>
+            </form>';
+        }
     }
 
     function importOPML() {
@@ -1672,9 +1721,15 @@ class serendipity_event_aggregator extends serendipity_event {
             switch($event) {
                 case 'backend_sidebar_entries':
                     if ($serendipity['serendipityUserlevel'] >= USERLEVEL_CHIEF) {
+                        if ($serendipity['version'][0] == '1') {
 ?>
-                    <li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks"><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=aggregator"><?php echo PLUGIN_AGGREGATOR_TITLE; ?></a></li>
+                        <li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks"><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=aggregator"><?php echo PLUGIN_AGGREGATOR_TITLE; ?></a></li>
 <?php
+                        } else {
+?>
+                        <li><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=aggregator"><?php echo PLUGIN_AGGREGATOR_TITLE; ?></a></li>
+<?php
+                        }
                     }
                     break;
 

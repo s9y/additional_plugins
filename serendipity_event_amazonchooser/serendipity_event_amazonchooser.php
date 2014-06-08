@@ -11,10 +11,11 @@ if (file_exists($probelang)) {
 }
 
 include dirname(__FILE__) . '/lang_en.inc.php';
+
 if (!function_exists("Amazon_country_code")) {
    include(dirname(__FILE__)."/Amazon_s9y_lib.php");
 }
- 
+
 
 class serendipity_event_amazonchooser extends serendipity_event
 {
@@ -27,10 +28,10 @@ class serendipity_event_amazonchooser extends serendipity_event
         $propbag->add('name',          PLUGIN_EVENT_AMAZONCHOOSER_TITLE);
         $propbag->add('description',   PLUGIN_EVENT_AMAZONCHOOSER_DESC);
         $propbag->add('stackable',     false);
-        $propbag->add('author',        'Matthew Groeninger');
-        $propbag->add('version',       '0.73');
+        $propbag->add('author',        'Matthew Groeninger, Ian');
+        $propbag->add('version',       '0.74');
         $propbag->add('requirements',  array(
-            'serendipity' => '1.4',
+            'serendipity' => '1.3',
             'smarty'      => '2.6.7',
             'php'         => '4.3.0'
         ));
@@ -53,7 +54,7 @@ class serendipity_event_amazonchooser extends serendipity_event
             'aaid',
             'server'
           ));
-     $this->markup_elements = array(
+        $this->markup_elements = array(
             array(
               'name'     => 'ENTRY_BODY',
               'element'  => 'body',
@@ -63,7 +64,6 @@ class serendipity_event_amazonchooser extends serendipity_event
               'element'  => 'extended'
            )
         );
-
     }
 
     function introspect_config_item($name, &$propbag)
@@ -86,17 +86,16 @@ class serendipity_event_amazonchooser extends serendipity_event
                 $propbag->add('name', PLUGIN_EVENT_AMAZONCHOOSER_ASSOCIATE_ID);
                 $propbag->add('description', PLUGIN_EVENT_AMAZONCHOOSER_ASSOCIATE_ID_DESC);
                 break;
-             case 'server':
-                $propbag->add('type',          'radio');
+            case 'server':
+                $propbag->add('type', 'radio');
                 $propbag->add('name', PLUGIN_EVENT_AMAZONCHOOSER_SERVER);
                 $propbag->add('description', PLUGIN_EVENT_AMAZONCHOOSER_SERVER_DESC);
-                $propbag->add('radio',         array(
+                $propbag->add('radio', array(
                     'value' => array('ca', 'cn', 'de', 'es', 'fr', 'it', 'jp', 'uk', 'us'),
                     'desc'  => array(PLUGIN_EVENT_AMAZONCHOOSER_CA,PLUGIN_EVENT_AMAZONCHOOSER_CN,PLUGIN_EVENT_AMAZONCHOOSER_GERMANY,PLUGIN_EVENT_AMAZONCHOOSER_ES,PLUGIN_EVENT_AMAZONCHOOSER_FR,PLUGIN_EVENT_AMAZONCHOOSER_IT,PLUGIN_EVENT_AMAZONCHOOSER_JAPAN,PLUGIN_EVENT_AMAZONCHOOSER_UK,PLUGIN_EVENT_AMAZONCHOOSER_US)
                 ));
                 $propbag->add('radio_per_row', '1');
                 $propbag->add('default', 'us');
-
                 break;
         }
         return true;
@@ -112,7 +111,7 @@ class serendipity_event_amazonchooser extends serendipity_event
             switch($event) {
                 case 'backend_entry_toolbar_extended':
                     if (isset($eventData['backend_entry_toolbar_extended:textarea'])) {
-                        $txtarea = $eventData['backend_entry_toolbar_extended:textarea'];
+                        $txtarea = $serendipity['version'][0] < '2' ?  $eventData['backend_entry_toolbar_extended:textarea'] : $eventData['backend_entry_toolbar_extended:nugget'];
                     } else {
                         $txtarea = 'extended';
                     }
@@ -126,7 +125,7 @@ class serendipity_event_amazonchooser extends serendipity_event
 
                 case 'backend_entry_toolbar_body':
                     if (isset($eventData['backend_entry_toolbar_body:textarea'])) {
-                        $txtarea = $eventData['backend_entry_toolbar_body:textarea'];
+                        $txtarea = $serendipity['version'][0] < '2' ?  $eventData['backend_entry_toolbar_body:textarea'] : $eventData['backend_entry_toolbar_body:nugget'];
                     } else {
                         $txtarea = 'body';
                     }
@@ -151,15 +150,16 @@ class serendipity_event_amazonchooser extends serendipity_event
                     break;
 
                 case 'backend_wysiwyg':
-                    $link = serendipity_rewriteURL('plugin/amazonch') . ($serendipity['rewrite'] != 'none' ? '?' : '&amp;') . 'txtarea=' . $eventData['jsname'];
+                    $link = serendipity_rewriteURL('plugin/amazonch') . ($serendipity['rewrite'] != 'none' ? '?' : '&amp;') . 'txtarea=' . ($serendipity['version'][0] > '1' ? 'amazonchooser'.$eventData['item'] : $eventData['jsname']);
+                    $open = $serendipity['version'][0] > '1' ? 'serendipity.openPopup' : 'window.open';
                     $eventData['buttons'][] = array(
-                        'id'         => 'amazonchooser' . $eventData['jsname'],
+                        'id'         => 'amazonchooser' . ($serendipity['version'][0] > '1' ? $eventData['item'] : $eventData['jsname']),
                         'name'       => PLUGIN_EVENT_AMAZONCHOOSER_MEDIA_BUTTON,
-                        'javascript' => 'function() { window.open(\'' . $link . '\', \'AmazonImageSel\', \'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1\') }',
+                        'javascript' => 'function() { '.$open.'(\'' . $link . '\', \'AmazonImageSel\', \'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1\') }',
+                        'img_url'    => $serendipity['serendipityHTTPPath'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/plugin_amazonchooser.gif',
                         'img_path'   => 'serendipity_event_amazonchooser/serendipity_event_amazonchooser.gif',
-                        'img_url'    => serendipity_rewriteURL('plugin/amazongif'),
-                        'toolbar'    => 'other' // TOOLBAR_WEB is buggy in s9y 1.4 :-/
-                    );
+                        'toolbar'    => 'other'
+                    );//'img_path' deprecated, used by ckeditor plugin <= 4.1.0
                     return true;
                     break;
 
@@ -176,10 +176,10 @@ class serendipity_event_amazonchooser extends serendipity_event
 
 
                 case 'serendipity_event_amazonchooser_button':
-                    $eventData['button_out'] = $this->generate_button($eventData['textbox'],true);    
+                    $eventData['button_out'] = $this->generate_button($eventData['textbox'],true);
                     return true;
                     break;
-                    
+
                 case 'serendipity_event_amazonchooser_devinfo':
                     $eventData['dtoken']    = trim($this->get_config('dtoken'));
                     $eventData['secretKey'] = trim($this->get_config('secretKey'));
@@ -222,7 +222,7 @@ class serendipity_event_amazonchooser extends serendipity_event
                             echo file_get_contents(dirname(__FILE__) . '/serendipity_event_amazonchooser.js');
                             break;
 
-                        case 'amazongif':
+                        case 'plugin_amazonchooser.gif':
                             header('Content-Type: image/gif');
                             echo file_get_contents(dirname(__FILE__) . '/serendipity_event_amazonchooser.gif');
                             break;
@@ -265,7 +265,8 @@ class serendipity_event_amazonchooser extends serendipity_event
                                  array(
                                       'plugin_amazonchooser_css'           => serendipity_rewriteURL('serendipity_admin.css'),
                                       'plugin_amazonchooser_js'            => serendipity_rewriteURL('plugin/amazonch-js')
-                                 )); 
+                                 ));
+
                             switch ($_REQUEST['step']) {
                                 case '1':
                                     $page = 1;
@@ -310,10 +311,10 @@ class serendipity_event_amazonchooser extends serendipity_event
                                             'plugin_amazonchooser_select_url'       => serendipity_rewriteURL('plugin/amazonch') . ($serendipity['rewrite'] != 'none' ? '?' : '&amp;') . '&amp;mode='.trim(htmlspecialchars(rawurlencode($_REQUEST['mode']))).$simple.'&amp;txtarea=' . htmlspecialchars($_REQUEST['txtarea']) . '&amp;step=2&amp;asin='
                                       )
                                     );
-                                break;
+                                    break;
 
                                 case '2':
-                                   if (isset($_REQUEST['asin'])) {
+                                    if (isset($_REQUEST['asin'])) {
                                         $result = $this->Amazon_Call("lookup",trim(htmlspecialchars(rawurlencode($_REQUEST['mode']))),trim(htmlspecialchars(rawurlencode($_REQUEST['asin']))),$country_url,$page);
                                     } else {
                                         $result['count'] = 0;
@@ -325,7 +326,7 @@ class serendipity_event_amazonchooser extends serendipity_event
                                         $simple = "";
                                     }
                                     $serendipity['smarty']->assign(
-                                      array(
+                                        array(
                                             'plugin_amazonchooser_page'             => "Lookup",
                                             'plugin_amazonchooser_displaytemplate'  => $tdisplayfile,
                                             'plugin_amazonchooser_txtarea'          => $_REQUEST['txtarea'],
@@ -337,9 +338,9 @@ class serendipity_event_amazonchooser extends serendipity_event
                                             'plugin_amazonchooser_cache_time'       => $result['return_date'],
                                             'plugin_amazonchooser_error_result'     => $result['error_result'],
                                             'thingy'          => $result['items'][0]
-                                      )
+                                        )
                                     );
-                                     break;
+                                    break;
 
                                 default:
                                     $defaultmode = rawurlencode($_REQUEST['mode']);
@@ -354,7 +355,7 @@ class serendipity_event_amazonchooser extends serendipity_event
                                     }
                                     asort($mode_out);
                                     $serendipity['smarty']->assign(
-                                      array(
+                                        array(
                                             'plugin_amazonchooser_page'          => "default",
                                             'plugin_amazonchooser_keyword'       => rawurldecode($_REQUEST['keyword']),
                                             'plugin_amazonchooser_link'          => $link,
@@ -362,15 +363,12 @@ class serendipity_event_amazonchooser extends serendipity_event
                                             'plugin_amazonchooser_simple'        => $simple,
                                             'plugin_amazonchooser_mode'          => $mode_out,
                                             'plugin_amazonchooser_defaultmode'   => $defaultmode
-                                      )
+                                        )
                                     );
-
                                     break;
                             }
-                            $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-                            $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
-                            $content = $serendipity['smarty']->fetch('file:'. $tfile);
-                            $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+                            // use native API here - extends s9y version >= 1.3'
+                            $content = $this->parseTemplate($tfile);
                             echo $content;
                         };
 
@@ -390,19 +388,27 @@ class serendipity_event_amazonchooser extends serendipity_event
     function generate_button ($txtarea,$return_output) {
         global $serendipity;
         if (!isset($txtarea)) {
-           $txtarea = 'body';
+            $txtarea = 'body';
         }
         $link =  serendipity_rewriteURL('plugin/amazonch') . ($serendipity['rewrite'] != 'none' ? '?' : '&amp;') . 'txtarea=' . $txtarea;
+        $open = $serendipity['version'][0] > '1' ? 'serendipity.openPopup' : 'window.open';
 
-       if ($return_output) {
-          $button = '<input type="button" class="serendipityPrettyButton input_button"  name="insAmazonImage" value="'.PLUGIN_EVENT_AMAZONCHOOSER_MEDIA_BUTTON.'" style="" onclick="window.open(\''.$link."&amp;simple=1".'\', \'AmazonImageSel\', \'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1\');" />';
-          return $button;
-       } else {
-          $button = '<input type="button" class="serendipityPrettyButton input_button"  name="insAmazonImage" value="'.PLUGIN_EVENT_AMAZONCHOOSER_MEDIA_BUTTON.'" style="" onclick="window.open(\''.$link.'\', \'AmazonImageSel\', \'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1\');" />';
-          echo $button;
-       }
+        if ($return_output) {
+            if ($serendipity['version'][0] > '1') {
+                $button = '<input type="button" class="input_button" name="insAmazonImage" value="'.PLUGIN_EVENT_AMAZONCHOOSER_MEDIA_BUTTON.'" style="" onclick="'.$open.'(\''.$link."&amp;simple=1".'\', \'AmazonImageSel\', \'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1\');">';
+            } else {
+                $button = '<input type="button" class="serendipityPrettyButton input_button" name="insAmazonImage" value="'.PLUGIN_EVENT_AMAZONCHOOSER_MEDIA_BUTTON.'" style="" onclick="'.$open.'(\''.$link."&amp;simple=1".'\', \'AmazonImageSel\', \'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1\');" />';
+            }
+            return $button;
+        } else {
+            if ($serendipity['version'][0] > '1') {
+                $button = '<input type="button" class="input_button" name="insAmazonImage" value="'.PLUGIN_EVENT_AMAZONCHOOSER_MEDIA_BUTTON.'" style="" onclick="'.$open.'(\''.$link.'\', \'AmazonImageSel\', \'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1\');">';
+            } else {
+                $button = '<input type="button" class="serendipityPrettyButton input_button"  name="insAmazonImage" value="'.PLUGIN_EVENT_AMAZONCHOOSER_MEDIA_BUTTON.'" style="" onclick="'.$open.'(\''.$link.'\', \'AmazonImageSel\', \'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1\');" />';
+            }
+            echo $button;
+        }
     }
-
 
     function get_amazon_item($matches) {
         global $serendipity;
@@ -446,10 +452,9 @@ class serendipity_event_amazonchooser extends serendipity_event
               )
            );
 
-           $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-           $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
-           $content = $serendipity['smarty']->fetch('file:'. $tfile);
-           $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+           // use native API here - extends s9y version >= 1.3'
+           $content = $this->parseTemplate($tfile);
+
            $content = str_replace("\n",'',$content);
            if (class_exists('Cache_Lite') && is_object($cache_obj)) {
                 $cache_obj->save($content,'amazonchooser'.$asin);

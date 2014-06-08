@@ -1,22 +1,31 @@
+0.74:
+-----
+    * Adapted backend markup for 2.0 backend, needs more with real tests.
+    * Fixed wysiwyg button link creator
+      sets temporary image path deprecated (0.73)
+    * Use nativ API method here - extends S9y version >= 1.3
+    * fixed some tpl errors
+
 latest (0.73):
-added CKEDITOR ready eventData image path
+ added CKEDITOR ready eventData image path
 
 latest (0.71): 
-Update to 2011-08-01 version of Amazon Product Advertising API
-Added Spain, Italy and China server endpoints
-Thanks to Luis Sieira for help and for the Spanish translation!
+ Update to 2011-08-01 version of Amazon Product Advertising API
+ Added Spain, Italy and China server endpoints
+ Thanks to Luis Sieira for help and for the Spanish translation!
 
- Version .6
+Version .6
  Smarty3 forward compatibility
 
- Version .59
-Added serendipity_event_amazonchooser_devinfo hook for the amazon sidebar.
+Version .59
+ Added serendipity_event_amazonchooser_devinfo hook for the amazon sidebar.
 
- Version .58
+Version .58
  Fix CSS hook code to respect templates.
 
 Version .57
  Update plugin to use serendipity_rewriteurl() for urls.  Apparently I missed a rewrite url somewhere.
+
 Version .56
  Update Amazon_s9y_lib.php to remove unnecessary variables.
  Update serendipity_event_amazonchooser.css to have style for the amazon sidebar plugin.

@@ -62,7 +62,7 @@
 
                     <div class="form_field">
                         <input type="button" class="serendipityPrettyButton input_button"  value="{$CONST.BACK}" onclick="history.go(-1);" />
-                    {if ($plugin_amazonchooser_simple == '1') }
+                    {if ($plugin_amazonchooser_simple == '1')}
                         <input type="button" class="serendipityPrettyButton input_button"  value="{$CONST.DONE}" onclick="serendipity_amazonSelector_simpledone('{$plugin_amazonchooser_txtarea}')" />
                     {else}
                         <input type="button" class="serendipityPrettyButton input_button"  value="{$CONST.DONE}" onclick="serendipity_amazonSelector_done('{$plugin_amazonchooser_txtarea}')" />

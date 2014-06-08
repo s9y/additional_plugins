@@ -3135,9 +3135,9 @@
 <description>Display entries from multiple RSS feeds (&quot;Planet&quot;). IMPORTANT NOTE: Updating and &quot;feeding&quot; your Aggregator must currently still happen manually via Cronjobs or similar. Call this URL with your custom timing interval: index.php?/plugin/aggregator</description>
 <maintainers><maintainer><name>Evan Nemerson, Garvin Hicking, Kristian Koehntopp, Thomas Schulz, Claus Schmidt</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.30</version>
+  <version>0.31</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-05-16</date>
+  <date>2014-06-08</date>
   <filelist>
 <dir name="serendipity_event_aggregator">
 <file>serendipity_event_aggregator.php</file>

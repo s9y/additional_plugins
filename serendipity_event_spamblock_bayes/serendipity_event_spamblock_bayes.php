@@ -42,7 +42,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '0.4.12' );
+		$propbag->add ( 'version', '0.4.13' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_spamblock_comments_shown' => true,
 		                                     'external_plugin' => true,
@@ -1277,8 +1277,11 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     if (!serendipity_checkPermission('adminComments')) {
                         break;
                     }
-                    if ($this->get_config('menu', true)) {
-                        echo '<li><a href="?serendipity[adminModule]=event_display&serendipity[adminAction]=spamblock_bayes&serendipity[subpage]=1">' . PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME . '</a></li>';
+                    if ($serendipity['version'][0] == '1') {
+                    } else {
+                        if ($this->get_config('menu', true)) {
+                            echo '<li><a href="?serendipity[adminModule]=event_display&serendipity[adminAction]=spamblock_bayes&serendipity[subpage]=1">' . PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME . '</a></li>';
+                        }
                     }
                     return true;
                     break;

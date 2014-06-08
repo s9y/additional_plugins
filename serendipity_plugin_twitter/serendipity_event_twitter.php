@@ -1016,10 +1016,13 @@ class serendipity_event_twitter extends serendipity_plugin {
                     return true;
 
                 case 'backend_sidebar_admin_appearance':
-                    if ($this->get_config('tweeter_show', 'disable') == 'sidebar') {
+                    if ($serendipity['version'][0] == '1') {
+                    } else {
+                        if ($this->get_config('tweeter_show', 'disable') == 'sidebar') {
 ?>
-                    <li><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=tweeter"><?php echo PLUGIN_EVENT_TWITTER_TWEETER_SIDEBARTITLE; ?></a></li>
+                            <li><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=tweeter"><?php echo PLUGIN_EVENT_TWITTER_TWEETER_SIDEBARTITLE; ?></a></li>
 <?php
+                        }
                     }
                     return true;
 

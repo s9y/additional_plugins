@@ -27,7 +27,7 @@ class serendipity_event_adminnotes extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.10');
+        $propbag->add('version',       '0.11');
         $propbag->add('author',        'Garvin Hicking, Matthias Mees');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array('feedback', 'limit', 'html', 'markup', 'cutoff'));
@@ -441,9 +441,12 @@ class serendipity_event_adminnotes extends serendipity_event {
                     break;
 
                 case 'backend_sidebar_admin':
+                    if ($serendipity['version'][0] == '1') {
+                    } else {
 ?>
                         <li><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=adminnotes"><?php echo PLUGIN_ADMINNOTES_TITLE; ?></a></li>
 <?php
+                    }
                     break;
 
                 case 'backend_sidebar_entries_event_display_adminnotes':

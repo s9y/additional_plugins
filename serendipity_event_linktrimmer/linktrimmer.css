@@ -1,12 +1,7 @@
-.linktrimmer {
-    float: right;
-}
 
-.serendipity_linktrimmer_page {
+#linktrimmer_url.input_textbox {
+  width: 71%;
 }
-
-.serendipity_linktrimmer_page .linktrimmer {
-    float: none;
-    display: block;
-    margin: auto auto;
+#linktrimmer_result.input_textbox {
+  width: 100%;
 }

@@ -1,4 +1,4 @@
-<?php # 
+<?php #
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -26,14 +26,15 @@ class serendipity_event_linktrimmer extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '1.3');
-        $propbag->add('author',        'Garvin Hicking');
+        $propbag->add('version',       '1.4');
+        $propbag->add('author',        'Garvin Hicking, Ian');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array('prefix', 'frontpage', 'domain'));
         $propbag->add('event_hooks',   array(
                                             'backend_frontpage_display'      => true,
                                             'css_backend'                    => true,
                                             'frontend_configure'             => true,
+                                            'backend_dashboard'              => true,
                                             'backend_entry_toolbar_extended' => true,
                                             'backend_entry_toolbar_body'     => true,
                                             'backend_wysiwyg'                => true,
@@ -201,16 +202,18 @@ class serendipity_event_linktrimmer extends serendipity_event {
         }
 
         $serendipity['smarty']->assign(array(
-            'linktrimmer_error'     => $error,
-            'linktrimmer_url'       => $url,
-            'linktrimmer_origurl'   => $_REQUEST['linktrimmer_url'],
-            'linktrimmer_external'  => $external,
-            'linktrimmer_txtarea'   => $_REQUEST['txtarea'],
-            'linktrimmer_css'       => file_get_contents(dirname(__FILE__) . '/linktrimmer.css')
+            'linktrimmer_error'       => $error,
+            'linktrimmer_url'         => $url,
+            'linktrimmer_origurl'     => $_REQUEST['linktrimmer_url'],
+            'linktrimmer_external'    => $external,
+            'linktrimmer_txtarea'     => $_REQUEST['txtarea']
         ));
 
-        // use nativ API here - extends S9y version >= 1.3
-        echo $this->parseTemplate('plugin_linktrimmer.tpl');
+        if ($serendipity['version'][0] > '1') {
+            echo $this->parseTemplate('plugin_linktrimmer.tpl');
+        } else {
+            echo $this->parseTemplate('plugin_linktrimmer_old.tpl');
+        }
     }
 
     function generate_button ($txtarea) {
@@ -218,10 +221,16 @@ class serendipity_event_linktrimmer extends serendipity_event {
         if (!isset($txtarea)) {
            $txtarea = 'body';
         }
-           $link =  ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/linktrimmer' . ($serendipity['rewrite'] != 'none' ? '?' : '&amp;') . 'txtarea=' . $txtarea;
+        $link =  ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/linktrimmer' . ($serendipity['rewrite'] != 'none' ? '?' : '&amp;') . 'txtarea=' . $txtarea;
+        if ($serendipity['version'][0] > '1') {
+?>
+        <input type="button" class="input_button"  name="insLinktrimmer" value="<?php echo PLUGIN_LINKTRIMMER_NAME; ?>" style="" onclick="serendipity.openPopup('<?php echo $link; ?>', 'linktrimmerSel', 'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1');">
+<?php
+        } else {
 ?>
         <input type="button" class="serendipityPrettyButton input_button"  name="insLinktrimmer" value="<?php echo PLUGIN_LINKTRIMMER_NAME; ?>" style="" onclick="window.open('<?php echo $link; ?>', 'linktrimmerSel', 'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1');" />
 <?php
+        }
     }
 
     function event_hook($event, &$bag, &$eventData, $addData = null) {
@@ -241,7 +250,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
             switch($event) {
                 case 'backend_entry_toolbar_extended':
                     if (isset($eventData['backend_entry_toolbar_extended:textarea'])) {
-                        $txtarea = $eventData['backend_entry_toolbar_extended:textarea'];
+                        $txtarea = $serendipity['version'][0] < '2' ?  $eventData['backend_entry_toolbar_extended:textarea'] : $eventData['backend_entry_toolbar_extended:nugget'];
                     } else {
                         $txtarea = 'extended';
                     }
@@ -255,7 +264,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
 
                 case 'backend_entry_toolbar_body':
                     if (isset($eventData['backend_entry_toolbar_body:textarea'])) {
-                        $txtarea = $eventData['backend_entry_toolbar_body:textarea'];
+                        $txtarea = $serendipity['version'][0] < '2' ?  $eventData['backend_entry_toolbar_body:textarea'] : $eventData['backend_entry_toolbar_body:nugget'];
                     } else {
                         $txtarea = 'body';
                     }
@@ -268,16 +277,16 @@ class serendipity_event_linktrimmer extends serendipity_event {
                     break;
 
                 case 'backend_wysiwyg':
-
-                    $link = ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/linktrimmer' . ($serendipity['rewrite'] != 'none' ? '?' : '&amp;') . 'txtarea=' . $eventData['jsname'];
+                    $link = $serendipity['serendipityHTTPPath'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/linktrimmer' . ($serendipity['rewrite'] != 'none' ? '?' : '&amp;') . 'txtarea=' . ($serendipity['version'][0] > '1' ? 'linktrimmer'.$eventData['item'] : $eventData['jsname']);
+                    $open = $serendipity['version'][0] > '1' ? 'serendipity.openPopup' : 'window.open';
                     $eventData['buttons'][] = array(
-                        'id'         => 'linktrimmer' . $eventData['jsname'],
+                        'id'         => 'linktrimmer' . ($serendipity['version'][0] > '1' ? $eventData['item'] : $eventData['jsname']),
                         'name'       => PLUGIN_LINKTRIMMER_NAME,
-                        'javascript' => 'function() { window.open(\'' . $link . '\', \'LinkTrimmer\', \'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1\') }',
-                        'img_url'    => $serendipity['serendipityHTTPPath'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/linktrimmergif',
+                        'javascript' => 'function() { '.$open.'(\'' . $link . '\', \'LinkTrimmer\', \'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1\') }',
+                        'img_url'    => $serendipity['serendipityHTTPPath'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/plugin_linktrimmer.gif',
                         'img_path'   => 'serendipity_event_linktrimmer/serendipity_event_linktrimmer.gif',
-                        'toolbar'    => 'other' // TOOLBAR_WEB is buggy in s9y 1.4 :-/
-                    );
+                        'toolbar'    => 'other'
+                    );//'img_path' deprecated, used by ckeditor plugin <= 4.1.0
                     return true;
                     break;
 
@@ -297,8 +306,12 @@ class serendipity_event_linktrimmer extends serendipity_event {
                     }
                     break;
 
+                case 'backend_dashboard':
+                    if (serendipity_db_bool($this->get_config('frontpage', true)) ) $this->show();
+                    break;
+
                 case 'backend_frontpage_display':
-                    if (!isset($serendipity['plugin_dashboard_version']) && serendipity_db_bool($this->get_config('frontpage', true)) ) $this->show();
+                    if (serendipity_db_bool($this->get_config('frontpage', true) && $serendipity['version'][0] <= '1') ) $this->show();
                     break;
 
                 case 'external_plugin':
@@ -335,7 +348,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
                         }
                     }
                     switch($uri_part) {
-                        case 'linktrimmergif':
+                        case 'plugin_linktrimmer.gif':
                             header('Content-Type: image/gif');
                             echo file_get_contents(dirname(__FILE__) . '/serendipity_event_linktrimmer.gif');
                             break;
@@ -349,6 +362,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
                     if (!strpos($eventData, '.linktrimmer')) {
                         // class exists in CSS, so a user has customized it and we don't need default
                         echo file_get_contents(dirname(__FILE__) . '/linktrimmer.css');
+                        if ($serendipity['version'][0] < '2') echo '#linktrimmer_url.input_textbox { width: inherit; }';
                     }
                     break;
 

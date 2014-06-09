@@ -182,7 +182,7 @@ class serendipity_event_tinymce extends serendipity_event
                     $theme_advanced_buttons3 = $this->get_config('theme_advanced_buttons3');
 ?>
 <script type="text/javascript">var serenditpityBaseUrl = "<?php echo   $serendipity['baseURL']; ?>"</script>
-<script language="javascript" type="text/javascript" src="<?php echo $path; ?>jscripts/tiny_mce/tiny_mce_gzip.php?js=1"></script>
+<script type="text/javascript" src="<?php echo $path; ?>jscripts/tiny_mce/tiny_mce_gzip.php?js=1"></script>
 <script type="text/javascript">
 if (!window.tinymce_inited) {
     var Emulator = {

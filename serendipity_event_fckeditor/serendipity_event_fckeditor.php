@@ -88,7 +88,7 @@ class serendipity_event_fckeditor extends serendipity_event
                     }
 ?>
 
-<script language="javascript" type="text/javascript" src="<?php echo $path; ?>fckeditor.js"></script>
+<script type="text/javascript" src="<?php echo $path; ?>fckeditor.js"></script>
 <script type="text/javascript">
         function fck_addLoadEvent(func) {
           var oldonload = window.onload;

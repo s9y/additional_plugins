@@ -154,7 +154,7 @@ class serendipity_plugin_staticpage extends serendipity_plugin {
             }
         } else {
             if (!isset($serendipity['staticpageplugin']['JS_init'])) {
-                $str .= '<script src="' . $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/dtree.js" language="javascript" type="text/javascript"></script>';
+                $str .= '<script src="' . $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/dtree.js" type="text/javascript"></script>';
                 $serendipity['staticpageplugin']['JS_init'] = true;
             }
 

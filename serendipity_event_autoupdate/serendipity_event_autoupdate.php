@@ -67,7 +67,7 @@ class serendipity_event_autoupdate extends serendipity_event {
 
                 // Javascript for updating the progress bar and information
                 echo '
-<script language="javascript">
+<script type="text/javascript">
     document.getElementById("progress").innerHTML="<div style=\"width:'.$percent.';background-color:#ddd;\">&nbsp;</div>";
     document.getElementById("information").innerHTML="'.$percent.' processed.";
 </script>';
@@ -84,7 +84,7 @@ class serendipity_event_autoupdate extends serendipity_event {
             }
             $wait = strstr($pname, 'Function') ? ' Please wait ... Processing: '.$next.' ...' : ''; // no tags allowed here
             // Tell user that the process is completed
-            echo '<script language="javascript">document.getElementById("information").innerHTML="'.$pname.' completed!'.$wait.'"</script>';
+            echo '<script type="text/javascript">document.getElementById("information").innerHTML="'.$pname.' completed!'.$wait.'"</script>';
         }
 
         echo "$message\n";
@@ -230,7 +230,7 @@ EOS;
                                             $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn cleanTemplatesC()...\n", $time); // print in readable format 1.2345
                                             $this->show_message('<p class="msg_run"><span class="icon-clock"></span><em>'.$lmsg.'</em></p>', 'Function cleanup templates_c', 'finish processing unit');
                                             sleep(2);
-                                            echo '<script language="javascript">var el = document.getElementById("loader"); el.style.display = "none";</script>';
+                                            echo '<script type="text/javascript">var el = document.getElementById("loader"); el.style.display = "none";</script>';
                                             sleep(2);
                                             $this->show_message('<p class="msg_notice"><span class="icon-attention"></span><a href="'.$serendipity['serendipityHTTPPath'].'">click to start Serendipity Installer here</a>!</p>');
                                             sleep(1);

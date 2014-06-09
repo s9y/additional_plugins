@@ -363,7 +363,7 @@ class serendipity_event_ckeditor extends serendipity_event
                         $plugingpath = htmlspecialchars($this->get_config('plugpath'));
 ?>
     <link rel="stylesheet" type="text/css" href="<?php echo $plugingpath . 'serendipity_event_ckeditor/prettify.css'; ?>" />
-    <script language="javascript" type="text/javascript" src="<?php echo $plugingpath . 'serendipity_event_ckeditor/prettify.js'; ?>"></script>
+    <script type="text/javascript" src="<?php echo $plugingpath . 'serendipity_event_ckeditor/prettify.js'; ?>"></script>
     <script>
     jQuery(function($){
         // launch the prettify code
@@ -407,8 +407,8 @@ class serendipity_event_ckeditor extends serendipity_event
         CONFIG_KCFD_ON       = <?php echo $kcfd_on; ?>;
         CONFIG_TOOLBAR_BREAK = <?php echo (serendipity_db_bool($this->get_config('toolbar_break'))) ? "'/'" : "''"; ?>;
     </script>
-    <script language="javascript" type="text/javascript" src="<?php echo $serendipity['serendipityHTTPPath'] . $relpath; ?>ckeditor.js"></script>
-    <script language="javascript" type="text/javascript" src="<?php echo $plgpath . 'serendipity_event_ckeditor/'; ?>cke_plugin.js"></script>
+    <script type="text/javascript" src="<?php echo $serendipity['serendipityHTTPPath'] . $relpath; ?>ckeditor.js"></script>
+    <script type="text/javascript" src="<?php echo $plgpath . 'serendipity_event_ckeditor/'; ?>cke_plugin.js"></script>
 <?php
                     } // add to backend header end
                     break;

@@ -80,7 +80,7 @@ class serendipity_event_yq extends serendipity_event {
         if (isset($hooks[$event])) {
             switch($event) {
 				case 'frontend_header':
-					echo '<script language="javascript" src="http://yq.search.yahoo.com/javascript/yq.js"></script>'."\n";
+					echo '<script type="text/javascript" src="http://yq.search.yahoo.com/javascript/yq.js"></script>'."\n";
 					break;
 
 				case 'frontend_display:html:per_entry':

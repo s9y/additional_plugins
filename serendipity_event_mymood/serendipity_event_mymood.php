@@ -365,7 +365,7 @@ class serendipity_event_mymood extends serendipity_event {
               </table>
               </form>
 
-              <script language="javascript">
+              <script type="text/javascript">
                 function confirm_reset() {
                     if (confirm(\'' . PLUGIN_MYMOOD_CONFIRM_RESET . '\')) {
                         document.reset_form.submit();

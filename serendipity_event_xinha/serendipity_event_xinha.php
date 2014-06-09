@@ -117,7 +117,7 @@ class serendipity_event_xinha extends serendipity_event
   </script>
 
   <!-- Load up the actual editor core -->
-  <script language="javascript" type="text/javascript" src="<?php echo $path; ?>htmlarea.js"></script>
+  <script type="text/javascript" src="<?php echo $path; ?>htmlarea.js"></script>
 
   <script type="text/javascript">
     xinha_editors = null;

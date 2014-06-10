@@ -1,3 +1,7 @@
+1.5:
+----
+    * Fix for enablePopup in >= 2.0
+
 1.4:
 ----
     * Adapted backend markup for 2.0 backend.

@@ -22,7 +22,7 @@
 
 <div class="linktrimmer">
     <form action="?" method="post">
-        <input type="hidden" name="txtarea" value="{$linktrimmer_txtarea|@escape:url}" />
+        <input type="hidden" name="txtarea" value="{$linktrimmer_txtarea|@escape:'url'}" />
         <fieldset>
             <legend>{$CONST.PLUGIN_LINKTRIMMER_NAME}</legend>
 

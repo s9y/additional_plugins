@@ -26,7 +26,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '1.4');
+        $propbag->add('version',       '1.5');
         $propbag->add('author',        'Garvin Hicking, Ian');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array('prefix', 'frontpage', 'domain'));
@@ -202,6 +202,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
         }
 
         $serendipity['smarty']->assign(array(
+            'linktrimmer_ispopup'     => $serendipity['enablePopup'],
             'linktrimmer_error'       => $error,
             'linktrimmer_url'         => $url,
             'linktrimmer_origurl'     => $_REQUEST['linktrimmer_url'],
@@ -347,6 +348,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
                             $_REQUEST[$val[0]] = $val[1];
                         }
                     }
+
                     switch($uri_part) {
                         case 'plugin_linktrimmer.gif':
                             header('Content-Type: image/gif');

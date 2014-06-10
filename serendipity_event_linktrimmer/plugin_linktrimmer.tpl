@@ -44,7 +44,7 @@
     <h3>{$CONST.PLUGIN_LINKTRIMMER_NAME}</h3>
 {/if}
     <form action="?" method="post">
-        <input type="hidden" name="txtarea" value="{$linktrimmer_txtarea|escape:url}">
+        <input type="hidden" name="txtarea" value="{$linktrimmer_txtarea|escape:'url'}">
         <fieldset id="main_linktrimmer" class="">
         {if $linktrimmer_external}
             <legend>{$CONST.PLUGIN_LINKTRIMMER_NAME}</legend>
@@ -70,8 +70,13 @@
 
     {if $linktrimmer_url != '' && $linktrimmer_external}
             <script>
+        {if !$linktrimmer_ispopup}
                 window.parent.parent.serendipity.serendipity_imageSelector_addToBody('<a href="{$linktrimmer_url|escape}" title="{$linktrimmer_origurl|escape}">{$linktrimmer_origurl|escape}</a>', '{$linktrimmer_txtarea|escape}');
                 window.parent.parent.$.magnificPopup.close();
+        {else}
+                self.opener.serendipity_imageSelector_addToBody('<a href="{$linktrimmer_url|escape}" title="{$linktrimmer_origurl|escape}">{$linktrimmer_origurl|escape}</a>', '{$linktrimmer_txtarea|escape}');
+                self.close();
+        {/if}
             </script>
     {elseif $linktrimmer_url != ''}
             <div class="form_field">

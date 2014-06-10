@@ -72,7 +72,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.53');
+        $propbag->add('version',       '3.53.1');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -98,7 +98,7 @@ class serendipity_event_freetag extends serendipity_event
             'xmlrpc_fetchEntry'                                 => true,
             'xmlrpc_deleteEntry'                                => true,
             'css'                                               => true,
-            'js'                                                => true
+            'js_backend'                                        => true
         ));
         $propbag->add('groups', array('BACKEND_EDITOR'));
         $this->supported_properties = array('freetag_name', 'freetag_tagList');
@@ -873,7 +873,7 @@ class serendipity_event_freetag extends serendipity_event
                     return true;
                     break;
 
-                case 'js':
+                case 'js_backend':
                     // autocomplete with serendipity 2.0
                     if ($this->get_config('admin_ftayt')) {
                         echo '

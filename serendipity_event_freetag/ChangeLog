@@ -1,3 +1,7 @@
+3.53.1:
+-----
+Fix autocomplete of tags in 2.0
+
 3.53:
 -----
 Fixes issue #177 Freetag plugin emits “1” (mattsches)

@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="{serendipity_getFile file='admin/oldie.css'}">
 <![endif]-->
     <script src="{serendipity_getFile file='admin/js/modernizr-2.8.1.min.js'}"></script>
-    <script src="{$head_link_script}"></script>
 
     <style>{* popup only classes *}
         .serendipity_linktrimmer_page .linktrimmer {

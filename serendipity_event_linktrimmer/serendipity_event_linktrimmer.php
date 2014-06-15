@@ -201,7 +201,6 @@ class serendipity_event_linktrimmer extends serendipity_event {
             }
         }
 
-        echo $serendipity['enablePopup'];
         $serendipity['smarty']->assign(array(
             'linktrimmer_ispopup'     => $serendipity['enablePopup'],
             'linktrimmer_error'       => $error,

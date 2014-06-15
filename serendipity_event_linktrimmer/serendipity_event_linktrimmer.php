@@ -26,7 +26,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '1.6');
+        $propbag->add('version',       '1.6.1');
         $propbag->add('author',        'Garvin Hicking, Ian');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array('prefix', 'frontpage', 'domain'));
@@ -201,6 +201,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
             }
         }
 
+        echo $serendipity['enablePopup'];
         $serendipity['smarty']->assign(array(
             'linktrimmer_ispopup'     => $serendipity['enablePopup'],
             'linktrimmer_error'       => $error,

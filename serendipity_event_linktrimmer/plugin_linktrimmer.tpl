@@ -42,7 +42,7 @@
 <section id="dashboard_linktrimmer" class="equal_heights quick_list">
     <h3>{$CONST.PLUGIN_LINKTRIMMER_NAME}</h3>
 {/if}
-    <form action="?" method="post">
+    <form action="" method="post">
         <input type="hidden" name="txtarea" value="{$linktrimmer_txtarea|escape:'url'}">
         <fieldset id="main_linktrimmer" class="">
         {if $linktrimmer_external}

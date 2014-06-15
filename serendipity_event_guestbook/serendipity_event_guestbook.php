@@ -1300,10 +1300,6 @@ class serendipity_event_guestbook extends serendipity_event {
                         }
                     }
 
-                    if (version_compare($serendipity['version'], '0.7.1', '<=')) {
-                        $this->generate_Page();
-                    }
-
                     return true;
                     break;
 

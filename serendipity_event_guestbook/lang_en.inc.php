@@ -92,7 +92,7 @@
 
 @define('THANKS_FOR_ENTRY', 'Your guestbook submission:');
 @define('WINDOW_CLOSE', 'Close window');
-@define('QUESTION_DELETE', 'Do you really want to delete the entry of %s ?');
+@define('QUESTION_DELETE', 'Do you really want to delete the entry of #%s ?');
 
 @define('PAGINATOR_TO', 'To');
 @define('PAGINATOR_FIRST', 'First');
@@ -107,7 +107,7 @@
 /* config v.3.20 additions */
 @define('PLUGIN_GUESTBOOK_SHOWAPP', 'Approve entries?');
 @define('PLUGIN_GUESTBOOK_SHOWAPP_BLAHBLAH', 'Set guestbook entries generally to be verified by admin before shown in frontend (default: false).');
-@define('PLUGIN_GUESTBOOK_APP_ENTRY', 'Your entry %s has been saved');
+@define('PLUGIN_GUESTBOOK_APP_ENTRY', 'Your entry #%s has been saved');
 @define('PLUGIN_GUESTBOOK_CHECKBOXALERT', 'Please check the checkbox of the entry you want to evaluate, change or erase.');
 @define('PLUGIN_GUESTBOOK_ADMINBODY', 'Admins answer');
 @define('PLUGIN_GUESTBOOK_FORM_RIGHT_BBC', 'Use plain BBcode (strong, italic, unterline, strike, quotes).');
@@ -131,32 +131,32 @@
 /* Backend main constants */
 @define('PLUGIN_GUESTBOOK_ADMIN_NAME', 'Guestbook');
 @define('PLUGIN_GUESTBOOK_ADMIN_NAME_MENU', 'Guestbook  v.%s - Backend Administration Menu');
-@define('PLUGIN_GUESTBOOK_ADMIN_DBC', 'Guestbook - Plugin DB Administration');
-@define('PLUGIN_GUESTBOOK_ADMIN_VIEW', 'Guestbook - View entries');
+@define('PLUGIN_GUESTBOOK_ADMIN_DBC', 'Plugin DB Administration');
+@define('PLUGIN_GUESTBOOK_ADMIN_VIEW', 'View entries');
 @define('PLUGIN_GUESTBOOK_ADMIN_VIEW_NORESULT', 'There are no approved entries in the guestbook!');
 @define('PLUGIN_GUESTBOOK_ADMIN_VIEW_DESC', 'Grouped by date [ youngest above ].');
-@define('PLUGIN_GUESTBOOK_ADMIN_APP', 'Guestbook - approve entries');
+@define('PLUGIN_GUESTBOOK_ADMIN_APP', 'Approve entries');
 @define('PLUGIN_GUESTBOOK_ADMIN_APP_DESC', 'Grouped by date [ youngest above ].');
 @define('PLUGIN_GUESTBOOK_ADMIN_APP_NORESULT', 'There are no entries to be approved!');
-@define('PLUGIN_GUESTBOOK_ADMIN_ERASE', 'Guestbook - Erase entries');
-@define('PLUGIN_GUESTBOOK_ADMIN_ADD', 'Guestbook - Add entries');
+@define('PLUGIN_GUESTBOOK_ADMIN_ERASE', 'Erase entries');
+@define('PLUGIN_GUESTBOOK_ADMIN_ADD', 'Add entries');
 @define('PLUGIN_GUESTBOOK_ADMIN_DROP_SURE', 'Do you really want to erase the guestbook database table with all data completly? Please confirm here!');
 @define('PLUGIN_GUESTBOOK_ADMIN_DROP_OK', 'Your %s database table was successful erased!');
 @define('PLUGIN_GUESTBOOK_ADMIN_DUMP_SELF', 'Before continuing you should for sure make a mysql dump via PhpMyAdmin or via the above backup link!');
 /* backend database (dbc) administration constants */
-@define('PLUGIN_GUESTBOOK_ADMIN_DBC_DUMP', 'DB Administration - dump');
+@define('PLUGIN_GUESTBOOK_ADMIN_DBC_DUMP', 'DB - dump');
 @define('PLUGIN_GUESTBOOK_ADMIN_DBC_DUMP_DESC', 'backup your guestbook table from database');
 @define('PLUGIN_GUESTBOOK_ADMIN_DBC_DUMP_TITLE', 'dump guestbook table values');
 @define('PLUGIN_GUESTBOOK_ADMIN_DBC_DUMP_DONE', 'Your guestbook database table has been backuped successfully!');
-@define('PLUGIN_GUESTBOOK_ADMIN_DBC_INSERT', 'DB Administration - insert');
+@define('PLUGIN_GUESTBOOK_ADMIN_DBC_INSERT', 'DB - insert');
 @define('PLUGIN_GUESTBOOK_ADMIN_DBC_INSERT_DESC', 'insert into guestbook table in database');
 @define('PLUGIN_GUESTBOOK_ADMIN_DBC_INSERT_TITLE', 'insert guestbook db values');
 @define('PLUGIN_GUESTBOOK_ADMIN_DBC_INSERT_MSG', 'Since this is not trivial, please use admin tools like phpMyAdmin to re-fill the database!');
-@define('PLUGIN_GUESTBOOK_ADMIN_DBC_ERASE', 'DB Administration - erase');
+@define('PLUGIN_GUESTBOOK_ADMIN_DBC_ERASE', 'DB - erase');
 @define('PLUGIN_GUESTBOOK_ADMIN_DBC_ERASE_DESC', 'Remove the guestbook database table');
 @define('PLUGIN_GUESTBOOK_ADMIN_DBC_ERASE_TITLE', 'Erase guestbook table');
 @define('PLUGIN_GUESTBOOK_ADMIN_DBC_DELFILE_MSG', 'Database table sql file <u>%s</u> erased successfully');
-@define('PLUGIN_GUESTBOOK_ADMIN_DBC_DOWNLOAD', 'DB Administration - download');
+@define('PLUGIN_GUESTBOOK_ADMIN_DBC_DOWNLOAD', 'DB - download');
 @define('PLUGIN_GUESTBOOK_ADMIN_DBC_DOWNLOAD_DESC', 'Download the guestbook database table dumps');
 @define('PLUGIN_GUESTBOOK_ADMIN_DBC_DOWNLOAD_TITLE', 'Download guestbook table dumps');
 @define('PLUGIN_GUESTBOOK_ADMIN_DBC_DOWNLOAD_MSG', 'There is no guestbook database table backup!');

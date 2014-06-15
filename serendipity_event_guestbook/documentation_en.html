@@ -18,12 +18,12 @@
         #wrapper div.doc_edited { float: right; color: #A8A8A8; padding: 4px; font-size: 7.4pt; }
         #wrapper div.skip { float: right; color: #A8A8A8; margin: 4px 0; padding: 4px; font-size: 7.4pt; }
         #wrapper div.dark a { color: #333; }
-        #wrapper div.doc_block { display: block; padding: 4px; text-align: justify; font-size: 9pt; font-weight:bold; line-height: 1.2em; background-color: #282828; color: #777; }
-        #wrapper div.doc_block .readme_title { margin: 5px 0; padding: 8px 4px; font-weight: 700; text-decoration: underline; background-color: #1C1C1C; background: -moz-linear-gradient(left 20deg, #1C1C1C, #696969); border: 1px solid #828282; }
+        #wrapper div.doc_block { display: block; padding: 4px; text-align: justify; font-size: 9pt; font-weight:bold; line-height: 1.2em; background-color: #282828; color: #AAA; }
+        #wrapper div.doc_block .readme_title { margin: 5px 0; padding: 8px 4px; font-weight: 700; text-decoration: underline; background-color: #1C1C1C; background: linear-gradient(left 20deg, #1C1C1C, #696969); border: 1px solid #828282; }
         #wrapper div.doc_block .white { color: #F0F0F0; text-decoration: underline; font-weight: bold; }
         #wrapper div.doc_block .eye { color: #ff6600 }
         #wrapper div.doc_block .cssblock { display: block; margin-left: 60px; }
-        #wrapper div.changelog { background-color: transparent; }
+        #wrapper div.changelog { background-color: transparent; color: #666; }
         #wrapper div.changelog .readme_title { margin: 0 -4px; }
         #wrapper div.doc_block ul.readme li { line-height: 1.5em; background: none repeat scroll 0 0 #333; }
         #wrapper div.doc_block ul.readme li em { color: #E8E8E8; font-size: 8pt; font-weight: 500; }
@@ -34,7 +34,7 @@
 <body>
     <div><a name="top" id="top"></a></div>
     <div id="wrapper">
-        <div class="doc_edited">serendipity_event_guestbook/documentation_en.html, last modified 2013-08-28</div>
+        <div class="doc_edited">serendipity_event_guestbook/documentation_en.html, last modified 2014-06-15</div>
         <div class="doc_block"><span class="white">PLEASE NOTE</span><br />
             <br />
             This Serendipity guestbook plugin is TEMPLATE based, configurable by its own stylesheet, has a FRONTEND and a BACKEND.<br />
@@ -114,7 +114,6 @@
         <div class="doc_block changelog"><a name="change" id="change"></a>
             <div class="skip"><a href="#top">Top</a></div>
             <div class="readme_title">S9Y :: GUESTBOOK :: CHANGELOG</div>
-            <h2>ATTENTION: Upgrading version needs you to verify and set/submit the guestbook config again!</h2>
             <p>
                 ****************************************************************<br />
                 * serendipty_event_guestbook plugin, ChangeLog<br />
@@ -122,6 +121,26 @@
                 * please leave a message in http://www.s9y.org/forums/<br />
                 * have fun! Ian<br />
                 ****************************************************************</p>
+            <h2>Version 3.50 <span class="date">[ 2014-06-15 ]</span></h2>
+            <ul>
+                <li>Smartified the backend even more</li>
+                <li>Rewritten (tpl/css) for Serendipity 2.0 in backend</li>
+                <li>Extends Serendipity >= 1.9.0</li>
+                <li>Changed some lang constants</li>
+                <li>Long time users may need to backup their guestbook database in S9y Guestbook DB Administration panel again! Since this version checks the TABLE COLUMN order to prevent a possible backup/upload issue.</li>
+            </ul>
+            <h2>Version 3.44 <span class="date">[ 2014-04-08 ]</span></h2>
+            <ul>
+                <li>Propagate $smarty.env.staticpage_pagetitle (and the others) so that it can be used in entries.tpl</li>
+            </ul>
+            <h2>Version 3.43 <span class="date">[ 2014-03-05 ]</span></h2>
+            <ul>
+                <li>Properly use the example() API method by returning, not echo'ing. Unimportant update.</li>
+            </ul>
+            <h2>Version 3.42 <span class="date">[ 2013-11-21 ]</span></h2>
+            <ul>
+                <li>Fixed db table guestbook, ip column to IPv6 length</li>
+            </ul>
             <h2>Version 3.41 <span class="date">[ 2013-08-24 ]</span></h2>
             <ul>
                 <li>Be more strict in types for automoderate messages</li>

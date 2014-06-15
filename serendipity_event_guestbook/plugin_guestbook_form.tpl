@@ -24,13 +24,13 @@
         <div class="input-text">
             <label for="serendipity_commentform_email">{$CONST.EMAIL}</label>
             <input type="text" size="30" maxlength="99" name="serendipity[email]" value="{$plugin_guestbook_email}" id="serendipity_commentform_email" />
-            <div class="serendipity_commentform_email guestbook_emailprotect">{$plugin_guestbook_emailprotect}</div>
+            <div class="guestbook_emailprotect">{$plugin_guestbook_emailprotect}</div>
         </div>
        {/if}
 
        {if $is_show_url}
         <div class="input-text">
-            <label for="serendipity_commentform_email">{$CONST.URL}</label>
+            <label for="serendipity_commentform_url">{$CONST.URL}</label>
             <input type="text" size="30" maxlength="99" name="serendipity[url]" value="{$plugin_guestbook_url}" id="serendipity_commentform_url" />
         </div>
        {/if}

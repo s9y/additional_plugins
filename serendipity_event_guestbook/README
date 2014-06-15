@@ -1,5 +1,5 @@
 /******************************************************************************
- *    serendipty_event_guestbook.php, README, last modified 2013-08-28        *
+ *    serendipty_event_guestbook.php, README, last modified 2014-06-15        *
  *    If you have a interesting hack or want to help,                         *
  *    please leave a message in http://www.s9y.org/forums/                    *
  *    Have fun! Ian                                                           *
@@ -96,12 +96,28 @@ S9Y :: GUESTBOOK :: DESIGN
 
 
 -------------------------------------
-NOT RELEASED | Version 3.xx [ 2013-00-00 ]       |
+| Version 3.50 [ 2014-06-15 ]       |
 -------------------------------------
 
-    * correct linebreaks in README to fit Github content width
-    * fixed and added to README, documentation_en, php DOC Headers
-    * tiny tweak to backend css
+    * Smartified the backend even more
+    * Rewritten (tpl/css) for Serendipity 2.0 in backend
+    * Extends Serendipity >= 1.9.0
+    * Changed some lang constants
+    * Long time users may need to backup their guestbook database in S9y
+      Guestbook DB Administration panel again! Since this version checks the
+      TABLE COLUMN order to prevent a possible backup/upload issue.
+
+
+ 3.44: Propagate $smarty.env.staticpage_pagetitle (and the others) so that it can be used in entries.tpl
+
+ 3.43: Properly use the example() API method by returning, not echo'ing. Unimportant update.
+
+
+ -------------------------------------
+| Version 3.42 [ 2013-11-21 ]       |
+-------------------------------------
+
+    * fixed db table guestbook, ip column to IPv6 length
 
 
 -------------------------------------

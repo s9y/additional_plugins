@@ -1,3 +1,7 @@
+{*
+    plugin_guestbook_backend_header.tpl v.3.50 2014-06-14 Ian
+*}
+
 {function name=feedback}{* message and error feedback for approve, view, add issues *}
     <div class="msg_error">
         <span class="icon-attention-circled"></span> <strong>{$msg_header}</strong>
@@ -10,20 +14,6 @@
     {/if}
     </div>
 {/function}
-{* define the function *}
-{function name=menu level=0}
-  <ul class="level{$level}">
-  {foreach $data as $entry}
-    {if is_array($entry)}
-      <li>{$entry@key}</li>
-      {call name=menu data=$entry level=$level+1}
-    {else}
-      <li>{$entry}</li>
-    {/if}
-  {/foreach}
-  </ul>
-{/function}
-
 
 {if $gb_isnav}
     <div class="clearfix gbnav">

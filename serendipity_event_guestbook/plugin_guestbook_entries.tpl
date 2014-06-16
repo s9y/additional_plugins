@@ -1,5 +1,5 @@
 {* 
-    plugin_guestbook_entries.tpl v.3.40 - 2013-08-21 Ian
+    plugin_guestbook_entries.tpl v.3.51 - 2014-06-16
 *}
 
 {if $plugin_guestbook_articleformat}
@@ -55,7 +55,9 @@
 
                     </dl>
 
-                    <dl class="guestbook_entrybottom"><dt>{$entry.body}</dt></dl>
+                    <dl class="guestbook_entrybottom">
+                        <dd>{$entry.body|replace:'&amp;quot;':'"'}</dd>
+                    </dl>
                   </div> <!-- //- class:guestbook_entrytop end -->
                 </div> <!-- //- id:guestbook_entrybundle end -->
 

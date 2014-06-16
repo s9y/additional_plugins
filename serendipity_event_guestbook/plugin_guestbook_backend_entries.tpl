@@ -1,5 +1,5 @@
 {*
-     plugin_guestbook_backend_entries.tpl v.3.50 - 2014-06-14 Ian
+     plugin_guestbook_backend_entries.tpl v.3.51 - 2014-06-16 Ian
 *}
 
 <!-- plugin_guestbook_backend_entries start -->
@@ -92,7 +92,7 @@
 
                 <div class="gb_entrybody">
                     <span>
-                        {$entry.body}
+                        {$entry.body|replace:'&amp;quot;':'"'}
                     </span>
                 </div>
                 </form>

@@ -1,3 +1,9 @@
+3.51:
+-----
+ * Backported to Serendipity 1.7.0 plus
+ * Minor change for quotes and markup in frontend entries
+
+
 3.50:
 -----
  * Smartified the backend even more

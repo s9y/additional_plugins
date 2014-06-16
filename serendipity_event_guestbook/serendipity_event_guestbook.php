@@ -1,7 +1,7 @@
 <?php #
 
 /**
- * serendipity_event_guestbook.php, v.3.50 - 2014-06-15 Ian
+ * serendipity_event_guestbook.php, v.3.51 - 2014-06-15 Ian
  */
 
 //error_reporting(E_ALL);
@@ -67,9 +67,9 @@ class serendipity_event_guestbook extends serendipity_event {
                         'dateformat'
                     ));
         $propbag->add('author',       'Ian');
-        $propbag->add('version',      '3.50');
+        $propbag->add('version',      '3.51');
         $propbag->add('requirements', array(
-                        'serendipity' => '1.9.0',
+                        'serendipity' => '1.7.0',
                         'smarty'      => '3.1.0',
                         'php'         => '5.2.0'
                     ));
@@ -1365,7 +1365,9 @@ class serendipity_event_guestbook extends serendipity_event {
                     if ($serendipity['serendipityUserlevel'] < USERLEVEL_ADMIN) {
                         return false;
                     }
-                    echo "\n".'<li><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=guestbook">' . PLUGIN_GUESTBOOK_ADMIN_NAME . '</a></li>'."\n";
+                    if ($serendipity['version'][0] >= '2') {
+                        echo "\n".'<li><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=guestbook">' . PLUGIN_GUESTBOOK_ADMIN_NAME . '</a></li>'."\n";
+                    }
 
                     return true;
                     break;
@@ -1401,7 +1403,41 @@ class serendipity_event_guestbook extends serendipity_event {
                         $search       = array('{TEMPLATE_PATH}', '{PLUGIN_PATH}');
                         $tfilecontent = str_replace($search, $serendipity['guestbook']['pluginpath'], @file_get_contents($tfile));
                     }
-
+                    // overwrite Serendipity 1.7 .serendipityAdminContent span !important
+                    if ($serendipity['version'][0] < '2') {
+?>
+#wrapGB .gb_entryhead span {color: #CCDDE7 !important;}
+#wrapGB .gb_entrybody span {color: #222 !important;}
+#wrapGB .msg_error,
+#wrapGB .msg_success,
+#wrapGB .msg_notice,
+#wrapGB .msg_hint {
+    display: block;
+    margin: 1.5em 0;
+    padding: .5em;
+}
+#wrapGB .msg_error {
+    background: #f2dede;
+    border: 1px solid #e4b9b9;
+    color: #b94a48;
+}
+#wrapGB .msg_success {
+    background: #dff0d8;
+    border: 1px solid #c1e2b3;
+    color: #468847;
+}
+#wrapGB .msg_notice {
+    background: #fcf8e3;
+    border: 1px solid #fbeed5;
+    color: #c09853;
+}
+#wrapGB .msg_hint {
+    background: #eee;
+    border: 1px solid #aaa;
+    color: #777;
+}
+<?php
+                    }
                     // add replaced css content to the end of serendipity_admin.css
                     if (!empty($tfilecontent)) $this->cssEventData($eventData, $tfilecontent);
 

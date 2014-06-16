@@ -1,5 +1,5 @@
 /******************************************************************************
- *    serendipty_event_guestbook.php, README, last modified 2014-06-15        *
+ *    serendipty_event_guestbook.php, README, last modified 2014-06-16        *
  *    If you have a interesting hack or want to help,                         *
  *    please leave a message in http://www.s9y.org/forums/                    *
  *    Have fun! Ian                                                           *
@@ -94,6 +94,13 @@ S9Y :: GUESTBOOK :: DESIGN
     * You can find a nice list of available web colours here: http://www.wackerart.de/rgbfarben.html. 
       Happy designing!
 
+
+-------------------------------------
+| Version 3.51 [ 2014-06-15 ]       |
+-------------------------------------
+
+    * Backported to Serendipity 1.7.0 plus
+    * Minor change for quotes and markup in frontend entries
 
 -------------------------------------
 | Version 3.50 [ 2014-06-15 ]       |

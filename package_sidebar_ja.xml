@@ -1280,13 +1280,13 @@
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_guestbook/ChangeLog</changelog>
 <license>GPL</license>
 <summary>ゲストブックサイドバー</summary>
-<groups>FRONTEND_FEATURES</groups>
+<groups>FRONTEND_VIEWS</groups>
 <description>サイドバーに最新のゲストブックの項目を表示します。</description>
 <maintainers><maintainer><name>Jaap Boerma ( j@webbict.com ), Tadashi Jokagi &lt;elf2000@users.sourceforge.net&gt;, Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.21</version>
+  <version>1.22</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-24</date>
+  <date>2014-06-16</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="UTF-8">
@@ -1338,8 +1338,9 @@
 <file>documentation_cz.html</file>
 <file>plugin_guestbook_backend_entries.tpl</file>
 <file>plugin_guestbook_backend_form.tpl</file>
-<file>PIE.htc</file>
+<file>plugin_guestbook_backend_dbc.tpl</file>
 <file>style_guestbook_frontend.css</file>
+<file>plugin_guestbook_backend_header.tpl</file>
 </dir>
 
   </filelist>
@@ -1389,8 +1390,9 @@
     <file>serendipity_event_guestbook/documentation_cz.html</file>
     <file>serendipity_event_guestbook/plugin_guestbook_backend_entries.tpl</file>
     <file>serendipity_event_guestbook/plugin_guestbook_backend_form.tpl</file>
-    <file>serendipity_event_guestbook/PIE.htc</file>
+    <file>serendipity_event_guestbook/plugin_guestbook_backend_dbc.tpl</file>
     <file>serendipity_event_guestbook/style_guestbook_frontend.css</file>
+    <file>serendipity_event_guestbook/plugin_guestbook_backend_header.tpl</file>
   </serendipityFilelist>
 </release>
 </package>

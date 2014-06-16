@@ -1,7 +1,7 @@
 <?php #
 
 /**
- * serendipity_event_guestbook.php, v.3.51 - 2014-06-15 Ian
+ * serendipity_event_guestbook.php, v.3.51 - 2014-06-16
  */
 
 //error_reporting(E_ALL);

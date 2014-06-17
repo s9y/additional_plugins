@@ -265,8 +265,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_guestbook</link>
 <category>Event Plugins</category>
 <author>Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_guestbook&lt;br /&gt;Návštěvní kniha&lt;/b&gt;&lt;br /&gt;Zobrazuje návštěvní knihu jako stránku blogu. Vzhled je totožný s ostatními stránkami.&lt;br/&gt;For: Serendipity 1.9.0</content:encoded>
-<pubDate>Mon, 16 Jun 2014 02:31:25 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_guestbook&lt;br /&gt;Návštěvní kniha&lt;/b&gt;&lt;br /&gt;Zobrazuje návštěvní knihu jako stránku blogu. Vzhled je totožný s ostatními stránkami.&lt;br/&gt;For: Serendipity 1.7.0</content:encoded>
+<pubDate>Tue, 17 Jun 2014 02:33:51 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_guestbook</guid>
 </item>
 <item>

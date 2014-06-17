@@ -2239,9 +2239,9 @@
 <description>Zeigt ein Gästebuch innerhalb des Blogs mit dem gewählten Design und allen Formatierungen an.</description>
 <maintainers><maintainer><name>Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.50</version>
-  <requirements:s9yVersion>1.9.0</requirements:s9yVersion>
-  <date>2014-06-16</date>
+  <version>3.51</version>
+  <requirements:s9yVersion>1.7.0</requirements:s9yVersion>
+  <date>2014-06-17</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="UTF-8">

@@ -1,3 +1,7 @@
+3.54:
+----
+Fix autocomplete error message when not within entry editor page
+
 3.53.1:
 -----
 Fix autocomplete of tags in 2.0

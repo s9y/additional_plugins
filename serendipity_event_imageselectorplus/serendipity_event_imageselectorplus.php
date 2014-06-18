@@ -339,7 +339,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     <label for="nuggets2"><?php echo ENTRY_BODY; ?></label>
                     <textarea id="nuggets2" class="quickblog_nugget" data-tarea="nuggets2" data-tarea-tbar="min" name="serendipity[quickblog][body]" rows="10" cols="80"></textarea>
 <?php
-                if ($serendipity['wysiwyg'] && (class_exists('serendipity_event_ckeditor') || $serendipity['wysiwyg'] && $serendipity['version'][0] == '2')) {
+                if ($serendipity['wysiwyg'] && (class_exists('serendipity_event_ckeditor') || $serendipity['wysiwyg'] && $serendipity['version'][0] > '1')) {
 ?>
                     <script src="<?php $serendipity['serendipityHTTPPath']; ?>htmlarea/ckeditor/ckeditor/ckeditor.js"></script>
                     <script>

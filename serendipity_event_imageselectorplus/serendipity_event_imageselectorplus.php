@@ -622,7 +622,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     break;
 
                 case 'css_backend':
-                    if ($serendipity['version'][0] >= '2') {
+                    if ($serendipity['version'][0] > '1') {
 ?>
 #quickblog_tablefield {
    display: table-cell;

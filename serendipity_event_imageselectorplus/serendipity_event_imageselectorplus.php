@@ -1,5 +1,4 @@
-<?php # 
-
+<?php #
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -34,8 +33,8 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $propbag->add('name',          PLUGIN_EVENT_IMAGESELECTORPLUS_NAME);
         $propbag->add('description',   PLUGIN_EVENT_IMAGESELECTORPLUS_DESC);
         $propbag->add('stackable',     false);
-        $propbag->add('author',        'Garvin Hicking, Vladimir Ajgl, Adam Charnock');
-        $propbag->add('version',       '0.34');
+        $propbag->add('author',        'Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian');
+        $propbag->add('version',       '0.35');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',
@@ -62,6 +61,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
             'backend_image_add' => true,
             'backend_image_addHotlink' => true,
             'backend_image_addform' => true,
+            'css_backend' => true,
             'frontend_display' => true
         ));
 
@@ -253,19 +253,21 @@ class serendipity_event_imageselectorplus extends serendipity_event
         if (isset($hooks[$event])) {
             switch($event) {
                 case 'backend_image_addform':
+                if ($serendipity['version'][0] < '2') {
                     if (class_exists('ZipArchive')) {
                         $checkedY = "";
                         $checkedN = "";
-                        $this->get_config('unzipping') ? $checkedY = "checked='checked'" : $checkedN = "checked='checked'";
+                        $this->get_config('unzipping') ? $checkedY = " checked='checked'" : $checkedN = " checked='checked'";
 ?>
-            <p>
+            <br />
+            <div>
                 <strong><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_UNZIP_FILES;?></strong><br />
                 <?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_UNZIP_FILES_DESC;?>
-                <p>
+                <div>
                     <input type="radio" class="input_radio" id="unzip_yes" name="serendipity[unzip_archives]" value="<?php echo YES;?>"<?php echo $checkedY;?>><label for="unzip_yes"><?php echo YES;?></label>
                     <input type="radio" class="input_radio" id="unzip_no" name="serendipity[unzip_archives]" value="<?php echo NO;?>"<?php echo $checkedN;?>><label for="unzip_no"><?php echo NO;?></label>
-                </p>
-            </p>
+                </div>
+            </div>
 <?php
                     }
 ?>
@@ -308,6 +310,80 @@ class serendipity_event_imageselectorplus extends serendipity_event
                 </tr>
             </table>
 <?php
+                } else {
+                    if (class_exists('ZipArchive')) {
+                        $checkedY = "";
+                        $checkedN = "";
+                        $this->get_config('unzipping') ? $checkedY = " checked='checked'" : $checkedN = " checked='checked'";
+?>
+            <div class="clearfix radio_field">
+                <h4><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_UNZIP_FILES;?></h4>
+                <?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_UNZIP_FILES_DESC;?>
+                <div>
+                    <input type="radio" class="input_radio" id="unzip_yes" name="serendipity[unzip_archives]" value="<?php echo YES;?>"<?php echo $checkedY;?>><label for="unzip_yes"><?php echo YES;?></label>
+                    <input type="radio" class="input_radio" id="unzip_no" name="serendipity[unzip_archives]" value="<?php echo NO;?>"<?php echo $checkedN;?>><label for="unzip_no"><?php echo NO;?></label>
+                </div>
+            </div>
+<?php
+                    }
+?>
+            <h4><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_QUICKBLOG; ?>:</h4>
+            <em><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_QUICKBLOG_DESC; ?></em>
+            <div id="quickblog_tablefield" class="clearfix">
+                <div class="quickblog_form_field">
+                    <label for="quickblog_titel"><?php echo TITLE; ?></label>
+                    <input id="quickblog_title" class="input_textbox" name="serendipity[quickblog][title]" type="text">
+                </div>
+
+                <div class="quickblog_textarea_field">
+                    <label for="nuggets2"><?php echo ENTRY_BODY; ?></label>
+                    <textarea id="nuggets2" class="quickblog_nugget" data-tarea="nuggets2" data-tarea-tbar="min" name="serendipity[quickblog][body]" rows="10" cols="80"></textarea>
+<?php
+                if ($serendipity['wysiwyg'] && (class_exists('serendipity_event_ckeditor') || $serendipity['wysiwyg'] && $serendipity['version'][0] == '2')) {
+?>
+                    <script src="<?php $serendipity['serendipityHTTPPath']; ?>htmlarea/ckeditor/ckeditor/ckeditor.js"></script>
+                    <script>
+                    function Spawnnugget() {
+                        CKEDITOR.replace( 'nuggets2',
+                        {
+                            /*toolbar: null, toolbar: 'Basic',*//*toolbar : 'Simple',*/
+                            toolbar : [['Bold','Italic','Underline','Superscript','-','NumberedList','BulletedList','Outdent','Blockquote','-','Format',],['JustifyLeft','JustifyCenter','JustifyRight',],['Link','Unlink','Source']],
+                            toolbarGroups: null/*,
+                            uiColor : '#9AB8F3'*/
+                        });
+                        if (window.Spawnnuggets) Spawnnuggets('2');
+                        if ($('#nuggets2').attr('data-tarea-tbar') == 'min') {
+                            //do something
+                            console.log('is tb-min');//toolbar : 'Simple'
+                        }
+                    }
+                    </script>
+<?php
+                }
+?>
+                    </div>
+
+                <div class="quickblog_form_field">
+                    <label for="quickblog_select"><?php echo CATEGORY; ?></label>
+                    <select id="quickblog_select" name="serendipity[quickblog][category]">
+                    <?php
+                    if (is_array($cats = serendipity_fetchCategories())) {
+                        $cats = serendipity_walkRecursive($cats, 'categoryid', 'parentid', VIEWMODE_THREADED);
+                        foreach ($cats as $cat) {
+                            echo '<option value="'. $cat['categoryid'] .'"'. '>'. str_repeat('&nbsp;', $cat['depth']) . $cat['category_name'] .'</option>' . "\n";
+                        }
+                    }
+                    ?>
+                    </select>
+                </div>
+
+                <div class="quickblog_form_field">
+                    <label for="quickblog_isize"><?php echo IMAGE_SIZE; ?></label>
+                    <input id="quickblog_isize" class="input_textbox" name="serendipity[quickblog][size]" value="640" type="text">
+                </div>
+            </div>
+<?php
+                }
                     break;
 
                 case 'backend_image_add':
@@ -548,6 +624,26 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     return true;
                     break;
 
+                case 'css_backend':
+                    if ($serendipity['version'][0] >= '2') {
+?>
+#quickblog_tablefield {
+   display: table-cell;
+}
+#uploadform .quickblog_nugget {
+    margin-left: 0;
+    padding: 0;
+}
+#uploadform .quickblog_form_field {
+    margin: .375em 0;
+}
+#uploadform .radio_field label {
+    padding-left: .5em;
+}
+<?php
+                    }
+                    break;
+
                 case 'frontend_image_selector':
                     $eventData['finishJSFunction'] = 'serendipity_imageSelectorPlus_done(\'' . $serendipity['GET']['textarea'] . '\')';
                     $this->display_script();
@@ -637,7 +733,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
      */          
     function display_target_selectbox() {
 ?>
-<label id="select_image_target"><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_TARGET; ?></label>
+<label for="select_image_target"><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_TARGET; ?></label>
     <select name="serendipity[target]" id="select_image_target">
         <option value="none" <?php echo ifRemember('target', 'none', false, 'selected'); ?>><?php echo NONE; ?></option>
         <option value="js" <?php echo ifRemember('target', 'js', false, 'selected'); ?>><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_TARGET_JS; ?></option>

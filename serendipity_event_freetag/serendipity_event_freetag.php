@@ -989,7 +989,7 @@ addLoadEvent(enableAutocomplete);
 <?php
                         } else {
 ?>
-                            <fieldset id="edit_entry_freetags" class="entryproperties_freetag">
+                            <fieldset id="edit_entry_freetags" class="entryproperties_freetag mfp-hide">
                                 <a name="tagListAnchor"></a>
                                 <div id="backend_freetag_list">
 <?php
@@ -1019,7 +1019,7 @@ addLoadEvent(enableAutocomplete);
                             <fieldset style="margin: 5px">
 <?php
                         } else {
-                            echo '<fieldset id="edit_entry_freetags" class="entryproperties_freetag">';
+                            echo '<fieldset id="edit_entry_freetags" class="entryproperties_freetag mfp-hide">';
                         }
                     }
                         if ($serendipity['version'][0] == '1') {

@@ -1,6 +1,7 @@
 3.55:
 -----
-Give container a unique id. Required for 2.x backend. (yellowled)
+Give container a unique id, add class for magnificPopup. Required
+for 2.x backend. (yellowled)
 
 3.54:
 ----

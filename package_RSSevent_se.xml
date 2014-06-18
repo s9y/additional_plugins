@@ -86,7 +86,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_freetag&lt;br /&gt;Etikettering av artiklar&lt;/b&gt;&lt;br /&gt;Medger fri etikettering av artiklar&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 11 Jun 2014 02:31:20 +0200</pubDate>
+<pubDate>Wed, 18 Jun 2014 02:31:14 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_freetag</guid>
 </item>
 <item>
@@ -122,7 +122,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jay Bertrandt, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_emoticonchooser&lt;br /&gt;Show Emoticon/Smiley toolbar&lt;/b&gt;&lt;br /&gt;Shows a toolbar to select emoticons to insert into your entry.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 12 Jan 2014 02:31:23 +0100</pubDate>
+<pubDate>Tue, 17 Jun 2014 10:24:17 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_emoticonchooser</guid>
 </item>
 <item>

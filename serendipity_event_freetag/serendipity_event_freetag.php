@@ -72,7 +72,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.54');
+        $propbag->add('version',       '3.55');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -989,7 +989,7 @@ addLoadEvent(enableAutocomplete);
 <?php
                         } else {
 ?>
-                            <fieldset class="entryproperties_freetag">
+                            <fieldset id="edit_entry_freetags" class="entryproperties_freetag">
                                 <a name="tagListAnchor"></a>
                                 <div id="backend_freetag_list">
 <?php
@@ -1019,7 +1019,7 @@ addLoadEvent(enableAutocomplete);
                             <fieldset style="margin: 5px">
 <?php
                         } else {
-                            echo '<fieldset class="entryproperties_freetag">';
+                            echo '<fieldset id="edit_entry_freetags" class="entryproperties_freetag">';
                         }
                     }
                         if ($serendipity['version'][0] == '1') {

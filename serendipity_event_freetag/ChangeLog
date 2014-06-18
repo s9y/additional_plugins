@@ -1,3 +1,7 @@
+3.55:
+-----
+Give container a unique id. Required for 2.x backend. (yellowled)
+
 3.54:
 ----
 Fix autocomplete error message when not within entry editor page

@@ -346,15 +346,12 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     function Spawnnugget() {
                         CKEDITOR.replace( 'nuggets2',
                         {
-                            /*toolbar: null, toolbar: 'Basic',*//*toolbar : 'Simple',*/
                             toolbar : [['Bold','Italic','Underline','Superscript','-','NumberedList','BulletedList','Outdent','Blockquote','-','Format',],['JustifyLeft','JustifyCenter','JustifyRight',],['Link','Unlink','Source']],
-                            toolbarGroups: null/*,
-                            uiColor : '#9AB8F3'*/
+                            toolbarGroups: null
                         });
                         if (window.Spawnnuggets) Spawnnuggets('2');
                         if ($('#nuggets2').attr('data-tarea-tbar') == 'min') {
                             //do something
-                            console.log('is tb-min');//toolbar : 'Simple'
                         }
                     }
                     </script>

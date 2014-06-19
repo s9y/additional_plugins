@@ -34,9 +34,9 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_IMAGESELECTORPLUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian');
-        $propbag->add('version',       '0.35');
+        $propbag->add('version',       '0.36');
         $propbag->add('requirements',  array(
-            'serendipity' => '0.9',
+            'serendipity' => '1.3',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
@@ -257,7 +257,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     if (class_exists('ZipArchive')) {
                         $checkedY = "";
                         $checkedN = "";
-                        $this->get_config('unzipping') ? $checkedY = " checked='checked'" : $checkedN = " checked='checked'";
+                        $this->get_config('unzipping') ? $checkedY = ' checked="checked"' : $checkedN = ' checked="checked"';
 ?>
             <br />
             <div>
@@ -276,32 +276,32 @@ class serendipity_event_imageselectorplus extends serendipity_event
             <em><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_QUICKBLOG_DESC; ?></em>
             <table id="quickblog_table" style="width: 50%">
                 <tr>
-                    <td nowrap='nowrap'><?php echo TITLE; ?></td>
+                    <td nowrap="nowrap"><?php echo TITLE; ?></td>
                     <td><input class="input_textbox" name="serendipity[quickblog][title]" type="text" style="width: 90%" /></td>
                 </tr>
 
                 <tr>
-                    <td nowrap='nowrap'><?php echo ENTRY_BODY; ?></td>
+                    <td nowrap="nowrap"><?php echo ENTRY_BODY; ?></td>
                     <td><textarea name="serendipity[quickblog][body]" style="width: 90%; height: 200px"></textarea></td>
                 </tr>
 
                 <tr>
-                    <td nowrap='nowrap'><?php echo CATEGORY; ?></td>
+                    <td nowrap="nowrap"><?php echo CATEGORY; ?></td>
                     <td><select name="serendipity[quickblog][category]">
+                        <option value=""><?php echo NO_CATEGORY; ?></option>
                     <?php
                     if (is_array($cats = serendipity_fetchCategories())) {
                         $cats = serendipity_walkRecursive($cats, 'categoryid', 'parentid', VIEWMODE_THREADED);
                         foreach ($cats as $cat) {
-                            echo '<option value="'. $cat['categoryid'] .'"'. '>'. str_repeat('&nbsp;', $cat['depth']) . $cat['category_name'] .'</option>' . "\n";
+                            echo '<option value="'. $cat['categoryid'] .'">'. str_repeat('&nbsp;', $cat['depth']) . $cat['category_name'] .'</option>' . "\n";
                         }
                     }
                     ?>
-                    </select>
-                    </td>
+                    </select></td>
                 </tr>
 
                 <tr>
-                    <td nowrap='nowrap'><?php echo IMAGE_SIZE; ?></td>
+                    <td nowrap="nowrap"><?php echo IMAGE_SIZE; ?></td>
                     <td><input class="input_textbox" name="serendipity[quickblog][size]" value="640" type="text" style="width: 50px" /></td>
                 </tr>
 
@@ -314,7 +314,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     if (class_exists('ZipArchive')) {
                         $checkedY = "";
                         $checkedN = "";
-                        $this->get_config('unzipping') ? $checkedY = " checked='checked'" : $checkedN = " checked='checked'";
+                        $this->get_config('unzipping') ? $checkedY = ' checked="checked"' : $checkedN = ' checked="checked"';
 ?>
             <div class="clearfix radio_field">
                 <h4><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_UNZIP_FILES;?></h4>
@@ -340,7 +340,9 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     <textarea id="nuggets2" class="quickblog_nugget" data-tarea="nuggets2" data-tarea-tbar="min" name="serendipity[quickblog][body]" rows="10" cols="80"></textarea>
 <?php
                 if ($serendipity['wysiwyg'] && (class_exists('serendipity_event_ckeditor') || $serendipity['wysiwyg'] && $serendipity['version'][0] > '1')) {
+                    $plugins = serendipity_plugin_api::enum_plugins('*', false, 'serendipity_event_nl2br');
 ?>
+                    <input name="serendipity[properties][disable_markups][]" type="hidden" value="<?php echo $plugins[0]['name']; ?>">
                     <script src="<?php $serendipity['serendipityHTTPPath']; ?>htmlarea/ckeditor/ckeditor/ckeditor.js"></script>
                     <script>
                     function Spawnnugget() {
@@ -363,11 +365,12 @@ class serendipity_event_imageselectorplus extends serendipity_event
                 <div class="quickblog_form_field">
                     <label for="quickblog_select"><?php echo CATEGORY; ?></label>
                     <select id="quickblog_select" name="serendipity[quickblog][category]">
+                        <option value=""><?php echo NO_CATEGORY; ?></option>
                     <?php
                     if (is_array($cats = serendipity_fetchCategories())) {
                         $cats = serendipity_walkRecursive($cats, 'categoryid', 'parentid', VIEWMODE_THREADED);
                         foreach ($cats as $cat) {
-                            echo '<option value="'. $cat['categoryid'] .'"'. '>'. str_repeat('&nbsp;', $cat['depth']) . $cat['category_name'] .'</option>' . "\n";
+                            echo '<option value="'. $cat['categoryid'] .'">'. str_repeat('&nbsp;', $cat['depth']) . $cat['category_name'] .'</option>' . "\n";
                         }
                     }
                     ?>
@@ -596,7 +599,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     echo '<h4 class="serendipity_title"><a href="#">' . htmlspecialchars($entry['title']) . '</a></h4>';
 
                     echo '<div class="serendipity_entry"><div class="serendipity_entry_body">';
-                    echo '<div class="serendipity_center">' . $link . '<img src="' . $imgsrc . '" /></a></div>';
+                    echo '<div class="serendipity_center">' . $link . '<!-- s9ymdb:' . $entry['id'] . ' --><img src="' . $imgsrc . '" /></a></div>';
                     echo '<br />';
                     echo $link . '&lt;&lt; ' . BACK . '</a>';
 
@@ -859,7 +862,7 @@ function serendipity_imageSelectorPlus_done(textarea)
         if (class_exists('SimpleXMLElement')) {
             for ($i=0, $pcount = count($entry_parts); $i < $pcount; $i++) {
                 if (!(strpos($entry_parts[$i],"<mediainsert>") === false)) {
-                    // There is a problem with wysiwyg-ckeditor: which removes linebreaks and sometimes inserts ending tags
+                    // There was a problem with wysiwyg-ckeditor: which removes linebreaks and sometimes inserts ending tags
                     // To not error, we remove at least the ending tags and possibly single-tags missing trailing slashes
                     $epart   = str_replace(array('</media>','</gallery>','">'), array('','','" />'), $entry_parts[$i]);
                     $xml     = new SimpleXMLElement($epart);
@@ -947,12 +950,11 @@ function serendipity_imageSelectorPlus_done(textarea)
                         if (!$tfile || $tfile == 'plugin_mediainsert.tpl') {
                             $tfile = dirname(__FILE__) . '/plugin_mediainsert.tpl';
                         }
-                        $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-                        $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
+
                         $serendipity['smarty']->assign('plugin_mediainsert_media', $t);
                         $serendipity['smarty']->assign('plugin_mediainsert_entry', $eventData);
-                        $content = $serendipity['smarty']->fetch('file:'. $tfile);
-                        $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+                        $content = $this->parseTemplate($tfile);
+
                     } else {
                         // if there are no available images, do no output
                         $content= "";
@@ -1124,7 +1126,7 @@ function serendipity_imageSelectorPlus_done(textarea)
      * Parse the attribute portion of an HTML/XHTML/XML tag
      * 
      * The $atts param should (or rather, can) look something like:
-     *     width="400" height='300' border=0 alt="This is an example!"
+     *     width="400" height="300" border=0 alt="This is an example!"
      * 
      * Which will produce an array as follows:
      * 

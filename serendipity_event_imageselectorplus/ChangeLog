@@ -1,3 +1,19 @@
+0.36:
+----
+
+Some quoting markup fixes
+Use native parseTemplate API - extends s9y version >= 1.3
+Add 'No Category' to category selectbox
+Disable markup property plugin NL2BR in case of WYSIWYG use
+
+0.35:
+----
+
+Added 2.0 markup hooked into ML upload
+Added simple wysiwyg editor to quickblog textarea
+Minor marrkup fixes
+
+
 0.34:
 ----
 

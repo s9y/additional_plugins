@@ -535,8 +535,8 @@ switch ($CPG['step']) {
 		$image = cpg_getImage($CPG['image']);
 
 ?>
-<script type="text/javascript" language="JavaScript" src="<?php echo $serendipity['serendipityHTTPPath']; ?>serendipity_define.js.php"></script>
-<script type="text/javascript" language="Javascript">
+<script type="text/javascript" src="<?php echo $serendipity['serendipityHTTPPath']; ?>serendipity_define.js.php"></script>
+<script type="text/javascript">
 <!--
 
 function cpg_imageSelector_done(textarea)

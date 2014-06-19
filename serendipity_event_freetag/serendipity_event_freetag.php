@@ -72,7 +72,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.55');
+        $propbag->add('version',       '3.56');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -932,8 +932,8 @@ addLoadEvent(enableAutocomplete);
                         ' . ($serendipity['version'][0] == 1 ? '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>' : '') . '
                         <link rel="stylesheet" type="text/css" href="' . $serendipity['baseURL'] . 'plugins/serendipity_event_freetag/jquery.autocomplete.css" />
                         <script src="https://code.jquery.com/jquery-migrate-1.1.1.js"></script>
-                        <script type="text/javascript" language="Javascript" src="' . $serendipity['baseURL'] . 'plugins/serendipity_event_freetag/jquery.autocomplete.min.js"></script>
-                        <script type="text/javascript" language="Javascript">
+                        <script type="text/javascript" src="' . $serendipity['baseURL'] . 'plugins/serendipity_event_freetag/jquery.autocomplete.min.js"></script>
+                        <script type="text/javascript">
                         var tags = [' . implode(',', $wicktags) . '];
                          ' . ($serendipity['version'][0] == 1 ? '
                         function enableAutocomplete() {
@@ -951,7 +951,7 @@ addLoadEvent(enableAutocomplete);
 
                     if ($this->get_config('admin_show_taglist')) {
 ?>
-                    <script type="text/javascript" language="Javascript">
+                    <script type="text/javascript">
                     function addTag(addTag)
                     {
                         var freetags = document.getElementById("properties_freetag_tagList").value.split(',');

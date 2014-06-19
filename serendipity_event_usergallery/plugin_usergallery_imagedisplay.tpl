@@ -1,4 +1,4 @@
-<script language="Javascript" type="text/javascript">
+<script type="text/javascript">
 <!--
 function popImage(file_name,file_title,file_width,file_height) {ldelim}
 	if (parseInt(navigator.appVersion.charAt(0))>=4){ldelim}

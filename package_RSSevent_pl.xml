@@ -86,7 +86,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_freetag&lt;br /&gt;Tagowanie wpisów&lt;/b&gt;&lt;br /&gt;Umożliwia dowolne tagowanie wpisów&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 18 Jun 2014 02:31:14 +0200</pubDate>
+<pubDate>Thu, 19 Jun 2014 02:31:10 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_freetag</guid>
 </item>
 <item>
@@ -579,9 +579,9 @@
 <title>Extended options for media manager: Allows extended options for inserting images from the media manager [Serendipity &gt;= 0.9]</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_imageselectorplus</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking, Vladimir Ajgl, Adam Charnock</author>
+<author>Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_imageselectorplus&lt;br /&gt;Extended options for media manager&lt;/b&gt;&lt;br /&gt;Allows extended options for inserting images from the media manager [Serendipity &gt;= 0.9]&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sat, 21 Dec 2013 02:31:10 +0100</pubDate>
+<pubDate>Thu, 19 Jun 2014 02:31:12 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_imageselectorplus</guid>
 </item>
 <item>

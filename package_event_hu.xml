@@ -798,9 +798,9 @@
 <description>Címkék megadását teszi lehetővé tetszőleges kombinációban</description>
 <maintainers><maintainer><name>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.54</version>
+  <version>3.55</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-06-18</date>
+  <date>2014-06-19</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <dir name="UTF-8">
@@ -4656,11 +4656,11 @@
 <summary>Extended options for media manager</summary>
 <groups>IMAGES,MARKUP</groups>
 <description>Allows extended options for inserting images from the media manager [Serendipity &gt;= 0.9]</description>
-<maintainers><maintainer><name>Garvin Hicking, Vladimir Ajgl, Adam Charnock</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.34</version>
+  <version>0.35</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-12-21</date>
+  <date>2014-06-19</date>
   <filelist>
 <dir name="serendipity_event_imageselectorplus">
 <dir name="UTF-8">

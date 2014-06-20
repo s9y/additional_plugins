@@ -8,11 +8,13 @@
         <link rel="stylesheet" type="text/css" href="{$serendipityBaseURL}serendipity.css.php?serendipity[css_mode]=serendipity_admin.css" />
 
         <style type="text/css">
+        {literal}
         .serendipity_linktrimmer_page .linktrimmer {
             display: block;
             margin: auto auto;
         }
         #linktrimmer_url.input_textbox { width: inherit; }
+        {/literal}
         </style>
     </head>
 

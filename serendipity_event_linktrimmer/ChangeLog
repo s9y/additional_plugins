@@ -1,3 +1,7 @@
+1.6.2:
+----
+    * Fix for Smarty2 template
+
 1.6.1:
 ----
     * Fix form action (from "?" to "") to work under Linux

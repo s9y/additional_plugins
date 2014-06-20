@@ -1,3 +1,9 @@
+0.37:
+----
+
+silence exif_read_data errors
+
+
 0.36:
 ----
 

@@ -34,7 +34,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_IMAGESELECTORPLUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian');
-        $propbag->add('version',       '0.36');
+        $propbag->add('version',       '0.37');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -676,7 +676,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $outfile = $dir . $f . '.quickblog.' . $suf;
 
         if (function_exists('exif_read_data') && file_exists($infile) && !serendipity_db_bool($this->get_config('force_jhead'))) {
-            $exif      = exif_read_data($infile);
+            $exif      = @exif_read_data($infile);
             $exif_mode = 'internal';
         } elseif (file_exists($infile)) {
             $exif_mode = 'jhead';
@@ -716,11 +716,8 @@ class serendipity_event_imageselectorplus extends serendipity_event
             $tfile = dirname(__FILE__) . '/quickblog.tpl';
         }
 
-        $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-        $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
         $serendipity['smarty']->assign('quickblog', $quickblog);
-        $content = $serendipity['smarty']->fetch('file:'. $tfile);
-        $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+        $content = $this->parseTemplate($tfile);
 
         return $content;
     }

@@ -34,7 +34,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_IMAGESELECTORPLUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian');
-        $propbag->add('version',       '0.37');
+        $propbag->add('version',       '0.38');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -302,13 +302,16 @@ class serendipity_event_imageselectorplus extends serendipity_event
 
                 <tr>
                     <td nowrap="nowrap"><?php echo IMAGE_SIZE; ?></td>
-                    <td><input class="input_textbox" name="serendipity[quickblog][size]" value="640" type="text" style="width: 50px" /></td>
+                    <td><input class="input_textbox" name="serendipity[quickblog][size]" value="<?php echo $serendipity['thumbSize']; ?>" type="text" style="width: 50px" /></td>
                 </tr>
 
                 <tr>
                     <td align="center" colspan="2"><br /></td>
                 </tr>
             </table>
+            <div>
+                <em><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_IMAGE_SIZE_DESC; ?></em>
+            </div>
 <?php
                 } else {
                     if (class_exists('ZipArchive')) {
@@ -343,7 +346,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     $plugins = serendipity_plugin_api::enum_plugins('*', false, 'serendipity_event_nl2br');
 ?>
                     <input name="serendipity[properties][disable_markups][]" type="hidden" value="<?php echo $plugins[0]['name']; ?>">
-                    <script src="<?php $serendipity['serendipityHTTPPath']; ?>htmlarea/ckeditor/ckeditor/ckeditor.js"></script>
+                    <script src="<?php echo $serendipity['serendipityHTTPPath']; ?>htmlarea/ckeditor/ckeditor/ckeditor.js"></script>
                     <script>
                     function Spawnnugget() {
                         CKEDITOR.replace( 'nuggets2',
@@ -351,10 +354,10 @@ class serendipity_event_imageselectorplus extends serendipity_event
                             toolbar : [['Bold','Italic','Underline','Superscript','-','NumberedList','BulletedList','Outdent','Blockquote','-','Format',],['JustifyLeft','JustifyCenter','JustifyRight',],['Link','Unlink','Source']],
                             toolbarGroups: null
                         });
-                        if (window.Spawnnuggets) Spawnnuggets('2');
-                        if ($('#nuggets2').attr('data-tarea-tbar') == 'min') {
-                            //do something
-                        }
+                    }
+                    if (window.Spawnnuggets) Spawnnuggets('2');
+                    if ($('#nuggets2').attr('data-tarea-tbar') == 'min') {
+                        //do something
                     }
                     </script>
 <?php
@@ -379,9 +382,10 @@ class serendipity_event_imageselectorplus extends serendipity_event
 
                 <div class="quickblog_form_field">
                     <label for="quickblog_isize"><?php echo IMAGE_SIZE; ?></label>
-                    <input id="quickblog_isize" class="input_textbox" name="serendipity[quickblog][size]" value="640" type="text">
+                    <input id="quickblog_isize" class="input_textbox" name="serendipity[quickblog][size]" value="<?php echo $serendipity['thumbSize']; ?>" type="text">
                 </div>
             </div>
+            <em><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_IMAGE_SIZE_DESC; ?></em>
 <?php
                 }
                     break;
@@ -477,10 +481,13 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     $file      = basename($eventData);
                     $directory = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', dirname($eventData) . '/');
                     $size      = (int)$serendipity['POST']['quickblog']['size'];
-                    $oldSuffix = $serendipity['thumbSuffix'];
-                    $serendipity['thumbSuffix'] = 'quickblog';
-                    serendipity_makeThumbnail($file, $directory, $size);
-                    $serendipity['thumbSuffix'] = $oldSuffix;
+                    // check default Serendipity thumbSize, to make this happen like standard image uploads, and to get one "full" image instance only, else create another "resized" image instance, to use as entries thumbnail image
+                    if ($serendipity['thumbSize'] != $size) {
+                        $oldSuffix = $serendipity['thumbSuffix'];
+                        $serendipity['thumbSuffix'] = 'quickblog';
+                        serendipity_makeThumbnail($file, $directory, $size);
+                        $serendipity['thumbSuffix'] = $oldSuffix;
+                    }
 
                     //New draft post
                     $entry             = array();
@@ -674,6 +681,8 @@ class serendipity_event_imageselectorplus extends serendipity_event
 
         $infile  = $dir . $file;
         $outfile = $dir . $f . '.quickblog.' . $suf;
+        // check for existing image.quickblog thumb (see change in backend_image_addHotlink) else change to default thumbnail name
+        if (!file_exists($outfile)) $outfile = $dir . $f . '.serendipityThumb.' . $suf;
 
         if (function_exists('exif_read_data') && file_exists($infile) && !serendipity_db_bool($this->get_config('force_jhead'))) {
             $exif      = @exif_read_data($infile);

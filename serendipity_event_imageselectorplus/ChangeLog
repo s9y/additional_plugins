@@ -1,3 +1,12 @@
+0.38:
+----
+
+Changed default value of quickblog image size to default
+$serendipity['thumbSize']. This prevents creation of another
+image copy to the MediaLibrary, if not changed to another value.
+Added a description lang constant for this.
+
+
 0.37:
 ----
 

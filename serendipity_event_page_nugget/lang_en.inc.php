@@ -18,5 +18,5 @@
 @define('PLUGIN_PAGE_NUGGET_LANG', 'Choose language');
 @define('PLUGIN_PAGE_NUGGET_ALL', 'All Languages');
 @define('PLUGIN_PAGE_NUGGET_NOSHOW', ' It does not show up on the actual page.');
-
+@define('PLUGIN_PAGE_NUGGET_RSS', 'RSS/Atom feeds');
 ?>

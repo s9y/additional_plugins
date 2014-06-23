@@ -23,7 +23,7 @@ class serendipity_event_page_nugget extends serendipity_event
         $propbag->add('description',   PLUGIN_PAGE_NUGGET_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Wesley Hwang-Chung');
-        $propbag->add('version',       '1.10');
+        $propbag->add('version',       '1.11');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -34,7 +34,8 @@ class serendipity_event_page_nugget extends serendipity_event
                                              'entries_header' => true,
                                              'entry_display' => true,
                                              'entries_footer' => true,
-                                             'frontend_footer' => true));
+                                             'frontend_footer' => true,
+                                             'frontend_display' => true));
         $propbag->add('configuration', array('title', 'placement', 'language', 'content', 'markup', 'show_where'));
     }
 
@@ -54,7 +55,8 @@ class serendipity_event_page_nugget extends serendipity_event
 				                'top' => PLUGIN_PAGE_NUGGET_TOP,
 				                'art_foot' => PLUGIN_PAGE_NUGGET_ART_FOOT,
 				                'bottom' => PLUGIN_PAGE_NUGGET_BOTTOM,
-				                'foot' => PLUGIN_PAGE_NUGGET_FOOT);
+				                'foot' => PLUGIN_PAGE_NUGGET_FOOT,
+                                'rss' => PLUGIN_PAGE_NUGGET_RSS);
 				$propbag->add('type',        'select');
 				$propbag->add('select_values', $select);
 				$propbag->add('name',        PLUGIN_PAGE_NUGGET_PLACE);
@@ -135,8 +137,25 @@ class serendipity_event_page_nugget extends serendipity_event
         $placement = $this->get_config('placement', 'top');
         $language = $this->get_config('language', 'all');
         $show_where = $this->get_config('show_where', 'both');
+
 		// if the language doesn't match, do not display
 		if ($language != 'all' && $serendipity['lang'] != $language) return false;
+
+        // RSS-Feed special case
+        if ($event == 'frontend_display' && $addData['from'] == 'functions_entries:printEntries_rss') {
+            if ($placement == 'rss') {
+                if ($this->get_config('markup', 'true') == 'true' && $event != 'frontend_header') {
+                    $entry = array('html_nugget' => $this->get_config('content'));
+                    serendipity_plugin_api::hook_event('frontend_display', $entry);
+                    $eventData['body'] .= $entry['html_nugget'];
+                } else {
+                    $eventData['body'] .= $this->get_config('content');
+                }
+            }
+
+            return true;
+        }
+
 		// where to show
 		if ($show_where == 'extended' && (!isset($serendipity['GET']['id']) || !is_numeric($serendipity['GET']['id']))) {
 			return false;

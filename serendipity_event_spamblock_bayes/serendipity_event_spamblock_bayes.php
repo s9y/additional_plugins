@@ -12,9 +12,9 @@ if (file_exists($probelang)) {
 include dirname(__FILE__) . '/lang_en.inc.php';
 
 if ($serendipity['version'][0] == '1') {
-    $s9ybackend = 1;
+    $GLOBALS['s9ybackend'] = 1;
 } else {
-    $s9ybackend = 0;
+    $GLOBALS['s9ybackend'] = 0;
 }
 
 class serendipity_event_spamblock_bayes extends serendipity_event {
@@ -42,7 +42,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '0.4.13' );
+		$propbag->add ( 'version', '0.4.14' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_spamblock_comments_shown' => true,
 		                                     'external_plugin' => true,
@@ -1403,7 +1403,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                                                                 'jquery_needed' => $jquery_needed,
                                                                 'path' => $this->path,
                                                                 'subpage' => $subpage,
-                                                                's9ybackend' => $s9ybackend
+                                                                's9ybackend' => $GLOBALS['s9ybackend']
                                                                 ));
 
         switch($subpage) {
@@ -1454,7 +1454,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
     }
 
     function showLearnMenu() {
-        echo $this->smarty_show('admin/bayesLearnmenu.tpl', array('s9ybackend' => $s9ybackend));
+        echo $this->smarty_show('admin/bayesLearnmenu.tpl', array('s9ybackend' => $GLOBALS['s9ybackend']));
     }
 
     function showDBMenu($commentpage) {
@@ -1483,7 +1483,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
         }
 
         $data['path'] = $this->path;
-        $data['s9ybackend'] = $s9ybackend;
+        $data['s9ybackend'] = $GLOBALS['s9ybackend'];
         echo $this->smarty_show('admin/bayesDBmenu.tpl', $data);
     }
 
@@ -1509,7 +1509,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                                                         'types' => array_values($this->type),
                                                         'commentpage' => $commentpage,
                                                         'path' => $this->path,
-                                                        's9ybackend' => $s9ybackend
+                                                        's9ybackend' => $GLOBALS['s9ybackend']
                                                         ));
     }
 
@@ -1535,7 +1535,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                                                                     'comments' => $comments,
                                                                     'commentpage' => $commentpage,
                                                                     'path' => $this->path,
-                                                                    's9ybackend' => $s9ybackend
+                                                                    's9ybackend' => $GLOBALS['s9ybackend']
                                                                 ));
         }
     }
@@ -1544,7 +1544,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
         global $serendipity;
         echo $this->smarty_show('admin/bayesImportmenu.tpl', array(
                                                                     'trojaRegistered' => $this->get_config('troja_registered', false) == true,
-                                                                    's9ybackend' => $s9ybackend
+                                                                    's9ybackend' => $GLOBALS['s9ybackend']
                                                                 ));
     }
 
@@ -1571,7 +1571,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
         }
         echo $this->smarty_show('admin/bayesAnalysis.tpl', array('comments' => $comments,
                                                         'types' => array_values($this->type),
-                                                        's9ybackend' => $s9ybackend
+                                                        's9ybackend' => $GLOBALS['s9ybackend']
                                                         ));
     }
 

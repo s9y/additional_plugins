@@ -1,3 +1,6 @@
+0.4.14:
+    * Proper $s9ybackend referencing
+
 0.4.9.12:
     * Adapt markup for 2.0 backend (yellowled)
 

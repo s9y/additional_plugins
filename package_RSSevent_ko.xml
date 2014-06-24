@@ -581,7 +581,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_imageselectorplus&lt;br /&gt;Extended options for media manager&lt;/b&gt;&lt;br /&gt;Allows extended options for inserting images from the media manager [Serendipity &gt;= 0.9]&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Sat, 21 Jun 2014 02:31:20 +0200</pubDate>
+<pubDate>Tue, 24 Jun 2014 02:31:15 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_imageselectorplus</guid>
 </item>
 <item>
@@ -680,7 +680,7 @@
 <category>Event Plugins</category>
 <author>Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_event_page_nugget&lt;br /&gt;페이지에 HTML 덩어리 넣기&lt;/b&gt;&lt;br /&gt;HTML 덩어리를 페이지 꼭대기 또는 밑바닥에 넣거나 페이지의 HEAD 태그 속에 넣음&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:44 +0200</pubDate>
+<pubDate>Tue, 24 Jun 2014 02:31:18 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_page_nugget</guid>
 </item>
 <item>

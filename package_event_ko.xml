@@ -4658,9 +4658,9 @@
 <description>Allows extended options for inserting images from the media manager [Serendipity &gt;= 0.9]</description>
 <maintainers><maintainer><name>Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.37</version>
+  <version>0.38</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2014-06-21</date>
+  <date>2014-06-24</date>
   <filelist>
 <dir name="serendipity_event_imageselectorplus">
 <dir name="UTF-8">
@@ -5252,15 +5252,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_page_nugget</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_page_nugget/ChangeLog</changelog>
 <license>GPL</license>
 <summary>페이지에 HTML 덩어리 넣기</summary>
 <groups>FRONTEND_ENTRY_RELATED</groups>
 <description>HTML 덩어리를 페이지 꼭대기 또는 밑바닥에 넣거나 페이지의 HEAD 태그 속에 넣음</description>
 <maintainers><maintainer><name>Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.10</version>
+  <version>1.11</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-06-24</date>
   <filelist>
 <dir name="serendipity_event_page_nugget">
 <dir name="UTF-8">
@@ -5272,6 +5273,7 @@
 <file>documentation_cz.html</file>
 </dir>
 <file>README</file>
+<file>ChangeLog</file>
 <file>lang_ko.inc.php</file>
 <file>serendipity_event_page_nugget.php</file>
 <file>lang_bg.inc.php</file>
@@ -5291,6 +5293,7 @@
     <file>serendipity_event_page_nugget/UTF-8/documentation_cs.html</file>
     <file>serendipity_event_page_nugget/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_page_nugget/README</file>
+    <file>serendipity_event_page_nugget/ChangeLog</file>
     <file>serendipity_event_page_nugget/lang_ko.inc.php</file>
     <file>serendipity_event_page_nugget/serendipity_event_page_nugget.php</file>
     <file>serendipity_event_page_nugget/lang_bg.inc.php</file>

@@ -1,3 +1,11 @@
+4.2.0:
+-----
+    * Upgrade to CKEDITOR 4.4 Series update 2 (http://ckeditor.com/node/136508)
+    * Plugin procurator update to support imageselectorplus quickblog hook.
+    * Changed the procurator placeholder image.
+    * Changed image url of Serendipity hooked-to-toolbar plugins
+      (linktrimmer, amazonchooser), while these have been updated.
+
 4.1.0:
 -----
     * Upgrade to CKEDITOR 4.4 Series update 1 (http://ckeditor.com/node/136041)

@@ -3,7 +3,7 @@
  */
 
 /**
- * @fileOverview A Serendipity serendipity_event_ckeditor CKEDITOR custom config file: cke_config.js, v. 1.8, 2014-05-28
+ * @fileOverview A Serendipity serendipity_event_ckeditor CKEDITOR custom config file: cke_config.js, v. 1.9, 2014-06-24
  */
 
 /**
@@ -142,6 +142,7 @@ CKEDITOR.editorConfig = function( config ) {
     config.removeButtons = 'Styles'; // this button is quite useless in a blog and the toolbar Groups break better on screens
 
     config.toolbar_Simple = [['Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat']];
+    config.toolbar_Basic = [['Bold','Italic','Underline','Superscript','-','NumberedList','BulletedList','Outdent','Blockquote','-','Format'],['JustifyLeft','JustifyCenter','JustifyRight'],['Link','Unlink','Source']];
 
     // set the serendipity_event_ckeditor custom toolbar group
     // Note: indent is disabled, mediaembed and pbckcode plugins are set here, and procurator placeholders for "protected Source" is buttonless

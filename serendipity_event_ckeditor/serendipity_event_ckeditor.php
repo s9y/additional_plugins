@@ -55,28 +55,28 @@ class serendipity_event_ckeditor extends serendipity_event
      * @access protected
      * @var string
      */
-    protected $cke_zipfile = 'ckeditor_4.4.1.0_standard-plus.zip';
+    protected $cke_zipfile = 'ckeditor_4.4.2.0_standard-plus.zip';
 
     /**
      * Access property checkUpdateVersion
      * Verify release package versions - do update on upgrades!
      * @var array
      */
-    protected $checkUpdateVersion = array('ckeditor:4.4.1.0', 'kcfinder:2.52-2');
+    protected $checkUpdateVersion = array('ckeditor:4.4.2.0', 'kcfinder:2.52-2');
 
     /**
      * Access property revisionPackage
      * Note revisions of ckeditor, kcfinder and plugin additions to lang files
      * @var array
      */
-    protected $revisionPackage = array('CKEditor 4.4.1 (revision 568b5ed, standard package, 2014-05-20)',
+    protected $revisionPackage = array('CKEditor 4.4.2 (revision 1567b48, standard package, 2014-06-24)',
                                        'KCFinder 2.52-dev (http://kcfinder.sunhater.com/ git package, 2013-05-04)',
                                        'CKEditor-Plugin: mediaembed, v. 0.5+ (https://github.com/frozeman/MediaEmbed, 2013-09-12)',
                                        'CKEditor-Plugin: pbckcode, v. 1.1.0 (https://github.com/prbaron/PBCKCode, 2013-09-06)',
-                                       'CKEditor-Plugin: procurator, v. 1.3 (Serendipity placeholder Plugin, 2014-02-11)',
+                                       'CKEditor-Plugin: procurator, v. 1.4 (Serendipity placeholder Plugin, 2014-06-24)',
                                        'CKEditor-Plugin: cheatsheet, v. 1.0 (Serendipity CKE-Cheatsheet Plugin, 2014-02-09)',
-                                       'CKEditor-CustomConfig, cke_config.js, v. 1.8, 2014-05-28',
-                                       'CKEditor-ExtraPlugins, cke_plugin.js, v. 1.3, 2014-02-11',
+                                       'CKEditor-CustomConfig, cke_config.js, v. 1.9, 2014-06-24',
+                                       'CKEditor-ExtraPlugins, cke_plugin.js, v. 1.4, 2014-06-24',
                                        'Prettify: JS & CSS files, v. "current", (http://code.google.com/p/google-code-prettify/, 2013-03-04)');
 
 
@@ -145,7 +145,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '4.1.0'); // is CKEDITOR Series 4 (hidden) - revision .4.1 - and appended plugin revision .0
+        $propbag->add('version',       '4.2.0'); // is CKEDITOR Series 4 (hidden) - revision .4.2 - and appended plugin revision .0
         $propbag->add('copyright',     'GPL or LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',

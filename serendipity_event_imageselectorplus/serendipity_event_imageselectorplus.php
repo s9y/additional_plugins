@@ -755,7 +755,6 @@ class serendipity_event_imageselectorplus extends serendipity_event
      *  display_sript()
      *  displays script necessary for inserting target for images chosen by
      *  image selector
-     *  depreceated, in new version >0.9 already in admin_image_selector.php
      */          
     function display_script() {
 ?>

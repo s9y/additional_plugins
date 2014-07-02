@@ -23,7 +23,7 @@ class serendipity_event_page_nugget extends serendipity_event
         $propbag->add('description',   PLUGIN_PAGE_NUGGET_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Wesley Hwang-Chung');
-        $propbag->add('version',       '1.11');
+        $propbag->add('version',       '1.12');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -36,7 +36,7 @@ class serendipity_event_page_nugget extends serendipity_event
                                              'entries_footer' => true,
                                              'frontend_footer' => true,
                                              'frontend_display' => true));
-        $propbag->add('configuration', array('title', 'placement', 'language', 'content', 'markup', 'show_where'));
+        $propbag->add('configuration', array('title', 'placement', 'language', 'content', 'content_plain', 'markup', 'show_where'));
     }
 
     function introspect_config_item($name, &$propbag)
@@ -104,6 +104,13 @@ class serendipity_event_page_nugget extends serendipity_event
                 $propbag->add('default',     '');
                 break;
 
+            case 'content_plain':
+                $propbag->add('type',        'text');
+                $propbag->add('name',        CONTENT);
+                $propbag->add('description', PLUGIN_PAGE_NUGGET_CONTENT);
+                $propbag->add('default',     '');
+                break;
+
             case 'markup':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        DO_MARKUP);
@@ -147,9 +154,9 @@ class serendipity_event_page_nugget extends serendipity_event
                 if ($this->get_config('markup', 'true') == 'true' && $event != 'frontend_header') {
                     $entry = array('html_nugget' => $this->get_config('content'));
                     serendipity_plugin_api::hook_event('frontend_display', $entry);
-                    $eventData['body'] .= $entry['html_nugget'];
+                    $eventData['body'] .= $entry['html_nugget'] . $this->get_config('content_plain');
                 } else {
-                    $eventData['body'] .= $this->get_config('content');
+                    $eventData['body'] .= $this->get_config('content') . $this->get_config('content_plain');
                 }
             }
 
@@ -173,9 +180,9 @@ class serendipity_event_page_nugget extends serendipity_event
 			if ($this->get_config('markup', 'true') == 'true' && $event != 'frontend_header') {
 				$entry = array('html_nugget' => $this->get_config('content'));
 				serendipity_plugin_api::hook_event('frontend_display', $entry);
-				echo $entry['html_nugget'];
+				echo $entry['html_nugget'] .  $this->get_config('content_plain');
 			} else {
-				echo $this->get_config('content');
+				echo $this->get_config('content') . $this->get_config('content_plain');
 			}
 			return true;
 		} elseif ($placement == 'art_foot' && $event == 'entry_display'){
@@ -185,9 +192,9 @@ class serendipity_event_page_nugget extends serendipity_event
 				if ($this->get_config('markup', 'true') == 'true') {
 					$entry = array('html_nugget' => $this->get_config('content'));
 					serendipity_plugin_api::hook_event('frontend_display', $entry);
-					$eventData[$i]['add_footer'] .= sprintf('</div>' . $entry['html_nugget'] . '<div>');
+					$eventData[$i]['add_footer'] .= sprintf('</div>' . $entry['html_nugget'] . $this->get_config('content_plain') . '<div>');
 				} else {
-					$eventData[$i]['add_footer'] .= sprintf('</div>' . $this->get_config('content') . '<div>');
+					$eventData[$i]['add_footer'] .= sprintf('</div>' . $this->get_config('content') . $this->get_config('content_plain') . '<div>');
 				}
 			}
         } else {

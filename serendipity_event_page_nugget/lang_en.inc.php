@@ -19,4 +19,5 @@
 @define('PLUGIN_PAGE_NUGGET_ALL', 'All Languages');
 @define('PLUGIN_PAGE_NUGGET_NOSHOW', ' It does not show up on the actual page.');
 @define('PLUGIN_PAGE_NUGGET_RSS', 'RSS/Atom feeds');
+@define('PLUGIN_PAGE_NUGGET_CONTENT', 'On top of the HTML-formatted content, you can also add any specific HTML markup here. This will be emitted additionally to the content above, so you can either fill out both contents, or only one of them. This content area is specifically helpful if you are using a WYSIWYG-Editor which would otherwise strip out specific HTML tags (like META tags) you might want to add.');
 ?>

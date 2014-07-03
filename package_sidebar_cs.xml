@@ -1405,9 +1405,9 @@
 <description>Zobrazuje nejnovější fotografie kanálu Flickr Photostream.</description>
 <maintainers><maintainer><name>Michael Kaiser</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.07</version>
+  <version>1.08</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2014-07-03</date>
   <filelist>
 <dir name="serendipity_plugin_flickr">
 <file>lang_de.inc.php</file>
@@ -1421,6 +1421,7 @@
 <file>documentation_cz.html</file>
 </dir>
 <dir name="phpFlickr">
+<file>LICENSE</file>
 <file>auth.php</file>
 <file>ChangeLog.txt</file>
 <file>example.php</file>
@@ -1446,7 +1447,7 @@
 <file>PEAR.php</file>
 </dir>
 <file>phpFlickr.php</file>
-<file>README.txt</file>
+<file>README.md</file>
 </dir>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_flickrcss.php</file>
@@ -1467,6 +1468,7 @@
     <file>serendipity_plugin_flickr/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_plugin_flickr/UTF-8/documentation_cs.html</file>
     <file>serendipity_plugin_flickr/UTF-8/documentation_cz.html</file>
+    <file>serendipity_plugin_flickr/phpFlickr/LICENSE</file>
     <file>serendipity_plugin_flickr/phpFlickr/auth.php</file>
     <file>serendipity_plugin_flickr/phpFlickr/ChangeLog.txt</file>
     <file>serendipity_plugin_flickr/phpFlickr/example.php</file>
@@ -1482,7 +1484,7 @@
     <file>serendipity_plugin_flickr/phpFlickr/PEAR/Net/URL.php</file>
     <file>serendipity_plugin_flickr/phpFlickr/PEAR/PEAR.php</file>
     <file>serendipity_plugin_flickr/phpFlickr/phpFlickr.php</file>
-    <file>serendipity_plugin_flickr/phpFlickr/README.txt</file>
+    <file>serendipity_plugin_flickr/phpFlickr/README.md</file>
     <file>serendipity_plugin_flickr/lang_en.inc.php</file>
     <file>serendipity_plugin_flickr/serendipity_event_flickrcss.php</file>
     <file>serendipity_plugin_flickr/lang_cs.inc.php</file>

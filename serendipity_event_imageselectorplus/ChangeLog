@@ -1,10 +1,18 @@
+0.39:
+-----
+ * added form target to
+ * added non-image object uploads with link/image generation via radio field,
+ * which creates a real link instead of using the hidden quickblog tag
+ * removed some obsolet functions
+ * disabled allow_comments, moderate_comments to always take default values
+
 0.38:
 ----
 
-Changed default value of quickblog image size to default
-$serendipity['thumbSize']. This prevents creation of another
-image copy to the MediaLibrary, if not changed to another value.
-Added a description lang constant for this.
+ * Changed default value of quickblog image size to default
+   $serendipity['thumbSize']. This prevents creation of another
+   image copy to the MediaLibrary, if not changed to another value.
+ * Added a description lang constant for this.
 
 
 0.37:

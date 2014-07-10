@@ -12,14 +12,6 @@ if (file_exists($probelang)) {
 
 include dirname(__FILE__) . '/lang_en.inc.php';
 
-if (!function_exists('ifRemember')) {
-    // dummy stub function for older 0.9 versions
-
-    function ifRemember($a = null, $b = null, $c = null, $d = null) {
-        return true;
-    }
-}
-
 class serendipity_event_imageselectorplus extends serendipity_event
 {
     var $title = PLUGIN_EVENT_IMAGESELECTORPLUS_NAME;
@@ -34,7 +26,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_IMAGESELECTORPLUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian');
-        $propbag->add('version',       '0.38');
+        $propbag->add('version',       '0.39');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -301,6 +293,24 @@ class serendipity_event_imageselectorplus extends serendipity_event
                 </tr>
 
                 <tr>
+                    <td nowrap="nowrap"><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_TARGET; ?></td>
+                    <td><select id="select_image_target" name="serendipity[quickblog][target]">
+                        <option value="none"<?php echo serendipity_ifRemember('target', 'none', false, 'selected'); ?>><?php echo NONE; ?></option>
+                        <option value="js"<?php echo serendipity_ifRemember('target', 'js', false, 'selected'); ?>><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_TARGET_JS; ?></option>
+                        <option value="plugin"<?php echo serendipity_ifRemember('target', 'plugin', false, 'selected'); ?>><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_TARGET_ENTRY; ?></option>
+                        <option value="_blank"<?php echo serendipity_ifRemember('target', '_blank', false, 'selected'); ?>><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_TARGET_BLANK; ?></option>
+                    </select></td>
+                </tr>
+
+                <tr>
+                    <td nowrap="nowrap"><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_ASOBJECT; ?></td>
+                    <td>
+                        <input type="radio" class="input_radio" id="image_yes" name="serendipity[quickblog][isobject]" value="<?php echo YES;?>"><label for="image_yes"><?php echo YES;?></label>
+                        <input type="radio" class="input_radio" id="image_no" name="serendipity[quickblog][isobject]" value="<?php echo NO;?>" checked="checked"><label for="image_no"><?php echo NO;?></label>
+                    </td>
+                </tr>
+
+                <tr>
                     <td nowrap="nowrap"><?php echo IMAGE_SIZE; ?></td>
                     <td><input class="input_textbox" name="serendipity[quickblog][size]" value="<?php echo $serendipity['thumbSize']; ?>" type="text" style="width: 50px" /></td>
                 </tr>
@@ -314,6 +324,11 @@ class serendipity_event_imageselectorplus extends serendipity_event
             </div>
 <?php
                 } else {
+?>
+
+        <div id="imageselectorplus">
+
+<?php
                     if (class_exists('ZipArchive')) {
                         $checkedY = "";
                         $checkedN = "";
@@ -342,23 +357,23 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     <label for="nuggets2"><?php echo ENTRY_BODY; ?></label>
                     <textarea id="nuggets2" class="quickblog_nugget" data-tarea="nuggets2" data-tarea-tbar="min" name="serendipity[quickblog][body]" rows="10" cols="80"></textarea>
 <?php
-                if ($serendipity['wysiwyg'] && (class_exists('serendipity_event_ckeditor') || $serendipity['wysiwyg'] && $serendipity['version'][0] > '1')) {
+                if ($serendipity['wysiwyg']) {
                     $plugins = serendipity_plugin_api::enum_plugins('*', false, 'serendipity_event_nl2br');
 ?>
                     <input name="serendipity[properties][disable_markups][]" type="hidden" value="<?php echo $plugins[0]['name']; ?>">
+<?php
+                    if (!class_exists('serendipity_event_ckeditor')) {
+?>
                     <script src="<?php echo $serendipity['serendipityHTTPPath']; ?>htmlarea/ckeditor/ckeditor/ckeditor.js"></script>
+<?php
+                    }
+?>
                     <script>
-                    function Spawnnugget() {
                         CKEDITOR.replace( 'nuggets2',
                         {
                             toolbar : [['Bold','Italic','Underline','Superscript','-','NumberedList','BulletedList','Outdent','Blockquote','-','Format',],['JustifyLeft','JustifyCenter','JustifyRight',],['Link','Unlink','Source']],
                             toolbarGroups: null
                         });
-                    }
-                    if (window.Spawnnuggets) Spawnnuggets('2');
-                    if ($('#nuggets2').attr('data-tarea-tbar') == 'min') {
-                        //do something
-                    }
                     </script>
 <?php
                 }
@@ -380,12 +395,31 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     </select>
                 </div>
 
+                <div class="quickblog_form_select">
+                    <label for="select_image_target"><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_TARGET; ?></label>
+                    <select id="select_image_target" name="serendipity[quickblog][target]">
+                        <option value="none"<?php echo serendipity_ifRemember('target', 'none', false, 'selected'); ?>><?php echo NONE; ?></option>
+                        <option value="js"<?php echo serendipity_ifRemember('target', 'js', false, 'selected'); ?>><?php echo MEDIA_TARGET_JS; ?></option>
+                        <option value="plugin"<?php echo serendipity_ifRemember('target', 'plugin', false, 'selected'); ?>><?php echo MEDIA_ENTRY; ?></option>
+                        <option value="_blank"<?php echo serendipity_ifRemember('target', '_blank', false, 'selected'); ?>><?php echo MEDIA_TARGET_BLANK; ?></option>
+                    </select>
+                </div>
+
+                <div class="clearfix radio_field">
+                    <h4><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_ASOBJECT; ?></h4>
+                    <div>
+                        <input type="radio" class="input_radio" id="image_yes" name="serendipity[quickblog][isobject]" value="<?php echo YES;?>"><label for="image_yes"><?php echo YES;?></label>
+                        <input type="radio" class="input_radio" id="image_no" name="serendipity[quickblog][isobject]" value="<?php echo NO;?>" checked="checked"><label for="image_no"><?php echo NO;?></label>
+                    </div>
+                </div>
+
                 <div class="quickblog_form_field">
                     <label for="quickblog_isize"><?php echo IMAGE_SIZE; ?></label>
                     <input id="quickblog_isize" class="input_textbox" name="serendipity[quickblog][size]" value="<?php echo $serendipity['thumbSize']; ?>" type="text">
                 </div>
             </div>
             <em><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_IMAGE_SIZE_DESC; ?></em>
+        </div>
 <?php
                 }
                     break;
@@ -481,7 +515,8 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     $file      = basename($eventData);
                     $directory = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', dirname($eventData) . '/');
                     $size      = (int)$serendipity['POST']['quickblog']['size'];
-                    // check default Serendipity thumbSize, to make this happen like standard image uploads, and to get one "full" image instance only, else create another "resized" image instance, to use as entries thumbnail image
+                    // check default Serendipity thumbSize, to make this happen like standard image uploads, and to get one "full" image instance only,
+                    // else create another quickblog image "resized" instance, to use as entries thumbnail image
                     if ($serendipity['thumbSize'] != $size) {
                         $oldSuffix = $serendipity['thumbSuffix'];
                         $serendipity['thumbSuffix'] = 'quickblog';
@@ -489,16 +524,33 @@ class serendipity_event_imageselectorplus extends serendipity_event
                         $serendipity['thumbSuffix'] = $oldSuffix;
                     }
 
+                    //Non-image object link generation
+                    if ($serendipity['POST']['quickblog']['isobject'] == YES) {
+                        $objfile     = serendipity_parseFileName($file);
+                        $filename    = $objfile[0];
+                        $suffix      = $objfile[1];
+                        $obj_mime    = serendipity_guessMime($suffix);
+                        $objpath     = $serendipity['serendipityHTTPPath'] . $serendipity['uploadPath'] . $directory . $filename . '.' .  $suffix;
+                        $objpreview  = serendipity_getTemplateFile('admin/img/mime_' . preg_replace('@[^0-9a-z_\-]@i', '-', $obj_mime) . '.png');
+                        if (!$objpreview) {
+                            $objpreview = serendipity_getTemplateFile('admin/img/mime_unknown.png');
+                        }
+                    }
+
                     //New draft post
                     $entry             = array();
                     $entry['isdraft']  = 'false';
-                    $entry['title']    = $serendipity['POST']['quickblog']['title'];
-                    $entry['body']     = '<!--quickblog:' . $eventData .  '-->' . $serendipity['POST']['quickblog']['body'];
+                    $entry['title']    = htmlspecialchars($serendipity['POST']['quickblog']['title']);
+                    if (isset($objpath) && !empty($objpath)) {
+                        $entry['body'] = '<a href="' . $objpath . '"><img alt="" class="serendipity_image_left" src="' . $objpreview . '">' . $filename . '</a> (-'.$obj_mime.'-)<p>' . htmlspecialchars($serendipity['POST']['quickblog']['body']) . '</p>';
+                    } else {
+                        $entry['body'] = '<!--quickblog:' . htmlspecialchars($serendipity['POST']['quickblog']['target']) . '|' . $eventData .  '-->' . htmlspecialchars($serendipity['POST']['quickblog']['body']);
+                    }
                     $entry['authorid'] = $serendipity['authorid'];
                     $entry['exflag']   = false;
-                    $entry['categories'][0] = $serendipity['POST']['quickblog']['category'];
-                    $entry['allow_comments']    = 'true';
-                    $entry['moderate_comments'] = 'false';
+                    $entry['categories'][0] = htmlspecialchars($serendipity['POST']['quickblog']['category']);
+                    #$entry['allow_comments']    = 'true'; //disabled to take default values
+                    #$entry['moderate_comments'] = 'false'; //disabled to take default values
                     $serendipity['POST']['properties']['fake'] = 'fake';
                     $id = serendipity_updertEntry($entry);
 
@@ -590,6 +642,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     $entry = serendipity_fetchEntry('id', $serendipity['GET']['id']);
                     $imageid = $serendipity['GET']['image'];
                     $imgsrc = '';
+
                     if (preg_match('@<a title="([^"]+)" id="s9yisp' . $imageid . '"></a>@imsU', $entry['body'], $imgmatch)) {
                         $imgsrc = $imgmatch[1];
                     } elseif (preg_match('@<a title="([^"]+)" id="s9yisp' . $imageid . '"></a>@imsU', $entry['extended'], $imgmatch)) {
@@ -610,7 +663,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     echo '<br />';
                     echo $link . '&lt;&lt; ' . BACK . '</a>';
 
-                    echo '</div></div></div>';
+                    echo "</div>\n</div>\n</div>\n";
 
                     return true;
                     break;
@@ -623,11 +676,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                 case 'frontend_image_selector_imagealign':
                 case 'frontend_image_selector_imagesize':
                 case 'frontend_image_selector_hiddenfields':
-                    return true;
-                    break;
-
                 case 'frontend_image_selector_imagelink':
-                    $this->display_target_selectbox();
                     return true;
                     break;
 
@@ -647,15 +696,22 @@ class serendipity_event_imageselectorplus extends serendipity_event
 #uploadform .radio_field label {
     padding-left: .5em;
 }
+#uploadform .quickblog_form_select {
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+}
 <?php
                     }
                     break;
 
                 case 'frontend_image_selector':
-                    $eventData['finishJSFunction'] = 'serendipity_imageSelectorPlus_done(\'' . $serendipity['GET']['textarea'] . '\')';
-                    $this->display_script();
-                return true;
-                break;
+                    if ($serendipity['version'][0] < '2') {
+                        $eventData['finishJSFunction'] = 'serendipity_imageSelectorPlus_done(\'' . htmlspecialchars($serendipity['GET']['textarea']) . '\')';
+                    } else {
+                        $eventData['finishJSFunction'] = 'serendipity.serendipity_imageSelector_done(\'' . htmlspecialchars($serendipity['GET']['textarea']) . '\')';
+                    }
+                    return true;
+                    break;
 
               default:
                 return false;
@@ -672,6 +728,14 @@ class serendipity_event_imageselectorplus extends serendipity_event
      */
     function parse_quickblog_post($path, &$body) {
         global $serendipity;
+
+        preg_match('@<!--quickblog:(.+\|)+(.+)-->@imsU', $body, $target);
+        $path = str_replace($target[1], '', $path);
+        $body = str_replace($target[1], '', $body);
+
+        //check for non-image object
+        if (!isset($target) && empty($target)) return $body;
+
         $file = basename($path);
         $dir  = dirname($path) . '/';
 
@@ -680,6 +744,9 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $suf     = $t[1];
 
         $infile  = $dir . $file;
+
+        $s9yimgID = (int)$this->getImageIdByUrl($infile);
+
         $outfile = $dir . $f . '.quickblog.' . $suf;
         // check for existing image.quickblog thumb (see change in backend_image_addHotlink) else change to default thumbnail name
         if (!file_exists($outfile)) $outfile = $dir . $f . '.serendipityThumb.' . $suf;
@@ -712,10 +779,32 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $http_infile  = $this->httpize($infile);
         $http_outfile = $this->httpize($outfile);
 
+        // create link targets
+        $totarget = str_replace('|', '', $target[1]);
+        $linktarget = '';
+        switch($totarget) {
+            case '_blank':
+                $linktarget = ' target="_blank"';
+                break;
+            case 'js':
+                list($width, $height, $type, $attr) = getimagesize("$infile");
+                $linktarget = ' onclick="F1 = window.open(\''.$http_infile.'\',\'Zoom\',\'height='.$height.',width='.$width.',top=\'+ (screen.height-'.$height.')/2 +\',left=\'+ (screen.width-'.$width.')/2 +\',toolbar=no,menubar=no,location=no,resize=1,resizable=1,scrollbars=yes\'); return false;"';
+                break;
+            case 'plugin':
+                $linktarget = ' id="s9yisphref'.$s9yimgID.'" onclick="javascript:this.href = this.href + \'&amp;serendipity[from]=\' + self.location.href;"';
+                $linkto = $serendipity['serendipityHTTPPath'] . 'serendipity_admin_image_selector.php?serendipity[step]=showItem&amp;serendipity[image]='.$s9yimgID;
+                $http_infile = $this->httpize($linkto);
+                break;
+        }
+
         $quickblog = array(
+            'html5'     => ($serendipity['wysiwyg'] || $serendipity['version'][0] > '1') ? true : false,
             'image'     => $http_outfile,
             'fullimage' => $http_infile,
             'body'      => preg_replace('@(<!--quickblog:.+-->)@imsU', '', $body),
+            'imageid'   => $s9yimgID,
+            'target'    => $linktarget,
+            'istarget'  => $totarget,
             'exif'      => &$exif,
             'exif_mode' => $exif_mode
         );
@@ -733,126 +822,9 @@ class serendipity_event_imageselectorplus extends serendipity_event
 
 
     /*
-     *  display_target_selectbox()
-     *  displays select box for choosing target of image in the image selector
-     *  depreceated, in new version >0.9 already in admin_image_selector.php     
-     */          
-    function display_target_selectbox() {
-?>
-<label for="select_image_target"><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_TARGET; ?></label>
-    <select name="serendipity[target]" id="select_image_target">
-        <option value="none" <?php echo ifRemember('target', 'none', false, 'selected'); ?>><?php echo NONE; ?></option>
-        <option value="js" <?php echo ifRemember('target', 'js', false, 'selected'); ?>><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_TARGET_JS; ?></option>
-        <option value="plugin" <?php echo ifRemember('target', 'plugin', false, 'selected'); ?>><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_TARGET_ENTRY; ?></option>
-        <option value="_blank" <?php echo ifRemember('target', '_blank', false, 'selected'); ?>><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_TARGET_BLANK; ?></option>
-    </select>
-<br />
-<?php
-
-    }
-
-    /*
-     *  display_sript()
-     *  displays script necessary for inserting target for images chosen by
-     *  image selector
-     */          
-    function display_script() {
-?>
-<script type="text/javascript">
-function serendipity_imageSelectorPlus_done(textarea)
-{
-    var insert = '';
-    var img = '';
-    var src = '';
-    var f = document.forms['serendipity[selForm]'].elements;
-
-    if (f['serendipity[linkThumbnail]'][0].checked == true) {
-        img       = f['thumbName'].value;
-        imgWidth  = f['imgThumbWidth'].value;
-        imgHeight = f['imgThumbHeight'].value;
-    } else {
-        img       = f['imgName'].value;
-        imgWidth  = f['imgWidth'].value;
-        imgHeight = f['imgHeight'].value;
-    }
-
-    if (f['serendipity[filename_only]'] && f['serendipity[filename_only]'].value == 'true') {
-        self.opener.serendipity_imageSelector_addToElement(img, f['serendipity[htmltarget]'].value);
-        self.close();
-        return true;
-    }
-
-    if (document.getElementById('serendipity_imagecomment').value != '') {
-        styled = false;
-    } else {
-        styled = true;
-    }
-
-    floating = 'center';
-    if (f['serendipity[align]'][0].checked == true) {
-        img = "<img width='" + imgWidth + "' height='" + imgHeight + "' " + (styled ? 'style="border: 0px; padding-left: 5px; padding-right: 5px;"' : '') + ' src="' + img + "\" alt=\"\" />";
-    } else if (f['serendipity[align]'][1].checked == true) {
-        img = "<img width='" + imgWidth + "' height='" + imgHeight + "' " + (styled ? 'style="float: left; border: 0px; padding-left: 5px; padding-right: 5px;"' : '') + ' src="' + img + "\" alt=\"\" />";
-        floating = 'left';
-    } else if (f['serendipity[align]'][2].checked == true) {
-        img = "<img width='" + imgWidth + "' height='" + imgHeight + "' " + (styled ? 'style="float: right; border: 0px; padding-left: 5px; padding-right: 5px;"' : '') + ' src="' + img + "\" alt=\"\" />";
-        floating = 'right';
-    }
-
-    if (f['serendipity[isLink]'][1].checked == true) {
-        targetval = f['serendipity[target]'].options[f['serendipity[target]'].selectedIndex].value;
-        prepend   = '';
-        ilink     = f['serendipity[url]'].value;
-        if (!targetval || targetval == 'none') {
-            itarget = '';
-        } else if (targetval == 'js') {
-            itarget = ' onclick="F1 = window.open(\'' + f['serendipity[url]'].value + '\',\'Zoom\',\''
-                    + 'height=' + (parseInt(f['imgHeight'].value) + 15) + ','
-                    + 'width='  + (parseInt(f['imgWidth'].value)  + 15) + ','
-                    + 'top='    + (screen.height - f['imgHeight'].value) /2 + ','
-                    + 'left='   + (screen.width  - f['imgWidth'].value)  /2 + ','
-                    + 'toolbar=no,menubar=no,location=no,resize=1,resizable=1,scrollbars=yes\'); return false;"';
-        } else if (targetval == '_blank') {
-            itarget = ' target="_blank"';
-        } else if (targetval == 'plugin') {
-            itarget = ' id="s9yisphref<?php echo $serendipity['GET']['image']; ?>"';
-            prepend = '<a title="' + ilink + '" id="s9yisp<?php echo $serendipity['GET']['image']; ?>"></a>';
-            ilink   = '<?php echo $serendipity['baseURL'] . $serendipity['indexFile'] . '?serendipity[subpage]=s9yisp&amp;serendipity[id]={{s9yisp_entryid}}&amp;serendipity[image]=' . $serendipity['GET']['image']; ?>';
-        }
-
-        insert = prepend + "<a class='serendipity_image_link' href='" + ilink + "'" + itarget + ">" + img + "</a>";
-    } else {
-        insert = img;
-    }
-
-    if (document.getElementById('serendipity_imagecomment').value != '') {
-        comment = f['serendipity[imagecomment]'].value;
-        block = '<div class="serendipity_imageComment_' + floating + '" style="width: ' + imgWidth + 'px">'
-              +     '<div class="serendipity_imageComment_img">' + insert + '</div>'
-              +     '<div class="serendipity_imageComment_txt">' + comment + '</div>'
-              + '</div>';
-    } else {
-        block = insert;
-    }
-
-    if (self.opener.editorref) {
-        self.opener.editorref.surroundHTML(block, '');
-    } else {
-        self.opener.serendipity_imageSelector_addToBody(block, textarea);
-    }
-
-    self.close();
-}
-</script>
-<?php
-
-    }
-
-
-    /*
      * media_insert
      * this function replaces xml-like structure in the $text @string
-     *  by images from media gallery
+     * by images from media gallery
      */
     function media_insert($text, &$eventData) {
         global $serendipity;
@@ -1030,7 +1002,7 @@ function serendipity_imageSelectorPlus_done(textarea)
      * @param string The image URL
      * @return mixed An image ID if the URL could be matched, or false if the URL could not be matched
      */
-    function getImageIdByUrl($url){
+    function getImageIdByUrl($url) {
         global $serendipity;
 
         if (preg_match('#.*templates_c/mediacache/cache_img(\d+)_(\d*)_(\d*)#i', $url, $m)) {

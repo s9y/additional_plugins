@@ -405,8 +405,8 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     </select>
                 </div>
 
-                <div class="clearfix radio_field">
-                    <h4><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_ASOBJECT; ?></h4>
+                <div class="clearfix radio_field quickblog_radio_field">
+                    <label><?php echo PLUGIN_EVENT_IMAGESELECTORPLUS_ASOBJECT; ?></label>
                     <div>
                         <input type="radio" class="input_radio" id="image_yes" name="serendipity[quickblog][isobject]" value="<?php echo YES;?>"><label for="image_yes"><?php echo YES;?></label>
                         <input type="radio" class="input_radio" id="image_no" name="serendipity[quickblog][isobject]" value="<?php echo NO;?>" checked="checked"><label for="image_no"><?php echo NO;?></label>
@@ -690,15 +690,25 @@ class serendipity_event_imageselectorplus extends serendipity_event
     margin-left: 0;
     padding: 0;
 }
-#uploadform .quickblog_form_field {
+#quickblog_tablefield .quickblog_form_field {
     margin: .375em 0;
 }
-#uploadform .radio_field label {
+#quickblog_tablefield .quickblog_radio_field div label,
+#quickblog_tablefield .radio_field label {
     padding-left: .5em;
 }
-#uploadform .quickblog_form_select {
+#quickblog_tablefield .quickblog_form_select {
     margin-top: 0.75em;
     margin-bottom: 0.75em;
+}
+#quickblog_tablefield .quickblog_radio_field label {
+    padding-left: 0;
+}
+#quickblog_tablefield .quickblog_radio_field div {
+    display: inline;
+}
+#quickblog_tablefield .quickblog_radio_field input {
+    margin-left: 0.5em;
 }
 <?php
                     }

@@ -2,7 +2,7 @@
 -----
  * added form target to
  * added non-image object uploads with link/image generation via radio field,
- * which creates a real link instead of using the hidden quickblog tag
+   which creates a real link instead of using the hidden quickblog tag
  * removed some obsolet functions
  * disabled allow_comments, moderate_comments to always take default values
 

@@ -683,6 +683,10 @@ class serendipity_event_imageselectorplus extends serendipity_event
                 case 'css_backend':
                     if ($serendipity['version'][0] > '1') {
 ?>
+
+#imageselectorplus .radio_field input {
+    margin: 0 0.5em;
+}
 #quickblog_tablefield {
    display: table-cell;
 }
@@ -710,6 +714,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
 #quickblog_tablefield .quickblog_radio_field input {
     margin-left: 0.5em;
 }
+
 <?php
                     }
                     break;

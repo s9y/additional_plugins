@@ -1,3 +1,7 @@
+3.57:
+----
+Stricter array check to prevent PHP notices
+
 3.56:
 -----
 Removed obsolete language attribute. (yellowled)

@@ -1,6 +1,11 @@
+4.3.0:
+-----
+    * Upgrade to CKEDITOR 4.4 Series, update 3 (http://ckeditor.com/node/136981)
+    * added important serendipity_imageComment_center class to wysiwyg-styles.css
+
 4.2.0:
 -----
-    * Upgrade to CKEDITOR 4.4 Series update 2 (http://ckeditor.com/node/136508)
+    * Upgrade to CKEDITOR 4.4 Series, update 2 (http://ckeditor.com/node/136508)
     * Plugin procurator update to support imageselectorplus quickblog hook.
     * Changed the procurator placeholder image.
     * Changed image url of Serendipity hooked-to-toolbar plugins
@@ -8,14 +13,14 @@
 
 4.1.0:
 -----
-    * Upgrade to CKEDITOR 4.4 Series update 1 (http://ckeditor.com/node/136041)
+    * Upgrade to CKEDITOR 4.4 Series. update 1 (http://ckeditor.com/node/136041)
     * Reviewed protectedSource to allow WP-like [[mytag]] tags in cke_config.js
     * Enhance extraAllowedContent tags in cke_config.js
     * Add Serendipity image float CSS to wysiwyg-mode view, by new file wysiwyg-style.css
 
 3.4.0:
 -----
-    * Upgrade to CKEDITOR 4.3 Series update 4 (http://ckeditor.com/node/135140)
+    * Upgrade to CKEDITOR 4.3 Series, update 4 (http://ckeditor.com/node/135140)
     * Enhance allowed content tags in cke_config.js
 
 3.3.1: Properly use the example() API method by returning, not echo'ing. Unimportant update.
@@ -23,7 +28,7 @@
 
 3.3.0:
 -----
-    * Upgrade to CKEDITOR 4.3 Series update 3 (http://ckeditor.com/node/134732)
+    * Upgrade to CKEDITOR 4.3 Series, update 3 (http://ckeditor.com/node/134732)
     * Moved styles to files and changed icon-font minors
     * Be a little more verbose in the dependencies note
 
@@ -37,7 +42,7 @@
 
 3.2.0:
 -----
-    * Upgrade to CKEDITOR 4.3 Series update 2
+    * Upgrade to CKEDITOR 4.3 Series, update 2
     * Added new cheatsheet plugin 
     * Fixed MediaLibrary insert code to be left untouched by ACF
     * Better workflow between nuggets and entry textareas

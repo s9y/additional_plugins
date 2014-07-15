@@ -55,21 +55,21 @@ class serendipity_event_ckeditor extends serendipity_event
      * @access protected
      * @var string
      */
-    protected $cke_zipfile = 'ckeditor_4.4.2.0_standard-plus.zip';
+    protected $cke_zipfile = 'ckeditor_4.4.3.0_standard-plus.zip';
 
     /**
      * Access property checkUpdateVersion
      * Verify release package versions - do update on upgrades!
      * @var array
      */
-    protected $checkUpdateVersion = array('ckeditor:4.4.2.0', 'kcfinder:2.52-2');
+    protected $checkUpdateVersion = array('ckeditor:4.4.3.0', 'kcfinder:2.52-2');
 
     /**
      * Access property revisionPackage
      * Note revisions of ckeditor, kcfinder and plugin additions to lang files
      * @var array
      */
-    protected $revisionPackage = array('CKEditor 4.4.2 (revision 1567b48, standard package, 2014-06-24)',
+    protected $revisionPackage = array('CKEditor 4.4.3 (revision fd4f17c, standard package, 2014-07-15)',
                                        'KCFinder 2.52-dev (http://kcfinder.sunhater.com/ git package, 2013-05-04)',
                                        'CKEditor-Plugin: mediaembed, v. 0.5+ (https://github.com/frozeman/MediaEmbed, 2013-09-12)',
                                        'CKEditor-Plugin: pbckcode, v. 1.1.0 (https://github.com/prbaron/PBCKCode, 2013-09-06)',
@@ -145,7 +145,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '4.2.0'); // is CKEDITOR Series 4 (hidden) - revision .4.2 - and appended plugin revision .0
+        $propbag->add('version',       '4.3.0'); // is CKEDITOR Series 4 (hidden) - revision .4.3 - and appended plugin revision .0
         $propbag->add('copyright',     'GPL or LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',

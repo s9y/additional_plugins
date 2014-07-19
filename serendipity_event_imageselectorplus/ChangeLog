@@ -1,7 +1,7 @@
 0.40:
 -----
  * better pdf object preview in case of used imagemagick library
- * added serendipity_quickblog_image class to prevent preview boarders
+ * added serendipity_quickblog_image class to prevent preview borders
  * reset entries_header use for 2.0 and up
  * fix hardcoded thumbName check to its Serendipity variable
 

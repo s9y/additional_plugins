@@ -26,7 +26,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_IMAGESELECTORPLUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian');
-        $propbag->add('version',       '0.39');
+        $propbag->add('version',       '0.40');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -54,6 +54,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
             'backend_image_addHotlink' => true,
             'backend_image_addform' => true,
             'css_backend' => true,
+            'css' => true,
             'frontend_display' => true
         ));
 
@@ -531,8 +532,13 @@ class serendipity_event_imageselectorplus extends serendipity_event
                         $suffix      = $objfile[1];
                         $obj_mime    = serendipity_guessMime($suffix);
                         $objpath     = $serendipity['serendipityHTTPPath'] . $serendipity['uploadPath'] . $directory . $filename . '.' .  $suffix;
-                        $objpreview  = serendipity_getTemplateFile('admin/img/mime_' . preg_replace('@[^0-9a-z_\-]@i', '-', $obj_mime) . '.png');
-                        if (!$objpreview) {
+                        // try to know about a working environment for imagemagicks pdf preview gerneration
+                        if ($serendipity['magick'] === true && strtolower($suffix) == 'pdf' && $serendipity['thumbSize'] == $size) {
+                            $objpreview  = $serendipity['serendipityHTTPPath'] . $serendipity['uploadPath'] . $directory . $filename . '.' . $serendipity['thumbSuffix'] . '.' . $suffix . '.png';
+                        } else {
+                            $objpreview  = serendipity_getTemplateFile('admin/img/mime_' . preg_replace('@[^0-9a-z_\-]@i', '-', $obj_mime) . '.png');
+                        }
+                        if (!$objpreview || empty($objpreview)) {
                             $objpreview = serendipity_getTemplateFile('admin/img/mime_unknown.png');
                         }
                     }
@@ -542,7 +548,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     $entry['isdraft']  = 'false';
                     $entry['title']    = htmlspecialchars($serendipity['POST']['quickblog']['title']);
                     if (isset($objpath) && !empty($objpath)) {
-                        $entry['body'] = '<a href="' . $objpath . '"><img alt="" class="serendipity_image_left" src="' . $objpreview . '">' . $filename . '</a> (-'.$obj_mime.'-)<p>' . htmlspecialchars($serendipity['POST']['quickblog']['body']) . '</p>';
+                        $entry['body'] = '<a href="' . $objpath . '"><img alt="" class="serendipity_image_left serendipity_quickblog_image" src="' . $objpreview . '">' . $filename . '</a> (-'.$obj_mime.'-)<p>' . htmlspecialchars($serendipity['POST']['quickblog']['body']) . '</p>';
                     } else {
                         $entry['body'] = '<!--quickblog:' . htmlspecialchars($serendipity['POST']['quickblog']['target']) . '|' . $eventData .  '-->' . htmlspecialchars($serendipity['POST']['quickblog']['body']);
                     }
@@ -635,6 +641,10 @@ class serendipity_event_imageselectorplus extends serendipity_event
                         return true;
                     }
 
+                    if ($serendipity['version'][0] > '1') {
+                        return true;
+                    }
+
                     if (!headers_sent()) {
                         header('HTTP/1.0 200');
                         header('Status: 200 OK');
@@ -719,6 +729,16 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     }
                     break;
 
+                case 'css':
+?>
+
+#content .serendipity_quickblog_image {
+    border: medium none transparent;
+}
+
+<?php
+                    break;
+
                 case 'frontend_image_selector':
                     if ($serendipity['version'][0] < '2') {
                         $eventData['finishJSFunction'] = 'serendipity_imageSelectorPlus_done(\'' . htmlspecialchars($serendipity['GET']['textarea']) . '\')';
@@ -740,6 +760,8 @@ class serendipity_event_imageselectorplus extends serendipity_event
     /*
      *  function parse_quickblog_post makes a quickblog post from the picture
      *  given by $path @string
+     *  Make sure to not produce any output or error message here, since it will
+     *  be dropped to /index.php?/plugin/admin/serendipity_editor.js
      */
     function parse_quickblog_post($path, &$body) {
         global $serendipity;
@@ -764,7 +786,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
 
         $outfile = $dir . $f . '.quickblog.' . $suf;
         // check for existing image.quickblog thumb (see change in backend_image_addHotlink) else change to default thumbnail name
-        if (!file_exists($outfile)) $outfile = $dir . $f . '.serendipityThumb.' . $suf;
+        if (!file_exists($outfile)) $outfile = $dir . $f . '.' . $serendipity['thumbSuffix'] . '.' . $suf;
 
         if (function_exists('exif_read_data') && file_exists($infile) && !serendipity_db_bool($this->get_config('force_jhead'))) {
             $exif      = @exif_read_data($infile);

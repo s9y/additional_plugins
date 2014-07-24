@@ -26,7 +26,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_IMAGESELECTORPLUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian');
-        $propbag->add('version',       '0.40');
+        $propbag->add('version',       '0.41');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -846,6 +846,9 @@ class serendipity_event_imageselectorplus extends serendipity_event
             'exif_mode' => $exif_mode
         );
 
+        if (!is_object($serendipity['smarty'])) {
+            serendipity_smarty_init();
+        }
         $tfile = serendipity_getTemplateFile('quickblog.tpl', 'serendipityPath');
         if (!$tfile || $tfile == 'quickblog.tpl') {
             $tfile = dirname(__FILE__) . '/quickblog.tpl';
@@ -959,6 +962,9 @@ class serendipity_event_imageselectorplus extends serendipity_event
                         array_multisort($order, SORT_ASC, SORT_NUMERIC, $t);
 
                         // now make an output using template
+                        if (!is_object($serendipity['smarty'])) {
+                            serendipity_smarty_init();
+                        }
 
                         $tfile = serendipity_getTemplateFile('plugin_mediainsert.tpl', 'serendipityPath');
                         if (!$tfile || $tfile == 'plugin_mediainsert.tpl') {

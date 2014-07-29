@@ -32,7 +32,7 @@ class serendipity_event_autosave extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '0.2.2');
+        $propbag->add('version',       '0.3');
         $propbag->add('configuration', array());
         $propbag->add('event_hooks',    array(
 			'backend_entryform' 	=> true,
@@ -109,6 +109,14 @@ class serendipity_event_autosave extends serendipity_event
 					break;
 
 				case 'backend_entryform':
+        if (version_compare(serendipity_getCoreVersion($serendipity['version']), "2.0", ">=")) {
+        // Autosave plugin no longer supported
+            echo '<p>The serendipity_event_autosave Plugin is no longer supported in Serendipity 2.0 - you should remove it from your installation.</p>';
+            echo '<p>Please note that Serendipity 2.0 will save your written entry in the browser, and restore it upon crash.</p>';
+            return true;
+        }
+        
+
 					?>
 					<script type="text/javascript" src="<?php echo $this->get_config('path') ?>/js/prototype.js"></script>
 					<script type="text/javascript" src="<?php echo $this->get_config('path') ?>/js/rico.js"></script>

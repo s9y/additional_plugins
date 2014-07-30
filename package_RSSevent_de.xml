@@ -986,7 +986,7 @@
 <category>Event Plugins</category>
 <author>Jay Bertrand</author>
 <content:encoded>&lt;b&gt;serendipity_event_autosave&lt;br /&gt;Einträge automatisch sichern&lt;/b&gt;&lt;br /&gt;Sichert Einträge beim Schreiben automatisch im Hintergrund&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:38 +0200</pubDate>
+<pubDate>Wed, 30 Jul 2014 02:31:11 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_autosave</guid>
 </item>
 <item>

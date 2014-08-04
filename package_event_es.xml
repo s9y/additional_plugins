@@ -4688,6 +4688,7 @@
 <file>plugin_mediainsert.tpl</file>
 <file>quickblog.tpl</file>
 <file>serendipity_event_imageselectorplus.php</file>
+<file>.htaccess</file>
 </dir>
 
   </filelist>
@@ -4713,6 +4714,7 @@
     <file>serendipity_event_imageselectorplus/plugin_mediainsert.tpl</file>
     <file>serendipity_event_imageselectorplus/quickblog.tpl</file>
     <file>serendipity_event_imageselectorplus/serendipity_event_imageselectorplus.php</file>
+    <file>serendipity_event_imageselectorplus/.htaccess</file>
   </serendipityFilelist>
 </release>
 </package>

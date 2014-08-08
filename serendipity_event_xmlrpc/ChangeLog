@@ -1,4 +1,8 @@
 # 
+Version 1.53:
+    * Implement a kind of DOS protection, courtesy to a Drupal/WordPress commit:
+       https://github.com/drupal/drupal/commit/90e884ad0f7f2cf269d953f7d70966de9fd821ff
+
 Version 1.51 (brockhaus):
     * Support for system.multicall patched into the XMLRPC library.
     * dateModified attributes (delivered by WP) supported.

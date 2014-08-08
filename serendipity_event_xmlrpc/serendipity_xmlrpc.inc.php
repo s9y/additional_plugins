@@ -24,6 +24,46 @@ if ($debug_xmlrpc) {
     @define('DEBUG_XMLRPC', false);
 }
 
+// Do some securing. Courtesy to https://github.com/drupal/drupal/commit/90e884ad0f7f2cf269d953f7d70966de9fd821ff
+// Strip XML declaration.
+$xml_in = $HTTP_RAW_POST_DATA;
+if ($xml_in != '') {
+    $header = preg_replace('/<\?xml.*?\?'.'>/s', '', substr($xml_in, 0, 100), 1);
+    $HTTP_RAW_POST_DATA = trim(substr_replace($xml_in, $header, 0, 100));
+    if ($HTTP_RAW_POST_DATA == '') {
+        return FALSE;
+    }
+
+    // Strip DTD.
+    $header = preg_replace('/^<!DOCTYPE[^>]*+>/i', '', substr($HTTP_RAW_POST_DATA, 0, 200), 1);
+    $HTTP_RAW_POST_DATA = trim(substr_replace($HTTP_RAW_POST_DATA, $header, 0, 200));
+    if ($HTTP_RAW_POST_DATA == '') {
+        return FALSE;
+    }
+
+    // Confirm the XML now starts with a valid root tag. A root tag can end in [> \t\r\n]
+    $root_tag = substr($HTTP_RAW_POST_DATA, 0, strcspn(substr($HTTP_RAW_POST_DATA, 0, 20), "> \t\r\n"));
+    // Reject a second DTD.
+    if (strtoupper($root_tag) == '<!DOCTYPE') {
+        return FALSE;
+    }
+    if (!in_array($root_tag, array('<methodCall', '<methodResponse', '<fault'))) {
+        return FALSE;
+    }
+
+    // Skip parsing if there is an unreasonably large number of tags.
+    try {
+        $dom = new DOMDocument();
+        @$dom->loadXML($HTTP_RAW_POST_DATA);
+        if ($dom->getElementsByTagName('*')->length > 30000) {
+            return FALSE;
+        }
+    }
+    catch (Exception $e) {
+        return FALSE;
+    }
+}
+
 @define('XMLRPC_WP_COMPATIBLE', TRUE);
 
 @define('XMLRPC_ERR_CODE_AUTHFAILED',   4);

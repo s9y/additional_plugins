@@ -6987,9 +6987,9 @@
 <file>info.txt</file>
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
-<file>preview.jpg</file>
 <file>style_bright.css</file>
 <file>style.css</file>
+<file>preview.png</file>
 <file>style_dark.css</file>
 </dir>
 
@@ -7015,9 +7015,9 @@
     <file>photo/info.txt</file>
     <file>photo/lang_de.inc.php</file>
     <file>photo/lang_en.inc.php</file>
-    <file>photo/preview.jpg</file>
     <file>photo/style_bright.css</file>
     <file>photo/style.css</file>
+    <file>photo/preview.png</file>
     <file>photo/style_dark.css</file>
   </serendipityFilelist>
 </release>

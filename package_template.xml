@@ -6987,6 +6987,12 @@
 <file>info.txt</file>
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
+<dir name="font">
+<file>fa.eot</file>
+<file>fa.svg</file>
+<file>fa.ttf</file>
+<file>fa.woff</file>
+</dir>
 <file>style_bright.css</file>
 <file>style.css</file>
 <file>preview.png</file>
@@ -7015,6 +7021,10 @@
     <file>photo/info.txt</file>
     <file>photo/lang_de.inc.php</file>
     <file>photo/lang_en.inc.php</file>
+    <file>photo/font/fa.eot</file>
+    <file>photo/font/fa.svg</file>
+    <file>photo/font/fa.ttf</file>
+    <file>photo/font/fa.woff</file>
     <file>photo/style_bright.css</file>
     <file>photo/style.css</file>
     <file>photo/preview.png</file>

@@ -60,6 +60,37 @@ Another functionality of this plugin is multiple image insertion. If you write a
             &lt;media type="gallery" /&gt;
         &lt;/mediainsert&gt;
     </pre></code>
+
+    <h4>Example 3 - hides preview pictures after specified image number </h4>
+    <code><pre>
+        &lt;mediainsert&gt;
+            &lt;gallery name="MyHolidays/" /&gt;
+            &lt;media type="gallery" /&gt;
+            &lt;media type="hideafter" nr="2" /&gt;
+        &lt;/mediainsert&gt;
+    </pre></code>
+    <p>
+        This example inserts all pictures from directory "MyHolidays", but disables visiblity from picture number 3.
+        <ul>
+        Why its useful?
+        <li>If you are using a lightbox plugin, which inserts in all article images, there may be a lot of preview images.</li>
+        <li>With hideafter you can stop the visibility of a huge list of preview pictures. But the lightbox is still working!</li>
+        </ul>
+    </p>
+
+    <h4>Example 4 - Break floating by newline after certain number of images </h4>
+    <code><pre>
+        &lt;mediainsert&gt;
+            &lt;gallery name="MyHolidays/" /&gt;
+            &lt;media type="gallery" /&gt;
+            &lt;media type="hideafter" nr="15" /&gt;
+            &lt;media type="picperrow" pr="3" /&gt;
+        &lt;/mediainsert&gt;
+    </pre></code>
+    <p>
+        This example inserts all pictures from directory "MyHolidays", but disables visiblity from picture number 15.
+        Moreover, an arrangement in 5 rows (15/3 = 5), so there are 3 images per row visible in 5 columns.
+    </p>
       
 <h3>Important</h3>
 <p>The plugin is sensitive to bad xml syntax. So if it is not perfect, for example if you ommit ending backslash in the media tag, it can cause fail to your whole blog!!!</p>
@@ -78,6 +109,8 @@ Another functionality of this plugin is multiple image insertion. If you write a
             <li>"single" - includes single image given by attribute "name"</li>
             <li>"gallery" - without other attributes, includes all images in gallery</li>
             <li>"range" - includes numbered images from "prefix""start" to "prefix""stop" (see example1)</li>
+            <li>"hideafter" - hides preview pictures after "nr" ("lastvisiblenumber") (see example3)</li>
+            <li>"picperrow" - Generate a break for an amount by image, thus the shown thumbnails are divided into rows (Example 4)</li>
         </ul>
     </dd>
 </dl>
@@ -145,5 +178,7 @@ as is the parsing of img tags.</p>
 
 <h2>Authors</h2>
 <p>Garvin Hicking, Germany <br />
-Vladim¡r Ajgl (vlada [at] ajgl [dot] cz), Czech Republic, 2007-11-19
+Vladimir Ajgl (vlada [at] ajgl [dot] cz), Czech Republic, 2007-11-19 <br />
+User "nogad", http://board.s9y.org/viewtopic.php?f=4&t=20058, 2014-08-22 <br />
+Ian, 2014-09-04
 </p>

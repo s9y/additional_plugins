@@ -26,7 +26,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_IMAGESELECTORPLUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian');
-        $propbag->add('version',       '0.41');
+        $propbag->add('version',       '0.42');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -246,7 +246,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
         if (isset($hooks[$event])) {
             switch($event) {
                 case 'backend_image_addform':
-                if ($serendipity['version'][0] < '2') {
+                if ($serendipity['version'][0] < 2) {
                     if (class_exists('ZipArchive')) {
                         $checkedY = "";
                         $checkedN = "";
@@ -367,7 +367,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
 ?>
                     <script src="<?php echo $serendipity['serendipityHTTPPath']; ?>htmlarea/ckeditor/ckeditor/ckeditor.js"></script>
 <?php
-                    }
+                    } // just add a simple basic toolbar, since we cannot use embedded plugins here
 ?>
                     <script>
                         CKEDITOR.replace( 'nuggets2',
@@ -641,7 +641,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                         return true;
                     }
 
-                    if ($serendipity['version'][0] > '1') {
+                    if ($serendipity['version'][0] > 1) {
                         return true;
                     }
 
@@ -691,7 +691,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     break;
 
                 case 'css_backend':
-                    if ($serendipity['version'][0] > '1') {
+                    if ($serendipity['version'][0] > 1) {
 ?>
 
 #imageselectorplus .radio_field input {
@@ -735,12 +735,18 @@ class serendipity_event_imageselectorplus extends serendipity_event
 #content .serendipity_quickblog_image {
     border: medium none transparent;
 }
+.serendipity_mediainsert_gallery {
+    border: 1px solid #C0C0C0;
+    margin: 0px;
+    overflow: auto;
+    padding: 0.4em;
+}
 
 <?php
                     break;
 
                 case 'frontend_image_selector':
-                    if ($serendipity['version'][0] < '2') {
+                    if ($serendipity['version'][0] < 2) {
                         $eventData['finishJSFunction'] = 'serendipity_imageSelectorPlus_done(\'' . htmlspecialchars($serendipity['GET']['textarea']) . '\')';
                     } else {
                         $eventData['finishJSFunction'] = 'serendipity.serendipity_imageSelector_done(\'' . htmlspecialchars($serendipity['GET']['textarea']) . '\')';
@@ -835,7 +841,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
         }
 
         $quickblog = array(
-            'html5'     => ($serendipity['wysiwyg'] || $serendipity['version'][0] > '1') ? true : false,
+            'html5'     => ($serendipity['wysiwyg'] || $serendipity['version'][0] > 1) ? true : false,
             'image'     => $http_outfile,
             'fullimage' => $http_infile,
             'body'      => preg_replace('@(<!--quickblog:.+-->)@imsU', '', $body),
@@ -901,6 +907,14 @@ class serendipity_event_imageselectorplus extends serendipity_event
 
                         case 'gallery':
                             $whole_gallery = true;
+                            break;
+
+                        case 'hideafter':
+                            $hideafter = intval($medium['nr']);
+                            break;
+
+                        case 'picperrow':
+                            $picperrow = intval($medium['pr']);
                             break;
 
                         default:
@@ -971,8 +985,15 @@ class serendipity_event_imageselectorplus extends serendipity_event
                             $tfile = dirname(__FILE__) . '/plugin_mediainsert.tpl';
                         }
 
-                        $serendipity['smarty']->assign('plugin_mediainsert_media', $t);
-                        $serendipity['smarty']->assign('plugin_mediainsert_entry', $eventData);
+                        $serendipity['smarty']->assign(
+                                            array(
+                                                'plugin_mediainsert_media' => $t,
+                                                'plugin_mediainsert_entry' => $eventData,
+                                                'plugin_mediainsert_hideafter' => $hideafter,
+                                                'plugin_mediainsert_picperrow' => $picperrow
+                                                )
+                        );
+
                         $content = $this->parseTemplate($tfile);
 
                     } else {

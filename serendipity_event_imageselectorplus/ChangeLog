@@ -1,4 +1,14 @@
+0.42:
+-----
+
+ * Merge new xml structure "picperrow" and "hideafter" by user "nogat"
+     http://board.s9y.org/viewtopic.php?f=4&t=20058, 2014-08-22
+ * add some media gallery css
+ * minors for version switch
+
+
 0.41:
+-----
 
  * removed wrong slash in plugin_mediainsert.tpl fullimage link path
 

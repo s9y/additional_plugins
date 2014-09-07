@@ -1,8 +1,8 @@
 <?php # 
 
 /**
- *  @file UTF-8/lang_de.inc.php 1.4.8 2014-02-28 Ian
- *  @version 1.4.8
+ *  @file UTF-8/lang_de.inc.php 1.4.9 2014-09-03 Ian
+ *  @version 1.4.9
  *  @author Translator Name <yourmail@example.com>
  *  DE-Revision: Revision of UTF-8/lang_de.inc.php
  */
@@ -12,11 +12,11 @@
 @define('PLUGIN_EVENT_CKEDITOR_REVISION_TITLE', '<h3>Das Plugin enthält:</h3>');
 @define('PLUGIN_EVENT_CKEDITOR_INSTALL', '<h2>Installation</h2>
 <div class="msg_notice">
-    <p><span class="icon-attention"></span> <strong>Abhängigkeiten:</strong> Deaktiviere body, extended und nugget parsing im <strong>NL2BR</strong> Plugin, oder per entry über das entryproperty plugin event und/oder für statische Seiten über die Entry "Textformatierungs" Option!</p>
+    <p><span class="icon-attention"></span> <strong>Abhängigkeiten:</strong> Deaktiviere body, extended und nugget parsing global im <strong>NL2BR</strong> Plugin, <strong>oder</strong> per entry über das entryproperties plugin event <strong>und/oder</strong> für statische Seiten über die Entry "Textformatierungs" Option!</p>
 </div>
 <ol style="line-height: 1.6">
     <li>Um anderen Plugins Zugriff auf das Plugin oder dessen Hook zu gewähren, plaziere das (CKEditor) Plugin nahe dem Ende deiner Pluginliste.</li>
-    <li>Versichere dich, dass der WYSIWYG Modus in den "Persönlichen Einstellungen" eingeschaltet ist.</li>
+    <li>Versichere dich, dass der WYSIWYG Modus in den "Eigenen Einstellungen" eingeschaltet ist.</li>
 </ol>
 <div class="cke_config_block msg_dialogue">
     <h3>Manuelle Erweiterungen mit anderen CKEDITOR Plugins</h3>
@@ -44,8 +44,5 @@
 
 @define('PLUGIN_EVENT_CKEDITOR_FORCEINSTALL_OPTION', 'Entpacke Zip Datei (im Notfall)');
 @define('PLUGIN_EVENT_CKEDITOR_FORCEINSTALL_OPTION_BLAHBLAH', 'Nur bei upgrade Fehlern: Entpacke augenblicklich die mitgelieferte ');
-
-@define('PLUGIN_EVENT_CKEDITOR_KCFINDER_OPTION', 'Erlaube KCFINDER Integration?');
-@define('PLUGIN_EVENT_CKEDITOR_KCFINDER_OPTION_BLAHBLAH', 'Nutze dies unabhängige Paket im CKEDITOR [Bild] Widget, um eine nahezu vollständige S9y Medien-Datenbank-Integration in CKEDITOR zu ermöglichen. Das es jedoch Kompatibilitäts Beschränkungen gibt, lese bitte sorgfältig die diesbezüglichen Aussagen unter "http://kcfinder.sunhater.com/" (Compat Section), bevor du die Integration hier erlaubst.');
 
 @define('PLUGIN_EVENT_CKEDITOR_CKEACF_OPTION_BLAHBLAH', 'Dieser CKEDITOR "Housekeeper" Filter erlaubt nur bestimmtes Markup. Normalerweise ist dies gut und sollte als Einstellung erhalten bleiben, da es bereits eingebaute Workarounds für auffälliges Markup, zB. "iframe" Video-Media via den "Embed Media"-Knopf, oder "audio" und "andere Serendipity" tags via "Quellcode"-Anzeige, gibt. Bitte lese dazu auch: "http://docs.ckeditor.com/?_escaped_fragment_=/guide/dev_advanced_content_filter#!/guide/dev_advanced_content_filter".');

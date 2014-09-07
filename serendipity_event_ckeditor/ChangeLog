@@ -1,7 +1,22 @@
+4.4.0:
+-----
+    * Upgrade to CKEDITOR 4.4 Series, update 4 (http://ckeditor.com/release/CKEditor-4.4.4)
+    * Added important global wide image (img) sizing rules to wysiwyg-styles.css.
+    * Completely remove(d) the KCfinder package, due to strong security concerns.
+        This update will remove the package completely from file tree.
+        If that does not happen automatically, please purge the kcfinder directory by hand.
+        This does not touch the previously used MediaLibrary KCfinder /uploads/images directory.
+    * Update pbckcode plugin to v.1.2.3, which among others now fetches ACE via a CDN!
+        See PBCKCODE (PRETTIFY) configuration in cke_config.js.
+        Added a pre wrap modification to the prettify.css file:
+        [ pre.prettyprint{ ...;white-space:pre;overflow:auto;} }
+    * Removed obsolete utf-8/lang_<en> file and touched some lang files.
+    * Added some SpellChecker Notes to custom config js file.
+
 4.3.0:
 -----
     * Upgrade to CKEDITOR 4.4 Series, update 3 (http://ckeditor.com/node/136981)
-    * added important serendipity_imageComment_center class to wysiwyg-styles.css
+    * Added important serendipity_imageComment_center class to wysiwyg-styles.css
 
 4.2.0:
 -----

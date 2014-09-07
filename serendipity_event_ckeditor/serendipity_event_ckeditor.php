@@ -27,7 +27,7 @@ class serendipity_event_ckeditor extends serendipity_event
      * @access public
      * @var string
      */
-    public    $title = PLUGIN_EVENT_CKEDITOR_NAME;
+    public $title = PLUGIN_EVENT_CKEDITOR_NAME;
 
     /**
      * Access property cke_path
@@ -55,28 +55,27 @@ class serendipity_event_ckeditor extends serendipity_event
      * @access protected
      * @var string
      */
-    protected $cke_zipfile = 'ckeditor_4.4.3.0_standard-plus.zip';
+    protected $cke_zipfile = 'ckeditor_4.4.4.0_standard-plus.zip';
 
     /**
      * Access property checkUpdateVersion
      * Verify release package versions - do update on upgrades!
      * @var array
      */
-    protected $checkUpdateVersion = array('ckeditor:4.4.3.0', 'kcfinder:2.52-2');
+    protected $checkUpdateVersion = array('ckeditor:4.4.4.0');
 
     /**
      * Access property revisionPackage
-     * Note revisions of ckeditor, kcfinder and plugin additions to lang files
+     * Note revisions of ckeditor and plugin additions to lang files
      * @var array
      */
-    protected $revisionPackage = array('CKEditor 4.4.3 (revision fd4f17c, standard package, 2014-07-15)',
-                                       'KCFinder 2.52-dev (http://kcfinder.sunhater.com/ git package, 2013-05-04)',
+    protected $revisionPackage = array('CKEditor 4.4.4 (revision 1ba5105, standard package, 2014-08-20)',
                                        'CKEditor-Plugin: mediaembed, v. 0.5+ (https://github.com/frozeman/MediaEmbed, 2013-09-12)',
-                                       'CKEditor-Plugin: pbckcode, v. 1.1.0 (https://github.com/prbaron/PBCKCode, 2013-09-06)',
+                                       'CKEditor-Plugin: pbckcode, v. 1.2.3 (https://github.com/prbaron/PBCKCode, 2014-08-03)',
                                        'CKEditor-Plugin: procurator, v. 1.4 (Serendipity placeholder Plugin, 2014-06-24)',
-                                       'CKEditor-Plugin: cheatsheet, v. 1.0 (Serendipity CKE-Cheatsheet Plugin, 2014-02-09)',
-                                       'CKEditor-CustomConfig, cke_config.js, v. 1.9, 2014-06-24',
-                                       'CKEditor-ExtraPlugins, cke_plugin.js, v. 1.4, 2014-06-24',
+                                       'CKEditor-Plugin: cheatsheet, v. 1.1 (Serendipity CKE-Cheatsheet Plugin, 2014-09-02)',
+                                       'CKEditor-S9yCustomConfig, cke_config.js, v. 2.0, 2014-09-05',
+                                       'CKEditor-S9yCustomPlugins, cke_plugin.js, v. 1.5, 2014-09-04',
                                        'Prettify: JS & CSS files, v. "current", (http://code.google.com/p/google-code-prettify/, 2013-03-04)');
 
 
@@ -119,6 +118,19 @@ class serendipity_event_ckeditor extends serendipity_event
                     // purge removed files for upgraders to ckeditor v. 4.2 only
                     @unlink($this->cke_path . '/ckeditor/build_config.js');
                     @unlink($this->cke_path . '/ckeditor/skins/moono/images/mini.png');
+                    // remove kcfinder
+                    if( is_file(dirname(__FILE__) . '/kcfinder/config.php') ) {
+                        $this->empty_dir(dirname(__FILE__) . '/kcfinder');
+                        @rmdir(dirname(__FILE__) . '/kcfinder');
+                        unset($_COOKIE['KCFINDER_uploadurl']);
+                        unset($_COOKIE['KCFINDER_displaySettings']);
+                        unset($_COOKIE['KCFINDER_showname']);
+                        unset($_COOKIE['KCFINDER_showsize']);
+                        unset($_COOKIE['KCFINDER_showtime']);
+                        unset($_COOKIE['KCFINDER_order']);
+                        unset($_COOKIE['KCFINDER_orderDesc']);
+                        unset($_COOKIE['KCFINDER_view']);
+                    }
                 }
             } else {
                 $this->set_config('installer', '1-'.date('Ymd-H:i:s'));
@@ -128,7 +140,7 @@ class serendipity_event_ckeditor extends serendipity_event
             $this->set_config('installer', '0-'.date('Ymd-H:i:s')); // do it again, Sam
             return false;
         }
-        // make sure the new versions are set to last_ckeditor_version and last_kcfinder_version
+        // make sure the new versions are set to last_ckeditor_version
         $this->updateTableZip();
         return true;
     }
@@ -145,7 +157,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '4.3.0'); // is CKEDITOR Series 4 (hidden) - revision .4.3 - and appended plugin revision .0
+        $propbag->add('version',       '4.4.0'); // is CKEDITOR Series 4 (hidden) - revision .4.4 - and appended plugin revision .0
         $propbag->add('copyright',     'GPL or LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
@@ -163,7 +175,7 @@ class serendipity_event_ckeditor extends serendipity_event
             'backend_wysiwyg'                        => true,
             'backend_wysiwyg_finish'                 => true
         ));
-        $propbag->add('configuration', array('path', 'plugpath', 'codebutton', 'prettify', 'kcfinder', 'acf_off', 'toolbar_break', 'force_install'));
+        $propbag->add('configuration', array('path', 'plugpath', 'codebutton', 'prettify', 'acf_off', 'toolbar_break', 'force_install'));
         $propbag->add('groups', array('BACKEND_EDITOR'));
     }
 
@@ -197,13 +209,6 @@ class serendipity_event_ckeditor extends serendipity_event
                 $propbag->add('type', 'boolean');
                 $propbag->add('name', PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION);
                 $propbag->add('description', PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION_BLAHBLAH);
-                $propbag->add('default', 'false');
-                break;
-
-            case 'kcfinder':
-                $propbag->add('type', 'boolean');
-                $propbag->add('name', PLUGIN_EVENT_CKEDITOR_KCFINDER_OPTION);
-                $propbag->add('description', PLUGIN_EVENT_CKEDITOR_KCFINDER_OPTION_BLAHBLAH);
                 $propbag->add('default', 'false');
                 break;
 
@@ -335,20 +340,6 @@ class serendipity_event_ckeditor extends serendipity_event
         }
     }
 
-    /**
-     * Check and purge KCFinder Error fallback files to avoid errors
-     * @access    private
-     */
-    private function checkFallback() {
-        // kcfinder has a fallback media library mode if not properly loaded, or an other error occurs - get rid of it by default, since it stops image browser executing!
-        // this is only executed once for the finish hook with entryforms - but sadly twice for staticpages forms
-        if( is_file(dirname(__FILE__) . '/kcfinder/.htaccess') ) {
-            @unlink(dirname(__FILE__) . '/kcfinder/.htaccess');
-            $this->empty_dir(dirname(__FILE__) . '/kcfinder/.thumbs');
-            @rmdir(dirname(__FILE__) . '/kcfinder/.thumbs');
-        }
-    }
-
     function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
@@ -359,7 +350,7 @@ class serendipity_event_ckeditor extends serendipity_event
 
                 case 'frontend_footer':
                     // set prettify.css and prettify.js in frontend footer by plugin option (too much overhead to split this into head css and food js!)
-                    if ($this->get_config('prettify')) {
+                    if (serendipity_db_bool($this->get_config('prettify', false))) {
                         $plugingpath = htmlspecialchars($this->get_config('plugpath'));
 ?>
     <link rel="stylesheet" type="text/css" href="<?php echo $plugingpath . 'serendipity_event_ckeditor/prettify.css'; ?>" />
@@ -380,17 +371,7 @@ class serendipity_event_ckeditor extends serendipity_event
                         $relpath = htmlspecialchars($this->get_config('path'));
                         $plgpath = htmlspecialchars($this->get_config('plugpath'));
                         $acf_off = serendipity_db_bool($this->get_config('acf_off')) ? 'true' : 'false'; // need this, to be passed correctly as boolean true/false to custom cke_config.js
-                        $kcfd_on = serendipity_db_bool($this->get_config('kcfinder')) ? 'true' : 'false'; // same here
                         $pbck_on = serendipity_db_bool($this->get_config('codebutton')) ? 'true' : 'false'; // same here for cke_plugins.js
-                        if(!isset($_COOKIE['KCFINDER_uploadurl']) || empty($_COOKIE['KCFINDER_uploadurl'])) {
-                            setcookie('KCFINDER_uploadurl', serialize($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath']), time()+60*60*24*30, $serendipity['serendipityHTTPPath'], $_SERVER['HTTP_HOST'], false);
-                            // Google Chrome browser does not set  cookies for domain "localhost" or other dotless hostnames. $_SERVER['HTTP_HOST'] must be NULL explicitely. Also do not use httponly parameter.
-                            if(!isset($_COOKIE['KCFINDER_uploadurl']) || empty($_COOKIE['KCFINDER_uploadurl'])) {
-                                setcookie('KCFINDER_uploadurl', serialize($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath']), time()+60*60*24*30, $serendipity['serendipityHTTPPath'], NULL, false);
-                                //setcookie($AUTH_COOKIE_NAME, $cookie_value, time() + cookie_expiration(),  $BASE_DIRECTORY,  null,  false,  true);
-                                //this solved, Chrome still has some follow-up errors, not easy to solve. Please do not use Chrome with KCFINDER for domain "localhost" and similar local dotless named servers
-                            }
-                        }
     /* set some global vars */
     /* bind ckeditor */
     /* build specific dynamic plugins and set custom config (cke_config.js) */
@@ -400,11 +381,9 @@ class serendipity_event_ckeditor extends serendipity_event
         CKEDITOR_BASEPATH    = '<?php echo $relpath; ?>';
         CKEDITOR_PLUGPATH    = '<?php echo $plgpath; ?>';
         CKEDITOR_MLIMGPATH   = '<?php echo $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_ckeditor/img/mls9y.png'; ?>';
-        KCFINDER_UPLOADPATH  = '<?php echo $serendipity['serendipityHTTPPath'] . $serendipity['uploadPath'] ?>';
         S9Y_BASEURL          = '<?php echo $serendipity['defaultBaseURL']; ?>';
         CONFIG_ACF_OFF       = <?php echo $acf_off; ?>;
         CONFIG_PBCK_ON       = <?php echo $pbck_on; ?>;
-        CONFIG_KCFD_ON       = <?php echo $kcfd_on; ?>;
         CONFIG_TOOLBAR_BREAK = <?php echo (serendipity_db_bool($this->get_config('toolbar_break'))) ? "'/'" : "''"; ?>;
     </script>
     <script type="text/javascript" src="<?php echo $serendipity['serendipityHTTPPath'] . $relpath; ?>ckeditor.js"></script>
@@ -496,9 +475,6 @@ class serendipity_event_ckeditor extends serendipity_event
 <?php 
                         }
                     } // end isset $eventData['item']
-
-                    $this->checkFallback();
-
                     return true;
                     break;
 

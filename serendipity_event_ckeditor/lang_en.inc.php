@@ -1,8 +1,8 @@
 <?php # 
 
 /**
- *  @file lang_en.inc.php 1.4.8 2014-02-28 Ian
- *  @version 1.4.8
+ *  @file lang_en.inc.php 1.4.9 2014-09-03 Ian
+ *  @version 1.4.9
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */
@@ -12,7 +12,7 @@
 @define('PLUGIN_EVENT_CKEDITOR_REVISION_TITLE', '<h3>This Plugin includes:</h3>');
 @define('PLUGIN_EVENT_CKEDITOR_INSTALL', '<h2>Installation</h2>
 <div class="msg_notice">
-    <p><span class="icon-attention"></span> <strong>Dependencies:</strong> Disable body, extended and nugget parsing in the <strong>NL2BR</strong> plugin, OR by entry with entryproperties plugin event and/or for staticpages by entry "Perform Markup Transformations" option!</p>
+    <p><span class="icon-attention"></span> <strong>Dependencies:</strong> Disable global body, extended and nugget parsing in the <strong>NL2BR</strong> plugin, <strong>OR</strong> by entry with entryproperties plugin event <strong>and/or</strong> for staticpages by entry "Perform Markup Transformations" option!</p>
 </div>
 <ol style="line-height: 1.6">
     <li>To allow other plugins to use or hook into the editor, place this (CKEditor) plugin near the end of your plugin list.</li>
@@ -44,8 +44,5 @@
 
 @define('PLUGIN_EVENT_CKEDITOR_FORCEINSTALL_OPTION', 'Force install process (in emergencies)');
 @define('PLUGIN_EVENT_CKEDITOR_FORCEINSTALL_OPTION_BLAHBLAH', 'Only on upgrade failures: Force the immediate zip deflation of ');
-
-@define('PLUGIN_EVENT_CKEDITOR_KCFINDER_OPTION', 'Allow KCFINDER integration?');
-@define('PLUGIN_EVENT_CKEDITOR_KCFINDER_OPTION_BLAHBLAH', 'Use independent package S9y MediaLibrary integration (wellnigh) in CKEDITORs [image] widget. Since there are compatibility constraints, please read about them carefully under "http://kcfinder.sunhater.com/" (Compat Section), before you enable its use here.');
 
 @define('PLUGIN_EVENT_CKEDITOR_CKEACF_OPTION_BLAHBLAH', 'The CKEDITOR built-in "Housekeeper" filter restricts custom html markup to follow its rules! Normally this is good and you will want to keep it working in the backyard and use the already built-in workarounds for certain markup, like "iframe"d media via the "Embed Media"-button, or "audio" and "other Serendipity" tags via the "Sourcecode-view"-mode. Please also read: "http://docs.ckeditor.com/?_escaped_fragment_=/guide/dev_advanced_content_filter#!/guide/dev_advanced_content_filter".');

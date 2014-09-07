@@ -3,7 +3,7 @@
  */
 
 /**
- * @fileOverview A Serendipity serendipity_event_ckeditor CKEDITOR custom config file: cke_config.js, v. 1.9, 2014-06-24
+ * @fileOverview A Serendipity serendipity_event_ckeditor CKEDITOR custom config file: cke_config.js, v. 2.0, 2014-09-05
  */
 
 /**
@@ -11,28 +11,18 @@
  */
 CKEDITOR.editorConfig = function( config ) {
 
-    // KCFinder integration
-    if (CONFIG_KCFD_ON === true) {
-        config.filebrowserBrowseUrl      = CKEDITOR_BASEPATH +'../kcfinder/browse.php?type=files';
-        config.filebrowserImageBrowseUrl = CKEDITOR_BASEPATH +'../kcfinder/browse.php?type=images';
-        config.filebrowserFlashBrowseUrl = CKEDITOR_BASEPATH +'../kcfinder/browse.php?type=flash';
-        config.filebrowserUploadUrl      = CKEDITOR_BASEPATH +'../kcfinder/upload.php?type=files';
-        config.filebrowserImageUploadUrl = CKEDITOR_BASEPATH +'../kcfinder/upload.php?type=images';
-        config.filebrowserFlashUploadUrl = CKEDITOR_BASEPATH +'../kcfinder/upload.php?type=flash';
-    }
-
     // Advanced Content Filter works in two modes:
-    //      automatic – the filter is configured by editor features (like plugins, buttons, and commands) that are enabled with configuration options
+    //      automatic - the filter is configured by editor features (like plugins, buttons, and commands) that are enabled with configuration options
     //                  such as CKEDITOR.config.plugins, CKEDITOR.config.extraPlugins, and CKEDITOR.config.toolbar,
-    //      custom    – the filter is configured by the CKEDITOR.config.allowedContent option and only features that match this setting are activated.
+    //      custom    - the filter is configured by the CKEDITOR.config.allowedContent option and only features that match this setting are activated.
     // In both modes it is possible to extend the filter configuration by using the CKEDITOR.config.extraAllowedContent setting.
     // If you want to disable Advanced Content Filter, set CKEDITOR.config.allowedContent to true.
     // All available editor features will be activated and input data will not be filtered.
     // Allowed content rules. This setting is used when instantiating CKEDITOR.editor.filter.
     // The following values are accepted:
-    //      CKEDITOR.filter.allowedContentRules – defined rules will be added to the CKEDITOR.editor.filter.
-    //      true – will disable the filter (data will not be filtered, all features will be activated).
-    //      default – the filter will be configured by loaded features (toolbar items, commands, etc.).
+    //      CKEDITOR.filter.allowedContentRules - defined rules will be added to the CKEDITOR.editor.filter.
+    //      true - will disable the filter (data will not be filtered, all features will be activated).
+    //      default - the filter will be configured by loaded features (toolbar items, commands, etc.).
     // In all cases filter configuration may be extended by extraAllowedContent. This option may be especially useful,
     // when you want to use the default allowedContent value along with some additional rules.
     //
@@ -124,6 +114,32 @@ CKEDITOR.editorConfig = function( config ) {
     config['skin'] = 'moono';
     config['height'] = 400;
 
+    // PBCKCODE CUSTOMIZATION - see available options at
+    // http://pierrebaron.fr/pbckcode/docs/
+    config.pbckcode = {
+        // An optional class to your pre tag.
+        cls : '',
+ 
+        // The syntax highlighter you will use in the output view
+        highlighter : 'PRETTIFY',
+ 
+        // An array of the available modes for you plugin.
+        // The key corresponds to the string shown in the select tag.
+        // The value correspond to the loaded file for ACE Editor.
+        //modes : [ ['HTML', 'html'], ['CSS', 'css'], ['PHP', 'php'], ['JS', 'javascript'] ],
+        modes : [ ['C/C++', 'c_pp'], ['CSS', 'css'], ['HTML', 'html'], ['JS', 'javascript'], ['PHP', 'php'], ['SH', 'sh'], ['SQL', 'sql'] ],
+ 
+        // The theme of the ACE Editor of the plugin.
+        theme : 'textmate',
+ 
+        // Tab indentation (in spaces)
+        tab_size : '4',
+
+        // the root path of ACE Editor. Useful if you want to use the plugin
+        // without any Internet connection
+        js : "http://cdn.jsdelivr.net//ace/1.1.4/noconflict/"
+    };
+
     // Allow certain font sizes, eg.
     //config.fontSize_sizes = '8/8px;9/9px;10/10px;11/11px;12/12px;14/14px;15/15px;16/16px;18/18px;20/20px;22/22px;24/24px;26/26px;28/28px;36/36px;48/48px;72/72px' ;
     // Allow one(!) default font label, eg.
@@ -133,6 +149,14 @@ CKEDITOR.editorConfig = function( config ) {
     //    'Arial/Arial, Helvetica, sans-serif;' +
     //    'Times New Roman/Times New Roman, Times, serif;' +
     //    'Verdana';
+
+    // Native spell check functionality is by default disabled in the editor, use this to enable it.
+    // Do not wonder if not working on demand, since Browsers need to match spell checker settings, etc., you need to hit the correct place/word, and so on.
+    //config.disableNativeSpellChecker = false;
+    // [CRTL + right mouse click] gives access to Browsers contextmenu, else you need to disable and set these
+    // The general idea is that you would need to remove all plugins that depend on the "contextmenu" one for removing the "contextmenu" one itself to work. But this has other sideeffects!
+    //config.removePlugins = 'wsc,scayt,menubutton,liststyle,tabletools,contextmenu';
+    //config.browserContextMenuOnCtrl = true;
 
     // Add custom Serendipity styles to ckeditor wysiwyg-mode, to repect S9y css image floats
     config.contentsCss = CKEDITOR_PLUGPATH + 'serendipity_event_ckeditor/wysiwyg-style.css';

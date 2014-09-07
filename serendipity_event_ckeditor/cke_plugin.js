@@ -3,7 +3,7 @@
  */
 
 /**
- * @fileOverview A Serendipity serendipity_event_ckeditor custom CKEDITOR additional plugin creator file: cke_plugin.js, v. 1.4, 2014-06-24
+ * @fileOverview A Serendipity serendipity_event_ckeditor custom CKEDITOR additional plugin creator file: cke_plugin.js, v. 1.5, 2014-09-04
  */
 
 /*
@@ -85,7 +85,7 @@ function Spawnnuggets(item, addEP, jsED) {
             // Set the startup mode view [OK]
             // startupMode: 'source',
 
-            // listen on load - do I need this still? YES!!!
+            // listen on load - for mediainsert imageselectorplus plugin galleries
             on: {
                 loaded: function( evt ) {
                     var editor = evt.editor,
@@ -159,6 +159,7 @@ function Spawnnuggets(item, addEP, jsED) {
                         editor.ui.addButton(jsEventData[i].id, {
                             label:    jsEventData[i].name,
                             title:    jsEventData[i].name+' Plugin',
+                            //icon:     CKEDITOR_PLUGPATH+jsEventData[i].img_path,
                             icon:     jsEventData[i].img_url,
                             iconName: jsEventData[i].id+'_icon',
                             command:  jsEventData[i].id

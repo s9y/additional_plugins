@@ -1,6 +1,14 @@
 /**
- * Adds custom Serendipity image float styles to CKEDITOR wysiwyg-mode
+ * Adds custom Serendipity image float styles to CKEDITOR plugin wysiwyg-mode v.1.1 on 2014-09-02
  */
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+img,
+audio, video,
+embed, object { max-width: 100% !important; }
+
+img, video { height: auto; }
 
 .serendipity_image_left,
 .serendipity_image_right,

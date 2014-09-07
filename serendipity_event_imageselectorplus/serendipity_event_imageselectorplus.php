@@ -356,7 +356,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
 
                 <div class="quickblog_textarea_field">
                     <label for="nuggets2"><?php echo ENTRY_BODY; ?></label>
-                    <textarea id="nuggets2" class="quickblog_nugget" data-tarea="nuggets2" data-tarea-tbar="min" name="serendipity[quickblog][body]" rows="10" cols="80"></textarea>
+                    <textarea id="nuggets2" class="quickblog_nugget" data-tarea="nuggets2" name="serendipity[quickblog][body]" rows="10" cols="80"></textarea>
 <?php
                 if ($serendipity['wysiwyg']) {
                     $plugins = serendipity_plugin_api::enum_plugins('*', false, 'serendipity_event_nl2br');
@@ -379,7 +379,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
 <?php
                 }
 ?>
-                    </div>
+                </div>
 
                 <div class="quickblog_form_field">
                     <label for="quickblog_select"><?php echo CATEGORY; ?></label>

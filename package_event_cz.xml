@@ -4660,15 +4660,12 @@
 <description>Rozšiřuje možnosti vkládání obrázků z knihovny médií - quickblog a hromadné vkládání obrázků (více v dokumentaci v adresáři plugins/serendipity_evnets_imageselectorplus) [verze Serendipity &gt;= 0.9].</description>
 <maintainers><maintainer><name>Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.41</version>
+  <version>0.42</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2014-07-25</date>
+  <date>2014-09-08</date>
   <filelist>
 <dir name="serendipity_event_imageselectorplus">
 <dir name="UTF-8">
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
-<file>documentation_en.html</file>
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
@@ -4689,13 +4686,11 @@
 <file>quickblog.tpl</file>
 <file>serendipity_event_imageselectorplus.php</file>
 <file>.htaccess</file>
+<file>documentation_de.html</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
-    <file>serendipity_event_imageselectorplus/UTF-8/documentation_cs.html</file>
-    <file>serendipity_event_imageselectorplus/UTF-8/documentation_cz.html</file>
-    <file>serendipity_event_imageselectorplus/UTF-8/documentation_en.html</file>
     <file>serendipity_event_imageselectorplus/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_event_imageselectorplus/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_imageselectorplus/UTF-8/lang_cz.inc.php</file>
@@ -4715,6 +4710,7 @@
     <file>serendipity_event_imageselectorplus/quickblog.tpl</file>
     <file>serendipity_event_imageselectorplus/serendipity_event_imageselectorplus.php</file>
     <file>serendipity_event_imageselectorplus/.htaccess</file>
+    <file>serendipity_event_imageselectorplus/documentation_de.html</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -10783,14 +10779,13 @@ aplikovány další typografické úpravy.</description>
 <description>Používá CKEditor jako výchozí WYSIWYG editor. Tento editor je aktuálním state-of-art. Použití: Doporučeno! Po instalaci přejděte na stránku s nastavením tohoto pluginu a čtěte další instrukce.</description>
 <maintainers><maintainer><name>Rustam Abdullaev, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>4.3.0</version>
+  <version>4.4.0</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2014-07-16</date>
+  <date>2014-09-08</date>
   <filelist>
 <dir name="serendipity_event_ckeditor">
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
-<file>lang_en.inc.php</file>
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
 <file>lang_cs.inc.php</file>
@@ -10814,13 +10809,12 @@ aplikovány další typografické úpravy.</description>
 <file>prettify.js</file>
 <file>cke_backend.css</file>
 <file>cke_olds9y.css</file>
-<file>ckeditor_4.4.3.0_standard-plus.zip</file>
+<file>ckeditor_4.4.4.0_standard-plus.zip</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_ckeditor/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_event_ckeditor/UTF-8/lang_en.inc.php</file>
     <file>serendipity_event_ckeditor/UTF-8/documentation_cs.html</file>
     <file>serendipity_event_ckeditor/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_ckeditor/UTF-8/lang_cs.inc.php</file>
@@ -10841,7 +10835,7 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_ckeditor/prettify.js</file>
     <file>serendipity_event_ckeditor/cke_backend.css</file>
     <file>serendipity_event_ckeditor/cke_olds9y.css</file>
-    <file>serendipity_event_ckeditor/ckeditor_4.4.3.0_standard-plus.zip</file>
+    <file>serendipity_event_ckeditor/ckeditor_4.4.4.0_standard-plus.zip</file>
   </serendipityFilelist>
 </release>
 </package>

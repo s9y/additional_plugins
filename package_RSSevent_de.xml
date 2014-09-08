@@ -576,12 +576,12 @@
 <guid isPermaLink="false">serendipity_event_wordwrap</guid>
 </item>
 <item>
-<title>Erweiterte Optionen für Bildauswahl: Ermöglicht erweiterte Optionen beim Einfügen von Bildern aus der Mediendatenbank. [Serendipity &gt;= 0.9]</title>
+<title>Erweiterte Optionen für Bildauswahl: Ermöglicht erweiterte Optionen beim Einfügen von Bildern aus der Mediendatenbank.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_imageselectorplus</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_imageselectorplus&lt;br /&gt;Erweiterte Optionen für Bildauswahl&lt;/b&gt;&lt;br /&gt;Ermöglicht erweiterte Optionen beim Einfügen von Bildern aus der Mediendatenbank. [Serendipity &gt;= 0.9]&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Fri, 25 Jul 2014 02:31:18 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_imageselectorplus&lt;br /&gt;Erweiterte Optionen für Bildauswahl&lt;/b&gt;&lt;br /&gt;Ermöglicht erweiterte Optionen beim Einfügen von Bildern aus der Mediendatenbank.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
+<pubDate>Mon, 08 Sep 2014 02:31:26 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_imageselectorplus</guid>
 </item>
 <item>
@@ -1357,7 +1357,7 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <category>Event Plugins</category>
 <author>Rustam Abdullaev, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_ckeditor&lt;br /&gt;CKEditor&lt;/b&gt;&lt;br /&gt;Nutzt CKEditor als den Standard WYSIWYG Editor. Dieser ist zur Zeit der state-of-the-art Editor im Internet. Benutzung: Empfohlen! Nach der Installation, lies die Plugin Konfigurations Seite für weitere Informationen.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
-<pubDate>Wed, 16 Jul 2014 02:31:15 +0200</pubDate>
+<pubDate>Mon, 08 Sep 2014 02:31:21 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_ckeditor</guid>
 </item>
 <item>

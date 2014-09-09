@@ -20,8 +20,8 @@ class serendipity_event_google_analytics extends serendipity_event {
 		$propbag->add ('name', PLUGIN_EVENT_GOOGLE_ANALYTICS_NAME);
 		$propbag->add ('description', PLUGIN_EVENT_GOOGLE_ANALYTICS_DESC);
 		$propbag->add ('stackable', false);
-		$propbag->add ('author', '<a href="http://blog.kleinerChemiker.net/" target="_blank">kleinerChemiker</a>');
-		$propbag->add ('version', '1.3.0');
+		$propbag->add ('author', '<a href="https://github.com/kleinerChemiker" target="_blank">kleinerChemiker</a>');
+		$propbag->add ('version', '1.4.0');
 		$propbag->add ('requirements', array ('serendipity' => '0.8', 'smarty' => '2.6.7', 'php' => '4.1.0' ));
 		$propbag->add ('groups', array ('STATISTICS' ));
 		$propbag->add ('cachable_events', array ('frontend_display' => true ));
@@ -38,6 +38,7 @@ class serendipity_event_google_analytics extends serendipity_event {
 		$conf_array[] = 'analytics_download_extensions';
 		$conf_array[] = 'analytics_internal_hosts';
 		$conf_array[] = 'analytics_exclude_groups';
+		$conf_array[] = 'analytics_enh_link_attr';
 		
 		foreach ( $this->markup_elements as $element ) {
 			$conf_array[] = $element['name'];
@@ -89,6 +90,12 @@ class serendipity_event_google_analytics extends serendipity_event {
 				$propbag->add ('name', PLUGIN_EVENT_GOOGLE_ANALYTICS_DOWNLOAD_EXTENSIONS);
 				$propbag->add ('description', PLUGIN_EVENT_GOOGLE_ANALYTICS_DOWNLOAD_EXTENSIONS_DESC);
 				$propbag->add ('default', 'zip,rar');
+				break;
+			case 'analytics_enh_link_attr' :
+				$propbag->add ('type', 'boolean');
+				$propbag->add ('name', PLUGIN_EVENT_GOOGLE_ANALYTICS_ENH_LINK_ATTR);
+				$propbag->add ('description', PLUGIN_EVENT_GOOGLE_ANALYTICS_ENH_LINK_ATTR_DESC);
+				$propbag->add ('default', 'false');
 				break;
 			case 'analytics_exclude_groups' :
 				$_groups = & serendipity_getAllGroups ();
@@ -194,6 +201,7 @@ class serendipity_event_google_analytics extends serendipity_event {
 		static $analytics_track_adsense = null;
 		static $analytics_track_external = null;
 		static $analytics_track_downloads = null;
+		static $analytics_enh_link_attr = null;
 		static $analytics_exclude_groups = null;
 		static $usergroup = false;
 		$hooks = &$bag->get ('event_hooks');
@@ -214,6 +222,10 @@ class serendipity_event_google_analytics extends serendipity_event {
 			$analytics_track_external = serendipity_db_bool ($this->get_config ('analytics_track_external', true));
 		}
 		
+		if ($analytics_enh_link_attr === null) {
+			$analytics_enh_link_attr = serendipity_db_bool ($this->get_config ('analytics_enh_link_attr', false));
+		}
+		
 		if ($analytics_exclude_groups === null) {
 			$analytics_exclude_groups = explode ("^", $this->get_config ('analytics_exclude_groups', true));
 			if (!empty ($analytics_exclude_groups)) {
@@ -232,14 +244,15 @@ class serendipity_event_google_analytics extends serendipity_event {
 		if (isset ($hooks[$event])) {
 			switch ($event) {
 				case 'frontend_header' :
+					$analytics_enh_link_attr ? $analytics_enh_link_attr_code = "var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js'; _gaq.push(['_require', 'inpage_linkid', pluginUrl]);" : $analytics_enh_link_attr_code = '';
 					$analytics_anonymizeIp ? $analytics_anonymizeIp_code = "_gaq.push(['_gat._anonymizeIp']);\r  " : $analytics_anonymizeIp_code = '';
 					$analytics_track_adsense ? $analytics_track_adsense_code = "\r<script type=\"text/javascript\">\rwindow.google_analytics_uacct = \"UA-" . $this->get_config ('analytics_account_number') . "\";\r</script>\r" : $analytics_track_adsense_code = '';
 					if ($serendipity['authorid'] === null || !$this->in_array_loop ($usergroup, $analytics_exclude_groups)) {
 						echo $analytics_track_adsense_code;
 						echo '
 <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push([\'_setAccount\', \'UA-' . $this->get_config ('analytics_account_number') . '\']);
+  var _gaq = _gaq || [];' . $analytics_enh_link_attr_code .
+  '_gaq.push([\'_setAccount\', \'UA-' . $this->get_config ('analytics_account_number') . '\']);
   ' . $analytics_anonymizeIp_code . '_gaq.push([\'_trackPageview\']);
 
   (function() {

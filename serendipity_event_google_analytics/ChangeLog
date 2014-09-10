@@ -1,4 +1,10 @@
+1.4.0 (fishnix):
+-----
+# add enhanced link attribution option
+# changed link to kleinerChemiker's github since the blog seems gone
+
 1.3.0:
+-----
 # added tracking for Google AdSense
 # memo for myself: correct version number scheme: major release number -> plugin rewrite, minor release number -> new feature, patch level -> bug fix
 

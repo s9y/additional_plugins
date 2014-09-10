@@ -18,3 +18,5 @@
 @define('PLUGIN_EVENT_GOOGLE_ANALYTICS_INTERNAL_HOSTS_DESC', 'One host per line (www.example.net).');
 @define('PLUGIN_EVENT_GOOGLE_ANALYTICS_EXCLUDE_GROUPS', 'Which usergroups should not be tracked?');
 @define('PLUGIN_EVENT_GOOGLE_ANALYTICS_EXCLUDE_GROUPS_DESC', 'Select group(s) from list.');
+@define('PLUGIN_EVENT_GOOGLE_ANALYTICS_ENH_LINK_ATTR', 'Enhanced link attribution?');
+@define('PLUGIN_EVENT_GOOGLE_ANALYTICS_ENH_LINK_ATTR_DESC', 'https://support.google.com/analytics/answer/2558867?hl=en&utm_id=ad');

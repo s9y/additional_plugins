@@ -26,7 +26,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_IMAGESELECTORPLUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian');
-        $propbag->add('version',       '0.42');
+        $propbag->add('version',       '0.43');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -525,7 +525,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                         $serendipity['thumbSuffix'] = $oldSuffix;
                     }
 
-                    //Non-image object link generation
+                    // Non-image object link generation
                     if ($serendipity['POST']['quickblog']['isobject'] == YES) {
                         $objfile     = serendipity_parseFileName($file);
                         $filename    = $objfile[0];
@@ -543,14 +543,14 @@ class serendipity_event_imageselectorplus extends serendipity_event
                         }
                     }
 
-                    //New draft post
+                    // New draft post
                     $entry             = array();
                     $entry['isdraft']  = 'false';
                     $entry['title']    = htmlspecialchars($serendipity['POST']['quickblog']['title']);
                     if (isset($objpath) && !empty($objpath)) {
-                        $entry['body'] = '<a href="' . $objpath . '"><img alt="" class="serendipity_image_left serendipity_quickblog_image" src="' . $objpreview . '">' . $filename . '</a> (-'.$obj_mime.'-)<p>' . htmlspecialchars($serendipity['POST']['quickblog']['body']) . '</p>';
+                        $entry['body'] = '<a href="' . $objpath . '"><img alt="" class="serendipity_image_left serendipity_quickblog_image" src="' . $objpreview . '">' . $filename . '</a> (-'.$obj_mime.'-)<p>' . ($serendipity['wysiwyg'] ? $serendipity['POST']['quickblog']['body'] : htmlspecialchars($serendipity['POST']['quickblog']['body']) . '</p>';
                     } else {
-                        $entry['body'] = '<!--quickblog:' . htmlspecialchars($serendipity['POST']['quickblog']['target']) . '|' . $eventData .  '-->' . htmlspecialchars($serendipity['POST']['quickblog']['body']);
+                        $entry['body'] = '<!--quickblog:' . htmlspecialchars($serendipity['POST']['quickblog']['target']) . '|' . $eventData .  '-->' . ($serendipity['wysiwyg'] ? $serendipity['POST']['quickblog']['body'] : htmlspecialchars($serendipity['POST']['quickblog']['body']));
                     }
                     $entry['authorid'] = $serendipity['authorid'];
                     $entry['exflag']   = false;

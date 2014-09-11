@@ -548,7 +548,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     $entry['isdraft']  = 'false';
                     $entry['title']    = htmlspecialchars($serendipity['POST']['quickblog']['title']);
                     if (isset($objpath) && !empty($objpath)) {
-                        $entry['body'] = '<a href="' . $objpath . '"><img alt="" class="serendipity_image_left serendipity_quickblog_image" src="' . $objpreview . '">' . $filename . '</a> (-'.$obj_mime.'-)<p>' . ($serendipity['wysiwyg'] ? $serendipity['POST']['quickblog']['body'] : htmlspecialchars($serendipity['POST']['quickblog']['body']) . '</p>';
+                        $entry['body'] = '<a href="' . $objpath . '"><img alt="" class="serendipity_image_left serendipity_quickblog_image" src="' . $objpreview . '">' . $filename . '</a> (-'.$obj_mime.'-)<p>' . ($serendipity['wysiwyg'] ? $serendipity['POST']['quickblog']['body'] : htmlspecialchars($serendipity['POST']['quickblog']['body'])) . '</p>';
                     } else {
                         $entry['body'] = '<!--quickblog:' . htmlspecialchars($serendipity['POST']['quickblog']['target']) . '|' . $eventData .  '-->' . ($serendipity['wysiwyg'] ? $serendipity['POST']['quickblog']['body'] : htmlspecialchars($serendipity['POST']['quickblog']['body']));
                     }

@@ -1,6 +1,6 @@
-0.43:
+0.43/44:
 -----
- * disable htmlspecialchars with wysiwyg textarea form
+ * re-add enable markup in textarea form
 
 
 0.42:

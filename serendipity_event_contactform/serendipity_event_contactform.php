@@ -343,7 +343,8 @@ class serendipity_event_contactform extends serendipity_event {
                 htmlspecialchars(strip_tags($serendipity['POST']['name'])),
                 htmlspecialchars(strip_tags($serendipity['POST']['email'])),
                 htmlspecialchars(strip_tags($serendipity['POST']['url'])),
-                htmlspecialchars(strip_tags($comment,true)))) {
+                htmlspecialchars(strip_tags($comment)),
+                true)) {
 
             $serendipity['smarty']->assign('is_contactform_sent', true);
             return true;

@@ -9,6 +9,7 @@ fix XSS security vulnerability (Thanks to Stefan Schurtz!)
 latest: Smarty3 forward compatibility
 
 1.14:
+-----
 
 Added check to circument adduser plugin's "registered only" option.
 

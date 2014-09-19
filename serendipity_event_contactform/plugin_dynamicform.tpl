@@ -10,41 +10,41 @@
 {/if}
 
 <div>
-	{$plugin_contactform_preface}
+    {$plugin_contactform_preface}
 </div>
 <br /><br />
 
 {if $is_contactform_sent}
 <div class="serendipity_center serendipity_msg_notice">
-	{$plugin_contactform_sent}
+    {$plugin_contactform_sent}
 </div>
 {else}
 
-	{if $is_contactform_error}
+{if $is_contactform_error}
 <div class="serendipity_center serendipity_msg_important">
-	{$plugin_contactform_error}
+    {$plugin_contactform_error}
 </div>
 <br /><br />
 
-        <!-- Needed for Captchas -->
-        {foreach from=$comments_messagestack item="message"}
+<!-- Needed for Captchas -->
+{foreach from=$comments_messagestack item="message"}
 <div class="serendipity_center serendipity_msg_important">{$message}</div>
-        {/foreach}
-	{/if}
+{/foreach}
+{/if}
 
-        <!-- This whole commentform style, including field names is needed for Captchas. The spamblock plugin relies on the field names [name], [email], [url], [comment]! -->
+<!-- This whole commentform style, including field names is needed for Captchas. The spamblock plugin relies on the field names [name], [email], [url], [comment]! -->
 <div class="serendipityCommentForm">
     <a id="serendipity_CommentForm"></a>
     <form id="serendipity_comment" action="{$commentform_action}#feedback" method="post">
     <div>
-    	<input type="hidden" name="serendipity[subpage]" value="{$commentform_sname}" />
-		<input type="hidden" name="serendipity[commentform]" value="true" />
+        <input type="hidden" name="serendipity[subpage]" value="{$commentform_sname}" />
+        <input type="hidden" name="serendipity[commentform]" value="true" />
          {foreach name="field" from=$commentform_dynamicfields item="field"}
             {if $field.type == "hidden"}
                 <input type="hidden" name="serendipity[{$field.id}]" value="{$field.default}" />
             {/if}
          {/foreach}
-	</div>
+    </div>
     <table border="0" width="100%" cellpadding="3">
        {foreach name="field" from=$commentform_dynamicfields item="field"}
           {if $field.type != "hidden"}

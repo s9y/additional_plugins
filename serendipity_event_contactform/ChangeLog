@@ -1,6 +1,15 @@
+1.16:
+-----
+
+fix XSS security vulnerability (Thanks to Stefan Schurtz!)
+
+1.15:
+-----
+
 latest: Smarty3 forward compatibility
 
 1.14:
+
 Added check to circument adduser plugin's "registered only" option.
 
 1.13:
@@ -18,4 +27,4 @@ Fix XHTML validity of checked="checked"
 1.10:
 -----
 
-Introcuce new "issue counter".
+Introdcuce new "issue counter".

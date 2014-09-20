@@ -2,6 +2,9 @@
 -----
 
  * Added description for max-width and max-height option setting
+ * Fix old bug with image resize thumb creation on both max-options = n
+   Part 2 of this bug was introduced in S9y 2.0 development for ImageMagick
+   escapeshellcmd method.
 
 
 0.43/44:

@@ -212,8 +212,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                 }
                 $newsizes  = array('width' => $_newsizes[0], 'height' => $_newsizes[1]);
             } else {
-                $newsizes = $sizes;
-                array(
+                $newsizes = array(
                     0 => $sizes['width'],
                     1 => $sizes['height']
                 );
@@ -227,7 +226,10 @@ class serendipity_event_imageselectorplus extends serendipity_event
             } elseif ($sizes['height'] == 0) {
                 $_newsizes = serendipity_calculate_aspect_size($fdim[0], $fdim[1], $sizes['width'], 'width');
             } else {
-                $_newsizes = $sizes;
+                $_newsizes = array(
+                    0 => $sizes['width'],
+                    1 => $sizes['height']
+                );
             }
             $newsizes  = array('width' => $_newsizes[0], 'height' => $_newsizes[1]);
         }

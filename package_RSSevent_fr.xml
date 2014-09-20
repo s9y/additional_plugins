@@ -464,7 +464,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_contactform&lt;br /&gt;Formulaire de contact&lt;/b&gt;&lt;br /&gt;Ajoute une page contact statique à votre blog. On peut y accéder par le rétrolien ou par index.php?serendipity[subpage]=contactform. Vous pouvez modifier l'aspect de la page contact en copiant plugin_contactform.tpl dans votre répertoire de template et en l'y modifiant. Les captchas contre le spam seront appliqués si le plugin est installé.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:40 +0200</pubDate>
+<pubDate>Sat, 20 Sep 2014 02:31:19 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_contactform</guid>
 </item>
 <item>

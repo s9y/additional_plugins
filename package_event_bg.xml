@@ -3708,9 +3708,9 @@
 <description>Показва форма за изпращане на e-mail в блога като статична страница. Тя може да бъде достигната или чрез постоянна връзка, указана тук при конфигурирането на приставката или чрез 'index.php?serendipity[subpage]=contactform'. Можете да промените външния вид на формата като поставите файл 'plugin_contactform.tpl' в директорията на вашата тема и я модифицирате там. Captchas от приставка Spamblock (ако са позволени) ще бъдат приложени.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.15</version>
+  <version>1.16</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-09-20</date>
   <filelist>
 <dir name="serendipity_event_contactform">
 <file>serendipity_event_contactform.php</file>
@@ -3728,8 +3728,6 @@
 <file>lang_nl.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>lang_it.inc.php</file>
 <file>lang_en.inc.php</file>
@@ -3762,8 +3760,6 @@
     <file>serendipity_event_contactform/UTF-8/lang_nl.inc.php</file>
     <file>serendipity_event_contactform/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_contactform/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_contactform/UTF-8/documentation_cs.html</file>
-    <file>serendipity_event_contactform/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_contactform/lang_it.inc.php</file>
     <file>serendipity_event_contactform/lang_en.inc.php</file>
     <file>serendipity_event_contactform/lang_bg.inc.php</file>

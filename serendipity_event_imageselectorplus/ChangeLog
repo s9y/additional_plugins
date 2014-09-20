@@ -1,3 +1,9 @@
+0.45:
+-----
+
+ * Added description for max-width and max-height option setting
+
+
 0.43/44:
 -----
  * re-add enable markup in textarea form

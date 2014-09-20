@@ -4,7 +4,7 @@
  *  @version
  *  @author Translator Name <yourmail@example.com>
  *  DE-Revision: Revision of UTF-8/lang_de.inc.php
- *  Revised by "nogat" 2014/08/22
+ *  Revised by
  */
 
 @define('PLUGIN_EVENT_IMAGESELECTORPLUS_NAME', 'Erweiterte Optionen für Bildauswahl');
@@ -34,3 +34,4 @@
 @define('PLUGIN_EVENT_IMAGESELECTORPLUS_IMAGE_SIZE_DESC', 'Wenn Sie die voreingestellte $serendipity[\'thumbSize\'] Größe hier ändern, wird ein zusätzliches Bild in der genannten Größe in der Mediendatenbank erstellt. Dies Image Instanz wird dann im Frontend als Bildvorschau mit entsprechendem Link zum Original Bild in ihrem Blogeintrag benutzt.');
 @define('PLUGIN_EVENT_IMAGESELECTORPLUS_ASOBJECT', 'Objekt-Type ist kein Bild?');
 
+@define('PLUGIN_EVENT_IMAGESELECTORPLUS_THUMBRESIZE_DESC', 'Die Default Einstellung für beide MAX Felder ist 0 und wird als fallback für die normale Thumbnailgenerierung benutzt! Setzt man hier andere Werte, wird die $serendipity[\'thumbSize\'] Einstellung, die in der globalen Blog Einstellung, in "Konfiguration" - "Bildkonvertierung", definiert wird, überschrieben! Will man wirklich quadratische Thumbs, so kann man sie hier für die Breite und Höhe setzen. Dies wird aber die Seitenverhältnisse des Bildes ändern, so dass es zu verschobenen Ansichten kommen kann. Möchte man wirklich nur die Thumb Größe beeinflussen, sollte man entweder die globale "Bildkonvertierung" benutzen, oder, je nach gewünschter Gewichtung nach landscape/portrait Verhältnissen, nur eine dieser beiden Max-Einstellungen verändern.');

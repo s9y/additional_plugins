@@ -1,10 +1,10 @@
-<?php # 
+<?php
 
 /**
  *  @version
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of lang_en.inc.php
- *  Revised by Vladimir Ajgl <vlada@ajgl.cz> 2007/11/25
+ *  Revised by
  */
 
 @define('PLUGIN_EVENT_IMAGESELECTORPLUS_NAME', 'Extended options for media manager');
@@ -34,3 +34,4 @@
 @define('PLUGIN_EVENT_IMAGESELECTORPLUS_IMAGE_SIZE_DESC', 'Changing this default $serendipity[\'thumbSize\'] to another value, will add an additional and resized copy of that image to the MediaLibrary. This instance is then used as the preview thumbnail image in your frontend blog entry, linking to the origin image.');
 @define('PLUGIN_EVENT_IMAGESELECTORPLUS_ASOBJECT', 'Non-image object?');
 
+@define('PLUGIN_EVENT_IMAGESELECTORPLUS_THUMBRESIZE_DESC', 'Default setting to both MAX values is 0, which is used as a fallback! Changing these values will overwrite $serendipity[\'thumbSize\'], defined in the blogs global "Configuration" - "Image Conversion Settings"! If you really want squared thumbs, change both here, but this will make your landscape/portait thumbnail images become looking squeezed. If you really want to to influence the thumb size, change either the global "Image Conversion Settings" or use either this "max-width" OR "max-height" setting only, for landscape/portrait ratios.');

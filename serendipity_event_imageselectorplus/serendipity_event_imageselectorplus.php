@@ -1,4 +1,4 @@
-<?php #
+<?php
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -26,7 +26,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_IMAGESELECTORPLUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian');
-        $propbag->add('version',       '0.44');
+        $propbag->add('version',       '0.45');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -86,19 +86,19 @@ class serendipity_event_imageselectorplus extends serendipity_event
                 $propbag->add('name', PLUGIN_EVENT_IMAGESELECTORPLUS_JHEAD);
                 $propbag->add('description', PLUGIN_EVENT_IMAGESELECTORPLUS_JHEAD_DESC);
                 $propbag->add('default', 'false');
-                break; 
+                break;
 
             case 'thumb_max_width':
                 $propbag->add('type', 'string');
                 $propbag->add('name', PLUGIN_EVENT_IMAGESELECTORPLUS_MAXWIDTH);
-                $propbag->add('description', '');
+                $propbag->add('description', PLUGIN_EVENT_IMAGESELECTORPLUS_THUMBRESIZE_DESC);
                 $propbag->add('default', '0');
                 break;
 
             case 'thumb_max_height':
                 $propbag->add('type', 'string');
                 $propbag->add('name', PLUGIN_EVENT_IMAGESELECTORPLUS_MAXHEIGHT);
-                $propbag->add('description', '');
+                $propbag->add('description', PLUGIN_EVENT_IMAGESELECTORPLUS_THUMBRESIZE_DESC);
                 $propbag->add('default', '0');
                 break;
 
@@ -186,38 +186,38 @@ class serendipity_event_imageselectorplus extends serendipity_event
         // s9y A: 25x75
         // s9y B: 225x75
 
-        $fdim     = @serendipity_getimagesize($target, '', '');
+        $fdim = @serendipity_getimagesize($target, '', '');
 
         if (!isset($serendipity['thumbConstraint'])) {
-        // Original code, for older versions of s9y
-        $s9ysizes = serendipity_calculate_aspect_size($fdim[0], $fdim[1], $serendipity['thumbSize']);
-        if ($fdim[0] >= $fdim[1]) {
-            $orientation = 'Landscape';
-        } else {
-            $orientation = 'Portrait';
-        }
+            // Original code, for older versions of s9y
+            $s9ysizes = serendipity_calculate_aspect_size($fdim[0], $fdim[1], $serendipity['thumbSize']);
+            if ($fdim[0] >= $fdim[1]) {
+                $orientation = 'Landscape';
+            } else {
+                $orientation = 'Portrait';
+            }
 
-        if ($sizes['width'] == 0) {
-            if ($orientation == 'Landscape') {
-                $_newsizes = serendipity_calculate_aspect_size($fdim[0], $fdim[1], null, $sizes['height']);
+            if ($sizes['width'] == 0) {
+                if ($orientation == 'Landscape') {
+                    $_newsizes = serendipity_calculate_aspect_size($fdim[0], $fdim[1], null, $sizes['height']);
+                } else {
+                    $_newsizes = serendipity_calculate_aspect_size($fdim[0], $fdim[1], $sizes['height'], null);
+                }
+                $newsizes  = array('width' => $_newsizes[0], 'height' => $_newsizes[1]);
+            } elseif ($sizes['height'] == 0) {
+                if ($orientation == 'Landscape') {
+                    $_newsizes = serendipity_calculate_aspect_size($fdim[0], $fdim[1], $sizes['width'], null);
+                } else {
+                    $_newsizes = serendipity_calculate_aspect_size($fdim[0], $fdim[1], null, $sizes['width']);
+                }
+                $newsizes  = array('width' => $_newsizes[0], 'height' => $_newsizes[1]);
             } else {
-                $_newsizes = serendipity_calculate_aspect_size($fdim[0], $fdim[1], $sizes['height'], null);
+                $newsizes = $sizes;
+                array(
+                    0 => $sizes['width'],
+                    1 => $sizes['height']
+                );
             }
-            $newsizes  = array('width' => $_newsizes[0], 'height' => $_newsizes[1]);
-        } elseif ($sizes['height'] == 0) {
-            if ($orientation == 'Landscape') {
-                $_newsizes = serendipity_calculate_aspect_size($fdim[0], $fdim[1], $sizes['width'], null);
-            } else {
-                $_newsizes = serendipity_calculate_aspect_size($fdim[0], $fdim[1], null, $sizes['width']);
-            }
-            $newsizes  = array('width' => $_newsizes[0], 'height' => $_newsizes[1]);
-        } else {
-            $newsizes = $sizes;
-            array(
-                0 => $sizes['width'],
-                1 => $sizes['height']
-            );
-        }
         } else {
             // Newer s9y version that understands how to constrain images properly
             $s9ysizes = serendipity_calculate_aspect_size($fdim[0], $fdim[1], $serendipity['thumbSize'], $serendipity['thumbConstraint']);
@@ -429,7 +429,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     global $new_media;
                     // if file is zip archive and unzipping enabled
                     // unzip file and add all images to database
-                    
+
                     // retrieve file type
                     $target_zip = $eventData;
                     preg_match('@(^.*/)+(.*)\.+(\w*)@',$target_zip,$matches);
@@ -437,7 +437,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     $basename   = $matches[2];
                     $extension  = $matches[3];
                     $authorid   = (isset($serendipity['POST']['all_authors']) && $serendipity['POST']['all_authors'] == 'true') ? '0' : $serendipity['authorid'];
-                    
+
                     // only if unzipping function exists, we have archive file and unzipping set to yes
                     if ((class_exists('ZipArchive')) && ($extension == 'zip') && ($serendipity['POST']['unzip_archives'] == YES)) {
                         // now unzip
@@ -472,7 +472,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                             $extension  = $matches[3];
                             $tfile      = $basename.".".$extension;
                             preg_match('@'.$serendipity['uploadPath'].'(.*/)@',$target,$matches);
-                            $image_directory = $matches[1];  
+                            $image_directory = $matches[1];
 
                             // make thumbnails for new images
                             $thumbs = array(array(
@@ -516,7 +516,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     $file      = basename($eventData);
                     $directory = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', dirname($eventData) . '/');
                     $size      = (int)$serendipity['POST']['quickblog']['size'];
-                    // check default Serendipity thumbSize, to make this happen like standard image uploads, and to get one "full" image instance only,
+                    // check default Serendipity thumbSize, to make this happen like standard image uploads, and to get one "fullsize" image instance only,
                     // else create another quickblog image "resized" instance, to use as entries thumbnail image
                     if ($serendipity['thumbSize'] != $size) {
                         $oldSuffix = $serendipity['thumbSuffix'];
@@ -532,7 +532,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                         $suffix      = $objfile[1];
                         $obj_mime    = serendipity_guessMime($suffix);
                         $objpath     = $serendipity['serendipityHTTPPath'] . $serendipity['uploadPath'] . $directory . $filename . '.' .  $suffix;
-                        // try to know about a working environment for imagemagicks pdf preview gerneration
+                        // try to know about a working environment for imagemagicks pdf preview generation
                         if ($serendipity['magick'] === true && strtolower($suffix) == 'pdf' && $serendipity['thumbSize'] == $size) {
                             $objpreview  = $serendipity['serendipityHTTPPath'] . $serendipity['uploadPath'] . $directory . $filename . '.' . $serendipity['thumbSuffix'] . '.' . $suffix . '.png';
                         } else {
@@ -555,8 +555,8 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     $entry['authorid'] = $serendipity['authorid'];
                     $entry['exflag']   = false;
                     $entry['categories'][0] = htmlspecialchars($serendipity['POST']['quickblog']['category']);
-                    #$entry['allow_comments']    = 'true'; // disabled to take default values
-                    #$entry['moderate_comments'] = 'false'; // disabled to take default values
+                    #$entry['allow_comments']    = 'true'; // both disabled
+                    #$entry['moderate_comments'] = 'false'; // to take default values
                     $serendipity['POST']['properties']['fake'] = 'fake';
                     $id = serendipity_updertEntry($entry);
 
@@ -579,7 +579,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                         return;
                     }
 
-                    // displaying quickbox posts
+                    // displaying quickblog posts
                     if (is_object($serendipity['smarty']) && preg_match('@<!--quickblog:(.+)-->@imsU', $eventData['body'], $filematch)) {
                         $eventData['body'] = $this->parse_quickblog_post($filematch[1], $eventData['body']);
                     }
@@ -929,7 +929,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                         $q = "SELECT id,name,extension,thumbnail_name,realname,path,value as comment1,dimensions_width as width, dimensions_height as height
                               FROM {$serendipity['dbPrefix']}images as i 
                               LEFT JOIN {$serendipity['dbPrefix']}mediaproperties as p ON (p.mediaid = i.id AND p.property='COMMENT1') 
-                              WHERE i.path = '" . serendipity_db_escape_string($gallery) . "' ";                        
+                              WHERE i.path = '" . serendipity_db_escape_string($gallery) . "' ";
                     } else {
                         $images_suggestions = "'".implode("','",$medias)."'";
                         $q = "SELECT id,name,extension,thumbnail_name,realname,path,value as comment1,dimensions_width as width, dimensions_height as height
@@ -998,7 +998,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
 
                     } else {
                         // if there are no available images, do no output
-                        $content= "";
+                        $content = "";
                     }
 
                     // fetch the output

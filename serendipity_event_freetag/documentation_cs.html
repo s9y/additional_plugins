@@ -96,10 +96,194 @@ foreach($rows AS $row) {
 
 </pre>
 </p>
+<p>&nbsp;</p>
+
+<h3>Option: Tags-as-list</h3>
+
+<p>The following code illustrates on how to change your templates entries.tpl file (all + lines, without '+ '):</p>
+
+<pre class="prettyprint linenums lang-html " data-pbcklang="html" data-pbcktabsize="4">
+{serendipity_hookPlugin hook=&quot;entries_header&quot; addData=&quot;$entry_id&quot;}
++ {if $taglist}
++     &lt;article id=&quot;taglistentries&quot; class=&quot;clearfix serendipity_entry&quot;&gt;
++         &lt;div class=&quot;clearfix content serendipity_entry_body&quot;&gt;
++             &lt;h2&gt;{$head_subtitle}&lt;/h2&gt;
++     {foreach from=$entries item=&quot;dategroup&quot;}
++         {foreach from=$dategroup.entries item=&quot;entry&quot;}
++
++             &lt;div class=&quot;static-entries-list&quot;&gt;
++                 ({$dategroup.date|date_format:&quot;%d.%m.%Y&quot;}) &lt;a href=&quot;{$entry.link}&quot;&gt;{$entry.title|default:$entry.id}&lt;/a&gt;
++             &lt;/div&gt;
++
++         {/foreach}
++     {/foreach}
++
++         &lt;/div&gt;
++     &lt;/article&gt;
++
++ {else}
++
+{foreach from=$entries item=&quot;dategroup&quot;}
+    {foreach from=$dategroup.entries item=&quot;entry&quot;}
+    {assign var=&quot;entry&quot; value=$entry scope=&quot;parent&quot;}
+    &lt;article id=&quot;post_{$entry.id}&quot; class=&quot;clearfix serendipity_entry{if $dategroup.is_sticky} sticky{/if}&quot;&gt;
+        &lt;header class=&quot;clearfix&quot;&gt;
+
+            &lt;h2&gt;&lt;a href=&quot;{$entry.link}&quot;&gt;{$entry.title}&lt;/a&gt;&lt;/h2&gt;
+
+            &lt;span class=&quot;serendipity_byline block_level&quot;&gt;&lt;span class=&quot;single_user&quot;&gt;{$CONST.POSTED_BY} &lt;a href=&quot;{$entry.link_author}&quot;&gt;{$entry.author}&lt;/a&gt; {$CONST.ON} &lt;/span&gt;&lt;time datetime=&quot;{$entry.timestamp|@serendipity_html5time}&quot;&gt;{$entry.timestamp|@formatTime:$template_option.date_format}&lt;/time&gt;{if $entry.is_entry_owner and not $is_preview} | &lt;a href=&quot;{$entry.link_edit}&quot;&gt;{$CONST.EDIT_ENTRY}&lt;/a&gt;{/if}&lt;/span&gt;
+        &lt;/header&gt;
+
+        &lt;div class=&quot;clearfix content serendipity_entry_body&quot;&gt;
+        {if $entry.categories}{foreach from=$entry.categories item=&quot;entry_category&quot;}{if $entry_category.category_icon}&lt;a href=&quot;{$entry_category.category_link}&quot;&gt;&lt;img class=&quot;serendipity_entryIcon&quot; title=&quot;{$entry_category.category_name|@escape}{$entry_category.category_description|@emptyPrefix}&quot; alt=&quot;{$entry_category.category_name|@escape}&quot; src=&quot;{$entry_category.category_icon}&quot;&gt;&lt;/a&gt;{/if}{/foreach}{/if}
+        {$entry.body}
+        {if $entry.has_extended and not $is_single_entry and not $entry.is_extended}
+        &lt;a class=&quot;read_more block_level&quot; href=&quot;{$entry.link}#extended&quot;&gt;{$CONST.VIEW_EXTENDED_ENTRY|@sprintf:$entry.title}&lt;/a&gt;
+        {/if}
+        &lt;/div&gt;
+        {if $entry.is_extended}
+        &lt;div id=&quot;extended&quot; class=&quot;clearfix content&quot;&gt;
+        {$entry.extended}
+        &lt;/div&gt;
+        {/if}
+        {if $entry.plugin_display_dat}
+        {$entry.plugin_display_dat}
+        {/if}
+
+        &lt;footer class=&quot;clearfix&quot;&gt;
+        {if $entry.categories}
+            &lt;span class=&quot;visuallyhidden&quot;&gt;{$CONST.CATEGORIES}: &lt;/span&gt;{foreach from=$entry.categories item=&quot;entry_category&quot; name=&quot;categories&quot;}&lt;a href=&quot;{$entry_category.category_link}&quot;&gt;{$entry_category.category_name|@escape}&lt;/a&gt;{if not $smarty.foreach.categories.last}, {/if}{/foreach}
+        {/if}
+        {if $entry.categories and ($entry.has_comments or $entry.has_disqus)} | {/if}
+        {if ($entry.has_comments or $entry.has_disqus)}
+        {if $entry.has_disqus }
+            {$entry.comments}{if $entry.has_trackbacks}, &lt;a href=&quot;{$entry.link}#trackbacks&quot;&gt;{$entry.trackbacks} {$entry.label_trackbacks}&lt;/a&gt;{/if}
+        {else}
+            &lt;a href=&quot;{$entry.link}#comments&quot; title=&quot;{$entry.comments} {$entry.label_comments}{if $entry.has_trackbacks}, {$entry.trackbacks} {$entry.label_trackbacks}{/if}&quot;&gt;{$entry.comments} {$entry.label_comments}&lt;/a&gt;
+        {/if}
+        {/if}
+        {if $entry.url_tweetthis}
+            | &lt;a href=&quot;{$entry.url_tweetthis}&quot; title=&quot;{$CONST.TWOK11_TWEET_THIS}&quot;&gt;Twitter&lt;/a&gt;
+        {/if}
+        {if $entry.url_dentthis}
+            | &lt;a href=&quot;{$entry.url_dentthis}&quot; title=&quot;{$CONST.TWOK11_DENT_THIS}&quot;&gt;Identica&lt;/a&gt;
+        {/if}
+        {if $entry.url_shorturl}
+            | &lt;a href=&quot;{$entry.url_shorturl}&quot; title=&quot;{$CONST.TWOK11_SHORT_URL_HINT}&quot; class=&quot;short-url&quot;&gt;{$CONST.TWOK11_SHORT_URL}&lt;/a&gt;
+        {/if}
+            {$entry.add_footer}
+        &lt;/footer&gt;
+
+        &lt;!--
+        &lt;rdf:RDF xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;
+                 xmlns:trackback=&quot;http://madskills.com/public/xml/rss/module/trackback/&quot;
+                 xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;&gt;
+        &lt;rdf:Description
+                 rdf:about=&quot;{$entry.link_rdf}&quot;
+                 trackback:ping=&quot;{$entry.link_trackback}&quot;
+                 dc:title=&quot;{$entry.title_rdf|@default:$entry.title}&quot;
+                 dc:identifier=&quot;{$entry.rdf_ident}&quot; /&gt;
+        &lt;/rdf:RDF&gt;
+        --&gt;
+
+    {if $is_single_entry and not $is_preview}
+        {if $CONST.DATA_UNSUBSCRIBED}
+        &lt;p class=&quot;serendipity_msg_notice&quot;&gt;{$CONST.DATA_UNSUBSCRIBED|@sprintf:$CONST.UNSUBSCRIBE_OK}&lt;/p&gt;
+        {/if}
+        {if $CONST.DATA_TRACKBACK_DELETED}
+        &lt;p class=&quot;serendipity_msg_notice&quot;&gt;{$CONST.DATA_TRACKBACK_DELETED|@sprintf:$CONST.TRACKBACK_DELETED}&lt;/p&gt;
+        {/if}
+        {if $CONST.DATA_TRACKBACK_APPROVED}
+        &lt;p class=&quot;serendipity_msg_notice&quot;&gt;{$CONST.DATA_TRACKBACK_APPROVED|@sprintf:$CONST.TRACKBACK_APPROVED}&lt;/p&gt;
+        {/if}
+        {if $CONST.DATA_COMMENT_DELETED}
+        &lt;p class=&quot;serendipity_msg_notice&quot;&gt;{$CONST.DATA_COMMENT_DELETED|@sprintf:$CONST.COMMENT_DELETED}&lt;/p&gt;
+        {/if}
+        {if $CONST.DATA_COMMENT_APPROVED}
+        &lt;p class=&quot;serendipity_msg_notice&quot;&gt;{$CONST.DATA_COMMENT_APPROVED|@sprintf:$CONST.COMMENT_APPROVED}&lt;/p&gt;
+        {/if}
+
+        &lt;section id=&quot;trackbacks&quot; class=&quot;serendipity_comments serendipity_section_trackbacks&quot;&gt;
+            &lt;h3&gt;{$CONST.TRACKBACKS}&lt;/h3&gt;
+
+            &lt;div id=&quot;trackback_url&quot; class=&quot;block_level&quot;&gt;&lt;a rel=&quot;nofollow&quot; href=&quot;{$entry.link_trackback}&quot; title=&quot;{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|@escape}&quot;&gt;{$CONST.TRACKBACK_SPECIFIC}&lt;/a&gt;&lt;/div&gt;
+
+            {serendipity_printTrackbacks entry=$entry.id}
+        &lt;/section&gt;
+
+        &lt;section id=&quot;comments&quot; class=&quot;serendipity_comments serendipity_section_comments&quot;&gt;
+            &lt;h3&gt;{$CONST.COMMENTS}&lt;/h3&gt;
+
+            &lt;p class=&quot;manage_comments&quot;&gt;{$CONST.DISPLAY_COMMENTS_AS}
+            {if $entry.viewmode eq $CONST.VIEWMODE_LINEAR}
+               {$CONST.COMMENTS_VIEWMODE_LINEAR} | &lt;a href=&quot;{$entry.link_viewmode_threaded}#comments&quot; rel=&quot;nofollow&quot;&gt;{$CONST.COMMENTS_VIEWMODE_THREADED}&lt;/a&gt;
+            {else}
+               &lt;a rel=&quot;nofollow&quot; href=&quot;{$entry.link_viewmode_linear}#comments&quot;&gt;{$CONST.COMMENTS_VIEWMODE_LINEAR}&lt;/a&gt; | {$CONST.COMMENTS_VIEWMODE_THREADED}
+            {/if}
+            &lt;/p&gt;
+
+            {serendipity_printComments entry=$entry.id mode=$entry.viewmode}
+        {if $entry.is_entry_owner}
+            &lt;p class=&quot;manage_comments&quot;&gt;
+            {if $entry.allow_comments}
+            &lt;a href=&quot;{$entry.link_deny_comments}&quot;&gt;{$CONST.COMMENTS_DISABLE}&lt;/a&gt;
+            {else}
+            &lt;a href=&quot;{$entry.link_allow_comments}&quot;&gt;{$CONST.COMMENTS_ENABLE}&lt;/a&gt;
+            {/if}
+            &lt;/p&gt;
+        {/if}
+        &lt;/section&gt;
+            &lt;a id=&quot;feedback&quot;&gt;&lt;/a&gt;
+        {foreach from=$comments_messagestack item=&quot;message&quot;}
+            &lt;p class=&quot;serendipity_msg_important&quot;&gt;{$message}&lt;/p&gt;
+        {/foreach}
+        {if $is_comment_added}
+            &lt;p class=&quot;serendipity_msg_notice&quot;&gt;{$CONST.COMMENT_ADDED}&lt;/p&gt;
+        {elseif $is_comment_moderate}
+            &lt;p class=&quot;serendipity_msg_notice&quot;&gt;{$CONST.COMMENT_ADDED}: {$CONST.THIS_COMMENT_NEEDS_REVIEW}&lt;/p&gt;
+        {elseif not $entry.allow_comments}
+            &lt;p class=&quot;serendipity_msg_important&quot;&gt;{$CONST.COMMENTS_CLOSED}&lt;/p&gt;
+        {/if}
+        &lt;section id=&quot;respond&quot; class=&quot;serendipity_section_commentform&quot;&gt;
+            &lt;h3&gt;{$CONST.ADD_COMMENT}&lt;/h3&gt;
+            {$COMMENTFORM}
+        &lt;/section&gt;
+
+    {/if}
+    {$entry.backend_preview}
+    &lt;/article&gt;
+    {/foreach}
+{foreachelse}
+    {if not $plugin_clean_page}
+    &lt;p class=&quot;nocontent&quot;&gt;{$CONST.NO_ENTRIES_TO_PRINT}&lt;/p&gt;
+    {/if}
+{/foreach}
++
++ {/if}{* not taglist end *}
++
+{if $footer_info or $footer_prev_page or $footer_next_page}
+    &lt;nav class=&quot;serendipity_pagination block_level&quot;&gt;
+        &lt;h2 class=&quot;visuallyhidden&quot;&gt;{$CONST.TWOK11_PAG_TITLE}&lt;/h2&gt;
+
+        &lt;ul class=&quot;clearfix&quot;&gt;
+            {if $footer_info}
+            &lt;li class=&quot;info&quot;&gt;&lt;span&gt;{$footer_info}&lt;/span&gt;&lt;/li&gt;
+            {/if}
+            &lt;li class=&quot;prev&quot;&gt;{if $footer_prev_page}&lt;a href=&quot;{$footer_prev_page}&quot;&gt;{/if}{if $footer_prev_page}&amp;larr; {$CONST.PREVIOUS_PAGE}{else}&amp;nbsp;{/if}{if $footer_prev_page}&lt;/a&gt;{/if}&lt;/li&gt;
+            &lt;li class=&quot;next&quot;&gt;{if $footer_next_page}&lt;a href=&quot;{$footer_next_page}&quot;&gt;{/if}{if $footer_next_page}{$CONST.NEXT_PAGE} &amp;rarr;{else}&amp;nbsp;{/if}{if $footer_next_page}&lt;/a&gt;{/if}&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+{/if}
+    {serendipity_hookPlugin hook=&quot;entries_footer&quot;}
+</pre>
+
+<p>&nbsp;</p>
+
 
 <h1>Historie verzí (ChangeLog)</h1>
 
 <ul>
+<li>Please read more current Changelog!</li>
 <li>verze 3.43</li>
 	<ul>
 	<li>Statické opravy pro kompatibilitu freetag<->flattr (žádné chyby PHP5)</li>

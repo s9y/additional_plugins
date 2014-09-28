@@ -63,3 +63,55 @@ foreach($rows AS $row) {
         htmlspecialchars($row['title'])
     );
 }
+
+
+
+The following code illustrates on how to change your templates entries.tpl file in case of enabled option 'tags-as-list':
+
+{serendipity_hookPlugin hook="entries_header" addData="$entry_id"}
+
+{if $taglist}
+    <article id="taglistentries" class="clearfix serendipity_entry">
+        <div class="clearfix content serendipity_entry_body">
+            <h2>{$head_subtitle}</h2>
+    {foreach from=$entries item="dategroup"}
+        {foreach from=$dategroup.entries item="entry"}
+
+            <div class="static-entries-list">
+                ({$dategroup.date|date_format:"%d.%m.%Y"}) <a href="{$entry.link}">{$entry.title|default:$entry.id}</a>
+            </div>
+
+        {/foreach}
+    {/foreach}
+
+        </div>
+    </article>
+
+{else}
+
+--- OLD CODE START-and keep --
+
+{foreach from=$entries item="dategroup"}
+    {foreach from=$dategroup.entries item="entry"}
+    {assign var="entry" value=$entry scope="parent"}
+    *** LONG CODE FOR THE entries output article ***
+    {/foreach}
+{foreachelse}
+    {if not $plugin_clean_page}
+    <p class="nocontent">{$CONST.NO_ENTRIES_TO_PRINT}</p>
+    {/if}
+{/foreach}
+
+--- OLD CODE END and keep---
+
+{/if}{* not taglist end *}
+
+--- OLD CODE FOOTER INFO START and keep ---
+
+{if $footer_info or $footer_prev_page or $footer_next_page}
+    *** inside CODE ***
+{/if}
+
+--- OLD CODE FOOTER INFO END and keep ---
+
+    {serendipity_hookPlugin hook="entries_footer"}

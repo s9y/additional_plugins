@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -56,6 +56,9 @@
 @define('PLUGIN_FREETAG_MAX_TAGS', 'Wieviele Tags sollen angezeigt werden?');
 @define('PLUGIN_FREETAG_TRESHOLD_TAG_COUNT', 'Wie oft muss ein Tag vorkommen, damit er angezeigt wird?');
 
+//
+// later on additions
+//
 @define('PLUGIN_EVENT_FREETAG_TAGCLOUD_MIN', 'Minimale Schriftgröße eines Tags in der Wolke in %');
 @define('PLUGIN_EVENT_FREETAG_TAGCLOUD_MAX', 'Maximale Schriftgröße eines Tags in der Wolke in %');
 
@@ -101,15 +104,21 @@
 @define('PLUGIN_EVENT_FREETAG_ORDER_TAGNAME', 'Tag-Name');
 @define('PLUGIN_EVENT_FREETAG_ORDER_TAGCOUNT', 'Tag-Anzahl');
 
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK',      'Technorati Tag Links');
+@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK', 'Technorati Tag Links');
 @define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_DESC', 'Fügt Links auf Technorati Tags hinzu. Wenn auf diese Links geklickt wird, so wird eine Liste von ähnlichen Einträgen in weiteren Blogs angezeigt, die in Technorati zu dem entsprechenden Tag gespeichert wurden.');
 
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_IMG',      'Technorati Tag Bild');
+@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_IMG', 'Technorati Tag Bild');
 
-@define('PLUGIN_EVENT_FREETAG_XMLIMAGE',    'XML Bild relativ zum Template Verzeichnis');
+@define('PLUGIN_EVENT_FREETAG_XMLIMAGE', 'XML Bild relativ zum Template Verzeichnis');
 
 @define('PLUGIN_EVENT_FREETAG_EMBED_FOOTER_DESC2', 'Wenn auf "Smarty" gestellt wird, dann wird eine smarty Variable {$entry.freetag} generiert, die an beliebiger Stelle in der entries.tpl Vorlagendatei eingefügt werden kann.');
 
 @define('PLUGIN_EVENT_FREETAG_EXTENDED_SMARTY', 'Erweiteres Smarty');
 @define('PLUGIN_EVENT_FREETAG_EXTENDED_SMARTY_DESC', 'Nutze statt der HTML-Ausgabe, ob nun direkt oder per Smarty, verschiedene Smartyvariablen, die im Template zusammgefügt werden können. Dies überschreibt alle anderen diesbezüglichen Einstellungen. Ein Beispiel für die Nutzung findet sich im Readme.');
-@define('PLUGIN_EVENT_FREETAG_KILL', 'Wenn aktiviert werden alle zugeh&ouml;rigen Tags gel&ouml;scht.');
+@define('PLUGIN_EVENT_FREETAG_KILL', 'Wenn aktiviert werden alle zugehörigen Tags gelöscht.');
+
+@define('PLUGIN_EVENT_FREETAG_TAGLINK_DESC', 'Eine mögliche Änderung des Taglinks wäre "plugin/taglist/" anstelle von "plugin/tag/" zu schreiben. Dies wäre das Kommando, um jeden Taglink als Liste, anstelle von bereits geöffneten Artikeln, auszugeben. Man kann aber ebenso manuell für bestimmte Taglinks den "/taglist" tag an einen bereits existierenden Taglink (zB. "/plugin/tag/deine/tags/taglist") anhängen. In beiden Fällen ist "taglist" fortan ein reserviertes Kommando und kann nicht mehr als normales Tagwort verwendet werden. Für beide Möglichkeiten ist eine eigenhändig eingebaute Code-Änderung nötig, so wie in der Dokumentation für die "tag-as-list" Option beschrieben wird.');
+
+@define('PLUGIN_EVENT_FREETAG_TAGSASLIST', 'Erlaube "tags-as-list" = ungeöffnete Artikel');
+@define('PLUGIN_EVENT_FREETAG_TAGSASLIST_DESC', 'In der Plugin-Dokumentation ist zu lesen, wie die existierende templates entries.tpl Datei für die Listenanzeige der Taglink-Ausgabe im Code geändert werden muss.');
+

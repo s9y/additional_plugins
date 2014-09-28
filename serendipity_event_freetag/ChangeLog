@@ -1,3 +1,14 @@
+3.58:
+----
+* Fix doubled encoded umlaut taglinks by searchengines backlinks.
+* Added a new option to allow showing taglink entries as a linklist.
+    This adds a 'taglist' tag as a reserved command to tags,
+    which not allows this tag as a normal tag any further.
+    The addition can be done either by the preset taglink as "/plugin/taglist/"
+    or manually added by certain taglinks as "/plugin/tag/allyourtags/taglist".
+    This needs you to modify your templates entries.tpl file,
+    as described in the documentation file or the README.
+
 3.57:
 ----
 Stricter array check to prevent PHP notices

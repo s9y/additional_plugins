@@ -732,8 +732,6 @@
 <file>lang_nl.inc.php</file>
 <file>lang_pl.inc.php</file>
 <file>lang_se.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>ChangeLog</file>
 <file>README</file>
@@ -761,7 +759,9 @@
 <file>documentation_cz.html</file>
 <file>jquery.autocomplete.css</file>
 <file>jquery.autocomplete.min.js</file>
+<file>.htaccess</file>
 <file>plugin_freetag.tpl</file>
+<file>documentation_en.html</file>
 </dir>
 
   </filelist>
@@ -777,8 +777,6 @@
     <file>serendipity_event_freetag/UTF-8/lang_nl.inc.php</file>
     <file>serendipity_event_freetag/UTF-8/lang_pl.inc.php</file>
     <file>serendipity_event_freetag/UTF-8/lang_se.inc.php</file>
-    <file>serendipity_event_freetag/UTF-8/documentation_cs.html</file>
-    <file>serendipity_event_freetag/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_freetag/ChangeLog</file>
     <file>serendipity_event_freetag/README</file>
     <file>serendipity_event_freetag/lang_bg.inc.php</file>
@@ -803,7 +801,9 @@
     <file>serendipity_event_freetag/documentation_cz.html</file>
     <file>serendipity_event_freetag/jquery.autocomplete.css</file>
     <file>serendipity_event_freetag/jquery.autocomplete.min.js</file>
+    <file>serendipity_event_freetag/.htaccess</file>
     <file>serendipity_event_freetag/plugin_freetag.tpl</file>
+    <file>serendipity_event_freetag/documentation_en.html</file>
   </serendipityFilelist>
 </release>
 </package>

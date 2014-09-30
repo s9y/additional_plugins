@@ -90,10 +90,14 @@
 @define('PLUGIN_EVENT_USERGALLERY_MEDIA_PROPERTIES_NAME', 'Media properties list');
 @define('PLUGIN_EVENT_USERGALLERY_MEDIA_PROPERTIES_DESC', 'This is a list of media properties and the name you would like to show for each property on the page.  The format of the list is: "ITEM1:Item1;ITEM2:Item2", where each property is separated by semicolons, with the name of the property (as listed in the Configuration settings) first, a colon, and then the name to be displayed.');
 
-//Several consants used in the template
+//Several constants used in the template
 @define('PLUGIN_EVENT_USERGALLERY_IMAGES', 'images');
 @define('PLUGIN_EVENT_USERGALLERY_PAGINATION', 'Page %s of %s, totaling %s images');
 
 @define('PLUGIN_EVENT_USERGALLERY_RSS_FEED_BODY', 'Use original blog entry for the picture in RSS-Feed?');
 @define('PLUGIN_EVENT_USERGALLERY_RSS_FEED_BODY_DESC', 'If enabled, an image of the mediadatabase that has been linked within an blog entry will have the original blog entry\'s body within the RSS feed, instead of (by default) having a simple link to the blog article and the original image location.');
-?>
+
+@define('PLUGIN_EVENT_USERGALLERY_SHOWLIGHTBOX_NAME', 'Use lightbox output');
+@define('PLUGIN_EVENT_USERGALLERY_SHOWLIGHTBOX_DESC', 'Needs the lightbox-plugin installed and upper option "Display Single Image" set to "Scaled to fit"!');
+@define('PLUGIN_EVENT_USERGALLERY_LIGHTBOXTYPE_NAME', 'Lightbox-type as selected in lightbox-plugin');
+

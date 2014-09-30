@@ -14,14 +14,14 @@ div.serendipity_gallery_thumbs {
 }
 
 div.serendipity_gallery_info {
-   margin-left:auto; 
-   margin-right:auto; 
+   margin-left:auto;
+   margin-right:auto;
    text-align:center;
 }
 
 div.serendipity_gallery_entry {
-   margin-left:auto; 
-   margin-right:auto; 
+   margin-left:auto;
+   margin-right:auto;
    text-align:center;
 }
 
@@ -37,46 +37,46 @@ div.serendipity_gallery_navigation {
 }
 
 img.gallery_thumb {
-   margin-left:auto; 
-   margin-right:auto; 
+   margin-left:auto;
+   margin-right:auto;
    text-align:center;
    border: 0;
 }
 
 div.serendipity_gallery_pagination_top {
-	border-top: 1px solid #ccc;
+    border-top: 1px solid #ccc;
 }
 
 div.serendipity_gallery_pagination_bottom {
-	border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
 }
 
 /* EXIF TAGS */
 .all_img_info {
- 	width: 100%;
- 	float: left;
- 	text-align: center;
- 	margin-bottom: 2em;
+    width: 100%;
+    float: left;
+    text-align: center;
+    margin-bottom: 2em;
 }
 .exif_info_head {
- 	background-color: #ccd9e6; 
- 	border: 1px solid #fff;
+    background-color: #ccd9e6;
+    border: 1px solid #fff;
 }
 .exif_info_row, .exif_info_head {
- 	clear: both;
- 	margin: 0 auto;
- 	width: 400px;
+    clear: both;
+    margin: 0 auto;
+    width: 400px;
 }
 .exif_info_tag, .exif_info {
- 	float: left;
- 	display: block;
- 	width: 120px;
- 	text-align: left;
-	border: 1px solid #fff;
-	background-color: #ccd9e6;
-	padding: 3px;
+    float: left;
+    display: block;
+    width: 120px;
+    text-align: left;
+    border: 1px solid #fff;
+    background-color: #ccd9e6;
+    padding: 3px;
 }
 .exif_info {
- 	width: 264px;
- 	background-color: #eee;
+    width: 264px;
+    background-color: #eee;
 }

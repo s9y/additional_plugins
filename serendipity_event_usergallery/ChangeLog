@@ -1,3 +1,10 @@
+2.60:
+-----
+ * Added option for using lightboxes
+   This needs an installed and configured serendipity_event_lightbox plugin
+   The file plugin_usergallery.tpl has changed. Please update your template copy file, if have.
+
+
 2.58:
 -----
 Removed obsolete language attribute. (yellowled)

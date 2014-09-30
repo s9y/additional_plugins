@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -23,8 +23,8 @@ class serendipity_event_usergallery extends serendipity_event
         $propbag->add('name',          PLUGIN_EVENT_USERGALLERY_TITLE);
         $propbag->add('description',   PLUGIN_EVENT_USERGALLERY_DESC);
         $propbag->add('stackable',     true);
-        $propbag->add('author',        'Arnan de Gans, Matthew Groeninger, and Stefan Willoughby');
-        $propbag->add('version',       '2.58');
+        $propbag->add('author',        'Arnan de Gans, Matthew Groeninger, Stefan Willoughby, Ian');
+        $propbag->add('version',       '2.60');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -39,9 +39,9 @@ class serendipity_event_usergallery extends serendipity_event
             'frontend_configure'  => true
         ));
         $propbag->add('groups', array('IMAGES'));
-        $propbag->add('configuration', array('title','num_cols','subpage','frontpage','permalink','style','base_directory','dir_list','show_1lvl_sub',
-        'display_dir_tree','dir_tab','images_per_page','image_order','intro','image_display','image_strict','fixed_width','image_width','feed_width','feed_linked_only','feed_body',
-        'exif_show_data', 'exif_data','show_media_properties','media_properties', 'linked_entries'));
+        $propbag->add('configuration', array('title', 'num_cols', 'subpage', 'frontpage', 'permalink', 'style', 'base_directory', 'dir_list', 'show_1lvl_sub',
+        'display_dir_tree', 'dir_tab', 'images_per_page', 'image_order','intro', 'image_display', 'show_lightbox', 'lightbox_type', 'image_strict', 'fixed_width', 'image_width',
+        'feed_width', 'feed_linked_only', 'feed_body', 'exif_show_data', 'exif_data', 'show_media_properties', 'media_properties', 'linked_entries'));
     }
 
     function introspect_config_item($name, &$propbag)
@@ -176,6 +176,28 @@ class serendipity_event_usergallery extends serendipity_event
                }
                break;
 
+            case 'show_lightbox':
+                $propbag->add('type',          'radio');
+                $propbag->add('name',          PLUGIN_EVENT_USERGALLERY_SHOWLIGHTBOX_NAME);
+                $propbag->add('description',   PLUGIN_EVENT_USERGALLERY_SHOWLIGHTBOX_DESC);
+                $propbag->add('radio',         array('value' => array('true','false'),
+                                                     'desc'  => array(YES,NO)));
+                $propbag->add('radio_per_row', '2');
+                $propbag->add('default',       'false');
+                break;
+
+            case 'lightbox_type':
+                $select_type["lightbox"]     = 'Lightboxes all';
+                $select_type["prettyphoto"]  = 'Prettyphoto';
+                $select_type["thickbox"]     = 'Thickbox';
+                $select_type["greybox"]      = 'Greybox';
+                $propbag->add('type',          'select');
+                $propbag->add('name',          PLUGIN_EVENT_USERGALLERY_LIGHTBOXTYPE_NAME);
+                $propbag->add('description',   '');
+                $propbag->add('select_values', $select_type);
+                $propbag->add('default',       'lightbox');
+                break;
+
             case 'image_strict':
                if ($this->get_config('style') == 'thumbpage') {
                     $propbag->add('type',           'radio');
@@ -297,7 +319,7 @@ class serendipity_event_usergallery extends serendipity_event
             case 'media_properties':
                 if ($this->get_config('show_media_properties') == 'yes') {
                     $propbag->add('type',        'string');
-                    $propbag->add('name',       PLUGIN_EVENT_USERGALLERY_MEDIA_PROPERTIES_NAME);
+                    $propbag->add('name',        PLUGIN_EVENT_USERGALLERY_MEDIA_PROPERTIES_NAME);
                     $propbag->add('description', PLUGIN_EVENT_USERGALLERY_MEDIA_PROPERTIES_DESC);
                     $propbag->add('default',     'COPYRIGHT:Copyright;TITLE:Title;COMMENT2:Comment');
                 }
@@ -579,7 +601,7 @@ class serendipity_event_usergallery extends serendipity_event
         }
 
         if (isset($serendipity['GET']['image'])) {
-            $this->displayImage($serendipity['GET']['image'],$orderby,$order);
+            $this->displayImage($serendipity['GET']['image'], $orderby, $order);
         } else {
             $num_cols       = $this->get_config('num_cols');
             $base_directory = $this->get_config('base_directory');
@@ -800,6 +822,13 @@ class serendipity_event_usergallery extends serendipity_event
                 if ($limit_output == $base_directory) {
                    $limit_output = '';
                 }
+
+                $lightbox_type = $this->get_config('lightbox_type');
+                $lbtype = 'rel="lightbox[lightbox_group_entry]"';
+                if ($lightbox_type == 'prettyphoto') $lbtype = 'rel="prettyPhoto[]"';
+                elseif ($lightbox_type == 'thickbox') $lbtype = 'class="thickbox" rel="thickbox_group_entry"';
+                elseif ($lightbox_type == 'greybox') $lbtype = 'rel="gb_imageset[greybox_group_entry]"';
+
                 $serendipity['smarty']->assign(
                    array(
                        'plugin_usergallery_title'           => $this->get_config('title'),
@@ -812,6 +841,8 @@ class serendipity_event_usergallery extends serendipity_event
                        'plugin_usergallery_display_dir_tree'=> $display_dir_tree,
                        'plugin_usergallery_colwidth'        => round((10/$num_cols*10)-6,2),
                        'plugin_usergallery_limit_directory' => preg_replace('@[^a-z0-9]@i', ' ',$limit_output),
+                       'plugin_usergallery_uselightbox'     => serendipity_db_bool($this->get_config('show_lightbox', false)),
+                       'plugin_usergallery_lightbox_type'   => $lbtype,
                        'plugin_usergallery_images'          => $process_images
                         )
                    );
@@ -980,7 +1011,7 @@ class serendipity_event_usergallery extends serendipity_event
         return($exif_data);
     }
 
-    function displayImage($id,$orderby,$order) {
+    function displayImage($id, $orderby, $order) {
         global $serendipity;
         $extended_data = array();
         $base_directory = $this->get_config('base_directory');
@@ -1080,7 +1111,7 @@ class serendipity_event_usergallery extends serendipity_event
             if ($this->get_config('show_media_properties','no')=='yes') {
                 if (is_array($extended_data) && isset($extended_data['base_property'])) {
                     $extended_data = array_merge($extended_data['base_property'], (array)$extended_data['base_metadata']);
-                    
+
                 } else {
                     $extended_data = array();
                 }

@@ -89,3 +89,8 @@
 @define('PLUGIN_EVENT_USERGALLERY_PAGINATION', 'Seite %s von %s, insgesamt %s Bilder');
 @define('PLUGIN_EVENT_USERGALLERY_RSS_FEED_BODY', 'Use original blog entry for the picture in RSS-Feed?');
 @define('PLUGIN_EVENT_USERGALLERY_RSS_FEED_BODY_DESC', 'Falls ausgewählt, wird zu einem Bild aus der Mediendatenbank, das in einem Blog-Eintrag verlinkt wurde, im RSS-Feed auch der Inhalt des Blog-Eintrages ausgegebn, anstatt (Standard) nur einen Link zum Blog-Eintrag und dem ursprünglichen Platz des Bildes.');
+
+@define('PLUGIN_EVENT_USERGALLERY_SHOWLIGHTBOX_NAME', 'Nutze Lightbox Ausgabe');
+@define('PLUGIN_EVENT_USERGALLERY_SHOWLIGHTBOX_DESC', 'Benötigt ein installiertes Lightbox-Plugin und obige Option: "Einzelbildanzeige" gesetzt als "In Seite einpassen"!');
+@define('PLUGIN_EVENT_USERGALLERY_LIGHTBOXTYPE_NAME', 'Lightbox-Typ, wie im Lightbox-Plugin gewählt');
+

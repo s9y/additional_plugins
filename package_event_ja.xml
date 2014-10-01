@@ -1558,11 +1558,11 @@
 <summary>ギャラリー表示</summary>
 <groups>IMAGES</groups>
 <description>匿名ユーザーに Serendipity メディアギャラリー閲覧を許可します。</description>
-<maintainers><maintainer><name>Arnan de Gans, Matthew Groeninger, and Stefan Willoughby</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Arnan de Gans, Matthew Groeninger, Stefan Willoughby, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.58</version>
+  <version>2.60</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-06-20</date>
+  <date>2014-10-01</date>
   <filelist>
 <dir name="serendipity_event_usergallery">
 <file>serendipity_event_usergallery.php</file>

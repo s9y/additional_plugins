@@ -1,9 +1,9 @@
 Using this subquery you can convert existing categories to tags:
 
-INSERT INTO serendipity_entrytags (entryid, tag) 
-  SELECT serendipity_entries.id, serendipity_category.category_name 
-    FROM serendipity_entries, serendipity_category, serendipity_entrycat 
-   WHERE serendipity_entrycat.entryid = serendipity_entries.id 
+INSERT INTO serendipity_entrytags (entryid, tag)
+  SELECT serendipity_entries.id, serendipity_category.category_name
+    FROM serendipity_entries, serendipity_category, serendipity_entrycat
+   WHERE serendipity_entrycat.entryid = serendipity_entries.id
      AND serendipity_category.categoryid = serendipity_entrycat.categoryid;
 
 [quoted from: http://pixelated-dreams.com/archives/229-Spring-Cleaning.html]
@@ -28,7 +28,7 @@ foreach($rows AS $row) {
             serendipity_db_escape_string($row['category_name'])
         )
     );
-    
+
     printf(
         "Category '%s' added as Tag for Entry #%d, '%s'<br />\n",
         htmlspecialchars($row['category_name']),

@@ -1,7 +1,12 @@
+3.59:
+----
+ * Remove CDNs and upgrade jquery-migrate
+ * Minor fix for taglist
+
 3.58:
 ----
-* Fix doubled encoded umlaut taglinks by searchengines backlinks.
-* Added a new option to allow showing taglink entries as a linklist.
+ * Fix doubled encoded umlaut taglinks by searchengines backlinks.
+ * Added a new option to allow showing taglink entries as a linklist.
     This adds a 'taglist' tag as a reserved command to tags,
     which not allows this tag as a normal tag any further.
     The addition can be done either by the preset taglink as "/plugin/taglist/"

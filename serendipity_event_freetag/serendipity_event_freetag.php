@@ -72,7 +72,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.58');
+        $propbag->add('version',       '3.59');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -702,9 +702,9 @@ class serendipity_event_freetag extends serendipity_event
 
                 case 'external_plugin':
                     $uri_parts  = explode('?', str_replace(array('&amp;', '%FF'), array('&', '.'), $eventData));
+                    $taglist    = serendipity_db_bool($this->get_config('taglist', false));
                     $param      = $taglist ? explode('/', str_replace('/taglist','',$uri_parts[0])) : explode('/', $uri_parts[0]);
                     $plugincode = array_shift($param);
-                    $taglist    = serendipity_db_bool($this->get_config('taglist', false));
                     $tagged_as_list = false;
 
                     // By option or manually added blogdomain.com/plugin/taglist/Serendipity/Blog/Plums - see below
@@ -980,9 +980,9 @@ addLoadEvent(enableAutocomplete);
                         }
                         // jQuery Migrate is used due to $.browser of autocomplete plugin not being available in jquery 1.9+
                         echo '
-                        ' . ($serendipity['version'][0] < 2 ? '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>' : '') . '
+                        ' . ($serendipity['version'][0] < 2 ? '<script src="' . $serendipity['baseURL'] . 'plugins/serendipity_event_freetag/jquery-1.11.1.min.js" type="text/javascript"></script>' : '') . '
                         <link rel="stylesheet" type="text/css" href="' . $serendipity['baseURL'] . 'plugins/serendipity_event_freetag/jquery.autocomplete.css" />
-                        <script src="https://code.jquery.com/jquery-migrate-1.1.1.js"></script>
+                        <script src="' . $serendipity['baseURL'] . 'plugins/serendipity_event_freetag/jquery-migrate-1.2.1.min.js"></script>
                         <script type="text/javascript" src="' . $serendipity['baseURL'] . 'plugins/serendipity_event_freetag/jquery.autocomplete.min.js"></script>
                         <script type="text/javascript">
                         var tags = [' . implode(',', $wicktags) . '];
@@ -995,7 +995,7 @@ addLoadEvent(enableAutocomplete);
                                         matchContains: "word",
                                         autoFill: false
                                     })};
-                         addLoadEvent(enableAutocomplete);
+                            addLoadEvent(enableAutocomplete);
                          ' : '') . '
                         </script>';
                     }
@@ -1249,12 +1249,9 @@ addLoadEvent(enableAutocomplete);
                         return true;
                     }
 
-                    // This falls into the default case, which returns false...  Is this supposed to happen?
-                    // Is it a bug?
-                    // Is it a feature?
                     $this->displayEntry($eventData, $addData);
                     return true;
-                    break; // Ian: shouldn't it break here? See upper question.
+                    break;
 
                 case 'xmlrpc_updertEntry':
                     if (isset($eventData['id']) && isset($eventData['mt_keywords'])) {

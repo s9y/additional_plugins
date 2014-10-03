@@ -86,7 +86,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_freetag&lt;br /&gt;Tagowanie wpisów&lt;/b&gt;&lt;br /&gt;Umożliwia dowolne tagowanie wpisów&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 29 Sep 2014 02:31:16 +0200</pubDate>
+<pubDate>Fri, 03 Oct 2014 02:31:23 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_freetag</guid>
 </item>
 <item>
@@ -914,7 +914,7 @@
 <category>Event Plugins</category>
 <author>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_lightbox&lt;br /&gt;Lightbox/Thickbox JS&lt;/b&gt;&lt;br /&gt;Lightbox JS to prosty, nie rzucający się w oczy skrypt używany do wyświetlania obrazków na aktualnie otwartej stronie w warstwie overlay. Konfiguracja zajmuje chwilkę a sam skrypt pracuje poprawnie w każdej nowoczesnej przeglądarce. Lightbox wyświetla obrazki podczas gdy Thickbox potrafi także wyświetlać kod HTML na nakładanej na stronę warstwie. Obydwie wtyczki pracują tak: przeszukują Twoje wpisy i zastępują każdy link a href tak, by wykorzystywał ich sposób wyświetlania linkowanego materiału. Więc jeśli chcesz, by miniatury Twoich obrazków wyświetlały się jako wyskakujące duże obrazki, musisz osadzać swoje obrazki jako linki do ich większej wersji. Używając Thickboxa musisz użyć klasy class=&quot;thickbox&quot; jako atrybut w odwołaniach a href by pokazało się okienko z podlinkowaną zawartością.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Fri, 24 May 2013 02:31:11 +0200</pubDate>
+<pubDate>Fri, 03 Oct 2014 02:31:26 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_lightbox</guid>
 </item>
 <item>

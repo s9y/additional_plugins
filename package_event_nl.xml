@@ -798,9 +798,9 @@
 <description>Maakt het mogelijk om bijdragen van tags te voorzien</description>
 <maintainers><maintainer><name>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.58</version>
+  <version>3.59</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-09-29</date>
+  <date>2014-10-03</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <dir name="UTF-8">
@@ -844,7 +844,9 @@
 <file>jquery.autocomplete.min.js</file>
 <file>.htaccess</file>
 <file>plugin_freetag.tpl</file>
+<file>jquery-migrate-1.2.1.min.js</file>
 <file>documentation_en.html</file>
+<file>jquery-1.11.1.min.js</file>
 </dir>
 
   </filelist>
@@ -886,7 +888,9 @@
     <file>serendipity_event_freetag/jquery.autocomplete.min.js</file>
     <file>serendipity_event_freetag/.htaccess</file>
     <file>serendipity_event_freetag/plugin_freetag.tpl</file>
+    <file>serendipity_event_freetag/jquery-migrate-1.2.1.min.js</file>
     <file>serendipity_event_freetag/documentation_en.html</file>
+    <file>serendipity_event_freetag/jquery-1.11.1.min.js</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7174,9 +7178,9 @@
 <description>Lightbox JS is a simple, unobtrusive script used to to overlay images on the current page. It's a snap to setup and works on all modern browsers. Lightbox pops up images, while Thickbox can also display HTML popup links. Both scripts work like this: They search through your entries, and replace every 'a href=&quot;XXX&quot;' link and then replace that link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. Using thickbox, you can put a 'class=&quot;thickbox&quot;' attribute into your 'a href' links so that they will popup in a window.</description>
 <maintainers><maintainer><name>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.9.7</version>
+  <version>1.9.8</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-05-24</date>
+  <date>2014-10-03</date>
   <filelist>
 <dir name="serendipity_event_lightbox">
 <dir name="lightbox">

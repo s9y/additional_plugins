@@ -798,9 +798,9 @@
 <description>Umożliwia dowolne tagowanie wpisów</description>
 <maintainers><maintainer><name>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.58</version>
+  <version>3.59</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-09-29</date>
+  <date>2014-10-03</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <dir name="UTF-8">
@@ -844,7 +844,9 @@
 <file>jquery.autocomplete.min.js</file>
 <file>.htaccess</file>
 <file>plugin_freetag.tpl</file>
+<file>jquery-migrate-1.2.1.min.js</file>
 <file>documentation_en.html</file>
+<file>jquery-1.11.1.min.js</file>
 </dir>
 
   </filelist>
@@ -886,7 +888,9 @@
     <file>serendipity_event_freetag/jquery.autocomplete.min.js</file>
     <file>serendipity_event_freetag/.htaccess</file>
     <file>serendipity_event_freetag/plugin_freetag.tpl</file>
+    <file>serendipity_event_freetag/jquery-migrate-1.2.1.min.js</file>
     <file>serendipity_event_freetag/documentation_en.html</file>
+    <file>serendipity_event_freetag/jquery-1.11.1.min.js</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7174,9 +7178,9 @@
 <description>Lightbox JS to prosty, nie rzucający się w oczy skrypt używany do wyświetlania obrazków na aktualnie otwartej stronie w warstwie overlay. Konfiguracja zajmuje chwilkę a sam skrypt pracuje poprawnie w każdej nowoczesnej przeglądarce. Lightbox wyświetla obrazki podczas gdy Thickbox potrafi także wyświetlać kod HTML na nakładanej na stronę warstwie. Obydwie wtyczki pracują tak: przeszukują Twoje wpisy i zastępują każdy link a href tak, by wykorzystywał ich sposób wyświetlania linkowanego materiału. Więc jeśli chcesz, by miniatury Twoich obrazków wyświetlały się jako wyskakujące duże obrazki, musisz osadzać swoje obrazki jako linki do ich większej wersji. Używając Thickboxa musisz użyć klasy class=&quot;thickbox&quot; jako atrybut w odwołaniach a href by pokazało się okienko z podlinkowaną zawartością.</description>
 <maintainers><maintainer><name>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.9.7</version>
+  <version>1.9.8</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-05-24</date>
+  <date>2014-10-03</date>
   <filelist>
 <dir name="serendipity_event_lightbox">
 <dir name="lightbox">

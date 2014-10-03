@@ -761,7 +761,9 @@
 <file>jquery.autocomplete.min.js</file>
 <file>.htaccess</file>
 <file>plugin_freetag.tpl</file>
+<file>jquery-migrate-1.2.1.min.js</file>
 <file>documentation_en.html</file>
+<file>jquery-1.11.1.min.js</file>
 </dir>
 
   </filelist>
@@ -803,7 +805,9 @@
     <file>serendipity_event_freetag/jquery.autocomplete.min.js</file>
     <file>serendipity_event_freetag/.htaccess</file>
     <file>serendipity_event_freetag/plugin_freetag.tpl</file>
+    <file>serendipity_event_freetag/jquery-migrate-1.2.1.min.js</file>
     <file>serendipity_event_freetag/documentation_en.html</file>
+    <file>serendipity_event_freetag/jquery-1.11.1.min.js</file>
   </serendipityFilelist>
 </release>
 </package>

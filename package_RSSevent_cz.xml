@@ -86,7 +86,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_freetag&lt;br /&gt;Klíčová slova&lt;/b&gt;&lt;br /&gt;Umožňuje libovolné přidávání klíčových slov k příspěvkům&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 29 Sep 2014 02:31:16 +0200</pubDate>
+<pubDate>Fri, 03 Oct 2014 02:31:23 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_freetag</guid>
 </item>
 <item>
@@ -916,7 +916,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_lightbox&lt;br /&gt;Lightbox/Thickbox JS/Greybox&lt;/b&gt;&lt;br /&gt;Lightbox je jednoduchý nenápadný skript používaný k zobrazení obrázů přes aktuální stranu. Během okamžiku ho nastavíte. Funguje ve všech moderních prohlížečích. Lightbox zobrazuje obrázky, zatímco Thickbox umí zobrazit také vyskakovací HTML bloky. Oba skripty fungují následovně: Vyhledávají v příspěvcích a nahrazují každý výskyt odkazu 'a href=&quot;XXX&quot;' odkazem na zobrazení nad aktuální stránkou. Takže pokud chcete zobrazovat zvětšené obrázky, stačí do článku vložit odkazy na tyto velké obrázky. Při použití Thickboxu vložte atribut 'class=&quot;thickbox&quot;' do odkazu 'a href', tento odkaz se pak zobrazí ve vyskakovacím okně.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Fri, 24 May 2013 02:31:11 +0200</pubDate>
+<pubDate>Fri, 03 Oct 2014 02:31:26 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_lightbox</guid>
 </item>
 <item>

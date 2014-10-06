@@ -1,3 +1,8 @@
+2.61:
+-----
+ * Added option to exclude Non-Image object files. (Defaults to images only)
+   The file plugin_usergallery.tpl has changed. Please update your template copy file, if have.
+
 2.60:
 -----
  * Added option for using lightboxes

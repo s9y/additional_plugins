@@ -28,97 +28,131 @@ function popImage(file_name,file_title,file_width,file_height) {ldelim}
         <h3 class="serendipity_date">{$plugin_usergallery_title}</h3>
 
         <div class="serendipity_entry_body">
-              <div class="serendipity_gallery_navigation">
+            <div class="serendipity_gallery_navigation">
                 <a href="{$plugin_usergallery_httppath}">{$plugin_usergallery_title}</a>{foreach name="gallery" from=$plugin_usergallery_gallery_breadcrumb item="gallery"} &raquo; <a href="{$plugin_usergallery_httppath_extend}gallery={$gallery.path}">{$gallery.name}</a>{/foreach}{if $plugin_usergallery_limit_directory!=""} &raquo; <a href="{$plugin_usergallery_httppath_extend}gallery={$plugin_usergallery_currentgal}">{$plugin_usergallery_limit_directory}</a>{/if}
+
             </div>
         {if $plugin_usergallery_preface}
             <div class="serendipity_preface">{$plugin_usergallery_preface}</div>
         {/if}
-        <!-- album list -->
+
+            <!-- album list -->
         {if $plugin_usergallery_dir_list eq 'yes'}
+
             <ul class="plainList serendipity_gallery_directory">
             {if $plugin_usergallery_display_dir_tree eq "yes"}
+
             <!-- basefolder in treeview -->
                 <!-- considering singular/plural form of "image" depending on the filecount -->
                 <li><a href="{$plugin_usergallery_httppath}">{$plugin_usergallery_title} ({$plugin_usergallery_maindir_filecount} {if $plugin_usergallery_maindir_filecount == 1}{$CONST.IMAGE}{else}{$CONST.PLUGIN_EVENT_USERGALLERY_IMAGES}{/if})</a></li>
             {else}
                 {if $plugin_usergallery_toplevel eq 'no'}
+
                 <!-- 'up-one-level' link in galleries-->
                 <li><a href="{$plugin_usergallery_httppath_extend}gallery={$plugin_usergallery_uppath}">{$const.uponelevel} ({$plugin_usergallery_maindir_filecount} {if $plugin_usergallery_maindir_filecount == 1}{$CONST.IMAGE}{else}{$CONST.PLUGIN_EVENT_USERGALLERY_IMAGES}{/if})</a></li>
                 {else}
+
                 <!-- basefolder in listview -->
                 <li><a href="{$plugin_usergallery_httppath}">{$plugin_usergallery_title} ({$plugin_usergallery_maindir_filecount} {if $plugin_usergallery_maindir_filecount == 1}{$CONST.IMAGE}{else}{$CONST.PLUGIN_EVENT_USERGALLERY_IMAGES}{/if})</a></li>
                 {/if}
             {/if}
-            <!-- folders -->
+
+                <!-- folders -->
                {foreach name="dir_list" from=$plugin_usergallery_subdirectories item="dir"}
+                    {if $dir.filecount > 0}
+
                 <li style="padding-left: {$dir.pxdepth}px;"><a href="{$plugin_usergallery_httppath_extend}gallery={$dir.relpath}">{$dir.name} ({$dir.filecount} {if $dir.filecount == 1}{$CONST.IMAGE}{else}{$CONST.PLUGIN_EVENT_USERGALLERY_IMAGES}{/if})</a></li>
+                    {/if}
                {/foreach}
-               </ul>
+
+            </ul>
         {/if}
-        <!-- end album list -->
+
+            <!-- end album list -->
         {if $plugin_usergallery_pagination}
-        <!-- pagination -->
-        <div class="serendipity_gallery_pagination_top" style="text-align: center">
+
+            <!-- pagination -->
+            <div class="serendipity_gallery_pagination_top" style="text-align: center">
             {if $plugin_usergallery_current_page != 1}
-            <a class="prev" href="{$plugin_usergallery_httppath_extend}gallery={$plugin_usergallery_currentgal}&amp;page={$plugin_usergallery_previous_page}">&laquo; {$CONST.PREVIOUS_PAGE}</a>
+
+                <a class="prev" href="{$plugin_usergallery_httppath_extend}gallery={$plugin_usergallery_currentgal}&amp;page={$plugin_usergallery_previous_page}">&laquo; {$CONST.PREVIOUS_PAGE}</a>
             {/if}
-            <span>({$CONST.PLUGIN_EVENT_USERGALLERY_PAGINATION|@sprintf:$plugin_usergallery_current_page:$plugin_usergallery_total_pages:$plugin_usergallery_total_count})</span>
+
+                <span>({$CONST.PLUGIN_EVENT_USERGALLERY_PAGINATION|@sprintf:$plugin_usergallery_current_page:$plugin_usergallery_total_pages:$plugin_usergallery_total_count})</span>
             {if $plugin_usergallery_current_page != $plugin_usergallery_total_pages}
-            <a class="next" href="{$plugin_usergallery_httppath_extend}gallery={$plugin_usergallery_currentgal}&amp;page={$plugin_usergallery_next_page}">{$CONST.NEXT_PAGE} &raquo;</a>
+
+                <a class="next" href="{$plugin_usergallery_httppath_extend}gallery={$plugin_usergallery_currentgal}&amp;page={$plugin_usergallery_next_page}">{$CONST.NEXT_PAGE} &raquo;</a>
             {/if}
-        </div>
-        <!-- end pagination -->
+
+            </div>
+            <!-- end pagination -->
         {/if}
-        <!-- images -->
+
+            <!-- images -->
         {foreach name="column" from=$plugin_usergallery_images item="image"}
             {if $smarty.foreach.column.first}
+
             <div class="serendipity_gallery_row">
             {/if}
-            <div class="serendipity_gallery_thumbs" style="width: {$plugin_usergallery_colwidth}%;">
+
+                <div class="serendipity_gallery_thumbs" style="width: {$plugin_usergallery_colwidth}%;">
             {if $image.isimage}
                 {if $plugin_usergallery_image_display eq 'popup'}
-                <!-- popup -->
-                 <a href="javascript:popImage('{$image.fullimage}','{$image.name}','{$image.dimensions_width}','{$image.dimensions_height}')"><img class="gallery_thumb" {if $plugin_usergallery_fixed_width !=0}height={$plugin_usergallery_fixed_width}px width={$plugin_usergallery_fixed_width}px{/if} src="{$image.link}" alt="" /></a>
+
+                    <!-- popup -->
+                    <a href="javascript:popImage('{$image.fullimage}','{$image.name}','{$image.dimensions_width}','{$image.dimensions_height}')"><img class="gallery_thumb" {if $plugin_usergallery_fixed_width !=0}height={$plugin_usergallery_fixed_width}px width={$plugin_usergallery_fixed_width}px{/if} src="{$image.link}" alt="" /></a>
                 {else}
-                <!-- show thumb -->
+
+                    <!-- show thumb -->
                     {if $plugin_usergallery_uselightbox}
-                <a href="{$image.fullimage}" {$plugin_usergallery_lightbox_type}><img class="gallery_thumb" {if $plugin_usergallery_fixed_width !=0}height={$plugin_usergallery_fixed_width}px width={$plugin_usergallery_fixed_width}px{/if} style="width: 100%;" src="{$image.link}" alt="" /></a>
+
+                    <a href="{$image.fullimage}" {$plugin_usergallery_lightbox_type}><img class="gallery_thumb" {if $plugin_usergallery_fixed_width !=0}height={$plugin_usergallery_fixed_width}px width={$plugin_usergallery_fixed_width}px{/if} style="width: 100%;" src="{$image.link}" alt="" /></a>
                     {else}
-                <a href="{$plugin_usergallery_httppath_extend}serendipity[image]={$image.id}"><img class="gallery_thumb" {if $plugin_usergallery_fixed_width !=0}height={$plugin_usergallery_fixed_width}px width={$plugin_usergallery_fixed_width}px{/if} style="width: 100%;" src="{$image.link}" alt="" /></a>
+
+                    <a href="{$plugin_usergallery_httppath_extend}serendipity[image]={$image.id}"><img class="gallery_thumb" {if $plugin_usergallery_fixed_width !=0}height={$plugin_usergallery_fixed_width}px width={$plugin_usergallery_fixed_width}px{/if} style="width: 100%;" src="{$image.link}" alt="" /></a>
                     {/if}
                 {/if}
             {else}
-                <!-- download link -->
-                <a href="{$image.fullimage}" target=blank><img class="gallery_thumb" src="{$image.link}" alt="" /></a><br><a href="{$image.fullimage}" target=blank>Download {$image.name}.{$image.extension}</a>
+
+                    <!-- download link -->
+                    <a href="{$image.fullimage}" target=blank><img class="gallery_thumb" src="{$image.link}" alt="" /></a><br><a href="{$image.fullimage}" target=blank>Download {$image.name}.{$image.extension}</a>
             {/if}
-            </div>
+
+                </div>
             {if $smarty.foreach.column.last}
-            <!-- last column -->
-            <div style="clear: both;"></div>
+
+                <!-- last column -->
+                <div style="clear: both;"></div>
             </div>
             {else}
-            {if $smarty.foreach.column.iteration is div by $plugin_usergallery_cols}
-            <!-- new column -->
-            <div style="clear: both;"></div>
+                {if $smarty.foreach.column.iteration is div by $plugin_usergallery_cols}
+
+                <!-- new column -->
+                <div style="clear: both;"></div>
             </div>
             <div class="serendipity_gallery_row">
-            {/if}
+                {/if}
             {/if}
         {/foreach}
-        <!-- end images -->
+
+            <!-- end images -->
         {if $plugin_usergallery_pagination}
-        <!-- pagination -->
-        <div class="serendipity_gallery_pagination_bottom" style="text-align: center">
+
+            <!-- pagination -->
+            <div class="serendipity_gallery_pagination_bottom" style="text-align: center">
             {if $plugin_usergallery_current_page != 1}
-            <a class="prev" href="{$plugin_usergallery_httppath_extend}gallery={$plugin_usergallery_currentgal}&amp;page={$plugin_usergallery_previous_page}">&laquo; {$CONST.PREVIOUS_PAGE}</a>
+
+                <a class="prev" href="{$plugin_usergallery_httppath_extend}gallery={$plugin_usergallery_currentgal}&amp;page={$plugin_usergallery_previous_page}">&laquo; {$CONST.PREVIOUS_PAGE}</a>
             {/if}
-            <span>({$CONST.PLUGIN_EVENT_USERGALLERY_PAGINATION|@sprintf:$plugin_usergallery_current_page:$plugin_usergallery_total_pages:$plugin_usergallery_total_count})</span>
+
+                <span>({$CONST.PLUGIN_EVENT_USERGALLERY_PAGINATION|@sprintf:$plugin_usergallery_current_page:$plugin_usergallery_total_pages:$plugin_usergallery_total_count})</span>
             {if $plugin_usergallery_current_page != $plugin_usergallery_total_pages}
-            <a class="next" href="{$plugin_usergallery_httppath_extend}gallery={$plugin_usergallery_currentgal}&amp;page={$plugin_usergallery_next_page}">{$CONST.NEXT_PAGE} &raquo;</a>
+
+                <a class="next" href="{$plugin_usergallery_httppath_extend}gallery={$plugin_usergallery_currentgal}&amp;page={$plugin_usergallery_next_page}">{$CONST.NEXT_PAGE} &raquo;</a>
             {/if}
-        </div>
-        <!-- end pagination -->
+
+            </div>
+            <!-- end pagination -->
         {/if}
 
         </div>

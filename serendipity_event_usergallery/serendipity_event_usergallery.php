@@ -24,7 +24,7 @@ class serendipity_event_usergallery extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_USERGALLERY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Arnan de Gans, Matthew Groeninger, Stefan Willoughby, Ian');
-        $propbag->add('version',       '2.60');
+        $propbag->add('version',       '2.61');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -40,7 +40,7 @@ class serendipity_event_usergallery extends serendipity_event
         ));
         $propbag->add('groups', array('IMAGES'));
         $propbag->add('configuration', array('title', 'num_cols', 'subpage', 'frontpage', 'permalink', 'style', 'base_directory', 'dir_list', 'show_1lvl_sub',
-        'display_dir_tree', 'dir_tab', 'images_per_page', 'image_order','intro', 'image_display', 'show_lightbox', 'lightbox_type', 'image_strict', 'fixed_width', 'image_width',
+        'display_dir_tree', 'dir_tab', 'images_per_page', 'image_order','intro', 'image_display', 'show_lightbox', 'lightbox_type', 'show_objects', 'image_strict', 'fixed_width', 'image_width',
         'feed_width', 'feed_linked_only', 'feed_body', 'exif_show_data', 'exif_data', 'show_media_properties', 'media_properties', 'linked_entries'));
     }
 
@@ -196,6 +196,16 @@ class serendipity_event_usergallery extends serendipity_event
                 $propbag->add('description',   '');
                 $propbag->add('select_values', $select_type);
                 $propbag->add('default',       'lightbox');
+                break;
+
+            case 'show_objects':
+                $propbag->add('type',          'radio');
+                $propbag->add('name',          PLUGIN_EVENT_USERGALLERY_SHOWOBJECTS_NAME);
+                $propbag->add('description',   PLUGIN_EVENT_USERGALLERY_SHOWOBJECTS_DESC);
+                $propbag->add('radio',         array('value' => array('true','false'),
+                                                     'desc'  => array(YES,NO)));
+                $propbag->add('radio_per_row', '2');
+                $propbag->add('default',       'false');
                 break;
 
             case 'image_strict':
@@ -600,11 +610,13 @@ class serendipity_event_usergallery extends serendipity_event
             }
         }
 
+
         if (isset($serendipity['GET']['image'])) {
             $this->displayImage($serendipity['GET']['image'], $orderby, $order);
         } else {
             $num_cols       = $this->get_config('num_cols');
             $base_directory = $this->get_config('base_directory');
+            $show_objects   = serendipity_db_bool($this->get_config('show_objects', false));
 
             if ($this->get_config('style') == "thumbpage")  {
                 $images_per_page   = $this->get_config('images_per_page');
@@ -624,14 +636,12 @@ class serendipity_event_usergallery extends serendipity_event
                 $serendipity['smarty']->assign('plugin_usergallery_currentgal','');
                 $serendipity['smarty']->assign('plugin_usergallery_uppath','');
                 $serendipity['smarty']->assign('plugin_usergallery_toplevel','yes');
-
                 //Let's get a directory listing that has all our ACLs applied already!
                 if (version_compare($serendipity['version'],"1.1.beta3") >= 0) {
-                    $directories_temp = serendipity_traversePath($serendipity['serendipityPath'].$serendipity['uploadPath'],$limit_directory,true,NULL,1, NULL,"read",NULL);
+                    $directories_temp = serendipity_traversePath($serendipity['serendipityPath'].$serendipity['uploadPath'], $limit_directory, NULL, $pattern,1, NULL, "read", NULL);
                 } else {
-                    $directories_temp = serendipity_traversePath($serendipity['serendipityPath'].$serendipity['uploadPath'],$limit_directory);
+                    $directories_temp = serendipity_traversePath($serendipity['serendipityPath'].$serendipity['uploadPath'], $limit_directory);
                 }
-
                 //Check to see if we are calling a gallery directly
                 if (isset($_GET['gallery']) && $_GET['gallery'] != '') {
                    //replace weird characters.  Was more important before we used the database.
@@ -673,7 +683,8 @@ class serendipity_event_usergallery extends serendipity_event
                     }
                 }
 
-                $query = "SELECT path, count(id) FROM {$serendipity['dbPrefix']}images GROUP BY path";
+                $where = $show_objects ? '' : ' WHERE mime LIKE "image/%" ';
+                $query = "SELECT path, count(id) FROM {$serendipity['dbPrefix']}images ". $where ." GROUP BY path";
                 $rs = serendipity_db_query($query, false, 'assoc');
                 if (is_array($rs)) {
                    foreach($rs AS $f => $record) {
@@ -705,7 +716,7 @@ class serendipity_event_usergallery extends serendipity_event
                    }
                 }
 
-                if (is_array($directories_temp)) {
+               if (is_array($directories_temp)) {
                    if (version_compare($serendipity['version'],"1.1.beta3") >= 0) {
                        usort($directories_temp, 'serendipity_sortPath');
                    }
@@ -719,7 +730,7 @@ class serendipity_event_usergallery extends serendipity_event
                         } else {
                              if ($show_1lvl_sub == 'yes') {
                                  $temp_count = strlen($limit_images_directory);
-                                 if (strcmp(substr($directory,0,$temp_count),$limit_images_directory) == 0 && $directory!=$limit_images_directory) {
+                                 if (strcmp(substr($directory,0,$temp_count),$limit_images_directory) == 0 && $directory != $limit_images_directory) {
                                       $full_length = strlen($directory);
                                       if (substr_count(substr($directory,$temp_count,$full_length),'/') == 1) {
                                           $directories[$dir['relpath']] = $dir;
@@ -730,14 +741,13 @@ class serendipity_event_usergallery extends serendipity_event
                                  }
                              } else {
                                 $temp_count = strlen($limit_images_directory);
-                                if (strcmp(substr($directory,0,$temp_count),$limit_images_directory) == 0 && $directory !=$limit_images_directory) {
+                                if (strcmp(substr($directory,0,$temp_count),$limit_images_directory) == 0 && $directory != $limit_images_directory) {
                                     $directories[$directory] = $dir;
                                 }
                             }
                         }
                     }
                }
-
 
                $serendipity['smarty']->assign('plugin_usergallery_subdirectories', $directories);
 
@@ -806,6 +816,7 @@ class serendipity_event_usergallery extends serendipity_event
 
                         $image['popupwidth'] = ($is_image ? ($image['dimensions_width'] + 20) : 600);
                         $image['popupheight'] = ($is_image ? ($image['dimensions_height'] + 20) : 500);
+                        if (!$is_image && !$show_objects) continue; // do not include Non-Image objects to array
                         $process_images[$image['name']] = $image;
                     }
                 }

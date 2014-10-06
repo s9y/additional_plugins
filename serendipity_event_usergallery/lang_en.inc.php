@@ -101,3 +101,6 @@
 @define('PLUGIN_EVENT_USERGALLERY_SHOWLIGHTBOX_DESC', 'Needs the lightbox-plugin installed and upper option "Display Single Image" set to "Scaled to fit"!');
 @define('PLUGIN_EVENT_USERGALLERY_LIGHTBOXTYPE_NAME', 'Lightbox-type as selected in lightbox-plugin');
 
+@define('PLUGIN_EVENT_USERGALLERY_SHOWOBJECTS_NAME', 'Show all Non-Image objects');
+@define('PLUGIN_EVENT_USERGALLERY_SHOWOBJECTS_DESC', 'Include other media library object files to show up too, eg *.pdf application objects.');
+

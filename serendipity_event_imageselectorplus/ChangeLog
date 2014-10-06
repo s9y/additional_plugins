@@ -1,3 +1,11 @@
+0.46:
+-----
+
+ * Introduce imagemagick_nobang variable for thumbnail image resizing
+   with Serendipity >= 2.x versions
+ * Better description of MAX Value constants
+
+
 0.45:
 -----
 

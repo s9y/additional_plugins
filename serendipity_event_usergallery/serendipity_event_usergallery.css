@@ -1,3 +1,4 @@
+
 /* User Gallery */
 div.serendipity_gallery_row {
    clear:left;
@@ -76,6 +77,7 @@ div.serendipity_gallery_pagination_bottom {
     background-color: #ccd9e6;
     padding: 3px;
 }
+/* keep at least an empty .exit_info {} since this is checked for includement */
 .exif_info {
     width: 264px;
     background-color: #eee;

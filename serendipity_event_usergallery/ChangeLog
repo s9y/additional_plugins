@@ -1,3 +1,7 @@
+2.62:
+-----
+ * Since being stackable, avoid loading multiple css into stream
+
 2.61:
 -----
  * Added option to exclude Non-Image object files. (Defaults to images only)

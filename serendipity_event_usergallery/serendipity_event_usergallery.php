@@ -4,7 +4,6 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-
 // Probe for a language include with constants. Still include defines later on, if some constants were missing
 $probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
 if (file_exists($probelang)) {
@@ -20,17 +19,17 @@ class serendipity_event_usergallery extends serendipity_event
     {
         global $serendipity;
 
-        $propbag->add('name',          PLUGIN_EVENT_USERGALLERY_TITLE);
-        $propbag->add('description',   PLUGIN_EVENT_USERGALLERY_DESC);
-        $propbag->add('stackable',     true);
-        $propbag->add('author',        'Arnan de Gans, Matthew Groeninger, Stefan Willoughby, Ian');
-        $propbag->add('version',       '2.61');
-        $propbag->add('requirements',  array(
+        $propbag->add('name',        PLUGIN_EVENT_USERGALLERY_TITLE);
+        $propbag->add('description', PLUGIN_EVENT_USERGALLERY_DESC);
+        $propbag->add('stackable',   true);
+        $propbag->add('author',      'Arnan de Gans, Matthew Groeninger, Stefan Willoughby, Ian');
+        $propbag->add('version',     '2.62');
+        $propbag->add('requirements', array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('event_hooks',    array(
+        $propbag->add('event_hooks', array(
             'css'                 => true,
             'entry_display'       => true,
             'entries_header'      => true,
@@ -437,11 +436,15 @@ class serendipity_event_usergallery extends serendipity_event
                     break;
 
                 case 'css':
-                    $out = serendipity_getTemplateFile('serendipity_event_usergallery.css', 'serendipityPath');
-                    if ($out && $out != 'serendipity_event_usergallery.css') {
-                        $eventData .= file_get_contents($out);
-                    } else {
-                        $eventData .= file_get_contents(dirname(__FILE__) . '/serendipity_event_usergallery.css');
+                    // If you only want to determine if a particular needle occurs within haystack, use the faster and less memory intensive function strpos() instead.
+                    if (strpos($eventData, '.exif_info') === false) {
+                        $out = serendipity_getTemplateFile('serendipity_event_usergallery.css', 'serendipityPath');
+                        if ($out && $out != 'serendipity_event_usergallery.css') {
+                            $eventData .= file_get_contents($out);
+                            // do not echo here and there, since this prevents the strpos check to work, which multiplies gallery css added to stream for multiple stacked galleries
+                        } else {
+                            $eventData .= file_get_contents(dirname(__FILE__) . '/serendipity_event_usergallery.css');
+                        }
                     }
                     return true;
                     break;
@@ -482,9 +485,9 @@ class serendipity_event_usergallery extends serendipity_event
                     if ($this->selected()) {
                         if ($this->get_config('base_directory') == 'gallery') {
                             // this is to avoid having the word "gallery" as blog title
-                            $serendipity['head_title']    = preg_replace('@[^a-z0-9]@i', ' ',$this->get_config('title'));
+                            $serendipity['head_title'] = preg_replace('@[^a-z0-9]@i', ' ',$this->get_config('title'));
                         } else {
-                            $serendipity['head_title']    = preg_replace('@[^a-z0-9]@i', ' ',$this->get_config('base_directory'));
+                            $serendipity['head_title'] = preg_replace('@[^a-z0-9]@i', ' ',$this->get_config('base_directory'));
                         }
                         $serendipity['head_subtitle'] = $serendipity['blogTitle'];
                     }
@@ -683,7 +686,7 @@ class serendipity_event_usergallery extends serendipity_event
                     }
                 }
 
-                $where = $show_objects ? '' : ' WHERE mime LIKE "image/%" ';
+                $where = $show_objects ? '' : "WHERE mime LIKE 'image/%'";
                 $query = "SELECT path, count(id) FROM {$serendipity['dbPrefix']}images ". $where ." GROUP BY path";
                 $rs = serendipity_db_query($query, false, 'assoc');
                 if (is_array($rs)) {
@@ -803,6 +806,7 @@ class serendipity_event_usergallery extends serendipity_event
                 if (is_array($images)) {
                     foreach($images AS $f => $image) {
                         $is_image = serendipity_isImage($image);
+                        if (!$is_image && !$show_objects) continue; // do not include Non-Image objects to array
                         if ($is_image) {
                             $image['link'] = $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $image['path'] . $image['name'] . '.' . $image['thumbnail_name'] . '.' . $image['extension'];
                             $image['dimension'] = $image['dimensions_width'].'x'.$image['dimensions_height'];
@@ -816,7 +820,6 @@ class serendipity_event_usergallery extends serendipity_event
 
                         $image['popupwidth'] = ($is_image ? ($image['dimensions_width'] + 20) : 600);
                         $image['popupheight'] = ($is_image ? ($image['dimensions_height'] + 20) : 500);
-                        if (!$is_image && !$show_objects) continue; // do not include Non-Image objects to array
                         $process_images[$image['name']] = $image;
                     }
                 }

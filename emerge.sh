@@ -5,10 +5,12 @@ rm additional_themes.tgz
 echo $(date) > last.txt
 echo $(date) > homepage/last.txt
 tar --exclude=homepage --exclude=spartacus_homepage.zip --exclude=spartacus_homepage_template.zip --exclude=emerge.sh --exclude=emerge_spartacus.dat -czf additional_plugins.tgz *
+find -maxdepth 1 -type d -not -name . -not -name CVS -exec rm {}.zip {} \;
 find -maxdepth 1 -type d -not -name . -not -name CVS -exec zip -9r {}.zip {} \; 1>/dev/null
 
 cd /home/garvin/cvs/serendipity/additional_themes
 tar -czf /home/garvin/cvs/serendipity/additional_plugins/additional_themes.tgz *
+find -maxdepth 1 -type d -not -name . -not -name CVS -exec rm {}.zip {} \;
 find -maxdepth 1 -type d -not -name . -not -name CVS -exec zip -9r {}.zip {} \; 1>/dev/null
 
 cd /home/garvin/cvs/serendipity/additional_plugins/

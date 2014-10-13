@@ -1,3 +1,20 @@
+4.5.0:
+-----
+    * Upgrade to CKEDITOR 4.4 Series, update 5 (http://ckeditor.com/whatsnew)
+      MAJOR CHANGE:
+    * This package is a full ckeditor release package now.
+    * Manually added plugins are:
+        - dependency plugins widget and lineutils
+        - codesnippet, which replaces the previously used pbckcode plugin
+          This new code plugin has by default more code types, does not
+          need any CDN, and uses less ressources being better integrated.
+          But it uses a different highlighter js file (hightlight.pack.js).
+    * Changed option prettify to be a compat mode only option for ugraders
+      havings used pbckcode code previously for entries.
+      This also adds some missed prettify linenums css rules.
+    * Added option to choose preset toolbars (Basic, Standard, Full)
+    * Touched some lang files.
+
 4.4.0:
 -----
     * Upgrade to CKEDITOR 4.4 Series, update 4 (http://ckeditor.com/release/CKEditor-4.4.4)

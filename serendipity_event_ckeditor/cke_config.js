@@ -3,7 +3,7 @@
  */
 
 /**
- * @fileOverview A Serendipity serendipity_event_ckeditor CKEDITOR custom config file: cke_config.js, v. 2.0, 2014-09-05
+ * @fileOverview A Serendipity serendipity_event_ckeditor CKEDITOR custom config file: cke_config.js, v. 2.1, 2014-10-13
  */
 
 /**
@@ -43,14 +43,15 @@ CKEDITOR.editorConfig = function( config ) {
         config.protectedSource.push( /<(mediainsert)[^>]*>[\s\S]*?<\/mediainsert>/img );
         // allow a Smarty like {} tag syntax without inner whitespace, which would be some other code part.
         config.protectedSource.push( /\{[a-zA-Z\$].*?\}/gi );
-        // allow wp like [[mytag]] tags with >= 4.4.1
-        config.protectedSource.push(/\[\[[^\]]*?\]\]/g);
+        // allow wp like [[mytag]] [[{$mytag}]] widget tags with >= 4.4.1
+        config.protectedSource.push(/\[\[([^\[\]])+\]\]/g);
 
-        // Set placeholder tag cases - elements [attributes]{styles}(classes)
-        // Allowed mediainsert, gallery, media tags (imageselectorplus galleries) - which tells ACF to not touch the code!
-        // Allowed div is a need for Media Library inserts - which tells ACF to not touch the code!
-        // img[height] is even needed to avoid ACF OFF removement of height attributes
-        config.extraAllowedContent = 'mediainsert[*]{*}(*);gallery[*]{*}(*);media[*]{*}(*);script[*]{*}(*);audio[*]{*}(*);div[*]{*}(*);img[height,width];';
+        // Set placeholder tag cases - elements [attributes]{styles}(classes) to protect ACF removements.
+        // Allowed <mediainsert>, <gallery>, <media> tags (imageselectorplus galleries) - which tells ACF to not touch the code!
+        // Allowed <div> is a need for Media Library inserts - which tells ACF to not touch the code!
+        // <img[height,width]> This Media Library image is even needed to avoid ACF OFF removement of height attributes.
+        // <pre[*attributes](*classes)> for previous used prettyprints by ckeditor plugin pbckcode
+        config.extraAllowedContent = 'mediainsert[*]{*}(*);gallery[*]{*}(*);media[*]{*}(*);script[*]{*}(*);audio[*]{*}(*);div[*]{*}(*);img[height,width];pre[*](*);';
 
         // CKEDITOR.protectedSource patterns used regex Escape sequences
         //            \s any whitespace character; 
@@ -63,13 +64,14 @@ CKEDITOR.editorConfig = function( config ) {
         //            /m treat as multiline
         //            /g be greedy
 
-    } // do we need to put config.autoParagraph in here too?
+    }
 
     // Prevent filler nodes in all empty blocks. - case switching source and wysiwyg mode multiple times
     //config.fillEmptyBlocks = false; // default (true) - switches <p>&nbsp;</p> to <p></p>
-    //config.ignoreEmptyParagraph = false; // default(true) - Whether the editor must output an empty value ('') if it's contents is made by an empty paragraph only. (extends to config.fillEmptyBlocks)
+    //config.ignoreEmptyParagraph = false; // default(true) - Whether the editor must output an empty value ('') if it's contents is made by an empty paragraph only. (Extends to config.fillEmptyBlocks)
     // It will still generate an empty <p></p> though.
-    config.autoParagraph = false; // but this one definitely prevents adding multiple empty paragraphs when switching source mode!!!
+    //config.autoParagraph = false; // defaults(true)
+    // DEV NOTES: Please note that since CKEditor 4.4.5 the config.autoParagraph configuration option was marked deprecated, since changing the default value might introduce unpredictable usability issues and so it is highly unrecommended.
 
     // The configuration setting that controls the ENTER mode is "config.enterMode" and it offers three options:
     // (1) The default creates a paragraph element each time the "enter" key is pressed:
@@ -80,26 +82,14 @@ CKEDITOR.editorConfig = function( config ) {
     //config.enterMode = CKEDITOR.ENTER_BR; // inserts <br />
     // You can always use SHIFT+ENTER to set a br in the P-mode default option or change the SHIFT-mode to something else
     //config.shiftEnterMode = CKEDITOR.ENTER_BR;
+    // Better learn to do it via keyboard commands, see cheatsheet toolbar button.
 
-    // Whether to use HTML entities in the output. Default Value: true
-    //config.entities = false;
+    // Whether to use HTML entities in the output.
+    //config.entities = false; // defaults(true)
 
-    //config.htmlEncodeOutput = false;
+    //config.htmlEncodeOutput = false; // defaults(true)
 
-    // The configuration setting that controls the ENTER mode is "config.enterMode" and it offers three options:
-    // (1) The default creates a paragraph element each time the "enter" key is pressed:
-    //config.enterMode = CKEDITOR.ENTER_P; // inserts <p></p>
-    // (2) You can choose to create a "div" element instead of a paragraph:
-    //config.enterMode = CKEDITOR.ENTER_DIV; // inserts <div></div>
-    // (3) If you prefer to not wrap the text in anything, you can choose to insert a line break tag:
-    //config.enterMode = CKEDITOR.ENTER_BR; // inserts <br />
-    // You can always use SHIFT+ENTER to set a br in the P-mode default option or change the SHIFT-mode to something else
-    //config.shiftEnterMode = CKEDITOR.ENTER_BR;
-
-    //config.entities = false;
-    //config.htmlEncodeOutput = false;
-
-    // ui configurations - just some examples
+    // ui configurations - just some examples to play around
     //config.uiColor = 'transparent'; // standard, but better disable config.uiColor all
     //config.uiColor = '#CFD1CF'; // standard grey
     //config.uiColor = '#f5f5f5'; // standard light grey
@@ -111,34 +101,12 @@ CKEDITOR.editorConfig = function( config ) {
     //config.uiColor = '#FF8040'; // mango
     //config.uiColor = '#FF2400'; // scarlet red
     //config.uiColor = '#14B8C4'; // light turquoise
-    config['skin'] = 'moono';
-    config['height'] = 400;
+    config.skin    = 'moono';
+    config.height  = 400;
 
-    // PBCKCODE CUSTOMIZATION - see available options at
-    // http://pierrebaron.fr/pbckcode/docs/
-    config.pbckcode = {
-        // An optional class to your pre tag.
-        cls : '',
- 
-        // The syntax highlighter you will use in the output view
-        highlighter : 'PRETTIFY',
- 
-        // An array of the available modes for you plugin.
-        // The key corresponds to the string shown in the select tag.
-        // The value correspond to the loaded file for ACE Editor.
-        //modes : [ ['HTML', 'html'], ['CSS', 'css'], ['PHP', 'php'], ['JS', 'javascript'] ],
-        modes : [ ['C/C++', 'c_pp'], ['CSS', 'css'], ['HTML', 'html'], ['JS', 'javascript'], ['PHP', 'php'], ['SH', 'sh'], ['SQL', 'sql'] ],
- 
-        // The theme of the ACE Editor of the plugin.
-        theme : 'textmate',
- 
-        // Tab indentation (in spaces)
-        tab_size : '4',
-
-        // the root path of ACE Editor. Useful if you want to use the plugin
-        // without any Internet connection
-        js : "http://cdn.jsdelivr.net//ace/1.1.4/noconflict/"
-    };
+    // The previously used PBCKCODE CODE Editor was replaced by the codesnippet plugin , which was developed and enhanced during the development of the CKEDITOR 4 Series.
+    // It has by default more code types, does not need any CDN, and uses less ressources being better integrated. But it uses a different highlighter js file (highlighter.pack.js).
+    // If having used the prettify output already in your entries, your need to set the new compat mode option to allow both.
 
     // Allow certain font sizes, eg.
     //config.fontSize_sizes = '8/8px;9/9px;10/10px;11/11px;12/12px;14/14px;15/15px;16/16px;18/18px;20/20px;22/22px;24/24px;26/26px;28/28px;36/36px;48/48px;72/72px' ;
@@ -157,39 +125,100 @@ CKEDITOR.editorConfig = function( config ) {
     // The general idea is that you would need to remove all plugins that depend on the "contextmenu" one for removing the "contextmenu" one itself to work. But this has other sideeffects!
     //config.removePlugins = 'wsc,scayt,menubutton,liststyle,tabletools,contextmenu';
     //config.browserContextMenuOnCtrl = true;
+    //config.wsc_lang = 'de_DE'; //Defaults to: 'en_US'
+    //config.scayt_sLang = 'de_DE'; //Defaults to: 'en_US'
 
     // Add custom Serendipity styles to ckeditor wysiwyg-mode, to repect S9y css image floats
     config.contentsCss = CKEDITOR_PLUGPATH + 'serendipity_event_ckeditor/wysiwyg-style.css';
 
-    // remove custom toolbar buttons and plugins
-    //config.removePlugins = 'flash,iframe';
-    config.removeButtons = 'Styles'; // this button is quite useless in a blog and the toolbar Groups break better on screens
+    // Remove custom toolbar buttons and plugins from all toolbars
+    // A list of plugins that must not be loaded. This setting makes it possible to avoid loading some plugins defined in the CKEDITOR.config.plugins setting, without having to touch it and potentially break it.
+    config.removePlugins = 'flash,iframe,forms'; // possible strict suggestions: 'flash,iframe,elementspath,save,font,showblocks,div,liststyle,pagebreak,smiley,specialchar,horizontalrule,indentblock,justify,pastefromword,newpage,preview,print,stylescombo'
+    config.removeButtons = 'Preview,Styles'; // these buttons are useless in Serendipity and therefore not set. Without even the toolbar Groups break better on screens.
 
-    config.toolbar_Simple = [['Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat']];
-    config.toolbar_Basic = [['Bold','Italic','Underline','Superscript','-','NumberedList','BulletedList','Outdent','Blockquote','-','Format'],['JustifyLeft','JustifyCenter','JustifyRight'],['Link','Unlink','Source']];
+    // Default theme of CKEDITOR codesnippet plugin - else use 'default' or 'monokai_sublime' or any of those described at https://highlightjs.org/static/test.html
+    config.codeSnippet_theme = 'GitHub';
+    // Its default toolbar group changed away from 'insert' to new 'snippet' group.
+    // The preset github.css theme was copied to this plugins serendipity_event_ckeditor named as highlighter.css for frontend binding.
+
+    // We cheat ckeditor instances by adding all available button names (in s9ypluginbuttons) to "both" toolbar instances, in case of having two textareas.
+    // The instanciation will only take the ones being currently initiated in wysiwyg_init.tpl output, in the source code.
+    // The hooked and added extraPlugins in wysiwyg_init become not automatically true for preset toolbars (Basic, Standard, Full) like this, but do for the fallback toolbarGroups later on.
+    var s9ypluginbuttonsAll = s9ymediabuttons.concat(s9ypluginbuttons);
+
+    // in case of toolbar : Basic
+    config.toolbar_Basic = [
+        ['Format'],['Bold','Italic','Underline','Superscript','-','NumberedList','BulletedList','Blockquote'],['JustifyBlock','JustifyCenter','JustifyRight'],['Image','-','Link','Unlink'],['CodeSnippet'],['MediaEmbed'], s9ypluginbuttonsAll, ['Source']
+    ];
+
+    // in case of toolbar : Full (moved 'Source' button)
+    config.toolbar_Full = [
+        { name: 'styles',      items : [ 'Styles','Format','Font','FontSize' ] },
+        { name: 'basicstyles', items : [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ] },
+        { name: 'colors',      items : [ 'TextColor','BGColor' ] },
+        { name: 'paragraph',   items : [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','-','CreateDiv' ] },
+        { name: 'blocks',      items : [ 'JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock' ] },
+        { name: 'bidi',        items : [ 'BidiLtr','BidiRtl' ] },
+        { name: 'links',       items : [ 'Link','Unlink','Anchor' ] },
+        CONFIG_TOOLBAR_BREAK,
+        { name: 'insert',      items : [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak' ] },
+        { name: 'document',    items : [ 'Save','NewPage','DocProps','Print','-','Templates' ] },
+        { name: 'clipboard',   items : [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ] },
+        { name: 'editing',     items : [ 'Find','Replace','-','SelectAll','-','SpellChecker', 'Scayt' ] },
+        { name: 'forms',       items : [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
+        CONFIG_TOOLBAR_BREAK,
+        { name: 'snippet', groups : [ 'snippet' ], items : [ 'CodeSnippet' ] },
+        { name: 'mediaembed',  items : [ 'MediaEmbed' ] },
+        { name: 'others',      items : s9ypluginbuttonsAll },
+        { name: 'document', groups : [ 'mode', 'document', 'doctools' ], items : [ 'Source' ] },
+        { name: 'tools',       items : [ 'Maximize', 'ShowBlocks','-','About' ] },
+        { name: 'cheatsheet',  items : ['CheatSheet'] }
+    ];
+//    console.log(JSON.stringify(config.toolbar_Full));
+
+    config.toolbar_Standard = [
+        { name: 'basicstyles', items : [ 'Format','-','Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ] },
+        { name: 'paragraph',  groups: [ 'list', 'blocks', 'align' ], items: [ 'NumberedList', 'BulletedList', '-', 'Blockquote' ] },
+        { name: 'blocks',      items : [ 'JustifyCenter','JustifyRight','JustifyBlock' ] },
+        { name: 'insert', items: [ 'Image', '-', 'Table', 'HorizontalRule', 'SpecialChar'] },
+        { name: 'links', items : [ 'Link','Unlink','Anchor' ] },
+        CONFIG_TOOLBAR_BREAK,
+        { name: 'clipboard',   items : [ 'Cut', 'Copy', 'Paste', 'PasteText', '-', 'Undo', 'Redo'] },
+        { name: 'editing', groups: [ 'find', 'selection', 'spellchecker' ], items: [ 'Scayt' ] },
+        { name: 'snippet', items : [ 'CodeSnippet' ] },
+        { name: 'mediaembed', items : [ 'MediaEmbed' ] },
+        { name: 'others', items: s9ypluginbuttonsAll },
+        { name: 'document', groups: [ 'mode', 'document', 'doctools' ], items: [ 'Source' ] },
+        { name: 'about', items: [ 'About', ] },
+        { name: 'cheatsheet', items : ['CheatSheet'] }
+    ];
 
     // set the serendipity_event_ckeditor custom toolbar group
-    // Note: indent is disabled, mediaembed and pbckcode plugins are set here, and procurator placeholders for "protected Source" is buttonless
+    // Note: Groups indent and forms are disabled, while mediaembed and codesnippet plugins are set. The procurator placeholders for "protected Source" is buttonless.
     //       when plugins config options denies codebutton, there is no need to disable it in here too (this is possibly done automatically if not set in extraPlugins list)
+    // This is a tweaked toolbarGroups fallback, which does not need any extras manually filled in 'others', since done automatically by ckeditor.js or by the other named toolbars
     config.toolbarGroups = [
         { name: 'styles' },
         { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+//    	{ name: 'forms' },
+        { name: 'colors' },
         { name: 'paragraph', groups: [ 'list', /*'indent', */'blocks', 'align', 'bidi' ] },
         { name: 'links' },
+
+        { name: 's9yml' },
         { name: 'insert' },
-        CONFIG_TOOLBAR_BREAK,
+//        { name: 'ident' },
+        { name: 'document', groups: [ /*'mode', */'document', 'doctools' ] },
         { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
-        { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
-        { name: 'pbckcode' },
         { name: 'editing', groups: [ 'find', 'selection', 'spellchecker' ] },
-        { name: 'others' },
+
+        { name: 'snippet', groups: [ 'codesnippet', 'snippet' ] },
         { name: 'mediaembed' },
+        { name: 'others' },
         { name: 'tools' },
         { name: 'about' },
+        { name: 'mode' },
         { name: 'cheatsheet' }
     ];
-
-    // A list of plugins that must not be loaded. This setting makes it possible to avoid loading some plugins defined in the CKEDITOR.config.plugins setting, without having to touch it and potentially break it.
-    //config.removePlugins = 'elementspath,save,font';
 
 };

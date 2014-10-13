@@ -3,8 +3,12 @@
  */
 
 /**
- * @fileOverview A Serendipity serendipity_event_ckeditor custom CKEDITOR additional plugin creator file: cke_plugin.js, v. 1.5, 2014-09-04
+ * @fileOverview A Serendipity serendipity_event_ckeditor custom CKEDITOR additional plugin creator file: cke_plugin.js, v. 1.6, 2014-10-13
  */
+
+// define array for hooked s9y plugins
+var s9ymediabuttons  = [];
+var s9ypluginbuttons = [];
 
 /*
  * Get the instance ready event and set global instance var
@@ -62,13 +66,34 @@ function Spawnnuggets(item, addEP, jsED) {
     if (!jsED)  var jsED  = null;
 
     var textarea_instance = !isNaN(item) ? 'nuggets' + item : item;
+    var area   = item.replace('serendipity[','').replace(']','');
+    var nugget = ''; // nugget id for hooked s9ypluginbuttons
+    s9ymediabuttons.push('s9yML'+area);
+
+    // Init CKEDITOR added plugins
+    // Seperate by comma, no whitespace allowed, and keep last comma, since later on concatenated with Serendipity hooked plugins, eg MediaLibrary!
+    // codesnippet is an official CKEDITOR plugin.
+    //    Plugin Dependencies: codesnippet Add-on Dependencies: widget
+    //    Plugin Dependencies: widget      Add-on Dependencies: Line Utilities and Clipboard
+    // mediaembed is a fast and simple YouTube code CKEditor-Plugin: v. 0.5+ (https://github.com/frozeman/MediaEmbed, 2013-09-12) to avoid ACF restrictions
+    // procurator and cheatsheet are S9y only plugins
     var name_extraPlugins = (addEP !== null) ? addEP : textarea_instance;
     var jsEventData       = (jsED  !== null) ? jsED  : window.jsEventData; // global set by 'backend_wysiwyg_finish' hook
     var extraPluginACF    = (CONFIG_ACF_OFF === true) ? name_extraPlugins+',mediaembed,cheatsheet' : name_extraPlugins+',mediaembed,procurator,cheatsheet'; // no spaces allowed!
-    var extraPluginList   = (CONFIG_PBCK_ON === true) ? extraPluginACF+',pbckcode' : extraPluginACF; // no spaces allowed!
+    var extraPluginList   = (CONFIG_CODE_ON === true) ? extraPluginACF+',codesnippet' : extraPluginACF; // no spaces allowed!
+
+    // case hooked s9ypluginbuttons, since we want the unique id
+    if (typeof window.jsEventData !== 'undefined') {
+        var nugget = area;
+        jsEventData.forEach( function(k, i) {
+            s9ypluginbuttons.push(jsEventData[i].id+nugget);
+            //console.log(jsEventData[i].id+nugget);
+        });
+    }
 
     if (document.getElementById(textarea_instance)) {
         CKEDITOR.replace(textarea_instance, {
+            toolbar : CONFIG_TOOLBAR,
             // Load our specific configuration file.
             customConfig : CKEDITOR_PLUGPATH+'serendipity_event_ckeditor/cke_config.js',
 
@@ -148,35 +173,34 @@ function Spawnnuggets(item, addEP, jsED) {
 
         CKEDITOR.plugins.add(name_extraPlugins, {
             init: function(editor) {
-                if(typeof jsEventData !== 'undefined') {
+                if (typeof jsEventData !== 'undefined') {
                     jsEventData.forEach( function(k, i) {
                         var execcom = ecfit(jsEventData[i].javascript);
-                        editor.addCommand( jsEventData[i].id, {
+                        editor.addCommand( jsEventData[i].id+nugget, {
                             exec: function( editor ) {
                                 eval(execcom); // [OK] only way this code is executable
                             }
                         });
-                        editor.ui.addButton(jsEventData[i].id, {
+                        editor.ui.addButton(jsEventData[i].id+nugget, {
                             label:    jsEventData[i].name,
                             title:    jsEventData[i].name+' Plugin',
-                            //icon:     CKEDITOR_PLUGPATH+jsEventData[i].img_path,
                             icon:     jsEventData[i].img_url,
-                            iconName: jsEventData[i].id+'_icon',
-                            command:  jsEventData[i].id
+                            iconName: jsEventData[i].id+nugget+'_icon',
+                            command:  jsEventData[i].id+nugget
                         });
                     });
                 }
-                editor.addCommand( 'openML', {
+                editor.addCommand( 's9yML'+area, {
                     exec : function( editor ) {
                         window.open('serendipity_admin_image_selector.php', 'ImageSel', 'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1');
                     }
                 });
-                editor.ui.addButton('openML', {
+                editor.ui.addButton('s9yML'+area, {
                     label:    'S9yMedia',
                     title:    'Serendipity Media Library',
                     icon:     CKEDITOR_MLIMGPATH,
-                    iconName: 'openML_icon',
-                    command:  'openML'
+                    iconName: 's9yML'+area+'_icon',
+                    command:  's9yML'+area
                 });
             }
         });

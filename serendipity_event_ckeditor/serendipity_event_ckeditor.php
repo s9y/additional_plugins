@@ -548,11 +548,8 @@ ol.linenums li {
                     } else {
                         if (serendipity_db_bool($this->get_config('codebutton'))) {
                             // for case using customized toolbars, else it falls back to toolbar Group where 'others' is automatically added
-                            if (isset($eventData['buttons']) && (is_array($eventData['buttons']) && !empty($eventData['buttons']))) foreach ($eventData['buttons'] AS $bt) {
-                                $bid[] = $bt['id'];
-                            } else {
-                                $bid = array();
-                            }
+                            $bid = array();
+                            if (isset($eventData['buttons']) && (is_array($eventData['buttons']) && !empty($eventData['buttons']))) foreach ($eventData['buttons'] AS $bt) { $bid[] = $bt['id']; }
                             $addB = implode(",", $bid);
                             $addB = str_replace(',','","',$addB);
                         }

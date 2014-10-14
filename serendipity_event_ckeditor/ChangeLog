@@ -1,4 +1,4 @@
-4.5.0:
+4.5.1:
 -----
     * Fix 2.0 MediaLibrary popup command
     * Better str baseurl replacement for amazonchooser nugget

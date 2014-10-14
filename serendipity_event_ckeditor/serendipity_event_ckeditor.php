@@ -75,7 +75,7 @@ class serendipity_event_ckeditor extends serendipity_event
                                        'CKEditor-Plugin: procurator, v. 1.5 (Serendipity placeholder Plugin, 2014-10-10)',
                                        'CKEditor-Plugin: cheatsheet, v. 1.2 (Serendipity CKE-Cheatsheet Plugin, 2014-09-02)',
                                        'CKEditor-S9yCustomConfig, cke_config.js, v. 2.1, 2014-10-13',
-                                       'CKEditor-S9yCustomPlugins, cke_plugin.js, v. 1.6, 2014-10-13',
+                                       'CKEditor-S9yCustomPlugins, cke_plugin.js, v. 1.7, 2014-10-14',
                                        'Prettify: JS & CSS files, v. "current", (http://code.google.com/p/google-code-prettify/, 2013-03-04)');
 
 
@@ -171,7 +171,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '4.5.0'); // is CKEDITOR Series 4 (hidden) - revision .4.5 - and appended plugin revision .0
+        $propbag->add('version',       '4.5.1'); // is CKEDITOR Series 4 (hidden) - revision .4.5 - and appended plugin revision .1
         $propbag->add('copyright',     'GPL or LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
@@ -431,6 +431,7 @@ class serendipity_event_ckeditor extends serendipity_event
         CKEDITOR_PLUGPATH    = '<?php echo $plgpath; ?>';
         CKEDITOR_MLIMGPATH   = '<?php echo $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_ckeditor/img/mls9y.png'; ?>';
         S9Y_BASEURL          = '<?php echo $serendipity['defaultBaseURL']; ?>';
+        S9Y_VERSION_NEW      = <?php echo $serendipity['version'][0] < 2 ? 'false' : 'true'; ?>;
         CONFIG_ACF_OFF       = <?php echo $acf_off; ?>;
         CONFIG_CODE_ON       = <?php echo $code_on; ?>;
         CONFIG_TOOLBAR       = '<?php echo $toolbar; ?>';
@@ -499,7 +500,7 @@ ol.linenums li {
 
 <?php
                     // do not use in 2.0 versions
-                    if ($serendipity['version'][0] == '1') {
+                    if ($serendipity['version'][0] < 2) {
                         echo file_get_contents(dirname(__FILE__) . '/cke_olds9y.css');
                     }
                     if (!strpos($eventData, '.cke_config_block')) {

@@ -3,7 +3,7 @@
  */
 
 /**
- * @fileOverview A Serendipity serendipity_event_ckeditor custom CKEDITOR additional plugin creator file: cke_plugin.js, v. 1.6, 2014-10-13
+ * @fileOverview A Serendipity serendipity_event_ckeditor custom CKEDITOR additional plugin creator file: cke_plugin.js, v. 1.7, 2014-10-14
  */
 
 // define array for hooked s9y plugins
@@ -178,7 +178,7 @@ function Spawnnuggets(item, addEP, jsED) {
                         var execcom = ecfit(jsEventData[i].javascript);
                         editor.addCommand( jsEventData[i].id+nugget, {
                             exec: function( editor ) {
-                                eval(execcom); // [OK] only way this code is executable
+                                eval(execcom);
                             }
                         });
                         editor.ui.addButton(jsEventData[i].id+nugget, {
@@ -192,7 +192,11 @@ function Spawnnuggets(item, addEP, jsED) {
                 }
                 editor.addCommand( 's9yML'+area, {
                     exec : function( editor ) {
-                        window.open('serendipity_admin_image_selector.php', 'ImageSel', 'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1');
+                        if (false === S9Y_VERSION_NEW) {
+                            window.open('serendipity_admin_image_selector.php', 'ImageSel', 'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1');
+                        } else {
+                            serendipity.openPopup('serendipity_admin.php?serendipity[adminModule]=media&serendipity[noBanner]=true&serendipity[noSidebar]=true&serendipity[noFooter]=true&serendipity[showMediaToolbar]=false&serendipity[showUpload]=true&serendipity[textarea]='+textarea_instance);
+                        }
                     }
                 });
                 editor.ui.addButton('s9yML'+area, {

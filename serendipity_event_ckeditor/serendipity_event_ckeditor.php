@@ -430,7 +430,6 @@ class serendipity_event_ckeditor extends serendipity_event
         CKEDITOR_BASEPATH    = '<?php echo $relpath; ?>';
         CKEDITOR_PLUGPATH    = '<?php echo $plgpath; ?>';
         CKEDITOR_MLIMGPATH   = '<?php echo $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_ckeditor/img/mls9y.png'; ?>';
-        S9Y_BASEURL          = '<?php echo $serendipity['defaultBaseURL']; ?>';
         S9Y_VERSION_NEW      = <?php echo $serendipity['version'][0] < 2 ? 'false' : 'true'; ?>;
         CONFIG_ACF_OFF       = <?php echo $acf_off; ?>;
         CONFIG_CODE_ON       = <?php echo $code_on; ?>;
@@ -572,7 +571,7 @@ ol.linenums li {
                 case 'backend_wysiwyg_finish':
                     // Run once only, save ressources
                     // This should better move into a future(!) 'backend_footer' hook, to not happen for every of any multiple textareas!
-                    // but there $eventData['item'] isn't availabale yet...
+                    // but there $eventData['item'] isn't available yet...
                     if (isset($eventData['item']) && !empty($eventData['item'])) {
                         if (isset($eventData['buttons']) && (is_array($eventData['buttons']) && !empty($eventData['buttons']))) {
                             // send eventData as json encoded array into the javascript stream, which can be pulled by 'backend_header' hooks global Spawnnuggets() nugget function

@@ -45,7 +45,7 @@ if (!Array.prototype.forEach) {
 function ecfit(str) {
     str = str.replace('function() { ', '');
     str = str.replace(' }', '');
-    str = str.replace(S9Y_BASEURL, '');
+    str = str.replace(window.location.protocol + "//" + window.location.host, ''); // amazonchooser only
     return str;
 }
 

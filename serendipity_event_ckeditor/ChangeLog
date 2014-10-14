@@ -1,5 +1,10 @@
 4.5.0:
 -----
+    * Fix 2.0 MediaLibrary popup command
+    * Better str baseurl replacement for amazonchooser nugget
+
+4.5.0:
+-----
     * Upgrade to CKEDITOR 4.4 Series, update 5 (http://ckeditor.com/whatsnew)
       MAJOR CHANGE:
     * This package is a full ckeditor release package now.

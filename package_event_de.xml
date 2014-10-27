@@ -10779,9 +10779,9 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <description>Nutzt CKEditor als Standard WYSIWYG Editor. Benutzung für JS-Editoren: Empfohlen! Nach der Installation, lies die Plugin Konfigurations Seite für weitere Informationen.</description>
 <maintainers><maintainer><name>Rustam Abdullaev, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>4.5.0</version>
+  <version>4.5.1</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2014-10-14</date>
+  <date>2014-10-15</date>
   <filelist>
 <dir name="serendipity_event_ckeditor">
 <dir name="UTF-8">

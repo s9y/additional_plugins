@@ -115,7 +115,7 @@ function popImage(file_name,file_title,file_width,file_height) {ldelim}
             {else}
 
                     <!-- download link -->
-                    <a href="{$image.fullimage}" target=blank><img class="gallery_thumb" src="{$image.link}" alt="" /></a><br><a href="{$image.fullimage}" target=blank>Download {$image.name}.{$image.extension}</a>
+                    <a href="{$image.fullimage}" target="blank"><img class="gallery_thumb" src="{$image.link}" alt="" /></a><br><a href="{$image.fullimage}" target="blank">Download {$image.name}.{$image.extension}</a>
             {/if}
 
                 </div>
@@ -134,7 +134,6 @@ function popImage(file_name,file_title,file_width,file_height) {ldelim}
                 {/if}
             {/if}
         {/foreach}
-
             <!-- end images -->
         {if $plugin_usergallery_pagination}
 
@@ -158,3 +157,59 @@ function popImage(file_name,file_title,file_width,file_height) {ldelim}
         </div>
     </div>
 </div>
+
+{if $plugin_usergallery_uselightbox}
+
+    {if $plugin_usergallery_lightbox_jquery}
+    <script type="text/javascript" src="{$plugin_usergallery_lightbox_dir}/jquery-1.11.1.min.js" charset="utf-8"></script>
+    {/if}
+
+    {if ($plugin_usergallery_lightbox_script == 'colorbox')}
+
+    <link rel="stylesheet" type="text/css" href="{$plugin_usergallery_lightbox_dir}/colorbox/colorbox.css" />
+    <script type="text/javascript" src="{$plugin_usergallery_lightbox_dir}/colorbox/jquery.colorbox-min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        jQuery('a[rel^="colorbox"]').colorbox({
+            slideshow: true,
+            slideshowAuto: false,
+            slideshowSpeed: 6000,
+            scalePhotos: true,
+            maxWidth: '98%'
+        });
+    </script>
+
+    {elseif ($plugin_usergallery_lightbox_script == 'lightbox')}
+
+    <link rel="stylesheet" type="text/css" href="{$plugin_usergallery_lightbox_dir}/lightbox2-jquery/css/lightbox.css" />
+    <script type="text/javascript" src="{$plugin_usergallery_lightbox_dir}/lightbox2-jquery/js/lightbox.min.js" charset="utf-8"></script>
+
+    {elseif ($plugin_usergallery_lightbox_script == 'magnific')}
+
+    <link rel="stylesheet" type="text/css" href="{$plugin_usergallery_lightbox_dir}/magnific-popup/magnific-popup.css" />
+    <script type="text/javascript" src="{$plugin_usergallery_lightbox_dir}/magnific-popup/jquery.magnific-popup.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            jQuery('a[rel^="magnificPopup"]').magnificPopup({
+                gallery:{
+                    enabled:true
+                },
+                type:'image'
+            });
+        });
+    </script>
+
+    {elseif ($plugin_usergallery_lightbox_script == 'prettyphoto')}
+
+    <link rel="stylesheet" type="text/css" href="{$plugin_usergallery_lightbox_dir}/prettyphoto/css/prettyPhoto.css" />
+    <script type="text/javascript" src="{$plugin_usergallery_lightbox_dir}/prettyphoto/js/jquery.prettyPhoto.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            jQuery('a[rel^="prettyPhoto"]').prettyPhoto({
+                social_tools: false
+            });
+        });
+    </script>
+
+    {/if}
+
+{/if}

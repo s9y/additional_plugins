@@ -84,16 +84,18 @@
 @define('PLUGIN_EVENT_USERGALLERY_MEDIA_PROPERTIES_NAME', 'Liste der Medien-Eigenschaften');
 @define('PLUGIN_EVENT_USERGALLERY_MEDIA_PROPERTIES_DESC', 'Dies ist eine Liste der Medien-Eigenschaften und der Namen, die Sie für jede Eigenschaft auf der Seite anzeigen möchten. Das Format der Liste ist: "ITEM1:Item1;ITEM2:Item2", wobei die Eigenschaft durch Semikolons getrennt sind. Für jede Eigenschaft wird zuerst der Name (wie in den Konfigurationseinstellungen aufgelistet) angegeben, danach folgen ein Doppelpunkt sowie der jeweilige Anzeigename.');
 
-//Several consants used in the template
+//Several constants used in the template
 @define('PLUGIN_EVENT_USERGALLERY_IMAGES', 'Bilder');
 @define('PLUGIN_EVENT_USERGALLERY_PAGINATION', 'Seite %s von %s, insgesamt %s Bilder');
 @define('PLUGIN_EVENT_USERGALLERY_RSS_FEED_BODY', 'Use original blog entry for the picture in RSS-Feed?');
 @define('PLUGIN_EVENT_USERGALLERY_RSS_FEED_BODY_DESC', 'Falls ausgewählt, wird zu einem Bild aus der Mediendatenbank, das in einem Blog-Eintrag verlinkt wurde, im RSS-Feed auch der Inhalt des Blog-Eintrages ausgegebn, anstatt (Standard) nur einen Link zum Blog-Eintrag und dem ursprünglichen Platz des Bildes.');
 
 @define('PLUGIN_EVENT_USERGALLERY_SHOWLIGHTBOX_NAME', 'Nutze Lightbox Ausgabe');
-@define('PLUGIN_EVENT_USERGALLERY_SHOWLIGHTBOX_DESC', 'Benötigt ein installiertes Lightbox-Plugin und obige Option: "Einzelbildanzeige" gesetzt als "In Seite einpassen"!');
-@define('PLUGIN_EVENT_USERGALLERY_LIGHTBOXTYPE_NAME', 'Lightbox-Typ, wie im Lightbox-Plugin gewählt');
+@define('PLUGIN_EVENT_USERGALLERY_SHOWLIGHTBOX_DESC', 'Benötigt ein installiertes Lightbox-Plugin und obige Option: "Einzelbildanzeige" gesetzt als "In Seite einpassen"! Wenn das Lightbox Plugin nur für Usergalerieseiten benutzt werden soll, installiere und verschiebe es anschließend in der Pluginliste in das Inaktiv (hidden) event Feld!');
+@define('PLUGIN_EVENT_USERGALLERY_LIGHTBOXTYPE_NAME', 'Wähle Lightbox-Plugin-Typ');
 
 @define('PLUGIN_EVENT_USERGALLERY_SHOWOBJECTS_NAME', 'Zeige alle Nicht-Bild Dateien');
 @define('PLUGIN_EVENT_USERGALLERY_SHOWOBJECTS_DESC', 'Erweitere das Galerie Array mit allen Nicht-Bild Dateien aus der Mediendatendank, zB. *.pdf Dateien.');
+
+@define('PLUGIN_EVENT_USERGALLERY_LIGHTBOX_PATH', 'Pfad zum Lightbox Plugin Verzeichnis');
 

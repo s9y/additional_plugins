@@ -98,9 +98,11 @@
 @define('PLUGIN_EVENT_USERGALLERY_RSS_FEED_BODY_DESC', 'If enabled, an image of the mediadatabase that has been linked within an blog entry will have the original blog entry\'s body within the RSS feed, instead of (by default) having a simple link to the blog article and the original image location.');
 
 @define('PLUGIN_EVENT_USERGALLERY_SHOWLIGHTBOX_NAME', 'Use lightbox output');
-@define('PLUGIN_EVENT_USERGALLERY_SHOWLIGHTBOX_DESC', 'Needs the lightbox-plugin installed and upper option "Display Single Image" set to "Scaled to fit"!');
-@define('PLUGIN_EVENT_USERGALLERY_LIGHTBOXTYPE_NAME', 'Lightbox-type as selected in lightbox-plugin');
+@define('PLUGIN_EVENT_USERGALLERY_SHOWLIGHTBOX_DESC', 'Needs the lightbox-plugin installed and upper option "Display Single Image" set to "Scaled to fit"! When you want to use lightboxes only for Usergallery pages, install the lightbox plugin and move it into the hidden event field in your pluginlist!');
+@define('PLUGIN_EVENT_USERGALLERY_LIGHTBOXTYPE_NAME', 'Use lightbox plugin type');
 
 @define('PLUGIN_EVENT_USERGALLERY_SHOWOBJECTS_NAME', 'Show all Non-Image objects');
 @define('PLUGIN_EVENT_USERGALLERY_SHOWOBJECTS_DESC', 'Include other media library object files to show up too, eg *.pdf application objects.');
+
+@define('PLUGIN_EVENT_USERGALLERY_LIGHTBOX_PATH', 'Path to the lightbox plugin directory');
 

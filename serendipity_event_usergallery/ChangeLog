@@ -1,3 +1,12 @@
+2.63:
+-----
+ * Added options for lightbox path and lightbox scripts.
+   This needs to have the lightbox plugin >= v.2.0 installed.
+   To use the lightbox plugin for usergalleries only, move it into
+   the hidden event field of your pluginlist!
+ * The file plugin_usergallery.tpl has changed. Please update your template copy file, if have.
+ * Required Serendipity and PHP version have changed.
+
 2.62:
 -----
  * Since being stackable, avoid loading multiple css into stream

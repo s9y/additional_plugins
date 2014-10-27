@@ -23,11 +23,11 @@ class serendipity_event_usergallery extends serendipity_event
         $propbag->add('description', PLUGIN_EVENT_USERGALLERY_DESC);
         $propbag->add('stackable',   true);
         $propbag->add('author',      'Arnan de Gans, Matthew Groeninger, Stefan Willoughby, Ian');
-        $propbag->add('version',     '2.62');
+        $propbag->add('version',     '2.63');
         $propbag->add('requirements', array(
-            'serendipity' => '0.8',
+            'serendipity' => '1.6',
             'smarty'      => '2.6.7',
-            'php'         => '4.1.0'
+            'php'         => '5.2.0'
         ));
         $propbag->add('event_hooks', array(
             'css'                 => true,
@@ -39,7 +39,7 @@ class serendipity_event_usergallery extends serendipity_event
         ));
         $propbag->add('groups', array('IMAGES'));
         $propbag->add('configuration', array('title', 'num_cols', 'subpage', 'frontpage', 'permalink', 'style', 'base_directory', 'dir_list', 'show_1lvl_sub',
-        'display_dir_tree', 'dir_tab', 'images_per_page', 'image_order','intro', 'image_display', 'show_lightbox', 'lightbox_type', 'show_objects', 'image_strict', 'fixed_width', 'image_width',
+        'display_dir_tree', 'dir_tab', 'images_per_page', 'image_order','intro', 'image_display', 'show_lightbox', 'lightbox_type', 'lightbox_path', 'show_objects', 'image_strict', 'fixed_width', 'image_width',
         'feed_width', 'feed_linked_only', 'feed_body', 'exif_show_data', 'exif_data', 'show_media_properties', 'media_properties', 'linked_entries'));
     }
 
@@ -186,15 +186,21 @@ class serendipity_event_usergallery extends serendipity_event
                 break;
 
             case 'lightbox_type':
-                $select_type["lightbox"]     = 'Lightboxes all';
+                $select_type["lightbox"]     = 'Lightbox2 jQuery';
                 $select_type["prettyphoto"]  = 'Prettyphoto';
-                $select_type["thickbox"]     = 'Thickbox';
-                $select_type["greybox"]      = 'Greybox';
+                $select_type["colorbox"]     = 'Colorbox';
+                $select_type["magnific"]     = 'Magnific-Popup';
                 $propbag->add('type',          'select');
                 $propbag->add('name',          PLUGIN_EVENT_USERGALLERY_LIGHTBOXTYPE_NAME);
                 $propbag->add('description',   '');
                 $propbag->add('select_values', $select_type);
                 $propbag->add('default',       'lightbox');
+                break;
+
+            case 'lightbox_path':
+                $propbag->add('type',           'string');
+                $propbag->add('name',           PLUGIN_EVENT_USERGALLERY_LIGHTBOX_PATH);
+                $propbag->add('default',        $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_lightbox');
                 break;
 
             case 'show_objects':
@@ -413,9 +419,15 @@ class serendipity_event_usergallery extends serendipity_event
 
     function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
+        static $pluginDir = null;
 
         $hooks = &$bag->get('event_hooks');
         if (isset($hooks[$event])) {
+
+            if ($pluginDir === null) {
+                $pluginDir = $this->get_config('lightbox_path');
+            }
+
             switch($event) {
                 case 'entry_display':
                     if ($this->selected()) {
@@ -837,11 +849,12 @@ class serendipity_event_usergallery extends serendipity_event
                    $limit_output = '';
                 }
 
+                // this needs the latest >= v. 2.0 lightbox plugin installed!
                 $lightbox_type = $this->get_config('lightbox_type');
-                $lbtype = 'rel="lightbox[lightbox_group_entry]"';
+                $lbtype = 'rel="lightbox[]"';
                 if ($lightbox_type == 'prettyphoto') $lbtype = 'rel="prettyPhoto[]"';
-                elseif ($lightbox_type == 'thickbox') $lbtype = 'class="thickbox" rel="thickbox_group_entry"';
-                elseif ($lightbox_type == 'greybox') $lbtype = 'rel="gb_imageset[greybox_group_entry]"';
+                elseif ($lightbox_type == 'colorbox') $lbtype = 'rel="colorbox[]"';
+                elseif ($lightbox_type == 'magnific') $lbtype = 'rel="magnificPopup[]"';
 
                 $serendipity['smarty']->assign(
                    array(
@@ -856,6 +869,9 @@ class serendipity_event_usergallery extends serendipity_event
                        'plugin_usergallery_colwidth'        => round((10/$num_cols*10)-6,2),
                        'plugin_usergallery_limit_directory' => preg_replace('@[^a-z0-9]@i', ' ',$limit_output),
                        'plugin_usergallery_uselightbox'     => serendipity_db_bool($this->get_config('show_lightbox', false)),
+                       'plugin_usergallery_lightbox_script' => $lightbox_type,
+                       'plugin_usergallery_lightbox_dir'    => $this->get_config('lightbox_path'),
+                       'plugin_usergallery_lightbox_jquery' => (!class_exists('serendipity_event_jquery') && !$serendipity['capabilities']['jquery']) ? true : false,
                        'plugin_usergallery_lightbox_type'   => $lbtype,
                        'plugin_usergallery_images'          => $process_images
                         )

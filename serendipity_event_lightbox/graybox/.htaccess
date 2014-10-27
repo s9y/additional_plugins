@@ -1,7 +1,0 @@
-<Files .htaccess>
-Allow from all
-</Files>
-
-<IfModule mod_rewrite.c>
-RewriteEngine Off
-</IfModule>

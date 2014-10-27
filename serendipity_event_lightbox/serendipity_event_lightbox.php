@@ -1,6 +1,5 @@
 <?php
 
-
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -15,11 +14,11 @@ include dirname(__FILE__) . '/lang_en.inc.php';
 
 // Subst Plugin for Serendipity
 // 01/2006 by Thomas Nesges <thomas@tnt-computer.de>
-//12/2006  Andy Hopkins Added Greybox functionality. <andy.hopkins@gmail.com>
+// 12/2006  Andy Hopkins Added Greybox functionality. <andy.hopkins@gmail.com>
 class serendipity_event_lightbox extends serendipity_event {
 
     var $title = PLUGIN_EVENT_LIGHTBOX_NAME;
-    
+
     // Remembers, if an image link was found in the article. If not found, nor CSS nor JS will be added to the blog header.
     var $foundImageLink = false;
 
@@ -28,16 +27,15 @@ class serendipity_event_lightbox extends serendipity_event {
 
         $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_NAME);
         $propbag->add('description',    PLUGIN_EVENT_LIGHTBOX_DESC);
-        $propbag->add('author',         'Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus');
-        $propbag->add('version',        '1.9.8');
+        $propbag->add('author',         'Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian');
+        $propbag->add('version',        '2.0');
         $propbag->add('requirements',  array(
-            'serendipity' => '0.9',
-            'smarty'      => '2.6.7',
-            'php'         => '4.1.0'
+            'serendipity' => '1.6',
+            'php'         => '5.3.0'
         ));
-        $propbag->add('event_hooks',    array('frontend_display' => true, 'frontend_header' => true ));
-        $propbag->add('stackable',      false);
-        $propbag->add('groups',         array('IMAGES'));
+        $propbag->add('event_hooks',     array('frontend_display' => true, 'frontend_footer' => true ));
+        $propbag->add('stackable',       false);
+        $propbag->add('groups',          array('IMAGES'));
         $propbag->add('cachable_events', array('frontend_display' => true));
 
         $this->markup_elements = array(
@@ -59,7 +57,7 @@ class serendipity_event_lightbox extends serendipity_event {
             )
         );
 
-        $conf_array = array();
+        $conf_array   = array();
         $conf_array[] = 'type';
         $conf_array[] = 'path';
         $conf_array[] = 'header_optimization';
@@ -94,8 +92,8 @@ class serendipity_event_lightbox extends serendipity_event {
                 $propbag->add('type',           'select');
                 $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_TYPE);
                 $propbag->add('description',    '');
-                $propbag->add('select_values',  array('lightbox2' => 'Lightbox 2', 'lightbox' => 'Lightbox 1', 'lightbox_plus' => 'Lightbox plus', 'prettyPhoto' => 'prettyPhoto', 'thickbox' => 'Thickbox', 'greybox'=> 'Greybox'));
-                $propbag->add('default',        'lightbox');
+                $propbag->add('select_values',  array('colorbox' => 'ColorBox', 'lightbox2jq' => 'Lightbox 2 jQuery', 'magnific' => 'Magnific-Popup', 'prettyPhoto' => 'prettyPhoto'));
+                $propbag->add('default',        'lightbox2jq');
                 break;
 
             case 'path':
@@ -132,108 +130,101 @@ class serendipity_event_lightbox extends serendipity_event {
 
     function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
-        static $regex = null;
-        static $sub   = null;
-        static $navigate = null;
+        static $regex     = null;
+        static $sub       = null;
+        static $navigate  = null;
         static $pluginDir = null;
         static $type      = null;
 
-        $hooks     = &$bag->get('event_hooks');
+        $hooks = &$bag->get('event_hooks');
 
         if (isset($hooks[$event])) {
 
             if ($pluginDir === null) {
                 $pluginDir = $this->get_config('path');
             }
-            
+
             if ($type === null) {
-                $type      = $this->get_config('type');
+                $type = $this->get_config('type');
             }
 
             if ($navigate === null) {
-                $navigate  = $this->get_config('navigate_one_entry_only');
+                $navigate = $this->get_config('navigate_one_entry_only');
             }
-                    
+
             if ($regex == null) {
-                if ($type == 'lightbox' || $type == 'lightbox_plus' || $type == 'lightbox2') {
+                if ($type == 'lightbox2jq') {
                     $regex = '/<a([^>]+)(href=(["\'])[^"\']*\.(jpe?g|gif|png)["\'])/i';
                     $sub   = '<a $1 rel=$3lightbox$3 $2';
                 } elseif ($type == 'prettyPhoto') {
                     $regex = '/<a([^>]+)(href=(["\'])[^"\']*\.(jpe?g|gif|png)["\'])/i';
                     $sub   = '<a rel=$3prettyPhoto$3 $1 $2';
-                } elseif ($type == 'thickbox') {
+                } elseif ($type == 'colorbox') {
                     $regex = '/<a([^>]+)(href=(["\'])[^"\']*\.(jpe?g|gif|png)["\'])/i';
-                    $sub   = '<a class=$3thickbox$3 $1 $2';
-                } elseif ($type == 'graybox' || $type == 'greybox') {
-                   $regex = '/<a([^>]+)(href=(["\'])[^"\']*\.(jpe?g|gif|png)["\'])/i';
-                   $sub   = '<a $1 rel=$3gb_image[]$3 $2';
-                }
+                    $sub   = '<a $1 rel=$3singlebox$3 $2';
+                } elseif ($type == 'magnific') {
+                    $regex = '/<a([^>]+)(href=(["\'])[^"\']*\.(jpe?g|gif|png)["\'])/i';
+                    $sub   = '<a rel=$3onemagnificPopup$3 $1 $2';
+                }// do not use 'class' here as identifier, whenever possible, since this conflicts/not validates with $1 'class'es
             }
 
-
-
             switch($event) {
-                case 'frontend_header':
+                case 'frontend_footer':
 
                     // If no imagelink was processed, don't add css or js files to the header! (configurable optimization)
                     if (serendipity_db_bool($this->get_config('header_optimization', false)) && !$this->foundImageLink) {
                         return true;
                     }
-
-                    if ($type == 'lightbox') {
-    					echo '<script type="text/javascript">var lightbox_path = "' . $pluginDir . '/lightbox";</script>' . "\n";
-                        echo '<script type="text/javascript" src="' . $pluginDir . '/lightbox/lightbox.js"></script>' . "\n";
-                        echo '<link rel="stylesheet" type="text/css" href="' . $pluginDir.  '/lightbox/lightbox.css" />' . "\n";
-                    } 
-					// Lightbox Plus code
-					elseif ($type == 'lightbox_plus') {
-    					echo '<script type="text/javascript">var lightbox_path = "' . $pluginDir . '/lightbox_plus";</script>' . "\n";
-                        echo '<script type="text/javascript" src="' . $pluginDir . '/lightbox_plus/spica.js"></script>' . "\n";
-                        echo '<script type="text/javascript" src="' . $pluginDir . '/lightbox_plus/lightbox_plus.js"></script>' . "\n";
-                        echo '<link rel="stylesheet" type="text/css" href="' . $pluginDir.  '/lightbox_plus/lightbox_plus.css" />' . "\n";
-                    } 
-					// Light Box 2 code
-					elseif ($type == 'lightbox2') {
-    					echo '<script type="text/javascript">var lightbox_path = "' . $pluginDir . '/lightbox2";</script>' . "\n";
-                        echo '<script type="text/javascript" src="' . $pluginDir . '/lightbox2/prototype.js"></script>' . "\n";
-                        echo '<script type="text/javascript" src="' . $pluginDir . '/lightbox2/scriptaculous.js?load=effects,builder"></script>' . "\n";
-                        echo '<script type="text/javascript" src="' . $pluginDir . '/lightbox2/lightbox2.js"></script>' . "\n";
-                        echo '<link rel="stylesheet" type="text/css" href="' . $pluginDir.  '/lightbox2/lightbox2.css" />' . "\n";
-                    } 
-					// prettyPhoto code
-					elseif ($type == 'prettyPhoto') {
-    					echo '<script type="text/javascript">var prettyphoto_path = "' . $pluginDir . '/prettyphoto";</script>' . "\n";
-    			if (!class_exists('serendipity_event_jquery')) echo '<script type="text/javascript" src="' . $pluginDir . '/prettyphoto/js/jquery-1.6.1.min.js"></script>' . "\n";
-                        echo '<script type="text/javascript" src="' . $pluginDir . '/prettyphoto/js/jquery.prettyPhoto.js"></script>' . "\n";
-                        echo '<link rel="stylesheet" type="text/css" href="' . $pluginDir.  '/prettyphoto/css/prettyPhoto.css" />' . "\n";
-                        echo '<script type="text/javascript" charset="utf-8">jQuery(document).ready(function(){ jQuery("a[rel^=\'prettyPhoto\']").prettyPhoto(' . $this->get_config('init_js') . ');});</script>' . "\n";
-                    } 
-					// Thick Box code http://jquery.com/demo/thickbox/
-					elseif ($type == 'thickbox') {
-    					echo '<script type="text/javascript">var thickbox_path = "' . $pluginDir . '/thickbox";</script>' . "\n";
-    			    	echo '<link rel="stylesheet" type="text/css" href="' . $pluginDir . '/thickbox/thickbox.css" />' . "\n";
-    					echo '<script type="text/javascript">var thickbox_path = "'.$serendipity['baseURL']  . $pluginDir . '/thickbox";</script>' . "\n"; 
-                        echo '<script type="text/javascript" src="' . $pluginDir . '/thickbox/thickbox_jquery.js"></script>' . "\n";
-    					echo '<script type="text/javascript" src="' . $pluginDir . '/thickbox/thickbox.js"></script>' . "\n";
+                    echo "\n";
+                    // ColorBox code (https://github.com/jackmoore/colorbox) - init with :visible to ensure to not show hidden elements via hideafter function in imageselectorplus ranges
+                    if ($type == 'colorbox') {
+                        echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir.  '/colorbox/colorbox.css" />' . "\n";
+                        if (!class_exists('serendipity_event_jquery') && !$serendipity['capabilities']['jquery']) {
+                            echo '    <script type="text/javascript" src="' . $pluginDir . '/jquery-1.11.1.min.js" charset="utf-8"></script>' . "\n";
+                        }
+                        echo '    <script type="text/javascript" src="' . $pluginDir . '/colorbox/jquery.colorbox-min.js" charset="utf-8"></script>' . "\n";
+                        echo '    <script type="text/javascript" src="' . $pluginDir . '/colorbox/jquery.colorbox.init.js" charset="utf-8"></script>' . "\n";
                     }
-					// Greybox Code http://orangoo.com/labs/GreyBox/
-					elseif ($type == 'graybox' || $type == 'greybox') {
-    			    	echo '<script type="text/javascript"> var GB_ROOT_DIR = "'. $pluginDir.'/greybox/";</script>' . "\n";
-						echo '<script type="text/javascript" src="' . $pluginDir.'/greybox/AJS.js"></script>' . "\n";
-						echo '<script type="text/javascript" src="'. $pluginDir.'/greybox/AJS_fx.js"></script>';
-						echo '<script type="text/javascript" src="'. $pluginDir.'/greybox/gb_scripts.js"></script>' . "\n";
-						echo '<link href="'. $pluginDir.'/greybox/gb_styles.css" rel="stylesheet" type="text/css"/>' . "\n";
-					}
+                    // LightBox2 jQuery based - http://lokeshdhakar.com/projects/lightbox2/ - this lightbox does not allow to show :visible anchors only - it shows and counts all gallery images, if set to view galleries
+                    elseif ($type == 'lightbox2jq') {
+                        echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir.  '/lightbox2-jquery/css/lightbox.css" />' . "\n";
+                        if (!class_exists('serendipity_event_jquery') && !$serendipity['capabilities']['jquery']) {
+                            echo '    <script type="text/javascript" src="' . $pluginDir . '/jquery-1.11.1.min.js" charset="utf-8"></script>' . "\n";
+                        }
+                        // remove anchors possible onclick handler
+                        echo '    <script type="text/javascript"> jQuery(document).ready(function(){ jQuery(\'a[rel^="lightbox"]\').removeAttr("onclick"); }); </script>' . "\n";
+                        echo '    <script type="text/javascript" src="' . $pluginDir . '/lightbox2-jquery/js/lightbox.min.js" charset="utf-8"></script>' . "\n";
+                    }
+                    // Magnific-Popup code (https://github.com/dimsemenov/Magnific-Popup) - init with :visible to ensure to not show hidden elements via hideafter function in imageselectorplus ranges
+                    elseif ($type == 'magnific') {
+                        echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir.  '/magnific-popup/magnific-popup.css" />' . "\n";
+                        if (!class_exists('serendipity_event_jquery') && !$serendipity['capabilities']['jquery']) {
+                            echo '    <script type="text/javascript" src="' . $pluginDir . '/jquery-1.11.1.min.js" charset="utf-8"></script>' . "\n";
+                        }
+                        echo '    <script type="text/javascript" src="' . $pluginDir . '/magnific-popup/jquery.magnific-popup.min.js" charset="utf-8"></script>' . "\n";
+                        echo '    <script type="text/javascript" src="' . $pluginDir . '/magnific-popup/jquery.magnific-popup.init.js" charset="utf-8"></script>' . "\n";
+                    }
+                    // PrettyPhoto code - http://www.no-margin-for-errors.com/projects/prettyPhoto/ - init with :visible to ensure to not show hidden elements via hideafter function in imageselectorplus ranges
+                    elseif ($type == 'prettyPhoto') {
+                        echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir.  '/prettyphoto/css/prettyPhoto.css" />' . "\n";
+                        if (!class_exists('serendipity_event_jquery') && !$serendipity['capabilities']['jquery']) {
+                            echo '    <script type="text/javascript" src="' . $pluginDir . '/jquery-1.11.1.min.js" charset="utf-8"></script>' . "\n";
+                        }
+                        // remove anchors possible onclick handler
+                        echo '    <script type="text/javascript">jQuery(document).ready(function(){ jQuery(\'a[rel^="prettyPhoto"]\').removeAttr("onclick"); }); </script>' . "\n";
+                        echo '    <script type="text/javascript" src="' . $pluginDir . '/prettyphoto/js/jquery.prettyPhoto.min.js" charset="utf-8"></script>' . "\n";
+                        echo '    <script type="text/javascript">jQuery(document).ready(function(){ jQuery(\'a:visible[rel^="prettyPhoto"]\').prettyPhoto(' . $this->get_config('init_js') . '); }); </script>' . "\n";
+                    }
                     return true;
                     break;
 
                 case 'frontend_display':
 
-                    if ($type == 'lightbox_plus' || $type == 'lightbox2') {
+                    if ($type == 'lightbox2jq') {
                         if ($navigate == 'entry') {
-                            $sub   = '<a $1 rel=$3lightbox[lightbox_group_entry_' . $eventData['id'] . ']$3 $2';
+                            $sub   = '<a $1 rel=$3lightbox[' . $eventData['id'] . ']$3 $2';
                         } elseif ($navigate == 'page') {
-                            $sub   = '<a $1 rel=$3lightbox[lightbox_group_entry]$3 $2';
+                            $sub   = '<a $1 rel=$3lightbox[]$3 $2';
                         }
                     } elseif ($type == 'prettyPhoto') {
                         if ($navigate == 'entry') {
@@ -241,44 +232,32 @@ class serendipity_event_lightbox extends serendipity_event {
                         } elseif ($navigate == 'page') {
                             $sub   = '<a rel=$3prettyPhoto[]$3 $1 $2';
                         }
-                    } elseif ($type == 'thickbox') {
+                    } elseif ($type == 'colorbox') {
                         if ($navigate == 'entry') {
-                            $sub   = '<a class=$3thickbox$3 rel=$3thickbox_group_entry_' . $eventData['id'] . '$3 $1 $2';
+                            $sub   = '<a rel=$3colorbox[' . $eventData['id'] . ']$3 $1 $2';
                         } elseif ($navigate == 'page') {
-                            $sub   = '<a class=$3thickbox$3 rel=$3thickbox_group_entry$3 $1 $2';
+                            $sub   = '<a rel=$3colorbox[]$3 $1 $2';
                         }
-                    } elseif ($type == 'graybox' || $type == 'greybox') {
+                    } elseif ($type == 'magnific') {
                         if ($navigate == 'entry') {
-                            $sub   = '<a $1 rel=$3gb_imageset[greybox_group_entry_' . $eventData['id'] . ']$3 $2';
+                            $sub   = '<a rel=$3magnificPopup[' . $eventData['id'] . ']$3 $1 $2';
                         } elseif ($navigate == 'page') {
-                            $sub   = '<a $1 rel=$3gb_imageset[greybox_group_entry]$3 $2';
+                            $sub   = '<a rel=$3magnificPopup[]$3 $1 $2';
                         }
                     }
-        
+
                     foreach ($this->markup_elements as $temp) {
                         if (isset($eventData[$temp['element']]) && serendipity_db_bool($this->get_config($temp['name'], true)) &&
                                 !$eventData['properties']['ep_disable_markup_' . $this->instance] &&
                                 !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
                             $element = $temp['element'];
 
-                            // preg_replace with replacement counter is available only from PHP 5.1 on
-                            if (version_compare(PHP_VERSION, '5.1', '>=')) {
-                                $replacement_count = 0;
-                                $eventData[$element] = preg_replace($regex, $sub, $eventData[$element], -1,  $replacement_count);
-                                
-                                // Remember if an image link was found
-                                if ($replacement_count>0) {
-                                    $this->foundImageLink = true;
-                                }
-                            }
-                            else {
-                                $oldEventData = $eventData[$element];
-                                $eventData[$element] = preg_replace($regex, $sub, $eventData[$element]);
-                                
-                                // Remember if an image link was found by checking, if something was changed
-                                if ($oldEventData!=$eventData[$element]) {
-                                    $this->foundImageLink = true;
-                                }
+                            $replacement_count = 0;
+                            $eventData[$element] = preg_replace($regex, $sub, $eventData[$element], -1,  $replacement_count);
+
+                            // Remember if an image link was found
+                            if ($replacement_count > 0) {
+                                $this->foundImageLink = true;
                             }
                         }
                     }
@@ -303,4 +282,64 @@ class serendipity_event_lightbox extends serendipity_event {
         serendipity_plugin_api::hook_event('backend_cache_purge', $this->title);
         serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
     }
+
+    function example() {
+        // remove old lightbox script directory
+        if (is_file(dirname(__FILE__) . '/lightbox/lightbox.js')) {
+            $this->empty_dir(dirname(__FILE__) . '/lightbox');
+            @rmdir(dirname(__FILE__) . '/lightbox');
+        }
+        // remove old lightbox2 script directory
+        if (is_file(dirname(__FILE__) . '/lightbox2/lightbox2.js')) {
+            $this->empty_dir(dirname(__FILE__) . '/lightbox2');
+            @rmdir(dirname(__FILE__) . '/lightbox2');
+        }
+        // remove old lightbox plus script directory
+        if (is_file(dirname(__FILE__) . '/lightbox_plus/lightbox_plus.js')) {
+            $this->empty_dir(dirname(__FILE__) . '/lightbox_plus');
+            @rmdir(dirname(__FILE__) . '/lightbox_plus');
+        }
+        // remove old thickbox script directory
+        if (is_file(dirname(__FILE__) . '/thickbox/thickbox.js')) {
+            $this->empty_dir(dirname(__FILE__) . '/thickbox');
+            @rmdir(dirname(__FILE__) . '/thickbox');
+        }
+        // remove old graybox script directory
+        if (is_file(dirname(__FILE__) . '/graybox/gb_scripts.js')) {
+            $this->empty_dir(dirname(__FILE__) . '/graybox');
+            @rmdir(dirname(__FILE__) . '/graybox');
+        }
+        // remove old greybox script directory
+        if (is_file(dirname(__FILE__) . '/greybox/gb_scripts.js')) {
+            $this->empty_dir(dirname(__FILE__) . '/greybox');
+            @rmdir(dirname(__FILE__) . '/greybox');
+            @unlink(dirname(__FILE__) . '/graycode_samples.txt');
+        }
+    }
+
+    /**
+     * empty a directory using the Standard PHP Library (SPL) iterator
+     * @access    private
+     * @param   string directory
+     */
+    private function empty_dir($dir) {
+        if (!is_dir($dir)) return;
+        try {
+            $_dir = new RecursiveDirectoryIterator($dir);
+            // NOTE: UnexpectedValueException thrown for PHP >= 5.3
+            } catch (Exception $e) {
+                return;
+            }
+        $iterator = new RecursiveIteratorIterator($_dir, RecursiveIteratorIterator::CHILD_FIRST);
+        //$iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir), RecursiveIteratorIterator::CHILD_FIRST);
+        foreach ($iterator as $file) {
+            if ($file->isFile()) {
+                @unlink($file->__toString());
+            } else {
+                @rmdir($file->__toString());
+            }
+        }
+        @rmdir(dir);
+    }
+
 }

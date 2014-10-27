@@ -1,3 +1,17 @@
+
+Version 2.0: Major update
+    * prettyPhoto js 3.1.5 and css update
+    * added lightbox 2 jquery - Lightbox v.2.7.1
+    * added magnific-popup - Magnific Popup v.0.9.9
+    * added colorbox - Colorbox 1.5.14
+    * added jquery-1.11.1.min.js to load if not already loaded
+    * script loads moved to frontend_footer hook
+    * extend required Serendipity version to 1.6 and PHP >= 5.3
+    * html5 validator fix removed charset in script calls without src attribute
+    * remove anchors possible onClick handler
+    * added cleanup to remove old packages on update
+    * changed some lang constants
+
 1.9.8: update lightbox2 prototype.js to 1.7.2 to avoid this.each is not a function errors
 
 1.9.7: Bump version to propagate new .htaccess

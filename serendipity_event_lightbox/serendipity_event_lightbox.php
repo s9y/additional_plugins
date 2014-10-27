@@ -178,7 +178,7 @@ class serendipity_event_lightbox extends serendipity_event {
                     echo "\n";
                     // ColorBox code (https://github.com/jackmoore/colorbox) - init with :visible to ensure to not show hidden elements via hideafter function in imageselectorplus ranges
                     if ($type == 'colorbox') {
-                        echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir.  '/colorbox/colorbox.css" />' . "\n";
+                        echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/colorbox/colorbox.css" />' . "\n";
                         if (!class_exists('serendipity_event_jquery') && !$serendipity['capabilities']['jquery']) {
                             echo '    <script type="text/javascript" src="' . $pluginDir . '/jquery-1.11.1.min.js" charset="utf-8"></script>' . "\n";
                         }
@@ -187,7 +187,7 @@ class serendipity_event_lightbox extends serendipity_event {
                     }
                     // LightBox2 jQuery based - http://lokeshdhakar.com/projects/lightbox2/ - this lightbox does not allow to show :visible anchors only - it shows and counts all gallery images, if set to view galleries
                     elseif ($type == 'lightbox2jq') {
-                        echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir.  '/lightbox2-jquery/css/lightbox.css" />' . "\n";
+                        echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/lightbox2-jquery/css/lightbox.css" />' . "\n";
                         if (!class_exists('serendipity_event_jquery') && !$serendipity['capabilities']['jquery']) {
                             echo '    <script type="text/javascript" src="' . $pluginDir . '/jquery-1.11.1.min.js" charset="utf-8"></script>' . "\n";
                         }
@@ -197,7 +197,7 @@ class serendipity_event_lightbox extends serendipity_event {
                     }
                     // Magnific-Popup code (https://github.com/dimsemenov/Magnific-Popup) - init with :visible to ensure to not show hidden elements via hideafter function in imageselectorplus ranges
                     elseif ($type == 'magnific') {
-                        echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir.  '/magnific-popup/magnific-popup.css" />' . "\n";
+                        echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/magnific-popup/magnific-popup.css" />' . "\n";
                         if (!class_exists('serendipity_event_jquery') && !$serendipity['capabilities']['jquery']) {
                             echo '    <script type="text/javascript" src="' . $pluginDir . '/jquery-1.11.1.min.js" charset="utf-8"></script>' . "\n";
                         }
@@ -206,7 +206,7 @@ class serendipity_event_lightbox extends serendipity_event {
                     }
                     // PrettyPhoto code - http://www.no-margin-for-errors.com/projects/prettyPhoto/ - init with :visible to ensure to not show hidden elements via hideafter function in imageselectorplus ranges
                     elseif ($type == 'prettyPhoto') {
-                        echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir.  '/prettyphoto/css/prettyPhoto.css" />' . "\n";
+                        echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/prettyphoto/css/prettyPhoto.css" />' . "\n";
                         if (!class_exists('serendipity_event_jquery') && !$serendipity['capabilities']['jquery']) {
                             echo '    <script type="text/javascript" src="' . $pluginDir . '/jquery-1.11.1.min.js" charset="utf-8"></script>' . "\n";
                         }
@@ -308,12 +308,12 @@ class serendipity_event_lightbox extends serendipity_event {
         if (is_file(dirname(__FILE__) . '/graybox/gb_scripts.js')) {
             $this->empty_dir(dirname(__FILE__) . '/graybox');
             @rmdir(dirname(__FILE__) . '/graybox');
+            @unlink(dirname(__FILE__) . '/graycode_samples.txt');
         }
         // remove old greybox script directory
         if (is_file(dirname(__FILE__) . '/greybox/gb_scripts.js')) {
             $this->empty_dir(dirname(__FILE__) . '/greybox');
             @rmdir(dirname(__FILE__) . '/greybox');
-            @unlink(dirname(__FILE__) . '/graycode_samples.txt');
         }
     }
 

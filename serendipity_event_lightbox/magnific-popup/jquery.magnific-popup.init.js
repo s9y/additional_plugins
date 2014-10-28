@@ -1,8 +1,8 @@
-jQuery(document).ready(function(){
+jQuery(document).ready(function($){
 
     // remove anchors onclick handler, if have
-    jQuery('a[rel^="magnificPopup"]').removeAttr('onclick');
-    jQuery('a[rel="onemagnificPopup"]').removeAttr('onclick');
+    $('a[rel^="magnificPopup"]').removeAttr('onclick');
+    $('a[rel="onemagnificPopup"]').removeAttr('onclick');
 
     // get all magnificPopup anchors by group
     $('a:visible[rel^="magnificPopup"]').each(function() {
@@ -22,7 +22,7 @@ jQuery(document).ready(function(){
     });
 
     // this is a single image only init - plugin option : Single Image
-    jQuery('a:visible[rel="onemagnificPopup"]').magnificPopup({
+    $('a:visible[rel="onemagnificPopup"]').magnificPopup({
         type:'image'
     });
     

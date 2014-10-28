@@ -28,7 +28,7 @@ class serendipity_event_lightbox extends serendipity_event {
         $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_NAME);
         $propbag->add('description',    PLUGIN_EVENT_LIGHTBOX_DESC);
         $propbag->add('author',         'Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian');
-        $propbag->add('version',        '2.0');
+        $propbag->add('version',        '2.0.1');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'php'         => '5.3.0'
@@ -100,7 +100,7 @@ class serendipity_event_lightbox extends serendipity_event {
                 $propbag->add('type',           'string');
                 $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_PATH);
                 $propbag->add('description',    PLUGIN_EVENT_LIGHTBOX_PATH_DESC);
-                $propbag->add('default',        str_replace('//', '/', $serendipity['serendipityHTTPPath'] . preg_replace('@^.*(/plugins.*)@', '$1', dirname(__FILE__))));
+                $propbag->add('default',        $serendipity['serendipityHTTPPath'] . '/plugins/serendipity_event_lightbox');
                 break;
 
             case 'init_js':
@@ -211,9 +211,9 @@ class serendipity_event_lightbox extends serendipity_event {
                             echo '    <script type="text/javascript" src="' . $pluginDir . '/jquery-1.11.1.min.js" charset="utf-8"></script>' . "\n";
                         }
                         // remove anchors possible onclick handler
-                        echo '    <script type="text/javascript">jQuery(document).ready(function(){ jQuery(\'a[rel^="prettyPhoto"]\').removeAttr("onclick"); }); </script>' . "\n";
+                        echo '    <script type="text/javascript"> jQuery(document).ready(function(){ jQuery(\'a[rel^="prettyPhoto"]\').removeAttr("onclick"); }); </script>' . "\n";
                         echo '    <script type="text/javascript" src="' . $pluginDir . '/prettyphoto/js/jquery.prettyPhoto.min.js" charset="utf-8"></script>' . "\n";
-                        echo '    <script type="text/javascript">jQuery(document).ready(function(){ jQuery(\'a:visible[rel^="prettyPhoto"]\').prettyPhoto(' . $this->get_config('init_js') . '); }); </script>' . "\n";
+                        echo '    <script type="text/javascript"> jQuery(document).ready(function(){ jQuery(\'a:visible[rel^="prettyPhoto"]\').prettyPhoto(' . $this->get_config('init_js') . '); }); </script>' . "\n";
                     }
                     return true;
                     break;

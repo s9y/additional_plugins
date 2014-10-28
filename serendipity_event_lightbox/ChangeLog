@@ -1,4 +1,7 @@
+------------------------------------------------------------------------
+2.0.1: fix magnific noConflict mode and plugins path default var
 
+------------------------------------------------------------------------
 Version 2.0: Major update
     * prettyPhoto js 3.1.5 and css update
     * added lightbox 2 jquery - Lightbox v.2.7.1
@@ -12,16 +15,22 @@ Version 2.0: Major update
     * added cleanup to remove old packages on update
     * changed some lang constants
 
+------------------------------------------------------------------------
 1.9.8: update lightbox2 prototype.js to 1.7.2 to avoid this.each is not a function errors
 
+------------------------------------------------------------------------
 1.9.7: Bump version to propagate new .htaccess
 
+------------------------------------------------------------------------
 1.9.6: Compatibility fixes
 
+------------------------------------------------------------------------
 1.9.5: prettyPhoto 3.1.4 update, allow configuration of default object
 
+------------------------------------------------------------------------
 1.9.4: prettyPhoto 3.1 update
 
+------------------------------------------------------------------------
 1.9.3, 1.9.2: Added/fixed prettyPhoto
 
 ------------------------------------------------------------------------

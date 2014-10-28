@@ -1564,9 +1564,9 @@
 <description>Umožňuje nepřihlášeným uživatelům prohlížet Serendipity knihovnu médií</description>
 <maintainers><maintainer><name>Arnan de Gans, Matthew Groeninger, Stefan Willoughby, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.62</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-10-08</date>
+  <version>2.63</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2014-10-28</date>
   <filelist>
 <dir name="serendipity_event_usergallery">
 <file>serendipity_event_usergallery.php</file>
@@ -7174,99 +7174,31 @@ aplikovány další typografické úpravy.</description>
 <name>serendipity_event_lightbox</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_lightbox/ChangeLog</changelog>
 <license>GPL</license>
-<summary>Lightbox/Thickbox JS/Greybox</summary>
+<summary>Lightbox for entry images</summary>
 <groups>IMAGES</groups>
-<description>Lightbox je jednoduchý nenápadný skript používaný k zobrazení obrázů přes aktuální stranu. Během okamžiku ho nastavíte. Funguje ve všech moderních prohlížečích. Lightbox zobrazuje obrázky, zatímco Thickbox umí zobrazit také vyskakovací HTML bloky. Oba skripty fungují následovně: Vyhledávají v příspěvcích a nahrazují každý výskyt odkazu 'a href=&quot;XXX&quot;' odkazem na zobrazení nad aktuální stránkou. Takže pokud chcete zobrazovat zvětšené obrázky, stačí do článku vložit odkazy na tyto velké obrázky. Při použití Thickboxu vložte atribut 'class=&quot;thickbox&quot;' do odkazu 'a href', tento odkaz se pak zobrazí ve vyskakovacím okně.</description>
-<maintainers><maintainer><name>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
+<description>Lightbox JS is a simple, unobtrusive script used to to overlay images on the current page. It's a snap to setup and works on all modern browsers. All lightboxes pop-up images. This plugin searches through your entries, and replaces every image 'a href=&quot;XXX&quot;' link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. These lightbox scripts are all jQuery based. They do not only support image types, they may also add support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for image lightboxes only, but you can easily add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.</description>
+<maintainers><maintainer><name>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.9.8</version>
-  <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2014-10-03</date>
+  <version>2.0</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2014-10-28</date>
   <filelist>
 <dir name="serendipity_event_lightbox">
 <dir name="lightbox">
-<file>close.gif</file>
-<file>lightbox.css</file>
-<file>lightbox.js</file>
-<file>loading.gif</file>
-<file>overlay.png</file>
 </dir>
 <dir name="lightbox2">
-<file>blank.gif</file>
-<file>close.gif</file>
-<file>closelabel.gif</file>
-<file>effects.js</file>
-<file>image-1.jpg</file>
-<file>lightbox2.css</file>
-<file>lightbox2.js</file>
-<file>loading.gif</file>
-<file>next.gif</file>
-<file>nextlabel.gif</file>
-<file>prev.gif</file>
-<file>prevlabel.gif</file>
-<file>prototype.js</file>
-<file>scriptaculous.js</file>
-<file>thumb-1.jpg</file>
-<file>builder.js</file>
-<file>bullet.gif</file>
-<file>donate-button.gif</file>
-<file>download-icon.gif</file>
 </dir>
 <dir name="lightbox_plus">
-<file>blank.gif</file>
-<file>next.gif</file>
-<file>close.gif</file>
-<file>expand.gif</file>
-<file>lightbox_plus.css</file>
-<file>lightbox_plus.js</file>
-<file>loading.gif</file>
-<file>overlay.png</file>
-<file>shrink.gif</file>
-<file>zzoop.gif</file>
-<file>prev.gif</file>
-<file>spica.js</file>
 </dir>
 <dir name="thickbox">
-<file>thickbox.css</file>
-<file>circle_animation.gif</file>
-<file>thickbox.js</file>
-<file>jquery-compressed.js</file>
-<file>thickbox_jquery.js</file>
-<file>macFFBgHack.png</file>
-<file>loadingAnimation.gif</file>
 </dir>
 <file>serendipity_event_lightbox.php</file>
 <file>.htaccess</file>
 <file>lang_cs.inc.php</file>
 <dir name="greybox">
-<file>AJS.js</file>
-<file>AJS_fx.js</file>
-<file>g_close.gif</file>
-<file>gb_scripts.js</file>
-<file>gb_styles.css</file>
-<file>header_bg.gif</file>
-<file>indicator.gif</file>
-<file>loader_frame.html</file>
-<file>next.gif</file>
-<file>prev.gif</file>
-<file>w_close.gif</file>
 </dir>
 <dir name="graybox">
-<file>AJS.js</file>
-<file>AJS_fx.js</file>
-<file>g_close.gif</file>
-<file>gb_scripts.js</file>
-<file>gb_scripts_tmp.js</file>
-<file>gb_styles.css</file>
-<file>header_bg.gif</file>
-<file>indicator.gif</file>
-<file>loader_frame.html</file>
-<file>next.gif</file>
-<file>prev.gif</file>
-<file>w_close.gif</file>
-<file>.htaccess</file>
 </dir>
-<file>graycode_samples.txt</file>
 <file>lang_en.inc.php</file>
 <file>lang_pl.inc.php</file>
 <file>ChangeLog</file>
@@ -7274,10 +7206,41 @@ aplikovány další typografické úpravy.</description>
 </dir>
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
+<dir name="colorbox">
+<dir name="images">
+<file>border.png</file>
+<file>controls.png</file>
+<file>loading.gif</file>
+<file>overlay.png</file>
+<file>loading_background.png</file>
+</dir>
+<file>jquery.colorbox.js</file>
+<file>README.md</file>
+<file>colorbox.css</file>
+<file>jquery.colorbox-min.js</file>
+<file>jquery.colorbox.init.js</file>
+</dir>
+<dir name="lightbox2-jquery">
+<dir name="css">
+<file>lightbox.css</file>
+<file>screen.css</file>
+</dir>
+<dir name="img">
+<file>close.png</file>
+<file>loading.gif</file>
+<file>next.png</file>
+<file>prev.png</file>
+</dir>
+<dir name="js">
+<file>lightbox.min.js</file>
+<file>lightbox.js</file>
+</dir>
+<file>README.markdown</file>
+</dir>
 <dir name="prettyphoto">
 <dir name="js">
 <file>jquery.prettyPhoto.js</file>
-<file>jquery-1.6.1.min.js</file>
+<file>jquery.prettyPhoto.min.js</file>
 </dir>
 <dir name="images">
 <dir name="backgrounds">
@@ -7355,93 +7318,50 @@ aplikovány další typografické úpravy.</description>
 <file>lang_cs.inc.php</file>
 <file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
+<dir name="magnific-popup">
+<file>magnific-popup.css</file>
+<file>README.md</file>
+<file>jquery.magnific-popup.init.js</file>
+<file>jquery.magnific-popup.js</file>
+<file>jquery.magnific-popup.min.js</file>
+</dir>
+<file>jquery-1.11.1.min.js</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
-    <file>serendipity_event_lightbox/lightbox/close.gif</file>
-    <file>serendipity_event_lightbox/lightbox/lightbox.css</file>
-    <file>serendipity_event_lightbox/lightbox/lightbox.js</file>
-    <file>serendipity_event_lightbox/lightbox/loading.gif</file>
-    <file>serendipity_event_lightbox/lightbox/overlay.png</file>
-    <file>serendipity_event_lightbox/lightbox2/blank.gif</file>
-    <file>serendipity_event_lightbox/lightbox2/close.gif</file>
-    <file>serendipity_event_lightbox/lightbox2/closelabel.gif</file>
-    <file>serendipity_event_lightbox/lightbox2/effects.js</file>
-    <file>serendipity_event_lightbox/lightbox2/image-1.jpg</file>
-    <file>serendipity_event_lightbox/lightbox2/lightbox2.css</file>
-    <file>serendipity_event_lightbox/lightbox2/lightbox2.js</file>
-    <file>serendipity_event_lightbox/lightbox2/loading.gif</file>
-    <file>serendipity_event_lightbox/lightbox2/next.gif</file>
-    <file>serendipity_event_lightbox/lightbox2/nextlabel.gif</file>
-    <file>serendipity_event_lightbox/lightbox2/prev.gif</file>
-    <file>serendipity_event_lightbox/lightbox2/prevlabel.gif</file>
-    <file>serendipity_event_lightbox/lightbox2/prototype.js</file>
-    <file>serendipity_event_lightbox/lightbox2/scriptaculous.js</file>
-    <file>serendipity_event_lightbox/lightbox2/thumb-1.jpg</file>
-    <file>serendipity_event_lightbox/lightbox2/builder.js</file>
-    <file>serendipity_event_lightbox/lightbox2/bullet.gif</file>
-    <file>serendipity_event_lightbox/lightbox2/donate-button.gif</file>
-    <file>serendipity_event_lightbox/lightbox2/download-icon.gif</file>
-    <file>serendipity_event_lightbox/lightbox_plus/blank.gif</file>
-    <file>serendipity_event_lightbox/lightbox_plus/next.gif</file>
-    <file>serendipity_event_lightbox/lightbox_plus/close.gif</file>
-    <file>serendipity_event_lightbox/lightbox_plus/expand.gif</file>
-    <file>serendipity_event_lightbox/lightbox_plus/lightbox_plus.css</file>
-    <file>serendipity_event_lightbox/lightbox_plus/lightbox_plus.js</file>
-    <file>serendipity_event_lightbox/lightbox_plus/loading.gif</file>
-    <file>serendipity_event_lightbox/lightbox_plus/overlay.png</file>
-    <file>serendipity_event_lightbox/lightbox_plus/shrink.gif</file>
-    <file>serendipity_event_lightbox/lightbox_plus/zzoop.gif</file>
-    <file>serendipity_event_lightbox/lightbox_plus/prev.gif</file>
-    <file>serendipity_event_lightbox/lightbox_plus/spica.js</file>
-    <file>serendipity_event_lightbox/thickbox/thickbox.css</file>
-    <file>serendipity_event_lightbox/thickbox/circle_animation.gif</file>
-    <file>serendipity_event_lightbox/thickbox/thickbox.js</file>
-    <file>serendipity_event_lightbox/thickbox/jquery-compressed.js</file>
-    <file>serendipity_event_lightbox/thickbox/thickbox_jquery.js</file>
-    <file>serendipity_event_lightbox/thickbox/macFFBgHack.png</file>
-    <file>serendipity_event_lightbox/thickbox/loadingAnimation.gif</file>
     <file>serendipity_event_lightbox/serendipity_event_lightbox.php</file>
     <file>serendipity_event_lightbox/.htaccess</file>
     <file>serendipity_event_lightbox/lang_cs.inc.php</file>
-    <file>serendipity_event_lightbox/greybox/AJS.js</file>
-    <file>serendipity_event_lightbox/greybox/AJS_fx.js</file>
-    <file>serendipity_event_lightbox/greybox/g_close.gif</file>
-    <file>serendipity_event_lightbox/greybox/gb_scripts.js</file>
-    <file>serendipity_event_lightbox/greybox/gb_styles.css</file>
-    <file>serendipity_event_lightbox/greybox/header_bg.gif</file>
-    <file>serendipity_event_lightbox/greybox/indicator.gif</file>
-    <file>serendipity_event_lightbox/greybox/loader_frame.html</file>
-    <file>serendipity_event_lightbox/greybox/next.gif</file>
-    <file>serendipity_event_lightbox/greybox/prev.gif</file>
-    <file>serendipity_event_lightbox/greybox/w_close.gif</file>
-    <file>serendipity_event_lightbox/graybox/AJS.js</file>
-    <file>serendipity_event_lightbox/graybox/AJS_fx.js</file>
-    <file>serendipity_event_lightbox/graybox/g_close.gif</file>
-    <file>serendipity_event_lightbox/graybox/gb_scripts.js</file>
-    <file>serendipity_event_lightbox/graybox/gb_scripts_tmp.js</file>
-    <file>serendipity_event_lightbox/graybox/gb_styles.css</file>
-    <file>serendipity_event_lightbox/graybox/header_bg.gif</file>
-    <file>serendipity_event_lightbox/graybox/indicator.gif</file>
-    <file>serendipity_event_lightbox/graybox/loader_frame.html</file>
-    <file>serendipity_event_lightbox/graybox/next.gif</file>
-    <file>serendipity_event_lightbox/graybox/prev.gif</file>
-    <file>serendipity_event_lightbox/graybox/w_close.gif</file>
-    <file>serendipity_event_lightbox/graybox/.htaccess</file>
-    <file>serendipity_event_lightbox/graycode_samples.txt</file>
     <file>serendipity_event_lightbox/lang_en.inc.php</file>
     <file>serendipity_event_lightbox/lang_pl.inc.php</file>
     <file>serendipity_event_lightbox/ChangeLog</file>
     <file>serendipity_event_lightbox/lang_cz.inc.php</file>
     <file>serendipity_event_lightbox/lang_de.inc.php</file>
+    <file>serendipity_event_lightbox/colorbox/images/border.png</file>
+    <file>serendipity_event_lightbox/colorbox/images/controls.png</file>
+    <file>serendipity_event_lightbox/colorbox/images/loading.gif</file>
+    <file>serendipity_event_lightbox/colorbox/images/overlay.png</file>
+    <file>serendipity_event_lightbox/colorbox/images/loading_background.png</file>
+    <file>serendipity_event_lightbox/colorbox/jquery.colorbox.js</file>
+    <file>serendipity_event_lightbox/colorbox/README.md</file>
+    <file>serendipity_event_lightbox/colorbox/colorbox.css</file>
+    <file>serendipity_event_lightbox/colorbox/jquery.colorbox-min.js</file>
+    <file>serendipity_event_lightbox/colorbox/jquery.colorbox.init.js</file>
+    <file>serendipity_event_lightbox/lightbox2-jquery/css/lightbox.css</file>
+    <file>serendipity_event_lightbox/lightbox2-jquery/css/screen.css</file>
+    <file>serendipity_event_lightbox/lightbox2-jquery/img/close.png</file>
+    <file>serendipity_event_lightbox/lightbox2-jquery/img/loading.gif</file>
+    <file>serendipity_event_lightbox/lightbox2-jquery/img/next.png</file>
+    <file>serendipity_event_lightbox/lightbox2-jquery/img/prev.png</file>
+    <file>serendipity_event_lightbox/lightbox2-jquery/js/lightbox.min.js</file>
+    <file>serendipity_event_lightbox/lightbox2-jquery/js/lightbox.js</file>
+    <file>serendipity_event_lightbox/lightbox2-jquery/README.markdown</file>
     <file>serendipity_event_lightbox/prettyphoto/js/jquery.prettyPhoto.js</file>
-    <file>serendipity_event_lightbox/prettyphoto/js/jquery-1.6.1.min.js</file>
+    <file>serendipity_event_lightbox/prettyphoto/js/jquery.prettyPhoto.min.js</file>
     <file>serendipity_event_lightbox/prettyphoto/images/backgrounds/.empty</file>
     <file>serendipity_event_lightbox/prettyphoto/images/fullscreen/high.gif</file>
     <file>serendipity_event_lightbox/prettyphoto/images/fullscreen/huge.gif</file>
@@ -7492,10 +7412,14 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_lightbox/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_lightbox/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_lightbox/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_lightbox/UTF-8/documentation_cs.html</file>
-    <file>serendipity_event_lightbox/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_lightbox/documentation_cs.html</file>
     <file>serendipity_event_lightbox/documentation_cz.html</file>
+    <file>serendipity_event_lightbox/magnific-popup/magnific-popup.css</file>
+    <file>serendipity_event_lightbox/magnific-popup/README.md</file>
+    <file>serendipity_event_lightbox/magnific-popup/jquery.magnific-popup.init.js</file>
+    <file>serendipity_event_lightbox/magnific-popup/jquery.magnific-popup.js</file>
+    <file>serendipity_event_lightbox/magnific-popup/jquery.magnific-popup.min.js</file>
+    <file>serendipity_event_lightbox/jquery-1.11.1.min.js</file>
   </serendipityFilelist>
 </release>
 </package>

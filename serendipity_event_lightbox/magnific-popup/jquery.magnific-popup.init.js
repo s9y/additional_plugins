@@ -14,10 +14,10 @@ jQuery(document).ready(function($){
 
         // Init magnificPopup for grouped galleries
         $('a:visible[rel^="'+theRel+'"]').magnificPopup({
-            gallery:{
-                enabled:true
-            },
-            type:'image'
+            type: 'image',
+            gallery: { enabled: true },
+            removalDelay: 300,
+            mainClass: 'popup-slide'
         });
     });
 

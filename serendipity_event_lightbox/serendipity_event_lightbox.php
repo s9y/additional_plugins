@@ -28,12 +28,12 @@ class serendipity_event_lightbox extends serendipity_event {
         $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_NAME);
         $propbag->add('description',    PLUGIN_EVENT_LIGHTBOX_DESC);
         $propbag->add('author',         'Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian');
-        $propbag->add('version',        '2.0.1');
+        $propbag->add('version',        '2.0.2');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'php'         => '5.3.0'
         ));
-        $propbag->add('event_hooks',     array('frontend_display' => true, 'frontend_footer' => true ));
+        $propbag->add('event_hooks',     array('frontend_display' => true, 'frontend_header' => true, 'frontend_footer' => true ));
         $propbag->add('stackable',       false);
         $propbag->add('groups',          array('IMAGES'));
         $propbag->add('cachable_events', array('frontend_display' => true));
@@ -100,7 +100,7 @@ class serendipity_event_lightbox extends serendipity_event {
                 $propbag->add('type',           'string');
                 $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_PATH);
                 $propbag->add('description',    PLUGIN_EVENT_LIGHTBOX_PATH_DESC);
-                $propbag->add('default',        $serendipity['serendipityHTTPPath'] . '/plugins/serendipity_event_lightbox');
+                $propbag->add('default',        $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_lightbox');
                 break;
 
             case 'init_js':
@@ -169,6 +169,8 @@ class serendipity_event_lightbox extends serendipity_event {
             }
 
             switch($event) {
+                case 'frontend_header':
+                    $headcss = true;
                 case 'frontend_footer':
 
                     // If no imagelink was processed, don't add css or js files to the header! (configurable optimization)
@@ -178,42 +180,58 @@ class serendipity_event_lightbox extends serendipity_event {
                     echo "\n";
                     // ColorBox code (https://github.com/jackmoore/colorbox) - init with :visible to ensure to not show hidden elements via hideafter function in imageselectorplus ranges
                     if ($type == 'colorbox') {
-                        echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/colorbox/colorbox.css" />' . "\n";
-                        if (!class_exists('serendipity_event_jquery') && !$serendipity['capabilities']['jquery']) {
-                            echo '    <script type="text/javascript" src="' . $pluginDir . '/jquery-1.11.1.min.js" charset="utf-8"></script>' . "\n";
+                        if ($headcss) {
+                            echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/fixchrome.css" />' . "\n";
+                            echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/colorbox/colorbox.css" />' . "\n";
+                        } else {
+                            if (!class_exists('serendipity_event_jquery') && !$serendipity['capabilities']['jquery']) {
+                                echo '    <script type="text/javascript" src="' . $pluginDir . '/jquery-1.11.1.min.js" charset="utf-8"></script>' . "\n";
+                            }
+                            echo '    <script type="text/javascript" src="' . $pluginDir . '/colorbox/jquery.colorbox-min.js" charset="utf-8"></script>' . "\n";
+                            echo '    <script type="text/javascript" src="' . $pluginDir . '/colorbox/jquery.colorbox.init.js" charset="utf-8"></script>' . "\n";
                         }
-                        echo '    <script type="text/javascript" src="' . $pluginDir . '/colorbox/jquery.colorbox-min.js" charset="utf-8"></script>' . "\n";
-                        echo '    <script type="text/javascript" src="' . $pluginDir . '/colorbox/jquery.colorbox.init.js" charset="utf-8"></script>' . "\n";
                     }
                     // LightBox2 jQuery based - http://lokeshdhakar.com/projects/lightbox2/ - this lightbox does not allow to show :visible anchors only - it shows and counts all gallery images, if set to view galleries
                     elseif ($type == 'lightbox2jq') {
-                        echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/lightbox2-jquery/css/lightbox.css" />' . "\n";
-                        if (!class_exists('serendipity_event_jquery') && !$serendipity['capabilities']['jquery']) {
-                            echo '    <script type="text/javascript" src="' . $pluginDir . '/jquery-1.11.1.min.js" charset="utf-8"></script>' . "\n";
+                        if ($headcss) {
+                            echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/lightbox2-jquery/css/lightbox.css" />' . "\n";
+                        } else {
+                            if (!class_exists('serendipity_event_jquery') && !$serendipity['capabilities']['jquery']) {
+                                echo '    <script type="text/javascript" src="' . $pluginDir . '/jquery-1.11.1.min.js" charset="utf-8"></script>' . "\n";
+                            }
+                            // remove anchors possible onclick handler
+                            echo '    <script type="text/javascript"> jQuery(document).ready(function(){ jQuery(\'a[rel^="lightbox"]\').removeAttr("onclick"); }); </script>' . "\n";
+                            echo '    <script type="text/javascript" src="' . $pluginDir . '/lightbox2-jquery/js/lightbox.min.js" charset="utf-8"></script>' . "\n";
                         }
-                        // remove anchors possible onclick handler
-                        echo '    <script type="text/javascript"> jQuery(document).ready(function(){ jQuery(\'a[rel^="lightbox"]\').removeAttr("onclick"); }); </script>' . "\n";
-                        echo '    <script type="text/javascript" src="' . $pluginDir . '/lightbox2-jquery/js/lightbox.min.js" charset="utf-8"></script>' . "\n";
                     }
                     // Magnific-Popup code (https://github.com/dimsemenov/Magnific-Popup) - init with :visible to ensure to not show hidden elements via hideafter function in imageselectorplus ranges
                     elseif ($type == 'magnific') {
-                        echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/magnific-popup/magnific-popup.css" />' . "\n";
-                        if (!class_exists('serendipity_event_jquery') && !$serendipity['capabilities']['jquery']) {
-                            echo '    <script type="text/javascript" src="' . $pluginDir . '/jquery-1.11.1.min.js" charset="utf-8"></script>' . "\n";
+                        if ($headcss) {
+                            echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/fixchrome.css" />' . "\n";
+                            echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/magnific-popup/magnific-popup.css" />' . "\n";
+                        } else {
+                            if (!class_exists('serendipity_event_jquery') && !$serendipity['capabilities']['jquery']) {
+                                echo '    <script type="text/javascript" src="' . $pluginDir . '/jquery-1.11.1.min.js" charset="utf-8"></script>' . "\n";
+                            }
+                            echo '    <script type="text/javascript" src="' . $pluginDir . '/magnific-popup/jquery.magnific-popup.min.js" charset="utf-8"></script>' . "\n";
+                            echo '    <script type="text/javascript" src="' . $pluginDir . '/magnific-popup/jquery.magnific-popup.init.js" charset="utf-8"></script>' . "\n";
                         }
-                        echo '    <script type="text/javascript" src="' . $pluginDir . '/magnific-popup/jquery.magnific-popup.min.js" charset="utf-8"></script>' . "\n";
-                        echo '    <script type="text/javascript" src="' . $pluginDir . '/magnific-popup/jquery.magnific-popup.init.js" charset="utf-8"></script>' . "\n";
                     }
                     // PrettyPhoto code - http://www.no-margin-for-errors.com/projects/prettyPhoto/ - init with :visible to ensure to not show hidden elements via hideafter function in imageselectorplus ranges
                     elseif ($type == 'prettyPhoto') {
-                        echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/prettyphoto/css/prettyPhoto.css" />' . "\n";
-                        if (!class_exists('serendipity_event_jquery') && !$serendipity['capabilities']['jquery']) {
-                            echo '    <script type="text/javascript" src="' . $pluginDir . '/jquery-1.11.1.min.js" charset="utf-8"></script>' . "\n";
+                        if ($headcss) {
+                            echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/fixchrome.css" />' . "\n";
+                            echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/prettyphoto/css/prettyPhoto.css" />' . "\n";
+                            echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/prettyphoto/css/prettyPhotoScreens.css" />' . "\n";
+                        } else {
+                            if (!class_exists('serendipity_event_jquery') && !$serendipity['capabilities']['jquery']) {
+                                echo '    <script type="text/javascript" src="' . $pluginDir . '/jquery-1.11.1.min.js" charset="utf-8"></script>' . "\n";
+                            }
+                            // remove anchors possible onclick handler
+                            echo '    <script type="text/javascript">jQuery(document).ready(function(){ jQuery(\'a[rel^="prettyPhoto"]\').removeAttr("onclick"); }); </script>' . "\n";
+                            echo '    <script type="text/javascript" src="' . $pluginDir . '/prettyphoto/js/jquery.prettyPhoto.min.js" charset="utf-8"></script>' . "\n";
+                            echo '    <script type="text/javascript">jQuery(document).ready(function(){ jQuery(\'a:visible[rel^="prettyPhoto"]\').prettyPhoto(' . $this->get_config('init_js') . '); }); </script>' . "\n";
                         }
-                        // remove anchors possible onclick handler
-                        echo '    <script type="text/javascript"> jQuery(document).ready(function(){ jQuery(\'a[rel^="prettyPhoto"]\').removeAttr("onclick"); }); </script>' . "\n";
-                        echo '    <script type="text/javascript" src="' . $pluginDir . '/prettyphoto/js/jquery.prettyPhoto.min.js" charset="utf-8"></script>' . "\n";
-                        echo '    <script type="text/javascript"> jQuery(document).ready(function(){ jQuery(\'a:visible[rel^="prettyPhoto"]\').prettyPhoto(' . $this->get_config('init_js') . '); }); </script>' . "\n";
                     }
                     return true;
                     break;

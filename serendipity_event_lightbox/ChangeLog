@@ -1,3 +1,12 @@
+
+------------------------------------------------------------------------
+2.0.2:
+    * set prettyPhoto image width to ~100% beneath a certain device size
+    * append css to head, scripts to end of body
+    * try to fix webkit engines, not displaying certain images in lightboxes,
+      with colorbox, magnific and prettyphoto
+      (http://board.s9y.org/viewtopic.php?f=4&t=20133&p=10440915#p10440915 ff)
+
 ------------------------------------------------------------------------
 2.0.1: fix magnific noConflict mode and plugins path default var
 

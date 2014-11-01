@@ -1,0 +1,13 @@
+/* on Safari and Chrome  */
+@media screen and (-webkit-min-device-pixel-ratio:0)
+{
+    /* allows floated images to display in lightbox without need to disable the float */
+    .serendipity_image_link:before {
+        content: '';
+        display: inline-block;
+    }
+    /* same for centered images */
+    .serendipity_image_center {
+        display: block;
+    }
+}

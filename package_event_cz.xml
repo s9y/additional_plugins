@@ -7179,9 +7179,9 @@ aplikovány další typografické úpravy.</description>
 <description>Lightbox JS is a simple, unobtrusive script used to to overlay images on the current page. It's a snap to setup and works on all modern browsers. All lightboxes pop-up images. This plugin searches through your entries, and replaces every image 'a href=&quot;XXX&quot;' link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. These lightbox scripts are all jQuery based. They do not only support image types, they may also add support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for image lightboxes only, but you can easily add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.</description>
 <maintainers><maintainer><name>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.0.1</version>
+  <version>2.0.2</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2014-10-29</date>
+  <date>2014-11-02</date>
   <filelist>
 <dir name="serendipity_event_lightbox">
 <dir name="lightbox">
@@ -7199,6 +7199,7 @@ aplikovány další typografické úpravy.</description>
 </dir>
 <dir name="graybox">
 </dir>
+<file>fixchrome.css</file>
 <file>lang_en.inc.php</file>
 <file>lang_pl.inc.php</file>
 <file>ChangeLog</file>
@@ -7310,6 +7311,7 @@ aplikovány další typografické úpravy.</description>
 </dir>
 <dir name="css">
 <file>prettyPhoto.css</file>
+<file>prettyPhotoScreens.css</file>
 </dir>
 <file>README</file>
 </dir>
@@ -7336,6 +7338,7 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_lightbox/serendipity_event_lightbox.php</file>
     <file>serendipity_event_lightbox/.htaccess</file>
     <file>serendipity_event_lightbox/lang_cs.inc.php</file>
+    <file>serendipity_event_lightbox/fixchrome.css</file>
     <file>serendipity_event_lightbox/lang_en.inc.php</file>
     <file>serendipity_event_lightbox/lang_pl.inc.php</file>
     <file>serendipity_event_lightbox/ChangeLog</file>
@@ -7407,6 +7410,7 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_lightbox/prettyphoto/images/thumbnails/flash-logo.png</file>
     <file>serendipity_event_lightbox/prettyphoto/images/thumbnails/quicktime-logo.gif</file>
     <file>serendipity_event_lightbox/prettyphoto/css/prettyPhoto.css</file>
+    <file>serendipity_event_lightbox/prettyphoto/css/prettyPhotoScreens.css</file>
     <file>serendipity_event_lightbox/prettyphoto/README</file>
     <file>serendipity_event_lightbox/UTF-8/lang_pl.inc.php</file>
     <file>serendipity_event_lightbox/UTF-8/lang_cs.inc.php</file>

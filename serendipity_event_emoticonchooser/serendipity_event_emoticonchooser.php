@@ -1,5 +1,4 @@
-<?php #
-
+<?php
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -30,13 +29,13 @@ class serendipity_event_emoticonchooser extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '2.10');
+        $propbag->add('version',       '2.11');
         $propbag->add('event_hooks',    array(
             'backend_entry_toolbar_extended' => true,
             'backend_entry_toolbar_body'     => true,
             'frontend_comment'               => true,
             'backend_header'                 => true,
-            'frontend_header'                => true,
+            'frontend_footer'                => true,
             'css_backend'                    => true
         ));
         $propbag->add('groups', array('BACKEND_EDITOR'));
@@ -178,6 +177,8 @@ class serendipity_event_emoticonchooser extends serendipity_event
                         }
                         $unique[$value] = $key;
                     }
+                    // script include has to stick to to backend_header, while using inline onclick (see above)
+                    if (IN_serendipity_admin === true) {
 ?>
 <div class="serendipity_emoticon_bar">
     <script type="text/javascript">
@@ -185,6 +186,19 @@ class serendipity_event_emoticonchooser extends serendipity_event
     </script>
 
 <?php
+                    } else { // in frontend footer
+?>
+<div class="serendipity_emoticon_bar">
+    <script type="text/javascript">
+document.onreadystatechange = function () {
+	if (document.readyState == "interactive") {
+        emoticonchooser('<?php echo $func; ?>', '<?php echo $txtarea; ?>', '<?php echo $cke_txtarea; ?>');
+	}
+}
+    </script>
+
+<?php
+                    }
                     echo $popuplink."\n";
                     echo '    <div id="serendipity_emoticonchooser_' . $func . '" style="' . $style . $popupstyle . '">'."\n";
                     foreach($unique as $value => $key) {
@@ -200,7 +214,7 @@ class serendipity_event_emoticonchooser extends serendipity_event
                     break;
 
                 case 'backend_header':
-                case 'frontend_header':
+                case 'frontend_footer':
 ?>
     <script type="text/javascript" src="<?php echo $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_emoticonchooser/emoticonchooser.js'; ?>"></script>
 <?php

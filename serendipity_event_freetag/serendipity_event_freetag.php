@@ -72,7 +72,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.59');
+        $propbag->add('version',       '3.60');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -1002,49 +1002,75 @@ addLoadEvent(enableAutocomplete);
 
                     if ($this->get_config('admin_show_taglist')) {
 ?>
-                    <script type="text/javascript">
-                    function addTag(addTag)
-                    {
-                        var freetags = document.getElementById("properties_freetag_tagList").value.split(',');
+                        <script type="text/javascript">
+                        function addTag(addTag)
+                        {
+                            var freetags = document.getElementById("properties_freetag_tagList").value.split(',');
 
-                        inList = false;
-                        for (var freetag = 0; freetag < freetags.length; freetag++) {
-                            if (freetags[freetag] && trim(freetags[freetag].toLowerCase()) == addTag.toLowerCase()) {
-                                inList = true;
+                            inList = false;
+                            for (var freetag = 0; freetag < freetags.length; freetag++) {
+                                if (freetags[freetag] && trim(freetags[freetag].toLowerCase()) == addTag.toLowerCase()) {
+                                    inList = true;
+                                }
+                            }
+
+                            if (!inList) {
+                                if (document.getElementById("properties_freetag_tagList").value.lastIndexOf(',') == (document.getElementById("properties_freetag_tagList").value.length-1)) {
+                                    sepChar = '';
+                                } else {
+                                    sepChar = ',';
+                                }
+
+                                document.getElementById("properties_freetag_tagList").value = document.getElementById("properties_freetag_tagList").value + sepChar + addTag;
                             }
                         }
 
-                        if (!inList) {
-                            if (document.getElementById("properties_freetag_tagList").value.lastIndexOf(',') == (document.getElementById("properties_freetag_tagList").value.length-1)) {
-                                sepChar = '';
-                            } else {
-                                sepChar = ',';
-                            }
-
-                            document.getElementById("properties_freetag_tagList").value = document.getElementById("properties_freetag_tagList").value + sepChar + addTag;
+                        function trim(str)
+                        {
+                            if (str) return str.replace(/^\s*|\s*$/g,"");
+                             else return '';
                         }
+                        </script>
+<?php
                     }
 
-                    function trim(str)
-                    {
-                        if (str) return str.replace(/^\s*|\s*$/g,"");
-                         else return '';
-                    }
-                    </script>
-<?php
-                        if ($serendipity['version'][0] < 2) {
+                    if ($serendipity['version'][0] < 2) {
 ?>
-                            <fieldset style="margin: 5px">
-                                <a name="tagListAnchor"></a>
-                                <div id="backend_freetag_list" style="margin: 5px; border: 1px dotted #000; padding: 5px; font-size: 9px;">
+                        <fieldset style="margin: 5px">
+                            <legend><?php echo PLUGIN_EVENT_FREETAG_TITLE; ?></legend>
+                            <label for="serendipity[properties][freetag_tagList]" title="<?php echo PLUGIN_EVENT_FREETAG_TITLE; ?>"><?php echo PLUGIN_EVENT_FREETAG_ENTERDESC; ?>:</label><br/>
+                            <input type="text" name="serendipity[properties][freetag_tagList]" id="properties_freetag_tagList" class="wickEnabled input_textbox" value="<?php echo htmlspecialchars($tagList); ?>" style="width: 100%" />
+
+                            <input type="checkbox" name="serendipity[properties][freetag_kill]" id="properties_freetag_kill" class="input_checkbox" />
+                            <label for="serendipity[properties][freetag_kill]" title="<?php echo PLUGIN_EVENT_FREETAG_KILL; ?>"><?php echo PLUGIN_EVENT_FREETAG_KILL; ?></label><br/>
 <?php
-                        } else {
+                        if ($this->get_config('admin_show_taglist')) {
 ?>
-                            <fieldset id="edit_entry_freetags" class="entryproperties_freetag mfp-hide">
-                                <a name="tagListAnchor"></a>
-                                <div id="backend_freetag_list">
+                            <a name="tagListAnchor"></a>
+                            <div id="backend_freetag_list" style="margin: 5px; border: 1px dotted #000; padding: 5px; font-size: 9px;">
 <?php
                         }
+                    } else {
+?>
+                        <fieldset id="edit_entry_freetags" class="entryproperties_freetag">
+                            <span class="wrap_legend"><legend><?php echo PLUGIN_EVENT_FREETAG_TITLE; ?></legend></span>
+                            <div class="form_field">
+                                <label for="properties_freetag_tagList" class="block_level"><?php echo PLUGIN_EVENT_FREETAG_ENTERDESC; ?>:</label>
+                                <input id="properties_freetag_tagList" type="text" name="serendipity[properties][freetag_tagList]" class="wickEnabled" value="<?php echo htmlspecialchars($tagList); ?>">
+                            </div>
+                            <div class="form_check">
+                                <input id="properties_freetag_kill" type="checkbox" name="serendipity[properties][freetag_kill]">
+                                <label for="properties_freetag_kill"><?php echo PLUGIN_EVENT_FREETAG_KILL; ?></label>
+                            </div>
+<?php
+                        if ($this->get_config('admin_show_taglist')) {
+?>
+                            <a name="tagListAnchor"></a>
+                            <div id="backend_freetag_list">
+<?php
+                        }
+                    }
+                        if ($this->get_config('admin_show_taglist')) {
                             $lastletter = '';
                             foreach ($taglist as $tag => $count) {
                                 if (function_exists('mb_strtoupper')) {
@@ -1061,44 +1087,10 @@ addLoadEvent(enableAutocomplete);
                                 }
                                 $lastletter = $upc;
                             }
-?>
-                        </div>
-<?php
-                    } else {
-                        if ($serendipity['version'][0] < 2) {
-?>
-                            <fieldset style="margin: 5px">
-<?php
-                        } else {
-                            echo '<fieldset id="edit_entry_freetags" class="entryproperties_freetag mfp-hide">';
+                            echo "</div>";
                         }
-                    }
-                    if ($serendipity['version'][0] < 2) {
 ?>
-                                <legend><?php echo PLUGIN_EVENT_FREETAG_TITLE; ?></legend>
-                                <label for="serendipity[properties][freetag_tagList]" title="<?php echo PLUGIN_EVENT_FREETAG_TITLE; ?>">
-                                    <?php echo PLUGIN_EVENT_FREETAG_ENTERDESC; ?>:</label><br/>
-                                <input type="text" name="serendipity[properties][freetag_tagList]" id="properties_freetag_tagList" class="wickEnabled input_textbox" value="<?php echo htmlspecialchars($tagList); ?>" style="width: 100%" />
-
-                                <input type="checkbox" name="serendipity[properties][freetag_kill]" id="properties_freetag_kill" class="input_checkbox" />
-                                <label for="serendipity[properties][freetag_kill]" title="<?php echo PLUGIN_EVENT_FREETAG_KILL; ?>">
-                                    <?php echo PLUGIN_EVENT_FREETAG_KILL; ?></label><br/>
-<?php
-                    } else {
-?>
-                                <span class="wrap_legend"><legend><?php echo PLUGIN_EVENT_FREETAG_TITLE; ?></legend></span>
-                                <div class="form_field">
-                                    <label for="properties_freetag_tagList" class="block_level"><?php echo PLUGIN_EVENT_FREETAG_ENTERDESC; ?>:</label>
-                                    <input id="properties_freetag_tagList" type="text" name="serendipity[properties][freetag_tagList]" class="wickEnabled" value="<?php echo htmlspecialchars($tagList); ?>">
-                                </div>
-                                <div class="form_check">
-                                    <input id="properties_freetag_kill" type="checkbox" name="serendipity[properties][freetag_kill]">
-                                    <label for="properties_freetag_kill"><?php echo PLUGIN_EVENT_FREETAG_KILL; ?></label>
-                                </div>
-<?php
-                    }
-?>
-                            </fieldset>
+                        </fieldset>
 <?php
                     return true;
                     break;

@@ -798,9 +798,9 @@
 <description>Erlaubt das freie Tagging von Artikeln</description>
 <maintainers><maintainer><name>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.59</version>
+  <version>3.60</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-10-03</date>
+  <date>2014-11-15</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <dir name="UTF-8">

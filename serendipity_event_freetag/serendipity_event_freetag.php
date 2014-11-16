@@ -72,7 +72,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.60');
+        $propbag->add('version',       '3.61');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -1078,12 +1078,15 @@ addLoadEvent(enableAutocomplete);
                                 } else {
                                     $upc = strtoupper(substr($tag, 0, 1));
                                 }
-                                if ($upc != $lastletter)
-                                    echo " <b>|".$upc.':</b> ';
+                                if ($upc != $lastletter) {
+                                    if ($serendipity['version'][0] < 2) {
+                                        echo " <b>|" . $upc . ':</b> ';
+                                    }
+                                }
                                 if ($serendipity['version'][0] < 2) {
                                     echo "<a href=\"#tagListAnchor\" style=\"text-decoration: none\" onClick=\"addTag('$tag')\">$tag</a>, ";
                                 } else {
-                                    echo "<a href=\"#tagListAnchor\" onClick=\"addTag('$tag')\">$tag</a>, ";
+                                    echo "<a href=\"#tagListAnchor\" onClick=\"addTag('$tag')\">$tag</a> ";
                                 }
                                 $lastletter = $upc;
                             }

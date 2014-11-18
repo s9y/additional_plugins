@@ -5430,6 +5430,118 @@
 </release>
 </package>
 <package version="1.0">
+<name>XML Engine (Dev)</name>
+<template>default-xml</template>
+<license>N/A (=GPL)</license>
+<summary></summary>
+<description></description>
+<maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion>1.1</requirements:s9yVersion>
+  <date>06.06.2006</date>
+  <filelist>
+<dir name="default-xml">
+<file>preview_fullsize.jpg</file>
+<file>index.tpl</file>
+<file>README</file>
+<file>preview.png</file>
+<file>info.txt</file>
+<file>template.inc.php</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>default-xml/preview_fullsize.jpg</file>
+    <file>default-xml/index.tpl</file>
+    <file>default-xml/README</file>
+    <file>default-xml/preview.png</file>
+    <file>default-xml/info.txt</file>
+    <file>default-xml/template.inc.php</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>PHP Engine (Experimental)</name>
+<template>default-php</template>
+<license>N/A (=GPL)</license>
+<summary></summary>
+<description></description>
+<maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion>1.1</requirements:s9yVersion>
+  <date>06.06.2006</date>
+  <filelist>
+<dir name="default-php">
+<file>preview_fullsize.jpg</file>
+<dir name="UTF-8">
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
+</dir>
+<file>documentation_cs.html</file>
+<file>IMPORTANT-TODO</file>
+<file>README</file>
+<file>commentform.tpl</file>
+<file>commentpopup.tpl</file>
+<file>comments.tpl</file>
+<file>content.tpl</file>
+<file>preview.png</file>
+<file>info.txt</file>
+<file>documentation_cz.html</file>
+<file>entries.tpl</file>
+<file>entries_archives.tpl</file>
+<file>entries_summary.tpl</file>
+<file>feed_0.91.tpl</file>
+<file>feed_1.0.tpl</file>
+<file>feed_2.0.tpl</file>
+<file>feed_atom0.3.tpl</file>
+<file>feed_atom1.0.tpl</file>
+<file>feed_opml1.0.tpl</file>
+<file>index.tpl</file>
+<file>plugin_categories.tpl</file>
+<file>plugin_calendar.tpl</file>
+<file>preview_iframe.tpl</file>
+<file>sidebar.tpl</file>
+<file>template.inc.php</file>
+<file>trackbacks.tpl</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>default-php/preview_fullsize.jpg</file>
+    <file>default-php/UTF-8/documentation_cs.html</file>
+    <file>default-php/UTF-8/documentation_cz.html</file>
+    <file>default-php/documentation_cs.html</file>
+    <file>default-php/IMPORTANT-TODO</file>
+    <file>default-php/README</file>
+    <file>default-php/commentform.tpl</file>
+    <file>default-php/commentpopup.tpl</file>
+    <file>default-php/comments.tpl</file>
+    <file>default-php/content.tpl</file>
+    <file>default-php/preview.png</file>
+    <file>default-php/info.txt</file>
+    <file>default-php/documentation_cz.html</file>
+    <file>default-php/entries.tpl</file>
+    <file>default-php/entries_archives.tpl</file>
+    <file>default-php/entries_summary.tpl</file>
+    <file>default-php/feed_0.91.tpl</file>
+    <file>default-php/feed_1.0.tpl</file>
+    <file>default-php/feed_2.0.tpl</file>
+    <file>default-php/feed_atom0.3.tpl</file>
+    <file>default-php/feed_atom1.0.tpl</file>
+    <file>default-php/feed_opml1.0.tpl</file>
+    <file>default-php/index.tpl</file>
+    <file>default-php/plugin_categories.tpl</file>
+    <file>default-php/plugin_calendar.tpl</file>
+    <file>default-php/preview_iframe.tpl</file>
+    <file>default-php/sidebar.tpl</file>
+    <file>default-php/template.inc.php</file>
+    <file>default-php/trackbacks.tpl</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
 <name>adaptation 0.81 (2009-08-25)</name>
 <template>adaptation</template>
 <license>N/A (=GPL)</license>

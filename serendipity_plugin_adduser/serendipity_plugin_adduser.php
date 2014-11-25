@@ -12,7 +12,7 @@ class serendipity_plugin_adduser extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_ADDUSER_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '2.34');
+        $propbag->add('version',       '2.34.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -158,7 +158,7 @@ class serendipity_plugin_adduser extends serendipity_plugin {
         $html .= '<select name="serendipity[plugin][usergroups][]" multiple="true" size="5">';
         if (is_array($groups)) {
             foreach($groups AS $group) {
-                $html .= '<option value="'. $group['id'] .'"'. (isset($valid[$group['id']]) ? ' selected="selected"' : '') .'>'. htmlspecialchars($group['name']) .'</option>' . "\n";
+                $html .= '<option value="'. $group['id'] .'"'. (isset($valid[$group['id']]) ? ' selected="selected"' : '') .'>'. (function_exists('serendipity_specialchars') ? serendipity_specialchars($group['name']) : htmlspecialchars($group['name'], ENT_COMPAT, LANG_CHARSET)) .'</option>' . "\n";
             }
         }
 

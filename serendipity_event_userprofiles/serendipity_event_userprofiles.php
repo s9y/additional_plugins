@@ -96,7 +96,7 @@ class serendipity_event_userprofiles extends serendipity_event {
             'genpage' => true
         ));
         $propbag->add('author', 'Garvin Hicking, Falk Doering');
-        $propbag->add('version', '0.28');
+        $propbag->add('version', '0.28.1');
         $propbag->add('requirements', array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -223,11 +223,11 @@ class serendipity_event_userprofiles extends serendipity_event {
         echo '<input type="hidden" name="serendipity[adminModule]" value="event_display" />';
         echo '<input type="hidden" name="serendipity[adminAction]" value="profiles" />';
         echo '<div>';
-        echo '<strong>' . htmlspecialchars(PLUGIN_EVENT_USERPROFILES_SELECT) . '</strong><br /><br />';
+        echo '<strong>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars(PLUGIN_EVENT_USERPROFILES_SELECT) : htmlspecialchars(PLUGIN_EVENT_USERPROFILES_SELECT, ENT_COMPAT, LANG_CHARSET)) . '</strong><br /><br />';
         echo USER . ' <select name="serendipity[profileUser]">';
         $users = serendipity_fetchUsers();
         foreach($users as $user) {
-                echo '<option value="' . $user['authorid'] . '" ' . (((empty($serendipity['POST']['profileUser']) && ($serendipity['authorid'] == $user['authorid'])) || ($serendipity['POST']['profileUser'] == $user['authorid'])) ? 'selected="selected"' : '') . '>' . htmlspecialchars($user['realname']) . '</option>';
+                echo '<option value="' . $user['authorid'] . '" ' . (((empty($serendipity['POST']['profileUser']) && ($serendipity['authorid'] == $user['authorid'])) || ($serendipity['POST']['profileUser'] == $user['authorid'])) ? 'selected="selected"' : '') . '>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($user['realname']) : htmlspecialchars($user['realname'], ENT_COMPAT, LANG_CHARSET)) . '</option>';
         }
         echo '</select>';
         echo ' <input class="serendipityPrettyButton input_button" type="submit" name="serendipity[viewUser]" value="'. VIEW .'" />';
@@ -350,7 +350,7 @@ class serendipity_event_userprofiles extends serendipity_event {
         echo '  <td>';
         switch($info['type']) {
             case 'html':
-                echo '<textarea cols="80" rows="10" name="serendipity[profile' . $property . ']">' . htmlspecialchars($user[$property]) . "</textarea>\n";
+                echo '<textarea cols="80" rows="10" name="serendipity[profile' . $property . ']">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($user[$property]) : htmlspecialchars($user[$property], ENT_COMPAT, LANG_CHARSET)) . "</textarea>\n";
                 break;
 
             case 'boolean':
@@ -370,7 +370,7 @@ class serendipity_event_userprofiles extends serendipity_event {
 
             case 'string':
             default:
-                echo '<input class="input_textbox" type="text" name="serendipity[profile' . $property . ']" value="' . htmlspecialchars($user[$property]) . '" />';
+                echo '<input class="input_textbox" type="text" name="serendipity[profile' . $property . ']" value="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($user[$property]) : htmlspecialchars($user[$property], ENT_COMPAT, LANG_CHARSET)) . '" />';
         }
         echo '  </td>';
         echo '</tr>';
@@ -627,14 +627,14 @@ class serendipity_event_userprofiles extends serendipity_event {
                                 . '&amp;gravatar_id=' . md5($eventData['email'])
                                 . '&amp;size=' . $this->get_config('gravatar_size','80')
                                 . '&amp;border=&amp;rating=' . $this->get_config('gravatar_rating','R');
-                        $this->found_images[$author] = '<div class="serendipity_authorpic"><img src="' . $img . '" alt="' . AUTHOR . '" title="' . htmlspecialchars($authorname) . '" /><br /><span>' . htmlspecialchars($authorname) . '</span></div>';
+                        $this->found_images[$author] = '<div class="serendipity_authorpic"><img src="' . $img . '" alt="' . AUTHOR . '" title="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($authorname) : htmlspecialchars($authorname, ENT_COMPAT, LANG_CHARSET)) . '" /><br /><span>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($authorname) : htmlspecialchars($authorname, ENT_COMPAT, LANG_CHARSET)) . '</span></div>';
                         $eventData['body'] = $this->found_images[$author] . $eventData['body'];
                     } elseif (isset($this->found_images[$author])) {
                         // Author image was already found previously. Display it.
                         $eventData['body'] = $this->found_images[$author] . $eventData['body'];
                     } elseif ($img = serendipity_getTemplateFile('img/' . preg_replace('@[^a-z0-9]@i', '_', $author) . '.' . $this->get_config('extension'))) {
                         // Author image exists, save it in cache and display it.
-                        $this->found_images[$author] = '<div class="serendipity_authorpic"><img src="' . $img . '" alt="' . AUTHOR . '" title="' . htmlspecialchars($authorname) . '" /><br /><span>' .htmlspecialchars($authorname) . '</span></div>';
+                        $this->found_images[$author] = '<div class="serendipity_authorpic"><img src="' . $img . '" alt="' . AUTHOR . '" title="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($authorname) : htmlspecialchars($authorname, ENT_COMPAT, LANG_CHARSET)) . '" /><br /><span>' .(function_exists('serendipity_specialchars') ? serendipity_specialchars($authorname) : htmlspecialchars($authorname, ENT_COMPAT, LANG_CHARSET)) . '</span></div>';
                         $eventData['body'] = $this->found_images[$author] . $eventData['body'];
                     } else {
                          // No image found, do not try again in next article.

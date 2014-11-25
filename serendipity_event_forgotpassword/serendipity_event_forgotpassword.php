@@ -23,7 +23,7 @@ class serendipity_event_forgotpassword extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_FORGOTPASSWORD_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Omid Mottaghi');
-        $propbag->add('version',       '0.12');
+        $propbag->add('version',       '0.12.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9.1',
             'smarty'      => '2.6.7',
@@ -179,8 +179,8 @@ class serendipity_event_forgotpassword extends serendipity_event
                                 <tr>
                                     <td>'.PASSWORD.'</td>
                                     <td><input class="input_textbox" type="password" name="password" />
-                                        <input type="hidden" name="username" value="'.htmlspecialchars($_GET['username']).'" />
-                                        <input type="hidden" name="uid" value="'.htmlspecialchars($_GET['uid']).'" /></td>
+                                        <input type="hidden" name="username" value="'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($_GET['username']) : htmlspecialchars($_GET['username'], ENT_COMPAT, LANG_CHARSET)).'" />
+                                        <input type="hidden" name="uid" value="'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($_GET['uid']) : htmlspecialchars($_GET['uid'], ENT_COMPAT, LANG_CHARSET)).'" /></td>
                                 </tr>
 
                                 <tr>

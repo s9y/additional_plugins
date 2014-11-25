@@ -72,7 +72,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.58');
+        $propbag->add('version',       '3.58.1');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -421,8 +421,8 @@ class serendipity_event_freetag extends serendipity_event
                 continue;
             }
             $links[] = '<a href="' . $taglink . serendipity_event_freetag::makeURLTag($tag) . '"' .
-                       ' title="' . htmlspecialchars($tag) . '"' .
-                       ' rel="tag">' . htmlspecialchars($tag) . '</a>';
+                       ' title="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($tag) : htmlspecialchars($tag, ENT_COMPAT, LANG_CHARSET)) . '"' .
+                       ' rel="tag">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($tag) : htmlspecialchars($tag, ENT_COMPAT, LANG_CHARSET)) . '</a>';
 
         }
 
@@ -453,8 +453,8 @@ class serendipity_event_freetag extends serendipity_event
                 continue;
             }
             $links[] = '<a href="' . $taglink . serendipity_event_freetag::makeURLTag($tag) . '"' .
-                   ' title="' . htmlspecialchars($tag) . '"' .
-                   ' rel="tag">' . htmlspecialchars($tag) . '</a>' .
+                   ' title="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($tag) : htmlspecialchars($tag, ENT_COMPAT, LANG_CHARSET)) . '"' .
+                   ' rel="tag">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($tag) : htmlspecialchars($tag, ENT_COMPAT, LANG_CHARSET)) . '</a>' .
                    ($technorati?'<a href="http://technorati.com/tag/' . urlencode($tag) . '" class="serendipity_freeTag_technoratiTag" rel="tag"><img style="border:0;vertical-align:middle;margin-left:.4em" src="' . $technorati_img . '?tag=' . urlencode($tag) . '" alt="technorati" /></a>':'');
 
         }
@@ -511,12 +511,12 @@ class serendipity_event_freetag extends serendipity_event
             $return = array();
             $return['description'] = PLUGIN_EVENT_FREETAG_RELATED_ENTRIES;
             foreach($entries AS $entryid => $title) {
-                $return['entries'][] = '<a href="' . serendipity_archiveURL($entryid, $title) . '" title="' . htmlspecialchars($title) . '">' . htmlspecialchars($title) . '</a>';
+                $return['entries'][] = '<a href="' . serendipity_archiveURL($entryid, $title) . '" title="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($title) : htmlspecialchars($title, ENT_COMPAT, LANG_CHARSET)) . '">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($title) : htmlspecialchars($title, ENT_COMPAT, LANG_CHARSET)) . '</a>';
             }
         } else {
             $return = '<div class="serendipity_freeTag_related">' . PLUGIN_EVENT_FREETAG_RELATED_ENTRIES . '<ul class="plainList">';
             foreach($entries AS $entryid => $title) {
-                $return .= '<li> <a href="' . serendipity_archiveURL($entryid, $title) . '" title="' . htmlspecialchars($title) . '">' . htmlspecialchars($title) . '</a></li>';
+                $return .= '<li> <a href="' . serendipity_archiveURL($entryid, $title) . '" title="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($title) : htmlspecialchars($title, ENT_COMPAT, LANG_CHARSET)) . '">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($title) : htmlspecialchars($title, ENT_COMPAT, LANG_CHARSET)) . '</a></li>';
             }
             $return .= '</ul></div>';
         }
@@ -603,7 +603,7 @@ class serendipity_event_freetag extends serendipity_event
             }
 
             if ($xml) {
-                $html .= '<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="' . $rsslink . urlencode($name) . '" title="' . htmlspecialchars($name) . '">'.
+                $html .= '<span class="serendipity_freeTag_xmlTagEntry"><a rel="tag" class="serendipity_xml_icon" href="' . $rsslink . urlencode($name) . '" title="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($name) : htmlspecialchars($name, ENT_COMPAT, LANG_CHARSET)) . '">'.
                          '<img alt="xml" src="' . $xmlImg . '" class="serendipity_freeTag_xmlButton" /></a> ';
             }
 
@@ -624,7 +624,7 @@ class serendipity_event_freetag extends serendipity_event
                 $fontSize = 100;
             }
 
-            $html .= '<a rel="tag" href="' . $taglink . serendipity_event_freetag::makeURLTag($name) . '" title="' . htmlspecialchars($name) . ($quantity > 0 ? ' (' . $quantity . ') ' : '') . '">' . htmlspecialchars($name) . '</a>';
+            $html .= '<a rel="tag" href="' . $taglink . serendipity_event_freetag::makeURLTag($name) . '" title="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($name) : htmlspecialchars($name, ENT_COMPAT, LANG_CHARSET)) . ($quantity > 0 ? ' (' . $quantity . ') ' : '') . '">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($name) : htmlspecialchars($name, ENT_COMPAT, LANG_CHARSET)) . '</a>';
 
             if ($scaling) {
                 $html .= '</span>';
@@ -639,7 +639,7 @@ class serendipity_event_freetag extends serendipity_event
             }
 
             $first = false;
-            $tagparam .= "%3Ca href='" . $taglink . serendipity_event_freetag::makeURLTag($name) . "' style='" . round($fontSize/5) . "'%3E" . str_replace(' ','&nbsp;',htmlspecialchars($name)) . "%3C/a%3E";
+            $tagparam .= "%3Ca href='" . $taglink . serendipity_event_freetag::makeURLTag($name) . "' style='" . round($fontSize/5) . "'%3E" . str_replace(' ','&nbsp;',(function_exists('serendipity_specialchars') ? serendipity_specialchars($name) : htmlspecialchars($name, ENT_COMPAT, LANG_CHARSET))) . "%3C/a%3E";
         }
 
         if ($useFlash) {
@@ -727,7 +727,7 @@ class serendipity_event_freetag extends serendipity_event
                                 if (count($param) > 1) {
                                     $serendipity['smarty']->assign('head_subtitle', sprintf(PLUGIN_EVENT_FREETAG_USING, implode(' + ', array_map('htmlspecialchars', $param))));
                                 } else {
-                                    $serendipity['smarty']->assign('head_subtitle', sprintf(PLUGIN_EVENT_FREETAG_USING, htmlspecialchars($param[0])));
+                                    $serendipity['smarty']->assign('head_subtitle', sprintf(PLUGIN_EVENT_FREETAG_USING, (function_exists('serendipity_specialchars') ? serendipity_specialchars($param[0]) : htmlspecialchars($param[0], ENT_COMPAT, LANG_CHARSET))));
                                 }
                             }
                             $serendipity['smarty']->assign('taglist', true);
@@ -759,7 +759,7 @@ class serendipity_event_freetag extends serendipity_event
                             $param = urldecode($param[0]);
                             $param = urldecode($param); // for doubled encoded tag umlauts via searchengines backlinks
                             $param = strip_tags($param);
-                            $serendipity['head_subtitle'] = sprintf(PLUGIN_EVENT_FREETAG_USING, htmlspecialchars($param));
+                            $serendipity['head_subtitle'] = sprintf(PLUGIN_EVENT_FREETAG_USING, (function_exists('serendipity_specialchars') ? serendipity_specialchars($param) : htmlspecialchars($param, ENT_COMPAT, LANG_CHARSET)));
                             $emit_404 = true;
                         } else {
                             if (!$tagged_as_list) {
@@ -776,7 +776,7 @@ class serendipity_event_freetag extends serendipity_event
                         if (is_array($param)) {
                             array_filter($param); // empty removed XSS by strip_tags
                         }
-                        $param = is_array($param) ? array_map('htmlspecialchars', $param) : htmlspecialchars($param);
+                        $param = is_array($param) ? array_map('htmlspecialchars', $param) : (function_exists('serendipity_specialchars') ? serendipity_specialchars($param) : htmlspecialchars($param, ENT_COMPAT, LANG_CHARSET));
 
                         $this->tags['show'] = $param;
                         $serendipity['plugin_vars']['tag'] = $param;
@@ -879,7 +879,7 @@ class serendipity_event_freetag extends serendipity_event
                                         }
 
                                         $tags[] = $tag;
-                                        printf(PLUGIN_EVENT_FREETAG_KEYWORDS_ADD, htmlspecialchars($keyword), htmlspecialchars($tag));
+                                        printf(PLUGIN_EVENT_FREETAG_KEYWORDS_ADD, (function_exists('serendipity_specialchars') ? serendipity_specialchars($keyword) : htmlspecialchars($keyword, ENT_COMPAT, LANG_CHARSET)), (function_exists('serendipity_specialchars') ? serendipity_specialchars($tag) : htmlspecialchars($tag, ENT_COMPAT, LANG_CHARSET)));
                                     }
                                 }
                             }
@@ -1078,7 +1078,7 @@ addLoadEvent(enableAutocomplete);
                                 <legend><?php echo PLUGIN_EVENT_FREETAG_TITLE; ?></legend>
                                 <label for="serendipity[properties][freetag_tagList]" title="<?php echo PLUGIN_EVENT_FREETAG_TITLE; ?>">
                                     <?php echo PLUGIN_EVENT_FREETAG_ENTERDESC; ?>:</label><br/>
-                                <input type="text" name="serendipity[properties][freetag_tagList]" id="properties_freetag_tagList" class="wickEnabled input_textbox" value="<?php echo htmlspecialchars($tagList); ?>" style="width: 100%" />
+                                <input type="text" name="serendipity[properties][freetag_tagList]" id="properties_freetag_tagList" class="wickEnabled input_textbox" value="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($tagList) : htmlspecialchars($tagList, ENT_COMPAT, LANG_CHARSET)); ?>" style="width: 100%" />
 
                                 <input type="checkbox" name="serendipity[properties][freetag_kill]" id="properties_freetag_kill" class="input_checkbox" />
                                 <label for="serendipity[properties][freetag_kill]" title="<?php echo PLUGIN_EVENT_FREETAG_KILL; ?>">
@@ -1089,7 +1089,7 @@ addLoadEvent(enableAutocomplete);
                                 <span class="wrap_legend"><legend><?php echo PLUGIN_EVENT_FREETAG_TITLE; ?></legend></span>
                                 <div class="form_field">
                                     <label for="properties_freetag_tagList" class="block_level"><?php echo PLUGIN_EVENT_FREETAG_ENTERDESC; ?>:</label>
-                                    <input id="properties_freetag_tagList" type="text" name="serendipity[properties][freetag_tagList]" class="wickEnabled" value="<?php echo htmlspecialchars($tagList); ?>">
+                                    <input id="properties_freetag_tagList" type="text" name="serendipity[properties][freetag_tagList]" class="wickEnabled" value="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($tagList) : htmlspecialchars($tagList, ENT_COMPAT, LANG_CHARSET)); ?>">
                                 </div>
                                 <div class="form_check">
                                     <input id="properties_freetag_kill" type="checkbox" name="serendipity[properties][freetag_kill]">
@@ -1205,7 +1205,7 @@ addLoadEvent(enableAutocomplete);
 
                 case 'frontend_rss':
                     if (!empty($this->displayTag)) {
-                        $eventData['title'] .= serendipity_utf8_encode(htmlspecialchars(' (' . sprintf(PLUGIN_EVENT_FREETAG_USING, $this->displayTag) . ')'));
+                        $eventData['title'] .= serendipity_utf8_encode((function_exists('serendipity_specialchars') ? serendipity_specialchars(' (' . sprintf(PLUGIN_EVENT_FREETAG_USING, $this->displayTag) . ')') : htmlspecialchars(' (' . sprintf(PLUGIN_EVENT_FREETAG_USING, $this->displayTag) . ')', ENT_COMPAT, LANG_CHARSET)));
                     }
 
                     return true;
@@ -1444,7 +1444,7 @@ addLoadEvent(enableAutocomplete);
         global $serendipity;
         $tags = $this->getTagCloudTags($tag);
 
-        $serendipity['smarty']->assign('freetag_tagTitle', htmlspecialchars(is_array($this->displayTag) ? implode(' + ',$this->displayTag) : $this->displayTag));
+        $serendipity['smarty']->assign('freetag_tagTitle', (function_exists('serendipity_specialchars') ? serendipity_specialchars(is_array($this->displayTag) ? implode(' + ',$this->displayTag) : $this->displayTag) : htmlspecialchars(is_array($this->displayTag) ? implode(' + ',$this->displayTag) : $this->displayTag), ENT_COMPAT, LANG_CHARSET));
 
         if (!empty($tags)) {
             $serendipity['smarty']->assign('freetag_hasTags', true);
@@ -1623,7 +1623,7 @@ addLoadEvent(enableAutocomplete);
                 continue;
             }
             $not_first ? print(', ') : $not_first = true;
-            echo htmlspecialchars($r['tag']);
+            echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($r['tag']) : htmlspecialchars($r['tag'], ENT_COMPAT, LANG_CHARSET));
         }
         echo "\" />";
     }
@@ -1756,7 +1756,7 @@ addLoadEvent(enableAutocomplete);
         }
 
         foreach($tagList as $tag) {
-            $out .= serendipity_utf8_encode("<$element>".htmlspecialchars($tag)."</$element>\n");
+            $out .= serendipity_utf8_encode("<$element>".(function_exists('serendipity_specialchars') ? serendipity_specialchars($tag)."</$element>\n") : htmlspecialchars($tag)."</$element>\n", ENT_COMPAT, LANG_CHARSET));
         }
         return $out;
     }
@@ -1788,7 +1788,7 @@ addLoadEvent(enableAutocomplete);
                 <li> <a href="<?php echo FREETAG_MANAGE_URL ?>&amp;serendipity[tagview]=entryleaf"><?php echo PLUGIN_EVENT_FREETAG_MANAGE_LEAFTAGGED ?></a> </li>
                 <li> <a href="<?php echo FREETAG_MANAGE_URL ?>&amp;serendipity[tagview]=keywords"><?php echo PLUGIN_EVENT_FREETAG_KEYWORDS; ?></a></li>
                 <li> <a href="<?php echo FREETAG_MANAGE_URL ?>&amp;serendipity[tagview]=cat2tag"><?php echo PLUGIN_EVENT_FREETAG_GLOBALLINKS; ?></a></li>
-                <li> <a href="<?php echo FREETAG_MANAGE_URL ?>&amp;serendipity[tagview]=tagupdate" onclick="return confirm('<?php echo htmlspecialchars(PLUGIN_EVENT_FREETAG_REBUILD_DESC); ?>');" ><?php echo PLUGIN_EVENT_FREETAG_REBUILD; ?></a></li>
+                <li> <a href="<?php echo FREETAG_MANAGE_URL ?>&amp;serendipity[tagview]=tagupdate" onclick="return confirm('<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars(PLUGIN_EVENT_FREETAG_REBUILD_DESC) : htmlspecialchars(PLUGIN_EVENT_FREETAG_REBUILD_DESC, ENT_COMPAT, LANG_CHARSET)); ?>');" ><?php echo PLUGIN_EVENT_FREETAG_REBUILD; ?></a></li>
                 <li> <a href="<?php echo FREETAG_MANAGE_URL ?>&amp;serendipity[tagview]=cleanupmappings"><?php echo PLUGIN_EVENT_FREETAG_MANAGE_CLEANUP; ?></a></li>
             </ul>
             </div>
@@ -1859,9 +1859,9 @@ addLoadEvent(enableAutocomplete);
                             unset($entry['loginname']);
                             unset($entry['email']);
                             if ($serendipity['version'][0] < 2) {
-                                printf('%d - "%s"<br />', $entry['id'], htmlspecialchars($entry['title']));
+                                printf('%d - "%s"<br />', $entry['id'], (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['title']) : htmlspecialchars($entry['title'], ENT_COMPAT, LANG_CHARSET)));
                             } else {
-                                printf('<li>%d - "%s"', $entry['id'], htmlspecialchars($entry['title']));
+                                printf('<li>%d - "%s"', $entry['id'], (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['title']) : htmlspecialchars($entry['title'], ENT_COMPAT, LANG_CHARSET)));
                             }
                             $serendipity['POST']['properties']['fake'] = 'fake';
                             $current_cat = $entry['categories'];
@@ -1891,10 +1891,10 @@ addLoadEvent(enableAutocomplete);
                     if ($to < $total) {
                         ?>
                         <script type="text/javascript">
-                            if (confirm("<?php echo htmlspecialchars(PLUGIN_EVENT_FREETAG_REBUILD_FETCHNEXT); ?>")) {
+                            if (confirm("<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars(PLUGIN_EVENT_FREETAG_REBUILD_FETCHNEXT) : htmlspecialchars(PLUGIN_EVENT_FREETAG_REBUILD_FETCHNEXT, ENT_COMPAT, LANG_CHARSET)); ?>")) {
                                 location.href = "?serendipity[adminModule]=event_display&serendipity[adminAction]=managetags&serendipity[tagview]=tagupdate&serendipity[page]=<?php echo ($page+1); ?>";
                             } else {
-                                alert("<?php echo htmlspecialchars(DONE); ?>");
+                                alert("<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars(DONE) : htmlspecialchars(DONE, ENT_COMPAT, LANG_CHARSET)); ?>");
                             }
                         </script>
                     <?php
@@ -1954,16 +1954,16 @@ addLoadEvent(enableAutocomplete);
                             printf(
                                 PLUGIN_EVENT_FREETAG_GLOBALCAT2TAG_ENTRY . '<br />',
                                 $id,
-                                htmlspecialchars($props['title']),
-                                htmlspecialchars(implode(', ', $newtags))
+                                (function_exists('serendipity_specialchars') ? serendipity_specialchars($props['title']) : htmlspecialchars($props['title'], ENT_COMPAT, LANG_CHARSET)),
+                                (function_exists('serendipity_specialchars') ? serendipity_specialchars(implode(', ', $newtags)) : htmlspecialchars(implode(', ', $newtags), ENT_COMPAT, LANG_CHARSET))
                             );
                         } else {
                             echo '<li>';
                             printf(
                                 PLUGIN_EVENT_FREETAG_GLOBALCAT2TAG_ENTRY,
                                 $id,
-                                htmlspecialchars($props['title']),
-                                htmlspecialchars(implode(', ', $newtags))
+                                (function_exists('serendipity_specialchars') ? serendipity_specialchars($props['title']) : htmlspecialchars($props['title'], ENT_COMPAT, LANG_CHARSET)),
+                                (function_exists('serendipity_specialchars') ? serendipity_specialchars(implode(', ', $newtags)) : htmlspecialchars(implode(', ', $newtags), ENT_COMPAT, LANG_CHARSET))
                             );
                             echo '</li>';
                         }
@@ -2069,7 +2069,7 @@ addLoadEvent(enableAutocomplete);
                 $keys[$key['tag']] = $key['keywords'];
             }
         }
-        $url = FREETAG_MANAGE_URL . "&amp;serendipity[tagview]=".htmlspecialchars($this->eventData['GET']['tagview']);
+        $url = FREETAG_MANAGE_URL . "&amp;serendipity[tagview]=".(function_exists('serendipity_specialchars') ? serendipity_specialchars($this->eventData['GET']['tagview']) : htmlspecialchars($this->eventData['GET']['tagview'], ENT_COMPAT, LANG_CHARSET));
 
         if ($serendipity['version'][0] < 2) {
             echo '<br />' . PLUGIN_EVENT_FREETAG_KEYWORDS_DESC . '<br /><br />';
@@ -2097,7 +2097,7 @@ addLoadEvent(enableAutocomplete);
             if (urldecode($serendipity['GET']['tag']) == $tag) {
 ?>
                         <a id="edit"></a>
-                        <textarea rows="4" cols="40" name="serendipity[keywords]"><?php echo htmlspecialchars($keys[$tag]); ?></textarea>
+                        <textarea rows="4" cols="40" name="serendipity[keywords]"><?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($keys[$tag]) : htmlspecialchars($keys[$tag], ENT_COMPAT, LANG_CHARSET)); ?></textarea>
 <?php
             } else {
                         echo $keys[$tag];
@@ -2151,7 +2151,7 @@ addLoadEvent(enableAutocomplete);
         if (count($taglist) === 0) {
             return;
         }
-        $url = FREETAG_MANAGE_URL . "&amp;serendipity[tagview]=".htmlspecialchars($this->eventData['GET']['tagview']);
+        $url = FREETAG_MANAGE_URL . "&amp;serendipity[tagview]=".(function_exists('serendipity_specialchars') ? serendipity_specialchars($this->eventData['GET']['tagview']) : htmlspecialchars($this->eventData['GET']['tagview'], ENT_COMPAT, LANG_CHARSET));
 ?>
         <table>
             <thead>
@@ -2228,11 +2228,11 @@ addLoadEvent(enableAutocomplete);
 ?>
         <form action="" method="GET">
             <?php echo $this->getManageUrlAsHidden($this->eventData) ?>
-            <input type="hidden" name="serendipity[tagview]" value="<?php echo htmlspecialchars($this->eventData['GET']['tagview']) ?>">
+            <input type="hidden" name="serendipity[tagview]" value="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($this->eventData['GET']['tagview']) : htmlspecialchars($this->eventData['GET']['tagview'], ENT_COMPAT, LANG_CHARSET)) ?>">
             <input type="hidden" name="serendipity[tagaction]" value="rename" />
             <input type="hidden" name="serendipity[commit]" value="true" />
-            <input type="hidden" name="serendipity[tag]" value="<?php echo htmlspecialchars($tag); ?>" />
-            <?php echo htmlspecialchars($tag) ?> =&gt; <input class="input_textbox" type="text" name="serendipity[newtag]" /> <input class="serendipityPrettyButton input_button" type="submit" name="submit" value="<?php echo PLUGIN_EVENT_FREETAG_MANAGE_ACTION_RENAME ?>" />
+            <input type="hidden" name="serendipity[tag]" value="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($tag) : htmlspecialchars($tag, ENT_COMPAT, LANG_CHARSET)); ?>" />
+            <?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($tag) : htmlspecialchars($tag, ENT_COMPAT, LANG_CHARSET)) ?> =&gt; <input class="input_textbox" type="text" name="serendipity[newtag]" /> <input class="serendipityPrettyButton input_button" type="submit" name="submit" value="<?php echo PLUGIN_EVENT_FREETAG_MANAGE_ACTION_RENAME ?>" />
         </form>
 <?php
     }
@@ -2275,12 +2275,12 @@ addLoadEvent(enableAutocomplete);
     }
 
     function displayDeleteTag($tag, &$eventData) {
-        $no  = FREETAG_MANAGE_URL . "&amp;serendipity[tagview]=".htmlspecialchars($this->eventData['GET']['tagview']);
-        $yes = FREETAG_MANAGE_URL . "&amp;serendipity[tagview]=".htmlspecialchars($this->eventData['GET']['tagview']).
+        $no  = FREETAG_MANAGE_URL . "&amp;serendipity[tagview]=".(function_exists('serendipity_specialchars') ? serendipity_specialchars($this->eventData['GET']['tagview']) : htmlspecialchars($this->eventData['GET']['tagview'], ENT_COMPAT, LANG_CHARSET));
+        $yes = FREETAG_MANAGE_URL . "&amp;serendipity[tagview]=".(function_exists('serendipity_specialchars') ? serendipity_specialchars($this->eventData['GET']['tagview']) : htmlspecialchars($this->eventData['GET']['tagview'], ENT_COMPAT, LANG_CHARSET)).
                     "&amp;serendipity[tagaction]=delete".
                     "&amp;serendipity[tag]=".urlencode($tag)."&amp;serendipity[commit]=true";
 ?>
-        <h2> <?php printf(PLUGIN_EVENT_FREETAG_MANAGE_CONFIRM_DELETE, htmlspecialchars($tag))?></h2>
+        <h2> <?php printf(PLUGIN_EVENT_FREETAG_MANAGE_CONFIRM_DELETE, (function_exists('serendipity_specialchars') ? serendipity_specialchars($tag)) : htmlspecialchars($tag), ENT_COMPAT, LANG_CHARSET))?></h2>
         <h3> <a href="<?php echo $yes; ?>"><?php echo YES; ?></a> &nbsp; &nbsp; <a href="<?php echo $no; ?>"><?php echo NO; ?></a> </h3>
 <?php
     }
@@ -2308,13 +2308,13 @@ addLoadEvent(enableAutocomplete);
 ?>
         <form action="" method="GET">
             <?php echo $this->getManageUrlAsHidden($this->eventData) ?>
-            <input type="hidden" name="serendipity[tagview]" value="<?php echo htmlspecialchars($this->eventData['GET']['tagview']) ?>">
+            <input type="hidden" name="serendipity[tagview]" value="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($this->eventData['GET']['tagview']) : htmlspecialchars($this->eventData['GET']['tagview'], ENT_COMPAT, LANG_CHARSET)) ?>">
             <input type="hidden" name="serendipity[tagaction]" value="split" />
             <input type="hidden" name="serendipity[commit]" value="true" />
-            <input type="hidden" name="serendipity[tag]" value="<?php echo htmlspecialchars($tag) ?>" />
+            <input type="hidden" name="serendipity[tag]" value="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($tag) : htmlspecialchars($tag, ENT_COMPAT, LANG_CHARSET)) ?>" />
             <p> <?php echo PLUGIN_EVENT_FREETAG_MANAGE_INFO_SPLIT ?> <br/>
                 foobarbaz =&gt; foo,bar,baz</p>
-            <?php echo htmlspecialchars($tag) ?> =&gt; <input class="input_textbox" type="text" name="serendipity[newtags]" value="<?php echo htmlspecialchars($newtag); ?>" />
+            <?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($tag) : htmlspecialchars($tag, ENT_COMPAT, LANG_CHARSET)) ?> =&gt; <input class="input_textbox" type="text" name="serendipity[newtags]" value="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($newtag) : htmlspecialchars($newtag, ENT_COMPAT, LANG_CHARSET)); ?>" />
             <input class="serendipityPrettyButton input_button" type="submit" name="submit" value="split" />
         </form>
 <?php
@@ -2419,7 +2419,7 @@ addLoadEvent(enableAutocomplete);
                 // Display submit form to start cleanup process
                 echo '<form action="" method="GET">';
                 echo $this->getManageUrlAsHidden($this->eventData);
-                echo '<input type="hidden" name="serendipity[tagview]" value="'.htmlspecialchars($this->eventData['GET']['tagview']).'">';
+                echo '<input type="hidden" name="serendipity[tagview]" value="'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($this->eventData['GET']['tagview']) : htmlspecialchars($this->eventData['GET']['tagview'], ENT_COMPAT, LANG_CHARSET)).'">';
                 echo '<input type="hidden" name="serendipity[perform]" value="true" />';
                 if ($serendipity['version'][0] < 2) {
                     echo '<input class="serendipityPrettyButton input_button" type="submit" name="submit" value="'.PLUGIN_EVENT_FREETAG_MANAGE_CLEANUP_PERFORM.'" />';

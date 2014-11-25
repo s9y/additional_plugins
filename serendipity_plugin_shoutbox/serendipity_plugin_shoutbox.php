@@ -16,7 +16,7 @@ class serendipity_plugin_shoutbox extends serendipity_plugin
         $propbag->add('description',   PLUGIN_SHOUTBOX_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Matthias Lange');
-        $propbag->add('version',       '1.02');
+        $propbag->add('version',       '1.02.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -206,7 +206,7 @@ class serendipity_plugin_shoutbox extends serendipity_plugin
                 serendipity_plugin_api::hook_event('frontend_display', $entry);
                 $entry['comment'] = wordwrap($entry['comment'], $wordwrap, "\n", 1);
 
-                echo '<div class="serendipity_shoutbox_date">' . htmlspecialchars(serendipity_strftime($dateformat, $row['stamp'])) . '</div>' . "\n"
+                echo '<div class="serendipity_shoutbox_date">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars(serendipity_strftime($dateformat, $row['stamp'])) : htmlspecialchars(serendipity_strftime($dateformat, $row['stamp']), ENT_COMPAT, LANG_CHARSET)) . '</div>' . "\n"
                      . '<div class="serendipity_shoutbox_comment">' . $entry['comment'] . '</div>' . "\n"
                      . '<div class="serendipity_shoutbox_delete">' . $deleteLink . '</div>' . "\n\n";
             }

@@ -14,7 +14,7 @@ if (file_exists($probelang)) {
 include_once dirname(__FILE__) . '/lang_en.inc.php';
 include_once dirname(__FILE__) . '/podcast_player.php';
 
-@define("SERENDIPITY_EVENT_PODCAST_VERSION", "1.37");
+@define("SERENDIPITY_EVENT_PODCAST_VERSION", "1.37.1");
 
 class serendipity_event_podcast extends serendipity_event {
 /**
@@ -134,7 +134,7 @@ class serendipity_event_podcast extends serendipity_event{
         switch($name) {
             case 'info':
                 $propbag->add('type',           'content');
-                $propbag->add('default',        nl2br(htmlspecialchars(PLUGIN_PODCAST_USAGE) . "\n" . PLUGIN_PODCAST_USAGE_RSS));
+                $propbag->add('default',        nl2br((function_exists('serendipity_specialchars') ? serendipity_specialchars(PLUGIN_PODCAST_USAGE) : htmlspecialchars(PLUGIN_PODCAST_USAGE, ENT_COMPAT, LANG_CHARSET)) . "\n" . PLUGIN_PODCAST_USAGE_RSS));
                 break;
 
             case 'easy':
@@ -393,9 +393,9 @@ class serendipity_event_podcast extends serendipity_event{
                 $propbag->add('description',    PLUGIN_PODCAST_ITUNES_DESC);
                 $propbag->add('default',        " 
 
-<itunes:subtitle>" . htmlspecialchars($serendipity['blogTitle']) . "</itunes:subtitle>
-<itunes:author>" . htmlspecialchars($serendipity['blogTitle']) . "</itunes:author>
-<itunes:summary>" . htmlspecialchars($serendipity['blogDescription']) . "</itunes:summary>
+<itunes:subtitle>" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['blogTitle']) : htmlspecialchars($serendipity['blogTitle'], ENT_COMPAT, LANG_CHARSET)) . "</itunes:subtitle>
+<itunes:author>" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['blogTitle']) : htmlspecialchars($serendipity['blogTitle'], ENT_COMPAT, LANG_CHARSET)) . "</itunes:author>
+<itunes:summary>" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['blogDescription']) : htmlspecialchars($serendipity['blogDescription'], ENT_COMPAT, LANG_CHARSET)) . "</itunes:summary>
 <itunes:image href=\"" . $serendipity['baseURL'] . "itunes.jpg\" />
 <itunes:category text=\"Technology\" />                
                 ");
@@ -414,9 +414,9 @@ class serendipity_event_podcast extends serendipity_event{
     }
     
     function iTunify(&$eventData) {
-        $eventData['per_entry_display_dat'] .= '<itunes:author>' . htmlspecialchars($eventData['author']) . '</itunes:author>' . "\n";
-        $eventData['per_entry_display_dat'] .= '<itunes:subtitle>' . htmlspecialchars($eventData['title']) . '</itunes:subtitle>' . "\n";
-        $eventData['per_entry_display_dat'] .= '<itunes:summary>' . htmlspecialchars(strip_tags($eventData['feed_body'])) . '</itunes:summary>' . "\n";
+        $eventData['per_entry_display_dat'] .= '<itunes:author>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($eventData['author']) : htmlspecialchars($eventData['author'], ENT_COMPAT, LANG_CHARSET)) . '</itunes:author>' . "\n";
+        $eventData['per_entry_display_dat'] .= '<itunes:subtitle>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($eventData['title']) : htmlspecialchars($eventData['title'], ENT_COMPAT, LANG_CHARSET)) . '</itunes:subtitle>' . "\n";
+        $eventData['per_entry_display_dat'] .= '<itunes:summary>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($eventData['feed_body']) : htmlspecialchars(strip_tags($eventData['feed_body'], ENT_COMPAT, LANG_CHARSET))) . '</itunes:summary>' . "\n";
     }
 
     /**
@@ -592,7 +592,7 @@ class serendipity_event_podcast extends serendipity_event{
                             $fileInfo = $this->GetFileInfo($eventData['properties'][$eattr]);
                             $type       = $fileInfo['mime'];
                             $fileUrl = str_replace(' ','%20',$eventData['properties'][$eattr]);
-                            $enclosure = $this->GetEnclosure($event, $this->GetHostUrl() . htmlspecialchars($fileUrl), $type, $fileInfo['length'], $fileInfo['md5']);
+                            $enclosure = $this->GetEnclosure($event, $this->GetHostUrl() . (function_exists('serendipity_specialchars') ? serendipity_specialchars($fileUrl) : htmlspecialchars($fileUrl, ENT_COMPAT, LANG_CHARSET)), $type, $fileInfo['length'], $fileInfo['md5']);
                             
                             if (!empty($enclosure)) {
                                 $this->iTunify($eventData, $enclosure);

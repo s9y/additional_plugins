@@ -67,7 +67,7 @@ class serendipity_event_guestbook extends serendipity_event {
                         'dateformat'
                     ));
         $propbag->add('author',       'Ian');
-        $propbag->add('version',      '3.51');
+        $propbag->add('version',      '3.51.1');
         $propbag->add('requirements', array(
                         'serendipity' => '1.7.0',
                         'smarty'      => '3.1.0',
@@ -477,12 +477,12 @@ class serendipity_event_guestbook extends serendipity_event {
     function strip_security($parr = null, $keys = null, $single = false, $compare = true) {
         $authenticated_user = serendipity_userLoggedIn() ? true : false;
         if ($single) {
-            return $authenticated_user ? htmlspecialchars($parr) : htmlspecialchars(strip_tags($parr));
+            return $authenticated_user ? (function_exists('serendipity_specialchars') ? serendipity_specialchars($parr) : htmlspecialchars($parr, ENT_COMPAT, LANG_CHARSET)) : (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($parr) : htmlspecialchars(strip_tags($parr, ENT_COMPAT, LANG_CHARSET)));
         } else {
             foreach ($parr AS $k => $v) {
                 if (in_array($k, $keys)) {
                     $valuelength = strlen($v);
-                    $parrsec[$k] = $authenticated_user ? htmlspecialchars($v) : htmlspecialchars(strip_tags($v));
+                    $parrsec[$k] = $authenticated_user ? (function_exists('serendipity_specialchars') ? serendipity_specialchars($v) : htmlspecialchars($v, ENT_COMPAT, LANG_CHARSET)) : (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($v) : htmlspecialchars(strip_tags($v, ENT_COMPAT, LANG_CHARSET)));
                     if (!$authenticated_user && $compare && ($valuelength != strlen($parrsec[$k]))) {
                         $parrsec['stripped'] = true;
                         $parrsec['stripped-by-key'] = $k;
@@ -871,7 +871,7 @@ class serendipity_event_guestbook extends serendipity_event {
 
             if (isset($serendipity['POST']['email']) && !empty($serendipity['POST']['email']) && trim($serendipity['POST']['email']) != '') {
                 if (!$this->is_valid_email($serendipity['POST']['email'])) {
-                    array_push($messages, ERROR_NOVALIDEMAIL . ' <span class="gb_msgred">' . htmlspecialchars($serendipity['POST']['email']) . '</span>');
+                    array_push($messages, ERROR_NOVALIDEMAIL . ' <span class="gb_msgred">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['POST']['email']) : htmlspecialchars($serendipity['POST']['email'], ENT_COMPAT, LANG_CHARSET)) . '</span>');
                 } else {
                     $valid['data_email'] = TRUE;
                 }
@@ -1101,12 +1101,12 @@ class serendipity_event_guestbook extends serendipity_event {
                     'plugin_guestbook_intro'           => $this->get_config('intro'),
                     'plugin_guestbook_sent'            => $this->get_config('sent', PLUGIN_GUESTBOOK_SENT_HTML),
                     'plugin_guestbook_action'          => $serendipity['baseURL'] . $serendipity['indexFile'],
-                    'plugin_guestbook_sname'           => htmlspecialchars($serendipity['GET']['subpage']),
-                    'plugin_guestbook_name'            => htmlspecialchars(strip_tags($serendipity['POST']['name'])),
-                    'plugin_guestbook_email'           => htmlspecialchars(strip_tags($serendipity['POST']['email'])),
+                    'plugin_guestbook_sname'           => (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['subpage']) : htmlspecialchars($serendipity['GET']['subpage'], ENT_COMPAT, LANG_CHARSET)),
+                    'plugin_guestbook_name'            => (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['name'])) : htmlspecialchars(strip_tags($serendipity['POST']['name']), ENT_COMPAT, LANG_CHARSET)),
+                    'plugin_guestbook_email'           => (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['email'])) : htmlspecialchars(strip_tags($serendipity['POST']['email']), ENT_COMPAT, LANG_CHARSET)),
                     'plugin_guestbook_emailprotect'    => PLUGIN_GUESTBOOK_PROTECTION,
-                    'plugin_guestbook_url'             => htmlspecialchars(strip_tags($serendipity['POST']['url'])),
-                    'plugin_guestbook_comment'         => htmlspecialchars(strip_tags($serendipity['POST']['comment'])),
+                    'plugin_guestbook_url'             => (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['url'])) : htmlspecialchars(strip_tags($serendipity['POST']['url']), ENT_COMPAT, LANG_CHARSET)),
+                    'plugin_guestbook_comment'         => (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['comment'])) : htmlspecialchars(strip_tags($serendipity['POST']['comment']), ENT_COMPAT, LANG_CHARSET)),
                     'plugin_guestbook_messagestack'    => $serendipity['messagestack']['comments'],
                     'plugin_guestbook_entry'           => array('timestamp' => 1)
                 )
@@ -1285,7 +1285,7 @@ class serendipity_event_guestbook extends serendipity_event {
 
                     if ($this->selected()) {
                         $serendipity['head_title']    = $this->get_config('headline');
-                        $serendipity['head_subtitle'] = htmlspecialchars($serendipity['blogTitle']);
+                        $serendipity['head_subtitle'] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['blogTitle']) : htmlspecialchars($serendipity['blogTitle'], ENT_COMPAT, LANG_CHARSET));
                     }
 
                     break;

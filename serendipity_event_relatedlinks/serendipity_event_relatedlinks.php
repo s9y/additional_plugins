@@ -30,7 +30,7 @@ class serendipity_event_relatedlinks extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.8');
+        $propbag->add('version',       '1.8.1');
         $propbag->add('event_hooks',    array(
             'frontend_display:html:per_entry'                   => true,
             'backend_publish'                                   => true,
@@ -159,7 +159,7 @@ class serendipity_event_relatedlinks extends serendipity_event
 
                         $html_links[] = array(
                             'url'   => $parts[0],
-                            'title' => htmlspecialchars($parts[1])
+                            'title' => (function_exists('serendipity_specialchars') ? serendipity_specialchars($parts[1]) : htmlspecialchars($parts[1], ENT_COMPAT, LANG_CHARSET))
                         );
                     }
 
@@ -210,7 +210,7 @@ class serendipity_event_relatedlinks extends serendipity_event
                         <legend><?php echo PLUGIN_EVENT_RELATEDLINKS_TITLE; ?></legend>
                         <label for="serendipity[properties][relatedentries]" title="<?php echo PLUGIN_EVENT_RELATEDLINKS_TITLE; ?>">
                             <?php echo PLUGIN_EVENT_RELATEDLINKS_ENTERDESC; ?>:</label><br />
-                        <textarea name="serendipity[properties][relatedentries]" style="width: 90%; height: 100px" id="properties_relatedentries"><?php echo htmlspecialchars($links); ?></textarea>
+                        <textarea name="serendipity[properties][relatedentries]" style="width: 90%; height: 100px" id="properties_relatedentries"><?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($links) : htmlspecialchars($links, ENT_COMPAT, LANG_CHARSET)); ?></textarea>
                     </fieldset>
 <?php
                     return true;

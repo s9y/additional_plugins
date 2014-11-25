@@ -33,7 +33,7 @@ class serendipity_event_facebook extends serendipity_event {
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '0.5');
+        $propbag->add('version',       '0.5.1');
         $propbag->add('groups', array('FRONTEND_VIEWS'));
         $propbag->add('event_hooks', array(
             'frontend_display' => true,
@@ -362,13 +362,13 @@ class serendipity_event_facebook extends serendipity_event {
 
                     // Taken from: http://developers.facebook.com/docs/opengraph/
                     echo '<!--serendipity_event_facebook-->' . "\n";
-                    echo '<meta property="og:title" content="' . htmlspecialchars($GLOBALS['entry'][0]['title']) . '" />' . "\n";
+                    echo '<meta property="og:title" content="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($GLOBALS['entry'][0]['title']) : htmlspecialchars($GLOBALS['entry'][0]['title'], ENT_COMPAT, LANG_CHARSET)) . '" />' . "\n";
                     echo '<meta property="og:description" content="' . substr(strip_tags($GLOBALS['entry'][0]['body']), 0, 200) . '..." />' . "\n";
 
                     echo '<meta property="og:type" content="article" />' . "\n";
                     echo '<meta property="og:site_name" content="' . $serendipity['blogTitle'] . '" />' . "\n";
 
-                    echo '<meta property="og:url" content="http' . ($_SERVER['HTTPS'] ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . htmlspecialchars($_SERVER['REQUEST_URI']) . '" />' . "\n";
+                    echo '<meta property="og:url" content="http' . ($_SERVER['HTTPS'] ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . (function_exists('serendipity_specialchars') ? serendipity_specialchars($_SERVER['REQUEST_URI']) : htmlspecialchars($_SERVER['REQUEST_URI'], ENT_COMPAT, LANG_CHARSET)) . '" />' . "\n";
                     
                     if (preg_match('@<img.*src=["\'](.+)["\']@imsU', $GLOBALS['entry'][0]['body'] . $GLOBALS['entry'][0]['extended'], $im)) {
                         if (preg_match('/^http/i', $im[1])) {

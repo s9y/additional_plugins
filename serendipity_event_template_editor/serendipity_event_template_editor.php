@@ -25,7 +25,7 @@ class serendipity_event_template_editor extends serendipity_event {
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda');
         $propbag->add('license',       'GPL');
-        $propbag->add('version',       '0.7');
+        $propbag->add('version',       '0.7.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8'
         ));
@@ -190,13 +190,13 @@ class serendipity_event_template_editor extends serendipity_event {
                     }
 
                     if (isset($serendipity['GET']['message'])) {
-                        echo '<p class="serendipityAdminMsgNote">'.htmlspecialchars($serendipity['GET']['message']).'</p>';
+                        echo '<p class="serendipityAdminMsgNote">'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['message']) : htmlspecialchars($serendipity['GET']['message'], ENT_COMPAT, LANG_CHARSET)).'</p>';
                     }
                     if (isset($serendipity['GET']['success'])) {
-                        echo '<p class="serendipityAdminMsgSuccess">'.htmlspecialchars($serendipity['GET']['success']).'</p>';
+                        echo '<p class="serendipityAdminMsgSuccess">'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['success']) : htmlspecialchars($serendipity['GET']['success'], ENT_COMPAT, LANG_CHARSET)).'</p>';
                     }
                     if (isset($serendipity['GET']['error'])) {
-                        echo '<p class="serendipityAdminMsgError">'.htmlspecialchars($serendipity['GET']['error']).'</p>';
+                        echo '<p class="serendipityAdminMsgError">'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['error']) : htmlspecialchars($serendipity['GET']['error'], ENT_COMPAT, LANG_CHARSET)).'</p>';
                     }
 
 
@@ -316,7 +316,7 @@ class serendipity_event_template_editor extends serendipity_event {
         echo '<h3>'.$heading.'</h3>
         <form action="'.$serendipity ['baseURL'] . 'index.php?/plugin/template_editor_save" method="post">
             <input type="hidden" name="path" value="'.$path.'" />
-            <textarea name="content" id="template_editor" cols="80" rows="38">'.htmlspecialchars($content).'</textarea>
+            <textarea name="content" id="template_editor" cols="80" rows="38">'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($content) : htmlspecialchars($content, ENT_COMPAT, LANG_CHARSET)).'</textarea>
             <input class="serendipityPrettyButton input_button" type="submit" value="'.SAVE.'" />
         </form>';
 
@@ -471,8 +471,8 @@ class serendipity_event_template_editor extends serendipity_event {
                 //Now that the fork is created we need to set it instantly
                 //but only if copying succeeded
                 if (is_dir($template_path . $fork_template)) {
-                    $themeInfo = serendipity_fetchTemplateInfo(htmlspecialchars($fork_template));
-                    serendipity_set_config_var('template', htmlspecialchars($fork_template));
+                    $themeInfo = serendipity_fetchTemplateInfo((function_exists('serendipity_specialchars') ? serendipity_specialchars($fork_template) : htmlspecialchars($fork_template, ENT_COMPAT, LANG_CHARSET)));
+                    serendipity_set_config_var('template', (function_exists('serendipity_specialchars') ? serendipity_specialchars($fork_template) : htmlspecialchars($fork_template, ENT_COMPAT, LANG_CHARSET)));
                     serendipity_set_config_var('template_engine', isset($themeInfo['engine']) ? $themeInfo['engine'] : 'default');
                 }
             } else {

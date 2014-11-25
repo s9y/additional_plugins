@@ -14,7 +14,7 @@ class serendipity_event_livesearch extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_LIVESEARCH_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Christian Stocker, Garvin Hicking');
-        $propbag->add('version',       '1.4');
+        $propbag->add('version',       '1.4.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -133,7 +133,7 @@ class serendipity_event_livesearch extends serendipity_event
 
                             if (is_array($res) && count($res) > 0) {
                                 foreach($res AS $id => $entry) {
-                                    echo '<div class="serendipity_livesearch_row"><a href="' . serendipity_archiveURL($entry['id'], $entry['title'], 'baseURL', true, array('timestamp' => $entry['timestamp'])) . '">' . htmlspecialchars($entry['title']) . '</a></div>';
+                                    echo '<div class="serendipity_livesearch_row"><a href="' . serendipity_archiveURL($entry['id'], $entry['title'], 'baseURL', true, array('timestamp' => $entry['timestamp'])) . '">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['title']) : htmlspecialchars($entry['title'], ENT_COMPAT, LANG_CHARSET)) . '</a></div>';
                                 }
                             } else {
                                 echo '<div class="serendipity_livesearch_row">' . print_r($res, true) . '</div>';

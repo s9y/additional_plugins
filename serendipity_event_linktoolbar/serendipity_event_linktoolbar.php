@@ -22,7 +22,7 @@ class serendipity_event_linktoolbar extends serendipity_event {
         $propbag->add('description',   PLUGIN_LINKTOOLBAR_TITLE_DESC);
         $propbag->add('event_hooks', array('frontend_header' => true));
         $propbag->add('author', 'Garvin Hicking');
-        $propbag->add('version', '1.5');
+        $propbag->add('version', '1.5.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
@@ -75,7 +75,7 @@ class serendipity_event_linktoolbar extends serendipity_event {
         if (is_array($resultset) && is_numeric($resultset[0]['id'])) {
             return array(
                 'link'  => serendipity_archiveURL($resultset[0]['id'], $resultset[0]['title'], 'baseURL', true, array('timestamp' => $resultset[0]['timestamp'])),
-                'title' => htmlspecialchars($resultset[0]['title'])
+                'title' => (function_exists('serendipity_specialchars') ? serendipity_specialchars($resultset[0]['title']) : htmlspecialchars($resultset[0]['title'], ENT_COMPAT, LANG_CHARSET))
             );
         }
 
@@ -136,7 +136,7 @@ class serendipity_event_linktoolbar extends serendipity_event {
 
         return array(
             'link' => $link,
-            'title' => htmlspecialchars($cat['category_name'])
+            'title' => (function_exists('serendipity_specialchars') ? serendipity_specialchars($cat['category_name']) : htmlspecialchars($cat['category_name'], ENT_COMPAT, LANG_CHARSET))
         );
     }
 
@@ -156,7 +156,7 @@ class serendipity_event_linktoolbar extends serendipity_event {
 
         return array(
             'link' => $link,
-            'title' => AUTHOR . ' ' . htmlspecialchars($user['realname'])
+            'title' => AUTHOR . ' ' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($user['realname']) : htmlspecialchars($user['realname'], ENT_COMPAT, LANG_CHARSET))
         );
     }
     
@@ -234,12 +234,12 @@ class serendipity_event_linktoolbar extends serendipity_event {
             $start_url   = $serendipity['baseURL'];
             $start_title = $serendipity['blogTitle'];
 
-            echo '<link rel="start" href="' . $start_url . '" title="' . htmlspecialchars($start_title) . '" />' . "\n";
+            echo '<link rel="start" href="' . $start_url . '" title="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($start_title) : htmlspecialchars($start_title, ENT_COMPAT, LANG_CHARSET)) . '" />' . "\n";
 
             if ($serendipity['GET']['action'] == 'read' && !empty($serendipity['GET']['id'])) {
 
                 // Article detail view
-                echo '<link rel="up" href="' . $start_url . '" title="' . htmlspecialchars($start_title) . '" />' . "\n";
+                echo '<link rel="up" href="' . $start_url . '" title="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($start_title) : htmlspecialchars($start_title, ENT_COMPAT, LANG_CHARSET)) . '" />' . "\n";
                 $this->backAndForth(
                     $this->showPaging($serendipity['GET']['id'])
                 );
@@ -348,7 +348,7 @@ class serendipity_event_linktoolbar extends serendipity_event {
                         ),
                         'serendipityHTTPPath');
                 }
-                echo '<link rel="up" href="' . $categories_url . '" title="' . htmlspecialchars($cInfo['category_name']) . '" />' . "\n";
+                echo '<link rel="up" href="' . $categories_url . '" title="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($cInfo['category_name']) : htmlspecialchars($cInfo['category_name'], ENT_COMPAT, LANG_CHARSET)) . '" />' . "\n";
                 echo '<link rel="canonical" href="' . $categories_url . '" />' . "\n";
 
                 $categories = serendipity_fetchCategories('all');

@@ -15,7 +15,7 @@ class serendipity_event_trackexits extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_TRACKBACK_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.9');
+        $propbag->add('version',       '1.9.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -208,8 +208,8 @@ class serendipity_event_trackexits extends serendipity_event
                 
                 $buffer[1],
                 'http://bmi.pifo.biz/?' . $url,
-                (!$is_title ? htmlspecialchars($url) : ''),
-                (!$is_over  ? htmlspecialchars($url) : ''),
+                (!$is_title ? (function_exists('serendipity_specialchars') ? serendipity_specialchars($url) : htmlspecialchars($url, ENT_COMPAT, LANG_CHARSET)) : ''),
+                (!$is_over  ? (function_exists('serendipity_specialchars') ? serendipity_specialchars($url) : htmlspecialchars($url, ENT_COMPAT, LANG_CHARSET)) : ''),
                 $buffer[6]);
         }
 
@@ -221,8 +221,8 @@ class serendipity_event_trackexits extends serendipity_event
                 '_id',
                 $this->links[$url],
                 ($entry_id != 0) ? '&amp;entry_id=' . $entry_id : '',
-                (!$is_title ? htmlspecialchars($url) : ''),
-                (!$is_over  ? htmlspecialchars($url) : ''),
+                (!$is_title ? (function_exists('serendipity_specialchars') ? serendipity_specialchars($url) : htmlspecialchars($url, ENT_COMPAT, LANG_CHARSET)) : ''),
+                (!$is_over  ? (function_exists('serendipity_specialchars') ? serendipity_specialchars($url) : htmlspecialchars($url, ENT_COMPAT, LANG_CHARSET)) : ''),
                 $buffer[6]
             );
         } else {
@@ -233,8 +233,8 @@ class serendipity_event_trackexits extends serendipity_event
                 '',
                 base64_encode($url),
                 ($entry_id != 0) ? '&amp;entry_id=' . $entry_id : '',
-                (!$is_title ? htmlspecialchars($url) : ''),
-                (!$is_over  ? htmlspecialchars($url) : ''),
+                (!$is_title ? (function_exists('serendipity_specialchars') ? serendipity_specialchars($url) : htmlspecialchars($url, ENT_COMPAT, LANG_CHARSET)) : ''),
+                (!$is_over  ? (function_exists('serendipity_specialchars') ? serendipity_specialchars($url) : htmlspecialchars($url, ENT_COMPAT, LANG_CHARSET)) : ''),
                 $buffer[6]
             );
         }

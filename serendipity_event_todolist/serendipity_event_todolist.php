@@ -40,7 +40,7 @@ class serendipity_event_todolist extends serendipity_event {
                                             'backend_sidebar_entries'                               => true
                                             ));
         $propbag->add('author', 'Steven Tonnesen');
-        $propbag->add('version', '1.24');
+        $propbag->add('version', '1.24.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -1302,9 +1302,9 @@ class serendipity_event_todolist extends serendipity_event {
                 }
 
                 if ($entry['id'] == $default) {
-                    $entrytext.= '<option value="' . $entry['id'] . '" selected="selected">' . htmlspecialchars($title) . "</option>\n";
+                    $entrytext.= '<option value="' . $entry['id'] . '" selected="selected">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($title) : htmlspecialchars($title, ENT_COMPAT, LANG_CHARSET)) . "</option>\n";
                 } else {
-                    $entrytext .= '<option value="' . $entry['id'] . '">' . htmlspecialchars($title) . "</option>\n";
+                    $entrytext .= '<option value="' . $entry['id'] . '">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($title) : htmlspecialchars($title, ENT_COMPAT, LANG_CHARSET)) . "</option>\n";
                 }
             }
         }
@@ -1884,7 +1884,7 @@ class serendipity_event_todolist extends serendipity_event {
                     <input class="input_checkbox" type="checkbox" name="serendipity[category_to_remove][]" value="<?php echo $category['categoryid']; ?>" />
                 </td>
 
-                <td width="300" style="padding-left: <?php echo ($category['depth']*15)+20 ?>px"><img src="<?php echo serendipity_getTemplateFile('admin/img/folder.png') ?>" style="vertical-align: bottom;" alt=""> <?php echo htmlspecialchars($category['category_name']) ?></td>
+                <td width="300" style="padding-left: <?php echo ($category['depth']*15)+20 ?>px"><img src="<?php echo serendipity_getTemplateFile('admin/img/folder.png') ?>" style="vertical-align: bottom;" alt=""> <?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($category['category_name']) : htmlspecialchars($category['category_name'], ENT_COMPAT, LANG_CHARSET)) ?></td>
 
                 <td>
                     <select name="serendipity[category_to_recolor][<?php echo $category['categoryid']?>]"><?php echo $colortext?></select>

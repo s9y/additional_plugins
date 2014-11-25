@@ -36,7 +36,7 @@ class serendipity_event_glossary extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_GLOSSARY_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author', 'Rob Antonishen');
-        $propbag->add('version', '1.7');
+        $propbag->add('version', '1.7.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -157,7 +157,7 @@ class serendipity_event_glossary extends serendipity_event
    	                $s = trim($temp[0]);
    	                $r = trim($temp[1]);
    	                if ((strlen($s) > 0) && ctype_alnum($s) && (strlen($r) > 0)){
-   	                    $terms[] = array($s,htmlspecialchars($r));
+   	                    $terms[] = array($s,(function_exists('serendipity_specialchars') ? serendipity_specialchars($r) : htmlspecialchars($r, ENT_COMPAT, LANG_CHARSET)));
    	                }
 		    }
 

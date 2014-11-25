@@ -157,7 +157,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '4.4.0'); // is CKEDITOR Series 4 (hidden) - revision .4.4 - and appended plugin revision .0
+        $propbag->add('version',       '4.4.1'); // is CKEDITOR Series 4 (hidden) - revision .4.4 - and appended plugin revision .0
         $propbag->add('copyright',     'GPL or LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
@@ -351,7 +351,7 @@ class serendipity_event_ckeditor extends serendipity_event
                 case 'frontend_footer':
                     // set prettify.css and prettify.js in frontend footer by plugin option (too much overhead to split this into head css and food js!)
                     if (serendipity_db_bool($this->get_config('prettify', false))) {
-                        $plugingpath = htmlspecialchars($this->get_config('plugpath'));
+                        $plugingpath = (function_exists('serendipity_specialchars') ? serendipity_specialchars($this->get_config('plugpath')) : htmlspecialchars($this->get_config('plugpath'), ENT_COMPAT, LANG_CHARSET));
 ?>
     <link rel="stylesheet" type="text/css" href="<?php echo $plugingpath . 'serendipity_event_ckeditor/prettify.css'; ?>" />
     <script type="text/javascript" src="<?php echo $plugingpath . 'serendipity_event_ckeditor/prettify.js'; ?>"></script>
@@ -368,8 +368,8 @@ class serendipity_event_ckeditor extends serendipity_event
 
                 case 'backend_header':
                     if (isset($serendipity['wysiwyg']) && $serendipity['wysiwyg'] && isset($eventData)) {
-                        $relpath = htmlspecialchars($this->get_config('path'));
-                        $plgpath = htmlspecialchars($this->get_config('plugpath'));
+                        $relpath = (function_exists('serendipity_specialchars') ? serendipity_specialchars($this->get_config('path')) : htmlspecialchars($this->get_config('path'), ENT_COMPAT, LANG_CHARSET));
+                        $plgpath = (function_exists('serendipity_specialchars') ? serendipity_specialchars($this->get_config('plugpath')) : htmlspecialchars($this->get_config('plugpath'), ENT_COMPAT, LANG_CHARSET));
                         $acf_off = serendipity_db_bool($this->get_config('acf_off')) ? 'true' : 'false'; // need this, to be passed correctly as boolean true/false to custom cke_config.js
                         $pbck_on = serendipity_db_bool($this->get_config('codebutton')) ? 'true' : 'false'; // same here for cke_plugins.js
     /* set some global vars */

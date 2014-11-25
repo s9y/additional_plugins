@@ -91,7 +91,7 @@ class serendipity_event_staticpage extends serendipity_event
         $propbag->add('page_configuration', $this->config);
         $propbag->add('type_configuration', $this->config_types);
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers');
-        $propbag->add('version', '4.07.1');
+        $propbag->add('version', '4.07.2');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -1260,7 +1260,7 @@ class serendipity_event_staticpage extends serendipity_event
             array(
                 $pagevar . 'articleformat'      => serendipity_db_bool($this->get_static('articleformat')),
                 $pagevar . 'form_pass'          => isset($serendipity['POST']['pass']) ? $serendipity['POST']['pass'] : '',
-                $pagevar . 'form_url'           => $serendipity['baseURL'] . $serendipity['indexFile'] . '?serendipity[subpage]=' . htmlspecialchars($this->get_static('pagetitle')),
+                $pagevar . 'form_url'           => $serendipity['baseURL'] . $serendipity['indexFile'] . '?serendipity[subpage]=' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($this->get_static('pagetitle')) : htmlspecialchars($this->get_static('pagetitle'), ENT_COMPAT, LANG_CHARSET)),
                 $pagevar . 'content'            => $staticpage_content,
                 $pagevar . 'childpages'         => serendipity_db_bool($this->get_static('show_childpages')) ? $this->getChildPages() : false,
                 $pagevar . 'extchildpages'      => $childpages,
@@ -1833,8 +1833,8 @@ class serendipity_event_staticpage extends serendipity_event
                     $serendipity['POST']['typeSubmit'] = true;
                     $bag = new serendipity_property_bag();
                     $this->introspect($bag);
-                    $name = htmlspecialchars($bag->get('name'));
-                    $desc = htmlspecialchars($bag->get('description'));
+                    $name = (function_exists('serendipity_specialchars') ? serendipity_specialchars($bag->get('name')) : htmlspecialchars($bag->get('name'), ENT_COMPAT, LANG_CHARSET));
+                    $desc = (function_exists('serendipity_specialchars') ? serendipity_specialchars($bag->get('description')) : htmlspecialchars($bag->get('description'), ENT_COMPAT, LANG_CHARSET));
                     $config_t = $bag->get('type_configuration');
 
                     foreach($config_t as $config_item) {
@@ -1864,7 +1864,7 @@ class serendipity_event_staticpage extends serendipity_event
                 $types = $this->fetchPageTypes();
                 if(is_array($types)) {
                     foreach($types as $type) {
-                        echo ' <option value="' . $type['id'] . '" ' . ($serendipity['POST']['pagetype'] == $type['id'] ? 'selected="selected"' : '') . '>' . htmlspecialchars($type['description']) . '</option>';
+                        echo ' <option value="' . $type['id'] . '" ' . ($serendipity['POST']['pagetype'] == $type['id'] ? 'selected="selected"' : '') . '>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($type['description']) : htmlspecialchars($type['description'], ENT_COMPAT, LANG_CHARSET)) . '</option>';
                     }
                 }
                 echo '</select> <input type="submit" class="serendipityPrettyButton input_button" name="serendipity[typeSubmit]" value="' . GO . '" /> <strong>-' . WORD_OR . '-</strong> <input type="submit" class="serendipityPrettyButton input_button" name="serendipity[typeDelete]" value="' . DELETE . '" />';
@@ -1952,8 +1952,8 @@ class serendipity_event_staticpage extends serendipity_event
                     $serendipity['POST']['staticSubmit'] = true;
                     $bag  = new serendipity_property_bag;
                     $this->introspect($bag);
-                    $name = htmlspecialchars($bag->get('name'));
-                    $desc = htmlspecialchars($bag->get('description'));
+                    $name = (function_exists('serendipity_specialchars') ? serendipity_specialchars($bag->get('name')) : htmlspecialchars($bag->get('name'), ENT_COMPAT, LANG_CHARSET));
+                    $desc = (function_exists('serendipity_specialchars') ? serendipity_specialchars($bag->get('description')) : htmlspecialchars($bag->get('description'), ENT_COMPAT, LANG_CHARSET));
                     $config_names = $bag->get('page_configuration');
 
                     foreach ($config_names as $config_item) {
@@ -2004,7 +2004,7 @@ class serendipity_event_staticpage extends serendipity_event
                 if ($dh) {
                     while ($file = readdir($dh)) {
                         if ($file != 'default_staticpage_backend.tpl' && preg_match('@^(.*).tpl$@i', $file, $m)) {
-                            echo '<option ' . ($file == $serendipity['POST']['backend_template'] ? 'selected="selected"' : '') . ' value="' . htmlspecialchars($file) . '">' . htmlspecialchars($m[1]) . '</option>' . "\n";
+                            echo '<option ' . ($file == $serendipity['POST']['backend_template'] ? 'selected="selected"' : '') . ' value="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($file) : htmlspecialchars($file, ENT_COMPAT, LANG_CHARSET)) . '">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($m[1]) : htmlspecialchars($m[1], ENT_COMPAT, LANG_CHARSET)) . '</option>' . "\n";
                         }
                     }
                 }
@@ -2012,7 +2012,7 @@ class serendipity_event_staticpage extends serendipity_event
                 if ($dh) {
                     while ($file = readdir($dh)) {
                         if ($file != 'default_staticpage_backend.tpl' && preg_match('@^(.*).tpl$@i', $file, $m)) {
-                            echo '<option ' . ($file == $serendipity['POST']['backend_template'] ? 'selected="selected"' : '') . ' value="' . htmlspecialchars($file) . '">' . htmlspecialchars($m[1]) . '</option>' . "\n";
+                            echo '<option ' . ($file == $serendipity['POST']['backend_template'] ? 'selected="selected"' : '') . ' value="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($file) : htmlspecialchars($file, ENT_COMPAT, LANG_CHARSET)) . '">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($m[1]) : htmlspecialchars($m[1], ENT_COMPAT, LANG_CHARSET)) . '</option>' . "\n";
                         }
                     }
                 }
@@ -2030,7 +2030,7 @@ class serendipity_event_staticpage extends serendipity_event
                     foreach ($pages as $page) {
                         if ($this->checkPageUser($page['authorid'])) {
                             echo ' <option value="' . $page['id'] . '" ' . ($serendipity['POST']['staticpage'] == $page['id'] ? 'selected="selected"' : '') . '>';
-                            echo str_repeat('&nbsp;&nbsp;', $page['depth']) . htmlspecialchars($page['pagetitle']) . '</option>';
+                            echo str_repeat('&nbsp;&nbsp;', $page['depth']) . (function_exists('serendipity_specialchars') ? serendipity_specialchars($page['pagetitle']) : htmlspecialchars($page['pagetitle'], ENT_COMPAT, LANG_CHARSET)) . '</option>';
                         }
                     }
                 }
@@ -2189,9 +2189,9 @@ class serendipity_event_staticpage extends serendipity_event
 <select class="direction_<?php echo $lang_direction; ?>" name="serendipity[plugin][<?php echo $config_item; ?>]">
 <?php 
 foreach($select AS $select_value => $select_desc) {
-    $id = htmlspecialchars($config_item . $select_value);
+    $id = (function_exists('serendipity_specialchars') ? serendipity_specialchars($config_item . $select_value) : htmlspecialchars($config_item . $select_value, ENT_COMPAT, LANG_CHARSET));
 ?>
-                        <option title="<?php echo htmlspecialchars($select_desc); ?>"<?php echo ($select_value == $hvalue ? ' selected="selected"' : ''); ?> value="<?php echo $select_value; ?>"><?php echo htmlspecialchars($select_desc); ?></option>
+                        <option title="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($select_desc) : htmlspecialchars($select_desc, ENT_COMPAT, LANG_CHARSET)); ?>"<?php echo ($select_value == $hvalue ? ' selected="selected"' : ''); ?> value="<?php echo $select_value; ?>"><?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($select_desc) : htmlspecialchars($select_desc, ENT_COMPAT, LANG_CHARSET)); ?></option>
 <?php } ?>
                     </select>
 <?php if (!$is_smarty) { ?>
@@ -2243,7 +2243,7 @@ foreach($select AS $select_value => $select_desc) {
             }
                 $counter = 0;
                 foreach($radio['value'] AS $radio_index => $radio_value) {
-                    $id = htmlspecialchars($config_item . $radio_value);
+                    $id = (function_exists('serendipity_specialchars') ? serendipity_specialchars($config_item . $radio_value) : htmlspecialchars($config_item . $radio_value, ENT_COMPAT, LANG_CHARSET));
                     $counter++;
                     $checked = "";
 
@@ -2261,8 +2261,8 @@ foreach($select AS $select_value => $select_desc) {
 <?php
                     }
 ?>
-                    <input class="input_radio direction_<?php echo $lang_direction; ?>" type="radio" id="serendipity_plugin_<?php echo $id; ?>" name="serendipity[plugin][<?php echo $config_item; ?>]" value="<?php echo $radio_value; ?>" <?php echo $checked ?> title="<?php echo htmlspecialchars($radio['desc'][$radio_index]); ?>" />
-                        <label for="serendipity_plugin_<?php echo $id; ?>"><?php echo htmlspecialchars($radio['desc'][$radio_index]); ?></label>
+                    <input class="input_radio direction_<?php echo $lang_direction; ?>" type="radio" id="serendipity_plugin_<?php echo $id; ?>" name="serendipity[plugin][<?php echo $config_item; ?>]" value="<?php echo $radio_value; ?>" <?php echo $checked ?> title="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($radio['desc'][$radio_index]) : htmlspecialchars($radio['desc'][$radio_index], ENT_COMPAT, LANG_CHARSET)); ?>" />
+                        <label for="serendipity_plugin_<?php echo $id; ?>"><?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($radio['desc'][$radio_index]) : htmlspecialchars($radio['desc'][$radio_index], ENT_COMPAT, LANG_CHARSET)); ?></label>
 <?php
                     if ($counter == $per_row) {
                         $counter = 0;
@@ -2455,11 +2455,11 @@ foreach($select AS $select_value => $select_desc) {
         $cbag = new serendipity_property_bag;
         $this->introspect_item($config_item, $cbag);
 
-        $cname      = htmlspecialchars($cbag->get('name'));
-        $cdesc      = htmlspecialchars($cbag->get('description'));
+        $cname      = (function_exists('serendipity_specialchars') ? serendipity_specialchars($cbag->get('name')) : htmlspecialchars($cbag->get('name'), ENT_COMPAT, LANG_CHARSET));
+        $cdesc      = (function_exists('serendipity_specialchars') ? serendipity_specialchars($cbag->get('description')) : htmlspecialchars($cbag->get('description'), ENT_COMPAT, LANG_CHARSET));
         $value      = $this->get_static($config_item, 'unset');
 
-        $lang_direction = htmlspecialchars($cbag->get('lang_direction'));
+        $lang_direction = (function_exists('serendipity_specialchars') ? serendipity_specialchars($cbag->get('lang_direction')) : htmlspecialchars($cbag->get('lang_direction'), ENT_COMPAT, LANG_CHARSET));
 
         if (empty($lang_direction)) {
             $lang_direction = LANG_DIRECTION;
@@ -2470,7 +2470,7 @@ foreach($select AS $select_value => $select_desc) {
             /* Try and the default value for the config item */
             $value = $cbag->get('default');
         }
-        $hvalue   = ((!isset($serendipity['POST']['staticSubmit']) || is_array($serendipity['GET']['pre'])) && isset($serendipity['POST']['plugin'][$config_item]) ? htmlspecialchars($serendipity['POST']['plugin'][$config_item]) : htmlspecialchars($value));
+        $hvalue   = ((!isset($serendipity['POST']['staticSubmit']) || is_array($serendipity['GET']['pre'])) && isset($serendipity['POST']['plugin'][$config_item]) ? (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['POST']['plugin'][$config_item]) : htmlspecialchars($serendipity['POST']['plugin'][$config_item], ENT_COMPAT, LANG_CHARSET)) : (function_exists('serendipity_specialchars') ? serendipity_specialchars($value) : htmlspecialchars($value, ENT_COMPAT, LANG_CHARSET)));
         $radio    = array();
         $select   = array();
         $per_row  = null;
@@ -2587,11 +2587,11 @@ foreach($select AS $select_value => $select_desc) {
         $cbag = new serendipity_property_bag;
         $this->$introspec_func($config_item, $cbag);
 
-        $cname      = htmlspecialchars($cbag->get('name'));
-        $cdesc      = htmlspecialchars($cbag->get('description'));
+        $cname      = (function_exists('serendipity_specialchars') ? serendipity_specialchars($cbag->get('name')) : htmlspecialchars($cbag->get('name'), ENT_COMPAT, LANG_CHARSET));
+        $cdesc      = (function_exists('serendipity_specialchars') ? serendipity_specialchars($cbag->get('description')) : htmlspecialchars($cbag->get('description'), ENT_COMPAT, LANG_CHARSET));
         $value      = $this->$value_func($config_item, 'unset');
 
-        $lang_direction = htmlspecialchars($cbag->get('lang_direction'));
+        $lang_direction = (function_exists('serendipity_specialchars') ? serendipity_specialchars($cbag->get('lang_direction')) : htmlspecialchars($cbag->get('lang_direction'), ENT_COMPAT, LANG_CHARSET));
 
         if (empty($lang_direction)) {
             $lang_direction = LANG_DIRECTION;
@@ -2602,7 +2602,7 @@ foreach($select AS $select_value => $select_desc) {
             /* Try and the default value for the config item */
             $value = $cbag->get('default');
         }
-        $hvalue   = ((!isset($serendipity['POST'][$submit_name]) || is_array($serendipity['GET']['pre'])) && isset($serendipity['POST']['plugin'][$config_item]) ? htmlspecialchars($serendipity['POST']['plugin'][$config_item]) : htmlspecialchars($value));
+        $hvalue   = ((!isset($serendipity['POST'][$submit_name]) || is_array($serendipity['GET']['pre'])) && isset($serendipity['POST']['plugin'][$config_item]) ? (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['POST']['plugin'][$config_item]) : htmlspecialchars($serendipity['POST']['plugin'][$config_item], ENT_COMPAT, LANG_CHARSET)) : (function_exists('serendipity_specialchars') ? serendipity_specialchars($value) : htmlspecialchars($value, ENT_COMPAT, LANG_CHARSET)));
         $radio    = array();
         $select   = array();
         $per_row  = null;
@@ -2696,7 +2696,7 @@ foreach($select AS $select_value => $select_desc) {
                 <table width="100%" cellspacing="0" cellpadding="3">
                     <tr>
                         <td>
-                            <strong><?php echo $entry_pre; ?><a href="?serendipity[action]=admin&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=staticpages&amp;serendipity[staticpagecategory]=pages&amp;serendipity[staticid]=<?php echo $entry['id']; ?>" title="#<?php echo $entry['pagetitle']; ?>"><?php echo serendipity_truncateString(htmlspecialchars($entry['headline']),50) ?></a></strong>
+                            <strong><?php echo $entry_pre; ?><a href="?serendipity[action]=admin&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=staticpages&amp;serendipity[staticpagecategory]=pages&amp;serendipity[staticid]=<?php echo $entry['id']; ?>" title="#<?php echo $entry['pagetitle']; ?>"><?php echo serendipity_truncateString((function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['headline']) : htmlspecialchars($entry['headline'], ENT_COMPAT, LANG_CHARSET)),50) ?></a></strong>
                             </td>
                             <td align="right">
                                 <?php echo serendipity_formatTime(DATE_FORMAT_SHORT, $entry['timestamp']) . ' ' .$lm; ?>
@@ -2704,7 +2704,7 @@ foreach($select AS $select_value => $select_desc) {
                         </tr>
                         <tr>
                             <td>
-                                <?php echo POSTED_BY . ' ' . htmlspecialchars($this->selectAuthor($entry['authorid'])); ?>
+                                <?php echo POSTED_BY . ' ' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($this->selectAuthor($entry['authorid'])) : htmlspecialchars($this->selectAuthor($entry['authorid']), ENT_COMPAT, LANG_CHARSET)); ?>
                             </td>
                             <td align="right">
                                 <?php
@@ -3007,7 +3007,7 @@ foreach($select AS $select_value => $select_desc) {
                     foreach ($pages as $page) {
                         if ($this->checkPageUser($page['authorid'])) {
                             echo ' <option value="' . $page['id'] . '" ' . ($page['id'] == $this->fetchCatProp((int)$eventData) ? 'selected="selected"' : '') . '>';
-                            echo str_repeat('&nbsp;&nbsp;', $page['depth']) . htmlspecialchars($page['pagetitle']) . '</option>';
+                            echo str_repeat('&nbsp;&nbsp;', $page['depth']) . (function_exists('serendipity_specialchars') ? serendipity_specialchars($page['pagetitle']) : htmlspecialchars($page['pagetitle'], ENT_COMPAT, LANG_CHARSET)) . '</option>';
                         }
                     }
                 }
@@ -3098,7 +3098,7 @@ foreach($select AS $select_value => $select_desc) {
                     if ($this->selected()) {
                         $te = $this->get_static('title_element');
                         if (!empty($te)) {
-                            $serendipity['head_title']    = htmlspecialchars($te);
+                            $serendipity['head_title']    = (function_exists('serendipity_specialchars') ? serendipity_specialchars($te) : htmlspecialchars($te, ENT_COMPAT, LANG_CHARSET));
                             $serendipity['head_subtitle'] ='';
                         } else {
                         $serendipity['head_title']    = $this->get_static('headline');
@@ -3108,8 +3108,8 @@ foreach($select AS $select_value => $select_desc) {
                     break;
 
                 case 'frontend_header':
-                    $md = htmlspecialchars($this->get_static('meta_description'));
-                    $mk = htmlspecialchars($this->get_static('meta_keywords'));
+                    $md = (function_exists('serendipity_specialchars') ? serendipity_specialchars($this->get_static('meta_description')) : htmlspecialchars($this->get_static('meta_description'), ENT_COMPAT, LANG_CHARSET));
+                    $mk = (function_exists('serendipity_specialchars') ? serendipity_specialchars($this->get_static('meta_keywords')) : htmlspecialchars($this->get_static('meta_keywords'), ENT_COMPAT, LANG_CHARSET));
                     if (!empty($md))
                     {
                         echo '        <meta name="description" content="' . $md . '" />' . "\n";

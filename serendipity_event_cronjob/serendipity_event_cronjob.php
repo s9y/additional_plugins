@@ -22,7 +22,7 @@ class serendipity_event_cronjob extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_CRONJOB_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '0.9');
+        $propbag->add('version',       '0.9.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '4.1.0'
@@ -72,7 +72,7 @@ class serendipity_event_cronjob extends serendipity_event {
         $res = serendipity_db_query("SELECT timestamp, type, reason FROM {$serendipity['dbPrefix']}cronjoblog ORDER BY timestamp DESC");
         if (is_array($res)) {
             foreach($res AS $row) {
-                $s .= '<tr><td>' . date('d.m.Y H:i', $row['timestamp']) . '</td><td>' . htmlspecialchars($row['type']) . '</td><td>' . htmlspecialchars($row['reason']) . '</td></tr>' . "\n";
+                $s .= '<tr><td>' . date('d.m.Y H:i', $row['timestamp']) . '</td><td>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['type']) : htmlspecialchars($row['type'], ENT_COMPAT, LANG_CHARSET)) . '</td><td>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['reason']) : htmlspecialchars($row['reason'], ENT_COMPAT, LANG_CHARSET)) . '</td></tr>' . "\n";
             }
         }
         $s .= '</table></fieldset>';

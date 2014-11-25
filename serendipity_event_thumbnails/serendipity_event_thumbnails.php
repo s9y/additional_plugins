@@ -25,7 +25,7 @@ class serendipity_event_thumbnails extends serendipity_event {
         $propbag->add('configuration', array('number'));
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Cameron MacFarland');
-        $propbag->add('version', '1.4');
+        $propbag->add('version', '1.4.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
@@ -119,7 +119,7 @@ class serendipity_event_thumbnails extends serendipity_event {
                     $thumbsize     = @getimagesize($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $thumbbasename);
                 }
 
-                echo '<a href="' . $entryLink . '" title="' . htmlspecialchars($entry['title']) . '">';
+                echo '<a href="' . $entryLink . '" title="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['title']) : htmlspecialchars($entry['title'], ENT_COMPAT, LANG_CHARSET)) . '">';
                 if (isset($photo)) {
                     echo '<img style="margin:5px;" src="' . $imgsrc . '" width=' . $thumbsize[0] . ' height=' . $thumbsize[1];
                     if (isset($id) && ($id == $entry['id'])) {

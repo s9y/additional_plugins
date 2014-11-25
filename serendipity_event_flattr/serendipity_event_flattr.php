@@ -60,7 +60,7 @@ class serendipity_event_flattr extends serendipity_event {
             'add_to_feed',
         ));
         $propbag->add('author',  'Garvin Hicking, Joachim Breitner', 'Matthias Gutjahr');
-        $propbag->add('version', '1.12');
+        $propbag->add('version', '1.12.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
@@ -280,11 +280,11 @@ class serendipity_event_flattr extends serendipity_event {
                                 $opt = array('1' => YES, '-1' => NO);
                             }
                             foreach($opt AS $key => $kval) {
-                                echo '<option value="' . $key . '" ' . ((string)$val == (string)$key ? 'selected="selected"' : '') . '>' . htmlspecialchars($kval) . '</option>' . "\n";
+                                echo '<option value="' . $key . '" ' . ((string)$val == (string)$key ? 'selected="selected"' : '') . '>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($kval) : htmlspecialchars($kval, ENT_COMPAT, LANG_CHARSET)) . '</option>' . "\n";
                             }
                             echo '</select>';
                         } else {
-                            echo '<input type="text" name="serendipity[properties][ep_' . $attr . ']" id="properties_' . $attr . '" class="input_textbox" value="' . htmlspecialchars($val) . '" style="width: 100%" />' . "\n";
+                            echo '<input type="text" name="serendipity[properties][ep_' . $attr . ']" id="properties_' . $attr . '" class="input_textbox" value="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($val) : htmlspecialchars($val, ENT_COMPAT, LANG_CHARSET)) . '" style="width: 100%" />' . "\n";
                         }
                         echo '<br />';
                     }
@@ -406,7 +406,7 @@ class serendipity_event_flattr extends serendipity_event {
                 if ($addData['from'] == 'functions_entries:updertEntry') {
                 } elseif ($addData['from'] == 'functions_entries:printEntries_rss') {
                     $entryText =& $this->getFieldReference($field, $eventData);
-                    $entryText .= htmlspecialchars($flattr);
+                    $entryText .= (function_exists('serendipity_specialchars') ? serendipity_specialchars($flattr) : htmlspecialchars($flattr, ENT_COMPAT, LANG_CHARSET));
                 } else {
                     $entryText =& $this->getFieldReference($field, $eventData);
                     $entryText .= $flattr;

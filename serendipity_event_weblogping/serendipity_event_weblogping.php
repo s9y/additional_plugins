@@ -15,7 +15,7 @@ class serendipity_event_weblogping extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_WEBLOGPING_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.08');
+        $propbag->add('version',       '1.08.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -221,7 +221,7 @@ class serendipity_event_weblogping extends serendipity_event
                             $http_response = $req->getResponseBody();
                             $xmlrpc_result = $message->parseResponse($http_response);
                             if ($xmlrpc_result->faultCode()) {
-                                $out = sprintf(PLUGIN_EVENT_WEBLOGPING_SEND_FAILURE . "<br />", htmlspecialchars($xmlrpc_result->faultString()));
+                                $out = sprintf(PLUGIN_EVENT_WEBLOGPING_SEND_FAILURE . "<br />", (function_exists('serendipity_specialchars') ? serendipity_specialchars($xmlrpc_result->faultString()) : htmlspecialchars($xmlrpc_result->faultString(), ENT_COMPAT, LANG_CHARSET));
                             } else {
                                 $out = PLUGIN_EVENT_WEBLOGPING_SEND_SUCCESS . "<br />";
                             }

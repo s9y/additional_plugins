@@ -30,7 +30,7 @@ class serendipity_event_wikilinks extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_WIKILINKS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Grischa Brockhaus');
-        $propbag->add('version',       '0.25');
+        $propbag->add('version',       '0.25.1');
         $propbag->add('requirements',  array(
             'serendipity' => '1.0',
             'smarty'      => '2.6.7',
@@ -198,13 +198,13 @@ class serendipity_event_wikilinks extends serendipity_event
 
                         echo '<div>';
                         echo '<label>' . PLUGIN_EVENT_WIKILINKS_DB_REFNAME . '</label><br />';
-                        echo '<input type="text" name="serendipity[wikireference_refname]" value="' . htmlspecialchars($ref['refname']) . '" />';
+                        echo '<input type="text" name="serendipity[wikireference_refname]" value="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($ref['refname']) : htmlspecialchars($ref['refname'], ENT_COMPAT, LANG_CHARSET)) . '" />';
                         echo '<input type="submit" class="serendipityPrettyButton input_button" name="serendipity[saveSubmit]" value="' . SAVE . '" />';
                         echo '</div>';
 
                         echo '<div>';
                         echo '<label>' . PLUGIN_EVENT_WIKILINKS_DB_REF . '</label><br />';
-                        echo '<textarea cols="80" rows="20" name="serendipity[wikireference_ref]">' . htmlspecialchars($ref['ref']) . '</textarea>';
+                        echo '<textarea cols="80" rows="20" name="serendipity[wikireference_ref]">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($ref['ref']) : htmlspecialchars($ref['ref'], ENT_COMPAT, LANG_CHARSET)) . '</textarea>';
                         echo '</div>';
 
                         echo '<div>';
@@ -307,9 +307,9 @@ class serendipity_event_wikilinks extends serendipity_event
     if (is_array($e)) {
         foreach($e AS $entry) {
             $link = serendipity_archiveURL($entry['id'], $entry['title'], 'serendipityHTTPPath', true, array('timestamp' => $entry['timestamp']));
-            $jslink = "'<a href=\'$link\'>" . htmlspecialchars($entry['title']) . "<' + '/a>'";
+            $jslink = "'<a href=\'$link\'>" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['title']) : htmlspecialchars($entry['title'], ENT_COMPAT, LANG_CHARSET)) . "<' + '/a>'";
             echo '<li style="margin-bottom: 10px">'
-               . '<a href="javascript:parent.self.opener.use_link_' . $what . '(' . $jslink . '); self.close();" title="' . htmlspecialchars($entry['title']) . '"><strong>' . htmlspecialchars($entry['title']) . '</strong></a> (<a href="' . $link . '" title="' . htmlspecialchars($entry['title']) . '">#' . $entry['id'] . '</a>)<br />'
+               . '<a href="javascript:parent.self.opener.use_link_' . $what . '(' . $jslink . '); self.close();" title="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['title']) : htmlspecialchars($entry['title'], ENT_COMPAT, LANG_CHARSET)) . '"><strong>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['title']) : htmlspecialchars($entry['title'], ENT_COMPAT, LANG_CHARSET)) . '</strong></a> (<a href="' . $link . '" title="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['title']) : htmlspecialchars($entry['title'], ENT_COMPAT, LANG_CHARSET)) . '">#' . $entry['id'] . '</a>)<br />'
                . POSTED_BY . ' ' . $entry['author'] . ' '
                . ON . ' ' . serendipity_formatTime(DATE_FORMAT_SHORT, $entry['timestamp']) .
                ($entry['isdraft'] != 'false' ? ' (' . DRAFT . ')' : '') . '</a></li>' . "\n";
@@ -505,8 +505,8 @@ function use_link_<?php echo $func; ?>(txt) {
 
             array(
                 $refix,
-                htmlspecialchars($buffer['ref']),
-                htmlspecialchars($buffer['refname']),
+                (function_exists('serendipity_specialchars') ? serendipity_specialchars($buffer['ref']) : htmlspecialchars($buffer['ref'], ENT_COMPAT, LANG_CHARSET)),
+                (function_exists('serendipity_specialchars') ? serendipity_specialchars($buffer['refname']) : htmlspecialchars($buffer['refname'], ENT_COMPAT, LANG_CHARSET)),
             ),
             $result
         );
@@ -539,7 +539,7 @@ function use_link_<?php echo $func; ?>(txt) {
 
                 array(
                     $count2,
-                    htmlspecialchars($buffer),
+                    (function_exists('serendipity_specialchars') ? serendipity_specialchars($buffer) : htmlspecialchars($buffer, ENT_COMPAT, LANG_CHARSET)),
                     $key
                 ),
                 $format
@@ -627,7 +627,7 @@ function use_link_<?php echo $func; ?>(txt) {
             if (serendipity_userLoggedIn()) {
                 $mode  = 'create';
                 $title = urlencode($ltitle);
-                $body  = '<h1>' . htmlspecialchars($ltitle) . '</h1>';
+                $body  = '<h1>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($ltitle) : htmlspecialchars($ltitle, ENT_COMPAT, LANG_CHARSET)) . '</h1>';
 
                 $admin_url2 = $serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=staticpages&amp;serendipity[pre][headline]=' . $title . '&amp;serendipity[pre][content]=' . $body . '&amp;serendipity[pre][pagetitle]=' . $title;
                 if ($otype == 'staticpage') {

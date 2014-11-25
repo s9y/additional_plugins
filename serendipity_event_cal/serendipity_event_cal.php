@@ -76,7 +76,7 @@ class serendipity_event_cal extends serendipity_event {
                                         )
                     );
         $propbag->add('author',         'Ian (Timbalu)');
-        $propbag->add('version',        '1.69');
+        $propbag->add('version',        '1.69.1');
         $propbag->add('groups',         array('FRONTEND_FEATURES', 'BACKEND_FEATURES'));
         $propbag->add('requirements',   array(
                                             'serendipity' => '1.4',
@@ -262,15 +262,15 @@ class serendipity_event_cal extends serendipity_event {
                 if (is_array($val)) { 
                     foreach($val as $akey => $aval) { 
                         if($savearrayname == true)
-                            $row[$key][$akey] = ($outputformfield == true) ? stripslashes(htmlspecialchars($aval)) : stripslashes($aval); // array e.g. $row['name']
+                            $row[$key][$akey] = ($outputformfield == true) ? stripslashes((function_exists('serendipity_specialchars') ? serendipity_specialchars($aval) : htmlspecialchars($aval, ENT_COMPAT, LANG_CHARSET))) : stripslashes($aval); // array e.g. $row['name']
                         else
-                            $$key[$akey]      = ($outputformfield == true) ? stripslashes(htmlspecialchars($aval)) : stripslashes($aval); // $key-name e.g. $name
+                            $$key[$akey]      = ($outputformfield == true) ? stripslashes((function_exists('serendipity_specialchars') ? serendipity_specialchars($aval) : htmlspecialchars($aval, ENT_COMPAT, LANG_CHARSET))) : stripslashes($aval); // $key-name e.g. $name
                     }
                 } else {
                     if($savearrayname == true)
-                        $row[$key] = ($outputformfield == true) ? stripslashes(htmlspecialchars($val)) : stripslashes($val); // array e.g. $row['name']
+                        $row[$key] = ($outputformfield == true) ? stripslashes((function_exists('serendipity_specialchars') ? serendipity_specialchars($val) : htmlspecialchars($val, ENT_COMPAT, LANG_CHARSET))) : stripslashes($val); // array e.g. $row['name']
                     else
-                        $$key      = ($outputformfield == true) ? stripslashes(htmlspecialchars($val)) : stripslashes($val); // $key-name e.g. $name
+                        $$key      = ($outputformfield == true) ? stripslashes((function_exists('serendipity_specialchars') ? serendipity_specialchars($val) : htmlspecialchars($val, ENT_COMPAT, LANG_CHARSET))) : stripslashes($val); // $key-name e.g. $name
                 }
             }
         }

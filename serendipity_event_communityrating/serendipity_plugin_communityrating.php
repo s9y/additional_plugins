@@ -25,7 +25,7 @@ class serendipity_plugin_communityrating extends serendipity_plugin
         $propbag->add('description',   PLUGIN_EVENT_COMMUNITYRATING_AVGRATING_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Lewe Zipfel, Garvin Hicking');
-        $propbag->add('version',       '1.2');
+        $propbag->add('version',       '1.2.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',
@@ -99,7 +99,7 @@ class serendipity_plugin_communityrating extends serendipity_plugin
                                           'serendipityHTTPPath',
                                           true,
                                           array('timestamp' => $row['timestamp']));
-            echo '<li><a href="'. $url . '">' . htmlspecialchars($row['title']) . '</a> (' . ($row['rating']) . ')</li>';
+            echo '<li><a href="'. $url . '">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['title']) : htmlspecialchars($row['title'], ENT_COMPAT, LANG_CHARSET)) . '</a> (' . ($row['rating']) . ')</li>';
 		}
 	    echo '</ol>';
 

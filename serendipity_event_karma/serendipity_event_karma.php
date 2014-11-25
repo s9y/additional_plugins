@@ -1115,7 +1115,7 @@ END_IMG_CSS;
                         if (is_array($sql_rows)) {
                             foreach($sql_rows AS $id => $row) {
     ?>
-            <dt><a href="<?php echo serendipity_archiveURL($row['id'], $row['title'], 'serendipityHTTPPath', true, array('timestamp' => $row['timestamp'])); ?>"><?php echo htmlspecialchars($row['title']); ?></a></dt>
+            <dt><a href="<?php echo serendipity_archiveURL($row['id'], $row['title'], 'serendipityHTTPPath', true, array('timestamp' => $row['timestamp'])); ?>"><?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['title']) : htmlspecialchars($row['title'], ENT_COMPAT, LANG_CHARSET)); ?></a></dt>
             <dd><?php echo $row['no']; ?> <?php echo constant('PLUGIN_KARMA_STATISTICS_' . strtoupper($rows[0]) . '_NO'); ?></dd>
     <?php
                             }
@@ -1538,7 +1538,7 @@ END_IMG_CSS;
                     }
 
                     // URL; expected to be event_display and karmalog, respectively
-                    $url = '?serendipity[adminModule]='.htmlspecialchars($serendipity['GET']['adminModule']).'&serendipity[adminAction]='.htmlspecialchars($serendipity['GET']['adminAction']);
+                    $url = '?serendipity[adminModule]='.(function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['adminModule']) : htmlspecialchars($serendipity['GET']['adminModule'], ENT_COMPAT, LANG_CHARSET)).'&serendipity[adminAction]='.(function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['adminAction']) : htmlspecialchars($serendipity['GET']['adminAction'], ENT_COMPAT, LANG_CHARSET));
 
                     // Filters
                     print("
@@ -1558,22 +1558,22 @@ END_IMG_CSS;
         <div class='clearfix'>
             <div class='form_field'>
                 <label for='serendipity_filter_useragent'>User Agent</label>
-                <input id='serendipity_filter_useragent' name='serendipity[filter][user_agent]' type='text' value='".htmlspecialchars($serendipity['GET']['filter']['user_agent'])."'>
+                <input id='serendipity_filter_useragent' name='serendipity[filter][user_agent]' type='text' value='".(function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['filter']['user_agent']) : htmlspecialchars($serendipity['GET']['filter']['user_agent'], ENT_COMPAT, LANG_CHARSET))."'>
             </div>
 
             <div class='form_field'>
                 <label for='serendipity_filter_ip'>".IP."</label>
-                <input id='serendipity_filter_ip' name='serendipity[filter][ip]' type='text' value='".htmlspecialchars($serendipity['GET']['filter']['ip'])."'>
+                <input id='serendipity_filter_ip' name='serendipity[filter][ip]' type='text' value='".(function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['filter']['ip']) : htmlspecialchars($serendipity['GET']['filter']['ip'], ENT_COMPAT, LANG_CHARSET))."'>
             </div>
 
             <div class='form_field'>
                 <label for='serendipity_filter_entryid'>Entry ID</label>
-                <input id='serendipity_filter_entryid' name='serendipity[filter][entryid]' type='text' value='".htmlspecialchars($serendipity['GET']['filter']['entryid'])."'>
+                <input id='serendipity_filter_entryid' name='serendipity[filter][entryid]' type='text' value='".(function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['filter']['entryid']) : htmlspecialchars($serendipity['GET']['filter']['entryid'], ENT_COMPAT, LANG_CHARSET))."'>
             </div>
 
             <div class='form_field'>
                 <label for='serendipity_filter_title'>Entry title</label>
-                <input id='serendipity_filter_title' name='serendipity[filter][title]' type='text' value='".htmlspecialchars($serendipity['GET']['filter']['title'])."'>
+                <input id='serendipity_filter_title' name='serendipity[filter][title]' type='text' value='".(function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['filter']['title']) : htmlspecialchars($serendipity['GET']['filter']['title'], ENT_COMPAT, LANG_CHARSET))."'>
             </div>
         </div>
 
@@ -1586,22 +1586,22 @@ END_IMG_CSS;
                     if (!empty($serendipity['GET']['filter']['entryid'])) {
                         $val = $serendipity['GET']['filter']['entryid'];
                         $and .= "AND l.entryid = '" . serendipity_db_escape_string($val) . "'";
-                        $searchString .= "&amp;serendipity['filter']['entryid']=".htmlspecialchars($val);
+                        $searchString .= "&amp;serendipity['filter']['entryid']=".(function_exists('serendipity_specialchars') ? serendipity_specialchars($val) : htmlspecialchars($val, ENT_COMPAT, LANG_CHARSET));
                     }
                     if (!empty($serendipity['GET']['filter']['ip'])) {
                         $val = $serendipity['GET']['filter']['ip'];
                         $and .= "AND l.ip = '" . serendipity_db_escape_string($val) . "'";
-                        $searchString .= "&amp;serendipity['filter']['ip']=".htmlspecialchars($val);
+                        $searchString .= "&amp;serendipity['filter']['ip']=".(function_exists('serendipity_specialchars') ? serendipity_specialchars($val) : htmlspecialchars($val, ENT_COMPAT, LANG_CHARSET));
                     }
                     if (!empty($serendipity['GET']['filter']['user_agent'])) {
                         $val = $serendipity['GET']['filter']['user_agent'];
                         $and .= "AND l.user_agent LIKE '%" . serendipity_db_escape_string($val) . "%'";
-                        $searchString .= "&amp;serendipity['filter']['user_agent']=".htmlspecialchars($val);
+                        $searchString .= "&amp;serendipity['filter']['user_agent']=".(function_exists('serendipity_specialchars') ? serendipity_specialchars($val) : htmlspecialchars($val, ENT_COMPAT, LANG_CHARSET));
                     }
                     if (!empty($serendipity['GET']['filter']['title'])) {
                         $val = $serendipity['GET']['filter']['title'];
                         $and .= "AND e.title LIKE '%" . serendipity_db_escape_string($val) . "%'";
-                        $searchString .= "&amp;serendipity['filter']['title']=".htmlspecialchars($val);
+                        $searchString .= "&amp;serendipity['filter']['title']=".(function_exists('serendipity_specialchars') ? serendipity_specialchars($val) : htmlspecialchars($val, ENT_COMPAT, LANG_CHARSET));
                     }
 
                     // Sorting (controls go after filtering controls in form above)

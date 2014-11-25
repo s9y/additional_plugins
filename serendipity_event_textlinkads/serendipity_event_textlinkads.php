@@ -30,7 +30,7 @@ class serendipity_event_textlinkads extends serendipity_event
             'php'         => '4.1.0'
         ));
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
-        $propbag->add('version',       '0.12');
+        $propbag->add('version',       '0.12.1');
         $propbag->add('configuration', array('htmlid', 'xmlfilename'));
         $propbag->add('event_hooks',    array(
             'css'                  => true,
@@ -211,7 +211,7 @@ class serendipity_event_textlinkads extends serendipity_event
     
         $basedir = dirname(__FILE__) . '/';
         if (!is_dir($basedir . $params['dir'])) {
-            echo __FUNCTION__ .": dir '{$basedir}" . htmlspecialchars($params['dir']) . " does not exist";
+            echo __FUNCTION__ .": dir '{$basedir}" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($params['dir']) : htmlspecialchars($params['dir'], ENT_COMPAT, LANG_CHARSET)) . " does not exist";
             return;
         }
 

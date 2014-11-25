@@ -20,7 +20,7 @@ class serendipity_plugin_mycalendar extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_MYCALENDAR_SIDE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Markus Gerstel');
-        $propbag->add('version',       '0.13');
+        $propbag->add('version',       '0.13.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -135,14 +135,14 @@ class serendipity_plugin_mycalendar extends serendipity_plugin {
 
         $olddays = 0;
         foreach($items AS $item) {
-            $cont = htmlspecialchars($item['eventname']);
+            $cont = (function_exists('serendipity_specialchars') ? serendipity_specialchars($item['eventname']) : htmlspecialchars($item['eventname'], ENT_COMPAT, LANG_CHARSET));
             if (!empty($item['eventurl'])) {
                 if (!empty($item['eventurltitle'])) {
                     $ltitle = $item['eventurltitle'];
                 } else {
                     $ltitle = $item['eventname'];
                 }
-                $cont = '<a href="' . htmlspecialchars($item['eventurl']) . '" title="' . htmlspecialchars($ltitle) . '">' . $cont . '</a>';
+                $cont = '<a href="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($item['eventurl']) : htmlspecialchars($item['eventurl'], ENT_COMPAT, LANG_CHARSET)) . '" title="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($ltitle) : htmlspecialchars($ltitle, ENT_COMPAT, LANG_CHARSET)) . '">' . $cont . '</a>';
             }
 
             $daystostart = ceil(($item['eventdate'] - $ts) / 86400);

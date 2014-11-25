@@ -34,7 +34,7 @@ class serendipity_event_versioning extends serendipity_event {
         ));
 
         $propbag->add('author', 'Garvin Hicking');
-        $propbag->add('version', '0.11');
+        $propbag->add('version', '0.11.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -261,10 +261,7 @@ class serendipity_event_versioning extends serendipity_event {
                         $msg = '<div class="serendipity_versioningInfo">' . VERSIONING_TITLE . ':<br />%s</div>';
                         $html = '<ul>';
                         foreach($versions AS $version) {
-                            $html .= '<li><a href="' . $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?' . serendipity_archiveURL($eventData[0]['id'], 'revision' . $version['version'], 'serendipityHTTPPath', false) . '&amp;serendipity[version_selected]=' . $version['id'] . '">' . htmlspecialchars(sprintf(VERSIONING_REVISION,
-                                        $version['version'],
-                                        serendipity_strftime($date_time_format, $version['version_date'], true),
-                                        $version['realname'])) . '</a></li>';
+                            $html .= '<li><a href="' . $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?' . serendipity_archiveURL($eventData[0]['id'], 'revision' . $version['version'], 'serendipityHTTPPath', false) . '&amp;serendipity[version_selected]=' . $version['id'] . '">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars(sprintf(VERSIONING_REVISION, $version['version'], serendipity_strftime($date_time_format, $version['version_date'], true), $version['realname'])) : htmlspecialchars(sprintf(VERSIONING_REVISION, $version['version'], serendipity_strftime($date_time_format, $version['version_date'], true), $version['realname']), ENT_COMPAT, LANG_CHARSET)) . '</a></li>';
                         }
                         $html .= '</ul>';
 
@@ -314,7 +311,8 @@ class serendipity_event_versioning extends serendipity_event {
                     }
 ?>
                             </select>
-                            <input class="serendipityPrettyButton input_button" type="submit" name="serendipity[versioning_change]" value="<?php echo VERSIONING_CHANGE; ?>" onclick="return confirm('<?php echo str_replace("'", "\'", htmlspecialchars(VERSIONING_CHANGE_WARNING)); ?>');" />
+                            <input class="serendipityPrettyButton input_button" type="submit" name="serendipity[versioning_change]" value="<?php echo VERSIONING_CHANGE; ?>" onclick="return confirm('<?php echo str_replace("'", "\'", (function_exists('serendipity_specialchars') ? serendipity_specialchars(VERSIONING_CHANGE_WARNING) : htmlspecialchars(VERSIONING_CHANGE_WARNING, ENT_COMPAT, LANG_CHARSET)));
+                             ?>');" />
                         </div>
                     </fieldset>
 <?php

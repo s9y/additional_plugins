@@ -232,7 +232,7 @@ class media_sidebar extends subplug_sidebar {
                                 } else {
                                     $link = $image_path;
                                 }
-                                $output_str .= '<a href="' . $link . '" title="' . htmlspecialchars($e[0]['title']) . '"><img style="border: 0px; '.$width_str .'" src="'.$thumb_path.'" alt="" /></a>';
+                                $output_str .= '<a href="' . $link . '" title="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($e[0]['title']) : htmlspecialchars($e[0]['title'], ENT_COMPAT, LANG_CHARSET)) . '"><img style="border: 0px; '.$width_str .'" src="'.$thumb_path.'" alt="" /></a>';
                             break;
                             case 'popup':
                                 $output_str .= '<a href="'.$image_path.'" onclick="F1 = window.open(\''.$image_path.'\',\'Zoom\',\'height='.$image['dimensions_height'].',width='.$image['dimensions_width'].',top=298,left=354,toolbar=no,menubar=no,location=no,resize=1,resizable=1,scrollbars=yes\'); return false;"><img style="border: 0px; '.$width_str .'" src="'.$thumb_path.'" alt="" /></a>';

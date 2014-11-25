@@ -27,7 +27,7 @@ class serendipity_event_dashboard extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.6.8');
+        $propbag->add('version',       '0.6.9');
         $propbag->add('author',        'Garvin Hicking');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array('read_only', 'limit_draft', 'limit_comments', 'limit_comments_pending', 'limit_future', 'sequence', 'update'));
@@ -164,12 +164,12 @@ class serendipity_event_dashboard extends serendipity_event {
                 $comment['excerpt'] = true;
         
                 // When summary is not the full body, strip HTML tags from summary, as it might break and leave unclosed HTML.
-                $comment['fullBody'] = nl2br(htmlspecialchars($comment['fullBody']));
+                $comment['fullBody'] = nl2br((function_exists('serendipity_specialchars') ? serendipity_specialchars($comment['fullBody']) : htmlspecialchars($comment['fullBody'], ENT_COMPAT, LANG_CHARSET)));
                 $comment['summary']  = nl2br(strip_tags($comment['summary']));
             } else {
                 $comment['excerpt'] = false;
         
-                $comment['fullBody'] = $comment['summary'] = nl2br(htmlspecialchars($comment['fullBody']));
+                $comment['fullBody'] = $comment['summary'] = nl2br((function_exists('serendipity_specialchars') ? serendipity_specialchars($comment['fullBody']) : htmlspecialchars($comment['fullBody'], ENT_COMPAT, LANG_CHARSET)));
             }
         
             #serendipity_plugin_api::hook_event('backend_view_comment', $comment, '&amp;serendipity[page]='. $page . $searchString);
@@ -185,21 +185,21 @@ class serendipity_event_dashboard extends serendipity_event {
                     <img style="width: 22px; height: 22px; border: 0px; padding-right: 4px; vertical-align: middle" src="<?php echo serendipity_getTemplateFile('admin/img/admin_msg_note.png'); ?>" alt="" />
         <?php   }?>
                 <a name="c<?php echo $comment['id'] ?>"></a>
-                <?php echo ($comment['type'] == 'NORMAL' ? COMMENT : ($comment['type'] == 'TRACKBACK' ? TRACKBACK : PINGBACK )) . ' #'. $comment['id'] .', '. IN_REPLY_TO .' <strong><a href="' . $comment['entry_url'] . '">'. htmlspecialchars($comment['title']) .'</a></strong>, '. ON . ' ' . serendipity_formatTime('%b %e %Y, %H:%M', $comment['timestamp'])?>
+                <?php echo ($comment['type'] == 'NORMAL' ? COMMENT : ($comment['type'] == 'TRACKBACK' ? TRACKBACK : PINGBACK )) . ' #'. $comment['id'] .', '. IN_REPLY_TO .' <strong><a href="' . $comment['entry_url'] . '">'. (function_exists('serendipity_specialchars') ? serendipity_specialchars($comment['title']) : htmlspecialchars($comment['title'], ENT_COMPAT, LANG_CHARSET)) .'</a></strong>, '. ON . ' ' . serendipity_formatTime('%b %e %Y, %H:%M', $comment['timestamp'])?>
             </td>
         </tr>
         <tr>
             <td class="serendipity_admin_list_item <?php echo $class ?>" id="comment_<?php echo $comment['id'] ?>">
                 <table width="100%" cellspacing="0" cellpadding="3" border="0">
                     <tr>
-                        <td width="40%"><strong><?php echo AUTHOR ?></strong>: <?php echo htmlspecialchars(serendipity_truncateString($comment['author'],30)) . $comment['action_author']; ?></td>
+                        <td width="40%"><strong><?php echo AUTHOR ?></strong>: <?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars(serendipity_truncateString($comment['author'],30)) : htmlspecialchars(serendipity_truncateString($comment['author'],30), ENT_COMPAT, LANG_CHARSET)) . $comment['action_author']; ?></td>
                         <td><strong><?php echo EMAIL ?></strong>:
                             <?php
                                 if ( empty($comment['email']) ) {
                                     echo 'N/A';
                                 } else {
                             ?>
-                                    <a href="mailto:<?php echo htmlspecialchars($comment['email']) ?>" title="<?php echo htmlspecialchars($comment['email']) ?>"><?php echo htmlspecialchars(serendipity_truncateString($comment['email'],30)) ?></a>
+                                    <a href="mailto:<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($comment['email']) : htmlspecialchars($comment['email'], ENT_COMPAT, LANG_CHARSET)) ?>" title="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($comment['email']) : htmlspecialchars($comment['email'], ENT_COMPAT, LANG_CHARSET)) ?>"><?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars(serendipity_truncateString($comment['email'],30)) : htmlspecialchars(serendipity_truncateString($comment['email'],30), ENT_COMPAT, LANG_CHARSET)) ?></a>
                             <?php } ?>
                         <?php echo $comment['action_email']; ?>
                         </td>
@@ -210,7 +210,7 @@ class serendipity_event_dashboard extends serendipity_event {
                                 if ( empty($comment['ip']) ) {
                                     echo '0.0.0.0';
                                 } else {
-                                    echo htmlspecialchars($comment['ip']);
+                                    echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($comment['ip']) : htmlspecialchars($comment['ip'], ENT_COMPAT, LANG_CHARSET));
                                 }
                             ?>
                             <?php echo $comment['action_ip']; ?>
@@ -221,7 +221,7 @@ class serendipity_event_dashboard extends serendipity_event {
                                     echo 'N/A';
                                 } else {
                             ?>
-                                    <a href="<?php echo htmlspecialchars($comment['url']) ?>" title="<?php echo htmlspecialchars($comment['url']) ?>" target="_blank"><?php echo htmlspecialchars(serendipity_truncateString($comment['url'],30)) ?></a>
+                                    <a href="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($comment['url']) : htmlspecialchars($comment['url'], ENT_COMPAT, LANG_CHARSET)) ?>" title="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($comment['url']) : htmlspecialchars($comment['url'], ENT_COMPAT, LANG_CHARSET)) ?>" target="_blank"><?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars(serendipity_truncateString($comment['url'],30)) : htmlspecialchars(serendipity_truncateString($comment['url'],30), ENT_COMPAT, LANG_CHARSET)) ?></a>
                             <?php } ?>
                             <?php echo $comment['action_url']; ?>
                             </td>
@@ -234,7 +234,7 @@ class serendipity_event_dashboard extends serendipity_event {
                                     echo 'N/A';
                                 } else {
                             ?>
-                                  <a href="<?php echo htmlspecialchars($comment['referer']) ?>" title="<?php echo htmlspecialchars($comment['referer']) ?>" target="_blank"><?php echo htmlspecialchars(serendipity_truncateString($comment['referer'],30)) ?></a>
+                                  <a href="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($comment['referer']) : htmlspecialchars($comment['referer'], ENT_COMPAT, LANG_CHARSET)) ?>" title="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($comment['referer']) : htmlspecialchars($comment['referer'], ENT_COMPAT, LANG_CHARSET)) ?>" target="_blank"><?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars(serendipity_truncateString($comment['referer'],30)) : htmlspecialchars(serendipity_truncateString($comment['referer'],30), ENT_COMPAT, LANG_CHARSET)) ?></a>
                             <?php } ?>
                             <?php echo $comment['action_referer']; ?>
                             </td>
@@ -257,7 +257,7 @@ class serendipity_event_dashboard extends serendipity_event {
                   <a target="_blank" href="<?php echo $entrylink; ?>" title="<?php echo VIEW; ?>" class="serendipityIconLink"><img src="<?php echo serendipity_getTemplateFile('admin/img/zoom.png'); ?>" alt="<?php echo VIEW; ?>" /><?php echo VIEW ?></a>
                   <a href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=edit&amp;serendipity[id]=<?php echo $comment['id'] ?>&amp;serendipity[entry_id]=<?php echo $comment['entry_id'] ?>&amp;<?php echo serendipity_setFormToken('url'); ?>" title="<?php echo EDIT; ?>" class="serendipityIconLink"><img src="<?php echo serendipity_getTemplateFile('admin/img/edit.png'); ?>" alt="<?php echo EDIT; ?>" /><?php echo EDIT ?></a>
         <?php if (!serendipity_db_bool($this->get_config('read_only'))) { ?>
-                  <a href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=delete&amp;serendipity[id]=<?php echo $comment['id'] ?>&amp;serendipity[entry_id]=<?php echo $comment['entry_id'] ?>&amp;<?php echo serendipity_setFormToken('url'); ?>" onclick='return confirm("<?php echo sprintf(COMMENT_DELETE_CONFIRM, $comment['id'], htmlspecialchars($comment['author'])) ?>")' title="<?php echo DELETE ?>" class="serendipityIconLink"><img src="<?php echo serendipity_getTemplateFile('admin/img/delete.png'); ?>" alt="<?php echo DELETE; ?>" /><?php echo DELETE ?></a>
+                  <a href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=delete&amp;serendipity[id]=<?php echo $comment['id'] ?>&amp;serendipity[entry_id]=<?php echo $comment['entry_id'] ?>&amp;<?php echo serendipity_setFormToken('url'); ?>" onclick='return confirm("<?php echo sprintf(COMMENT_DELETE_CONFIRM, $comment['id'], (function_exists('serendipity_specialchars') ? serendipity_specialchars($comment['author']) : htmlspecialchars($comment['author'], ENT_COMPAT, LANG_CHARSET))) ?>")' title="<?php echo DELETE ?>" class="serendipityIconLink"><img src="<?php echo serendipity_getTemplateFile('admin/img/delete.png'); ?>" alt="<?php echo DELETE; ?>" /><?php echo DELETE ?></a>
         <?php } ?>
                   <a target="_blank" onclick="cf = window.open(this.href, 'CommentForm', 'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1'); cf.focus(); return false;" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=reply&amp;serendipity[id]=<?php echo $comment['id'] ?>&amp;serendipity[entry_id]=<?php echo $comment['entry_id'] ?>&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;<?php echo serendipity_setFormToken('url'); ?>" title="<?php echo REPLY ?>" class="serendipityIconLink"><img src="<?php echo serendipity_getTemplateFile('admin/img/user_editor.png'); ?>" alt="<?php echo REPLY; ?>" /><?php echo REPLY ?></a>
                   <?php echo $comment['action_more']; ?>
@@ -318,7 +318,7 @@ class serendipity_event_dashboard extends serendipity_event {
                 <table width="100%" cellspacing="0" cellpadding="3">
                     <tr>
                         <td>
-                            <strong><?php echo $entry_pre; ?><a href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]=<?php echo $entry['id']; ?>" title="#<?php echo $entry['id']; ?>"><?php echo serendipity_truncateString(htmlspecialchars($entry['title']),50) ?></a></strong>
+                            <strong><?php echo $entry_pre; ?><a href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]=<?php echo $entry['id']; ?>" title="#<?php echo $entry['id']; ?>"><?php echo serendipity_truncateString((function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['title']) : htmlspecialchars($entry['title'], ENT_COMPAT, LANG_CHARSET)),50) ?></a></strong>
                         </td>
                         <td align="right">
                             <?php echo serendipity_formatTime(DATE_FORMAT_SHORT, $entry['timestamp']) . ' ' .$lm; ?>
@@ -327,13 +327,13 @@ class serendipity_event_dashboard extends serendipity_event {
                     <tr>
                         <td>
                             <?php
-                echo POSTED_BY . ' ' . htmlspecialchars($entry['author']);
+                echo POSTED_BY . ' ' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['author']) : htmlspecialchars($entry['author'], ENT_COMPAT, LANG_CHARSET));
                 if (count($entry['categories'])) {
                     echo ' ' . IN . ' ';
                     $cats = array();
                     foreach ($entry['categories'] as $cat) {
                         $caturl = serendipity_categoryURL($cat);
-                        $cats[] = '<a href="' . $caturl . '">' . htmlspecialchars($cat['category_name']) . '</a>';
+                        $cats[] = '<a href="' . $caturl . '">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($cat['category_name']) : htmlspecialchars($cat['category_name'], ENT_COMPAT, LANG_CHARSET)) . '</a>';
                     }
                     echo implode(', ', $cats);
                 }

@@ -13,7 +13,7 @@ class serendipity_event_openid extends serendipity_event
         $propbag->add('description', PLUGIN_OPENID_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Grischa Brockhaus, Rob Richards');
-        $propbag->add('version',     '1.2');
+        $propbag->add('version',     '1.2.1');
         $propbag->add('requirements',  array(
             'serendipity' => '1.2',
             'smarty'      => '2.6.7',
@@ -246,17 +246,17 @@ class serendipity_event_openid extends serendipity_event
             if (! empty($serendipity['GET']['openidflag']) && ($serendipity['GET']['openidflag']==3)) {
                 if ($checkRet = serendipity_common_openid::authenticate_openid($_GET, $this->get_consumertest_path(), true)) {
                     if (serendipity_common_openid::updateOpenID($checkRet['openID'], $serendipity['authorid'])) {
-                        echo '<strong>' . htmlspecialchars(PLUGIN_OPENID_UPDATE_SUCCESS) . '</strong><br /><br />';
+                        echo '<strong>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars(PLUGIN_OPENID_UPDATE_SUCCESS) : htmlspecialchars(PLUGIN_OPENID_UPDATE_SUCCESS, ENT_COMPAT, LANG_CHARSET)) . '</strong><br /><br />';
                     } else {
-                        echo '<strong>' . htmlspecialchars(PLUGIN_OPENID_UPDATE_FAIL) . '</strong><br /><br />';
+                        echo '<strong>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars(PLUGIN_OPENID_UPDATE_FAIL) : htmlspecialchars(PLUGIN_OPENID_UPDATE_FAIL, ENT_COMPAT, LANG_CHARSET)) . '</strong><br /><br />';
                     }
                 } else {
-                    echo '<strong>' . htmlspecialchars(PLUGIN_OPENID_INVALID_RESPONSE) . '</strong><br /><br />';
+                    echo '<strong>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars(PLUGIN_OPENID_INVALID_RESPONSE) : htmlspecialchars(PLUGIN_OPENID_INVALID_RESPONSE, ENT_COMPAT, LANG_CHARSET)) . '</strong><br /><br />';
                 }
                 // Job done.
                 unset($serendipity['GET']['openidflag']);
             } elseif (! empty($serendipity['POST']['openidflag']) && ($serendipity['POST']['openidflag']==3)) {
-                echo '<strong>' . htmlspecialchars(PLUGIN_OPENID_INVALID_RESPONSE) . '</strong><br /><br />';
+                echo '<strong>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars(PLUGIN_OPENID_INVALID_RESPONSE) : htmlspecialchars(PLUGIN_OPENID_INVALID_RESPONSE, ENT_COMPAT, LANG_CHARSET)) . '</strong><br /><br />';
             }
         }
         $imgopenid = $serendipity['baseURL'] . 'index.php?/plugin/openid.png';
@@ -265,7 +265,7 @@ class serendipity_event_openid extends serendipity_event
         $imgaol = $serendipity['baseURL'] . 'index.php?/plugin/oids_aol.png';
         
         echo '<div>';
-        echo '<strong>' . htmlspecialchars(PLUGIN_EVENT_OPENID_SELECT) . '</strong><br /><br />';
+        echo '<strong>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars(PLUGIN_EVENT_OPENID_SELECT) : htmlspecialchars(PLUGIN_EVENT_OPENID_SELECT, ENT_COMPAT, LANG_CHARSET)) . '</strong><br /><br />';
         
         // To allow ENTER in the input line we have to create two forms:
         

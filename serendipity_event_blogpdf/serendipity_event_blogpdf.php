@@ -46,7 +46,7 @@ class serendipity_event_blogpdf extends serendipity_event
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Olivier PLATHEY, Steven Wittens');
         $propbag->add('license',       'GPL (Uses LGPL FPDF, HTML2PDF, UFPDF');
-        $propbag->add('version',       '1.82');
+        $propbag->add('version',       '1.82.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -268,7 +268,7 @@ class serendipity_event_blogpdf extends serendipity_event
         $entryLink = serendipity_archiveURL($entry['id'], $entry['title'], 'serendipityHTTPPath', true, array('timestamp' => $entry['timestamp']));
         serendipity_plugin_api::hook_event('frontend_display', $entry, array('no_scramble' => true));
 
-        $posted_by = ' ' . POSTED_BY . ' ' . htmlspecialchars($entry['author']);
+        $posted_by = ' ' . POSTED_BY . ' ' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['author']) : htmlspecialchars($entry['author'], ENT_COMPAT, LANG_CHARSET));
         if (is_array($entry['categories']) && sizeof($entry['categories']) > 0) {
             $posted_by .= ' ' . IN . ' ';
             $cats = array();
@@ -309,7 +309,7 @@ class serendipity_event_blogpdf extends serendipity_event
         }
 
         foreach ($comments as $i => $comment) {
-            $comment['comment'] = htmlspecialchars(strip_tags($comment['body']));
+            $comment['comment'] = (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($comment['body'])) : htmlspecialchars(strip_tags($comment['body']), ENT_COMPAT, LANG_CHARSET));
             if (!empty($comment['url']) && substr($comment['url'], 0, 7) != 'http://' && substr($comment['url'], 0, 8) != 'https://') {
                 $comment['url'] = 'http://' . $comment['url'];
             }

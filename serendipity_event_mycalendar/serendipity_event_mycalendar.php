@@ -28,7 +28,7 @@ class serendipity_event_mycalendar extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.16');
+        $propbag->add('version',       '0.16.1');
         $propbag->add('author',        'Garvin Hicking, Markus Gerstel, Grischa Brockhaus');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
@@ -229,12 +229,12 @@ class serendipity_event_mycalendar extends serendipity_event {
             if ($i == $selected) {
                 $found = true;
             }
-            $html .= '<option value="' . $i . '" ' . ($i == $selected ? ' selected="selected"' : '') . '>' . htmlspecialchars($value) . '</option>' . "\n";
+            $html .= '<option value="' . $i . '" ' . ($i == $selected ? ' selected="selected"' : '') . '>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($value) : htmlspecialchars($value, ENT_COMPAT, LANG_CHARSET)) . '</option>' . "\n";
         }
 
         if (!$found) {
             $html .= '<option value=""></option>' . "\n";
-            $html .= '<option value="' . $selected . '" selected="selected">' . htmlspecialchars($selected) . '</option>' . "\n";
+            $html .= '<option value="' . $selected . '" selected="selected">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($selected) : htmlspecialchars($selected, ENT_COMPAT, LANG_CHARSET)) . '</option>' . "\n";
         }
 
         $html .= '</select>';
@@ -314,8 +314,8 @@ class serendipity_event_mycalendar extends serendipity_event {
 
             echo "<tr style='padding: 10px;' class='serendipity_admin_list_item serendipity_admin_list_item_$even'>\n";
             echo "  <td><em>$idx</em></td>\n";
-            echo "  <td><input class='input_textbox' id='eventname_{$event['eventid']}' type='text' name=\"serendipity[event][{$event['eventid']}][eventname]\" value=\"" . htmlspecialchars($event['eventname']) . "\" /></td>\n";
-            echo "  <td><input class='input_textbox' id='eventurl_{$event['eventid']}' style='width: 100%' type='text' name=\"serendipity[event][{$event['eventid']}][eventurl]\" value=\"" . htmlspecialchars($event['eventurl']) . "\" /></td>\n";
+            echo "  <td><input class='input_textbox' id='eventname_{$event['eventid']}' type='text' name=\"serendipity[event][{$event['eventid']}][eventname]\" value=\"" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($event['eventname']) : htmlspecialchars($event['eventname'], ENT_COMPAT, LANG_CHARSET)) . "\" /></td>\n";
+            echo "  <td><input class='input_textbox' id='eventurl_{$event['eventid']}' style='width: 100%' type='text' name=\"serendipity[event][{$event['eventid']}][eventurl]\" value=\"" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($event['eventurl']) : htmlspecialchars($event['eventurl'], ENT_COMPAT, LANG_CHARSET)) . "\" /></td>\n";
             echo "  <td>";
             echo $this->getDropdown('day', $event['eventid'], range(1, 31), $day, false, 'changeDate('. $event['eventid'] .')') . ".";
             echo $this->getDropdown('month', $event['eventid'], range(1, 12), $month, false, 'changeDate('. $event['eventid'] .')') . ".";
@@ -343,7 +343,7 @@ class serendipity_event_mycalendar extends serendipity_event {
             echo "<tr style='padding: 10px;' class='serendipity_admin_list_item serendipity_admin_list_item_$even'>\n";
             echo "  <td>&nbsp;</td>\n";
             echo "  <td>" . PLUGIN_MYCALENDAR_EVENTURI_TITLE . ": </td>\n";
-            echo "  <td colspan='3'><input class='input_textbox' style='width: 100%' type='text' name=\"serendipity[event][{$event['eventid']}][eventurltitle]\" value=\"" . htmlspecialchars($event['eventurltitle']) . "\" /></td>\n";
+            echo "  <td colspan='3'><input class='input_textbox' style='width: 100%' type='text' name=\"serendipity[event][{$event['eventid']}][eventurltitle]\" value=\"" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($event['eventurltitle']) : htmlspecialchars($event['eventurltitle'], ENT_COMPAT, LANG_CHARSET)) . "\" /></td>\n";
             echo "</tr>\n";
         }
 
@@ -415,14 +415,14 @@ class serendipity_event_mycalendar extends serendipity_event {
                         foreach($items AS $item) {
 ?>
 <item>
-    <title><?php echo serendipity_utf8_encode(htmlspecialchars($item['title'])); ?></title>
-    <link><?php echo serendipity_utf8_encode(htmlspecialchars($item['url'])); ?></link>
+    <title><?php echo serendipity_utf8_encode((function_exists('serendipity_specialchars') ? serendipity_specialchars($item['title']) : htmlspecialchars($item['title'], ENT_COMPAT, LANG_CHARSET))); ?></title>
+    <link><?php echo serendipity_utf8_encode((function_exists('serendipity_specialchars') ? serendipity_specialchars($item['url']) : htmlspecialchars($item['url'], ENT_COMPAT, LANG_CHARSET))); ?></link>
     <author><?php echo $serendipity['blogTitle']; ?></author>
     <content:encoded>
-    <?php echo serendipity_utf8_encode(htmlspecialchars($item['content'])); ?>
+    <?php echo serendipity_utf8_encode((function_exists('serendipity_specialchars') ? serendipity_specialchars($item['content']) : htmlspecialchars($item['content'], ENT_COMPAT, LANG_CHARSET))); ?>
     </content:encoded>
     <pubDate><?php echo $item['date']; ?></pubDate>
-    <guid isPermaLink="false"><?php echo serendipity_utf8_encode(htmlspecialchars($item['url'])); ?></guid>
+    <guid isPermaLink="false"><?php echo serendipity_utf8_encode((function_exists('serendipity_specialchars') ? serendipity_specialchars($item['url']) : htmlspecialchars($item['url'], ENT_COMPAT, LANG_CHARSET))); ?></guid>
 </item>
 <?php
                         }

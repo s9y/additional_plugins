@@ -26,7 +26,7 @@ class serendipity_event_ljupdate extends serendipity_event
             'php'         => '4.1.0'
         ));
         $propbag->add('author', 'Kaustubh Srikanth, Ivan Makhonin');
-        $propbag->add('version', '1.13');
+        $propbag->add('version', '1.13.1');
 
 
         $propbag->add('event_hooks',    array(
@@ -359,7 +359,7 @@ class serendipity_event_ljupdate extends serendipity_event
 
                         $login_url = 'http://blog.myspace.com/index.cfm?fuseaction=login.process';
                         $login_params = "email=$ms_userid&password=$ms_passwd&Remember=0";
-                        echo "Opening URL $login_url with data " . htmlspecialchars($login_params) . "<br />\n";
+                        echo "Opening URL $login_url with data " . (function_exists('serendipity_specialchars') ? serendipity_specialchars($login_params) : htmlspecialchars($login_params, ENT_COMPAT, LANG_CHARSET)) . "<br />\n";
 
                         $ch = curl_init();
                         curl_setopt($ch, CURLOPT_URL, $login_url);
@@ -379,7 +379,7 @@ class serendipity_event_ljupdate extends serendipity_event
                         $post_url = 'http://blog.myspace.com/index.cfm?fuseaction=blog.processCreate';
                         $post_params = "postMonth=$month&postDay=$day&postYear=$year&postHour=$hour&postMinute=$minute&postTimeMarker=$marker&subject=$subject&body=$content";
 
-                        echo "Opening URL $post_url with data " . htmlspecialchars($post_params) . "<br />\n";
+                        echo "Opening URL $post_url with data " . (function_exists('serendipity_specialchars') ? serendipity_specialchars($post_params) : htmlspecialchars($post_params, ENT_COMPAT, LANG_CHARSET)) . "<br />\n";
 
                         $ch = curl_init();
                         curl_setopt($ch, CURLOPT_URL, $post_url);

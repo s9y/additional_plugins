@@ -256,7 +256,7 @@ class serendipity_event_picasa extends serendipity_event {
         ));
         $propbag->add('stackable',       false);
         $propbag->add('author',          'Thomas Nesges, Greg Greenway');
-        $propbag->add('version',         '1.14');
+        $propbag->add('version',         '1.14.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -467,7 +467,7 @@ class serendipity_event_picasa extends serendipity_event {
         $albumItemCount = $xmlData['albumItemCount'];
 
         foreach($xmlData['images'] as $ikey => $ivalue) {
-             $xmlData['images'][$ikey]['itemCaption'] = htmlspecialchars($ivalue['itemCaption'], ENT_QUOTES, false);
+             $xmlData['images'][$ikey]['itemCaption'] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($ivalue['itemCaption'], ENT_QUOTES) : htmlspecialchars($ivalue['itemCaption'], ENT_QUOTES | ENT_COMPAT, LANG_CHARSET));
         }
                             
         if($smarty_template == 'none') {

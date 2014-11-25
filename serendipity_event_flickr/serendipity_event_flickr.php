@@ -31,7 +31,7 @@ class serendipity_event_flickr extends serendipity_event
         $propbag->add('stackable',     false);
         $propbag->add('license',       'GPL');
         $propbag->add('author',        'Jay Bertrand');
-        $propbag->add('version',       '0.5');
+        $propbag->add('version',       '0.5.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',
@@ -133,14 +133,14 @@ class serendipity_event_flickr extends serendipity_event
                     <input type="hidden" name="serendipity[adminAction]" value="flickr" />
 
                     <input type="hidden" name="serendipity[flickr_page]" value="1" />
-                    Flickr username: <input class="input_textbox" name="serendipity[flickr_username]" value="<?php echo  htmlspecialchars($serendipity['POST']['flickr_username']) ?>" />
+                    Flickr username: <input class="input_textbox" name="serendipity[flickr_username]" value="<?php echo  (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['POST']['flickr_username']) : htmlspecialchars($serendipity['POST']['flickr_username'], ENT_COMPAT, LANG_CHARSET)) ?>" />
                     <input type="submit" value="<?php echo GO; ?>" class="serendipityPrettyButton input_button" /><br /><br />
                     <a style="border: 0pt none ; text-decoration: none;" href="#" onclick="flickr_toggleExtended(); return false"
                          title="<?php echo  TOGGLE_OPTION ?>">
                     <img border="0" src="<?php echo serendipity_getTemplateFile('img/plus.png') ?>" /> <?php echo  TOGGLE_ALL ?></a>
                     <div id="flickr_extendedCriteria" <?php echo  (strlen($serendipity['POST']['flickr_username']) ? '':'style="display:none;"') ?>>
-                        <p><?php echo  PLUGIN_EVENT_FLICKR_TAGS ?> <input class="input_textbox" name="serendipity[flickr_tags]" value="<?php echo  htmlspecialchars($serendipity['POST']['flickr_tags']) ?>" />
-                        <?php echo  PLUGIN_EVENT_FLICKR_KEYWORDS ?> <input class="input_textbox" name="serendipity[flickr_keywords]" value="<?php echo  htmlspecialchars($serendipity['POST']['flickr_keywords']) ?>" size="30" /></p>
+                        <p><?php echo  PLUGIN_EVENT_FLICKR_TAGS ?> <input class="input_textbox" name="serendipity[flickr_tags]" value="<?php echo  (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['POST']['flickr_tags']) : htmlspecialchars($serendipity['POST']['flickr_tags'], ENT_COMPAT, LANG_CHARSET)) ?>" />
+                        <?php echo  PLUGIN_EVENT_FLICKR_KEYWORDS ?> <input class="input_textbox" name="serendipity[flickr_keywords]" value="<?php echo  (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['POST']['flickr_keywords']) : htmlspecialchars($serendipity['POST']['flickr_keywords'], ENT_COMPAT, LANG_CHARSET)) ?>" size="30" /></p>
                         <?php echo  SORT_BY ?> <select id="flickr_sort" name="serendipity[flickr_sort]">
                         <option value=""></option>
                         <?
@@ -158,7 +158,7 @@ class serendipity_event_flickr extends serendipity_event
                             // compute sort order
                             $sortOrder = (isset($serendipity['POST']['flickr_keywords']) &&
                                 array_key_exists($serendipity['POST']['flickr_keywords'], $flickr_goodSortOrders) ?
-                                htmlspecialchars($serendipity['POST']['flickr_keywords']) : '');
+                                (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['POST']['flickr_keywords']) : htmlspecialchars($serendipity['POST']['flickr_keywords'], ENT_COMPAT, LANG_CHARSET)) : '');
 
                             // display possible options for sort order
                             foreach($flickr_goodSortOrders as $value => $description) {
@@ -187,7 +187,7 @@ class serendipity_event_flickr extends serendipity_event
                             // Get the friendly URL of the user's photos
                             $photos_url = $f->urls_getUserPhotos($nsid);
                             echo '<h4 style="margin-bottom: 0; padding-bottom: 0;">Photos of <em>';
-                            echo htmlspecialchars($serendipity['POST']['flickr_username']).'</em> at ';
+                            echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['POST']['flickr_username']) : htmlspecialchars($serendipity['POST']['flickr_username'], ENT_COMPAT, LANG_CHARSET)).'</em> at ';
                             echo '<a href="'.$photos_url.'" target="_blank">'.$photos_url.'</a></h4>';
 
                             // default page is number one
@@ -196,7 +196,7 @@ class serendipity_event_flickr extends serendipity_event
                             }
                             // make sure page is a number between 1 and 500 (range allowed by flickr API)
                             $serendipity['POST']['flickr_page'] = min(500,max(1,(int)$serendipity['POST']['flickr_page']));
-                            echo '<h5 style="margin-top: 0; padding-top: 0;">Displaying page '.htmlspecialchars($serendipity['POST']['flickr_page']).'</h5>';
+                            echo '<h5 style="margin-top: 0; padding-top: 0;">Displaying page '.(function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['POST']['flickr_page']) : htmlspecialchars($serendipity['POST']['flickr_page'], ENT_COMPAT, LANG_CHARSET)).'</h5>';
 
                             // Search is made depending on selected criterias
                             $searchCriteria = array();
@@ -204,15 +204,15 @@ class serendipity_event_flickr extends serendipity_event
                             // make sure sort order is non empty AND valid
                             if(isset($serendipity['POST']['flickr_sort']) && strlen(trim($serendipity['POST']['flickr_sort'])) &&
                                 array_key_exists($serendipity['POST']['flickr_keywords'], $flickr_goodSortOrders))
-                                $searchCriteria['sort'] = htmlspecialchars($serendipity['POST']['flickr_sort']);
+                                $searchCriteria['sort'] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['POST']['flickr_sort']) : htmlspecialchars($serendipity['POST']['flickr_sort'], ENT_COMPAT, LANG_CHARSET));
 
                             // TODO: clean up tags of unwanted characters (keep only [a-zA-Z0-9_-])
                             if(isset($serendipity['POST']['flickr_tags']) && strlen(trim($serendipity['POST']['flickr_tags'])))
-                                $searchCriteria['tags'] = implode(',',explode(' ', htmlspecialchars($serendipity['POST']['flickr_tags'])));
+                                $searchCriteria['tags'] = implode(',',explode(' ', (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['POST']['flickr_tags']) : htmlspecialchars($serendipity['POST']['flickr_tags'], ENT_COMPAT, LANG_CHARSET))));
 
                             // TODO: cleanup keywords
                             if(isset($serendipity['POST']['flickr_keywords']) && strlen(trim($serendipity['POST']['flickr_keywords'])))
-                                $searchCriteria['text'] = htmlspecialchars($serendipity['POST']['flickr_keywords']);
+                                $searchCriteria['text'] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['POST']['flickr_keywords']) : htmlspecialchars($serendipity['POST']['flickr_keywords'], ENT_COMPAT, LANG_CHARSET));
 
                             if(count($searchCriteria)) {
                                 // It seems the user wants an advanced search

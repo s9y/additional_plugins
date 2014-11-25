@@ -27,7 +27,7 @@ class serendipity_plugin_POPULARENTRIES extends serendipity_plugin {
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.10');
+        $propbag->add('version',       '1.10.1');
         $propbag->add('configuration', array('title', 'sortby', 'number', 'number_from', 'category', 'commentors_hide'));
         $propbag->add('groups', array('STATISTICS'));
     }
@@ -262,8 +262,8 @@ class serendipity_plugin_POPULARENTRIES extends serendipity_plugin {
                         continue;
                     }
                     $entryLink = $serendipity['serendipityHTTPPath'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . PATH_COMMENTS . '/' . urlencode($entry['author']);
-                    echo '<li><a href="' . $entryLink . '" title="' . htmlspecialchars($entry['author']) . '">' . htmlspecialchars($entry['author']) . '</a>';
-                    echo ' <span class="serendipitySideBarDate">(' . (!empty($entry['points']) ? htmlspecialchars($entry['points']) : 0) . ')</span></li>';
+                    echo '<li><a href="' . $entryLink . '" title="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['author']) : htmlspecialchars($entry['author'], ENT_COMPAT, LANG_CHARSET)) . '">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['author']) : htmlspecialchars($entry['author'], ENT_COMPAT, LANG_CHARSET)) . '</a>';
+                    echo ' <span class="serendipitySideBarDate">(' . (!empty($entry['points']) ? (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['points']) : htmlspecialchars($entry['points'], ENT_COMPAT, LANG_CHARSET)) : 0) . ')</span></li>';
                 } else {
                     $entryLink = serendipity_archiveURL(
                                    $entry['id'],
@@ -273,8 +273,8 @@ class serendipity_plugin_POPULARENTRIES extends serendipity_plugin {
                                    array('timestamp' => $entry['timestamp'])
                                 );
     
-                    echo '<li><a href="' . $entryLink . '" title="' . htmlspecialchars($entry['title']) . '">' . $entry['title'] . '</a>';
-                    echo ' <span class="serendipitySideBarDate">(' . (!empty($entry['points']) ? htmlspecialchars($entry['points']) : 0) . ')</span></li>';
+                    echo '<li><a href="' . $entryLink . '" title="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['title']) : htmlspecialchars($entry['title'], ENT_COMPAT, LANG_CHARSET)) . '">' . $entry['title'] . '</a>';
+                    echo ' <span class="serendipitySideBarDate">(' . (!empty($entry['points']) ? (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['points']) : htmlspecialchars($entry['points'], ENT_COMPAT, LANG_CHARSET)) : 0) . ')</span></li>';
                 }
             }
         }

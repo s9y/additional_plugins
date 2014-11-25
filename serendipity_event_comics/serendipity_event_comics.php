@@ -26,7 +26,7 @@ class serendipity_event_comics extends serendipity_event {
 		$propbag->add('description',   PLUGIN_COMICS_DESC);
 		$propbag->add('stackable',     false);
 		$propbag->add('author',        'Wesley Hwang-Chung');
-		$propbag->add('version',       '1.4');
+		$propbag->add('version',       '1.4.1');
 		$propbag->add('requirements',  array(
 			'serendipity' => '0.8',
 			'smarty'      => '2.6.7',
@@ -189,7 +189,7 @@ class serendipity_event_comics extends serendipity_event {
 				if ($event == 'entries_header' && $serendipity['GET']['page'] == '1') {
 					if ($show_t == 'true') {
 						echo '<h4 class="serendipity_title"><a href="' . serendipity_archiveURL($comic[0]['id'], $comic[0]['title'], 'baseURL', true, array('timestamp' => $comic[0]['timestamp'])) . '">';
-						echo PLUGIN_COMICS_LATEST . htmlspecialchars(serendipity_strftime(DATE_FORMAT_ENTRY, $comic['0']['timestamp'])) . '</a></h4>';
+						echo PLUGIN_COMICS_LATEST . (function_exists('serendipity_specialchars') ? serendipity_specialchars(serendipity_strftime(DATE_FORMAT_ENTRY, $comic['0']['timestamp'])) : htmlspecialchars(serendipity_strftime(DATE_FORMAT_ENTRY, $comic['0']['timestamp']), ENT_COMPAT, LANG_CHARSET)) . '</a></h4>';
 					}
 					if ($show_raw == 'true') {
 						echo $comic['0']['body'];

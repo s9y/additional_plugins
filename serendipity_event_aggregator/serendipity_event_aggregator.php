@@ -72,7 +72,7 @@ class serendipity_event_aggregator extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.31');
+        $propbag->add('version',       '0.31.1');
         $propbag->add('author',       'Evan Nemerson, Garvin Hicking, Kristian Koehntopp, Thomas Schulz, Claus Schmidt');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
@@ -135,7 +135,7 @@ class serendipity_event_aggregator extends serendipity_event {
                         if (!is_array($plugin_data['p']->markup_elements)) {
                             continue;
                         }
-                        $markups[$plugin_data['p']->instance] = htmlspecialchars($plugin_data['p']->title);
+                        $markups[$plugin_data['p']->instance] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($plugin_data['p']->title) : htmlspecialchars($plugin_data['p']->title, ENT_COMPAT, LANG_CHARSET));
                     }
                 }
 
@@ -714,15 +714,15 @@ class serendipity_event_aggregator extends serendipity_event {
             <tr style="padding: 10px;" class="serendipity_admin_list_item serendipity_admin_list_item_' . $even . '">
                 <td valign="top"><em>' . $idx . '</em></td>
                 <td valign="top">
-                    <input class="input_textbox" type="text" name="serendipity[feed][' . $feed['feedid'] . '][feedname]" value="' . htmlspecialchars($feed['feedname']) . '" /> ' . htmlspecialchars($feed['charset']) . '
+                    <input class="input_textbox" type="text" name="serendipity[feed][' . $feed['feedid'] . '][feedname]" value="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($feed['feedname']) : htmlspecialchars($feed['feedname'], ENT_COMPAT, LANG_CHARSET)) . '" /> ' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($feed['charset']) : htmlspecialchars($feed['charset'], ENT_COMPAT, LANG_CHARSET)) . '
                 </td>
                 <td width="100%" valign="top">
-                    <input class="input_textbox" style="width: 100%" type="text" name="serendipity[feed][' . $feed['feedid'] . '][feedurl]" value="' . htmlspecialchars($feed['feedurl']) . '" />
-                    <input class="input_textbox" style="width: 65%; margin-top: 2px;" type="text" name="serendipity[feed][' . $feed['feedid'] . '][htmlurl]" value="' . htmlspecialchars($feed['htmlurl']) . '" />
+                    <input class="input_textbox" style="width: 100%" type="text" name="serendipity[feed][' . $feed['feedid'] . '][feedurl]" value="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($feed['feedurl']) : htmlspecialchars($feed['feedurl'], ENT_COMPAT, LANG_CHARSET)) . '" />
+                    <input class="input_textbox" style="width: 65%; margin-top: 2px;" type="text" name="serendipity[feed][' . $feed['feedid'] . '][htmlurl]" value="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($feed['htmlurl']) : htmlspecialchars($feed['htmlurl'], ENT_COMPAT, LANG_CHARSET)) . '" />
                 </td>
                 <td valign="top" rowspan="2">' . $cat . '</td>
-                <td valign="top" rowspan="2"><textarea rows=6 cols=25 name="serendipity[feed][' . $feed['feedid'] . '][match_expression]">' . htmlspecialchars($feed['match_expression']) . '</textarea><br />
-                    <input class="input_textbox" style="width: 65%; margin-top: 2px;" type="text" name="serendipity[feed][' . $feed['feedid'] . '][feedicon]" value="' . htmlspecialchars($feed['feedicon']) . '" />
+                <td valign="top" rowspan="2"><textarea rows=6 cols=25 name="serendipity[feed][' . $feed['feedid'] . '][match_expression]">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($feed['match_expression']) : htmlspecialchars($feed['match_expression'], ENT_COMPAT, LANG_CHARSET)) . '</textarea><br />
+                    <input class="input_textbox" style="width: 65%; margin-top: 2px;" type="text" name="serendipity[feed][' . $feed['feedid'] . '][feedicon]" value="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($feed['feedicon']) : htmlspecialchars($feed['feedicon'], ENT_COMPAT, LANG_CHARSET)) . '" />
 
             </tr>
             <tr style="padding: 10px;" class="serendipity_admin_list_item serendipity_admin_list_item_' . $even . '">
@@ -1394,7 +1394,7 @@ class serendipity_event_aggregator extends serendipity_event {
 
                 // error handling
                 if ($simplefeed->error()) {
-                    if (!$opt['store_seperate']) printf('<p><b>ERROR:</b> ' . htmlspecialchars($simplefeed->error()) . "</p>\r\n") ;
+                    if (!$opt['store_seperate']) printf('<p><b>ERROR:</b> ' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($simplefeed->error()) : htmlspecialchars($simplefeed->error(), ENT_COMPAT, LANG_CHARSET)) . "</p>\r\n") ;
                 }
 
                 if ($success) {
@@ -1610,10 +1610,10 @@ class serendipity_event_aggregator extends serendipity_event {
                         }
 
                         printf('    <outline title="%s" xmlUrl="%s" htmlUrl="%s" description="%s" />' . "\n",
-                            serendipity_utf8_encode(htmlspecialchars($feed['feedname'])),
-                            serendipity_utf8_encode(htmlspecialchars($feed['feedurl'])),
-                            serendipity_utf8_encode(htmlspecialchars($feed['htmlurl'])),
-                            serendipity_utf8_encode(htmlspecialchars($feed['feedname']))
+                            serendipity_utf8_encode((function_exists('serendipity_specialchars') ? serendipity_specialchars($feed['feedname']) : htmlspecialchars($feed['feedname'], ENT_COMPAT, LANG_CHARSET))),
+                            serendipity_utf8_encode((function_exists('serendipity_specialchars') ? serendipity_specialchars($feed['feedurl']) : htmlspecialchars($feed['feedurl'], ENT_COMPAT, LANG_CHARSET))),
+                            serendipity_utf8_encode((function_exists('serendipity_specialchars') ? serendipity_specialchars($feed['htmlurl']) : htmlspecialchars($feed['htmlurl'], ENT_COMPAT, LANG_CHARSET))),
+                            serendipity_utf8_encode((function_exists('serendipity_specialchars') ? serendipity_specialchars($feed['feedname']) : htmlspecialchars($feed['feedname'], ENT_COMPAT, LANG_CHARSET)))
                         );
                     }
                 }

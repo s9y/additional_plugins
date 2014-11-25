@@ -30,7 +30,7 @@ class serendipity_event_contactform extends serendipity_event {
         $propbag->add('event_hooks',  array('entries_header' => true, 'entry_display' => true, 'genpage' => true));
         $propbag->add('configuration', array('permalink', 'pagetitle', 'backend_title', 'email', 'subject', 'counter', 'intro', 'sent', 'articleformat','dynamic_tpl','dynamic_fields','dynamic_fields_tpl','dynamic_fields_desc'));
         $propbag->add('author', 'Garvin Hicking');
-        $propbag->add('version', '1.16');
+        $propbag->add('version', '1.16.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
@@ -222,10 +222,10 @@ class serendipity_event_contactform extends serendipity_event {
         $commentInfo = array(
             'type'    => 'NORMAL',
             'source'  => 'commentform',
-            'name'    => htmlspecialchars(strip_tags($serendipity['POST']['name'])),
-            'url'     => htmlspecialchars(strip_tags($serendipity['POST']['url'])),
-            'comment' => htmlspecialchars(strip_tags($serendipity['POST']['comment'])),
-            'email'   => htmlspecialchars(strip_tags($serendipity['POST']['email'])),
+            'name'    => (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['name'])) : htmlspecialchars(strip_tags($serendipity['POST']['name']), ENT_COMPAT, LANG_CHARSET)),
+            'url'     => (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['url'])) : htmlspecialchars(strip_tags($serendipity['POST']['url']), ENT_COMPAT, LANG_CHARSET)),
+            'comment' => (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['comment'])) : htmlspecialchars(strip_tags($serendipity['POST']['comment']), ENT_COMPAT, LANG_CHARSET)),
+            'email'   => (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['email'])) : htmlspecialchars(strip_tags($serendipity['POST']['email']), ENT_COMPAT, LANG_CHARSET)),
             'source2' => 'adduser' // Allow the contactform to bypass "only registered users may post" option of the adduser-plugin
 
         );
@@ -245,10 +245,10 @@ class serendipity_event_contactform extends serendipity_event {
 
         if ($this->sendComment(
                 $this->get_config('email'),
-                htmlspecialchars(strip_tags($serendipity['POST']['name'])),
-                htmlspecialchars(strip_tags($serendipity['POST']['email'])),
-                htmlspecialchars(strip_tags($serendipity['POST']['url'])),
-                htmlspecialchars(strip_tags($serendipity['POST']['comment'])))) {
+                (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['name'])) : htmlspecialchars(strip_tags($serendipity['POST']['name']), ENT_COMPAT, LANG_CHARSET)),
+                (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['email'])) : htmlspecialchars(strip_tags($serendipity['POST']['email']), ENT_COMPAT, LANG_CHARSET)),
+                (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['url'])) : htmlspecialchars(strip_tags($serendipity['POST']['url']), ENT_COMPAT, LANG_CHARSET)),
+                (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['comment'])) : htmlspecialchars(strip_tags($serendipity['POST']['comment']) ENT_COMPAT, LANG_CHARSET)))) {
 
             $serendipity['smarty']->assign('is_contactform_sent', true);
             return true;
@@ -318,10 +318,10 @@ class serendipity_event_contactform extends serendipity_event {
         $commentInfo = array(
             'type'    => 'NORMAL',
             'source'  => 'commentform',
-            'name'    => htmlspecialchars(strip_tags($serendipity['POST']['name'])),
-            'url'     => htmlspecialchars(strip_tags($serendipity['POST']['url'])),
-            'comment' => htmlspecialchars(strip_tags($comment)),
-            'email'   => htmlspecialchars(strip_tags($serendipity['POST']['email'])),
+            'name'    => (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['name'])) : htmlspecialchars(strip_tags($serendipity['POST']['name']), ENT_COMPAT, LANG_CHARSET)),
+            'url'     => (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['url'])) : htmlspecialchars(strip_tags($serendipity['POST']['url']), ENT_COMPAT, LANG_CHARSET)),
+            'comment' => (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($comment)) : htmlspecialchars(strip_tags($comment), ENT_COMPAT, LANG_CHARSET)),
+            'email'   => (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['email'])) : htmlspecialchars(strip_tags($serendipity['POST']['email']), ENT_COMPAT, LANG_CHARSET)),
             'source2' => 'adduser' // Allow the contactform to bypass "only registered users may post" option of the adduser-plugin
         );
         serendipity_plugin_api::hook_event('frontend_saveComment', $ca, $commentInfo);
@@ -340,10 +340,10 @@ class serendipity_event_contactform extends serendipity_event {
 
         if ($this->sendComment(
                 $this->get_config('email'),
-                htmlspecialchars(strip_tags($serendipity['POST']['name'])),
-                htmlspecialchars(strip_tags($serendipity['POST']['email'])),
-                htmlspecialchars(strip_tags($serendipity['POST']['url'])),
-                htmlspecialchars(strip_tags($comment)),
+                (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['name'])) : htmlspecialchars(strip_tags($serendipity['POST']['name']), ENT_COMPAT, LANG_CHARSET)),
+                (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['email'])) : htmlspecialchars(strip_tags($serendipity['POST']['email']), ENT_COMPAT, LANG_CHARSET)),
+                (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['url'])) : htmlspecialchars(strip_tags($serendipity['POST']['url']), ENT_COMPAT, LANG_CHARSET)),
+                (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($comment)) : htmlspecialchars(strip_tags($comment), ENT_COMPAT, LANG_CHARSET)),
                 true)) {
 
             $serendipity['smarty']->assign('is_contactform_sent', true);
@@ -398,7 +398,7 @@ class serendipity_event_contactform extends serendipity_event {
                                 $form_fields[$item['name']]['default'] = 'checked="checked"';
                             break;
                             default:
-                                $form_fields[$item['name']]['default'] = htmlspecialchars(strip_tags($item['value']));
+                                $form_fields[$item['name']]['default'] = (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($item['value'])) : htmlspecialchars(strip_tags($item['value']), ENT_COMPAT, LANG_CHARSET));
                             break;
                         }
                     }
@@ -415,11 +415,11 @@ class serendipity_event_contactform extends serendipity_event {
                     'plugin_contactform_sent'    => $this->get_config('sent', PLUGIN_CONTACTFORM_SENT_HTML),
                     'plugin_contactform_message' => PLUGIN_CONTACTFORM_MESSAGE,
                     'commentform_action'         => $serendipity['baseURL'] . $serendipity['indexFile'],
-                    'commentform_sname'          => htmlspecialchars($serendipity['GET']['subpage']),
-                    'commentform_name'           => htmlspecialchars(strip_tags($serendipity['POST']['name'])),
-                    'commentform_url'            => htmlspecialchars(strip_tags($serendipity['POST']['url'])),
-                    'commentform_email'          => htmlspecialchars(strip_tags($serendipity['POST']['email'])),
-                    'commentform_data'           => htmlspecialchars(strip_tags($serendipity['POST']['comment'])),
+                    'commentform_sname'          => (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['subpage']) : htmlspecialchars($serendipity['GET']['subpage'], ENT_COMPAT, LANG_CHARSET)),
+                    'commentform_name'           => (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['name'])) : htmlspecialchars(strip_tags($serendipity['POST']['name']), ENT_COMPAT, LANG_CHARSET)),
+                    'commentform_url'            => (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['url'])) : htmlspecialchars(strip_tags($serendipity['POST']['url']), ENT_COMPAT, LANG_CHARSET)),
+                    'commentform_email'          => (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['email'])) : htmlspecialchars(strip_tags($serendipity['POST']['email']), ENT_COMPAT, LANG_CHARSET)),
+                    'commentform_data'           => (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['comment'])) : htmlspecialchars(strip_tags($serendipity['POST']['comment']), ENT_COMPAT, LANG_CHARSET)),
                     'comments_messagestack'      => $serendipity['messagestack']['comments'],
                     'commentform_entry'          => array(
                                                         'timestamp' => 1, // force captchas!
@@ -497,7 +497,7 @@ class serendipity_event_contactform extends serendipity_event {
                     }
                     if ($this->selected()) {
                         $serendipity['head_title']    = $this->get_config('pagetitle');
-                        $serendipity['head_subtitle'] = htmlspecialchars($serendipity['blogTitle']);
+                        $serendipity['head_subtitle'] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['blogTitle']) : htmlspecialchars($serendipity['blogTitle'], ENT_COMPAT, LANG_CHARSET));
                     } else {
                         // Put subpage back so static page plugin will work
                         $serendipity['GET']['subpage'] = $oldsubpage;

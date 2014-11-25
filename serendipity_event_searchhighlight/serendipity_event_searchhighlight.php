@@ -18,7 +18,7 @@ class serendipity_event_searchhighlight extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SEARCHHIGHLIGHT_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Tom Sommer');
-        $propbag->add('version',       '1.8');
+        $propbag->add('version',       '1.8.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -156,7 +156,7 @@ class serendipity_event_searchhighlight extends serendipity_event
                                                                         : parse_url($_SERVER['HTTP_REFERER'], PHP_URL_QUERY)
                                 );
                     if ( strpos($urlpath, 'search/') ) { 
-                        $urlpath = htmlspecialchars(strip_tags($urlpath)); // avoid spoofing
+                        $urlpath = (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($urlpath)) : htmlspecialchars(strip_tags($urlpath), ENT_COMPAT, LANG_CHARSET)); // avoid spoofing
 						$path = explode('/', urldecode($urlpath)); // split and decode non ASCII
                         $query = $path[(array_search('search', $path)+1)];
                     }

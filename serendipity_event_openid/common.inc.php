@@ -8,7 +8,7 @@ if (file_exists($probelang)) {
 include_once dirname(__FILE__) . '/lang_en.inc.php';
 
 function escape($message) {
-    return htmlspecialchars($message, ENT_QUOTES);
+    return (function_exists('serendipity_specialchars') ? serendipity_specialchars($message, ENT_QUOTES) : htmlspecialchars($message, ENT_QUOTES | ENT_COMPAT, LANG_CHARSET));
 }
 
 class serendipity_common_openid {
@@ -255,7 +255,7 @@ class serendipity_common_openid {
         $form .= '<form name="openid" id="openid" method="post" action="' . $url . '">';
         $form .='<input type="hidden" name="serendipity[openidflag]" value="1" />';
         foreach($hidden AS $key => $val) {
-            $form .= '<input type="hidden" name="serendipity[' . $key . ']" value="' . htmlspecialchars($val) . '" />';
+            $form .= '<input type="hidden" name="serendipity[' . $key . ']" value="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($val) : htmlspecialchars($val, ENT_COMPAT, LANG_CHARSET)) . '" />';
         }
         $form .= '<img src="' . $imgopenid . '" alt="OpenID"> ';
         
@@ -271,7 +271,7 @@ class serendipity_common_openid {
             $form .= '<form name="openid" id="openid" method="post" action="' . $url . '">';
             $form .='<input type="hidden" name="serendipity[openidflag]" value="1" />';
             foreach($hidden AS $key => $val) {
-                $form .= '<input type="hidden" name="serendipity[' . $key . ']" value="' . htmlspecialchars($val) . '" />';
+                $form .= '<input type="hidden" name="serendipity[' . $key . ']" value="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($val) : htmlspecialchars($val, ENT_COMPAT, LANG_CHARSET)) . '" />';
             }
             $form .= '<input name="openIDLoginGoogle" type="image" src="' . $imggoogle . '" alt="' . PLUGIN_OPENID_LOGIN_WITH_GOOGLE . '" title="' . PLUGIN_OPENID_LOGIN_WITH_GOOGLE .'"/> ';
             $form .= '<input name="openIDLoginYahoo" type="image" src="' . $imgyahoo . '" alt="' . PLUGIN_OPENID_LOGIN_WITH_YAHOO . '" title="' . PLUGIN_OPENID_LOGIN_WITH_YAHOO .'"/> ';

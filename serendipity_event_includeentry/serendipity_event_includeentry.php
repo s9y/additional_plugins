@@ -38,7 +38,7 @@ class serendipity_event_includeentry extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_INCLUDEENTRY_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '2.14');
+        $propbag->add('version',       '2.14.1');
         $propbag->add('scrambles_true_content', true);
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
@@ -471,7 +471,7 @@ class serendipity_event_includeentry extends serendipity_event
                 continue;
             }
             $html .= ' <option value="' . $block['id'] . '" ' . ($sel == $block['id'] ? 'selected="selected"' : '') . '>';
-            $html .= htmlspecialchars($block['title']) . '</option>';
+            $html .= (function_exists('serendipity_specialchars') ? serendipity_specialchars($block['title']) : htmlspecialchars($block['title'], ENT_COMPAT, LANG_CHARSET)) . '</option>';
         }
 
         return $html;
@@ -522,8 +522,8 @@ class serendipity_event_includeentry extends serendipity_event
             $serendipity['POST']['staticSubmit'] = true;
             $bag  = new serendipity_property_bag;
             $this->introspect($bag);
-            $name = htmlspecialchars($bag->get('name'));
-            $desc = htmlspecialchars($bag->get('description'));
+            $name = (function_exists('serendipity_specialchars') ? serendipity_specialchars($bag->get('name')) : htmlspecialchars($bag->get('name'), ENT_COMPAT, LANG_CHARSET));
+            $desc = (function_exists('serendipity_specialchars') ? serendipity_specialchars($bag->get('description')) : htmlspecialchars($bag->get('description'), ENT_COMPAT, LANG_CHARSET));
             $config_names = $bag->get('page_configuration');
 
             foreach ($config_names as $config_item) {

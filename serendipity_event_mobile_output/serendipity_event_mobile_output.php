@@ -14,7 +14,7 @@ TODO:
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
-@define('PLUGIN_EVENT_MOBILE_VERSION','1.04');
+@define('PLUGIN_EVENT_MOBILE_VERSION','1.04.1');
 @define('PLUGIN_EVENT_MOBILE_AUTHORS','Pelle Boese, Grischa Brockhaus');
 
 @define('PLUGIN_EVENT_MOBILE_TPL_IPHONE','iphone.app');
@@ -555,7 +555,7 @@ class serendipity_event_mobile_output extends serendipity_event
     function addtoxml(&$str, $url, $lastmod = null, $priority = null, $changefreq = null) {
         /* Sitemap requires this.
          * I think that s9y does not include these specialchars, so this is just a precaution */
-        $url = htmlspecialchars($url, ENT_QUOTES);
+        $url = (function_exists('serendipity_specialchars') ? serendipity_specialchars($url, ENT_QUOTES) : htmlspecialchars($url, ENT_QUOTES| ENT_COMPAT, LANG_CHARSET));
 
         $str .= "\t<url>\n";
         $str .= "\t\t<loc>$url</loc>\n";

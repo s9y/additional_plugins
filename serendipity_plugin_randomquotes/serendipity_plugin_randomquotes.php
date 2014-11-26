@@ -106,7 +106,7 @@ class serendipity_plugin_randomquotes extends serendipity_plugin {
             if (trim($quote) != '') {
                 $exp = explode('|', $quote);
                 if (count($exp) > 0 && trim($exp[0]) != '') {
-                    $quotes_array[$i]['quote']  = (function_exists('serendipity_specialchars') ? serendipity_specialchars(trim($exp[0]) : htmlspecialchars(trim($exp[0], ENT_COMPAT, LANG_CHARSET)));
+                    $quotes_array[$i]['quote']  = (function_exists('serendipity_specialchars') ? serendipity_specialchars(trim($exp[0])) : htmlspecialchars(trim($exp[0]), ENT_COMPAT, LANG_CHARSET));
                     $quotes_array[$i]['author'] = trim($exp[1]);
                     if(count($exp) > 2) {
                         $quotes_array[$i]['link']   = trim($exp[2]);

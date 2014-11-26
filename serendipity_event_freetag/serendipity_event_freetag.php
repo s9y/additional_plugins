@@ -1444,7 +1444,7 @@ addLoadEvent(enableAutocomplete);
         global $serendipity;
         $tags = $this->getTagCloudTags($tag);
 
-        $serendipity['smarty']->assign('freetag_tagTitle', (function_exists('serendipity_specialchars') ? serendipity_specialchars(is_array($this->displayTag) ? implode(' + ',$this->displayTag) : $this->displayTag) : htmlspecialchars(is_array($this->displayTag) ? implode(' + ',$this->displayTag) : $this->displayTag), ENT_COMPAT, LANG_CHARSET));
+        $serendipity['smarty']->assign('freetag_tagTitle', (function_exists('serendipity_specialchars') ? serendipity_specialchars(is_array($this->displayTag) ? implode(' + ',$this->displayTag) : $this->displayTag) : htmlspecialchars(is_array($this->displayTag) ? implode(' + ',$this->displayTag) : $this->displayTag, ENT_COMPAT, LANG_CHARSET)));
 
         if (!empty($tags)) {
             $serendipity['smarty']->assign('freetag_hasTags', true);
@@ -1756,7 +1756,7 @@ addLoadEvent(enableAutocomplete);
         }
 
         foreach($tagList as $tag) {
-            $out .= serendipity_utf8_encode("<$element>".(function_exists('serendipity_specialchars') ? serendipity_specialchars($tag)."</$element>\n") : htmlspecialchars($tag)."</$element>\n", ENT_COMPAT, LANG_CHARSET));
+            $out .= serendipity_utf8_encode("<$element>".(function_exists('serendipity_specialchars') ? serendipity_specialchars($tag) : htmlspecialchars($tag, ENT_COMPAT, LANG_CHARSET)) ."</$element>\n");
         }
         return $out;
     }
@@ -2280,7 +2280,7 @@ addLoadEvent(enableAutocomplete);
                     "&amp;serendipity[tagaction]=delete".
                     "&amp;serendipity[tag]=".urlencode($tag)."&amp;serendipity[commit]=true";
 ?>
-        <h2> <?php printf(PLUGIN_EVENT_FREETAG_MANAGE_CONFIRM_DELETE, (function_exists('serendipity_specialchars') ? serendipity_specialchars($tag)) : htmlspecialchars($tag), ENT_COMPAT, LANG_CHARSET))?></h2>
+        <h2> <?php printf(PLUGIN_EVENT_FREETAG_MANAGE_CONFIRM_DELETE, (function_exists('serendipity_specialchars') ? serendipity_specialchars($tag) : htmlspecialchars($tag, ENT_COMPAT, LANG_CHARSET)))?></h2>
         <h3> <a href="<?php echo $yes; ?>"><?php echo YES; ?></a> &nbsp; &nbsp; <a href="<?php echo $no; ?>"><?php echo NO; ?></a> </h3>
 <?php
     }

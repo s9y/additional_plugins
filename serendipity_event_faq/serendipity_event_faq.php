@@ -1438,10 +1438,10 @@ class serendipity_event_faq extends serendipity_event
         $cbag = new serendipity_property_bag();
         $this->introspect_category_item($config_item, $cbag);
 
-        $cname = (function_exists('serendipity_specialchars') ? serendipity_specialchars($cbag->get('name') : htmlspecialchars($cbag->get('name', ENT_COMPAT, LANG_CHARSET)));
-        $cdesc = (function_exists('serendipity_specialchars') ? serendipity_specialchars($cbag->get('description') : htmlspecialchars($cbag->get('description', ENT_COMPAT, LANG_CHARSET)));
+        $cname = (function_exists('serendipity_specialchars') ? serendipity_specialchars($cbag->get('name')) : htmlspecialchars($cbag->get('name'), ENT_COMPAT, LANG_CHARSET)));
+        $cdesc = (function_exists('serendipity_specialchars') ? serendipity_specialchars($cbag->get('description')) : htmlspecialchars($cbag->get('description'), ENT_COMPAT, LANG_CHARSET)));
         $value = $this->getCategory($config_item, 'unset');
-        $lang_direction = (function_exists('serendipity_specialchars') ? serendipity_specialchars($cbag->get('lang_direction') : htmlspecialchars($cbag->get('lang_direction', ENT_COMPAT, LANG_CHARSET)));
+        $lang_direction = (function_exists('serendipity_specialchars') ? serendipity_specialchars($cbag->get('lang_direction')) : htmlspecialchars($cbag->get('lang_direction'), ENT_COMPAT, LANG_CHARSET)));
 
         if (empty($lang_direction)) {
             $lang_direction = LANG_DIRECTION;

@@ -477,12 +477,12 @@ class serendipity_event_guestbook extends serendipity_event {
     function strip_security($parr = null, $keys = null, $single = false, $compare = true) {
         $authenticated_user = serendipity_userLoggedIn() ? true : false;
         if ($single) {
-            return $authenticated_user ? (function_exists('serendipity_specialchars') ? serendipity_specialchars($parr) : htmlspecialchars($parr, ENT_COMPAT, LANG_CHARSET)) : (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($parr) : htmlspecialchars(strip_tags($parr, ENT_COMPAT, LANG_CHARSET)));
+            return $authenticated_user ? (function_exists('serendipity_specialchars') ? serendipity_specialchars($parr) : htmlspecialchars($parr, ENT_COMPAT, LANG_CHARSET)) : (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($parr)) : htmlspecialchars(strip_tags($parr, ENT_COMPAT, LANG_CHARSET)));
         } else {
             foreach ($parr AS $k => $v) {
                 if (in_array($k, $keys)) {
                     $valuelength = strlen($v);
-                    $parrsec[$k] = $authenticated_user ? (function_exists('serendipity_specialchars') ? serendipity_specialchars($v) : htmlspecialchars($v, ENT_COMPAT, LANG_CHARSET)) : (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($v) : htmlspecialchars(strip_tags($v, ENT_COMPAT, LANG_CHARSET)));
+                    $parrsec[$k] = $authenticated_user ? (function_exists('serendipity_specialchars') ? serendipity_specialchars($v) : htmlspecialchars($v, ENT_COMPAT, LANG_CHARSET)) : (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($v)) : htmlspecialchars(strip_tags($v, ENT_COMPAT, LANG_CHARSET)));
                     if (!$authenticated_user && $compare && ($valuelength != strlen($parrsec[$k]))) {
                         $parrsec['stripped'] = true;
                         $parrsec['stripped-by-key'] = $k;

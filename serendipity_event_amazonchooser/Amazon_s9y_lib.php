@@ -460,7 +460,7 @@ function Amazon_AttributesText ($SearchIndex,$items,$country_url) {
             case 'KindleStore':
                if (isset($item['ITEMATTRIBUTES']['ITEMATTRIBUTES_AUTHOR'])) {
                   if (is_array($item['ITEMATTRIBUTES']['ITEMATTRIBUTES_AUTHOR'])) {
-                     $item['strings']['author'] =  (function_exists('serendipity_specialchars') ? serendipity_specialchars(implode(', ',$item['ITEMATTRIBUTES']['ITEMATTRIBUTES_AUTHOR']) : htmlspecialchars(implode(', ',$item['ITEMATTRIBUTES']['ITEMATTRIBUTES_AUTHOR'], ENT_COMPAT, LANG_CHARSET)));
+                     $item['strings']['author'] =  (function_exists('serendipity_specialchars') ? serendipity_specialchars(implode(', ',$item['ITEMATTRIBUTES']['ITEMATTRIBUTES_AUTHOR'])) : htmlspecialchars(implode(', ',$item['ITEMATTRIBUTES']['ITEMATTRIBUTES_AUTHOR'], ENT_COMPAT, LANG_CHARSET)));
                   } else {
                      $item['strings']['author'] =  (function_exists('serendipity_specialchars') ? serendipity_specialchars($item['ITEMATTRIBUTES']['ITEMATTRIBUTES_AUTHOR']) : htmlspecialchars($item['ITEMATTRIBUTES']['ITEMATTRIBUTES_AUTHOR'], ENT_COMPAT, LANG_CHARSET));
                   }
@@ -481,7 +481,7 @@ function Amazon_AttributesText ($SearchIndex,$items,$country_url) {
             case 'DVD':
                if (isset($item['ITEMATTRIBUTES']['ITEMATTRIBUTES_ACTOR'])) {
                   if (is_array($item['ITEMATTRIBUTES']['ITEMATTRIBUTES_ACTOR'])) {
-                     $item['strings']['actor'] =  (function_exists('serendipity_specialchars') ? serendipity_specialchars(implode(', ',$item['ITEMATTRIBUTES']['ITEMATTRIBUTES_ACTOR']) : htmlspecialchars(implode(', ',$item['ITEMATTRIBUTES']['ITEMATTRIBUTES_ACTOR'], ENT_COMPAT, LANG_CHARSET)));
+                     $item['strings']['actor'] =  (function_exists('serendipity_specialchars') ? serendipity_specialchars(implode(', ',$item['ITEMATTRIBUTES']['ITEMATTRIBUTES_ACTOR'])) : htmlspecialchars(implode(', ',$item['ITEMATTRIBUTES']['ITEMATTRIBUTES_ACTOR'], ENT_COMPAT, LANG_CHARSET)));
                   } else {
                      $item['strings']['actor'] =  (function_exists('serendipity_specialchars') ? serendipity_specialchars($item['ITEMATTRIBUTES']['ITEMATTRIBUTES_ACTOR']) : htmlspecialchars($item['ITEMATTRIBUTES']['ITEMATTRIBUTES_ACTOR'], ENT_COMPAT, LANG_CHARSET));
                   }
@@ -504,7 +504,7 @@ function Amazon_AttributesText ($SearchIndex,$items,$country_url) {
             case 'MusicTracks':
                if (isset($item['ITEMATTRIBUTES']['ITEMATTRIBUTES_ARTIST'])) {
                   if (is_array($item['ITEMATTRIBUTES']['ITEMATTRIBUTES_ARTIST'])) {
-                     $item['strings']['artist'] =  (function_exists('serendipity_specialchars') ? serendipity_specialchars(implode(', ',$item['ITEMATTRIBUTES']['ITEMATTRIBUTES_ARTIST']) : htmlspecialchars(implode(', ',$item['ITEMATTRIBUTES']['ITEMATTRIBUTES_ARTIST'], ENT_COMPAT, LANG_CHARSET)));
+                     $item['strings']['artist'] =  (function_exists('serendipity_specialchars') ? serendipity_specialchars(implode(', ',$item['ITEMATTRIBUTES']['ITEMATTRIBUTES_ARTIST'])) : htmlspecialchars(implode(', ',$item['ITEMATTRIBUTES']['ITEMATTRIBUTES_ARTIST'], ENT_COMPAT, LANG_CHARSET)));
                   } else {
                      $item['strings']['artist']=   (function_exists('serendipity_specialchars') ? serendipity_specialchars($item['ITEMATTRIBUTES']['ITEMATTRIBUTES_ARTIST']) : htmlspecialchars($item['ITEMATTRIBUTES']['ITEMATTRIBUTES_ARTIST'], ENT_COMPAT, LANG_CHARSET));
                   }

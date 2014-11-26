@@ -515,7 +515,14 @@ class serendipity_plugin_audioscrobbler extends serendipity_plugin {
         $output         = str_replace('%ENTRIES%', $entries,  $formatstring_block);
         $profiletitle   = str_replace('%USER%', $this->username, $profiletitle);
         $output         = str_replace('%PROFILE%', '<a href="http://www.audioscrobbler.com/user/'.urlencode(utf8_encode($this->username)).'"'.$onclick.'>'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($profiletitle, ENT_QUOTES) : htmlspecialchars($profiletitle, ENT_QUOTES| ENT_COMPAT, LANG_CHARSET)).'</a>',  $output);
-        $output         = str_replace('%LASTUPDATE%', (function_exists('serendipity_specialchars') ? serendipity_specialchars(serendipity_formatTime($this->get_config('dateformat') : htmlspecialchars(serendipity_formatTime($this->get_config('dateformat', ENT_COMPAT, LANG_CHARSET)), filemtime($this->scrobblercache), true)), $output);
+        $lstime         = serendipity_formatTime($this->get_config('dateformat'), filemtime($this->scrobblercache), true);
+        $output         = str_replace('%LASTUPDATE%', 
+          (function_exists('serendipity_specialchars') 
+           ? serendipity_specialchars($lstime)
+           : htmlspecialchars($lstime, ENT_COMPAT, LANG_CHARSET)
+          ), 
+          $output
+        );
         $output = str_replace('audioscrobbler.com', 'last.fm', $output);
         return $output;
     }

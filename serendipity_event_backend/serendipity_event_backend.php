@@ -171,7 +171,7 @@ class serendipity_event_backend extends serendipity_event {
                                     if ($date != "") {
                                         $date = "[".addslashes((function_exists('serendipity_specialchars') ? serendipity_specialchars($date) : htmlspecialchars($date, ENT_COMPAT, LANG_CHARSET)))."] ";
                                     }
-                                    echo "    document.write('<span class=\"blog_point\">".(trim($point) !="" ? addslashes((function_exists('serendipity_specialchars') ? serendipity_specialchars(trim($point) : htmlspecialchars(trim($point, ENT_COMPAT, LANG_CHARSET))))." " : "") . "</span><span class=\"blog_date\">" . $date . "</span><a class=\"blog_link\" href=\"" . $entryurl . "\">" . addslashes($entries[$a]['title']) . "</a><br />');\n";
+                                    echo "    document.write('<span class=\"blog_point\">".(trim($point) !="" ? addslashes((function_exists('serendipity_specialchars') ? serendipity_specialchars(trim($point)) : htmlspecialchars(trim($point), ENT_COMPAT, LANG_CHARSET)))." " : "") . "</span><span class=\"blog_date\">" . $date . "</span><a class=\"blog_link\" href=\"" . $entryurl . "\">" . addslashes($entries[$a]['title']) . "</a><br />');\n";
                                 } else {
                                     echo "    document.write('<span class=\"blog_title\">".addslashes($entries[$a]['title'])."</span>');\n";
                                     echo "    document.write('<hr class=\"blog_hr\" />');\n";

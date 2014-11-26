@@ -1255,7 +1255,7 @@ class serendipity_event_forum extends serendipity_event {
                 $serendipity['smarty']->assign('ERRORMSG', $ERRORMSG);
             }
             if ($this->get_config('apply_markup')) {
-                $temp_array = array('body' => (function_exists('serendipity_specialchars') ? serendipity_specialchars(stripslashes(trim($post[0]['message'])))) : htmlspecialchars(stripslashes(trim($post[0]['message']))), ENT_COMPAT, LANG_CHARSET));
+                $temp_array = array('body' => (function_exists('serendipity_specialchars') ? serendipity_specialchars(stripslashes(trim($post[0]['message']))) : htmlspecialchars(stripslashes(trim($post[0]['message'])), ENT_COMPAT, LANG_CHARSET));
                 serendipity_plugin_api::hook_event('frontend_display', $temp_array);
                 $post['message'] = trim($temp_array['body']);
             } else {

@@ -416,7 +416,7 @@ class serendipity_event_podcast extends serendipity_event{
     function iTunify(&$eventData) {
         $eventData['per_entry_display_dat'] .= '<itunes:author>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($eventData['author']) : htmlspecialchars($eventData['author'], ENT_COMPAT, LANG_CHARSET)) . '</itunes:author>' . "\n";
         $eventData['per_entry_display_dat'] .= '<itunes:subtitle>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($eventData['title']) : htmlspecialchars($eventData['title'], ENT_COMPAT, LANG_CHARSET)) . '</itunes:subtitle>' . "\n";
-        $eventData['per_entry_display_dat'] .= '<itunes:summary>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($eventData['feed_body']) : htmlspecialchars(strip_tags($eventData['feed_body'], ENT_COMPAT, LANG_CHARSET))) . '</itunes:summary>' . "\n";
+        $eventData['per_entry_display_dat'] .= '<itunes:summary>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($eventData['feed_body'])) : htmlspecialchars(strip_tags($eventData['feed_body']), ENT_COMPAT, LANG_CHARSET)) . '</itunes:summary>' . "\n";
     }
 
     /**

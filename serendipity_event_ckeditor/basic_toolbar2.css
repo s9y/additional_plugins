@@ -1,4 +1,4 @@
-/* last modified: 2014-11-28, > version S9Y 2.0
+/* last modified: 2014-11-28, >= version S9Y 2.0
   CKEDITOR Toolbar tweak to hide the cke-image widget buttons.
   Keeps image widget functionality needed for S9y-MediaLibrary inserts,
   but disables these button to eyes! (cke_backend.css)
@@ -8,24 +8,28 @@
   The Basic toolbar tweak is separated in here, to not interfere with other toolbars!
   Hides an empty image toolgroup in toolbar BASIC (do not remove the .cke_toolbar class!)
 */
-#cke_1_top #cke_27.cke_toolbar {
+
+#cke_1_top #cke_27.cke_toolbar > .cke_toolgroup  {
     display: none;
     visibility: hidden;
-    width: 0 !important;
+    width: 0;
+    height: 0;
 }
 /* Firefox and IE */
-#cke_2_top #cke_65.cke_toolbar .cke_toolgroup {
+#cke_2_top #cke_65.cke_toolbar > .cke_toolgroup  {
     display: none;
     visibility: hidden;
-    width: 0 !important;
+    width: 0;
+    height: 0;
 }
 
 /* on Safari and Chrome webkit engines */
 @media screen and (-webkit-min-device-pixel-ratio:0)
 {
-    #cke_2_top #cke_69.cke_toolbar .cke_toolgroup {
+    #cke_2_top #cke_69.cke_toolbar > .cke_toolgroup  {
         display: none;
         visibility: hidden;
-        width: 0 !important;
+        width: 0;
+        height: 0;
     }
 }

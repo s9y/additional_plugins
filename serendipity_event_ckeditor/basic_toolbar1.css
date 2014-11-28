@@ -1,4 +1,4 @@
-/* last modified: 2014-11-28
+/* last modified: 2014-11-28, < version S9Y 2.0
   CKEDITOR Toolbar tweak to hide the cke-image widget buttons.
   Keeps image widget functionality needed for S9y-MediaLibrary inserts,
   but disables these button to eyes! (cke_backend.css)

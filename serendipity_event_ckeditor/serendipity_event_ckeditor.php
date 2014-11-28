@@ -475,9 +475,15 @@ if ($headcss) {
 <?php
                         // sadly this can't be pushed into streamed css, since that is cached to lazyload
                         if ($toolbar == 'Basic') {
+                            if ($serendipity['version'][0] < 2) {
 ?>
-    <link rel="stylesheet" href="<?php echo $plgpath . 'serendipity_event_ckeditor/'; ?>basic_toolbar.css" />
+    <link rel="stylesheet" href="<?php echo $plgpath . 'serendipity_event_ckeditor/'; ?>basic_toolbar1.css" />
 <?php
+                            } else {
+?>
+    <link rel="stylesheet" href="<?php echo $plgpath . 'serendipity_event_ckeditor/'; ?>basic_toolbar2.css" />
+<?php
+                            }
                         }
                     }
                     break;

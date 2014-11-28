@@ -1,8 +1,8 @@
 <?php
 
 /**
- *  @file UTF-8/lang_de.inc.php 1.4.10 2014-10-11 Ian
- *  @version 1.4.10
+ *  @file UTF-8/lang_de.inc.php 1.4.11 2014-11-26 Ian
+ *  @version 1.4.11
  *  @author Translator Name <yourmail@example.com>
  *  DE-Revision: Revision of UTF-8/lang_de.inc.php
  */
@@ -11,9 +11,9 @@
 @define('PLUGIN_EVENT_CKEDITOR_DESC', 'Nutzt CKEditor als Standard WYSIWYG Editor. Benutzung für JS-Editoren: Empfohlen! Nach der Installation, lies die Plugin Konfigurations Seite für weitere Informationen.');
 @define('PLUGIN_EVENT_CKEDITOR_REVISION_TITLE', '<h3>Das Plugin enthält:</h3>');
 @define('PLUGIN_EVENT_CKEDITOR_INSTALL', '<h2>Installation</h2>
-<div class="msg_notice">
-    <p><span class="icon-attention"></span> <strong>Abhängigkeiten:</strong> Deaktiviere body, extended und nugget parsing global im <strong>NL2BR</strong> Plugin, <strong>oder</strong> per entry über das entryproperties plugin event <strong>und/oder</strong> für statische Seiten über die Entry "Textformatierungs" Option!</p>
-</div>
+<p class="msg_notice">
+    <span class="icon-attention"></span> <strong>Abhängigkeiten:</strong> Deaktiviere body, extended und nugget parsing global im <strong>NL2BR</strong> Plugin, <strong>oder</strong> per entry über das entryproperties event plugin <strong>und/oder</strong> für statische Seiten über die Entry "Textformatierungs" Option!
+</p>
 <ol style="line-height: 1.6">
     <li>Um anderen Plugins Zugriff auf das Plugin oder dessen Hook zu gewähren, plaziere das (CKEditor) Plugin nahe dem Ende deiner Pluginliste.</li>
     <li>Versichere dich, dass der WYSIWYG Modus in den "Eigenen Einstellungen" eingeschaltet ist.</li>
@@ -36,7 +36,7 @@
 
 @define('PLUGIN_EVENT_CKEDITOR_CODEBUTTON_OPTION', 'Nutze "code toolbar button"?');
 @define('PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION', 'Nutze zusätzliches code prettify css/js im Frontend?');
-@define('PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION_BLAHBLAH', 'Nur für Upgrader! Rückwärtskompatibilität für alte Blog Einträge mit code.');
+@define('PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION_BLAHBLAH', 'Nur für Upgrader! Rückwärtskompatibilität für alte Blog Einträge mit Code-Blöcken.');
 @define('PLUGIN_EVENT_CKEDITOR_OPTION_BLAHBLAH', 'Normalerweise: ');
 
 @define('PLUGIN_EVENT_CKEDITOR_FORCEINSTALL_OPTION', 'Entpacke Zip Datei (im Notfall)');

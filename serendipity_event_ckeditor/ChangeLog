@@ -1,3 +1,19 @@
+4.6.0:
+-----
+    * Upgrade to CKEDITOR 4.4 Series, update 6 (http://ckeditor.com/whatsnew)
+    * Introduce frontend_header hook to separate styles from javascript
+    * Introduce WYSIWYG_LANG constant to check corresponding CKEDITOR lang files
+    * Introduce S9y 2.0-beta6 PHP 5.4 LANG_CHARSET wrapper changes for htmlspecialchars()
+    * The preset toolbars now hide the CKE image widget per css, but keep its internal
+      functionality for the image placements via the S9y MediaLibrary button.
+    * Touched some lang files.
+    * Moved custom codesnippet css into highlight.css
+    * Reset cached js configuration files on submit changes by timestamp
+    * Renamed some global js vars
+    PLEASE NOTE:
+      As ever: Hard reload your browser by [CTRL]-[r] to avoid caching
+      on first run in a Serendipity backend textarea
+
 4.5.1:
 -----
     * Fix 2.0 MediaLibrary popup command
@@ -15,7 +31,7 @@
           need any CDN, and uses less ressources being better integrated.
           But it uses a different highlighter js file (hightlight.pack.js).
     * Changed option prettify to be a compat mode only option for ugraders
-      havings used pbckcode code previously for entries.
+      having used pbckcode code previously for entries.
       This also adds some missed prettify linenums css rules.
     * Added option to choose preset toolbars (Basic, Standard, Full)
     * Touched some lang files.

@@ -3,7 +3,7 @@
  */
 
 /**
- * @fileOverview A Serendipity serendipity_event_ckeditor custom CKEDITOR additional plugin creator file: cke_plugin.js, v. 1.7, 2014-10-14
+ * @fileOverview A Serendipity serendipity_event_ckeditor custom CKEDITOR additional plugin creator file: cke_plugin.js, v. 1.8, 2014-11-28
  */
 
 // define array for hooked s9y plugins
@@ -79,8 +79,9 @@ function Spawnnuggets(item, addEP, jsED) {
     // procurator and cheatsheet are S9y only plugins
     var name_extraPlugins = (addEP !== null) ? addEP : textarea_instance;
     var jsEventData       = (jsED  !== null) ? jsED  : window.jsEventData; // global set by 'backend_wysiwyg_finish' hook
-    var extraPluginACF    = (CONFIG_ACF_OFF === true) ? name_extraPlugins+',mediaembed,cheatsheet' : name_extraPlugins+',mediaembed,procurator,cheatsheet'; // no spaces allowed!
-    var extraPluginList   = (CONFIG_CODE_ON === true) ? extraPluginACF+',codesnippet' : extraPluginACF; // no spaces allowed!
+    var extraPluginACF    = (CKECONFIG_ACF_OFF === true) ? name_extraPlugins+',mediaembed,cheatsheet' : name_extraPlugins+',mediaembed,procurator,cheatsheet'; // no spaces allowed!
+    var extraPluginList   = (CKECONFIG_CODE_ON === true) ? extraPluginACF+',codesnippet' : extraPluginACF; // no spaces allowed!
+    var customConfigPath  = CKEDITOR_PLUGPATH+'serendipity_event_ckeditor/cke_config.js?v='+CKECONFIG_FORCE_LOAD;
 
     // case hooked s9ypluginbuttons, since we want the unique id
     if (typeof window.jsEventData !== 'undefined') {
@@ -93,9 +94,9 @@ function Spawnnuggets(item, addEP, jsED) {
 
     if (document.getElementById(textarea_instance)) {
         CKEDITOR.replace(textarea_instance, {
-            toolbar : CONFIG_TOOLBAR,
+            toolbar : CKECONFIG_TOOLBAR,
             // Load our specific configuration file.
-            customConfig : CKEDITOR_PLUGPATH+'serendipity_event_ckeditor/cke_config.js',
+            customConfig : customConfigPath,
 
             // or do and set
             // Reset toolbar Groups settings
@@ -117,7 +118,7 @@ function Spawnnuggets(item, addEP, jsED) {
                         rules = {
                             elements: {
                                 mediainsert: function( element ) {
-                                    if (CONFIG_ACF_OFF !== true) {
+                                    if (CKECONFIG_ACF_OFF !== true) {
                                         // XHTML output instead of HTML - but this does not react on trailing slash eg <media "blah" />
                                         // editor.dataProcessor.writer.selfClosingEnd = ' />';
 

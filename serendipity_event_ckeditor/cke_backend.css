@@ -14,4 +14,29 @@
     opacity: 0.9;
     font-size: smaller;
     border: 1px dashed;
+    padding: 0 .5em;
+}
+
+/*
+  CKEDITOR Toolbar tweak to hide the cke-image widget buttons.
+  Keeps image widget functionality needed for S9y-MediaLibrary inserts,
+  but disables these button to eyes!
+*/
+
+#cke_1_top .cke_toolgroup a.cke_button__image,
+#cke_2_top .cke_toolgroup a.cke_button__image {
+    display: none !important;
+    visibility: hidden;
+    height: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+}
+/* hide next sibling separator */
+#cke_1_top .cke_toolgroup a.cke_button__image~.cke_toolbar_separator,
+#cke_2_top .cke_toolgroup a.cke_button__image~.cke_toolbar_separator {
+    display: none;
+    visibility: hidden;
+    margin: 0px;
+    height: 0px;
+    width: 0px;
 }

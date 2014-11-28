@@ -4,7 +4,7 @@
   but disables these button to eyes! (cke_backend.css)
 
   Sadly firefox and chrome engines count node IDs differently in textareas,
-  which for the BASIC emptied image toolbar group is DOM ID 27/65 in FF/IE is 27/69 in Chrome.
+  which for the BASIC emptied image toolbar group is DOM ID 27/64 in FF/IE is 27/68 in Chrome.
   The Basic toolbar tweak is separated in here, to not interfere with other toolbars!
   Hides an empty image toolgroup in toolbar BASIC (do not remove the .cke_toolbar class!)
 */
@@ -14,8 +14,7 @@
     width: 0 !important;
 }
 /* Firefox and IE */
-#cke_2_top #cke_64.cke_toolbar .cke_toolgroup,
-#cke_2_top #cke_68.cke_toolbar .cke_toolgroup {
+#cke_2_top #cke_64.cke_toolbar .cke_toolgroup {
     display: none;
     visibility: hidden;
     width: 0 !important;
@@ -24,8 +23,7 @@
 /* on Safari and Chrome webkit engines */
 @media screen and (-webkit-min-device-pixel-ratio:0)
 {
-    #cke_2_top #cke_65.cke_toolbar .cke_toolgroup,
-    #cke_2_top #cke_69.cke_toolbar .cke_toolgroup {
+    #cke_2_top #cke_68.cke_toolbar .cke_toolgroup {
         display: none;
         visibility: hidden;
         width: 0 !important;

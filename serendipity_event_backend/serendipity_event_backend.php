@@ -34,7 +34,7 @@ class serendipity_event_backend extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.6');
+        $propbag->add('version',       '0.6.1');
         $propbag->add('author',       'Alexander \'dma147\' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
@@ -169,9 +169,9 @@ class serendipity_event_backend extends serendipity_event {
 
                                 if ($details <= 0) {
                                     if ($date != "") {
-                                        $date = "[".addslashes(htmlspecialchars($date))."] ";
+                                        $date = "[".addslashes((function_exists('serendipity_specialchars') ? serendipity_specialchars($date) : htmlspecialchars($date, ENT_COMPAT, LANG_CHARSET)))."] ";
                                     }
-                                    echo "    document.write('<span class=\"blog_point\">".(trim($point) !="" ? addslashes(htmlspecialchars(trim($point)))." " : "") . "</span><span class=\"blog_date\">" . $date . "</span><a class=\"blog_link\" href=\"" . $entryurl . "\">" . addslashes($entries[$a]['title']) . "</a><br />');\n";
+                                    echo "    document.write('<span class=\"blog_point\">".(trim($point) !="" ? addslashes((function_exists('serendipity_specialchars') ? serendipity_specialchars(trim($point)) : htmlspecialchars(trim($point), ENT_COMPAT, LANG_CHARSET)))." " : "") . "</span><span class=\"blog_date\">" . $date . "</span><a class=\"blog_link\" href=\"" . $entryurl . "\">" . addslashes($entries[$a]['title']) . "</a><br />');\n";
                                 } else {
                                     echo "    document.write('<span class=\"blog_title\">".addslashes($entries[$a]['title'])."</span>');\n";
                                     echo "    document.write('<hr class=\"blog_hr\" />');\n";
@@ -187,7 +187,7 @@ class serendipity_event_backend extends serendipity_event {
                                     }
 
                                     if ($date != "") {
-                                        $date = ", " . addslashes(htmlspecialchars($date));
+                                        $date = ", " . addslashes((function_exists('serendipity_specialchars') ? serendipity_specialchars($date) : htmlspecialchars($date, ENT_COMPAT, LANG_CHARSET)));
                                     }
 
                                     $body = str_replace("'", "\'", $body);

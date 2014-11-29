@@ -23,7 +23,7 @@ class serendipity_event_assigncategories extends serendipity_event
         $propbag->add('description',   PLUGIN_ASSIGNCATEGORIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Matthias Mees');
-        $propbag->add('version',       '1.4');
+        $propbag->add('version',       '1.4.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '4.1.0'
@@ -151,11 +151,11 @@ class serendipity_event_assigncategories extends serendipity_event
             echo '<table>';
             foreach ($cats as $cat_data) {
                 echo '<tr>' . "\n";
-                echo '<td valign="top"><strong>' . htmlspecialchars($cat_data['category_name']) . '</strong></td>' . "\n";
+                echo '<td valign="top"><strong>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($cat_data['category_name']) : htmlspecialchars($cat_data['category_name'], ENT_COMPAT, LANG_CHARSET)) . '</strong></td>' . "\n";
                 echo '<td><select size="5" name="serendipity[assigncat][' . $cat_data['categoryid'] . '][]" multiple="true">' . "\n";
                 if (is_array($entries) && !empty($entries)) {
                     foreach($entries AS $entryid => $entry) {
-                        echo '<option value="' . $entryid . '" ' . (in_array($cat_data['categoryid'], (array)$entry['categories']) ? 'selected="selected"' : '') . '>' . htmlspecialchars($entry['title']) . '</option>' . "\n";
+                        echo '<option value="' . $entryid . '" ' . (in_array($cat_data['categoryid'], (array)$entry['categories']) ? 'selected="selected"' : '') . '>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['title']) : htmlspecialchars($entry['title'], ENT_COMPAT, LANG_CHARSET)) . '</option>' . "\n";
                     }
                 }
                 echo '</select></td>' . "\n";
@@ -168,11 +168,11 @@ class serendipity_event_assigncategories extends serendipity_event
         } else {
             foreach ($cats as $cat_data) {
                 echo '<div class="form_multiselect">';
-                echo '<label for="serendipity_assigncat_'  . $cat_data['categoryid'] . '" class="block_level">' . htmlspecialchars($cat_data['category_name']) . '</label>';
+                echo '<label for="serendipity_assigncat_'  . $cat_data['categoryid'] . '" class="block_level">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($cat_data['category_name']) : htmlspecialchars($cat_data['category_name'], ENT_COMPAT, LANG_CHARSET)) . '</label>';
                 echo '<select id="serendipity_assigncat_'  . $cat_data['categoryid'] . '" size="5" name="serendipity[assigncat][' . $cat_data['categoryid'] . '][]" multiple="true">';
                 if (is_array($entries) && !empty($entries)) {
                     foreach($entries AS $entryid => $entry) {
-                        echo '<option value="' . $entryid . '" ' . (in_array($cat_data['categoryid'], (array)$entry['categories']) ? 'selected="selected"' : '') . '>' . htmlspecialchars($entry['title']) . '</option>';
+                        echo '<option value="' . $entryid . '" ' . (in_array($cat_data['categoryid'], (array)$entry['categories']) ? 'selected="selected"' : '') . '>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['title']) : htmlspecialchars($entry['title'], ENT_COMPAT, LANG_CHARSET)) . '</option>';
                     }
                 }
                 echo '</select></div>';

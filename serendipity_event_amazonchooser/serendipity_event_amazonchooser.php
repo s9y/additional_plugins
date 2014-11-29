@@ -29,7 +29,7 @@ class serendipity_event_amazonchooser extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_AMAZONCHOOSER_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Matthew Groeninger, Ian');
-        $propbag->add('version',       '0.74');
+        $propbag->add('version',       '0.74.1');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -278,13 +278,13 @@ class serendipity_event_amazonchooser extends serendipity_event
                                     } else {
                                         $simple = "";
                                     }
-                                    $request_mode = trim(htmlspecialchars(rawurlencode($_REQUEST['mode'])));
+                                    $request_mode = trim((function_exists('serendipity_specialchars') ? serendipity_specialchars(rawurlencode($_REQUEST['mode'])) : htmlspecialchars(rawurlencode($_REQUEST['mode']), ENT_COMPAT, LANG_CHARSET)));
                                     if (in_array($_REQUEST['mode'],$mode)) {
-                                        $results = $this->Amazon_Call("search",$request_mode,trim(htmlspecialchars(rawurlencode($_REQUEST['keyword']))),$country_url,$page);
+                                        $results = $this->Amazon_Call("search",$request_mode,trim((function_exists('serendipity_specialchars') ? serendipity_specialchars(rawurlencode($_REQUEST['keyword'])) : htmlspecialchars(rawurlencode($_REQUEST['keyword']), ENT_COMPAT, LANG_CHARSET))),$country_url,$page);
                                     } else {
                                         $results['return_count'] = 0;
                                         $results['count'] = 0;
-                                        $results['error_message'] = PLUGIN_EVENT_AMAZONCHOOSER_INVALIDINDEX . ": " .trim(htmlspecialchars(rawurlencode($_REQUEST['mode'])));
+                                        $results['error_message'] = PLUGIN_EVENT_AMAZONCHOOSER_INVALIDINDEX . ": " .trim((function_exists('serendipity_specialchars') ? serendipity_specialchars(rawurlencode($_REQUEST['mode'])) : htmlspecialchars(rawurlencode($_REQUEST['mode']), ENT_COMPAT, LANG_CHARSET)));
                                     }
                                     if ($page > 1) {
                                        $previous_page = $page - 1;
@@ -306,16 +306,16 @@ class serendipity_event_amazonchooser extends serendipity_event
                                             'plugin_amazonchooser_error_result'     => $results['error_result'],
                                             'plugin_amazonchooser_cache_time'       => $results['return_date'],
                                             'plugin_amazonchooser_items'            => $results['items'],
-                                            'plugin_amazonchooser_search_url'       => serendipity_rewriteURL('plugin/amazonch') . ($serendipity['rewrite'] != 'none' ? '?' : '&amp;') . 'txtarea=' . htmlspecialchars($_REQUEST['txtarea']).$simple.'&amp;keyword='.trim(htmlspecialchars(rawurlencode($_REQUEST['keyword']))).'&amp;mode='.$request_mode,
-                                            'plugin_amazonchooser_this_url'         => serendipity_rewriteURL('plugin/amazonch') . ($serendipity['rewrite'] != 'none' ? '?' : '&amp;') . '&amp;mode='.trim(htmlspecialchars(rawurlencode($_REQUEST['mode']))).'&amp;txtarea=' . htmlspecialchars($_REQUEST['txtarea']) .$simple. '&amp;step=1&amp;keyword='.trim(htmlspecialchars(rawurlencode($_REQUEST['keyword']))).'&amp;page=',
-                                            'plugin_amazonchooser_select_url'       => serendipity_rewriteURL('plugin/amazonch') . ($serendipity['rewrite'] != 'none' ? '?' : '&amp;') . '&amp;mode='.trim(htmlspecialchars(rawurlencode($_REQUEST['mode']))).$simple.'&amp;txtarea=' . htmlspecialchars($_REQUEST['txtarea']) . '&amp;step=2&amp;asin='
+                                            'plugin_amazonchooser_search_url'       => serendipity_rewriteURL('plugin/amazonch') . ($serendipity['rewrite'] != 'none' ? '?' : '&amp;') . 'txtarea=' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($_REQUEST['txtarea']) : htmlspecialchars($_REQUEST['txtarea'], ENT_COMPAT, LANG_CHARSET)).$simple.'&amp;keyword='.trim((function_exists('serendipity_specialchars') ? serendipity_specialchars(rawurlencode($_REQUEST['keyword'])) : htmlspecialchars(rawurlencode($_REQUEST['keyword']), ENT_COMPAT, LANG_CHARSET))).'&amp;mode='.$request_mode,
+                                            'plugin_amazonchooser_this_url'         => serendipity_rewriteURL('plugin/amazonch') . ($serendipity['rewrite'] != 'none' ? '?' : '&amp;') . '&amp;mode='.trim((function_exists('serendipity_specialchars') ? serendipity_specialchars(rawurlencode($_REQUEST['mode'])) : htmlspecialchars(rawurlencode($_REQUEST['mode']), ENT_COMPAT, LANG_CHARSET))).'&amp;txtarea=' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($_REQUEST['txtarea']) : htmlspecialchars($_REQUEST['txtarea'], ENT_COMPAT, LANG_CHARSET)) .$simple. '&amp;step=1&amp;keyword='.trim((function_exists('serendipity_specialchars') ? serendipity_specialchars(rawurlencode($_REQUEST['keyword'])) : htmlspecialchars(rawurlencode($_REQUEST['keyword']), ENT_COMPAT, LANG_CHARSET))).'&amp;page=',
+                                            'plugin_amazonchooser_select_url'       => serendipity_rewriteURL('plugin/amazonch') . ($serendipity['rewrite'] != 'none' ? '?' : '&amp;') . '&amp;mode='.trim((function_exists('serendipity_specialchars') ? serendipity_specialchars(rawurlencode($_REQUEST['mode'])) : htmlspecialchars(rawurlencode($_REQUEST['mode']), ENT_COMPAT, LANG_CHARSET))).$simple.'&amp;txtarea=' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($_REQUEST['txtarea']) : htmlspecialchars($_REQUEST['txtarea'], ENT_COMPAT, LANG_CHARSET)) . '&amp;step=2&amp;asin='
                                       )
                                     );
                                     break;
 
                                 case '2':
                                     if (isset($_REQUEST['asin'])) {
-                                        $result = $this->Amazon_Call("lookup",trim(htmlspecialchars(rawurlencode($_REQUEST['mode']))),trim(htmlspecialchars(rawurlencode($_REQUEST['asin']))),$country_url,$page);
+                                        $result = $this->Amazon_Call("lookup",trim((function_exists('serendipity_specialchars') ? serendipity_specialchars(rawurlencode($_REQUEST['mode'])) : htmlspecialchars(rawurlencode($_REQUEST['mode']), ENT_COMPAT, LANG_CHARSET))),trim((function_exists('serendipity_specialchars') ? serendipity_specialchars(rawurlencode($_REQUEST['asin'])) : htmlspecialchars(rawurlencode($_REQUEST['asin']), ENT_COMPAT, LANG_CHARSET))),$country_url,$page);
                                     } else {
                                         $result['count'] = 0;
                                         $result['error_message'] = PLUGIN_EVENT_AMAZONCHOOSER_NOASIN;
@@ -332,7 +332,7 @@ class serendipity_event_amazonchooser extends serendipity_event
                                             'plugin_amazonchooser_txtarea'          => $_REQUEST['txtarea'],
                                             'plugin_amazonchooser_item_count'       => $result['count'],
                                             'plugin_amazonchooser_return_count'     => $result['return_count'],
-                                            'plugin_amazonchooser_searchmode'       => trim(htmlspecialchars(rawurlencode($_REQUEST['mode']))),
+                                            'plugin_amazonchooser_searchmode'       => trim((function_exists('serendipity_specialchars') ? serendipity_specialchars(rawurlencode($_REQUEST['mode'])) : htmlspecialchars(rawurlencode($_REQUEST['mode']), ENT_COMPAT, LANG_CHARSET))),
                                             'plugin_amazonchooser_simple'           => $simple,
                                             'plugin_amazonchooser_error_message'    => $result['error_message'],
                                             'plugin_amazonchooser_cache_time'       => $result['return_date'],
@@ -359,7 +359,7 @@ class serendipity_event_amazonchooser extends serendipity_event
                                             'plugin_amazonchooser_page'          => "default",
                                             'plugin_amazonchooser_keyword'       => rawurldecode($_REQUEST['keyword']),
                                             'plugin_amazonchooser_link'          => $link,
-                                            'plugin_amazonchooser_txtarea'       => trim(htmlspecialchars(rawurlencode($_REQUEST['txtarea']))),
+                                            'plugin_amazonchooser_txtarea'       => trim((function_exists('serendipity_specialchars') ? serendipity_specialchars(rawurlencode($_REQUEST['txtarea'])) : htmlspecialchars(rawurlencode($_REQUEST['txtarea']), ENT_COMPAT, LANG_CHARSET))),
                                             'plugin_amazonchooser_simple'        => $simple,
                                             'plugin_amazonchooser_mode'          => $mode_out,
                                             'plugin_amazonchooser_defaultmode'   => $defaultmode

@@ -24,7 +24,7 @@ class serendipity_event_unstrip_tags extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_UNSTRIP_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.03');
+        $propbag->add('version',       '1.03.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
@@ -47,7 +47,7 @@ class serendipity_event_unstrip_tags extends serendipity_event
                 case 'frontend_display':
 
                     if (isset($eventData ['comment']) && !empty($eventData['body'])) {
-                        $eventData['comment'] = htmlspecialchars($eventData['body']);
+                        $eventData['comment'] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($eventData['body']) : htmlspecialchars($eventData['body'], ENT_COMPAT, LANG_CHARSET));
                     }
                     return true;
                     break;

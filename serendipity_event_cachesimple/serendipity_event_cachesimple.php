@@ -75,7 +75,7 @@ class serendipity_event_cachesimple extends serendipity_event
         $propbag->add('description', PLUGIN_EVENT_CACHESIMPLE_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Garvin Hicking');
-        $propbag->add('version',     '1.2');
+        $propbag->add('version',     '1.2.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -271,7 +271,7 @@ document.getElementById('serendipity_commentform_url').value   = getCommentCooki
                     $post_import = array('name', 'email', 'url');
                     foreach($post_import AS $importvar) {
                         if (!empty($serendipity['POST'][$importvar])) {
-                            echo "document.getElementById('serendipity_commentform_$importvar').value   = '" . htmlspecialchars($serendipity['POST'][$importvar]) . "';\n";
+                            echo "document.getElementById('serendipity_commentform_$importvar').value   = '" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['POST'][$importvar]) : htmlspecialchars($serendipity['POST'][$importvar], ENT_COMPAT, LANG_CHARSET)) . "';\n";
                         }
                     }
 ?>

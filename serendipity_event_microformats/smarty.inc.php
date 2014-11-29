@@ -123,7 +123,7 @@ echo '</pre>';*/
                     'hreview_url'               => $params['url'],
                     'hreview_name'              => $params['name'],
                     'hreview_desc'              => $params['desc'],
-                    'hreview_desc_escaped'      => htmlentities($params['desc']),
+                    'hreview_desc_escaped'      => htmlentities($params['desc'], ENT_COMPAT, LANG_CHARSET),
                     'hreview_rating'            => floor($params['rating']),
                     'hreview_ratingvalue'       => $params['rating'],
                     'hreview_best'              => (int)$serendipity['smarty']->_tpl_vars['best']/*,
@@ -152,7 +152,7 @@ echo '</pre>';*/
                     'hcalendar_startdate_humanreadable' => date('d.m.Y H:i T', $params['startdate']),
                     'hcalendar_enddate_humanreadable'   => date('d.m.Y H:i T', $params['enddate']),
                     'hcalendar_desc'                    => $params['desc'],
-                    'hcalendar_desc_escaped'            => htmlentities($params['desc'])
+                    'hcalendar_desc_escaped'            => htmlentities($params['desc'], ENT_COMPAT, LANG_CHARSET)
                 )
             );
             break;
@@ -161,7 +161,7 @@ echo '</pre>';*/
     $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
 
     if (!empty($params['escaped'])) {
-        echo serendipity_utf8_encode(htmlspecialchars($content));
+        echo serendipity_utf8_encode((function_exists('serendipity_specialchars') ? serendipity_specialchars($content) : htmlspecialchars($content, ENT_COMPAT, LANG_CHARSET)));
     } else {
         echo $content;
     }

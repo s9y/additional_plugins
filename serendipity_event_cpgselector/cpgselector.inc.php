@@ -208,7 +208,7 @@ function cpg_displayImageList($page = 0, $lineBreak = NULL, $manage = false, $ur
 <?php
     foreach($CPG['get'] AS $g_key => $g_val) {
         if ( !is_array($g_val) && $g_key != 'page' ) {
-            echo '<input type="hidden" name="CPG_POST[' . $g_key . ']" value="' . htmlspecialchars($g_val) . '" />';
+            echo '<input type="hidden" name="CPG_POST[' . $g_key . ']" value="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($g_val) : htmlspecialchars($g_val, ENT_COMPAT, LANG_CHARSET)) . '" />';
         }
     }
 ?>
@@ -628,10 +628,10 @@ function cpg_imageSelector_done(textarea)
 				<input type="hidden" name="thumbName" value="<?php echo $image['thumbnail']; ?>" />
 				<input type="hidden" name="cpg_link" value="<?php echo $image['link']; ?>" />
 				<?php if (!empty($CPG['htmltarget'])) { ?>
-				<input type="hidden" name="htmltarget" value="<?php echo htmlspecialchars($CPG['htmltarget']); ?>" />
+				<input type="hidden" name="htmltarget" value="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($CPG['htmltarget']) : htmlspecialchars($CPG['htmltarget'], ENT_COMPAT, LANG_CHARSET)); ?>" />
 				<?php } ?>
 				<?php if (!empty($CPG['filename_only'])) { ?>
-				<input type="hidden" name="filename_only" value="<?php echo htmlspecialchars($CPG['filename_only']); ?>" />
+				<input type="hidden" name="filename_only" value="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($CPG['filename_only']) : htmlspecialchars($CPG['filename_only'], ENT_COMPAT, LANG_CHARSET)); ?>" />
 				<?php } ?>
 
 				<b><?php echo IMAGE_SIZE; ?>:</b>
@@ -679,14 +679,14 @@ function cpg_imageSelector_done(textarea)
 		if (!empty($CPG['filename_only'])) {
 ?>
 	<script type="text/javascript">
-		self.opener.serendipity_imageSelector_addToElement('<?php echo htmlspecialchars($imgName); ?>', '<?php echo htmlspecialchars($CPG['htmltarget']); ?>');
+		self.opener.serendipity_imageSelector_addToElement('<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($imgName) : htmlspecialchars($imgName, ENT_COMPAT, LANG_CHARSET)); ?>', '<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($CPG['htmltarget']) : htmlspecialchars($CPG['htmltarget'], ENT_COMPAT, LANG_CHARSET)); ?>');
 		self.close();
 	</script>
 <?php
 		} else {
 ?>
 	<script type="text/javascript">
-	block = '<a href="<?php echo htmlspecialchars($imgName); ?>" title="<?php echo htmlspecialchars($file['name'] . '.' . $file['extension']); ?>" target="_blank"><?php echo htmlspecialchars($file['name'] . '.' . $file['extension']); ?></a>';
+	block = '<a href="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($imgName) : htmlspecialchars($imgName, ENT_COMPAT, LANG_CHARSET)); ?>" title="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($file['name'] . '.' . $file['extension']) : htmlspecialchars($file['name'] . '.' . $file['extension'], ENT_COMPAT, LANG_CHARSET)); ?>" target="_blank"><?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($file['name'] . '.' . $file['extension']) : htmlspecialchars($file['name'] . '.' . $file['extension'], ENT_COMPAT, LANG_CHARSET)); ?></a>';
 	if (self.opener.editorref) {
 		self.opener.editorref.surroundHTML(block, '');
 	} else {

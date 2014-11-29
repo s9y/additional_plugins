@@ -22,7 +22,7 @@ class serendipity_plugin_userprofiles extends serendipity_plugin {
         $propbag->add('description', PLUGIN_USERPROFILES_NAME_DESC);
         $propbag->add('author',      "Falk Döring");
         $propbag->add('stackable',   false);
-        $propbag->add('version',     '1.2');
+        $propbag->add('version',     '1.2.1');
         $propbag->add('configuration', array('title', 'show_groups', 'show_users'));
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
@@ -101,8 +101,8 @@ class serendipity_plugin_userprofiles extends serendipity_plugin {
 
             $content .= sprintf("<a href=\"%s\" title=\"%s\">%s</a><br />\n",
                       $entryLink,
-                      htmlspecialchars($user['realname']),
-                      htmlspecialchars($user['realname']));
+                      (function_exists('serendipity_specialchars') ? serendipity_specialchars($user['realname']) : htmlspecialchars($user['realname'], ENT_COMPAT, LANG_CHARSET)),
+                      (function_exists('serendipity_specialchars') ? serendipity_specialchars($user['realname']) : htmlspecialchars($user['realname'], ENT_COMPAT, LANG_CHARSET)));
         }
 
         return $content;

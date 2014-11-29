@@ -126,7 +126,7 @@ function communityrating_serendipity_show($params, &$smarty) {
     $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
 
 	if (!empty($params['escaped'])) {
-        echo serendipity_utf8_encode(htmlspecialchars($content));
+        echo serendipity_utf8_encode((function_exists('serendipity_specialchars') ? serendipity_specialchars($content) : htmlspecialchars($content, ENT_COMPAT, LANG_CHARSET)));
 	} else {
         echo $content;
 	}

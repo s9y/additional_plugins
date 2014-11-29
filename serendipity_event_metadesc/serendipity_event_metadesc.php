@@ -25,7 +25,7 @@ class serendipity_event_metadesc extends serendipity_event {
         $propbag->add('description',   PLUGIN_METADESC_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Judebert, Don Chambers');
-        $propbag->add('version',       '0.15');
+        $propbag->add('version',       '0.15.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '4.1.0'
@@ -143,7 +143,7 @@ class serendipity_event_metadesc extends serendipity_event {
                             $this->meta_title = $property['meta_head_title'];
                             $this->save_title = $serendipity['head_title'];
                             $this->save_subtitle = $serendipity['head_subtitle'];
-                            $serendipity['head_title'] = htmlspecialchars($this->meta_title);
+                            $serendipity['head_title'] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($this->meta_title) : htmlspecialchars($this->meta_title, ENT_COMPAT, LANG_CHARSET));
                             // Clear the subtitle (many templates use it along with the title)
                             $serendipity['head_subtitle'] = '';
                         }
@@ -192,8 +192,8 @@ class serendipity_event_metadesc extends serendipity_event {
 
 
                         if (serendipity_db_bool($this->get_config('escape'))) {
-                            $md = htmlspecialchars($meta_description);
-                            $mk = htmlspecialchars($meta_keywords);
+                            $md = (function_exists('serendipity_specialchars') ? serendipity_specialchars($meta_description) : htmlspecialchars($meta_description, ENT_COMPAT, LANG_CHARSET));
+                            $mk = (function_exists('serendipity_specialchars') ? serendipity_specialchars($meta_keywords) : htmlspecialchars($meta_keywords, ENT_COMPAT, LANG_CHARSET));
                         } else {
                             $md = $meta_description;
                             $mk = $meta_keywords;
@@ -207,8 +207,8 @@ class serendipity_event_metadesc extends serendipity_event {
                         // emit default meta description and meta keyword, if not blank, for pages other than single entry
 
                         if (serendipity_db_bool($this->get_config('escape'))) {
-                            $md = htmlspecialchars($default_description);
-                            $mk = htmlspecialchars($default_keywords);
+                            $md = (function_exists('serendipity_specialchars') ? serendipity_specialchars($default_description) : htmlspecialchars($default_description, ENT_COMPAT, LANG_CHARSET));
+                            $mk = (function_exists('serendipity_specialchars') ? serendipity_specialchars($default_keywords) : htmlspecialchars($default_keywords, ENT_COMPAT, LANG_CHARSET));
                         } else {
                             $md = $default_description;
                             $mk = $default_keywords;
@@ -281,18 +281,18 @@ class serendipity_event_metadesc extends serendipity_event {
                         <p class="meta_description"><em><?php echo PLUGIN_METADESC_FORM; ?></em></p>
 
                         <label for="serendipity[properties][meta_description]"><?php echo PLUGIN_METADESC_DESCRIPTION; ?></label><br />
-                        <input class="input_textbox" type="text" style="width: 100%" value="<?php echo htmlspecialchars($meta_description); ?>" name="serendipity[properties][meta_description]" id="properties_meta_description" />
+                        <input class="input_textbox" type="text" style="width: 100%" value="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($meta_description) : htmlspecialchars($meta_description, ENT_COMPAT, LANG_CHARSET)); ?>" name="serendipity[properties][meta_description]" id="properties_meta_description" />
                         <span class="meta_string_length"><?php echo PLUGIN_METADESC_LENGTH . ': ' . str_word_count($meta_description) . ' '. PLUGIN_METADESC_WORDS . ', ' . strlen($meta_description) . ' ' . PLUGIN_METADESC_CHARACTERS; ?></span>
                         <br /><br />
                         <label for="serendipity[properties][meta_keywords]"><?php echo PLUGIN_METADESC_KEYWORDS; ?></label><br />
-                        <input class="input_textbox" type="text" style="width: 100%" value="<?php echo htmlspecialchars($meta_keywords); ?>" name="serendipity[properties][meta_keywords]" id="properties_meta_keywords" />
+                        <input class="input_textbox" type="text" style="width: 100%" value="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($meta_keywords) : htmlspecialchars($meta_keywords, ENT_COMPAT, LANG_CHARSET)); ?>" name="serendipity[properties][meta_keywords]" id="properties_meta_keywords" />
                         <span class="meta_string_length"><?php echo PLUGIN_METADESC_LENGTH . ': ' . str_word_count($meta_keywords) . ' '. PLUGIN_METADESC_WORDS . ', ' . strlen($meta_keywords) . ' ' . PLUGIN_METADESC_CHARACTERS; ?></span>
                         <br /><br />
 
                         <p class="meta_description"><em><?php echo PLUGIN_METADESC_HEADTITLE_DESC; ?></em></p>
 
                         <label for="serendipity[properties][meta_head_title]"><?php echo PLUGIN_METADESC_HEADTITLE; ?></label><br />
-                        <input class="input_textbox" type="text" style="width: 100%" value="<?php echo htmlspecialchars($meta_head_title); ?>" name="serendipity[properties][meta_head_title]" id="properties_headtitle" />
+                        <input class="input_textbox" type="text" style="width: 100%" value="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($meta_head_title) : htmlspecialchars($meta_head_title, ENT_COMPAT, LANG_CHARSET)); ?>" name="serendipity[properties][meta_head_title]" id="properties_headtitle" />
                         <span class="meta_string_length"><?php echo PLUGIN_METADESC_LENGTH . ': ' . str_word_count($meta_head_title) . ' '. PLUGIN_METADESC_WORDS . ', ' . strlen($meta_head_title) . ' ' . PLUGIN_METADESC_CHARACTERS; ?></span>
 
                         <p class="meta_stringlength_disclaimer"><em><?php echo '<sup>*</sup> ' . PLUGIN_METADESC_STRINGLENGTH_DISCLAIMER; ?></em></p>

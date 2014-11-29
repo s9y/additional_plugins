@@ -14,7 +14,7 @@ if (file_exists($probelang)) {
 include dirname(__FILE__) . '/lang_en.inc.php';
 
 // Actual version of this plugin
-@define('PLUGIN_EVENT_GRAVATAR_VERSION', '1.58');
+@define('PLUGIN_EVENT_GRAVATAR_VERSION', '1.58.1');
 
 // Defines the maximum available method  slots in the configuration.
 @define('PLUGIN_EVENT_GRAVATAR_METHOD_MAX', 6);
@@ -438,7 +438,7 @@ class serendipity_event_gravatar extends serendipity_event
         $title = '';
         $author = 'unknown';
         if (isset($eventData['author'])) {
-            $author = htmlspecialchars($eventData['author']);
+            $author = (function_exists('serendipity_specialchars') ? serendipity_specialchars($eventData['author']) : htmlspecialchars($eventData['author'], ENT_COMPAT, LANG_CHARSET));
             $title = $author;
         }
         
@@ -778,7 +778,7 @@ class serendipity_event_gravatar extends serendipity_event
                 {
                     
                     // Attempt to grab an avatar link from their webpage url
-                    $linkUrl = html_entity_decode($matches[1]);
+                    $linkUrl = html_entity_decode($matches[1], ENT_COMPAT, LANG_CHARSET);
                     if (substr($linkUrl, 0, 1) == '/') {
                         if ($urlParts = parse_url($url)) {
                             $faviconURL = $urlParts['scheme'] . '://' . $urlParts['host'] . $linkUrl;

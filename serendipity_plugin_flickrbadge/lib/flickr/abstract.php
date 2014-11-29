@@ -121,7 +121,7 @@ abstract class serendipity_plugin_flickrbadge_flickr_abstract
 	 * @param array $arguments
 	 * @return array
 	 */
-	protected function __call($method, $arguments)
+	public function __call($method, $arguments)
 	{
 		if (array_key_exists(1, $arguments))
 			$this->setNamespace($arguments[1]);

@@ -27,7 +27,7 @@ class serendipity_plugin_quicklink extends serendipity_plugin
         $propbag->add('description',   PLUGIN_QUICKLINK_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Omid Mottaghi Rad');
-        $propbag->add('version',       '0.7');
+        $propbag->add('version',       '0.7.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',
@@ -271,9 +271,9 @@ initToolTips();
             	// create tool tip string
             	$tip = '';
             	if($show_tip == 'true'){
-            		$tip = htmlspecialchars(serendipity_strftime($timestamp, $row['stamp']));
+            		$tip = (function_exists('serendipity_specialchars') ? serendipity_specialchars(serendipity_strftime($timestamp, $row['stamp'])) : htmlspecialchars(serendipity_strftime($timestamp, $row['stamp']), ENT_COMPAT, LANG_CHARSET));
             		if( trim($row['description']) != ''){
-            			$tip .= '<br />' . nl2br(htmlspecialchars($row['description']));
+            			$tip .= '<br />' . nl2br((function_exists('serendipity_specialchars') ? serendipity_specialchars($row['description']) : htmlspecialchars($row['description'], ENT_COMPAT, LANG_CHARSET)));
             		}
             		$tip = ' onMouseOver="toolTip(\'' . $tip . '\')" onMouseOut="toolTip()"';
             	}
@@ -286,7 +286,7 @@ initToolTips();
             	}
 
             	// create link string
-                $link = '<a href="' . htmlspecialchars($row['link']) . '"' . $tip . ' target="_blank">' . htmlspecialchars($label) . '</a>';
+                $link = '<a href="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['link']) : htmlspecialchars($row['link'], ENT_COMPAT, LANG_CHARSET)) . '"' . $tip . ' target="_blank">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($label) : htmlspecialchars($label, ENT_COMPAT, LANG_CHARSET)) . '</a>';
 
                 // create telete link string
                 $deleteLink = '';

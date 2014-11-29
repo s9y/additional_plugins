@@ -29,7 +29,7 @@ class serendipity_event_categorytemplates extends serendipity_event
         $propbag->add('description',   PLUGIN_CATEGORYTEMPLATES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Judebert');
-        $propbag->add('version',       '0.35');
+        $propbag->add('version',       '0.35.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'php'         => '4.1.0'
@@ -515,7 +515,7 @@ class serendipity_event_categorytemplates extends serendipity_event
                     foreach ($styles AS $style => $path) {
                         $templateInfo = serendipity_fetchTemplateInfo($style);
 ?>
-            <option value="<?php echo htmlspecialchars($style); ?>" <?php echo ($style == $template? 'selected="selected"' : ''); ?>><?php echo htmlspecialchars($templateInfo['name']); ?></option>
+            <option value="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($style) : htmlspecialchars($style, ENT_COMPAT, LANG_CHARSET)); ?>" <?php echo ($style == $template? 'selected="selected"' : ''); ?>><?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($templateInfo['name']) : htmlspecialchars($templateInfo['name'], ENT_COMPAT, LANG_CHARSET)); ?></option>
 <?php
                     }
 ?>
@@ -536,7 +536,7 @@ class serendipity_event_categorytemplates extends serendipity_event
         <td><select id="language" name="serendipity[cat][lang]">
             <option value="default"><?php echo USE_DEFAULT; ?></option>
         <?php foreach($serendipity['languages'] AS $langkey => $lang) { ?>
-            <option value="<?php echo $lang; ?>" <?php echo ($langkey == $clang ? 'selected="selected"' : ''); ?>><?php echo htmlspecialchars($lang); ?></option>
+            <option value="<?php echo $lang; ?>" <?php echo ($langkey == $clang ? 'selected="selected"' : ''); ?>><?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($lang) : htmlspecialchars($lang, ENT_COMPAT, LANG_CHARSET)); ?></option>
         <?php } ?>
         </select></td>
     </tr>

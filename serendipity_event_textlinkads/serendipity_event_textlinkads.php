@@ -30,7 +30,7 @@ class serendipity_event_textlinkads extends serendipity_event
             'php'         => '4.1.0'
         ));
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
-        $propbag->add('version',       '0.12');
+        $propbag->add('version',       '0.12.1');
         $propbag->add('configuration', array('htmlid', 'xmlfilename'));
         $propbag->add('event_hooks',    array(
             'css'                  => true,
@@ -159,7 +159,7 @@ class serendipity_event_textlinkads extends serendipity_event
 
     function html_entity_decode($string) {
         if (function_exists('html_entity_decode')) {
-            return html_entity_decode($string);
+            return html_entity_decode($string, ENT_COMPAT, LANG_CHARSET);
         }
 
         // replace numeric entities
@@ -181,7 +181,7 @@ class serendipity_event_textlinkads extends serendipity_event
         $n = 0;
 
         while (isset($out[$n])) {
-            $retarr[$out[$n][1]][] = str_replace($search_ar, $replace_ar, $this->html_entity_decode(strip_tags($out[$n][0])));
+            $retarr[$out[$n][1]][] = str_replace($search_ar, $replace_ar, $this->html_entity_decode(strip_tags($out[$n][0]), ENT_COMPAT, LANG_CHARSET));
             $n++;
         }
 
@@ -211,7 +211,7 @@ class serendipity_event_textlinkads extends serendipity_event
     
         $basedir = dirname(__FILE__) . '/';
         if (!is_dir($basedir . $params['dir'])) {
-            echo __FUNCTION__ .": dir '{$basedir}" . htmlspecialchars($params['dir']) . " does not exist";
+            echo __FUNCTION__ .": dir '{$basedir}" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($params['dir']) : htmlspecialchars($params['dir'], ENT_COMPAT, LANG_CHARSET)) . " does not exist";
             return;
         }
 

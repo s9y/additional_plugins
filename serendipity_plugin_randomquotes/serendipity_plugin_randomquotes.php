@@ -21,7 +21,7 @@ class serendipity_plugin_randomquotes extends serendipity_plugin {
         $propbag->add('configuration',  array('title', 'searchenginelink', 'formatstring', 'quotes', 'newwindow', 'numquotes'));
         $propbag->add('author',         'Florian Solcher');
         $propbag->add('stackable',      true);
-        $propbag->add('version',        '1.05');
+        $propbag->add('version',        '1.05.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -106,7 +106,7 @@ class serendipity_plugin_randomquotes extends serendipity_plugin {
             if (trim($quote) != '') {
                 $exp = explode('|', $quote);
                 if (count($exp) > 0 && trim($exp[0]) != '') {
-                    $quotes_array[$i]['quote']  = htmlspecialchars(trim($exp[0]));
+                    $quotes_array[$i]['quote']  = (function_exists('serendipity_specialchars') ? serendipity_specialchars(trim($exp[0])) : htmlspecialchars(trim($exp[0]), ENT_COMPAT, LANG_CHARSET));
                     $quotes_array[$i]['author'] = trim($exp[1]);
                     if(count($exp) > 2) {
                         $quotes_array[$i]['link']   = trim($exp[2]);
@@ -130,12 +130,12 @@ class serendipity_plugin_randomquotes extends serendipity_plugin {
             $item = $quotes_array[$key];
             if (trim($item['link']) == '') {
                 if (trim($url) != '') {
-                    $item['author'] = '<a href="'.str_replace('%QUERY%', urlencode($item['author']), $url).'"'.$onclick.'>'. htmlspecialchars($item['author']).'</a>'."\n";
+                    $item['author'] = '<a href="'.str_replace('%QUERY%', urlencode($item['author']), $url).'"'.$onclick.'>'. (function_exists('serendipity_specialchars') ? serendipity_specialchars($item['author']) : htmlspecialchars($item['author'], ENT_COMPAT, LANG_CHARSET)).'</a>'."\n";
                 }
             } elseif (trim($item['link']) != 'none') {
-                $item['author'] = '<a href="'.$item['link'].'"'.$onclick.'>'. htmlspecialchars($item['author']) .'</a>'."\n";
+                $item['author'] = '<a href="'.$item['link'].'"'.$onclick.'>'. (function_exists('serendipity_specialchars') ? serendipity_specialchars($item['author']) : htmlspecialchars($item['author'], ENT_COMPAT, LANG_CHARSET)) .'</a>'."\n";
             } else {
-                $item['author'] = htmlspecialchars($item['author']);
+                $item['author'] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($item['author']) : htmlspecialchars($item['author'], ENT_COMPAT, LANG_CHARSET));
             }
             echo str_replace(array('%QUOTE%', '%AUTHOR%'), array($item['quote'], $item['author']), $formatstring);
         }

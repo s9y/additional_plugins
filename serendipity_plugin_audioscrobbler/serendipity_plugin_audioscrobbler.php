@@ -63,7 +63,7 @@ class serendipity_plugin_audioscrobbler extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_AUDIOSCROBBLER_TITLE_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Flo Solcher');
-        $propbag->add('version',       '1.25');
+        $propbag->add('version',       '1.25.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -210,7 +210,7 @@ class serendipity_plugin_audioscrobbler extends serendipity_plugin {
     //renders the date for output
     function renderScrobblerDate($date) {
         $stamp          = $date + intval($this->utcdifference) * 60 * 60;
-        return htmlspecialchars(serendipity_formatTime($this->get_config('dateformat'), $stamp, true));
+        return (function_exists('serendipity_specialchars') ? serendipity_specialchars(serendipity_formatTime($this->get_config('dateformat'), $stamp, true)) : htmlspecialchars(serendipity_formatTime($this->get_config('dateformat'), $stamp, true), ENT_COMPAT, LANG_CHARSET));
     }
 
     //sets the timestamp of the last update try
@@ -475,32 +475,32 @@ class serendipity_plugin_audioscrobbler extends serendipity_plugin {
             if ($songlink) {
                 if (is_string(strstr($value['link'], '&mode'))) {
                     //fix ampersand entity
-                       $song    = '<a href="'.str_replace('&mode', '&amp;mode', $value['link']). '"'.$onclick.'>'.htmlspecialchars($value['songtitle'], ENT_QUOTES).'</a>'."\n";
+                       $song    = '<a href="'.str_replace('&mode', '&amp;mode', $value['link']). '"'.$onclick.'>'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($value['songtitle'], ENT_QUOTES) : htmlspecialchars($value['songtitle'], ENT_QUOTES| ENT_COMPAT, LANG_CHARSET)).'</a>'."\n";
                 } elseif (is_string(strstr($value['link'], '&amp;mode'))) {
                     //link is ok
-                    $song   = '<a href="'.$value['link']. '"'.$onclick.'>'.htmlspecialchars($value['songtitle'], ENT_QUOTES).'</a>'."\n";
+                    $song   = '<a href="'.$value['link']. '"'.$onclick.'>'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($value['songtitle'], ENT_QUOTES) : htmlspecialchars($value['songtitle'], ENT_QUOTES| ENT_COMPAT, LANG_CHARSET)).'</a>'."\n";
                 } else {
                     //encode it
-                    $song   = '<a href="http://www.audioscrobbler.com/music/'.urlencode(utf8_encode($value['artisttitle'])). '/_/'.urlencode(utf8_encode($value['songtitle'])).'"'.$onclick.'>'.htmlspecialchars($value['songtitle'], ENT_QUOTES).'</a>'."\n";
+                    $song   = '<a href="http://www.audioscrobbler.com/music/'.urlencode(utf8_encode($value['artisttitle'])). '/_/'.urlencode(utf8_encode($value['songtitle'])).'"'.$onclick.'>'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($value['songtitle'], ENT_QUOTES) : htmlspecialchars($value['songtitle'], ENT_QUOTES| ENT_COMPAT, LANG_CHARSET)).'</a>'."\n";
                 }
             } else {
-                $song = htmlspecialchars($value['songtitle'], ENT_QUOTES);
+                $song = (function_exists('serendipity_specialchars') ? serendipity_specialchars($value['songtitle'], ENT_QUOTES) : htmlspecialchars($value['songtitle'], ENT_QUOTES| ENT_COMPAT, LANG_CHARSET));
             }
             if ($artistlink == 0) {
-                $artist = htmlspecialchars($value['artisttitle'], ENT_QUOTES);
+                $artist = (function_exists('serendipity_specialchars') ? serendipity_specialchars($value['artisttitle'], ENT_QUOTES) : htmlspecialchars($value['artisttitle'], ENT_QUOTES| ENT_COMPAT, LANG_CHARSET));
             } elseif ($artistlink == 1) {
-                $artist = '<a href="http://www.audioscrobbler.com/music/'.urlencode(utf8_encode($value['artisttitle'])).'"'.$onclick.'>'.htmlspecialchars($value['artisttitle'], ENT_QUOTES).'</a>'."\n";
+                $artist = '<a href="http://www.audioscrobbler.com/music/'.urlencode(utf8_encode($value['artisttitle'])).'"'.$onclick.'>'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($value['artisttitle'], ENT_QUOTES) : htmlspecialchars($value['artisttitle'], ENT_QUOTES| ENT_COMPAT, LANG_CHARSET)).'</a>'."\n";
             } elseif ($artistlink == 2) {
                 if ($value['artisttitle'] != '' || $value['artistlink'] != 'http://mm.musicbrainz.org/artist/') {
-                    $artist = '<a href="' . $value['artistlink'] . '"'.$onclick.'>'.htmlspecialchars($value['artisttitle'], ENT_QUOTES).'</a>'."\n";
+                    $artist = '<a href="' . $value['artistlink'] . '"'.$onclick.'>'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($value['artisttitle'], ENT_QUOTES) : htmlspecialchars($value['artisttitle'], ENT_QUOTES| ENT_COMPAT, LANG_CHARSET)).'</a>'."\n";
                 } else {
-                    $artist = htmlspecialchars($value['artisttitle'], ENT_QUOTES);
+                    $artist = (function_exists('serendipity_specialchars') ? serendipity_specialchars($value['artisttitle'], ENT_QUOTES) : htmlspecialchars($value['artisttitle'], ENT_QUOTES| ENT_COMPAT, LANG_CHARSET));
                 }
             } else {
                 if (trim($value['artistlink']) != 'http://mm.musicbrainz.org/artist/' && trim($value['artistlink']) != '') {
-                    $artist = '<a href="' . $value['artistlink'] . '"'.$onclick.'>'.htmlspecialchars($value['artisttitle'], ENT_QUOTES).'</a>'."\n";
+                    $artist = '<a href="' . $value['artistlink'] . '"'.$onclick.'>'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($value['artisttitle'], ENT_QUOTES) : htmlspecialchars($value['artisttitle'], ENT_QUOTES| ENT_COMPAT, LANG_CHARSET)).'</a>'."\n";
                 } else {
-                    $artist = '<a href="http://www.audioscrobbler.com/music/'.urlencode(utf8_encode($value['artisttitle'])).'"'.$onclick.'>'.htmlspecialchars($value['artisttitle'], ENT_QUOTES).'</a>'."\n";
+                    $artist = '<a href="http://www.audioscrobbler.com/music/'.urlencode(utf8_encode($value['artisttitle'])).'"'.$onclick.'>'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($value['artisttitle'], ENT_QUOTES) : htmlspecialchars($value['artisttitle'], ENT_QUOTES| ENT_COMPAT, LANG_CHARSET)).'</a>'."\n";
                 }
             }
             $replacements   = array('%ARTIST%' => $artist, '%SONG%' => $song, '%DATE%' => $this->renderScrobblerDate($value['date'], $dateformat));
@@ -514,8 +514,15 @@ class serendipity_plugin_audioscrobbler extends serendipity_plugin {
         $entries        = join($spacer, $content);
         $output         = str_replace('%ENTRIES%', $entries,  $formatstring_block);
         $profiletitle   = str_replace('%USER%', $this->username, $profiletitle);
-        $output         = str_replace('%PROFILE%', '<a href="http://www.audioscrobbler.com/user/'.urlencode(utf8_encode($this->username)).'"'.$onclick.'>'.htmlspecialchars($profiletitle, ENT_QUOTES).'</a>',  $output);
-        $output         = str_replace('%LASTUPDATE%', htmlspecialchars(serendipity_formatTime($this->get_config('dateformat'), filemtime($this->scrobblercache), true)), $output);
+        $output         = str_replace('%PROFILE%', '<a href="http://www.audioscrobbler.com/user/'.urlencode(utf8_encode($this->username)).'"'.$onclick.'>'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($profiletitle, ENT_QUOTES) : htmlspecialchars($profiletitle, ENT_QUOTES| ENT_COMPAT, LANG_CHARSET)).'</a>',  $output);
+        $lstime         = serendipity_formatTime($this->get_config('dateformat'), filemtime($this->scrobblercache), true);
+        $output         = str_replace('%LASTUPDATE%', 
+          (function_exists('serendipity_specialchars') 
+           ? serendipity_specialchars($lstime)
+           : htmlspecialchars($lstime, ENT_COMPAT, LANG_CHARSET)
+          ), 
+          $output
+        );
         $output = str_replace('audioscrobbler.com', 'last.fm', $output);
         return $output;
     }

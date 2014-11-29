@@ -42,7 +42,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '0.4.14' );
+		$propbag->add ( 'version', '0.4.15' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_spamblock_comments_shown' => true,
 		                                     'external_plugin' => true,
@@ -1301,23 +1301,23 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     global $serendipity;
                     if (isset($serendipity['GET']['message'])) {
                         if ($serendipity['version'][0] == '1') {
-                            echo '<p class="serendipityAdminMsgNote">'.htmlspecialchars($serendipity['GET']['message']).'</p>';
+                            echo '<p class="serendipityAdminMsgNote">'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['message']) : htmlspecialchars($serendipity['GET']['message'], ENT_COMPAT, LANG_CHARSET)).'</p>';
                         } else {
-                            echo '<span class="msg_notice"><span class="icon-info-circled"></span> ' . htmlspecialchars($serendipity['GET']['message']) . '</span>';
+                            echo '<span class="msg_notice"><span class="icon-info-circled"></span> ' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['message']) : htmlspecialchars($serendipity['GET']['message'], ENT_COMPAT, LANG_CHARSET)) . '</span>';
                         }
                     }
                     if (isset($serendipity['GET']['success'])) {
                         if ($serendipity['version'][0] == '1') {
-                            echo '<p class="serendipityAdminMsgSuccess">'.htmlspecialchars($serendipity['GET']['success']).'</p>';
+                            echo '<p class="serendipityAdminMsgSuccess">'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['success']) : htmlspecialchars($serendipity['GET']['success'], ENT_COMPAT, LANG_CHARSET)).'</p>';
                         } else {
-                            echo '<span class="msg_success"><span class="icon-ok-circled"></span> ' . htmlspecialchars($serendipity['GET']['success']) . '</span>';
+                            echo '<span class="msg_success"><span class="icon-ok-circled"></span> ' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['success']) : htmlspecialchars($serendipity['GET']['success'], ENT_COMPAT, LANG_CHARSET)) . '</span>';
                         }
                     }
                     if (isset($serendipity['GET']['error'])) {
                         if ($serendipity['version'][0] == '1') {
-                            echo '<p class="serendipityAdminMsgError">'.htmlspecialchars($serendipity['GET']['error']).'</p>';
+                            echo '<p class="serendipityAdminMsgError">'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['error']) : htmlspecialchars($serendipity['GET']['error'], ENT_COMPAT, LANG_CHARSET)).'</p>';
                         } else {
-                            echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . htmlspecialchars($serendipity['GET']['error']) . '</span>';
+                            echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['error']) : htmlspecialchars($serendipity['GET']['error'], ENT_COMPAT, LANG_CHARSET)) . '</span>';
                         }
                     }
                     $this->get = $serendipity['GET'];

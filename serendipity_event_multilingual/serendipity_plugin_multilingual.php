@@ -37,7 +37,7 @@ class serendipity_plugin_multilingual extends serendipity_event
             $conf[] = $lkey;
         }
         $propbag->add('configuration', $conf);
-        $propbag->add('version',       '1.11');
+        $propbag->add('version',       '1.11.1');
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
         $this->dependencies = array('serendipity_event_multilingual' => 'remove');
     }
@@ -91,7 +91,7 @@ class serendipity_plugin_multilingual extends serendipity_event
         echo '<select style="font-size: ' . $this->get_config('size', '9') . 'px" name="user_language" onchange="document.getElementById(\'language_chooser\').submit();">';
         foreach ($serendipity['languages'] as $lang_key => $language) {
         	if ($this->get_config($lang_key, 'false') == 'true') {
-            	echo '<option value="' . $lang_key . '" ' . ($serendipity['lang'] == $lang_key ? 'selected="selected"' : '') . '>' . htmlspecialchars($language) . '</option>';
+            	echo '<option value="' . $lang_key . '" ' . ($serendipity['lang'] == $lang_key ? 'selected="selected"' : '') . '>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($language) : htmlspecialchars($language, ENT_COMPAT, LANG_CHARSET)) . '</option>';
             }
         }
         echo '</select>';

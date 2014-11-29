@@ -386,7 +386,7 @@ function templatevars_edit($id) {
 	$result = db_read_templatevars($id);
 
 	$name = $result['name'];
-	$value=html_entity_decode($result['value']);
+	$value=html_entity_decode($result['value'], ENT_COMPAT, LANG_CHARSET);
 
 ?>
 <div align="center">

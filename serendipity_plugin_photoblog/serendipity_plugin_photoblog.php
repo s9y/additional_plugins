@@ -25,7 +25,7 @@ class serendipity_plugin_photoblog extends serendipity_plugin {
             'php'         => '4.1.0'
         ));
         $propbag->add('author',        'Cameron MacFarland');
-        $propbag->add('version',     '1.2');
+        $propbag->add('version',     '1.2.1');
         $propbag->add('groups', array('IMAGES'));
         $this->dependencies = array('serendipity_event_thumbnails' => 'keep');
     }
@@ -135,7 +135,7 @@ class serendipity_plugin_photoblog extends serendipity_plugin {
                     $thumbsize     = @getimagesize($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $thumbbasename);
                 }
 
-                echo '<a href="' . $entryLink . '" title="' . htmlspecialchars($entry['title']) . '">';
+                echo '<a href="' . $entryLink . '" title="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['title']) : htmlspecialchars($entry['title'], ENT_COMPAT, LANG_CHARSET)) . '">';
                 if (isset($photo)) {
                     echo '<img style="margin:5px;" src="' . $imgsrc . '" width=' . $thumbsize[0] . ' height=' . $thumbsize[1];
                     if (isset($id) && ($id == $entry['id'])) {

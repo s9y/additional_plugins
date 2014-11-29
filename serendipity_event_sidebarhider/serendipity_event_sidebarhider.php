@@ -26,7 +26,7 @@ class serendipity_event_sidebarhider extends serendipity_event
         $propbag->add('description',   PLUGIN_SIDEBAR_HIDER_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Tys von Gaza, Garvin Hicking');
-        $propbag->add('version',       '1.25');
+        $propbag->add('version',       '1.25.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'php'         => '4.1.0'
@@ -468,7 +468,7 @@ class serendipity_event_sidebarhider extends serendipity_event
                         $group['name'] = constant($group['confvalue']);
                     }
 ?>
-                    <option value="<?php echo $group['id']; ?>" <?php echo (in_array($group['id'], $selected_groups) ? 'selected="selected"' : ''); ?>><?php echo htmlspecialchars($group['name']); ?></option>
+                    <option value="<?php echo $group['id']; ?>" <?php echo (in_array($group['id'], $selected_groups) ? 'selected="selected"' : ''); ?>><?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($group['name']) : htmlspecialchars($group['name'], ENT_COMPAT, LANG_CHARSET)); ?></option>
 <?php
                 }
                 echo "</select></td>\n";
@@ -480,14 +480,14 @@ class serendipity_event_sidebarhider extends serendipity_event
                 $selected = explode(',', $category_viewlist[$plugin->instance]);
                 echo "<select name='plugin_category_view[" . base64_encode($plugin->instance) . "][]' multiple='multiple'>\n";
                 // --JAM: 2005-10-18: The front page selection goes on the top
-                echo '<option value="" ' . (in_array('', $selected) ? 'selected="selected"' : '') . '>' . htmlspecialchars(ALL_CATEGORIES) . '</option>' . "\n";
-                echo '<option value="' . PLUGIN_SIDEBAR_HIDER_FRONTPAGE_ID . '" ' . (in_array(PLUGIN_SIDEBAR_HIDER_FRONTPAGE_ID, $selected) ? 'selected="selected"' : '') . '>' . htmlspecialchars(PLUGIN_SIDEBAR_HIDER_FRONTPAGE_DESC) . '</option>' . "\n";
+                echo '<option value="" ' . (in_array('', $selected) ? 'selected="selected"' : '') . '>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars(ALL_CATEGORIES) : htmlspecialchars(ALL_CATEGORIES, ENT_COMPAT, LANG_CHARSET)) . '</option>' . "\n";
+                echo '<option value="' . PLUGIN_SIDEBAR_HIDER_FRONTPAGE_ID . '" ' . (in_array(PLUGIN_SIDEBAR_HIDER_FRONTPAGE_ID, $selected) ? 'selected="selected"' : '') . '>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars(PLUGIN_SIDEBAR_HIDER_FRONTPAGE_DESC) : htmlspecialchars(PLUGIN_SIDEBAR_HIDER_FRONTPAGE_DESC, ENT_COMPAT, LANG_CHARSET)) . '</option>' . "\n";
                 // Now add regular categories to the selection list
                 $cats = serendipity_fetchCategories();
                 if (is_array($cats)) {
                     $cats = serendipity_walkRecursive($cats, 'categoryid', 'parentid', VIEWMODE_THREADED);
                     foreach($cats as $cat) {
-                        echo '<option value="' . $cat['categoryid'] . '" ' . (in_array($cat['categoryid'], $selected) ? 'selected="selected"' : '') . '>' . str_repeat('&nbsp;', $cat['depth']) . htmlspecialchars($cat['category_name']) . '</option>' . "\n";
+                        echo '<option value="' . $cat['categoryid'] . '" ' . (in_array($cat['categoryid'], $selected) ? 'selected="selected"' : '') . '>' . str_repeat('&nbsp;', $cat['depth']) . (function_exists('serendipity_specialchars') ? serendipity_specialchars($cat['category_name']) : htmlspecialchars($cat['category_name'], ENT_COMPAT, LANG_CHARSET)) . '</option>' . "\n";
                     }
                 }
 

@@ -47,7 +47,7 @@ class serendipity_plugin_delicious extends serendipity_plugin {
         $propbag->add('name', PLUGIN_DELICIOUS_N);
         $propbag->add('description', PLUGIN_DELICIOUS_D);
         $propbag->add('author', 'Riscky');
-        $propbag->add('version', '0.8');
+        $propbag->add('version', '0.8.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -192,6 +192,6 @@ class serendipity_plugin_delicious extends serendipity_plugin {
 }
 
 function delicious_clean_htmlspecialchars($given, $quote_style = ENT_QUOTES) {
-    return htmlspecialchars(html_entity_decode($given, $quote_style), $quote_style);
+    return htmlspecialchars(html_entity_decode($given, $quote_style, LANG_CHARSET), $quote_style, LANG_CHARSET);
 }
 ?>

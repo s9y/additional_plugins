@@ -28,7 +28,7 @@ class serendipity_plugin_showentries extends serendipity_plugin {
             'php'         => '4.1.0'
         ));
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',     '1.8');
+        $propbag->add('version',     '1.8.1');
         $propbag->add('stackable', true);
         $propbag->add('groups', array('FRONTEND_VIEWS'));
     }
@@ -119,7 +119,7 @@ class serendipity_plugin_showentries extends serendipity_plugin {
                 $entry['link']      = serendipity_archiveURL($entry['id'], $entry['title'], 'serendipityHTTPPath', true, array('timestamp' => $entry['timestamp']));
                 $entry['commURL']   = serendipity_archiveURL($entry['id'], $entry['title'], 'baseURL', false, array('timestamp' => $entry['timestamp']));
                 $entry['rdf_ident'] = serendipity_archiveURL($entry['id'], $entry['title'], 'baseURL', true, array('timestamp' => $entry['timestamp']));
-                $entry['title']     = htmlspecialchars($entry['title']);
+                $entry['title']     = (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['title']) : htmlspecialchars($entry['title'], ENT_COMPAT, LANG_CHARSET));
 
                 $entry['link_allow_comments']    = $serendipity['baseURL'] . 'comment.php?serendipity[switch]=enable&amp;serendipity[entry]=' . $entry['id'];
                 $entry['link_deny_comments']     = $serendipity['baseURL'] . 'comment.php?serendipity[switch]=disable&amp;serendipity[entry]=' . $entry['id'];

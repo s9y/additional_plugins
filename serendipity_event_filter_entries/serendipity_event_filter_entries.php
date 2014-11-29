@@ -26,7 +26,7 @@ class serendipity_event_filter_entries extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_FILTER_ENTRIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.7');
+        $propbag->add('version',       '1.7.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -96,7 +96,7 @@ class serendipity_event_filter_entries extends serendipity_event
                     $users = serendipity_fetchUsers();
                     if (is_array($users)) {
                         foreach ($users AS $user) {
-                            echo '<option value="' . $user['authorid'] . '" ' . (isset($_SESSION['filter']['author']) && $_SESSION['filter']['author'] == $user['authorid'] ? 'selected="selected"' : '') . '>' . htmlspecialchars($user['realname']) . '</option>' . "\n";
+                            echo '<option value="' . $user['authorid'] . '" ' . (isset($_SESSION['filter']['author']) && $_SESSION['filter']['author'] == $user['authorid'] ? 'selected="selected"' : '') . '>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($user['realname']) : htmlspecialchars($user['realname'], ENT_COMPAT, LANG_CHARSET)) . '</option>' . "\n";
                         }
                     }
 ?>              </select>
@@ -114,7 +114,7 @@ class serendipity_event_filter_entries extends serendipity_event
 ?>              </select>
             </td>
             <td width="80"><?php echo CONTENT ?></td>
-            <td><input size="10" type="text" name="filter[body]" value="<?php echo (isset($_SESSION['filter']['body']) ? htmlspecialchars($_SESSION['filter']['body']) : '') ?>" /></td>
+            <td><input size="10" type="text" name="filter[body]" value="<?php echo (isset($_SESSION['filter']['body']) ? (function_exists('serendipity_specialchars') ? serendipity_specialchars($_SESSION['filter']['body']) : htmlspecialchars($_SESSION['filter']['body'], ENT_COMPAT, LANG_CHARSET)) : '') ?>" /></td>
         </tr>
         <tr>
             <td colspan="6" style="text-align: left"><strong><?php echo SORT_ORDER ?></strong></td>

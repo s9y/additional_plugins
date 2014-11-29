@@ -28,7 +28,7 @@ class serendipity_plugin_xsstrust extends serendipity_plugin
         $propbag->add('description',   PLUGIN_ETHICS_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Loris Zena');
-        $propbag->add('version',       '1.1');
+        $propbag->add('version',       '1.1.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -218,7 +218,7 @@ class serendipity_plugin_xsstrust extends serendipity_plugin
         if ($sql && is_array($sql)) {
             foreach($sql AS $key => $row) {
                 echo "<tr><td>";
-                echo htmlspecialchars($row['villan'])."</td><td>";
+                echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['villan']) : htmlspecialchars($row['villan'], ENT_COMPAT, LANG_CHARSET))."</td><td>";
                 if ($row['ethics'] == 3) {
                     ?>
                     <img src="<?php echo $serendipity['serendipityHTTPPath']; ?>plugins/serendipity_plugin_ethics/img/red_light.gif">

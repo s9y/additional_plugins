@@ -444,8 +444,8 @@
 
             $body = str_replace("{postauthor}", trim($authorname), $body);
             $body = str_replace("{forumurl}", $serendipity['baseURL'] . "index.php?serendipity[subpage]=" . $pageurl, $body);
-            $body = str_replace("{threadtitle}", htmlspecialchars(trim($notifylist[0]['title'])), $body);
-            $body = str_replace("{replytext}", htmlspecialchars(strip_tags(trim($message))), $body);
+            $body = str_replace("{threadtitle}", (function_exists('serendipity_specialchars') ? serendipity_specialchars(trim($notifylist[0]['title'])) : htmlspecialchars(trim($notifylist[0]['title']), ENT_COMPAT, LANG_CHARSET)), $body);
+            $body = str_replace("{replytext}", (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags(trim($message))) : htmlspecialchars(strip_tags(trim($message)), ENT_COMPAT, LANG_CHARSET)), $body);
             $body = str_replace("{posturl}", $serendipity['baseURL'] . "index.php?serendipity[subpage]=" . $pageurl . "&boardid=".intval($boardid)."&threadid=".intval($threadid)."&page=".$page."#".$lastpostid, $body);
 
             $from    = "$fromname <$frommail>";
@@ -465,8 +465,8 @@
 
             $body = str_replace("{postauthor}", trim($authorname), $body);
             $body = str_replace("{forumurl}", $serendipity['baseURL'] . "index.php?serendipity[subpage]=" . $pageurl, $body);
-            $body = str_replace("{threadtitle}", htmlspecialchars(trim($notifylist[0]['title'])), $body);
-            $body = str_replace("{replytext}", htmlspecialchars(strip_tags(trim($message))), $body);
+            $body = str_replace("{threadtitle}", (function_exists('serendipity_specialchars') ? serendipity_specialchars(trim($notifylist[0]['title'])) : htmlspecialchars(trim($notifylist[0]['title']), ENT_COMPAT, LANG_CHARSET)), $body);
+            $body = str_replace("{replytext}", (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags(trim($message))) : htmlspecialchars(strip_tags(trim($message)), ENT_COMPAT, LANG_CHARSET)), $body);
             $body = str_replace("{posturl}", $serendipity['baseURL'] . "index.php?serendipity[subpage]=" . $pageurl . "&boardid=".intval($boardid)."&threadid=".intval($threadid)."&page=".$page."#".$lastpostid, $body);
 
             $from    = "$fromname <$frommail>";
@@ -575,8 +575,8 @@
 
             $body = str_replace("{postauthor}", trim($authorname), $body);
             $body = str_replace("{forumurl}", $serendipity['baseURL'] . "index.php?serendipity[subpage]=" . $pageurl, $body);
-            $body = str_replace("{threadtitle}", htmlspecialchars(trim($title)), $body);
-            $body = str_replace("{replytext}", htmlspecialchars(strip_tags(trim($message))), $body);
+            $body = str_replace("{threadtitle}", (function_exists('serendipity_specialchars') ? serendipity_specialchars(trim($title)) : htmlspecialchars(trim($title), ENT_COMPAT, LANG_CHARSET)), $body);
+            $body = str_replace("{replytext}", (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags(trim($message))) : htmlspecialchars(strip_tags(trim($message)), ENT_COMPAT, LANG_CHARSET)), $body);
             $body = str_replace("{posturl}", $serendipity['baseURL'] . "index.php?serendipity[subpage]=" . $pageurl . "&boardid=".intval($boardid)."&threadid=".intval($threadid), $body);
 
             $from    = "$fromname <$frommail>";

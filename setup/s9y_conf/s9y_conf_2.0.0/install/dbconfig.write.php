@@ -128,7 +128,7 @@ define('S9YCONF_DB_PREFIX'    , '".$dbcfg_prefix."');
 
 ?>";
 
-	debug_msg(nl2br(htmlentities($dbconfig_contents)), 5);
+	debug_msg(nl2br(htmlentities($dbconfig_contents, ENT_COMPAT, LANG_CHARSET)), 5);
 
 	// Open the file for writing
 	if (!$file_handle = @fopen($dbconfig_file,'wb')) { // Failed to open the file?

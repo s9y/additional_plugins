@@ -66,7 +66,7 @@ class serendipity_common_adduser {
             }
             $author = serendipity_db_query($q, true);
 
-            serendipity_common_adduser::sendMail($author['username'], htmlspecialchars($string), $author['email'], false, false);
+            serendipity_common_adduser::sendMail($author['username'], (function_exists('serendipity_specialchars') ? serendipity_specialchars($string) : htmlspecialchars($string, ENT_COMPAT, LANG_CHARSET)), $author['email'], false, false);
 
             echo PLUGIN_ADDUSER_SENTMAIL_APPROVE_ADMIN;
             return true;
@@ -92,7 +92,7 @@ class serendipity_common_adduser {
             if (is_array($author)) {
                 $user = serendipity_db_query("SELECT authorid FROM {$serendipity['dbPrefix']}authors WHERE username = '" . serendipity_db_escape_string($author['username']) . "'", true);
                 if (is_array($user) && !empty($user['authorid'])) {
-                    printf(PLUGIN_ADDUSER_EXISTS . '<hr />', htmlspecialchars($author['username']));
+                    printf(PLUGIN_ADDUSER_EXISTS . '<hr />', (function_exists('serendipity_specialchars') ? serendipity_specialchars($author['username']) : htmlspecialchars($author['username'], ENT_COMPAT, LANG_CHARSET)));
                     return false;
                 }
 
@@ -221,7 +221,7 @@ class serendipity_common_adduser {
 
             $user = serendipity_db_query("SELECT authorid FROM {$serendipity['dbPrefix']}authors WHERE username = '" . serendipity_db_escape_string($username) . "'", true);
             if (is_array($user) && !empty($user['authorid'])) {
-                printf(PLUGIN_ADDUSER_EXISTS . '<hr />', htmlspecialchars($username));
+                printf(PLUGIN_ADDUSER_EXISTS . '<hr />', (function_exists('serendipity_specialchars') ? serendipity_specialchars($username) : htmlspecialchars($username, ENT_COMPAT, LANG_CHARSET)));
                 return false;
             }
 

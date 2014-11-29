@@ -117,7 +117,7 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
         $propbag->add('name', PLUGIN_SOCIALBOOKMARKS_N);
         $propbag->add('description', PLUGIN_SOCIALBOOKMARKS_D);
         $propbag->add('author', 'Matthias Gutjahr');
-        $propbag->add('version', '0.46');
+        $propbag->add('version', '0.46.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9alpha5',
             'smarty'      => '2.6.7',
@@ -276,11 +276,11 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
                         for ($x = 0; $x < $max; $x++) {
                             $item = $socialbookmarksFeed->get_item($x);
                             $socialbookmarksContent .= '<li class="serendipity_socialbookmarks_item xfolkentry" style="list-style-type:' . (($this->get_config('displayThumbnails')) ? 'none' : 'square') . ';list-style-position:inside;">';
-                            $socialbookmarksContent .= '<a href="' . $this->decode($item->get_permalink()).' " class="taggedlink" title="' . trim(substr($this->decode(htmlspecialchars(strip_tags($item->get_description()))), 0, 100)) . '" rel="external">';
+                            $socialbookmarksContent .= '<a href="' . $this->decode($item->get_permalink()).' " class="taggedlink" title="' . trim(substr($this->decode((function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($item->get_description())) : htmlspecialchars(strip_tags($item->get_description()), ENT_COMPAT, LANG_CHARSET))), 0, 100)) . '" rel="external">';
                             if ($this->get_config('displayThumbnails')) {
                                 $socialbookmarksContent .= $this->socialbookmarks_get_thumbnail($item->get_description());
                             } else {
-                                $socialbookmarksContent .= html_entity_decode($this->decode($item->get_title()));
+                                $socialbookmarksContent .= html_entity_decode($this->decode($item->get_title()), ENT_COMPAT, LANG_CHARSET);
                             }
                             $socialbookmarksContent .= '</a>';
                             if ($this->get_config('displayTags') && class_exists('serendipity_event_freetag')) {	// display tags for each bookmark

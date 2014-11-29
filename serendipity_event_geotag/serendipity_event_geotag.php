@@ -675,7 +675,7 @@ class serendipity_event_geotag extends serendipity_event
     
     function headerGeoTagging($lat, $long, $title) {
         if (empty($lat) || empty($long)) return;
-        $title = htmlspecialchars($title);
+        $title = (function_exists('serendipity_specialchars') ? serendipity_specialchars($title) : htmlspecialchars($title, ENT_COMPAT, LANG_CHARSET));
         echo '<meta name="geo.placename" content="' . $title . '" />' . "\n";
         echo '<meta name="geo.position" content="'. $lat . ';' . $long . '" />' . "\n";
 		echo '<meta name="geo.region" content="" />' . "\n";

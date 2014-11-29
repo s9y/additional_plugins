@@ -28,7 +28,7 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_GUESTSIDE_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Jaap Boerma ( j@webbict.com ), Tadashi Jokagi <elf2000@users.sourceforge.net>, Ian (Timbalu)');
-        $propbag->add('version',       '1.22');
+        $propbag->add('version',       '1.22.1');
         $propbag->add('requirements', array(
                         'serendipity' => '0.7',
                         'smarty'      => '2.6.7',
@@ -182,8 +182,8 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
         $entries = serendipity_db_query($sql);
         if($entries && is_array($entries)) {
             foreach($entries as $e => $row) {
-                echo "<strong>" . htmlspecialchars(serendipity_strftime($dateformat, $row['timestamp'])) . '</strong> <br />' . "\n";
-                $row['body'] = htmlspecialchars($row['body']);
+                echo "<strong>" . (function_exists('serendipity_specialchars') ? serendipity_specialchars(serendipity_strftime($dateformat, $row['timestamp'])) : htmlspecialchars(serendipity_strftime($dateformat, $row['timestamp']), ENT_COMPAT, LANG_CHARSET)) . '</strong> <br />' . "\n";
+                $row['body'] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['body']) : htmlspecialchars($row['body'], ENT_COMPAT, LANG_CHARSET));
                 $row['body'] = serendipity_event_guestbook::bbc_reverse($row['body']);
                 if (strlen($row['body'])>$max_chars) {
                     if (function_exists('mb_strimwidth')) {
@@ -196,17 +196,17 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
                 serendipity_plugin_api::hook_event('frontend_display', $entry);
 
                 echo $entry['comment'] . "<br />";
-                echo "<strong>" . htmlspecialchars($row['name']) . "</strong><br />";
+                echo "<strong>" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['name']) : htmlspecialchars($row['name'], ENT_COMPAT, LANG_CHARSET)) . "</strong><br />";
 
                 if ($showemail){
-                    echo "<a href=\"mailto:" . htmlspecialchars($row['email']) . "\">" . htmlspecialchars($row['email']) . "</a>";
+                    echo "<a href=\"mailto:" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['email']) : htmlspecialchars($row['email'], ENT_COMPAT, LANG_CHARSET)) . "\">" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['email']) : htmlspecialchars($row['email'], ENT_COMPAT, LANG_CHARSET)) . "</a>";
                 }
 
                 if ($showhomepage) {
                     if ($showemail) {
                         echo "<br />";
                     }
-                    echo "<a href=\"" . htmlspecialchars($row['homepage']) . "\">" . htmlspecialchars($row['homepage']) . "</a>";
+                    echo "<a href=\"" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['homepage']) : htmlspecialchars($row['homepage'], ENT_COMPAT, LANG_CHARSET)) . "\">" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['homepage']) : htmlspecialchars($row['homepage'], ENT_COMPAT, LANG_CHARSET)) . "</a>";
                 }
 
                 echo "<br />\n\n";

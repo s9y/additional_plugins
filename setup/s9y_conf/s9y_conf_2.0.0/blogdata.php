@@ -735,7 +735,7 @@ function blogdata_view($blogid = '', $tplid = '') {
 	$TEMPLATE_DESCRIPTION = $templatedata['description'];
 
 	// Template contents
-	$template_contents = html_entity_decode($templatedata['template']);
+	$template_contents = html_entity_decode($templatedata['template'], ENT_COMPAT, LANG_CHARSET);
 
 	// Expand the template variables recursively
 	$templatevars = expand_templatevars($templatevars);
@@ -751,7 +751,7 @@ function blogdata_view($blogid = '', $tplid = '') {
 	$template_contents = str_replace('{WWWUSER}', $WWWUSER, $template_contents);
 */
 	foreach ($templatevars as $tplvar) {
-		$template_contents = str_replace('{'.$tplvar['name'].'}', html_entity_decode($tplvar['value']), $template_contents);
+		$template_contents = str_replace('{'.$tplvar['name'].'}', html_entity_decode($tplvar['value'], ENT_COMPAT, LANG_CHARSET), $template_contents);
 	}
 
 	// Insert specific blog template variables
@@ -773,7 +773,7 @@ function blogdata_view($blogid = '', $tplid = '') {
 	echo "<br />";
 	echo "Click <a href=\"tplfile.php?blogid=$blogid&amp;tplid=$tplid\" onmouseover=\"window.status='Click to download template contents';return true\" onmouseout=\"window.status='';return true\">here</a> to download";
 	echo '<hr /><div class="left">';
-	echo nl2br(htmlentities($template_contents));
+	echo nl2br(htmlentities($template_contents, ENT_COMPAT, LANG_CHARSET));
 	echo "</div><hr />";
 	echo "Click <a href=\"tplfile.php?blogid=$blogid&amp;tplid=$tplid\" onmouseover=\"window.status='Click to download template contents';return true\" onmouseout=\"window.status='';return true\">here</a> to download";
 	echo "<br />";
@@ -826,7 +826,7 @@ function blogdata_view_all($tplid = '') {
 	$TEMPLATE_DESCRIPTION = $templatedata['description'];
 
 	// Template contents
-	$template_contents = html_entity_decode($templatedata['template']);
+	$template_contents = html_entity_decode($templatedata['template'], ENT_COMPAT, LANG_CHARSET);
 
 	// Expand the template variables recursively
 	$templatevars = expand_templatevars($templatevars);
@@ -842,7 +842,7 @@ function blogdata_view_all($tplid = '') {
 	$template_contents = str_replace('{WWWUSER}', $WWWUSER, $template_contents);
 */
 	foreach ($templatevars as $tplvar) {
-		$template_contents = str_replace('{'.$tplvar['name'].'}', html_entity_decode($tplvar['value']), $template_contents);
+		$template_contents = str_replace('{'.$tplvar['name'].'}', html_entity_decode($tplvar['value'], ENT_COMPAT, LANG_CHARSET), $template_contents);
 	}
 
 	// Insert specific template template variables
@@ -876,7 +876,7 @@ function blogdata_view_all($tplid = '') {
 		$template_temp = str_replace('{BLOGURL}', $BLOGURL, $template_temp);
 
 
-		echo nl2br(htmlentities($template_temp));
+		echo nl2br(htmlentities($template_temp, ENT_COMPAT, LANG_CHARSET));
 
 	}
 

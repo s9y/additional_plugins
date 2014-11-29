@@ -19,12 +19,12 @@ class serendipity_event_usergallery extends serendipity_event
     {
         global $serendipity;
 
-        $propbag->add('name',        PLUGIN_EVENT_USERGALLERY_TITLE);
-        $propbag->add('description', PLUGIN_EVENT_USERGALLERY_DESC);
-        $propbag->add('stackable',   true);
-        $propbag->add('author',      'Arnan de Gans, Matthew Groeninger, Stefan Willoughby, Ian');
-        $propbag->add('version',     '2.63');
-        $propbag->add('requirements', array(
+        $propbag->add('name',          PLUGIN_EVENT_USERGALLERY_TITLE);
+        $propbag->add('description',   PLUGIN_EVENT_USERGALLERY_DESC);
+        $propbag->add('stackable',     true);
+        $propbag->add('author',        'Arnan de Gans, Matthew Groeninger, and Stefan Willoughby, Ian');
+        $propbag->add('version',       '2.64');
+        $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
             'php'         => '5.2.0'

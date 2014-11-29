@@ -215,7 +215,7 @@ function Interpret_IPTC_to_HTML( $IPTC_info )
                         if ( $Record_Name == "" )
                         {
                                 // Record is an unknown field - add message to HTML
-                                $output_str .= "<tr class=\"IPTC_Table_Row\"><td class=\"IPTC_Caption_Cell\">Unknown IPTC field '". htmlentities( $IPTC_Record['IPTC_Type'] ). "' :</td><td class=\"IPTC_Value_Cell\">" . nl2br( HTML_UTF8_Escape( $IPTC_Record['RecData'] ) ) ."</td></tr>\n";
+                                $output_str .= "<tr class=\"IPTC_Table_Row\"><td class=\"IPTC_Caption_Cell\">Unknown IPTC field '". htmlentities( $IPTC_Record['IPTC_Type'], ENT_COMPAT, LANG_CHARSET ). "' :</td><td class=\"IPTC_Value_Cell\">" . nl2br( HTML_UTF8_Escape( $IPTC_Record['RecData'] ) ) ."</td></tr>\n";
                         }
                         else
                         {

@@ -26,7 +26,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_IMAGESELECTORPLUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian');
-        $propbag->add('version',       '0.46');
+        $propbag->add('version',       '0.47');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -550,7 +550,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     // New draft post
                     $entry             = array();
                     $entry['isdraft']  = 'false';
-                    $entry['title']    = htmlspecialchars($serendipity['POST']['quickblog']['title']);
+                    $entry['title']    = (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['POST']['quickblog']['title']) : htmlspecialchars($serendipity['POST']['quickblog']['title'], ENT_COMPAT, LANG_CHARSET));
                     if (isset($objpath) && !empty($objpath)) {
                         $entry['body'] = '<a href="' . $objpath . '"><img alt="" class="serendipity_image_left serendipity_quickblog_image" src="' . $objpreview . '">' . $filename . '</a> (-'.$obj_mime.'-)<p>' . $serendipity['POST']['quickblog']['body'] . '</p>';
                     } else {
@@ -558,7 +558,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     }
                     $entry['authorid'] = $serendipity['authorid'];
                     $entry['exflag']   = false;
-                    $entry['categories'][0] = htmlspecialchars($serendipity['POST']['quickblog']['category']);
+                    $entry['categories'][0] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['POST']['quickblog']['category']) : htmlspecialchars($serendipity['POST']['quickblog']['category'], ENT_COMPAT, LANG_CHARSET));
                     #$entry['allow_comments']    = 'true'; // both disabled
                     #$entry['moderate_comments'] = 'false'; // to take default values
                     $serendipity['POST']['properties']['fake'] = 'fake';
@@ -670,7 +670,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     echo '<div class="serendipity_Entry_Date">
                              <h3 class="serendipity_date">' . serendipity_formatTime(DATE_FORMAT_ENTRY, $entry['timestamp']) . '</h3>';
 
-                    echo '<h4 class="serendipity_title"><a href="#">' . htmlspecialchars($entry['title']) . '</a></h4>';
+                    echo '<h4 class="serendipity_title"><a href="#">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['title']) : htmlspecialchars($entry['title'], ENT_COMPAT, LANG_CHARSET)) . '</a></h4>';
 
                     echo '<div class="serendipity_entry"><div class="serendipity_entry_body">';
                     echo '<div class="serendipity_center">' . $link . '<!-- s9ymdb:' . $entry['id'] . ' --><img src="' . $imgsrc . '" /></a></div>';
@@ -751,9 +751,9 @@ class serendipity_event_imageselectorplus extends serendipity_event
 
                 case 'frontend_image_selector':
                     if ($serendipity['version'][0] < 2) {
-                        $eventData['finishJSFunction'] = 'serendipity_imageSelectorPlus_done(\'' . htmlspecialchars($serendipity['GET']['textarea']) . '\')';
+                        $eventData['finishJSFunction'] = 'serendipity_imageSelectorPlus_done(\'' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['textarea']) : htmlspecialchars($serendipity['GET']['textarea'], ENT_COMPAT, LANG_CHARSET)) . '\')';
                     } else {
-                        $eventData['finishJSFunction'] = 'serendipity.serendipity_imageSelector_done(\'' . htmlspecialchars($serendipity['GET']['textarea']) . '\')';
+                        $eventData['finishJSFunction'] = 'serendipity.serendipity_imageSelector_done(\'' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['textarea']) : htmlspecialchars($serendipity['GET']['textarea'], ENT_COMPAT, LANG_CHARSET)) . '\')';
                     }
                     return true;
                     break;

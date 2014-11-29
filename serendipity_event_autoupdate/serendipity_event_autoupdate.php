@@ -22,7 +22,7 @@ class serendipity_event_autoupdate extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_AUTOUPDATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Ian');
-        $propbag->add('version',       '1.1');
+        $propbag->add('version',       '1.1.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '5.1'
@@ -129,11 +129,11 @@ class serendipity_event_autoupdate extends serendipity_event {
                        of 16M but image processing scripts may raise it to 20M. 
                        Edit /etc/php5/conf.d/suhosin.ini and add e.g. suhosin.memory_limit = 512M ...
                     */
-                    $self_info = sprintf(USER_SELF_INFO, htmlspecialchars($serendipity['serendipityUser']), $serendipity['permissionLevels'][$serendipity['serendipityUserlevel']]);
+                    $self_info = sprintf(USER_SELF_INFO, (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['serendipityUser']) : htmlspecialchars($serendipity['serendipityUser'], ENT_COMPAT, LANG_CHARSET)), $serendipity['permissionLevels'][$serendipity['serendipityUserlevel']]);
                     $lang_char = LANG_CHARSET;
                     $ad_suite  = SERENDIPITY_ADMIN_SUITE;
                     $css_upd   = file_get_contents(dirname(__FILE__) . '/upgrade.min.css');
-                    $nv        = htmlspecialchars($_REQUEST['serendipity']['newVersion']); // reduce to POST only?
+                    $nv        = (function_exists('serendipity_specialchars') ? serendipity_specialchars($_REQUEST['serendipity']['newVersion']) : htmlspecialchars($_REQUEST['serendipity']['newVersion'], ENT_COMPAT, LANG_CHARSET)); // reduce to POST only?
                     $logmsg    = '';
                     echo <<<EOS
 <!DOCTYPE html>

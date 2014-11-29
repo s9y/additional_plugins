@@ -25,7 +25,7 @@ class serendipity_plugin_topreferers extends serendipity_plugin {
             'php'         => '4.1.0'
         ));
         $propbag->add('groups', array('STATISTICS'));
-        $propbag->add('version', '1.3');
+        $propbag->add('version', '1.3.1');
     }
 
     function introspect_config_item($name, &$propbag) {
@@ -141,15 +141,15 @@ function displayTopUrlList($list, $limit, $use_links = true, $filter_out = "", $
             if ($use_links) {
                 printf(
                     '<a href="%1$s://%2$s" title="%2$s" >%2$s</a> (%3$s)<br />',
-                    htmlspecialchars($row['scheme']),
-                    htmlspecialchars($row['host']),
-                    htmlspecialchars($row['total'])
+                    (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['scheme']) : htmlspecialchars($row['scheme'], ENT_COMPAT, LANG_CHARSET)),
+                    (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['host']) : htmlspecialchars($row['host'], ENT_COMPAT, LANG_CHARSET)),
+                    (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['total']) : htmlspecialchars($row['total'], ENT_COMPAT, LANG_CHARSET))
                 );
             } else {
                 printf(
                     '%1$s (%2$s)<br />',
-                    htmlspecialchars($row['host']),
-                    htmlspecialchars($row['total'])
+                    (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['host']) : htmlspecialchars($row['host'], ENT_COMPAT, LANG_CHARSET)),
+                    (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['total']) : htmlspecialchars($row['total'], ENT_COMPAT, LANG_CHARSET))
                 );
             }
         }

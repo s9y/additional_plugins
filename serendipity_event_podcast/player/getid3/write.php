@@ -256,7 +256,7 @@ class getid3_writetags
 					if (($ape_writer->tag_data = $this->FormatDataForAPE()) !== false) {
 						$ape_writer->filename = $this->filename;
 						if (($success = $ape_writer->WriteAPEtag()) === false) {
-							$this->errors[] = 'WriteAPEtag() failed with message(s):<pre><ul><li>'.str_replace("\n", '</li><li>', htmlentities(trim(implode("\n", $ape_writer->errors)))).'</li></ul></pre>';
+							$this->errors[] = 'WriteAPEtag() failed with message(s):<pre><ul><li>'.str_replace("\n", '</li><li>', htmlentities(trim(implode("\n", $ape_writer->errors)), ENT_COMPAT, LANG_CHARSET)).'</li></ul></pre>';
 						}
 					} else {
 						$this->errors[] = 'FormatDataForAPE() failed';
@@ -268,7 +268,7 @@ class getid3_writetags
 					if (($id3v1_writer->tag_data = $this->FormatDataForID3v1()) !== false) {
 						$id3v1_writer->filename = $this->filename;
 						if (($success = $id3v1_writer->WriteID3v1()) === false) {
-							$this->errors[] = 'WriteID3v1() failed with message(s):<pre><ul><li>'.str_replace("\n", '</li><li>', htmlentities(trim(implode("\n", $id3v1_writer->errors)))).'</li></ul></pre>';
+							$this->errors[] = 'WriteID3v1() failed with message(s):<pre><ul><li>'.str_replace("\n", '</li><li>', htmlentities(trim(implode("\n", $id3v1_writer->errors)), ENT_COMPAT, LANG_CHARSET)).'</li></ul></pre>';
 						}
 					} else {
 						$this->errors[] = 'FormatDataForID3v1() failed';
@@ -284,7 +284,7 @@ class getid3_writetags
 					if (($id3v2_writer->tag_data = $this->FormatDataForID3v2($id3v2_writer->majorversion)) !== false) {
 						$id3v2_writer->filename = $this->filename;
 						if (($success = $id3v2_writer->WriteID3v2()) === false) {
-							$this->errors[] = 'WriteID3v2() failed with message(s):<pre><ul><li>'.str_replace("\n", '</li><li>', htmlentities(trim(implode("\n", $id3v2_writer->errors)))).'</li></ul></pre>';
+							$this->errors[] = 'WriteID3v2() failed with message(s):<pre><ul><li>'.str_replace("\n", '</li><li>', htmlentities(trim(implode("\n", $id3v2_writer->errors)), ENT_COMPAT, LANG_CHARSET)).'</li></ul></pre>';
 						}
 					} else {
 						$this->errors[] = 'FormatDataForID3v2() failed';
@@ -296,7 +296,7 @@ class getid3_writetags
 					if (($vorbiscomment_writer->tag_data = $this->FormatDataForVorbisComment()) !== false) {
 						$vorbiscomment_writer->filename = $this->filename;
 						if (($success = $vorbiscomment_writer->WriteVorbisComment()) === false) {
-							$this->errors[] = 'WriteVorbisComment() failed with message(s):<pre><ul><li>'.str_replace("\n", '</li><li>', htmlentities(trim(implode("\n", $vorbiscomment_writer->errors)))).'</li></ul></pre>';
+							$this->errors[] = 'WriteVorbisComment() failed with message(s):<pre><ul><li>'.str_replace("\n", '</li><li>', htmlentities(trim(implode("\n", $vorbiscomment_writer->errors)), ENT_COMPAT, LANG_CHARSET)).'</li></ul></pre>';
 						}
 					} else {
 						$this->errors[] = 'FormatDataForVorbisComment() failed';
@@ -308,7 +308,7 @@ class getid3_writetags
 					if (($metaflac_writer->tag_data = $this->FormatDataForMetaFLAC()) !== false) {
 						$metaflac_writer->filename = $this->filename;
 						if (($success = $metaflac_writer->WriteMetaFLAC()) === false) {
-							$this->errors[] = 'WriteMetaFLAC() failed with message(s):<pre><ul><li>'.str_replace("\n", '</li><li>', htmlentities(trim(implode("\n", $metaflac_writer->errors)))).'</li></ul></pre>';
+							$this->errors[] = 'WriteMetaFLAC() failed with message(s):<pre><ul><li>'.str_replace("\n", '</li><li>', htmlentities(trim(implode("\n", $metaflac_writer->errors)), ENT_COMPAT, LANG_CHARSET)).'</li></ul></pre>';
 						}
 					} else {
 						$this->errors[] = 'FormatDataForMetaFLAC() failed';
@@ -320,7 +320,7 @@ class getid3_writetags
 					if (($real_writer->tag_data = $this->FormatDataForReal()) !== false) {
 						$real_writer->filename = $this->filename;
 						if (($success = $real_writer->WriteReal()) === false) {
-							$this->errors[] = 'WriteReal() failed with message(s):<pre><ul><li>'.str_replace("\n", '</li><li>', htmlentities(trim(implode("\n", $real_writer->errors)))).'</li></ul></pre>';
+							$this->errors[] = 'WriteReal() failed with message(s):<pre><ul><li>'.str_replace("\n", '</li><li>', htmlentities(trim(implode("\n", $real_writer->errors)), ENT_COMPAT, LANG_CHARSET)).'</li></ul></pre>';
 						}
 					} else {
 						$this->errors[] = 'FormatDataForReal() failed';

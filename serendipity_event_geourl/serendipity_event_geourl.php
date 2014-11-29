@@ -32,7 +32,7 @@ class serendipity_event_geourl extends serendipity_event {
         $propbag->add('event_hooks',   array('frontend_header' => true));
         $propbag->add('configuration', array('lat', 'long'));
         $propbag->add('description',   PLUGIN_EVENT_GEOURL_DESC);
-        $propbag->add('version',       '1.4');
+        $propbag->add('version',       '1.4.1');
         $propbag->add('groups', array('BACKEND_METAINFORMATION'));
     }
 
@@ -71,7 +71,7 @@ class serendipity_event_geourl extends serendipity_event {
                     $long = $this->get_config('long');
                     print "\n" . '    <meta name="ICBM" content="' . $lat . ', ' . $long . '" />' . "\n";
                     print '    <meta name="geo.position" content="' . $lat . ';' . $long . '" />' . "\n";
-                    print '    <meta name="DC.title" content="' . htmlspecialchars($serendipity['blogTitle']) . '" />' . "\n";
+                    print '    <meta name="DC.title" content="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['blogTitle']) : htmlspecialchars($serendipity['blogTitle'], ENT_COMPAT, LANG_CHARSET)) . '" />' . "\n";
                     return true;
                     break;
 

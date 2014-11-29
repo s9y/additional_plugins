@@ -30,7 +30,7 @@ class serendipity_event_linklist extends serendipity_event {
                                             'external_plugin'                                 => true
                                             ));
         $propbag->add('author',        'Matthew Groeninger, Omid Mottaghi Rad');
-        $propbag->add('version',       '1.99');
+        $propbag->add('version',       '1.99.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -291,7 +291,7 @@ class serendipity_event_linklist extends serendipity_event {
                         $link = $row['link'];
                         $id = $row['id'];
                         $descrip = $row['descrip'];
-                        $output .= '<link name="'.htmlspecialchars($name).'" link="http://'.$link.'" descrip="'.htmlspecialchars($descrip).'" />'."\n";
+                        $output .= '<link name="'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($name) : htmlspecialchars($name, ENT_COMPAT, LANG_CHARSET)).'" link="http://'.$link.'" descrip="'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($descrip) : htmlspecialchars($descrip, ENT_COMPAT, LANG_CHARSET)).'" />'."\n";
                     }
                 }
             }
@@ -333,7 +333,7 @@ class serendipity_event_linklist extends serendipity_event {
                 $cat_name = $sql[0]['category_name'];
 
                 $cat_open = true;
-                $open_category = str_replace($replace_name,htmlspecialchars($cat_name),$open_category);
+                $open_category = str_replace($replace_name,(function_exists('serendipity_specialchars') ? serendipity_specialchars($cat_name) : htmlspecialchars($cat_name, ENT_COMPAT, LANG_CHARSET)),$open_category);
                 $output .= $open_category;
             } else {
                 $cat_open = false;
@@ -368,9 +368,9 @@ class serendipity_event_linklist extends serendipity_event {
                 $replace_link = "_link_";
                 $replace_descrip = "_descrip_";
 
-                $link_out = str_replace($replace_linkname,htmlspecialchars($name),$link_out);
+                $link_out = str_replace($replace_linkname,(function_exists('serendipity_specialchars') ? serendipity_specialchars($name) : htmlspecialchars($name, ENT_COMPAT, LANG_CHARSET)),$link_out);
                 $link_out = str_replace($replace_link,$link,$link_out);
-                $link_out = str_replace($replace_descrip,htmlspecialchars($descrip),$link_out);
+                $link_out = str_replace($replace_descrip,(function_exists('serendipity_specialchars') ? serendipity_specialchars($descrip) : htmlspecialchars($descrip, ENT_COMPAT, LANG_CHARSET)),$link_out);
                 $output .=  $link_out;
             }
         }
@@ -739,7 +739,7 @@ class serendipity_event_linklist extends serendipity_event {
                 <td width="16">
                 <input class="input_checkbox" type="checkbox" name="serendipity[category_to_remove][]" value="<?php echo $category['categoryid']; ?>" />
                 </td>
-                <td width="300" style="padding-left: <?php echo ($category['depth']*15)+20 ?>px"><img src="<?php echo serendipity_getTemplateFile('admin/img/folder.png') ?>" style="vertical-align: bottom;"> <?php echo htmlspecialchars($category['category_name']) ?></td>
+                <td width="300" style="padding-left: <?php echo ($category['depth']*15)+20 ?>px"><img src="<?php echo serendipity_getTemplateFile('admin/img/folder.png') ?>" style="vertical-align: bottom;"> <?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($category['category_name']) : htmlspecialchars($category['category_name'], ENT_COMPAT, LANG_CHARSET)) ?></td>
             </tr>
 <?php
         }

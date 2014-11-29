@@ -31,7 +31,7 @@ class serendipity_event_xsstrust extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '0.5');
+        $propbag->add('version',       '0.5.1');
         $propbag->add('event_hooks', array(
             'frontend_display' => true,
             'backend_media_check' => true));
@@ -61,7 +61,7 @@ class serendipity_event_xsstrust extends serendipity_event
         $users = (array)serendipity_fetchUsers();
         $valid =& $this->trusted_authors;
         foreach($users as $user) {
-            $html .= '<option value="' . $user['authorid'] . '" ' . ($user['authorid'] == $serendipity['authorid'] || isset($valid[$user['authorid']]) ? 'selected="selected"' : '') . '>' . htmlspecialchars($user['realname']) . '</option>' . "\n";
+            $html .= '<option value="' . $user['authorid'] . '" ' . ($user['authorid'] == $serendipity['authorid'] || isset($valid[$user['authorid']]) ? 'selected="selected"' : '') . '>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($user['realname']) : htmlspecialchars($user['realname'], ENT_COMPAT, LANG_CHARSET)) . '</option>' . "\n";
         }
 
         $html .= '</select>';
@@ -137,8 +137,8 @@ class serendipity_event_xsstrust extends serendipity_event
                     if (!isset($this->trusted_authors[$eventData['authorid']])) {
                         // Not trusted.
                         #$eventData['title']    = htmlspecialchars($eventData['title']);
-                        $eventData['body']     = htmlspecialchars($eventData['body']);
-                        $eventData['extended'] = htmlspecialchars($eventData['extended']);
+                        $eventData['body']     = (function_exists('serendipity_specialchars') ? serendipity_specialchars($eventData['body']) : htmlspecialchars($eventData['body'], ENT_COMPAT, LANG_CHARSET));
+                        $eventData['extended'] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($eventData['extended']) : htmlspecialchars($eventData['extended'], ENT_COMPAT, LANG_CHARSET));
                     } else {
                         // Trusted.
                     }

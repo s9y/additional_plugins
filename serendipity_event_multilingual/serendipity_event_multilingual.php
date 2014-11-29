@@ -34,7 +34,7 @@ class serendipity_event_multilingual extends serendipity_event
             'php'         => '4.1.0'
         ));
         $propbag->add('groups', array('FRONTEND_ENTRY_RELATED', 'BACKEND_EDITOR'));
-        $propbag->add('version',       '2.15');
+        $propbag->add('version',       '2.15.1');
         $propbag->add('configuration', array('copytext', 'placement', 'tagged_title', 'tagged_entries', 'tagged_sidebar', 'langswitch'));
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
@@ -521,7 +521,7 @@ class serendipity_event_multilingual extends serendipity_event
 
                     $langs = '';
                     foreach($use_lang AS $code => $desc) {
-                        $langs .= '<option value="' . $code . '" ' . ($lang_selected == $code ? 'selected="selected"' : '') . '>' . htmlspecialchars($desc) . '</option>' . "\n";
+                        $langs .= '<option value="' . $code . '" ' . ($lang_selected == $code ? 'selected="selected"' : '') . '>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($desc) : htmlspecialchars($desc, ENT_COMPAT, LANG_CHARSET)) . '</option>' . "\n";
                     }
 ?>
                     <fieldset style="margin: 5px">

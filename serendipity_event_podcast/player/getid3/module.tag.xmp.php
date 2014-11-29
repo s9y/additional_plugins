@@ -100,7 +100,7 @@ class Image_XMP
 		if (!$filehnd)
 		{
 			// Could't open the file - exit
-			echo '<p>Could not open file '.htmlentities($filename).'</p>'."\n";
+			echo '<p>Could not open file '.htmlentities($filename, ENT_COMPAT, LANG_CHARSET).'</p>'."\n";
 			return false;
 		}
 

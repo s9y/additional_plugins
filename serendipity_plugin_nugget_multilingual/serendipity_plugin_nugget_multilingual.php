@@ -23,7 +23,7 @@ class serendipity_plugin_nugget_multilingual extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_NUGGET_MULTI_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Wesley Hwang-Chung');
-        $propbag->add('version',       '1.6');
+        $propbag->add('version',       '1.7');
         $propbag->add('configuration', array('language', 'title', 'content', 'markup', 'show_where'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
 
@@ -131,7 +131,7 @@ class serendipity_plugin_nugget_multilingual extends serendipity_plugin {
             $is_plugin_owner    = ($this->serendipity_owner == $serendipity['authorid'] || serendipity_checkPermission('adminPluginsMaintainOthers'));
 
             if ($is_plugin_owner) {
-                echo '<div class="serendipity_edit_nugget"><a href="' . $serendipity['baseURL'] . '/serendipity_admin.php?serendipity[adminModule]=plugins&amp;serendipity[plugin_to_conf]=' . htmlentities($this->instance) . '">' . EDIT . '</a></div>';
+                echo '<div class="serendipity_edit_nugget"><a href="' . $serendipity['baseURL'] . '/serendipity_admin.php?serendipity[adminModule]=plugins&amp;serendipity[plugin_to_conf]=' . htmlentities($this->instance, ENT_COMPAT, LANG_CHARSET) . '">' . EDIT . '</a></div>';
             }
         }
     }

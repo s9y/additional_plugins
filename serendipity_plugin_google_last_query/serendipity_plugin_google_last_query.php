@@ -34,7 +34,7 @@ class serendipity_plugin_google_last_query extends serendipity_plugin {
     function introspect(&$propbag) {
         $propbag->add('name',           PLUGIN_GOOGLE_LAST_QUERY_TITLE);
         $propbag->add('description',    PLUGIN_GOOGLE_LAST_QUERY_DESC);
-        $propbag->add('version',        '1.18');
+        $propbag->add('version',        '1.18.1');
         $propbag->add('stackable',      true);
 
         if ($this->isVisitorsTableFilled()) {
@@ -486,7 +486,7 @@ class serendipity_plugin_google_last_query extends serendipity_plugin {
         } else {
             $out = urldecode($search_query);
         }
-        echo "<a rel=\"nofollow\"$time_title href='". $url_prot . "://" . htmlspecialchars($url_host . $url_dir) . "?$url_qpar=" . urlencode(htmlspecialchars($out)) . "'" . $target . ">" . htmlspecialchars($out) ."</a><br />\n";
+        echo "<a rel=\"nofollow\"$time_title href='". $url_prot . "://" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($url_host . $url_dir) : htmlspecialchars($url_host . $url_dir, ENT_COMPAT, LANG_CHARSET)) . "?$url_qpar=" . urlencode((function_exists('serendipity_specialchars') ? serendipity_specialchars($out) : htmlspecialchars($out, ENT_COMPAT, LANG_CHARSET))) . "'" . $target . ">" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($out) : htmlspecialchars($out, ENT_COMPAT, LANG_CHARSET)) ."</a><br />\n";
     }
     
     function echo_visitors($search_engine, $search_query, $url_path, $url_qpar, $target, $time_title) {
@@ -499,8 +499,8 @@ class serendipity_plugin_google_last_query extends serendipity_plugin {
         preg_match("/(http:.*?)\?/", $url_path, $hostmatches);
         $host = $hostmatches[1];
         
-        $url = htmlspecialchars($host . $url_qpar . $search_query);
-        echo "<a rel=\"nofollow\" href='" . $url . "'" . $target . $time_title . ">" . htmlspecialchars($out) . "</a><br />\n";
+        $url = (function_exists('serendipity_specialchars') ? serendipity_specialchars($host . $url_qpar . $search_query) : htmlspecialchars($host . $url_qpar . $search_query, ENT_COMPAT, LANG_CHARSET));
+        echo "<a rel=\"nofollow\" href='" . $url . "'" . $target . $time_title . ">" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($out) : htmlspecialchars($out, ENT_COMPAT, LANG_CHARSET)) . "</a><br />\n";
     }
     
     function show_icon($search_engine) {

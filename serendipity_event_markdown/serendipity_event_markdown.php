@@ -31,7 +31,7 @@ class serendipity_event_markdown extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '5.3.0'
         ));
-        $propbag->add('version',       '1.21');
+        $propbag->add('version',       '1.22');
         $propbag->add('cachable_events', array('frontend_display' => true));
         $propbag->add('event_hooks',   array('frontend_display' => true, 'frontend_comment' => true));
         $propbag->add('groups', array('MARKUP'));
@@ -211,7 +211,7 @@ class serendipity_event_markdown extends serendipity_event
         if (isset($GLOBALS['entry'][0]['plaintext_body'])) {
             $html =  ($version == 2) ? Markdown::defaultTransform($GLOBALS['entry'][0]['plaintext_body']) : Markdown($GLOBALS['entry'][0]['plaintext_body']);
         } else {
-            $html =  ($version == 2) ? Markdown::defaultTransform(html_entity_decode($eventData['body'])) : Markdown(html_entity_decode($eventData['body']));
+            $html =  ($version == 2) ? Markdown::defaultTransform(html_entity_decode($eventData['body'], ENT_COMPAT, LANG_CHARSET)) : Markdown(html_entity_decode($eventData['body'], ENT_COMPAT, LANG_CHARSET));
         }
         if ($pants > 0) $html =  ($pants == 2) ? SmartyPantsTypographer::defaultTransform($html) : SmartyPants::defaultTransform($html);
         $GLOBALS['entry'][0]['plaintext_body'] = trim(strip_tags(str_replace('javascript:', '', $html)));

@@ -280,7 +280,7 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
                             if ($this->get_config('displayThumbnails')) {
                                 $socialbookmarksContent .= $this->socialbookmarks_get_thumbnail($item->get_description());
                             } else {
-                                $socialbookmarksContent .= html_entity_decode($this->decode($item->get_title()));
+                                $socialbookmarksContent .= html_entity_decode($this->decode($item->get_title()), ENT_COMPAT, LANG_CHARSET);
                             }
                             $socialbookmarksContent .= '</a>';
                             if ($this->get_config('displayTags') && class_exists('serendipity_event_freetag')) {	// display tags for each bookmark

@@ -27,7 +27,7 @@ class getid3_lib
 			}
 		}
 		if ($htmlsafe) {
-			$returnstring = htmlentities($returnstring);
+			$returnstring = htmlentities($returnstring, ENT_COMPAT, LANG_CHARSET);
 		}
 		return $returnstring;
 	}
@@ -999,7 +999,7 @@ class getid3_lib
 						$charval += (ord($string{++$i}) & 0x3F);
 					}
 					if (($charval >= 32) && ($charval <= 127)) {
-						$HTMLstring .= htmlentities(chr($charval));
+						$HTMLstring .= htmlentities(chr($charval), ENT_COMPAT, LANG_CHARSET);
 					} else {
 						$HTMLstring .= '&#'.$charval.';';
 					}

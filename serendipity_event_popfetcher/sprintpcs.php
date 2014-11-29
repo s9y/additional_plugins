@@ -177,7 +177,7 @@ function sprintpcs_pictureshare($maildir, $body, $authorid) {
     $picture=substr($body, 0, $pos1-1);
     $pos1=strrpos($picture, '"');
     $url=substr($picture, $pos1+1);
-    $url=html_entity_decode($url);
+    $url=html_entity_decode($url, ENT_COMPAT, LANG_CHARSET);
 
     // Fetch the picture
     $targeturl=sprintpcs_getrealpicture($url);
@@ -227,7 +227,7 @@ function sprintpcs_pictureshare($maildir, $body, $authorid) {
     $msg=stristr($body, SPRINTPCS_MSG);
     if ($msg) {
         $pos=strpos($msg, '</font>');
-        $msg=html_entity_decode(substr($msg, 17, $pos-17), ENT_QUOTES).'<br /><br />';
+        $msg=html_entity_decode(substr($msg, 17, $pos-17), ENT_QUOTES, LANG_CHARSET).'<br /><br />';
         if (trim($msg) == '<br /><br />') $msg='';
     } else {
         $msg='';
@@ -239,7 +239,7 @@ function sprintpcs_pictureshare($maildir, $body, $authorid) {
         $memo=stristr($memo, SPRINTPCS_MEMO_START);
         $pos=strpos($memo, '"');
         $memo=substr($memo, 0, $pos);
-        $memo=html_entity_decode($memo);
+        $memo=html_entity_decode($memo, ENT_COMPAT, LANG_CHARSET);
         $memosound = @file_get_contents($memo);
         // Build the filename - I use this funky date name because the Sprint file path is too gnarly
         $memofilename = date("F_j_Y__H_i_s").'.wav';
@@ -287,7 +287,7 @@ function sprintpcs_videoshare($maildir, $body, $authorid) {
     }
     $pos=strpos($video, '"');
     $url=substr($video, 0, $pos);
-    $url=html_entity_decode($url);
+    $url=html_entity_decode($url, ENT_COMPAT, LANG_CHARSET);
 
     // Fetch the picture
     $videostill = @file_get_contents($url);
@@ -364,12 +364,12 @@ function sprintpcs_videoshare($maildir, $body, $authorid) {
     $msg=strstr($body, SPRINTPCS_MSG);
     if ($msg) {
         $pos=strpos($msg, '</font>');
-        $msg=html_entity_decode(substr($msg, 17, $pos-17), ENT_QUOTES).'<br /><br />';
+        $msg=html_entity_decode(substr($msg, 17, $pos-17), ENT_QUOTES, LANG_CHARSET).'<br /><br />';
         if (trim($msg) == '<br /><br />') $msg='';
     } elseif ($msg=stristr($body, SPRINTPCS_VID_MSG)) {
         $msg=strstr($msg, '"2">');
         $pos=strpos($msg, '</font');
-        $msg=html_entity_decode(substr($msg, 4, $pos-4), ENT_QUOTES).'<br /><br />';
+        $msg=html_entity_decode(substr($msg, 4, $pos-4), ENT_QUOTES, LANG_CHARSET).'<br /><br />';
         if (trim($msg) == '<br /><br />') $msg='';
     } else {
         $msg='';
@@ -381,7 +381,7 @@ function sprintpcs_videoshare($maildir, $body, $authorid) {
         $memo=stristr($memo, SPRINTPCS_MEMO_START);
         $pos=strpos($memo, '"');
         $memo=substr($memo, 0, $pos);
-        $memo=html_entity_decode($memo);
+        $memo=html_entity_decode($memo, ENT_COMPAT, LANG_CHARSET);
         $memosound = @file_get_contents($memo);
         // Build the filename - I use this funky date name because the Sprint file path is too gnarly
         $memofilename = date("F_j_Y__H_i_s").'.wav';
@@ -429,7 +429,7 @@ function sprintpcs_albumshare($maildir, $body, $authorid) {
     }
     $pos=strpos($video, '"');
     $url=substr($video, 0, $pos);
-    $url=html_entity_decode($url);
+    $url=html_entity_decode($url, ENT_COMPAT, LANG_CHARSET);
 
     // Fetch the picture
     $videostill = @file_get_contents($url);
@@ -506,12 +506,12 @@ function sprintpcs_albumshare($maildir, $body, $authorid) {
     $msg=strstr($body, SPRINTPCS_MSG);
     if ($msg) {
         $pos=strpos($msg, '</font>');
-        $msg=html_entity_decode(substr($msg, 17, $pos-17), ENT_QUOTES).'<br /><br />';
+        $msg=html_entity_decode(substr($msg, 17, $pos-17), ENT_QUOTES, LANG_CHARSET).'<br /><br />';
         if (trim($msg) == '<br /><br />') $msg='';
     } elseif ($msg=stristr($body, SPRINTPCS_VID_MSG)) {
         $msg=strstr($msg, '"2">');
         $pos=strpos($msg, '</font');
-        $msg=html_entity_decode(substr($msg, 4, $pos-4), ENT_QUOTES).'<br /><br />';
+        $msg=html_entity_decode(substr($msg, 4, $pos-4), ENT_QUOTES, LANG_CHARSET).'<br /><br />';
         if (trim($msg) == '<br /><br />') $msg='';
     } else {
         $msg='';
@@ -523,7 +523,7 @@ function sprintpcs_albumshare($maildir, $body, $authorid) {
         $memo=stristr($memo, SPRINTPCS_MEMO_START);
         $pos=strpos($memo, '"');
         $memo=substr($memo, 0, $pos);
-        $memo=html_entity_decode($memo);
+        $memo=html_entity_decode($memo, ENT_COMPAT, LANG_CHARSET);
         $memosound = @file_get_contents($memo);
         // Build the filename - I use this funky date name because the Sprint file path is too gnarly
         $memofilename = date("F_j_Y__H_i_s").'.wav';

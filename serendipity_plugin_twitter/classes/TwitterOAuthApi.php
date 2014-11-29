@@ -105,7 +105,7 @@ class TwitterOAuthApi {
     static function parse_entry_json( $item ) {
         $entry = array();
         
-        if (preg_match('/href="([^"]*)"/',html_entity_decode($item->source),$matches)) {
+        if (preg_match('/href="([^"]*)"/',html_entity_decode($item->source, ENT_COMPAT, LANG_CHARSET),$matches)) {
             $source_link = $matches[1][0];
         }
         //$link = str_replace('<a href="','',str_replace('"/a>','',html_entity_decode($item['source'])));

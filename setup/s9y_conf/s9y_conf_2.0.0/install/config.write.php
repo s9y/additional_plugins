@@ -96,7 +96,7 @@ debug_msg (\"FILE: \".__FILE__,3);
 
 ?>";
 
-	debug_msg(nl2br(htmlentities($config_contents)), 5);
+	debug_msg(nl2br(htmlentities($config_contents, ENT_COMPAT, LANG_CHARSET)), 5);
 
 	// Open the file for writing
 	if (!$file_handle = @fopen($config_file,'wb')) { // Failed to open the file?

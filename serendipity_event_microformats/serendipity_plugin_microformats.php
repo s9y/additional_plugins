@@ -190,8 +190,8 @@ class serendipity_plugin_microformats extends serendipity_plugin
                     $dtstart = str_replace('T', ' ', $v['DTSTART']);
                     $v['DTSTART'] .= $this->get_config('timezone');
                     echo '<div class="vevent" style="margin-bottom:1em;">';
-                    echo '<p class="summary" style="font-weight:bold;margin:0;padding:0;color:#DDD">' . htmlentities($v['SUMMARY']) . '</p>';
-                    echo '<p style="margin:0;padding:0 0 0 18px;background:url(' . $serendipity['baseURL'] . 'plugins/serendipity_event_microformats/img/house_12.png) 0 0 no-repeat;"><a href="' . $v['URL'] . '" class="url location" style="color:#70191B;">' . htmlentities($v['LOCATION']) . '</a></p>';
+                    echo '<p class="summary" style="font-weight:bold;margin:0;padding:0;color:#DDD">' . htmlentities($v['SUMMARY'], ENT_COMPAT, LANG_CHARSET) . '</p>';
+                    echo '<p style="margin:0;padding:0 0 0 18px;background:url(' . $serendipity['baseURL'] . 'plugins/serendipity_event_microformats/img/house_12.png) 0 0 no-repeat;"><a href="' . $v['URL'] . '" class="url location" style="color:#70191B;">' . htmlentities($v['LOCATION'], ENT_COMPAT, LANG_CHARSET) . '</a></p>';
                     echo '<p style="margin:0;padding:0 0 0 18px;background:url(' . $serendipity['baseURL'] . 'plugins/serendipity_event_microformats/img/clock_12.png) 0 0 no-repeat;"><abbr class="dtstart" title="' . $v['DTSTART'] . '" style="color:#70191B;">' . date('d.m.Y, H:i', strtotime($dtstart)) . ' Uhr</abbr><!-- &mdash; <abbr class="dtend" title="' . $v['DTEND'] . '">' . date('d.m.Y H:i', strtotime($v['DTEND'])) . ' Uhr</abbr>--></p>';
                     /* LATER if (isset($v['DESC'])) {
                         echo '<p class="description" style="margin:0 0 0 3px;padding:0;">' . $v['DESC'] . '</p>';

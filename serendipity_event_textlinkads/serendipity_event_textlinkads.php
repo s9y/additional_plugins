@@ -159,7 +159,7 @@ class serendipity_event_textlinkads extends serendipity_event
 
     function html_entity_decode($string) {
         if (function_exists('html_entity_decode')) {
-            return html_entity_decode($string);
+            return html_entity_decode($string, ENT_COMPAT, LANG_CHARSET);
         }
 
         // replace numeric entities
@@ -181,7 +181,7 @@ class serendipity_event_textlinkads extends serendipity_event
         $n = 0;
 
         while (isset($out[$n])) {
-            $retarr[$out[$n][1]][] = str_replace($search_ar, $replace_ar, $this->html_entity_decode(strip_tags($out[$n][0])));
+            $retarr[$out[$n][1]][] = str_replace($search_ar, $replace_ar, $this->html_entity_decode(strip_tags($out[$n][0]), ENT_COMPAT, LANG_CHARSET));
             $n++;
         }
 

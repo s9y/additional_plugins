@@ -276,7 +276,7 @@ class DB_storage extends PEAR
     {
         foreach ($this->_properties as $prop => $foo) {
             print "$prop = ";
-            print htmlentities($this->$prop);
+            print htmlentities($this->$prop, ENT_COMPAT, LANG_CHARSET);
             print "<br />\n";
         }
     }

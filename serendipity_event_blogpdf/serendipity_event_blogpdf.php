@@ -21,17 +21,6 @@ if (file_exists($probelang)) {
 
 include dirname(__FILE__) . '/lang_en.inc.php';
 
-if (!function_exists('html_entity_decode')) {
-    function html_entity_decode($given_html, $quote_style = ENT_QUOTES) {
-        $trans_table = get_html_translation_table(HTML_SPECIALCHARS, $quote_style);
-        if ($trans_table["'"] != '&#039;') { # some versions of PHP match single quotes to &#39;
-          $trans_table["'"] = '&#039;';
-        }
-
-        return (strtr($given_html, array_flip($trans_table)));
-    }
-}
-
 class serendipity_event_blogpdf extends serendipity_event
 {
     var $title = PLUGIN_EVENT_BLOGPDF_NAME;
@@ -340,9 +329,9 @@ class serendipity_event_blogpdf extends serendipity_event
         if (serendipity_db_bool($this->get_config('html2pdf'))) {
             return $string;
         } elseif (serendipity_db_bool($this->get_config('fallback'))) {
-			return strip_tags(html_entity_decode(utf8_decode($string)));
+			return strip_tags(html_entity_decode(utf8_decode($string), ENT_COMPAT, LANG_CHARSET));
 		} else {
-			return strip_tags(html_entity_decode($string));
+			return strip_tags(html_entity_decode($string, ENT_COMPAT, LANG_CHARSET));
 		}
 
     }

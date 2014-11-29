@@ -1449,7 +1449,7 @@
 			if($this->debug)
 			{
 				//by maHo, replaced htmlspecialchars with htmlentities
-				print "<PRE>---GOT---\n" . htmlentities($data) . "\n---END---\n</PRE>";
+				print "<PRE>---GOT---\n" . htmlentities($data, ENT_COMPAT, LANG_CHARSET) . "\n---END---\n</PRE>";
 			}
 
 			if($data == '')

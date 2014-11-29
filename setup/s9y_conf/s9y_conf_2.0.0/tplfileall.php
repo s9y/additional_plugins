@@ -109,7 +109,7 @@ $TEMPLATE_NAME = $templatedata['name'];
 $TEMPLATE_DESCRIPTION = $templatedata['description'];
 
 // Template contents
-$template_contents = html_entity_decode($templatedata['template']);
+$template_contents = html_entity_decode($templatedata['template'], ENT_COMPAT, LANG_CHARSET);
 
 // Expand the template variables recursively
 $templatevars = expand_templatevars($templatevars);
@@ -125,7 +125,7 @@ $template_contents = str_replace('{WWWGROUP}', $WWWGROUP, $template_contents);
 $template_contents = str_replace('{WWWUSER}', $WWWUSER, $template_contents);
 */
 foreach ($templatevars as $tplvar) {
-	$template_contents = str_replace('{'.$tplvar['name'].'}', html_entity_decode($tplvar['value']), $template_contents);
+	$template_contents = str_replace('{'.$tplvar['name'].'}', html_entity_decode($tplvar['value'], ENT_COMPAT, LANG_CHARSET), $template_contents);
 }
 
 // Insert specific template template variables

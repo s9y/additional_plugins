@@ -239,7 +239,7 @@ class serendipity_event_mymood extends serendipity_event {
         $img_tag = (!empty($mood_info['mood_img'])) ?
             '<img class="mymood_img" alt="' . $mood_info['mood_name'] . '" src="' . $mood_info['mood_img'] . '">' :
             '';
-        $ascii = (!empty($mood_info['mood_ascii'])) ? htmlentities($mood_info['mood_ascii']) : '';
+        $ascii = (!empty($mood_info['mood_ascii'])) ? htmlentities($mood_info['mood_ascii'], ENT_COMPAT, LANG_CHARSET) : '';
 
         $format=str_replace(array('{img}', '{name}', '{ascii}'),
                             array($img_tag, $mood_info['mood_name'], $ascii),

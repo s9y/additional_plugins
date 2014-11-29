@@ -776,7 +776,7 @@ function Generate_JPEG_APP_Segment_HTML( $jpeg_header_data )
 
 
                         // Clean the segment name so it doesn't cause problems with HTML
-                        $seg_name = htmlentities( $seg_name );
+                        $seg_name = htmlentities( $seg_name, ENT_COMPAT, LANG_CHARSET );
 
                         // Output a Table row containing this APP segment
                         $output .= "<tr class=\"JPEG_APP_Segments_Table_Row\"><td class=\"JPEG_APP_Segments_Caption_Cell\">$seg_name</td><td class=\"JPEG_APP_Segments_Type_Cell\">" . $jpeg_header['SegName'] . "</td><td  class=\"JPEG_APP_Segments_Size_Cell\" align=\"right\">" . strlen( $jpeg_header['SegData']). " bytes</td></tr>\n";

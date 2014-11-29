@@ -380,7 +380,7 @@ function template_edit($id) {
 
 	$name = $result['name'];
 	$description=$result['description'];
-	$template = html_entity_decode($result['template']);
+	$template = html_entity_decode($result['template'], ENT_COMPAT, LANG_CHARSET);
 
 ?>
 <div align="center">

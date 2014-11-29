@@ -166,7 +166,7 @@ class serendipity_event_custom_permalinks extends serendipity_event {
                     <fieldset style="margin: 5px">
                         <legend><?php echo PLUGIN_EVENT_CUSTOM_PERMALINKS_PL; ?></legend>
                             <div><?php echo PLUGIN_EVENT_CUSTOM_PERMALINKS_PL_DESC; ?><br /><br /></div>
-                            <label for="permalink" title="<?php echo htmlentities(PLUGIN_EVENT_CUSTOM_PERMALINKS_PL); ?>"><?php echo PLUGIN_EVENT_CUSTOM_PERMALINKS_PL; ?>:</label> <input class="input_textbox" type="text" style="width: 60%" name="serendipity[permalink]" id="permalink" value="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($permalink) : htmlspecialchars($permalink, ENT_COMPAT, LANG_CHARSET)); ?>" />
+                            <label for="permalink" title="<?php echo htmlentities(PLUGIN_EVENT_CUSTOM_PERMALINKS_PL, ENT_COMPAT, LANG_CHARSET); ?>"><?php echo PLUGIN_EVENT_CUSTOM_PERMALINKS_PL; ?>:</label> <input class="input_textbox" type="text" style="width: 60%" name="serendipity[permalink]" id="permalink" value="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($permalink) : htmlspecialchars($permalink, ENT_COMPAT, LANG_CHARSET)); ?>" />
                     </fieldset>
 <?php
                     return true;

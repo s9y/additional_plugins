@@ -28,7 +28,7 @@ class serendipity_event_yq extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_YQ_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rasmus Lerdorf');
-        $propbag->add('version',       '1.2');
+        $propbag->add('version',       '1.3');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -74,7 +74,7 @@ class serendipity_event_yq extends serendipity_event {
         $hooks  = &$bag->get('event_hooks');
 		$results = $this->get_config('results');
 		$context_length = $this->get_config('context_length');
-		$add_context = htmlentities($this->get_config('add_context'));
+		$add_context = htmlentities($this->get_config('add_context'), ENT_COMPAT, LANG_CHARSET);
         $links  = array();
 
         if (isset($hooks[$event])) {
@@ -84,7 +84,7 @@ class serendipity_event_yq extends serendipity_event {
 					break;
 
 				case 'frontend_display:html:per_entry':
-					$title = htmlentities($eventData['title']);
+					$title = htmlentities($eventData['title'], ENT_COMPAT, LANG_CHARSET);
 					$tmp = strip_tags($eventData['body']);
 					$tmp = wordwrap($tmp, 80, '<>');
 					$tmp = explode('<>', $tmp);

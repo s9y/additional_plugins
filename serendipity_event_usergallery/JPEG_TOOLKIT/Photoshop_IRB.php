@@ -445,7 +445,7 @@ function Interpret_IRB_to_HTML( $IRB_array, $filename )
                                         break;
 
                                 case 0x040B : // URL
-                                        $output_str .= "<tr class=\"Photoshop_Table_Row\"><td class=\"Photoshop_Caption_Cell\">$Resource_Name</td><td class=\"Photoshop_Value_Cell\"><a href=\"" . $IRB_Resource['ResData'] . "\">" . htmlentities( $IRB_Resource['ResData'] ) ."</a></td></tr>\n";
+                                        $output_str .= "<tr class=\"Photoshop_Table_Row\"><td class=\"Photoshop_Caption_Cell\">$Resource_Name</td><td class=\"Photoshop_Value_Cell\"><a href=\"" . $IRB_Resource['ResData'] . "\">" . htmlentities( $IRB_Resource['ResData'], ENT_COMPAT, LANG_CHARSET ) ."</a></td></tr>\n";
                                         break;
 
                                 case 0x040A : // Copyright Marked

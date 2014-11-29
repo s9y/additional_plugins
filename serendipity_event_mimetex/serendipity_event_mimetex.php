@@ -24,7 +24,7 @@ class serendipity_event_mimetex extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_MIMETEX_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Matthew Groeninger');
-        $propbag->add('version',       '1.3');
+        $propbag->add('version',       '1.4');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -235,7 +235,7 @@ class serendipity_event_mimetex extends serendipity_event
                             break;
 
                         case 'mimetex.php':
-                            $q = html_entity_decode(rawurldecode($_REQUEST['q']));
+                            $q = html_entity_decode(rawurldecode($_REQUEST['q']), ENT_COMPAT, LANG_CHARSET);
                             $filetype = $this->get_config('filetype','gif');
                             if (!empty($q)) {
                                 $filename = md5($q);

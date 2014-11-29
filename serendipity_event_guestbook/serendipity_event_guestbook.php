@@ -1,7 +1,7 @@
 <?php #
 
 /**
- * serendipity_event_guestbook.php, v.3.51 - 2014-06-16
+ * serendipity_event_guestbook.php, v.3.52 - 2014-11-26
  */
 
 //error_reporting(E_ALL);
@@ -67,7 +67,7 @@ class serendipity_event_guestbook extends serendipity_event {
                         'dateformat'
                     ));
         $propbag->add('author',       'Ian');
-        $propbag->add('version',      '3.51.1');
+        $propbag->add('version',      '3.52');
         $propbag->add('requirements', array(
                         'serendipity' => '1.7.0',
                         'smarty'      => '3.1.0',
@@ -1101,12 +1101,12 @@ class serendipity_event_guestbook extends serendipity_event {
                     'plugin_guestbook_intro'           => $this->get_config('intro'),
                     'plugin_guestbook_sent'            => $this->get_config('sent', PLUGIN_GUESTBOOK_SENT_HTML),
                     'plugin_guestbook_action'          => $serendipity['baseURL'] . $serendipity['indexFile'],
-                    'plugin_guestbook_sname'           => (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['subpage']) : htmlspecialchars($serendipity['GET']['subpage'], ENT_COMPAT, LANG_CHARSET)),
-                    'plugin_guestbook_name'            => (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['name'])) : htmlspecialchars(strip_tags($serendipity['POST']['name']), ENT_COMPAT, LANG_CHARSET)),
-                    'plugin_guestbook_email'           => (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['email'])) : htmlspecialchars(strip_tags($serendipity['POST']['email']), ENT_COMPAT, LANG_CHARSET)),
+                    'plugin_guestbook_sname'           => function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['subpage']) : htmlspecialchars($serendipity['GET']['subpage'], ENT_COMPAT, LANG_CHARSET),
+                    'plugin_guestbook_name'            => function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['name'])) : htmlspecialchars(strip_tags($serendipity['POST']['name']), ENT_COMPAT, LANG_CHARSET),
+                    'plugin_guestbook_email'           => function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['email'])) : htmlspecialchars(strip_tags($serendipity['POST']['email']), ENT_COMPAT, LANG_CHARSET),
                     'plugin_guestbook_emailprotect'    => PLUGIN_GUESTBOOK_PROTECTION,
-                    'plugin_guestbook_url'             => (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['url'])) : htmlspecialchars(strip_tags($serendipity['POST']['url']), ENT_COMPAT, LANG_CHARSET)),
-                    'plugin_guestbook_comment'         => (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['comment'])) : htmlspecialchars(strip_tags($serendipity['POST']['comment']), ENT_COMPAT, LANG_CHARSET)),
+                    'plugin_guestbook_url'             => function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['url'])) : htmlspecialchars(strip_tags($serendipity['POST']['url']), ENT_COMPAT, LANG_CHARSET),
+                    'plugin_guestbook_comment'         => function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['comment'])) : htmlspecialchars(strip_tags($serendipity['POST']['comment']), ENT_COMPAT, LANG_CHARSET),
                     'plugin_guestbook_messagestack'    => $serendipity['messagestack']['comments'],
                     'plugin_guestbook_entry'           => array('timestamp' => 1)
                 )
@@ -1285,7 +1285,7 @@ class serendipity_event_guestbook extends serendipity_event {
 
                     if ($this->selected()) {
                         $serendipity['head_title']    = $this->get_config('headline');
-                        $serendipity['head_subtitle'] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['blogTitle']) : htmlspecialchars($serendipity['blogTitle'], ENT_COMPAT, LANG_CHARSET));
+                        $serendipity['head_subtitle'] = function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['blogTitle']) : htmlspecialchars($serendipity['blogTitle'], ENT_COMPAT, LANG_CHARSET);
                     }
 
                     break;
@@ -1815,13 +1815,13 @@ class serendipity_event_guestbook extends serendipity_event {
         // assign form array entries to smarty
         $serendipity['smarty']->assign(
                         array(
-                            'plugin_gb_dump'                => @$serendipity['GET']['guestbookdbclean'] == 'dbdump' ? ' id="active"' : '',
-                            'plugin_gb_insert'              => @$serendipity['GET']['guestbookdbclean'] == 'dbinsert' ? ' id="active"' : '',
-                            'plugin_gb_erase'               => @$serendipity['GET']['guestbookdbclean'] == 'dberase' ? ' id="active"' : '',
-                            'plugin_gb_download'            => @$serendipity['GET']['guestbookdbclean'] == 'dbdownload' ? ' id="active"' : '',
-                            'plugin_gb_adminpath'           => $adminpath,
-                            'plugin_gb_ilogerror'           => $serendipity['guestbook']['ilogerror'],
-                            'plugin_gb_dropmsg'             => $serendipity['guestbookdroptable']
+                            'plugin_gb_dump'      => @$serendipity['GET']['guestbookdbclean'] == 'dbdump' ? ' id="active"' : '',
+                            'plugin_gb_insert'    => @$serendipity['GET']['guestbookdbclean'] == 'dbinsert' ? ' id="active"' : '',
+                            'plugin_gb_erase'     => @$serendipity['GET']['guestbookdbclean'] == 'dberase' ? ' id="active"' : '',
+                            'plugin_gb_download'  => @$serendipity['GET']['guestbookdbclean'] == 'dbdownload' ? ' id="active"' : '',
+                            'plugin_gb_adminpath' => $adminpath,
+                            'plugin_gb_ilogerror' => $serendipity['guestbook']['ilogerror'],
+                            'plugin_gb_dropmsg'   => $serendipity['guestbookdroptable']
                         )
         );
 

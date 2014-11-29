@@ -1255,11 +1255,11 @@ class serendipity_event_forum extends serendipity_event {
                 $serendipity['smarty']->assign('ERRORMSG', $ERRORMSG);
             }
             if ($this->get_config('apply_markup')) {
-                $temp_array = array('body' => (function_exists('serendipity_specialchars') ? serendipity_specialchars(stripslashes(trim($post[0]['message']))) : htmlspecialchars(stripslashes(trim($post[0]['message'])), ENT_COMPAT, LANG_CHARSET));
+                $temp_array = array('body' => (function_exists('serendipity_specialchars') ? serendipity_specialchars(stripslashes(trim($post[0]['message']))) : htmlspecialchars(stripslashes(trim($post[0]['message'])), ENT_COMPAT, LANG_CHARSET)));
                 serendipity_plugin_api::hook_event('frontend_display', $temp_array);
                 $post['message'] = trim($temp_array['body']);
             } else {
-                $post['message'] = nl2br((function_exists('serendipity_specialchars') ? serendipity_specialchars(stripslashes(trim($post[0]['message']))) : htmlspecialchars(stripslashes(trim($post[0]['message'])), ENT_COMPAT, LANG_CHARSET));
+                $post['message'] = nl2br((function_exists('serendipity_specialchars') ? serendipity_specialchars(stripslashes(trim($post[0]['message']))) : htmlspecialchars(stripslashes(trim($post[0]['message'])), ENT_COMPAT, LANG_CHARSET)));
             }
             $serendipity['smarty']->assign(
                 array(
@@ -1773,7 +1773,7 @@ class serendipity_event_forum extends serendipity_event {
                         if ($this->get_config('unreg_nomarkups') && (!isset($posts[$a]['authorid']) || intval($posts[$a]['authorid']) <= 0)) {
                             $posts[$a]['message'] = nl2br((function_exists('serendipity_specialchars') ? serendipity_specialchars(trim(stripslashes($posts[$a]['message']))) : htmlspecialchars(trim(stripslashes($posts[$a]['message'])), ENT_COMPAT, LANG_CHARSET)));
                         } else {
-                            $temp_array = array('body' => (function_exists('serendipity_specialchars') ? serendipity_specialchars(trim(stripslashes($posts[$a]['message']))) : htmlspecialchars(trim(stripslashes($posts[$a]['message'])), ENT_COMPAT, LANG_CHARSET)))));
+                            $temp_array = array('body' => (function_exists('serendipity_specialchars') ? serendipity_specialchars(trim(stripslashes($posts[$a]['message']))) : htmlspecialchars(trim(stripslashes($posts[$a]['message'])), ENT_COMPAT, LANG_CHARSET)));
                             serendipity_plugin_api::hook_event('frontend_display', $temp_array);
                             $posts[$a]['message'] = trim($temp_array['body']);
                         }

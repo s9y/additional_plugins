@@ -376,7 +376,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     <script>
                         CKEDITOR.replace( 'nuggets2',
                         {
-                            toolbar : [['Bold','Italic','Underline','Superscript','-','NumberedList','BulletedList','Outdent','Blockquote'],['Format'],['JustifyLeft','JustifyCenter','JustifyRight'],['Link','Unlink'],['Source']],
+                            toolbar : [['Format'],['Bold','Italic','Underline','Superscript','-','NumberedList','BulletedList','Outdent','Blockquote'],['JustifyBlock','JustifyCenter','JustifyRight'],['Link','Unlink'],['Source']],
                             toolbarGroups: null
                         });
                     </script>

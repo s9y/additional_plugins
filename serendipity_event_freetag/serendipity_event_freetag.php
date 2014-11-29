@@ -890,32 +890,32 @@ class serendipity_event_freetag extends serendipity_event
                         $tags = array();
                     }
 
-                        if (serendipity_db_bool($this->get_config('cat2tag'))) {
-                            if (is_array($cats = serendipity_fetchCategories())) {
-                                $cats = serendipity_walkRecursive($cats, 'categoryid', 'parentid', VIEWMODE_THREADED);
-                                foreach ($cats as $cat) {
-                                    if ($to_lower) {
-                                        if (function_exists("mb_strtolower")) {
-                                            $cat['category_name'] = mb_strtolower($cat['category_name']);
-                                        } else {
-                                            $cat['category_name'] = strtolower($cat['category_name']);
-                                        }
+                    if (serendipity_db_bool($this->get_config('cat2tag'))) {
+                        if (is_array($cats = serendipity_fetchCategories())) {
+                            $cats = serendipity_walkRecursive($cats, 'categoryid', 'parentid', VIEWMODE_THREADED);
+                            foreach ($cats as $cat) {
+                                if ($to_lower) {
+                                    if (function_exists("mb_strtolower")) {
+                                        $cat['category_name'] = mb_strtolower($cat['category_name']);
+                                    } else {
+                                        $cat['category_name'] = strtolower($cat['category_name']);
                                     }
+                                }
 
-                                    $names = explode(',', $cat['category_name']);
-                                    foreach($names AS $name) {
-                                        $name = trim($name);
-                                        if (is_array($eventData['categories']) && in_array($cat['categoryid'], $eventData['categories']) && !in_array($name, $tags)) {
-                                            $tags[] = $name;
-                                        }
+                                $names = explode(',', $cat['category_name']);
+                                foreach($names AS $name) {
+                                    $name = trim($name);
+                                    if (is_array($eventData['categories']) && in_array($cat['categoryid'], $eventData['categories']) && !in_array($name, $tags)) {
+                                        $tags[] = $name;
                                     }
                                 }
                             }
                         }
-                        $serendipity['POST']['properties']['freetag_tagList'] = implode(',', $tags);
+                    }
+                    $serendipity['POST']['properties']['freetag_tagList'] = implode(',', $tags);
 
-                        $this->deleteTagsForEntry($eventData['id']);
-                        $this->addTagsToEntry($eventData['id'], $tags);
+                    $this->deleteTagsForEntry($eventData['id']);
+                    $this->addTagsToEntry($eventData['id'], $tags);
 
                     if ($serendipity['POST']['properties']['freetag_kill']) {
                         $this->deleteTagsForEntry($eventData['id']);

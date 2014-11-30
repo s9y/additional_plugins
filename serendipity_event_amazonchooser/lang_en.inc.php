@@ -137,4 +137,3 @@
 @define('PLUGIN_EVENT_AMAZONCHOOSER_SETTINGS_PROBLEM','The most common cause of this error is a mis-configuration of the plugin.  Please consult the documentation and check the plugin configuration.');
 @define('PLUGIN_EVENT_AMAZONCHOOSER_PLUGINPROBLEM','Version conflict for Amazon library.');
 @define('PLUGIN_EVENT_AMAZONCHOOSER_PLUGINPROBLEM_DESC','The Amazon Media Button plugin depends on a newer version of the file "Amazon_s9y_lib.php".  Please check to make sure all of your plugins are up to date.');
-?>

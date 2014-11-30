@@ -725,7 +725,11 @@ class serendipity_event_freetag extends serendipity_event
                             if (false === serendipity_db_bool($this->get_config('show_tagcloud', true))) {
                                 // Since this is extra stuff, we need to regular assign the subtitle header and not use $serendipity['head_subtitle'] !
                                 if (count($param) > 1) {
-                                    $serendipity['smarty']->assign('head_subtitle', sprintf(PLUGIN_EVENT_FREETAG_USING, implode(' + ', array_map('htmlspecialchars', $param))));
+                                    if (function_exists('serendipity_specialchars')) {
+                                        $serendipity['smarty']->assign('head_subtitle', sprintf(PLUGIN_EVENT_FREETAG_USING, implode(' + ', array_map('serendipity_specialchars', $param))));
+                                    } else {
+                                        $serendipity['smarty']->assign('head_subtitle', sprintf(PLUGIN_EVENT_FREETAG_USING, implode(' + ', array_map('htmlspecialchars', $param))));
+                                    }
                                 } else {
                                     $serendipity['smarty']->assign('head_subtitle', sprintf(PLUGIN_EVENT_FREETAG_USING, (function_exists('serendipity_specialchars') ? serendipity_specialchars($param[0]) : htmlspecialchars($param[0], ENT_COMPAT, LANG_CHARSET))));
                                 }
@@ -768,7 +772,11 @@ class serendipity_event_freetag extends serendipity_event
                             }
                             $param = array_map('strip_tags', $param);
                             $param = array_filter($param); // empty removed XSS by strip_tags
-                            $serendipity['head_subtitle'] = sprintf(PLUGIN_EVENT_FREETAG_USING, implode(' + ', array_map('htmlspecialchars', $param)));
+                            if (function_exists('serendipity_specialchars')) {
+                                $serendipity['head_subtitle'] = sprintf(PLUGIN_EVENT_FREETAG_USING, implode(' + ', array_map('serendipity_specialchars', $param)));
+                            } else {
+                                $serendipity['head_subtitle'] = sprintf(PLUGIN_EVENT_FREETAG_USING, implode(' + ', array_map('htmlspecialchars', $param)));
+                            }
                             $emit_404 = true;
                         }
                         // for XSS secureness, while using doubled decode
@@ -776,7 +784,11 @@ class serendipity_event_freetag extends serendipity_event
                         if (is_array($param)) {
                             array_filter($param); // empty removed XSS by strip_tags
                         }
-                        $param = is_array($param) ? array_map('htmlspecialchars', $param) : (function_exists('serendipity_specialchars') ? serendipity_specialchars($param) : htmlspecialchars($param, ENT_COMPAT, LANG_CHARSET));
+                        if (function_exists('serendipity_specialchars')) {
+                            $param = is_array($param) ? array_map('serendipity_specialchars', $param) : serendipity_specialchars($param);
+                        } else {
+                            $param = is_array($param) ? array_map('htmlspecialchars', $param) : htmlspecialchars($param, ENT_COMPAT, LANG_CHARSET);
+                        }
 
                         $this->tags['show'] = $param;
                         $serendipity['plugin_vars']['tag'] = $param;

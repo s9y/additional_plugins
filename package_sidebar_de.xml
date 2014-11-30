@@ -11,9 +11,9 @@
 <description>Dieses Plugin zeigt eine konfigurierbare Liste der statischen Seiten. Das StaticPage-Plugin benötigt Version 1.22 oder höher.</description>
 <maintainers><maintainer><name>Rob Antonishen, Falk Doering, Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.19</version>
+  <version>1.19.1</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2014-06-10</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_event_staticpage">
 <file>lang_de.inc.php</file>
@@ -33,8 +33,6 @@
 <file>lang_tr.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <dir name="img">
 <file>base.gif</file>
@@ -101,8 +99,6 @@
     <file>serendipity_event_staticpage/UTF-8/lang_tr.inc.php</file>
     <file>serendipity_event_staticpage/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_staticpage/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_staticpage/UTF-8/documentation_cs.html</file>
-    <file>serendipity_event_staticpage/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_staticpage/img/base.gif</file>
     <file>serendipity_event_staticpage/img/empty.gif</file>
     <file>serendipity_event_staticpage/img/folder.gif</file>
@@ -262,8 +258,6 @@
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>lang_en.inc.php</file>
 <file>lang_bg.inc.php</file>
@@ -369,8 +363,6 @@
     <file>serendipity_plugin_weather/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_plugin_weather/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_weather/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_weather/UTF-8/documentation_cs.html</file>
-    <file>serendipity_plugin_weather/UTF-8/documentation_cz.html</file>
     <file>serendipity_plugin_weather/lang_en.inc.php</file>
     <file>serendipity_plugin_weather/lang_bg.inc.php</file>
     <file>serendipity_plugin_weather/serendipity_plugin_weather.php</file>
@@ -405,8 +397,6 @@
 <file>lang_bc.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>lang_bg.inc.php</file>
 <file>serendipity_plugin_loginform.php</file>
@@ -428,8 +418,6 @@
     <file>serendipity_plugin_loginform/UTF-8/lang_bc.inc.php</file>
     <file>serendipity_plugin_loginform/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_loginform/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_loginform/UTF-8/documentation_cs.html</file>
-    <file>serendipity_plugin_loginform/UTF-8/documentation_cz.html</file>
     <file>serendipity_plugin_loginform/lang_bg.inc.php</file>
     <file>serendipity_plugin_loginform/serendipity_plugin_loginform.php</file>
     <file>serendipity_plugin_loginform/ChangeLog</file>
@@ -462,8 +450,6 @@
 <file>lang_de.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>ChangeLog</file>
 <file>lang_en.inc.php</file>
@@ -483,8 +469,6 @@
     <file>serendipity_plugin_amazon/UTF-8/lang_de.inc.php</file>
     <file>serendipity_plugin_amazon/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_amazon/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_amazon/UTF-8/documentation_cs.html</file>
-    <file>serendipity_plugin_amazon/UTF-8/documentation_cz.html</file>
     <file>serendipity_plugin_amazon/ChangeLog</file>
     <file>serendipity_plugin_amazon/lang_en.inc.php</file>
     <file>serendipity_plugin_amazon/lang_cs.inc.php</file>
@@ -504,9 +488,9 @@
 <description>Zeigt den Inhalt der letzten Google, Yahoo, Bing und Scroogle Suchen, die zu diesem Blog geführt haben, an</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.18</version>
+  <version>1.18.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_plugin_google_last_query">
 <file>serendipity_plugin_google_last_query.php</file>
@@ -612,9 +596,9 @@
 <description>Zeigt die Top-Seiten, die auf das Blog linken</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.3</version>
+  <version>1.3.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_plugin_topreferers">
 <file>serendipity_plugin_topreferers.php</file>
@@ -820,9 +804,9 @@
 <description>Ermöglicht Besuchern die Ausgabesprache von Serendipity zu ändern</description>
 <maintainers><maintainer><name>Garvin Hicking, Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.11</version>
+  <version>1.11.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_event_multilingual">
 <file>lang_tr.inc.php</file>
@@ -836,8 +820,6 @@
 <file>lang_tr.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>lang_ko.inc.php</file>
 <file>lang_fr.inc.php</file>
@@ -866,8 +848,6 @@
     <file>serendipity_event_multilingual/UTF-8/lang_tr.inc.php</file>
     <file>serendipity_event_multilingual/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_multilingual/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_multilingual/UTF-8/documentation_cs.html</file>
-    <file>serendipity_event_multilingual/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_multilingual/lang_ko.inc.php</file>
     <file>serendipity_event_multilingual/lang_fr.inc.php</file>
     <file>serendipity_event_multilingual/ChangeLog</file>
@@ -893,9 +873,9 @@
 <description>Zeigt die Titel und die Anzahl der Kommentare zu Einträge mit der höchsten Kommentarzahl, am Meisten oder am Wenigsten besuchte Beiträge</description>
 <maintainers><maintainer><name>Kaustubh Srikanth</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.10</version>
+  <version>1.10.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_plugin_popularentries">
 <file>serendipity_plugin_popularentries.php</file>
@@ -908,8 +888,6 @@
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>lang_en.inc.php</file>
 <file>ChangeLog</file>
@@ -932,8 +910,6 @@
     <file>serendipity_plugin_popularentries/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_plugin_popularentries/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_popularentries/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_popularentries/UTF-8/documentation_cs.html</file>
-    <file>serendipity_plugin_popularentries/UTF-8/documentation_cz.html</file>
     <file>serendipity_plugin_popularentries/lang_en.inc.php</file>
     <file>serendipity_plugin_popularentries/ChangeLog</file>
     <file>serendipity_plugin_popularentries/lang_pl.inc.php</file>
@@ -953,9 +929,9 @@
 <description>Ein Plugin um besuchte Links und Blogmarks mittels dem Freien del.icio.us Service darzustellen.</description>
 <maintainers><maintainer><name>Riscky</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.8</version>
+  <version>0.8.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_plugin_delicious">
 <file>serendipity_plugin_delicious.php</file>
@@ -1037,9 +1013,9 @@
 <description>Zeigt die Vorschaubilder der letzten Photoblog Einträge (siehe Ereignis-Plugin).</description>
 <maintainers><maintainer><name>Cameron MacFarland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.2</version>
+  <version>1.2.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_plugin_photoblog">
 <file>lang_tr.inc.php</file>
@@ -1084,9 +1060,9 @@
 <description>Ermöglicht es Blog-Besuchern sich einen eigenen Autoren-Account anzulegen. Zusammen mit dem Event-Plugin (index.php?serendipity[subpage]=adduser) kann eingestellt werden ob nur registrierte Benutzer Kommentare posten dürfen.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.34</version>
+  <version>2.34.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_plugin_adduser">
 <file>common.inc.php</file>
@@ -1100,8 +1076,6 @@
 <file>lang_fr.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>lang_en.inc.php</file>
 <file>loginbox.tpl</file>
@@ -1126,8 +1100,6 @@
     <file>serendipity_plugin_adduser/UTF-8/lang_fr.inc.php</file>
     <file>serendipity_plugin_adduser/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_adduser/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_adduser/UTF-8/documentation_cs.html</file>
-    <file>serendipity_plugin_adduser/UTF-8/documentation_cz.html</file>
     <file>serendipity_plugin_adduser/lang_en.inc.php</file>
     <file>serendipity_plugin_adduser/loginbox.tpl</file>
     <file>serendipity_plugin_adduser/lang_fr.inc.php</file>
@@ -1222,8 +1194,6 @@
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>lang_pl.inc.php</file>
 <file>ChangeLog</file>
@@ -1263,8 +1233,6 @@
     <file>serendipity_event_linklist/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_event_linklist/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_linklist/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_linklist/UTF-8/documentation_cs.html</file>
-    <file>serendipity_event_linklist/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_linklist/lang_pl.inc.php</file>
     <file>serendipity_event_linklist/ChangeLog</file>
     <file>serendipity_event_linklist/linklist.js</file>
@@ -1288,9 +1256,9 @@
 <description>Zeige die letzten Einträge des Gästebuchs</description>
 <maintainers><maintainer><name>Jaap Boerma ( j@webbict.com ), Tadashi Jokagi &lt;elf2000@users.sourceforge.net&gt;, Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.22</version>
+  <version>1.22.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-06-16</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="UTF-8">
@@ -1303,8 +1271,6 @@
 <file>lang_pl.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>README</file>
 <dir name="img">
@@ -1358,8 +1324,6 @@
     <file>serendipity_event_guestbook/UTF-8/lang_pl.inc.php</file>
     <file>serendipity_event_guestbook/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_guestbook/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_guestbook/UTF-8/documentation_cs.html</file>
-    <file>serendipity_event_guestbook/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_guestbook/README</file>
     <file>serendipity_event_guestbook/img/button_background.png</file>
     <file>serendipity_event_guestbook/img/delete.png</file>
@@ -1409,9 +1373,9 @@
 <description>Zeigt die aktuellen Bilder von FLICKR-Fotostreams an.</description>
 <maintainers><maintainer><name>Michael Kaiser</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.08</version>
+  <version>1.09</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-07-03</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_plugin_flickr">
 <file>lang_de.inc.php</file>
@@ -1421,8 +1385,6 @@
 <file>lang_de.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <dir name="phpFlickr">
 <file>LICENSE</file>
@@ -1470,8 +1432,6 @@
     <file>serendipity_plugin_flickr/UTF-8/lang_de.inc.php</file>
     <file>serendipity_plugin_flickr/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_flickr/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_flickr/UTF-8/documentation_cs.html</file>
-    <file>serendipity_plugin_flickr/UTF-8/documentation_cz.html</file>
     <file>serendipity_plugin_flickr/phpFlickr/LICENSE</file>
     <file>serendipity_plugin_flickr/phpFlickr/auth.php</file>
     <file>serendipity_plugin_flickr/phpFlickr/ChangeLog.txt</file>
@@ -1508,9 +1468,9 @@
 <description>Shows the current poll in your sidebar</description>
 <maintainers><maintainer><name>Garvin Hicking, Evan Nemerson</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.08</version>
+  <version>2.08.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_plugin_pollbox">
 <file>serendipity_plugin_pollbox.php</file>
@@ -1603,9 +1563,9 @@
 <description>Zeigt eine Liste aller Autoren</description>
 <maintainers><maintainer><name>Falk Döring</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.2</version>
+  <version>1.2.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_event_userprofiles">
 <file>plugin_groupmembers.tpl</file>
@@ -1721,9 +1681,9 @@
 <description>Zeigt einen eigenen Kalendar mit den nächsten X Terminen</description>
 <maintainers><maintainer><name>Garvin Hicking, Markus Gerstel</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.13</version>
+  <version>0.13.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_event_mycalendar">
 <file>serendipity_event_mycalendar.php</file>
@@ -1735,8 +1695,6 @@
 <file>lang_ja.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>lang_bg.inc.php</file>
 <file>lang_ja.inc.php</file>
@@ -1758,8 +1716,6 @@
     <file>serendipity_event_mycalendar/UTF-8/lang_ja.inc.php</file>
     <file>serendipity_event_mycalendar/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_mycalendar/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_mycalendar/UTF-8/documentation_cs.html</file>
-    <file>serendipity_event_mycalendar/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_mycalendar/lang_bg.inc.php</file>
     <file>serendipity_event_mycalendar/lang_ja.inc.php</file>
     <file>serendipity_event_mycalendar/lang_en.inc.php</file>
@@ -1861,9 +1817,9 @@
                                    The administrator can easily modify this value for each user.</description>
 <maintainers><maintainer><name>Loris Zena</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1</version>
+  <version>1.1.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_event_xsstrust">
 <file>serendipity_event_xsstrust.php</file>
@@ -1907,9 +1863,9 @@
 <description>Shows an HTML nugget on the sidebar, for a specific language.</description>
 <maintainers><maintainer><name>Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6</version>
+  <version>1.7</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_plugin_nugget_multilingual">
 <dir name="UTF-8">
@@ -1970,8 +1926,6 @@
 <file>lang_ja.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>soap.inc</file>
 <file>lang_ja.inc.php</file>
@@ -1993,8 +1947,6 @@
     <file>serendipity_plugin_currently/UTF-8/lang_ja.inc.php</file>
     <file>serendipity_plugin_currently/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_currently/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_currently/UTF-8/documentation_cs.html</file>
-    <file>serendipity_plugin_currently/UTF-8/documentation_cz.html</file>
     <file>serendipity_plugin_currently/soap.inc</file>
     <file>serendipity_plugin_currently/lang_ja.inc.php</file>
     <file>serendipity_plugin_currently/lang_en.inc.php</file>
@@ -2014,9 +1966,9 @@
 <description>Shows last played songs in your blog</description>
 <maintainers><maintainer><name>Flo Solcher</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.25</version>
+  <version>1.25.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_plugin_audioscrobbler">
 <file>lang_de.inc.php</file>
@@ -2056,9 +2008,9 @@
 <description>Zeigt einen Zufallszitatsblock</description>
 <maintainers><maintainer><name>Florian Solcher</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.05</version>
+  <version>1.05.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_plugin_randomquotes">
 <file>lang_de.inc.php</file>
@@ -2110,8 +2062,6 @@
 <dir name="UTF-8">
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>lang_en.inc.php</file>
 <file>lang_cs.inc.php</file>
@@ -2128,8 +2078,6 @@
     <file>serendipity_plugin_shoutcast/shoutcast_plugin_setup.jpg</file>
     <file>serendipity_plugin_shoutcast/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_shoutcast/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_shoutcast/UTF-8/documentation_cs.html</file>
-    <file>serendipity_plugin_shoutcast/UTF-8/documentation_cz.html</file>
     <file>serendipity_plugin_shoutcast/lang_en.inc.php</file>
     <file>serendipity_plugin_shoutcast/lang_cs.inc.php</file>
     <file>serendipity_plugin_shoutcast/lang_cz.inc.php</file>
@@ -2191,7 +2139,7 @@
 <description>Dieses Plugin zeigt eine Google Map oder Openstreetmap mit geocodierten Einträgen an.</description>
 <maintainers><maintainer><name>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.33</version>
+  <version>1.33.1</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
   <date>2014-03-23</date>
   <filelist>
@@ -2207,8 +2155,6 @@
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
@@ -2231,8 +2177,6 @@
     <file>serendipity_event_geotag/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_geotag/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_geotag/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_event_geotag/UTF-8/documentation_cs.html</file>
-    <file>serendipity_event_geotag/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_geotag/lang_cz.inc.php</file>
     <file>serendipity_event_geotag/lang_de.inc.php</file>
     <file>serendipity_event_geotag/documentation_cs.html</file>
@@ -2334,9 +2278,9 @@
 <description>Shows entries of special categories in your sidebar. Good for Sidebar Moblogging!</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.8</version>
+  <version>1.8.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_plugin_showentries">
 <file>serendipity_plugin_showentries.php</file>
@@ -2345,8 +2289,6 @@
 <file>lang_ja.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>lang_en.inc.php</file>
 <file>plugin_showentries.tpl</file>
@@ -2366,8 +2308,6 @@
     <file>serendipity_plugin_showentries/UTF-8/lang_ja.inc.php</file>
     <file>serendipity_plugin_showentries/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_showentries/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_showentries/UTF-8/documentation_cs.html</file>
-    <file>serendipity_plugin_showentries/UTF-8/documentation_cz.html</file>
     <file>serendipity_plugin_showentries/lang_en.inc.php</file>
     <file>serendipity_plugin_showentries/plugin_showentries.tpl</file>
     <file>serendipity_plugin_showentries/lang_bg.inc.php</file>
@@ -2389,9 +2329,9 @@
 <description>Shows top-rated movies by their average rating</description>
 <maintainers><maintainer><name>Lewe Zipfel, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.2</version>
+  <version>1.2.1</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_event_communityrating">
 <file>serendipity_event_communityrating.php</file>
@@ -2399,8 +2339,6 @@
 <dir name="UTF-8">
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>lang_en.inc.php</file>
 <file>smarty.inc.php</file>
@@ -2431,8 +2369,6 @@
     <file>serendipity_event_communityrating/README</file>
     <file>serendipity_event_communityrating/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_communityrating/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_communityrating/UTF-8/documentation_cs.html</file>
-    <file>serendipity_event_communityrating/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_communityrating/lang_en.inc.php</file>
     <file>serendipity_event_communityrating/smarty.inc.php</file>
     <file>serendipity_event_communityrating/img/star_IMDB_full.png</file>
@@ -2476,8 +2412,6 @@
 <file>lang_bg.inc.php</file>
 <file>lang_ja.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <dir name="img">
 <file>joinbottom.gif</file>
@@ -2531,8 +2465,6 @@
     <file>serendipity_event_faq/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_event_faq/UTF-8/lang_ja.inc.php</file>
     <file>serendipity_event_faq/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_faq/UTF-8/documentation_cs.html</file>
-    <file>serendipity_event_faq/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_faq/img/joinbottom.gif</file>
     <file>serendipity_event_faq/img/plus.gif</file>
     <file>serendipity_event_faq/img/empty.gif</file>
@@ -2621,9 +2553,9 @@
 <description>Displays a box for quick links</description>
 <maintainers><maintainer><name>Omid Mottaghi Rad</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.7</version>
+  <version>0.7.1</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_plugin_quicklink">
 <dir name="UTF-8">
@@ -2655,17 +2587,15 @@
 <description>Offers the ability to display images in the sidebar.  The source of the images is configurable.  The plugin is able to connect to a Menalto Gallery installs &quot;random&quot; url, access a Coppermine database directory (MySql only), connect to the web service Zooomr (http://beta.zooomr.com/home) or access images in the Serendipity Media Library.</description>
 <maintainers><maintainer><name>Andrew Brown (Menalto code), Matthew Groeninger (Unified/Media Lib. Code), Stefan Lange-Hegermann (Zooomr Code), Matthew Maude (Coppermine code)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.97</version>
+  <version>0.97.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_plugin_imagesidebar">
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>coppermine_README</file>
 <file>coppermine_none.jpg</file>
@@ -2688,8 +2618,6 @@
     <file>serendipity_plugin_imagesidebar/UTF-8/lang_de.inc.php</file>
     <file>serendipity_plugin_imagesidebar/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_imagesidebar/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_imagesidebar/UTF-8/documentation_cs.html</file>
-    <file>serendipity_plugin_imagesidebar/UTF-8/documentation_cz.html</file>
     <file>serendipity_plugin_imagesidebar/coppermine_README</file>
     <file>serendipity_plugin_imagesidebar/coppermine_none.jpg</file>
     <file>serendipity_plugin_imagesidebar/coppermine_sidebar.php</file>
@@ -2755,9 +2683,9 @@
 <description>Ein Plugin, um Lesezeichen mithilfe eines RSS-Feeds eines social bookmarks-Dienstes (del.icio.us, ma.gnolia, furl.net, linkroll, Mister Wong) anzuzeigen.</description>
 <maintainers><maintainer><name>Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.46</version>
+  <version>0.46.1</version>
   <requirements:s9yVersion>0.9alpha5</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_plugin_socialbookmarks">
 <file>INSTALL</file>
@@ -2769,8 +2697,6 @@
 <file>lang_en.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>LGPL.txt</file>
 <file>README.txt</file>
@@ -2791,8 +2717,6 @@
     <file>serendipity_plugin_socialbookmarks/UTF-8/lang_en.inc.php</file>
     <file>serendipity_plugin_socialbookmarks/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_socialbookmarks/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_socialbookmarks/UTF-8/documentation_cs.html</file>
-    <file>serendipity_plugin_socialbookmarks/UTF-8/documentation_cz.html</file>
     <file>serendipity_plugin_socialbookmarks/LGPL.txt</file>
     <file>serendipity_plugin_socialbookmarks/README.txt</file>
     <file>serendipity_plugin_socialbookmarks/simplepie.inc</file>
@@ -2814,7 +2738,7 @@
 <release>
   <version>0.24</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_event_microformats">
 <file>hReview.tpl</file>
@@ -2824,8 +2748,6 @@
 <file>lang_en.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>hCalendar.tpl</file>
 <file>lang_en.inc.php</file>
@@ -2860,8 +2782,6 @@
     <file>serendipity_event_microformats/UTF-8/lang_en.inc.php</file>
     <file>serendipity_event_microformats/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_microformats/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_microformats/UTF-8/documentation_cs.html</file>
-    <file>serendipity_event_microformats/UTF-8/documentation_cz.html</file>
     <file>serendipity_event_microformats/hCalendar.tpl</file>
     <file>serendipity_event_microformats/lang_en.inc.php</file>
     <file>serendipity_event_microformats/serendipity_event_microformats.php</file>
@@ -2894,9 +2814,9 @@
 <description>Zeigt deine letzten Photos auf Flickr.com</description>
 <maintainers><maintainer><name>Lars Strojny</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.10</version>
+  <version>0.11</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_plugin_flickrbadge">
 <dir name="UTF-8">
@@ -3061,8 +2981,6 @@
 <file>lang_pl.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>README</file>
 <file>lang_cs.inc.php</file>
@@ -3082,8 +3000,6 @@
     <file>serendipity_plugin_ggopis/UTF-8/lang_pl.inc.php</file>
     <file>serendipity_plugin_ggopis/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_ggopis/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_ggopis/UTF-8/documentation_cs.html</file>
-    <file>serendipity_plugin_ggopis/UTF-8/documentation_cz.html</file>
     <file>serendipity_plugin_ggopis/README</file>
     <file>serendipity_plugin_ggopis/lang_cs.inc.php</file>
     <file>serendipity_plugin_ggopis/lang_cz.inc.php</file>
@@ -3135,7 +3051,7 @@
 <description>Zeigt die aktuellsten Twitter-Einträge an</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Damian Luszczymak, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.64</version>
+  <version>1.66</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
   <date>2014-01-19</date>
   <filelist>
@@ -3144,8 +3060,6 @@
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>.cvsignore</file>
 <file>.htaccess</file>
@@ -3201,8 +3115,6 @@
     <file>serendipity_plugin_twitter/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_twitter/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_plugin_twitter/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_plugin_twitter/UTF-8/documentation_cs.html</file>
-    <file>serendipity_plugin_twitter/UTF-8/documentation_cz.html</file>
     <file>serendipity_plugin_twitter/.cvsignore</file>
     <file>serendipity_plugin_twitter/.htaccess</file>
     <file>serendipity_plugin_twitter/ChangeLog</file>
@@ -3299,8 +3211,6 @@
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>lang_de.inc.php</file>
 <file>serendipity_plugin_google_adsense.php</file>
@@ -3319,8 +3229,6 @@
     <file>serendipity_plugin_google_adsense/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_plugin_google_adsense/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_google_adsense/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_google_adsense/UTF-8/documentation_cs.html</file>
-    <file>serendipity_plugin_google_adsense/UTF-8/documentation_cz.html</file>
     <file>serendipity_plugin_google_adsense/lang_de.inc.php</file>
     <file>serendipity_plugin_google_adsense/serendipity_plugin_google_adsense.php</file>
     <file>serendipity_plugin_google_adsense/lang_bg.inc.php</file>
@@ -3473,8 +3381,6 @@
 <file>lang_de.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>ChangeLog</file>
 <file>lang_de.inc.php</file>
@@ -3491,8 +3397,6 @@
     <file>serendipity_plugin_ipv6/UTF-8/lang_de.inc.php</file>
     <file>serendipity_plugin_ipv6/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_ipv6/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_ipv6/UTF-8/documentation_cs.html</file>
-    <file>serendipity_plugin_ipv6/UTF-8/documentation_cz.html</file>
     <file>serendipity_plugin_ipv6/ChangeLog</file>
     <file>serendipity_plugin_ipv6/lang_de.inc.php</file>
     <file>serendipity_plugin_ipv6/lang_en.inc.php</file>
@@ -3501,6 +3405,146 @@
     <file>serendipity_plugin_ipv6/lang_cz.inc.php</file>
     <file>serendipity_plugin_ipv6/documentation_cs.html</file>
     <file>serendipity_plugin_ipv6/documentation_cz.html</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>serendipity_plugin_quicksearch</name>
+<license>GPL</license>
+<summary>Suche</summary>
+<groups>FRONTEND_ENTRY_RELATED</groups>
+<description>Nach Einträgen suchen</description>
+<maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.1</version>
+  <requirements:s9yVersion>0.8</requirements:s9yVersion>
+  <date>2014-11-30</date>
+  <filelist>
+<dir name="serendipity_plugin_quicksearch">
+<file>serendipity_plugin_quicksearch.php</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>serendipity_plugin_quicksearch/serendipity_plugin_quicksearch.php</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>serendipity_plugin_shoutbox</name>
+<license>GPL</license>
+<summary>Shoutbox</summary>
+<groups>FRONTEND_FEATURES</groups>
+<description>Zeigt eine Shoutbox für beliebige Kommentare</description>
+<maintainers><maintainer><name>Matthias Lange</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.02.1</version>
+  <requirements:s9yVersion>0.8</requirements:s9yVersion>
+  <date>2014-11-30</date>
+  <filelist>
+<dir name="serendipity_plugin_shoutbox">
+<dir name="UTF-8">
+<file>lang_pt_PT.inc.php</file>
+<file>lang_cn.inc.php</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_de.inc.php</file>
+<file>lang_es.inc.php</file>
+<file>lang_fr.inc.php</file>
+<file>lang_ja.inc.php</file>
+<file>lang_ko.inc.php</file>
+<file>lang_pl.inc.php</file>
+<file>lang_tn.inc.php</file>
+<file>lang_zh.inc.php</file>
+</dir>
+<file>lang_pt_PT.inc.php</file>
+<file>lang_cn.inc.php</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_de.inc.php</file>
+<file>lang_en.inc.php</file>
+<file>lang_es.inc.php</file>
+<file>lang_fr.inc.php</file>
+<file>lang_ja.inc.php</file>
+<file>lang_ko.inc.php</file>
+<file>lang_pl.inc.php</file>
+<file>lang_tn.inc.php</file>
+<file>lang_zh.inc.php</file>
+<file>serendipity_plugin_shoutbox.php</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>serendipity_plugin_shoutbox/UTF-8/lang_pt_PT.inc.php</file>
+    <file>serendipity_plugin_shoutbox/UTF-8/lang_cn.inc.php</file>
+    <file>serendipity_plugin_shoutbox/UTF-8/lang_cs.inc.php</file>
+    <file>serendipity_plugin_shoutbox/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_plugin_shoutbox/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_plugin_shoutbox/UTF-8/lang_es.inc.php</file>
+    <file>serendipity_plugin_shoutbox/UTF-8/lang_fr.inc.php</file>
+    <file>serendipity_plugin_shoutbox/UTF-8/lang_ja.inc.php</file>
+    <file>serendipity_plugin_shoutbox/UTF-8/lang_ko.inc.php</file>
+    <file>serendipity_plugin_shoutbox/UTF-8/lang_pl.inc.php</file>
+    <file>serendipity_plugin_shoutbox/UTF-8/lang_tn.inc.php</file>
+    <file>serendipity_plugin_shoutbox/UTF-8/lang_zh.inc.php</file>
+    <file>serendipity_plugin_shoutbox/lang_pt_PT.inc.php</file>
+    <file>serendipity_plugin_shoutbox/lang_cn.inc.php</file>
+    <file>serendipity_plugin_shoutbox/lang_cs.inc.php</file>
+    <file>serendipity_plugin_shoutbox/lang_cz.inc.php</file>
+    <file>serendipity_plugin_shoutbox/lang_de.inc.php</file>
+    <file>serendipity_plugin_shoutbox/lang_en.inc.php</file>
+    <file>serendipity_plugin_shoutbox/lang_es.inc.php</file>
+    <file>serendipity_plugin_shoutbox/lang_fr.inc.php</file>
+    <file>serendipity_plugin_shoutbox/lang_ja.inc.php</file>
+    <file>serendipity_plugin_shoutbox/lang_ko.inc.php</file>
+    <file>serendipity_plugin_shoutbox/lang_pl.inc.php</file>
+    <file>serendipity_plugin_shoutbox/lang_tn.inc.php</file>
+    <file>serendipity_plugin_shoutbox/lang_zh.inc.php</file>
+    <file>serendipity_plugin_shoutbox/serendipity_plugin_shoutbox.php</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>serendipity_plugin_topexits</name>
+<license>GPL</license>
+<summary>Top Exits</summary>
+<groups>STATISTICS</groups>
+<description>Zeigt die Top-Exit-Links des Blogs</description>
+<maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.1</version>
+  <requirements:s9yVersion>0.8</requirements:s9yVersion>
+  <date>2014-11-30</date>
+  <filelist>
+<dir name="serendipity_plugin_topexits">
+<file>serendipity_plugin_topexits.php</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>serendipity_plugin_topexits/serendipity_plugin_topexits.php</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>serendipity_plugin_topreferrers</name>
+<license>GPL</license>
+<summary>Top Referrer</summary>
+<groups>STATISTICS</groups>
+<description>Zeigt die Top-Seiten, die auf das Blog linken</description>
+<maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.2</version>
+  <requirements:s9yVersion>0.8</requirements:s9yVersion>
+  <date>2014-11-30</date>
+  <filelist>
+<dir name="serendipity_plugin_topreferrers">
+<file>serendipity_plugin_topreferrers.php</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>serendipity_plugin_topreferrers/serendipity_plugin_topreferrers.php</file>
   </serendipityFilelist>
 </release>
 </package>

@@ -23,7 +23,7 @@
 <category>Event Plugins</category>
 <author>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers</author>
 <content:encoded>&lt;b&gt;serendipity_event_staticpage&lt;br /&gt;Statické stránky&lt;/b&gt;&lt;br /&gt;Zobrazuje v blogu statické stránky se stejným designem jako mají běžné přspěvky. Přidá nové menu do adminstrátorského rozhraní.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Mon, 12 May 2014 02:31:33 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:26 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_staticpage</guid>
 </item>
 <item>
@@ -41,7 +41,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_event_entrypaging&lt;br /&gt;Odkaz na další/předchozí příspěvek&lt;/b&gt;&lt;br /&gt;Umožňuje prohlížení dalších/předchozích příspěvků&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 30 Nov 2013 02:31:11 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:14 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_entrypaging</guid>
 </item>
 <item>
@@ -50,7 +50,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_gravatar&lt;br /&gt;Avatar Plugin&lt;/b&gt;&lt;br /&gt;Zobrazuje avatary (ikona či obrázek přispěvatele) v komentářích. Podporovány jsou služby Gravatar, Pavatar, Favatar a MyBlogLog.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:41 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:17 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_gravatar</guid>
 </item>
 <item>
@@ -86,7 +86,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_freetag&lt;br /&gt;Klíčová slova&lt;/b&gt;&lt;br /&gt;Umožňuje libovolné přidávání klíčových slov k příspěvkům&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 17 Nov 2014 02:31:32 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:16 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_freetag</guid>
 </item>
 <item>
@@ -95,7 +95,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_event_multilingual&lt;br /&gt;Vízejazyčné záznamy&lt;/b&gt;&lt;br /&gt;Umožňuje vytvořit příspěvek (záznam) ve více jazykových variantách. Obsahuje též fromulář pro výběr základního jazyka blogu.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 01 Oct 2013 02:31:07 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:21 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_multilingual</guid>
 </item>
 <item>
@@ -104,7 +104,7 @@
 <category>Event Plugins</category>
 <author>Kaustubh Srikanth, Ivan Makhonin</author>
 <content:encoded>&lt;b&gt;serendipity_event_ljupdate&lt;br /&gt;LJ/MySpace/Serendipity aktualizace&lt;/b&gt;&lt;br /&gt;Používá XMLRPC protokol pro zasílání příspěvků na LiveJournal/MySpace/Serendipity&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:32:14 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:20 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_ljupdate</guid>
 </item>
 <item>
@@ -113,7 +113,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_trackback&lt;br /&gt;Správa odezev&lt;/b&gt;&lt;br /&gt;Umožňuje podrobnou kontrolu chování odezev, jak jsou posílány při vytváření příspěvků&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 06 Mar 2014 02:31:18 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_trackback</guid>
 </item>
 <item>
@@ -131,7 +131,7 @@
 <category>Event Plugins</category>
 <author>Matthew Groeninger, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_amazonchooser&lt;br /&gt;Tlačítko médií Amazon&lt;/b&gt;&lt;br /&gt;Přidává tlačítko, které umožňuje vkládat do příspěvků výsledky hledání na Amazon.com&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Mon, 09 Jun 2014 02:31:15 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:11 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_amazonchooser</guid>
 </item>
 <item>
@@ -167,7 +167,7 @@
 <category>Event Plugins</category>
 <author>Serendipity Team and Jan Lehnardt</author>
 <content:encoded>&lt;b&gt;serendipity_event_markdown&lt;br /&gt;Markup: Markdown&lt;/b&gt;&lt;br /&gt;Převádí značky Markdown na HTML v textu příspěvku&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 05 Jan 2014 02:31:19 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:20 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_markdown</guid>
 </item>
 <item>
@@ -185,16 +185,16 @@
 <category>Event Plugins</category>
 <author>Cameron MacFarland</author>
 <content:encoded>&lt;b&gt;serendipity_event_thumbnails&lt;br /&gt;Náhledy příspěvků&lt;/b&gt;&lt;br /&gt;Zobrazí stránku s náhledy článků. Její adresa je index.php?serendipity[page]=thumbs&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 09 Apr 2014 02:31:12 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:27 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_thumbnails</guid>
 </item>
 <item>
 <title>Galerie: Umožňuje nepřihlášeným uživatelům prohlížet Serendipity knihovnu médií</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_usergallery</link>
 <category>Event Plugins</category>
-<author>Arnan de Gans, Matthew Groeninger, Stefan Willoughby, Ian</author>
+<author>Arnan de Gans, Matthew Groeninger, and Stefan Willoughby, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_usergallery&lt;br /&gt;Galerie&lt;/b&gt;&lt;br /&gt;Umožňuje nepřihlášeným uživatelům prohlížet Serendipity knihovnu médií&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Tue, 28 Oct 2014 02:31:38 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_usergallery</guid>
 </item>
 <item>
@@ -203,7 +203,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_adduser&lt;br /&gt;Samoregistrace nových uživatelů&lt;/b&gt;&lt;br /&gt;Umožňuje návštěvníkům webu vytvořit si vlastní uživatelský účet. Dohromady s pluginem událostí (index.php?serendipity[subpage]=adduser) můžete určit, jestli komentáře mohou posílat pouze registrovaní uživatelé.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:46 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:29 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_adduser</guid>
 </item>
 <item>
@@ -221,7 +221,7 @@
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Hannes Gassert, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_podcast&lt;br /&gt;Podcasting plugin&lt;/b&gt;&lt;br /&gt;Přidává &quot;podcastovací&quot; možnosti (RSS zapouzdření, přehrávač videa a/nebo hudby)&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:44 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:22 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_podcast</guid>
 </item>
 <item>
@@ -248,7 +248,7 @@
 <category>Event Plugins</category>
 <author>Matthew Groeninger, Omid Mottaghi Rad</author>
 <content:encoded>&lt;b&gt;serendipity_event_linklist&lt;br /&gt;Link List&lt;/b&gt;&lt;br /&gt;Správce odkazů (linků) - V bočním panelu zobrazuje vaše oblíbené odkazy.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:42 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:19 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_linklist</guid>
 </item>
 <item>
@@ -257,7 +257,7 @@
 <category>Event Plugins</category>
 <author>Rasmus Lerdorf</author>
 <content:encoded>&lt;b&gt;serendipity_event_yq&lt;br /&gt;Y!Q hledání podobných stránek&lt;/b&gt;&lt;br /&gt;Nalezne podobné stránky pomocí Yahoo kontextové prohledávací technologie&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 10 Jun 2014 02:31:46 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_yq</guid>
 </item>
 <item>
@@ -266,7 +266,7 @@
 <category>Event Plugins</category>
 <author>Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_guestbook&lt;br /&gt;Návštěvní kniha&lt;/b&gt;&lt;br /&gt;Zobrazuje návštěvní knihu jako stránku blogu. Vzhled je totožný s ostatními stránkami.&lt;br/&gt;For: Serendipity 1.7.0</content:encoded>
-<pubDate>Tue, 17 Jun 2014 02:33:51 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:18 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_guestbook</guid>
 </item>
 <item>
@@ -275,7 +275,7 @@
 <category>Event Plugins</category>
 <author>Brett Profitt</author>
 <content:encoded>&lt;b&gt;serendipity_event_mymood&lt;br /&gt;Moje nálada&lt;/b&gt;&lt;br /&gt;Umožňuje vám přidávat vaší momentální náladu nebo nálady k příspvěkům.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 10 Jun 2014 02:31:40 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:21 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_mymood</guid>
 </item>
 <item>
@@ -284,7 +284,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_custom_permalinks&lt;br /&gt;Stálé odkazy pro příspěvky&lt;/b&gt;&lt;br /&gt;Můžete definovat stálé odkazy k jednotlivým příspěvkům. Lze použít pouze URL vzory, které JEŠTĚ NEJSOU používané - používání stálých odkazů ve tvaru /archives/odkaz není tedy možné. Ale používání jakéhokoliv jiného (virtuálního) adresáře možné je.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 17 Apr 2014 02:31:49 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:13 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_custom_permalinks</guid>
 </item>
 <item>
@@ -293,7 +293,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_unstrip_tags&lt;br /&gt;Transformace HTML v komentářích&lt;/b&gt;&lt;br /&gt;Umožňuje vkládat HTML tagy do komentářů k příspěvkům (místo jejich odstranění, bez tohoto modulu jsou převáděny na HTML entity). Musí být první ze všech značkovacích (markup) pluginů v seznamu pluginů událostí!&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:45 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_unstrip_tags</guid>
 </item>
 <item>
@@ -302,7 +302,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_filter_entries&lt;br /&gt;Filtrování příspěvků&lt;/b&gt;&lt;br /&gt;Umožňuje návštěvníkům blogu filtrovat/řadit příspěvky podle různých pravidel&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 05 Feb 2014 02:31:14 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:15 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_filter_entries</guid>
 </item>
 <item>
@@ -383,7 +383,7 @@
 <category>Event Plugins</category>
 <author>Evan Nemerson, Garvin Hicking, Kristian Koehntopp, Thomas Schulz, Claus Schmidt</author>
 <content:encoded>&lt;b&gt;serendipity_event_aggregator&lt;br /&gt;RSS agregátor&lt;/b&gt;&lt;br /&gt;Zobrazuje zprávy z mnoha RSS kanálů. DŮLEŽITÁ POZNÁMKA: Aktualizace a &quot;krmení&quot; agregátoru je v současnosti nutno dělat ručně pomocí Cronjobs nebo podobně. Volejte následující adresu v libovolných časových intervalech: index.php?/plugin/aggregator&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 08 Jun 2014 02:31:18 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:11 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_aggregator</guid>
 </item>
 <item>
@@ -410,7 +410,7 @@
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_event_geourl&lt;br /&gt;GeoURL&lt;/b&gt;&lt;br /&gt;GeoURL vkládá informace o zeměpisné poloze URL blogu. Více informací na http://geourl.org/&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:41 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:16 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_geourl</guid>
 </item>
 <item>
@@ -419,7 +419,7 @@
 <category>Event Plugins</category>
 <author>Matthew Groeninger</author>
 <content:encoded>&lt;b&gt;serendipity_event_mimetex&lt;br /&gt;Interpret příkazů MimeTex/LaTeX&lt;/b&gt;&lt;br /&gt;Vytvoří obrázky gif z výrazu TeX použitím softwaru MimeTex nebo LaTeX&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:43 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:20 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_mimetex</guid>
 </item>
 <item>
@@ -428,7 +428,7 @@
 <category>Event Plugins</category>
 <author>Matthew Groeninger, Malte Diers, Matthias Gutjahr</author>
 <content:encoded>&lt;b&gt;serendipity_event_typesetbuttons&lt;br /&gt;Rozšířená tlačítka pro ne-WYSIWYG editor&lt;/b&gt;&lt;br /&gt;Přidá tlačítka pro vložení kódů různých html entit (čárky, tečky, uvozovky) + další akce.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
-<pubDate>Tue, 29 Apr 2014 02:31:30 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_typesetbuttons</guid>
 </item>
 <item>
@@ -437,7 +437,7 @@
 <category>Event Plugins</category>
 <author>Jason Levitt</author>
 <content:encoded>&lt;b&gt;serendipity_event_popfetcher&lt;br /&gt;POP3 stahovač&lt;/b&gt;&lt;br /&gt;Stahuje zprávy z emailu a zobrazí je včetně příloh v bloku v postranním sloupci (speciální podpora pro mobilní telefony)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 20 Nov 2013 09:18:57 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:22 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_popfetcher</guid>
 </item>
 <item>
@@ -446,7 +446,7 @@
 <category>Event Plugins</category>
 <author>Tys von Gaza, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_sidebarhider&lt;br /&gt;Přepínání stavu postranního sloupce (sbalený/rozbalený)&lt;/b&gt;&lt;br /&gt;Smrští postranní sloupce pouze na jejich nadpisy. Přidává nastavení do psaní příspěvků a také položku &quot;Správa postranních sloupců&quot; do administrační sekce.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Thu, 22 May 2014 02:31:27 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:22 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_sidebarhider</guid>
 </item>
 <item>
@@ -455,7 +455,7 @@
 <category>Event Plugins</category>
 <author>Thomas Nesges, Greg Greenway</author>
 <content:encoded>&lt;b&gt;serendipity_event_picasa&lt;br /&gt;Picasa&lt;/b&gt;&lt;br /&gt;Zobrazuje fotoalba z Picasy exportovaná do XML formátu&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:32:14 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:22 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_picasa</guid>
 </item>
 <item>
@@ -464,7 +464,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_contactform&lt;br /&gt;Kontaktní formulář&lt;/b&gt;&lt;br /&gt;Zobrazuje kontaktní formulář k poslání e-mailu jako statickou stránku. Přístup k fromuláři buď pomocí stálého odkazu (permalinku) nebo na adrese index.php?serendipity[subpage]=contactform. Vzhled fromuláře si můžete upravit podle svého vložením souboru plugin_contactform.tpl do adresáře s Vaší šablonou. Kryptogramy z pluginu SpamBlock budou použity, pokud je SpamBlock nainstalován.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sat, 20 Sep 2014 02:31:19 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:13 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_contactform</guid>
 </item>
 <item>
@@ -482,7 +482,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_linktoolbar&lt;br /&gt;HTML Link metatagy&lt;/b&gt;&lt;br /&gt;Zobrazuje metatagy &lt;link rel=&quot;start|up|prev|next&quot;&gt; v HTML hlavičce stránky blogu. To umožňuje v některých prohlížečích lepší navigaci ve stránkách.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 05 May 2014 11:13:20 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:20 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_linktoolbar</guid>
 </item>
 <item>
@@ -509,7 +509,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Olivier PLATHEY, Steven Wittens</author>
 <content:encoded>&lt;b&gt;serendipity_event_blogpdf&lt;br /&gt;Export blogu do PDF&lt;/b&gt;&lt;br /&gt;Umožňuje návštěvníkům blogu stáhnout obsah blogu ve formátu PDF&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:38 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:12 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_blogpdf</guid>
 </item>
 <item>
@@ -518,7 +518,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_relatedlinks&lt;br /&gt;Odkazy na podobné príspevky/stránky&lt;/b&gt;&lt;br /&gt;Vložte odkazy na podobné príspevky/stránky. K lepšímu prizpusobení výstupu mužete upravit Smarty šablonu &quot;plugin_relatedlinks.tpl&quot;. Tento modul zobrazuje data pouze v detailním zobrazení príspevku.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:44 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:22 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_relatedlinks</guid>
 </item>
 <item>
@@ -527,7 +527,7 @@
 <category>Event Plugins</category>
 <author>Steven Tonnesen</author>
 <content:encoded>&lt;b&gt;serendipity_event_todolist&lt;br /&gt;Seznam úkolů / ToDo list / projektové řízení&lt;/b&gt;&lt;br /&gt;Správa seznamu projektů/úkolů a jejich splnění v procentech&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:45 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:27 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_todolist</guid>
 </item>
 <item>
@@ -554,7 +554,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_cachesimple&lt;br /&gt;Jednoduché cachování / předgenerování stránek&lt;/b&gt;&lt;br /&gt;[EXPERIMENTÁLNÍ] Umožňuje cachování (ve smyslu předgenerování) stránek. Pozor: Absolutně zruší veškeré vymoženosti dynamicky vytvářeného obsahu, nepracuje dobře s pluginy, které takový obsah vytvářejí. Ale tato funkce zvyšuje rychlost blogu, pokud nepotřebujete dynamické funkce. (Tento plugin by měl být umístěn co nejdříve v seznamu pluginů. Pouze nutné pluginy generující dynamický obsah, jako např. karma, by měly být umístěny před tímto pluginem.)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:38 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:12 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_cachesimple</guid>
 </item>
 <item>
@@ -563,7 +563,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Matthias Mees</author>
 <content:encoded>&lt;b&gt;serendipity_event_pollbox&lt;br /&gt;Ankety&lt;/b&gt;&lt;br /&gt;Správa anket&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 16 May 2014 02:31:37 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:30 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_pollbox</guid>
 </item>
 <item>
@@ -581,7 +581,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_imageselectorplus&lt;br /&gt;Rozšířené volby pro práci s médii&lt;/b&gt;&lt;br /&gt;Rozšiřuje možnosti vkládání obrázků z knihovny médií - quickblog a hromadné vkládání obrázků (více v dokumentaci v adresáři plugins/serendipity_evnets_imageselectorplus) [verze Serendipity &gt;= 0.9].&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Tue, 07 Oct 2014 02:31:43 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:18 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_imageselectorplus</guid>
 </item>
 <item>
@@ -601,7 +601,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking, Falk Doering</author>
 <content:encoded>&lt;b&gt;serendipity_event_userprofiles&lt;br /&gt;Profily uživatelů&lt;/b&gt;&lt;br /&gt;Zobrazuje jednoduché profily uživatelů a dovoluje přiložit jejich fotku.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 09 Apr 2014 02:31:13 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_userprofiles</guid>
 </item>
 <item>
@@ -610,7 +610,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_customarchive&lt;br /&gt;Přizpůsobitelný archiv příspěvků&lt;/b&gt;&lt;br /&gt;Zobrazuje návštěvníkovi blogu všechny dosud vydané články s možností třídění. Odkaz na tuto stránku by měl být vložen do HTML nugetu (bloku).&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 09 Apr 2014 02:31:01 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:13 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_customarchive</guid>
 </item>
 <item>
@@ -619,7 +619,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking, Markus Gerstel, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_mycalendar&lt;br /&gt;Můj kalendář&lt;/b&gt;&lt;br /&gt;Správa osobního kalendáře&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:43 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:21 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_mycalendar</guid>
 </item>
 <item>
@@ -628,7 +628,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Matthew Maude (modified by Jim Davies)</author>
 <content:encoded>&lt;b&gt;serendipity_event_cpgselector&lt;br /&gt;Coppermine Selector&lt;/b&gt;&lt;br /&gt;Vybírá obrázky z webové galerie Coppermine&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 20 Jun 2014 02:31:15 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:13 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_cpgselector</guid>
 </item>
 <item>
@@ -637,7 +637,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking, Matthias Mees</author>
 <content:encoded>&lt;b&gt;serendipity_event_assigncategories&lt;br /&gt;Přiřazení více kategorií&lt;/b&gt;&lt;br /&gt;Umožňuje přiřadit příspěvku více kategorií&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 16 May 2014 02:31:17 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:11 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_assigncategories</guid>
 </item>
 <item>
@@ -646,7 +646,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Boris</author>
 <content:encoded>&lt;b&gt;serendipity_event_google_sitemap&lt;br /&gt;Generátor mapy stránek pro vyhledávače&lt;/b&gt;&lt;br /&gt;Vytváří soubor sitemap.xml.gz, který používají nejrůznější webové vyhledávače (Google, MSN, Yahoo nebo Ask)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:41 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:17 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_google_sitemap</guid>
 </item>
 <item>
@@ -673,7 +673,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_xsstrust&lt;br /&gt;Nástroje pro důvěryhodnou správu více-uživatelských blogů&lt;/b&gt;&lt;br /&gt;Tento plugin umožňuje upřesnit, kteří autoři na více-uživatelském blogu jsou důvěryhodní a lze se spolehnout, že se nebudou pokoušet o hackování. Všichni ostatní autoři jsou bráni jako potenciálně nebezpeční a nemohou vytvřátet příspěvky v HTML kódu.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Fri, 19 Oct 2012 02:31:51 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_xsstrust</guid>
 </item>
 <item>
@@ -691,7 +691,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_includeentry&lt;br /&gt;Markup: Vložení příspěvku/šablony/bloku&lt;/b&gt;&lt;br /&gt;Umožňuje přidat do příspěvku tagy, které zajistí vložení část jiného příspěvku. Použijte tuto značku: [s9y-include-entry:XXX:YYY]. Nahraďte XXX číslem ID odkazovaného příspěvku a YYY nahraďte názvem pole příspěvku, které chcete vložit (např. &quot;body&quot;, &quot;title&quot;, &quot;extended&quot;, ...). Také můžete využít nové funkce menu pro správu šablon a bloků, které je možno vložit mezi příspěvky.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 02 Oct 2013 02:31:13 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:18 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_includeentry</guid>
 </item>
 <item>
@@ -700,7 +700,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking, Judebert</author>
 <content:encoded>&lt;b&gt;serendipity_event_categorytemplates&lt;br /&gt;Vlastnosti/šablona vzhledu pro kategorie&lt;/b&gt;&lt;br /&gt;Tento plugin poskytuje přídavné vlastnosti pro kategorie a v nich obsažené příspěvky, včetně volitené šablony vzhledu, pořadí řazení, počet zobrazených příspěvků, ochranu heslem a schovávání RSS kanálu.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:38 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:12 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_categorytemplates</guid>
 </item>
 <item>
@@ -718,7 +718,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Rob Antonishen, Ian (Timbalu)</author>
 <content:encoded>&lt;b&gt;serendipity_event_wrapurl&lt;br /&gt;Vložení cizí stránky: &lt;/b&gt;&lt;br /&gt;Do těla blogu vloží IFRAME, který zobrazuje jinou cizí stránku&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 09 Apr 2014 02:31:13 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_wrapurl</guid>
 </item>
 <item>
@@ -727,7 +727,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_event_comics&lt;br /&gt;Komix&lt;/b&gt;&lt;br /&gt;Vydávejte na svém blogu komix&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:39 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:12 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_comics</guid>
 </item>
 <item>
@@ -736,7 +736,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Ziyad Saeed, Garvin Hicking, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_fckeditor&lt;br /&gt;Použití FCKeditoru jako WYSIWYG editoru&lt;/b&gt;&lt;br /&gt;Používá FCKeditor jako WYSIWYG editor. Vyžaduje Serendipity 0.9 nebo vyšší. Po instalaci si přečtěte instalačního průvodce na stránce s nastavením pluginu.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Tue, 10 Jun 2014 02:31:33 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:15 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_fckeditor</guid>
 </item>
 <item>
@@ -799,7 +799,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</author>
 <content:encoded>&lt;b&gt;serendipity_event_backend&lt;br /&gt;Zobrazování příspěvků pomocí JavaScriptu&lt;/b&gt;&lt;br /&gt;Poskytuje Javascriptový výstup nejnovějších článků pro jejich vložení do cizích, externích stránek. (Přečtěte si soubor README v adresáři pluginu!)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:31:56 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:11 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_backend</guid>
 </item>
 <item>
@@ -808,7 +808,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr</author>
 <content:encoded>&lt;b&gt;serendipity_event_geotag&lt;br /&gt;Geotag&lt;/b&gt;&lt;br /&gt;Umožňuje přidat k příspěvku zeměpisné souřadnice - geotag&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:41 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:16 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_geotag</guid>
 </item>
 <item>
@@ -826,7 +826,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</author>
 <content:encoded>&lt;b&gt;serendipity_event_forum&lt;br /&gt;Diskusní fórum / zrcadlení phpBB fóra&lt;/b&gt;&lt;br /&gt;Poskytuje kompletní diskusní fórum. Alternativě umožňuje přístup do diskusního fóra phpBB.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 09 Apr 2014 02:31:04 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:15 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_forum</guid>
 </item>
 <item>
@@ -835,7 +835,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Rob Antonishen</author>
 <content:encoded>&lt;b&gt;serendipity_event_glossary&lt;br /&gt;Rejstřík&lt;/b&gt;&lt;br /&gt;Uživatelem definovaný rejstřík slov, která se v textu zvýrazňují a po najetí myší se k nim v malém rámečku ukazuje vysvětlivka&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 11 Dec 2013 02:31:14 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:16 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_glossary</guid>
 </item>
 <item>
@@ -862,7 +862,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Omid Mottaghi</author>
 <content:encoded>&lt;b&gt;serendipity_event_forgotpassword&lt;br /&gt;Zapomenuté heslo&lt;/b&gt;&lt;br /&gt;Vybranému uživateli umožňuje změnit heslo.&lt;br/&gt;For: Serendipity 0.9.1</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:41 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:15 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_forgotpassword</guid>
 </item>
 <item>
@@ -889,7 +889,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking, Lewe Zipfel</author>
 <content:encoded>&lt;b&gt;serendipity_event_communityrating&lt;br /&gt;Hodnocení&lt;/b&gt;&lt;br /&gt;Můžete hodnotit výrobky, filmy nebo cokoliv jiného a zobrazovat jejich hodnocení v příslušných příspěvcích. Také umožňuje sdíle hodnocení s ostatními uživateli tohoto pluginu. Tento plugin vyžaduje zásah do šablon, přečtěte si prosím soubor README.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:39 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:13 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_communityrating</guid>
 </item>
 <item>
@@ -907,7 +907,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Falk Doering</author>
 <content:encoded>&lt;b&gt;serendipity_event_faq&lt;br /&gt;FAQ - Často kladené otázky&lt;/b&gt;&lt;br /&gt;Správa FAQ - často kladených otázek&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:40 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:15 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_faq</guid>
 </item>
 <item>
@@ -925,7 +925,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_versioning&lt;br /&gt;Starší verze příspěvků&lt;/b&gt;&lt;br /&gt;Umožňuje ukládat starší verze příspěvků a obnovovat je&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:46 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_versioning</guid>
 </item>
 <item>
@@ -934,7 +934,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking, phoneblogz.com</author>
 <content:encoded>&lt;b&gt;serendipity_event_phoneblogz&lt;br /&gt;Phoneblogz&lt;/b&gt;&lt;br /&gt;Tento plugin umožňuje vypisovat zprávy ze služby Phoneblogz.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:44 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:21 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_phoneblogz</guid>
 </item>
 <item>
@@ -943,7 +943,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Jay Bertrand</author>
 <content:encoded>&lt;b&gt;serendipity_event_flickr&lt;br /&gt;Import z Flickru&lt;/b&gt;&lt;br /&gt;Importuje obrázky z flickr.com do knihovny médií&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Thu, 06 Mar 2014 02:31:08 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:15 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_flickr</guid>
 </item>
 <item>
@@ -952,7 +952,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_wikilinks&lt;br /&gt;Wiki odkazy v příspěvcích&lt;/b&gt;&lt;br /&gt;V příspěvcích můžete zadat odkazy na existující/nové příspěvky pomocí [[nadpis příspěvku]], na statické stránky pomocí ((nadpis stránky)) a na obojí pomocí {{nadpis}}.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:46 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_wikilinks</guid>
 </item>
 <item>
@@ -1015,7 +1015,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_suggest&lt;br /&gt;Návrhy na nové články&lt;/b&gt;&lt;br /&gt;Umožňuje neregistrovaným návštěvníkům navrhovat články, které by se měly vydat.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Wed, 09 Apr 2014 02:31:12 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:26 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_suggest</guid>
 </item>
 <item>
@@ -1024,7 +1024,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_textlinkads&lt;br /&gt;Vložené reklamy (TextLinkAds.com, vlastní)&lt;/b&gt;&lt;br /&gt;Vkládá reklamy do blogu.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 06 Mar 2014 02:31:18 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:27 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_textlinkads</guid>
 </item>
 <item>
@@ -1033,7 +1033,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_cronjob&lt;br /&gt;Plánovač úloh&lt;/b&gt;&lt;br /&gt;Tento plugin periodicky vykonává pluginy, které poskytují/vyžadují opakované vykonávání. Podrobnosti v konfiguraci pluginu.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 06 Mar 2014 02:31:08 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:13 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_cronjob</guid>
 </item>
 <item>
@@ -1042,7 +1042,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking, Judebert, Don Chambers</author>
 <content:encoded>&lt;b&gt;serendipity_event_metadesc&lt;br /&gt;HTML META tagy&lt;/b&gt;&lt;br /&gt;Zadejte HTML meta tagy pro klíčová slova nebo popis blogu. Také můžete zadávat různý titulek pro jednotlivé stránky blogu a výchozí hodnotu pro klíčová slova/popis pro stránky se zobrazenm více příspěvků (výchozí stránka, přehledy kategorií).&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:43 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:20 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_metadesc</guid>
 </item>
 <item>
@@ -1051,7 +1051,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Matthias Gutjahr</author>
 <content:encoded>&lt;b&gt;serendipity_event_microformats&lt;br /&gt;Mikroformáty&lt;/b&gt;&lt;br /&gt;Tento plugin poskytuje jednoduché publikování přehledů (nebo událostí); podporuje příslušné mikroformáty.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Fri, 25 Jan 2013 02:31:22 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:20 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_microformats</guid>
 </item>
 <item>
@@ -1060,7 +1060,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking, Matthias Mees</author>
 <content:encoded>&lt;b&gt;serendipity_event_adminnotes&lt;br /&gt;Rychlé poznámky&lt;/b&gt;&lt;br /&gt;Zobrazuje v administrační sekci oznámení přihlášeným uživatelům&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Mon, 09 Jun 2014 02:31:15 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:11 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_adminnotes</guid>
 </item>
 <item>
@@ -1078,7 +1078,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>&lt;a href=&quot;https://github.com/kleinerChemiker&quot; target=&quot;_blank&quot;&gt;kleinerChemiker&lt;/a&gt;</author>
 <content:encoded>&lt;b&gt;serendipity_event_google_analytics&lt;br /&gt;Google Analytics&lt;/b&gt;&lt;br /&gt;Tento plugin přidává vašemu blogu rošířené funkce Google Analytics jako je například sledování odkazů nebo stažených souborů.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 11 Sep 2014 02:31:20 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:16 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_google_analytics</guid>
 </item>
 <item>
@@ -1096,7 +1096,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Christian Brabandt (based on work of Garvin Hicking, Sebastian Nohn)</author>
 <content:encoded>&lt;b&gt;serendipity_event_recaptcha&lt;br /&gt;Recaptcha&lt;/b&gt;&lt;br /&gt;Při vkládání komentářů používá systém kryptogramů Recaptcha (je třeba předem zažádat o přístupový klíč)&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:44 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:22 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_recaptcha</guid>
 </item>
 <item>
@@ -1105,7 +1105,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Pelle Boese, Grischa Brockhaus</author>
 <content:encoded></content:encoded>
-<pubDate>Thu, 06 Mar 2014 02:31:13 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:21 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_mobile_output</guid>
 </item>
 <item>
@@ -1123,7 +1123,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Rob Richards</author>
 <content:encoded>&lt;b&gt;serendipity_event_openid&lt;br /&gt;Přihlašování pomocí OpenID&lt;/b&gt;&lt;br /&gt;Umožňuje autorům přihlásit se pomocí OpenID.&lt;br/&gt;For: Serendipity 1.2</content:encoded>
-<pubDate>Thu, 29 May 2014 02:31:32 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:21 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_openid</guid>
 </item>
 <item>
@@ -1150,7 +1150,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Peter Heimann</author>
 <content:encoded>&lt;b&gt;serendipity_event_twitter&lt;br /&gt;Mikroblogování (Twitter, Identica)&lt;/b&gt;&lt;br /&gt;Přidává klienta Twitter/Identica do administrační sekce a stahuje nové tweety a oznámuje nové články na účtu mikroblogu.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 09 Jun 2014 02:31:36 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:32 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_twitter</guid>
 </item>
 <item>
@@ -1159,7 +1159,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_dashboard&lt;br /&gt;Tabule&lt;/b&gt;&lt;br /&gt;Na výchozí stránce administrační sekce zobrazuje některé souhrnné informace&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Sat, 21 Sep 2013 02:31:21 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:13 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_dashboard</guid>
 </item>
 <item>
@@ -1222,7 +1222,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_bayes&lt;br /&gt;Spamblock (Bayes)&lt;/b&gt;&lt;br /&gt;Detekce spamu pomocí adaptivního algoritmu, který se dokáže sám učit.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 25 Jun 2014 02:31:28 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:26 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_bayes</guid>
 </item>
 <item>
@@ -1231,7 +1231,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Ian (Timbalu)</author>
 <content:encoded>&lt;b&gt;serendipity_event_cal&lt;br /&gt;Kalendář akcí&lt;/b&gt;&lt;br /&gt;Zobrazuje kalendář akcí jako samostatnou stránku v blogu. Design stránky zůstává stejný jako u zbytku blogu.&lt;br/&gt;For: Serendipity 1.4</content:encoded>
-<pubDate>Wed, 09 Apr 2014 02:31:00 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:12 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_cal</guid>
 </item>
 <item>
@@ -1251,6 +1251,15 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <content:encoded>&lt;b&gt;serendipity_event_email_bot_obfuscator&lt;br /&gt;Markup: klikatelná emailová adresa - s protispamovou ochranou&lt;/b&gt;&lt;br /&gt;Umožňuje vložit do blogu klikatelnou emailovou adresu, ale vkládá ji upravenou tak, aby ji nepoznaly internetové roboty, které hledají mailové adresy.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Wed, 21 Aug 2013 02:30:40 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_email_bot_obfuscator</guid>
+</item>
+<item>
+<title>Karma: Čtenáři hodnotí kvalitu Vašich příspěvků</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_karma</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking, Grischa Brockhaus, Judebert, Gregor Voeltz, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_event_karma&lt;br /&gt;Karma&lt;/b&gt;&lt;br /&gt;Čtenáři hodnotí kvalitu Vašich příspěvků&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 30 Nov 2014 02:32:18 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_karma</guid>
 </item>
 <item>
 <title>oEmbed: oEmbed je formát, který umožňuje vkládat do blogu jiné stránky z internetu. Umožňuje zobrazovat v příspěvcích vložený obsah (jako tweety, fotky nebo videa), když autor příspěvku napíše odkaz na zdroj obsahu, aniž by bylo potřeba přímo parsovat cílovou stránku.</title>
@@ -1285,7 +1294,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking, Joachim Breitner</author>
 <content:encoded>&lt;b&gt;serendipity_event_flattr&lt;br /&gt;Flattr&lt;/b&gt;&lt;br /&gt;Flattr je platforma pro sociální mikroplatby, která čtenáři umožňuje ocenit drobným příspěvkem obsah, který se mu líbí. Tento plugin vkládá do příspěvků a RSS kanálů tlačítka &quot;Flattr&quot; (tzv. Flattr Badges). U každého příspěvku můžete jednotlivě zadat nastavení Flattru. Pokud tak neučiníte, použije se globální nastavení.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Fri, 23 May 2014 02:31:17 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:15 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_flattr</guid>
 </item>
 <item>
@@ -1294,7 +1303,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_template_editor&lt;br /&gt;Editor stylů vzhledu&lt;/b&gt;&lt;br /&gt;Upravujte soubory aktuálního stylu vzhledu/šablony přímo z adminstrační sekce.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 26 Jul 2013 02:31:28 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:26 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_template_editor</guid>
 </item>
 <item>
@@ -1312,7 +1321,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>onli, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_autoupdate&lt;br /&gt;Automatické aktualizace (experimentální)&lt;/b&gt;&lt;br /&gt;Experimentální. Když plugin &quot;tabule&quot; detekuje aktualizace, tento plugin přidá možnost automatické aktualizace blogu kliknutím na jediné tlačítko v administrační sekci.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 10 Jun 2014 02:31:28 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:11 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_autoupdate</guid>
 </item>
 <item>
@@ -1366,8 +1375,26 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_facebook&lt;br /&gt;Facebook (experimentální!)&lt;/b&gt;&lt;br /&gt;Importuje do blogu komentáře u příspěvků na facebooku (pomocí RSS Graffiti). Také do blogu vloží facebookové OpenGraph Meta-Tagy. Pamatujte, že přidání talčítka &quot;Líbí se mi&quot; k příspěvkům blogu je zajišťováno pluginem serendipity_event_findmore!&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Thu, 06 Mar 2014 02:31:08 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:15 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_facebook</guid>
+</item>
+<item>
+<title>Přepisovač obsahu: Nahrazuje slovat libovolným řetězcem (užitečné pro vkládání akronymů)</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_contentrewrite</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_contentrewrite&lt;br /&gt;Přepisovač obsahu&lt;/b&gt;&lt;br /&gt;Nahrazuje slovat libovolným řetězcem (užitečné pro vkládání akronymů)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 30 Nov 2014 02:32:13 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_contentrewrite</guid>
+</item>
+<item>
+<title>Livesearch: Vylepší vnitřní vyhledávací funkci přidáním našeptávače v reálném čase (JavaScript)</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_livesearch</link>
+<category>Event Plugins</category>
+<author>Christian Stocker, Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_livesearch&lt;br /&gt;Livesearch&lt;/b&gt;&lt;br /&gt;Vylepší vnitřní vyhledávací funkci přidáním našeptávače v reálném čase (JavaScript)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 30 Nov 2014 02:32:20 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_livesearch</guid>
 </item>
 <item>
 <title>UTF-8 řazení: Plugin nabízí speciální abecední třídění podle UTF-8 jako rozšíření pro specifické pluginy typu Freetag. Umožňuje řadit podle libovolné abecedy s jinými než anglickými písmeny, např. v azbuce, čínštině a jiných. Pomoc s vytvářením dalších abeced je vítaná (viz fórum serendipity).</title>
@@ -1386,6 +1413,42 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <content:encoded>&lt;b&gt;serendipity_event_disqus&lt;br /&gt;Komentáře Disqus&lt;/b&gt;&lt;br /&gt;Disqus.com je webová služba pro správu komentářů. Ukládá a spravuje komentáře vně instalace serendipity a je do blogu vkládána pomocí JavaScriptu. Pro více informací přejděte na www.disqus.com.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
 <pubDate>Thu, 06 Mar 2014 02:31:08 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_disqus</guid>
+</item>
+<item>
+<title>Zvýraznění vyhledávaných řetězců: Zvýrazňuje řetězce hledané v odkazujícím vyhledávači.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_searchhighlight</link>
+<category>Event Plugins</category>
+<author>Tom Sommer</author>
+<content:encoded>&lt;b&gt;serendipity_event_searchhighlight&lt;br /&gt;Zvýraznění vyhledávaných řetězců&lt;/b&gt;&lt;br /&gt;Zvýrazňuje řetězce hledané v odkazujícím vyhledávači.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 30 Nov 2014 02:32:22 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_searchhighlight</guid>
+</item>
+<item>
+<title>Markup: Wiki: Převádí značky Text_Wiki do HTML</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_textwiki</link>
+<category>Event Plugins</category>
+<author>Tobias Schlitt</author>
+<content:encoded>&lt;b&gt;serendipity_event_textwiki&lt;br /&gt;Markup: Wiki&lt;/b&gt;&lt;br /&gt;Převádí značky Text_Wiki do HTML&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 30 Nov 2014 02:32:27 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_textwiki</guid>
+</item>
+<item>
+<title>Markup: Sledování odchodů: Sleduje kliknutí na URL adresy mimo blog</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_trackexits</link>
+<category>Event Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_event_trackexits&lt;br /&gt;Markup: Sledování odchodů&lt;/b&gt;&lt;br /&gt;Sleduje kliknutí na URL adresy mimo blog&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_trackexits</guid>
+</item>
+<item>
+<title>Oznamování příspěvků: Posílá oznámení o nových příspěvcích na on-line internetové služby.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_weblogping</link>
+<category>Event Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_event_weblogping&lt;br /&gt;Oznamování příspěvků&lt;/b&gt;&lt;br /&gt;Posílá oznámení o nových příspěvcích na on-line internetové služby.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_weblogping</guid>
 </item>
 </channel>
 </rss>

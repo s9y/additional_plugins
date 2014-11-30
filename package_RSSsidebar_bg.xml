@@ -14,7 +14,7 @@
 <category>Sidebar Plugins</category>
 <author>Rob Antonishen, Falk Doering, Ian (Timbalu)</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_staticpage&lt;br /&gt;Статични страници - списък&lt;/b&gt;&lt;br /&gt;Тази приставка показва конфигурируем списък от статични страници.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Tue, 10 Jun 2014 02:31:42 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:26 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_staticpage</guid>
 </item>
 <item>
@@ -50,7 +50,7 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_google_last_query&lt;br /&gt;Last Search (Google, Yahoo, Bing, Scroogle)&lt;/b&gt;&lt;br /&gt;Shows searched word of the last Google, Yahoo, Bing or Scoogle search, that lead to this blog.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:46 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:29 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_google_last_query</guid>
 </item>
 <item>
@@ -68,7 +68,7 @@
 <category>Sidebar Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_topreferers&lt;br /&gt;Top Referers&lt;/b&gt;&lt;br /&gt;Показване на страниците първенци в насочването към сайта ви&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:47 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:32 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_topreferers</guid>
 </item>
 <item>
@@ -95,7 +95,7 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking, Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_multilingual&lt;br /&gt;Избор на език&lt;/b&gt;&lt;br /&gt;Позволява посетителите да сменят езика на лицевата страница&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:43 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:21 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_multilingual</guid>
 </item>
 <item>
@@ -104,7 +104,7 @@
 <category>Sidebar Plugins</category>
 <author>Kaustubh Srikanth</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_popularentries&lt;br /&gt;Популярни статии&lt;/b&gt;&lt;br /&gt;Показва заглавията и броя на коментарите на най-популярните статии. Популярността се изчислява според броя на коментарите към статиите.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:47 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:30 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_popularentries</guid>
 </item>
 <item>
@@ -113,7 +113,7 @@
 <category>Sidebar Plugins</category>
 <author>Riscky</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_delicious&lt;br /&gt;A del.icio.us plug-in&lt;/b&gt;&lt;br /&gt;A clone of the &quot;Remaindered Links&quot; &amp; &quot;Blogmarks&quot; systems, and uses the trendy del.icio.us for its back-end support.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 00:52:10 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:29 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_delicious</guid>
 </item>
 <item>
@@ -131,7 +131,7 @@
 <category>Sidebar Plugins</category>
 <author>Cameron MacFarland</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_photoblog&lt;br /&gt;Photoblog Entries&lt;/b&gt;&lt;br /&gt;Shows the thumbnails of the most recent photoblog entries (see event plugin).&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:47 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:30 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_photoblog</guid>
 </item>
 <item>
@@ -140,7 +140,7 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_adduser&lt;br /&gt;User Self-Registration&lt;/b&gt;&lt;br /&gt;Allows blog visitors to create their own author account. Together with the Event-plugin (index.php?serendipity[subpage]=adduser) you can choose whether only registered users may post comments.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:46 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:29 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_adduser</guid>
 </item>
 <item>
@@ -167,7 +167,7 @@
 <category>Sidebar Plugins</category>
 <author>Jaap Boerma ( j@webbict.com ), Tadashi Jokagi &lt;elf2000@users.sourceforge.net&gt;, Ian (Timbalu)</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_guestbook&lt;br /&gt;Книга за гости&lt;/b&gt;&lt;br /&gt;Показва последните съобщения в книгата за гости в странична приставка&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 16 Jun 2014 02:31:25 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:18 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_guestbook</guid>
 </item>
 <item>
@@ -176,7 +176,7 @@
 <category>Sidebar Plugins</category>
 <author>Michael Kaiser</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_flickr&lt;br /&gt;flickr Photostream&lt;/b&gt;&lt;br /&gt;Display the latest photos from flickr Photostreams.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 03 Jul 2014 02:31:24 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:29 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_flickr</guid>
 </item>
 <item>
@@ -185,7 +185,7 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking, Evan Nemerson</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_pollbox&lt;br /&gt;Polls&lt;/b&gt;&lt;br /&gt;Shows the current poll in your sidebar&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:47 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:30 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_pollbox</guid>
 </item>
 <item>
@@ -203,7 +203,7 @@
 <category>Sidebar Plugins</category>
 <author></author>
 <content:encoded>&lt;b&gt;serendipity_plugin_userprofiles&lt;br /&gt;Авторите на този блог&lt;/b&gt;&lt;br /&gt;Показва списък на авторите, писали статии за този блог.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:46 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_userprofiles</guid>
 </item>
 <item>
@@ -221,7 +221,7 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking, Markus Gerstel</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_mycalendar&lt;br /&gt;Моят календар&lt;/b&gt;&lt;br /&gt;Показва Вашият персонален календар с X бъдещи събития&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:43 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:21 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_mycalendar</guid>
 </item>
 <item>
@@ -254,7 +254,7 @@
                                    Green light means 'cool'; yellow light means 
                                    'warning'; red light means 'banned'
                                    The administrator can easily modify this value for each user.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:46 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_xsstrust</guid>
 </item>
 <item>
@@ -263,7 +263,7 @@
 <category>Sidebar Plugins</category>
 <author>Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_nugget_multilingual&lt;br /&gt;Езиково специфичен HTML блок&lt;/b&gt;&lt;br /&gt;Показва HTML блок в страничния панел за указан език или всички езици&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:47 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:30 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_nugget_multilingual</guid>
 </item>
 <item>
@@ -281,7 +281,7 @@
 <category>Sidebar Plugins</category>
 <author>Flo Solcher</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_audioscrobbler&lt;br /&gt;Audioscrobbler&lt;/b&gt;&lt;br /&gt;Shows last played songs in your blog&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 02:50:55 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:29 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_audioscrobbler</guid>
 </item>
 <item>
@@ -290,7 +290,7 @@
 <category>Sidebar Plugins</category>
 <author>Florian Solcher</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_randomquotes&lt;br /&gt;Random Quotes&lt;/b&gt;&lt;br /&gt;Shows a block with a random quotation&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 02:52:54 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:31 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_randomquotes</guid>
 </item>
 <item>
@@ -344,7 +344,7 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_showentries&lt;br /&gt;Показва статии в страничния панел&lt;/b&gt;&lt;br /&gt;Показва статиите от указани категории в страничния панел. Може да се използва за Моblogging.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:47 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:32 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_showentries</guid>
 </item>
 <item>
@@ -353,7 +353,7 @@
 <category>Sidebar Plugins</category>
 <author>Lewe Zipfel, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_communityrating&lt;br /&gt;Average Rating&lt;/b&gt;&lt;br /&gt;Shows top-rated movies by their average rating&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:39 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:13 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_communityrating</guid>
 </item>
 <item>
@@ -380,7 +380,7 @@
 <category>Sidebar Plugins</category>
 <author>Omid Mottaghi Rad</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_quicklink&lt;br /&gt;Quick Link&lt;/b&gt;&lt;br /&gt;Displays a box for quick links&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 25 Dec 2011 04:10:49 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:31 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_quicklink</guid>
 </item>
 <item>
@@ -389,7 +389,7 @@
 <category>Sidebar Plugins</category>
 <author>Andrew Brown (Menalto code), Matthew Groeninger (Unified/Media Lib. Code), Stefan Lange-Hegermann (Zooomr Code), Matthew Maude (Coppermine code)</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_imagesidebar&lt;br /&gt;Unified Sidebar Image Display&lt;/b&gt;&lt;br /&gt;Offers the ability to display images in the sidebar.  The source of the images is configurable.  The plugin is able to connect to a Menalto Gallery installs &quot;random&quot; url, access a Coppermine database directory (MySql only), connect to the web service Zooomr (http://beta.zooomr.com/home) or access images in the Serendipity Media Library.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:46 +0200</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:30 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_imagesidebar</guid>
 </item>
 <item>
@@ -407,7 +407,7 @@
 <category>Sidebar Plugins</category>
 <author>Matthias Gutjahr</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_socialbookmarks&lt;br /&gt;Social Bookmarks Plugin&lt;/b&gt;&lt;br /&gt;A plugin to display bookmarks from a social bookmark service (del.icio.us, ma.gnolia, furl.net, linkroll, Mister Wong) via an RSS feed.&lt;br/&gt;For: Serendipity 0.9alpha5</content:encoded>
-<pubDate>Sun, 25 Dec 2011 04:18:19 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:32 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_socialbookmarks</guid>
 </item>
 <item>
@@ -416,7 +416,7 @@
 <category>Sidebar Plugins</category>
 <author>Matthias Gutjahr</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_microformats&lt;br /&gt;Upcoming Events&lt;/b&gt;&lt;br /&gt;Display upcoming and recommended events in the sidebar and apply the hCalendar microformat to them.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 25 Dec 2011 04:20:43 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:20 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_microformats</guid>
 </item>
 <item>
@@ -425,7 +425,7 @@
 <category>Sidebar Plugins</category>
 <author>Lars Strojny</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_flickrbadge&lt;br /&gt;Flickr badge&lt;/b&gt;&lt;br /&gt;Shows your last photos on Flickr.com&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 25 Dec 2011 04:24:44 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 02:32:29 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_flickrbadge</guid>
 </item>
 <item>
@@ -526,6 +526,42 @@
 <content:encoded>&lt;b&gt;serendipity_plugin_ipv6&lt;br /&gt;IPv6 Check&lt;/b&gt;&lt;br /&gt;This plugin displays within a sidebar element the IP version used for accessing the website.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Wed, 21 Aug 2013 02:30:46 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_ipv6</guid>
+</item>
+<item>
+<title>Бързо търсене: Търсене в статиите</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_quicksearch</link>
+<category>Sidebar Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_quicksearch&lt;br /&gt;Бързо търсене&lt;/b&gt;&lt;br /&gt;Търсене в статиите&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 30 Nov 2014 02:32:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_quicksearch</guid>
+</item>
+<item>
+<title>Shoutbox: Displays a shoutbox for unrelated comments</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_shoutbox</link>
+<category>Sidebar Plugins</category>
+<author>Matthias Lange</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_shoutbox&lt;br /&gt;Shoutbox&lt;/b&gt;&lt;br /&gt;Displays a shoutbox for unrelated comments&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 30 Nov 2014 02:32:32 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_shoutbox</guid>
+</item>
+<item>
+<title>Първенци в излизането: Показване на страниците първенци в излизането от сайта ви</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_topexits</link>
+<category>Sidebar Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_topexits&lt;br /&gt;Първенци в излизането&lt;/b&gt;&lt;br /&gt;Показване на страниците първенци в излизането от сайта ви&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 30 Nov 2014 02:32:32 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_topexits</guid>
+</item>
+<item>
+<title>Първенци в насочването: Показване на страниците първенци в насочването към сайта ви</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_topreferrers</link>
+<category>Sidebar Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_topreferrers&lt;br /&gt;Първенци в насочването&lt;/b&gt;&lt;br /&gt;Показване на страниците първенци в насочването към сайта ви&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 30 Nov 2014 02:32:32 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_topreferrers</guid>
 </item>
 </channel>
 </rss>

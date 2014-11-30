@@ -28,7 +28,7 @@ class serendipity_event_commentsearch extends serendipity_event
         ));
 
         $propbag->add('author', 'Garvin Hicking');
-        $propbag->add('version', '1.4');
+        $propbag->add('version', '1.5');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -88,14 +88,14 @@ class serendipity_event_commentsearch extends serendipity_event
         $results = serendipity_db_query($querystring, false, 'assoc');
         if (!is_array($results)) {
             if ($results !== 1 && $results !== true) {
-                echo htmlspecialchars($results);
+                echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($results) : htmlspecialchars($results, ENT_COMPAT, LANG_CHARSET));
             }
             $results = array();
         }
         $myAddData = array("from" => "serendipity_plugin_commentsearch:generate_content");
         foreach($results AS $idx => $result) {
             $results[$idx]['permalink'] = serendipity_archiveURL($result['id'], $result['title'], 'baseURL', true, $result);
-            $results[$idx]['comment']   = $result['body'];//htmlspecialchars(strip_tags($result['body']));
+            $results[$idx]['comment']   = $result['body'];//(function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($result['body'])) : htmlspecialchars(strip_tags($result['body']), ENT_COMPAT, LANG_CHARSET));
             serendipity_plugin_api::hook_event('frontend_display', $results[$idx], $myAddData);
             // let the template decide, if we want to have tags or not
             $results[$idx]['commenthtml'] = $results[$idx]['comment'];

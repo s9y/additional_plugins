@@ -790,9 +790,9 @@
 <description>エントリーの自由なタグを許可します。</description>
 <maintainers><maintainer><name>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.62</version>
+  <version>3.63</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2014-12-01</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <dir name="UTF-8">
@@ -1140,7 +1140,6 @@
 <file>lang_es.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>documentation_es.html</file>
 </dir>
 <dir name="sha256">
 <file>example.php</file>
@@ -1157,6 +1156,7 @@
 <file>lang_cz.inc.php</file>
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
+<file>documentation_es.html</file>
 </dir>
 
   </filelist>
@@ -1171,7 +1171,6 @@
     <file>serendipity_event_amazonchooser/UTF-8/lang_es.inc.php</file>
     <file>serendipity_event_amazonchooser/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_amazonchooser/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_amazonchooser/UTF-8/documentation_es.html</file>
     <file>serendipity_event_amazonchooser/sha256/example.php</file>
     <file>serendipity_event_amazonchooser/sha256/sha256.inc.php</file>
     <file>serendipity_event_amazonchooser/lang_en.inc.php</file>
@@ -1185,6 +1184,7 @@
     <file>serendipity_event_amazonchooser/lang_cz.inc.php</file>
     <file>serendipity_event_amazonchooser/documentation_cs.html</file>
     <file>serendipity_event_amazonchooser/documentation_cz.html</file>
+    <file>serendipity_event_amazonchooser/documentation_es.html</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7795,9 +7795,9 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <description>If this plugin is installed, the quicksearch on your blog will also search through comments on your blog</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4</version>
+  <version>1.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2014-12-01</date>
   <filelist>
 <dir name="serendipity_event_commentsearch">
 <file>serendipity_event_commentsearch.php</file>

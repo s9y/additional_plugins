@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -7,7 +7,7 @@
  */
 
 @define('PLUGIN_EVENT_AUTOSAVE_TITLE', 'Einträge automatisch sichern');
-@define('PLUGIN_EVENT_AUTOSAVE_DESC', 'Sichert Einträge beim Schreiben automatisch im Hintergrund');
+@define('PLUGIN_EVENT_AUTOSAVE_DESC', 'Sichert Einträge beim Schreiben automatisch im Hintergrund. Arbeitet mit keinem WYSIWYG-EDITOR!');
 @define('PLUGIN_EVENT_AUTOSAVE_STARTING', 'Autosicherung gestartet ...');
 @define('PLUGIN_EVENT_AUTOSAVE_INTERVAL', 'Interval');
 @define('PLUGIN_EVENT_AUTOSAVE_INTERVAL_DESC', 'Zeit in Sekunden zwischen zwei Sicherungen (0 zum abschalten)');

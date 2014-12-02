@@ -6,7 +6,7 @@
  */
 
 @define('PLUGIN_EVENT_AUTOSAVE_TITLE', 'Automatické ukládání');
-@define('PLUGIN_EVENT_AUTOSAVE_DESC', 'Během psaní příspěvků je ukládá');
+@define('PLUGIN_EVENT_AUTOSAVE_DESC', 'Během psaní příspěvků je ukládá. Does not work with any WYSIWYG-EDITOR!');
 @define('PLUGIN_EVENT_AUTOSAVE_STARTING', 'Automatické ukládání začalo...');
 @define('PLUGIN_EVENT_AUTOSAVE_INTERVAL', 'Interval');
 @define('PLUGIN_EVENT_AUTOSAVE_INTERVAL_DESC', 'Čas v sekundách mezi dvěma pokusy o uložení (0 vypne automatické ukládání)');

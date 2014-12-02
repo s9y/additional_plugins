@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -7,7 +7,7 @@
  */
 
 @define('PLUGIN_EVENT_AUTOSAVE_TITLE', 'Autosave entries');
-@define('PLUGIN_EVENT_AUTOSAVE_DESC', 'Saves entries in background while editing');
+@define('PLUGIN_EVENT_AUTOSAVE_DESC', 'Saves entries in background while editing. Does not work with any WYSIWYG-EDITOR!');
 @define('PLUGIN_EVENT_AUTOSAVE_STARTING', 'Auto-saving starting ...');
 @define('PLUGIN_EVENT_AUTOSAVE_INTERVAL', 'Interval');
 @define('PLUGIN_EVENT_AUTOSAVE_INTERVAL_DESC', 'Time in seconds between 2 saves (use 0 to disable)');

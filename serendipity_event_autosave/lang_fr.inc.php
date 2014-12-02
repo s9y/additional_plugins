@@ -1,7 +1,7 @@
 <?php # 
 
 @define('PLUGIN_EVENT_AUTOSAVE_TITLE', 'Sauvegarde automatique');
-@define('PLUGIN_EVENT_AUTOSAVE_DESC', 'Effectue une copie de sauvegarde des posts lors de leur rédaction');
+@define('PLUGIN_EVENT_AUTOSAVE_DESC', 'Effectue une copie de sauvegarde des posts lors de leur rédaction. Does not work with any WYSIWYG-EDITOR!');
 @define('PLUGIN_EVENT_AUTOSAVE_STARTING', 'Autosave démarre ...');
 @define('PLUGIN_EVENT_AUTOSAVE_INTERVAL', 'Intervale de temps');
 @define('PLUGIN_EVENT_AUTOSAVE_INTERVAL_DESC', 'Temps en secondes entre 2 sauvegardes (0 pour désactiver)');

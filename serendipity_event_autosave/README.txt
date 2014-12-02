@@ -56,3 +56,5 @@ The plugin currently do not work with Xhina (I'm working on it) and has not been
 'versionning' plugin. Any volunteers? :-) However, it now works perfectly with the entrycheck plugin.
 
 Feel free to send any comments, questions, suggestions, translations to me (jay dot bertrand at free dot fr).
+
+Do not use with any WYSIWYG-EDITOR!

@@ -8,7 +8,7 @@
  */
 
 @define('PLUGIN_EVENT_ENTRYCHECK_TITLE',		'Pravidla vydávání pøíspìvkù');
-@define('PLUGIN_EVENT_ENTRYCHECK_DESC',		'Provádí kontrolu pøíspìvku pøed jeho vydáním');
+@define('PLUGIN_EVENT_ENTRYCHECK_DESC',		'Provádí kontrolu pøíspìvku pøed jeho vydáním. Does not work with WYSIWYG-CKEDITOR!');
 @define('PLUGIN_EVENT_ENTRYCHECK_EMPTYCATEGORIES',		'Povinné zaøazení do kategorie');
 @define('PLUGIN_EVENT_ENTRYCHECK_EMPTYCATEGORIES_DESC',		'Pokud je nastaveno "Ano", musí být pøíspìvek zaøazen alespoò do jedné kategorie.');
 @define('PLUGIN_EVENT_ENTRYCHECK_EMPTYCATEGORIES_WARNING',		'Není povoleno vydat pøíspìvek, aniž by mìl pøiøazenou kategorii. Zaøaïte ho prosím do nìkteré z kategorií a znovu uložte!');

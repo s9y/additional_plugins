@@ -7,7 +7,7 @@
  */
 
 @define('PLUGIN_EVENT_ENTRYCHECK_TITLE', 'Правила за публикуване на статии');
-@define('PLUGIN_EVENT_ENTRYCHECK_DESC', 'Прилага няколко проверки на статията преди тя да бъде публикувана');
+@define('PLUGIN_EVENT_ENTRYCHECK_DESC', 'Прилага няколко проверки на статията преди тя да бъде публикувана. Does not work with WYSIWYG-CKEDITOR!');
 @define('PLUGIN_EVENT_ENTRYCHECK_EMPTYCATEGORIES', 'Статия без категория ?');
 @define('PLUGIN_EVENT_ENTRYCHECK_EMPTYCATEGORIES_DESC', 'Ако е установено на true, статията трябва да има поне една асоциирана категория към себе си');
 @define('PLUGIN_EVENT_ENTRYCHECK_EMPTYCATEGORIES_WARNING', 'Публикуването на статия без асоциирана категория към нея не е позволено. Моля установете подходяща асоциация и запишете статията отново.');

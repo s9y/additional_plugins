@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -7,7 +7,7 @@
  */
 
 @define('PLUGIN_EVENT_ENTRYCHECK_TITLE', 'Rules for publishing');
-@define('PLUGIN_EVENT_ENTRYCHECK_DESC', 'Applies some checks before an entry is published');
+@define('PLUGIN_EVENT_ENTRYCHECK_DESC', 'Applies some checks before an entry is published. Does not work with WYSIWYG-CKEDITOR!');
 @define('PLUGIN_EVENT_ENTRYCHECK_EMPTYCATEGORIES', 'Do not allow empty categories');
 @define('PLUGIN_EVENT_ENTRYCHECK_EMPTYCATEGORIES_DESC', 'If set to "true", an entry must have at least one category association.');
 @define('PLUGIN_EVENT_ENTRYCHECK_EMPTYCATEGORIES_WARNING', 'It is not allowed to publish an entry without a category association. Please set the appropriate association and save again!');

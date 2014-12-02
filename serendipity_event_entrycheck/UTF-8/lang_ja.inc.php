@@ -7,7 +7,7 @@
  */
 
 @define('PLUGIN_EVENT_ENTRYCHECK_TITLE', '公開のルール');
-@define('PLUGIN_EVENT_ENTRYCHECK_DESC', 'エントリの公開前にいくつかの確認を適用します。');
+@define('PLUGIN_EVENT_ENTRYCHECK_DESC', 'エントリの公開前にいくつかの確認を適用します。. Does not work with WYSIWYG-CKEDITOR!');
 @define('PLUGIN_EVENT_ENTRYCHECK_EMPTYCATEGORIES', '空のカテゴリを許可しない');
 @define('PLUGIN_EVENT_ENTRYCHECK_EMPTYCATEGORIES_DESC', '「はい」に設定した場合、エントリは少なくともひとつのカテゴリを関連付けなければなりません。');
 @define('PLUGIN_EVENT_ENTRYCHECK_EMPTYCATEGORIES_WARNING', '関連カテゴリを指定せずにエントリを公開することは許可されていません。適切に関連を設定してから再び保存を試みてください!');

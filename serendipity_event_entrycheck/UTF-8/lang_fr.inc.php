@@ -1,7 +1,7 @@
 <?php # 
 
 @define('PLUGIN_EVENT_ENTRYCHECK_TITLE', 'Règles de publication');
-@define('PLUGIN_EVENT_ENTRYCHECK_DESC', 'Faire quelques vérifications avant qu\'un billet soit publié.');
+@define('PLUGIN_EVENT_ENTRYCHECK_DESC', 'Faire quelques vérifications avant qu\'un billet soit publié. Does not work with WYSIWYG-CKEDITOR!');
 @define('PLUGIN_EVENT_ENTRYCHECK_EMPTYCATEGORIES', 'Interdire un billet sans catégorie ?');
 @define('PLUGIN_EVENT_ENTRYCHECK_EMPTYCATEGORIES_DESC', 'Si la valeur "oui" est sélectionnée, un billet doit être associé à au moins une catégorie.');
 @define('PLUGIN_EVENT_ENTRYCHECK_EMPTYCATEGORIES_WARNING', 'Il n\'est pas autorisé de publier un billet auquel n\'est associée aucune catégorie. Merci de choisir au moins une catégorie appropriée et d\'enregistrer à nouveau votre billet !');

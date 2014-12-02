@@ -1,7 +1,7 @@
 <?php # 
 
 @define('PLUGIN_EVENT_ENTRYCHECK_TITLE', 'Regeln für Veröffentlichungen');
-@define('PLUGIN_EVENT_ENTRYCHECK_DESC', 'Führt einige Prüfungen vor der Veröffentlichung eines Artikels durch');
+@define('PLUGIN_EVENT_ENTRYCHECK_DESC', 'Führt einige Prüfungen vor der Veröffentlichung eines Artikels durch. Arbeitet nicht mit eingesetztem WYSIWYG-CKEDITOR!');
 @define('PLUGIN_EVENT_ENTRYCHECK_EMPTYCATEGORIES', 'Leere Kategorien verhindern?');
 @define('PLUGIN_EVENT_ENTRYCHECK_EMPTYCATEGORIES_DESC', 'Wenn auf "ja" gesetzt, muss ein Artikel mindestens einer Kategorie zugeordnet sein.');
 @define('PLUGIN_EVENT_ENTRYCHECK_EMPTYCATEGORIES_WARNING', 'Es ist nicht erlaubt einen Eintrag ohne zugewiesene Kategorie zu veröffentlichen. Bitte die Kategorie setzen und erneut speichern!');

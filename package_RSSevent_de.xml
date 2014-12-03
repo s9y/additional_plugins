@@ -72,11 +72,11 @@
 <guid isPermaLink="false">serendipity_event_entrysplit</guid>
 </item>
 <item>
-<title>Regeln für Veröffentlichungen: Führt einige Prüfungen vor der Veröffentlichung eines Artikels durch</title>
+<title>Regeln für Veröffentlichungen: Führt einige Prüfungen vor der Veröffentlichung eines Artikels durch. Arbeitet nicht mit eingesetztem WYSIWYG-CKEDITOR!</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_entrycheck</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Gregor Voeltz</author>
-<content:encoded>&lt;b&gt;serendipity_event_entrycheck&lt;br /&gt;Regeln für Veröffentlichungen&lt;/b&gt;&lt;br /&gt;Führt einige Prüfungen vor der Veröffentlichung eines Artikels durch&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_event_entrycheck&lt;br /&gt;Regeln für Veröffentlichungen&lt;/b&gt;&lt;br /&gt;Führt einige Prüfungen vor der Veröffentlichung eines Artikels durch. Arbeitet nicht mit eingesetztem WYSIWYG-CKEDITOR!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Wed, 21 Aug 2013 02:30:40 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_entrycheck</guid>
 </item>
@@ -981,11 +981,11 @@
 <guid isPermaLink="false">serendipity_event_g2embed</guid>
 </item>
 <item>
-<title>Einträge automatisch sichern: Sichert Einträge beim Schreiben automatisch im Hintergrund</title>
+<title>Einträge automatisch sichern: Sichert Einträge beim Schreiben automatisch im Hintergrund. Arbeitet mit keinem WYSIWYG-EDITOR!</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_autosave</link>
 <category>Event Plugins</category>
 <author>Jay Bertrand</author>
-<content:encoded>&lt;b&gt;serendipity_event_autosave&lt;br /&gt;Einträge automatisch sichern&lt;/b&gt;&lt;br /&gt;Sichert Einträge beim Schreiben automatisch im Hintergrund&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_event_autosave&lt;br /&gt;Einträge automatisch sichern&lt;/b&gt;&lt;br /&gt;Sichert Einträge beim Schreiben automatisch im Hintergrund. Arbeitet mit keinem WYSIWYG-EDITOR!&lt;br/&gt;For: Serendipity 0.9</content:encoded>
 <pubDate>Wed, 30 Jul 2014 02:31:11 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_autosave</guid>
 </item>

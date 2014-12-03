@@ -72,11 +72,11 @@
 <guid isPermaLink="false">serendipity_event_entrysplit</guid>
 </item>
 <item>
-<title>公開のルール: エントリの公開前にいくつかの確認を適用します。</title>
+<title>公開のルール: エントリの公開前にいくつかの確認を適用します。. Does not work with WYSIWYG-CKEDITOR!</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_entrycheck</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Gregor Voeltz</author>
-<content:encoded>&lt;b&gt;serendipity_event_entrycheck&lt;br /&gt;公開のルール&lt;/b&gt;&lt;br /&gt;エントリの公開前にいくつかの確認を適用します。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_event_entrycheck&lt;br /&gt;公開のルール&lt;/b&gt;&lt;br /&gt;エントリの公開前にいくつかの確認を適用します。. Does not work with WYSIWYG-CKEDITOR!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Wed, 21 Aug 2013 02:30:40 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_entrycheck</guid>
 </item>
@@ -913,11 +913,11 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <guid isPermaLink="false">serendipity_event_faq</guid>
 </item>
 <item>
-<title>Lightbox for entry images: Lightbox JS is a simple, unobtrusive script used to to overlay images on the current page. It's a snap to setup and works on all modern browsers. All lightboxes pop-up images. This plugin searches through your entries, and replaces every image 'a href=&quot;XXX&quot;' link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. These lightbox scripts are all jQuery based. They do not only support image types, they may also add support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for image lightboxes only, but you can easily add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.</title>
+<title>Lightbox for entry images: Lightbox JS is a simple, unobtrusive script used to overlay images on the current page. It's a snap to setup and works with all modern browsers. All lightboxes pop-up images. This plugin searches through your entries, and replaces every image 'a href=&quot;XXX&quot;' link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. These lightbox scripts are all jQuery based. They do not only support image types, they may also add support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for image lightboxes only, but you can easily add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_lightbox</link>
 <category>Event Plugins</category>
 <author>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_lightbox&lt;br /&gt;Lightbox for entry images&lt;/b&gt;&lt;br /&gt;Lightbox JS is a simple, unobtrusive script used to to overlay images on the current page. It's a snap to setup and works on all modern browsers. All lightboxes pop-up images. This plugin searches through your entries, and replaces every image 'a href=&quot;XXX&quot;' link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. These lightbox scripts are all jQuery based. They do not only support image types, they may also add support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for image lightboxes only, but you can easily add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_event_lightbox&lt;br /&gt;Lightbox for entry images&lt;/b&gt;&lt;br /&gt;Lightbox JS is a simple, unobtrusive script used to overlay images on the current page. It's a snap to setup and works with all modern browsers. All lightboxes pop-up images. This plugin searches through your entries, and replaces every image 'a href=&quot;XXX&quot;' link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. These lightbox scripts are all jQuery based. They do not only support image types, they may also add support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for image lightboxes only, but you can easily add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
 <pubDate>Sun, 02 Nov 2014 02:31:26 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_lightbox</guid>
 </item>
@@ -985,11 +985,11 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <guid isPermaLink="false">serendipity_event_g2embed</guid>
 </item>
 <item>
-<title>Autosave entries: Saves entries in background while editing</title>
+<title>Autosave entries: Saves entries in background while editing. Does not work with any WYSIWYG-EDITOR!</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_autosave</link>
 <category>Event Plugins</category>
 <author>Jay Bertrand</author>
-<content:encoded>&lt;b&gt;serendipity_event_autosave&lt;br /&gt;Autosave entries&lt;/b&gt;&lt;br /&gt;Saves entries in background while editing&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_event_autosave&lt;br /&gt;Autosave entries&lt;/b&gt;&lt;br /&gt;Saves entries in background while editing. Does not work with any WYSIWYG-EDITOR!&lt;br/&gt;For: Serendipity 0.9</content:encoded>
 <pubDate>Wed, 30 Jul 2014 02:31:11 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_autosave</guid>
 </item>

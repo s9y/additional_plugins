@@ -14,6 +14,9 @@
      Most of the source code was copied from the S9Y del.icio.us plugin v0.2.3 by riscky (thanks!)
 
     Change log:
+    v0.47:
+     * included more current version of SimplePie
+     * added docblocks
     v0.46:
      * fixed problem with encoding!?
      * corrected <script>-Tag (thx again to Andreas <http://www.depretis.at/>)
@@ -78,10 +81,19 @@ if (file_exists($probelang)) {
     include dirname(__FILE__).'/lang_en.inc.php';
 }
 
+/**
+ * Class serendipity_plugin_socialbookmarks
+ */
 class serendipity_plugin_socialbookmarks extends serendipity_plugin {
 
+    /**
+     * @var string
+     */
     var $title = PLUGIN_SOCIALBOOKMARKS_N;
 
+    /**
+     * @var array
+     */
     var $feed_types = array('misterwong'    => array(   'usr_bookmarks_page'    => 'http://www.mister-wong.de/user/%username%',
                                                         'usr_recent_bookmarks'  => 'http://www.mister-wong.de/rss/user/%username%/',
                                                         'gen_recent_bookmarks'  => 'http://www.mister-wong.de/rss/?more=fresh',
@@ -109,15 +121,17 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
                                                         'usr_js_tagcloud'       => '')
                             );
 
+    /**
+     * @param serendipity_property_bag $propbag
+     * @return void
+     */
     function introspect(&$propbag) {
-        global $serendipity;
-
         $this->title = $this->get_config('sidebarTitle', $this->title);
 
         $propbag->add('name', PLUGIN_SOCIALBOOKMARKS_N);
         $propbag->add('description', PLUGIN_SOCIALBOOKMARKS_D);
         $propbag->add('author', 'Matthias Gutjahr');
-        $propbag->add('version', '0.46.1');
+        $propbag->add('version', '0.47');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9alpha5',
             'smarty'      => '2.6.7',
@@ -140,6 +154,11 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
     }
 
+    /**
+     * @param string $name
+     * @param serendipity_property_bag $propbag
+     * @return bool
+     */
     function introspect_config_item($name, &$propbag) {
         switch($name) {
             case 'sidebarTitle':
@@ -220,6 +239,10 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
         return true;
     }
 
+    /**
+     * @param string $title
+     * @return bool
+     */
     function generate_content(&$title) {
         global $serendipity;
 
@@ -260,11 +283,15 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
             }
 
             if ($this->get_config('specialFeatures') != 'usr_js_tagcloud') {
-                require_once(dirname(__FILE__) . '/simplepie.inc');
+                if (file_exists(S9Y_PEAR_PATH . '/simplepie/simplepie.inc')) {
+                    require_once S9Y_PEAR_PATH . '/simplepie/simplepie.inc';
+                } else {
+                    require_once dirname(__FILE__) . '/simplepie/simplepie.inc';
+                }
                 $socialbookmarksFeed = new SimplePie();
-                $socialbookmarksFeed->feed_url(str_replace('%username%',urlencode(utf8_decode(stripslashes($socialbookmarksID))),$gsocialbookmarksFeedURL));
-                $socialbookmarksFeed->cache_location($serendipity['serendipityPath'] . '/templates_c/');
-                $socialbookmarksFeed->enable_caching(false);
+                $socialbookmarksFeed->set_feed_url(str_replace('%username%',urlencode(utf8_decode(stripslashes($socialbookmarksID))),$gsocialbookmarksFeedURL));
+                $socialbookmarksFeed->set_cache_location($serendipity['serendipityPath'] . '/templates_c/');
+                $socialbookmarksFeed->enable_cache(false);
                 $socialbookmarksFeed->init();
                 $socialbookmarksFeed->handle_content_type();
     
@@ -274,6 +301,7 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
                         $socialbookmarksContent = '<ul class="serendipity_socialbookmarks_list" style="padding:0.1em;list-style-type:none;font-size:1em;">' . "\r\n";
                         $max = $socialbookmarksFeed->get_item_quantity($displayNumber);
                         for ($x = 0; $x < $max; $x++) {
+                            /** @var SimplePie_Item $item */
                             $item = $socialbookmarksFeed->get_item($x);
                             $socialbookmarksContent .= '<li class="serendipity_socialbookmarks_item xfolkentry" style="list-style-type:' . (($this->get_config('displayThumbnails')) ? 'none' : 'square') . ';list-style-position:inside;">';
                             $socialbookmarksContent .= '<a href="' . $this->decode($item->get_permalink()).' " class="taggedlink" title="' . trim(substr($this->decode((function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($item->get_description())) : htmlspecialchars(strip_tags($item->get_description()), ENT_COMPAT, LANG_CHARSET))), 0, 100)) . '" rel="external">';
@@ -314,6 +342,10 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
         }
     }
 
+    /**
+     * @param SimplePie_Item $item
+     * @return string
+     */
     function socialbookmarks_get_tags($item) {
         global $serendipity;
 
@@ -323,10 +355,10 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
         switch ($this->get_config('socialbookmarksService')) {
             case 'del.icio.us': // quite easy
                 $return .= '<br/><p style="font-size:.7em;margin:0;padding:0" class="serendipity_socialbookmarks_tags">[Tags:';
-                $tags = $item->get_category();
-                $tags = explode(' ', $tags);
+                $tags = $item->get_categories();
+                /** @var SimplePie_Category $tag */
                 foreach ($tags as $tag) {
-                    $return .= ' <a href="'.$taglink.socialbookmarks_freetag_compat(strtolower($tag)).'" rel="tag">'.strtolower($tag).'</a>';
+                    $return .= ' <a href="'.$taglink.socialbookmarks_freetag_compat(strtolower($tag->get_term())).'" rel="tag">'.strtolower($tag->get_term()).'</a>';
                 }
                 $return .= ']</p>';
                 break;
@@ -356,6 +388,10 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
         return $return;
     }
 
+    /**
+     * @param string $item
+     * @return string
+     */
     function socialbookmarks_get_thumbnail($item) {
         $regexp = '/(<img[^>]*src=")([^"]*)("[^>]*>)/i';
         preg_match($regexp, $item, $img);
@@ -363,6 +399,10 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
         return $return;
     }
 
+    /**
+     * @param string $string
+     * @return string
+     */
     function decode($string) {
         if (LANG_CHARSET != 'UTF-8') {
             return utf8_decode($string);
@@ -371,6 +411,10 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
     }
 }
 
+/**
+ * @param string $tag
+ * @return mixed
+ */
 function socialbookmarks_freetag_compat($tag) {
     return str_replace(' ', '+', $tag);
 }

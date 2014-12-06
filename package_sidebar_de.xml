@@ -2683,9 +2683,9 @@
 <description>Ein Plugin, um Lesezeichen mithilfe eines RSS-Feeds eines social bookmarks-Dienstes (del.icio.us, ma.gnolia, furl.net, linkroll, Mister Wong) anzuzeigen.</description>
 <maintainers><maintainer><name>Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.46.1</version>
+  <version>0.47</version>
   <requirements:s9yVersion>0.9alpha5</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2014-12-06</date>
   <filelist>
 <dir name="serendipity_plugin_socialbookmarks">
 <file>INSTALL</file>
@@ -2698,9 +2698,11 @@
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 </dir>
-<file>LGPL.txt</file>
-<file>README.txt</file>
+<dir name="simplepie">
+<file>README.markdown</file>
+<file>LICENSE.txt</file>
 <file>simplepie.inc</file>
+</dir>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>documentation_cs.html</file>
@@ -2717,9 +2719,9 @@
     <file>serendipity_plugin_socialbookmarks/UTF-8/lang_en.inc.php</file>
     <file>serendipity_plugin_socialbookmarks/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_socialbookmarks/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_socialbookmarks/LGPL.txt</file>
-    <file>serendipity_plugin_socialbookmarks/README.txt</file>
-    <file>serendipity_plugin_socialbookmarks/simplepie.inc</file>
+    <file>serendipity_plugin_socialbookmarks/simplepie/README.markdown</file>
+    <file>serendipity_plugin_socialbookmarks/simplepie/LICENSE.txt</file>
+    <file>serendipity_plugin_socialbookmarks/simplepie/simplepie.inc</file>
     <file>serendipity_plugin_socialbookmarks/lang_cs.inc.php</file>
     <file>serendipity_plugin_socialbookmarks/lang_cz.inc.php</file>
     <file>serendipity_plugin_socialbookmarks/documentation_cs.html</file>

@@ -1,4 +1,4 @@
-<?php # $Id: servicesdb_en.inc.php 7 2005-04-16 06:39:31Z s_bergmann $
+<?php 
 
 ##########################################################################
 # serendipity - another blogger...                                       #

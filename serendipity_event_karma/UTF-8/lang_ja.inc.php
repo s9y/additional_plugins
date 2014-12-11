@@ -1,7 +1,6 @@
-<?php # $Id: lang_ja.inc.php 2110 2008-02-11 02:12:07Z slothman $
+<?php
 
 /**
- *  @version $Revision: 2110 $
  *  @author Tadashi Jokagi <elf2000@users.sourceforge.net>
  *  EN-Revision: 690
  */

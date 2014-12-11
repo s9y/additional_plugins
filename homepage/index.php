@@ -130,7 +130,7 @@ if (is_dir('homepage')) {
                           'ta' => 'Tamil');
             foreach($lang as $l => $d) {
             ?>
-                                    <option value="<?php echo $l; ?>"><?php echo htmlspecialchars($d); ?></option>
+                                    <option value="<?php echo $l; ?>"><?php echo htmlspecialchars($d, ENT_COMPAT, 'UTF-8'); ?></option>
             <?php
             }
             ?>

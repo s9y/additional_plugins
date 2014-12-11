@@ -1,7 +1,6 @@
-<?php # $Id: lang_bg.inc.php 2114 2008-02-11 12:25:31Z jwalker $
+<?php
 
 /**
- *  @version $Revision: 2114 $
  *  @author Ivan Cenov jwalker@hotmail.bg
  * EN-revision: 1475 
  */

@@ -1,7 +1,6 @@
-<?php # $Id: lang_en.inc.php 1475 2006-11-02 11:26:10Z garvinhicking $
+<?php
 
 /**
- *  @version $Revision: 1475 $
  *  @author Serge Shakhovsky <sadtg@mail.ru> http://blog.sadtg.ru
  *  @author http://www.perevod.cc - translations and software localization
  *  EN-Revision: Revision of lang_en.inc.php

@@ -1,6 +1,5 @@
-<?php # $Id: lang_es.inc.php 1381 2006-08-15 10:14:56Z elf2000 $
+<?php
 /**
- *  @version $Revision: 1381 $
  *  @author Rodrigo Lazo Paz <rlazo.paz@gmail.com>
  *  EN-Revision: 690
  */

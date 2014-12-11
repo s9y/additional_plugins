@@ -1,6 +1,5 @@
-<?php # $Id: lang_es.inc.php 2110 2008-02-11 02:12:07Z slothman $
+<?php 
 /**
- *  @version $Revision: 2110 $
  *  @author Rodrigo Lazo Paz <rlazo.paz@gmail.com>
  *  EN-Revision: 690
  */

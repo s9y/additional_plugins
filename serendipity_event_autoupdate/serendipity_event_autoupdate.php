@@ -22,7 +22,7 @@ class serendipity_event_autoupdate extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_AUTOUPDATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Ian');
-        $propbag->add('version',       '1.1.1');
+        $propbag->add('version',       '1.1.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '5.1'
@@ -106,7 +106,7 @@ class serendipity_event_autoupdate extends serendipity_event {
                 case 'plugin_dashboard_updater':
                         $eventData = '<form action="?serendipity[adminModule]=event_display&serendipity[adminAction]=update" method="POST">
                         <input type="hidden" name="serendipity[newVersion]" value="'.$addData.'" />
-                        <input type="submit" value="'.PLUGIN_EVENT_AUTOUPDATE_UPDATEBUTTON.'" />
+                        ' . ($serendipity['version'][0] > 1 ? '<button type="submit">'.PLUGIN_EVENT_AUTOUPDATE_UPDATEBUTTON.'</button>' : '<input type="submit" value="'.PLUGIN_EVENT_AUTOUPDATE_UPDATEBUTTON.'" />') . '
                         </form>';
                     return true;
                     break;
@@ -184,39 +184,39 @@ EOS;
                     if(false === ($update = $this->fetchUpdate($nv))) {
                         $this->close_page(true);
                     }
-                    usleep(1);
+                    usleep(3);
                     $time = microtime(true) - $start;
                     $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn fetchUpdate()...\n", $time); // print in readable format 1.2345
                     $this->show_message('<p class="msg_run"><span class="icon-clock"></span><em>'.$lmsg.'</em></p>', 'Function fetch update', 'verify the update pack');
                     if (! empty($update)) {
                         $start = microtime(true);
                         if ($this->verifyUpdate($update, $nv)) {
-                            usleep(1);
+                            usleep(3);
                             $time = microtime(true) - $start;
                             $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn verifyUpdate()...\n", $time); // print in readable format 1.2345
                             $this->show_message('<p class="msg_run"><span class="icon-clock"></span><em>'.$lmsg.'</em></p>', 'Function verify update', 'checking write permissions');
                             $start = microtime(true);
                             if ($this->checkWritePermissions($update)) {
-                                usleep(1);
+                                usleep(3);
                                 $time = microtime(true) - $start;
                                 $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn checkWritePermissions()...\n", $time); // print in readable format 1.2345
                                 $this->show_message('<p class="msg_run"><span class="icon-clock"></span><em>'.$lmsg.'</em></p>', 'Function check write permissions', 'unpacking the update');
                                 $start = microtime(true);
                                 $unpacked = $this->unpackUpdate($nv);
-                                usleep(1);
+                                usleep(3);
                                 $time = microtime(true) - $start;
                                 $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn unpackUpdate()...\n", $time); // print in readable format 1.2345
                                 $this->show_message('<p class="msg_run"><span class="icon-clock"></span><em>'.$lmsg.'</em></p>', 'Function unpack update', 'checking integrity');
                                 if ($unpacked) {
                                     $start = microtime(true);
                                     if ($this->checkIntegrity($nv)) {
-                                        usleep(1);
+                                        usleep(3);
                                         $time = microtime(true) - $start;
                                         $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn checkIntegrity()...\n", $time); // print in readable format 1.2345
                                         $this->show_message('<p class="msg_run"><span class="icon-clock"></span><em>'.$lmsg.'</em></p>', 'Function check integrity', 'finally copy update');
                                         $start = microtime(true);
                                         $copied = $this->copyUpdate($nv);
-                                        usleep(1);
+                                        usleep(3);
                                         $time = microtime(true) - $start;
                                         $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn copyUpdate()...\n", $time); // print in readable format 1.2345
                                         $this->show_message('<p class="msg_run"><span class="icon-clock"></span><em>'.$lmsg.'</em></p>', 'Function copy update', 'cleaning up temporary directory');
@@ -225,7 +225,7 @@ EOS;
                                             if (true === $this->cleanTemplatesC($nv, true) ) {
                                                 $this->show_message('<p class="msg_success"><span class="icon-ok"></span>Cleanup download temp done!</p>');
                                             }
-                                            usleep(1);
+                                            usleep(3);
                                             $time = microtime(true) - $start;
                                             $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn cleanTemplatesC()...\n", $time); // print in readable format 1.2345
                                             $this->show_message('<p class="msg_run"><span class="icon-clock"></span><em>'.$lmsg.'</em></p>', 'Function cleanup templates_c', 'finish processing unit');
@@ -576,9 +576,13 @@ EOS;
             </article>
         </div>
     </div>
+EOS;
+        if($terminate) {
+            echo <<<EOS
     </body>
 </html>
 EOS;
+        }
         if($terminate) die();
     }
 
@@ -590,12 +594,12 @@ EOS;
     function doUpdate() {
         global $serendipity;
 
-        $msg = "Autoupdate successfully done!\nWe now refresh to Serendipity Installer!\n";
+        $msg = "Autoupdate successfully done!\\nWe now refresh to Serendipity Installer!\\n"; // escape for js
         $this->show_message('<p class="msg_success"><span class="icon-ok"></span>Autoupdate successfully done - refresh to Serendipity Installer</p>', 'Autoupdate');
         $this->close_page();
 
         // this is working for me.... is it for you?
-        if(die("<script type='text/javascript'>alert('".serendipity_db_escape_string($msg)."'); window.location = '".$serendipity['serendipityHTTPPath']."';</script>\n")) {
+        if(die('<script type="text/javascript">alert("'.$msg.'"); window.location = "'.$serendipity['serendipityHTTPPath'].'";</script>'."\n    </body>\n</html>")) {
             return;
         } else {
             if(!headers_sent()) {
@@ -617,7 +621,15 @@ EOS;
      * @param   string directory
      */
     function empty_dir($dir) {
-        $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir), RecursiveIteratorIterator::CHILD_FIRST);
+        if (!is_dir($dir)) return;
+        try {
+            $_dir = new RecursiveDirectoryIterator($dir);
+            // NOTE: UnexpectedValueException thrown for PHP >= 5.3
+            } catch (Exception $e) {
+                return;
+            }
+        $iterator = new RecursiveIteratorIterator($_dir, RecursiveIteratorIterator::CHILD_FIRST);
+        //$iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir), RecursiveIteratorIterator::CHILD_FIRST);
         foreach ($iterator as $file) {
             if ($file->isFile()) {
                 unlink($file->__toString());

@@ -10271,9 +10271,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>When the dashboard-plugin (once a day) detects an update, this plugin adds the option to manually download or start an automatic and secured upgrade of the blog directly with one click from within the adminarea.</description>
 <maintainers><maintainer><name>onli, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1.1</version>
+  <version>1.1.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2014-12-24</date>
   <filelist>
 <dir name="serendipity_event_autoupdate">
 <dir name="UTF-8">

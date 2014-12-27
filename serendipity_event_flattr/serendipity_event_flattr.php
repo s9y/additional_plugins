@@ -60,7 +60,7 @@ class serendipity_event_flattr extends serendipity_event {
             'add_to_feed',
         ));
         $propbag->add('author',  'Garvin Hicking, Joachim Breitner', 'Matthias Gutjahr');
-        $propbag->add('version', '1.12.1');
+        $propbag->add('version', '1.13');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
@@ -387,16 +387,18 @@ class serendipity_event_flattr extends serendipity_event {
                              "language=".urlencode($flattr_lng).
                              "\">" . $flattr_btn . "</a>";
                 } else {
+                    $flattr_tle2 = stripslashes($flattr_tle2);
+                    $flattr_tle2 = (function_exists('serendipity_specialchars') ? serendipity_specialchars($flattr_tle2) : htmlspecialchars($flattr_tle2, ENT_COMPAT, LANG_CHARSET));
                     $flattr = "
 <a class='FlattrButton' style='display:none;'
-    title='" . $flattr_tle . "'
+    title=\"" . $flattr_tle2 . "\"
     data-flattr-uid='" . $flattr_uid . "'
     data-flattr-tags='" . $flattr_tag . "'
     data-flattr-category='" . $flattr_cat . "'
     data-flattr-language='" . $flattr_lng . "'
     href='" . $flattr_url . "'>
 
-    " . $flattr_dsc . "
+    " . stripslashes($flattr_dsc) . "
 </a>
     ";
                 }

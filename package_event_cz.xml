@@ -10044,9 +10044,9 @@ aplikovány další typografické úpravy.</description>
 <description>Flattr je platforma pro sociální mikroplatby, která čtenáři umožňuje ocenit drobným příspěvkem obsah, který se mu líbí. Tento plugin vkládá do příspěvků a RSS kanálů tlačítka &quot;Flattr&quot; (tzv. Flattr Badges). U každého příspěvku můžete jednotlivě zadat nastavení Flattru. Pokud tak neučiníte, použije se globální nastavení.</description>
 <maintainers><maintainer><name>Garvin Hicking, Joachim Breitner</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.12.1</version>
+  <version>1.13</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2014-12-28</date>
   <filelist>
 <dir name="serendipity_event_flattr">
 <file>serendipity_event_flattr.php</file>

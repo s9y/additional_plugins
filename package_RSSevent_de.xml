@@ -1294,7 +1294,7 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <category>Event Plugins</category>
 <author>Garvin Hicking, Joachim Breitner</author>
 <content:encoded>&lt;b&gt;serendipity_event_flattr&lt;br /&gt;Flattr&lt;/b&gt;&lt;br /&gt;Flattr ist eine Social-Micropayment-Plattform, mit der man Liebe versprühen kann für Artikel, die man liebt. Das Plugin bindet &quot;Flattr&quot;-Buttons in den Blogeinträgen und RSS-Feeds ein. Flattr-spezifische Attribute können sowohl global als auch pro Eintrag vergeben werden.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:15 +0100</pubDate>
+<pubDate>Sun, 28 Dec 2014 02:31:29 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_flattr</guid>
 </item>
 <item>

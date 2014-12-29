@@ -146,11 +146,6 @@ class serendipity_event_lightbox extends serendipity_event {
 
             if ($type === null) {
                 $type = $this->get_config('type');
-                $removed  = array('lightbox2', 'lightbox', 'lightbox_plus', 'thickbox', 'greybox');
-                if (in_array($type, $removed)) {
-                    $type = 'lightbox2jq'; // force and set new default for upgraders
-                    $this->set_config('type', $type);
-                }
             }
 
             if ($navigate === null) {
@@ -171,8 +166,9 @@ class serendipity_event_lightbox extends serendipity_event {
                     $regex = '/<a([^>]+)(href=(["\'])[^"\']*\.(jpe?g|gif|png)["\'])/i';
                     $sub   = '<a rel=$3onemagnificPopup$3 $1 $2';
                 }// do not use 'class' here as identifier, whenever possible, since this conflicts/not validates with $1 'class'es
-                else { // force even more to prevent empty regular expression errors in preg_replace()
+                else { // force new lib to prevent empty regular expression errors in preg_replace()
                     $type  = 'lightbox2jq';
+                    $this->set_config('type', $type);
                     $regex = '/<a([^>]+)(href=(["\'])[^"\']*\.(jpe?g|gif|png)["\'])/i';
                     $sub   = '<a $1 rel=$3lightbox$3 $2';
                 }

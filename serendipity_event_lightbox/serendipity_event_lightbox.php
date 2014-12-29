@@ -28,7 +28,7 @@ class serendipity_event_lightbox extends serendipity_event {
         $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_NAME);
         $propbag->add('description',    PLUGIN_EVENT_LIGHTBOX_DESC);
         $propbag->add('author',         'Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian');
-        $propbag->add('version',        '2.0.2');
+        $propbag->add('version',        '2.0.3');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'php'         => '5.3.0'
@@ -146,6 +146,11 @@ class serendipity_event_lightbox extends serendipity_event {
 
             if ($type === null) {
                 $type = $this->get_config('type');
+                $removed  = array('lightbox2', 'lightbox', 'lightbox_plus', 'thickbox', 'greybox');
+                if (in_array($type, $removed)) {
+                    $type = 'lightbox2jq'; // force and set new default for upgraders
+                    $this->set_config('type', $type);
+                }
             }
 
             if ($navigate === null) {

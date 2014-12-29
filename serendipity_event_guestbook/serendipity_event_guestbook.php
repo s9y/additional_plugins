@@ -1,7 +1,7 @@
-<?php #
+<?php
 
 /**
- * serendipity_event_guestbook.php, v.3.52 - 2014-11-26
+ * serendipity_event_guestbook.php, v.3.53 - 2014-12-29
  */
 
 //error_reporting(E_ALL);
@@ -67,7 +67,7 @@ class serendipity_event_guestbook extends serendipity_event {
                         'dateformat'
                     ));
         $propbag->add('author',       'Ian');
-        $propbag->add('version',      '3.52');
+        $propbag->add('version',      '3.53');
         $propbag->add('requirements', array(
                         'serendipity' => '1.7.0',
                         'smarty'      => '3.1.0',
@@ -85,7 +85,7 @@ class serendipity_event_guestbook extends serendipity_event {
      *
      */
     function example() {
-        return "\n<ul>\n    <li class=\"msg_notice\"><strong>Note to v. 3.40:</strong> If have, please update copied guestbook tpl files in your template!</li>\n    <li class=\"msg_notice\"><strong>Note to v. 3.50:</strong> A possible TABLE COLUMN order change for long time users, may need you to backup your database in Guestbooks DB Administration panel again!</li>\n</ul>\n\n";
+        return "\n<ul>\n    <li class=\"msg_notice\"><strong>Note to v. 3.53:</strong> If have, please update copied guestbook tpl files in your template!</li>\n    <li class=\"msg_notice\"><strong>Note to v. 3.50:</strong> A possible TABLE COLUMN order change for long time users, may need you to backup your database in Guestbooks DB Administration panel again!</li>\n</ul>\n\n";
     }
 
 
@@ -465,6 +465,30 @@ class serendipity_event_guestbook extends serendipity_event {
 
 
     /**
+     * guestbook wrapper for htmlspecialchars charset switch with PHP 5.4
+     *
+     * @access public
+     * @return string
+     */
+    public function html_specialchars($string, $flags = null, $encoding = LANG_CHARSET, $double_encode = true) {
+        if ($flags == null) {
+            if (defined('ENT_HTML401')) {
+                // Added with PHP 5.4.x
+                $flags = ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE;
+            } else {
+                // For PHP < 5.4 compatibility
+                $flags = ENT_COMPAT;
+            }
+        }
+        if ($encoding == 'LANG_CHARSET') {
+            $encoding = 'UTF-8'; // fallback
+        }
+
+        return htmlspecialchars($string, $flags, $encoding, $double_encode);
+    }
+
+
+    /**
      * Strip and secure $serendipity['POST'] by keys and define modified array var if value has changed
      * No need for trim(strip_tags()) here, while this changes length and is further on done on output separately!
      *
@@ -477,12 +501,13 @@ class serendipity_event_guestbook extends serendipity_event {
     function strip_security($parr = null, $keys = null, $single = false, $compare = true) {
         $authenticated_user = serendipity_userLoggedIn() ? true : false;
         if ($single) {
-            return $authenticated_user ? (function_exists('serendipity_specialchars') ? serendipity_specialchars($parr) : htmlspecialchars($parr, ENT_COMPAT, LANG_CHARSET)) : (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($parr)) : htmlspecialchars(strip_tags($parr), ENT_COMPAT, LANG_CHARSET));
-        } else {
+            return $authenticated_user ? $this->html_specialchars($parr) : $this->html_specialchars(strip_tags($parr));
+        } else { // POST data input check
             foreach ($parr AS $k => $v) {
                 if (in_array($k, $keys)) {
                     $valuelength = strlen($v);
-                    $parrsec[$k] = $authenticated_user ? (function_exists('serendipity_specialchars') ? serendipity_specialchars($v) : htmlspecialchars($v, ENT_COMPAT, LANG_CHARSET)) : (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($v)) : htmlspecialchars(strip_tags($v), ENT_COMPAT, LANG_CHARSET));
+                    #$parrsec[$k] = $authenticated_user ? $this->html_specialchars($v) : $this->html_specialchars(strip_tags($v));//dont store entities
+                    $parrsec[$k] = $authenticated_user ? $v : strip_tags($v);
                     if (!$authenticated_user && $compare && ($valuelength != strlen($parrsec[$k]))) {
                         $parrsec['stripped'] = true;
                         $parrsec['stripped-by-key'] = $k;
@@ -610,9 +635,10 @@ class serendipity_event_guestbook extends serendipity_event {
      * @param array  $entries       given string
      * @param string $is_guestbook_ url create url
      * @param int    $wordwrap      linebreak
+     * @param bool   $backend_escape
      * @return array $entries for output
      */
-    function generate_EntriesArray($entries, $is_guestbook_url, $wordwrap) {
+    function generate_EntriesArray($entries, $is_guestbook_url, $wordwrap, $backend_escape = false) {
         global $serendipity;
 
         // this assigns db entries output to guestbooks smarty entries.tpl
@@ -629,10 +655,12 @@ class serendipity_event_guestbook extends serendipity_event {
 
                 $entry['page']          = $is_guestbook_url . (($serendipity['rewrite'] == 'rewrite') ? '?' : '&') . 'noclean=true&serendipity[adminAction]=guestbookdelete&serendipity[page]=' . (int)$serendipity['GET']['page'] . '&serendipity[gbid]=' . $entry['id'];
 
+                // authenticated user admincomment is not escaped - do not wordwrap this part (since it could cause undetermined string errors, etc)
+                $placeholder_ac         = '[[$ac]]';
                 $replace_ac             = $this->cut_string($entry['body'], '[ac]', '[/ac]');
                 $stripped_body          = $this->strip_security($entry['body'], null, true);
                 $search_ac              = $this->cut_string($stripped_body, '[ac]', '[/ac]');
-                $entry['body']          = str_replace($search_ac, $replace_ac, $stripped_body);
+                $entry['body']          = str_replace($search_ac, $placeholder_ac, $stripped_body);
 
                 if (serendipity_db_bool($this->get_config('markup'))) {
                     // parse  $entry['text'] through hook events standard formatting and smilies
@@ -643,6 +671,10 @@ class serendipity_event_guestbook extends serendipity_event {
                     $entry['bodywrap']  = wordwrap($entry['body'], $wordwrap, "\n", 1);
                     $entry['body']      = nl2br($entry['bodywrap']);
                 }
+                if ($backend_escape) {
+                    $replace_ac = $this->html_specialchars($replace_ac); // do not allow in backend, eg unescaped scripts
+                }
+                $entry['body']          = str_replace($placeholder_ac, $replace_ac, $entry['body']);
                 $entry['body']          = $this->text_pattern_bbc($entry['body']);
 
                 $entries[$i]            = $entry;
@@ -773,7 +805,7 @@ class serendipity_event_guestbook extends serendipity_event {
         $valid['message']     = FALSE;
         $serendipity['guestbook_message_header'] = FALSE;
         $authenticated_user = serendipity_userLoggedIn() ? true : false;
-        $gb_automoderate    = serendipity_db_bool($this->get_config('automoderate'));
+        $gb_automoderate    = serendipity_db_bool($this->get_config('automoderate'), false);
 
         if (empty($serendipity['POST']['guestbookform'])) {
             return false;
@@ -805,9 +837,9 @@ class serendipity_event_guestbook extends serendipity_event {
         // if force moderate is set to moderate, advice security to not support 'stripped' or 'stripped-by-key' POST mark
         // this does only happen true, if not automoderate is set in both plugins and strip tags really removed some tags.
         if (isset($serendipity[$forcemoderate[0]]) == 'moderate' && $gb_automoderate === true) {
-            $serendipity['POST'] = $this->strip_security($serendipity['POST'], array('name', 'email', 'comment', 'url'), false, false);
+            $serendipity['POST'] = $this->strip_security($serendipity['POST'], array('name', 'email', 'comment', 'admincomment', 'url'), false, false);
         } else {
-            $serendipity['POST'] = $this->strip_security($serendipity['POST'], array('name', 'email', 'comment', 'url'));
+            $serendipity['POST'] = $this->strip_security($serendipity['POST'], array('name', 'email', 'comment', 'admincomment', 'url'));
         }
 
         if ($serendipity['POST']['stripped'] === true) {
@@ -871,7 +903,7 @@ class serendipity_event_guestbook extends serendipity_event {
 
             if (isset($serendipity['POST']['email']) && !empty($serendipity['POST']['email']) && trim($serendipity['POST']['email']) != '') {
                 if (!$this->is_valid_email($serendipity['POST']['email'])) {
-                    array_push($messages, ERROR_NOVALIDEMAIL . ' <span class="gb_msgred">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['POST']['email']) : htmlspecialchars($serendipity['POST']['email'], ENT_COMPAT, LANG_CHARSET)) . '</span>');
+                    array_push($messages, ERROR_NOVALIDEMAIL . ' <span class="gb_msgred">' . $this->html_specialchars($serendipity['POST']['email']) . '</span>');
                 } else {
                     $valid['data_email'] = TRUE;
                 }
@@ -1101,12 +1133,12 @@ class serendipity_event_guestbook extends serendipity_event {
                     'plugin_guestbook_intro'           => $this->get_config('intro'),
                     'plugin_guestbook_sent'            => $this->get_config('sent', PLUGIN_GUESTBOOK_SENT_HTML),
                     'plugin_guestbook_action'          => $serendipity['baseURL'] . $serendipity['indexFile'],
-                    'plugin_guestbook_sname'           => function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['subpage']) : htmlspecialchars($serendipity['GET']['subpage'], ENT_COMPAT, LANG_CHARSET),
-                    'plugin_guestbook_name'            => function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['name'])) : htmlspecialchars(strip_tags($serendipity['POST']['name']), ENT_COMPAT, LANG_CHARSET),
-                    'plugin_guestbook_email'           => function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['email'])) : htmlspecialchars(strip_tags($serendipity['POST']['email']), ENT_COMPAT, LANG_CHARSET),
+                    'plugin_guestbook_sname'           => $this->html_specialchars($serendipity['GET']['subpage']),
+                    'plugin_guestbook_name'            => $this->html_specialchars(strip_tags($serendipity['POST']['name'])),
+                    'plugin_guestbook_email'           => $this->html_specialchars(strip_tags($serendipity['POST']['email'])),
                     'plugin_guestbook_emailprotect'    => PLUGIN_GUESTBOOK_PROTECTION,
-                    'plugin_guestbook_url'             => function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['url'])) : htmlspecialchars(strip_tags($serendipity['POST']['url']), ENT_COMPAT, LANG_CHARSET),
-                    'plugin_guestbook_comment'         => function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($serendipity['POST']['comment'])) : htmlspecialchars(strip_tags($serendipity['POST']['comment']), ENT_COMPAT, LANG_CHARSET),
+                    'plugin_guestbook_url'             => $this->html_specialchars(strip_tags($serendipity['POST']['url'])),
+                    'plugin_guestbook_comment'         => $this->html_specialchars(strip_tags($serendipity['POST']['comment'])),
                     'plugin_guestbook_messagestack'    => $serendipity['messagestack']['comments'],
                     'plugin_guestbook_entry'           => array('timestamp' => 1)
                 )
@@ -1170,7 +1202,7 @@ class serendipity_event_guestbook extends serendipity_event {
 
         $serendipity['smarty']->assign('is_guestbook_url', $is_guestbook_url);
 
-        // this assigns db entries output to guestbooks smarty array: [$entries] in entries.tpl
+        // this assigns db entries output to guestbooks frontend smarty array: [$entries] in plugin_guestbook_entries.tpl
         $entries = $this->generate_EntriesArray($entries, $is_guestbook_url, $wordwrap);
 
         // Output all possible messages and errors
@@ -1285,7 +1317,7 @@ class serendipity_event_guestbook extends serendipity_event {
 
                     if ($this->selected()) {
                         $serendipity['head_title']    = $this->get_config('headline');
-                        $serendipity['head_subtitle'] = function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['blogTitle']) : htmlspecialchars($serendipity['blogTitle'], ENT_COMPAT, LANG_CHARSET);
+                        $serendipity['head_subtitle'] = $this->html_specialchars($serendipity['blogTitle']);
                     }
 
                     break;
@@ -1570,8 +1602,8 @@ class serendipity_event_guestbook extends serendipity_event {
                     }
 
                 } else {
-                    // fallback to new entry form, since there was an error
-                    if ($serendipity['guestbook_message_header'] === false ) {
+                    // fallback to new ENTRY FORM, since there was an error - no need to escape
+                   if ($serendipity['guestbook_message_header'] === false ) {
                         foreach($serendipity['POST'] as $sk => $sv) {
                             $entry[$sk] = $sv;
                         }
@@ -1691,8 +1723,8 @@ class serendipity_event_guestbook extends serendipity_event {
             $paginator = array_pop($result);
         }
 
-        // this assigns db entries output to guestbooks smarty array: {$entries} in entries.tpl
-        $entries = $this->generate_EntriesArray($result, $_SERVER['PHP_SELF'], $this->get_config('wordwrap'));
+        // this assigns db entries output to guestbooks backend smarty array: {$entries}
+        $entries = $this->generate_EntriesArray($result, $_SERVER['PHP_SELF'], $this->get_config('wordwrap'), true);
 
         // assign entries array and good messages array to smarty - do not use smarty {entries}, since used by s9y core
         $serendipity['smarty']->assign(

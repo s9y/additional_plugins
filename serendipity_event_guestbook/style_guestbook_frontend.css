@@ -1,5 +1,4 @@
-/* # 
-   style_guestbook_frontend.css - v.3.31 2012-09-14 ian */
+/* style_guestbook_frontend.css - for v.3.53 - 2014-12-29 Ian */
 
 /******** Begin Guestbook Styles *********/
 
@@ -21,9 +20,6 @@
     -khtml-border-radius: 4px 4px 4px 4px;
     -o-border-radius: 4px 4px 4px 4px;
     border-radius: 4px 4px 4px 4px; /* html5 standard */
-    /* need only of IE 6/7/8 gradient/border-radius/border-shadow */
-    position: relative; /* IE PIE lt 9 need this here */
-    behavior: url({PLUGIN_PATH}PIE.htc);
 }
 .input-text label, .input-select label, .input-textarea label {
     display: block;
@@ -65,9 +61,6 @@ br.clear { clear: both; }
     -khtml-border-radius: 8px 8px 8px 8px;
     -o-border-radius: 8px 8px 8px 8px;
     border-radius: 8px 8px 8px 8px; /* html5 standard */
-    /* need only of IE 6/7/8 gradient/border-radius/border-shadow */
-    position: relative; /* IE PIE lt 9 need this here */
-    behavior: url({PLUGIN_PATH}PIE.htc);
 }
 
 #guestbook_entrypaging {
@@ -135,8 +128,6 @@ span.frontend_guestbook_paginator_right { color: #BBB; }
     background: -ms-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
     background: linear-gradient(to bottom,  rgba(238,238,238,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#ffffff',GradientType=0 ); /* IE6-8 */
-    position: relative; /* PIE specific */
-    -pie-background: linear-gradient(#EEEEEE, #FFFFFF);
 }
 
 .guestbook_entries {
@@ -235,6 +226,12 @@ span.frontend_guestbook_paginator_right { color: #BBB; }
     padding-bottom: 10px;
 }
 
+/* reset empty comment info boxes */
+#guestbook_wrapper .serendipity_commentDirection:empty {
+    background-color: inherit;
+    border: inherit;
+    border-radius: inherit;
+}
 #guestbook_wrapper a:link.serendipityPrettyButton,
 #guestbook_wrapper a:visited.serendipityPrettyButton,
 #guestbook_wrapper a:hover.serendipityPrettyButton { 
@@ -262,6 +259,46 @@ span.frontend_guestbook_paginator_right { color: #BBB; }
 }
 #guestbook_wrapper a.serendipityPrettyButton {
     background: url('{TEMPLATE_PATH}img/button_background.png') repeat-x scroll center top transparent;
+}
+/* admincomment */
+#guestbook_wrapper span.guestbook_admin_comment {
+    border: 1px solid #FF8247;
+    display: block;
+    overflow: auto;
+    margin: 10px 0 2px 40px;
+    padding: 4px;
+    background: none repeat scroll 0 0 #EFEFEF;
+    font-size:80% !important;
+    font-style: italic;
+    /* rounded corners */
+    -webkit-border-radius: 1em 1em 1em 1em;
+    -moz-border-radius: 1em 1em 1em 1em;
+    -o-border-radius: 1em 1em 1em 1em;
+    border-radius: 1em 1em 1em 1em; /* html5 standard */
+}
+/* reset other themes quoting styles */
+#guestbook_wrapper blockquote p:last-child:after {
+    content: inherit;
+}
+#guestbook_wrapper blockquote p:first-child:before {
+    content: inherit;
+}
+#guestbook_wrapper span.guestbook_admin_comment q{quotes:"\00AB" "\00BB"; }
+#guestbook_wrapper .guestbook_admin_comment blockquote  p,
+#guestbook_wrapper .guestbook_admin_comment blockquote p q {
+    color: #055bc6;
+    text-align: left;
+    /* font-style, font-variant, font-weight, font-size/line-height, font-family */
+    font: italic normal 500 11px/16px 'arial', helvetica, sans-serif !important;
+}
+#guestbook_wrapper .guestbook_admin_comment blockquote p:first-child {
+    background: url('{TEMPLATE_PATH}img/quote-start.gif') no-repeat scroll left top transparent !important;
+    text-indent: 25px;
+}
+#guestbook_wrapper .guestbook_admin_comment blockquote,
+#guestbook_wrapper .guestbook_admin_comment p {
+    margin: 4px 2px !important; padding: 0px 8px 0 0 !important; border: 0 !important; color: #055bc6;
+    background: url('{TEMPLATE_PATH}img/quote-end.gif') no-repeat scroll right bottom transparent !important;
 }
 
 /******** End Guestbook Styles *********/

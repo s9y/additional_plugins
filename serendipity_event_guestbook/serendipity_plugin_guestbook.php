@@ -1,7 +1,7 @@
-<?php # 
+<?php
 
 /**
- * serendipity_plugin_guestbook.php, v.1.22 - 2014-03-17 Ian
+ * serendipity_plugin_guestbook.php, v.1.23 - 2014-12-29 Ian
  * guestbooksidebar plugin by Jaap Boerma // j@webbict.com // v1.02 // 18-10-2005
  */
 
@@ -27,8 +27,8 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
         $propbag->add('name',          PLUGIN_GUESTSIDE_NAME);
         $propbag->add('description',   PLUGIN_GUESTSIDE_BLAHBLAH);
         $propbag->add('stackable',     false);
-        $propbag->add('author',        'Jaap Boerma ( j@webbict.com ), Tadashi Jokagi <elf2000@users.sourceforge.net>, Ian (Timbalu)');
-        $propbag->add('version',       '1.22.1');
+        $propbag->add('author',        'Jaap Boerma ( j@webbict.com ), Tadashi Jokagi <elf2000@users.sourceforge.net>, Ian');
+        $propbag->add('version',       '1.23');
         $propbag->add('requirements', array(
                         'serendipity' => '0.7',
                         'smarty'      => '2.6.7',
@@ -182,8 +182,8 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
         $entries = serendipity_db_query($sql);
         if($entries && is_array($entries)) {
             foreach($entries as $e => $row) {
-                echo "<strong>" . (function_exists('serendipity_specialchars') ? serendipity_specialchars(serendipity_strftime($dateformat, $row['timestamp'])) : htmlspecialchars(serendipity_strftime($dateformat, $row['timestamp']), ENT_COMPAT, LANG_CHARSET)) . '</strong> <br />' . "\n";
-                $row['body'] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['body']) : htmlspecialchars($row['body'], ENT_COMPAT, LANG_CHARSET));
+                echo "<strong>" . serendipity_event_guestbook::html_specialchars(serendipity_strftime($dateformat, $row['timestamp'])) . '</strong> <br />' . "\n";
+                $row['body'] = serendipity_event_guestbook::html_specialchars($row['body']);
                 $row['body'] = serendipity_event_guestbook::bbc_reverse($row['body']);
                 if (strlen($row['body'])>$max_chars) {
                     if (function_exists('mb_strimwidth')) {
@@ -196,17 +196,17 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
                 serendipity_plugin_api::hook_event('frontend_display', $entry);
 
                 echo $entry['comment'] . "<br />";
-                echo "<strong>" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['name']) : htmlspecialchars($row['name'], ENT_COMPAT, LANG_CHARSET)) . "</strong><br />";
+                echo "<strong>" . serendipity_event_guestbook::html_specialchars($row['name']) . "</strong><br />";
 
                 if ($showemail){
-                    echo "<a href=\"mailto:" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['email']) : htmlspecialchars($row['email'], ENT_COMPAT, LANG_CHARSET)) . "\">" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['email']) : htmlspecialchars($row['email'], ENT_COMPAT, LANG_CHARSET)) . "</a>";
+                    echo "<a href=\"mailto:" . serendipity_event_guestbook::html_specialchars($row['email']) . "\">" . serendipity_event_guestbook::html_specialchars($row['email']) . "</a>";
                 }
 
                 if ($showhomepage) {
                     if ($showemail) {
                         echo "<br />";
                     }
-                    echo "<a href=\"" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['homepage']) : htmlspecialchars($row['homepage'], ENT_COMPAT, LANG_CHARSET)) . "\">" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($row['homepage']) : htmlspecialchars($row['homepage'], ENT_COMPAT, LANG_CHARSET)) . "</a>";
+                    echo "<a href=\"" . serendipity_event_guestbook::html_specialchars($row['homepage']) . "\">" . serendipity_event_guestbook::html_specialchars($row['homepage']) . "</a>";
                 }
 
                 echo "<br />\n\n";

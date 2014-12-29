@@ -1,5 +1,5 @@
-{* 
-    plugin_guestbook_entries.tpl v.3.51 - 2014-06-16
+{*
+    plugin_guestbook_entries.tpl for v.3.53 - 2014-12-29
 *}
 
 {if $plugin_guestbook_articleformat}
@@ -10,7 +10,7 @@
       <div class="serendipity_entry_body">
 {/if}
 
-        <div id='guestbook_wrapper'>
+        <div id="guestbook_wrapper">
 
           <div class="clearfix">
 
@@ -50,13 +50,13 @@
                            {$entry.timestamp}
                       </dt>
                       {if $entry.homepage}
-                      <dt>{$CONST.TEXT_USERS_HOMEPAGE}: <a href="{$entry.homepage}" target="_blank">{$entry.homepage|truncate:24:'...'}</a></dt>
+                      <dt>{$CONST.TEXT_USERS_HOMEPAGE}: <a href="{$entry.homepage}" target="_blank">{$entry.homepage|truncate:24:'&hellip;'}</a></dt>
                       {/if}
 
                     </dl>
 
                     <dl class="guestbook_entrybottom">
-                        <dd>{$entry.body|replace:'&amp;quot;':'"'}</dd>
+                        <dd>{$entry.body|replace:'&amp;quot;':'&quot;'}</dd>
                     </dl>
                   </div> <!-- //- class:guestbook_entrytop end -->
                 </div> <!-- //- id:guestbook_entrybundle end -->

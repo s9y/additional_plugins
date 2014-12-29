@@ -1,3 +1,15 @@
+3.53:
+-----
+ * Added collapsible entry preview in backend entry list
+ * Fix admincomment and some double encode issues
+ * fix some more minor template and css issues
+
+
+3.52:
+-----
+ * PHP 5.4+ fix to properly call entity functions by charset
+
+
 3.51:
 -----
  * Backported to Serendipity 1.7.0 plus

@@ -1,7 +1,7 @@
 
 /*
     ******** Begin Guestbook Styles *********
-    style_guestbook_backend.css - v.3.50 2014-06-14 Ian
+    style_guestbook_backend.css - for v.3.53 2014-12-29 Ian
 */
 
 #wrapGB .icon-ok:before{content:'\2714'}
@@ -182,7 +182,7 @@
 }
 #wrapGB .guestbook_admin_comment blockquote,
 #wrapGB .guestbook_admin_comment p {
-    margin: 4px 2px !important; padding: 0 !important; border: 0 !important; color: #055bc6;
+    margin: 4px 2px !important; padding: 0px 8px 0 0 !important; border: 0 !important; color: #055bc6;
     background: url('{TEMPLATE_PATH}img/quote-end.gif') no-repeat scroll right bottom transparent !important; 
 }
 
@@ -201,5 +201,24 @@
     text-align: left;
     color: #800040;
 }
-
+#wrapGB label > span.icon-show:before {
+    float: left;
+    content: "\25BA"; /* U+25BA: BLACK RIGHT-POINTING POINTER - fallback */
+    content: "►";
+}
+/* on Safari and Chrome  */
+@media screen and (-webkit-min-device-pixel-ratio:0)
+{
+    #wrapGB label > span.icon-show:before {
+        content: '\e828';
+    }
+}
+#wrapGB label:active > span.icon-show:before,
+#wrapGB label > span.icon-hide:before {
+    content: "\25BC"; /* U+25BC: BLACK DOWN-POINTING TRIANGLE - fallback */
+    content: '▼';
+}
+#wrapGB input#show, #wrapGB input#hide {
+    display:none;
+}
 /******** End Guestbook Styles *********/

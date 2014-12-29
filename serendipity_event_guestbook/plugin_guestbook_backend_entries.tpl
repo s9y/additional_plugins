@@ -1,5 +1,5 @@
 {*
-     plugin_guestbook_backend_entries.tpl v.3.51 - 2014-06-16 Ian
+     plugin_guestbook_backend_entries.tpl for v.3.53 - 2014-12-29 Ian
 *}
 
 <!-- plugin_guestbook_backend_entries start -->
@@ -91,9 +91,13 @@
                 </div>
 
                 <div class="gb_entrybody">
-                    <span>
-                        {$entry.body|replace:'&amp;quot;':'"'}
-                    </span>
+                    <label for="show">
+                        <span class="icon-show"></span>
+                    </label>
+                    <input type=radio id="show" name="group">
+                    <input type=radio id="hide" name="group">
+                    <span class="gbboxfull">{$entry.body|replace:'&amp;quot;':'&quot;'}</span>
+                    <span class="gbsummary">{$entry.body|strip|replace:'<br />':''|replace:'&amp;quot;':'&quot;'|truncate:50}</span>
                 </div>
                 </form>
             </li>
@@ -106,5 +110,24 @@
     </div>
 
 {/if}
+
+<script>
+
+jQuery(document).ready(function ($) {
+    // hide all
+    $('.gbboxfull').hide('fast');
+    // shows the entry
+    $('.icon-show').click(function() {
+        $this = $(this);
+        //console.log($this);
+        $this.parent().siblings('.gbboxfull').toggle('slow');
+        $this.parent().siblings('.gbsummary').toggle('slow');
+        $this.toggleClass('icon-hide');
+        return false;
+    });
+});
+
+</script>
+
 
 </div><!-- #wrapGB tpl end -->

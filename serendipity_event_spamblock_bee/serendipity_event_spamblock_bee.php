@@ -584,14 +584,14 @@ class serendipity_event_spamblock_bee extends serendipity_event
     function printCommentEditExtras(&$eventData, &$addData) {
         global $serendipity;
         
-        // Don't put extras on admin menu. They are not working there:
-        if (isset($eventData['GET']['action']) && $eventData['GET']['action']=='admin') return;
+        // Don't put extras on admin menu. They are not working there: ...or other backend forms like guestbook
+        if ((isset($eventData['GET']['action']) && $eventData['GET']['action']=='admin') || (int)$serendipity['serendipityUserlevel'] >= (int)USERLEVEL_ADMIN) return;
              
         // Honeypot
         if (serendipity_db_bool($this->useHoneyPot)) {
-            echo '<div id="serendipity_comment_phone" class="serendipity_commentDirection comment_phone_input" >' . "\n";
-            echo '<label for="serendipity_commentform_phone">Phone*</label>' . "\n";
-            echo '<input class="comment_phone_input" type="text" id="serendipity_commentform_phone" name="serendipity[phone]" value="" placeholder="' . PLUGIN_EVENT_SPAMBLOCK_BEE_WARN_HONEPOT . '"/>' . "\n";
+            echo '<div id="serendipity_comment_phone" class="serendipity_commentDirection comment_phone_input">' . "\n";
+            echo '    <label for="serendipity_commentform_phone">Phone*</label>' . "\n";
+            echo '    <input id="serendipity_commentform_phone" class="comment_phone_input" type="text" name="serendipity[phone]" value="" size="50" maxlength="60" placeholder="' . PLUGIN_EVENT_SPAMBLOCK_BEE_WARN_HONEPOT . '"/>' . "\n";
             echo "</div>\n";
         }
 
@@ -600,8 +600,8 @@ class serendipity_event_spamblock_bee extends serendipity_event
             $question = $this->generateCaptchaQuestion();
             
             echo '<div id="serendipity_comment_beecaptcha" class="form_field">' . "\n";
-            echo '<label for="bee_captcha">'. $question. '</label>' . "\n";
-            echo '<input class="" type="text" id="bee_captcha" name="serendipity[beecaptcha]" value="" placeholder=""/>' . "\n";
+            echo '    <label for="bee_captcha">'. $question. '</label>' . "\n";
+            echo '    <input class="" type="text" id="bee_captcha" name="serendipity[beecaptcha]" size="10" value="" placeholder=""/>' . "\n";
             echo "</div>\n";
             
             if ($this->answerRetrievalMethod == 'smarty' || $this->answerRetrievalMethod == 'smarty_enc') {

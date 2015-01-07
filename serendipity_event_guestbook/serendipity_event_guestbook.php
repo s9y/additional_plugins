@@ -67,7 +67,7 @@ class serendipity_event_guestbook extends serendipity_event {
                         'dateformat'
                     ));
         $propbag->add('author',       'Ian');
-        $propbag->add('version',      '3.53');
+        $propbag->add('version',      '3.54');
         $propbag->add('requirements', array(
                         'serendipity' => '1.7.0',
                         'smarty'      => '3.1.0',
@@ -470,7 +470,7 @@ class serendipity_event_guestbook extends serendipity_event {
      * @access public
      * @return string
      */
-    public function html_specialchars($string, $flags = null, $encoding = LANG_CHARSET, $double_encode = true) {
+    public static function html_specialchars($string, $flags = null, $encoding = LANG_CHARSET, $double_encode = true) {
         if ($flags == null) {
             if (defined('ENT_HTML401')) {
                 // Added with PHP 5.4.x
@@ -539,7 +539,7 @@ class serendipity_event_guestbook extends serendipity_event {
      * @param  string   $string   entry comment replacements
      * @return string
      */
-    function bbc_reverse($text) {
+    public static function bbc_reverse($text) {
         $pattern = '|[[\/]*?[^\[\]]*?]|si';
         $replace = '';
         return preg_replace($pattern, $replace, $text);

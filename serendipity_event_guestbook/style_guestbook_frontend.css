@@ -297,7 +297,10 @@ span.frontend_guestbook_paginator_right { color: #BBB; }
 }
 #guestbook_wrapper .guestbook_admin_comment blockquote,
 #guestbook_wrapper .guestbook_admin_comment p {
-    margin: 4px 2px !important; padding: 0px 8px 0 0 !important; border: 0 !important; color: #055bc6;
+    margin: 4px 2px !important;
+    padding: 0 1em 0 0 !important;
+    border: 0 !important;
+    color: #055bc6;
     background: url('{TEMPLATE_PATH}img/quote-end.gif') no-repeat scroll right bottom transparent !important;
 }
 

@@ -1,3 +1,7 @@
+3.54:
+-----
+ * make PHP 5.5/6 compat
+
 3.53:
 -----
  * Added collapsible entry preview in backend entry list

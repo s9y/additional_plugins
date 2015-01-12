@@ -12,7 +12,7 @@ require_once('tmobile.php');
 require_once('o2.php');
 
 // Default values
-define('POPFETCHER_VERSION',  '1.44.1');       // This version of Popfetcher
+define('POPFETCHER_VERSION',  '1.45');       // This version of Popfetcher
 define('DEFAULT_ADMINMENU',   'true');       // True if run as sidebar plugin. False if external plugin.
 define('DEFAULT_HIDENAME',    'popfetcher'); // User should set this to something unguessable
 define('DEFAULT_MAILSERVER',  '');
@@ -320,7 +320,7 @@ class serendipity_event_popfetcher extends serendipity_event
         return true;
     }
 
-    function out($msg) {
+    function out($msg, $skip_out = false) {
         global $serendipity;
         static $debug = null;
         
@@ -337,7 +337,9 @@ class serendipity_event_popfetcher extends serendipity_event
             fclose($fp);
         }
         
-        echo $msg;
+        if ($debug || $skip_out === false) {
+            echo $msg;
+        }    
     }
 
     function generate_content(&$title) {
@@ -625,7 +627,13 @@ class serendipity_event_popfetcher extends serendipity_event
         return true;
     }
 
-    function decode($string, $charset) {
+    function decode($string, $charset, $debug = false) {
+        if ($debug) {
+            $this->out("STRING: " . $string . "<br />\n", true);
+            $this->out("CHARSET: " . $charset . "<br />\n", true);
+            $this->out("LOCAL CHARSET: " . LANG_CHARSET . "<br />\n", true);
+        }
+        
         if ($charset == 'us-ascii') {
             $charset = 'iso-8859-1';
         }
@@ -685,7 +693,7 @@ class serendipity_event_popfetcher extends serendipity_event
             $filename = $p->d_parameters['filename'];
             //Skip Tmobile junk pix
             if ($tmobileflag && $adflag and ( $filename == 'dottedLine_350.gif' || $filename == 'dottedLine_600.gif' || $filename == 'spacer.gif' || $filename == 'masthead.jpg' || $filename == 'audio.gif' || $filename == 'video.gif')) {
-                continue;
+                return;
             }
         } elseif (isset($p->ctype_parameters['name'])) {
             $filename = $p->ctype_parameters['name'];
@@ -718,12 +726,12 @@ class serendipity_event_popfetcher extends serendipity_event
         if (in_array($lext, $list_virus)) {
             $output = MF_MSG19. ': ' . $filename;
             $this->out( '<br />' . $output . '<br />');
-            continue 2;
+            return;
         }
 
         if (in_array($lext, $list_ignore)) {
             $this->out( '<br />' . MF_MSG20 . '<br />');
-            continue;
+            return;
         }
 
         if ($p->ctype_primary == 'text' && $p->ctype_secondary == 'plain' && $plaintext_is_body_flag) {
@@ -731,7 +739,7 @@ class serendipity_event_popfetcher extends serendipity_event
 
             if (empty($bodytext)) {
                 $this->out( '<br />' . MF_MSG20 . '<br />');
-                continue;
+                return;
             }
 
             if ($firsttext && $plaintext_use_extended_flag) {
@@ -743,10 +751,10 @@ class serendipity_event_popfetcher extends serendipity_event
 
             // Do not save plaintext attachments if selected to use them as body
             if ($debug_file !== null || $debug) {
-                $this->out( "Discarding saving plaintext attachment.<br />\n");
+                $this->out("<br />\nDiscarding saving plaintext attachment.<br />\n");
             }
 
-            continue;
+            return;
         }
 
         // Check for duplicate filename. Give dup file name file.time().dup.ext
@@ -771,7 +779,7 @@ class serendipity_event_popfetcher extends serendipity_event
         if ($o2flag && is_array($info) && $adflag && $info[0] == '74' && $info[1] == '31') {
             // Seem this is the O2 logo. We don't like it. Kill it. Take no prisoners.
             @unlink($fullname);
-            continue;
+            return;
         }
 
         serendipity_makeThumbnail($filename, $maildir, false);
@@ -1096,7 +1104,7 @@ class serendipity_event_popfetcher extends serendipity_event
                 // DEBUG Struct
                 // echo '<pre>';
                 // print_r($s);
-				// echo '</pre>';
+		// echo '</pre>';
             }
 
             if ($s == null) {
@@ -1110,11 +1118,14 @@ class serendipity_event_popfetcher extends serendipity_event
                 $this->out('<br />'.sprintf(MF_ERROR_ONLYFROM, '"' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($from) : htmlspecialchars($from, ENT_COMPAT, LANG_CHARSET)) . '"', '"' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($onlyfrom) : htmlspecialchars($onlyfrom, ENT_COMPAT, LANG_CHARSET)) . '"'));
                 continue;
             }
-
-            if (strtolower($s->ctype_parameters['charset']) == 'us-ascii' || empty($s->ctype_parameters['charset'])) {
+            
+            if (empty($s->ctype_parameters['charset'])) {
+                $s->ctype_parameters['charset'] = 'UTF-8';
+            }
+            if (strtolower($s->ctype_parameters['charset']) == 'us-ascii') {
                 $s->ctype_parameters['charset'] = 'ISO-8859-1';
             }
-            $subject = $this->decode(isset($s->headers['subject']) ? $s->headers['subject'] : MF_MSG17, $s->ctype_parameters['charset']);
+            $subject = $this->decode(isset($s->headers['subject']) ? $s->headers['subject'] : MF_MSG17, $s->ctype_parameters['charset'], true);
             #$subject = $this->decode(isset($s->headers['subject']) ? $s->headers['subject'] : MF_MSG17, $s->ctype_parameters['charset']);
             #$subject = isset($s->headers['subject']) ? $s->headers['subject'] : MF_MSG17;
 

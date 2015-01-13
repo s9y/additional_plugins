@@ -3451,9 +3451,9 @@
 <description>Holt Email inkl. Anhänge ab und veröffentlicht sie von einem POP3 Email Account (mit spezieller Handy Unterstützung)</description>
 <maintainers><maintainer><name>Jason Levitt</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.44.1</version>
+  <version>1.45</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2015-01-13</date>
   <filelist>
 <dir name="serendipity_event_popfetcher">
 <dir name="lang">

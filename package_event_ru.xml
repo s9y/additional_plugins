@@ -8590,9 +8590,9 @@
 <description>Allows authors to authenticate using an OpenID, their Google or Yahoo account.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Rob Richards</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.2.1</version>
+  <version>1.2.2</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2015-01-15</date>
   <filelist>
 <dir name="serendipity_event_openid">
 <dir name="PHP-openid">

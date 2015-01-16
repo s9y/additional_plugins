@@ -1125,7 +1125,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Rob Richards</author>
 <content:encoded>&lt;b&gt;serendipity_event_openid&lt;br /&gt;OpenID Authentication&lt;/b&gt;&lt;br /&gt;Allows authors to authenticate using an OpenID, their Google or Yahoo account.&lt;br/&gt;For: Serendipity 1.2</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:21 +0100</pubDate>
+<pubDate>Thu, 15 Jan 2015 10:19:39 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_openid</guid>
 </item>
 <item>

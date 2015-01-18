@@ -488,15 +488,6 @@
 <guid isPermaLink="false">serendipity_plugin_google_adsense</guid>
 </item>
 <item>
-<title>WebPasties: Internetová služba WebPasties umožňuje spravovat na jednom místě více věcí, jako jsou například RSS kanály, ankety, kalendáře akcí a status tlačítka insatant messengerů jako ICQ nebo jabber. Tento plugin dokáže zobrazovat vybrané informace uložené na WebPasties.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_webpasties</link>
-<category>Sidebar Plugins</category>
-<author>Jabrwock</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_webpasties&lt;br /&gt;WebPasties&lt;/b&gt;&lt;br /&gt;Internetová služba WebPasties umožňuje spravovat na jednom místě více věcí, jako jsou například RSS kanály, ankety, kalendáře akcí a status tlačítka insatant messengerů jako ICQ nebo jabber. Tento plugin dokáže zobrazovat vybrané informace uložené na WebPasties.&lt;br/&gt;For: Serendipity 0.9.1</content:encoded>
-<pubDate>Sun, 25 Dec 2011 11:10:26 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_webpasties</guid>
-</item>
-<item>
 <title>Frappr (Freind Mapper - mapa přátel): Zobrazuje odkaz na Vaší mapu v internetové službě Frappr, a nejnovější avatary.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_frappr</link>
 <category>Sidebar Plugins</category>

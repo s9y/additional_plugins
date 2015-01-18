@@ -494,15 +494,6 @@
 <guid isPermaLink="false">serendipity_plugin_google_adsense</guid>
 </item>
 <item>
-<title>WebPasties: WebPasties allow you to manage things like RSS feeds, polls, event calendars, and IM status buttons. (stackable)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_webpasties</link>
-<category>Sidebar Plugins</category>
-<author>Jabrwock</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_webpasties&lt;br /&gt;WebPasties&lt;/b&gt;&lt;br /&gt;WebPasties allow you to manage things like RSS feeds, polls, event calendars, and IM status buttons. (stackable)&lt;br/&gt;For: Serendipity 0.9.1</content:encoded>
-<pubDate>Sun, 25 Dec 2011 11:10:26 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_webpasties</guid>
-</item>
-<item>
 <title>Frappr (Friend Mapper): Display link to your Frappr map and recently added Frappr avatars. (stackable)</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_frappr</link>
 <category>Sidebar Plugins</category>

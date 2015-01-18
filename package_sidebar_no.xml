@@ -3243,40 +3243,6 @@
 </release>
 </package>
 <package version="1.0">
-<name>serendipity_plugin_webpasties</name>
-<license>GPL</license>
-<summary>WebPasties</summary>
-<groups>FRONTEND_EXTERNAL_SERVICES</groups>
-<description>WebPasties allow you to manage things like RSS feeds, polls, event calendars, and IM status buttons. (stackable)</description>
-<maintainers><maintainer><name>Jabrwock</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>0.2</version>
-  <requirements:s9yVersion>0.9.1</requirements:s9yVersion>
-  <date>2011-12-25</date>
-  <filelist>
-<dir name="serendipity_plugin_webpasties">
-<file>serendipity_plugin_webpasties.php</file>
-<dir name="UTF-8">
-<file>lang_cs.inc.php</file>
-<file>lang_cz.inc.php</file>
-</dir>
-<file>lang_en.inc.php</file>
-<file>lang_cs.inc.php</file>
-<file>lang_cz.inc.php</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_plugin_webpasties/serendipity_plugin_webpasties.php</file>
-    <file>serendipity_plugin_webpasties/UTF-8/lang_cs.inc.php</file>
-    <file>serendipity_plugin_webpasties/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_webpasties/lang_en.inc.php</file>
-    <file>serendipity_plugin_webpasties/lang_cs.inc.php</file>
-    <file>serendipity_plugin_webpasties/lang_cz.inc.php</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
 <name>serendipity_plugin_frappr</name>
 <license>GPL</license>
 <summary>Frappr (Friend Mapper)</summary>

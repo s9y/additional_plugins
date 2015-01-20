@@ -241,10 +241,10 @@ function getElementByClass(className, node, tag) {
 
 function placeSpambutton() {
     var groupBayes = document.createElement('fieldset');
-    var groupNormal = document.createElement('fieldset');
+
     var legendBayes = document.createElement('legend');
     legendBayes.innerHTML = bayesPlugin;
-    var legendNormal = document.createElement('legend');
+
     var buttonSpam = document.createElement('input');
     buttonSpam.setAttribute('type', 'button');
     buttonSpam.setAttribute('name', 'toogle');
@@ -262,14 +262,8 @@ function placeSpambutton() {
     groupBayes.appendChild(legendBayes);
     groupBayes.appendChild(buttonHam);
     groupBayes.appendChild(buttonSpam);
-    groupNormal.appendChild(legendNormal);
     
-    var existingButtons = document.getElementsByName('toggle');
-    groupNormal.appendChild(existingButtons[0].cloneNode(true));
-    groupNormal.appendChild(existingButtons[1].cloneNode(true));
-    existingButtons[1].parentNode.replaceChild(groupNormal, existingButtons[1]);
-    remove(existingButtons[0]);
-    existingButtons[0].parentNode.appendChild(groupBayes);
+    document.querySelector('.invert_selection').parentNode.appendChild(groupBayes);
 }
 
 function markAllSpam() {

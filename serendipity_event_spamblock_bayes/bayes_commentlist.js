@@ -74,6 +74,7 @@ function setMessage(ids) {
         var length = ids.length;
         for (var i=0;i<length;i++) {
             var textElement = document.createElement("p");
+            textElement.classList.add('bayes_done');
             textElement.appendChild(document.createTextNode(bayesDone));
             //update ratings to make the effect visible
             getAllRatings();
@@ -100,7 +101,7 @@ function deleteComment(ids) {
             //by default, there is a hr below the comment and a message above
             var divider = nextObject(comment.parentNode);
             var message = previousObject(comment.parentNode);
-            
+
             remove(comment)
             remove(message);
             remove(divider);
@@ -210,7 +211,7 @@ function getAllRatings() {
         }
     }
     length = ids.length;
-    //giving 10000s of comments to classify() will probably 
+    //giving 10000s of comments to classify() will probably
     //produce a timeout - so split it in smaller pieces
     var size = 100;
     var blocks = Math.ceil(length / size);
@@ -258,11 +259,11 @@ function placeSpambutton() {
     buttonHam.setAttribute('value', bayesHambutton);
     buttonHam.setAttribute('class', 'serendipityPrettyButton input_button');
     buttonHam.setAttribute('onclick', 'markAllHam()');
-    
+
     groupBayes.appendChild(legendBayes);
     groupBayes.appendChild(buttonHam);
     groupBayes.appendChild(buttonSpam);
-    
+
     document.querySelector('.invert_selection').parentNode.appendChild(groupBayes);
 }
 

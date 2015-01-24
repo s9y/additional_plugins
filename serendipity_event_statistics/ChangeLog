@@ -1,3 +1,9 @@
+1.54:
+-----
+- 2.0 markup ready (YL)
+- fix spectrum image height with 2.0
+- slightly reworked last visitors
+
 1.53:
 -----
 - fixed db table vistors, ip column to IPv6 length
@@ -5,7 +11,7 @@
 
 1.52:
 -----
-- fixed some missing ending strong tags
+- fixed some missing ending strong tags - in 2.0 other markup changes
 
 
 1.51:

@@ -1,5 +1,7 @@
 <?php
 
+if (IN_serendipity !== true) { die ("Don't hack!"); }
+
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_statistics extends serendipity_event
@@ -13,15 +15,16 @@ class serendipity_event_statistics extends serendipity_event
         $propbag->add('name',          PLUGIN_EVENT_STATISTICS_NAME);
         $propbag->add('description',   PLUGIN_EVENT_STATISTICS_DESC);
         $propbag->add('stackable',     false);
-        $propbag->add('author',        'Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin');
-        $propbag->add('version',       '1.54');
+        $propbag->add('author',        'Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin, Matthias Mees, Ian');
+        $propbag->add('version',       '1.60');
         $propbag->add('requirements',  array(
-            'serendipity' => '0.8',
+            'serendipity' => '1.7',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
         $propbag->add('groups', array('STATISTICS'));
         $propbag->add('event_hooks',   array(
+            'backend_sidebar_entries' => true,
             'backend_sidebar_admin_appearance' => true,
             'backend_sidebar_entries_event_display_statistics' => true,
             'frontend_configure' => true,
@@ -231,6 +234,7 @@ class serendipity_event_statistics extends serendipity_event
 .serendipity_statistics .wide_box dl {
     clear: left;
     display: table;
+    width: 100%;
 }
 .serendipity_statistics .wide_box dt {
     display: table-row;
@@ -242,6 +246,8 @@ class serendipity_event_statistics extends serendipity_event
 <?php
                     break;
 
+                case 'backend_sidebar_entries':
+                    if ($serendipity['version'][0] > 1) break;
                 case 'backend_sidebar_admin_appearance':
 ?>
                         <li><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=statistics"><?php echo PLUGIN_EVENT_STATISTICS_NAME; ?></a></li>
@@ -609,7 +615,7 @@ class serendipity_event_statistics extends serendipity_event
         $sql = serendipity_db_query("SELECT COUNT(year) AS result FROM {$serendipity['dbPrefix']}visitors_count WHERE year='$year' AND month='$month' AND day='$day'", true);
 
         $sql_hit_update = "UPDATE {$serendipity['dbPrefix']}visitors_count SET hits = hits+1 WHERE year='$year' AND month='$month' AND day='$day'";
-        $sql_day_new = "INSERT INTO {$serendipity['dbPrefix']}visitors_count (year, month, day, visits, hits) VALUES ('$year','$month','$day',1,1)";
+        $sql_day_new    = "INSERT INTO {$serendipity['dbPrefix']}visitors_count (year, month, day, visits, hits) VALUES ('$year','$month','$day',1,1)";
         $sql_day_update = "UPDATE {$serendipity['dbPrefix']}visitors_count SET visits = visits+1, hits = hits+1 WHERE year='$year' AND month='$month' AND day='$day'";
         switch($action) {
             case "update":
@@ -641,8 +647,9 @@ class serendipity_event_statistics extends serendipity_event
 
     function countVisitor($useragent, $remoteaddr, $referer){
         global $serendipity;
+
         $thedate = date('Y-m-d');
-        $ip=strip_tags($remoteaddr);
+        $ip      = strip_tags($remoteaddr);
         $ip_how_often = serendipity_db_query("SELECT COUNT(ip) AS result FROM {$serendipity['dbPrefix']}visitors WHERE ip ='$ip' and day='$thedate'", true);
 
         if($ip_how_often['result'] >=1){

@@ -1,8 +1,10 @@
-1.54:
+1.60:
 -----
 - 2.0 markup ready (YL)
 - fix spectrum image height with 2.0
 - slightly reworked last visitors
+- fix for S9y version < 2.0 upgraders
+- fix a permission issue
 
 1.53:
 -----

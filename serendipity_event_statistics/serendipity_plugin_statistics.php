@@ -1,4 +1,6 @@
-<?php # $Id: serendipity_plugin_comments.php 691 2005-11-13 06:58:40Z elf2000 $
+<?php
+
+if (IN_serendipity !== true) { die ("Don't hack!"); }
 
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
@@ -16,9 +18,9 @@ class serendipity_plugin_statistics extends serendipity_plugin
         $propbag->add('description',   PLUGIN_EVENT_STATISTICS_NAME);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Arnan de Gans, Garvin Hicking');
-        $propbag->add('version',       '1.5');
+        $propbag->add('version',       '1.6');
         $propbag->add('requirements',  array(
-            'serendipity' => '0.8',
+            'serendipity' => '1.7',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
@@ -186,7 +188,7 @@ class serendipity_plugin_statistics extends serendipity_plugin
                 $lastmonday = date('Ynj', strtotime('today'));
             } else if (date('w', strtotime('today') ) == "0" ) { // now it is sunday
                 $nextsunday = date('Ynj', strtotime('today'));
-            } 
+            }
 
             $content = '';
             if (serendipity_db_bool($this->get_config('show_lastentry'))) {

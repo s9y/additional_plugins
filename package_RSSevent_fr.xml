@@ -1222,7 +1222,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_bayes&lt;br /&gt;Spamblock (Bayes)&lt;/b&gt;&lt;br /&gt;Detects Spam via an algorithmus which learns.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Jan 2015 02:31:26 +0100</pubDate>
+<pubDate>Sun, 25 Jan 2015 02:31:27 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_bayes</guid>
 </item>
 <item>
@@ -1449,6 +1449,15 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <content:encoded>&lt;b&gt;serendipity_event_weblogping&lt;br /&gt;Annconcer les billets&lt;/b&gt;&lt;br /&gt;Envoyer une mise à jour pour les nouveaux billets aux services d'indexation&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_weblogping</guid>
+</item>
+<item>
+<title>Statistiques: Ajoute un lien vers des statistiques intétressantes dans votre panneau d'administration des billets</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_statistics</link>
+<category>Event Plugins</category>
+<author>Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin</author>
+<content:encoded>&lt;b&gt;serendipity_event_statistics&lt;br /&gt;Statistiques&lt;/b&gt;&lt;br /&gt;Ajoute un lien vers des statistiques intétressantes dans votre panneau d'administration des billets&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 25 Jan 2015 02:31:28 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_statistics</guid>
 </item>
 </channel>
 </rss>

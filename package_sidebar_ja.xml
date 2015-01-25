@@ -3516,4 +3516,109 @@
   </serendipityFilelist>
 </release>
 </package>
+<package version="1.0">
+<name>serendipity_plugin_statistics</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_statistics/ChangeLog</changelog>
+<license>GPL</license>
+<summary>統計情報</summary>
+<groups>STATISTICS</groups>
+<description>統計情報</description>
+<maintainers><maintainer><name>Arnan de Gans, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.5</version>
+  <requirements:s9yVersion>0.8</requirements:s9yVersion>
+  <date>2015-01-25</date>
+  <filelist>
+<dir name="serendipity_event_statistics">
+<dir name="UTF-8">
+<file>lang_pt_PT.inc.php</file>
+<file>lang_bg.inc.php</file>
+<file>lang_cn.inc.php</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_de.inc.php</file>
+<file>lang_es.inc.php</file>
+<file>lang_fr.inc.php</file>
+<file>lang_hu.inc.php</file>
+<file>lang_ja.inc.php</file>
+<file>lang_ko.inc.php</file>
+<file>lang_nl.inc.php</file>
+<file>lang_pl.inc.php</file>
+<file>lang_sk.inc.php</file>
+<file>lang_tn.inc.php</file>
+<file>lang_zh.inc.php</file>
+</dir>
+<file>lang_bg.inc.php</file>
+<file>ChangeLog</file>
+<file>green.png</file>
+<file>red.png</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
+<file>lang_pt_PT.inc.php</file>
+<file>lang_cn.inc.php</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_de.inc.php</file>
+<file>lang_en.inc.php</file>
+<file>lang_es.inc.php</file>
+<file>lang_fr.inc.php</file>
+<file>lang_hu.inc.php</file>
+<file>lang_ja.inc.php</file>
+<file>lang_ko.inc.php</file>
+<file>lang_nl.inc.php</file>
+<file>lang_pl.inc.php</file>
+<file>lang_sk.inc.php</file>
+<file>lang_tn.inc.php</file>
+<file>lang_zh.inc.php</file>
+<file>serendipity_plugin_statistics.php</file>
+<file>serendipity_event_statistics.php</file>
+<file>yellow.png</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>serendipity_event_statistics/UTF-8/lang_pt_PT.inc.php</file>
+    <file>serendipity_event_statistics/UTF-8/lang_bg.inc.php</file>
+    <file>serendipity_event_statistics/UTF-8/lang_cn.inc.php</file>
+    <file>serendipity_event_statistics/UTF-8/lang_cs.inc.php</file>
+    <file>serendipity_event_statistics/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_statistics/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_statistics/UTF-8/lang_es.inc.php</file>
+    <file>serendipity_event_statistics/UTF-8/lang_fr.inc.php</file>
+    <file>serendipity_event_statistics/UTF-8/lang_hu.inc.php</file>
+    <file>serendipity_event_statistics/UTF-8/lang_ja.inc.php</file>
+    <file>serendipity_event_statistics/UTF-8/lang_ko.inc.php</file>
+    <file>serendipity_event_statistics/UTF-8/lang_nl.inc.php</file>
+    <file>serendipity_event_statistics/UTF-8/lang_pl.inc.php</file>
+    <file>serendipity_event_statistics/UTF-8/lang_sk.inc.php</file>
+    <file>serendipity_event_statistics/UTF-8/lang_tn.inc.php</file>
+    <file>serendipity_event_statistics/UTF-8/lang_zh.inc.php</file>
+    <file>serendipity_event_statistics/lang_bg.inc.php</file>
+    <file>serendipity_event_statistics/ChangeLog</file>
+    <file>serendipity_event_statistics/green.png</file>
+    <file>serendipity_event_statistics/red.png</file>
+    <file>serendipity_event_statistics/documentation_cs.html</file>
+    <file>serendipity_event_statistics/documentation_cz.html</file>
+    <file>serendipity_event_statistics/lang_pt_PT.inc.php</file>
+    <file>serendipity_event_statistics/lang_cn.inc.php</file>
+    <file>serendipity_event_statistics/lang_cs.inc.php</file>
+    <file>serendipity_event_statistics/lang_cz.inc.php</file>
+    <file>serendipity_event_statistics/lang_de.inc.php</file>
+    <file>serendipity_event_statistics/lang_en.inc.php</file>
+    <file>serendipity_event_statistics/lang_es.inc.php</file>
+    <file>serendipity_event_statistics/lang_fr.inc.php</file>
+    <file>serendipity_event_statistics/lang_hu.inc.php</file>
+    <file>serendipity_event_statistics/lang_ja.inc.php</file>
+    <file>serendipity_event_statistics/lang_ko.inc.php</file>
+    <file>serendipity_event_statistics/lang_nl.inc.php</file>
+    <file>serendipity_event_statistics/lang_pl.inc.php</file>
+    <file>serendipity_event_statistics/lang_sk.inc.php</file>
+    <file>serendipity_event_statistics/lang_tn.inc.php</file>
+    <file>serendipity_event_statistics/lang_zh.inc.php</file>
+    <file>serendipity_event_statistics/serendipity_plugin_statistics.php</file>
+    <file>serendipity_event_statistics/serendipity_event_statistics.php</file>
+    <file>serendipity_event_statistics/yellow.png</file>
+  </serendipityFilelist>
+</release>
+</package>
 </packages>

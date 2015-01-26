@@ -18,7 +18,7 @@ class serendipity_event_trackexits extends serendipity_event
         $propbag->add('author',        'Serendipity Team');
         $propbag->add('version',       '1.9.2');
         $propbag->add('requirements',  array(
-            'serendipity' => '0.8',
+            'serendipity' => '1.6',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));

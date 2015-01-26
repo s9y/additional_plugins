@@ -17,7 +17,7 @@ class serendipity_event_livesearch extends serendipity_event
         $propbag->add('author',        'Christian Stocker, Garvin Hicking');
         $propbag->add('version',       '1.4.2');
         $propbag->add('requirements',  array(
-            'serendipity' => '0.8',
+            'serendipity' => '1.6',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));

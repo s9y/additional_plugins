@@ -559,8 +559,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_statistics</link>
 <category>Sidebar Plugins</category>
 <author>Arnan de Gans, Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_statistics&lt;br /&gt;Estadísticas&lt;/b&gt;&lt;br /&gt;Estadísticas&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Jan 2015 02:36:33 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_plugin_statistics&lt;br /&gt;Estadísticas&lt;/b&gt;&lt;br /&gt;Estadísticas&lt;br/&gt;For: Serendipity 1.7</content:encoded>
+<pubDate>Mon, 26 Jan 2015 02:31:32 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_statistics</guid>
 </item>
 </channel>

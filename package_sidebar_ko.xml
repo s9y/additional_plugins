@@ -3525,9 +3525,9 @@
 <description>통계</description>
 <maintainers><maintainer><name>Arnan de Gans, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-01-25</date>
+  <version>1.6</version>
+  <requirements:s9yVersion>1.7</requirements:s9yVersion>
+  <date>2015-01-26</date>
   <filelist>
 <dir name="serendipity_event_statistics">
 <dir name="UTF-8">

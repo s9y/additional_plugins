@@ -11216,11 +11216,11 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <summary>Статистика</summary>
 <groups>STATISTICS</groups>
 <description>Добавя връзка към интересни статистически данни в страницата на постингите, включително и брояч на посетителите</description>
-<maintainers><maintainer><name>Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin, Matthias Mees, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.54</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-01-25</date>
+  <version>1.60</version>
+  <requirements:s9yVersion>1.7</requirements:s9yVersion>
+  <date>2015-01-26</date>
   <filelist>
 <dir name="serendipity_event_statistics">
 <dir name="UTF-8">

@@ -1454,9 +1454,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <title>Статистика: Добавя връзка към интересни статистически данни в страницата на постингите, включително и брояч на посетителите</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_statistics</link>
 <category>Event Plugins</category>
-<author>Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin</author>
-<content:encoded>&lt;b&gt;serendipity_event_statistics&lt;br /&gt;Статистика&lt;/b&gt;&lt;br /&gt;Добавя връзка към интересни статистически данни в страницата на постингите, включително и брояч на посетителите&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Jan 2015 02:31:28 +0100</pubDate>
+<author>Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin, Matthias Mees, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_event_statistics&lt;br /&gt;Статистика&lt;/b&gt;&lt;br /&gt;Добавя връзка към интересни статистически данни в страницата на постингите, включително и брояч на посетителите&lt;br/&gt;For: Serendipity 1.7</content:encoded>
+<pubDate>Mon, 26 Jan 2015 02:31:32 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_statistics</guid>
 </item>
 </channel>

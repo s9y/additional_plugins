@@ -1,6 +1,6 @@
-<?php #
-// serendipity_event_karma.php 2778 2011-09-23 12:32:28Z garvinhicking $
+<?php
 
+if (IN_serendipity !== true) { die ("Don't hack!"); }
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
 @define('PLUGIN_KARMA_DB_VERSION', '2.2');
@@ -44,7 +44,7 @@ class serendipity_event_karma extends serendipity_event
         $propbag->add('description',   PLUGIN_KARMA_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Grischa Brockhaus, Judebert, Gregor Voeltz, Ian');
-        $propbag->add('version',       '2.11');
+        $propbag->add('version',       '2.12');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

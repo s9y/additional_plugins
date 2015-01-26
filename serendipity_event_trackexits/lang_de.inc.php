@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php 
 
         @define('PLUGIN_EVENT_TRACKBACK_NAME', 'Textformatierung: Externe Links zählen');
         @define('PLUGIN_EVENT_TRACKBACK_DESC', 'Click auf Externe Links verfolgen');

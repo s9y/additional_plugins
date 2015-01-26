@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php 
 
         @define('PLUGIN_EVENT_TEXTWIKI_NAME',     'Textformatierung: Wiki');
         @define('PLUGIN_EVENT_TEXTWIKI_DESC',     'Wiki-Formatierung durchführen');

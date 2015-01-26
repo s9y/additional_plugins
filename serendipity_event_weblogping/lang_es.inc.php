@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php 
 /**
  *  @version $Revision$
  *  @author Rodrigo Lazo Paz <rlazo.paz@gmail.com>

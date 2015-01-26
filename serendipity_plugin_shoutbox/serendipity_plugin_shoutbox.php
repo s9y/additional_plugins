@@ -2,6 +2,7 @@
 
 /* Contributed by Matthias Lange (http://blog.dinnri.de/ml/) */
 
+if (IN_serendipity !== true) { die ("Don't hack!"); }
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_plugin_shoutbox extends serendipity_plugin
@@ -16,7 +17,7 @@ class serendipity_plugin_shoutbox extends serendipity_plugin
         $propbag->add('description',   PLUGIN_SHOUTBOX_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Matthias Lange');
-        $propbag->add('version',       '1.02.1');
+        $propbag->add('version',       '1.02.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

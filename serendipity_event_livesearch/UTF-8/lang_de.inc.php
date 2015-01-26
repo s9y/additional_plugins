@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php
 
         @define('PLUGIN_EVENT_LIVESEARCH_NAME', 'LiveSearch');
         @define('PLUGIN_EVENT_LIVESEARCH_DESC', 'Erweitert die Suchfunktion mit einer Live-aktualisierung (JavaScript)');

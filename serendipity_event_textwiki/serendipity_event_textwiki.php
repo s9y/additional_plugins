@@ -1,5 +1,6 @@
-<?php # $Id$
+<?php
 
+if (IN_serendipity !== true) { die ("Don't hack!"); }
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
 // Currently only english available
@@ -455,7 +456,7 @@ class serendipity_event_textwiki extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_TEXTWIKI_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Tobias Schlitt');
-        $propbag->add('version',       '1.5');
+        $propbag->add('version',       '1.6');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

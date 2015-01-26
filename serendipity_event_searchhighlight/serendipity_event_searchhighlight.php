@@ -1,9 +1,10 @@
-<?php # $Id$
+<?php
 
 /**********************************/
 /*  Authored by Tom Sommer, 2004  */
 /**********************************/
 
+if (IN_serendipity !== true) { die ("Don't hack!"); }
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_searchhighlight extends serendipity_event
@@ -18,7 +19,7 @@ class serendipity_event_searchhighlight extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SEARCHHIGHLIGHT_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Tom Sommer');
-        $propbag->add('version',       '1.8.1');
+        $propbag->add('version',       '1.8.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

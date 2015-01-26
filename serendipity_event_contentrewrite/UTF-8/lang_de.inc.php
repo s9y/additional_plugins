@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php
 
         @define('PLUGIN_EVENT_CONTENTREWRITE_FROM', 'quelle');
         @define('PLUGIN_EVENT_CONTENTREWRITE_TO', 'ziel');

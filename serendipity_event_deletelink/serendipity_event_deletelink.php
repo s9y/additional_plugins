@@ -1,4 +1,4 @@
-<?php # $id$
+<?php
 
 
 if (IN_serendipity !== true) {

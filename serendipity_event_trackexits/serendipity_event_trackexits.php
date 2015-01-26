@@ -1,5 +1,6 @@
-<?php # $Id$
+<?php
 
+if (IN_serendipity !== true) { die ("Don't hack!"); }
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_trackexits extends serendipity_event
@@ -15,7 +16,7 @@ class serendipity_event_trackexits extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_TRACKBACK_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.9.1');
+        $propbag->add('version',       '1.9.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

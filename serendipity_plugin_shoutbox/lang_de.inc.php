@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php 
 
         @define('PLUGIN_SHOUTBOX_NAME', 'Shoutbox');
         @define('PLUGIN_SHOUTBOX_BLAHBLAH', 'Zeigt eine Shoutbox für beliebige Kommentare');

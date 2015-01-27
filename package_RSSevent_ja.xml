@@ -158,7 +158,7 @@
 <category>Event Plugins</category>
 <author>Cameron MacFarland, Brett Profitt</author>
 <content:encoded>&lt;b&gt;serendipity_event_deletelink&lt;br /&gt;削除リンク&lt;/b&gt;&lt;br /&gt;各エントリのフッターに削除リンクを追加します。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 00:54:59 +0100</pubDate>
+<pubDate>Tue, 27 Jan 2015 02:31:35 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_deletelink</guid>
 </item>
 <item>
@@ -1071,7 +1071,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Jim Davies</author>
 <content:encoded>&lt;b&gt;serendipity_event_feedflare&lt;br /&gt;Feedburner FeedFlare&lt;/b&gt;&lt;br /&gt;Adds a FeedFlare tag to the footer of each entry.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 04:23:40 +0100</pubDate>
+<pubDate>Tue, 27 Jan 2015 02:31:36 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_feedflare</guid>
 </item>
 <item>
@@ -1261,8 +1261,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_karma</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus, Judebert, Gregor Voeltz, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_karma&lt;br /&gt;評価&lt;/b&gt;&lt;br /&gt;訪問者にあなたのエントリの品質を評価させます。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:18 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_karma&lt;br /&gt;評価&lt;/b&gt;&lt;br /&gt;訪問者にあなたのエントリの品質を評価させます。&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:39 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_karma</guid>
 </item>
 <item>
@@ -1387,8 +1387,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_contentrewrite</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_contentrewrite&lt;br /&gt;コンテントリライター&lt;/b&gt;&lt;br /&gt;単語を新しく選択された文字列に置換します (useful for acronyms)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:13 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_contentrewrite&lt;br /&gt;コンテントリライター&lt;/b&gt;&lt;br /&gt;単語を新しく選択された文字列に置換します (useful for acronyms)&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:34 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_contentrewrite</guid>
 </item>
 <item>
@@ -1396,8 +1396,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_livesearch</link>
 <category>Event Plugins</category>
 <author>Christian Stocker, Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_livesearch&lt;br /&gt;ライブサーチ&lt;/b&gt;&lt;br /&gt;(JavaScript 経由で)キー入力中のライブアップデートを追加することにより、内部検索機能を強化します。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:20 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_livesearch&lt;br /&gt;ライブサーチ&lt;/b&gt;&lt;br /&gt;(JavaScript 経由で)キー入力中のライブアップデートを追加することにより、内部検索機能を強化します。&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:41 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_livesearch</guid>
 </item>
 <item>
@@ -1423,8 +1423,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_searchhighlight</link>
 <category>Event Plugins</category>
 <author>Tom Sommer</author>
-<content:encoded>&lt;b&gt;serendipity_event_searchhighlight&lt;br /&gt;検索キーワードをハイライト&lt;/b&gt;&lt;br /&gt;ページを見つけるために検索エンジンからの参照に使用されたキーワードをハイライトします。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:22 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_searchhighlight&lt;br /&gt;検索キーワードをハイライト&lt;/b&gt;&lt;br /&gt;ページを見つけるために検索エンジンからの参照に使用されたキーワードをハイライトします。&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:45 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_searchhighlight</guid>
 </item>
 <item>
@@ -1432,8 +1432,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_textwiki</link>
 <category>Event Plugins</category>
 <author>Tobias Schlitt</author>
-<content:encoded>&lt;b&gt;serendipity_event_textwiki&lt;br /&gt;マークアップ: Wiki&lt;/b&gt;&lt;br /&gt;Text_Wiki を使用してテキストをマークアップします。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:27 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_textwiki&lt;br /&gt;マークアップ: Wiki&lt;/b&gt;&lt;br /&gt;Text_Wiki を使用してテキストをマークアップします。&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:46 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_textwiki</guid>
 </item>
 <item>
@@ -1441,8 +1441,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_trackexits</link>
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_event_trackexits&lt;br /&gt;マークアップ: 退出追跡&lt;/b&gt;&lt;br /&gt;外部 URL のクリックを追跡します。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_trackexits&lt;br /&gt;マークアップ: 退出追跡&lt;/b&gt;&lt;br /&gt;外部 URL のクリックを追跡します。&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:47 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_trackexits</guid>
 </item>
 <item>
@@ -1450,8 +1450,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_weblogping</link>
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_event_weblogping&lt;br /&gt;アナウンスエントリ一覧&lt;/b&gt;&lt;br /&gt;新規エントリの通知をオンラインサービスに送信します。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_weblogping&lt;br /&gt;アナウンスエントリ一覧&lt;/b&gt;&lt;br /&gt;新規エントリの通知をオンラインサービスに送信します。&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:48 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_weblogping</guid>
 </item>
 <item>
@@ -1459,8 +1459,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_statistics</link>
 <category>Event Plugins</category>
 <author>Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin, Matthias Mees, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_statistics&lt;br /&gt;統計情報&lt;/b&gt;&lt;br /&gt;エントリパネルに興味のある統計へのリンクを加えます。&lt;br/&gt;For: Serendipity 1.7</content:encoded>
-<pubDate>Mon, 26 Jan 2015 02:31:32 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_statistics&lt;br /&gt;統計情報&lt;/b&gt;&lt;br /&gt;エントリパネルに興味のある統計へのリンクを加えます。&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:46 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_statistics</guid>
 </item>
 </channel>

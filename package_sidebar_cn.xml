@@ -3406,9 +3406,9 @@
 <description>显示一个用于实时发言的文本框。此类发言并不一定准对某一具体文章。</description>
 <maintainers><maintainer><name>Matthias Lange</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.02.1</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <version>1.02.2</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2015-01-27</date>
   <filelist>
 <dir name="serendipity_plugin_shoutbox">
 <dir name="UTF-8">

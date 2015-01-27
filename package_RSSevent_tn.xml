@@ -158,7 +158,7 @@
 <category>Event Plugins</category>
 <author>Cameron MacFarland, Brett Profitt</author>
 <content:encoded>&lt;b&gt;serendipity_event_deletelink&lt;br /&gt;刪除和編輯連結&lt;/b&gt;&lt;br /&gt;在文章底下顯示刪除和編輯連結。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 00:54:59 +0100</pubDate>
+<pubDate>Tue, 27 Jan 2015 02:31:35 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_deletelink</guid>
 </item>
 <item>
@@ -1067,7 +1067,7 @@
 <category>Event Plugins</category>
 <author>Jim Davies</author>
 <content:encoded>&lt;b&gt;serendipity_event_feedflare&lt;br /&gt;Feedburner FeedFlare&lt;/b&gt;&lt;br /&gt;Adds a FeedFlare tag to the footer of each entry.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 04:23:40 +0100</pubDate>
+<pubDate>Tue, 27 Jan 2015 02:31:36 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_feedflare</guid>
 </item>
 <item>
@@ -1257,8 +1257,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_karma</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus, Judebert, Gregor Voeltz, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_karma&lt;br /&gt;評價&lt;/b&gt;&lt;br /&gt;允許訪客評價文章&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:18 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_karma&lt;br /&gt;評價&lt;/b&gt;&lt;br /&gt;允許訪客評價文章&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:39 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_karma</guid>
 </item>
 <item>
@@ -1383,8 +1383,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_contentrewrite</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_contentrewrite&lt;br /&gt;內容改寫&lt;/b&gt;&lt;br /&gt;覆蓋選擇的字串 (可用於縮寫字)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:13 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_contentrewrite&lt;br /&gt;內容改寫&lt;/b&gt;&lt;br /&gt;覆蓋選擇的字串 (可用於縮寫字)&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:34 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_contentrewrite</guid>
 </item>
 <item>
@@ -1392,8 +1392,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_livesearch</link>
 <category>Event Plugins</category>
 <author>Christian Stocker, Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_livesearch&lt;br /&gt;即時搜尋&lt;/b&gt;&lt;br /&gt;提高搜尋的功能，輸入的搜尋字可快速顯示。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:20 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_livesearch&lt;br /&gt;即時搜尋&lt;/b&gt;&lt;br /&gt;提高搜尋的功能，輸入的搜尋字可快速顯示。&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:41 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_livesearch</guid>
 </item>
 <item>
@@ -1419,8 +1419,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_searchhighlight</link>
 <category>Event Plugins</category>
 <author>Tom Sommer</author>
-<content:encoded>&lt;b&gt;serendipity_event_searchhighlight&lt;br /&gt;突顯搜尋字&lt;/b&gt;&lt;br /&gt;高亮度顯示搜尋引擎找到你的文章的字&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:22 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_searchhighlight&lt;br /&gt;突顯搜尋字&lt;/b&gt;&lt;br /&gt;高亮度顯示搜尋引擎找到你的文章的字&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:45 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_searchhighlight</guid>
 </item>
 <item>
@@ -1428,8 +1428,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_textwiki</link>
 <category>Event Plugins</category>
 <author>Tobias Schlitt</author>
-<content:encoded>&lt;b&gt;serendipity_event_textwiki&lt;br /&gt;標記語言：Wiki&lt;/b&gt;&lt;br /&gt;使用 Text_Wiki 來改變文章內容&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:27 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_textwiki&lt;br /&gt;標記語言：Wiki&lt;/b&gt;&lt;br /&gt;使用 Text_Wiki 來改變文章內容&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:46 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_textwiki</guid>
 </item>
 <item>
@@ -1437,8 +1437,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_trackexits</link>
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_event_trackexits&lt;br /&gt;標記語言：記錄出源&lt;/b&gt;&lt;br /&gt;記錄每個點擊的外來 URLs&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_trackexits&lt;br /&gt;標記語言：記錄出源&lt;/b&gt;&lt;br /&gt;記錄每個點擊的外來 URLs&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:47 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_trackexits</guid>
 </item>
 <item>
@@ -1446,8 +1446,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_weblogping</link>
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_event_weblogping&lt;br /&gt;新文章通知&lt;/b&gt;&lt;br /&gt;傳送新文章的通知到線上服務功能&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_weblogping&lt;br /&gt;新文章通知&lt;/b&gt;&lt;br /&gt;傳送新文章的通知到線上服務功能&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:48 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_weblogping</guid>
 </item>
 <item>
@@ -1455,8 +1455,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_statistics</link>
 <category>Event Plugins</category>
 <author>Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin, Matthias Mees, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_statistics&lt;br /&gt;統計資料&lt;/b&gt;&lt;br /&gt;記錄一些管於您的網誌的資料&lt;br/&gt;For: Serendipity 1.7</content:encoded>
-<pubDate>Mon, 26 Jan 2015 02:31:32 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_statistics&lt;br /&gt;統計資料&lt;/b&gt;&lt;br /&gt;記錄一些管於您的網誌的資料&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:46 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_statistics</guid>
 </item>
 </channel>

@@ -1294,7 +1294,7 @@
 <release>
   <version>1.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2015-01-27</date>
   <filelist>
 <dir name="serendipity_event_deletelink">
 <file>serendipity_event_deletelink.php</file>
@@ -8167,7 +8167,7 @@
 <release>
   <version>1.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2011-12-25</date>
+  <date>2015-01-27</date>
   <filelist>
 <dir name="serendipity_event_feedflare">
 <file>lang_en.inc.php</file>
@@ -9735,9 +9735,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>允許訪客評價文章</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus, Judebert, Gregor Voeltz, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.11</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <version>2.12</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2015-01-27</date>
   <filelist>
 <dir name="serendipity_event_karma">
 <dir name="UTF-8">
@@ -10650,8 +10650,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.4.1</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2015-01-27</date>
   <filelist>
 <dir name="serendipity_event_contentrewrite">
 <dir name="UTF-8">
@@ -10727,9 +10727,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>提高搜尋的功能，輸入的搜尋字可快速顯示。</description>
 <maintainers><maintainer><name>Christian Stocker, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4.1</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <version>1.4.2</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2015-01-27</date>
   <filelist>
 <dir name="serendipity_event_livesearch">
 <dir name="UTF-8">
@@ -10891,9 +10891,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>高亮度顯示搜尋引擎找到你的文章的字</description>
 <maintainers><maintainer><name>Tom Sommer</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.8.1</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <version>1.8.2</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2015-01-27</date>
   <filelist>
 <dir name="serendipity_event_searchhighlight">
 <dir name="UTF-8">
@@ -10975,9 +10975,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>使用 Text_Wiki 來改變文章內容</description>
 <maintainers><maintainer><name>Tobias Schlitt</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <version>1.6</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2015-01-27</date>
   <filelist>
 <dir name="serendipity_event_textwiki">
 <dir name="UTF-8">
@@ -11053,9 +11053,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>記錄每個點擊的外來 URLs</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.9.1</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <version>1.9.2</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2015-01-27</date>
   <filelist>
 <dir name="serendipity_event_trackexits">
 <dir name="UTF-8">
@@ -11131,9 +11131,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>傳送新文章的通知到線上服務功能</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.08.1</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <version>1.08.2</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2015-01-27</date>
   <filelist>
 <dir name="serendipity_event_weblogping">
 <dir name="UTF-8">
@@ -11218,9 +11218,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>記錄一些管於您的網誌的資料</description>
 <maintainers><maintainer><name>Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin, Matthias Mees, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.60</version>
-  <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2015-01-26</date>
+  <version>1.61</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2015-01-27</date>
   <filelist>
 <dir name="serendipity_event_statistics">
 <dir name="UTF-8">

@@ -158,7 +158,7 @@
 <category>Event Plugins</category>
 <author>Cameron MacFarland, Brett Profitt</author>
 <content:encoded>&lt;b&gt;serendipity_event_deletelink&lt;br /&gt;Delete Link&lt;/b&gt;&lt;br /&gt;Adds a delete link to the footer of each entry.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 00:54:59 +0100</pubDate>
+<pubDate>Tue, 27 Jan 2015 02:31:35 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_deletelink</guid>
 </item>
 <item>
@@ -1067,7 +1067,7 @@
 <category>Event Plugins</category>
 <author>Jim Davies</author>
 <content:encoded>&lt;b&gt;serendipity_event_feedflare&lt;br /&gt;Feedburner FeedFlare&lt;/b&gt;&lt;br /&gt;Adds a FeedFlare tag to the footer of each entry.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 04:23:40 +0100</pubDate>
+<pubDate>Tue, 27 Jan 2015 02:31:36 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_feedflare</guid>
 </item>
 <item>
@@ -1257,8 +1257,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_karma</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus, Judebert, Gregor Voeltz, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_karma&lt;br /&gt;카르마(평가 제도)&lt;/b&gt;&lt;br /&gt;작성된 글에 대해 방문자가 평가를 매길 수 있게 함&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:18 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_karma&lt;br /&gt;카르마(평가 제도)&lt;/b&gt;&lt;br /&gt;작성된 글에 대해 방문자가 평가를 매길 수 있게 함&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:39 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_karma</guid>
 </item>
 <item>
@@ -1383,8 +1383,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_contentrewrite</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_contentrewrite&lt;br /&gt;글 내용 변환기&lt;/b&gt;&lt;br /&gt;특정 단어를 지정한 문장으로 모두 변환함 (약자를 적었을 때 유용합니다)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:13 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_contentrewrite&lt;br /&gt;글 내용 변환기&lt;/b&gt;&lt;br /&gt;특정 단어를 지정한 문장으로 모두 변환함 (약자를 적었을 때 유용합니다)&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:34 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_contentrewrite</guid>
 </item>
 <item>
@@ -1392,8 +1392,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_livesearch</link>
 <category>Event Plugins</category>
 <author>Christian Stocker, Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_livesearch&lt;br /&gt;실시간 검색&lt;/b&gt;&lt;br /&gt;기본 검색 기능을 향상시켜 글자를 입력할 때마다 실시간으로 검색결과를 갱신함 (자바스트립트 사용)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:20 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_livesearch&lt;br /&gt;실시간 검색&lt;/b&gt;&lt;br /&gt;기본 검색 기능을 향상시켜 글자를 입력할 때마다 실시간으로 검색결과를 갱신함 (자바스트립트 사용)&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:41 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_livesearch</guid>
 </item>
 <item>
@@ -1419,8 +1419,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_searchhighlight</link>
 <category>Event Plugins</category>
 <author>Tom Sommer</author>
-<content:encoded>&lt;b&gt;serendipity_event_searchhighlight&lt;br /&gt;검색 질의어를 강조 표시&lt;/b&gt;&lt;br /&gt;페이지를 검색하기 위해 검색엔진에 입력한 질의어를 강조해서 나타냄&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:22 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_searchhighlight&lt;br /&gt;검색 질의어를 강조 표시&lt;/b&gt;&lt;br /&gt;페이지를 검색하기 위해 검색엔진에 입력한 질의어를 강조해서 나타냄&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:45 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_searchhighlight</guid>
 </item>
 <item>
@@ -1428,8 +1428,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_textwiki</link>
 <category>Event Plugins</category>
 <author>Tobias Schlitt</author>
-<content:encoded>&lt;b&gt;serendipity_event_textwiki&lt;br /&gt;마크업: 위키&lt;/b&gt;&lt;br /&gt;텍스트_위키 마크업을 글에 사용함 Markup text using Text_Wiki&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:27 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_textwiki&lt;br /&gt;마크업: 위키&lt;/b&gt;&lt;br /&gt;텍스트_위키 마크업을 글에 사용함 Markup text using Text_Wiki&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:46 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_textwiki</guid>
 </item>
 <item>
@@ -1437,8 +1437,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_trackexits</link>
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_event_trackexits&lt;br /&gt;마크업: 진출 추적&lt;/b&gt;&lt;br /&gt;외부 인터넷 주소를 클릭한 것을 추적함&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_trackexits&lt;br /&gt;마크업: 진출 추적&lt;/b&gt;&lt;br /&gt;외부 인터넷 주소를 클릭한 것을 추적함&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:47 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_trackexits</guid>
 </item>
 <item>
@@ -1446,8 +1446,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_weblogping</link>
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_event_weblogping&lt;br /&gt;글 발표&lt;/b&gt;&lt;br /&gt;온라인 서비스에 새로운 글이 올라왔음을 알림&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_weblogping&lt;br /&gt;글 발표&lt;/b&gt;&lt;br /&gt;온라인 서비스에 새로운 글이 올라왔음을 알림&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:48 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_weblogping</guid>
 </item>
 <item>
@@ -1455,8 +1455,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_statistics</link>
 <category>Event Plugins</category>
 <author>Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin, Matthias Mees, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_statistics&lt;br /&gt;통계&lt;/b&gt;&lt;br /&gt;관리 메뉴에 흥미로운 통계를 볼 수 있는 링크를 추가함&lt;br/&gt;For: Serendipity 1.7</content:encoded>
-<pubDate>Mon, 26 Jan 2015 02:31:32 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_statistics&lt;br /&gt;통계&lt;/b&gt;&lt;br /&gt;관리 메뉴에 흥미로운 통계를 볼 수 있는 링크를 추가함&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 27 Jan 2015 02:31:46 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_statistics</guid>
 </item>
 </channel>

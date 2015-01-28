@@ -480,7 +480,7 @@ if ($headcss) {
     <script type="text/javascript" src="<?php echo $plgpath . 'serendipity_event_ckeditor/'; ?>cke_plugin.js"></script>
 <?php
                         // sadly this can't be pushed into streamed css, since that is cached to lazyload.
-                        if ($toolbar == 'Basic' && serendipity_db_bool($this->get_config('ibn_off', 'true'))) {
+                        if ($toolbar == 'Basic') {
                             if ($serendipity['version'][0] < 2) {
 ?>
     <link rel="stylesheet" href="<?php echo $plgpath . 'serendipity_event_ckeditor/'; ?>basic_toolbar1.css" />
@@ -488,6 +488,12 @@ if ($headcss) {
                             } else {
 ?>
     <link rel="stylesheet" href="<?php echo $plgpath . 'serendipity_event_ckeditor/'; ?>basic_toolbar2.css" />
+<?php
+                            }
+                        } else { // case other toolbars
+                            if (false === serendipity_db_bool($this->get_config('ibn_off', 'true')) ) {
+?>
+    <link rel="stylesheet" href="<?php echo $plgpath . 'serendipity_event_ckeditor/'; ?>cke_ibn.css" />
 <?php
                             }
                         }

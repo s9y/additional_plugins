@@ -36,13 +36,16 @@
 
 @define('PLUGIN_EVENT_CKEDITOR_CODEBUTTON_OPTION', 'Nutze "code toolbar button"?');
 @define('PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION', 'Nutze zusätzliches code prettify css/js im Frontend?');
-@define('PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION_BLAHBLAH', 'Nur für Upgrader! Rückwärtskompatibilität für alte Blog Einträge mit Code-Blöcken.');
-@define('PLUGIN_EVENT_CKEDITOR_OPTION_BLAHBLAH', 'Normalerweise: ');
+@define('PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION_DESC', 'Nur für Upgrader! Rückwärtskompatibilität für alte Blog Einträge mit Code-Blöcken.');
+@define('PLUGIN_EVENT_CKEDITOR_OPTION_DESC', 'Normalerweise: ');
 
 @define('PLUGIN_EVENT_CKEDITOR_FORCEINSTALL_OPTION', 'Entpacke Zip Datei (im Notfall)');
-@define('PLUGIN_EVENT_CKEDITOR_FORCEINSTALL_OPTION_BLAHBLAH', 'Nur bei upgrade Fehlern: Entpacke augenblicklich das mitgelieferte ');
+@define('PLUGIN_EVENT_CKEDITOR_FORCEINSTALL_OPTION_DESC', 'Nur bei upgrade Fehlern: Entpacke augenblicklich das mitgelieferte ');
 
-@define('PLUGIN_EVENT_CKEDITOR_CKEACF_OPTION_BLAHBLAH', 'Dieser CKEDITOR "Housekeeper" Filter erlaubt nur bestimmtes Markup. Normalerweise ist dies gut und sollte als Einstellung erhalten bleiben, da es bereits eingebaute Workarounds für auffälliges Markup, zB. "iframe" Video-Media via den "Embed Media"-Knopf, oder "audio" und "andere Serendipity" tags via "Quellcode"-Anzeige, gibt. Bitte lese dazu auch: "http://docs.ckeditor.com/?_escaped_fragment_=/guide/dev_advanced_content_filter#!/guide/dev_advanced_content_filter".');
+@define('PLUGIN_EVENT_CKEDITOR_CKEACF_OPTION_DESC', 'Dieser CKEDITOR "Housekeeper" Filter erlaubt nur bestimmtes Markup. Normalerweise ist dies gut und sollte als Einstellung erhalten bleiben, da es bereits eingebaute Workarounds für auffälliges Markup, zB. "iframe" Video-Media via den "Embed Media"-Knopf, oder "audio" und "andere Serendipity" tags via "Quellcode"-Anzeige, gibt. Bitte lese dazu auch: "http://docs.ckeditor.com/?_escaped_fragment_=/guide/dev_advanced_content_filter#!/guide/dev_advanced_content_filter".');
 
 @define('PLUGIN_EVENT_CKEDITOR_SETTOOLBAR_OPTION', 'Wähle voreingestellte Toolbars');
+
+@define('PLUGIN_EVENT_CKEDITOR_CKEIBN_OPTION', 'Stelle den eingebauen Bildbutton ab?');
+@define('PLUGIN_EVENT_CKEDITOR_CKEIBN_OPTION_DESC', 'Dieser CKE eigene Toolbar Button folgt seinen eigenen Regeln für Stylings und Markup! Wir empfehlen daher nur den Serendipity Medien Datenbank Button zu nutzen, da dieser spezialisiert auf die Nöte dieses Blogsystem eingeht. Erlaube mit "Nein" und nutze auf eigenes Risiko.');
 

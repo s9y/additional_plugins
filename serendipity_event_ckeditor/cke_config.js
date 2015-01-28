@@ -3,7 +3,7 @@
  */
 
 /**
- * @fileOverview A Serendipity serendipity_event_ckeditor CKEDITOR custom config file: cke_config.js, v. 2.2, 2014-11-28
+ * @fileOverview A Serendipity serendipity_event_ckeditor CKEDITOR custom config file: cke_config.js, v. 2.3, 2015-01-28
  */
 
 /**
@@ -99,12 +99,17 @@ CKEDITOR.editorConfig = function( config ) {
     // You can always use SHIFT+ENTER to set a br in the P-mode default option or change the SHIFT-mode to something else
     //config.shiftEnterMode = CKEDITOR.ENTER_BR;
     // Better learn to do this via keyboard commands, see cheatsheet toolbar button.
-
-    // Whether to use HTML entities in the output.
-    //config.entities = false; // defaults(true)
-
-    //config.htmlEncodeOutput = false; // defaults(true)
     */
+
+    /**
+      Whether to use HTML entities in storing and in the output.
+      With v. 4.7.0, strictly let S9y handle this, since we need it for search result terms!
+      Storing html entities to the database is no good for this case! You may only be hit by this if using Umlauts or very specialized chars.
+      If you really are subjected to this search result issue for previous entries stored by this plugin editor,
+      you will have to call and re-submit these entries again. Sorry!
+    */
+    config.entities = false; // defaults(true)
+    config.htmlEncodeOutput = false; // defaults(true)
 
 
     /** SECTION: UI configurations

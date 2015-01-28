@@ -1,3 +1,17 @@
+4.7.0:
+-----
+    * Upgrade to CKEDITOR 4.4 Series, update 7 (http://ckeditor.com/whatsnew)
+    * Introduce new config option to re-enable the CKE built-in image toolbar button.
+      This is not recommended to do, but there may be people in need.
+    MAJOR CHANGE:
+      In Serendipity 2.0 development, we discovered CKEDITOR storing htmlentities
+      to the database, which is ok normally, but does not work for search request results.
+      We have now disabled config.entities and config.htmlEncodeOutput for the editor,
+      to strictly let S9y handle this.
+      The not catched search results did only happen to Umlauts or specialized chars!
+      If you really are subjected to this for previous entries stored by this plugin editor,
+      you will have to call and re-submit these entries again. Sorry!
+
 4.6.0:
 -----
     * Upgrade to CKEDITOR 4.4 Series, update 6 (http://ckeditor.com/whatsnew)

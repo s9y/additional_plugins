@@ -55,27 +55,27 @@ class serendipity_event_ckeditor extends serendipity_event
      * @access protected
      * @var string
      */
-    protected $cke_zipfile = 'ckeditor_4.4.6.0-plus.zip';
+    protected $cke_zipfile = 'ckeditor_4.4.7.0-plus.zip';
 
     /**
      * Access property checkUpdateVersion
      * Verify release package versions - do update on upgrades!
      * @var array
      */
-    protected $checkUpdateVersion = array('ckeditor:4.4.6.0');
+    protected $checkUpdateVersion = array('ckeditor:4.4.7.0');
 
     /**
      * Access property revisionPackage
      * Note revisions of ckeditor and plugin additions to lang files
      * @var array
      */
-    protected $revisionPackage = array('CKEditor 4.4.6 (revision 08188c4, full package, 2014-11-25)',
+    protected $revisionPackage = array('CKEditor 4.4.7 (revision 3a35b3d, full package, 2015-01-27)',
                                        'CKEditor-Plugin: mediaembed, v. 0.5+ (https://github.com/frozeman/MediaEmbed, 2013-09-12)',
                                        'CKEditor-Plugin: manually added codesnippet with a fresh highlight pack, lineutils and widget plugins, 2014-11-25)',
                                        'CKEditor-Plugin: procurator, v. 1.5 (Serendipity placeholder Plugin, 2014-10-10)',
                                        'CKEditor-Plugin: cheatsheet, v. 1.2 (Serendipity CKE-Cheatsheet Plugin, 2014-09-02)',
-                                       'CKEditor-S9yCustomConfig, cke_config.js, v. 2.2, 2014-11-28',
-                                       'CKEditor-S9yCustomPlugins, cke_plugin.js, v. 1.8, 2014-11-28',
+                                       'CKEditor-S9yCustomConfig, cke_config.js, v. 2.3, 2015-01-28',
+                                       'CKEditor-S9yCustomPlugins, cke_plugin.js, v. 1.9, 2015-01-01',
                                        'Prettify: JS & CSS files, v. "current", (http://code.google.com/p/google-code-prettify/, 2013-03-04)');
 
 
@@ -181,7 +181,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '4.6.0'); // is CKEDITOR Series 4 (hidden) - revision .4.6 - and appended plugin revision .0
+        $propbag->add('version',       '4.7.0'); // is CKEDITOR Series 4 (hidden) - revision .4.7 - and appended plugin revision .0
         $propbag->add('copyright',     'GPL or LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
@@ -201,7 +201,7 @@ class serendipity_event_ckeditor extends serendipity_event
             'backend_wysiwyg'                        => true,
             'backend_wysiwyg_finish'                 => true
         ));
-        $propbag->add('configuration', array('path', 'plugpath', 'codebutton', 'prettify', 'acf_off', 'toolbar', 'toolbar_break', 'force_install', 'timestamp'));
+        $propbag->add('configuration', array('path', 'plugpath', 'codebutton', 'prettify', 'acf_off', 'toolbar', 'ibn_off', 'toolbar_break', 'force_install', 'timestamp'));
         $propbag->add('groups', array('BACKEND_EDITOR'));
     }
 
@@ -213,14 +213,14 @@ class serendipity_event_ckeditor extends serendipity_event
             case 'path':
                 $propbag->add('type', 'string');
                 $propbag->add('name', INSTALL_RELPATH);
-                $propbag->add('description', PLUGIN_EVENT_CKEDITOR_OPTION_BLAHBLAH . '"plugins/serendipity_event_ckeditor/ckeditor/"');
+                $propbag->add('description', PLUGIN_EVENT_CKEDITOR_OPTION_DESC . '"plugins/serendipity_event_ckeditor/ckeditor/"');
                 $propbag->add('default', 'plugins/serendipity_event_ckeditor/ckeditor/');
                 break;
 
             case 'plugpath':
                 $propbag->add('type', 'string');
                 $propbag->add('name', PLUGIN_EVENT_CKEDITOR_INSTALL_PLUGPATH);
-                $propbag->add('description', PLUGIN_EVENT_CKEDITOR_OPTION_BLAHBLAH . '"' . $serendipity['serendipityHTTPPath'] . 'plugins/"');
+                $propbag->add('description', PLUGIN_EVENT_CKEDITOR_OPTION_DESC . '"' . $serendipity['serendipityHTTPPath'] . 'plugins/"');
                 $propbag->add('default', $serendipity['serendipityHTTPPath'] . 'plugins/');
                 break;
 
@@ -234,14 +234,14 @@ class serendipity_event_ckeditor extends serendipity_event
             case 'prettify':
                 $propbag->add('type', 'boolean');
                 $propbag->add('name', PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION);
-                $propbag->add('description', PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION_BLAHBLAH);
+                $propbag->add('description', PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION_DESC);
                 $propbag->add('default', 'false');
                 break;
 
             case 'acf_off':
                 $propbag->add('type', 'boolean');
                 $propbag->add('name', PLUGIN_EVENT_CKEDITOR_CKEACF_OPTION);
-                $propbag->add('description', PLUGIN_EVENT_CKEDITOR_CKEACF_OPTION_BLAHBLAH);
+                $propbag->add('description', PLUGIN_EVENT_CKEDITOR_CKEACF_OPTION_DESC);
                 $propbag->add('default', 'false');
                 break;
 
@@ -257,6 +257,13 @@ class serendipity_event_ckeditor extends serendipity_event
                 $propbag->add('default', 'Standard');
                 break;
 
+            case 'ibn_off':
+                $propbag->add('type', 'boolean');
+                $propbag->add('name', PLUGIN_EVENT_CKEDITOR_CKEIBN_OPTION);
+                $propbag->add('description', PLUGIN_EVENT_CKEDITOR_CKEIBN_OPTION_DESC);
+                $propbag->add('default', 'true');
+                break;
+
             case 'toolbar_break':
                 $propbag->add('type', 'boolean');
                 $propbag->add('name', PLUGIN_EVENT_CKEDITOR_TOOLBAR_OPTION);
@@ -267,7 +274,7 @@ class serendipity_event_ckeditor extends serendipity_event
             case 'force_install':
                 $propbag->add('type', 'boolean');
                 $propbag->add('name', PLUGIN_EVENT_CKEDITOR_FORCEINSTALL_OPTION);
-                $propbag->add('description', PLUGIN_EVENT_CKEDITOR_FORCEINSTALL_OPTION_BLAHBLAH . $this->cke_zipfile);
+                $propbag->add('description', PLUGIN_EVENT_CKEDITOR_FORCEINSTALL_OPTION_DESC . $this->cke_zipfile);
                 $propbag->add('default', 'false');
                 break;
 
@@ -443,13 +450,13 @@ if ($headcss) {
 
 
                 case 'backend_header':
-                    if (isset($serendipity['wysiwyg']) && $serendipity['wysiwyg'] && isset($eventData)) {
+                    if (isset($serendipity['wysiwyg']) && $serendipity['wysiwyg'] && isset($eventData) && !isset($_GET['serendipity']['iframe_mode'])) {
                         $relpath = function_exists('serendipity_specialchars') ? serendipity_specialchars($this->get_config('path')) : htmlspecialchars($this->get_config('path'), ENT_COMPAT, LANG_CHARSET);
                         $plgpath = function_exists('serendipity_specialchars') ? serendipity_specialchars($this->get_config('plugpath')) : htmlspecialchars($this->get_config('plugpath'), ENT_COMPAT, LANG_CHARSET);
-                        $acf_off = serendipity_db_bool($this->get_config('acf_off')) ? 'true' : 'false';    // need this, to be passed correctly as boolean true/false to custom cke_config.js
-                        $code_on = serendipity_db_bool($this->get_config('codebutton')) ? 'true' : 'false'; // same here for cke_plugins.js
+                        $acf_off = serendipity_db_bool($this->get_config('acf_off', 'false')) ? 'true' : 'false';    // need this, to be passed correctly as boolean true/false to custom cke_config.js
+                        $code_on = serendipity_db_bool($this->get_config('codebutton', 'false')) ? 'true' : 'false'; // same here for cke_plugins.js
                         $toolbar = $this->get_config('toolbar', 'Standard');
-                        $time    = $this->get_config('timestamp');
+                        $time    = $this->get_config('timestamp', time());
                         /*
                             Define some global CKEDITOR plugin startup vars
                             Include the ckeditor
@@ -461,20 +468,19 @@ if ($headcss) {
     <script type="text/javascript">
         CKEDITOR_BASEPATH       = '<?php echo $relpath; ?>';
         CKEDITOR_PLUGPATH       = '<?php echo $plgpath; ?>';
-        CKEDITOR_MLIMGPATH      = '<?php echo $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_ckeditor/img/mls9y.png'; ?>';
         S9Y_VERSION_NEW         = <?php echo $serendipity['version'][0] < 2 ? 'false' : 'true'; ?>;
         CKECONFIG_ACF_OFF       = <?php echo $acf_off; ?>;
         CKECONFIG_CODE_ON       = <?php echo $code_on; ?>;
         CKECONFIG_LANG          = '<?php echo WYSIWYG_LANG; ?>';
         CKECONFIG_TOOLBAR       = '<?php echo $toolbar; ?>';
-        CKECONFIG_TOOLBAR_BREAK = <?php echo (serendipity_db_bool($this->get_config('toolbar_break'))) ? "'/'" : "''"; ?>;
+        CKECONFIG_TOOLBAR_BREAK = <?php echo serendipity_db_bool($this->get_config('toolbar_break', 'false')) ? "'/'" : "''"; ?>;
         CKECONFIG_FORCE_LOAD    = <?php echo $time; ?>;
     </script>
     <script type="text/javascript" src="<?php echo $serendipity['serendipityHTTPPath'] . $relpath; ?>ckeditor.js"></script>
     <script type="text/javascript" src="<?php echo $plgpath . 'serendipity_event_ckeditor/'; ?>cke_plugin.js"></script>
 <?php
-                        // sadly this can't be pushed into streamed css, since that is cached to lazyload
-                        if ($toolbar == 'Basic') {
+                        // sadly this can't be pushed into streamed css, since that is cached to lazyload.
+                        if ($toolbar == 'Basic' && serendipity_db_bool($this->get_config('ibn_off', 'true'))) {
                             if ($serendipity['version'][0] < 2) {
 ?>
     <link rel="stylesheet" href="<?php echo $plgpath . 'serendipity_event_ckeditor/'; ?>basic_toolbar1.css" />

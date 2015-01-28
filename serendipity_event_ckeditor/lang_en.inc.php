@@ -36,13 +36,16 @@
 
 @define('PLUGIN_EVENT_CKEDITOR_CODEBUTTON_OPTION', 'Allow code toolbar button?');
 @define('PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION', 'Allow additional prettify css/js in frontend?');
-@define('PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION_BLAHBLAH', 'For upgraders only! Keeps backward compatibility for old entries with code-blocks.');
-@define('PLUGIN_EVENT_CKEDITOR_OPTION_BLAHBLAH', 'Usually: ');
+@define('PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION_DESC', 'For upgraders only! Keeps backward compatibility for old entries with code-blocks.');
+@define('PLUGIN_EVENT_CKEDITOR_OPTION_DESC', 'Usually: ');
 
 @define('PLUGIN_EVENT_CKEDITOR_FORCEINSTALL_OPTION', 'Force install process (in emergencies)');
-@define('PLUGIN_EVENT_CKEDITOR_FORCEINSTALL_OPTION_BLAHBLAH', 'Only on upgrade failures: Force the immediate zip deflation of ');
+@define('PLUGIN_EVENT_CKEDITOR_FORCEINSTALL_OPTION_DESC', 'Only on upgrade failures: Force the immediate zip deflation of ');
 
-@define('PLUGIN_EVENT_CKEDITOR_CKEACF_OPTION_BLAHBLAH', 'The CKEDITOR built-in "Housekeeper" filter restricts custom html markup to follow its rules! Normally this is good and you will want to keep it working in the backyard and use the already built-in workarounds for certain markup, like "iframe"d media via the "Embed Media"-button, or "audio" and "other Serendipity" tags via the "Sourcecode-view"-mode. Please also read: "http://docs.ckeditor.com/?_escaped_fragment_=/guide/dev_advanced_content_filter#!/guide/dev_advanced_content_filter".');
+@define('PLUGIN_EVENT_CKEDITOR_CKEACF_OPTION_DESC', 'The CKEDITOR built-in "Housekeeper" filter restricts custom html markup to follow its rules! Normally this is good and you will want to keep it working in the backyard and use the already built-in workarounds for certain markup, like "iframe"d media via the "Embed Media"-button, or "audio" and "other Serendipity" tags via the "Sourcecode-view"-mode. Please also read: "http://docs.ckeditor.com/?_escaped_fragment_=/guide/dev_advanced_content_filter#!/guide/dev_advanced_content_filter".');
 
 @define('PLUGIN_EVENT_CKEDITOR_SETTOOLBAR_OPTION', 'Choose preset toolbars');
+
+@define('PLUGIN_EVENT_CKEDITOR_CKEIBN_OPTION', 'Disable toolbars default image button?');
+@define('PLUGIN_EVENT_CKEDITOR_CKEIBN_OPTION_DESC', 'The toolbar built-in image button follows its own rules for stylings and markup! Since we recommend to use the Serendipity Media Library Button only, this is disabled by default. Allow with "No" here and use at own risk.');
 

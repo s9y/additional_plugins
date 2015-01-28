@@ -3,7 +3,7 @@
  */
 
 /**
- * @fileOverview A Serendipity serendipity_event_ckeditor custom CKEDITOR additional plugin creator file: cke_plugin.js, v. 1.8, 2014-11-28
+ * @fileOverview A Serendipity serendipity_event_ckeditor custom CKEDITOR additional plugin creator file: cke_plugin.js, v. 1.9, 2015-01-01
  */
 
 // define array for hooked s9y plugins
@@ -203,7 +203,7 @@ function Spawnnuggets(item, addEP, jsED) {
                 editor.ui.addButton('s9yML'+area, {
                     label:    'S9yMedia',
                     title:    'Serendipity Media Library',
-                    icon:     CKEDITOR_MLIMGPATH,
+                    icon:     CKEDITOR_PLUGPATH+'serendipity_event_ckeditor/img/mls9y.png',
                     iconName: 's9yML'+area+'_icon',
                     command:  's9yML'+area
                 });

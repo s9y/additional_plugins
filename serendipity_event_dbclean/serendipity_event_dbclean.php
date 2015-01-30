@@ -24,14 +24,15 @@ class serendipity_event_dbclean extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_DBCLEAN_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda, Matthias Mees');
-        $propbag->add('version',       '0.2.6');
+        $propbag->add('version',       '0.2.7');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8'
         ));
         $propbag->add('event_hooks',   array(
                                     'backend_sidebar_admin'  => true,
                                     'backend_sidebar_entries_event_display_dbclean'  => true,
-                                    'external_plugin' => true
+                                    'external_plugin' => true,
+                                    'css_backend' => true
             )
             );
         $propbag->add('groups', array('BACKEND_FEATURES'));
@@ -98,6 +99,35 @@ class serendipity_event_dbclean extends serendipity_event {
 
                 case 'backend_sidebar_entries_event_display_dbclean':
                     $this->displayMenu();
+
+                    return true;
+                    break;
+
+                case 'css_backend':
+                    if ($serendipity['version'][0] > 1) {
+?>
+
+#dbcleanTable {
+    border: 1px solid #aaa;
+    border-bottom: 0 none;
+    width: 100%;
+}
+
+#dbcleanTable thead tr {
+    background-color: #eee;
+}
+
+#dbcleanTable tr {
+    border-bottom: 1px solid #aaa;
+}
+
+#dbcleanTable th,
+#dbcleanTable td {
+    padding: .125em .25em;
+}
+
+<?php
+                    }
 
                     return true;
                     break;

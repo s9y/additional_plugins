@@ -947,7 +947,22 @@ class serendipity_event_freetag extends serendipity_event
 }
 
 .freetags_manage {
+    border: 1px solid #aaa;
+    border-bottom: 0 none;
     width: 100%;
+}
+
+.freetags_manage thead tr {
+    background-color: #eee;
+}
+
+.freetags_manage tr {
+    border-bottom: 1px solid #aaa;
+}
+
+.freetags_manage th,
+.freetags_manage td {
+    padding: .125em .25em;
 }
 
 .freetags_list li {

@@ -10536,9 +10536,9 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <description>Nutzt CKEditor als Standard WYSIWYG Editor. Benutzung für JS-Editoren: Empfohlen! Nach der Installation, lies die Plugin Konfigurations Seite für weitere Informationen.</description>
 <maintainers><maintainer><name>Rustam Abdullaev, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>4.6.0</version>
+  <version>4.7.0</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2014-11-29</date>
+  <date>2015-01-29</date>
   <filelist>
 <dir name="serendipity_event_ckeditor">
 <dir name="UTF-8">
@@ -10564,11 +10564,12 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <file>prettify.js</file>
 <file>cke_backend.css</file>
 <file>cke_olds9y.css</file>
-<file>ckeditor_4.4.6.0-plus.zip</file>
 <file>basic_toolbar1.css</file>
 <file>basic_toolbar2.css</file>
+<file>ckeditor_4.4.7.0-plus.zip</file>
 <file>highlight.css</file>
 <file>highlight.pack.js</file>
+<file>cke_ibn.css</file>
 </dir>
 
   </filelist>
@@ -10592,11 +10593,12 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
     <file>serendipity_event_ckeditor/prettify.js</file>
     <file>serendipity_event_ckeditor/cke_backend.css</file>
     <file>serendipity_event_ckeditor/cke_olds9y.css</file>
-    <file>serendipity_event_ckeditor/ckeditor_4.4.6.0-plus.zip</file>
     <file>serendipity_event_ckeditor/basic_toolbar1.css</file>
     <file>serendipity_event_ckeditor/basic_toolbar2.css</file>
+    <file>serendipity_event_ckeditor/ckeditor_4.4.7.0-plus.zip</file>
     <file>serendipity_event_ckeditor/highlight.css</file>
     <file>serendipity_event_ckeditor/highlight.pack.js</file>
+    <file>serendipity_event_ckeditor/cke_ibn.css</file>
   </serendipityFilelist>
 </release>
 </package>

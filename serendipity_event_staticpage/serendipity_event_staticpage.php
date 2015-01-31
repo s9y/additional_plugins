@@ -91,7 +91,7 @@ class serendipity_event_staticpage extends serendipity_event
         $propbag->add('page_configuration', $this->config);
         $propbag->add('type_configuration', $this->config_types);
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers');
-        $propbag->add('version', '4.07.2');
+        $propbag->add('version', '4.08');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -2550,7 +2550,11 @@ foreach($select AS $select_value => $select_desc) {
                 $filename = 'default_staticpage_backend.tpl';
             }
 
-            $tfile = serendipity_getTemplateFile('backend_templates/' . $filename, 'serendipityPath');
+            if ($serendipity['version'][0] < 2) {
+                $tfile = serendipity_getTemplateFile('backend_templates/' . $filename, 'serendipityPath'); // old API
+            } else {
+                $tfile = serendipity_getTemplateFile('backend_templates/' . $filename, 'serendipityPath', true); // force fallback
+            }
             if (!$tfile || $tfile == 'backend_templates/' . $filename) {
                 $tfile = serendipity_getTemplateFile($filename, 'serendipityPath');
                 if (!$tfile || $tfile == $filename) {

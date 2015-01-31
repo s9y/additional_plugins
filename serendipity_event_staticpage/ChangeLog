@@ -1,3 +1,7 @@
+4.08 Fix 2.0 backend template chaining
+
+4.07.2 Fix htmlspecialchars for PHP >= 5.4
+
 4.07.1 Fix search with pdo-sqlite
        Remove doubled fetchentries-event 
 

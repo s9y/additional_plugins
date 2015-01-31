@@ -86,7 +86,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_freetag&lt;br /&gt;Freetag&lt;/b&gt;&lt;br /&gt;Consente il libero tagging dei post&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 01 Dec 2014 02:31:25 +0100</pubDate>
+<pubDate>Sat, 31 Jan 2015 02:30:58 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_freetag</guid>
 </item>
 <item>
@@ -1339,7 +1339,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>Malte Paskuda, Matthias Mees</author>
 <content:encoded>&lt;b&gt;serendipity_event_dbclean&lt;br /&gt;DBClean&lt;/b&gt;&lt;br /&gt;Cleanup database&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 06 Jun 2014 02:31:16 +0200</pubDate>
+<pubDate>Sat, 31 Jan 2015 02:30:56 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_dbclean</guid>
 </item>
 <item>

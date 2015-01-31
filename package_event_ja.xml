@@ -790,9 +790,9 @@
 <description>エントリーの自由なタグを許可します。</description>
 <maintainers><maintainer><name>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.63</version>
+  <version>3.64</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-12-01</date>
+  <date>2015-01-31</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <dir name="UTF-8">
@@ -5917,6 +5917,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <file>lang_en.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>DEADJOE</file>
 </dir>
 
   </filelist>
@@ -5942,6 +5943,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
     <file>serendipity_event_tooltips/lang_en.inc.php</file>
     <file>serendipity_event_tooltips/lang_cs.inc.php</file>
     <file>serendipity_event_tooltips/lang_cz.inc.php</file>
+    <file>serendipity_event_tooltips/DEADJOE</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -10377,9 +10379,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>Cleanup database</description>
 <maintainers><maintainer><name>Malte Paskuda, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.2.6</version>
+  <version>0.2.7</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-06-06</date>
+  <date>2015-01-31</date>
   <filelist>
 <dir name="serendipity_event_dbclean">
 <dir name="UTF-8">

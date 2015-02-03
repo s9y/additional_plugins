@@ -1,3 +1,5 @@
+2.15: Use static function declaration
+
 2.14: Added additional backend markup for 2.0 backend (yellowled)
 
 Propagate $smarty.env.staticpage_pagetitle (and the others) so that it can be used in entries.tpl

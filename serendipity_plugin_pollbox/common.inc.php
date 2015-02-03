@@ -15,7 +15,7 @@ include dirname(__FILE__) . '/lang_en.inc.php';
 class serendipity_common_pollbox {
     var $poll = array();
 
-    function poll($pollid = null) {
+    static function poll($pollid = null) {
         $poll  = new serendipity_common_pollbox;
         $poll->setPoll($poll->fetchPoll($pollid));
         $poll->showPoll($pollid);
@@ -96,7 +96,7 @@ class serendipity_common_pollbox {
         $this->poll = $poll;
     }
 
-    function &fetchPoll($cid = null) {
+    static function fetchPoll($cid = null) {
         global $serendipity;
 
         $result = array();

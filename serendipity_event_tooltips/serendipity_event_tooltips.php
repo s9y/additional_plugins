@@ -25,7 +25,7 @@ class serendipity_event_tooltips extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_TOOLTIPS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Enrico Stahn');
-        $propbag->add('version',       '1.5');
+        $propbag->add('version',       '1.6');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -180,9 +180,9 @@ class serendipity_event_tooltips extends serendipity_event
                 // dont touch links that have an onmouseover or onmouseout attribute
                 // and add tooltips to all other links
                 if (preg_match('/<'.$this->get_config('replacewithtag').'.*?(onmouseover=|onmouseout=).*?>/i', $matches[0][$i])) {
-                    $result = preg_replace('/(<'.$this->get_config('replacewithtag').'.*?>.*?<img.*?src=["|\'].*?\.'.preg_quote($serendipity['thumbSuffix']).'\..*?)(["|\'])(.*?>)/ie', "stripslashes('\\1').stripslashes('\\2').' s9y-tooltips-haslink=\"yes\" s9y-tooltips-hastooltip=\"no\" '.stripslashes('\\3')", $matches[0][$i]);
+                    $result = preg_replace_callback('/(<'.$this->get_config('replacewithtag').'.*?>.*?<img.*?src=["|\'].*?\.'.preg_quote($serendipity['thumbSuffix']).'\..*?)(["|\'])(.*?>)/i', 'tooltips_replace1', $matches[0][$i]);
                 } else {
-                    $result = preg_replace('/(<'.$this->get_config('replacewithtag').'.*?)(>.*?<img.*?src=["|\'])(.*?\.'.preg_quote($serendipity['thumbSuffix']).'\..*?)(["|\'])(.*?>)/ie', "stripslashes('\\1').' onmouseover=\"return overlib(\'<img src='.str_replace('".preg_quote($serendipity['thumbSuffix']).".', '', '\\3').'>\', WIDTH, 1, HEIGHT, 1);\" onmouseout=\"return nd();\" '.stripslashes('\\2').stripslashes('\\3').stripslashes('\\4').' s9y-tooltips-haslink=\"yes\" s9y-tooltips-hastooltip=\"yes\" '.stripslashes('\\5')", $matches[0][$i]);
+                    $result = preg_replace_callback('/(<'.$this->get_config('replacewithtag').'.*?)(>.*?<img.*?src=["|\'])(.*?\.'.preg_quote($serendipity['thumbSuffix']).'\..*?)(["|\'])(.*?>)/i', 'tooltips_replace2', $matches[0][$i]);
                 }
                 $element = str_replace($matches[0][$i], $result, $element);
             }
@@ -190,14 +190,15 @@ class serendipity_event_tooltips extends serendipity_event
 
         // Search all thumbnails without links
         preg_match_all('/<img.*?src=["|\'].*?\.'.preg_quote($serendipity['thumbSuffix']).'\..*?["|\'].*?>/i', $element, $matches);
+        $GLOBALS['s9y_tooltips_replacewithtag'] = $this->get_config('replacewithtag');
+
         if (isset($matches[0])) {
             for ($i = 0, $iMax = count($matches[0]); $i < $iMax; $i++) {
                 if (preg_match('/s9y-tooltips-haslink="yes"/i', $matches[0][$i])) {
                     continue;
                 }
-                $searchRegexp = '/(<img.*?src=["|\'])(.*?\.'.preg_quote($serendipity['thumbSuffix']).'\..*?)(["|\'].*?>)/ie';
-                $replaceRegexp = "'<".$this->get_config('replacewithtag')." href=\"javascript:void(0);\" onmouseover=\"return overlib(\'<img src='.str_replace('".preg_quote($serendipity['thumbSuffix']).".', '', '\\2').'>\', WIDTH, 1, HEIGHT, 1);\" onmouseout=\"return nd();\">'.stripslashes('\\1').stripslashes('\\2').stripslashes('\\3').'</".$this->get_config('replacewithtag').">'";
-                $result = preg_replace($searchRegexp, $replaceRegexp, $matches[0][$i]);
+                $searchRegexp = '/(<img.*?src=["|\'])(.*?\.'.preg_quote($serendipity['thumbSuffix']).'\..*?)(["|\'].*?>)/i';
+                $result = preg_replace_callback($searchRegexp, 'tooltips_replace3', $matches[0][$i]);
                 $element = str_replace($matches[0][$i], $result, $element);
             }
         }
@@ -218,9 +219,9 @@ class serendipity_event_tooltips extends serendipity_event
                 // dont touch links that have an onmouseover or onmouseout attribute
                 // and add tooltips to all other links
                 if (preg_match('/<'.$this->get_config('replacewithtag').'.*?(onmouseover=|onmouseout=).*?>/i', $matches[0][$i])) {
-                    $result = preg_replace('/(<'.$this->get_config('replacewithtag').'.*?>.*?\[s9y-tooltips .*?)(\])/ie', "stripslashes('\\1').' s9y-tooltips-haslink=\"yes\" s9y-tooltips-hastooltip=\"no\" '.stripslashes('\\2').stripslashes('\\3')", $matches[0][$i]);
+                    $result = preg_replace_callback('/(<'.$this->get_config('replacewithtag').'.*?>.*?\[s9y-tooltips .*?)(\])/i', 'tooltips_replace4', $matches[0][$i]);
                 } else {
-                    $result = preg_replace('/(<'.$this->get_config('replacewithtag').'.*?)(>.*?)\[s9y-tooltips (.*?)\](.*?)\[\/s9y-tooltips\]/ie', "stripslashes('\\1').' onmouseover=\"return overlib(\'\\3\', WIDTH, 1, HEIGHT, 1);\" onmouseout=\"return nd();\" s9y-tooltips-haslink=\"yes\" s9y-tooltips-hastooltip=\"yes\" '.stripslashes('\\2').stripslashes('\\4')", $matches[0][$i]);
+                    $result = preg_replace_callback('/(<'.$this->get_config('replacewithtag').'.*?)(>.*?)\[s9y-tooltips (.*?)\](.*?)\[\/s9y-tooltips\]/i','tooltips_replace5', $matches[0][$i]);
                 }
                 $element = str_replace($matches[0][$i], $result, $element);
             }
@@ -233,15 +234,15 @@ class serendipity_event_tooltips extends serendipity_event
                 if (preg_match('/s9y-tooltips-haslink="yes"/i', $matches[0][$i])) {
                     continue;
                 }
-                $replacewithtag = $this->get_config('replacewithtag');
+
+                $GLOBALS['s9y_tooltips_replacewithtag'] = $this->get_config('replacewithtag');
 
                 if (preg_match('/\[s9y-tooltips .*?s9y-tooltips-replacewithtag\="(.*?)".*?\]/i', $matches[0][$i], $rwtmatches) && isset($rwtmatches[1])) {
-                    $replacewithtag = $rwtmatches[1];
+                    $GLOBALS['s9y_tooltips_replacewithtag'] = $rwtmatches[1];
                 }
 
-                $searchRegexp = '/\[s9y-tooltips (.*?)\](.*?)\[\/s9y-tooltips\]/ie';
-                $replaceRegexp = "'<".$replacewithtag." href=\"javascript:void(0);\" onmouseover=\"return overlib(\''.stripslashes('\\1').'\');\" onmouseout=\"return nd();\">'.stripslashes('\\2').'</".$replacewithtag.">'";
-                $result = preg_replace($searchRegexp, $replaceRegexp, $matches[0][$i]);
+                $searchRegexp = '/\[s9y-tooltips (.*?)\](.*?)\[\/s9y-tooltips\]/i';
+                $result = preg_replace_callback($searchRegexp, 'tooltips_replace6', $matches[0][$i]);
                 $element = str_replace($matches[0][$i], $result, $element);
             }
         }
@@ -251,7 +252,7 @@ class serendipity_event_tooltips extends serendipity_event
     function s9ytooltips_cleanup($element)
     {
         // remove uninterpreted tags
-        $element = preg_replace('/\[s9y-tooltips .*?\](.*?)\[\/s9y-tooltips\]/ie', "stripslashes('\\1')", $element);
+        $element = preg_replace_callback('/\[s9y-tooltips .*?\](.*?)\[\/s9y-tooltips\]/i', 'tooltips_replace7', $element);
 
         // remove s9y-tooltips attributes
         $element = preg_replace('/s9y-tooltips-.*?=".*?"/i', '', $element);
@@ -303,5 +304,36 @@ class serendipity_event_tooltips extends serendipity_event
     }
 
 }
+
+// GH: I don't think this really works properly, it previously used the "e" preg_replace modifier and was a mess to begin with ;-)
+function tooltips_replace1($matches) {
+    return stripslashes($matches[1]) . stripslashes($matches[2]) . ' s9y-tooltips-haslink=\"yes\" s9y-tooltips-hastooltip=\"no\" '.stripslashes($matches[3]);
+}
+
+function tooltips_replace2($matches) {
+    global $serendipity;
+    return stripslashes($matches[1]) . ' onmouseover=\"return overlib(\'<img src='.str_replace(preg_quote($serendipity['thumbSuffix']), '', $matches[3]) .'>\', WIDTH, 1, HEIGHT, 1);\" onmouseout=\"return nd();\" ' . stripslashes($matches[2]) . stripslashes($matches[3]) . stripslashes($matches[4]) . ' s9y-tooltips-haslink=\"yes\" s9y-tooltips-hastooltip=\"yes\" ' . stripslashes($matches[5]);
+}
+
+function tooltips_replace3($matches) {
+     return "<" . $GLOBALS['s9y_tooltips_replacewithtag'] . ' href=\"javascript:void(0);\" onmouseover=\"return overlib(\'<img src='.str_replace(preg_quote($serendipity['thumbSuffix']), '', $matches[2]) . '>\', WIDTH, 1, HEIGHT, 1);\" onmouseout=\"return nd();\">' . stripslashes($matches[1]) . stripslashes($matches[2]) . stripslashes($matches[3]).'</' . $GLOBALS['s9y_tooltips_replacewithtag'] . '>';
+}
+
+function tooltips_replace4($matches) {
+    return stripslashes($matches[1]) . ' s9y-tooltips-haslink=\"yes\" s9y-tooltips-hastooltip=\"no\" ' . stripslashes($matches[2]) . stripslashes($matches[3]);
+}
+
+function tooltips_replace5($matches) {
+     return stripslashes($matches[1]) . ' onmouseover=\"return overlib(\'' . $matches[3] . '\', WIDTH, 1, HEIGHT, 1);\" onmouseout=\"return nd();\" s9y-tooltips-haslink=\"yes\" s9y-tooltips-hastooltip=\"yes\" '.stripslashes($matches[2]) . stripslashes($matches[4]);
+}
+
+function tooltips_replace6($matches) {
+    return "<".$GLOBALS['s9y_tooltips_replacewithtag']." href=\"javascript:void(0);\" onmouseover=\"return overlib('" . stripslashes($matches[1]) . "');\" onmouseout=\"return nd();\">" . stripslashes($matches[2]) . "</".$GLOBALS['s9y_tooltips_replacewithtag'].">";
+}
+
+function tooltips_replace7($matches) {
+    return stripslashes($matches[1]);
+}
+
 
 /* vim: set sts=4 ts=4 expandtab : */

@@ -575,6 +575,7 @@ function fulltext_toggle(id) {
 
                 case 'css_backend':
                     if (!strpos($eventData, '.note_')) {
+                        echo "\n/* plugin adminnotes start */\n";
                         // class exists in CSS, so a user has customized it and we don't need default
                         if ($serendipity['version'][0] < 2) {
                             echo file_get_contents(dirname(__FILE__) . '/notes.css');
@@ -587,6 +588,7 @@ function fulltext_toggle(id) {
 
 <?php
                         }
+                        echo "/* plugin adminnotes end */\n\n";
                     }
                     break;
 

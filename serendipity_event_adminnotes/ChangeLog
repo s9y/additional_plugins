@@ -1,3 +1,11 @@
+0.12: prepare to hook into 2.0 core Dashboard and use other 2.0 facilities
+
+0.11.1: Use serendipity_specialchars
+
+0.11: The duplicate sidebar nav entries still were not fixed properly
+
 0.10: Don't emit backend link twice in 1.x (yellowled)
+
 0.9: Use serendipity 2.0 backend hook
+
 0.8: Added additional backend markup for 2.0 backend (yellowled)

@@ -34,7 +34,7 @@ class serendipity_event_commentspice extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.05');
+        $propbag->add('version',       '1.06');
 
         $propbag->add('event_hooks',    array(
             'entry_display' => true,
@@ -70,6 +70,7 @@ class serendipity_event_commentspice extends serendipity_event
         if (function_exists('fetchPingbackData') && $this->isLocalConfigWritable()) {
             $config_general[] = 'fetchPingback';
         }
+        $config_general[] = 'custom_text';
         $config_general_expert = array('plugin_path');
         
         $open_expert_setting = isset($_GET['pluginexpert']);
@@ -291,6 +292,12 @@ class serendipity_event_commentspice extends serendipity_event
                 $propbag->add('type', 'content');
                 $propbag->add('default',   PLUGIN_EVENT_COMMENTSPICE_CONFIG_HINTBEE );
                 break;
+
+            case 'custom_text':
+                $propbag->add('type',        'html');
+                $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_CONFIG_CUSTOMTEXT);
+                $propbag->add('description', '');
+                $propbag->add('default',     '');
 
             default:
                 return false;
@@ -977,6 +984,12 @@ class serendipity_event_commentspice extends serendipity_event
             echo PLUGIN_EVENT_COMMENTSPICE_PROMOTE_ARTICLE_FOOTER;
             $requirements = $this->createRequirementsString($config_announce);
             if (!empty($requirements)) echo "<br/>$requirements";
+            echo '</div>' . "\n";
+        }
+        $custom_text = $this->get_config('custom_text');
+        if (!empty($custom_text)) {
+            echo '<div  id="serendipity_commentspice_customtext_desc" class="commentspice_description serendipity_commentDirection serendipity_comment_spice">' . "\n";
+            echo $custom_text;
             echo '</div>' . "\n";
         }
         

@@ -91,3 +91,5 @@
 @define('PLUGIN_EVENT_COMMENTSPICE_REQUIREMENTS', 'Bedingung');
 @define('PLUGIN_EVENT_COMMENTSPICE_REQUIREMENTS_COMMENTCOUNT', '%s Kommentare geschrieben');
 @define('PLUGIN_EVENT_COMMENTSPICE_REQUIREMENTS_COMMENTLEN', '%s Buchstaben in diesem Kommentar');
+
+@define('PLUGIN_EVENT_COMMENTSPICE_CONFIG_CUSTOMTEXT', 'Eigene Kommentarhinweise');

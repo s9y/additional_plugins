@@ -26,7 +26,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '1.6.2');
+        $propbag->add('version',       '1.6.3');
         $propbag->add('author',        'Garvin Hicking, Ian');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array('prefix', 'frontpage', 'domain'));
@@ -126,7 +126,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
 
     static function lookup($url, $custom_hash = '', $pref = '') {
         global $serendipity;
-        
+
         $custom_hash = trim($custom_hash);
         $url = trim($url);
 
@@ -167,8 +167,8 @@ class serendipity_event_linktrimmer extends serendipity_event {
             $hash = serendipity_event_linktrimmer::base62($id);
         }
 
-        serendipity_db_query("UPDATE {$serendipity['dbPrefix']}linktrimmer 
-                                 SET hash = '" . $hash . "' 
+        serendipity_db_query("UPDATE {$serendipity['dbPrefix']}linktrimmer
+                                 SET hash = '" . $hash . "'
                                WHERE id = " . (int)$id);
 
         return $hash;
@@ -294,9 +294,9 @@ class serendipity_event_linktrimmer extends serendipity_event {
                 case 'frontend_configure':
                     if (preg_match('@' . $serendipity['serendipityHTTPPath'] . '/?(' . $serendipity['indexFile'] . ')?\??' . $this->get_config('prefix') . '/?(.+)$@imsU', $_SERVER['REQUEST_URI'], $m)) {
                         $hash = preg_replace('@[^a-z0-9]@imsU', '', $m[2]);
-                        $res = serendipity_db_query("SELECT url 
-                                                       FROM {$serendipity['dbPrefix']}linktrimmer 
-                                                      WHERE hash = '" . serendipity_db_escape_string($hash) . "' 
+                        $res = serendipity_db_query("SELECT url
+                                                       FROM {$serendipity['dbPrefix']}linktrimmer
+                                                      WHERE hash = '" . serendipity_db_escape_string($hash) . "'
                                                       LIMIT 1", true, 'assoc');
                         if (is_array($res) && !empty($res['url'])) {
                             $url = str_replace(array("\n", "\r", "\0"), array('', '', ''), $res['url']);
@@ -354,7 +354,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
                             header('Content-Type: image/gif');
                             echo file_get_contents(dirname(__FILE__) . '/serendipity_event_linktrimmer.gif');
                             break;
-                            
+
                         case 'linktrimmer':
                             $this->show(true);
                     }

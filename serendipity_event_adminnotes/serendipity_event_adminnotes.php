@@ -27,7 +27,7 @@ class serendipity_event_adminnotes extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.12');
+        $propbag->add('version',       '0.13');
         $propbag->add('author',        'Garvin Hicking, Matthias Mees');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array('feedback', 'limit', 'html', 'markup', 'cutoff'));
@@ -470,11 +470,6 @@ function fulltext_toggle(id) {
     }
     return false;
 }
-$(document).ready(function () {
-    var count_quicknote_cycle = $('#dashboard > section.quick_list').length;
-    var quicknote_cycled      = (count_quicknote_cycle % 2) ? 'odd' : 'even';
-    $('#dashboard_quicknotes').addClass(quicknote_cycled);
-});
 /* serendipity_event_adminnotes (quicknotes) end */
 
 <?php
@@ -528,7 +523,7 @@ function fulltext_toggle(id) {
                     if (is_array($notes)) {
 ?>
 
-        <section id="dashboard_quicknotes" class="equal_heights quick_list">
+        <section id="dashboard_quicknotes" class="equal_heights quick_list dashboard_widget">
             <h3><?php echo PLUGIN_ADMINNOTES_TITLE ?></h3>
             <ol class="plainList">
 <?php

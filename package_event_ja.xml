@@ -8130,7 +8130,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <release>
   <version>0.12</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2015-02-05</date>
+  <date>2015-02-09</date>
   <filelist>
 <dir name="serendipity_event_adminnotes">
 <file>serendipity_event_adminnotes.php</file>
@@ -9393,7 +9393,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.6.2</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2014-06-21</date>
+  <date>2015-02-09</date>
   <filelist>
 <dir name="serendipity_event_linktrimmer">
 <file>serendipity_event_linktrimmer.php</file>

@@ -34,7 +34,7 @@ class serendipity_event_commentspice extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.06');
+        $propbag->add('version',       '1.07');
 
         $propbag->add('event_hooks',    array(
             'entry_display' => true,
@@ -298,6 +298,7 @@ class serendipity_event_commentspice extends serendipity_event
                 $propbag->add('name',        PLUGIN_EVENT_COMMENTSPICE_CONFIG_CUSTOMTEXT);
                 $propbag->add('description', '');
                 $propbag->add('default',     '');
+                break;
 
             default:
                 return false;

@@ -283,6 +283,11 @@ function getChecked() {
     var form = document.getElementById('formMultiDelete');
     var checkboxes = getElementByClass('input_checkbox', form, 'input');
     var length = checkboxes.length;
+    if (length == 0) {
+        // the classes changed in 2.0 backend, so we use another selector there
+        checkboxes = form.querySelectorAll('.multidelete');
+        length = checkboxes.length;
+    }
     var ids = new Array()
     for (var i=0; i < length; i++) {
         if (checkboxes[i].checked) {

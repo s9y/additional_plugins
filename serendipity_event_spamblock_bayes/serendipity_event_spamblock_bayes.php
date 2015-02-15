@@ -42,7 +42,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '0.4.17' );
+		$propbag->add ( 'version', '0.4.18' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_spamblock_comments_shown' => true,
 		                                     'external_plugin' => true,
@@ -571,34 +571,36 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                 {$serendipity['dbPrefix']}spamblock_bayes;";
             $results = serendipity_db_query($sql);
 
-            foreach ($results as $result) {
-                $token = $result['token'];
-                $ham = $result['ham'];
-                $spam = $result['spam'];
-                $type = $result['type'];
-                $sql = "SELECT
-                            token
-                        FROM
-                            {$serendipity['dbPrefix']}spamblock_bayes_temp
-                        WHERE
-                            token = '$token' AND type = '$type';";
-                $tester = serendipity_db_query($sql);
-                if (empty($tester['0'])) {
-                    $sql2 = "INSERT INTO
-                            {$serendipity['dbPrefix']}spamblock_bayes_temp
-                                (token, ham, spam, type)
-                            VALUES
-                            ('$token', $ham, $spam, '$type');";
-                } else {
-                    $sql2 = "UPDATE
-                            {$serendipity['dbPrefix']}spamblock_bayes_temp
+            if (is_array($results)) {
+                foreach ($results as $result) {
+                    $token = $result['token'];
+                    $ham = $result['ham'];
+                    $spam = $result['spam'];
+                    $type = $result['type'];
+                    $sql = "SELECT
+                                token
+                            FROM
+                                {$serendipity['dbPrefix']}spamblock_bayes_temp
                             WHERE
-                                token = '$token' AND type = '$type'
-                            SET
-                                ham = ham + $ham,
-                                spam = spam + $spam;";
+                                token = '$token' AND type = '$type';";
+                    $tester = serendipity_db_query($sql);
+                    if (empty($tester['0'])) {
+                        $sql2 = "INSERT INTO
+                                {$serendipity['dbPrefix']}spamblock_bayes_temp
+                                    (token, ham, spam, type)
+                                VALUES
+                                ('$token', $ham, $spam, '$type');";
+                    } else {
+                        $sql2 = "UPDATE
+                                {$serendipity['dbPrefix']}spamblock_bayes_temp
+                                WHERE
+                                    token = '$token' AND type = '$type'
+                                SET
+                                    ham = ham + $ham,
+                                    spam = spam + $spam;";
+                    }
+                    serendipity_db_query($sql2);
                 }
-                serendipity_db_query($sql2);
             }
         }
 
@@ -1465,10 +1467,19 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     token, ham, spam, type
                 FROM
                     {$serendipity['dbPrefix']}spamblock_bayes ORDER BY spam" . serendipity_db_limit_sql(sprintf("%d,%d", $commentpage*20, 20));
-        $bayesTable = serendipity_db_query($sql, false, "assoc");
-        $sql ="SELECT COUNT(token) FROM {$serendipity['dbPrefix']}spamblock_bayes";
-        $amount = serendipity_db_query($sql, true, "num");
-        $amount = $amount[0];
+        try {
+            $bayesTable = serendipity_db_query($sql, false, "assoc");
+        } catch (Exception $e) {
+            $bayesTable = array();
+        }
+        try {
+            $sql ="SELECT COUNT(token) FROM {$serendipity['dbPrefix']}spamblock_bayes";
+            $amount = serendipity_db_query($sql, true, "num");
+            $amount = $amount[0];
+         } catch (Exception $e) {
+            $amount = 0;
+        }
+        
 
         $data['pages'] = ceil($amount / 20);
         $data['bayesTable'] = $bayesTable;

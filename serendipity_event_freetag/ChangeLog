@@ -1,3 +1,8 @@
+3.64.1
+----
+ * Fix a bug where related entries were shown on overview sections when
+   that section had only one entry
+
 3.59:
 ----
  * Remove CDNs and upgrade jquery-migrate

@@ -6094,6 +6094,54 @@
 </release>
 </package>
 <package version="1.0">
+<name>Bartleby</name>
+<template>bartleby</template>
+<license>N/A (=GPL)</license>
+<summary></summary>
+<description></description>
+<maintainers><maintainer><name>onli</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion>2.0</requirements:s9yVersion>
+  <date>2014-12-07</date>
+  <filelist>
+<dir name="bartleby">
+<dir name="UTF-8">
+<file>lang_de.inc.php</file>
+<file>lang_en.inc.php</file>
+</dir>
+<dir name="img">
+<file>xml.png</file>
+</dir>
+<file>preview_fullsize.jpg</file>
+<file>config.inc.php</file>
+<file>entries.tpl</file>
+<file>index.tpl</file>
+<file>info.txt</file>
+<file>lang_de.inc.php</file>
+<file>lang_en.inc.php</file>
+<file>preview.png</file>
+<file>style.css</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>bartleby/UTF-8/lang_de.inc.php</file>
+    <file>bartleby/UTF-8/lang_en.inc.php</file>
+    <file>bartleby/img/xml.png</file>
+    <file>bartleby/preview_fullsize.jpg</file>
+    <file>bartleby/config.inc.php</file>
+    <file>bartleby/entries.tpl</file>
+    <file>bartleby/index.tpl</file>
+    <file>bartleby/info.txt</file>
+    <file>bartleby/lang_de.inc.php</file>
+    <file>bartleby/lang_en.inc.php</file>
+    <file>bartleby/preview.png</file>
+    <file>bartleby/style.css</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
 <name>Hemingway WP-port &amp;#160;&amp;#160;&lt;i&gt;&lt;small&gt;Requires Serendipity v1.1&lt;/small&gt;&lt;/i&gt; (2014-01-09)</name>
 <template>hemingway</template>
 <license>N/A (=GPL)</license>

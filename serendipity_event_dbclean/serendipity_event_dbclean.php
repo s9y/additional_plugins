@@ -189,6 +189,7 @@ class serendipity_event_dbclean extends serendipity_event {
     }
 
     function displayMenu() {
+        global $serendipity;
         if ($serendipity['version'][0] == '1') {
             echo '<style>#dbcleanTable { width: 100%; text-align: center; } #dbcleanTable th { text-align: center; }</style>';
         }

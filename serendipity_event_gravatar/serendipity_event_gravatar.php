@@ -14,7 +14,7 @@ if (file_exists($probelang)) {
 include dirname(__FILE__) . '/lang_en.inc.php';
 
 // Actual version of this plugin
-@define('PLUGIN_EVENT_GRAVATAR_VERSION', '1.58.1');
+@define('PLUGIN_EVENT_GRAVATAR_VERSION', '1.58.1'); // NOTE: This plugin is also in the central repository. Commit changes to the core, too :)
 
 // Defines the maximum available method  slots in the configuration.
 @define('PLUGIN_EVENT_GRAVATAR_METHOD_MAX', 6);

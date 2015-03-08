@@ -10380,7 +10380,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>0.2.7</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-01-31</date>
+  <date>2015-03-08</date>
   <filelist>
 <dir name="serendipity_event_dbclean">
 <dir name="UTF-8">

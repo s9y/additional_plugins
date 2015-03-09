@@ -293,7 +293,7 @@
 <release>
   <version>1.58.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2015-03-09</date>
   <filelist>
 <dir name="serendipity_event_gravatar">
 <file>serendipity_event_gravatar.php</file>
@@ -461,6 +461,10 @@
 <dir name="ycon">
 <file>ycon.image.php</file>
 <file>ycon.php</file>
+<dir name="UTF-8">
+<file>lang_pl.inc.php</file>
+</dir>
+<file>ChangeLog</file>
 </dir>
 <file>documentation_de.html</file>
 <file>documentation_en.html</file>
@@ -625,6 +629,8 @@
     <file>serendipity_event_gravatar/documentation/wavatars.jpg</file>
     <file>serendipity_event_gravatar/ycon/ycon.image.php</file>
     <file>serendipity_event_gravatar/ycon/ycon.php</file>
+    <file>serendipity_event_gravatar/ycon/UTF-8/lang_pl.inc.php</file>
+    <file>serendipity_event_gravatar/ycon/ChangeLog</file>
     <file>serendipity_event_gravatar/documentation_de.html</file>
     <file>serendipity_event_gravatar/documentation_en.html</file>
     <file>serendipity_event_gravatar/.cvsignore</file>

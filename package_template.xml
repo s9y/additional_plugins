@@ -2109,6 +2109,7 @@
 <file>config.inc.php</file>
 <file>yellow.css</file>
 <file>preview_fullsize.jpg</file>
+<file>lang_en.inc.php</file>
 </dir>
 
   </filelist>
@@ -2147,6 +2148,7 @@
     <file>reflection/config.inc.php</file>
     <file>reflection/yellow.css</file>
     <file>reflection/preview_fullsize.jpg</file>
+    <file>reflection/lang_en.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -3585,8 +3587,6 @@
 <file>submit-btn.gif</file>
 <file>xml.gif</file>
 </dir>
-<file>index.tpl.~1.4.~</file>
-<file>print.css.~1.1.~</file>
 <file>s9y-print.css</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
@@ -3682,8 +3682,6 @@
     <file>i3theme/img/sidep-toggle.png</file>
     <file>i3theme/img/submit-btn.gif</file>
     <file>i3theme/img/xml.gif</file>
-    <file>i3theme/index.tpl.~1.4.~</file>
-    <file>i3theme/print.css.~1.1.~</file>
     <file>i3theme/s9y-print.css</file>
     <file>i3theme/lang_cs.inc.php</file>
     <file>i3theme/lang_cz.inc.php</file>
@@ -4469,6 +4467,7 @@
 <file>style.css</file>
 <file>preview_iframe.tpl</file>
 <file>preview_fullsize.jpg</file>
+<file>lang_en.inc.php</file>
 </dir>
 
   </filelist>
@@ -4493,6 +4492,7 @@
     <file>square/style.css</file>
     <file>square/preview_iframe.tpl</file>
     <file>square/preview_fullsize.jpg</file>
+    <file>square/lang_en.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -6576,6 +6576,7 @@
 <file>entries.tpl</file>
 <file>plugin_staticpage.tpl</file>
 <file>preview.png</file>
+<file>lang_en.inc.php</file>
 </dir>
 
   </filelist>
@@ -6623,6 +6624,7 @@
     <file>rubyx/entries.tpl</file>
     <file>rubyx/plugin_staticpage.tpl</file>
     <file>rubyx/preview.png</file>
+    <file>rubyx/lang_en.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>

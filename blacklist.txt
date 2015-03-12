@@ -1,9 +1,0 @@
-default-rtl
-default-php
-default-xml
-competition
-contest
-default
-carl_contest
-2k11
-xhtml_mp

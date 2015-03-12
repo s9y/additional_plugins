@@ -39,7 +39,7 @@
                 <span class="serendipity_date">{$CONST.PLUGIN_FORUM_MARKUPS}</span>
             </td>
             <td align="center">
-                <script type="text/javascript" language="JavaScript" src="serendipity_define.js.php"></script>
+                {if $plugin_eventforum_not20}<script type="text/javascript" language="JavaScript" src="serendipity_define.js.php"></script>{/if}
                 <script type="text/javascript" language="JavaScript" src="{$relpath}/include/ColorPicker2.js"></script>
                 <script type="text/javascript" language="JavaScript" src="{$relpath}/include/bbcode.js"></script>
                 {$bbcode}

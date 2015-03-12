@@ -1,6 +1,10 @@
 ***************************************************************************************************
 * Legend: ! Bugfix, + New Features, * Changed, - Info Only 
 * 
+
+v.1.69.2:
+ * S9y 2.0 serendipity_editor.js reference file fix
+
 * Propagate $smarty.env.staticpage_pagetitle (and the others) so that it can be used in entries.tpl
 * 
 * v. 1.66 2011-02-23 Spartacus

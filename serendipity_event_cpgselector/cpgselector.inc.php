@@ -534,8 +534,10 @@ switch ($CPG['step']) {
 
 		$image = cpg_getImage($CPG['image']);
 
+        if ($serendipity['version'][0] < 2) {
 ?>
 <script type="text/javascript" src="<?php echo $serendipity['serendipityHTTPPath']; ?>serendipity_define.js.php"></script>
+        <?php } ?>
 <script type="text/javascript">
 <!--
 

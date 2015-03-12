@@ -53,7 +53,7 @@ class serendipity_event_forum extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.38.1');
+        $propbag->add('version',       '0.38.2');
         $propbag->add('author',       'Alexander \'dma147\' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
@@ -1926,6 +1926,8 @@ class serendipity_event_forum extends serendipity_event {
             }
             $serendipity['smarty']->assign('THREADBUTTONS', $THREADBUTTONS);
         }
+
+        $serendipity['smarty']->assign('plugin_eventforum_not20', (($serendipity['version'][0] < 2) ? true : false));
 
         $filename = $filename;
         $tfile = serendipity_getTemplateFile($filename, 'serendipityPath');

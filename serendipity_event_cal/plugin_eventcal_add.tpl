@@ -140,8 +140,8 @@
                 </tbody>
             </table>
         </form>
-        {if $is_logged_in}
-        <script type="text/javascript" language="JavaScript" src="{$serendipityHTTPPath}serendipity_editor.js"></script>
+        {if $is_logged_in && $plugin_eventcal_add_not20}
+        <script type="text/javascript" src="{$serendipityHTTPPath}serendipity_editor.js"></script>
         {/if}
     </td>
 </tr>

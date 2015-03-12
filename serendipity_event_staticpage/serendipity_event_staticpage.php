@@ -1,4 +1,4 @@
-<?php # 
+<?php
      #http://board.s9y.org/viewtopic.php?p=57348#57348
 
 if (IN_serendipity !== true) {
@@ -91,7 +91,7 @@ class serendipity_event_staticpage extends serendipity_event
         $propbag->add('page_configuration', $this->config);
         $propbag->add('type_configuration', $this->config_types);
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers');
-        $propbag->add('version', '4.08');
+        $propbag->add('version', '4.09');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -1757,8 +1757,10 @@ class serendipity_event_staticpage extends serendipity_event
             $serendipity['POST']['staticSubmit'] = true;
         }
 
-        echo '<script type="text/javascript" language="JavaScript" src="'.$serendipity['serendipityHTTPPath'].'serendipity_define.js.php"></script>'."\n";
-        echo '<script type="text/javascript" language="JavaScript" src="'.$serendipity['serendipityHTTPPath'].'serendipity_editor.js"></script>';
+        if ($serendipity['version'][0] < 2) {
+            echo '<script type="text/javascript" src="'.$serendipity['serendipityHTTPPath'].'serendipity_define.js.php"></script>'."\n";
+            echo '<script type="text/javascript" src="'.$serendipity['serendipityHTTPPath'].'serendipity_editor.js"></script>';
+        }
 
 ?>
 

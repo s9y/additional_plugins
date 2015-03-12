@@ -76,7 +76,7 @@ class serendipity_event_cal extends serendipity_event {
                                         )
                     );
         $propbag->add('author',         'Ian (Timbalu)');
-        $propbag->add('version',        '1.69.1');
+        $propbag->add('version',        '1.69.2');
         $propbag->add('groups',         array('FRONTEND_FEATURES', 'BACKEND_FEATURES'));
         $propbag->add('requirements',   array(
                                             'serendipity' => '1.4',
@@ -1703,7 +1703,8 @@ class serendipity_event_cal extends serendipity_event {
                     'plugin_eventcal_add_tipo4'         => ($tipo==4) ? 'checked="checked"' : '',
                     'plugin_eventcal_add_tipo5'         => ($tipo==5) ? 'checked="checked"' : '',
                     'plugin_eventcal_add_tipo6'         => ($tipo==6) ? 'checked="checked"' : '',
-                    'plugin_eventcal_add_url'           => $url
+                    'plugin_eventcal_add_url'           => $url,
+                    'plugin_eventcal_add_not20'         => (($serendipity['version'][0] < 2) ? true : false)
                 )
         );
         

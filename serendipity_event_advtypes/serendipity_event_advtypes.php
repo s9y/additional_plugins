@@ -31,7 +31,7 @@ class serendipity_event_advtypes extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.6');
+        $propbag->add('version',       '0.7');
         $propbag->add('author',       'Judebert (<a href="http://judebert.com/">http://judebert.com/</a>)');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
@@ -100,8 +100,12 @@ class serendipity_event_advtypes extends serendipity_event {
                     echo '<script src="' . serendipity_getTemplateFile('dragdrop.js') . '" type="text/javascript"></script>';
                     //echo '<div class="warning js_warning"><em>' . PREFERENCE_USE_JS_WARNING . '</em></div>';
                     $media_js = serendipity_getTemplateFile('media_input.js');
+                    if ($serendipity['version'][0] < 2) {
                     print <<<EOS
 <script type="text/javascript" language="JavaScript" src="serendipity_editor.js"></script>
+EOS;
+                    }
+                    print <<<EOS
 <script type="text/javascript">
 function change_preview(id)
 {

@@ -1,1 +1,6 @@
+0.6:
+----
+
+Bundled HTMLPurifier
+
 Made event_hook() declaration the same as in s9y core

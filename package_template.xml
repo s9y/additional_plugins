@@ -5174,6 +5174,50 @@
 </release>
 </package>
 <package version="1.0">
+<name>Newspaper Blog</name>
+<template>newspaper</template>
+<license>N/A (=GPL)</license>
+<summary></summary>
+<description></description>
+<maintainers><maintainer><name>Jannis Hermanns</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion></requirements:s9yVersion>
+  <date>26/6-2003</date>
+  <filelist>
+<dir name="newspaper">
+<file>preview_fullsize.jpg</file>
+<dir name="img">
+<file>shadowb.png</file>
+<file>shadowbl.png</file>
+<file>shadowbr.png</file>
+<file>shadowr.png</file>
+<file>shadowt.png</file>
+</dir>
+<file>htmlarea.css</file>
+<file>info.txt</file>
+<file>layout.php</file>
+<file>preview.png</file>
+<file>style.css</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>newspaper/preview_fullsize.jpg</file>
+    <file>newspaper/img/shadowb.png</file>
+    <file>newspaper/img/shadowbl.png</file>
+    <file>newspaper/img/shadowbr.png</file>
+    <file>newspaper/img/shadowr.png</file>
+    <file>newspaper/img/shadowt.png</file>
+    <file>newspaper/htmlarea.css</file>
+    <file>newspaper/info.txt</file>
+    <file>newspaper/layout.php</file>
+    <file>newspaper/preview.png</file>
+    <file>newspaper/style.css</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
 <name>RESY - Responsive Template for S9Y</name>
 <template>resy</template>
 <license>N/A (=GPL)</license>
@@ -5426,6 +5470,336 @@
     <file>softenedcells/UTF-8/lang_cz.inc.php</file>
     <file>softenedcells/lang_cs.inc.php</file>
     <file>softenedcells/lang_cz.inc.php</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>MT - Trendy</name>
+<template>mt-trendy</template>
+<license>N/A (=GPL)</license>
+<summary></summary>
+<description></description>
+<maintainers><maintainer><name>Sebastian Bergmann</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion></requirements:s9yVersion>
+  <date>16/02/2004</date>
+  <filelist>
+<dir name="mt-trendy">
+<file>preview_fullsize.jpg</file>
+<dir name="img">
+<file>forward.png</file>
+<file>back.png</file>
+</dir>
+<file>htmlarea.css</file>
+<file>info.txt</file>
+<file>preview.png</file>
+<file>style.css</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>mt-trendy/preview_fullsize.jpg</file>
+    <file>mt-trendy/img/forward.png</file>
+    <file>mt-trendy/img/back.png</file>
+    <file>mt-trendy/htmlarea.css</file>
+    <file>mt-trendy/info.txt</file>
+    <file>mt-trendy/preview.png</file>
+    <file>mt-trendy/style.css</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>MT - Rusty</name>
+<template>mt-rusty</template>
+<license>N/A (=GPL)</license>
+<summary></summary>
+<description></description>
+<maintainers><maintainer><name>Evan Nemerson</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion></requirements:s9yVersion>
+  <date>29/06/2004</date>
+  <filelist>
+<dir name="mt-rusty">
+<file>preview_fullsize.jpg</file>
+<file>preview.png</file>
+<file>info.txt</file>
+<file>style.css</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>mt-rusty/preview_fullsize.jpg</file>
+    <file>mt-rusty/preview.png</file>
+    <file>mt-rusty/info.txt</file>
+    <file>mt-rusty/style.css</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>MT - Plainjane</name>
+<template>mt-plainjane</template>
+<license>N/A (=GPL)</license>
+<summary></summary>
+<description></description>
+<maintainers><maintainer><name>Evan Nemerson</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion></requirements:s9yVersion>
+  <date>29/06/2004</date>
+  <filelist>
+<dir name="mt-plainjane">
+<file>preview_fullsize.jpg</file>
+<file>preview.png</file>
+<file>info.txt</file>
+<file>style.css</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>mt-plainjane/preview_fullsize.jpg</file>
+    <file>mt-plainjane/preview.png</file>
+    <file>mt-plainjane/info.txt</file>
+    <file>mt-plainjane/style.css</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>MT - GettysBurg</name>
+<template>mt-gettysburg</template>
+<license>N/A (=GPL)</license>
+<summary></summary>
+<description></description>
+<maintainers><maintainer><name>Evan Nemerson</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion></requirements:s9yVersion>
+  <date>29/06/2004</date>
+  <filelist>
+<dir name="mt-gettysburg">
+<file>preview_fullsize.jpg</file>
+<file>preview.png</file>
+<file>info.txt</file>
+<file>style.css</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>mt-gettysburg/preview_fullsize.jpg</file>
+    <file>mt-gettysburg/preview.png</file>
+    <file>mt-gettysburg/info.txt</file>
+    <file>mt-gettysburg/style.css</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>MT - GeorgiaBlue</name>
+<template>mt-georgiablue</template>
+<license>N/A (=GPL)</license>
+<summary></summary>
+<description></description>
+<maintainers><maintainer><name>Evan Nemerson</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion></requirements:s9yVersion>
+  <date>29/06/2004</date>
+  <filelist>
+<dir name="mt-georgiablue">
+<file>preview_fullsize.jpg</file>
+<file>preview.png</file>
+<file>info.txt</file>
+<file>style.css</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>mt-georgiablue/preview_fullsize.jpg</file>
+    <file>mt-georgiablue/preview.png</file>
+    <file>mt-georgiablue/info.txt</file>
+    <file>mt-georgiablue/style.css</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>MT - Clean</name>
+<template>mt-clean</template>
+<license>N/A (=GPL)</license>
+<summary></summary>
+<description></description>
+<maintainers><maintainer><name>Evan Nemerson</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion></requirements:s9yVersion>
+  <date>29/06/2004</date>
+  <filelist>
+<dir name="mt-clean">
+<file>preview_fullsize.jpg</file>
+<file>preview.png</file>
+<file>info.txt</file>
+<file>style.css</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>mt-clean/preview_fullsize.jpg</file>
+    <file>mt-clean/preview.png</file>
+    <file>mt-clean/info.txt</file>
+    <file>mt-clean/style.css</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>MT3 - Squash</name>
+<template>mt3-squash</template>
+<license>N/A (=GPL)</license>
+<summary></summary>
+<description></description>
+<maintainers><maintainer><name>Kaustubh Srikanth</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion></requirements:s9yVersion>
+  <date>31-06-2004</date>
+  <filelist>
+<dir name="mt3-squash">
+<file>preview_fullsize.jpg</file>
+<file>preview.png</file>
+<file>info.txt</file>
+<file>style.css</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>mt3-squash/preview_fullsize.jpg</file>
+    <file>mt3-squash/preview.png</file>
+    <file>mt3-squash/info.txt</file>
+    <file>mt3-squash/style.css</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>MT3 - Independence</name>
+<template>mt3-independence</template>
+<license>N/A (=GPL)</license>
+<summary></summary>
+<description></description>
+<maintainers><maintainer><name>Kaustubh Srikanth &amp; Tom Sommer</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion></requirements:s9yVersion>
+  <date>31-06-2004</date>
+  <filelist>
+<dir name="mt3-independence">
+<file>preview_fullsize.jpg</file>
+<file>preview.png</file>
+<file>info.txt</file>
+<file>style.css</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>mt3-independence/preview_fullsize.jpg</file>
+    <file>mt3-independence/preview.png</file>
+    <file>mt3-independence/info.txt</file>
+    <file>mt3-independence/style.css</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>MT3 - Gettysburg</name>
+<template>mt3-gettysburg</template>
+<license>N/A (=GPL)</license>
+<summary></summary>
+<description></description>
+<maintainers><maintainer><name>Kaustubh Srikanth &amp; Tom Sommer</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion></requirements:s9yVersion>
+  <date>31-06-2004</date>
+  <filelist>
+<dir name="mt3-gettysburg">
+<file>preview_fullsize.jpg</file>
+<file>preview.png</file>
+<file>info.txt</file>
+<file>style.css</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>mt3-gettysburg/preview_fullsize.jpg</file>
+    <file>mt3-gettysburg/preview.png</file>
+    <file>mt3-gettysburg/info.txt</file>
+    <file>mt3-gettysburg/style.css</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>MT3 - Chalkboard</name>
+<template>mt3-chalkboard</template>
+<license>N/A (=GPL)</license>
+<summary></summary>
+<description></description>
+<maintainers><maintainer><name>Kaustubh Srikanth</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion></requirements:s9yVersion>
+  <date>31-06-2004</date>
+  <filelist>
+<dir name="mt3-chalkboard">
+<file>preview_fullsize.jpg</file>
+<file>preview.png</file>
+<file>info.txt</file>
+<file>style.css</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>mt3-chalkboard/preview_fullsize.jpg</file>
+    <file>mt3-chalkboard/preview.png</file>
+    <file>mt3-chalkboard/info.txt</file>
+    <file>mt3-chalkboard/style.css</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>Mozilla Modern Tribute</name>
+<template>moz-modern</template>
+<license>N/A (=GPL)</license>
+<summary></summary>
+<description></description>
+<maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion>0.8</requirements:s9yVersion>
+  <date>2004-03-02</date>
+  <filelist>
+<dir name="moz-modern">
+<file>preview_fullsize.jpg</file>
+<dir name="img">
+<file>background.png</file>
+<file>back.png</file>
+<file>background2.png</file>
+<file>forward.png</file>
+</dir>
+<file>htmlarea.css</file>
+<file>index.tpl</file>
+<file>info.txt</file>
+<file>preview.png</file>
+<file>style.css</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>moz-modern/preview_fullsize.jpg</file>
+    <file>moz-modern/img/background.png</file>
+    <file>moz-modern/img/back.png</file>
+    <file>moz-modern/img/background2.png</file>
+    <file>moz-modern/img/forward.png</file>
+    <file>moz-modern/htmlarea.css</file>
+    <file>moz-modern/index.tpl</file>
+    <file>moz-modern/info.txt</file>
+    <file>moz-modern/preview.png</file>
+    <file>moz-modern/style.css</file>
   </serendipityFilelist>
 </release>
 </package>

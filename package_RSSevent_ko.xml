@@ -23,7 +23,7 @@
 <category>Event Plugins</category>
 <author>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers</author>
 <content:encoded>&lt;b&gt;serendipity_event_staticpage&lt;br /&gt;고정 페이지&lt;/b&gt;&lt;br /&gt;블로그의 디자인을 그대로 따르는 고정 페이지를 블로그 속에 보여줍니다. 관리 메뉴에 새 메뉴 아이템을 생성합니다.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Sun, 01 Feb 2015 02:31:09 +0100</pubDate>
+<pubDate>Fri, 13 Mar 2015 02:31:31 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_staticpage</guid>
 </item>
 <item>
@@ -50,7 +50,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_gravatar&lt;br /&gt;Avatar Plugin&lt;/b&gt;&lt;br /&gt;Show avatars inside comments. Gravatars, Pavatars, Favatars, Twitter, Identica and MyBlogLog avatars are supported.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 09 Mar 2015 02:31:15 +0100</pubDate>
+<pubDate>Fri, 13 Mar 2015 02:31:25 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_gravatar</guid>
 </item>
 <item>
@@ -626,7 +626,7 @@
 <category>Event Plugins</category>
 <author>Matthew Maude (modified by Jim Davies)</author>
 <content:encoded>&lt;b&gt;serendipity_event_cpgselector&lt;br /&gt;Coppermine Selector&lt;/b&gt;&lt;br /&gt;Select images from a Coppermine gallery in new entries&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:13 +0100</pubDate>
+<pubDate>Fri, 13 Mar 2015 02:31:19 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_cpgselector</guid>
 </item>
 <item>
@@ -824,7 +824,7 @@
 <category>Event Plugins</category>
 <author>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</author>
 <content:encoded>&lt;b&gt;serendipity_event_forum&lt;br /&gt;Discussion forum / phpBB comment mirroring&lt;/b&gt;&lt;br /&gt;Provides a complete discussion forum to your users. Can alternatively provide to mirror comments into a phpBB installation.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:15 +0100</pubDate>
+<pubDate>Fri, 13 Mar 2015 02:31:24 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_forum</guid>
 </item>
 <item>
@@ -1058,7 +1058,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Matthias Mees</author>
 <content:encoded>&lt;b&gt;serendipity_event_adminnotes&lt;br /&gt;QuickNotes&lt;/b&gt;&lt;br /&gt;Displays information for authors on the administration panel&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Mon, 09 Feb 2015 02:30:55 +0100</pubDate>
+<pubDate>Fri, 13 Mar 2015 02:31:17 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_adminnotes</guid>
 </item>
 <item>
@@ -1085,7 +1085,7 @@
 <category>Event Plugins</category>
 <author>Judebert (&lt;a href=&quot;http://judebert.com/&quot;&gt;http://judebert.com/&lt;/a&gt;)</author>
 <content:encoded>&lt;b&gt;serendipity_event_advtypes&lt;br /&gt;Advanced configuration types&lt;/b&gt;&lt;br /&gt;Provides advanced plugin and theme configuration options for Serendipity versions before 1.2.2 (currently supporting 'sequence' widget)&lt;br/&gt;For: Serendipity 1.1</content:encoded>
-<pubDate>Sun, 25 Dec 2011 04:30:21 +0100</pubDate>
+<pubDate>Fri, 13 Mar 2015 02:31:18 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_advtypes</guid>
 </item>
 <item>
@@ -1213,7 +1213,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>Garvin Hicking, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_linktrimmer&lt;br /&gt;Linktrimmer&lt;/b&gt;&lt;br /&gt;Allows you to truncate any link for redirection on your own blog, like tr.im, tinyurl.com etc.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Mon, 09 Feb 2015 02:31:05 +0100</pubDate>
+<pubDate>Fri, 13 Mar 2015 02:31:27 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_linktrimmer</guid>
 </item>
 <item>
@@ -1231,7 +1231,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>Ian (Timbalu)</author>
 <content:encoded>&lt;b&gt;serendipity_event_cal&lt;br /&gt;Event-Calendar (MySQL-only)&lt;/b&gt;&lt;br /&gt;Shows an event calendar inside your blogs with your normal blog design. It supports backend/frontend administration, multiple events and iCal export.&lt;br/&gt;For: Serendipity 1.4</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:12 +0100</pubDate>
+<pubDate>Fri, 13 Mar 2015 02:31:19 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_cal</guid>
 </item>
 <item>

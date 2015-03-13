@@ -277,8 +277,8 @@ EOS;
 
     /**
      * fetch the zip file from server
-     * @param   string version
-     * @return  mixed  updatepath/bool
+     * @param string $version Version
+     * @return mixed updatepath/bool
      */
     function fetchUpdate($version) {
         global $serendipity;
@@ -292,12 +292,12 @@ EOS;
         if (! $done) {
             //try it again with curl if copy was forbidden
             if (function_exists('curl_init')) {
-                $out = @fopen($file, 'wb');
+                $out = @fopen($update, 'wb');
                 $ch = @curl_init();
 
                 @curl_setopt($ch, CURLOPT_FILE, $out);
                 @curl_setopt($ch, CURLOPT_HEADER, 0);
-                @curl_setopt($ch, CURLOPT_URL, $update);
+                @curl_setopt($ch, CURLOPT_URL, $url);
                             
                 $success = @curl_exec($ch);
                 if ( !$success ) {

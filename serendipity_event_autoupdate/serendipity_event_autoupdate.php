@@ -22,7 +22,7 @@ class serendipity_event_autoupdate extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_AUTOUPDATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Ian');
-        $propbag->add('version',       '1.1.2');
+        $propbag->add('version',       '1.1.3');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '5.1'
@@ -277,8 +277,8 @@ EOS;
 
     /**
      * fetch the zip file from server
-     * @param   string version
-     * @return  mixed  updatepath/bool
+     * @param string $version Version
+     * @return mixed updatepath/bool
      */
     function fetchUpdate($version) {
         global $serendipity;
@@ -292,12 +292,12 @@ EOS;
         if (! $done) {
             //try it again with curl if copy was forbidden
             if (function_exists('curl_init')) {
-                $out = @fopen($file, 'wb');
+                $out = @fopen($update, 'wb');
                 $ch = @curl_init();
 
                 @curl_setopt($ch, CURLOPT_FILE, $out);
                 @curl_setopt($ch, CURLOPT_HEADER, 0);
-                @curl_setopt($ch, CURLOPT_URL, $update);
+                @curl_setopt($ch, CURLOPT_URL, $url);
                             
                 $success = @curl_exec($ch);
                 if ( !$success ) {

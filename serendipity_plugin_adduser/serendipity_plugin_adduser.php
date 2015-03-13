@@ -12,7 +12,7 @@ class serendipity_plugin_adduser extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_ADDUSER_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '2.34.1');
+        $propbag->add('version',       '2.38');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -24,12 +24,23 @@ class serendipity_plugin_adduser extends serendipity_plugin {
             'instructions',
             'userlevel',
             'usergroups',
-            'no_create',
-            'right_publish',
             'sidebar_login',
             'straight_insert',
             'approve',
-            'use_captcha')
+            'use_captcha',
+
+            # Default settings.
+            'default_label',
+            'no_create',
+            'right_publish',
+            'wysiwyg',
+            'simpleFilters',
+            'enableBackendPopup',
+            'moderateCommentsDefault',
+            'allowCommentsDefault',
+            'showMediaToolbar',
+            'use_autosave'
+            )
         );
         $this->dependencies = array('serendipity_event_adduser' => 'keep');
     }
@@ -110,6 +121,61 @@ class serendipity_plugin_adduser extends serendipity_plugin {
                 $propbag->add('name',        PLUGIN_ADDUSER_CAPTCHA);
                 $propbag->add('description', PLUGIN_ADDUSER_CAPTCHA_DESC);
                 $propbag->add('default',     false);
+                break;
+
+
+            case 'default_label':
+                $propbag->add('type',        'content');
+                $propbag->add('default',     PLUGIN_ADDUSER_DEFAULTSETTINGS);
+                break;
+
+            case 'wysiwyg':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        INSTALL_WYSIWYG);
+                $propbag->add('description', INSTALL_WYSIWYG_DESC);
+                $propbag->add('default',     false);
+                break;
+
+            case 'simpleFilters':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        SIMPLE_FILTERS);
+                $propbag->add('description', SIMPLE_FILTERS_DESC);
+                $propbag->add('default',     true);
+                break;
+
+            case 'enableBackendPopup':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        INSTALL_BACKENDPOPUP);
+                $propbag->add('description', INSTALL_BACKENDPOPUP_DESC);
+                $propbag->add('default',     false);
+                break;
+
+            case 'moderateCommentsDefault':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        COMMENTS_MODERATE);
+                $propbag->add('description', '');
+                $propbag->add('default',     false);
+                break;
+
+            case 'allowCommentsDefault':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        COMMENTS_ENABLE);
+                $propbag->add('description', '');
+                $propbag->add('default',     true);
+                break;
+
+            case 'showMediaToolbar':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        SHOW_MEDIA_TOOLBAR);
+                $propbag->add('description', '');
+                $propbag->add('default',     false);
+                break;
+
+            case 'use_autosave':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        CONF_USE_AUTOSAVE);
+                $propbag->add('description', CONF_USE_AUTOSAVE_DESC);
+                $propbag->add('default',     true);
                 break;
 
             default:

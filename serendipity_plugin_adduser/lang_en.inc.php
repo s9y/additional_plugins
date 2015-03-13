@@ -56,3 +56,5 @@
 
 @define('PLUGIN_ADDUSER_REGISTERED_ONLY_GROUP', 'Additionally: Only registered users in these authorgroups may post comments?');
 @define('PLUGIN_ADDUSER_REGISTERED_ONLY_GROUP_DESC', 'You also need to enable the option "Only registered users may post comments" to use this. If enabled, only registered users of specific authorgroups may post comments to your entries and need to be logged in to do so.');
+
+@define('PLUGIN_ADDUSER_DEFAULTSETTINGS', 'Here you can specify settings that will be applied to created users.');

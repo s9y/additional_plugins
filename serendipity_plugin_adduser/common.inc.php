@@ -14,7 +14,7 @@ if (file_exists($probelang)) {
 include dirname(__FILE__) . '/lang_en.inc.php';
 
 class serendipity_common_adduser {
-    function sendMail(&$username, &$hash, &$email, $approve_only = false, $admin_cc = true) {
+    static function sendMail(&$username, &$hash, &$email, $approve_only = false, $admin_cc = true) {
         global $serendipity;
 
         if ($approve_only) {
@@ -54,7 +54,7 @@ class serendipity_common_adduser {
         return $mail;
     }
 
-    function checkuser($usergroups = array()) {
+    static function checkuser($usergroups = array()) {
         global $serendipity;
         static $debug = false;
 
@@ -108,6 +108,28 @@ class serendipity_common_adduser {
                     serendipity_set_config_var('no_create', $author['no_create'], $newID);
                     serendipity_set_config_var('lang', $serendipity['lang'], $newID);
 
+                    // Fetch default properties for new authors as configured.
+                    // Only set values for the keys that are supported (all booleans currently!)
+                    $config = serendipity_db_query("SELECT name, value FROM {$serendipity['dbPrefix']}config WHERE name LIKE 'serendipity_plugin_adduser:%'");
+                    $pair_config = array(
+                        'wysiwyg' => '',
+                        'simpleFilters' => '',
+                        'enableBackendPopup' => '',
+                        'moderateCommentsDefault' => '',
+                        'allowCommentsDefault' => '',
+                        'showMediaToolbar' => '',
+                        'use_autosave' => ''
+                    );
+                    if (is_array($config)) {
+                        foreach($config AS $conf) {
+                            $names = explode('/', $conf['name']);
+                            if (isset($pair_config[$names[1]])) {
+                                $pair_config[$names[1]] = serendipity_get_bool($conf['value']);
+                                serendipity_set_config_var($names[1], $pair_config['wysiwyg'], $newID);
+                            }
+                        }
+                    }
+
                     if (is_array($usergroups) && function_exists('serendipity_updateGroups')) {
                         if ($debug) echo "[debug] update groups: " . print_r($usergroups, true) . "<br />\n";
                         serendipity_updateGroups($usergroups, $newID, false);
@@ -143,7 +165,7 @@ class serendipity_common_adduser {
         return false;
     }
 
-    function addAuthor($username, $password, $email, $userlevel, $right_publish, $no_create) {
+    static function addAuthor($username, $password, $email, $userlevel, $right_publish, $no_create) {
         global $serendipity;
 
         if (!is_array(serendipity_db_query("SELECT username FROM {$serendipity['dbPrefix']}pending_authors LIMIT 1", true, 'both', false, false, false, true))) {
@@ -178,7 +200,7 @@ class serendipity_common_adduser {
         return $hash;
     }
 
-    function adduser(&$username, &$password, &$email, $userlevel, $usergroups = array(), $no_create = false, $right_publish = true, $straight_insert = false, $approve = false, $use_captcha = false) {
+    static function adduser(&$username, &$password, &$email, $userlevel, $usergroups = array(), $no_create = false, $right_publish = true, $straight_insert = false, $approve = false, $use_captcha = false) {
         global $serendipity;
 
         if (serendipity_common_adduser::checkuser($usergroups)) {
@@ -246,7 +268,7 @@ class serendipity_common_adduser {
         return false;
     }
 
-    function loginform($url, $hidden = array(), $instructions = '', $username = '', $password = '', $email = '', $use_captcha = false) {
+    static function loginform($url, $hidden = array(), $instructions = '', $username = '', $password = '', $email = '', $use_captcha = false) {
         global $serendipity;
 
         if (!is_object($serendpity['smarty'])) {

@@ -38,3 +38,5 @@
         @define('PLUGIN_ADDUSER_SENTMAIL_APPROVE_ADMIN', 'Der Account wurde akzeptiert, der entsprechende Redakteur wird nun seine E-Mail mit Zugangsdaten erhalten.');
         @define('PLUGIN_ADDUSER_MAIL_SUBJECT_APPROVE', '[Bewilligung notwendig] Ein neuer Autor hat sich registriert');
         @define('PLUGIN_ADDUSER_MAIL_BODY_APPROVE', "Für den Autoren %s wurde für das Blog %s ein Account eingerichtet. Um dem Redakteur den Login zu erlauben, bitte auf diesen Link klicken:\n\n%s\n\nErst nach diesem Vorgang wird der Redakteur seine Zugangsdaten per E-Mail erhalten.");
+
+        @define('PLUGIN_ADDUSER_DEFAULTSETTINGS', 'Hier können Standard-Einstellungen für den neuen Autoren festgelegt werden.');

@@ -348,7 +348,7 @@ class serendipity_event_userprofiles extends serendipity_event {
     function showCol($property, &$info, &$user) {
         echo "<tr>\n";
         echo '  <td>' . $info['desc'] . "</td>\n";
-        echo '  <td>'."\n";
+        echo "  <td>\n";
         switch($info['type']) {
             case 'html':
                 echo '<textarea cols="80" rows="10" name="serendipity[profile' . $property . ']">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($user[$property]) : htmlspecialchars($user[$property], ENT_COMPAT, LANG_CHARSET)) . "</textarea>\n";

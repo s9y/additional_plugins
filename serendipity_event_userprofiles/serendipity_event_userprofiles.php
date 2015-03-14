@@ -87,16 +87,17 @@ class serendipity_event_userprofiles extends serendipity_event {
         $propbag->add('description', PLUGIN_EVENT_USERPROFILES_DESC);
         $propbag->add('event_hooks', array(
             'backend_sidebar_entries_event_display_profiles'  => true,
-            'backend_sidebar_admin' => true,
-            'frontend_display' => true,
-            'entries_header' => true,
-            'css' => true,
-            'frontend_display_cache' => true,
-            'entry_display' => true, 
-            'genpage' => true
+            'backend_sidebar_admin'                           => true,
+            'frontend_display'                                => true,
+            'entries_header'                                  => true,
+            'css'                                             => true,
+            'css_backend'                                     => true,
+            'frontend_display_cache'                          => true,
+            'entry_display'                                   => true,
+            'genpage'                                         => true
         ));
         $propbag->add('author', 'Garvin Hicking, Falk Doering');
-        $propbag->add('version', '0.28.1');
+        $propbag->add('version', '0.29');
         $propbag->add('requirements', array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -219,27 +220,27 @@ class serendipity_event_userprofiles extends serendipity_event {
             }
         }
 
-        echo '<form action="?" method="post">';
-        echo '<input type="hidden" name="serendipity[adminModule]" value="event_display" />';
-        echo '<input type="hidden" name="serendipity[adminAction]" value="profiles" />';
-        echo '<div>';
-        echo '<strong>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars(PLUGIN_EVENT_USERPROFILES_SELECT) : htmlspecialchars(PLUGIN_EVENT_USERPROFILES_SELECT, ENT_COMPAT, LANG_CHARSET)) . '</strong><br /><br />';
-        echo USER . ' <select name="serendipity[profileUser]">';
+        echo '<form action="?" method="post" class="userprofileform">'."\n";
+        echo '<input type="hidden" name="serendipity[adminModule]" value="event_display" />'."\n";
+        echo '<input type="hidden" name="serendipity[adminAction]" value="profiles" />'."\n";
+        echo "<div>\n";
+        echo '<strong>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars(PLUGIN_EVENT_USERPROFILES_SELECT) : htmlspecialchars(PLUGIN_EVENT_USERPROFILES_SELECT, ENT_COMPAT, LANG_CHARSET)) . '</strong><br /><br />'."\n";;
+        echo USER . ' <select name="serendipity[profileUser]">'."\n";;
         $users = serendipity_fetchUsers();
         foreach($users as $user) {
-                echo '<option value="' . $user['authorid'] . '" ' . (((empty($serendipity['POST']['profileUser']) && ($serendipity['authorid'] == $user['authorid'])) || ($serendipity['POST']['profileUser'] == $user['authorid'])) ? 'selected="selected"' : '') . '>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($user['realname']) : htmlspecialchars($user['realname'], ENT_COMPAT, LANG_CHARSET)) . '</option>';
+                echo '<option value="' . $user['authorid'] . '" ' . (((empty($serendipity['POST']['profileUser']) && ($serendipity['authorid'] == $user['authorid'])) || ($serendipity['POST']['profileUser'] == $user['authorid'])) ? 'selected="selected"' : '') . '>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($user['realname']) : htmlspecialchars($user['realname'], ENT_COMPAT, LANG_CHARSET)) . '</option>'."\n";;
         }
-        echo '</select>';
-        echo ' <input class="serendipityPrettyButton input_button" type="submit" name="serendipity[viewUser]" value="'. VIEW .'" />';
+        echo '</select>'."\n";;
+        echo ' <input class="serendipityPrettyButton input_button" type="submit" name="serendipity[viewUser]" value="'. VIEW .'" />'."\n";;
         if ($this->checkUser($user)) {
-            echo ' <input class="serendipityPrettyButton input_button" type="submit" name="submit" value="' . EDIT . '" />';
-            echo ' <input class="serendipityPrettyButton input_button" type="submit" name="serendipity[editOptions]" value="'. ADVANCED_OPTIONS .'" />';
+            echo ' <input class="serendipityPrettyButton input_button" type="submit" name="submit" value="' . EDIT . '" />'."\n";;
+            echo ' <input class="serendipityPrettyButton input_button" type="submit" name="serendipity[editOptions]" value="'. ADVANCED_OPTIONS .'" />'."\n";;
             ## very very bad the next line (show only when edit the local_properties)
             if (!empty($serendipity['POST']['profileUser']) && empty($serendipity['POST']['editOptions']) && empty($serendipity['POST']['viewUser'])) {
-                echo ' <input class="serendipityPrettyButton input_button" type="submit" name="serendipity[createVcard]" value="' . PLUGIN_EVENT_USERPROFILES_VCARD . '" />';
+                echo ' <input class="serendipityPrettyButton input_button" type="submit" name="serendipity[createVcard]" value="' . PLUGIN_EVENT_USERPROFILES_VCARD . '" />'."\n";;
             }
         }
-        echo '</div><br /><hr />';
+        echo "</div><br />\n<hr />\n";
 
         if (!empty($serendipity['POST']['profileUser'])) {
             $user = serendipity_fetchUsers($serendipity['POST']['profileUser']);
@@ -258,7 +259,7 @@ class serendipity_event_userprofiles extends serendipity_event {
             $user = serendipity_fetchUsers($serendipity['authorid']);
             $this->editUser($user[0]);
         }
-
+        echo "</form>\n\n";
     }
 
     function show() {
@@ -336,18 +337,18 @@ class serendipity_event_userprofiles extends serendipity_event {
     function showUser(&$user) {
         global $serendipity;
 
-        echo '<table border="0" cellspacing="0" cellpadding="3" width="100%">';
+        echo '<table border="0" cellspacing="0" cellpadding="3" width="100%">'."\n";
         $local_properties =& $this->getLocalProperties();
         foreach($local_properties as $property => $info) {
-            echo '<tr><td>'.$info['desc'].'</td><td>'.$user[$property].'</td></tr>';
+            echo '<tr><td>'.$info['desc'].'</td><td>'.$user[$property].'</td></tr>'."\n";
         }
-        echo '</table>';
+        echo '</table>'."\n";
     }
 
     function showCol($property, &$info, &$user) {
-        echo '<tr>';
-        echo '  <td>' . $info['desc'] . '</td>';
-        echo '  <td>';
+        echo '<tr>'."\n";
+        echo '  <td>' . $info['desc'] . '</td>'."\n";
+        echo '  <td>'."\n";
         switch($info['type']) {
             case 'html':
                 echo '<textarea cols="80" rows="10" name="serendipity[profile' . $property . ']">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($user[$property]) : htmlspecialchars($user[$property], ENT_COMPAT, LANG_CHARSET)) . "</textarea>\n";
@@ -370,10 +371,10 @@ class serendipity_event_userprofiles extends serendipity_event {
 
             case 'string':
             default:
-                echo '<input class="input_textbox" type="text" name="serendipity[profile' . $property . ']" value="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($user[$property]) : htmlspecialchars($user[$property], ENT_COMPAT, LANG_CHARSET)) . '" />';
+                echo '<input class="input_textbox" type="text" name="serendipity[profile' . $property . ']" value="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($user[$property]) : htmlspecialchars($user[$property], ENT_COMPAT, LANG_CHARSET)) . '" />'."\n";
         }
-        echo '  </td>';
-        echo '</tr>';
+        echo '  </td>'."\n";
+        echo '</tr>'."\n";
     }
 
     /**
@@ -396,7 +397,7 @@ class serendipity_event_userprofiles extends serendipity_event {
             unset($serendipity['POST']['profilebirthday_month'], $serendipity['POST']['profilebirthday_day'], $serendipity['POST']['profilebirthday_year']);
         }
 
-        echo '<table border="0" cellspacing="0" cellpadding="3" width="100%">';
+        echo '<table border="0" cellspacing="0" cellpadding="3" width="100%">'."\n";
         $local_properties =& $this->getLocalProperties();
 
         foreach($local_properties as $property => $info) {
@@ -422,8 +423,8 @@ class serendipity_event_userprofiles extends serendipity_event {
             $this->showCol($property, $info, $user);
         }
 
-        echo '</table>';
-        echo '<input class="serendipityPrettyButton input_button" type="submit" name="serendipity[submitProfile]" value="' . SAVE . '" />';
+        echo '</table>'."\n";
+        echo '<input class="serendipityPrettyButton input_button" type="submit" name="serendipity[submitProfile]" value="' . SAVE . '" />'."\n\n";
 
     }
 
@@ -445,7 +446,7 @@ class serendipity_event_userprofiles extends serendipity_event {
             $this->showCol($property, $info, $user);
         }
         echo '</table>';
-        echo '<input class="serendipityPrettyButton input_button" type="submit" name="serendipity[submitProfileOptions]" value="' . SAVE . '" />';
+        echo '<input class="serendipityPrettyButton input_button" type="submit" name="serendipity[submitProfileOptions]" value="' . SAVE . '" />'."\n\n";
 
     }
 
@@ -520,6 +521,19 @@ class serendipity_event_userprofiles extends serendipity_event {
 <?php
                     return true;
                     break;
+
+
+                case 'css_backend': // do use in 2.0# versions
+                    if ($serendipity['version'][0] > 1 ) {
+?>
+
+/* userprotiles plugin ------------- */
+.userprofileform { margin-top: 1.5em; }
+
+<?php
+                    }
+                    break;
+
 
                 case 'entries_header':
                     if (!empty($serendipity['GET']['viewAuthor'])) {

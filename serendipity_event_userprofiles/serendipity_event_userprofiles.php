@@ -342,12 +342,12 @@ class serendipity_event_userprofiles extends serendipity_event {
         foreach($local_properties as $property => $info) {
             echo '<tr><td>'.$info['desc'].'</td><td>'.$user[$property].'</td></tr>'."\n";
         }
-        echo '</table>'."\n";
+        echo "</table>\n";
     }
 
     function showCol($property, &$info, &$user) {
-        echo '<tr>'."\n";
-        echo '  <td>' . $info['desc'] . '</td>'."\n";
+        echo "<tr>\n";
+        echo '  <td>' . $info['desc'] . "</td>\n";
         echo '  <td>'."\n";
         switch($info['type']) {
             case 'html':
@@ -373,8 +373,8 @@ class serendipity_event_userprofiles extends serendipity_event {
             default:
                 echo '<input class="input_textbox" type="text" name="serendipity[profile' . $property . ']" value="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($user[$property]) : htmlspecialchars($user[$property], ENT_COMPAT, LANG_CHARSET)) . '" />'."\n";
         }
-        echo '  </td>'."\n";
-        echo '</tr>'."\n";
+        echo "  </td>\n";
+        echo "</tr>\n";
     }
 
     /**
@@ -423,7 +423,7 @@ class serendipity_event_userprofiles extends serendipity_event {
             $this->showCol($property, $info, $user);
         }
 
-        echo '</table>'."\n";
+        echo "</table>\n";
         echo '<input class="serendipityPrettyButton input_button" type="submit" name="serendipity[submitProfile]" value="' . SAVE . '" />'."\n\n";
 
     }
@@ -431,7 +431,7 @@ class serendipity_event_userprofiles extends serendipity_event {
     function editOptions(&$user) {
         global $serendipity;
 
-        echo '<table border="0" cellspacing="0" cellpadding="3" width="100%">';
+        echo '<table border="0" cellspacing="0" cellpadding="3" width="100%">'."\n";
         $profile =& $this->getConfigVars($user['authorid']);
 
         foreach($this->option_properties as $property => $info) {
@@ -445,7 +445,7 @@ class serendipity_event_userprofiles extends serendipity_event {
 
             $this->showCol($property, $info, $user);
         }
-        echo '</table>';
+        echo "</table>\n";
         echo '<input class="serendipityPrettyButton input_button" type="submit" name="serendipity[submitProfileOptions]" value="' . SAVE . '" />'."\n\n";
 
     }
@@ -523,11 +523,11 @@ class serendipity_event_userprofiles extends serendipity_event {
                     break;
 
 
-                case 'css_backend': // do use in 2.0# versions
+                case 'css_backend': // do use in 2.0+ versions
                     if ($serendipity['version'][0] > 1 ) {
 ?>
 
-/* userprotiles plugin ------------- */
+/* userprofiles plugin ------------- */
 .userprofileform { margin-top: 1.5em; }
 
 <?php
@@ -773,7 +773,7 @@ class serendipity_event_userprofiles extends serendipity_event {
                WHERE name = \''.serendipity_makeFilename($serendipity['POST']['profilerealname']).'\'
                  AND extension = \'vcf\'';
         $res = serendipity_db_query($q, true, 'assoc');
-        if(!is_array($res)) {
+        if (!is_array($res)) {
             serendipity_insertImageInDatabase(basename($card),'');
         }
 

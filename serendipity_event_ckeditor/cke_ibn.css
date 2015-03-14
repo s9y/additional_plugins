@@ -6,7 +6,7 @@
 #cke_1_top .cke_toolgroup a.cke_button__image,
 #cke_2_top .cke_toolgroup a.cke_button__image {
     display: inline-block !important;
-    visibility: initial;
+    visibility: visible;
     height: 18px !important;
     padding: 4px 6px !important;
     border-radius: 2px 0px 0px 2px !important;

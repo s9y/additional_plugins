@@ -203,7 +203,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_adduser&lt;br /&gt;Auto-enregistrement des utilisateurs&lt;/b&gt;&lt;br /&gt;Permettre aux visiteurs du blog de créer leur propre compte utilisateur. En conjonction avec le plugin d'évènement (index.php?serendipity[subpage]=adduser), vous pouvez décider de n'autoriser que les utilisateurs enregistrés à poster des commentaires.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:29 +0100</pubDate>
+<pubDate>Sat, 14 Mar 2015 02:31:36 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_adduser</guid>
 </item>
 <item>
@@ -666,12 +666,12 @@
 <guid isPermaLink="false">serendipity_event_tinymce</guid>
 </item>
 <item>
-<title>Options for trustworthy editing on multi-user blogs: This plugin can specify, which authors on a multi-user blog you have enough trust in and do not expect hacking attempts. All other users are treated as possibly evil and cannot create HTML entries.</title>
+<title>Options for trustworthy editing on multi-user blogs / HTMLPurifier: This plugin can specify, which authors on a multi-user blog you have enough trust in and do not expect hacking attempts. All other users are treated as possibly evil and cannot create HTML entries.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_xsstrust</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_xsstrust&lt;br /&gt;Options for trustworthy editing on multi-user blogs&lt;/b&gt;&lt;br /&gt;This plugin can specify, which authors on a multi-user blog you have enough trust in and do not expect hacking attempts. All other users are treated as possibly evil and cannot create HTML entries.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_xsstrust&lt;br /&gt;Options for trustworthy editing on multi-user blogs / HTMLPurifier&lt;/b&gt;&lt;br /&gt;This plugin can specify, which authors on a multi-user blog you have enough trust in and do not expect hacking attempts. All other users are treated as possibly evil and cannot create HTML entries.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 14 Mar 2015 02:31:36 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_xsstrust</guid>
 </item>
 <item>
@@ -1321,7 +1321,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>onli, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_autoupdate&lt;br /&gt;Serendipity Autoupdate&lt;/b&gt;&lt;br /&gt;When the dashboard-plugin (once a day) detects an update, this plugin adds the option to manually download or start an automatic and secured upgrade of the blog directly with one click from within the adminarea.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 24 Dec 2014 02:31:25 +0100</pubDate>
+<pubDate>Sat, 14 Mar 2015 02:31:20 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_autoupdate</guid>
 </item>
 <item>

@@ -203,7 +203,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_adduser&lt;br /&gt;Registrierung neuer User&lt;/b&gt;&lt;br /&gt;Ermöglicht es Blog-Besuchern sich einen eigenen Autoren-Account anzulegen. Zusammen mit dem Event-Plugin (index.php?serendipity[subpage]=adduser) kann eingestellt werden ob nur registrierte Benutzer Kommentare posten dürfen.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:29 +0100</pubDate>
+<pubDate>Sat, 14 Mar 2015 02:31:36 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_adduser</guid>
 </item>
 <item>
@@ -666,12 +666,12 @@
 <guid isPermaLink="false">serendipity_event_tinymce</guid>
 </item>
 <item>
-<title>Einstellungen für vertrauenswürdige Mehrbenutzer-Blogs: Dieses Plugin gibt an, welchen Autoren eines Mehrbenutzer-Blogs Sie genug trauen und von denen Sie keine Hackangriffe erwarten. Alle anderen Autoren dürfen kein HTML mehr verwenden!</title>
+<title>Einstellungen für vertrauenswürdige Mehrbenutzer-Blogs / HTMLPurifier: Dieses Plugin gibt an, welchen Autoren eines Mehrbenutzer-Blogs Sie genug trauen und von denen Sie keine Hackangriffe erwarten. Alle anderen Autoren dürfen kein HTML mehr verwenden!</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_xsstrust</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_xsstrust&lt;br /&gt;Einstellungen für vertrauenswürdige Mehrbenutzer-Blogs&lt;/b&gt;&lt;br /&gt;Dieses Plugin gibt an, welchen Autoren eines Mehrbenutzer-Blogs Sie genug trauen und von denen Sie keine Hackangriffe erwarten. Alle anderen Autoren dürfen kein HTML mehr verwenden!&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_xsstrust&lt;br /&gt;Einstellungen für vertrauenswürdige Mehrbenutzer-Blogs / HTMLPurifier&lt;/b&gt;&lt;br /&gt;Dieses Plugin gibt an, welchen Autoren eines Mehrbenutzer-Blogs Sie genug trauen und von denen Sie keine Hackangriffe erwarten. Alle anderen Autoren dürfen kein HTML mehr verwenden!&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 14 Mar 2015 02:31:36 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_xsstrust</guid>
 </item>
 <item>
@@ -1321,7 +1321,7 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <category>Event Plugins</category>
 <author>onli, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_autoupdate&lt;br /&gt;Serendipity Autoupdate&lt;/b&gt;&lt;br /&gt;Sobald das Dashboard Plugin (einmal am Tag) ein Serendipity Update entdeckt, setzt dieses Plugin eine Ein-Klick Option in das Dashboard des Backends, um ein manuelles Download oder ein automatisches und gesichertes Upgrade der Blogsoftware zu starten.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 24 Dec 2014 02:31:25 +0100</pubDate>
+<pubDate>Sat, 14 Mar 2015 02:31:20 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_autoupdate</guid>
 </item>
 <item>

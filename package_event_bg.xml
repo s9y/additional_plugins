@@ -4683,9 +4683,9 @@
 <description>Показва профил на автора с възможност за вграждане на негова снимка.</description>
 <maintainers><maintainer><name>Garvin Hicking, Falk Doering</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.28.1</version>
+  <version>0.29</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2015-03-15</date>
   <filelist>
 <dir name="serendipity_event_userprofiles">
 <file>plugin_groupmembers.tpl</file>

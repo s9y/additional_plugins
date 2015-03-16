@@ -50,7 +50,7 @@ class serendipity_event_dbclean extends serendipity_event {
             case 'cronjob':
                 if (class_exists('serendipity_event_cronjob')) {
                     $propbag->add('type',        'select');
-                    $propbag->add('name',        PLUGIN_EVENT_CRONJOB_CHOOSE);
+                    $propbag->add('name',        PLUGIN_EVENT_DBCLEAN_CRONJOB);
                     $propbag->add('description', '');
                     $propbag->add('default',     'daily');
                     $propbag->add('select_values', serendipity_event_cronjob::getValues());

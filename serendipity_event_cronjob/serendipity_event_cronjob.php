@@ -44,6 +44,7 @@ class serendipity_event_cronjob extends serendipity_event {
         // Add future timespans here
         static $timespan = array(
             'off'       => 0,
+            'always'    => 1,
             '5min'      => 300,
             '30min'     => 1800,
             '1h'        => 3600,

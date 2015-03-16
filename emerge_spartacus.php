@@ -114,6 +114,15 @@ class emerge_spartacus {
         $x[] = '<!--  -->' . "\n";
         $x[] = '<packages>';
 
+        $_blacklist = explode("\n", file_get_contents($dir . '/blacklist.txt'));
+        $blacklist = array();
+        foreach($_blacklist AS $idx => $blackline) {
+            $blackline = trim($blackline);
+            if (empty($blackline)) continue;
+            if ($blackline[0] == '#') continue;
+            $blacklist[$blackline] = true;
+        }
+
         $t = array();
         $nametofile = array();
         foreach($ret AS $idx => $path) {
@@ -145,7 +154,12 @@ class emerge_spartacus {
             if (!empty($info['require serendipity'])) {
                 $td .= '<div class="template_requirements">Serendipity &gt;= ' . $this->encode($info['require serendipity']) . '</div>';
             }
-            $td .= '<div class="template_description"><span class="template_download"><a href="cvs/additional_themes/' . $path['name'] . '.zip"><img alt="Download" src="cvs/additional_themes/' . $path['name'] . '/preview.png" /></a></div>' . $this->encode($info['description']) . '</div>';
+
+            if (!isset($blacklist[$path['name']])) {
+                $td .= '<a style="font-weight: bold; margin: 0px auto" href="http://blog.s9y.org/index.php?user_template=additional_themes/' . $path['name'] . '">See demo on blog.s9y.org</a>' . "\n";
+            }
+
+            $td .= '<div class="template_description"><span class="template_download"><a href="cvs/additional_themes/' . $path['name'] . '.zip"><img alt="Download" src="cvs/additional_themes/' . $path['name'] . '/preview_fullsize.jpg" width="100%" /></a></div>' . $this->encode($info['description']) . '</div>';
 
             $x[] = '<package version="1.0">';
             $x[] = '<name>' . $this->encode($info['name'], true) . '</name>';

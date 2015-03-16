@@ -1,3 +1,7 @@
+0.2.8:
+    Add cronjob support through cronjob plugin
+    Add support to empty cronjoblog db table
+    
 0.2.6:
     Proper nav markup for 2.0 backend (yellowled)
 

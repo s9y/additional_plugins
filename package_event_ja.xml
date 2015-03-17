@@ -8285,9 +8285,9 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <description>This plugin periodically executes plugins that provide/require periodic tasks. See the configuration of this plugin for details.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.9.1</version>
+  <version>0.9.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2015-03-17</date>
   <filelist>
 <dir name="serendipity_event_cronjob">
 <file>serendipity_event_cronjob.php</file>
@@ -10710,9 +10710,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>Cleanup database</description>
 <maintainers><maintainer><name>Malte Paskuda, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.2.7</version>
+  <version>0.2.8</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-03-08</date>
+  <date>2015-03-17</date>
   <filelist>
 <dir name="serendipity_event_dbclean">
 <dir name="UTF-8">

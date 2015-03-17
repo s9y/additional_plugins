@@ -24,7 +24,7 @@ class serendipity_event_dbclean extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_DBCLEAN_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda, Matthias Mees');
-        $propbag->add('version',       '0.2.7');
+        $propbag->add('version',       '0.2.8');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8'
         ));
@@ -32,10 +32,12 @@ class serendipity_event_dbclean extends serendipity_event {
                                     'backend_sidebar_admin'  => true,
                                     'backend_sidebar_entries_event_display_dbclean'  => true,
                                     'external_plugin' => true,
-                                    'css_backend' => true
+                                    'css_backend' => true,
+                                    'cronjob' => true
             )
             );
         $propbag->add('groups', array('BACKEND_FEATURES'));
+        $propbag->add('configuration', array('cronjob', 'days'));
     }
 
     function generate_content(&$title) {
@@ -43,10 +45,30 @@ class serendipity_event_dbclean extends serendipity_event {
     }
 
 
-    /*function introspect_config_item($name, &$propbag) {
+    function introspect_config_item($name, &$propbag) {
+        switch($name) {
+            case 'cronjob':
+                if (class_exists('serendipity_event_cronjob')) {
+                    $propbag->add('type',        'select');
+                    $propbag->add('name',        PLUGIN_EVENT_DBCLEAN_CRONJOB);
+                    $propbag->add('description', '');
+                    $propbag->add('default',     'daily');
+                    $propbag->add('select_values', serendipity_event_cronjob::getValues());
+                }
+                break;
 
-    }*/
+            case 'days':
+                $propbag->add('type',        'string');
+                $propbag->add('name',        PLUGIN_EVENT_DBCLEAN_MENU_KEEP . ' (' . DAYS . ')');
+                $propbag->add('description', '');
+                $propbag->add('default',     '30');
+                break;
 
+            default:
+                return false;
+        }
+        return true;
+    }
 
     function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
@@ -54,6 +76,23 @@ class serendipity_event_dbclean extends serendipity_event {
 
         if (isset($hooks[$event])) {
             switch($event) {
+                case 'cronjob':
+                    if ($this->get_config('cronjob') == $eventData) {
+                        serendipity_event_cronjob::log('DBClean', 'plugin');
+
+                        $days = (int)$this->get_config('days');
+                        if ($days > 0) {
+                            $this->cleanDB('cronjoblog', $days);
+                            $this->cleanDB('spamblocklog', $days);
+                            $this->cleanDB('spamblock_htaccess', $days);
+                            $this->cleanDB('visitors', $days);
+                            $this->cleanDB('referrers', $days);
+                            $this->cleanDB('exits', $days);
+                        }
+                    }
+                    return true;
+                    break;
+
                 case 'external_plugin':
 
                     switch ($eventData) {
@@ -63,6 +102,9 @@ class serendipity_event_dbclean extends serendipity_event {
                             }
                             $days = $_REQUEST['days'];
                             if (is_numeric($days)) {
+                                if (isset($_REQUEST['cronjoblog'])) {
+                                    $this->cleanDB('cronjoblog', $days);
+                                }
                                 if (isset($_REQUEST['spamblocklog'])) {
                                     $this->cleanDB('spamblocklog', $days);
                                 }
@@ -198,11 +240,11 @@ class serendipity_event_dbclean extends serendipity_event {
 
         echo '<form action="'.$serendipity ['baseURL'] . 'index.php?/plugin/dbclean' .'" method="post">';
         if ($serendipity['version'][0] == '1') {
-            echo PLUGIN_EVENT_DBCLEAN_MENU_KEEP . ' <input type="text" name="days" value="30" size="3" maxlength="3" /> ' . DAYS;
+            echo PLUGIN_EVENT_DBCLEAN_MENU_KEEP . ' <input type="text" name="days" value="' . $this->get_config('days') . '" size="3" maxlength="3" /> ' . DAYS;
         } else {
             echo '<div class="form_field">';
             echo '<label for="dbcleanup_days">' . PLUGIN_EVENT_DBCLEAN_MENU_KEEP . ' (' . DAYS . ')' . '</label>';
-            echo ' <input id="dbcleanup_days" type="text" name="days" value="30" size="3" maxlength="3">';
+            echo ' <input id="dbcleanup_days" type="text" name="days" value="' . $this->get_config('days') . '" size="3" maxlength="3">';
             echo '</div>';
         }
 
@@ -239,6 +281,11 @@ class serendipity_event_dbclean extends serendipity_event {
         echo '<td><input class="input_checkbox" type="checkbox" name="exits"  value="exits"  checked="checked" tabindex="1" /></td>';
         echo '<td>exits</td>';
         echo '<td>' . $this->countElements('exits') . '</td>';
+        echo '</tr>';
+        echo '<tr>';
+        echo '<td><input class="input_checkbox" type="checkbox" name="cronjoblog"  value="cronjoblog"  checked="checked" tabindex="1" /></td>';
+        echo '<td>cronjoblog</td>';
+        echo '<td>' . $this->countElements('cronjoblog') . '</td>';
         echo '</tr>';
         echo '</table>';
         if ($serendipity['version'][0] == '1') {

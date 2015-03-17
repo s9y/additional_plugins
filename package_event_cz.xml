@@ -8284,9 +8284,9 @@ aplikovány další typografické úpravy.</description>
 <description>Tento plugin periodicky vykonává pluginy, které poskytují/vyžadují opakované vykonávání. Podrobnosti v konfiguraci pluginu.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.9.1</version>
+  <version>0.9.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2015-03-17</date>
   <filelist>
 <dir name="serendipity_event_cronjob">
 <file>serendipity_event_cronjob.php</file>
@@ -10708,9 +10708,9 @@ aplikovány další typografické úpravy.</description>
 <description>Čistí databázi</description>
 <maintainers><maintainer><name>Malte Paskuda, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.2.7</version>
+  <version>0.2.8</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-03-08</date>
+  <date>2015-03-17</date>
   <filelist>
 <dir name="serendipity_event_dbclean">
 <dir name="UTF-8">

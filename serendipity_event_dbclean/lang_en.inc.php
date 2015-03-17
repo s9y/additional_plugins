@@ -11,4 +11,5 @@
 @define('PLUGIN_EVENT_DBCLEAN_NAME_MENU', 'Delete old data');
 @define('PLUGIN_EVENT_DBCLEAN_MENU_KEEP', 'Keep data from the last');
 @define('PLUGIN_EVENT_DBCLEAN_TABLE', 'Table');
+@define('PLUGIN_EVENT_DBCLEAN_CRONJOB', 'Execute cronjob when?');
 ?>

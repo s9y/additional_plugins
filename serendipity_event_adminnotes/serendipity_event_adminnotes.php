@@ -27,7 +27,7 @@ class serendipity_event_adminnotes extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.13');
+        $propbag->add('version',       '0.14');
         $propbag->add('author',        'Garvin Hicking, Matthias Mees');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array('feedback', 'limit', 'html', 'markup', 'cutoff'));
@@ -223,7 +223,9 @@ class serendipity_event_adminnotes extends serendipity_event {
                         foreach($targets AS $target) {
                             $q = serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}adminnotes_to_groups (noteid, groupid) VALUES ($noteid, $target)");
                         }
-                        if (is_string($g)) echo $q . "<br />\n";
+                        if (is_string($q)) {
+                            echo $q . "<br />\n";
+                        }
                     } else {
                         serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}adminnotes (authorid, notetime, subject, body, notetype) VALUES ('" . $serendipity['authorid'] . "', " . time() . ", '" . serendipity_db_escape_string($_REQUEST['note_subject']) . "', '" . serendipity_db_escape_string($_REQUEST['note_body']) . "', '" . serendipity_db_escape_string($_REQUEST['note_notetype']) . "')");
                         $noteid = serendipity_db_insert_id('adminnotes', 'noteid');

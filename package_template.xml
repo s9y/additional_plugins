@@ -1286,6 +1286,7 @@
 </dir>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>preview_iframe.tpl~</file>
 </dir>
 
   </filelist>
@@ -1309,6 +1310,7 @@
     <file>plain-vanilla/UTF-8/lang_cz.inc.php</file>
     <file>plain-vanilla/lang_cs.inc.php</file>
     <file>plain-vanilla/lang_cz.inc.php</file>
+    <file>plain-vanilla/preview_iframe.tpl~</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -1364,6 +1366,7 @@
 </dir>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>preview_iframe.tpl~</file>
 </dir>
 
   </filelist>
@@ -1403,6 +1406,7 @@
     <file>andreas06/UTF-8/lang_cz.inc.php</file>
     <file>andreas06/lang_cs.inc.php</file>
     <file>andreas06/lang_cz.inc.php</file>
+    <file>andreas06/preview_iframe.tpl~</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -1850,6 +1854,7 @@
 <file>lang_cz.inc.php</file>
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
+<file>preview_iframe.tpl~</file>
 </dir>
 
   </filelist>
@@ -1907,6 +1912,7 @@
     <file>andreas08/lang_cz.inc.php</file>
     <file>andreas08/documentation_cs.html</file>
     <file>andreas08/documentation_cz.html</file>
+    <file>andreas08/preview_iframe.tpl~</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -2901,6 +2907,7 @@
 </dir>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>preview_iframe.tpl~</file>
 </dir>
 
   </filelist>
@@ -2933,6 +2940,7 @@
     <file>ceejay01/UTF-8/lang_cz.inc.php</file>
     <file>ceejay01/lang_cs.inc.php</file>
     <file>ceejay01/lang_cz.inc.php</file>
+    <file>ceejay01/preview_iframe.tpl~</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -3383,6 +3391,7 @@
 </dir>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>preview_iframe.tpl~</file>
 </dir>
 
   </filelist>
@@ -3411,6 +3420,7 @@
     <file>1024px/UTF-8/lang_cz.inc.php</file>
     <file>1024px/lang_cs.inc.php</file>
     <file>1024px/lang_cz.inc.php</file>
+    <file>1024px/preview_iframe.tpl~</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -3587,6 +3597,7 @@
 <file>submit-btn.gif</file>
 <file>xml.gif</file>
 </dir>
+<file>preview_iframe.tpl~</file>
 <file>s9y-print.css</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
@@ -3682,6 +3693,7 @@
     <file>i3theme/img/sidep-toggle.png</file>
     <file>i3theme/img/submit-btn.gif</file>
     <file>i3theme/img/xml.gif</file>
+    <file>i3theme/preview_iframe.tpl~</file>
     <file>i3theme/s9y-print.css</file>
     <file>i3theme/lang_cs.inc.php</file>
     <file>i3theme/lang_cz.inc.php</file>
@@ -3829,6 +3841,7 @@
 </dir>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>preview_iframe.tpl~</file>
 </dir>
 
   </filelist>
@@ -3903,6 +3916,7 @@
     <file>mo3/img/Thumbs.db</file>
     <file>mo3/lang_cs.inc.php</file>
     <file>mo3/lang_cz.inc.php</file>
+    <file>mo3/preview_iframe.tpl~</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -4467,6 +4481,7 @@
 <file>style.css</file>
 <file>preview_iframe.tpl</file>
 <file>preview_fullsize.jpg</file>
+<file>preview_iframe.tpl~</file>
 <file>lang_en.inc.php</file>
 </dir>
 
@@ -4492,6 +4507,7 @@
     <file>square/style.css</file>
     <file>square/preview_iframe.tpl</file>
     <file>square/preview_fullsize.jpg</file>
+    <file>square/preview_iframe.tpl~</file>
     <file>square/lang_en.inc.php</file>
   </serendipityFilelist>
 </release>
@@ -6164,6 +6180,7 @@
 <file>plugin_calendar.tpl</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>preview_iframe.tpl~</file>
 </dir>
 
   </filelist>
@@ -6248,6 +6265,7 @@
     <file>plus9/plugin_calendar.tpl</file>
     <file>plus9/lang_cs.inc.php</file>
     <file>plus9/lang_cz.inc.php</file>
+    <file>plus9/preview_iframe.tpl~</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -6314,6 +6332,7 @@
 </dir>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>preview_iframe.tpl~</file>
 </dir>
 
   </filelist>
@@ -6358,6 +6377,7 @@
     <file>translucency/UTF-8/lang_cz.inc.php</file>
     <file>translucency/lang_cs.inc.php</file>
     <file>translucency/lang_cz.inc.php</file>
+    <file>translucency/preview_iframe.tpl~</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -6578,6 +6598,7 @@
 </dir>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>preview_iframe.tpl~</file>
 </dir>
 
   </filelist>
@@ -6626,6 +6647,7 @@
     <file>hemingway/UTF-8/lang_cz.inc.php</file>
     <file>hemingway/lang_cs.inc.php</file>
     <file>hemingway/lang_cz.inc.php</file>
+    <file>hemingway/preview_iframe.tpl~</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7114,6 +7136,7 @@
 <file>style.css</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>preview_iframe.tpl~</file>
 </dir>
 
   </filelist>
@@ -7205,6 +7228,7 @@
     <file>greenway/style.css</file>
     <file>greenway/lang_cs.inc.php</file>
     <file>greenway/lang_cz.inc.php</file>
+    <file>greenway/preview_iframe.tpl~</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7259,6 +7283,7 @@
 <file>lang_de.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>preview_iframe.tpl~</file>
 </dir>
 
   </filelist>
@@ -7297,6 +7322,7 @@
     <file>zenlike/lang_de.inc.php</file>
     <file>zenlike/lang_cs.inc.php</file>
     <file>zenlike/lang_cz.inc.php</file>
+    <file>zenlike/preview_iframe.tpl~</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7355,6 +7381,7 @@
 <file>trackbacks.tpl</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>preview_iframe.tpl~</file>
 </dir>
 
   </filelist>
@@ -7397,6 +7424,7 @@
     <file>mimbo/trackbacks.tpl</file>
     <file>mimbo/lang_cs.inc.php</file>
     <file>mimbo/lang_cz.inc.php</file>
+    <file>mimbo/preview_iframe.tpl~</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7755,6 +7783,7 @@
 <file>preview_fullsize.jpg</file>
 <file>preview_iframe.tpl</file>
 <file>style.css</file>
+<file>preview_iframe.tpl~</file>
 </dir>
 
   </filelist>
@@ -7775,6 +7804,7 @@
     <file>simpla/preview_fullsize.jpg</file>
     <file>simpla/preview_iframe.tpl</file>
     <file>simpla/style.css</file>
+    <file>simpla/preview_iframe.tpl~</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7897,6 +7927,7 @@
 </dir>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>preview_iframe.tpl~</file>
 </dir>
 
   </filelist>
@@ -7999,6 +8030,7 @@
     <file>Sagittarius-A/img/xml.gif</file>
     <file>Sagittarius-A/lang_cs.inc.php</file>
     <file>Sagittarius-A/lang_cz.inc.php</file>
+    <file>Sagittarius-A/preview_iframe.tpl~</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -8068,6 +8100,7 @@
 </dir>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>preview_iframe.tpl~</file>
 </dir>
 
   </filelist>
@@ -8119,6 +8152,7 @@
     <file>pixel/UTF-8/lang_cz.inc.php</file>
     <file>pixel/lang_cs.inc.php</file>
     <file>pixel/lang_cz.inc.php</file>
+    <file>pixel/preview_iframe.tpl~</file>
   </serendipityFilelist>
 </release>
 </package>

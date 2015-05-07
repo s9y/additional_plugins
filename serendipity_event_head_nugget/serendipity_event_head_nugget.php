@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -23,7 +23,7 @@ class serendipity_event_head_nugget extends serendipity_event {
         );
         $propbag->add('event_hooks', array('frontend_header' => true));
         $propbag->add('author', 'Jannis Hermanns');
-        $propbag->add('version', '1.3');
+        $propbag->add('version', '1.4');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
@@ -41,7 +41,7 @@ class serendipity_event_head_nugget extends serendipity_event {
     {
         switch($name) {
             case 'content':
-                $propbag->add('type',        'html');
+                $propbag->add('type',        'text');
                 $propbag->add('name',        CONTENT);
                 $propbag->add('description', THE_NUGGET);
                 $propbag->add('default',     '');

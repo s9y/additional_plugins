@@ -59,7 +59,7 @@
 <category>Event Plugins</category>
 <author>Jannis Hermanns</author>
 <content:encoded>&lt;b&gt;serendipity_event_head_nugget&lt;br /&gt;HTML блок в HEAD тага на страницата&lt;/b&gt;&lt;br /&gt;Тази приставка позволява вмъкване на HTML код в HEAD тага страницата. Можете да използвате това например за мета-тагове или включване на JavaScript скриптове. Забележка: Приставката е остаряла и може напълно да бъде заменена от serendipity_event_page_nugget.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:42 +0200</pubDate>
+<pubDate>Fri, 08 May 2015 02:31:31 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_head_nugget</guid>
 </item>
 <item>

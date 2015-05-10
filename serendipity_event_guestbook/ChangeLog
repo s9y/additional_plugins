@@ -1,3 +1,7 @@
+3.55:
+-----
+ * correct missing label in guestbook form
+
 3.54:
 -----
  * make PHP 5.5/6 compat

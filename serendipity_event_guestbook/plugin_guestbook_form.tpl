@@ -1,5 +1,5 @@
 {*
-  plugin_guestbook_form.tpl v.3.27 - 2011-06-27 ian
+  plugin_guestbook_form.tpl v.3.28 - 2015-05-10 ian
  *}
 
     <!-- Needed for Captchas -->
@@ -30,7 +30,7 @@
 
        {if $is_show_url}
         <div class="input-text">
-            <label for="serendipity_commentform_url">{$CONST.URL}</label>
+            <label for="serendipity_commentform_url">{$CONST.TEXT_HOMEPAGE}</label>
             <input type="text" size="30" maxlength="99" name="serendipity[url]" value="{$plugin_guestbook_url}" id="serendipity_commentform_url" />
         </div>
        {/if}

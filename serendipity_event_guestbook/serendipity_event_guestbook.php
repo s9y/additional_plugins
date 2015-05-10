@@ -1,7 +1,7 @@
 <?php
 
 /**
- * serendipity_event_guestbook.php, v.3.53 - 2014-12-29
+ * serendipity_event_guestbook.php, v.3.55 - 2015-05-10
  */
 
 //error_reporting(E_ALL);
@@ -67,7 +67,7 @@ class serendipity_event_guestbook extends serendipity_event {
                         'dateformat'
                     ));
         $propbag->add('author',       'Ian');
-        $propbag->add('version',      '3.54');
+        $propbag->add('version',      '3.55');
         $propbag->add('requirements', array(
                         'serendipity' => '1.7.0',
                         'smarty'      => '3.1.0',

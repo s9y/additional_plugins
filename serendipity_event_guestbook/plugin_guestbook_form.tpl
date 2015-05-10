@@ -30,7 +30,7 @@
 
        {if $is_show_url}
         <div class="input-text">
-            <label for="serendipity_commentform_url">{$CONST.TEXT_HOMEPAGE}</label>
+            <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}</label>
             <input type="text" size="30" maxlength="99" name="serendipity[url]" value="{$plugin_guestbook_url}" id="serendipity_commentform_url" />
         </div>
        {/if}

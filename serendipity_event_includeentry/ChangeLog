@@ -1,3 +1,12 @@
+2.15
+  - prepare for Serendipity 2.0 and check for (window.Spawnnuggets)
+  - fix 'show_multi' option non-template file fatal error
+  - db table set to use UTF8 on install
+  - extend required version
+
+2.14.1
+  - use serendipity_specialchars
+
 2.14
   - fixed $serendipity['author'] to be $serendipity['serendipityUser'];
 

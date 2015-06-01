@@ -1,5 +1,6 @@
-<br /><hr />
-    <table border="0" cellspacing="0" cellpadding="3" width="100%">
+
+<div class="clearfix">
+
 <?php
     $elcount = 0;
     $htmlnugget = array();
@@ -36,40 +37,27 @@
         switch ($cbag->get('type')) {
             case 'seperator':
 ?>
-        <tr>
-            <td colspan="2"><hr noshade="noshade" size="1" /></td>
-        </tr>
+    <hr>
 <?php
                 break;
 
             case 'select':
                 $select = $cbag->get('select_values');
 ?>
-        <tr>
-            <td style="border-bottom: 1px solid #000000; vertical-align: top"><strong><?php echo $cname; ?></strong>
-<?php
-    if ($cdesc != '') {
-?>
-                <br><span  style="color: #5E7A94; font-size: 8pt;">&nbsp;<?php echo $cdesc; ?></span>
-<?php } ?>
-            </td>
-            <td style="border-bottom: 1px solid #000000; vertical-align: middle" width="250">
-                <div>
-                    <select class="direction_<?php echo $lang_direction; ?>" name="serendipity[plugin][<?php echo $config_item; ?>]">
+    <div class="clearfix form_select<?php if ($cdesc != '') { ?> has_info<?php } ?>">
+        <label for="serendipity_<?php echo $config_item; ?>"><?php echo $cname; ?><?php if ($cdesc != '') { ?> <button class="toggle_info button_link" type="button" data-href="#<?php echo $config_item; ?>_info"><span class="icon-info-circled"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button><?php } ?></label>
+        <?php if ($cdesc != '') { ?><span id="<?php echo $config_item; ?>_info" class="field_info additional_info"><?php echo $cdesc; ?></span><?php } ?>
+        <select id="serendipity_<?php echo $config_item; ?>" class="direction_<?php echo $lang_direction; ?>" name="serendipity[plugin][<?php echo $config_item; ?>]{($is_multi_select) ? '[]' : ''}" {($is_multi_select) ? 'multiple' : ''} {($is_multi_select && ($select_size > 0)) ? "size='{$select_size}'" : ''}>
 <?php
                 foreach($select AS $select_value => $select_desc) {
                     $id = (function_exists('serendipity_specialchars') ? serendipity_specialchars($config_item . $select_value) : htmlspecialchars($config_item . $select_value, ENT_COMPAT, LANG_CHARSET));
 ?>
-                        <option value="<?php echo $select_value; ?>" <?php echo ($select_value == $hvalue ? 'selected="selected"' : ''); ?> title="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($select_desc) : htmlspecialchars($select_desc, ENT_COMPAT, LANG_CHARSET)); ?>" />
-                            <?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($select_desc) : htmlspecialchars($select_desc, ENT_COMPAT, LANG_CHARSET)); ?>
-                        </option>
+            <option value="<?php echo $select_value; ?>" <?php echo ($select_value == $hvalue ? 'selected="selected"' : ''); ?> title="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($select_desc) : htmlspecialchars($select_desc, ENT_COMPAT, LANG_CHARSET)); ?>"><?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($select_desc) : htmlspecialchars($select_desc, ENT_COMPAT, LANG_CHARSET)); ?></option>
 <?php
                 }
 ?>
-                    </select>
-                </div>
-            </td>
-        </tr>
+        </select>
+    </div>
 <?php
                 break;
 
@@ -97,17 +85,10 @@
                     }
                 }
 ?>
-        <tr>
-            <td style="border-bottom: 1px solid #000000; vertical-align: top"><strong><?php echo $cname; ?></strong>
-<?php
-                if ($cdesc != '') {
-?>
-                <br /><span  style="color: #5E7A94; font-size: 8pt;">&nbsp;<?php echo $cdesc; ?></span>
-<?php
-                }
-?>
-            </td>
-            <td style="border-bottom: 1px solid #000000; vertical-align: middle;" width="250">
+    <fieldset<?php if ($cdesc != '') { ?> class="has_info"<?php } ?>>
+        <span class="wrap_legend"><legend><?php echo $cname; ?><?php if ($cdesc != '') { ?> <button class="toggle_info button_link" type="button" data-href="#<?php echo $config_item; ?>_info"><span class="icon-info-circled"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button><?php } ?></legend></span>
+        <?php if ($cdesc != '') { ?><span id="<?php echo $config_item; ?>_info" class="field_info additional_info"><?php echo $cdesc; ?></span><?php } ?>
+        <div class="clearfix grouped">
 <?php
                 $counter = 0;
                 foreach($radio['value'] AS $radio_index => $radio_value) {
@@ -125,75 +106,71 @@
 
                     if ($counter == 1) {
 ?>
-                <div>
+            <div class="form_radio">
 <?php
                     }
 ?>
-                    <input class="direction_<?php echo $lang_direction; ?> input_radio" type="radio" id="serendipity_plugin_<?php echo $id; ?>" name="serendipity[plugin][<?php echo $config_item; ?>]" value="<?php echo $radio_value; ?>" <?php echo $checked ?> title="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($radio['desc'][$radio_index]) : htmlspecialchars($radio['desc'][$radio_index], ENT_COMPAT, LANG_CHARSET)); ?>" />
-                        <label for="serendipity_plugin_<?php echo $id; ?>"><?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($radio['desc'][$radio_index]) : htmlspecialchars($radio['desc'][$radio_index], ENT_COMPAT, LANG_CHARSET)); ?></label>
+                <input id="serendipity_plugin_<?php echo $id; ?>" class="direction_<?php echo $lang_direction; ?>" name="serendipity[plugin][<?php echo $config_item; ?>]" type="radio" value="<?php echo $radio_value; ?>" <?php echo $checked ?> title="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($radio['desc'][$radio_index]) : htmlspecialchars($radio['desc'][$radio_index], ENT_COMPAT, LANG_CHARSET)); ?>">
+                <label for="serendipity_plugin_<?php echo $id; ?>"><?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($radio['desc'][$radio_index]) : htmlspecialchars($radio['desc'][$radio_index], ENT_COMPAT, LANG_CHARSET)); ?></label>
 <?php
                     if ($counter == $per_row) {
                         $counter = 0;
 ?>
-                </div>
+            </div>
 <?php
                     }
                 }
 ?>
-            </td>
-        </tr>
+        </div>
+    </fieldset>
+
 <?php
                 break;
 
             case 'string':
 ?>
-        <tr>
-            <td style="border-bottom: 1px solid #000000">
-                    <strong><?php echo $cname; ?></strong>
-                    <br><span style="color: #5E7A94; font-size: 8pt;">&nbsp;<?php echo $cdesc; ?></span>
-            </td>
-            <td style="border-bottom: 1px solid #000000" width="250">
-                <div>
-                    <input class="direction_<?php echo $lang_direction; ?> input_textbox" type="text" name="serendipity[plugin][<?php echo $config_item; ?>]" value="<?php echo $hvalue; ?>" size="30" />
-                </div>
-            </td>
-        </tr>
+    <div class="clearfix configuration_group">
+        <div class="clearfix form_field<?php if ($cdesc != '') { ?> has_info<?php } ?>">
+            <label for="serendipity_<?php echo $config_item; ?>"><?php echo $cname; if ($cdesc != '') { ?> <button class="toggle_info button_link" type="button" data-href="#<?php echo $config_item; ?>_info"><span class="icon-info-circled"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button><?php } ?></label>
+            <?php if ($cdesc != '') { ?><span id="<?php echo $config_item; ?>_info" class="field_info additional_info"><?php echo $cdesc; ?></span><?php } ?>
+            <input id="serendipity_<?php echo $config_item; ?>" class="direction_<?php echo $lang_direction; ?>" name="serendipity[plugin][<?php echo $config_item; ?>]" type="text" value="<?php echo $hvalue; ?>">
+        </div>
+    </div>
 <?php
                 break;
 
             case 'html':
             case 'text':
 ?>
-        <tr>
-            <td colspan="2"><strong><?php echo $cname; ?></strong>
-                &nbsp;<span style="color: #5E7A94; font-size: 8pt;">&nbsp;<?php echo $cdesc; ?></span>
-            </td>
-        </tr>
 
-        <tr>
-            <td colspan="2">
-                <div>
-                    <textarea class="direction_<?php echo $lang_direction; ?>" style="width: 100%" id="nuggets<?php echo $elcount; ?>" name="serendipity[plugin][<?php echo $config_item; ?>]" rows="20" cols="80"><?php echo $hvalue; ?></textarea>
-                </div>
-            </td>
-        </tr>
+    <div class="clearfix form_area<?php if ($cdesc != '') { ?> has_info<?php } ?>">
+        <label for="nuggets<?php echo $elcount; ?>"><?php echo $cname; if ($cdesc != '' && !$backend_wysiwyg) { ?> <button class="toggle_info button_link" type="button" data-href="#nuggets<?php echo $elcount; ?>_info"><span class="icon-info-circled"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button><?php } ?></label>
+        <?php if ($cdesc != '') { ?><span id="nuggets<?php echo $elcount; ?>_info" class="field_info additional_info"><?php echo $cdesc; ?></span><?php } ?>
+        <textarea id="nuggets<?php echo $elcount; ?>" class="direction_<?php echo $lang_direction; ?>" name="serendipity[plugin][<?php echo $config_item; ?>]" rows="{$text_rows}"><?php echo $hvalue; ?></textarea>
+    </div>
+
 <?php
                 if ($cbag->get('type') == 'html') {
                     $htmlnugget[] = $elcount;
-                    if (version_compare(preg_replace('@[^0-9\.]@', '', $serendipity['version']), '0.9', '<')) {
-                        serendipity_emit_htmlarea_code('nuggets' . $elcount, 'nuggets' . $elcount);
-                    } else {
-                        serendipity_emit_htmlarea_code('nuggets', 'nuggets', true);
-                    }
+                    // SpawnMulti false per default (see multi nugget textareas, eg contactform) - where do we use jsname furthermore - or is that deprecated?
+                    serendipity_emit_htmlarea_code("nuggets{$elcount}","nuggets{$elcount}");
                 }
                 break;
 
             case 'content':
-                ?><tr><td colspan="2"><?php echo $cbag->get('default'); ?></td></tr><?php
+?>
+    <div class="clearfix">
+        <?php echo $cbag->get('default'); ?>
+    </div>
+<?php
                 break;
 
             case 'hidden':
-                ?><tr><td colspan="2"><input class="direction_<?php echo $lang_direction; ?> input_textbox" type="hidden" name="serendipity[plugin][<?php echo $config_item; ?>]" value="<?php echo $cbag->get('value'); ?>" /></td></tr><?php
+?>
+    <div class="clearfix">
+        <input name="serendipity[plugin][<?php echo $config_item; ?>]" type="hidden" value="<?php echo $cbag->get('value'); ?>">
+    </div>
+<?php
                 break;
         }
     }
@@ -206,12 +183,8 @@
 ?>
     <script type="text/javascript">
     function Spawnnugget() {
-        <?php foreach($htmlnugget AS $htmlnuggetid) {
-                if (version_compare(preg_replace('@[^0-9\.]@', '', $serendipity['version']), '0.9', '<')) { ?>
-        Spawnnuggets<?php echo $htmlnuggetid; ?>();
-                    <?php } else { ?>
-        Spawnnuggets('<?php echo $htmlnuggetid; ?>');
-                    <?php } ?>
+        <?php foreach($htmlnugget AS $htmlnuggetid) { ?>
+        if (window.Spawnnuggets) Spawnnuggets('<?php echo $htmlnuggetid; ?>');
         <?php } ?>
     }
     </script>
@@ -219,8 +192,9 @@
         }
     }
 ?>
-    </table>
-<br />
-    <div style="padding-left: 20px">
-        <input type="submit" name="serendipity[SAVECONF]" value="<?php echo SAVE; ?>" class="serendipityPrettyButton input_button" />
+
+    <div class="clearfix edit_actions">
+        <input class="input_button state_submit" type="submit" value="<?php echo SAVE; ?>" name="serendipity[SAVECONF]">
     </div>
+
+</div>

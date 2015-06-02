@@ -1,10 +1,24 @@
-<?php # 
+<?php
 
 class media_sidebar extends subplug_sidebar {
 
     function introspect_custom()
     {
-        return array('media_hotlinks_only','media_hotlink_base','media_base_directory','media_image_strict','media_rotate_time','media_number_images','media_fixed_width','media_linkbehavior','media_url','media_gal_permalink','media_intro','media_summery','media_next_update','media_cache_output');
+        return array('media_hotlinks_only',
+                     'media_hotlink_base',
+                     'media_base_directory',
+                     'media_image_strict',
+                     'media_rotate_time',
+                     'media_number_images',
+                     'media_fixed_width',
+                     'media_linkbehavior',
+                     'media_lightbox',
+                     'media_url',
+                     'media_gal_permalink',
+                     'media_intro',
+                     'media_summery',
+                     'media_next_update',
+                     'media_cache_output');
     }
 
     function introspect_config_item_custom($name, &$propbag)
@@ -12,7 +26,7 @@ class media_sidebar extends subplug_sidebar {
         global $serendipity;
         switch($name) {
             case 'media_base_directory':
-                if ($this->get_config('media_hotlinks_only','no')== 'no') {
+                if ($this->get_config('media_hotlinks_only','no') == 'no') {
                     $select['gallery'] = ALL_DIRECTORIES; 
                     $paths = serendipity_traversePath($serendipity['serendipityPath'] . $serendipity['uploadPath']);
                     foreach ( $paths as $folder ) {
@@ -61,12 +75,19 @@ class media_sidebar extends subplug_sidebar {
                   if (class_exists('serendipity_event_usergallery')){
                       $select["gallery"] = PLUGIN_SIDEBAR_MEDIASIDEBAR_LINKBEHAVIOR_GALLERY;
                   }
-                  $propbag->add('type', 'select');
-                  $propbag->add('name', PLUGIN_SIDEBAR_MEDIASIDEBAR_LINKBEHAVIOR_NAME);
-                  $propbag->add('description', PLUGIN_SIDEBAR_MEDIASIDEBAR_LINKBEHAVIOR_DESC);
+                  $propbag->add('type',          'select');
+                  $propbag->add('name',          PLUGIN_SIDEBAR_MEDIASIDEBAR_LINKBEHAVIOR_NAME);
+                  $propbag->add('description',   PLUGIN_SIDEBAR_MEDIASIDEBAR_LINKBEHAVIOR_DESC);
                   $propbag->add('select_values', $select);
-                  $propbag->add('default', 'inpage');
+                  $propbag->add('default',       'inpage');
                break;
+
+            case 'media_lightbox':
+                $propbag->add('type',           'string');
+                $propbag->add('name',           PLUGIN_SIDEBAR_MEDIASIDEBAR_LIGHTBOX_NAME);
+                $propbag->add('description',    PLUGIN_SIDEBAR_MEDIASIDEBAR_LIGHTBOX_DESC);
+                $propbag->add('default',        '');
+                break;
 
             case 'media_fixed_width':
                   $propbag->add('type',        'string');
@@ -74,7 +95,6 @@ class media_sidebar extends subplug_sidebar {
                   $propbag->add('description', PLUGIN_SIDEBAR_MEDIASIDEBAR_WIDTH_DESC);
                   $propbag->add('default',     '162');
                break;
-
 
             case 'media_url':
                if ($this->get_config('media_linkbehavior') == 'url') {
@@ -112,19 +132,19 @@ class media_sidebar extends subplug_sidebar {
                break;
 
             case 'media_hotlinks_only':
-                $propbag->add('type', 'radio');
-                $propbag->add('name', PLUGIN_SIDEBAR_MEDIASIDEBAR_HOTLINKS_NAME);
-                $propbag->add('description', PLUGIN_SIDEBAR_MEDIASIDEBAR_HOTLINKS_DESC);
+                $propbag->add('type',           'radio');
+                $propbag->add('name',           PLUGIN_SIDEBAR_MEDIASIDEBAR_HOTLINKS_NAME);
+                $propbag->add('description',    PLUGIN_SIDEBAR_MEDIASIDEBAR_HOTLINKS_DESC);
                 $propbag->add('radio',
                           array( 'value' => array('yes','no'),
                           'desc'  => array(YES,NO)
                       ));
-                $propbag->add('radio_per_row', '2');
-                $propbag->add('default', 'no');
+                $propbag->add('radio_per_row',  '2');
+                $propbag->add('default',        'no');
                break;
 
             case 'media_hotlink_base':
-                if ($this->get_config('media_hotlinks_only','no')== 'yes') {
+                if ($this->get_config('media_hotlinks_only','no') == 'yes') {
                   $propbag->add('type',        'string');
                   $propbag->add('name',        PLUGIN_SIDEBAR_MEDIASIDEBAR_HOTLINKBASE_NAME);
                   $propbag->add('description', PLUGIN_SIDEBAR_MEDIASIDEBAR_HOTLINKBASE_DESC);
@@ -219,7 +239,7 @@ class media_sidebar extends subplug_sidebar {
                             $thumb_path = $serendipity['serendipityHTTPPath'].$serendipity['uploadPath'].$image['path'].$image['name'].'.'.$image['thumbnail_name'].'.'.$image['extension'];
                             if (!serendipity_isImage($image)) {
                                 $thumb_path = serendipity_getTemplateFile('admin/img/mime_unknown.png');
-                                $width_str ='';
+                                $width_str = '';
                             }
                         }
 
@@ -251,7 +271,7 @@ class media_sidebar extends subplug_sidebar {
                             break;
                             case 'inpage':
                             default:
-                                $output_str .= '<a href="'.$image_path.'"><img style="border: 0px; '.$width_str .'" src="'.$thumb_path.'" alt="" /></a>';
+                                $output_str .= '<a ' . $this->get_config('media_lightbox', '') . ' href="'.$image_path.'"><img style="border: 0px; '.$width_str .'" src="'.$thumb_path.'" alt="" /></a>';
                             break;
                         }
                         $output_str .= '</div>';

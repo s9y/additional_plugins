@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 
 if (IN_serendipity !== true) {
@@ -75,7 +75,7 @@ class serendipity_plugin_imagesidebar extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_SIDEBAR_IMAGESIDEBAR_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Andrew Brown (Menalto code), Matthew Groeninger (Unified/Media Lib. Code), Stefan Lange-Hegermann (Zooomr Code), Matthew Maude (Coppermine code)');
-        $propbag->add('version',       '0.97.1');
+        $propbag->add('version',       '0.98');
         $propbag->add('license',       'BSD');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
@@ -133,11 +133,12 @@ class serendipity_plugin_imagesidebar extends serendipity_plugin {
                   $propbag->add('select_values', $select);
                   $propbag->add('default', 'none');
                 break;
+
             }
 
         //normal until here... here we add the sub_plugins config array to the main plugin.
         if (is_object($this->object_extend)) {
-                $this->object_extend->introspect_config_item_custom($name, $propbag);
+            $this->object_extend->introspect_config_item_custom($name, $propbag);
         }
         return true;
     }

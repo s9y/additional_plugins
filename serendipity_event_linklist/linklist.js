@@ -1,5 +1,5 @@
 function hide_unhide(thing, path, lines, icons, bottom){
-    nav=document.getElementById(thing).style
+    nav=document.getElementById(thing).style;
     if (lines) {
         if (bottom) {
             plus = path + '/img/plus.gif';

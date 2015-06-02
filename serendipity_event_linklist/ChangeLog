@@ -1,1 +1,11 @@
+2.00
+ - silence cache lite non static PEAR errors on $obj->remove()
+ - minor preparations for the Serendipity 2.0 backend
+ - fix multiple dtree includements using a unique name
+ - add css seperators
+
+1.99.1 - use serendipity_specialchars
+
+1.99 - compat fixes
+
 1.98 - remove short tag occurences

@@ -1,5 +1,4 @@
-<?php # 
-
+<?php
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -25,7 +24,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
         $propbag->add('description',   PLUGIN_LINKS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Matthew Groeninger, Omid Mottaghi Rad');
-        $propbag->add('version',       '1.20');
+        $propbag->add('version',       '1.21');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array(
                                              'title',
@@ -134,7 +133,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                     $propbag->add('description', PLUGIN_LINKLIST_CATEGORY_NAME_DESC);
                     $propbag->add('radio',
                         array( 'value' => array('custom','default'),
-                         'desc'  => array(PLUGIN_LINKLIST_CATEGORY_NAME_CUSTOM,PLUGIN_LINKLIST_CATEGORY_NAME_DEFAULT)
+                               'desc'  => array(PLUGIN_LINKLIST_CATEGORY_NAME_CUSTOM,PLUGIN_LINKLIST_CATEGORY_NAME_DEFAULT)
                         ));
                     $propbag->add('radio_per_row', '2');
                     $propbag->add('default', 'custom');
@@ -290,7 +289,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                     $propbag->add('description', PLUGIN_LINKLIST_CATEGORY_DEFAULT_OPEN_DESC);
                     $propbag->add('radio',
                         array( 'value' => array('closed','open'),
-                         'desc'  => array(PLUGIN_LINKLIST_CATEGORY_DEFAULT_OPEN_NAME_CLOSED,PLUGIN_LINKLIST_CATEGORY_DEFAULT_OPEN_NAME_OPEN)
+                               'desc'  => array(PLUGIN_LINKLIST_CATEGORY_DEFAULT_OPEN_NAME_CLOSED,PLUGIN_LINKLIST_CATEGORY_DEFAULT_OPEN_NAME_OPEN)
                         ));
                     $propbag->add('radio_per_row', '2');
                     $propbag->add('default', 'closed');
@@ -372,34 +371,33 @@ class serendipity_plugin_linklist extends serendipity_plugin
             $imgdir = $serendipity['baseURL'] . 'plugins/' . $plugin_dir;
         }
 
-        $str =  $this->get_config('prepend_text');
-        $str.="\n\n";
+        $str  =  $this->get_config('prepend_text');
+        $str .= "\n\n";
         if ($style == "dtree") {
-            $str.='<script src="'.$serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '').'plugin/dtree.js" type="text/javascript"></script>';
+            $str .= "\n".'<script src="' . $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/lldtree.js" type="text/javascript"></script>'."\n";
 
-
-            if($this->get_config('showOpenAndCloseLinks')=='true' && $this->get_config('locationOfOpenAndClose')=='top'){
-               $str.='<p><a href="javascript: d.openAll();">'.$this->get_config('openAllText').'</a> | <a href="javascript: d.closeAll();">'.$this->get_config('closeAllText').'</a></p>';
+            if ($this->get_config('showOpenAndCloseLinks')=='true' && $this->get_config('locationOfOpenAndClose')=='top'){
+                $str .= '<p><a href="javascript: d.openAll();">'.$this->get_config('openAllText').'</a> | <a href="javascript: d.closeAll();">'.$this->get_config('closeAllText').'</a></p>';
             }
 
-            $str.='<script type="text/javascript">
+            $str .= '<script type="text/javascript">
             <!--
             d = new dTree("d","'.$imgdir.'");'."\n";
 
             /* configuration section*/
-            if($this->get_config('useSelection')!=true) $str.='d.config.useSelection=false;'."\n";
-            if($this->get_config('useCookies')!=true) $str.='d.config.useCookies=false;'."\n";
-            if($this->get_config('useLines')!=true) $str.='d.config.useLines=false;'."\n";
-            if($this->get_config('useIcons')!=true) $str.='d.config.useIcons=false;'."\n";
-            if($this->get_config('useStatusText')==true) $str.='d.config.useStatusText=true;'."\n";
-            if($this->get_config('closeSameLevel')==true) $str.='d.config.closeSameLevel=true;'."\n";
+            if ($this->get_config('useSelection')!=true) $str.='d.config.useSelection=false;'."\n";
+            if ($this->get_config('useCookies')!=true) $str.='d.config.useCookies=false;'."\n";
+            if ($this->get_config('useLines')!=true) $str.='d.config.useLines=false;'."\n";
+            if ($this->get_config('useIcons')!=true) $str.='d.config.useIcons=false;'."\n";
+            if ($this->get_config('useStatusText')==true) $str.='d.config.useStatusText=true;'."\n";
+            if ($this->get_config('closeSameLevel')==true) $str.='d.config.closeSameLevel=true;'."\n";
             $my_target = $this->get_config('target');
             if (!empty($my_target)) {
-                $str.='d.config.target="'.$my_target.'";'."\n";
+                $str .= 'd.config.target="'.$my_target.'";'."\n";
             }
 
             /* Add Directory and Links */
-            $str.='d.add(0,-1,"'.$this->get_config('top_level').'");'."\n";
+            $str .= 'd.add(0,-1,"'.$this->get_config('top_level').'");'."\n";
 
             for($level[]=0, $i=1, $j=1; isset($struct[$i]); $i++, $j++){
                 if(isset($struct[$i]['type'])){
@@ -430,7 +428,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
             }
         } else {
 
-            if($this->get_config('call_markup')!='true') {
+            if($this->get_config('call_markup') != 'true') {
                 $delimiter = "\n";
             } else {
                 $delimiter = "";
@@ -444,26 +442,26 @@ class serendipity_plugin_linklist extends serendipity_plugin
             $link_array = array();
             $dirname = array();
             $level = array();
-            $dir_array['']=array('dirname'=>'','level'=>1,linkcount=>0,'links'=>$link_array,'dircount'=>0,'directories'=>$link_array);
-            for($level[]=0, $i=1, $j=1; isset($struct[$i]); $i++, $j++){
-                if(isset($struct[$i]['type'])){
-                    if($struct[$i]['type']=='open' && strtolower($struct[$i]['tag'])=='dir'){
+            $dir_array[''] = array('dirname' => '','level' => 1,linkcount => 0,'links' => $link_array,'dircount' => 0,'directories' => $link_array);
+            for($level[] = 0, $i=1, $j=1; isset($struct[$i]); $i++, $j++){
+                if (isset($struct[$i]['type'])){
+                    if($struct[$i]['type'] == 'open' && strtolower($struct[$i]['tag']) == 'dir'){
                         $dir_array[$dirname[0]]['directories'][] = $this->decode($struct[$i]['attributes']['NAME']);
                         $dir_array[$dirname[0]]['dircount']++;
                         array_unshift($dirname, $this->decode($struct[$i]['attributes']['NAME']));
                         array_unshift($level,$j);
-                        $dir_array[$dirname[0]] = array('dirname'=>$dirname[0],'level'=>count($level),'linkcount'=>0,'links'=>$link_array,'dircount'=>0,'directories'=>$link_array);
-                    } else if($struct[$i]['type']=='close' && strtolower($struct[$i]['tag'])=='dir'){
+                        $dir_array[$dirname[0]] = array('dirname' => $dirname[0],'level' => count($level),'linkcount' => 0,'links' => $link_array,'dircount' => 0,'directories' => $link_array);
+                    } else if($struct[$i]['type'] == 'close' && strtolower($struct[$i]['tag']) == 'dir'){
                         $dump=array_shift($dirname);
                         $dump=array_shift($level);
-                    } else if($struct[$i]['type']=='complete' && strtolower($struct[$i]['tag'])=='link'){
+                    } else if($struct[$i]['type'] == 'complete' && strtolower($struct[$i]['tag']) == 'link'){
                         $dir_array[$dirname[0]]['linkcount']++;
                         if (count($level) == 0) {
                             $level_pass = 1;
                         } else {
                             $level_pass = count($level)+1;
                         }
-                        $basic_array = array('linkloc'=>$this->decode($struct[$i]['attributes']['LINK']),'name'=>$this->decode($struct[$i]['attributes']['NAME']),'descr'=>$this->decode($struct[$i]['attributes']['DESCRIP']),'level'=>$level_pass,'dirname'=>$dirname,'hcard'=>$this->decode($struct[$i]['attributes']['HCARD']),'rel'=>$this->decode($struct[$i]['attributes']['REL']));
+                        $basic_array = array('linkloc' => $this->decode($struct[$i]['attributes']['LINK']),'name' => $this->decode($struct[$i]['attributes']['NAME']),'descr' => $this->decode($struct[$i]['attributes']['DESCRIP']),'level' => $level_pass,'dirname' => $dirname,'hcard' => $this->decode($struct[$i]['attributes']['HCARD']),'rel' => $this->decode($struct[$i]['attributes']['REL']));
                         $dir_array[$dirname[0]]['links'][] = $basic_array;
                     }
                 }
@@ -476,32 +474,32 @@ class serendipity_plugin_linklist extends serendipity_plugin
             $imagear['uselines'] = $this->get_config('useLines');
             $imagear['useicons'] = $this->get_config('useIcons');
             if ($imagear['useicons']) {
-                $imagear['folder']       = '/img/folder.gif';
-                $imagear['folderopen']   = '/img/folderopen.gif';
-                $imagear['page']         = '/img/page.gif';
+                $imagear['folder']      = '/img/folder.gif';
+                $imagear['folderopen']  = '/img/folderopen.gif';
+                $imagear['page']        = '/img/page.gif';
             }
             if ($this->get_config('useLines')) {
-                $imagear['line']       = '/img/line.gif';
-                $imagear['join']       = '/img/join.gif';
-                $imagear['joinBottom'] = '/img/joinbottom.gif';
-                $imagear['plus']       = '/img/plus.gif';
-                $imagear['plusBottom'] = '/img/plusbottom.gif';
-                $imagear['minus']      = '/img/minus.gif';
-                $imagear['minusBottom']= '/img/minusbottom.gif';
-                $imagear['empty_image']= '/img/empty.gif';
+                $imagear['line']        = '/img/line.gif';
+                $imagear['join']        = '/img/join.gif';
+                $imagear['joinBottom']  = '/img/joinbottom.gif';
+                $imagear['plus']        = '/img/plus.gif';
+                $imagear['plusBottom']  = '/img/plusbottom.gif';
+                $imagear['minus']       = '/img/minus.gif';
+                $imagear['minusBottom'] = '/img/minusbottom.gif';
+                $imagear['empty_image'] = '/img/empty.gif';
             } else {
-                $imagear['line']       = '/img/empty.gif';
-                $imagear['join']       = '/img/empty.gif';
-                $imagear['joinBottom'] = '/img/empty.gif';
-                $imagear['plus']       = '/img/nolines_plus.gif';
-                $imagear['plusBottom'] = '/img/nolines_plus.gif';
-                $imagear['minus']      = '/img/nolines_minus.gif';
-                $imagear['minusBottom']= '/img/nolines_minus.gif';
-                $imagear['empty_image']= '/img/empty.gif';
+                $imagear['line']        = '/img/empty.gif';
+                $imagear['join']        = '/img/empty.gif';
+                $imagear['joinBottom']  = '/img/empty.gif';
+                $imagear['plus']        = '/img/nolines_plus.gif';
+                $imagear['plusBottom']  = '/img/nolines_plus.gif';
+                $imagear['minus']       = '/img/nolines_minus.gif';
+                $imagear['minusBottom'] = '/img/nolines_minus.gif';
+                $imagear['empty_image'] = '/img/empty.gif';
             }
 
             if (!$lessformatting) {
-                $str.='<script src="'.$serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '').'plugin/linklist.js" type="text/javascript"></script>';
+                $str .= '<script src="'.$serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '').'plugin/linklist.js" type="text/javascript"></script>';
             }
 
             $str .= '<div class="linklist"><ul>'.$delimiter;
@@ -510,14 +508,14 @@ class serendipity_plugin_linklist extends serendipity_plugin
             $str .= '</ul></div>';
         }
 
-        $str.=$this->get_config('append_text');
+        $str .= $this->get_config('append_text');
 
-        if($this->get_config('call_markup')=='true') {
+        if ($this->get_config('call_markup') == 'true') {
             $entry = array('html_nugget' => $str);
             serendipity_plugin_api::hook_event('frontend_display', $entry);
             return $entry['html_nugget'];
         } else {
-          return $str;
+            return $str;
         }
     }
 
@@ -528,16 +526,16 @@ class serendipity_plugin_linklist extends serendipity_plugin
         if ($this->get_config('cache') == 'no') {
             if (@include_once("Cache/Lite.php")) {
                 $cache_obj = new Cache_Lite( array('cacheDir' => $serendipity['serendipityPath'].'templates_c/','automaticSerialization' => true));
-                $cache_obj->remove('linklist_html');
-                $cache_obj->remove('linklist_xmlhash');
-            } 
+                @$cache_obj->remove('linklist_html');
+                @$cache_obj->remove('linklist_xmlhash');
+            }
         }
-        $setdata = array('display' => $this->get_config('display'),
+        $setdata = array('display'  => $this->get_config('display'),
                          'category' => $this->get_config('category'),
-                         'style' => $this->get_config('style'),
-                         'cache' => $cache);
+                         'style'    => $this->get_config('style'),
+                         'cache'    => $cache);
 
-        if($this->get_config('directxml')!='true') {
+        if($this->get_config('directxml') != 'true') {
            $blah = $this->get_config('display');
             if (!isset($blah)) {
                 $this->set_config('display','category');
@@ -548,7 +546,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
             $setdata['enabled'] = 'false';
         }
         serendipity_plugin_api::hook_event('plugins_linklist_conf',$setdata);
-        if ($setdata['changed']=='true') {
+        if ($setdata['changed'] == 'true') {
             $this->set_config('links',$setdata['links']);
         }
 

@@ -5529,9 +5529,9 @@ aplikovány další typografické úpravy.</description>
 <description>Umožňuje přidat do příspěvku tagy, které zajistí vložení část jiného příspěvku. Použijte tuto značku: [s9y-include-entry:XXX:YYY]. Nahraďte XXX číslem ID odkazovaného příspěvku a YYY nahraďte názvem pole příspěvku, které chcete vložit (např. &quot;body&quot;, &quot;title&quot;, &quot;extended&quot;, ...). Také můžete využít nové funkce menu pro správu šablon a bloků, které je možno vložit mezi příspěvky.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.14.1</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <version>2.15</version>
+  <requirements:s9yVersion>1.7</requirements:s9yVersion>
+  <date>2015-06-02</date>
   <filelist>
 <dir name="serendipity_event_includeentry">
 <file>serendipity_event_includeentry.php</file>
@@ -5545,6 +5545,7 @@ aplikovány další typografické úpravy.</description>
 <file>form.inc.php</file>
 <file>plugin_staticblock.tpl</file>
 <file>ChangeLog</file>
+<file>oldform.inc.php</file>
 <file>lang_bg.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>lang_cs.inc.php</file>
@@ -5564,6 +5565,7 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_includeentry/form.inc.php</file>
     <file>serendipity_event_includeentry/plugin_staticblock.tpl</file>
     <file>serendipity_event_includeentry/ChangeLog</file>
+    <file>serendipity_event_includeentry/oldform.inc.php</file>
     <file>serendipity_event_includeentry/lang_bg.inc.php</file>
     <file>serendipity_event_includeentry/lang_en.inc.php</file>
     <file>serendipity_event_includeentry/lang_cs.inc.php</file>

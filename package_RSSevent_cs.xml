@@ -690,8 +690,8 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_includeentry</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_includeentry&lt;br /&gt;Markup: Vložení příspěvku/šablony/bloku&lt;/b&gt;&lt;br /&gt;Umožňuje přidat do příspěvku tagy, které zajistí vložení část jiného příspěvku. Použijte tuto značku: [s9y-include-entry:XXX:YYY]. Nahraďte XXX číslem ID odkazovaného příspěvku a YYY nahraďte názvem pole příspěvku, které chcete vložit (např. &quot;body&quot;, &quot;title&quot;, &quot;extended&quot;, ...). Také můžete využít nové funkce menu pro správu šablon a bloků, které je možno vložit mezi příspěvky.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:18 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_includeentry&lt;br /&gt;Markup: Vložení příspěvku/šablony/bloku&lt;/b&gt;&lt;br /&gt;Umožňuje přidat do příspěvku tagy, které zajistí vložení část jiného příspěvku. Použijte tuto značku: [s9y-include-entry:XXX:YYY]. Nahraďte XXX číslem ID odkazovaného příspěvku a YYY nahraďte názvem pole příspěvku, které chcete vložit (např. &quot;body&quot;, &quot;title&quot;, &quot;extended&quot;, ...). Také můžete využít nové funkce menu pro správu šablon a bloků, které je možno vložit mezi příspěvky.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
+<pubDate>Tue, 02 Jun 2015 02:33:20 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_includeentry</guid>
 </item>
 <item>

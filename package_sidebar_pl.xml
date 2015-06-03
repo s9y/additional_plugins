@@ -1163,9 +1163,9 @@
 <description>Manadżer linków - pokazuje Twoje ulubione linki w Panelu bocznym.</description>
 <maintainers><maintainer><name>Matthew Groeninger, Omid Mottaghi Rad</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.20</version>
+  <version>1.21</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2015-06-03</date>
   <filelist>
 <dir name="serendipity_event_linklist">
 <file>serendipity_event_linklist.php</file>
@@ -2901,15 +2901,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_imagesidebar</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_imagesidebar/ChangeLog</changelog>
 <license>BSD</license>
 <summary>Unified Sidebar Image Display</summary>
 <groups>IMAGES</groups>
 <description>Offers the ability to display images in the sidebar.  The source of the images is configurable.  The plugin is able to connect to a Menalto Gallery installs &quot;random&quot; url, access a Coppermine database directory (MySql only), connect to the web service Zooomr (http://beta.zooomr.com/home) or access images in the Serendipity Media Library.</description>
 <maintainers><maintainer><name>Andrew Brown (Menalto code), Matthew Groeninger (Unified/Media Lib. Code), Stefan Lange-Hegermann (Zooomr Code), Matthew Maude (Coppermine code)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.97.1</version>
+  <version>0.98</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2015-06-03</date>
   <filelist>
 <dir name="serendipity_plugin_imagesidebar">
 <dir name="UTF-8">
@@ -2926,6 +2927,7 @@
 <file>media_sidebar.php</file>
 <file>menalto_sidebar.php</file>
 <file>serendipity_plugin_imagesidebar.php</file>
+<file>ChangeLog</file>
 <file>zooomr_sidebar.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
@@ -2947,6 +2949,7 @@
     <file>serendipity_plugin_imagesidebar/media_sidebar.php</file>
     <file>serendipity_plugin_imagesidebar/menalto_sidebar.php</file>
     <file>serendipity_plugin_imagesidebar/serendipity_plugin_imagesidebar.php</file>
+    <file>serendipity_plugin_imagesidebar/ChangeLog</file>
     <file>serendipity_plugin_imagesidebar/zooomr_sidebar.php</file>
     <file>serendipity_plugin_imagesidebar/lang_cs.inc.php</file>
     <file>serendipity_plugin_imagesidebar/lang_cz.inc.php</file>

@@ -1,3 +1,7 @@
+1.46:
+-----
+* Updated translation (german), fixed some english descriptions
+
 1.45:
 -----
 * Fixed encoding mail subject in blog's charset by default not ISO-8859-1

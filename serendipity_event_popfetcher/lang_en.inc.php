@@ -123,5 +123,5 @@
 @define('THUMBNAIL_VIEW', 'View Thumbnail in Entry Body');
 @define('THUMBNAIL_VIEW_DESC', 'If you want to have a thumbnail view of your attached pictures in the entries body. If set to "no", the full picture will be displayed.');
 
-@define('PLUGIN_MF_DEBUGMAIL', 'For developers: You can enter a filename (including path) here to a EML file to debug popfetcher with such file');
+@define('PLUGIN_MF_DEBUGFILE', 'For developers: You can enter a filename (including path) here to a EML file to debug popfetcher with such file');
 

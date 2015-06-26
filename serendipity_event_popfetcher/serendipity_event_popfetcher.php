@@ -12,7 +12,7 @@ require_once('tmobile.php');
 require_once('o2.php');
 
 // Default values
-define('POPFETCHER_VERSION',  '1.45');       // This version of Popfetcher
+define('POPFETCHER_VERSION',  '1.46');       // This version of Popfetcher
 define('DEFAULT_ADMINMENU',   'true');       // True if run as sidebar plugin. False if external plugin.
 define('DEFAULT_HIDENAME',    'popfetcher'); // User should set this to something unguessable
 define('DEFAULT_MAILSERVER',  '');
@@ -810,7 +810,11 @@ class serendipity_event_popfetcher extends serendipity_event
         } else {
             $attlink = '<a class="popfetcherfile"  href="' . $serendipity['serendipityHTTPPath'].$serendipity['uploadHTTPPath'].$maildir.$filename.'" target="_blank">'.$filename.'</a>';
         }
-        
+
+        if ($debug_file !== null || $debug) {
+            $this->out( "Attachment return: " . htmlspecialchars($attlink) . ".<br />\n");
+        }
+
         // Inline pictures to match the structure of the mail
         if ($plaintext_is_body_flag) {
             // Only the first image is embedded in body, or if no extended entry is used

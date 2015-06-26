@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -75,6 +75,7 @@
 @define('PLUGIN_LINKS_LINE', 'Use lines');
 @define('PLUGIN_LINKS_LINE_BLAHBLAH', 'If you say TRUE, tree is drawn with lines');
 @define('PLUGIN_LINKS_ICON', 'Use icons');
+@define('PLUGIN_LINKS_SVGICON', 'Use link SVG icon by CSS');
 @define('PLUGIN_LINKS_ICON_BLAHBLAH', 'If you say TRUE, tree is drawn with icons');
 @define('PLUGIN_LINKS_STATUS', 'Use status text');
 @define('PLUGIN_LINKS_STATUS_BLAHBLAH', 'If you say TRUE, displays node names in the statusbar instead of the url');
@@ -99,4 +100,4 @@
 @define('PLUGIN_LINKS_USEDESC_BLAHBLAH','Use the description for the link title if it is available.');
 @define('PLUGIN_LINKS_PREPEND','Enter any text to be shown before the list of links.');
 @define('PLUGIN_LINKS_APPEND','Enter any text to be shown after the list of links.');
-?>
+

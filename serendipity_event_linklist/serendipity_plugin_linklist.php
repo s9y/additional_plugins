@@ -24,7 +24,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
         $propbag->add('description',   PLUGIN_LINKS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Matthew Groeninger, Omid Mottaghi Rad');
-        $propbag->add('version',       '1.21');
+        $propbag->add('version',       '1.22');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array(
                                              'title',
@@ -45,6 +45,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                                              'useCookies',
                                              'useLines',
                                              'useIcons',
+                                             'useSVG',
                                              'useStatusText',
                                              'closeSameLevel',
                                              'target',
@@ -73,17 +74,17 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 break;
 
            case 'prepend_text':
-                $propbag->add('type',        'html');
-                $propbag->add('name',         PLUGIN_LINKS_PREPEND);
+                $propbag->add('type', 'html');
+                $propbag->add('name', PLUGIN_LINKS_PREPEND);
                 $propbag->add('description', '');
-                $propbag->add('default',     '');
+                $propbag->add('default', '');
                 break;
 
            case 'append_text':
-                $propbag->add('type',        'html');
-                $propbag->add('name',         PLUGIN_LINKS_APPEND);
+                $propbag->add('type', 'html');
+                $propbag->add('name', PLUGIN_LINKS_APPEND);
                 $propbag->add('description', '');
-                $propbag->add('default',     '');
+                $propbag->add('default', '');
                  break;
 
            case 'top_level':
@@ -102,7 +103,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 break;
 
             case 'links':
-                if($this->get_config('directxml')=='true')  {
+                if($this->get_config('directxml') == 'true')  {
                     $propbag->add('type', 'text');
                     $propbag->add('name', PLUGIN_LINKS_LINKS);
                     $propbag->add('description', PLUGIN_LINKS_LINKS_BLAHBLAH);
@@ -112,7 +113,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 break;
 
             case 'display':
-                if($this->get_config('directxml')!='true')  {
+                if($this->get_config('directxml') != 'true')  {
                     $select = array();
                     $select["alpha"] = PLUGIN_LINKLIST_ORDER_ALPHA;
                     $select["category"] = PLUGIN_LINKLIST_ORDER_CATEGORY;
@@ -126,9 +127,10 @@ class serendipity_plugin_linklist extends serendipity_plugin
                     $propbag->add('default', 'category');
                 }
                 break;
+
             case 'category':
-                if($this->get_config('directxml')!='true')  {
-                    $propbag->add('type',          'radio');
+                if($this->get_config('directxml') != 'true')  {
+                    $propbag->add('type', 'radio');
                     $propbag->add('name', PLUGIN_LINKLIST_CATEGORY_NAME);
                     $propbag->add('description', PLUGIN_LINKLIST_CATEGORY_NAME_DESC);
                     $propbag->add('radio',
@@ -139,18 +141,18 @@ class serendipity_plugin_linklist extends serendipity_plugin
                     $propbag->add('default', 'custom');
                 }
                 break;
+
             case 'cache':
-                 $propbag->add('type',          'radio');
+                 $propbag->add('type', 'radio');
                  $propbag->add('name', PLUGIN_LINKLIST_CACHE_NAME);
                  $propbag->add('description', PLUGIN_LINKLIST_CACHE_DESC);
                  $propbag->add('radio',
-                   array( 'value' => array('yes','no'),
-                          'desc'  => array(YES,NO)
+                   array( 'value' => array('yes', 'no'),
+                          'desc'  => array(YES, NO)
                       ));
                  $propbag->add('radio_per_row', '2');
                  $propbag->add('default', 'no');
                 break;
-
 
             case 'openAllText':
                 if($this->get_config('style') == "dtree")  {
@@ -228,6 +230,15 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 }
                 break;
 
+            case 'useSVG':
+                if($this->get_config('style') == "css")  {
+                    $propbag->add('type', 'boolean');
+                    $propbag->add('name', PLUGIN_LINKS_SVGICON);
+                    $propbag->add('description', '');
+                    $propbag->add('default', 'true');
+                }
+                break;
+
             case 'useStatusText':
                 if($this->get_config('style') == "dtree")  {
                     $propbag->add('type', 'boolean');
@@ -284,12 +295,12 @@ class serendipity_plugin_linklist extends serendipity_plugin
 
             case 'category_default_open':
                 if($this->get_config('style') != "simp_css")  {
-                    $propbag->add('type',          'radio');
+                    $propbag->add('type', 'radio');
                     $propbag->add('name', PLUGIN_LINKLIST_CATEGORY_DEFAULT_OPEN_NAME);
                     $propbag->add('description', PLUGIN_LINKLIST_CATEGORY_DEFAULT_OPEN_DESC);
                     $propbag->add('radio',
-                        array( 'value' => array('closed','open'),
-                               'desc'  => array(PLUGIN_LINKLIST_CATEGORY_DEFAULT_OPEN_NAME_CLOSED,PLUGIN_LINKLIST_CATEGORY_DEFAULT_OPEN_NAME_OPEN)
+                        array( 'value' => array('closed', 'open'),
+                               'desc'  => array(PLUGIN_LINKLIST_CATEGORY_DEFAULT_OPEN_NAME_CLOSED, PLUGIN_LINKLIST_CATEGORY_DEFAULT_OPEN_NAME_OPEN)
                         ));
                     $propbag->add('radio_per_row', '2');
                     $propbag->add('default', 'closed');
@@ -355,7 +366,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
 
     }
 
-    function gen_output($links,$style) {
+    function gen_output($links, $style) {
         global $serendipity;
         $imgdir = $this->get_config('imgdir');
         $use_descrip = $this->get_config('use_description',false);
@@ -385,12 +396,12 @@ class serendipity_plugin_linklist extends serendipity_plugin
             d = new dTree("d","'.$imgdir.'");'."\n";
 
             /* configuration section*/
-            if ($this->get_config('useSelection')!=true) $str.='d.config.useSelection=false;'."\n";
-            if ($this->get_config('useCookies')!=true) $str.='d.config.useCookies=false;'."\n";
-            if ($this->get_config('useLines')!=true) $str.='d.config.useLines=false;'."\n";
-            if ($this->get_config('useIcons')!=true) $str.='d.config.useIcons=false;'."\n";
-            if ($this->get_config('useStatusText')==true) $str.='d.config.useStatusText=true;'."\n";
-            if ($this->get_config('closeSameLevel')==true) $str.='d.config.closeSameLevel=true;'."\n";
+            if ($this->get_config('useSelection') != true) $str.='d.config.useSelection=false;'."\n";
+            if ($this->get_config('useCookies') != true) $str.='d.config.useCookies=false;'."\n";
+            if ($this->get_config('useLines') != true) $str.='d.config.useLines=false;'."\n";
+            if ($this->get_config('useIcons') != true) $str.='d.config.useIcons=false;'."\n";
+            if ($this->get_config('useStatusText') == true) $str.='d.config.useStatusText=true;'."\n";
+            if ($this->get_config('closeSameLevel') == true) $str.='d.config.closeSameLevel=true;'."\n";
             $my_target = $this->get_config('target');
             if (!empty($my_target)) {
                 $str .= 'd.config.target="'.$my_target.'";'."\n";
@@ -401,11 +412,11 @@ class serendipity_plugin_linklist extends serendipity_plugin
 
             for($level[]=0, $i=1, $j=1; isset($struct[$i]); $i++, $j++){
                 if(isset($struct[$i]['type'])){
-                    if($struct[$i]['type']=='open' && strtolower($struct[$i]['tag'])=='dir'){
+                    if($struct[$i]['type'] == 'open' && strtolower($struct[$i]['tag']) == 'dir'){
                         $str .= 'd.add('.$j.','.$level[count($level)-1].',"'.$this->decode($struct[$i]['attributes']['NAME']).'");'."\n";
-                        $level[]=$j;
+                        $level[] = $j;
                     }
-                    else if($struct[$i]['type']=='close' && strtolower($struct[$i]['tag'])=='dir'){
+                    else if($struct[$i]['type'] == 'close' && strtolower($struct[$i]['tag']) == 'dir'){
                         $dump=array_pop($level);
                     }
                     else if($struct[$i]['type']=='complete' && strtolower($struct[$i]['tag'])=='link'){
@@ -466,10 +477,12 @@ class serendipity_plugin_linklist extends serendipity_plugin
                     }
                 }
             }
+            /* ???
             //Process array into output
             if ($this->get_config('useIcons')) {
             } else {
             }
+            */
             $imagear['imgdir'] = $imgdir;
             $imagear['uselines'] = $this->get_config('useLines');
             $imagear['useicons'] = $this->get_config('useIcons');
@@ -499,12 +512,12 @@ class serendipity_plugin_linklist extends serendipity_plugin
             }
 
             if (!$lessformatting) {
-                $str .= '<script src="'.$serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '').'plugin/linklist.js" type="text/javascript"></script>';
+                $str .= '<script src="'.$serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '').'plugin/linklist.js" type="text/javascript"></script>'."\n";
             }
-
-            $str .= '<div class="linklist"><ul>'.$delimiter;
+            $class = !$lessformatting ? 'csslist' : 'simple';
+            $str .= '<div class="linklist"><ul class="'. $class .'">'.$delimiter;
             $more_track = array();
-            $str .= $this->build_tree($dir_array,"",$imagear,$more_track, $strtemp,$lessformatting,$delimiter,$use_descrip);
+            $str .= $this->build_tree($dir_array, "", $imagear, $more_track, $strtemp, $lessformatting, $delimiter, $use_descrip);
             $str .= '</ul></div>';
         }
 
@@ -552,10 +565,10 @@ class serendipity_plugin_linklist extends serendipity_plugin
 
     }
 
-    function build_tree ($fullarray, $rootdir,$imagearray, $more_track, $strtemp = "", $lessformatting = NULL, $delimiter = "\n",$use_descrip = false) {
-        $imgdir = $imagearray['imgdir'];
-        $uselines = $imagearray['uselines'];
-        $useicons = $imagearray['useicons'];
+    function build_tree ($fullarray, $rootdir, $imagearray, $more_track, $strtemp = "", $lessformatting = NULL, $delimiter = "\n", $use_descrip = false) {
+        $imgdir    = $imagearray['imgdir'];
+        $uselines  = $imagearray['uselines'];
+        $useicons  = $imagearray['useicons'];
         $directory = $fullarray[$rootdir];
         extract($directory);
         if (($this->get_config('category_default_open') != 'closed') || $lessformatting) {
@@ -583,7 +596,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
 
                 $base_image_string = '';
                 if ($lessformatting) {
-                    $strtemp .= '<span class="menu_title" id="submenu_'.$safename.'_parent">'.$folder_image.$sub.'</span><br /><ul id="submenu_'.$safename.'" '.$link_block_style .'>'.$delimiter;
+                    $strtemp .= '<span class="menu_title" id="submenu_'.$safename.'_parent">'.$folder_image.$sub.'</span><br /><ul id="submenu_'.$safename.'" class="simple" '.$link_block_style .'>'.$delimiter;
                 } else {
                     for ($i = 1; $i < $level; $i++) {
                         if ($uselines && $more_track[$i]) {
@@ -597,9 +610,9 @@ class serendipity_plugin_linklist extends serendipity_plugin
                     } else {
                         $folder_image = '';
                     }
-                    $strtemp .= $base_image_string.'<a class="folder" href="javascript: hide_unhide(\'submenu_'.$safename.'\',\''.$imgdir.'\',\''.$uselines.'\',\''.$useicons.'\',\''.$more_track[$level].'\');"><img id="submenu_'.$safename.'_image" src="'.$imgdir.$start_image .'" alt="" /><span class="menu_title">'.$folder_image.$sub.'</span></a><ul id="submenu_'.$safename.'" '.$link_block_style .'>'.$delimiter;
+                    $strtemp .= $base_image_string.'<a class="folder" href="javascript: hide_unhide(\'submenu_'.$safename.'\',\''.$imgdir.'\',\''.$uselines.'\',\''.$useicons.'\',\''.$more_track[$level].'\');"><img id="submenu_'.$safename.'_image" src="'.$imgdir.$start_image .'" alt="" /><span class="menu_title">'.$folder_image.$sub.'</span></a><ul id="submenu_'.$safename.'" class="csslist" '.$link_block_style .'>'.$delimiter;
                 }
-                $strtemp .= $this->build_tree($fullarray, $sub,$imagearray,$more_track, $str, $lessformatting, $delimiter,$use_descrip);
+                $strtemp .= $this->build_tree($fullarray, $sub, $imagearray, $more_track, $str, $lessformatting, $delimiter, $use_descrip);
                 $strtemp .= '</ul></li>';
             }
         }
@@ -619,7 +632,11 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 }
             }
             if ($useicons) {
-                $page_icon = '<img src="'.$imgdir.$imagearray['page'].'" alt="" />';
+                if (serendipity_db_bool($this->get_config('useSVG', true))) {
+                    $page_icon = '<img class="svg"/>';
+                } else {
+                    $page_icon = '<img src="'.$imgdir.$imagearray['page'].'" alt="" />';
+                }
             } else {
                 $page_icon = '';
             }

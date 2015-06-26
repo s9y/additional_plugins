@@ -30,7 +30,7 @@ class serendipity_event_linklist extends serendipity_event {
                                             'external_plugin'                                 => true
                                             ));
         $propbag->add('author',        'Matthew Groeninger, Omid Mottaghi Rad');
-        $propbag->add('version',       '2.00');
+        $propbag->add('version',       '2.01');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -150,17 +150,16 @@ class serendipity_event_linklist extends serendipity_event {
                         $searchstr = '.linklist';
                         $filename = 'serendipity_event_linklist.css';
                     }
-                    if (strpos($eventData, $searchstr)) {
-                       // class exists in CSS by another Plugin, or a user has customized it and we don't need default
-                       return true;
-                       break;
-                    }
+                    // class exists in CSS by another Plugin, or a User has customized it and we don't need default
+                    $pos = strpos($eventData, $searchstr);
+                    if ($pos === false) {
 
-                    $tfile = serendipity_getTemplateFile($filename, 'serendipityPath');
-                    if (!$tfile || $tfile == $filename) {
-                        $tfile = dirname(__FILE__) . '/' . $filename;
+                        $tfile = serendipity_getTemplateFile($filename, 'serendipityPath');
+                        if (!$tfile || $tfile == $filename) {
+                            $tfile = dirname(__FILE__) . '/' . $filename;
+                        }
+                        $eventData .= file_get_contents($tfile);
                     }
-                    echo file_get_contents($tfile);
 
                     return true;
                     break;
@@ -240,8 +239,8 @@ class serendipity_event_linklist extends serendipity_event {
                             }
                         }
                     } else {
-                        if ($this->get_config('active') =='true') {
-                            $this->set_config('active','false');
+                        if ($this->get_config('active') == 'true') {
+                            $this->set_config('active', 'false');
                             $this->set_config('cache', 'no');
                             $this->set_config('display', 'category');
                             $eventData['links'] = $this->generate_output(true);

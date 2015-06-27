@@ -1163,9 +1163,9 @@
 <description>Links manager - Shows your favorite links in the sidebar.</description>
 <maintainers><maintainer><name>Matthew Groeninger, Omid Mottaghi Rad</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.21</version>
+  <version>1.22</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-06-03</date>
+  <date>2015-06-27</date>
   <filelist>
 <dir name="serendipity_event_linklist">
 <file>serendipity_event_linklist.php</file>

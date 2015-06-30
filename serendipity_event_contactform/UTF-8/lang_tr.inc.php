@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -21,4 +21,3 @@
 @define('PLUGIN_CONTACTFORM_ARTICLEFORMAT', 'Makale olarak biçimlensin mi?');
 @define('PLUGIN_CONTACTFORM_ARTICLEFORMAT_BLAHBLAH', 'Eğer evet seçeneği işaretlenirse çıktı makale olarak biçimlenecek (renkler, kenarlıklar, vb.) (öntanımlı: evet)');
 
-?>

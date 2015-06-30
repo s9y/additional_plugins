@@ -1,31 +1,40 @@
+1.17:
+-----
+ * Sets required version to S9y 1.3
+ * Set Sent Box to text, to not allow hidden <p> tags by WYSIWYG-Editors
+   for the text.
+ * Fixed Smarty template includement
+ * Removed unused and confusing code
+ * Fix german lang constant for "PLUGIN_CONTACTFORM_SENT_HTML"
+
 1.16:
 -----
 
-fix XSS security vulnerability (Thanks to Stefan Schurtz!)
+* fix XSS security vulnerability (Thanks to Stefan Schurtz!)
 
 1.15:
 -----
 
-latest: Smarty3 forward compatibility
+* latest: Smarty3 forward compatibility
 
 1.14:
 -----
 
-Added check to circument adduser plugin's "registered only" option.
+* Added check to circument adduser plugin's "registered only" option.
 
 1.13:
 -----
 
-Force spamblock plugin to properly realize "time to live" of captchas.
-Previously, even though captchas where displayed, it did not matter what
-the user entered.
+* Force spamblock plugin to properly realize "time to live" of captchas.
+  Previously, even though captchas where displayed, it did not matter what
+  the user entered.
 
 1.11:
 -----
 
-Fix XHTML validity of checked="checked"
+* Fix XHTML validity of checked="checked"
 
 1.10:
 -----
 
-Introdcuce new "issue counter".
+* Introdcuce new "issue counter".

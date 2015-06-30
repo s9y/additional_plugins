@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -21,4 +21,3 @@
 @define('PLUGIN_CONTACTFORM_ARTICLEFORMAT', 'Formatować jak artykuł?');
 @define('PLUGIN_CONTACTFORM_ARTICLEFORMAT_BLAHBLAH', 'Jeśli tak, strona z formularzem będzie formatowana i wyświetlana jak strona z wpisem i będą stosowane wszystkie formatowania (kolory, obramowania itp.) (Standardowo: Tak)');
 
-?>

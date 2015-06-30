@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -21,4 +21,3 @@
 @define('PLUGIN_CONTACTFORM_ARTICLEFORMAT', '記事として清書しますか?');
 @define('PLUGIN_CONTACTFORM_ARTICLEFORMAT_BLAHBLAH', 'もし記事のように清書された書式(色・境界線など)で出力するなら「はい」を選びます (デフォルト: はい)');
 
-?>

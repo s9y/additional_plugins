@@ -2,9 +2,9 @@
 <div class="serendipity_Entry_Date">
     <h3 class="serendipity_date">{$plugin_contactform_name}</h3>
 {/if}
-    
+
 <h4 class="serendipity_title"><a href="#">{$plugin_contactform_pagetitle}</a></h4>
-            
+
 {if $plugin_contactform_articleformat}
 <div class="serendipity_entry"><div class="serendipity_entry_body">
 {/if}

@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -21,4 +21,3 @@
 @define('PLUGIN_CONTACTFORM_ARTICLEFORMAT', 'Formater comme un article ?');
 @define('PLUGIN_CONTACTFORM_ARTICLEFORMAT_BLAHBLAH', 'si oui, le texte est formaté comme un article (couleurs, bordures, etc.)');
 
-?>

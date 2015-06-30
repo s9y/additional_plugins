@@ -1,6 +1,5 @@
 <?php
 
-
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -28,11 +27,11 @@ class serendipity_event_contactform extends serendipity_event {
         $propbag->add('name', PLUGIN_CONTACTFORM_TITLE);
         $propbag->add('description', $desc);
         $propbag->add('event_hooks',  array('entries_header' => true, 'entry_display' => true, 'genpage' => true));
-        $propbag->add('configuration', array('permalink', 'pagetitle', 'backend_title', 'email', 'subject', 'counter', 'intro', 'sent', 'articleformat','dynamic_tpl','dynamic_fields','dynamic_fields_tpl','dynamic_fields_desc'));
+        $propbag->add('configuration', array('permalink', 'pagetitle', 'backend_title', 'email', 'subject', 'counter', 'intro', 'sent', 'articleformat', 'dynamic_tpl', 'dynamic_fields', 'dynamic_fields_tpl', 'dynamic_fields_desc'));
         $propbag->add('author', 'Garvin Hicking');
-        $propbag->add('version', '1.16.1');
+        $propbag->add('version', '1.17');
         $propbag->add('requirements',  array(
-            'serendipity' => '0.7',
+            'serendipity' => '1.3',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
@@ -90,7 +89,7 @@ class serendipity_event_contactform extends serendipity_event {
                 break;
 
             case 'sent':
-                $propbag->add('type',        'html');
+                $propbag->add('type',        'text');
                 $propbag->add('name',        PLUGIN_CONTACTFORM_SENT);
                 $propbag->add('description', '');
                 $propbag->add('default',     PLUGIN_CONTACTFORM_SENT_HTML);
@@ -124,7 +123,7 @@ class serendipity_event_contactform extends serendipity_event {
                 break;
 
             case 'dynamic_fields':
-                if ($this->get_config('dynamic_tpl','standard') == 'full_dynamic') {
+                if ($this->get_config('dynamic_tpl', 'standard') == 'full_dynamic') {
                     $propbag->add('type',        'text');
                     $propbag->add('name',        PLUGIN_CONTACTFORM_DYNAMICFIELDS);
                     $propbag->add('description', PLUGIN_CONTACTFORM_DYNAMICFIELDS_DESC);
@@ -366,7 +365,7 @@ class serendipity_event_contactform extends serendipity_event {
 
         if ($this->selected()) {
             $form_fields = array();
-            $dynamic_tpl = $this->get_config('dynamic_tpl','standard');
+            $dynamic_tpl = $this->get_config('dynamic_tpl', 'standard');
             if (!headers_sent()) {
                 header('HTTP/1.0 200');
                 header('Status: 200 OK');
@@ -427,9 +426,10 @@ class serendipity_event_contactform extends serendipity_event {
                     'commentform_dynamicfields'  => $form_fields
                 )
             );
+
             if ($dynamic_tpl == 'standard') {
                 $tfile = serendipity_getTemplateFile('plugin_contactform.tpl', 'serendipityPath');
-                if (!$tfile) {
+                if (!$tfile || $tfile == 'plugin_contactform.tpl') {
                     $tfile = dirname(__FILE__) . '/plugin_contactform.tpl';
                 }
             } else {
@@ -439,22 +439,11 @@ class serendipity_event_contactform extends serendipity_event {
                 }
                 $tfile = serendipity_getTemplateFile($filename, 'serendipityPath');
 
-                if (!$tfile) {
+                if (!$tfile || $tfile == $filename) {
                     $tfile = dirname(__FILE__) . '/' . $filename;
                 }
             }
-            $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-            $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
-            $content = $serendipity['smarty']->fetch('file:'. $tfile);
-            $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
-
-            if ($this->get_config('markup') == TRUE) {
-                $entry = array('body' => $content);
-                serendipity_plugin_api::hook_event('frontend_display', $entry);
-                echo $entry['body'];
-            } else {
-                echo $content;
-            }
+            echo $this->parseTemplate($tfile);
         }
     }
 
@@ -499,7 +488,7 @@ class serendipity_event_contactform extends serendipity_event {
                         $serendipity['head_title']    = $this->get_config('pagetitle');
                         $serendipity['head_subtitle'] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['blogTitle']) : htmlspecialchars($serendipity['blogTitle'], ENT_COMPAT, LANG_CHARSET));
                     } else {
-                        // Put subpage back so static page plugin will work
+                        // Put subpage back so staticpage plugin will work
                         $serendipity['GET']['subpage'] = $oldsubpage;
                     }
                     break;
@@ -512,11 +501,6 @@ class serendipity_event_contactform extends serendipity_event {
                             $eventData = array('clean_page' => true);
                         }
                     }
-
-                    if (version_compare($serendipity['version'], '0.7.1', '<=')) {
-                        $this->show();
-                    }
-
                     return true;
                     break;
 

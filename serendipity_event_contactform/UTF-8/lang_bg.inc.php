@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -21,18 +21,18 @@
 @define('PLUGIN_CONTACTFORM_DYNAMIC_ERROR_DATA', 'Не е попълнено задължително поле.');
 @define('PLUGIN_CONTACTFORM_ARTICLEFORMAT', 'Форматиране като статия ?');
 @define('PLUGIN_CONTACTFORM_ARTICLEFORMAT_BLAHBLAH', 'При избор \'Да\' съобщението се форматира автоматично като статия (цветове, шрифтове и т.н.).');
-@define('PLUGIN_CONTACTFORM_DYNAMICTPL','Use the dynamic tpl?');
-@define('PLUGIN_CONTACTFORM_DYNAMICTPL_DESC','This setting allows you to choose the form type you wish to use.  You can use the standard form, a small business form, a more detailed form or an entirely custom form created from a manually entered string.');
-@define('PLUGIN_CONTACTFORM_DYNAMICFIELDS','Form field string');
-@define('PLUGIN_CONTACTFORM_DYNAMICTPL_STANDARD','Standard');
-@define('PLUGIN_CONTACTFORM_DYNAMICTPL_SMALLBIZ','Small Business');
-@define('PLUGIN_CONTACTFORM_DYNAMICTPL_DETAILED','Detailed Form');
-@define('PLUGIN_CONTACTFORM_DYNAMICTPL_FULLDYNAMIC','Custom');
-@define('PLUGIN_CONTACTFORM_FNAME','First Name');
-@define('PLUGIN_CONTACTFORM_LNAME','Last Name');
-@define('PLUGIN_CONTACTFORM_ADDRESS','Address');
-@define('PLUGIN_CONTACTFORM_DYNAMICFIELDS_DESC','This is the string that is parsed to determine which fields will appear on the form, whether they are required, and the default settings.');
-@define('PLUGIN_CONTACTFORM_DYNAMICFIELDS_DESC_NOTE','<p>The "Form field string" is a text string that is used to determine which fields are displayed on the dynamic form.  The string must be in the order of &lt;field&gt;:&lt;field&gt;:&lt;field&gt;.  Note the separation by colons.</p>
+@define('PLUGIN_CONTACTFORM_DYNAMICTPL', 'Use the dynamic tpl?');
+@define('PLUGIN_CONTACTFORM_DYNAMICTPL_DESC', 'This setting allows you to choose the form type you wish to use.  You can use the standard form, a small business form, a more detailed form or an entirely custom form created from a manually entered string.');
+@define('PLUGIN_CONTACTFORM_DYNAMICFIELDS', 'Form field string');
+@define('PLUGIN_CONTACTFORM_DYNAMICTPL_STANDARD', 'Standard');
+@define('PLUGIN_CONTACTFORM_DYNAMICTPL_SMALLBIZ', 'Small Business');
+@define('PLUGIN_CONTACTFORM_DYNAMICTPL_DETAILED', 'Detailed Form');
+@define('PLUGIN_CONTACTFORM_DYNAMICTPL_FULLDYNAMIC', 'Custom');
+@define('PLUGIN_CONTACTFORM_FNAME', 'First Name');
+@define('PLUGIN_CONTACTFORM_LNAME', 'Last Name');
+@define('PLUGIN_CONTACTFORM_ADDRESS', 'Address');
+@define('PLUGIN_CONTACTFORM_DYNAMICFIELDS_DESC', 'This is the string that is parsed to determine which fields will appear on the form, whether they are required, and the default settings.');
+@define('PLUGIN_CONTACTFORM_DYNAMICFIELDS_DESC_NOTE', '<p>The "Form field string" is a text string that is used to determine which fields are displayed on the dynamic form.  The string must be in the order of &lt;field&gt;:&lt;field&gt;:&lt;field&gt;.  Note the separation by colons.</p>
    <p>The individual fields (except for type "radio", as defined later) must be of the form {require;}Name;type{;default}.  Note the separation by semicolons.  Also, note that the curly brackets indicate an optional field.  If a field must be filled in to complete the form then the word "require" must appear at the start of the field definition (without the curly backets).</p>
    <p>Fields of different types are available.  Currently these types are supported:
         <ul> 
@@ -57,4 +57,4 @@
          <li>The last four together:- "require;Phone number;text:Default text;textarea;This is default text.  It is boring.  But it is default.:Radio Button;radio;Yes,yes|No,no,checked:Check Box;checkbox;checked" </li>
        </ul>
    </p>');
-?>
+

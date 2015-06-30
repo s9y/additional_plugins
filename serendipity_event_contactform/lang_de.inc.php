@@ -9,7 +9,7 @@
 @define('PLUGIN_CONTACTFORM_INTRO', 'Einführungstext (optional)');
 @define('PLUGIN_CONTACTFORM_MESSAGE', 'Nachricht');
 @define('PLUGIN_CONTACTFORM_SENT', 'Dargestellter Text nach Übermittlung der Nachricht.');
-@define('PLUGIN_CONTACTFORM_SENT_HTML', 'Ihre Nachricht wurde erfolgreich verschickt!!');
+@define('PLUGIN_CONTACTFORM_SENT_HTML', 'Ihre Nachricht wurde erfolgreich verschickt!');
 @define('PLUGIN_CONTACTFORM_ERROR_HTML', 'Ein Fehler trat bei der Übermittlung der E-Mail auf. Eventuell ist ihre E-Mail Adresse ungültig oder der Server ist spazieren gegangen.');
 @define('PLUGIN_CONTACTFORM_ERROR_DATA', 'Name, E-Mail und ihre Nachricht dürfen nicht leer gelassen werden.');
 @define('PLUGIN_CONTACTFORM_ARTICLEFORMAT', 'Als Artikel formatieren?');
@@ -19,18 +19,18 @@
 @define('PLUGIN_CONTACTFORM_TEMPLATE_DESC', 'Legt den Namen der Templatedatei fest, mit der das Kontaktformular dargestellt wird. Diese Datei kann entweder in dem Verzeichnis dieses Plugins oder dem Template-Verzeichnis gespeichert werden.');
 
 @define('PLUGIN_CONTACTFORM_DYNAMIC_ERROR_DATA', 'Ein benötigtes Feld wurde nicht ausgefüllt.');
-@define('PLUGIN_CONTACTFORM_DYNAMICTPL','Dynamische Vorlage (tpl) benutzen?');
-@define('PLUGIN_CONTACTFORM_DYNAMICTPL_DESC','erlaubt die Auswahl, welches Formular benutzt wird. Sie können zwischen dem Standard-Formular, einem Formular für kleine Geschäfte, einem detaillierten Formular und einem komplett selbsterstelltes Formular, das aus der manuell eingegebenen Zeichenkette erstellt wird, wählen.');
-@define('PLUGIN_CONTACTFORM_DYNAMICFIELDS','Formularfeld-Zeichenkette');
-@define('PLUGIN_CONTACTFORM_DYNAMICTPL_STANDARD','Standard');
-@define('PLUGIN_CONTACTFORM_DYNAMICTPL_SMALLBIZ','Kleines Geschäft');
-@define('PLUGIN_CONTACTFORM_DYNAMICTPL_DETAILED','Detailliertes Formular');
-@define('PLUGIN_CONTACTFORM_DYNAMICTPL_FULLDYNAMIC','Benutzerdefiniert');
-@define('PLUGIN_CONTACTFORM_FNAME','Vorname');
-@define('PLUGIN_CONTACTFORM_LNAME','Nachname');
-@define('PLUGIN_CONTACTFORM_ADDRESS','Adresse');
-@define('PLUGIN_CONTACTFORM_DYNAMICFIELDS_DESC','Dies ist die Zeichenkette, die festlegt, welche Felder im Formular angezeigt werden, ob sie erforderlich sind und was die Standardwerte sind.');
-@define('PLUGIN_CONTACTFORM_DYNAMICFIELDS_DESC_NOTE','<p>Die "Formularfeld-Zeichenkette" ist ein Text, der benutzt wird, um festzulegen, welche Felder im dynamischen Formular angezeigt werden. Die Zeichenkette muss folgendermaßen aussehen: &lt;Feld&gt;:&lt;Feld&gt;:&lt;Feld&gt;.  Beachten Sie die Trennung durch Doppelpunkte.</p>
+@define('PLUGIN_CONTACTFORM_DYNAMICTPL', 'Dynamische Vorlage (tpl) benutzen?');
+@define('PLUGIN_CONTACTFORM_DYNAMICTPL_DESC', 'erlaubt die Auswahl, welches Formular benutzt wird. Sie können zwischen dem Standard-Formular, einem Formular für kleine Geschäfte, einem detaillierten Formular und einem komplett selbsterstelltes Formular, das aus der manuell eingegebenen Zeichenkette erstellt wird, wählen.');
+@define('PLUGIN_CONTACTFORM_DYNAMICFIELDS', 'Formularfeld-Zeichenkette');
+@define('PLUGIN_CONTACTFORM_DYNAMICTPL_STANDARD', 'Standard');
+@define('PLUGIN_CONTACTFORM_DYNAMICTPL_SMALLBIZ', 'Kleines Geschäft');
+@define('PLUGIN_CONTACTFORM_DYNAMICTPL_DETAILED', 'Detailliertes Formular');
+@define('PLUGIN_CONTACTFORM_DYNAMICTPL_FULLDYNAMIC', 'Benutzerdefiniert');
+@define('PLUGIN_CONTACTFORM_FNAME', 'Vorname');
+@define('PLUGIN_CONTACTFORM_LNAME', 'Nachname');
+@define('PLUGIN_CONTACTFORM_ADDRESS', 'Adresse');
+@define('PLUGIN_CONTACTFORM_DYNAMICFIELDS_DESC', 'Dies ist die Zeichenkette, die festlegt, welche Felder im Formular angezeigt werden, ob sie erforderlich sind und was die Standardwerte sind.');
+@define('PLUGIN_CONTACTFORM_DYNAMICFIELDS_DESC_NOTE', '<p>Die "Formularfeld-Zeichenkette" ist ein Text, der benutzt wird, um festzulegen, welche Felder im dynamischen Formular angezeigt werden. Die Zeichenkette muss folgendermaßen aussehen: &lt;Feld&gt;:&lt;Feld&gt;:&lt;Feld&gt;.  Beachten Sie die Trennung durch Doppelpunkte.</p>
 <p>Die einzelnen Felder (mit Ausnahme des Typs "radio") müssen in der Form {require;}Name;type{;default} sein. Beachten Sie die Trennung durch Strichpunkte. Beachten Sie auch die geschweiften Klammern, die ein optionales Feld markieren. Wenn ein Feld zwingend ausgefüllt werden muss, muss das Wort "require" (ohne die geschweiften Klammern) am Anfang der Felddefinition stehen.</p>
 <p>Es sind mehrere verschiedene Feldtypen verfügbar. Momentan werden die folgenden Feldtypen unterstützt:
  <ul>

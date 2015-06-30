@@ -72,3 +72,4 @@
 @define('PLUGIN_CONTACTFORM_ISSUECOUNTER',		'Používat počítadlo kontaktních formulářů?');
 @define('PLUGIN_CONTACTFORM_ISSUECOUNTER_DESC',		'Pokud je použito, každý odeslaný kontaktní formulář dostane jedinečné ID identifikační číslo.');
 @define('PLUGIN_CONTACTFORM_MAIL_ISSUECOUNTER',		'Číslo lístku: %s');
+

@@ -87,10 +87,15 @@
 #wrapGB .gbnav ul li {
     list-style: none;
     margin: 0;
-    /* older browsers which dont support inline-flex */
-    display: inline-block;
     display: inline-flex;
 }
+#wrapGB .gbnav ul {
+    padding: 5px 0\9; /* IE 9 hack */
+}
+#wrapGB .gbnav ul li {
+    display: inline-block\9; /* IE 9 hack for inline-flex */
+}
+
 #wrapGB .dbcnav ul li a,
 #wrapGB .gbnav ul li a {
     padding: 3px 0.5em;

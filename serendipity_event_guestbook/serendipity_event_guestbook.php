@@ -1,7 +1,7 @@
 <?php
 
 /**
- * serendipity_event_guestbook.php, v.3.55 - 2015-05-10
+ * serendipity_event_guestbook.php, v.3.56 - 2015-06-30
  */
 
 //error_reporting(E_ALL);
@@ -67,7 +67,7 @@ class serendipity_event_guestbook extends serendipity_event {
                         'dateformat'
                     ));
         $propbag->add('author',       'Ian');
-        $propbag->add('version',      '3.55');
+        $propbag->add('version',      '3.56');
         $propbag->add('requirements', array(
                         'serendipity' => '1.7.0',
                         'smarty'      => '3.1.0',
@@ -1385,7 +1385,7 @@ class serendipity_event_guestbook extends serendipity_event {
                     if ($serendipity['serendipityUserlevel'] < USERLEVEL_ADMIN) {
                         return false;
                     }
-                    if ($serendipity['version'][0] < '2') {
+                    if ($serendipity['version'][0] < 2) {
                         echo "\n".'<li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks"><a href="?serendipity[adminModule]=event_display&serendipity[adminAction]=guestbook">' . PLUGIN_GUESTBOOK_ADMIN_NAME . '</a></li>'."\n";
                     }
 
@@ -1397,7 +1397,7 @@ class serendipity_event_guestbook extends serendipity_event {
                     if ($serendipity['serendipityUserlevel'] < USERLEVEL_ADMIN) {
                         return false;
                     }
-                    if ($serendipity['version'][0] >= '2') {
+                    if ($serendipity['version'][0] > 1) {
                         echo "\n".'<li><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=guestbook">' . PLUGIN_GUESTBOOK_ADMIN_NAME . '</a></li>'."\n";
                     }
 

@@ -1,3 +1,11 @@
+1.23: sidebar plugin
+-----
+ * fix wrong default value note
+
+3.56:
+-----
+ * fix IE9 list view CSS in Backend
+
 3.55:
 -----
  * correct missing label in guestbook form

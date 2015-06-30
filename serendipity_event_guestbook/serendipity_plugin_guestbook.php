@@ -1,7 +1,7 @@
 <?php
 
 /**
- * serendipity_plugin_guestbook.php, v.1.23 - 2014-12-29 Ian
+ * serendipity_plugin_guestbook.php, v.1.24 - 2015-06-30 Ian
  * guestbooksidebar plugin by Jaap Boerma // j@webbict.com // v1.02 // 18-10-2005
  */
 
@@ -28,7 +28,7 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_GUESTSIDE_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Jaap Boerma ( j@webbict.com ), Tadashi Jokagi <elf2000@users.sourceforge.net>, Ian');
-        $propbag->add('version',       '1.23');
+        $propbag->add('version',       '1.24');
         $propbag->add('requirements', array(
                         'serendipity' => '0.7',
                         'smarty'      => '2.6.7',
@@ -93,7 +93,7 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
             case 'dateformat' :
                 $propbag->add('type', 'string');
                 $propbag->add('name', GENERAL_PLUGIN_DATEFORMAT);
-                $propbag->add('description', sprintf(GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH, '%a, %m.%m.%Y %H:%M'));
+                $propbag->add('description', sprintf(GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH, '%a, %d.%m.%Y %H:%M'));
                 $propbag->add('default', '%a, %d.%m.%Y %H:%M');
             break;
 

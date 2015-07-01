@@ -2209,9 +2209,9 @@
 <description>Shows a guestbook inside your blog with your normal blog design.</description>
 <maintainers><maintainer><name>Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.55</version>
+  <version>3.56</version>
   <requirements:s9yVersion>1.7.0</requirements:s9yVersion>
-  <date>2015-05-11</date>
+  <date>2015-07-01</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="UTF-8">
@@ -3642,9 +3642,9 @@
 <description>Mostra un modulo di contatto e-mail sul tuo blog come pagina statica, cui si può accedere sia da permalink personalizzato che da index.php?serendipity[subpage]=contactform. Puoi personalizzare l'aspetto del modulo inserendo il file plugin_contactform.tpl nella tua directory dei template e modificandolo là. I captchas del plugin Spamblock (se attivi) verranno applicati.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.16.1</version>
-  <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <version>1.17</version>
+  <requirements:s9yVersion>1.3</requirements:s9yVersion>
+  <date>2015-07-01</date>
   <filelist>
 <dir name="serendipity_event_contactform">
 <file>serendipity_event_contactform.php</file>

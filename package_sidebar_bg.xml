@@ -1256,9 +1256,9 @@
 <description>Показва последните съобщения в книгата за гости в странична приставка</description>
 <maintainers><maintainer><name>Jaap Boerma ( j@webbict.com ), Tadashi Jokagi &lt;elf2000@users.sourceforge.net&gt;, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.23</version>
+  <version>1.24</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-12-30</date>
+  <date>2015-07-01</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="UTF-8">

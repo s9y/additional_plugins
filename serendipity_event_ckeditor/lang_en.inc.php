@@ -1,8 +1,8 @@
 <?php
 
 /**
- *  @file lang_en.inc.php 1.4.11 2014-11-26 Ian
- *  @version 1.4.11
+ *  @file lang_en.inc.php 1.4.12 2015-01-30 Ian
+ *  @version 1.4.12
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */
@@ -32,7 +32,7 @@
 @define('PLUGIN_EVENT_CKEDITOR_CONFIG', '');
 @define('PLUGIN_EVENT_CKEDITOR_INSTALL_PLUGPATH', 'HTTP path to s9y plugins directory');
 @define('PLUGIN_EVENT_CKEDITOR_CKEACF_OPTION', 'Disable Advanced-Content-Filter (ACF)?');
-@define('PLUGIN_EVENT_CKEDITOR_TOOLBAR_OPTION', 'Use default 2-liner toolbar-group linebreak?');
+@define('PLUGIN_EVENT_CKEDITOR_TOOLBAR_OPTION', 'Use CKE-default toolbar-group linebreak?');
 
 @define('PLUGIN_EVENT_CKEDITOR_CODEBUTTON_OPTION', 'Allow code toolbar button?');
 @define('PLUGIN_EVENT_CKEDITOR_PRETTIFY_OPTION', 'Allow additional prettify css/js in frontend?');

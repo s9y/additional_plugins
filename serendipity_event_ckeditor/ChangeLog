@@ -1,3 +1,11 @@
+4.8.0:
+-----
+    * Upgrade to CKEDITOR 4.4 Series, update 8 (http://ckeditor.com/whatsnew)
+    * IE css fix for option re-enable cke built-in image toolbar button
+    * Add allow <span*> tag to extraAllowedContent
+    * Set autoParagrah to false, to not set wrapping P tags to the extraAllowedContent
+      content tags, when switching the editor mode or saving.
+
 4.7.0:
 -----
     * Upgrade to CKEDITOR 4.4 Series, update 7 (http://ckeditor.com/whatsnew)

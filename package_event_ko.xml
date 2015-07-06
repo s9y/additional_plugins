@@ -10871,9 +10871,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>Uses CKEditor as the default WYSIWYG editor. For any JS-Editor usage: Recommended! After installation, go to the configuration screen of this plugin for further instructions.</description>
 <maintainers><maintainer><name>Rustam Abdullaev, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>4.7.0</version>
+  <version>4.8.0</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2015-01-29</date>
+  <date>2015-07-06</date>
   <filelist>
 <dir name="serendipity_event_ckeditor">
 <dir name="UTF-8">
@@ -10899,9 +10899,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <file>prettify.js</file>
 <file>cke_backend.css</file>
 <file>cke_olds9y.css</file>
+<file>ckeditor_4.4.8.0-plus.zip</file>
 <file>basic_toolbar1.css</file>
 <file>basic_toolbar2.css</file>
-<file>ckeditor_4.4.7.0-plus.zip</file>
 <file>highlight.css</file>
 <file>highlight.pack.js</file>
 <file>cke_ibn.css</file>
@@ -10928,9 +10928,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
     <file>serendipity_event_ckeditor/prettify.js</file>
     <file>serendipity_event_ckeditor/cke_backend.css</file>
     <file>serendipity_event_ckeditor/cke_olds9y.css</file>
+    <file>serendipity_event_ckeditor/ckeditor_4.4.8.0-plus.zip</file>
     <file>serendipity_event_ckeditor/basic_toolbar1.css</file>
     <file>serendipity_event_ckeditor/basic_toolbar2.css</file>
-    <file>serendipity_event_ckeditor/ckeditor_4.4.7.0-plus.zip</file>
     <file>serendipity_event_ckeditor/highlight.css</file>
     <file>serendipity_event_ckeditor/highlight.pack.js</file>
     <file>serendipity_event_ckeditor/cke_ibn.css</file>

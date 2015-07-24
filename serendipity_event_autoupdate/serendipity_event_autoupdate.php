@@ -22,7 +22,7 @@ class serendipity_event_autoupdate extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_AUTOUPDATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Ian');
-        $propbag->add('version',       '1.1.3');
+        $propbag->add('version',       '1.1.4');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '5.1'
@@ -30,7 +30,9 @@ class serendipity_event_autoupdate extends serendipity_event {
         $propbag->add('event_hooks',   array('plugin_dashboard_updater' => true,
                                              'backend_sidebar_entries_event_display_update' => true));
         $propbag->add('groups', array('BACKEND_FEATURES'));
-        $this->dependencies   = array('serendipity_event_dashboard' => 'keep');
+        if ($serendipity['version'][0] < 2) {
+            $this->dependencies   = array('serendipity_event_dashboard' => 'keep');
+        }
     }
 
     function generate_content(&$title) {
@@ -283,7 +285,8 @@ EOS;
     function fetchUpdate($version) {
         global $serendipity;
 
-        $url     = (string)"http://prdownloads.sourceforge.net/php-blog/serendipity-$version.zip?download";
+        #$url     = (string)"http://prdownloads.sourceforge.net/php-blog/serendipity-$version.zip?download";
+        $url     = (string)"https://github.com/s9y/Serendipity/releases/download/$version/serendipity-$version.zip";
         $update  = (string)$serendipity ['serendipityPath'] . 'templates_c/' . "serendipity-$version.zip";
 
         // do we already have it?
@@ -317,13 +320,16 @@ EOS;
      * @return  boolean
      */
     function verifyUpdate($update, $version) {
-        $url          = (string)"http://prdownloads.sourceforge.net/php-blog/serendipity-$version.zip?download";
-        $updatePage   = (string)$this->getPage("http://www.s9y.org/12.html");
-        $downloadLink = substr($updatePage, strpos($updatePage, $url), 200);
+        #$url          = (string)"http://prdownloads.sourceforge.net/php-blog/serendipity-$version.zip?download";
+        $url          = (string)"https://github.com/s9y/Serendipity/releases/download/$version/serendipity-$version.zip";
+        #$updatePage   = (string)$this->getPage("http://www.s9y.org/12.html");
+        $updatePage   = (string)$this->getPage("https://github.com/s9y/Serendipity/releases/tag/$version");
+        $downloadLink = substr($updatePage, strpos($updatePage, $url), -200);
         $found        = array();
         // grep the checksum
         preg_match("/\(MD5: (.*)\)/", $downloadLink, $found);
         $checksum = $found[1];
+        $this->show_message('<p class="msg_notice"><span class="icon-attention"></span>Checking MD5 zip file checksum: ' . $checksum . '</p>');
         $check = md5_file($update);
         if ($check == $checksum) {
             return true;
@@ -668,13 +674,13 @@ EOS;
         if ($finish) {
             // We have to reduce this call() = all tpl files, to clear the blogs template only, to not have the following automated recompile, force the servers memory 
             // to get exhausted, when using serendipity_event_gravatar plugin, which can eat up some MB...
-            if(method_exists($serendipity['smarty'], 'clearCompiledTemplate')) { // SMARTY 3
-                if($serendipity['smarty']->clearCompiledTemplate(null, $serendipity['template'])) {
+            if (method_exists($serendipity['smarty'], 'clearCompiledTemplate')) { // SMARTY 3
+                if ($serendipity['smarty']->clearCompiledTemplate(null, $serendipity['template'])) {
                     return true;
                 }
             }
-            if(method_exists($serendipity['smarty'], 'clear_compiled_tpl')) { // SMARTY 2
-                if($serendipity['smarty']->clear_compiled_tpl(null, $serendipity['template'])) {
+            if (method_exists($serendipity['smarty'], 'clear_compiled_tpl')) { // SMARTY 2
+                if ($serendipity['smarty']->clear_compiled_tpl(null, $serendipity['template'])) {
                     return true;
                 }
             }

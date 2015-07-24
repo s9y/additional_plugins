@@ -324,10 +324,11 @@ EOS;
         $url          = (string)"https://github.com/s9y/Serendipity/releases/download/$version/serendipity-$version.zip";
         #$updatePage   = (string)$this->getPage("http://www.s9y.org/12.html");
         $updatePage   = (string)$this->getPage("https://github.com/s9y/Serendipity/releases/tag/$version");
-        $downloadLink = substr($updatePage, strpos($updatePage, $url), -200);
+        #$downloadLink = substr($updatePage, strpos($updatePage, $url), 200);
         $found        = array();
         // grep the checksum
-        preg_match("/\(MD5: (.*)\)/", $downloadLink, $found);
+        #preg_match("/\(MD5: (.*)\)/", $downloadLink, $found);
+        preg_match("/\(MD5: (.*)\)/", $updatePage, $found);
         $checksum = $found[1];
         $this->show_message('<p class="msg_notice"><span class="icon-attention"></span>Checking MD5 zip file checksum: ' . $checksum . '</p>');
         $check = md5_file($update);

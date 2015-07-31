@@ -297,7 +297,7 @@ EOS;
                 $done = true;
             } else {
                 $this->show_message('<p class="msg_error"><span class="icon-error"></span>Existing Zip file Error, Code:' . $res. '. The autoupdater will try to download again...');
-                unlink($update);
+                @unlink($update);
                 sleep(1);
                 $done = @copy($url, $update) ? true : false;
                 sleep(1);

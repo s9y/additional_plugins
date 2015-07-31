@@ -114,7 +114,7 @@ class serendipity_event_autoupdate extends serendipity_event {
                     break;
 
                 case 'backend_sidebar_entries_event_display_update':
-                    if (! (serendipity_checkPermission('siteConfiguration') || serendipity_checkPermission('blogConfiguration'))) {
+                    if (!(serendipity_checkPermission('siteConfiguration') || serendipity_checkPermission('blogConfiguration'))) {
                         return;
                     }
                     if (!extension_loaded('zip')) {
@@ -249,7 +249,7 @@ EOS;
                                     }
                                 } else {
                                     $this->show_message('<p class="msg_error"><span class="icon-error"></span>Unpacking the update failed</p>');
-                                    if (true === $this->cleanTemplatesC($nv, false) ) {
+                                    if (true === $this->cleanTemplatesC($nv, false)) {
                                         $this->show_message('<p class="msg_success"><span class="icon-ok"></span>Cleaning up the failed unpack directory!</p>');
                                     }
                                     $this->show_message('<p class="msg_notice"><span class="icon-attention"></span>Please reload this page by F5 to have another try upgrading your Blog successfully!</p>');
@@ -516,7 +516,7 @@ EOS;
             
             foreach ($files as $file) {
                 $target = $serendipity['serendipityPath'] . substr($file, 12);
-                if ((! is_writable($target)) && file_exists($target) ) {
+                if ((!is_writable($target)) && file_exists($target)) {
                     $notWriteable[] = $target;
                 }
             }
@@ -601,13 +601,13 @@ EOS;
         </div>
     </div>
 EOS;
-        if($terminate) {
+        if ($terminate) {
             echo <<<EOS
     </body>
 </html>
 EOS;
         }
-        if($terminate) die();
+        if ($terminate) die();
     }
 
     /**
@@ -626,8 +626,8 @@ EOS;
         if (die('<script type="text/javascript">alert("'.$msg.'"); window.location = "'.$serendipity['serendipityHTTPPath'].'";</script>'."\n    </body>\n</html>")) {
             return;
         } else {
-            if(!headers_sent()) {
-                if(header('Location: http://' . $_SERVER['HTTP_HOST'] . $serendipity['serendipityHTTPPath'])) exit;
+            if (!headers_sent()) {
+                if (header('Location: http://' . $_SERVER['HTTP_HOST'] . $serendipity['serendipityHTTPPath'])) exit;
             } else {
                 echo '<script type="text/javascript">';
                 echo '    window.location.href="' . $serendipity['serendipityHTTPPath'] . '"';
@@ -674,7 +674,7 @@ EOS;
         $zipDir = (string)$serendipity['serendipityPath'] . 'templates_c/' . "serendipity-$version";
 
         // leave rm zip untouched here as not causing any errors
-        #unlink($zip);// if(unlink($zip)) { else error note?
+        #unlink($zip);// if (unlink($zip)) { else error note?
         #$this->show_message('<p class="msg_success"><span class="icon-ok"></span>Removing the zip file in templates_c done</p>');
 
         // As trying to remove a directory that php is still using, we use open/closedir($handle) to be sure

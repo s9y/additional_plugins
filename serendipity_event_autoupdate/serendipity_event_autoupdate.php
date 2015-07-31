@@ -22,10 +22,10 @@ class serendipity_event_autoupdate extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_AUTOUPDATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Ian');
-        $propbag->add('version',       '1.1.4');
+        $propbag->add('version',       '1.1.5');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
-            'php'         => '5.1'
+            'php'         => '5.2'
         ));
         $propbag->add('event_hooks',   array('plugin_dashboard_updater' => true,
                                              'backend_sidebar_entries_event_display_update' => true));
@@ -56,14 +56,14 @@ class serendipity_event_autoupdate extends serendipity_event {
      */
     function show_message($message='', $pname='', $next='') {
 
-        if(!empty($pname)) {
+        if (!empty($pname)) {
             // Total processes
             $total = 3;
 
             ob_implicit_flush(1);
 
             // fake processing loop
-            for($i=1; $i<=$total; $i++){
+            for ($i=1; $i<=$total; $i++) {
                 // Calculate the percentation
                 $percent = intval($i/$total * 100)."%";
 
@@ -183,14 +183,14 @@ EOS;
                     $this->show_message('<p class="msg_notice" style="font-size: small;color: #999;"><span class="icon-attention"></span>Please note: If this page ever stops with an error message during procession, you can normally just RELOAD your browser [by keyboard shortcut] to get another run. This does not do any harm to a continued upgrade.</p>');
                     $this->show_message('<p class="msg_notice"><span class="icon-attention"></span>PHP max execution time set to 210 seconds</p>');
                     $start = microtime(true);
-                    if(false === ($update = $this->fetchUpdate($nv))) {
+                    if (false === ($update = $this->fetchUpdate($nv))) {
                         $this->close_page(true);
                     }
                     usleep(3);
                     $time = microtime(true) - $start;
                     $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn fetchUpdate()...\n", $time); // print in readable format 1.2345
                     $this->show_message('<p class="msg_run"><span class="icon-clock"></span><em>'.$lmsg.'</em></p>', 'Function fetch update', 'verify the update pack');
-                    if (! empty($update)) {
+                    if (!empty($update)) {
                         $start = microtime(true);
                         if ($this->verifyUpdate($update, $nv)) {
                             usleep(3);
@@ -289,21 +289,37 @@ EOS;
         $url     = (string)"https://github.com/s9y/Serendipity/releases/download/$version/serendipity-$version.zip";
         $update  = (string)$serendipity ['serendipityPath'] . 'templates_c/' . "serendipity-$version.zip";
 
-        // do we already have it?
-        $done = !file_exists($update) ? @copy($url, $update ) : true;
+        // do we already have it and is it eventually broken?
+        if (file_exists($update)) {
+            $zip = new ZipArchive;
+            $res = $zip->open($update);
+            if ($res === TRUE) {
+                $done = true;
+            } else {
+                $this->show_message('<p class="msg_error"><span class="icon-error"></span>Existing Zip file Error, Code:' . $res. '. The autoupdater will try to download again...');
+                unlink($update);
+                sleep(1);
+                $done = @copy($url, $update) ? true : false;
+                sleep(1);
+            }
+            $zip->close();
+        } else {
+            $done = @copy($url, $update) ? true : false;
+            sleep(1);
+        }
 
-        if (! $done) {
+        if (!$done) {
             //try it again with curl if copy was forbidden
             if (function_exists('curl_init')) {
                 $out = @fopen($update, 'wb');
-                $ch = @curl_init();
+                $ch  = @curl_init();
 
                 @curl_setopt($ch, CURLOPT_FILE, $out);
                 @curl_setopt($ch, CURLOPT_HEADER, 0);
                 @curl_setopt($ch, CURLOPT_URL, $url);
                             
                 $success = @curl_exec($ch);
-                if ( !$success ) {
+                if (!$success) {
                     $this->show_message('<p class="msg_error"><span class="icon-error"></span>Downloading update failed</p>');
                     return false;
                 }
@@ -347,7 +363,7 @@ EOS;
      */
     function getPage($url) {
         $page = file_get_contents($url);
-        if ( empty($page) ) {
+        if (empty($page)) {
             //try it again with curl if fopen was forbidden
             if (function_exists('curl_init')) {
                 $ch = curl_init($url);
@@ -433,7 +449,7 @@ EOS;
                 } else {
                     $success = @copy($updateDir . $file, $target);
                 }
-                if ( !$success ) {
+                if (!$success) {
                     $this->show_message('<p class="msg_error"><span class="icon-error"></span>Error copying file to '.$target.'</p>');
                     return false;
                 }
@@ -464,10 +480,10 @@ EOS;
                 $name = $zip->getNameIndex($i);
                 $i+=1;
             }
-            
+            $zip->close();
             foreach ($files as $file) {
                 $target = $serendipity['serendipityPath'] . substr($file, 12);
-                if ( (! is_writable($target)) && file_exists($target) ) {
+                if ((!is_writable($target)) && file_exists($target)) {
                     return false;
                 }
             }
@@ -494,6 +510,7 @@ EOS;
                 $name = $zip->getNameIndex($i);
                 $i+=1;
             }
+            $zip->close();
 
             $notWritable = array();
             
@@ -606,7 +623,7 @@ EOS;
         $this->close_page();
 
         // this is working for me.... is it for you?
-        if(die('<script type="text/javascript">alert("'.$msg.'"); window.location = "'.$serendipity['serendipityHTTPPath'].'";</script>'."\n    </body>\n</html>")) {
+        if (die('<script type="text/javascript">alert("'.$msg.'"); window.location = "'.$serendipity['serendipityHTTPPath'].'";</script>'."\n    </body>\n</html>")) {
             return;
         } else {
             if(!headers_sent()) {
@@ -661,12 +678,12 @@ EOS;
         #$this->show_message('<p class="msg_success"><span class="icon-ok"></span>Removing the zip file in templates_c done</p>');
 
         // As trying to remove a directory that php is still using, we use open/closedir($handle) to be sure
-        if( $handle = opendir($zipDir) ) {
+        if ($handle = opendir($zipDir)) {
             $this->empty_dir($zipDir);
             $this->show_message('<p class="msg_success"><span class="icon-ok"></span>Removing all files in '.$zipDir.' done</p>');
             closedir($handle);
         }
-        if(rmdir($zipDir)) {
+        if (rmdir($zipDir)) {
             $this->show_message('<p class="msg_success"><span class="icon-ok"></span>Removing the empty directory: '.$zipDir.' done</p>');
         } else {
             $this->show_message('<p class="msg_error"><span class="icon-error"></span>Removing the empty directory: '.$zipDir.' failed!</p>');
@@ -696,11 +713,11 @@ EOS;
         global $serendipity;
 
         $this->debug_fp = @fopen ( $serendipity ['serendipityPath'] . 'templates_c/autoupdate.log', 'a' );
-        if (! $this->debug_fp) {
+        if (!$this->debug_fp) {
             return false;
         }
 
-        if (empty ( $msg )) {
+        if (empty($msg)) {
             fwrite ( $this->debug_fp, "failure \n" );
         } else {
             fwrite ( $this->debug_fp, print_r ( $msg, true ) );

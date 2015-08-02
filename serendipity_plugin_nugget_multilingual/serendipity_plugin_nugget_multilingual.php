@@ -1,5 +1,4 @@
-<?php # 
-
+<?php
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -34,39 +33,39 @@ class serendipity_plugin_nugget_multilingual extends serendipity_plugin {
     {
         switch($name) {
 
-        	case 'language':
-        		$select = array('all' => PLUGIN_NUGGET_MULTI_ALL,
-        			'en' => 'English',
-        			'de' => 'German',
-        			'da' => 'Danish',
-        			'es' => 'Spanish',
-        			'fr' => 'French',
-        			'fi' => 'Finnish',
-        			'cs' => 'Czech (Win-1250)',
-        			'cz' => 'Czech (ISO-8859-2)',
-        			'nl' => 'Dutch',
-        			'is' => 'Icelandic',
-        			'se' => 'Swedish',
-        			'pt' => 'Portuguese Brazilian',
-        			'pt_PT' => 'Portuguese European',
-        			'bg' => 'Bulgarian',
-        			'hu' => 'Hungarian',
-        			'no' => 'Norwegian',
-        			'ro' => 'Romanian',
-        			'it' => 'Italian',
-        			'ru' => 'Russian',
-        			'fa' => 'Persian',
-        			'tw' => 'Traditional Chinese (Big5)',
-        			'tn' => 'Traditional Chinese (UTF-8)',
-        			'zh' => 'Simplified Chinese (GB2312)',
-        			'cn' => 'Simplified Chinese (UTF-8)',
-        			'ja' => 'Japanese',
-        			'ko' => 'Korean');
+            case 'language':
+                $select = array('all' => PLUGIN_NUGGET_MULTI_ALL,
+                    'en' => 'English',
+                    'de' => 'German',
+                    'da' => 'Danish',
+                    'es' => 'Spanish',
+                    'fr' => 'French',
+                    'fi' => 'Finnish',
+                    'cs' => 'Czech (Win-1250)',
+                    'cz' => 'Czech (ISO-8859-2)',
+                    'nl' => 'Dutch',
+                    'is' => 'Icelandic',
+                    'se' => 'Swedish',
+                    'pt' => 'Portuguese Brazilian',
+                    'pt_PT' => 'Portuguese European',
+                    'bg' => 'Bulgarian',
+                    'hu' => 'Hungarian',
+                    'no' => 'Norwegian',
+                    'ro' => 'Romanian',
+                    'it' => 'Italian',
+                    'ru' => 'Russian',
+                    'fa' => 'Persian',
+                    'tw' => 'Traditional Chinese (Big5)',
+                    'tn' => 'Traditional Chinese (UTF-8)',
+                    'zh' => 'Simplified Chinese (GB2312)',
+                    'cn' => 'Simplified Chinese (UTF-8)',
+                    'ja' => 'Japanese',
+                    'ko' => 'Korean');
                 $propbag->add('type',        'select');
                 $propbag->add('select_values', $select);
                 $propbag->add('name',        PLUGIN_NUGGET_MULTI_LANG);
                 $propbag->add('default',     'all');
-        		break;
+                break;
 
             case 'title':
                 $propbag->add('type',        'string');
@@ -110,16 +109,16 @@ class serendipity_plugin_nugget_multilingual extends serendipity_plugin {
         $title = $this->get_config('title');
         $language = $this->get_config('language', 'all');
         $show_where = $this->get_config('show_where', 'both');
-		// if the language doesn't match, do not display
-		if ($language != 'all' && $serendipity['lang'] != $language) return false;
-		// where to show
+        // if the language doesn't match, do not display
+        if ($language != 'all' && $serendipity['lang'] != $language) return false;
+        // where to show
         if ($show_where == 'extended' && (!isset($serendipity['GET']['id']) || !is_numeric($serendipity['GET']['id']))) {
             return false;
         } else if ($show_where == 'overview' && isset($serendipity['GET']['id']) && is_numeric($serendipity['GET']['id'])) {
             return false;
         }
-		// apply markup?
-        if ($this->get_config('markup', 'true') == 'true') {
+        // apply markup?
+        if (serendipity_db_bool($this->get_config('markup', 'true'))) {
             $entry = array('html_nugget' => $this->get_config('content'));
             serendipity_plugin_api::hook_event('frontend_display', $entry);
             echo $entry['html_nugget'];
@@ -128,7 +127,7 @@ class serendipity_plugin_nugget_multilingual extends serendipity_plugin {
         }
 
         if (serendipity_userLoggedIn()) {
-            $is_plugin_owner    = ($this->serendipity_owner == $serendipity['authorid'] || serendipity_checkPermission('adminPluginsMaintainOthers'));
+            $is_plugin_owner = ($this->serendipity_owner == $serendipity['authorid'] || serendipity_checkPermission('adminPluginsMaintainOthers'));
 
             if ($is_plugin_owner) {
                 echo '<div class="serendipity_edit_nugget"><a href="' . $serendipity['baseURL'] . '/serendipity_admin.php?serendipity[adminModule]=plugins&amp;serendipity[plugin_to_conf]=' . htmlentities($this->instance, ENT_COMPAT, LANG_CHARSET) . '">' . EDIT . '</a></div>';

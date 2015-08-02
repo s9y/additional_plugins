@@ -11,3 +11,4 @@
 @define('PLUGIN_NUGGET_MULTI_DESC',		'Pro zadaný jazyk zobrazuje v postranním sloupci HTML blok.');
 @define('PLUGIN_NUGGET_MULTI_LANG',		'Výbìr jazyka');
 @define('PLUGIN_NUGGET_MULTI_ALL',		'Všechny jazyky');
+

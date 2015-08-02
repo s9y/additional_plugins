@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -11,4 +11,3 @@
 @define('PLUGIN_NUGGET_MULTI_LANG', 'Choose language');
 @define('PLUGIN_NUGGET_MULTI_ALL', 'All Languages');
 
-?>

@@ -1,3 +1,6 @@
+2.02
+ - IE CSS linklist fix
+
 2.01
  - fix ul ident for csslist and simple option
  - added new config option for "CSS List" usage only,

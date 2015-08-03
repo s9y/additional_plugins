@@ -2183,7 +2183,7 @@
 <release>
   <version>1.7</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2015-08-03</date>
   <filelist>
 <dir name="serendipity_plugin_nugget_multilingual">
 <dir name="UTF-8">

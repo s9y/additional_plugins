@@ -16,8 +16,8 @@
 @define('PLUGIN_EVENT_MULTILINGUAL_SWITCH', 'Select language');
 @define('PLUGIN_EVENT_MULTILINGUAL_COPY', 'Retain previous language contents');
 @define('PLUGIN_EVENT_MULTILINGUAL_COPYDESC', 'Keep contents from previous language intact in the input box when working with new language version');
-@define('PLUGIN_EVENT_MULTILINGUAL_TAGTITLE', 'Tag translation of the blog title');
-@define('PLUGIN_EVENT_MULTILINGUAL_TAGTITLE_DESC', 'Enable {{!<lang>}}<text>{{--}} tags for blog title. Also used for non-tag mode translated entry_title(s).');
+@define('PLUGIN_EVENT_MULTILINGUAL_TAGTITLE', 'Translation of the blog title');
+@define('PLUGIN_EVENT_MULTILINGUAL_TAGTITLE_DESC', 'Either enables {{!<lang>}}<text>{{--}} tags for blog title or uses the non-tag mode translated entry_title(s).');
 @define('PLUGIN_EVENT_MULTILINGUAL_TAGENTRIES', 'Tag translation of entries and entry titles');
 @define('PLUGIN_EVENT_MULTILINGUAL_TAGENTRIES_DESC', 'Enable {{!<lang>}}<text>{{--}} tags for entries');
 @define('PLUGIN_EVENT_MULTILINGUAL_TAGSIDEBAR', 'Tag translation of sidebar items');

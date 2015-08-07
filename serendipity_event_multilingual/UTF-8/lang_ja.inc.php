@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -17,8 +17,7 @@
 @define('PLUGIN_SIDEBAR_MULTILINGUAL_TITLE', '言語の選択');
 @define('PLUGIN_SIDEBAR_MULTILINGUAL_DESC', '訪問者がフロントエンドインターフェースの言語を変更することを可能にします。');
 @define('PLUGIN_SIDEBAR_MULTILINGUAL_USERDESC', 'このウェブログのインターフェースで表示と異なる言語を選択できます。: ');
-@define('PLUGIN_SIDEBAR_MULTILINGUAL_SUBMIT',   '送信ボタンを表示する');
-@define('PLUGIN_SIDEBAR_MULTILINGUAL_SUBMIT_DESC',   '送信ボタンを送信しますか?');
+@define('PLUGIN_SIDEBAR_MULTILINGUAL_SUBMIT', '送信ボタンを表示する');
+@define('PLUGIN_SIDEBAR_MULTILINGUAL_SUBMIT_DESC', '送信ボタンを送信しますか?');
 @define('PLUGIN_SIDEBAR_MULTILINGUAL_SIZE', 'フォントのサイズ');
 
-?>

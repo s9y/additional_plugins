@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -23,7 +23,7 @@
 @define('PLUGIN_SIDEBAR_MULTILINGUAL_TITLE', 'Langage');
 @define('PLUGIN_SIDEBAR_MULTILINGUAL_DESC', 'Sélection de la langue par les visiteurs');
 @define('PLUGIN_SIDEBAR_MULTILINGUAL_USERDESC', 'Vous pouvez choisir une autre langue pour l\'affichage de l\'interface de ce blog : ');
-@define('PLUGIN_SIDEBAR_MULTILINGUAL_SUBMIT',   'Bouton envoyer ?');
-@define('PLUGIN_SIDEBAR_MULTILINGUAL_SUBMIT_DESC',   'Afficher un bouton envoyer ?');
+@define('PLUGIN_SIDEBAR_MULTILINGUAL_SUBMIT', 'Bouton envoyer ?');
+@define('PLUGIN_SIDEBAR_MULTILINGUAL_SUBMIT_DESC', 'Afficher un bouton envoyer ?');
 @define('PLUGIN_SIDEBAR_MULTILINGUAL_SIZE', 'Taille de la police');
 

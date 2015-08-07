@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -23,8 +23,7 @@
 @define('PLUGIN_SIDEBAR_MULTILINGUAL_TITLE', 'Choose Language');
 @define('PLUGIN_SIDEBAR_MULTILINGUAL_DESC', 'Allows visitors to change the frontend interface language');
 @define('PLUGIN_SIDEBAR_MULTILINGUAL_USERDESC', 'You can select a different language for the displayed interface of this blog: ');
-@define('PLUGIN_SIDEBAR_MULTILINGUAL_SUBMIT',   'Submit button?');
-@define('PLUGIN_SIDEBAR_MULTILINGUAL_SUBMIT_DESC',   'Show a submit button?');
+@define('PLUGIN_SIDEBAR_MULTILINGUAL_SUBMIT', 'Submit button?');
+@define('PLUGIN_SIDEBAR_MULTILINGUAL_SUBMIT_DESC', 'Show a submit button?');
 @define('PLUGIN_SIDEBAR_MULTILINGUAL_SIZE', 'Font size');
 
-?>

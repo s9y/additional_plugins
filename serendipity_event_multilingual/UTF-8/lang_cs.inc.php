@@ -39,12 +39,13 @@
 // Next lines were translated on 2009/08/25
 
 @define('PLUGIN_EVENT_MULTILINGUAL_TAGTITLE',           'Překládání nadpisu příspěvku pomocí tagů');
-@define('PLUGIN_EVENT_MULTILINGUAL_TAGTITLE_DESC',      'Zapne možnost překládání nadpisu pomocí taug {{!<jazyk>}}<text>{{--}}');
+@define('PLUGIN_EVENT_MULTILINGUAL_TAGTITLE_DESC',      'Zapne možnost překládání nadpisu pomocí taug {{!<jazyk>}}<text>{{--}}. Also used for non-tag mode translated entry_title(s).');
 @define('PLUGIN_EVENT_MULTILINGUAL_TAGENTRIES',         'Překládání příspěvků a nadpisů příspěvků pomocí tagů v textu');
 @define('PLUGIN_EVENT_MULTILINGUAL_TAGENTRIES_DESC',    'Zapne možnost překládání příspěvků pomocí tagu {{!<jazyk>}}<text>{{--}}');
 @define('PLUGIN_EVENT_MULTILINGUAL_TAGSIDEBAR',         'Překládání položek postranních sloupců pomocí tagů');
 @define('PLUGIN_EVENT_MULTILINGUAL_TAGSIDEBAR_DESC',    'Zapne možnost překládání obsahu postranních sloupců pomocí tagu {{!<jazyk>}}<text>{{--}}');
 
 // Next lines were translated on 2013/10/26
-@define('PLUGIN_SIDEBAR_MULTILINGUAL_LANGSWITCH',        'Vynutit plné přepnutí jazyka?');
-@define('PLUGIN_SIDEBAR_MULTILINGUAL_LANGSWITCH_DESC',   'Má se při vybrání jazykové verze jednotlivého příspěvku přepnout do zvoleného jazyka kompletně i celé rozhraní blogu?');
+@define('PLUGIN_EVENT_MULTILINGUAL_LANGSWITCH',        'Vynutit plné přepnutí jazyka?');
+@define('PLUGIN_EVENT_MULTILINGUAL_LANGSWITCH_DESC',   'Má se při vybrání jazykové verze jednotlivého příspěvku přepnout do zvoleného jazyka kompletně i celé rozhraní blogu?');
+

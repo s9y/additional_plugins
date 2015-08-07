@@ -1,58 +1,85 @@
-2.15: Added new "langswitch" variable to allow users forcing to switch the frontend language based on the content language
+2.20, 1.12:
+----
 
-2.14: Added genpage event hook so that blogTitle/Description gets replaced in other instances
-      where entries are not fetched (i.e. 'archives')
-      
-sidebar 1.11: Use proper "current url", thanks to timbalu
+ * Minor preparations for the Serendipity 2.0 Backend
+ * Fix missing Smarty object init
+ * Fix Smarty modifier "multilingual_lang" method name
+ * Fix constant PLUGIN_EVENT_MULTILINGUAL_LANGSWITCH define(s)
+ * Added more usage documentary
+ * Added htaccess file for documentation file readability
+ * Added a new OK Constant for the backend entry language switch.
+   This needs a change in backend templates 2k11/admin/entries.inc.tpl
+   file with 2.0.2+. Watch out for current or upcoming changes in
+   https://github.com/s9y/Serendipity/commits/2.0/templates/2k11/admin/entries.inc.tpl
+ * Check and error a missing entryproperties database table index
+   and fix a wrong set config value
+ * Fix the force "langswitch" variable option to properly work on click,
+   as long as the Browsers SESSION holds
+ * Posted sidebar lang selection influences backend lang ... document dependencies
+ * Fix 'enry_title' Smarty var not using translation with Smarty3 versions in
+   non-tag mode and option "Tag translation of the blog title" set true.
+   We need to declare this option valid for banner title translations in non-tag mode too!
+
+
+2.15:
+----
+
+ * Added new "langswitch" variable to allow users forcing
+   to switch the frontend language based on the content language
+
+2.14:
+----
+
+ * Added genpage event hook so that blogTitle/Description gets
+   replaced in other instances where entries are not fetched
+   (i.e. 'archives')
+
+ * sidebar 1.11: Use proper "current url", thanks to timbalu
 
 2.13:
 ----
 
-Add smarty modifier "multilingual_lang" that you can use like
-
-{$entry_category.category_name|@multilingual_lang|@escape}
-
-in templates, to replace possible {{...}} language variants.
-
-Also, by default parse such language constructs in the category name.
-
+ * Add smarty modifier "multilingual_lang" that you can use like
+   {$entry_category.category_name|@multilingual_lang|@escape}
+   in templates, to replace possible {{...}} language variants.
+   Also, by default parse such language constructs in the category name.
 
 2.11, 2.12:
 ----
 
-Patch to save drafts properly, by Martin Matuska
-SF Bug #3047591
+ * Patch to save drafts properly, by Martin Matuska
+   SF Bug #3047591
 
-Patch to properly detect current language, by Martin Matuska
-SF Bug #3047600
-
+ * Patch to properly detect current language, by Martin Matuska
+   SF Bug #3047600
 
 2.10:
 ----
 
-Allow to replace category names/descriptions for the header display
+ * Allow to replace category names/descriptions for the header display
 
 2.9:
 ----
 
-Completely replace the broken regexp to use subparts now.
+ * Completely replace the broken regexp to use subparts now.
 
 2.8:
 ---
 
-Another regexp for replacements, look-behind and look-ahead.
+ * Another regexp for replacements, look-behind and look-ahead.
 
 2.7:
 ----
 
-Better regexp for replacements
+ * Better regexp for replacements
 
 2.6:
 ----
 
-Fix a PHP error notice
+ * Fix a PHP error notice
 
 2.5:
 ----
 
-Allow for tagged trnaslations, see documentation. By praabjerg
+ * Allow for tagged translations, see documentation. By praabjerg
+ 

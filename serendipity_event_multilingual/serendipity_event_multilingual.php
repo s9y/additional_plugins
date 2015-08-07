@@ -152,11 +152,13 @@ class serendipity_event_multilingual extends serendipity_event
                 $this->set_config('db_built', 2);
             }
         }
-        $q = "SHOW INDEX FROM {$serendipity['dbPrefix']}entryproperties FROM {$serendipity['dbName']}";
-        if (!is_array(serendipity_db_query($q))) {
-            echo '<span class="msg_error"><span class="icon-attention-circled"></span> <strong>Error:</strong> '.$r.'. Does it exist? Please check your privileges to this table; triggered in serendipity_event_multilingual, setupDB() method.</span>';
-        } else $this->set_config('db_built', 3);
-        if ($built != 4) {
+        if ($built == 2) {
+            $q = "SHOW INDEX FROM {$serendipity['dbPrefix']}entryproperties FROM {$serendipity['dbName']}";
+            if (!is_array(serendipity_db_query($q))) {
+                echo '<span class="msg_error"><span class="icon-attention-circled"></span> <strong>Error:</strong> '.$r.'. Does it exist? Please check your privileges to this table; triggered in serendipity_event_multilingual, setupDB() method.</span>';
+            } else $this->set_config('db_built', 3);
+        }
+        if ($built == 3) {
             $q = "DELETE FROM {$serendipity['dbPrefix']}config WHERE name LIKE '%serendipity_event_multilingual/db_built%'";
             serendipity_db_schema_import($q);
             $this->set_config('db_built', 4);

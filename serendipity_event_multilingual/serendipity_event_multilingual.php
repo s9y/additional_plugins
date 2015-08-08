@@ -67,7 +67,7 @@ class serendipity_event_multilingual extends serendipity_event
             header('X-Serendipity-ML-LD-1: ' . $this->cleanheader($this->lang_display));
         }
 
-        if (IN_serendipity_admin !== true) {
+        if (!defined('IN_serendipity_admin')) {
             // GET is either a forced session or a single entry lang and we normally do not use it with cookies set, since they have preference
             if (serendipity_db_bool($this->get_config('langswitch')) && (!isset($_POST['user_language']) || !isset($_COOKIE['serendipityLanguage']))) {
                 // check for REQUESTs being sent (imagine the user in a DE blog links an EN entry version and force option is set TRUE)
@@ -99,7 +99,7 @@ class serendipity_event_multilingual extends serendipity_event
             serendipity_header('X-Serendipity-ML-SL-5: ' . $this->cleanheader($this->showlang));
         }
 
-        if (IN_serendipity_admin !== true) {
+        if (!defined('IN_serendipity_admin')) {
             // case reset TRUE without POST cookies
             if ($resetlang && !isset($_COOKIE['serendipityLanguage'])) {
                 $serendipity['lang'] = $this->showlang = $_SESSION['serendipityLanguage'] = $_SESSION['last_lang'] = $serendipity['default_lang']; // reset strictly to default global language

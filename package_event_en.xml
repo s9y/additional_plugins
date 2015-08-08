@@ -905,12 +905,13 @@
 <description>Allows to create multiple language versions of an entry</description>
 <maintainers><maintainer><name>Garvin Hicking, Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.15.1</version>
+  <version>2.20</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2015-08-08</date>
   <filelist>
 <dir name="serendipity_event_multilingual">
 <file>lang_tr.inc.php</file>
+<file>.htaccess</file>
 <file>lang_de.inc.php</file>
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
@@ -935,11 +936,13 @@
 <file>serendipity_event_multilingual.php</file>
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
+<file>documentation_de.html</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_multilingual/lang_tr.inc.php</file>
+    <file>serendipity_event_multilingual/.htaccess</file>
     <file>serendipity_event_multilingual/lang_de.inc.php</file>
     <file>serendipity_event_multilingual/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_multilingual/UTF-8/lang_ko.inc.php</file>
@@ -962,6 +965,7 @@
     <file>serendipity_event_multilingual/serendipity_event_multilingual.php</file>
     <file>serendipity_event_multilingual/documentation_cs.html</file>
     <file>serendipity_event_multilingual/documentation_cz.html</file>
+    <file>serendipity_event_multilingual/documentation_de.html</file>
   </serendipityFilelist>
 </release>
 </package>

@@ -67,16 +67,18 @@ class serendipity_event_multilingual extends serendipity_event
             header('X-Serendipity-ML-LD-1: ' . $this->cleanheader($this->lang_display));
         }
 
-        // GET is either a forced session or a single entry lang and we normally do not use it with cookies set, since they have preference
-        if (serendipity_db_bool($this->get_config('langswitch')) && (!isset($_POST['user_language']) || !isset($_COOKIE['serendipityLanguage']))) {
-            // check for REQUESTs being sent (imagine the user in a DE blog links an EN entry version and force option is set TRUE)
-            // $_REQUEST was somehow disabled and not available, but used here and in serendipity_getSessionLanguage()
-            $_REQUEST['user_language'] = $serendipity['GET']['user_language'];
-            // normal fallback
-            if (!isset($serendipity['GET']['lang_selected']) && !isset($_REQUEST['user_language'])) {
-                if (IN_serendipity !== true && !empty($_SESSION['serendipityLanguage'])) $this->showlang = $_SESSION['serendipityLanguage'];
-            }
-        } elseif (!isset($_COOKIE['serendipityLanguage'])) $resetlang = true; // force == false and we only want the translated article, nothing else being touched multilingual
+        if (IN_serendipity_admin !== true) {
+            // GET is either a forced session or a single entry lang and we normally do not use it with cookies set, since they have preference
+            if (serendipity_db_bool($this->get_config('langswitch')) && (!isset($_POST['user_language']) || !isset($_COOKIE['serendipityLanguage']))) {
+                // check for REQUESTs being sent (imagine the user in a DE blog links an EN entry version and force option is set TRUE)
+                // $_REQUEST was somehow disabled and not available, but used here and in serendipity_getSessionLanguage()
+                $_REQUEST['user_language'] = $serendipity['GET']['user_language'];
+                // normal fallback
+                if (!isset($serendipity['GET']['lang_selected']) && !isset($_REQUEST['user_language'])) {
+                    if (!empty($_SESSION['serendipityLanguage'])) $this->showlang = $_SESSION['serendipityLanguage'];
+                }
+            } elseif (!isset($_COOKIE['serendipityLanguage'])) $resetlang = true; // force == false and we only want the translated article, nothing else being touched multilingual
+        }
 
         if (empty($this->showlang) && isset($serendipity['POST']['properties']['lang_selected'])) {
             $this->showlang = serendipity_db_escape_string($serendipity['POST']['properties']['lang_selected']);
@@ -97,36 +99,38 @@ class serendipity_event_multilingual extends serendipity_event
             serendipity_header('X-Serendipity-ML-SL-5: ' . $this->cleanheader($this->showlang));
         }
 
-        // case reset TRUE without POST cookies
-        if ($resetlang && !isset($_COOKIE['serendipityLanguage'])) {
-            $serendipity['lang'] = $this->showlang = $_SESSION['serendipityLanguage'] = $_SESSION['last_lang'] = $serendipity['default_lang']; // reset strictly to default global language
-        }
-        // case force langswitch to default, normally without POST cookies set, since they have preference
-        if (serendipity_db_bool($this->get_config('langswitch')) && (!isset($_POST['user_language']) || !isset($_COOKIE['serendipityLanguage']))) {
-            // a user has already set a forced language and now wants to return to the default language - doing such here after all, avoids a doubleclick need..
-            if ($this->showlang == 'default' || $_SESSION['last_lang'] == 'default') {
-                $serendipity['lang'] = $this->showlang = $_SESSION['serendipityLanguage'] = $_REQUEST['user_language'] = $serendipity['default_lang'];
-                if ($_SESSION['last_lang'] == 'default') $_SESSION['last_lang'] = $serendipity['default_lang'];
-            } // the entry is shown in default language as a fallback, when another language is chosen that has no entryproperties translation
-        }
-        // case repair cookie array
-        if (isset($_COOKIE['serendipity']['serendipityLanguage'])) {
-            $_COOKIE['serendipityLanguage'] = $_COOKIE['serendipity']['serendipityLanguage'];
-            unset($_COOKIE['serendipity']);
-        }
-        // case POST set cookies mean, always check cookies to set current lang!
-        if (isset($_COOKIE['serendipityLanguage'])) {
-            // reset all langs strictly to default global hold COOKIE language
-            $serendipity['lang'] = $this->showlang = $_SESSION['serendipityLanguage'] = $_SESSION['last_lang'] = $serendipity['default_lang'] = $_COOKIE['serendipity']['serendipityLanguage'] = $_COOKIE['serendipityLanguage'];
-            $this->lang_display  = ''; // need this to always get the correct set lang and be the default in case of fallback and default
-        }
+        if (IN_serendipity_admin !== true) {
+            // case reset TRUE without POST cookies
+            if ($resetlang && !isset($_COOKIE['serendipityLanguage'])) {
+                $serendipity['lang'] = $this->showlang = $_SESSION['serendipityLanguage'] = $_SESSION['last_lang'] = $serendipity['default_lang']; // reset strictly to default global language
+            }
+            // case force langswitch to default, normally without POST cookies set, since they have preference
+            if (serendipity_db_bool($this->get_config('langswitch')) && (!isset($_POST['user_language']) || !isset($_COOKIE['serendipityLanguage']))) {
+                // a user has already set a forced language and now wants to return to the default language - doing such here after all, avoids a doubleclick need..
+                if ($this->showlang == 'default' || $_SESSION['last_lang'] == 'default') {
+                    $serendipity['lang'] = $this->showlang = $_SESSION['serendipityLanguage'] = $_REQUEST['user_language'] = $serendipity['default_lang'];
+                    if ($_SESSION['last_lang'] == 'default') $_SESSION['last_lang'] = $serendipity['default_lang'];
+                } // the entry is shown in default language as a fallback, when another language is chosen that has no entryproperties translation
+            }
+            // case repair cookie array
+            if (isset($_COOKIE['serendipity']['serendipityLanguage'])) {
+                $_COOKIE['serendipityLanguage'] = $_COOKIE['serendipity']['serendipityLanguage'];
+                unset($_COOKIE['serendipity']);
+            }
+            // case POST set cookies mean, always check cookies to set current lang!
+            if (isset($_COOKIE['serendipityLanguage'])) {
+                // reset all langs strictly to default global hold COOKIE language
+                $serendipity['lang'] = $this->showlang = $_SESSION['serendipityLanguage'] = $_SESSION['last_lang'] = $serendipity['default_lang'] = $_COOKIE['serendipity']['serendipityLanguage'] = $_COOKIE['serendipityLanguage'];
+                $this->lang_display  = ''; // need this to always get the correct set lang and be the default in case of fallback and default
+            }
 
-        // case unforced language entry lang links
-        if (isset($serendipity['GET']['lang_selected']) && !isset($serendipity['GET']['user_language'])) {
-            $this->lang_display = $this->showlang = $serendipity['GET']['lang_selected'];
-        }
-        if ($serendipity['GET']['lang_selected'] == 'default' && !isset($serendipity['GET']['user_language'])) {
-            $this->lang_display = ''; // sets entry lang to default
+            // case unforced language entry lang links
+            if (isset($serendipity['GET']['lang_selected']) && !isset($serendipity['GET']['user_language'])) {
+                $this->lang_display = $this->showlang = $serendipity['GET']['lang_selected'];
+            }
+            if ($serendipity['GET']['lang_selected'] == 'default' && !isset($serendipity['GET']['user_language'])) {
+                $this->lang_display = ''; // sets entry lang to default
+            }
         }
 
         if (!isset($serendipity['languages'][$this->showlang])) {

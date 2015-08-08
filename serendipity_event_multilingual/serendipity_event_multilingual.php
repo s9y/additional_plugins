@@ -26,14 +26,14 @@ class serendipity_event_multilingual extends serendipity_event
         $propbag->add('name',           PLUGIN_EVENT_MULTILINGUAL_TITLE);
         $propbag->add('description',    PLUGIN_EVENT_MULTILINGUAL_DESC);
         $propbag->add('stackable',      false);
-        $propbag->add('author',         'Garvin Hicking, Wesley Hwang-Chung');
+        $propbag->add('author',         'Garvin Hicking, Wesley Hwang-Chung, Ian');
         $propbag->add('requirements',   array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
         $propbag->add('groups',         array('FRONTEND_ENTRY_RELATED', 'BACKEND_EDITOR'));
-        $propbag->add('version',        '2.20');
+        $propbag->add('version',        '2.21');
         $propbag->add('configuration',  array('copytext', 'placement', 'tagged_title', 'tagged_entries', 'tagged_sidebar', 'langswitch'));
         $propbag->add('event_hooks',    array(
                 'frontend_fetchentries'     => true,
@@ -74,7 +74,7 @@ class serendipity_event_multilingual extends serendipity_event
             $_REQUEST['user_language'] = $serendipity['GET']['user_language'];
             // normal fallback
             if (!isset($serendipity['GET']['lang_selected']) && !isset($_REQUEST['user_language'])) {
-                if (!empty($_SESSION['serendipityLanguage'])) $this->showlang = $_SESSION['serendipityLanguage'];
+                if (IN_serendipity !== true && !empty($_SESSION['serendipityLanguage'])) $this->showlang = $_SESSION['serendipityLanguage'];
             }
         } elseif (!isset($_COOKIE['serendipityLanguage'])) $resetlang = true; // force == false and we only want the translated article, nothing else being touched multilingual
 

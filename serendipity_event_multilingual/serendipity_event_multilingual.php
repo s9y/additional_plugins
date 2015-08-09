@@ -634,7 +634,7 @@ class serendipity_event_multilingual extends serendipity_event
                         <input class="serendipityPrettyButton input_button" type="submit" name="serendipity[no_save]" value="<?php echo PLUGIN_EVENT_MULTILINGUAL_SWITCH; ?>" />
 <?php
                     } else {
-                        echo PLUGIN_EVENT_MULTILINGUAL_NEEDTOSAVE;
+                        echo '<span class="msg_notice"><span class="icon-info-circled"></span> ' . PLUGIN_EVENT_MULTILINGUAL_NEEDTOSAVE . "</span>\n";
                     }
 ?>
                         </div>

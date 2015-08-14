@@ -1,7 +1,13 @@
+2.22:
+-----
+
+ * Fix missing Smarty template vars when initiating in genpage
+
+
 2.21:
 -----
 
- * fix backend form lang selected entry
+ * Fix backend form lang selected entry
 
 
 2.20, 1.12:

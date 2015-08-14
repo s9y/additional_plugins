@@ -33,7 +33,7 @@ class serendipity_event_multilingual extends serendipity_event
             'php'         => '4.1.0'
         ));
         $propbag->add('groups',         array('FRONTEND_ENTRY_RELATED', 'BACKEND_EDITOR'));
-        $propbag->add('version',        '2.21');
+        $propbag->add('version',        '2.22');
         $propbag->add('configuration',  array('copytext', 'placement', 'tagged_title', 'tagged_entries', 'tagged_sidebar', 'langswitch'));
         $propbag->add('event_hooks',    array(
                 'frontend_fetchentries'     => true,
@@ -435,7 +435,8 @@ class serendipity_event_multilingual extends serendipity_event
 
                 case 'genpage':
                     if (!is_object($serendipity['smarty'])) {
-                        serendipity_smarty_init();
+                        // never init in genpage without adding previously set $vars, which is $view etc!
+                        serendipity_smarty_init($serendipity['plugindata']['smartyvars']);
                     }
                     if (!defined('Smarty::SMARTY_VERSION')) {
                         $this->tag_title(); // in Smarty 2 only
@@ -609,6 +610,7 @@ class serendipity_event_multilingual extends serendipity_event
                     unset($use_lang[$serendipity['lang']]); // Unset 'default' language. Easier handling.
 
                     $langs = '';
+                    //asort($use_lang); //sorts by value ASC, but if so we should do it everywhere though
                     foreach($use_lang AS $code => $desc) {
                         $langs .= '<option value="' . $code . '" ' . ($lang_selected == $code ? 'selected="selected"' : '') . '>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($desc) : htmlspecialchars($desc, ENT_COMPAT, LANG_CHARSET)) . '</option>' . "\n";
                     }

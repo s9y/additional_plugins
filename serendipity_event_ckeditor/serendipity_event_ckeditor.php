@@ -182,7 +182,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '4.8.0'); // is CKEDITOR Series 4 (hidden) - revision .4.8 - and appended plugin revision .0
+        $propbag->add('version',       '4.8.1'); // is CKEDITOR Series 4 (hidden) - revision .4.8 - and appended plugin revision .1
         $propbag->add('copyright',     'GPL or LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',

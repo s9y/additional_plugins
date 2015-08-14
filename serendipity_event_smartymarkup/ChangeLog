@@ -1,5 +1,19 @@
-1.10
-added: configs comment warning and their default to not parse comments
+1.12:
+----
+ * Exclude content having code highlighter or multilingual tags
+   Do not use parsable Smarty Variables in combination with
+   any other content having braces "{}"!
+ * Extend Requirement to Smarty 3.1 and Serendipity 1.7+
+ * Removed old code parts for backward compat (was erroneous)
+ * Rename wrong $serendipity['PLUGINDATA'] to $serendipity['plugindata']
 
-1.9
-latest: Smarty3 forward compatibility
+1.11:
+ * More compatibility fixes fc19cfc
+
+1.10:
+----
+ * Added: configs comment warning and their default to not parse comments
+
+1.9:
+---
+ * Latest: Smarty3 forward compatibility

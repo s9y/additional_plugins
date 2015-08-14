@@ -1,37 +1,11 @@
-<?php # 
+<?php
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include_once dirname(__FILE__) . '/lang_en.inc.php';
-
-function smarty_resource_smartymarkupplugin_template($tpl_name, &$tpl_source, &$smarty) {
-    global $serendipity;
-
-    $tpl_source = $serendipity['PLUGINDATA']['smartymarkupplugin'];
-    return true;
-}
-
-function smarty_resource_smartymarkupplugin_timestamp($tpl_name, &$tpl_timestamp, &$smarty) {
-    global $serendipity;
-
-    $tpl_timestamp = crc32($serendipity['PLUGINDATA']['smartymarkupplugin']);
-    return true;
-}
-
-function smarty_resource_smartymarkupplugin_secure($tpl_name, &$smarty) {
-    return true;
-}
-
-function smarty_resource_smartymarkupplugin_trusted($tpl_name, &$smarty) {
-}
+// Load possible language files.
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_smartymarkup extends serendipity_event
 {
@@ -45,15 +19,15 @@ class serendipity_event_smartymarkup extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SMARTYMARKUP_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.11');
+        $propbag->add('version',       '1.12');
         $propbag->add('requirements',  array(
-            'serendipity' => '0.8',
-            'smarty'      => '2.6.7',
-            'php'         => '4.1.0'
+            'serendipity' => '1.7',
+            'smarty'      => '3.1.0',
+            'php'         => '5.2.0'
         ));
         $propbag->add('groups', array('MARKUP'));
         $propbag->add('cachable_events', array('frontend_display' => true));
-        $propbag->add('event_hooks',   array('frontend_display' => true));
+        $propbag->add('event_hooks', array('frontend_display' => true));
 
         if (!defined('STATICPAGE')) {
             @define('STATICPAGE', 'Staticpage');
@@ -107,15 +81,15 @@ class serendipity_event_smartymarkup extends serendipity_event
         $propbag->add('type',        'boolean');
         $propbag->add('name',        constant($name));
         $propbag->add('description', sprintf(APPLY_MARKUP_TO, constant($name)) . ($name == 'COMMENT' ? PLUGIN_EVENT_SMARTYMARKUP_WARN : ''));
-        $propbag->add('default', ($name == 'COMMENT' ? 'false' : 'true'));
+        $propbag->add('default',     ($name == 'COMMENT' ? 'false' : 'true'));
         return true;
     }
 
-    function smarty_resource_smartymarkupplugin_template($tpl_name, &$tpl_source, $smarty) {
+    function smarty_resource_smartymarkupplugin_template($tpl_name, &$tpl_source) {
         global $serendipity;
 
         // return the template content via referenced argument 
-        $tpl_source = $serendipity['PLUGINDATA']['smartymarkupplugin'];
+        $tpl_source = $serendipity['plugindata']['smartymarkupplugin'];
 
         // test
         #$tpl_source = '{assign var="foo" value="bar"}{$foo|escape:"html"}'; 
@@ -124,18 +98,18 @@ class serendipity_event_smartymarkup extends serendipity_event
         return true;
     }
 
-    function smarty_resource_smartymarkupplugin_timestamp($tpl_name, &$tpl_timestamp, $smarty) {
+    function smarty_resource_smartymarkupplugin_timestamp($tpl_name, &$tpl_timestamp) {
         global $serendipity;
 
-        $tpl_timestamp = crc32($serendipity['PLUGINDATA']['smartymarkupplugin']);
+        $tpl_timestamp = crc32($serendipity['plugindata']['smartymarkupplugin']);
         return true;
     }
 
-    function smarty_resource_smartymarkupplugin_secure($tpl_name, $smarty) {
+    function smarty_resource_smartymarkupplugin_secure($tpl_name) {
         return true;
     }
 
-    function smarty_resource_smartymarkupplugin_trusted($tpl_name, $smarty) {
+    function smarty_resource_smartymarkupplugin_trusted($tpl_name) {
     }
 
     function smartymarkup($input, &$eventData) {
@@ -145,29 +119,20 @@ class serendipity_event_smartymarkup extends serendipity_event
             serendipity_smarty_init();
         }
 
-        if (!isset($serendipity['PLUGINDATA']['smartymarkupplugin'])) {
-            if( !defined('Smarty::SMARTY_VERSION') ) {
-                $serendipity['smarty']->register_resource("smartymarkupplugin", array(
-                                       "smarty_resource_smartymarkupplugin_template",
-                                       "smarty_resource_smartymarkupplugin_timestamp",
-                                       "smarty_resource_smartymarkupplugin_secure",
-                                       "smarty_resource_smartymarkupplugin_trusted"));
-            } else {
-                // Smarty 3.1 >=
-                $serendipity['smarty']->registerResource("smartymarkupplugin", array(
+        if (!isset($serendipity['plugindata']['smartymarkupplugin'])) {
+            $serendipity['smarty']->registerResource("smartymarkupplugin", array(
                                        array( $this, "smarty_resource_smartymarkupplugin_template" ),
                                        array( $this, "smarty_resource_smartymarkupplugin_timestamp" ),
                                        array( $this, "smarty_resource_smartymarkupplugin_secure" ),
                                        array( $this, "smarty_resource_smartymarkupplugin_trusted" )));
-            }
         }
 
-        $serendipity['PLUGINDATA']['smartymarkupplugin'] =& $input;
+        $serendipity['plugindata']['smartymarkupplugin'] =& $input;
         $serendipity['smarty']->assign('smartymarkup_eventData', $eventData);
 
         // avoid non existing or empty template fetch calls
-        if(isset($serendipity['PLUGINDATA']['smartymarkupplugin']) && !empty($serendipity['PLUGINDATA']['smartymarkupplugin'])) {
-            return $serendipity['smarty']->fetch('smartymarkupplugin:' . crc32($serendipity['PLUGINDATA']['smartymarkupplugin']));
+        if (isset($serendipity['plugindata']['smartymarkupplugin']) && !empty($serendipity['plugindata']['smartymarkupplugin'])) {
+            return $serendipity['smarty']->fetch('smartymarkupplugin:' . crc32($serendipity['plugindata']['smartymarkupplugin']));
         }
     }
 
@@ -179,6 +144,15 @@ class serendipity_event_smartymarkup extends serendipity_event
         if (isset($hooks[$event])) {
             switch($event) {
               case 'frontend_display':
+
+                if ($_GET['serendipity']['is_iframe'] == 'true' && $_GET['serendipity']['iframe_mode'] == 'save') {
+                    // Due to strange errors passing by with an unregistered function at this point,
+                    // eg. giving a 'Fatal error:  Call to undefined function staticpage_display()',
+                    // we disable this in Serendipity iframe preview saving mode.
+                    // $serendipity['GET'] is not available too
+                    // This also disables the preview on saving, which is not a need and might confuse here
+                    return;
+                }
 
                 foreach ($this->markup_elements as $temp) {
                     if (serendipity_db_bool($this->get_config($temp['name'], true)) && isset($eventData[$temp['element']]) &&
@@ -195,7 +169,30 @@ class serendipity_event_smartymarkup extends serendipity_event
                         if (isset($eventData['staticpage']) && $temp['element'] == 'body') {
                             // Skip applying markup to a staticpage content, because
                             // it's already done for the "staticpage" element instead
-                            // of "body"
+                            // of "body".
+                            continue;
+                        }
+                        // This matches CKEDITOR codesnippet and Googles prettyprint highlight markup
+                        // ToDo: enhance to match only when it finds {$foo} and {word_boundary patterns ...} in it
+                        $regex = '/(<(pre|code)\s+[^>]*?class\s*?=\s*?["|\'].*?(prettyprint|language-).*?["|\'].*?>)(.*?)(<\/(code|pre)>)/si';
+                        if (isset($eventData['body']) && preg_match($regex, $eventData['body']) ||
+                           isset($eventData['extended']) && preg_match($regex, $eventData['extended']) ||
+                           isset($eventData['staticpage']) && preg_match($regex, $eventData['staticpage'])) {
+                            // Skip parsing when entry has code highlighter blocks,
+                            // which are show-code only, set by CKEDITOR codesnippet plugin.
+                            // This should work for other highlighters too,
+                            // since this pattern is a common usage for marking syntax code.
+                            // Do not use both in entries: Smarty parsing and Coding Blocks with Smarty!
+                            // Default to skip are code highlighter blocks.
+                            continue;
+                        }
+                        if (isset($eventData['body']) && preg_match('@{{!@', $eventData['body']) ||
+                            isset($eventData['extended']) && preg_match('@{{!@', $eventData['extended']) ||
+                            isset($eventData['staticpage']) && preg_match('@{{!@', $eventData['staticpage'])) {
+                            // Do not parse content with multilanguage tags
+                            // set by the multilingual plugin.
+                            // Do not use both in entries: Smarty parsing and multilingual tags!
+                            // Default to skip is tag multilingual.
                             continue;
                         }
 

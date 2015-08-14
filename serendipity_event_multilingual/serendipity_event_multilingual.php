@@ -343,7 +343,7 @@ class serendipity_event_multilingual extends serendipity_event
 
         if (serendipity_db_bool($this->get_config('tagged_title', 'true'))) {
 
-            if (is_object($serendipity['smarty'])) {
+            if (isset($serendipity['smarty'])) {
                 $serendipity['smarty']->assign('blogTitle',$this->strip_langs($serendipity['blogTitle']));
                 $serendipity['smarty']->assign('blogDescription',$this->strip_langs($serendipity['blogDescription']));
                 if ($serendipity['version'][0] < 2) {

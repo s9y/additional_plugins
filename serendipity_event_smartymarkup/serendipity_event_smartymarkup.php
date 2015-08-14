@@ -186,6 +186,13 @@ class serendipity_event_smartymarkup extends serendipity_event
                             // Default to skip are code highlighter blocks.
                             continue;
                         }
+                        if (isset($eventData['body']) && preg_match('@\[\[\{\$@', $eventData['body']) ||
+                            isset($eventData['extended']) && preg_match('@\[\[\{\$@', $eventData['extended']) ||
+                            isset($eventData['staticpage']) && preg_match('@\[\[\{\$@', $eventData['staticpage'])) {
+                            // Do not parse content with WP-Smarty like executors eg [[{$foo}]]
+                            // set by a possible future plugin...
+                            continue;
+                        }
                         if (isset($eventData['body']) && preg_match('@{{!@', $eventData['body']) ||
                             isset($eventData['extended']) && preg_match('@{{!@', $eventData['extended']) ||
                             isset($eventData['staticpage']) && preg_match('@{{!@', $eventData['staticpage'])) {

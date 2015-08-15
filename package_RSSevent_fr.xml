@@ -95,7 +95,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Wesley Hwang-Chung, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_multilingual&lt;br /&gt;Billets multilingues&lt;/b&gt;&lt;br /&gt;Saisie des billets en plusieurs langues&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 10 Aug 2015 02:31:39 +0200</pubDate>
+<pubDate>Sat, 15 Aug 2015 02:31:29 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_multilingual</guid>
 </item>
 <item>
@@ -360,12 +360,12 @@
 <guid isPermaLink="false">serendipity_event_externalphp</guid>
 </item>
 <item>
-<title>Markup: Smarty Parsing: Parses Smarty instructions inside the article text</title>
+<title>Markup: Smarty Parsing: Parses Smarty instructions inside the article text. This is not usable in combination with syntax code-highlighters or multilingual tags in entry context fields!</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_smartymarkup</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_smartymarkup&lt;br /&gt;Markup: Smarty Parsing&lt;/b&gt;&lt;br /&gt;Parses Smarty instructions inside the article text&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:44 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_smartymarkup&lt;br /&gt;Markup: Smarty Parsing&lt;/b&gt;&lt;br /&gt;Parses Smarty instructions inside the article text. This is not usable in combination with syntax code-highlighters or multilingual tags in entry context fields!&lt;br/&gt;For: Serendipity 1.7</content:encoded>
+<pubDate>Sat, 15 Aug 2015 02:31:31 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_smartymarkup</guid>
 </item>
 <item>
@@ -1366,7 +1366,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>Rustam Abdullaev, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_ckeditor&lt;br /&gt;CKEditor&lt;/b&gt;&lt;br /&gt;Uses CKEditor as the default WYSIWYG editor. For any JS-Editor usage: Recommended! After installation, go to the configuration screen of this plugin for further instructions.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
-<pubDate>Mon, 06 Jul 2015 02:31:26 +0200</pubDate>
+<pubDate>Sat, 15 Aug 2015 02:31:21 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_ckeditor</guid>
 </item>
 <item>

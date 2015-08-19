@@ -1,3 +1,13 @@
+0.48:
+-----
+ * Use native API method parseTemplate() (only)
+
+
+0.47:
+-----
+ * htmlspecialchars fixes
+
+
 0.46:
 -----
 

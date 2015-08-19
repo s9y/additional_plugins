@@ -26,7 +26,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_IMAGESELECTORPLUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian');
-        $propbag->add('version',       '0.47');
+        $propbag->add('version',       '0.48');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -597,7 +597,6 @@ class serendipity_event_imageselectorplus extends serendipity_event
                             $eventData[$element] = $this->media_insert($eventData[$element], $eventData);
                         }
                     }
-
                     return true;
 
                     break;
@@ -859,13 +858,10 @@ class serendipity_event_imageselectorplus extends serendipity_event
         if (!is_object($serendipity['smarty'])) {
             serendipity_smarty_init();
         }
-        $tfile = serendipity_getTemplateFile('quickblog.tpl', 'serendipityPath');
-        if (!$tfile || $tfile == 'quickblog.tpl') {
-            $tfile = dirname(__FILE__) . '/quickblog.tpl';
-        }
 
         $serendipity['smarty']->assign('quickblog', $quickblog);
-        $content = $this->parseTemplate($tfile);
+
+        $content = $this->parseTemplate('quickblog.tpl');
 
         return $content;
     }
@@ -984,11 +980,6 @@ class serendipity_event_imageselectorplus extends serendipity_event
                             serendipity_smarty_init();
                         }
 
-                        $tfile = serendipity_getTemplateFile('plugin_mediainsert.tpl', 'serendipityPath');
-                        if (!$tfile || $tfile == 'plugin_mediainsert.tpl') {
-                            $tfile = dirname(__FILE__) . '/plugin_mediainsert.tpl';
-                        }
-
                         $serendipity['smarty']->assign(
                                             array(
                                                 'plugin_mediainsert_media' => $t,
@@ -998,7 +989,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                                                 )
                         );
 
-                        $content = $this->parseTemplate($tfile);
+                        $content = $this->parseTemplate('plugin_mediainsert.tpl');
 
                     } else {
                         // if there are no available images, do no output

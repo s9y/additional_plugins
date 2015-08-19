@@ -29,7 +29,7 @@ class serendipity_event_contactform extends serendipity_event {
         $propbag->add('event_hooks',  array('entries_header' => true, 'entry_display' => true, 'genpage' => true));
         $propbag->add('configuration', array('permalink', 'pagetitle', 'backend_title', 'email', 'subject', 'counter', 'intro', 'sent', 'articleformat', 'dynamic_tpl', 'dynamic_fields', 'dynamic_fields_tpl', 'dynamic_fields_desc'));
         $propbag->add('author', 'Garvin Hicking');
-        $propbag->add('version', '1.17');
+        $propbag->add('version', '1.18');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -428,22 +428,14 @@ class serendipity_event_contactform extends serendipity_event {
             );
 
             if ($dynamic_tpl == 'standard') {
-                $tfile = serendipity_getTemplateFile('plugin_contactform.tpl', 'serendipityPath');
-                if (!$tfile || $tfile == 'plugin_contactform.tpl') {
-                    $tfile = dirname(__FILE__) . '/plugin_contactform.tpl';
-                }
+                $filename = 'plugin_contactform.tpl';
             } else {
                 $filename = $this->get_config('dynamic_fields_tpl');
                 if (empty($filename)) {
                     $filename = 'plugin_dynamicform.tpl';
                 }
-                $tfile = serendipity_getTemplateFile($filename, 'serendipityPath');
-
-                if (!$tfile || $tfile == $filename) {
-                    $tfile = dirname(__FILE__) . '/' . $filename;
-                }
             }
-            echo $this->parseTemplate($tfile);
+            echo $this->parseTemplate($filename);
         }
     }
 

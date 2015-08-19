@@ -1,3 +1,7 @@
+1.18:
+-----
+ * Use native API method parseTemplate() for the tpl files
+
 1.17:
 -----
  * Sets required version to S9y 1.3

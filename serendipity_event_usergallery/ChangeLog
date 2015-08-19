@@ -2,6 +2,9 @@
 -----
  * Use native API method parseTemplate() for the tpl files
  * fix missing table tag
+ * fix mktime() error
+ * fix PHP short tags delivering unparsed code
+ * Removed old code
 
 2.64:
 -----

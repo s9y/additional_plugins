@@ -1002,7 +1002,6 @@ class serendipity_event_usergallery extends serendipity_event
             } else {
                 $images = serendipity_fetchImagesFromDatabase($lower_limit, $images_per_page, $total, $orderby, $order, $file['path']);
             }
-            $capable = true;
             $extended_data = serendipity_fetchMediaProperties($id);
             $base_directory = str_replace('gallery','',$base_directory);
             $previous_attempt = -1;
@@ -1260,7 +1259,6 @@ class serendipity_event_usergallery extends serendipity_event
         $total      = 0;
         $size       = (!empty($_REQUEST['feed_width']) ? (int)$_REQUEST['feed_width'] : $this->get_config('feed_width'));
         $hide_title = (!empty($_REQUEST['hide_title']) ? true : false);
-        $capable    = true;
         $basepath   = $serendipity['serendipityPath'] . $serendipity['uploadPath'];
         $baseurl    = $serendipity['baseURL'] . $serendipity['uploadHTTPPath'];
         $lo         = serendipity_db_bool($this->get_config('feed_linked_only'));
@@ -1282,8 +1280,8 @@ class serendipity_event_usergallery extends serendipity_event
             $sourcefile_http = $baseurl . $image['path'] . $filename;
             $thumbfile_http  = $baseurl . $image['path'] . $thumbname;
 
-            // Creating temporary thumbnails is only possible since serendipity 1.1
-            if ($capable && $serendipity['thumbSize'] != $size) {
+            // Creating temporary thumbnails
+            if ($serendipity['thumbSize'] != $size) {
                 $thumbname      = $image['name'] . '.serendipityGallery.' . $image['extension'];
                 $thumbfile      = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/' . $thumbname;
                 $thumbfile_http = $serendipity['baseURL'] . PATH_SMARTY_COMPILE . '/' . $thumbname;

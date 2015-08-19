@@ -23,7 +23,7 @@ class serendipity_event_usergallery extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_USERGALLERY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Arnan de Gans, Matthew Groeninger, and Stefan Willoughby, Ian');
-        $propbag->add('version',       '2.64');
+        $propbag->add('version',       '2.65');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -296,7 +296,7 @@ class serendipity_event_usergallery extends serendipity_event
                     $propbag->add('type',        'content');
                     $propbag->add('name',       PLUGIN_EVENT_USERGALLERY_DISPLAYDIR_NAME);
                     $propbag->add('description', PLUGIN_EVENT_USERGALLERY_DISPLAYDIR_DESC);
-                    $propbag->add('default',     $this->makeExifSelector());
+                    $propbag->add('default',     '<table>' . $this->makeExifSelector() . '</table>');
                 }
                 break;
 
@@ -354,13 +354,11 @@ class serendipity_event_usergallery extends serendipity_event
     function &makeExifSelector() {
         global $serendipity;
 
-        $selector .= '</td></tr>';
-        $selector .= '<tr><td style="vertical-align: top"><strong>'.PLUGIN_EVENT_USERGALLERY_EXIFDATA_NAME.'</strong><br />';
-        $selector .= '<span style="color: rgb(94, 122, 148); font-size: 8pt;">'.PLUGIN_EVENT_USERGALLERY_EXIFDATA_DESC.'</span><br />';
-        $selector .= '<span style="color: rgb(94, 122, 148); font-size: 8pt;">'.PLUGIN_EVENT_USERGALLERY_EXIFDATA_CAMERA.'</span>';
-        $selector .= '</td><td style="vertical-align: top">';
-        $selector .= '<strong>Options</strong>';
-        $selector .= '</td></tr>';
+        #$selector .= "</td></tr>\n";
+        $selector .= '<tr><td style="vertical-align: top; width: 80%"><strong>'.PLUGIN_EVENT_USERGALLERY_EXIFDATA_NAME.'</strong></td>';
+        $selector .= '<td style="vertical-align: top"><strong>Options</strong></td></tr>'."\n";
+        $selector .= '<tr><td colspan="2"><span style="color: rgb(94, 122, 148); font-size: 8pt;">'.PLUGIN_EVENT_USERGALLERY_EXIFDATA_DESC.'</span><br />'."\n";
+        $selector .= '<span style="color: rgb(94, 122, 148); font-size: 8pt;">'.PLUGIN_EVENT_USERGALLERY_EXIFDATA_CAMERA.'</span></td></tr>'."\n";
 
         if (is_array($serendipity['POST']['plugin']['exifdata'])) {
             //create new array
@@ -411,9 +409,9 @@ class serendipity_event_usergallery extends serendipity_event
             if ($value == "no") {
                 $selector .= ' checked="checked"';
             }
-            $selector .= '> ' . NO . '</td></tr>';
+            $selector .= '> ' . NO . '</td></tr>'."\n";
         }
-        $selector .= '<tr><td colspan="2" style="border-bottom: 1px solid #000;">&nbsp;</td></tr>';
+        #$selector .= '<tr><td colspan="2" style="border-bottom: 1px solid #000;">&nbsp;</td></tr>';
         return $selector;
     }
 
@@ -877,14 +875,7 @@ class serendipity_event_usergallery extends serendipity_event
                         )
                    );
 
-                $tfile = serendipity_getTemplateFile('plugin_usergallery.tpl', 'serendipityPath');
-                if (!$tfile || $tfile == 'plugin_usergallery.tpl') {
-                    $tfile = dirname(__FILE__) . '/plugin_usergallery.tpl';
-                }
-                $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-                $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
-                $content = $serendipity['smarty']->fetch('file:'. $tfile);
-                $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+                $content = $this->parseTemplate('plugin_usergallery.tpl');
                 echo $content;
             } else {
                 $add_url = '?serendipity[subpage]='.$this->get_config('subpage');
@@ -1209,14 +1200,7 @@ class serendipity_event_usergallery extends serendipity_event
                       'plugin_usergallery_file'                =>  $file
                       )
             );
-            $tfile = serendipity_getTemplateFile('plugin_usergallery_imagedisplay.tpl', 'serendipityPath');
-            if (!$tfile || $tfile == 'plugin_usergallery_imagedisplay.tpl') {
-                $tfile = dirname(__FILE__) . '/plugin_usergallery_imagedisplay.tpl';
-            }
-            $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-            $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
-            $content = $serendipity['smarty']->fetch('file:'. $tfile);
-            $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+            $content = $this->parseTemplate('plugin_usergallery_imagedisplay.tpl');
             echo $content;
 
             return true;

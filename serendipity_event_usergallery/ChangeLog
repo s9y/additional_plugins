@@ -1,3 +1,12 @@
+2.65:
+-----
+ * Use native API method parseTemplate() for the tpl files
+ * fix missing table tag
+
+2.64:
+-----
+ * htmlentities compat fixes
+
 2.63:
 -----
  * Added options for lightbox path and lightbox scripts.

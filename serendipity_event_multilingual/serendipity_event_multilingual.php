@@ -68,6 +68,7 @@ class serendipity_event_multilingual extends serendipity_event
         }
 
         if (!defined('IN_serendipity_admin')) {
+            $resetlang = false;
             // GET is either a forced session or a single entry lang and we normally do not use it with cookies set, since they have preference
             if (serendipity_db_bool($this->get_config('langswitch')) && (!isset($_POST['user_language']) || !isset($_COOKIE['serendipityLanguage']))) {
                 // check for REQUESTs being sent (imagine the user in a DE blog links an EN entry version and force option is set TRUE)

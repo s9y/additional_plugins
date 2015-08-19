@@ -857,6 +857,8 @@ class serendipity_event_usergallery extends serendipity_event
     }
 
     function changeExifDate($date) {
+        $date = str_replace(array('-','T'),array(':',' '),preg_replace('/\+.*/', '', $date)); // sets a date string 2014-03-18T10:11:31+01:00 to (Format: YYYY:MM:DD HH:mm:SS)
+        #echo $date . ' ';
         $dt_arr = explode(' ', $date);
         $date_arr = explode(':', $dt_arr[0]);
         $time_arr = explode(':', $dt_arr[1]);
@@ -866,14 +868,14 @@ class serendipity_event_usergallery extends serendipity_event
         $hour = $time_arr[0];
         $minute = $time_arr[1];
         $second = $time_arr[2];
-        $timestamp = mktime((int)$hour, (int)$minute, (int)$second, (int)$month, (int)$day, (int)$year);
+        $timestamp = @mktime($hour, $minute, $second, $month, $day, $year);
         if ($timestamp != -1) {
             $date_str = date('M j Y H:i:s \G\M\T O', $timestamp);
         } else {
             $date_str = 'Unknown';
         }
         $exif_date = $date_str;
-        return($exif_date);
+        return $exif_date;
     }
 
     function getExifTags($path, $name, $type) {

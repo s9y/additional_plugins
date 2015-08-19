@@ -38,7 +38,7 @@ class serendipity_event_includeentry extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_INCLUDEENTRY_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '2.15');
+        $propbag->add('version',       '2.16');
         $propbag->add('scrambles_true_content', true);
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
@@ -219,7 +219,7 @@ class serendipity_event_includeentry extends serendipity_event
         return true;
     }
 
-    function set_config($name, $value)
+    function set_config($name, $value, $implodekey = '^')
     {
         $fname = $this->instance . '/' . $name;
 

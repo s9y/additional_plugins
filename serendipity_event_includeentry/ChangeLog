@@ -1,3 +1,6 @@
+2.16
+  - fix a php dulicating method compat error
+
 2.15
   - prepare for Serendipity 2.0 and check for (window.Spawnnuggets)
   - fix 'show_multi' option non-template file fatal error

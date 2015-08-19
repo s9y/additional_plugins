@@ -29,7 +29,7 @@ class serendipity_event_amazonchooser extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_AMAZONCHOOSER_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Matthew Groeninger, Ian');
-        $propbag->add('version',       '0.74.1');
+        $propbag->add('version',       '0.75');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -429,10 +429,6 @@ class serendipity_event_amazonchooser extends serendipity_event
            if (!is_object($serendipity['smarty'])) {
               serendipity_smarty_init();
            }
-           $tfile = serendipity_getTemplateFile('plugin_amazon_display.tpl', 'serendipityPath');
-           if (!$tfile || $tfile == 'plugin_amazon_display.tpl') {
-               $tfile = dirname(__FILE__) . '/plugin_amazon_display.tpl';
-           }
 
            if (isset($asin)) {
                $method = "lookup";
@@ -453,7 +449,7 @@ class serendipity_event_amazonchooser extends serendipity_event
            );
 
            // use native API here - extends s9y version >= 1.3'
-           $content = $this->parseTemplate($tfile);
+           $content = $this->parseTemplate('plugin_amazon_display.tpl');
 
            $content = str_replace("\n",'',$content);
            if (class_exists('Cache_Lite') && is_object($cache_obj)) {

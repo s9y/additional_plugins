@@ -1,3 +1,7 @@
+3.65:
+-----
+ * Use native API method parseTemplate() for the tpl file
+
 3.64.1
 ----
  * Fix a bug where related entries were shown on overview sections when

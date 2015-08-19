@@ -68,11 +68,11 @@ class serendipity_event_freetag extends serendipity_event
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda, Ian');
         $propbag->add('requirements',  array(
-            'serendipity' => '0.8',
+            'serendipity' => '1.3',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.64.1');
+        $propbag->add('version',       '3.65');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -1511,15 +1511,7 @@ addLoadEvent(enableAutocomplete);
             $serendipity['smarty']->assign('freetag_hasTags', false);
         }
 
-        $filename = 'plugin_freetag.tpl';
-        $tfile = serendipity_getTemplateFile($filename, 'serendipityPath');
-        if (!$tfile || $tfile == $filename) {
-            $tfile = dirname(__FILE__) . '/' . $filename;
-        }
-        $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-        $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
-        $content = $serendipity['smarty']->fetch('file:'. $tfile);
-        $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+        $content = $this->parseTemplate('plugin_freetag.tpl');
         echo $content;
     }
 

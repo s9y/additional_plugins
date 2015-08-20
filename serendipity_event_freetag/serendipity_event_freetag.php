@@ -72,7 +72,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.65');
+        $propbag->add('version',       '3.66');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -1348,9 +1348,13 @@ addLoadEvent(enableAutocomplete);
         $elements = count($eventData);
 
         // If not using extended-smarty, we want related entries only when
-        // showing only one entry. It is better to ask smarty here than doing
+        // showing only one entry. It is better to ask Smarty here than doing
         // this manually for edge cases like overview pages
-        $manyEntries = ! $serendipity['smarty']->getTemplateVars('is_single_entry');
+        if ($serendipity['version'][0] > 1) {
+            $manyEntries = ! $serendipity['smarty']->getTemplateVars('is_single_entry');
+        } else {
+            $manyEntries = ! $serendipity['smarty']->get_template_vars('is_single_entry');
+        }
 
         for ($entry = 0; $entry < $elements; $entry++) {
             $tags = $this->getTagsForEntry($eventData[$entry]['id']);

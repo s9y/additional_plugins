@@ -1,3 +1,7 @@
+3.66:
+-----
+ * Fix an issue refering to Smarty2->Smarty3 changes.
+
 3.65:
 -----
  * Use native API method parseTemplate() for the tpl file

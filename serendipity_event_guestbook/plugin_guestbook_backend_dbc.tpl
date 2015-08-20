@@ -1,5 +1,5 @@
 {*
- plugin_guestbook_backend_dbc.tpl v.3.50 2014-06-14 Ian
+ plugin_guestbook_backend_dbc.tpl v.3.57 2015-08-20 Ian
  *}
 
 <!-- plugin_guestbook_backend_dbc start -->
@@ -21,7 +21,7 @@
 
 {if $is_guestbook_message}{$msg_header=$error_occured}{call feedback}{/if}
 
-{if plugin_gb_dropmsg === true}
+{if $plugin_gb_dropmsg === true}
     <h2>{$CONST.PLUGIN_GUESTBOOK_ADMIN_ERASE}</h2>
 {/if}
 

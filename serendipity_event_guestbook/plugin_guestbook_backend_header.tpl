@@ -1,8 +1,8 @@
 {*
-    plugin_guestbook_backend_header.tpl v.3.50 2014-06-14 Ian
+    plugin_guestbook_backend_header.tpl v.3.57 2015-08-20 Ian
 *}
 
-{function name=feedback}{* message and error feedback for approve, view, add issues *}
+{function name="feedback"}{* message and error feedback for approve, view, add issues *}
     <div class="msg_error">
         <span class="icon-attention-circled"></span> <strong>{$msg_header}</strong>
     {if $guestbook_messages}

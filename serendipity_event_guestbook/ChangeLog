@@ -1,3 +1,8 @@
+3.57:
+-----
+ * fix missing $ for var
+
+
 1.23: sidebar plugin
 -----
  * fix wrong default value note

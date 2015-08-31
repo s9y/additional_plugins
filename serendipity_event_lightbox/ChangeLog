@@ -1,3 +1,11 @@
+2.1.0:
+    * check for an active dependency plugin imagesidebar to include libs
+    * lightbox2-jquery update v.2.8.1
+    * prettyPhoto update v.3.1.6
+    * colorbox update v.1.6.3
+    * jquery update jquery-1.11.3.min.js
+
+------------------------------------------------------------------------
 2.0.3:
     * force fallback to a new lib for upgraders that did not do this themselves
 

@@ -1,0 +1,16 @@
+#cboxContent img { max-height: 100%; }
+
+#cboxSlideshow .icon-play:before {
+    padding: 0 .2em;
+    color: #111;
+    content: "\25BA"; /* U+25BA: BLACK RIGHT-POINTING POINTER - fallback */
+    content: content: '► ';
+}
+#cboxSlideshow .icon-pause:before {
+    padding: 0 .2em;
+    color: #111;
+    content: "\25FC"; /* U+25FC: BLACK MEDIUM SQUARE - fallback */
+    content: '◼ ';
+}
+
+@media (max-width: 640px) { #cboxTitle, #cboxCurrent { display: none !important; } }

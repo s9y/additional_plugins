@@ -7351,9 +7351,9 @@
 <description>Das Lightbox Plugin ist eine einfaches unauffälliges Skript, das Bilder auf der Seite überlagern kann, wenn die große Version angeklickt wurde. Es fügt sich selbstständig in die Seite ein und funktioniert mit jedem modernen Browser. Alle Leuchtkästen verschönern Bilder-Popups. Dieses Plugin durchsucht ihre Einträge und ersetzt jeden auf ein Bild verweisenden 'a href=&quot;XXX&quot;' Link so, dass die interne Darstellung benutzt wird. Wenn Sie also ein Thumbnail Bild mit einem Popup der großen Version haben wollen, so fügen Sie das Thumbnail in ihren Eintrag ein und verlinken dieses mit der großen Version. Um auch versteckte Bilder mit display:none anzuzeigen, nutzen Sie das Lightbox2 Script. Diese Leuchtkasten Scripte sind alle jQuery basiert. Sie unterstützen nicht allein nur Bildtypen, sondern überwiegend auch anderes, wie Ajax, Videos, Flash, YouTube, iFrame, Inline oder modale Felder. Dieses Plugin nutzt sie nur für Fotografie Leuchtkästen, aber Sie können leicht andere Typen ihren Blog-Einträgen manuell hinzufügen und eine lightbox entsprechend für diesen Zweck initiieren, so wie es den jeweiligen Online-Dokumentationen beschrieben wird.</description>
 <maintainers><maintainer><name>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.0.3</version>
+  <version>2.1.0</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2014-12-30</date>
+  <date>2015-09-01</date>
   <filelist>
 <dir name="serendipity_event_lightbox">
 <dir name="lightbox">
@@ -7390,25 +7390,71 @@
 <file>jquery.colorbox.js</file>
 <file>README.md</file>
 <file>colorbox.css</file>
+<dir name="i18n">
+<file>jquery.colorbox-ar.js</file>
+<file>jquery.colorbox-bg.js</file>
+<file>jquery.colorbox-bn.js</file>
+<file>jquery.colorbox-ca.js</file>
+<file>jquery.colorbox-cs.js</file>
+<file>jquery.colorbox-da.js</file>
+<file>jquery.colorbox-de.js</file>
+<file>jquery.colorbox-es.js</file>
+<file>jquery.colorbox-et.js</file>
+<file>jquery.colorbox-fa.js</file>
+<file>jquery.colorbox-fi.js</file>
+<file>jquery.colorbox-fr.js</file>
+<file>jquery.colorbox-gl.js</file>
+<file>jquery.colorbox-gr.js</file>
+<file>jquery.colorbox-he.js</file>
+<file>jquery.colorbox-hr.js</file>
+<file>jquery.colorbox-hu.js</file>
+<file>jquery.colorbox-id.js</file>
+<file>jquery.colorbox-it.js</file>
+<file>jquery.colorbox-ja.js</file>
+<file>jquery.colorbox-kr.js</file>
+<file>jquery.colorbox-lt.js</file>
+<file>jquery.colorbox-lv.js</file>
+<file>jquery.colorbox-my.js</file>
+<file>jquery.colorbox-nl.js</file>
+<file>jquery.colorbox-no.js</file>
+<file>jquery.colorbox-pl.js</file>
+<file>jquery.colorbox-pt-BR.js</file>
+<file>jquery.colorbox-ro.js</file>
+<file>jquery.colorbox-ru.js</file>
+<file>jquery.colorbox-si.js</file>
+<file>jquery.colorbox-sk.js</file>
+<file>jquery.colorbox-sr.js</file>
+<file>jquery.colorbox-sv.js</file>
+<file>jquery.colorbox-tr.js</file>
+<file>jquery.colorbox-uk.js</file>
+<file>jquery.colorbox-zh-CN.js</file>
+<file>jquery.colorbox-zh-TW.js</file>
+</dir>
 <file>jquery.colorbox-min.js</file>
 <file>jquery.colorbox.init.js</file>
+<file>colorboxScreens.css</file>
 </dir>
 <dir name="lightbox2-jquery">
 <dir name="css">
 <file>lightbox.css</file>
-<file>screen.css</file>
 </dir>
 <dir name="img">
+</dir>
+<dir name="js">
+<file>lightbox.min.js</file>
+<file>lightbox.js</file>
+<file>lightbox-plus-jquery.min.js</file>
+<file>lightbox-plus-jquery.js</file>
+<file>lightbox-plus-jquery.min.map</file>
+<file>lightbox.min.map</file>
+</dir>
+<dir name="images">
 <file>close.png</file>
 <file>loading.gif</file>
 <file>next.png</file>
 <file>prev.png</file>
 </dir>
-<dir name="js">
-<file>lightbox.min.js</file>
-<file>lightbox.js</file>
-</dir>
-<file>README.markdown</file>
+<file>README.md</file>
 </dir>
 <dir name="prettyphoto">
 <dir name="js">
@@ -7417,12 +7463,8 @@
 </dir>
 <dir name="images">
 <dir name="backgrounds">
-<file>.empty</file>
 </dir>
 <dir name="fullscreen">
-<file>high.gif</file>
-<file>huge.gif</file>
-<file>wide.gif</file>
 </dir>
 <dir name="prettyPhoto">
 <dir name="dark_rounded">
@@ -7477,8 +7519,6 @@
 </dir>
 </dir>
 <dir name="thumbnails">
-<file>flash-logo.png</file>
-<file>quicktime-logo.gif</file>
 </dir>
 </dir>
 <dir name="css">
@@ -7503,6 +7543,7 @@
 <file>jquery.magnific-popup.min.js</file>
 </dir>
 <file>jquery-1.11.1.min.js</file>
+<file>jquery-1.11.3.min.js</file>
 </dir>
 
   </filelist>
@@ -7524,23 +7565,61 @@
     <file>serendipity_event_lightbox/colorbox/jquery.colorbox.js</file>
     <file>serendipity_event_lightbox/colorbox/README.md</file>
     <file>serendipity_event_lightbox/colorbox/colorbox.css</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-ar.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-bg.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-bn.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-ca.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-cs.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-da.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-de.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-es.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-et.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-fa.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-fi.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-fr.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-gl.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-gr.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-he.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-hr.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-hu.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-id.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-it.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-ja.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-kr.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-lt.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-lv.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-my.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-nl.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-no.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-pl.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-pt-BR.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-ro.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-ru.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-si.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-sk.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-sr.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-sv.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-tr.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-uk.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-zh-CN.js</file>
+    <file>serendipity_event_lightbox/colorbox/i18n/jquery.colorbox-zh-TW.js</file>
     <file>serendipity_event_lightbox/colorbox/jquery.colorbox-min.js</file>
     <file>serendipity_event_lightbox/colorbox/jquery.colorbox.init.js</file>
+    <file>serendipity_event_lightbox/colorbox/colorboxScreens.css</file>
     <file>serendipity_event_lightbox/lightbox2-jquery/css/lightbox.css</file>
-    <file>serendipity_event_lightbox/lightbox2-jquery/css/screen.css</file>
-    <file>serendipity_event_lightbox/lightbox2-jquery/img/close.png</file>
-    <file>serendipity_event_lightbox/lightbox2-jquery/img/loading.gif</file>
-    <file>serendipity_event_lightbox/lightbox2-jquery/img/next.png</file>
-    <file>serendipity_event_lightbox/lightbox2-jquery/img/prev.png</file>
     <file>serendipity_event_lightbox/lightbox2-jquery/js/lightbox.min.js</file>
     <file>serendipity_event_lightbox/lightbox2-jquery/js/lightbox.js</file>
-    <file>serendipity_event_lightbox/lightbox2-jquery/README.markdown</file>
+    <file>serendipity_event_lightbox/lightbox2-jquery/js/lightbox-plus-jquery.min.js</file>
+    <file>serendipity_event_lightbox/lightbox2-jquery/js/lightbox-plus-jquery.js</file>
+    <file>serendipity_event_lightbox/lightbox2-jquery/js/lightbox-plus-jquery.min.map</file>
+    <file>serendipity_event_lightbox/lightbox2-jquery/js/lightbox.min.map</file>
+    <file>serendipity_event_lightbox/lightbox2-jquery/images/close.png</file>
+    <file>serendipity_event_lightbox/lightbox2-jquery/images/loading.gif</file>
+    <file>serendipity_event_lightbox/lightbox2-jquery/images/next.png</file>
+    <file>serendipity_event_lightbox/lightbox2-jquery/images/prev.png</file>
+    <file>serendipity_event_lightbox/lightbox2-jquery/README.md</file>
     <file>serendipity_event_lightbox/prettyphoto/js/jquery.prettyPhoto.js</file>
     <file>serendipity_event_lightbox/prettyphoto/js/jquery.prettyPhoto.min.js</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/backgrounds/.empty</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/fullscreen/high.gif</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/fullscreen/huge.gif</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/fullscreen/wide.gif</file>
     <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/dark_rounded/btnNext.png</file>
     <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/dark_rounded/btnPrevious.png</file>
     <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/dark_rounded/contentPattern.png</file>
@@ -7579,8 +7658,6 @@
     <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/light_square/default_thumbnail.gif</file>
     <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/light_square/loader.gif</file>
     <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/light_square/sprite.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/thumbnails/flash-logo.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/thumbnails/quicktime-logo.gif</file>
     <file>serendipity_event_lightbox/prettyphoto/css/prettyPhoto.css</file>
     <file>serendipity_event_lightbox/prettyphoto/css/prettyPhotoScreens.css</file>
     <file>serendipity_event_lightbox/prettyphoto/README</file>
@@ -7596,6 +7673,7 @@
     <file>serendipity_event_lightbox/magnific-popup/jquery.magnific-popup.js</file>
     <file>serendipity_event_lightbox/magnific-popup/jquery.magnific-popup.min.js</file>
     <file>serendipity_event_lightbox/jquery-1.11.1.min.js</file>
+    <file>serendipity_event_lightbox/jquery-1.11.3.min.js</file>
   </serendipityFilelist>
 </release>
 </package>

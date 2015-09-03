@@ -1,3 +1,9 @@
+Version 1.2.9
+* add a linebreak
+
+Version 1.2.8
+* Size honepot form field in case it is actually shown
+
 Version 1.2.7
 * Made it work more nice with the contactform plugin
 

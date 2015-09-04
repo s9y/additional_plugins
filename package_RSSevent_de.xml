@@ -1330,7 +1330,7 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Janek Bevendorff</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_bee&lt;br /&gt;Spamschutz Biene (Honeypot, Verstecktes Captcha)&lt;/b&gt;&lt;br /&gt;Implementiert Kommentar AntiSpam Maßnahmen, die einfach zu konfigurieren aber sehr effektiv sind.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 02 Jan 2015 02:31:29 +0100</pubDate>
+<pubDate>Fri, 04 Sep 2015 02:31:35 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_bee</guid>
 </item>
 <item>

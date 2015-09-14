@@ -26,7 +26,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_IMAGESELECTORPLUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian');
-        $propbag->add('version',       '0.48');
+        $propbag->add('version',       '0.49');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -947,30 +947,36 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     $thumb_size = $serendipity['thumbSize'];
                     $order      = array();
                     if (is_array($t)) {
-                        for ($j=0, $tcount = count($t) ; $j < $tcount ; $j++) {
-                            $h = intval($t[$j]["height"]);
-                            $w = intval($t[$j]["width"]);
+                        for ($j = 0, $tcount = count($t); $j < $tcount; $j++) {
+                            $h = intval($t[$j]['height']);
+                            $w = intval($t[$j]['width']);
                             $h = $h==0 ? 1 : $h; // avoid 'Division by zero' errors for height
                             $w = $w==0 ? 1 : $w; // dito for width
                             if ($w > $h) {
-                                $t[$j]["thumbheight"] = round($thumb_size*$h/$w);
-                                $t[$j]["thumbwidth"]  = round($thumb_size);
+                                $t[$j]['thumbheight'] = round($thumb_size*$h/$w);
+                                $t[$j]['thumbwidth']  = round($thumb_size);
                             } else {
-                                $t[$j]["thumbheight"] = round($thumb_size);
-                                $t[$j]["thumbwidth"]  = round($thumb_size*$w/$h);
+                                $t[$j]['thumbheight'] = round($thumb_size);
+                                $t[$j]['thumbwidth']  = round($thumb_size*$w/$h);
                             }
 
-                            if (strlen($t[$j]["comment1"]) == 0) {
-                                #$t[$j][6] = $t[$j]["name"];// add missing new num key if not using assoc select
-                                $t[$j]["comment1"] = $t[$j]["name"];
+                            if (strlen($t[$j]['comment1']) == 0) {
+                                #$t[$j][6] = $t[$j]['name'];// add missing new num key if not using assoc select
+                                $t[$j]['comment1'] = $t[$j]['name'];
                             }
 
-                            $order[$j] = array_search($t[$j]["name"], $medias);
-                            if (strlen($t[$j]["thumbnail_name"]) == 0) {
+                            $order[$j] = array_search($t[$j]['name'], $medias);
+
+                            if (strlen($t[$j]['thumbnail_name']) == 0) {
                                 array_splice($t,$j,1);
                                 $j--;
                                 $tcount--;
                             }
+                        }
+
+                        if ((count($t)+1) == count($order)) {
+                            // remove last $order array element, since else we might get a Fatal error:  Uncaught exception 'ErrorException' with message 'Warning: array_multisort(): Array sizes are inconsistent'
+                            array_pop($order);
                         }
 
                         array_multisort($order, SORT_ASC, SORT_NUMERIC, $t);

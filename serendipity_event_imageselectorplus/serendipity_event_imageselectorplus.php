@@ -26,7 +26,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_IMAGESELECTORPLUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian');
-        $propbag->add('version',       '0.49');
+        $propbag->add('version',       '0.50');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -120,8 +120,8 @@ class serendipity_event_imageselectorplus extends serendipity_event
 
             default:
                 if (class_exists('SimpleXMLElement')) {
-                    $propbag->add('type',        'boolean');
-                    $propbag->add('name',        constant($name));
+                    $propbag->add('type', 'boolean');
+                    $propbag->add('name', constant($name));
                     $propbag->add('description', sprintf(APPLY_MARKUP_TO," - ".constant($name)));
                     $propbag->add('default', 'true');
                 }
@@ -517,9 +517,11 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     if (empty($serendipity['POST']['quickblog']['title'])) {
                         break;
                     }
+
                     $file      = basename($eventData);
                     $directory = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', dirname($eventData) . '/');
                     $size      = (int)$serendipity['POST']['quickblog']['size'];
+
                     // check default Serendipity thumbSize, to make this happen like standard image uploads, and to get one "fullsize" image instance only,
                     // else create another quickblog image "resized" instance, to use as entries thumbnail image
                     if ($serendipity['thumbSize'] != $size) {
@@ -550,7 +552,9 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     // New draft post
                     $entry             = array();
                     $entry['isdraft']  = 'false';
-                    $entry['title']    = (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['POST']['quickblog']['title']) : htmlspecialchars($serendipity['POST']['quickblog']['title'], ENT_COMPAT, LANG_CHARSET));
+                    $entry['title']    = (function_exists('serendipity_specialchars')
+                                            ? serendipity_specialchars($serendipity['POST']['quickblog']['title'])
+                                            : htmlspecialchars($serendipity['POST']['quickblog']['title'], ENT_COMPAT, LANG_CHARSET));
                     if (isset($objpath) && !empty($objpath)) {
                         $entry['body'] = '<a href="' . $objpath . '"><img alt="" class="serendipity_image_left serendipity_quickblog_image" src="' . $objpreview . '">' . $filename . '</a> (-'.$obj_mime.'-)<p>' . $serendipity['POST']['quickblog']['body'] . '</p>';
                     } else {
@@ -558,7 +562,9 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     }
                     $entry['authorid'] = $serendipity['authorid'];
                     $entry['exflag']   = false;
-                    $entry['categories'][0] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['POST']['quickblog']['category']) : htmlspecialchars($serendipity['POST']['quickblog']['category'], ENT_COMPAT, LANG_CHARSET));
+                    $entry['categories'][0] = (function_exists('serendipity_specialchars')
+                                                ? serendipity_specialchars($serendipity['POST']['quickblog']['category'])
+                                                : htmlspecialchars($serendipity['POST']['quickblog']['category'], ENT_COMPAT, LANG_CHARSET));
                     #$entry['allow_comments']    = 'true'; // both disabled
                     #$entry['moderate_comments'] = 'false'; // to take default values
                     $serendipity['POST']['properties']['fake'] = 'fake';
@@ -597,6 +603,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                             $eventData[$element] = $this->media_insert($eventData[$element], $eventData);
                         }
                     }
+
                     return true;
 
                     break;
@@ -766,11 +773,14 @@ class serendipity_event_imageselectorplus extends serendipity_event
         }
     }
 
-    /*
-     *  function parse_quickblog_post makes a quickblog post from the picture
-     *  given by $path @string
-     *  Make sure to not produce any output or error message here, since it will
-     *  be dropped to /index.php?/plugin/admin/serendipity_editor.js
+    /**
+     * Parses a quickblog entry to replace the pattern with the quickblog object
+     * Make sure to not produce any output or error message here, since eventDatas
+     * next out file is the streamed serendipitry_editor.js file
+     *
+     * @param   string  $path       A filepath match
+     * @param   string  $body       Referenced entry body
+     * @return  string  $content
      */
     function parse_quickblog_post($path, &$body) {
         global $serendipity;
@@ -833,7 +843,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                 $linktarget = ' target="_blank"';
                 break;
             case 'js':
-                list($width, $height, $type, $attr) = getimagesize("$infile");
+                try { list($width, $height, $type, $attr) = getimagesize("$infile"); } catch (Exception $e) { echo ERROR_SOMETHING . ': '.$e->getMessage(); }
                 $linktarget = ' onclick="F1 = window.open(\''.$http_infile.'\',\'Zoom\',\'height='.$height.',width='.$width.',top=\'+ (screen.height-'.$height.')/2 +\',left=\'+ (screen.width-'.$width.')/2 +\',toolbar=no,menubar=no,location=no,resize=1,resizable=1,scrollbars=yes\'); return false;"';
                 break;
             case 'plugin':
@@ -999,7 +1009,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
 
                     } else {
                         // if there are no available images, do no output
-                        $content = "";
+                        $content = '';
                     }
 
                     // fetch the output
@@ -1008,7 +1018,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
             }
         }
 
-        return implode("", $entry_parts);
+        return implode('', $entry_parts);
     }
 
 

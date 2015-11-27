@@ -279,7 +279,11 @@ var $error=null;
                         $resp    = null;
                         $theme   = $this->get_config('recaptcha_style', 'red');
                         echo "\n<script type=\"text/javascript\">\n var RecaptchaOptions = { theme : '".$theme."', lang : '" . $serendipity['lang'] . "' };\n</script>";
-                        echo recaptcha_get_html($pubkey, $this->error);
+                        $use_ssl = false;
+                        if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
+                            $use_ssl = true;
+                        }
+                        echo recaptcha_get_html($pubkey, $this->error, $use_ssl);
                     }
 
                     return true;

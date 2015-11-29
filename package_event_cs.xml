@@ -8737,7 +8737,7 @@ aplikovány další typografické úpravy.</description>
 <release>
   <version>0.11</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2015-11-28</date>
   <filelist>
 <dir name="serendipity_event_recaptcha">
 <file>lang_en.inc.php</file>

@@ -1,0 +1,295 @@
+
+/* event_cal backend (inherit) styles for 2.0 plus */
+
+#backend_eventcal_wrapper table, #backend_eventcal_wrapper tbody, #backend_eventcal_wrapper tr, #backend_eventcal_wrapper th, #backend_eventcal_wrapper td, #backend_eventcal_wrapper div, #backend_eventcal_wrapper span, #backend_eventcal_wrapper font {
+    font: normal 1em/1.5 Arial, Helvetica, sans-serif;
+}
+#backend_eventcal_wrapper {
+    margin: 1.5em 0px;
+}
+
+#backend_eventcal_wrapper div.backend_eventcal_dbclean_menu,
+#backend_eventcal_wrapper table { font-size: 0.875em;}
+
+.ec_dbclean { clear: right; }
+
+#backend_eventcal_wrapper div.backend_eventcal_head h2 { font-size: 130%; }
+.ec_inner_title h3 { font-size: 90%; }
+
+#backend_eventcal_wrapper div.backend_eventcal_dbclean_title,
+#backend_eventcal_wrapper div.eventcal_tpl_message { font-size: 0.875em; }
+
+div.backend_eventcal_menu {
+    background: inherit;
+    border: 0 none;
+    padding: 0;
+}
+.backend_eventcal_menu h3 { margin-top: 1.5em; }
+div.backend_eventcal_nav {
+    float: inherit;
+    background: inherit;
+    width: inherit;
+    margin: 0;
+    border: 0 none;
+    display: inline-table;
+    width: 100%;
+}
+.backend_eventcal_nav ul {
+    display: inline-block;
+    list-style: outside none none;
+    margin: 0px;
+    padding: 0px;
+}
+.backend_eventcal_nav ul li {
+    display: inline;
+    margin-right: 1em;
+}
+div.backend_eventcal_nav ul li#active {
+    border-bottom: 0 none;
+    background: inherit;
+}
+.backend_eventcal_nav ul li {
+}
+div.backend_eventcal_head {
+    background: inherit;
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+    float: inherit;
+}
+.backend_eventcal_head ul {
+    float: right;
+    list-style: outside none none;
+    display: inline-flex;
+    font: inherit;
+    font-family: Helvetica,Arial,sans-serif;
+    margin-top: -3em;
+}
+.backend_eventcal_head a { text-decoration:none; }
+.backend_eventcal_head span.headnote { font-style: italic; }
+.backend_eventcal_head::after { clear:both; }
+
+div.backend_eventcal_paginator {
+    margin-top: 0px;
+    height: 0;
+    display: inline-table;
+    width: 100%;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+table.eventcal_appform {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+br {
+    display: none;
+    visibility: hidden;
+}
+.backend_eventcal_linenum br,
+.backend_eventcal_linetxt br,
+.eventcal_appldesc br,
+.eventcal_tpl_message_inner br {
+    display: inherit;
+    visibility: inherit;
+}
+
+td.backend_eventcal_linenum,
+td.backend_eventcal_linetxt code span {
+    vertical-align: bottom;
+    line-height: 1.8 !important;
+}
+
+div.backend_eventcal_dbclean_title {
+    margin: 0;
+}
+div.backend_eventcal_dbclean_menu {
+    background: transparent;
+    border: 0;
+    display: block;
+    margin: 0;
+}
+div.backend_eventcal_dbclean_menu ul li#active {
+    width: 98%;
+    padding: 0;
+    margin: 0;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    background: transparent; /* Old browsers */
+    background: -moz-linear-gradient(top, #FFF 0%, #DAD7D5 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF), color-stop(100%,#DAD7D5)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #FFF 0%,#DAD7D5 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #FFF 0%,#DAD7D5 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, #FFF 0%,#DAD7D5 100%); /* IE10+ */
+    background: linear-gradient(top, #FFF 0%,#DAD7D5 100%); /* W3C */
+    display: inline-block;
+}
+.eventcal_tpl_message {
+    padding: .5em;
+    margin-bottom: .5em;
+}
+.eventcal_tpl_message_inner {
+    border: 0 none;
+    background-color: inherit;
+    color: inherit;
+    padding: 0;
+}
+
+#backend_eventcal_wrapper input.bbc_i,
+#backend_eventcal_wrapper input.bbc_b,
+#backend_eventcal_wrapper input.bbc_u,
+#backend_eventcal_wrapper input.bbc_s {
+    margin: 0;
+    padding: 3px 10px;
+    font-style: inherit;
+    font-size: inherit;
+}
+#backend_eventcal_wrapper input.info {
+    clear: both;
+    font-style: inherit;
+    font-size: inherit;
+    height: inherit;
+    width: inherit;
+    vertical-align: inherit;
+}
+
+abbr[title] {
+    padding: 0px .5em;
+    border-bottom: 0 none;
+}
+.eventcal_appldesc abbr:before {
+    content: "?";
+    background-color: transparent;
+    padding: 0.1em 0.2em;
+    -webkit-box-shadow: 0 0 2px 1px rgba(41, 69, 100, 0.5);
+    -moz-box-shadow: 0 0 2px 1px rgba(41, 69, 100, 0.5);
+    -o-box-shadow: 0 0 2px 1px rgba(41, 69, 100, 0.5);
+    box-shadow: 0 0 2px 1px rgba(41, 69, 100, 0.5);
+    outline: 0 none;
+}
+#backend_eventcal_wrapper .eventformdesc abbr[title] {
+    border-bottom: 0 none;
+    font-size: 1.2em;
+    vertical-align: top;
+}
+td.eventformdesc {
+    font: inherit;
+    text-align: left;
+    padding-left: .5em;
+}
+td.eventcal_appform_validation {
+    padding: 0.75em 0px 0.75em 0.5em;
+    white-space: inherit;
+}
+.eventcal_appform_validation:nth-last-child(-n+3) {
+    width: 4em;
+}
+input.eventcal_appform_move, img.eventcal_appform_move {
+    margin-right: 1em;
+}
+.eventcal_tpl_message_inner a.input_button {
+    color: #FAFAFA;
+    text-shadow: 0px 1px 1px #050505;
+    display: inline-block;
+    border-radius: 4px;
+    background-clip: padding-box;
+    border: 1px solid;
+    line-height: normal;
+    outline: 0px none;
+    padding: 3px 10px;
+    text-decoration: none;
+    width: auto;
+    font-weight: 600;
+    box-shadow: 1px 2px 3px #777;
+}
+
+#backend_eventcal_wrapper .backend_eventcal_dbclean_innertitle {
+    text-decoration: underline;
+    margin-bottom: 0;
+    font-size: .75em;
+}
+#backend_eventcal_wrapper .backend_eventcal_dbclean_object {
+    width: 40em;
+    max-width: 58em;
+    max-height: 16em;
+    overflow: auto;
+    background-color: #F0F8FF;
+    border: 1px dashed;
+    padding: .3em;
+}
+
+table.ec_export {
+    border-collapse: inherit;
+    border-spacing: inherit;
+}
+.eventformlink sub {
+    bottom: 0;
+}
+
+#eventcalEntry .eventformdesc sup {
+    top: 0;
+}
+td.eventformdesc input {
+    background-color: inherit;
+}
+td.eventformdesc input[type="text"] {
+    background-color: #fff;
+    margin-right: .5em;
+}
+td.eventformdesc input[type="radio"] {
+    background-color: transparent;
+    vertical-align: super;
+    margin-right: .2em;
+}
+
+.serendipity_entry table {
+    border: 0 none;
+}
+table.eventborder {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+    background: transparent !important;
+    width: 100%;
+}
+
+#eventcalEntry table.eventcal_form {
+    background: #CBCBCB;
+    margin: 0;
+    padding: 0.5em;
+}
+#backend_eventcal_wrapper .eventborder table {
+    margin: -1.5em 0px 1.5em;
+}
+#backend_eventcal_wrapper .eventborder form table {
+    margin: -1.5em 0px 1.5em;
+}
+
+.eventcal_tpl_error {
+    border: 0 none;
+    background-color: inherit;
+    color: inherit;
+    font-weight: 600;
+    padding: 0;
+    margin-bottom: 1.5em;
+}
+.eventcal_tpl_message {
+    margin-bottom: 1.5em;
+}
+
+.eventcal_tpl_error_inner {
+    background: #f2dede;
+    border: 1px solid #e4b9b9;
+    color: #b94a48;
+    margin-top: 1.5em;
+}
+.serendipity_msg_notice {
+    background: #fcf8e3;
+    border: 1px solid #fbeed5;
+    color: #c09853;
+}
+.serendipity_msg_hint {
+    background: #eee;
+    border: 1px solid #aaa;
+    color: #777;
+}

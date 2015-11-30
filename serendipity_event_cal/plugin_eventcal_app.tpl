@@ -1,10 +1,4 @@
-{* 
- Ein Kommentar mit Smarty
- Wie in PHP wird dieser dann von dem Smarty-System
- ignoriert. Der Browser bekommt dann diesen Kommentar
- auch nicht zu sehen, obwohl er direkt im Template steht.
- file: plugin_eventcal_app.tpl - 2009-02-22, ian 
- *}
+{* file: plugin_eventcal_app.tpl - 2009-02-22, Ian *}
  
 <!-- plugin_eventcal_app.tpl start -->
 
@@ -47,7 +41,7 @@ function chkAll(frm, arr, mark) {
             <td class="eventcal_appform_validation"><input type="checkbox" name="calendar[entries][]" value="{$e.id}" /></td>
             <td class="eventcal_appform_validation eventcal_appdate">{$e.tipodate}{if $e.tipo == 5} ({$CONST.CAL_EVENT_FORM_RIGHT_RECUR_BIWEEK}){/if}</td>
             <td class="eventcal_appform_validation">{$e.sdesc}</td>
-            <td class="eventcal_appform_validation eventcal_appldesc">{$e.ldesc|@truncate:63:" [...]"|@strip_tags}{if $e.ldesc|@count_characters:true > 63} <abbr title="{$e.ldesc|replace:"\n":" "|@strip_tags}"><img class="eventcal_truncate" src="{serendipity_getFile file='img/blank.png'}" alt="blank" /></abbr>{/if}<br />{$CONST.CAL_EVENT_FORM_LEFT_AUTHOR|@strip_tags:false}: {$e.app_by}</td>
+            <td class="eventcal_appform_validation eventcal_appldesc">{$e.ldesc|truncate:63:" [&hellip;]"|strip_tags}{if $e.ldesc|count_characters:true > 63} <abbr title="{$e.ldesc|replace:"\n":" "|strip_tags}"></abbr>{/if}<br />{$CONST.CAL_EVENT_FORM_LEFT_AUTHOR|strip_tags:false}: {$e.app_by}</td>
             <td class="eventcal_appform_validation">{if $e.url} <a href="{$e.url}" target="_blank">go</a>{else}&nbsp;{/if}</td>
             {if $is_eventcal_cal_admin_noapp != true}
             <td class="eventcal_appform_validation">&nbsp;&nbsp;<input type="image" class="eventcal_appform_move" src="{$plugin_eventcal_cal_imgpath}img/notes-approve.gif" name="Approve_Selected" alt="notes-approve" title=" Approve " align="bottom" />&nbsp;&nbsp;</td>

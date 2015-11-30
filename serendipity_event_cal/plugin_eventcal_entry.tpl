@@ -1,10 +1,4 @@
-{* 
- Ein Kommentar mit Smarty
- Wie in PHP wird dieser dann von dem Smarty-System
- ignoriert. Der Browser bekommt dann diesen Kommentar
- auch nicht zu sehen, obwohl er direkt im Template steht.
- file: plugin_eventcal_entry.tpl - 2010-02-07, ian 
- *}
+{* file: plugin_eventcal_entry.tpl - 2010-02-07, Ian *}
  
 <!-- plugin_eventcal_entry.tpl start -->
 

@@ -1,10 +1,4 @@
-{* 
- Ein Kommentar mit Smarty
- Wie in PHP wird dieser dann von dem Smarty-System
- ignoriert. Der Browser bekommt dann diesen Kommentar
- auch nicht zu sehen, obwohl er direkt im Template steht.
- file: plugin_eventcal_ical.tpl - 2010-02-19, ian 
- *}
+{* file: plugin_eventcal_ical.tpl - 2015-11-29, Ian *}
 ##STARTICAL##BEGIN:VCALENDAR
 PRODID:{$ical_proid}
 VERSION:2.0
@@ -32,7 +26,7 @@ RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=10
 END:STANDARD
 END:VTIMEZONE
 {foreach from=$ical_events item="event"}
-{if $event.sdesc}
+{if isset($event.sdesc)}
 BEGIN:VEVENT
 CREATED:{$event.tstamp|date_format:"%Y%m%dT%H%M%S"}Z
 LAST-MODIFIED:{$event.modified|date_format:"%Y%m%dT%H%M%S"}Z

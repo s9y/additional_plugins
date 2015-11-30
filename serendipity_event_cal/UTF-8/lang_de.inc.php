@@ -1,11 +1,11 @@
 <?php
 
-# serendipity_event_cal.php, langfile(utf-8/de) v1.64 2011-02-05 ian
+# serendipity_event_cal.php, langfile(utf-8/de) v1.65 2015-11-25 Ian
 
 @define('PLUGIN_EVENTCAL_HEADLINE', 'Kopfzeile (optional)');
 @define('PLUGIN_EVENTCAL_HEADLINE_BLAHBLAH', 'Was für eine Überschrift soll die Seite haben?');
-@define('PLUGIN_EVENTCAL_TITLE', 'Event-Terminkalender (nur MySQL)');
-@define('PLUGIN_EVENTCAL_TITLE_BLAHBLAH', 'Zeigt einen Terminkalender innerhalb des Blogs mit dem Blog-Design und allen Formatierungen an. Unterstützt Backend/Frontend Administration, vielfache Termine und iCal Export.');
+@define('PLUGIN_EVENTCAL_TITLE', 'Event-Terminkalender');
+@define('PLUGIN_EVENTCAL_TITLE_BLAHBLAH', 'Zeigt einen Terminkalender innerhalb des Blogs mit dem Blog-Design und allen Formatierungen an. Unterstützt Backend/Frontend Administration, vielfache Termine und iCal Export. (Nur MySQL)');
 @define('PLUGIN_EVENTCAL_PERMALINK', 'Permalink');
 @define('PLUGIN_EVENTCAL_PERMALINK_BLAHBLAH', 'Gibt den Permalink der statischen Seite an. Dieser muss eine absolute Pfadangabe vom HTTP-Root ab sein und die Dateiendung .htm oder .html besitzen!');
 @define('PLUGIN_EVENTCAL_PAGETITLE', 'Seitentitel und URL');
@@ -154,16 +154,16 @@
 /* Backend main constants */
 @define('PLUGIN_EVENTCAL_ADMIN_NAME', 'Event Kalender');
 @define('PLUGIN_EVENTCAL_ADMIN_NAME_MENU', 'Event Kalender  v.%s - Backend Administration Menu');
-@define('PLUGIN_EVENTCAL_ADMIN_DBC', 'Event Kalender - Plugin Administration');
-@define('PLUGIN_EVENTCAL_ADMIN_VIEW', 'Event Kalender - Termine ansehen');
+@define('PLUGIN_EVENTCAL_ADMIN_DBC', 'Plugin Administration');
+@define('PLUGIN_EVENTCAL_ADMIN_VIEW', 'Termine ansehen');
 @define('PLUGIN_EVENTCAL_ADMIN_VIEW_DESC', 'Sortiert nach event type (tipo) single, multi, recur, weekly, yearly - aufsteigend.');
 @define('PLUGIN_EVENTCAL_ADMIN_ORDERBY_DESC', 'Sortiert nach event type (timestamp) absteigend.');
-@define('PLUGIN_EVENTCAL_ADMIN_APP', 'Event Kalender - Termine bestätigen');
+@define('PLUGIN_EVENTCAL_ADMIN_APP', 'Termine bestätigen');
 @define('PLUGIN_EVENTCAL_ADMIN_APP_DESC', 'Sortiert nach Datum des Eintrags [ jüngster oben ].');
 @define('PLUGIN_EVENTCAL_ADMIN_ERASE', 'Event Kalender - Termine löschen');
 @define('PLUGIN_EVENTCAL_ADMIN_LOG', 'Event Kalender - iCal Log');
 @define('PLUGIN_EVENTCAL_ADMIN_LOG_ERROR', 'ACHTUNG: Beim Schreiben der iCal.log Datei trat ein Fehler auf. Bitte schauen sie ob Datei und Ordner beschreibbar sind.');
-@define('PLUGIN_EVENTCAL_ADMIN_ADD', 'Event Kalender - Termine eintragen');
+@define('PLUGIN_EVENTCAL_ADMIN_ADD', 'Termine eintragen');
 @define('PLUGIN_EVENTCAL_ADMIN_NORESULT', 'Es liegen keine Termine %s vor!');
 @define('PLUGIN_EVENTCAL_ADMIN_NORESULT_APP', 'zum Bestätigen');
 @define('PLUGIN_EVENTCAL_ADMIN_NORESULT_DROP', 'zum Löschen');

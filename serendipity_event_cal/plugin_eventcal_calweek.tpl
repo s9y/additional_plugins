@@ -1,10 +1,4 @@
-{* 
- Ein Kommentar mit Smarty
- Wie in PHP wird dieser dann von dem Smarty-System
- ignoriert. Der Browser bekommt dann diesen Kommentar
- auch nicht zu sehen, obwohl er direkt im Template steht.
- file: plugin_eventcal_calweek.tpl - 2010-02-08, ian 
- *}
+{* file: plugin_eventcal_calweek.tpl - 2010-02-08, Ian *}
    
   {if $plugin_eventcal_cal_sedweek}
   
@@ -160,8 +154,8 @@
                 <table class="eventcal_{$day.col}">
                     <tbody>
                     <tr>
-                        <td class="eventcal_{$day.col} eventcal_lft">{if $day.today == 'today'}<div class="eventcal_todaycell">{$CONST.CAL_EVENT_TODAY}</div>{elseif $day.today == 'blank'}<img src="{serendipity_getFile file="img/blank.png"}" alt="blank" width="1" height="1" border="0" />{else}&nbsp;{/if}</td>
-                        <td class="eventcal_{$day.col} eventcal_rgt">{$day.label|@default:'&nbsp;'}</td>
+                        <td class="eventcal_{$day.col} eventcal_lft">{if $day.today == 'today'}<div class="eventcal_todaycell">{$CONST.CAL_EVENT_TODAY}</div>{elseif $day.today == 'blank'} {else}&nbsp;{/if}</td>
+                        <td class="eventcal_{$day.col} eventcal_rgt">{$day.label|default:'&nbsp;'}</td>
                     </tr>
                     <tr>
                         <td class="eventcal_{$day.col} eventcal_lft" colspan="2">{if !$day.arrdata}&nbsp;{/if}
@@ -169,7 +163,7 @@
                     {foreach from=$day.arrdata item=r start=1}
                     
                             <span class="{if $r.tipo == 1 || $r.tipo == 6}mono{elseif $r.tipo == 2}multi{elseif $r.tipo == 3}recm{elseif $r.tipo == 4 || $r.tipo == 5}recw{/if} eventtype">
-                                <a class="small_eventcal_link" href="{$plugin_eventcal_cal_path}{$eventcal_permalink_add}calendar[a]={$r.a}&amp;calendar[ap]={$r.ap}&amp;calendar[cm]={$r.m}&amp;calendar[cy]={$r.y}&amp;calendar[ev]={$r.id}" title="open event entry {$r.sdesc}"><b class="eventcal_reiter">{$r.sdesc}</b></a><br />
+                                <a class="small_eventcal_link" href="{$plugin_eventcal_cal_path}{$eventcal_permalink_add}calendar[a]={$r.a}&amp;calendar[ap]={$r.ap}&amp;calendar[cm]={$r.m}&amp;calendar[cy]={$r.y}&amp;calendar[ev]={$r.id}" title="open event entry {$r.sdesc}"><b class="eventcal_tab">{$r.sdesc}</b></a><br />
                             </span>
                     {/foreach}
                 

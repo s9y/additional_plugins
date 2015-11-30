@@ -1,23 +1,17 @@
-{* 
- Ein Kommentar mit Smarty
- Wie in PHP wird dieser dann von dem Smarty-System
- ignoriert. Der Browser bekommt dann diesen Kommentar
- auch nicht zu sehen, obwohl er direkt im Template steht.
- file: plugin_eventcal_cal.tpl - 2011-01-19, ian 
- *}
+{* file: plugin_eventcal_cal.tpl - 2011-01-19, Ian *}
 
 {if $is_eventcal_articleformat == true}
-<div class='serendipity_Entry_Date'>
+<div class="serendipity_Entry_Date">
   <h3 class="serendipity_date">{$CONST.PLUGIN_EVENTCAL_TITLE}</h3>
   {if $is_eventcal_headline == true}
   <h4 class="serendipity_title"><a href="{$plugin_eventcal_permalink}">{$plugin_eventcal_headline}</a></h4>
   {/if}
 
-  <div class='serendipity_entry'>
-    <div class='serendipity_entry_body'>
+  <div class="serendipity_entry">
+    <div class="serendipity_entry_body">
 {/if}
       <br class="clear" />
-      <div id='{if $plugin_eventcal_admin_add_path}backend_{/if}eventcal_wrapper'>
+      <div {if $plugin_eventcal_admin_add_path}class="ec_backend_table"{else}id="eventcal_wrapper"{/if}>
       
 <!-- plugin_eventcal_cal.tpl start -->
 
@@ -33,9 +27,9 @@
 
 {if $is_eventcal_message}
 <div class="serendipity_center eventcal_tpl_message">
-    <div class="serendipity_center serendipity_msg_notice">{$plugin_eventcal_cal_admin}</div>
+    <div class="serendipity_center serendipity_msg_notice msg_notice">{$plugin_eventcal_cal_admin}</div>
     {foreach from=$plugin_eventcal_message item=message}
-    <div class="eventcal_tpl_message_inner">{$message}</div>
+    <div class="eventcal_tpl_message_inner serendipity_msg_hint">{$message}</div>
     {/foreach}
 </div>
 {/if}
@@ -44,7 +38,6 @@
 <div class="serendipity_center eventcal_tpl_message">
     <div class="eventcal_tpl_message_inner">{$CONST.CAL_EVENT_USER_FREE_SURE}<br /><br />
         <a href="{$admin_url}" class="serendipityPrettyButton">{$CONST.NOT_REALLY}</a>
-        <img src="{serendipity_getFile file="img/blank.png"}" alt="blank" width="10" height="1" />
         <a href="{$admin_target}" class="serendipityPrettyButton">{$CONST.DUMP_IT}</a><br /><br />
     </div>
 </div>
@@ -187,8 +180,8 @@
                 <table class="eventcal_{$day.col}">
                     <tbody>
                     <tr>
-                        <td class="eventcal_{$day.col} eventcal_lft">{if $day.today == 'today'}<div class="eventcal_todaycell">{$CONST.CAL_EVENT_TODAY}</div>{elseif $day.today == 'blank'}<img src="{serendipity_getFile file="img/blank.png"}" alt="blank" width="1" height="1" border="0" />{else}&nbsp;{/if}</td>
-                        <td class="eventcal_{$day.col} eventcal_rgt">{$day.label|@default:'&nbsp;'}</td>
+                        <td class="eventcal_{$day.col} eventcal_lft">{if $day.today == 'today'}<div class="eventcal_todaycell">{$CONST.CAL_EVENT_TODAY}</div>{elseif $day.today == 'blank'} {else}&nbsp;{/if}</td>
+                        <td class="eventcal_{$day.col} eventcal_rgt">{$day.label|default:'&nbsp;'}</td>
                     </tr>
                     <tr>
                         <td class="eventcal_{$day.col} eventcal_lft" colspan="2">{if !$day.arrdata}&nbsp;{/if}
@@ -196,7 +189,7 @@
                         {foreach from=$day.arrdata item=r}{* start=1 *}
                         
                             <span{if $r.tipo == 1 || $r.tipo == 6} class="mono{elseif $r.tipo == 2} class="multi{elseif $r.tipo == 3} class="recm{elseif $r.tipo == 4 || $r.tipo == 5} class="recw{/if} eventtype">
-                                <a class="small_eventcal_link" href="{$plugin_eventcal_cal_path}{$eventcal_permalink_add}calendar[a]={$r.a}&amp;calendar[ap]={$r.ap}&amp;calendar[cm]={$r.m}&amp;calendar[cy]={$r.y}&amp;calendar[ev]={$r.id}" title="open event entry {$r.sdesc}"><b class="eventcal_reiter">{$r.sdesc}</b></a><br />
+                                <a class="small_eventcal_link" href="{$plugin_eventcal_cal_path}{$eventcal_permalink_add}calendar[a]={$r.a}&amp;calendar[ap]={$r.ap}&amp;calendar[cm]={$r.m}&amp;calendar[cy]={$r.y}&amp;calendar[ev]={$r.id}" title="open event entry {$r.sdesc}"><b class="eventcal_tab">{$r.sdesc}</b></a><br />
                             </span>
                         {/foreach}
                         
@@ -225,7 +218,7 @@
 </tr>
 {/if}{* admin clear end *}
     
-    {*    now we include the seperate build single event day entry - plugin_eventcal_entry.tpl *}
+    {*    now we include the separate build single event day entry - plugin_eventcal_entry.tpl *}
     
     {if $plugin_eventcal_cal_buildsetable}
         {$plugin_eventcal_cal_buildsetable}
@@ -239,9 +232,9 @@
     {if $is_eventcal_cal_admin_clear != true}
     <!-- open form button start -->
     <tr>
-        <th align='left' class="eventcal_button">
-            <a href="{$plugin_eventcal_cal_path}{$eventcal_permalink_add}calendar[a]={if $plugin_eventcal_cal_a}0{else}1{/if}&amp;calendar[ap]={$plugin_eventcal_cal_ap}&amp;calendar[cm]={$plugin_eventcal_cal_m}&amp;calendar[cy]={$plugin_eventcal_cal_y}"><img src="{$plugin_eventcal_cal_imgpath}{if $plugin_eventcal_cal_a==1}img/notes-reject.gif{else}img/notes-add.gif{/if}" alt="notes-add-reject" border='0' title="{if $plugin_eventcal_cal_a}{$CONST.CAL_EVENT_FORM_BUTTON_CLOSE}{else}{$CONST.CAL_EVENT_FORM_BUTTON_OPEN}{/if}" /></a>
-            <b class="eventcal_reiter"> {$CONST.CAL_EVENT_FORM_BUTTON_ADD_EVENT}</b>
+        <th align="left" class="eventcal_button">
+            <a href="{$plugin_eventcal_cal_path}{$eventcal_permalink_add}calendar[a]={if $plugin_eventcal_cal_a}0{else}1{/if}&amp;calendar[ap]={$plugin_eventcal_cal_ap}&amp;calendar[cm]={$plugin_eventcal_cal_m}&amp;calendar[cy]={$plugin_eventcal_cal_y}"><img src="{$plugin_eventcal_cal_imgpath}{if $plugin_eventcal_cal_a==1}img/notes-reject.gif{else}img/notes-add.gif{/if}" alt="notes-add-reject" border="0" title="{if $plugin_eventcal_cal_a}{$CONST.CAL_EVENT_FORM_BUTTON_CLOSE}{else}{$CONST.CAL_EVENT_FORM_BUTTON_OPEN}{/if}" /></a>
+            <b class="eventcal_tab"> {$CONST.CAL_EVENT_FORM_BUTTON_ADD_EVENT}</b>
         </th>
     </tr>
     <!-- open form button end -->
@@ -259,9 +252,9 @@
     {if $is_eventcal_cal_admin_clear != true}
     <!-- unapproved event table button start -->
     <tr>
-        <th align='left' class="eventcal_button">
-            <a href="{$plugin_eventcal_cal_path}{$eventcal_permalink_add}calendar[ap]={if $plugin_eventcal_cal_ap}0{else}1{/if}&amp;calendar[a]={$plugin_eventcal_cal_a}&amp;calendar[cm]={$plugin_eventcal_cal_m}&amp;calendar[cy]={$plugin_eventcal_cal_y}"><img src="{$plugin_eventcal_cal_imgpath}{if $plugin_eventcal_cal_ap==1}img/notes-reject.gif{else}img/notes-add.gif{/if}" border='0' alt="notes-add-reject" title="{if $plugin_eventcal_cal_ap}{$CONST.CAL_EVENT_FORM_BUTTON_CLOSE}{else}{$CONST.CAL_EVENT_FORM_BUTTON_OPEN}{/if}" /></a>
-            <b class="eventcal_reiter"><font class="eventcal_reiter_dim">{$CONST.CAL_EVENT_FORM_BUTTON_APPROVE_EVENT} [ </font>{$plugin_eventcal_cal_crs} <font class="eventcal_reiter_dim">{$CONST.CAL_EVENT_FORM_BUTTON_TOAPPROVE} ]</font></b>
+        <th align="left" class="eventcal_button">
+            <a href="{$plugin_eventcal_cal_path}{$eventcal_permalink_add}calendar[ap]={if $plugin_eventcal_cal_ap}0{else}1{/if}&amp;calendar[a]={$plugin_eventcal_cal_a}&amp;calendar[cm]={$plugin_eventcal_cal_m}&amp;calendar[cy]={$plugin_eventcal_cal_y}"><img src="{$plugin_eventcal_cal_imgpath}{if $plugin_eventcal_cal_ap==1}img/notes-reject.gif{else}img/notes-add.gif{/if}" border="0" alt="notes-add-reject" title="{if $plugin_eventcal_cal_ap}{$CONST.CAL_EVENT_FORM_BUTTON_CLOSE}{else}{$CONST.CAL_EVENT_FORM_BUTTON_OPEN}{/if}" /></a>
+            <b class="eventcal_tab"><span class="eventcal_tab_dim">{$CONST.CAL_EVENT_FORM_BUTTON_APPROVE_EVENT} [ </span>{$plugin_eventcal_cal_crs} <span class="eventcal_tab_dim">{$CONST.CAL_EVENT_FORM_BUTTON_TOAPPROVE} ]</span></b>
         </th>
     </tr>
     <!-- unapproved event table button end -->

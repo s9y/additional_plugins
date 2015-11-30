@@ -1,11 +1,11 @@
 <?php
 
-# serendipity_event_cal.php, langfile(en) v1.64 2011-02-05 ian
+# serendipity_event_cal.php, langfile(en) v1.65 2015-11-25 Ian
 
 @define('PLUGIN_EVENTCAL_HEADLINE', 'Headline (optional)');
 @define('PLUGIN_EVENTCAL_HEADLINE_BLAHBLAH', 'The headline of the page.');
-@define('PLUGIN_EVENTCAL_TITLE', 'Event-Calendar (MySQL-only)');
-@define('PLUGIN_EVENTCAL_TITLE_BLAHBLAH', 'Shows an event calendar inside your blogs with your normal blog design. It supports backend/frontend administration, multiple events and iCal export.');
+@define('PLUGIN_EVENTCAL_TITLE', 'Event-Calendar');
+@define('PLUGIN_EVENTCAL_TITLE_BLAHBLAH', 'Shows an event calendar inside your blogs with your normal blog design. It supports backend/frontend administration, multiple events and iCal export. (MySQL-only)');
 @define('PLUGIN_EVENTCAL_PERMALINK', 'Permalink');
 @define('PLUGIN_EVENTCAL_PERMALINK_BLAHBLAH', 'Defines a permalink for the URL. Needs the absolute HTTP path and needs to end with .htm or .html!');
 @define('PLUGIN_EVENTCAL_PAGETITLE', 'Static Pagetitle & URL');

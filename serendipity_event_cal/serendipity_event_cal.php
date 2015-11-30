@@ -648,7 +648,7 @@ class serendipity_event_cal extends serendipity_event {
 
         // DAY contains 86400 seconds
         if ($remainingSecs >= 86400) {
-            $numOfDays = round(intval($remainingSecs) / 86400); // intval(intval($remainingSecs) / 86400); //siehe oben, ungeprüft
+            $numOfDays = round(intval($remainingSecs) / 86400); // intval(intval($remainingSecs) / 86400); // see above, not verified
             $remainingSecs = intval(intval($remainingSecs) - ($numOfDays * 86400));
         }
         return intval($numOfWeeks); // inbetween
@@ -845,10 +845,8 @@ class serendipity_event_cal extends serendipity_event {
                         }
                         $sd[$j]['days'][$i]['label'] = $day;
                         $sd[$j]['days'][$i]['bcol']  = $sd[$j]['days'][$i]['col'];                   // no days bgcolor
-#                        echo '<pre>';print_r($events[$day]);echo '</pre>';exit;
                         if (is_array($events[$day]) && !empty($events[$day])) {
                             foreach($events[$day] as $row) {
-#                                echo '<pre>';print_r($row);echo '</pre>';
                                 if ((int)$row['id']) {
                                     if (isset($cw) && $cw != NULL) {                        // set CW weeks array fullview for specified month
                                         $sd[$j]['days'][$i]['arrdata'][] = array(
@@ -943,7 +941,7 @@ class serendipity_event_cal extends serendipity_event {
     }
 
 
-    /* method "example" creates the file upon configuration - does not work any more*/
+    /* method "example" creates the file upon configuration */
     function example() {
         global $serendipity;
         $file = $serendipity['serendipityPath'] . 'uploads/icalendar.ics';
@@ -956,7 +954,7 @@ class serendipity_event_cal extends serendipity_event {
         return false; // file already exists
     }
 
-    /* write tpl'ized ical string to file */
+    /* write fetched tpl ical string to file */
     function write_file($string_icl) {
         global $serendipity;
 
@@ -1237,7 +1235,7 @@ class serendipity_event_cal extends serendipity_event {
         $tzname       = date("T");
 
         if (!is_object($serendipity['smarty'])) {
-            serendipity_smarty_init(); // if not set to avoid member function assign() on a non-object error, start Smarty templating
+            serendipity_smarty_init();
         }
 
         $serendipity['smarty']->assign(
@@ -1747,7 +1745,7 @@ class serendipity_event_cal extends serendipity_event {
         foreach($_POST['calendar'] as $k => $v) {
             $$k = trim($v); // do we need some more security here ????
         }
-#echo '<pre>';print_r($_POST['calendar']);echo '</pre>';
+
         // do some magic time voodoo for evaluating events in the past
         $tseev = @mktime(0, 0, 0, $smonth, $sday, $syear);
         $tdiff = ($_SERVER['REQUEST_TIME']-$tseev+1);
@@ -2190,7 +2188,8 @@ class serendipity_event_cal extends serendipity_event {
                 header('Status: 200 OK');
             }
 
-            /* templates detection that this is not a regular entry view and avoid processing entries.tpl,
+            /* WHY Garvin should we need this here?
+               templates detection that this is not a regular entry view and avoid processing entries.tpl,
                which will obviously contain serendipity_Entry_Date, etc.
             $pt = preg_replace('@[^a-z0-9]@i', '_', $this->get_config('pagetitle'));
             $serendipity['smarty']->assign('staticpage_pagetitle', $pt);
@@ -2219,9 +2218,7 @@ class serendipity_event_cal extends serendipity_event {
             /* intercept iCal exports */
             if (serendipity_db_bool($this->get_config('showical', 'false')))  {
                 /* case export ics file - set export call on "ud" (user decisions::config) and send to external_plugin hook */
-#                if ( isset($serendipity['GET']['ics_export']) && $this->get_config('ical_icsurl') == 'ud') {
                 if ($this->get_config('ical_icsurl') == 'ud') {
-#print_r($_GET);print_r($_POST);exit;
                     $icaldl_types = array(
                         'dl'  => PLUGIN_EVENTCAL_ICAL_ICSURL_INLIST_DL,
                         'wc'  => PLUGIN_EVENTCAL_ICAL_ICSURL_INLIST_WEBCAL,
@@ -2439,7 +2436,6 @@ class serendipity_event_cal extends serendipity_event {
 
                     if (is_array($evc['export']) && $evc['export'][0] == 'ics_export') {
                         $adminrequest = isset($evc['export'][6]) ? true : false;
-#                        echo $evc['export'][1].', '.$evc['export'][2].', '.$evc['export'][3].', '.$adminrequest;
                         $icl = $this->draw_icalendar($evc['export'][1], $evc['export'][2], $evc['export'][3], $adminrequest);
                     }
 
@@ -2456,7 +2452,7 @@ class serendipity_event_cal extends serendipity_event {
 
                         /* write the ical string to ics file if not requested as download */
                         if ($evc['export'][4] != 'dl') $wcal = $this->write_file( $icl );
-#print_r($icl);echo $wcal;exit;
+
                         if (serendipity_db_bool($this->get_config('log_ical'))) {
                             $ym = $evc['export'][3] . '-' . sprintf("%02d", $evc['export'][2]);
                         }
@@ -2946,8 +2942,7 @@ class serendipity_event_cal extends serendipity_event {
         if (isset($_POST['calendar']) ) {
             $this->cal_admin_backend();
         }
-#print_r($serendipity['eventcal']['adminpost']);
-#echo 'setopen ' . ($serendipity['eventcal']['setopen'] === true) ? 'true' : 'false';
+
         if (isset($serendipity['eventcal']['adminpost']) && is_array($serendipity['eventcal']['adminpost'])) {
             /* there is a returning admin event insert or replace error - give back the form vars of db select event array */
             foreach($serendipity['eventcal']['adminpost'] as $ak => $av) {
@@ -3246,7 +3241,6 @@ class serendipity_event_cal extends serendipity_event {
                 case 'dberase':
 
                     echo '<div class="backend_eventcal_dbclean_innercat ec_inner_title"><h3>' . strtoupper(PLUGIN_EVENTCAL_ADMIN_DBC_ERASE_TITLE) . '</h3></div>';
-                    #$this->droptable(); // ok, questionaire
                     $isTable =  $this->droptable() ? true : false; // ok, questionaire
 
                     // give back ok

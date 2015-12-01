@@ -67,7 +67,7 @@ class serendipity_event_guestbook extends serendipity_event {
                         'dateformat'
                     ));
         $propbag->add('author',       'Ian');
-        $propbag->add('version',      '3.57');
+        $propbag->add('version',      '3.58');
         $propbag->add('requirements', array(
                         'serendipity' => '1.7.0',
                         'smarty'      => '3.1.0',
@@ -1689,7 +1689,7 @@ class serendipity_event_guestbook extends serendipity_event {
     function check_isdb() {
         global $serendipity;
 
-        if ($serendipity['dbType'] == 'mysql') {
+        if ($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') {
             return serendipity_db_query("SHOW TABLES LIKE '{$serendipity['dbPrefix']}eventcal'", true, 'num', true);
         } else {
             $sql = "SELECT count(id) FROM {$serendipity['dbPrefix']}guestbook";
@@ -1779,10 +1779,12 @@ class serendipity_event_guestbook extends serendipity_event {
         if (!empty($dbclean)) {
             switch($dbclean) {
                 case 'dbdump':
-                    if ($this->backend_guestbook_backup()) {
-                        $serendipity['smarty']->assign('is_guestbook_admin_backup', true);
-                    } else {
-                        $serendipity['smarty']->assign('is_guestbook_admin_backup', false);
+                    if ($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') {
+                        if ($this->backend_guestbook_backup()) {
+                            $serendipity['smarty']->assign('is_guestbook_admin_backup', true);
+                        } else {
+                            $serendipity['smarty']->assign('is_guestbook_admin_backup', false);
+                        }
                     }
                     break;
 
@@ -1844,8 +1846,9 @@ class serendipity_event_guestbook extends serendipity_event {
 
             }
         }
-        // assign form array entries to smarty
-        $serendipity['smarty']->assign(
+        if ($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') {
+            // assign form array entries to smarty
+            $serendipity['smarty']->assign(
                         array(
                             'plugin_gb_dump'      => @$serendipity['GET']['guestbookdbclean'] == 'dbdump' ? ' id="active"' : '',
                             'plugin_gb_insert'    => @$serendipity['GET']['guestbookdbclean'] == 'dbinsert' ? ' id="active"' : '',
@@ -1855,10 +1858,11 @@ class serendipity_event_guestbook extends serendipity_event {
                             'plugin_gb_ilogerror' => $serendipity['guestbook']['ilogerror'],
                             'plugin_gb_dropmsg'   => $serendipity['guestbookdroptable']
                         )
-        );
+            );
 
-        // get the guestbook db administration template file
-        echo $this->parseTemplate('plugin_guestbook_backend_dbc.tpl');
+            // get the guestbook db administration template file
+            echo $this->parseTemplate('plugin_guestbook_backend_dbc.tpl');
+        }
 
     } // backend_guestbook_dbclean() end
 
@@ -1915,7 +1919,7 @@ class serendipity_event_guestbook extends serendipity_event {
 
     /**
      * Guestbook backup table and dir/file voodoo
-     *
+     *      Currently only MySql(i) layers supported
      * @return boolean
      */
     function backend_guestbook_backup() {
@@ -1937,15 +1941,29 @@ class serendipity_event_guestbook extends serendipity_event {
                 $tablesyntax = str_replace('CREATE TABLE', 'CREATE TABLE IF NOT EXISTS', $create[1]);
                 $line = str_replace("\n", "", $tablesyntax);
                 fwrite($fp, $line."\n");
-                $data = mysql_query("SELECT * FROM {$serendipity['dbPrefix']}guestbook");
-                $num = mysql_num_fields($data);
-                while ($row = mysql_fetch_array($data)){
-                    $line = "INSERT INTO {$serendipity['dbPrefix']}guestbook VALUES(";
-                    for ($i=1; $i<=$num; $i++) {
-                        $line .= "'".mysql_real_escape_string($row[$i-1])."', ";
+                if ($serendipity['dbType'] == 'mysql') {
+                    $data = mysql_query("SELECT * FROM {$serendipity['dbPrefix']}guestbook");
+                    $num  = mysql_num_fields($data);
+                    while ($row = mysql_fetch_array($data)){
+                        $line = "INSERT INTO {$serendipity['dbPrefix']}guestbook VALUES(";
+                        for ($i=1; $i<=$num; $i++) {
+                            $line .= "'".serendipity_db_escape_string($row[$i-1])."', ";
+                        }
+                        $line = substr($line,0,-2);
+                        fwrite($fp, $line.");\n");
                     }
-                    $line = substr($line,0,-2);
-                    fwrite($fp, $line.");\n");
+                }
+                else if ($serendipity['dbType'] == 'mysqli') {
+                    $data = mysqli_query($serendipity['dbConn'], "SELECT * FROM {$serendipity['dbPrefix']}guestbook");
+                    $num  = mysqli_num_fields($data);
+                    while ($row = mysqli_fetch_array($data, MYSQLI_NUM)){
+                        $line = "INSERT INTO {$serendipity['dbPrefix']}guestbook VALUES(";
+                        for ($i=1; $i<=$num; $i++) {
+                            $line .= "'".serendipity_db_escape_string($row[$i-1])."', ";
+                        }
+                        $line = substr($line,0,-2);
+                        fwrite($fp, $line.");\n");
+                    }
                 }
             }
             fclose($fp);

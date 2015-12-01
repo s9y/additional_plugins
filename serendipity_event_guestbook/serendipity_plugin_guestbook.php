@@ -1,7 +1,7 @@
 <?php
 
 /**
- * serendipity_plugin_guestbook.php, v.1.24 - 2015-06-30 Ian
+ * serendipity_plugin_guestbook.php, v.1.25 - 2015-11-25 Ian
  * guestbooksidebar plugin by Jaap Boerma // j@webbict.com // v1.02 // 18-10-2005
  */
 
@@ -28,7 +28,7 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_GUESTSIDE_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Jaap Boerma ( j@webbict.com ), Tadashi Jokagi <elf2000@users.sourceforge.net>, Ian');
-        $propbag->add('version',       '1.24');
+        $propbag->add('version',       '1.25');
         $propbag->add('requirements', array(
                         'serendipity' => '0.7',
                         'smarty'      => '2.6.7',
@@ -48,7 +48,7 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
         // not touch the depending plugin.
         $this->dependencies = array('serendipity_event_guestbook' => 'keep');
 
-        #if(!is_array($serendipity['plugin_guestbook_dependency'])) {
+        #if (!is_array($serendipity['plugin_guestbook_dependency'])) {
         #    $this->dependency_config_merge($this->conty);
         #}
     }
@@ -114,10 +114,11 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
     }
 
 
-    /* require dependency event plugins config setting 
+    /**
+     * require dependency event plugins config setting
      * @param  $merge   = array(searchstrings)
      * @return db array
-    **/
+     */
     function dependency_config_merge($merge) {
         global $serendipity;
         $sql = "SELECT SUBSTRING_INDEX(name,'/',-1) AS dbname, value FROM {$serendipity['dbPrefix']}config WHERE (name LIKE '" . $merge[0] . "'";
@@ -173,48 +174,54 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
         #        serendipity_db_bool($serendipity['plugin_guestbook_dependency']['automoderate']) === true) 
         #        ? "WHERE approved=1" 
         #        : '';
-        // as of 2012/01/19 disabled all this dependency tweaks, while not in real nead for the sidebar (why did I do this then?)
+        // as of 2012/01/19 I disabled all this dependency tweaks, while not in real nead for the sidebar (why did I do this then?)
         $whe = "WHERE approved=1";
 
         $sql .=", body FROM {$serendipity['dbPrefix']}guestbook $whe ORDER BY timestamp DESC";
         $sql .=" LIMIT ".$max_items;
 
         $entries = serendipity_db_query($sql);
-        if($entries && is_array($entries)) {
-            foreach($entries as $e => $row) {
-                echo "<strong>" . serendipity_event_guestbook::html_specialchars(serendipity_strftime($dateformat, $row['timestamp'])) . '</strong> <br />' . "\n";
+        if (!empty($entries) && is_array($entries)) {
+            foreach($entries AS $row) {
+                echo '<time>' . serendipity_event_guestbook::html_specialchars(serendipity_strftime($dateformat, $row['timestamp'])) . "</time>\n";
                 $row['body'] = serendipity_event_guestbook::html_specialchars($row['body']);
                 $row['body'] = serendipity_event_guestbook::bbc_reverse($row['body']);
-                if (strlen($row['body'])>$max_chars) {
+                $row['body'] = trim(preg_replace('/\s+/', ' ', $row['body']));
+
+                if (strlen($row['body']) > $max_chars) {
                     if (function_exists('mb_strimwidth')) {
-                        $row['body'] = mb_strimwidth($row['body'],0,$max_chars,"...");
+                        $row['body'] = mb_strimwidth($row['body'], 0, $max_chars, "&hellip;");
                     } else {
-                        $row['body'] = substr($row['body'],0,$max_chars)."...";
+                        $row['body'] = substr($row['body'], 0, $max_chars) . "&hellip;";
                     }
                 }
+                // We do not need to strictly set this to true, since that would be the default case in nl2br if nothing is set
+                // This is the only workable solution for (sidebar?) plugins, to explicitly allow to apply nl2br plugin changes to markup (if we want to),
+                #$serendipity['POST']['properties']['disable_markups'] = array(false); // since in_array() expects 2cd param to be array
+                /* Do only use this, if you really want to apply nl2br() or other frontend_display tweaking plugins to markup
                 $entry = array('comment' => $row['body']);
-                serendipity_plugin_api::hook_event('frontend_display', $entry);
+                serendipity_plugin_api::hook_event('frontend_display', $entry); */
 
-                echo $entry['comment'] . "<br />";
-                echo "<strong>" . serendipity_event_guestbook::html_specialchars($row['name']) . "</strong><br />";
+                echo '<div class="guestbook_sidebar_comment">' . $row['body'] . "</div>\n"; // Care: use $entry['comment'] with hook!
+                echo '<div class="guestbook_sidebar_name"><strong>' . serendipity_event_guestbook::html_specialchars($row['name']) . "</strong></div>\n";
 
                 if ($showemail){
-                    echo "<a href=\"mailto:" . serendipity_event_guestbook::html_specialchars($row['email']) . "\">" . serendipity_event_guestbook::html_specialchars($row['email']) . "</a>";
+                    $_email = serendipity_event_guestbook::html_specialchars($row['email']);
+                    $email  = $serendipity['serendipityUserlevel'] < USERLEVEL_ADMIN ? str_replace(array('@', '.'), array(' at ', ' dot '), $_email) : $_email;
+                    echo '<div class="guestbook_sidebar_email"><a href="mailto:' . $email . '">' . serendipity_event_guestbook::html_specialchars($row['email']) . "</a></div>\n";
                 }
 
                 if ($showhomepage) {
-                    if ($showemail) {
-                        echo "<br />";
-                    }
-                    echo "<a href=\"" . serendipity_event_guestbook::html_specialchars($row['homepage']) . "\">" . serendipity_event_guestbook::html_specialchars($row['homepage']) . "</a>";
+                    echo '<div class="guestbook_sidebar_url"><a href="' . serendipity_event_guestbook::html_specialchars($row['homepage']) . '">' . serendipity_event_guestbook::html_specialchars($row['homepage']) . "</a></div>\n";
                 }
 
-                echo "<br />\n\n";
+                echo "<div class=\"guestbook_sidebar_spacer\">&nbsp;</div>\n\n";
             }
         } else {
-            echo PLUGIN_GUESTSIDE_NOENTRIES ."<br />";
+            echo '<div>' . PLUGIN_GUESTSIDE_NOENTRIES ."</div>\n";
         }
     }
 }
 
 /* vim: set sts=4 ts=4 expandtab : */
+?>

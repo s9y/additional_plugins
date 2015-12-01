@@ -21,6 +21,30 @@
 
 {if $is_guestbook_message}{$msg_header=$error_occured}{call feedback}{/if}
 
+    <script type="text/javascript">
+    {literal}
+        guestbookBBC = function(txtarea, openTag, closeTag) {
+            scrollPos = false;
+            if (txtarea.scrollTop) {
+                scrollPos = txtarea.scrollTop;
+            }
+            var $txtarea = $(txtarea);
+            if (!$txtarea.length) { return; }
+            var len = $txtarea.val().length;
+            var start = $txtarea[0].selectionStart;
+            var end = $txtarea[0].selectionEnd;
+            var selectedText = $txtarea.val().substring(start, end);
+            var replacement = openTag + selectedText + closeTag;
+            $txtarea.val($txtarea.val().substring(0, start) + replacement + $txtarea.val().substring(end, len));
+            $txtarea[0].selectionStart = start + replacement.length;
+            $txtarea[0].selectionEnd = start + replacement.length;
+            if (scrollPos) {
+                txtarea.focus();
+                txtarea.scrollTop = scrollPos;
+            }
+        }
+    {/literal}
+    </script>
 
     <div class="guestbook_backend_form">
       <a id="serendipity_CommentForm"></a>
@@ -62,11 +86,11 @@
         {if $plugin_guestbook_id}
         <div class="input-buttons">
             {if $is_logged_in && $plugin_guestbook_id}<br><sup>{$CONST.PLUGIN_GUESTBOOK_FORM_RIGHT_BBC}</sup><br>
-            <input type="button" class="input_button bbc_i" name="insI" value="I" accesskey="i" onclick="serendipity.wrapSelection(document.forms['guestbookEntry']['serendipity[admincomment]'],'[i]','[/i]')">
-            <input type="button" class="input_button bbc_b" name="insB" value="B" accesskey="b" onclick="serendipity.wrapSelection(document.forms['guestbookEntry']['serendipity[admincomment]'],'[b]','[/b]')">
-            <input type="button" class="input_button bbc_u" name="insU" value="U" accesskey="u" onclick="serendipity.wrapSelection(document.forms['guestbookEntry']['serendipity[admincomment]'],'[u]','[/u]')">
-            <input type="button" class="input_button bbc_s" name="insS" value="S" accesskey="s" onclick="serendipity.wrapSelection(document.forms['guestbookEntry']['serendipity[admincomment]'],'[s]','[/s]')">
-            <input type="button" class="input_button bbc_q" name="insQ" value="Q" accesskey="q" onclick="serendipity.wrapSelection(document.forms['guestbookEntry']['serendipity[admincomment]'],'[q]','[/q]')">
+            <input type="button" class="input_button bbc_i" name="insI" value="I" accesskey="i" onclick="guestbookBBC(document.forms['guestbookEntry']['serendipity[admincomment]'],'[i]','[/i]')">
+            <input type="button" class="input_button bbc_b" name="insB" value="B" accesskey="b" onclick="guestbookBBC(document.forms['guestbookEntry']['serendipity[admincomment]'],'[b]','[/b]')">
+            <input type="button" class="input_button bbc_u" name="insU" value="U" accesskey="u" onclick="guestbookBBC(document.forms['guestbookEntry']['serendipity[admincomment]'],'[u]','[/u]')">
+            <input type="button" class="input_button bbc_s" name="insS" value="S" accesskey="s" onclick="guestbookBBC(document.forms['guestbookEntry']['serendipity[admincomment]'],'[s]','[/s]')">
+            <input type="button" class="input_button bbc_q" name="insQ" value="Q" accesskey="q" onclick="guestbookBBC(document.forms['guestbookEntry']['serendipity[admincomment]'],'[q]','[/q]')">
             {/if}
         </div>
 

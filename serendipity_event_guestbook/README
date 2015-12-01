@@ -96,6 +96,73 @@ S9Y :: GUESTBOOK :: DESIGN
 
 
 -------------------------------------
+| Version 3.58 & 1.25 sidebar       |
+-------------------------------------
+
+    * Added mysqli and check for supporting mysql and mysqli only
+      for some guestbook backend tasks.
+    * Disabled sidebar plugin using the 'frontend_display' hook,
+      since that could throw certain errors in the nl2br plugin.
+      If really in need, use
+        $_POST['properties']['disable_markups'] = array(false);
+      only.
+    * Fixed JS BBC button function, which changed with S9y 2.0
+    * Allow email now obfuscates the email link with a simple "at
+      dot" behaviour.
+
+
+-------------------------------------
+| Version 3.57                      |
+-------------------------------------
+
+    * fix missing $ for var
+
+
+-------------------------------------
+| Version 1.23: sidebar plugin      |
+-------------------------------------
+
+    * fix wrong default value note
+
+
+-------------------------------------
+| Version 3.56                      |
+-------------------------------------
+
+    * fix IE9 list view CSS in Backend
+
+
+-------------------------------------
+| Version 3.55                      |
+-------------------------------------
+
+    * correct missing label in guestbook form
+
+
+-------------------------------------
+| Version 3.54                      |
+-------------------------------------
+
+    * make PHP 5.5/6 compat
+
+
+-------------------------------------
+| Version 3.53                      |
+-------------------------------------
+
+    * Added collapsible entry preview in backend entry list
+    * Fix admincomment and some double encode issues
+    * fix some more minor template and css issues
+
+
+-------------------------------------
+| Version 3.52                      |
+-------------------------------------
+
+    * PHP 5.4+ fix to properly call entity functions by charset
+
+
+-------------------------------------
 | Version 3.51 [ 2014-06-15 ]       |
 -------------------------------------
 

@@ -1,3 +1,16 @@
+3.58: & 1.25:
+-------------
+ * Added mysqli and check for supporting mysql and mysqli only
+   for some guestbook backend tasks.
+ * Disabled sidebar plugin using the 'frontend_display' hook,
+   since that could throw certain errors in the nl2br plugin.
+   If really in need, use
+       $_POST['properties']['disable_markups'] = array(false);
+   only.
+ * Fixed JS BBC button function, which changed with S9y 2.0
+ * Allow email now obfuscates the email link with a simple "at
+   dot" behaviour.
+
 3.57:
 -----
  * fix missing $ for var

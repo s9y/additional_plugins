@@ -22,7 +22,7 @@ class serendipity_plugin_nugget_multilingual extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_NUGGET_MULTI_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Wesley Hwang-Chung');
-        $propbag->add('version',       '1.7');
+        $propbag->add('version',       '1.8');
         $propbag->add('configuration', array('language', 'title', 'content', 'markup', 'show_where'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
 
@@ -109,7 +109,7 @@ class serendipity_plugin_nugget_multilingual extends serendipity_plugin {
         $title = $this->get_config('title');
         $language = $this->get_config('language', 'all');
         $show_where = $this->get_config('show_where', 'both');
-        // if the language doesn't match, do not display
+        // if the language does not match, do not display
         if ($language != 'all' && $serendipity['lang'] != $language) return false;
         // where to show
         if ($show_where == 'extended' && (!isset($serendipity['GET']['id']) || !is_numeric($serendipity['GET']['id']))) {
@@ -119,6 +119,8 @@ class serendipity_plugin_nugget_multilingual extends serendipity_plugin {
         }
         // apply markup?
         if (serendipity_db_bool($this->get_config('markup', 'true'))) {
+            // This is the only workable solution for (sidebar?) plugins, to explicitly allow to apply nl2br plugin changes to markup (if we want to),
+            $serendipity['POST']['properties']['disable_markups'] = array(false); // since in_array() expects 2cd param to be array
             $entry = array('html_nugget' => $this->get_config('content'));
             serendipity_plugin_api::hook_event('frontend_display', $entry);
             echo $entry['html_nugget'];

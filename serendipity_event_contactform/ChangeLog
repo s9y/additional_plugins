@@ -1,3 +1,7 @@
+1.19:
+-----
+ * reset encoded quotes for text and subject
+
 1.18:
 -----
  * Use native API method parseTemplate() for the tpl files
@@ -41,4 +45,4 @@
 1.10:
 -----
 
-* Introdcuce new "issue counter".
+* Introduce new "issue counter".

@@ -1226,12 +1226,12 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <guid isPermaLink="false">serendipity_event_spamblock_bayes</guid>
 </item>
 <item>
-<title>Event-Calendar (MySQL-only): Shows an event calendar inside your blogs with your normal blog design. It supports backend/frontend administration, multiple events and iCal export.</title>
+<title>Event-Calendar: Shows an event calendar inside your blogs with your normal blog design. It supports backend/frontend administration, multiple events and iCal export. (MySQL-only)</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_cal</link>
 <category>Event Plugins</category>
 <author>Ian (Timbalu)</author>
-<content:encoded>&lt;b&gt;serendipity_event_cal&lt;br /&gt;Event-Calendar (MySQL-only)&lt;/b&gt;&lt;br /&gt;Shows an event calendar inside your blogs with your normal blog design. It supports backend/frontend administration, multiple events and iCal export.&lt;br/&gt;For: Serendipity 1.4</content:encoded>
-<pubDate>Fri, 13 Mar 2015 02:31:19 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_cal&lt;br /&gt;Event-Calendar&lt;/b&gt;&lt;br /&gt;Shows an event calendar inside your blogs with your normal blog design. It supports backend/frontend administration, multiple events and iCal export. (MySQL-only)&lt;br/&gt;For: Serendipity 1.4</content:encoded>
+<pubDate>Mon, 30 Nov 2015 22:31:24 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_cal</guid>
 </item>
 <item>

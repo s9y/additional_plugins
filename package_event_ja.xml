@@ -9946,21 +9946,20 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <name>serendipity_event_cal</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_cal/ChangeLog</changelog>
 <license>GPL</license>
-<summary>Event-Calendar (MySQL-only)</summary>
+<summary>Event-Calendar</summary>
 <groups>FRONTEND_FEATURES,BACKEND_FEATURES</groups>
-<description>Shows an event calendar inside your blogs with your normal blog design. It supports backend/frontend administration, multiple events and iCal export.</description>
+<description>Shows an event calendar inside your blogs with your normal blog design. It supports backend/frontend administration, multiple events and iCal export. (MySQL-only)</description>
 <maintainers><maintainer><name>Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.69.2</version>
+  <version>1.70</version>
   <requirements:s9yVersion>1.4</requirements:s9yVersion>
-  <date>2015-03-13</date>
+  <date>2015-11-30</date>
   <filelist>
 <dir name="serendipity_event_cal">
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>lang_en.inc.php</file>
 </dir>
 <file>README</file>
 <dir name="img">
@@ -9994,6 +9993,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <file>serendipity_event_cal.php</file>
 <file>style_eventcal_backend.css</file>
 <file>ChangeLog</file>
+<file>backend_inherits.css</file>
+<file>style_eventcal.css</file>
 </dir>
 
   </filelist>
@@ -10001,7 +10002,6 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
     <file>serendipity_event_cal/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_cal/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_cal/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_cal/UTF-8/lang_en.inc.php</file>
     <file>serendipity_event_cal/README</file>
     <file>serendipity_event_cal/img/icalm.png</file>
     <file>serendipity_event_cal/img/abhaken.gif</file>
@@ -10032,6 +10032,8 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
     <file>serendipity_event_cal/serendipity_event_cal.php</file>
     <file>serendipity_event_cal/style_eventcal_backend.css</file>
     <file>serendipity_event_cal/ChangeLog</file>
+    <file>serendipity_event_cal/backend_inherits.css</file>
+    <file>serendipity_event_cal/style_eventcal.css</file>
   </serendipityFilelist>
 </release>
 </package>

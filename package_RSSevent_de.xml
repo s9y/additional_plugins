@@ -1226,12 +1226,12 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <guid isPermaLink="false">serendipity_event_spamblock_bayes</guid>
 </item>
 <item>
-<title>Event-Terminkalender (nur MySQL): Zeigt einen Terminkalender innerhalb des Blogs mit dem Blog-Design und allen Formatierungen an. Unterstützt Backend/Frontend Administration, vielfache Termine und iCal Export.</title>
+<title>Event-Terminkalender: Zeigt einen Terminkalender innerhalb des Blogs mit dem Blog-Design und allen Formatierungen an. Unterstützt Backend/Frontend Administration, vielfache Termine und iCal Export. (Nur MySQL)</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_cal</link>
 <category>Event Plugins</category>
 <author>Ian (Timbalu)</author>
-<content:encoded>&lt;b&gt;serendipity_event_cal&lt;br /&gt;Event-Terminkalender (nur MySQL)&lt;/b&gt;&lt;br /&gt;Zeigt einen Terminkalender innerhalb des Blogs mit dem Blog-Design und allen Formatierungen an. Unterstützt Backend/Frontend Administration, vielfache Termine und iCal Export.&lt;br/&gt;For: Serendipity 1.4</content:encoded>
-<pubDate>Fri, 13 Mar 2015 02:31:19 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_cal&lt;br /&gt;Event-Terminkalender&lt;/b&gt;&lt;br /&gt;Zeigt einen Terminkalender innerhalb des Blogs mit dem Blog-Design und allen Formatierungen an. Unterstützt Backend/Frontend Administration, vielfache Termine und iCal Export. (Nur MySQL)&lt;br/&gt;For: Serendipity 1.4</content:encoded>
+<pubDate>Mon, 30 Nov 2015 22:31:24 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_cal</guid>
 </item>
 <item>

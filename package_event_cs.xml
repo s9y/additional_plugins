@@ -9946,19 +9946,18 @@ aplikovány další typografické úpravy.</description>
 <license>GPL</license>
 <summary>Kalendář akcí</summary>
 <groups>FRONTEND_FEATURES,BACKEND_FEATURES</groups>
-<description>Zobrazuje kalendář akcí jako samostatnou stránku v blogu. Design stránky zůstává stejný jako u zbytku blogu.</description>
+<description>Zobrazuje kalendář akcí jako samostatnou stránku v blogu. Design stránky zůstává stejný jako u zbytku blogu. (MySQL only)</description>
 <maintainers><maintainer><name>Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.69.2</version>
+  <version>1.70</version>
   <requirements:s9yVersion>1.4</requirements:s9yVersion>
-  <date>2015-03-13</date>
+  <date>2015-11-30</date>
   <filelist>
 <dir name="serendipity_event_cal">
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
-<file>lang_en.inc.php</file>
 </dir>
 <file>README</file>
 <dir name="img">
@@ -9992,6 +9991,8 @@ aplikovány další typografické úpravy.</description>
 <file>serendipity_event_cal.php</file>
 <file>style_eventcal_backend.css</file>
 <file>ChangeLog</file>
+<file>backend_inherits.css</file>
+<file>style_eventcal.css</file>
 </dir>
 
   </filelist>
@@ -9999,7 +10000,6 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_cal/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_cal/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_cal/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_cal/UTF-8/lang_en.inc.php</file>
     <file>serendipity_event_cal/README</file>
     <file>serendipity_event_cal/img/icalm.png</file>
     <file>serendipity_event_cal/img/abhaken.gif</file>
@@ -10030,6 +10030,8 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_cal/serendipity_event_cal.php</file>
     <file>serendipity_event_cal/style_eventcal_backend.css</file>
     <file>serendipity_event_cal/ChangeLog</file>
+    <file>serendipity_event_cal/backend_inherits.css</file>
+    <file>serendipity_event_cal/style_eventcal.css</file>
   </serendipityFilelist>
 </release>
 </package>

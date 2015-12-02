@@ -1260,9 +1260,9 @@
 <description>옆줄에 최신 방명록 내용을 보여줌</description>
 <maintainers><maintainer><name>Jaap Boerma ( j@webbict.com ), Tadashi Jokagi &lt;elf2000@users.sourceforge.net&gt;, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.24</version>
+  <version>1.25</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2015-07-01</date>
+  <date>2015-12-01</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="UTF-8">
@@ -2187,9 +2187,9 @@
 <description>HTML 덩어리가 특정 언어를 사용할 경우 옆줄에 나타남</description>
 <maintainers><maintainer><name>Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.7</version>
+  <version>1.8</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-08-03</date>
+  <date>2015-12-01</date>
   <filelist>
 <dir name="serendipity_plugin_nugget_multilingual">
 <dir name="UTF-8">

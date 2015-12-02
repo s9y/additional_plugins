@@ -167,7 +167,7 @@
 <category>Sidebar Plugins</category>
 <author>Jaap Boerma ( j@webbict.com ), Tadashi Jokagi &lt;elf2000@users.sourceforge.net&gt;, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_guestbook&lt;br /&gt;Книга за гости&lt;/b&gt;&lt;br /&gt;Показва последните съобщения в книгата за гости в странична приставка&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 01 Jul 2015 02:31:09 +0200</pubDate>
+<pubDate>Tue, 01 Dec 2015 22:31:35 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_guestbook</guid>
 </item>
 <item>
@@ -263,7 +263,7 @@
 <category>Sidebar Plugins</category>
 <author>Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_nugget_multilingual&lt;br /&gt;Езиково специфичен HTML блок&lt;/b&gt;&lt;br /&gt;Показва HTML блок в страничния панел за указан език или всички езици&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 03 Aug 2015 02:31:39 +0200</pubDate>
+<pubDate>Tue, 01 Dec 2015 22:31:44 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_nugget_multilingual</guid>
 </item>
 <item>

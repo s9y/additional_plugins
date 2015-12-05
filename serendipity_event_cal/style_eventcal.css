@@ -1,3 +1,4 @@
+
 /************************************************************************************/
 /* style_eventcal.css for serendipity_eventcal_cal.php v.1.71 2015-12-04 Ian        */
 /************************************************************************************/
@@ -68,11 +69,13 @@ div#content.twomain #eventcal_wrapper {
 #section_hookPlugin_entries .serendipity_Entry_Date {
     margin: 1em 0;
 }
+#section_hookPlugin_entries > #eventcal_wrapper {
+    margin: 1.5em 0;
+}
 
-
-/**********************************/
-/* Eventcal Plugin wrappers and tags     */
-/**********************************/
+/*************************************/
+/* Eventcal Plugin wrappers and tags */
+/*************************************/
 
 #eventcal_wrapper {
     margin: 0px 0.8em;
@@ -160,6 +163,7 @@ br.clear { clear: both; }
 /*******************************/
 /* eventcal TABLE classes
 /*******************************/
+
 table.questionaire {
     width: auto;
     padding: 2px;
@@ -290,6 +294,7 @@ table.eventcal_helptips {
 /****************************************/
 /* eventcal single entry table settings */
 /****************************************/
+
 table.eventtext_entry {
     width: 100%;
     border-collapse: separate; /* no cellspacing: collapse; */
@@ -328,6 +333,7 @@ table.eventtext_entry th.eventcal_links img { border:1px solid #D5BFC0; }
 /********************************/
 /* eventcal form table settings */
 /********************************/
+
 #eventcalEntry {
     background: #f0f0f0;
 }
@@ -420,9 +426,10 @@ td.formfield  {
     margin:auto;
 }
 
-/********************************/
+/***********************************/
 /* eventcal appform table settings */
-/********************************/
+/***********************************/
+
 table.eventcal_appform {
     width: 100%;
     border: 1px solid #999;
@@ -472,7 +479,7 @@ img.eventcal_appform_move {
 }
 
 /*******************************/
-/* eventcal innertable styles
+/* eventcal innertable styles  */
 /*******************************/
 #eventcal_wrapper .entryadmin {
     font-weight: bold;
@@ -607,6 +614,7 @@ img.eventcal_appform_move {
 /************************************************************************************/
 /* set td, span classes for single, multi, recur monthly and recuring weekly events */
 /************************************************************************************/
+
 .eventcal_helptip {
     width: 25%;
 }
@@ -668,6 +676,7 @@ span.tip {
 /**************************/
 /* link & button settings */
 /**************************/
+
 a.small_eventcal_link:link {
     color: #0000df;
     text-decoration: none;

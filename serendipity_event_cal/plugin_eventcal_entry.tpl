@@ -1,4 +1,4 @@
-{* file: plugin_eventcal_entry.tpl - 2010-02-07, Ian *}
+{* file: plugin_eventcal_entry.tpl - 2015-12-05, Ian *}
  
 <!-- plugin_eventcal_entry.tpl start -->
 
@@ -38,7 +38,7 @@
                         <input type="hidden" name="calendar[a]" value="1" />
                         <input type="hidden" name="calendar[cm]" value="{$plugin_eventcal_entry_cm}" />
                         <input type="hidden" name="calendar[cy]" value="{$plugin_eventcal_entry_cy}" />
-                        <input type="image" src="{$plugin_eventcal_cal_imgpath}img/notes-change.gif" name="Change_Selected" alt="notes-change" title=" {$CONST.CAL_EVENT_FORM_BUTTON_EDIT_SED} " align="bottom" />
+                        <input type="image" src="{$plugin_eventcal_cal_imgpath}img/notes-change.gif" name="Change_Selected" alt="notes-change" title=" {$CONST.CAL_EVENT_FORM_BUTTON_EDIT_SED} " />
                         <sup>{$CONST.CAL_EVENT_FORM_TITLE_EDIT|nl2br|spacify}</sup>
                       </span>
                     </form>
@@ -49,7 +49,7 @@
                         <input type="hidden" name="calendar[a]" value="{$plugin_eventcal_entry_a}" />
                         <input type="hidden" name="calendar[cm]" value="{$plugin_eventcal_entry_cm}" />
                         <input type="hidden" name="calendar[cy]" value="{$plugin_eventcal_entry_cy}" />
-                        <input type="image" src="{$plugin_eventcal_cal_imgpath}img/notes-delete.gif" name="Reject_Selected" alt="notes-delete" title=" {$CONST.CAL_EVENT_FORM_BUTTON_REJECT_SED} " align="bottom" />
+                        <input type="image" src="{$plugin_eventcal_cal_imgpath}img/notes-delete.gif" name="Reject_Selected" alt="notes-delete" title=" {$CONST.CAL_EVENT_FORM_BUTTON_REJECT_SED} " />
                       </span>
                     </form>
                 </th>

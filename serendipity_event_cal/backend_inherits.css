@@ -88,6 +88,7 @@ br {
 }
 .backend_eventcal_linenum br,
 .backend_eventcal_linetxt br,
+.addform_areainfo br,
 .eventcal_appldesc br,
 .eventcal_tpl_message_inner br {
     display: inherit;
@@ -170,7 +171,10 @@ abbr[title] {
 #backend_eventcal_wrapper .eventformdesc abbr[title] {
     border-bottom: 0 none;
     font-size: 1.2em;
-    vertical-align: top;
+    vertical-align: middle;
+}
+#backend_eventcal_wrapper .eventformdesc .eventcal_tab {
+    vertical-align: initial;
 }
 td.eventformdesc {
     font: inherit;

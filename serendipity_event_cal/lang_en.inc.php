@@ -212,3 +212,6 @@
 @define('PLUGIN_EVENTCAL_ADMIN_DBC_ILOG_MSG', 'The ilog file does not exist!');
 @define('PLUGIN_EVENTCAL_ADMIN_DBC_NIXDA_DESC', 'there is no eventcal table in database');
 @define('PLUGIN_EVENTCAL_ADMIN_DBC_NIXDA_TITLE', 'Administration - error');
+
+@define('PLUGIN_EVENTCAL_EVENTWRAPPER', 'Allow Eventwrapper Plugin?');
+@define('PLUGIN_EVENTCAL_EVENTWRAPPER_BLAHBLAH', 'Allows to fake a sidebar Plugin output with serendipity_plugin_eventwrapper, which places the current month events as links to the sidebar. Only allow this when really in need, performancewise!');

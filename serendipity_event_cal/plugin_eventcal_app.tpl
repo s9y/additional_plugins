@@ -1,4 +1,4 @@
-{* file: plugin_eventcal_app.tpl - 2009-02-22, Ian *}
+{* file: plugin_eventcal_app.tpl - 2015-12-04, Ian *}
  
 <!-- plugin_eventcal_app.tpl start -->
 
@@ -26,7 +26,7 @@ function chkAll(frm, arr, mark) {
     <input type="hidden" name="calendar[cy]" value="{$plugin_eventcal_app_y}" />
     <table class="eventcal_appform">
         <tbody>
-        <tr>
+        <tr class="f0">
             <th>&nbsp;</th>
             <th class="eventcal_appform_title_lft">{$CONST.CAL_EVENT_FORM_TITLE_DATE}</th>
             <th class="eventcal_appform_title_lft">{$CONST.CAL_EVENT_FORM_TITLE_TITLE}</th>
@@ -36,7 +36,7 @@ function chkAll(frm, arr, mark) {
             <th class="eventcal_appform_title_rgt">{$CONST.CAL_EVENT_FORM_TITLE_EDIT}</th>
             <th class="eventcal_appform_title_rgt">{$CONST.CAL_EVENT_FORM_TITLE_DEL}</th>
         </tr>
-        {foreach from=$plugin_eventcal_app_array_events item=e}
+        {foreach from=$plugin_eventcal_app_array_events item="e"}
         <tr class="{if $plugin_eventcal_app_admin_tipocolor}{if $e.tipo == 1 || $e.tipo == 6}mono{elseif $e.tipo == 2}multi{elseif $e.tipo == 3}recm{elseif $e.tipo == 4 || $e.tipo == 5}recw{/if}{else}f0{/if}">
             <td class="eventcal_appform_validation"><input type="checkbox" name="calendar[entries][]" value="{$e.id}" /></td>
             <td class="eventcal_appform_validation eventcal_appdate">{$e.tipodate}{if $e.tipo == 5} ({$CONST.CAL_EVENT_FORM_RIGHT_RECUR_BIWEEK}){/if}</td>
@@ -52,8 +52,8 @@ function chkAll(frm, arr, mark) {
             <td class="eventcal_appform_validation">&nbsp;&nbsp;<input type="image" class="eventcal_appform_move" src="{$plugin_eventcal_cal_imgpath}img/notes-delete.gif" name="Reject_Selected" alt="notes-delete" title=" Reject " align="bottom" />&nbsp;&nbsp;</td>
         </tr>
         {/foreach}
-        <tr>
-            <td align="left" colspan="8" class="eventcal_appform_validation">
+        <tr class="f0">
+            <td align="left" colspan="8" class="eventcal_appform_validation eventcal_appform_validation_last">
                 <input type="checkbox" name="ca" value="1" onclick="chkAll(this.form, 'calendar[entries][]', this.checked)" />{$CONST.CAL_EVENT_FORM_BUTTON_MARK}
             </td>
         </tr>

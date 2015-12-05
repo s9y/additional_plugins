@@ -1,9 +1,9 @@
-{* file: plugin_eventcal_add.tpl - 2010-07-15, Ian *}
+{* file: plugin_eventcal_add.tpl - 2015-12-04, Ian *}
  
 <!-- plugin_eventcal_add.tpl start -->
 
 <tr>
-    <td align="left">
+    <td class="f0" align="left">
         {if $is_eventcal_add_debug_fda}
         <div id="eventcal_error_surrounder">
             <div class="error_brand">&nbsp;&nbsp;function: {$is_eventcal_add_debug_fda} </div>
@@ -18,7 +18,7 @@
                 if (txtarea.scrollTop) {
                     scrollPos = txtarea.scrollTop;
                 }
-                var $txtarea = $(txtarea);
+                var $txtarea = jQuery(txtarea);
                 if (!$txtarea.length) { return; }
                 var len = $txtarea.val().length;
                 var start = $txtarea[0].selectionStart;
@@ -37,7 +37,7 @@
         </script>
         {/literal}
 
-        <form name="eventcalEntry" id="eventcalEntry" method="post" action="{$plugin_eventcal_add_path}{$plugin_eventcal_admin_add_path}">
+        <form id="eventcalEntry" name="eventcalEntry" method="post" action="{$plugin_eventcal_add_path}{$plugin_eventcal_admin_add_path}">
             <input type="hidden" name="calendar[nomarkup]" value="true" />
             <input type="hidden" name="calendar[eventcalform]" value="true" />
             <input type="hidden" name="calendar[id]" value="{$plugin_eventcal_add_id}" />
@@ -52,13 +52,13 @@
                     <th class="eventformtitle">{$CONST.CAL_EVENT_FORM_LEFT_SINGLE}</th>
                     <td class="eventformdesc">
                         <select name="calendar[smonth]">
-                            {foreach from=$plugin_eventcal_add_array_opt1 item=i} {if $i} {$i} {/if} {/foreach}
+                            {foreach from=$plugin_eventcal_add_array_opt1 item="i"} {if $i} {$i} {/if} {/foreach}
                         </select>
                         <select name="calendar[sday]">
-                            {foreach from=$plugin_eventcal_add_array_opt7 item=i} {if $i} {$i} {/if} {/foreach}
+                            {foreach from=$plugin_eventcal_add_array_opt7 item="i"} {if $i} {$i} {/if} {/foreach}
                         </select>
                         <select name="calendar[syear]" size="1">
-                            {foreach from=$plugin_eventcal_add_array_opt2 item=i} {if $i} {$i} {/if} {/foreach}
+                            {foreach from=$plugin_eventcal_add_array_opt2 item="i"} {if $i} {$i} {/if} {/foreach}
                         </select>
                     </td>
                     <td class="eventformdesc">
@@ -69,13 +69,13 @@
                     <th class="eventformtitle">{$CONST.CAL_EVENT_FORM_LEFT_MULTI}</th>
                     <td class="eventformdesc">
                         <select name="calendar[emonth]">
-                            {foreach from=$plugin_eventcal_add_array_opt3 item=i} {if $i} {$i} {/if} {/foreach}
+                            {foreach from=$plugin_eventcal_add_array_opt3 item="i"} {if $i} {$i} {/if} {/foreach}
                         </select>
                         <select name="calendar[eday]">
-                            {foreach from=$plugin_eventcal_add_array_opt8 item=i} {if $i} {$i} {/if} {/foreach}
+                            {foreach from=$plugin_eventcal_add_array_opt8 item="i"} {if $i} {$i} {/if} {/foreach}
                         </select>
                         <select name="calendar[eyear]" size="1">
-                            {foreach from=$plugin_eventcal_add_array_opt4 item=i} {if $i} {$i} {/if} {/foreach}
+                            {foreach from=$plugin_eventcal_add_array_opt4 item="i"} {if $i} {$i} {/if} {/foreach}
                         </select>
                     </td>
                     <td class="eventformdesc">
@@ -86,10 +86,10 @@
                     <th class="eventformtitle">{$CONST.CAL_EVENT_FORM_LEFT_RECUR}</th>
                     <td class="eventformdesc">
                         <select name="calendar[recur]">
-                            {foreach from=$plugin_eventcal_add_array_opt5 item=i} {if $i} {$i} {/if} {/foreach}
+                            {foreach from=$plugin_eventcal_add_array_opt5 item="i"} {if $i} {$i} {/if} {/foreach}
                         </select>
                         <select name="calendar[recur_day]">
-                            {foreach from=$plugin_eventcal_add_array_opt6 item=i} {if $i} {$i} {/if} {/foreach}
+                            {foreach from=$plugin_eventcal_add_array_opt6 item="i"} {if $i} {$i} {/if} {/foreach}
                         </select>
                     </td>
                     <td class="eventformdesc">
@@ -135,9 +135,9 @@
                 <tr class="e0">
                     <th class="eventformtitle">{$CONST.CAL_EVENT_FORM_LEFT_DESC}</th>
                     <td align="left" class="eventformdesc formfield">
-                        <textarea name="calendar[ldesc]" id="calendarLdesc" cols="38" rows="10">{$plugin_eventcal_add_ldesc}</textarea>
+                        <textarea id="calendarLdesc" cols="38" rows="10" name="calendar[ldesc]">{$plugin_eventcal_add_ldesc}</textarea>
                     </td>
-                    <td class="eventformdesc"><sup>{$CONST.CAL_EVENT_FORM_RIGHT_DETAILDESC}</sup>
+                    <td class="eventformdesc addform_areainfo"><sup>{$CONST.CAL_EVENT_FORM_RIGHT_DETAILDESC}</sup>
                     {if $is_logged_in}<br /><br /><sup>{$CONST.CAL_EVENT_FORM_RIGHT_BBC}</sup><br />
                         <input type="button" class="serendipityPrettyButton input_button bbc_i" name="insI" value="I" accesskey="i" onclick="eventcalBBC(document.forms['eventcalEntry']['calendar[ldesc]'],'[i]','[/i]')" />
                         <input type="button" class="serendipityPrettyButton input_button bbc_b" name="insB" value="B" accesskey="b" onclick="eventcalBBC(document.forms['eventcalEntry']['calendar[ldesc]'],'[b]','[/b]')" />

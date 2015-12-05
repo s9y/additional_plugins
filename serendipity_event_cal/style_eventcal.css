@@ -1,25 +1,88 @@
 /************************************************************************************/
-/* style_eventcal.css for serendipity_eventcal_cal.php v.1.68 2015-11-28 Ian */
+/* style_eventcal.css for serendipity_eventcal_cal.php v.1.71 2015-12-04 Ian        */
 /************************************************************************************/
 
-/* disable 2k11 settings */
+/*****************************************/
+/* THEME resets and articleformat rules  */
+/* You may overwrite this by a user.css, */
+/* or a template copy of this file       */
+/*****************************************/
+
+/* 2k11 theme conflict settings */
+.col2r #content {
+    min-width: 48em;
+}
+.col2r #searchform, .col2r #sidebar_left, .col2r #sidebar_right {
+    width: auto;
+}
+.serendipity_Entry_Date h3 {
+    margin: 0px 0.8em 0.8em;
+}
+.serendipity_entry {
+    margin: 0px 0.8em 3em;
+}
 table {
     border-collapse: separate;
     border-spacing: 1px;
 }
 .serendipity_entry table {
-    border: 0 none;
+    border: inherit;
     margin: 0;
 }
 .serendipity_entry tbody td {
     padding: inherit;
 }
+.serendipity_entry th,
+.serendipity_entry tfoot td { padding: .125em 1em; }
 
-/* wraps and tags */
+.serendipity_entry tbody td { padding: .1875em .5em; }
+
+.serendipity_entry thead,
+.serendipity_entry tfoot { background: inherit; }
+
+.serendipity_entry thead { border-bottom: inherit; }
+.serendipity_entry tfoot { border-top: inherit; }
+
+.serendipity_entry tbody tr:nth-child(odd) { background: inherit; }
+.serendipity_entry tbody tr:nth-child(even) { background: inherit; }
+
+/* Next theme w/o articleformat */
+#primary #eventcal_wrapper {
+    margin-top: 3em
+}
+#primary .serendipity_Entry_Date h3 {
+    margin: 1rem 0.8rem;
+}
+
+/* Bulletproof theme */
+div#content.threemain .serendipity_entry,
+div#content.twomain .serendipity_entry {
+    margin: 0px;
+}
+div#content.threemain #eventcal_wrapper,
+div#content.twomain #eventcal_wrapper {
+    margin-top: 1em;
+}
+
+/* Sliver theme */
+#section_hookPlugin_entries .serendipity_Entry_Date {
+    margin: 1em 0;
+}
+
+
+/**********************************/
+/* Eventcal Plugin wrappers and tags     */
+/**********************************/
+
 #eventcal_wrapper {
-    margin: 0;
+    margin: 0px 0.8em;
     padding: 0;
     font: 500 11px/16px Verdana,Arial,Helvetica,sans-serif;
+    max-width: 80em; /* 880px */
+    min-width: 54em; /* 594px */
+}
+.serendipity_entry_body #eventcal_wrapper {
+    margin: 0px;
 }
 br.clear { clear: both; }
 
@@ -98,7 +161,8 @@ br.clear { clear: both; }
 /* eventcal TABLE classes
 /*******************************/
 table.questionaire {
-    width: auto;padding: 2px;
+    width: auto;
+    padding: 2px;
     color: #333;
     border: 1px solid #6280A2;
     border-collapse: separate; /*no cellspacing: collapse;*/
@@ -106,19 +170,20 @@ table.questionaire {
     background-color: #C6C6DE;
 }
 table.eventborder {
-    margin: 20px 0 0 0;
+    margin: auto;
     padding: 0;
     border: 1px solid #999;
-    background: #d0d0d0 !important;
+    background: #d0d0d0;
     width: 100%;
     /*min-width:770px !important;*/
 }
+.serendipity_entry table.eventcal_monthbutton,
 table.eventcal_monthbutton {
     padding: 0;
     margin: 0;
     width: 100%;
     background: #d0d0d0;
-    border: 0;
+    border: 0 none;
     border-collapse: collapse;
     border-spacing: 0;
 }
@@ -136,40 +201,45 @@ table.innereventborder {
     border-spacing: 1px 1px;
     /*empty-cells: hide;*/
 }
-table.innereventborder td { padding:1px; }
 table.innereventborder td.eventcal_weekly_eventlabel { width:2%; background-color: #555; text-align:center; color: #FF7400; }
 table.innereventborder td.eventcal_weekly_eventtitle { width:45%; }
 table.innereventborder td.eventcal_weekly_eventical { width:15%; text-align:center; font-weight:700; }
-table.innereventborder td.eventcal_weekly_eventical img { border:1px solid #D5BFC0; width:28px; height:12px; }
+table.innereventborder td.eventcal_weekly_eventical img { border:1px solid #D5BFC0; }
 table.innereventborder td.eventcal_weekly_eventdate { width:30%; text-align:center; font-size: xx-small; }
 table.innereventborder td.eventcal_weekly_eventappby { width:8%; text-align:center; }
 table.innereventborder td.eventcal_weekly_eventtext { width:98%; padding: 4px; }
 table.innereventborder td.eventcal_weekly_eventtext div.eventcal_weekly_eventurl { float:right;padding:1px 3px;border:1px dashed #333;background-color:#FF7400; }
 
 /* colors of day in monthview */
+.serendipity_entry table.eventcal_today,
 table.eventcal_today {
     width: 100%;
     background: #D5BFC0;
+    border: 0 none;
     border-collapse: collapse;
     border-spacing: 0;
 }
 td.eventcal_today {
-    background: #D5BFC0 !important; /* make sure the full cell has the same color */
+    background: #D5BFC0; /* make sure the full cell has the same color */
 }
+.serendipity_entry table.eventcal_isday,
 table.eventcal_isday {
     width: 100%;
     background: #f0f0f0;
+    border: 0 none;
     border-collapse: collapse;
     border-spacing: 0;
 }
+.serendipity_entry table.eventcal_noday,
 table.eventcal_noday {
     width: 100%;
-    background: #d0d0d0 !important;
+    background: #d0d0d0;
+    border: 0 none;
     border-collapse: collapse;
     border-spacing: 0;
 }
 td.eventcal_noday {
-    background: #d0d0d0 !important; /* make sure the full cell has the same color */
+    background: #d0d0d0; /* make sure the full cell has the same color */
 }
 table.eventcal_isday tr,
 table.eventcal_today tr,
@@ -183,10 +253,13 @@ table.eventcal_weeknav {
 table.eventcal_weeknav_top {
     border-bottom: 0;
 }
+table.eventcal_weeknav_bottom {
+    border-top: 0;
+}
 /* be sure to have Weekday headers be near width 100% */
 th.eventcal_weekhead {
     font: 500 11px/16px Verdana,Arial,Helvetica,sans-serif;
-    width: 14.2% !important;
+    width: 10.8em; /* 14.2% */
 }
 tr.d0 {
     background-color: #d0d0d0;
@@ -204,16 +277,21 @@ tr.a0, th.a0 {
     background-color: #a0a0a0;
 }
 td.weekcw {
-    width: 2% !important;
+    width: 2%;
 }
-
+.serendipity_entry table.eventcal_helptips,
+table.eventcal_helptips {
+    width: 100%;
+    border: 0 none;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
 
 /****************************************/
 /* eventcal single entry table settings */
 /****************************************/
 table.eventtext_entry {
     width: 100%;
-    padding: 6px 2px;
     border-collapse: separate; /* no cellspacing: collapse; */
     border-spacing: 2px;
     font-size: 10px;
@@ -224,30 +302,47 @@ table.eventtext_entry tr {
 table.eventtext_entry th {
     /* single entry shorttitle, date, app_by */
     border: 1px solid navy;
-    text-align:left;
+    text-align: left;
     font: 500 9.5px verdana, arial, geneva, helvetica, sans-serif;
-    color: #BFB; /* some light-green color */
+    background: #aaa;
+    color: navy;
     padding: 0 1px;
 }
 table.eventtext_entry td.entry {
-    background-color:#FDFDFD;
+    background-color: #FDFDFD;
     border: 1px solid navy;
-    width:78%;
-    padding: 2px;
+    width: 78%;
+    padding: .25em;
 }
-table.eventtext_entry th.eventcal_links { height:12px; }
-table.eventtext_entry th.center { text-align:center; }
-table.eventtext_entry th.eventcal_links img { border:1px solid #D5BFC0; width:28px; height:12px; }
+table.eventtext_entry th.eventcal_links { height: 2em; }
+table.eventtext_entry th.center { clear: both; text-align:center; }
+table.eventtext_entry th.eventcal_links img { border:1px solid #D5BFC0; }
 
+.eventcal_links form input[type="image"] {
+    vertical-align: middle;
+}
+.eventcal_links form sup {
+    top: 0;
+}
 
 /********************************/
 /* eventcal form table settings */
 /********************************/
+#eventcalEntry {
+    background: #f0f0f0;
+}
 table.eventcal_form {
     width: 100%;
-    border: 1px solid #999;
     border-collapse: separate; /* no cellspacing: collapse; */
     border-spacing: 1px 0;
+    padding: 0.1875em;
+}
+table.eventcal_form tbody {
+    -webkit-box-shadow: 0 2px 3px 0 #666;
+    -moz-box-shadow: 0 2px 3px 0 #666;
+    -o-box-shadow: 0 2px 3px 0 #666;
+    box-shadow: 0 2px 3px 0 #666;
+    border-radius: 0.1em;
 }
 th.eventformtitle {
     font: 600 11.5px verdana, arial, geneva, helvetica, sans-serif;
@@ -256,10 +351,18 @@ th.eventformtitle {
 }
 .serendipity_entry tbody td.eventformdesc,
 td.eventformdesc {
-    padding: 2px 0;
     font: 500 11px verdana, arial, geneva, helvetica, sans-serif;
     text-align: left;
     background-color: #e0e0e0; /* form gray */
+}
+table.eventcal_form tbody td {
+    padding: 0.1875em 0.5em;
+}
+.serendipity_entry tbody .eventformdesc.addform_areainfo {
+    padding: 3em .5em;
+}
+.addform_areainfo {
+    vertical-align: middle;
 }
 .formfield textarea {
     width: 98%;
@@ -289,17 +392,21 @@ td.eventformdesc .icon-info-circled::before{
     background-image: -o-radial-gradient(55% 50%, ellipse farthest-corner, #367e98, rgba(247, 255, 224, 0.5) 50%);
     background-image: -ms-radial-gradient(55% 50%, ellipse farthest-corner, #367e98, rgba(247, 255, 224, 0.5) 50%);
     background-image: radial-gradient(55% 50%, ellipse farthest-corner, #367e98, rgba(247, 255, 224, 0.5) 50%) rgba(199, 238, 252, 0.60);
-    border-radius: 0.8125em 0.8125em 0.8125em 0.8125em;
-    padding: 0.1em 0.5em;
+    border-radius: 0.8125em;
+    padding: 0.1825em 6px;
     -webkit-box-shadow: 0 0 2px 1px rgba(41, 69, 100, 0.5);
     -moz-box-shadow: 0 0 2px 1px rgba(41, 69, 100, 0.5);
     -o-box-shadow: 0 0 2px 1px rgba(41, 69, 100, 0.5);
     box-shadow: 0 0 2px 1px rgba(41, 69, 100, 0.5);
     outline: 0 none;
+    border-spacing: 0;
+    cursor: help;
+    vertical-align: middle;
 }
-td.eventformdesc abbr[title] {
+#eventcal_wrapper .eventformdesc abbr[title] {
     border-bottom: 0 none;
     text-decoration: none;
+    vertical-align: middle;
 }
 td.eventformdesc sub,
 td.eventformdesc sup {
@@ -322,29 +429,46 @@ table.eventcal_appform {
     border-collapse: separate; /* no cellspacing: collapse; */
     border-spacing: 0 2px;
 }
+
+table.eventcal_appform tbody tr.f0:nth-child(odd) { background: #f0f0f0; }
+table.eventcal_appform tbody tr.f0:nth-child(even) { background: #ccc; }
+
 th.eventcal_appform_title_lft {
-    padding-left:7px;
+    padding-left: .5em;
     text-align: left;
 }
 th.eventcal_appform_title_rgt {
-    padding-right:12px;
+    padding-right: 1em;
     text-align: right;
 }
 td.eventcal_appform_validation {
-    padding: 4px 2px 4px 7px;
     text-align: left;
     border-top: 1px solid #ff8040;
-    vertical-align: middle;
-    white-space:nowrap;
+    vertical-align: top;
+    white-space: nowrap;
+    padding: .1875em .5em;
+    width: auto;
 }
-td.eventcal_appform_validation .eventcal_appdate {
-    white-space:normal;
+td.eventcal_appform_validation input[type="checkbox"] {
+    margin: 0;
+    vertical-align: bottom;
 }
-td.eventcal_appform_validation .eventcal_appldesc {
-    width:57%;
+td.eventcal_appform_validation_last input[type="checkbox"] {
+    box-sizing: border-box;
+    margin: .1875em auto;
+    vertical-align: top;
+    margin-right: 1em;
 }
-input.eventcal_appform_move, img.eventcal_appform_move {
-    margin-right:10px;float:right;
+td.eventcal_appdate {
+    white-space: normal;
+    width: 16.4%;
+}
+td.eventcal_appldesc {
+    width: 100%;
+}
+input.eventcal_appform_move,
+img.eventcal_appform_move {
+    padding-right: initial;
 }
 
 /*******************************/
@@ -354,21 +478,29 @@ input.eventcal_appform_move, img.eventcal_appform_move {
     font-weight: bold;
     text-shadow: 0px 2px 3px #555;
     color: #222;
-    vertical-align: bottom; /* depends on th.eventtext */
+    vertical-align: top; /* depends on th.eventtext */
 }
 #eventcal_wrapper .entryadmin span {
-    padding:0 0 0 3px;
-    border:1px solid #ccc;
-    background-color:#eee;
+    padding: 0 0 0 3px;
+    border: 1px solid #ccc;
+    background-color: #eee;
+    -webkit-box-shadow: 0 2px 3px 0 #666;
+    -moz-box-shadow: 0 2px 3px 0 #666;
+    -o-box-shadow: 0 2px 3px 0 #666;
+    box-shadow: 0 2px 3px 0 #666;
+    display: inline-block;
+    width: 6em;
+    height: 1.6em;
+    white-space: nowrap;
 }
 #eventcal_wrapper .entryadmin span.left {
-    display:block;float:left;width:33%;height:15px;white-space:nowrap;
+    float: left;
 }
 #eventcal_wrapper .entryadmin span.right {
-    display:block;float:right;width:33%;height:15px;text-align:right;padding-right:2px;white-space:nowrap;
+    float: right;
 }
 #eventcal_wrapper .entryadmin input {
-    background-color:#FFABAB;
+    background-color: #FFABAB;
     padding: 0;
 }
 .eventcal_todaycell {
@@ -378,17 +510,17 @@ input.eventcal_appform_move, img.eventcal_appform_move {
 }
 .eventcal_lft {
     text-align: left;
-    vertical-align:top;
+    vertical-align: top;
 }
 .eventcal_rgt {
     text-align: right;
-    vertical-align:top;
+    vertical-align: top;
 }
 .serendipity_commentDirection {
-    text-align:justify;
+    text-align: justify;
 }
 .captcha {
-    border:1px solid #777;
+    border: 1px solid #777;
 }
 .eventcal_msg {
     text-align: center;
@@ -408,31 +540,12 @@ input.eventcal_appform_move, img.eventcal_appform_move {
 .eventcal_button  img {
     vertical-align: middle;
 }
-.eventcal_entrytop {
-    padding: 4px;
-    font: 500 11px arial,helvetica,sans-serif;
-    color: #800040;
-    text-align: left;
-    white-space:nowrap;
-}
-.eventcal_entrybottom {
-    padding: 4px;
-    background: #e1e5de;
-    border-top: 1px solid #996;
-    border-bottom: 1px solid #996;
-    margin-bottom: 6px;
-    font: 500 11px verdana,arial,helvetica,sans-serif;
-    text-align: left;
-}
-.eventcal_splitentries {
-    clear: both;
-    background-color: #e1e5de;
-}
 .eventcal_day {
     margin: 0;
     padding: 2px;
     text-align: center;
-    background-color: #f0f0f0;/*#d0d0d0;*/
+    background-color: #f0f0f0;
+    border: 0 none;
 }
 .eventcal_week_cw {
     margin: 0;
@@ -447,16 +560,21 @@ input.eventcal_appform_move, img.eventcal_appform_move {
     vertical-align: bottom; /*depends on eventcal_lft/rgt which sets to top*/
 }
 .eventcal_weekly_title {
-    color: #800060;
-    font-weight: 800;
+    font-weight: 600;
     text-align: center;
 }
+.eventcal_weekly_eventtext,
 .eventcal_weekly_daytitel {
+    background: #F0F0F0;
     text-align: left;
-    font-weight: 700;
-    color: #800060;
     width: 100%;
 }
+.eventcal_weekly_eventtitle,
+.eventcal_weekly_eventical,
+.eventcal_weekly_eventappby {
+    background: #D5D5D5;
+}
+
 .eventcal_input {
     font: 500 11px verdana,arial,helvetica,sans-serif;
     border: 1px solid #333;
@@ -474,6 +592,9 @@ input.eventcal_appform_move, img.eventcal_appform_move {
     font: 700 10.0px arial, helvetica, sans-serif;
     text-decoration: none;
     vertical-align: middle;
+}
+#eventcal_wrapper .eventformdesc .eventcal_tab {
+    vertical-align: initial;
 }
 .eventcal_tab_dim {
     color: #888;
@@ -512,22 +633,19 @@ span.eventtype {
     border: 1px solid #808080;border-width: 0 0 1px 0;
 }
 /* the help color buttons at bottom */
-span.mono {
-    display:block;float:left;width:100%;white-space:nowrap;
-}
-span.multi {
-    display:block;float:left;width:100%;white-space:nowrap;
-}
-span.recm {
-    display:block;float:left;width:100%;white-space:nowrap;
-}
+span.mono,
+span.multi,
+span.recm,
 span.recw {
-    display:block;float:left;width:100%;white-space:nowrap;
+    display: block;
+    float: left;
+    width: 100%;
+    white-space: nowrap;
 }
 span.tip {
     font: xx-small arial, helvetica, sans-serif;
-    text-align:center;
-    border:1px solid #000080;
+    text-align: center;
+    border: 1px solid #000080;
 }
 /* obfuscating spamblock markup and emoticate text */
 .serendipity_comment_s9ymarkup {
@@ -550,15 +668,6 @@ span.tip {
 /**************************/
 /* link & button settings */
 /**************************/
-.eventcal_entrytop a,
-.eventcal_entrytop a:link,
-.eventcal_entrytop a:visited,
-.eventcal_entrytop a:hover,
-.eventcal_entrytop a:active,
-.eventcal_entrytop a:focus {
-     font: 700 12px arial,helvetica,sans-serif;
-     text-decoration: none;
-}
 a.small_eventcal_link:link {
     color: #0000df;
     text-decoration: none;
@@ -587,7 +696,7 @@ a.small_eventcal_link:focus {
 
 #eventcal_wrapper td.eventformbutton input {
     background: url('{TEMPLATE_PATH}img/button_background.png') repeat scroll 0 50% #80B0DA;
-    font-weight: 700 !important;
+    font-weight: 700;
 }
 /* Special class if the button is <a> tag */
 #eventcal_wrapper a.serendipityPrettyButton {

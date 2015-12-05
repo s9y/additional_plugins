@@ -71,11 +71,12 @@ class serendipity_event_cal extends serendipity_event {
                                             'showical',
                                             'ical_icsurl',
                                             'log_ical',
-                                            'log_email'
+                                            'log_email',
+                                            'eventwrapper'
                                         )
                     );
         $propbag->add('author',         'Ian (Timbalu)');
-        $propbag->add('version',        '1.70');
+        $propbag->add('version',        '1.71');
         $propbag->add('groups',         array('FRONTEND_FEATURES', 'BACKEND_FEATURES'));
         $propbag->add('requirements',   array(
                                             'serendipity' => '1.4',
@@ -169,6 +170,13 @@ class serendipity_event_cal extends serendipity_event {
                 $propbag->add('name', PLUGIN_EVENTCAL_ICAL_LOG_EMAIL);
                 $propbag->add('description', PLUGIN_EVENTCAL_ICAL_LOG_EMAIL_BLAHBLAH);
                 $propbag->add('default', '');
+                break;
+
+            case 'eventwrapper':
+                $propbag->add('type', 'boolean');
+                $propbag->add('name', PLUGIN_EVENTCAL_EVENTWRAPPER);
+                $propbag->add('description', PLUGIN_EVENTCAL_EVENTWRAPPER_BLAHBLAH);
+                $propbag->add('default', 'false');
                 break;
 
 
@@ -484,9 +492,15 @@ class serendipity_event_cal extends serendipity_event {
     }
 
     /**
-     * build events array for monthly view
+     * build events array for monthly view as Calendar view
+     *
+     * @param int   $year
+     * @param int   $month
+     * @param bool  $asCalDays
+     *
+     * @return array for Calendar or as a monthly selection
      */
-    function load_monthly_events($year, $month) {
+    function load_monthly_events($year, $month, $asCalDays=true) {
         global $serendipity;
 
         $last     = $this->last_day($year,$month);         // set last day of current month
@@ -505,11 +519,12 @@ class serendipity_event_cal extends serendipity_event {
                 OR     ( '$sel_ym' BETWEEN DATE_FORMAT(sdato,'%Y%m') AND DATE_FORMAT(edato,'%Y%m') AND tipo BETWEEN 2 AND 5 )
                 OR     ( sdato BETWEEN '$year-$month-01' AND '$year-$month-$last' AND tipo=1 )
                 OR     ( DATE_FORMAT(sdato,'%m%d') BETWEEN '$sel_ms' AND '$sel_ml' AND tipo=6 AND DATE_FORMAT(sdato,'%Y') <= '$year' )
-            )     ORDER BY tipo ASC";
+            )";
+        $s .= $asCalDays ? "    ORDER BY tipo ASC" : "    ORDER BY tipo, sdato ASC";
         $result   = $this->mysql_db_result_sets('SELECT-ARRAY', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "approved=1 AND $s");
         // else return db error
 
-        if (is_array($result)) {
+        if (is_array($result) && $asCalDays) {
             for($i=1; $i<32; ++$i) { $events[$i][] = $i; } // this is for undefinied offsets in all non db result days
             $last = $this->last_day($year,$month);         // set last day of current month
 
@@ -597,7 +612,10 @@ class serendipity_event_cal extends serendipity_event {
                         break;
                 }
             }
+        } else {
+            $events = $result;
         }
+
         return($events);
     } // load_monthly_events() end
 
@@ -944,6 +962,12 @@ class serendipity_event_cal extends serendipity_event {
     /* method "example" creates the file upon configuration */
     function example() {
         global $serendipity;
+
+        // remove an old lang file
+        if (is_file(dirname(__FILE__) . '/UTF-8/lang_en.inc.php')) {
+            @unlink(dirname(__FILE__) . '/UTF-8/lang_en.inc.php');
+        }
+
         $file = $serendipity['serendipityPath'] . 'uploads/icalendar.ics';
         if (!file_exists($file)) {
             $fp = fopen($file, 'w');
@@ -2219,6 +2243,7 @@ class serendipity_event_cal extends serendipity_event {
             if (serendipity_db_bool($this->get_config('showical', 'false')))  {
                 /* case export ics file - set export call on "ud" (user decisions::config) and send to external_plugin hook */
                 if ($this->get_config('ical_icsurl') == 'ud') {
+
                     $icaldl_types = array(
                         'dl'  => PLUGIN_EVENTCAL_ICAL_ICSURL_INLIST_DL,
                         'wc'  => PLUGIN_EVENTCAL_ICAL_ICSURL_INLIST_WEBCAL,
@@ -2389,6 +2414,31 @@ class serendipity_event_cal extends serendipity_event {
 
     function generate_content(&$title) {
         $title = PLUGIN_EVENTCAL_TITLE.' (' . $this->get_config('pagetitle') . ')';
+
+        // fake sidebar plugin output with enabled serendipity_plugin_eventwrapper for eventcal
+        if (serendipity_db_bool($this->get_config('eventwrapper', 'false'))) {
+
+            global $serendipity;
+            $y         = date("Y");
+            $m         = date("m");
+            $months    = $this->months();
+            $monthName = $months[$m];
+            $currmonth = $this->load_monthly_events($y, $m, false); // ORDERed BY tipo, sdato
+            $entryURI  = '//' . $_SERVER['HTTP_HOST'] . $this->fetchPluginUri() . (($serendipity['rewrite'] == 'rewrite') ? '?' : '&') . 'calendar[cm]='.$month.'&calendar[cy]='.$year.'&amp;calendar[ev]=';
+
+            // some content output for the eventcalwrapper faking sidebar plugin
+            echo '<div class="eventcal_monthly_events">
+            <h4>Events '.$monthName.' '.$y.'</h4>
+            <ul class="plainList">
+            ';
+
+            foreach ($currmonth AS $event) {
+                echo '    <li>'.$event['sdato'].' <a href="'. $entryURI . $event['id'].'">'.$event['sdesc']."</a></li>\n";
+            }
+            echo "
+            </ul>
+            </div>\n";
+        }
     }
 
     function event_hook($event, &$bag, &$eventData, $addData = null) {
@@ -2573,8 +2623,9 @@ class serendipity_event_cal extends serendipity_event {
 
                     if (!$tfile || $tfile == 'style_eventcal.css') {
                         $tfile = dirname(__FILE__) . '/style_eventcal.css';
-                        echo str_replace('{TEMPLATE_PATH}', $serendipity['eventcal']['pluginpath'], @file_get_contents($tfile));
+                        $frontend_css =  str_replace('{TEMPLATE_PATH}', $serendipity['eventcal']['pluginpath'], @file_get_contents($tfile));
                     }
+                    if (!empty($frontend_css)) $this->backend_eventcal_css($eventData, $frontend_css);
 
                     return true;
                     break;
@@ -3240,7 +3291,8 @@ class serendipity_event_cal extends serendipity_event {
 
                 case 'dberase':
 
-                    echo '<div class="backend_eventcal_dbclean_innercat ec_inner_title"><h3>' . strtoupper(PLUGIN_EVENTCAL_ADMIN_DBC_ERASE_TITLE) . '</h3></div>';
+                    echo '<div class="backend_eventcal_dbclean_innercat ec_inner_title"><h3>' . strtoupper(PLUGIN_EVENTCAL_ADMIN_DBC_ERASE_TITLE) . '</h3></div>'."\n";
+
                     $isTable =  $this->droptable() ? true : false; // ok, questionaire
 
                     // give back ok

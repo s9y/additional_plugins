@@ -213,3 +213,5 @@
 @define('PLUGIN_EVENTCAL_ADMIN_DBC_NIXDA_DESC', 'Es ist keine Eventcal Datenbanktabelle vorhanden');
 @define('PLUGIN_EVENTCAL_ADMIN_DBC_NIXDA_TITLE', 'Administration - error');
 
+@define('PLUGIN_EVENTCAL_EVENTWRAPPER', 'Erlaube Eventwrapper Plugin Ausgabe?');
+@define('PLUGIN_EVENTCAL_EVENTWRAPPER_BLAHBLAH', 'Plaziert mit Hilfe des serendipity_plugin_eventwrapper Seitenleisten-Plugins die Kalender Ereignisse des aktuellen Monats als Links in die Seitenleiste. Aus Performancegründen bitte nur dann erlauben!');

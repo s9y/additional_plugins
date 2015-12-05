@@ -26,7 +26,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_IMAGESELECTORPLUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian');
-        $propbag->add('version',       '0.50');
+        $propbag->add('version',       '0.51');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -603,9 +603,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
                             $eventData[$element] = $this->media_insert($eventData[$element], $eventData);
                         }
                     }
-
                     return true;
-
                     break;
 
                 case 'backend_entry_presave':
@@ -740,8 +738,12 @@ class serendipity_event_imageselectorplus extends serendipity_event
                     break;
 
                 case 'css':
+                    ob_start();
 ?>
 
+/*** imageselectorplus  plugin start ***/
+
+.serendipity_quickblog_image,
 #content .serendipity_quickblog_image {
     border: medium none transparent;
 }
@@ -752,7 +754,13 @@ class serendipity_event_imageselectorplus extends serendipity_event
     padding: 0.4em;
 }
 
+/*** imageselectorplus plugin end ***/
+
 <?php
+                        $isp_frontpage_css = ob_get_contents();
+                        ob_end_clean();
+
+                        $eventData = $eventData . $isp_frontpage_css; // append CSS
                     break;
 
                 case 'frontend_image_selector':

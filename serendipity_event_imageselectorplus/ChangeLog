@@ -1,3 +1,8 @@
+0.51:
+-----
+ * Append CSS to end of eventData stream
+
+
 0.50:
 -----
  * Try catch exception error to not break the flow

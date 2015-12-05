@@ -76,7 +76,7 @@ CKEDITOR.editorConfig = function( config ) {
               - Allow <pre[*attributes](*classes)> for custom attributes/classes in codesnippet code blocks
         */
         // protect tags
-        config.extraAllowedContent = 'mediainsert[*]{*}(*);gallery[*]{*}(*);media[*]{*}(*);script[*]{*}(*);audio[*]{*}(*);div[*]{*}(*);span[*]{*}(*);img[height,width];pre[*](*);';
+        config.extraAllowedContent = 'mediainsert[*]{*}(*);gallery[*]{*}(*);media[*]{*}(*);script[*]{*}(*);audio[*]{*}(*);video[*];source[*];div[*]{*}(*);span[*]{*}(*);img[height,width];pre[*](*);';
         // do not use auto paragraphs added to these allowed tags.
         config.autoParagraph = false;
     }

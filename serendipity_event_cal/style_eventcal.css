@@ -1,6 +1,6 @@
 
 /************************************************************************************/
-/* style_eventcal.css for serendipity_eventcal_cal.php v.1.71 2015-12-04 Ian        */
+/* style_eventcal.css for serendipity_eventcal_cal.php v.1.72 2015-12-07 Ian        */
 /************************************************************************************/
 
 /*****************************************/
@@ -10,13 +10,29 @@
 /*****************************************/
 
 /* 2k11 theme conflict settings */
-.col2r #content {
-    min-width: 48em;
+@media only screen and (min-width: 1167px) {
+    .col2r #content {
+        min-width: 47.6em;
+    }
+    .col2r #searchform, .col2r #sidebar_left, .col2r #sidebar_right {
+        width: auto;
+        max-width: 32%;
+    }
 }
-.col2r #searchform, .col2r #sidebar_left, .col2r #sidebar_right {
-    width: auto;
+/* Not greater than 1166px, not less than 768px */
+@media (min-width: 768px) and (max-width: 1166px) {
+    .col2r #content {
+        width: auto;
+        max-width: 100%;
+    }
+    .col2r #searchform, .col2r #sidebar_left, .col2r #sidebar_right {
+        min-width: 98%;
+    }
 }
 .serendipity_Entry_Date h3 {
+    margin: 0px 0.6em 0.6em;
+}
+.serendipity_Entry_Date h4 {
     margin: 0px 0.8em 0.8em;
 }
 .serendipity_entry {
@@ -671,6 +687,14 @@ span.tip {
     visibility: hidden;
 }
 */
+.serendipitySideBarContent .eventcal_monthly_events li time {
+    vertical-align: middle;
+}
+.serendipitySideBarContent .eventcal_monthly_events .plainList {
+    list-style: outside none none;
+    margin-left: 0px;
+    padding-left: 0px;
+}
 
 
 /**************************/

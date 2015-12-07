@@ -67,16 +67,16 @@ class serendipity_event_cal extends serendipity_event {
                                             'articleformat',
                                             'headline',
                                             'showintro',
+                                            'eventwrapper',
                                             'showcaptcha',
                                             'showical',
                                             'ical_icsurl',
                                             'log_ical',
-                                            'log_email',
-                                            'eventwrapper'
+                                            'log_email'
                                         )
                     );
         $propbag->add('author',         'Ian (Timbalu)');
-        $propbag->add('version',        '1.71');
+        $propbag->add('version',        '1.72');
         $propbag->add('groups',         array('FRONTEND_FEATURES', 'BACKEND_FEATURES'));
         $propbag->add('requirements',   array(
                                             'serendipity' => '1.4',
@@ -129,6 +129,13 @@ class serendipity_event_cal extends serendipity_event {
                 $propbag->add('default', '');
                 break;
 
+            case 'eventwrapper':
+                $propbag->add('type', 'boolean');
+                $propbag->add('name', PLUGIN_EVENTCAL_EVENTWRAPPER);
+                $propbag->add('description', PLUGIN_EVENTCAL_EVENTWRAPPER_BLAHBLAH);
+                $propbag->add('default', 'false');
+                break;
+
             case 'showcaptcha':
                 $propbag->add('type', 'boolean');
                 $propbag->add('name', PLUGIN_EVENTCAL_SHOWCAPTCHA);
@@ -153,7 +160,7 @@ class serendipity_event_cal extends serendipity_event {
                     );
                 $propbag->add('type', 'select');
                 $propbag->add('name', PLUGIN_EVENTCAL_ICAL_ICSURL);
-                $propbag->add('description', PLUGIN_EVENTCAL_ICAL_ICSURL_BLAH . ' ' . PLUGIN_EVENTCAL_ICAL_ICSURL_BLAHBLAH . ' Please be advised, this is still experimental use!');
+                $propbag->add('description', PLUGIN_EVENTCAL_ICAL_ICSURL_BLAH . ' ' . PLUGIN_EVENTCAL_ICAL_ICSURL_BLAHBLAH . ' (Webcal-Push usage is still experimental!)');
                 $propbag->add('default', 'no');
                 $propbag->add('select_values', $listdl_types);
                 break;
@@ -172,14 +179,6 @@ class serendipity_event_cal extends serendipity_event {
                 $propbag->add('default', '');
                 break;
 
-            case 'eventwrapper':
-                $propbag->add('type', 'boolean');
-                $propbag->add('name', PLUGIN_EVENTCAL_EVENTWRAPPER);
-                $propbag->add('description', PLUGIN_EVENTCAL_EVENTWRAPPER_BLAHBLAH);
-                $propbag->add('default', 'false');
-                break;
-
-
             default:
                 return false;
         }
@@ -194,7 +193,7 @@ class serendipity_event_cal extends serendipity_event {
      */
     function check_newline($v) {
         $v = trim($v);
-        $v = preg_replace("/(<br \/>\n|<br>\n|&#13;|\r\n|\n|\r)/", "\n", $v); // cross-platform newlines change unix style
+        $v = preg_replace("/(<br \/>\n|<br>\n|&#13;|\r\n|\n|\r)/", "\n", $v); // cross-platform newlines change to unix style
         // don't allow out-of-control blank lines
         $v = preg_replace("/\n{2,}/", "\n\n", $v); // take care of duplicates
         return $v;
@@ -863,6 +862,7 @@ class serendipity_event_cal extends serendipity_event {
                         }
                         $sd[$j]['days'][$i]['label'] = $day;
                         $sd[$j]['days'][$i]['bcol']  = $sd[$j]['days'][$i]['col'];                   // no days bgcolor
+
                         if (is_array($events[$day]) && !empty($events[$day])) {
                             foreach($events[$day] as $row) {
                                 if ((int)$row['id']) {
@@ -2248,7 +2248,7 @@ class serendipity_event_cal extends serendipity_event {
                         'dl'  => PLUGIN_EVENTCAL_ICAL_ICSURL_INLIST_DL,
                         'wc'  => PLUGIN_EVENTCAL_ICAL_ICSURL_INLIST_WEBCAL,
                         'ml'  => PLUGIN_EVENTCAL_ICAL_ICSURL_INLIST_MAIL
-                        );
+                    );
 
                     $serendipity['smarty']->assign(
                                             array(
@@ -2433,7 +2433,7 @@ class serendipity_event_cal extends serendipity_event {
             ';
 
             foreach ($currmonth AS $event) {
-                echo '    <li>'.$event['sdato'].' <a href="'. $entryURI . $event['id'].'">'.$event['sdesc']."</a></li>\n";
+                echo '    <li><time>'.$event['sdato'].'</time> <a href="'. $entryURI . $event['id'].'">'.$event['sdesc']."</a></li>\n";
             }
             echo "
             </ul>
@@ -2467,8 +2467,6 @@ class serendipity_event_cal extends serendipity_event {
                         $this->install();
                         $this->set_config('dbversion', '1.1');
                     }
-
-                    return true;
                     break;
 
                 case 'external_plugin':
@@ -2489,7 +2487,7 @@ class serendipity_event_cal extends serendipity_event {
                         $icl = $this->draw_icalendar($evc['export'][1], $evc['export'][2], $evc['export'][3], $adminrequest);
                     }
 
-                     if (isset($icl) && !empty($eventData) && $evc['export'][4] != 'no') {
+                    if (isset($icl) && !empty($eventData) && $evc['export'][4] != 'no') {
 
                         /* set the ical url location target to s9y/uploads or reload page with sent result */
                         if ($evc['export'][4] == 'ml' && !$evc['export'][6]) {
@@ -2576,7 +2574,6 @@ class serendipity_event_cal extends serendipity_event {
                         $serendipity['GET']['subpage'] = $nice_url;
                     }
 
-                    return true;
                     break;
 
                 case 'entry_display':
@@ -2599,7 +2596,6 @@ class serendipity_event_cal extends serendipity_event {
                         $this->show();
                     }
 
-                    return true;
                     break;
 
                 case 'entries_header':
@@ -2607,7 +2603,6 @@ class serendipity_event_cal extends serendipity_event {
                     // this one really rolls up output
                     $this->show();
 
-                    return true;
                     break;
 
                 /* put here all you css stuff you need for the frontend of eventcal pages */
@@ -2625,9 +2620,8 @@ class serendipity_event_cal extends serendipity_event {
                         $tfile = dirname(__FILE__) . '/style_eventcal.css';
                         $frontend_css =  str_replace('{TEMPLATE_PATH}', $serendipity['eventcal']['pluginpath'], @file_get_contents($tfile));
                     }
-                    if (!empty($frontend_css)) $this->backend_eventcal_css($eventData, $frontend_css);
+                    if (!empty($frontend_css)) $this->backend_eventcal_css($eventData, $frontend_css); // append to stream
 
-                    return true;
                     break;
 
                 case 'backend_sidebar_entries':
@@ -2665,8 +2659,6 @@ class serendipity_event_cal extends serendipity_event {
                         /* show backend administration menu */
                         $this->backend_eventcal_menu();
                     }
-
-                    return true;
                     break;
 
                 /* put here all you css stuff you need for the backend of eventcal pages */
@@ -2691,13 +2683,12 @@ class serendipity_event_cal extends serendipity_event {
                         // append eventcal Serendipity 2.0+ CSS
                         $css2 = @file_get_contents($t2file);
                     } else $css2 = '';
-                    
+
                     $tfilecontent = $tfilecontent . $css2;
 
                     // add replaced css content to the end of serendipity_admin.css
                     if (!empty($tfilecontent)) $this->backend_eventcal_css($eventData, $tfilecontent);
 
-                    return true;
                     break;
 
                 default:
@@ -2716,7 +2707,7 @@ class serendipity_event_cal extends serendipity_event {
      **************************************************/
 
     /**
-     * add backend css to serendipity_admin.css
+     * add (backend) css to serendipity(_admin).css
      */
     function backend_eventcal_css(&$eventData, &$becss) {
         $eventData .= $becss;
@@ -2762,7 +2753,7 @@ class serendipity_event_cal extends serendipity_event {
             default:
 
                 $url = $serendipity['serendipityHTTPPath'].'serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=eventcal&amp;serendipity[eventcalcategory]=adevview&serendipity[eventcalorderby]=';
-                echo ($serendipity['version'][0] < 2) ? 
+                echo ($serendipity['version'][0] < 2) ?
                 '<div class="backend_eventcal_head"><h2>' . PLUGIN_EVENTCAL_ADMIN_VIEW . '</h2> '
                 . '<a href="'.$url.'asc">&nbsp;ASC &nbsp;&larr;</a> ' . PLUGIN_EVENTCAL_ADMIN_VIEW_DESC . '<br />'
                 . '<a href="'.$url.'desc">DESC &larr;</a> ' . PLUGIN_EVENTCAL_ADMIN_ORDERBY_DESC . '</div><br />'."\n"
@@ -2814,7 +2805,6 @@ class serendipity_event_cal extends serendipity_event {
 
                 $this->backend_eventcal_log();
 
-                return true;
                 break;
 
             case 'adevplad':
@@ -2837,7 +2827,6 @@ class serendipity_event_cal extends serendipity_event {
 
                 echo "\n\n</div> <!-- // backend_eventcal_wrapper end -->\n\n";
 
-                return true;
                 break;
 
             case 'droptable':
@@ -2848,7 +2837,6 @@ class serendipity_event_cal extends serendipity_event {
                 $serendipity['GET']['eventcaldbclean'] = 'dberase';
                 $this->backend_eventcal_dbclean($reqbuild['month'], $reqbuild['year']);
 
-                return true;
                 break;
         }
         echo "\n\n</div> <!-- // backend_eventcal_wrapper end -->\n\n";
@@ -3260,7 +3248,6 @@ class serendipity_event_cal extends serendipity_event {
                         }
                     } else echo '<div class="backend_eventcal_noresult backend_eventcal_dbclean_error"><p class="msg_error">' . $attention . 'Not allowed - wrong DB type!</p></div>';
 
-                    return true;
                     break;
 
                 case 'dbdownload':
@@ -3277,16 +3264,12 @@ class serendipity_event_cal extends serendipity_event {
                     } else {
                         echo '<div class="backend_eventcal_dbclean_error"><p class="msg_error">' . $attention . PLUGIN_EVENTCAL_ADMIN_DBC_DOWNLOAD_MSG . "</p></div>\n";
                     }
-
-
-                    return true;
                     break;
 
                 case 'dbinsert':
                     echo '<div class="backend_eventcal_dbclean_innercat ec_inner_title"><h3>' . strtoupper(PLUGIN_EVENTCAL_ADMIN_DBC_INSERT_TITLE) . '</h3></div>'."\n";
                     echo $this->backend_eventcal_smsg() . '<span class="msg_hint"><span class="icon-help-circled"></span> ' . PLUGIN_EVENTCAL_ADMIN_DBC_INSERT_MSG . '</span>' . $this->backend_eventcal_emsg();
 
-                    return true;
                     break;
 
                 case 'dberase':
@@ -3305,8 +3288,6 @@ class serendipity_event_cal extends serendipity_event {
                         echo '    </div>'."\n";
                         echo '</div>'."\n";
                     }
-
-                    return true;
                     break;
 
                 case 'dbdelold':
@@ -3330,8 +3311,6 @@ class serendipity_event_cal extends serendipity_event {
                             echo '<div class="backend_eventcal_dbclean_error"><p class="msg_error">' . $attention . sprintf(PLUGIN_EVENTCAL_ADMIN_NORESULT, PLUGIN_EVENTCAL_ADMIN_NORESULT_FREE) . '</p></div>';
                         }
                     }
-
-                    return true;
                     break;
 
                 case 'dbincrement':
@@ -3355,8 +3334,6 @@ class serendipity_event_cal extends serendipity_event {
                             echo '<div class="backend_eventcal_dbclean_error ec_inner_title"><p class="msg_error">' . $attention . sprintf(PLUGIN_EVENTCAL_ADMIN_NORESULT, PLUGIN_EVENTCAL_ADMIN_NORESULT_FREE) . '</p></div>';
                         }
                     }
-
-                    return true;
                     break;
 
                 case 'dbicalall':
@@ -3381,15 +3358,14 @@ class serendipity_event_cal extends serendipity_event {
                         } else {
                             $url = $serendipity['serendipityHTTPPath'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/ics_export/0/0/0/dl/none/all';
                             echo $this->backend_eventcal_smsg();
+                            echo '<p class="msg_hint"><span class="icon-help-circled"></span> ' . PLUGIN_EVENTCAL_ADMIN_ICAL_DOWNLINK . "</p>\n";
                             echo '<form name="checkform" method="post" action="'.$this->fetchPluginUri().'">';
                             echo '<input type="hidden" name="calendar[icseptarget]" value="'.$url.'" />';
-                            echo PLUGIN_EVENTCAL_ADMIN_ICAL_DOWNLINK . '<br /><br /><input type="submit" class="serendipityPrettyButton input_button" name="ical download" value=" ' . CAL_EVENT_FORM_BUTTON_SUBMIT . ' " />';
+                            echo '<input type="submit" class="serendipityPrettyButton input_button" name="ical download" value=" ' . CAL_EVENT_FORM_BUTTON_SUBMIT . ' " />';
                             echo '</form>';
                             echo $this->backend_eventcal_emsg();
                         }
                     }
-
-                    return true;
                     break;
 
                 case 'dbicallog':
@@ -3406,9 +3382,6 @@ class serendipity_event_cal extends serendipity_event {
                     } else {
                         echo '<div class="backend_eventcal_dbclean_error"><p class="msg_error">' . $attention . PLUGIN_EVENTCAL_ADMIN_DBC_ILOG_MSG . '</p></div>';
                     }
-
-
-                    return true;
                     break;
 
                 case 'dbdelfile':
@@ -3423,8 +3396,6 @@ class serendipity_event_cal extends serendipity_event {
                             chdir($old); // Restore the old working directory
                             echo '<div class="backend_eventcal_dbclean_error"><p class="msg_success">' . $attention . sprintf(PLUGIN_EVENTCAL_ADMIN_DBC_DELFILE_MSG, $serendipity['GET']['eventcaldbcleanfilename']) . '!</p></div>';
                     }
-
-                    return true;
                     break;
 
                 case 'dbnixda':
@@ -3432,7 +3403,6 @@ class serendipity_event_cal extends serendipity_event {
                     echo '<div class="backend_eventcal_dbclean_innercat ec_inner_title"><h3>' . strtoupper(PLUGIN_EVENTCAL_ADMIN_DBC_NIXDA_TITLE) . '</h3></div>';
                     echo '<div class="backend_eventcal_dbclean_error"><p class="msg_error">' . $attention . PLUGIN_EVENTCAL_ADMIN_DBC_NIXDA_DESC . '!</p></div>';
 
-                    return true;
                     break;
 
                 default:
@@ -3729,26 +3699,31 @@ class serendipity_event_cal extends serendipity_event {
                 return false;
             }
 
+            $c = 0;
             if ($res || is_array($res)) {
                 $c = count($res);
                 $i = 1;
+                asort($res); // sort eventcal table reverse or try with ORDER BY id ASC
                 foreach ($res AS $key => $val) {
                     /* we need to set date field, while the UPDATE function inserts a new timestamp */
-                    $sql = "UPDATE LOW_PRIORITY {$serendipity['dbPrefix']}eventcal SET id='".$i."',sdato='".$val['sdato']."',tstamp='".$val['tstamp']."' WHERE id='".$val['id']."'";
+                    $sql = "UPDATE LOW_PRIORITY {$serendipity['dbPrefix']}eventcal SET id='".$i."', sdato='".$val['sdato']."', tstamp='".$val['tstamp']."' WHERE id='".$val['id']."'";
                     $i = $i+1;
                     $usql[] = $sql;
                 }
-
                 for($k=0; $k<$i; $k++) {
-                    $result = serendipity_db_query($usql[$k]);
+                    if ($usql[$k] !== NULL) {
+                        $result = serendipity_db_query($usql[$k]);
+                    }
                 }
                 if ($result) $numresult = count($usql);
             }
 
             /* sets the old auto_increment value to the new value of count +1 - Do not use ALTER TABLE SET */
-            $num = $c+1;
-            $sql = "ALTER TABLE {$serendipity['dbPrefix']}eventcal AUTO_INCREMENT=$num";
-            $result = serendipity_db_query($sql);
+            if ($c > 0) {
+                $num = $c+1;
+                $sql = "ALTER TABLE {$serendipity['dbPrefix']}eventcal AUTO_INCREMENT={$num}";
+                serendipity_db_query($sql);
+            }
 
             // unlock tables
             @serendipity_db_query('UNLOCK TABLES');
@@ -3757,10 +3732,11 @@ class serendipity_event_cal extends serendipity_event {
 
         }
 
-       if (!$serendipity['eventcalfreetable'] && !$serendipity['eventcalinctable']) return false;
+        if (!$serendipity['eventcalfreetable'] && !$serendipity['eventcalinctable']) return false;
+
+        return false;
 
     } // function free table end
-
 
 } // class end
 /* vim: set sts=4 ts=4 expandtab : */

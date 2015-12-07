@@ -2,6 +2,14 @@
 * Legend: ! Bugfix, + New Features, * Changed, - Info Only 
 * 
 
+v.1.72:
+-------
+
+ * Add some minor CSS improvements for the frontend
+ * Fixed db increment administration
+ * Some more internal cleanup
+
+
 v.1.71:
 -------
 

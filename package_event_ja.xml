@@ -9951,9 +9951,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>Shows an event calendar inside your blogs with your normal blog design. It supports backend/frontend administration, multiple events and iCal export. (MySQL-only)</description>
 <maintainers><maintainer><name>Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.71</version>
+  <version>1.72</version>
   <requirements:s9yVersion>1.4</requirements:s9yVersion>
-  <date>2015-12-05</date>
+  <date>2015-12-07</date>
   <filelist>
 <dir name="serendipity_event_cal">
 <dir name="UTF-8">

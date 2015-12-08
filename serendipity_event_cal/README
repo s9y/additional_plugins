@@ -106,6 +106,12 @@ ChangeLOG:
 * Legend: ! Bugfix, + New Features, * Changed, - Info Only 
 * 
 * 
+* v.1.73 2015-12-09
+* ===========================
+*
+* Fix a backend inherit style to apply with event cal only
+*
+*
 * v.1.72 2015-12-08
 * ===========================
 *

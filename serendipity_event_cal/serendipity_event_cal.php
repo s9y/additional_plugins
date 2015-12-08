@@ -76,7 +76,7 @@ class serendipity_event_cal extends serendipity_event {
                                         )
                     );
         $propbag->add('author',         'Ian (Timbalu)');
-        $propbag->add('version',        '1.72');
+        $propbag->add('version',        '1.73');
         $propbag->add('groups',         array('FRONTEND_FEATURES', 'BACKEND_FEATURES'));
         $propbag->add('requirements',   array(
                                             'serendipity' => '1.4',

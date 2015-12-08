@@ -2,6 +2,12 @@
 * Legend: ! Bugfix, + New Features, * Changed, - Info Only 
 * 
 
+v.1.73:
+-------
+
+ * Fix a backend inherit style to apply with event cal only
+
+
 v.1.72:
 -------
 

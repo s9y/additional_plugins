@@ -82,15 +82,15 @@ table.eventcal_appform {
     border-spacing: 0;
 }
 
-br {
+#backend_eventcal_wrapper br {
     display: none;
     visibility: hidden;
 }
-.backend_eventcal_linenum br,
-.backend_eventcal_linetxt br,
-.addform_areainfo br,
-.eventcal_appldesc br,
-.eventcal_tpl_message_inner br {
+#backend_eventcal_wrapper .backend_eventcal_linenum br,
+#backend_eventcal_wrapper .backend_eventcal_linetxt br,
+#backend_eventcal_wrapper .addform_areainfo br,
+#backend_eventcal_wrapper .eventcal_appldesc br,
+#backend_eventcal_wrapper .eventcal_tpl_message_inner br {
     display: inherit;
     visibility: inherit;
 }

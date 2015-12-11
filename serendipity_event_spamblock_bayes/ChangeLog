@@ -1,3 +1,7 @@
+0.4.20:
+    * Fix: Errornous setupDB() call deleted recycler
+    * Fix: Restoring comments from recycler deleted comment without restoring them
+
 0.4.19:
     * Fix creation of recycler when using sqlite
 

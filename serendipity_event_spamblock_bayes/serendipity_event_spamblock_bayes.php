@@ -42,7 +42,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '0.4.19' );
+		$propbag->add ( 'version', '0.4.20' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_spamblock_comments_shown' => true,
 		                                     'external_plugin' => true,
@@ -482,7 +482,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 	function setupDB() {
 	    global $serendipity;
         #main-table
-		$sql = "CREATE TABLE
+		$sql = "CREATE TABLE IF NOT EXISTS
                     {$serendipity['dbPrefix']}spamblock_bayes (
                     token VARCHAR(100) NOT NULL,
                     ham BIGINT UNSIGNED NOT NULL DEFAULT '0',
@@ -491,31 +491,30 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     ) {UTF_8};";
 		serendipity_db_schema_import($sql);
         #recycler-table
-        if ($serendipity['dbType'] == 'mysql') {
-            $sql = "CREATE TABLE IF NOT EXISTS
-                    {$serendipity['dbPrefix']}spamblock_bayes_recycler
-                    LIKE
-                    {$serendipity['dbPrefix']}comments";
-        } else if ( $serendipity['dbType'] == 'sqlite' ||
-                    $serendipity['dbType'] == 'sqlite3' ||
-                    $serendipity['dbType'] == 'pdo-sqlite' ||
-                    $serendipity['dbType'] == 'pdo-sqliteoo') {
-            $sql = "SELECT sql FROM sqlite_master WHERE type = 'table' AND name = '{$serendipity['dbPrefix']}comments';";
-            $sql = serendipity_db_query($sql);
-            if (is_array($sql)) {
-                $sql = $sql[0][0];
-            }
-            $sql = str_replace("{$serendipity['dbPrefix']}comments", "{$serendipity['dbPrefix']}spamblock_bayes_recycler", $sql);
-            serendipity_db_query($sql);
-        } else {
-        
-            $sql = "CREATE TABLE
+        switch ($serendipity['dbType']) {
+            case 'mysql':
+            case 'mysqli':
+                $sql = "CREATE TABLE IF NOT EXISTS
+                        {$serendipity['dbPrefix']}spamblock_bayes_recycler
+                        LIKE
+                        {$serendipity['dbPrefix']}comments";
+                break;
+            case $serendipity['dbType'] == 'sqlite':
+            case $serendipity['dbType'] == 'sqlite3':
+            case $serendipity['dbType'] == 'pdo-sqlite':
+            case $serendipity['dbType'] == 'pdo-sqliteoo':
+                $sql = "SELECT sql FROM sqlite_master WHERE type = 'table' AND name = '{$serendipity['dbPrefix']}comments';";
+                $sql = serendipity_db_query($sql);
+                if (is_array($sql)) {
+                    $sql = $sql[0][0];
+                }
+                $sql = str_replace("{$serendipity['dbPrefix']}comments", "{$serendipity['dbPrefix']}spamblock_bayes_recycler", $sql);
+                break;
+            default:
+                $sql = "CREATE TABLE IF NOT EXISTS
                     {$serendipity['dbPrefix']}spamblock_bayes_recycler
                     as SELECT * FROM
-                    {$serendipity['dbPrefix']}comments LIMIT 1";
-            serendipity_db_query($sql);
-            $sql = "DELETE FROM
-                    {$serendipity['dbPrefix']}spamblock_bayes_recycler;";
+                    {$serendipity['dbPrefix']}comments ORDER BY id LIMIT 1 WITH NO DATA";
         }
             
         serendipity_db_query($sql);
@@ -1784,7 +1783,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     {$serendipity['dbPrefix']}spamblock_bayes_recycler
                     WHERE id = " . (int)$ids;
         }
-        serendipity_db_query($sql);
+        $result = serendipity_db_query($sql);
         $this->deleteFromRecycler($ids);
     }
 

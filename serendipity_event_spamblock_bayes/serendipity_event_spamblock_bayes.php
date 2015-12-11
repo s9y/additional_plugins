@@ -42,7 +42,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '0.4.18' );
+		$propbag->add ( 'version', '0.4.19' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_spamblock_comments_shown' => true,
 		                                     'external_plugin' => true,
@@ -496,7 +496,19 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     {$serendipity['dbPrefix']}spamblock_bayes_recycler
                     LIKE
                     {$serendipity['dbPrefix']}comments";
+        } else if ( $serendipity['dbType'] == 'sqlite' ||
+                    $serendipity['dbType'] == 'sqlite3' ||
+                    $serendipity['dbType'] == 'pdo-sqlite' ||
+                    $serendipity['dbType'] == 'pdo-sqliteoo') {
+            $sql = "SELECT sql FROM sqlite_master WHERE type = 'table' AND name = '{$serendipity['dbPrefix']}comments';";
+            $sql = serendipity_db_query($sql);
+            if (is_array($sql)) {
+                $sql = $sql[0][0];
+            }
+            $sql = str_replace("{$serendipity['dbPrefix']}comments", "{$serendipity['dbPrefix']}spamblock_bayes_recycler", $sql);
+            serendipity_db_query($sql);
         } else {
+        
             $sql = "CREATE TABLE
                     {$serendipity['dbPrefix']}spamblock_bayes_recycler
                     as SELECT * FROM
@@ -505,6 +517,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
             $sql = "DELETE FROM
                     {$serendipity['dbPrefix']}spamblock_bayes_recycler;";
         }
+            
         serendipity_db_query($sql);
 
         $dbversion = $this->get_config('dbversion', 1);

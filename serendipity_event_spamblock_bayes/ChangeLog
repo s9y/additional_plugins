@@ -1,3 +1,6 @@
+0.4.21:
+    * Fix mal-written case-statemens in setupdb, blocking sqlite
+
 0.4.20:
     * Fix: Errornous setupDB() call deleted recycler
     * Fix: Restoring comments from recycler deleted comment without restoring them

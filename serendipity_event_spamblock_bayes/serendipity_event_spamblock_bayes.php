@@ -42,7 +42,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '0.4.20' );
+		$propbag->add ( 'version', '0.4.21' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_spamblock_comments_shown' => true,
 		                                     'external_plugin' => true,
@@ -499,10 +499,10 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                         LIKE
                         {$serendipity['dbPrefix']}comments";
                 break;
-            case $serendipity['dbType'] == 'sqlite':
-            case $serendipity['dbType'] == 'sqlite3':
-            case $serendipity['dbType'] == 'pdo-sqlite':
-            case $serendipity['dbType'] == 'pdo-sqliteoo':
+            case 'sqlite':
+            case 'sqlite3':
+            case 'pdo-sqlite':
+            case 'pdo-sqliteoo':
                 $sql = "SELECT sql FROM sqlite_master WHERE type = 'table' AND name = '{$serendipity['dbPrefix']}comments';";
                 $sql = serendipity_db_query($sql);
                 if (is_array($sql)) {

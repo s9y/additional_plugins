@@ -1,9 +1,15 @@
+5.6.0:
+-----
+    * Upgrade to CKEDITOR 4.5. Series, update 6 (http://ckeditor.com/whatsnew)
+
 5.5.0:
+-----
     * Upgrade to CKEDITOR 4.5. Series, update 5 (http://ckeditor.com/whatsnew)
     * Append frontend CSS to the end of eventData stream
     * Allow video and source tag attributes in extraAllowedContent
 
 5.4.0:
+-----
     * Upgrade to CKEDITOR 4.5. Series, update 4 (http://ckeditor.com/whatsnew)
 
 4.8.1:

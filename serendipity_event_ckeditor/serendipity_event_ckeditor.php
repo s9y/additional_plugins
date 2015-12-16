@@ -55,23 +55,23 @@ class serendipity_event_ckeditor extends serendipity_event
      * @access protected
      * @var string
      */
-    protected $cke_zipfile = 'ckeditor_4.5.5.0-plus.zip';
+    protected $cke_zipfile = 'ckeditor_4.5.6.0-plus.zip';
 
     /**
      * Access property checkUpdateVersion
      * Verify release package versions - do update on upgrades!
      * @var array
      */
-    protected $checkUpdateVersion = array('ckeditor:4.5.5.0');
+    protected $checkUpdateVersion = array('ckeditor:4.5.6.0');
 
     /**
      * Access property revisionPackage
      * Note revisions of ckeditor and plugin additions to lang files
      * @var array
      */
-    protected $revisionPackage = array('CKEditor 4.5.5 (revision b34ea4d, full package, 2015-10-06)',
+    protected $revisionPackage = array('CKEditor 4.5.6 (revision 91e81fe, full package, 2015-12-11)',
                                        'CKEditor-Plugin: mediaembed, v. 0.6+ (https://github.com/frozeman/MediaEmbed, 2014-03-13)',
-                                       'CKEditor-Plugin: manually added codesnippet, fakeobjects, lineutils and widget plugins, 2015-12-05)',
+                                       'CKEditor-Plugin: manually added codesnippet, fakeobjects, lineutils and widget plugins, 2015-12-11)',
                                        'CKEditor-Plugin: procurator, v. 1.5 (Serendipity placeholder Plugin, 2014-10-10)',
                                        'CKEditor-Plugin: cheatsheet, v. 1.2 (Serendipity CKE-Cheatsheet Plugin, 2014-09-02)',
                                        'CKEditor-S9yCustomConfig, cke_config.js, v. 2.3, 2015-01-28',
@@ -182,7 +182,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '5.5.0'); // is CKEDITOR Series 4 (hidden) - revision .5.5 - and appended plugin revision .0
+        $propbag->add('version',       '5.6.0'); // is CKEDITOR Series 4 (hidden) - revision .5.6 - and appended plugin revision .0
         $propbag->add('copyright',     'GPL or LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',

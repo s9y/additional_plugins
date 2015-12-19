@@ -9949,9 +9949,9 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <description>Zeigt einen Terminkalender innerhalb des Blogs mit dem Blog-Design und allen Formatierungen an. Unterstützt Backend/Frontend Administration, vielfache Termine und iCal Export. (Nur MySQL)</description>
 <maintainers><maintainer><name>Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.73</version>
+  <version>1.74</version>
   <requirements:s9yVersion>1.4</requirements:s9yVersion>
-  <date>2015-12-08</date>
+  <date>2015-12-19</date>
   <filelist>
 <dir name="serendipity_event_cal">
 <dir name="UTF-8">
@@ -10957,9 +10957,9 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <description>Nutzt CKEditor als Standard WYSIWYG Editor. Benutzung für JS-Editoren: Empfohlen! Nach der Installation, lies die Plugin Konfigurations Seite für weitere Informationen.</description>
 <maintainers><maintainer><name>Rustam Abdullaev, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>5.6.0</version>
+  <version>5.6.1</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2015-12-16</date>
+  <date>2015-12-19</date>
   <filelist>
 <dir name="serendipity_event_ckeditor">
 <dir name="UTF-8">

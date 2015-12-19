@@ -1231,7 +1231,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Ian (Timbalu)</author>
 <content:encoded>&lt;b&gt;serendipity_event_cal&lt;br /&gt;Kalendář akcí&lt;/b&gt;&lt;br /&gt;Zobrazuje kalendář akcí jako samostatnou stránku v blogu. Design stránky zůstává stejný jako u zbytku blogu. (MySQL only)&lt;br/&gt;For: Serendipity 1.4</content:encoded>
-<pubDate>Tue, 08 Dec 2015 22:31:27 +0100</pubDate>
+<pubDate>Sat, 19 Dec 2015 22:31:23 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_cal</guid>
 </item>
 <item>
@@ -1366,7 +1366,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Rustam Abdullaev, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_ckeditor&lt;br /&gt;CKEditor&lt;/b&gt;&lt;br /&gt;Používá CKEditor jako výchozí WYSIWYG editor. Tento editor je aktuálním state-of-art. Použití: Doporučeno! Po instalaci přejděte na stránku s nastavením tohoto pluginu a čtěte další instrukce.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
-<pubDate>Wed, 16 Dec 2015 22:31:25 +0100</pubDate>
+<pubDate>Sat, 19 Dec 2015 22:31:23 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_ckeditor</guid>
 </item>
 <item>

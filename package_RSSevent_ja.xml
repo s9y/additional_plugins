@@ -1235,7 +1235,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>Ian (Timbalu)</author>
 <content:encoded>&lt;b&gt;serendipity_event_cal&lt;br /&gt;Event-Calendar&lt;/b&gt;&lt;br /&gt;Shows an event calendar inside your blogs with your normal blog design. It supports backend/frontend administration, multiple events and iCal export. (MySQL-only)&lt;br/&gt;For: Serendipity 1.4</content:encoded>
-<pubDate>Tue, 08 Dec 2015 22:31:27 +0100</pubDate>
+<pubDate>Sat, 19 Dec 2015 22:31:23 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_cal</guid>
 </item>
 <item>
@@ -1370,7 +1370,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>Rustam Abdullaev, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_ckeditor&lt;br /&gt;CKEditor&lt;/b&gt;&lt;br /&gt;Uses CKEditor as the default WYSIWYG editor. For any JS-Editor usage: Recommended! After installation, go to the configuration screen of this plugin for further instructions.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
-<pubDate>Wed, 16 Dec 2015 22:31:25 +0100</pubDate>
+<pubDate>Sat, 19 Dec 2015 22:31:23 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_ckeditor</guid>
 </item>
 <item>

@@ -1,3 +1,10 @@
+5.6.1:
+-----
+    * Allow the Serendipity 2.0+ autosave(r) to work with this plugin textarea instances,
+      if set in "Personal Preferences" by option!
+      Please hard refresh your browsers in your next editor instance once,
+      to really get the changed file!
+
 5.6.0:
 -----
     * Upgrade to CKEDITOR 4.5. Series, update 6 (http://ckeditor.com/whatsnew)

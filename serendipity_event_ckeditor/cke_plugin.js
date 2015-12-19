@@ -3,7 +3,7 @@
  */
 
 /**
- * @fileOverview A Serendipity serendipity_event_ckeditor custom CKEDITOR additional plugin creator file: cke_plugin.js, v. 1.9, 2015-01-01
+ * @fileOverview A Serendipity serendipity_event_ckeditor custom CKEDITOR additional plugin creator file: cke_plugin.js, v. 1.10, 2015-12-19
  */
 
 // define array for hooked s9y plugins
@@ -65,9 +65,12 @@ function Spawnnuggets(item, addEP, jsED) {
     if (!addEP) var addEP = null;
     if (!jsED)  var jsED  = null;
 
-    var textarea_instance = !isNaN(item) ? 'nuggets' + item : item;
+    var $this  = !isNaN(item) ? 'nuggets' + item : item;
     var area   = item.replace('serendipity[','').replace(']','');
+    var $nugID = 'nuggets'+area; // plugin nugget textareas (eg. staticpages)
     var nugget = ''; // nugget id for hooked s9ypluginbuttons
+
+    // global defines
     s9ymediabuttons.push('s9yML'+area);
 
     // Init CKEDITOR added plugins
@@ -77,11 +80,12 @@ function Spawnnuggets(item, addEP, jsED) {
     //    Plugin Dependencies: widget      Add-on Dependencies: Line Utilities and Clipboard
     // mediaembed is a fast and simple YouTube code CKEditor-Plugin: v. 0.5+ (https://github.com/frozeman/MediaEmbed, 2013-09-12) to avoid ACF restrictions
     // procurator and cheatsheet are S9y only plugins
-    var name_extraPlugins = (addEP !== null) ? addEP : textarea_instance;
+    var name_extraPlugins = (addEP !== null) ? addEP : $this;
     var jsEventData       = (jsED  !== null) ? jsED  : window.jsEventData; // global set by 'backend_wysiwyg_finish' hook
     var extraPluginACF    = (CKECONFIG_ACF_OFF === true) ? name_extraPlugins+',mediaembed,cheatsheet' : name_extraPlugins+',mediaembed,procurator,cheatsheet'; // no spaces allowed!
     var extraPluginList   = (CKECONFIG_CODE_ON === true) ? extraPluginACF+',codesnippet' : extraPluginACF; // no spaces allowed!
     var customConfigPath  = CKEDITOR_PLUGPATH+'serendipity_event_ckeditor/cke_config.js?v='+CKECONFIG_FORCE_LOAD;
+    var useAutoSave       = (CKECONFIG_USEAUTOSAVE === true && Modernizr.indexeddb === true) ? 'on' : null;
 
     // case hooked s9ypluginbuttons, since we want the unique id
     if (typeof window.jsEventData !== 'undefined') {
@@ -92,9 +96,10 @@ function Spawnnuggets(item, addEP, jsED) {
         });
     }
 
-    if (document.getElementById(textarea_instance)) {
-        CKEDITOR.replace(textarea_instance, {
+    if (document.getElementById($this)) {
+        CKEDITOR.replace($this, {
             toolbar : CKECONFIG_TOOLBAR,
+
             // Load our specific configuration file.
             customConfig : customConfigPath,
 
@@ -168,6 +173,26 @@ function Spawnnuggets(item, addEP, jsED) {
                     // It's good to set both filters - dataFilter is used when loading data and htmlFilter when retrieving.
                     editor.dataProcessor.htmlFilter.addRules( rules );
                     editor.dataProcessor.dataFilter.addRules( rules );
+
+                },
+
+                // allow the Serendipity autosaver refill to work with this plugin instances
+                instanceReady: function( ev ) {
+                    //console.log('IS instanceReady');
+                    var iseditor = ev.editor;
+                    //console.log(iseditor);
+
+                    if (useAutoSave) {
+                        // check for 'nuggetsID' (only) autosaver caches, since these are not defined in Serendipity editor.js
+                        serendipity.getCached($this,  function(res) {
+                            if ($this === $nugID && res && res !== null && res != 'null') {
+                                // don't ever do this with existing nugget entry data!!
+                                if (iseditor.getData() == '') {
+                                    iseditor.setData(res);
+                                }
+                            }
+                        });
+                    }
                 }
             }
         });
@@ -196,7 +221,7 @@ function Spawnnuggets(item, addEP, jsED) {
                         if (false === S9Y_VERSION_NEW) {
                             window.open('serendipity_admin_image_selector.php', 'ImageSel', 'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1');
                         } else {
-                            serendipity.openPopup('serendipity_admin.php?serendipity[adminModule]=media&serendipity[noBanner]=true&serendipity[noSidebar]=true&serendipity[noFooter]=true&serendipity[showMediaToolbar]=false&serendipity[showUpload]=true&serendipity[textarea]='+textarea_instance);
+                            serendipity.openPopup('serendipity_admin.php?serendipity[adminModule]=media&serendipity[noBanner]=true&serendipity[noSidebar]=true&serendipity[noFooter]=true&serendipity[showMediaToolbar]=false&serendipity[showUpload]=true&serendipity[textarea]='+$this);
                         }
                     }
                 });
@@ -223,3 +248,48 @@ function serendipity_imageSelector_addToBody (str, textarea) {
         oEditor.insertHtml(str);
     }
 }
+
+/*
+ * Textarea nuggets autosave event listener
+ * We need to wait for fully available objects (document.load will be triggered later than document.ready).
+ * We run this on any possible CKEDITOR instance - even on blogentry instances.
+ * Refill from cache is done per instance inside Spawnnuggets CKEDITOR.replace.
+ */
+$(window).load(function() {
+
+    if (CKECONFIG_USEAUTOSAVE === true && Modernizr.indexeddb === true) {
+
+        nuggets = [];
+        for(var name in CKEDITOR.instances) {
+            //console.log(name);
+            //if (false === (name.indexOf('nuggets') !== -1)) continue; // un-comment, to only use 'nuggetsID' nuggets
+            nuggets.push(name);
+        }
+        //console.log(nuggets);
+
+        if (nuggets != null) {
+            nuggets.forEach( function(e) {
+                //console.log(e);
+                var editor = CKEDITOR.instances[e];
+                var lastSaveTime = 0;
+                var currentTime = 0;
+                // Set key event per nugget
+                editor.on( 'key', autosave);
+
+                function autosave() {
+                    window.setTimeout(
+                        function() {
+                            currentTime = new Date().getTime();
+                            if ((currentTime - lastSaveTime) > 15000 || lastSaveTime == 0) {
+                                serendipity.cache(e, editor.getData());
+                                console.log('SAVED NUGGET '+e);
+                                lastSaveTime = new Date().getTime();
+                            }
+                        },
+                        15000
+                    );
+                }
+            });
+        }
+    }
+});

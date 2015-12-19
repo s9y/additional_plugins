@@ -182,7 +182,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '5.6.0'); // is CKEDITOR Series 4 (hidden) - revision .5.6 - and appended plugin revision .0
+        $propbag->add('version',       '5.6.1'); // is CKEDITOR Series 4 (hidden) - revision .5.6 - and appended plugin revision .1
         $propbag->add('copyright',     'GPL or LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
@@ -456,6 +456,7 @@ if ($headcss) {
                         $plgpath = function_exists('serendipity_specialchars') ? serendipity_specialchars($this->get_config('plugpath')) : htmlspecialchars($this->get_config('plugpath'), ENT_COMPAT, LANG_CHARSET);
                         $acf_off = serendipity_db_bool($this->get_config('acf_off', 'false')) ? 'true' : 'false';    // need this, to be passed correctly as boolean true/false to custom cke_config.js
                         $code_on = serendipity_db_bool($this->get_config('codebutton', 'false')) ? 'true' : 'false'; // same here for cke_plugins.js
+                        $uats_on = $serendipity['use_autosave'] ? 'true' : 'false';                                  // dito
                         $toolbar = $this->get_config('toolbar', 'Standard');
                         $time    = $this->get_config('timestamp', time());
                         /*
@@ -476,6 +477,8 @@ if ($headcss) {
         CKECONFIG_TOOLBAR       = '<?php echo $toolbar; ?>';
         CKECONFIG_TOOLBAR_BREAK = <?php echo serendipity_db_bool($this->get_config('toolbar_break', 'false')) ? "'/'" : "''"; ?>;
         CKECONFIG_FORCE_LOAD    = <?php echo $time; ?>;
+        CKECONFIG_USEAUTOSAVE   = <?php echo $uats_on; ?>;
+
     </script>
     <script type="text/javascript" src="<?php echo $serendipity['serendipityHTTPPath'] . $relpath; ?>ckeditor.js"></script>
     <script type="text/javascript" src="<?php echo $plgpath . 'serendipity_event_ckeditor/'; ?>cke_plugin.js"></script>
@@ -611,7 +614,7 @@ ol.linenums li {
 
                 case 'backend_media_path_exclude_directories':
                     $eventData[".thumbs"] = true;
-                    return true;
+
                     break;
 
 
@@ -640,7 +643,6 @@ ol.linenums li {
 <?php 
                         }
                     }
-                    return true;
                     break;
 
 
@@ -658,7 +660,6 @@ ol.linenums li {
 <?php 
                         }
                     } // end isset $eventData['item']
-                    return true;
                     break;
 
 

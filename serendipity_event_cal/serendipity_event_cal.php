@@ -76,7 +76,7 @@ class serendipity_event_cal extends serendipity_event {
                                         )
                     );
         $propbag->add('author',         'Ian (Timbalu)');
-        $propbag->add('version',        '1.73');
+        $propbag->add('version',        '1.74');
         $propbag->add('groups',         array('FRONTEND_FEATURES', 'BACKEND_FEATURES'));
         $propbag->add('requirements',   array(
                                             'serendipity' => '1.4',
@@ -2426,18 +2426,21 @@ class serendipity_event_cal extends serendipity_event {
             $currmonth = $this->load_monthly_events($y, $m, false); // ORDERed BY tipo, sdato
             $entryURI  = '//' . $_SERVER['HTTP_HOST'] . $this->fetchPluginUri() . (($serendipity['rewrite'] == 'rewrite') ? '?' : '&') . 'calendar[cm]='.$month.'&calendar[cy]='.$year.'&amp;calendar[ev]=';
 
-            // some content output for the eventcalwrapper faking sidebar plugin
-            echo '<div class="eventcal_monthly_events">
-            <h4>Events '.$monthName.' '.$y.'</h4>
-            <ul class="plainList">
+            // some content output for the eventwrapper faking sidebar plugin
+            echo '
+                <div class="eventcal_monthly_events">
+                    <h4>Events '.$monthName.' '.$y.'</h4>
+                    <ul class="plainList">
             ';
 
-            foreach ($currmonth AS $event) {
-                echo '    <li><time>'.$event['sdato'].'</time> <a href="'. $entryURI . $event['id'].'">'.$event['sdesc']."</a></li>\n";
+            if (is_array($currmonth)) {
+                foreach ($currmonth AS $event) {
+                    echo '        <li><time>'.$event['sdato'].'</time> <a href="'. $entryURI . $event['id'].'">'.$event['sdesc']."</a></li>\n";
+                }
             }
             echo "
-            </ul>
-            </div>\n";
+                    </ul>
+                </div>\n";
         }
     }
 
@@ -2626,15 +2629,14 @@ class serendipity_event_cal extends serendipity_event {
 
                 case 'backend_sidebar_entries':
 
-
                     // forbid entry if not admin
                     if (serendipity_userLoggedIn() && $_SESSION['serendipityAuthedUser'] === true && $_SESSION['serendipityUserlevel'] == '255') {
                         if ($serendipity['version'][0] < 2) {
-                            echo '<li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks">
+                            echo "\n".'                        <li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks">
                                     <a href="?serendipity[adminModule]=event_display&serendipity[adminAction]=eventcal">
                                     ' . PLUGIN_EVENTCAL_ADMIN_NAME .'
                                     </a>
-                                  </li>';
+                                  </li>'."\n";
                         }
                     }
                     break;
@@ -2643,7 +2645,7 @@ class serendipity_event_cal extends serendipity_event {
                     // forbid sidebar link if user is not in admin
                     if (serendipity_userLoggedIn() && $_SESSION['serendipityAuthedUser'] === true && $_SESSION['serendipityUserlevel'] == '255') {
                         if ($serendipity['version'][0] > 1) {
-                            echo "\n".'<li><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=eventcal">' . PLUGIN_EVENTCAL_ADMIN_NAME . '</a></li>'."\n";
+                            echo "\n".'                        <li><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=eventcal">' . PLUGIN_EVENTCAL_ADMIN_NAME . '</a></li>'."\n";
                         }
                     }
                     break;

@@ -2,6 +2,13 @@
 * Legend: ! Bugfix, + New Features, * Changed, - Info Only 
 * 
 
+
+v.1.74:
+-------
+
+ * Prevent empty montharray loop with eventwrapper
+
+
 v.1.73:
 -------
 

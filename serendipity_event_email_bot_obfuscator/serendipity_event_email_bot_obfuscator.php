@@ -136,20 +136,20 @@ class serendipity_event_email_bot_obfuscator extends serendipity_event
 
     function anti_callback_none($matches)
     {
-        $email = substr($matches[0], 1);
+        $email = $matches[0];
         return $matches[1].'<a href="mailto:'.$email.'">'.$email.'</a>';
     }
 
     function anti_callback_entity($matches)
     {
-        $email = substr($matches[0], 1);
+        $email = $matches[0];
         return $matches[1].'<a href="mailto:'.$this->antispambot($email).'">'.$this->antispambot($email).'</a>';
     }
 
     function anti_callback_js($matches)
     {
         // Array[0] = email address
-        $parts = explode('@', substr($matches[0], 1));
+        $parts = explode('@', $matches[0]);
         $str  = $matches[1].'<script type="text/javascript">';
         $str .= 'var username = "'.$parts[0].'"; var hostname = "'.$parts[1].'";';
         $str .= 'document.write("<a href=" + "mail" + "to:" + username + ';
@@ -177,7 +177,7 @@ class serendipity_event_email_bot_obfuscator extends serendipity_event
                 break;
         }
 
-        $pattern = "/(?:[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/";
+        $pattern = "/(?:[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/i";
         return preg_replace_callback($pattern, array($this, $anti_callback), $text);
     }
 

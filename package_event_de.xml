@@ -1395,11 +1395,11 @@
 <file>Readme.php</file>
 </dir>
 <file>ChangeLog</file>
-<file>PHP Markdown Extra Readme.text</file>
+<file>PHP_Markdown_Readme.txt</file>
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
 <file>License.text</file>
-<file>PHP Markdown Readme.text</file>
+<file>PHP_Markdown_Extra_Readme.txt</file>
 </dir>
 
   </filelist>
@@ -1431,11 +1431,11 @@
     <file>serendipity_event_markdown/lib/Readme.md</file>
     <file>serendipity_event_markdown/lib/Readme.php</file>
     <file>serendipity_event_markdown/ChangeLog</file>
-    <file>serendipity_event_markdown/PHP Markdown Extra Readme.text</file>
+    <file>serendipity_event_markdown/PHP_Markdown_Readme.txt</file>
     <file>serendipity_event_markdown/documentation_cs.html</file>
     <file>serendipity_event_markdown/documentation_cz.html</file>
     <file>serendipity_event_markdown/License.text</file>
-    <file>serendipity_event_markdown/PHP Markdown Readme.text</file>
+    <file>serendipity_event_markdown/PHP_Markdown_Extra_Readme.txt</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -10097,15 +10097,16 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 </package>
 <package version="1.0">
 <name>serendipity_event_email_bot_obfuscator</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_email_bot_obfuscator/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Textformatierung: Klickbare E-Mail-Adressen - Verschleiern von E-Mail-Adressen </summary>
 <groups>ANTISPAM,MARKUP</groups>
 <description>Macht E-Mail-Adressen klickbar, aber verschleiert sie, um sie vor Spambots zu schützen</description>
-<maintainers><maintainer><name>Stephan Manske</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Stephan Manske, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.02</version>
+  <version>1.03</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2016-01-06</date>
   <filelist>
 <dir name="serendipity_event_email_bot_obfuscator">
 <file>.htaccess</file>
@@ -10121,6 +10122,7 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 </dir>
+<file>ChangeLog</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>documentation_cs.html</file>
@@ -10140,6 +10142,7 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
     <file>serendipity_event_email_bot_obfuscator/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_email_bot_obfuscator/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_email_bot_obfuscator/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_email_bot_obfuscator/ChangeLog</file>
     <file>serendipity_event_email_bot_obfuscator/lang_cs.inc.php</file>
     <file>serendipity_event_email_bot_obfuscator/lang_cz.inc.php</file>
     <file>serendipity_event_email_bot_obfuscator/documentation_cs.html</file>

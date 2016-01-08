@@ -167,7 +167,7 @@
 <category>Sidebar Plugins</category>
 <author>Jaap Boerma ( j@webbict.com ), Tadashi Jokagi &lt;elf2000@users.sourceforge.net&gt;, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_guestbook&lt;br /&gt;옆줄 방명록&lt;/b&gt;&lt;br /&gt;옆줄에 최신 방명록 내용을 보여줌&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Tue, 01 Dec 2015 22:31:35 +0100</pubDate>
+<pubDate>Fri, 08 Jan 2016 22:31:30 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_guestbook</guid>
 </item>
 <item>
@@ -263,7 +263,7 @@
 <category>Sidebar Plugins</category>
 <author>Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_nugget_multilingual&lt;br /&gt;특정 언어용 HTML 덩어리&lt;/b&gt;&lt;br /&gt;HTML 덩어리가 특정 언어를 사용할 경우 옆줄에 나타남&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 01 Dec 2015 22:31:44 +0100</pubDate>
+<pubDate>Fri, 08 Jan 2016 22:31:40 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_nugget_multilingual</guid>
 </item>
 <item>

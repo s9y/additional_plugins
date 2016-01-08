@@ -2213,9 +2213,9 @@
 <description>Visa en gästbol i din blog med ditt vanlig blog-utseende.</description>
 <maintainers><maintainer><name>Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.58</version>
+  <version>3.59</version>
   <requirements:s9yVersion>1.7.0</requirements:s9yVersion>
-  <date>2015-12-01</date>
+  <date>2016-01-08</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="UTF-8">

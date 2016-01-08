@@ -22,7 +22,7 @@ class serendipity_plugin_nugget_multilingual extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_NUGGET_MULTI_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Wesley Hwang-Chung');
-        $propbag->add('version',       '1.8');
+        $propbag->add('version',       '1.9');
         $propbag->add('configuration', array('language', 'title', 'content', 'markup', 'show_where'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
 
@@ -97,7 +97,7 @@ class serendipity_plugin_nugget_multilingual extends serendipity_plugin {
                 break;
 
             default:
-                return false;
+                break;
         }
         return true;
     }
@@ -109,14 +109,18 @@ class serendipity_plugin_nugget_multilingual extends serendipity_plugin {
         $title = $this->get_config('title');
         $language = $this->get_config('language', 'all');
         $show_where = $this->get_config('show_where', 'both');
+
         // if the language does not match, do not display
-        if ($language != 'all' && $serendipity['lang'] != $language) return false;
+        if ($language != 'all' && $serendipity['lang'] != $language) {
+            return false;
+        }
         // where to show
         if ($show_where == 'extended' && (!isset($serendipity['GET']['id']) || !is_numeric($serendipity['GET']['id']))) {
             return false;
         } else if ($show_where == 'overview' && isset($serendipity['GET']['id']) && is_numeric($serendipity['GET']['id'])) {
             return false;
         }
+
         // apply markup?
         if (serendipity_db_bool($this->get_config('markup', 'true'))) {
             // This is the only workable solution for (sidebar?) plugins, to explicitly allow to apply nl2br plugin changes to markup (if we want to),
@@ -126,14 +130,6 @@ class serendipity_plugin_nugget_multilingual extends serendipity_plugin {
             echo $entry['html_nugget'];
         } else {
             echo $this->get_config('content');
-        }
-
-        if (serendipity_userLoggedIn()) {
-            $is_plugin_owner = ($this->serendipity_owner == $serendipity['authorid'] || serendipity_checkPermission('adminPluginsMaintainOthers'));
-
-            if ($is_plugin_owner) {
-                echo '<div class="serendipity_edit_nugget"><a href="' . $serendipity['baseURL'] . '/serendipity_admin.php?serendipity[adminModule]=plugins&amp;serendipity[plugin_to_conf]=' . htmlentities($this->instance, ENT_COMPAT, LANG_CHARSET) . '">' . EDIT . '</a></div>';
-            }
         }
     }
 }

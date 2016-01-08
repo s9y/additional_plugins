@@ -1,10 +1,10 @@
 {*
-    plugin_guestbook_backend_header.tpl v.3.57 2015-08-20 Ian
+    plugin_guestbook_backend_header.tpl v.3.59 2016-01-08 Ian
 *}
 
 {function name="feedback"}{* message and error feedback for approve, view, add issues *}
-    <div class="msg_error">
-        <span class="icon-attention-circled"></span> <strong>{$msg_header}</strong>
+    <div class="msg_{if $msg_header == $CONST.THANKS_FOR_ENTRY}success{else}error{/if}">
+        <span class="icon-{if $msg_header == $CONST.THANKS_FOR_ENTRY}ok{else}attention{/if}-circled"></span> <strong>{$msg_header}</strong>
     {if $guestbook_messages}
         <ul>
         {foreach $guestbook_messages AS $msg}

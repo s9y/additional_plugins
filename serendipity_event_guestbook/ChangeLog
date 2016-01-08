@@ -1,3 +1,10 @@
+3.59:
+-----
+ * Switch {call feedback} function to show success or error box
+ * Indent backend sidebar menu links markup
+ * Cleanup returning booleans where case expects break
+
+
 3.58: & 1.25:
 -------------
  * Added mysqli and check for supporting mysql and mysqli only

@@ -60,45 +60,45 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
                 $propbag->add('name', PLUGIN_GUESTSIDE_TITLE);
                 $propbag->add('description',PLUGIN_GUESTSIDE_TITLE_BLAHBLAH);
                 $propbag->add('default', PLUGIN_GUESTSIDE_NAME);
-            break;
+                break;
 
             case 'showemail':
                 $propbag->add('type','boolean');
                 $propbag->add('name',PLUGIN_GUESTSIDE_SHOWEMAIL);
                 $propbag->add('description',PLUGIN_GUESTSIDE_SHOWEMAIL_BLAHBLAH);
                 $propbag->add('default','false');
-            break;
+                break;
 
             case 'showhomepage':
                 $propbag->add('type','boolean');
                 $propbag->add('name',PLUGIN_GUESTSIDE_SHOWHOMEPAGE);
                 $propbag->add('description',PLUGIN_GUESTSIDE_SHOWHOMEPAGE_BLAHBLAH);
                 $propbag->add('default','false');
-            break;
+                break;
 
             case 'max_chars':
                 $propbag->add('type','string');
                 $propbag->add('name',PLUGIN_GUESTSIDE_MAXCHARS);
                 $propbag->add('description',PLUGIN_GUESTSIDE_MAXCHARS_BLAHBLAH);
                 $propbag->add('default','50');
-            break;
+                break;
 
             case 'max_items':
                 $propbag->add('type','string');
                 $propbag->add('name',PLUGIN_GUESTSIDE_MAXITEMS);
                 $propbag->add('description',PLUGIN_GUESTSIDE_MAXITEMS_BLAHBLAH);
                 $propbag->add('default','1');
-            break;
+                break;
 
             case 'dateformat' :
                 $propbag->add('type', 'string');
                 $propbag->add('name', GENERAL_PLUGIN_DATEFORMAT);
                 $propbag->add('description', sprintf(GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH, '%a, %d.%m.%Y %H:%M'));
                 $propbag->add('default', '%a, %d.%m.%Y %H:%M');
-            break;
+                break;
 
             default:
-                return false;
+                break;
         }
         return true;
     }

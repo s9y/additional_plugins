@@ -106,6 +106,13 @@ ChangeLOG:
 * Legend: ! Bugfix, + New Features, * Changed, - Info Only 
 * 
 * 
+* v.1.75 2016-01-10
+* ===========================
+*
+* Add selector for the eventwrapper sidebar month name title
+* Some more finetuned overwriting margins for the frontend
+*
+*
 * v.1.74 2015-12-19
 * ===========================
 *

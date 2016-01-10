@@ -76,7 +76,7 @@ class serendipity_event_cal extends serendipity_event {
                                         )
                     );
         $propbag->add('author',         'Ian (Timbalu)');
-        $propbag->add('version',        '1.74');
+        $propbag->add('version',        '1.75');
         $propbag->add('groups',         array('FRONTEND_FEATURES', 'BACKEND_FEATURES'));
         $propbag->add('requirements',   array(
                                             'serendipity' => '1.4',
@@ -180,7 +180,7 @@ class serendipity_event_cal extends serendipity_event {
                 break;
 
             default:
-                return false;
+                break;
         }
         return true;
     }
@@ -2174,7 +2174,7 @@ class serendipity_event_cal extends serendipity_event {
                                 -1    => CAL_EVENT_FORM_DAY_LAST,
                                 -2    => CAL_EVENT_FORM_DAY_SECONDLAST,
                                 -3    => CAL_EVENT_FORM_DAY_THIRDLAST
-                        );
+                            );
             }
             if (isset($_REQUEST['calendar']['cm']))   $cm = (int)$_REQUEST['calendar']['cm'];
             if (isset($_REQUEST['calendar']['cy']))   $cy = (int)$_REQUEST['calendar']['cy'];
@@ -2429,7 +2429,7 @@ class serendipity_event_cal extends serendipity_event {
             // some content output for the eventwrapper faking sidebar plugin
             echo '
                 <div class="eventcal_monthly_events">
-                    <h4>Events '.$monthName.' '.$y.'</h4>
+                    <div class="eventcal_sidebar_month_title">Events '.$monthName.' '.$y.'</div>
                     <ul class="plainList">
             ';
 
@@ -2558,7 +2558,6 @@ class serendipity_event_cal extends serendipity_event {
                                 break;
 
                             default:
-                                return false;
                                 break;
                         }
                         exit;
@@ -2576,7 +2575,6 @@ class serendipity_event_cal extends serendipity_event {
                     if (empty($serendipity['GET']['subpage'])) {
                         $serendipity['GET']['subpage'] = $nice_url;
                     }
-
                     break;
 
                 case 'entry_display':
@@ -2598,7 +2596,6 @@ class serendipity_event_cal extends serendipity_event {
                     if (version_compare($serendipity['version'], '1.4', '<=')) {
                         $this->show();
                     }
-
                     break;
 
                 case 'entries_header':
@@ -2623,8 +2620,9 @@ class serendipity_event_cal extends serendipity_event {
                         $tfile = dirname(__FILE__) . '/style_eventcal.css';
                         $frontend_css =  str_replace('{TEMPLATE_PATH}', $serendipity['eventcal']['pluginpath'], @file_get_contents($tfile));
                     }
-                    if (!empty($frontend_css)) $this->backend_eventcal_css($eventData, $frontend_css); // append to stream
-
+                    if (!empty($frontend_css)) {
+                        $this->backend_eventcal_css($eventData, $frontend_css); // append to stream
+                    }
                     break;
 
                 case 'backend_sidebar_entries':
@@ -2689,12 +2687,12 @@ class serendipity_event_cal extends serendipity_event {
                     $tfilecontent = $tfilecontent . $css2;
 
                     // add replaced css content to the end of serendipity_admin.css
-                    if (!empty($tfilecontent)) $this->backend_eventcal_css($eventData, $tfilecontent);
-
+                    if (!empty($tfilecontent)) {
+                        $this->backend_eventcal_css($eventData, $tfilecontent);
+                    }
                     break;
 
                 default:
-                    return false;
                     break;
 
             } // switch end
@@ -2798,7 +2796,6 @@ class serendipity_event_cal extends serendipity_event {
                     /* add event form */
                     $this->backend_eventcal_add($reqbuild);
                 }
-
                 break;
 
             case 'adevilog':
@@ -3248,8 +3245,9 @@ class serendipity_event_cal extends serendipity_event {
                         } else {
                             echo $this->backend_eventcal_smsg() . PLUGIN_EVENTCAL_ADMIN_DBC_DUMP_MSG . $this->backend_eventcal_emsg();
                         }
-                    } else echo '<div class="backend_eventcal_noresult backend_eventcal_dbclean_error"><p class="msg_error">' . $attention . 'Not allowed - wrong DB type!</p></div>';
-
+                    } else {
+                        echo '<div class="backend_eventcal_noresult backend_eventcal_dbclean_error"><p class="msg_error">' . $attention . 'Not allowed - wrong DB type!</p></div>';
+                    }
                     break;
 
                 case 'dbdownload':
@@ -3408,7 +3406,6 @@ class serendipity_event_cal extends serendipity_event {
                     break;
 
                 default:
-                    return false;
                     break;
 
             }
@@ -3739,6 +3736,7 @@ class serendipity_event_cal extends serendipity_event {
         return false;
 
     } // function free table end
+
 
 } // class end
 /* vim: set sts=4 ts=4 expandtab : */

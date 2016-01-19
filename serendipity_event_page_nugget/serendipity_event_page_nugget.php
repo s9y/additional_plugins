@@ -1,4 +1,4 @@
-<?php # 
+<?php #
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -23,7 +23,7 @@ class serendipity_event_page_nugget extends serendipity_event
         $propbag->add('description',   PLUGIN_PAGE_NUGGET_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Wesley Hwang-Chung');
-        $propbag->add('version',       '1.12');
+        $propbag->add('version',       '1.13');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -202,4 +202,3 @@ class serendipity_event_page_nugget extends serendipity_event
 		}
     }
 }
-

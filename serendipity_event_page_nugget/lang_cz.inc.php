@@ -18,4 +18,3 @@
 @define('PLUGIN_PAGE_NUGGET_ALL', 'V¹echny jazyky');
 @define('PLUGIN_PAGE_NUGGET_NOSHOW', ' Nezobrazuje se na aktuální stránce.');
 
-?>

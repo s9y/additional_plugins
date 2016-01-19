@@ -1,4 +1,4 @@
-<?php #
+<?php
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -36,7 +36,7 @@ class serendipity_event_page_nugget extends serendipity_event
                                              'entries_footer' => true,
                                              'frontend_footer' => true,
                                              'frontend_display' => true));
-        $propbag->add('configuration', array('title', 'placement', 'language', 'content', 'content_plain', 'markup', 'show_where'));
+        $propbag->add('configuration', array('title', 'placement', 'language', 'content', 'content_plain', 'footer_close', 'markup', 'show_where'));
     }
 
     function introspect_config_item($name, &$propbag)
@@ -111,6 +111,13 @@ class serendipity_event_page_nugget extends serendipity_event
                 $propbag->add('default',     '');
                 break;
 
+            case 'footer_close':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        PLUGIN_PAGE_NUGGET_CLOSE_FOOTER_DIV);
+                $propbag->add('description', PLUGIN_PAGE_NUGGET_CLOSE_FOOTER_DIV_DESC);
+                $propbag->add('default',     'true');
+                break;
+
             case 'markup':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        DO_MARKUP);
@@ -151,7 +158,7 @@ class serendipity_event_page_nugget extends serendipity_event
         // RSS-Feed special case
         if ($event == 'frontend_display' && $addData['from'] == 'functions_entries:printEntries_rss') {
             if ($placement == 'rss') {
-                if ($this->get_config('markup', 'true') == 'true' && $event != 'frontend_header') {
+                if (serendipity_db_bool($this->get_config('markup', 'true')) && $event != 'frontend_header') {
                     $entry = array('html_nugget' => $this->get_config('content'));
                     serendipity_plugin_api::hook_event('frontend_display', $entry);
                     $eventData['body'] .= $entry['html_nugget'] . $this->get_config('content_plain');
@@ -170,14 +177,16 @@ class serendipity_event_page_nugget extends serendipity_event
 			return false;
 		}
 
-		if (($placement == 'head' && $event == 'frontend_header') ||
-			($placement == 'top' && $event == 'entries_header') ||
+		if (($placement == 'head'   && $event == 'frontend_header') ||
+			($placement == 'top'    && $event == 'entries_header') ||
 			($placement == 'bottom' && $event == 'entries_footer') ||
-			($placement == 'foot' && $event == 'frontend_footer')){
+			($placement == 'foot'   && $event == 'frontend_footer')) {
 			// entries_footer hook location workaround: get out of the 'serendipity_entryFooter' class
-			if ($event == 'entries_footer') echo '</div><div>';
+			if (serendipity_db_bool($this->get_config('footer_close', 'true')) && $event == 'entries_footer') {
+                echo "\n</div>\n<div>\n";
+            }
 			// if not for HEAD, apply markup?
-			if ($this->get_config('markup', 'true') == 'true' && $event != 'frontend_header') {
+			if (serendipity_db_bool($this->get_config('markup', 'true')) && $event != 'frontend_header') {
 				$entry = array('html_nugget' => $this->get_config('content'));
 				serendipity_plugin_api::hook_event('frontend_display', $entry);
 				echo $entry['html_nugget'] .  $this->get_config('content_plain');
@@ -185,16 +194,16 @@ class serendipity_event_page_nugget extends serendipity_event
 				echo $this->get_config('content') . $this->get_config('content_plain');
 			}
 			return true;
-		} elseif ($placement == 'art_foot' && $event == 'entry_display'){
+		} elseif ($placement == 'art_foot' && $event == 'entry_display') {
 			if (!is_array($eventData)) return false;
 			$elements = count($eventData);
 			for ($i = 0; $i < $elements; $i++) {
-				if ($this->get_config('markup', 'true') == 'true') {
+				if (serendipity_db_bool($this->get_config('markup', 'true'))) {
 					$entry = array('html_nugget' => $this->get_config('content'));
 					serendipity_plugin_api::hook_event('frontend_display', $entry);
-					$eventData[$i]['add_footer'] .= sprintf('</div>' . $entry['html_nugget'] . $this->get_config('content_plain') . '<div>');
+					$eventData[$i]['add_footer'] .= sprintf("\n</div>\n" . $entry['html_nugget'] . $this->get_config('content_plain') . "\n<div>\n");
 				} else {
-					$eventData[$i]['add_footer'] .= sprintf('</div>' . $this->get_config('content') . $this->get_config('content_plain') . '<div>');
+					$eventData[$i]['add_footer'] .= sprintf("\n</div>\n" . $this->get_config('content') . $this->get_config('content_plain') . "\n<div>\n");
 				}
 			}
         } else {
@@ -202,3 +211,5 @@ class serendipity_event_page_nugget extends serendipity_event
 		}
     }
 }
+
+?>

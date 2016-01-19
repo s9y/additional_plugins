@@ -1,4 +1,4 @@
-<?php #
+<?php
 
 /**
  *  @author Matthias Mees <mm@yellowled.de>
@@ -18,4 +18,7 @@
 @define('PLUGIN_PAGE_NUGGET_NOSHOW', ' (Wird nie auf Seite(n) angezeigt.)');
 @define('PLUGIN_PAGE_NUGGET_RSS', 'In RSS/Atom-Feeds');
 @define('PLUGIN_PAGE_NUGGET_CONTENT', 'Zusätzlich zu HTML-formatierten Inhalten kann hier jedes spezifische HTML-Markup angegeben werden. Es wird zusammen mit den oben angegebenen Inhalten ausgegeben. Man kann also entweder beide Inhaltsfelder oder nur eines von beiden ausfüllen. Dieses Inhaltsfeld ist besonders nützlich, wenn man einen WYSIWYG-Editor verwendet, da dieser bestimmte HTML-Elemente, die man vielleicht einfügen möchte, entfernen würde (wie z.B. das meta-Element).');
-?>
+
+@define('PLUGIN_PAGE_NUGGET_CLOSE_FOOTER_DIV', 'Schließe "div" bei Auswahl: "Am Ende des Seiteninhalts"?');
+@define('PLUGIN_PAGE_NUGGET_CLOSE_FOOTER_DIV_DESC', 'Schließt vorher eine eventuell vorhandene <div class="serendipity_entryFooter"> Klasse für bestimmte "ältere" Templates.');
+

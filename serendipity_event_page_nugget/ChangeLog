@@ -1,3 +1,8 @@
+1.13:
+-----
+Add lang <de>
+Add new option for case bottom, closing a div class with certain templates
+
 1.12:
 -----
 Add ability for "plaintext" markup

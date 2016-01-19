@@ -5484,13 +5484,14 @@ aplikovány další typografické úpravy.</description>
 <description>Umístí HTML blok na vršek nebo spodek stránky, případně do tagu HEAD v záhlaví stránky</description>
 <maintainers><maintainer><name>Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.12</version>
+  <version>1.13</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-07-03</date>
+  <date>2016-01-19</date>
   <filelist>
 <dir name="serendipity_event_page_nugget">
 <dir name="UTF-8">
 <file>lang_ko.inc.php</file>
+<file>lang_de.inc.php</file>
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
@@ -5505,11 +5506,13 @@ aplikovány další typografické úpravy.</description>
 <file>lang_cz.inc.php</file>
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
+<file>lang_de.inc.php</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_page_nugget/UTF-8/lang_ko.inc.php</file>
+    <file>serendipity_event_page_nugget/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_page_nugget/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_event_page_nugget/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_page_nugget/UTF-8/lang_cz.inc.php</file>
@@ -5523,6 +5526,7 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_page_nugget/lang_cz.inc.php</file>
     <file>serendipity_event_page_nugget/documentation_cs.html</file>
     <file>serendipity_event_page_nugget/documentation_cz.html</file>
+    <file>serendipity_event_page_nugget/lang_de.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>

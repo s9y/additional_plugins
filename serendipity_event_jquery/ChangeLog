@@ -1,8 +1,0 @@
-1.13:
-* Fetch jQuery without protocol
-
-1.12:
-* Fetch jquery via https
-
-1.10:
-* Add jquery to s9y backend

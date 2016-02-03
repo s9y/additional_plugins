@@ -916,7 +916,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_lightbox&lt;br /&gt;Lightbox for entry images&lt;/b&gt;&lt;br /&gt;Lightbox JS is a simple, unobtrusive script used to overlay images on the current page. It's a snap to setup and works with all modern browsers. All lightboxes pop-up images. This plugin searches through your entries, and replaces every image 'a href=&quot;XXX&quot;' link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. These lightbox scripts are all jQuery based. They do not only support image types, they may also add support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for image lightboxes only, but you can easily add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Tue, 01 Sep 2015 02:31:29 +0200</pubDate>
+<pubDate>Wed, 03 Feb 2016 22:31:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_lightbox</guid>
 </item>
 <item>
@@ -972,24 +972,6 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <content:encoded>&lt;b&gt;serendipity_event_findmore&lt;br /&gt;Zobrazuje odkazy jako Digg, Technorati, del.icio.us apod. vztažené k příspěvku.&lt;/b&gt;&lt;br /&gt;Můžete vložit/odstranit další webové služby pomocí souboru šablony &quot;plugin_findmore.tpl&quot;. Pamatujte, že pokud chcete ušetřit pár drahocených bodů za výkon blogu, můžete stejného efektu dosáhnout také vložením HTML/JavaScript snipletu do souboru šablony entries.tpl namísto používání tohoto pluginu!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Wed, 21 Aug 2013 02:30:41 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_findmore</guid>
-</item>
-<item>
-<title>Vložení fotogalerie Gallery2: : Vkládá do Serendipity fotky z aplikace Gallery2. Ta MUSÍ běžet na jádře Gallery 2.1 RC2 nebo novějším.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_g2embed</link>
-<category>Event Plugins</category>
-<author>Aaron Axelsen</author>
-<content:encoded>&lt;b&gt;serendipity_event_g2embed&lt;br /&gt;Vložení fotogalerie Gallery2: &lt;/b&gt;&lt;br /&gt;Vkládá do Serendipity fotky z aplikace Gallery2. Ta MUSÍ běžet na jádře Gallery 2.1 RC2 nebo novějším.&lt;br/&gt;For: Serendipity 0.9.1</content:encoded>
-<pubDate>Sun, 25 Dec 2011 04:06:46 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_g2embed</guid>
-</item>
-<item>
-<title>Automatické ukládání: Během psaní příspěvků je ukládá. Does not work with any WYSIWYG-EDITOR!</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_autosave</link>
-<category>Event Plugins</category>
-<author>Jay Bertrand</author>
-<content:encoded>&lt;b&gt;serendipity_event_autosave&lt;br /&gt;Automatické ukládání&lt;/b&gt;&lt;br /&gt;Během psaní příspěvků je ukládá. Does not work with any WYSIWYG-EDITOR!&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Wed, 30 Jul 2014 02:31:11 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_autosave</guid>
 </item>
 <item>
 <title>getID3() podpora pro získání vlastností média: Používá knihovnu getID3() k získání doplňujících informací o audio/video souborech. getID3() samotná není distribuována s tímto pluginem.</title>
@@ -1154,15 +1136,6 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <guid isPermaLink="false">serendipity_event_twitter</guid>
 </item>
 <item>
-<title>Tabule: Na výchozí stránce administrační sekce zobrazuje některé souhrnné informace</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_dashboard</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_dashboard&lt;br /&gt;Tabule&lt;/b&gt;&lt;br /&gt;Na výchozí stránce administrační sekce zobrazuje některé souhrnné informace&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:13 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_dashboard</guid>
-</item>
-<item>
 <title>SMTP Mail: Použití SMTP serveru pro odesílání pošty</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_smtpmail</link>
 <category>Event Plugins</category>
@@ -1170,15 +1143,6 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <content:encoded>&lt;b&gt;serendipity_event_smtpmail&lt;br /&gt;SMTP Mail&lt;/b&gt;&lt;br /&gt;Použití SMTP serveru pro odesílání pošty&lt;br/&gt;For: Serendipity 1.3</content:encoded>
 <pubDate>Sun, 25 Dec 2011 04:53:55 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_smtpmail</guid>
-</item>
-<item>
-<title>Implementace jQuery: Umožňuje ostatnám pluginům používat jQuery</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_jquery</link>
-<category>Event Plugins</category>
-<author>Malte Paskuda</author>
-<content:encoded>&lt;b&gt;serendipity_event_jquery&lt;br /&gt;Implementace jQuery&lt;/b&gt;&lt;br /&gt;Umožňuje ostatnám pluginům používat jQuery&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:42 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_jquery</guid>
 </item>
 <item>
 <title>Rozšířená tlačítka editoru: Youtube apod.: Přidává tlačítka do editačního formuláře pro lehčí vkládání HTML/JS akriptů jako např. Youtube apod.</title>

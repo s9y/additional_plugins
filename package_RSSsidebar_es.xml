@@ -18,15 +18,6 @@
 <guid isPermaLink="false">serendipity_plugin_staticpage</guid>
 </item>
 <item>
-<title>Clima: Muestra el Clima actual en un bloque lateral.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_weather</link>
-<category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_weather&lt;br /&gt;Clima&lt;/b&gt;&lt;br /&gt;Muestra el Clima actual en un bloque lateral.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:47 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_weather</guid>
-</item>
-<item>
 <title>Authors login: Show a login form for authors</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_loginform</link>
 <category>Sidebar Plugins</category>

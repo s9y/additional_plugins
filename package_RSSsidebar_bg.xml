@@ -18,15 +18,6 @@
 <guid isPermaLink="false">serendipity_plugin_staticpage</guid>
 </item>
 <item>
-<title>Времето: Показва състоянието на времето като странична приставка.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_weather</link>
-<category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_weather&lt;br /&gt;Времето&lt;/b&gt;&lt;br /&gt;Показва състоянието на времето като странична приставка.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:47 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_weather</guid>
-</item>
-<item>
 <title>Вход за автори: Показва форма за вход на автори</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_loginform</link>
 <category>Sidebar Plugins</category>

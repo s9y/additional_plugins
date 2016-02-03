@@ -18,15 +18,6 @@
 <guid isPermaLink="false">serendipity_plugin_staticpage</guid>
 </item>
 <item>
-<title>Wetter: Zeigt das aktuelle Wetter in der Seitenleiste.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_weather</link>
-<category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_weather&lt;br /&gt;Wetter&lt;/b&gt;&lt;br /&gt;Zeigt das aktuelle Wetter in der Seitenleiste.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:47 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_weather</guid>
-</item>
-<item>
 <title>Autoren-Login: Zeigt ein Login-Formular für Autoren</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_loginform</link>
 <category>Sidebar Plugins</category>

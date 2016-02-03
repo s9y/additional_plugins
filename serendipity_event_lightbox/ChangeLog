@@ -1,3 +1,8 @@
+2.1.1:
+    * lightbox2-jquery update v.2.8.2
+    * magnific-popup update v.1.0.1
+
+------------------------------------------------------------------------
 2.1.0:
     * check for an active dependency plugin imagesidebar to include libs
     * lightbox2-jquery update v.2.8.1
@@ -74,7 +79,7 @@ Version 1.7 (Barberousse):
 ------------------------------------------------------------------------
 Version 1.6 (brockhaus):
 
-    * Upgraded ThickBox 2.1 to 3.1 as the older version produced 
+    * Upgraded ThickBox 2.1 to 3.1 as the older version produced
       problems with in example a flicker js widget.
 
 ------------------------------------------------------------------------
@@ -92,10 +97,8 @@ Version 1.4 (brockhaus):
 ------------------------------------------------------------------------
 Version 1.3 (brockhaus):
 
-    * Performance optimization: JS for Lightbox is only added to the 
+    * Performance optimization: JS for Lightbox is only added to the
       blogpage, if needed.
 
 ------------------------------------------------------------------------
 Version 1.2: earlier versions..
-
-

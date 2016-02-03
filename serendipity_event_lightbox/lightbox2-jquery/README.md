@@ -11,22 +11,41 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 
 ## Roadmap
 
-- **Maintenance.** Get open Issues and PRs number down.
-- **Mobile experience.** Redo animations and interactions from scratch and include gesture support.
+### Actively being worked on
 
-### v3.0 - IN PLANNING PHASE
+- **Maintenance.** Get open Issues and PRs number down.
+
+### Not on the roadmap
+
+- **HTML or video content.** The goal of the script from the start has been to provide a better image viewing experience and I am planning on staying focused on that vision. Don't worry though there are plenty of alternative scripts a google away for those who need HTML or video content support.
+
+### v3.0 - In Brainstorming Phase
 
 - Add touch gesture support.
+- Rewrite animations for performance and flexibility.
 - Optimize layout for mobile.
 - Optimize layout for screens of varying densities.
 - Use inline SVG for UI elements.
 - Do not initialize automatically and allow multiple instances.
 - Add event handlers.
+- Allow the setting of options from HTML.
+- Allow instantiation with jQuery plugin syntax.
+- If one of the two options, maxWidth or maxHeight, is set, maintain aspect ratio.
 - Evaluate start, end, and transition animations.
 - Evaluate preloading and caching.
 - Evaluate droppping jQuery requirement.
+- If user attempts to go forward when at end of image set, animation (shake?) indicating the end or option to close Lightbox.
+
 
 ## Changelog
+
+### v2.8.2 - 2015-12-13
+
+- [Add] npm support. ```npm install --save lightbox2```
+- [Add] Add option to disable vertical scrolling [#487](https://github.com/lokesh/lightbox2/pull/487) Thanks [blacksunshineCoding](https://github.com/blacksunshineCoding)
+- [Fix] When horizontal scrolling is on page the overlay is not covering entire page [#485](https://github.com/lokesh/lightbox2/pull/485) Thanks [@manuel-io](https://github.com/manuel-io)
+- [Change] Add css minify task to Gruntfile.js and removedlegacy css vendor prefixes for border-radius. [#470](https://github.com/lokesh/lightbox2/pull/470) Thanks [ajerez](https://github.com/ajerez)
+
 
 ### v2.8.1 - 2015-07-09
 
@@ -35,6 +54,7 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 ### v2.8.0 - 2015-06-29
 
 - [Add] UMD support (AMD, CommonJS, fallback to global export).[#461](https://github.com/lokesh/lightbox2/pull/461)
+- [Add] option method for setting options. [#461](https://github.com/lokesh/lightbox2/commit/d708fbd716aaa90e01ba4198944c8955e7283d87)
 - [Add] CONTRIBUTING.md
 
 ### v2.7.4 - 2015-06-23

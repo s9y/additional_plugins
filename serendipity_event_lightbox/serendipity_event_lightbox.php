@@ -123,6 +123,8 @@ class serendipity_event_lightbox extends serendipity_event
                 $propbag->add('default',        'true');
                 break;
 
+            default:
+                return false;
         }
         return true;
     }
@@ -181,6 +183,7 @@ class serendipity_event_lightbox extends serendipity_event
             }
 
             switch($event) {
+
                 case 'frontend_header':
                     $headcss = true;
                 case 'frontend_footer':
@@ -308,10 +311,11 @@ class serendipity_event_lightbox extends serendipity_event
                     }
                     break;
 
-              default:
-                return false;
-            }
+                default:
+                    return false;
 
+            }
+            return true;
         } else {
             return false;
         }

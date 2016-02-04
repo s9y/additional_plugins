@@ -4,25 +4,22 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+// Load possible language files.
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 // Subst Plugin for Serendipity
 // 01/2006 by Thomas Nesges <thomas@tnt-computer.de>
 // 12/2006  Andy Hopkins Added Greybox functionality. <andy.hopkins@gmail.com>
-class serendipity_event_lightbox extends serendipity_event {
+class serendipity_event_lightbox extends serendipity_event
+{
 
     var $title = PLUGIN_EVENT_LIGHTBOX_NAME;
 
     // Remembers, if an image link was found in the article. If not found, nor CSS nor JS will be added to the blog header.
     var $foundImageLink = false;
 
-    function introspect(&$propbag) {
+    function introspect(&$propbag)
+    {
         global $serendipity;
 
         $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_NAME);
@@ -33,7 +30,7 @@ class serendipity_event_lightbox extends serendipity_event {
             'serendipity' => '1.6',
             'php'         => '5.3.0'
         ));
-        $propbag->add('event_hooks',     array('frontend_display' => true, 'frontend_header' => true, 'frontend_footer' => true ));
+        $propbag->add('event_hooks',     array('frontend_display' => true, 'css' => true, 'frontend_header' => true, 'frontend_footer' => true ));
         $propbag->add('stackable',       false);
         $propbag->add('groups',          array('IMAGES'));
         $propbag->add('cachable_events', array('frontend_display' => true));
@@ -71,12 +68,14 @@ class serendipity_event_lightbox extends serendipity_event {
     }
 
 
-    function generate_content(&$title) {
+    function generate_content(&$title)
+    {
         $title = PLUGIN_EVENT_LIGHTBOX_NAME;
     }
 
 
-    function introspect_config_item($name, &$propbag) {
+    function introspect_config_item($name, &$propbag)
+    {
         global $serendipity;
 
         switch($name) {
@@ -128,7 +127,8 @@ class serendipity_event_lightbox extends serendipity_event {
         return true;
     }
 
-    function event_hook($event, &$bag, &$eventData, $addData = null) {
+    function event_hook($event, &$bag, &$eventData, $addData = null)
+    {
         global $serendipity;
         static $regex     = null;
         static $sub       = null;
@@ -189,16 +189,13 @@ class serendipity_event_lightbox extends serendipity_event {
                     $cisb = $check_imagesidebar['placement'] != 'hide' ? $check_imagesidebar : null;
 
                     // If no imagelink was processed, don't add css or js files to the header! (configurable optimization)
-                    if (serendipity_db_bool($this->get_config('header_optimization', false)) && !$this->foundImageLink && empty($cisb)) {
+                    if (serendipity_db_bool($this->get_config('header_optimization', 'false')) && !$this->foundImageLink && empty($cisb)) {
                         return true;
                     }
                     echo "\n";
                     // ColorBox code (https://github.com/jackmoore/colorbox) - init with :visible to ensure to not show hidden elements via hideafter function in imageselectorplus ranges
                     if ($type == 'colorbox') {
                         if ($headcss) {
-                            if (version_compare($serendipity['version'], '2.0.99', '<')) {
-                                echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/fixchrome.css" />' . "\n";
-                            }
                             echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/colorbox/colorboxScreens.css" />' . "\n";
                             echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/colorbox/colorbox.css" />' . "\n";
                         } else {
@@ -225,9 +222,6 @@ class serendipity_event_lightbox extends serendipity_event {
                     // Magnific-Popup code (https://github.com/dimsemenov/Magnific-Popup) - init with :visible to ensure to not show hidden elements via hideafter function in imageselectorplus ranges
                     elseif ($type == 'magnific') {
                         if ($headcss) {
-                            if (version_compare($serendipity['version'], '2.0.99', '<')) {
-                                echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/fixchrome.css" />' . "\n";
-                            }
                             echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/magnific-popup/magnific-popup.css" />' . "\n";
                         } else {
                             if (!class_exists('serendipity_event_jquery') && !$serendipity['capabilities']['jquery']) {
@@ -240,9 +234,6 @@ class serendipity_event_lightbox extends serendipity_event {
                     // PrettyPhoto code - http://www.no-margin-for-errors.com/projects/prettyPhoto/ - init with :visible to ensure to not show hidden elements via hideafter function in imageselectorplus ranges
                     elseif ($type == 'prettyPhoto') {
                         if ($headcss) {
-                            if (version_compare($serendipity['version'], '2.0.99', '<')) {
-                                echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/fixchrome.css" />' . "\n";
-                            }
                             echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/prettyphoto/css/prettyPhoto.css" />' . "\n";
                             echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/prettyphoto/css/prettyPhotoScreens.css" />' . "\n";
                         } else {
@@ -255,11 +246,25 @@ class serendipity_event_lightbox extends serendipity_event {
                             echo '    <script type="text/javascript">jQuery(document).ready(function(){ jQuery(\'a:visible[rel^="prettyPhoto"]\').prettyPhoto(' . $this->get_config('init_js') . '); }); </script>' . "\n";
                         }
                     }
-                    return true;
+                    break;
+
+                case 'css':
+                    // prepend css in this case only! since the scripts rely on this... I think ... (that is why it was added with fixchrome.css before!)
+                    echo '
+
+/* serendipity_event_lightbox start */
+
+/* Fix for Safari and Chrome */
+.serendipity_image_link {
+    display: block;
+}
+
+/* serendipity_event_lightbox end */
+
+';
                     break;
 
                 case 'frontend_display':
-
                     if ($type == 'lightbox2jq') {
                         if ($navigate == 'entry') {
                             $sub   = '<a $1 rel=$3lightbox[' . $eventData['id'] . ']$3 $2';
@@ -287,7 +292,7 @@ class serendipity_event_lightbox extends serendipity_event {
                     }
 
                     foreach ($this->markup_elements as $temp) {
-                        if (isset($eventData[$temp['element']]) && serendipity_db_bool($this->get_config($temp['name'], true)) &&
+                        if (isset($eventData[$temp['element']]) && serendipity_db_bool($this->get_config($temp['name'], 'true')) &&
                                 !$eventData['properties']['ep_disable_markup_' . $this->instance] &&
                                 !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
                             $element = $temp['element'];
@@ -301,8 +306,6 @@ class serendipity_event_lightbox extends serendipity_event {
                             }
                         }
                     }
-
-                    return true;
                     break;
 
               default:
@@ -314,16 +317,19 @@ class serendipity_event_lightbox extends serendipity_event {
         }
     }
 
-    function install() {
+    function install()
+    {
         serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
     }
 
-    function uninstall(&$propbag) {
+    function uninstall(&$propbag)
+    {
         serendipity_plugin_api::hook_event('backend_cache_purge', $this->title);
         serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
     }
 
-    function example() {
+    function example()
+    {
         // remove old lightbox script directory
         if (is_file(dirname(__FILE__) . '/lightbox/lightbox.js')) {
             $this->empty_dir(dirname(__FILE__) . '/lightbox');
@@ -362,7 +368,8 @@ class serendipity_event_lightbox extends serendipity_event {
      * @access    private
      * @param   string directory
      */
-    private function empty_dir($dir) {
+    private function empty_dir($dir)
+    {
         if (!is_dir($dir)) return;
         try {
             $_dir = new RecursiveDirectoryIterator($dir);
@@ -383,3 +390,5 @@ class serendipity_event_lightbox extends serendipity_event {
     }
 
 }
+
+?>

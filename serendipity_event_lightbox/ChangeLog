@@ -1,3 +1,9 @@
+2.3.0:
+    * add a more robust bugfix for WebKit browsers
+    * only emit fixchrome.css in s9y < 2.1; starting with 2.1, the
+      required styles will be part of style_fallback.css
+
+------------------------------------------------------------------------
 2.2.0:
     * lightbox2-jquery update v.2.8.2
     * magnific-popup update v.1.0.1

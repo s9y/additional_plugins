@@ -191,7 +191,7 @@ class serendipity_event_lightbox extends serendipity_event
                     $check_imagesidebar = serendipity_plugin_api::enum_plugins('*', false, 'serendipity_plugin_imagesidebar');
                     $cisb = (is_array($check_imagesidebar) && $check_imagesidebar[0]['placement'] != 'hide') ? $check_imagesidebar : null;
 
-                    // If no imagelink was processed, don't add css or js files to the header! (configurable optimization)
+                    // If no imagelink was processed, don't add css or js files to the header or footer! (configurable plugin option)
                     if (true === (serendipity_db_bool($this->get_config('header_optimization', 'false')) && $this->foundImageLink === false && empty($cisb))) {
                         break;
                     }

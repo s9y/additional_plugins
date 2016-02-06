@@ -25,7 +25,7 @@ class serendipity_event_lightbox extends serendipity_event
         $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_NAME);
         $propbag->add('description',    PLUGIN_EVENT_LIGHTBOX_DESC);
         $propbag->add('author',         'Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian');
-        $propbag->add('version',        '2.3.0');
+        $propbag->add('version',        '2.4.0');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'php'         => '5.3.0'
@@ -189,11 +189,11 @@ class serendipity_event_lightbox extends serendipity_event
                 case 'frontend_footer':
                     // case plugin imagesidebar on eg staticpages. We need the libs then!
                     $check_imagesidebar = serendipity_plugin_api::enum_plugins('*', false, 'serendipity_plugin_imagesidebar');
-                    $cisb = $check_imagesidebar['placement'] != 'hide' ? $check_imagesidebar : null;
+                    $cisb = (is_array($check_imagesidebar) && $check_imagesidebar[0]['placement'] != 'hide') ? $check_imagesidebar : null;
 
                     // If no imagelink was processed, don't add css or js files to the header! (configurable optimization)
-                    if (serendipity_db_bool($this->get_config('header_optimization', 'false')) && !$this->foundImageLink && empty($cisb)) {
-                        return true;
+                    if (true === (serendipity_db_bool($this->get_config('header_optimization', 'false')) && $this->foundImageLink === false && empty($cisb))) {
+                        break;
                     }
                     echo "\n";
                     // ColorBox code (https://github.com/jackmoore/colorbox) - init with :visible to ensure to not show hidden elements via hideafter function in imageselectorplus ranges

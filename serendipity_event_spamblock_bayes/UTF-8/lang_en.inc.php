@@ -1,26 +1,26 @@
 <?php
 
 /**
- *  @version 
+ *  @version
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */
 
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME',     'Spamblock (Bayes)');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC',     'Detects Spam via an algorithmus which learns.');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_HAM',      'Valid');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAM',     'Spam');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_AUTOLEARN',     'Learn');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_AUTOLEARN_DESC',     'Comments strongly regarded as spam are learnt again as spam. That way, slight modifications are caught automatically.');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGFILE',     'Logfile location');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGFILE_DESC',     'Information about rejected/moderated posts can be written to a logfile. Set this to an empty string if you want to disable logging.');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGTYPE',     'Choose logging method');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGTYPE_DESC',     'Logging of rejected comments can be done in Database or to a plaintext file.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME', 'Spamblock (Bayes)');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC', 'Detects Spam via an algorithmus which learns.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_HAM',  'Valid');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAM', 'Spam');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_AUTOLEARN', 'Learn');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_AUTOLEARN_DESC', 'Comments strongly regarded as spam are learnt again as spam. That way, slight modifications are caught automatically.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGFILE', 'Logfile location');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGFILE_DESC', 'Information about rejected/moderated posts can be written to a logfile. Set this to an empty string if you want to disable logging.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGTYPE', 'Choose logging method');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGTYPE_DESC', 'Logging of rejected comments can be done in Database or to a plaintext file.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGTYPE_FILE', 'File (see "logfile" option below)');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGTYPE_DB', 'Database');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGTYPE_NONE', 'No Logging');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_REASON', 'Caught by the Bayes-Plugin');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_ERROR', 'Rejected as spam.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_ERROR', 'Classified as spam, may be moderated.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_MODERATE', 'Regarded as spam, will be moderated.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RATING_EXPLANATION', 'Spamrating of the Spamblock-Bayes-Plugin.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_DELETE', 'Delete comment and mark as spam');

@@ -1,28 +1,28 @@
 <?php
 
 /**
- *  @version 
+ *  @version
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */
 
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME',     'Spamschutz (Bayes)');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC',     'Filtert Kommentare mittels eines lernenden Algorithmus.');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_HAM',      'Valid');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAM',     'Spam');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_DIRECTBLOCK',     'Direktes Abweisen');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_DIRECTBLOCK_DESC',     'Weist Spam-Kommentare direkt ab anstatt sie erst zu moderieren.');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_AUTOLEARN',     'Lernen');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_AUTOLEARN_DESC',     'Sehr eindeutige Spam-Kommentare werden direkt als Spam gelernt. So können schleichend stattfindende Modifikationen am Spam automatisch erfasst werden.');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGFILE',     'Speicherplatz für das Logfile');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGFILE_DESC',     'Einige Informationen über die Abweisung/Moderation von Kommentaren kann in ein Logfile geschrieben werden. Wenn diese Option auf einen leeren Wert gesetzt wird, findet keine Protokollierung statt.');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGTYPE',     'Protokollierung von fehlgeschlagenen Kommentaren');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGTYPE_DESC',     'Die Protokollierung von fehlgeschlagenen Kommentaren und deren Gründen kann auf mehrere Arten durchgeführt werden.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME', 'Spamschutz (Bayes)');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC', 'Filtert Kommentare mittels eines lernenden Algorithmus.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_HAM',  'Valid');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAM', 'Spam');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_DIRECTBLOCK', 'Direktes Abweisen');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_DIRECTBLOCK_DESC', 'Weist Spam-Kommentare direkt ab anstatt sie erst zu moderieren.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_AUTOLEARN', 'Lernen');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_AUTOLEARN_DESC', 'Sehr eindeutige Spam-Kommentare werden direkt als Spam gelernt. So können schleichend stattfindende Modifikationen am Spam automatisch erfasst werden.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGFILE', 'Speicherplatz für das Logfile');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGFILE_DESC', 'Einige Informationen über die Abweisung/Moderation von Kommentaren kann in ein Logfile geschrieben werden. Wenn diese Option auf einen leeren Wert gesetzt wird, findet keine Protokollierung statt.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGTYPE', 'Protokollierung von fehlgeschlagenen Kommentaren');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGTYPE_DESC', 'Die Protokollierung von fehlgeschlagenen Kommentaren und deren Gründen kann auf mehrere Arten durchgeführt werden.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGTYPE_FILE', 'Einfache Datei (siehe Option "Logfile")');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGTYPE_DB', 'Datenbank');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGTYPE_NONE', 'Keine Protokollierung');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_REASON', 'Vom Bayes-Plugin als Spam erkannt');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_ERROR', 'Abgewiesen als Spam.');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_ERROR', 'Als Spam eingestuft, wird vielleicht moderiert.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_MODERATE', 'Als Spam erkannt, wird moderiert.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RATING_EXPLANATION', 'Spamfaktor des Spamblock-Bayes-Plugins.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_DELETE', 'Kommentar löschen und als Spam markieren');

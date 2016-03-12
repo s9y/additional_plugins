@@ -1,4 +1,6 @@
 
+/* CKE plugin backend styles start */
+
 .icon-ok:before{content:'\2714'}
 .icon-error:before{content:'\26a0';}
 .icon-attention:before{content:'\2757';}
@@ -40,3 +42,5 @@
     height: 0px;
     width: 0px;
 }
+
+/* CKE plugin backend styles end */

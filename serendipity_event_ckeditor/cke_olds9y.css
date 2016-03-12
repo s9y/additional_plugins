@@ -1,4 +1,6 @@
 
+/* CKE plugin backend old styles start */
+
 .msg_error,
 .msg_success,
 .msg_notice,
@@ -31,3 +33,5 @@
     border: 1px solid #aaa;
     color: #777;
 }
+
+/* CKE plugin backend old styles end */

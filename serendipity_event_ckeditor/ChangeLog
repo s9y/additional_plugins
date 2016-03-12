@@ -1,3 +1,13 @@
+
+5.7.0:
+-----
+    * Allow the font awesome i(con) tag markup which also needed a little more
+      care in procurator (plugin) to prevent kursive replacements.
+    * Some minor internal cleanup and modernising.
+    * The Plugin versioning will change to 4.5.7.0 to follow ckeditor versioning
+      with next update!!
+    * Upgrade to CKEDITOR 4.5. Series, update 7 (http://ckeditor.com/whatsnew).
+
 5.6.1:
 -----
     * Allow the Serendipity 2.0+ autosave(r) to work with this plugin textarea instances,

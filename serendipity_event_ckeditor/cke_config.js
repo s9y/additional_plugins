@@ -3,7 +3,7 @@
  */
 
 /**
- * @fileOverview A Serendipity serendipity_event_ckeditor CKEDITOR custom config file: cke_config.js, v. 2.4, 2015-08-14
+ * @fileOverview A Serendipity serendipity_event_ckeditor CKEDITOR custom config file: cke_config.js, v. 2.5, 2016-01-01
  */
 
 /**
@@ -42,8 +42,11 @@ CKEDITOR.editorConfig = function( config ) {
     */
     if (CKECONFIG_ACF_OFF === true) {
         config.allowedContent = CKECONFIG_ACF_OFF;
+        // <i (awesome icon tags) need a special care for emptyness!
+        CKEDITOR.dtd.$removeEmpty['i'] = false; // dtd seems to have NO effect and is not in need, when using config.allowedContent, config.protectedSource.push and config.extraAllowedContent !
     } else { // this is ACF ON by default
 
+        //CKEDITOR.dtd.$removeEmpty['i'] = false; // special case, since <i> is internally as well recognized as italic and parsed to <em> tag if not excluded in procurator !
         /** List of regular expressions to be executed on ***input HTML***, indicating HTML source code, that, when matched, must not be available in the WYSIWYG mode for editing. */
 
         // allow <script> tags
@@ -54,6 +57,8 @@ CKEDITOR.editorConfig = function( config ) {
         //config.protectedSource.push( /\{[a-zA-Z\$].*?\}/gi ); // Smarty markup protection disabled, since now being usable w/o setting ACF OFF
         // allow WP like [[mytag]] [[{$mytag}]] widget tags with >= 4.4.1 for an imaginable markup replacements S9y plugin
         //config.protectedSource.push(/\[\[([^\[\]])+\]\]/g); // WP-Smarty like markup protection disabled, since now being usable w/o setting ACF OFF
+        // allow font awesome <i></i> tags to be protected against ACF by switching mode !
+        config.protectedSource.push( /<i[^>]*><\/i>/g );
 
         /**
          CKEDITOR.protectedSource patterns used regex Escape sequences
@@ -76,7 +81,8 @@ CKEDITOR.editorConfig = function( config ) {
               - Allow <pre[*attributes](*classes)> for custom attributes/classes in codesnippet code blocks
         */
         // protect tags
-        config.extraAllowedContent = 'mediainsert[*]{*}(*);gallery[*]{*}(*);media[*]{*}(*);script[*]{*}(*);audio[*]{*}(*);video[*];source[*];div[*]{*}(*);span[*]{*}(*);img[height,width];pre[*](*);';
+        config.extraAllowedContent = 'mediainsert[*]{*}(*);gallery[*]{*}(*);media[*]{*}(*);script[*]{*}(*);audio[*]{*}(*);video[*];source[*];div[*]{*}(*);span[*]{*}(*);img[height,width];pre[*](*);i(*);';
+
         // do not use auto paragraphs added to these allowed tags.
         config.autoParagraph = false;
     }

@@ -1,4 +1,8 @@
 
+5.7.1:
+-----
+    * Bugfix: Next try to downgrade version in the database
+
 5.7.0:
 -----
     * Allow the font awesome i(con) tag markup which also needed a little more

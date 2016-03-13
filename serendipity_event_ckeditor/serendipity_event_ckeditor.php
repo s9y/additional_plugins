@@ -49,14 +49,14 @@ class serendipity_event_ckeditor extends serendipity_event
      * @access protected
      * @var string
      */
-    protected $cke_zipfile = 'ckeditor_4.5.7.0-plus.zip';
+    protected $cke_zipfile = 'ckeditor_4.5.7.1-plus.zip';
 
     /**
      * Access property checkUpdateVersion
      * Verify release package versions - do update on upgrades!
      * @var array
      */
-    protected $checkUpdateVersion = array('ckeditor:4.5.7.0');
+    protected $checkUpdateVersion = array('ckeditor:4.5.7.1');
 
     /**
      * Access property revisionPackage
@@ -74,7 +74,8 @@ class serendipity_event_ckeditor extends serendipity_event
                                        'Prettify: JS & CSS files, v. "current", (http://code.google.com/p/google-code-prettify/, 2013-03-04)');
 
 
-    function install() {
+    function install()
+    {
         global $serendipity;
 
         if (!$serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN) {
@@ -164,8 +165,9 @@ class serendipity_event_ckeditor extends serendipity_event
         return true;
     }
 
-    function uninstall(&$propbag) {
-        // todo? uninstall old instances which may be in there, caused by a duplicating bug using installer fallback without right instance in 2.3.2 for one day online
+    function uninstall(&$propbag)
+    {
+        // todo? uninstall old instances which may be in there, caused by a duplicating bug using installer fallback without right instance, in 2.3.2 (was for one day online only)
     }
 
     function introspect(&$propbag)
@@ -176,7 +178,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '5.7.0'); // is CKEDITOR Series 4 (hidden) - revision .5.6 - and appended plugin revision .1 // this will change to 4.5.7.0 to follow ckeditor versioning with next update!!
+        $propbag->add('version',       '5.7.1'); // is CKEDITOR Series 4. (hidden) - revision 5.7 - and appended plugin revision .1 // this will change to 4.5.7.1 to follow ckeditor versioning with next update!!
         $propbag->add('copyright',     'GPL or LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
@@ -284,11 +286,13 @@ class serendipity_event_ckeditor extends serendipity_event
         return true;
     }
 
-    function generate_content(&$title) {
+    function generate_content(&$title)
+    {
         $title = $this->title;
     }
 
-    function example() {
+    function example()
+    {
         $s = '';
         if (serendipity_db_bool($this->get_config('force_install'))) {
             $this->forceZipInstall = true;
@@ -338,11 +342,31 @@ class serendipity_event_ckeditor extends serendipity_event
     }
 
     /**
+     * Downgrade of version to keep plugin version track with CKE versioning for upcoming next major upgrades!
+     * This method is temporary only!
+     * @see updateTableZip()
+     * @see checkUpdate()
+     */
+    private function temporaryDowngrade($newVersion, $oldVersion)
+    {
+        global $serendipity;
+
+        serendipity_db_query("UPDATE {$serendipity['dbPrefix']}pluginlist
+                                 SET version = '4." . serendipity_db_escape_string($oldVersion) . "'
+                               WHERE plugin_class    = '" . serendipity_db_escape_string('serendipity_event_ckeditor') . "'");
+        serendipity_db_query("UPDATE {$serendipity['dbPrefix']}pluginlist
+                                 SET upgrade_version = '4." . serendipity_db_escape_string($newVersion) . "'
+                               WHERE plugin_class    = '" . serendipity_db_escape_string('serendipity_event_ckeditor') . "'");
+        return $GLOBALS['temporaryCKEDowngrade'] = true;
+    }
+
+    /**
      * Set config database table to keep track to zip updates
      * @access    private
      */
-    private function updateTableZip() {
-        if ($this->get_config('version') == '5.7.0') $this->set_config('version', '4.5.7.0'); // temporary downgrade of version to keep track with CKE versioning for next major upgrade!
+    private function updateTableZip()
+    {
+        if (!$GLOBALS['temporaryCKEDowngrade']) $this->temporaryDowngrade('5.7.1', '5.7.0'); // temporary
         foreach(array_values($this->checkUpdateVersion) AS $package) {
             $match = explode(':', $package);
             $this->set_config('last_'.$match[0].'_version', $match[1]);
@@ -354,8 +378,9 @@ class serendipity_event_ckeditor extends serendipity_event
      * @access    private
      * @return    boolean
      */
-    private function checkUpdate() {
-        if ($this->get_config('version') == '5.7.0') $this->set_config('version', '4.5.7.0'); // temporary downgrade of version to keep track with CKE versioning for next major upgrade!
+    private function checkUpdate()
+    {
+        if (!$GLOBALS['temporaryCKEDowngrade']) $this->temporaryDowngrade('5.7.1', '5.7.0'); // temporary
         $doupdate = false;
         foreach(array_values($this->checkUpdateVersion) AS $package) {
             $match = explode(':', $package);
@@ -376,7 +401,8 @@ class serendipity_event_ckeditor extends serendipity_event
      * @access    private
      * @param   string directory
      */
-    private function empty_dir($dir) {
+    private function empty_dir($dir)
+    {
         if (!is_dir($dir)) return;
         try {
             $_dir = new RecursiveDirectoryIterator($dir);
@@ -447,7 +473,6 @@ if ($headcss) {
                     }
                     break;
 
-
                 case 'backend_header':
                     if (isset($serendipity['wysiwyg']) && $serendipity['wysiwyg'] && isset($eventData) && !isset($_GET['serendipity']['iframe_mode'])) {
                         $relpath = function_exists('serendipity_specialchars') ? serendipity_specialchars($this->get_config('path')) : htmlspecialchars($this->get_config('path'), ENT_COMPAT, LANG_CHARSET);
@@ -501,7 +526,6 @@ if ($headcss) {
                         }
                     }
                     break;
-
 
                 case 'css':
                     if (serendipity_db_bool($this->get_config('codebutton', false))) {
@@ -569,7 +593,6 @@ ol.linenums li {
                     }
                     break;
 
-
                 case 'css_backend':
 
                     // do not use in 2.0 versions
@@ -581,18 +604,15 @@ ol.linenums li {
                     }
                     break;
 
-
                 case 'external_plugin':
-                    switch($eventData) {
-                        case 'triggerckeinstall':
-                            if ($this->install()) {
-                                header('Location: ' . $serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=plugins&serendipity[plugin_to_conf]='.urlencode($this->instance));
-                            } else {
-                                header('Location: ' . $serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=plugins&serendipity[adminAction]=addnew&serendipity[only_group]=UPGRADE&serendipity[type]=event');
-                            }
+                    if ($eventData == 'triggerckeinstall') {
+                        if ($this->install()) {
+                            header('Location: ' . $serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=plugins&serendipity[plugin_to_conf]='.urlencode($this->instance));
+                        } else {
+                            header('Location: ' . $serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=plugins&serendipity[adminAction]=addnew&serendipity[only_group]=UPGRADE&serendipity[type]=event');
+                        }
                     }
                     break;
-
 
                 case 'backend_plugins_update':
                     // Make sure a Spartacus update really falls down to plugins config, for the need to deflate the zip, if necessary.
@@ -601,12 +621,10 @@ ol.linenums li {
                     header('Location: ' . $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/triggerckeinstall');
                     break;
 
-
                 case 'backend_media_path_exclude_directories':
                     $eventData[".thumbs"] = true;
 
                     break;
-
 
                 case 'backend_wysiwyg':
                     $eventData['skip'] = true; // this skips htmlarea drop-in
@@ -634,7 +652,6 @@ ol.linenums li {
                         }
                     }
                     break;
-
 
                 case 'backend_wysiwyg_finish':
                     // Run once only, save ressources

@@ -351,13 +351,19 @@ class serendipity_event_ckeditor extends serendipity_event
     {
         global $serendipity;
 
+        $row = serendipity_db_query("SELECT version FROM {$serendipity['dbPrefix']}pluginlist
+                                      WHERE plugin_class    = '" . serendipity_db_escape_string('serendipity_event_ckeditor') . "'
+                                      LIMIT 1", true, 'assoc');
+
+        if ($row['version'] == '4.5.7.1') return false;
+
         serendipity_db_query("UPDATE {$serendipity['dbPrefix']}pluginlist
                                  SET version = '4." . serendipity_db_escape_string($oldVersion) . "'
                                WHERE plugin_class    = '" . serendipity_db_escape_string('serendipity_event_ckeditor') . "'");
         serendipity_db_query("UPDATE {$serendipity['dbPrefix']}pluginlist
                                  SET upgrade_version = '4." . serendipity_db_escape_string($newVersion) . "'
                                WHERE plugin_class    = '" . serendipity_db_escape_string('serendipity_event_ckeditor') . "'");
-        return $GLOBALS['temporaryCKEDowngrade'] = true;
+
     }
 
     /**
@@ -366,7 +372,7 @@ class serendipity_event_ckeditor extends serendipity_event
      */
     private function updateTableZip()
     {
-        if (!$GLOBALS['temporaryCKEDowngrade']) $this->temporaryDowngrade('5.7.1', '5.7.0'); // temporary
+        $this->temporaryDowngrade('5.7.1', '5.7.0'); // temporary
         foreach(array_values($this->checkUpdateVersion) AS $package) {
             $match = explode(':', $package);
             $this->set_config('last_'.$match[0].'_version', $match[1]);
@@ -380,7 +386,7 @@ class serendipity_event_ckeditor extends serendipity_event
      */
     private function checkUpdate()
     {
-        if (!$GLOBALS['temporaryCKEDowngrade']) $this->temporaryDowngrade('5.7.1', '5.7.0'); // temporary
+        $this->temporaryDowngrade('5.7.1', '5.7.0'); // temporary
         $doupdate = false;
         foreach(array_values($this->checkUpdateVersion) AS $package) {
             $match = explode(':', $package);

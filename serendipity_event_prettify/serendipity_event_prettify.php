@@ -97,20 +97,12 @@ class serendipity_event_prettify extends serendipity_event
     }
 
     function example() {
-        $s = '<p>Use this plugin in one of two ways by setting the
-              Generic/Language-Specific flags.
-              <p>Setting the flag to Prettify content generically
-              will inject the class name "prettify" into all PRE or CODE tags.
-              This, in turn, will cause all PRE or CODE content to be generically
-              brushed.  Fast and Easy.
-              <p>Setting the flag to Language-Specific will prevent the
-              plugin from assigning and/or changing the class name of all
-              content of the specified type.  Therefore, content in PRE and/or CODE
-              blocks must be assigned a class by the blog author.
-              <p>Supported classes include:
-              <table><tr><td colspan=3>
+        $s = '<p>Use this plugin in one of two ways by setting the Generic/Language-Specific flags.</p>
+              <p>Setting the flag to Prettify content generically will inject the class name "prettify" into all PRE or CODE tags. This, in turn, will cause all PRE or CODE content to be generically brushed. Fast and Easy.</p>
+              <p>Setting the flag to Language-Specific will prevent the plugin from assigning and/or changing the class name of all content of the specified type. Therefore, content in PRE and/or CODE blocks must be assigned a class by the blog author.</p>
+              <p>Supported classes include:</p>
+              <ul>
               <li>prettyprint (must be included - used alone, this provides generic brushing)</li>
-              </td></tr><tr><td>
               <li>lang-bsh</li>
               <li>lang-c</li>
               <li>lang-cc</li>
@@ -119,7 +111,6 @@ class serendipity_event_prettify extends serendipity_event
               <li>lang-csh</li>
               <li>lang-cyc</li>
               <li>lang-cv</li>
-              </td><td>
               <li>lang-htm</li>
               <li>lang-html</li>
               <li>lang-java</li>
@@ -128,7 +119,6 @@ class serendipity_event_prettify extends serendipity_event
               <li>lang-msml</li>
               <li>lang-perl</li>
               <li>lang-pl</li>
-              </td><td>
               <li>lang-pm</li>
               <li>lang-py</li>
               <li>lang-rb</li>
@@ -136,10 +126,9 @@ class serendipity_event_prettify extends serendipity_event
               <li>lang-xhtml</li>
               <li>lang-xml</li>
               <li>lang-xsl</li>
-              </td></tr><tr><td colspan=3>
-              eg: PRE CLASS="prettyprint" -or- PRE CLASS="prettyprint lang-html"</table>
-              Mike Samuel is the genius behind Prettify - the Prettify project is hosted here:
-              <a href="https://github.com/google/code-prettify" target="_new">https://github.com/google/code-prettify</a>
+              </ul>
+              <p>eg: PRE CLASS="prettyprint" -or- PRE CLASS="prettyprint lang-html"</p>
+              <p>Mike Samuel is the genius behind Prettify - the Prettify project is hosted here: <a href="https://github.com/google/code-prettify">https://github.com/google/code-prettify</a></p>
              ';
         return $s;
     }

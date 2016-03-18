@@ -139,7 +139,7 @@ class serendipity_event_prettify extends serendipity_event
               </td></tr><tr><td colspan=3>
               eg: PRE CLASS="prettyprint" -or- PRE CLASS="prettyprint lang-html"</table>
               Mike Samuel is the genius behind Prettify - the Prettify project is hosted here:
-              <a href="http://code.google.com/p/google-code-prettify" target="_new">http://code.google.com/p/google-code-prettify</a>
+              <a href="https://github.com/google/code-prettify" target="_new">https://github.com/google/code-prettify</a>
              ';
         return $s;
     }

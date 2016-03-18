@@ -1,0 +1,8 @@
+1.6.1:
+    * Fix broken path to CSS + JS assets by adding serendipityHTTPPath
+      to csspath + jspath
+    * Add ChangeLog
+    * Add link to new Prettify repository on GitHub
+
+------------------------------------------------------------------------
+1.6.0: [and earlier: version before Changelog was started]

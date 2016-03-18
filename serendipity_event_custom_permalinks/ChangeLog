@@ -1,1 +1,20 @@
-1.14: Added stricter array check
+1.15:
+-----
+
+ * Load lang with lang api
+ * Add Serendpity 2.0+ backend markup
+ * Fix inconistencies
+ * Added entries_header hook to assign $is_single_entry,
+   which else would not be available with custom permalink entries.
+
+
+1.14.1:
+-------
+
+ * Use serendipity_specialchars
+
+
+1.14:
+-----
+
+  * Added stricter array check

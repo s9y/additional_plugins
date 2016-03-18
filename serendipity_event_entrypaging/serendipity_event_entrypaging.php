@@ -142,7 +142,10 @@ class serendipity_event_entrypaging extends serendipity_event
                 // class exists in CSS, so a user has customized it and we don't need default
                 return true;
             }
-?>
+                    // append css
+                    $eventData .= '
+
+/* serendipity_event entrypaging start */
 
 .serendipity_entrypaging {
     text-align: center;
@@ -151,13 +154,16 @@ class serendipity_event_entrypaging extends serendipity_event
     border: 0px;
     display: block;
 }
-<?php
+
+/* serendipity_event entrypaging end */
+
+';
             return true;
         }
 
         if ($event == 'entry_display' || $event == 'entries_header') {
             if (isset($serendipity['GET']['id']) && is_numeric($serendipity['GET']['id'])) {
-                // top placement: 'entries_header' available since 0.8; 'entries_display' for fallback
+                // top placement: 'entries_header' available since 0.8; 'entries_display' for fallback and case smarty!
                 if (($placement == 'top' || $placement == 'smarty') &&
                     (($event == 'entry_display' && !version_compare($serendipity['version'], '0.7.1', '>')) ||
                     $event == 'entries_header')) {

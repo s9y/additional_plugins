@@ -23,7 +23,6 @@ class serendipity_event_custom_permalinks extends serendipity_event
                                         'css_backend'                       => true,
                                         'entry_display'                     => true,
                                         'backend_save'                      => true,
-                                        'entries_header'                    => true,
                                         'frontend_display:html:per_entry'   => true,
                                         'backend_display'                   => true));
 
@@ -123,11 +122,6 @@ class serendipity_event_custom_permalinks extends serendipity_event
                             $this->ids[$pl['entryid']] = $pl['value'];
                         }
                     }
-                    break;
-
-                case 'entries_header':
-                    // for custom permalinks this has to be set, since it else is not available - only with /archives/ path
-                    $serendipity['smarty']->assign('is_single_entry', true);
                     break;
 
                 case 'frontend_display:html:per_entry':

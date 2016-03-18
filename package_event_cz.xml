@@ -230,15 +230,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_entrypaging</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_entrypaging/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Odkaz na další/předchozí příspěvek</summary>
 <groups>FRONTEND_ENTRY_RELATED</groups>
 <description>Umožňuje prohlížení dalších/předchozích příspěvků</description>
 <maintainers><maintainer><name>Garvin Hicking, Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.39.1</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <version>1.40</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2016-03-18</date>
   <filelist>
 <dir name="serendipity_event_entrypaging">
 <file>serendipity_event_entrypaging.php</file>
@@ -259,6 +260,7 @@
 <file>lang_en.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -279,6 +281,7 @@
     <file>serendipity_event_entrypaging/lang_en.inc.php</file>
     <file>serendipity_event_entrypaging/lang_cs.inc.php</file>
     <file>serendipity_event_entrypaging/lang_cz.inc.php</file>
+    <file>serendipity_event_entrypaging/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -2373,9 +2376,9 @@
 <description>Můžete definovat stálé odkazy k jednotlivým příspěvkům. Lze použít pouze URL vzory, které JEŠTĚ NEJSOU používané - používání stálých odkazů ve tvaru /archives/odkaz není tedy možné. Ale používání jakéhokoliv jiného (virtuálního) adresáře možné je.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.14.1</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <version>1.15</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2016-03-18</date>
   <filelist>
 <dir name="serendipity_event_custom_permalinks">
 <file>serendipity_event_custom_permalinks.php</file>
@@ -9850,15 +9853,16 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_prettify</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_prettify/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Prettify pro Serendipity</summary>
 <groups>MARKUP</groups>
 <description>Použít skript Prettify pro vybroušení obsahu mezi tagy &amp;lt;PRE&amp;gt; pro jednoduché zvýrazňování syntaxe.</description>
 <maintainers><maintainer><name>Adam Krause</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6.1</version>
+  <version>1.6.2</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2013-08-21</date>
+  <date>2016-03-18</date>
   <filelist>
 <dir name="serendipity_event_prettify">
 <dir name="prettify">
@@ -9876,6 +9880,7 @@ aplikovány další typografické úpravy.</description>
 <file>prettify.js</file>
 </dir>
 <dir name="UTF-8">
+<file>lang_de.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 </dir>
@@ -9883,6 +9888,8 @@ aplikovány další typografické úpravy.</description>
 <file>serendipity_event_prettify.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
+<file>lang_de.inc.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -9899,12 +9906,15 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_prettify/prettify/pre_bg.gif</file>
     <file>serendipity_event_prettify/prettify/prettify.css</file>
     <file>serendipity_event_prettify/prettify/prettify.js</file>
+    <file>serendipity_event_prettify/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_prettify/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_prettify/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_prettify/lang_en.inc.php</file>
     <file>serendipity_event_prettify/serendipity_event_prettify.php</file>
     <file>serendipity_event_prettify/lang_cs.inc.php</file>
     <file>serendipity_event_prettify/lang_cz.inc.php</file>
+    <file>serendipity_event_prettify/lang_de.inc.php</file>
+    <file>serendipity_event_prettify/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>

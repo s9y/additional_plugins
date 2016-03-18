@@ -40,8 +40,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_entrypaging</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Wesley Hwang-Chung</author>
-<content:encoded>&lt;b&gt;serendipity_event_entrypaging&lt;br /&gt;Odkaz na další/předchozí příspěvek&lt;/b&gt;&lt;br /&gt;Umožňuje prohlížení dalších/předchozích příspěvků&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:14 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_entrypaging&lt;br /&gt;Odkaz na další/předchozí příspěvek&lt;/b&gt;&lt;br /&gt;Umožňuje prohlížení dalších/předchozích příspěvků&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Fri, 18 Mar 2016 22:30:44 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_entrypaging</guid>
 </item>
 <item>
@@ -283,8 +283,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_custom_permalinks</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_custom_permalinks&lt;br /&gt;Stálé odkazy pro příspěvky&lt;/b&gt;&lt;br /&gt;Můžete definovat stálé odkazy k jednotlivým příspěvkům. Lze použít pouze URL vzory, které JEŠTĚ NEJSOU používané - používání stálých odkazů ve tvaru /archives/odkaz není tedy možné. Ale používání jakéhokoliv jiného (virtuálního) adresáře možné je.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:13 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_custom_permalinks&lt;br /&gt;Stálé odkazy pro příspěvky&lt;/b&gt;&lt;br /&gt;Můžete definovat stálé odkazy k jednotlivým příspěvkům. Lze použít pouze URL vzory, které JEŠTĚ NEJSOU používané - používání stálých odkazů ve tvaru /archives/odkaz není tedy možné. Ale používání jakéhokoliv jiného (virtuálního) adresáře možné je.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Fri, 18 Mar 2016 22:30:42 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_custom_permalinks</guid>
 </item>
 <item>
@@ -1204,7 +1204,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Adam Krause</author>
 <content:encoded>&lt;b&gt;serendipity_event_prettify&lt;br /&gt;Prettify pro Serendipity&lt;/b&gt;&lt;br /&gt;Použít skript Prettify pro vybroušení obsahu mezi tagy &amp;lt;PRE&amp;gt; pro jednoduché zvýrazňování syntaxe.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:44 +0200</pubDate>
+<pubDate>Fri, 18 Mar 2016 22:30:54 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_prettify</guid>
 </item>
 <item>

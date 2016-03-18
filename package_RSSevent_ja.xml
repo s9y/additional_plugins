@@ -40,8 +40,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_entrypaging</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Wesley Hwang-Chung</author>
-<content:encoded>&lt;b&gt;serendipity_event_entrypaging&lt;br /&gt;次/前のエントリへのリンク&lt;/b&gt;&lt;br /&gt;閲覧時、次/前のエントリを閲覧することを可能にします。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:14 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_entrypaging&lt;br /&gt;次/前のエントリへのリンク&lt;/b&gt;&lt;br /&gt;閲覧時、次/前のエントリを閲覧することを可能にします。&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Fri, 18 Mar 2016 22:30:44 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_entrypaging</guid>
 </item>
 <item>
@@ -283,8 +283,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_custom_permalinks</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_custom_permalinks&lt;br /&gt;Custom Permalinks for Entries&lt;/b&gt;&lt;br /&gt;Defines custom permalinks that can be used to access a specific entry. It can only use URL patterns which are NOT YET in use - using custom permalinks within the /archives/ structure is thus not possible. But any (virtual) other directory is.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:13 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_custom_permalinks&lt;br /&gt;Custom Permalinks for Entries&lt;/b&gt;&lt;br /&gt;Defines custom permalinks that can be used to access a specific entry. It can only use URL patterns which are NOT YET in use - using custom permalinks within the /archives/ structure is thus not possible. But any (virtual) other directory is.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Fri, 18 Mar 2016 22:30:42 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_custom_permalinks</guid>
 </item>
 <item>
@@ -1208,7 +1208,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>Adam Krause</author>
 <content:encoded>&lt;b&gt;serendipity_event_prettify&lt;br /&gt;Prettify for S9Y&lt;/b&gt;&lt;br /&gt;Use Prettify to brush content between PRE tags for simple syntax highlighting.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:44 +0200</pubDate>
+<pubDate>Fri, 18 Mar 2016 22:30:54 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_prettify</guid>
 </item>
 <item>

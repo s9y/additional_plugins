@@ -1,4 +1,4 @@
-<?php # 
+<?php #
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -23,7 +23,7 @@ class serendipity_event_prettify extends serendipity_event
         $propbag->add('description',   PLUGIN_PRETTIFY_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        PLUGIN_PRETTIFY_AUTH);
-        $propbag->add('version',       '1.6.1');
+        $propbag->add('version',       '1.6.2');
         $propbag->add('requirements',  array('serendipity' => '1.0',
                                              'smarty'      => '2.6.7',
                                              'php'         => '4.1.0'
@@ -45,14 +45,14 @@ class serendipity_event_prettify extends serendipity_event
                 $propbag->add('type',        'string');
                 $propbag->add('name',        PLUGIN_PRETTIFY_JSPATH);
                 $propbag->add('description', PLUGIN_PRETTIFY_JSPATH_DESC);
-                $propbag->add('default',     'plugins/serendipity_event_prettify/prettify/prettify.js');
+                $propbag->add('default',     $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_prettify/prettify/prettify.js');
                 break;
 
             case 'csspath':
                 $propbag->add('type',        'string');
                 $propbag->add('name',        PLUGIN_PRETTIFY_CSSPATH);
                 $propbag->add('description', PLUGIN_PRETTIFY_CSSPATH_DESC);
-                $propbag->add('default',     'plugins/serendipity_event_prettify/prettify/prettify.css');
+                $propbag->add('default',     $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_prettify/prettify/prettify.css');
                 break;
 
             case 'genericpre':

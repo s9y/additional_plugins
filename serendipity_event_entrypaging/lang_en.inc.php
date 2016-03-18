@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -21,4 +21,3 @@
 @define('PLUGIN_ENTRYPAGING_USECATEGORY', 'Use category-based pagination');
 @define('PLUGIN_ENTRYPAGING_USECATEGORY_BLAHBLAH', 'If enabled, the pagination will only browse through pages of the same category as the entry\'s first category.');
 
-?>

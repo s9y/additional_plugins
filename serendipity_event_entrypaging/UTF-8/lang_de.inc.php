@@ -1,4 +1,4 @@
-<?php #
+<?php
 
 /**
  *  @version 1.0
@@ -22,3 +22,4 @@
 // Next lines were translated on 2009/08/20
 @define('PLUGIN_ENTRYPAGING_USECATEGORY', 'Linkauswahl auf Basis der aktuelle Kategorie');
 @define('PLUGIN_ENTRYPAGING_USECATEGORY_BLAHBLAH', 'Wenn aktiviert, werden nur Links zu Einträgen aus der Kategorie angezeigt, zu welcher auch der erste Eintrag gehörte.' );
+

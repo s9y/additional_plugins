@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -20,4 +20,3 @@
 @define('PLUGIN_ENTRYPAGING_USECATEGORY', 'Uzyj linkowania tylko w obrębie kategorii');
 @define('PLUGIN_ENTRYPAGING_USECATEGORY_BLAHBLAH', 'Jeśli włączone, linkowanie będzie się odbywało tylko do wpisów z kategorii (pierwszej zaznaczonej w polu wyboru kategorii w Edycji wpisu), do której przynależy dany wpis. A więc linkowane będą wpisy poprzednie/następne nie tylko według chronologii ale także w obrębie tej samej kategorii.');
 
-?>

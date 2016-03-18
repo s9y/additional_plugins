@@ -20,4 +20,3 @@
 @define('PLUGIN_ENTRYPAGING_USECATEGORY', 'Pou¾íat stránkování podle kategorií');
 @define('PLUGIN_ENTRYPAGING_USECATEGORY_BLAHBLAH', 'Pokud je povoleno, stránkování zobrazí odkazy na dal¹í/pøedchozí pøíspìvky pouze z kategorie pøíspìvku, ve kterém je zobrazeno.');
 
-?>

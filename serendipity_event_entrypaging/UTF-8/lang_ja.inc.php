@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -18,4 +18,3 @@
 @define('PLUGIN_ENTRYPAGING_RANDOM_TEXT_PREV', '前へのリンクの題名');
 @define('PLUGIN_ENTRYPAGING_RANDOM_TEXT_NEXT_DESC', 'リンクの名前を入力します。もし空の場合、エントリの題名が使用されるでしょう。');
 
-?>

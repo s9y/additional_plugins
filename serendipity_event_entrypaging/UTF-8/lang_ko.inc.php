@@ -1,4 +1,4 @@
-<?php # 
+<?php
 # Translated by: Wesley Hwang-Chung <wesley96@gmail.com> 
 # (c) 2005 http://www.tool-box.info/
 
@@ -14,4 +14,3 @@
 @define('PLUGIN_ENTRYPAGING_RANDOM_TEXT_PREV', '이전 링크에 붙일 제목');
 @define('PLUGIN_ENTRYPAGING_RANDOM_TEXT_NEXT_DESC', '링크 제목을 입력하십시오. 입력하지 않을 경우 해당 글의 제목이 사용됩니다.');
 
-?>

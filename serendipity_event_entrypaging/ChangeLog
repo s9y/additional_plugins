@@ -1,0 +1,5 @@
+1.40:
+-----
+ * Fix and allow Smarty option assignement to be used in entries tpl
+   with Serendipity versions from 1.7+
+ * Reset reqirement to S9y 1.6 and use modern lang include API

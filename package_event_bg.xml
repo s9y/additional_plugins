@@ -60,7 +60,7 @@
 <release>
   <version>4.09</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2015-03-13</date>
+  <date>2016-03-20</date>
   <filelist>
 <dir name="serendipity_event_staticpage">
 <file>lang_de.inc.php</file>
@@ -910,7 +910,7 @@
 <release>
   <version>2.22</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-08-20</date>
+  <date>2016-03-20</date>
   <filelist>
 <dir name="serendipity_event_multilingual">
 <file>lang_tr.inc.php</file>
@@ -9767,7 +9767,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.75</version>
   <requirements:s9yVersion>1.4</requirements:s9yVersion>
-  <date>2016-01-10</date>
+  <date>2016-03-20</date>
   <filelist>
 <dir name="serendipity_event_cal">
 <dir name="UTF-8">
@@ -10783,9 +10783,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>Uses CKEditor as the default WYSIWYG editor. For any JS-Editor usage: Recommended! After installation, go to the configuration screen of this plugin for further instructions.</description>
 <maintainers><maintainer><name>Rustam Abdullaev, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>5.7.1</version>
+  <version>4.5.7.2</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2016-03-13</date>
+  <date>2016-03-20</date>
   <filelist>
 <dir name="serendipity_event_ckeditor">
 <dir name="UTF-8">
@@ -10811,9 +10811,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <file>prettify.js</file>
 <file>cke_backend.css</file>
 <file>cke_olds9y.css</file>
-<file>ckeditor_4.5.7.1-plus.zip</file>
 <file>basic_toolbar1.css</file>
 <file>basic_toolbar2.css</file>
+<file>ckeditor_4.5.7.2-plus.zip</file>
 <file>highlight.css</file>
 <file>highlight.pack.js</file>
 <file>cke_ibn.css</file>
@@ -10840,9 +10840,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
     <file>serendipity_event_ckeditor/prettify.js</file>
     <file>serendipity_event_ckeditor/cke_backend.css</file>
     <file>serendipity_event_ckeditor/cke_olds9y.css</file>
-    <file>serendipity_event_ckeditor/ckeditor_4.5.7.1-plus.zip</file>
     <file>serendipity_event_ckeditor/basic_toolbar1.css</file>
     <file>serendipity_event_ckeditor/basic_toolbar2.css</file>
+    <file>serendipity_event_ckeditor/ckeditor_4.5.7.2-plus.zip</file>
     <file>serendipity_event_ckeditor/highlight.css</file>
     <file>serendipity_event_ckeditor/highlight.pack.js</file>
     <file>serendipity_event_ckeditor/cke_ibn.css</file>
@@ -11467,9 +11467,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>Добавя връзка към интересни статистически данни в страницата на постингите, включително и брояч на посетителите</description>
 <maintainers><maintainer><name>Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin, Matthias Mees, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.61</version>
+  <version>1.62</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2015-01-27</date>
+  <date>2016-03-20</date>
   <filelist>
 <dir name="serendipity_event_statistics">
 <dir name="UTF-8">

@@ -44,7 +44,7 @@ class serendipity_event_multilingual extends serendipity_event
                 'backend_display'           => true,
                 'frontend_entryproperties'  => true,
                 'backend_sidebar_entries'   => true,
-                'external_plugin'           => true,
+/*                'external_plugin'           => true,*/
                 'css'                       => true,
                 'backend_entryform'         => true,
                 'backend_entry_presave'     => true,

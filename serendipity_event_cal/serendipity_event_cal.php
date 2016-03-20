@@ -2383,7 +2383,7 @@ class serendipity_event_cal extends serendipity_event {
         }
     }
 
-    // dont call it uninstall(&$propbag) this is a different method! (was wrongly placed by automatted replace during 2.0 dev)
+    // dont call it uninstall(&$propbag) this is a different method! (was wrongly placed by automated replace during 2.0 dev)
     function droptable() {
         global $serendipity;
 

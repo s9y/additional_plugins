@@ -212,27 +212,27 @@ class serendipity_event_staticpage extends serendipity_event
                 $propbag->add('description',    STATICPAGE_FILENAME_DESC);
                 $propbag->add('default',        'plugin_staticpage.tpl');
                 break;
-            
+
             case 'title_element':
                 $propbag->add('type',          'string');
                 $propbag->add('name',           STATICPAGES_CUSTOM_META_TITLE);
                 $propbag->add('description',    STATICPAGES_CUSTOM_META_TITLE_BLAH_BLAH);
                 $propbag->add('default',        '');
-                break;           
-            
+                break;
+
             case 'meta_description':
                 $propbag->add('type',          'string');
                 $propbag->add('name',           STATICPAGES_CUSTOM_META_DESC);
                 $propbag->add('description',    STATICPAGES_CUSTOM_META_DESC_BLAH_BLAH);
                 $propbag->add('default',        '');
-                break;            
-            
+                break;
+
             case 'meta_keywords':
                  $propbag->add('type',          'string');
                 $propbag->add('name',           STATICPAGES_CUSTOM_META_KEYS);
                 $propbag->add('description',    STATICPAGES_CUSTOM_META_KEYS_BLAH_BLAH);
                 $propbag->add('default',        '');
-                break;                  
+                break;
 
             case 'content':
                 $propbag->add('type',           'html');
@@ -955,13 +955,13 @@ class serendipity_event_staticpage extends serendipity_event
                     serendipity_db_schema_import($q);
                 }
             case 20:
-                if (!$fresh) {            
+                if (!$fresh) {
                     $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN title_element varchar(255) not null default ''";
                     serendipity_db_schema_import($q);
                     $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN meta_description varchar(255) not null default ''";
                     serendipity_db_schema_import($q);
                     $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN meta_keywords varchar(255) not null default ''";
-                    serendipity_db_schema_import($q);                 
+                    serendipity_db_schema_import($q);
                 }
                 $this->set_config('db_built', 21);
                 break;
@@ -2343,7 +2343,6 @@ foreach($select AS $select_value => $select_desc) {
                     <script type="text/javascript" language="JavaScript">
                         var tb_<?php echo $config_item ?> = document.getElementById('tools_<?php echo $config_item ?>');
                         tb_<?php echo $config_item ?>.style.display = '';
-                        
                     </script>
                     <?php
                     if (version_compare(serendipity_getCoreVersion($serendipity['version']), "2.0", ">=")) {
@@ -2653,7 +2652,7 @@ foreach($select AS $select_value => $select_desc) {
     </div>
 <?php
     }
-    
+
      /**
     * generate header for static page overview panel
     *
@@ -2690,13 +2689,13 @@ foreach($select AS $select_value => $select_desc) {
         {
             $lm = '';
         }
-    
+
         $entry_pre = '';
         if ( !serendipity_db_bool($entry['publishstatus']) )
         {
             $entry_pre .= ' ' . DRAFT . ': ';
         }
-        
+
         ?>
             <div class="serendipity_admin_list_item serendipity_admin_list_item_<?php echo ($is_even) ? 'even' : 'uneven'; ?>">
                 <table width="100%" cellspacing="0" cellpadding="3">
@@ -2729,10 +2728,10 @@ foreach($select AS $select_value => $select_desc) {
                             </td>
                         </tr>
                     </table>
-                </div>        
+                </div>
             <?php
     }
-    
+
      /**
     * generate footer for static page overview panel
     *
@@ -2754,7 +2753,7 @@ foreach($select AS $select_value => $select_desc) {
                             <input type="hidden" name="serendipity[adminModule]" value="event_display" />
                             <input type="hidden" name="serendipity[adminAction]" value="staticpages" />
                             <input type="hidden" name="serendipity[staticpagecategory]" value="pages" />
-                            <?php echo EDIT_ENTRY ?>: #<input class="input_textbox" type="text" size="3" name="serendipity[staticpage]" /> 
+                            <?php echo EDIT_ENTRY ?>: #<input class="input_textbox" type="text" size="3" name="serendipity[staticpage]" />
                             <input class="serendipityPrettyButton input_button" type="submit" name="serendipity[staticSubmit]" value="<?php echo GO; ?>" />
                         </form>
                     </td>
@@ -2784,7 +2783,7 @@ foreach($select AS $select_value => $select_desc) {
 	</table>
     <?php
     }
-    
+
     /**
     * Shows the static page panel overview
     *
@@ -2800,7 +2799,7 @@ foreach($select AS $select_value => $select_desc) {
         if(is_array($pages))
         {
             $this->showListHeader();
-            
+
             $pages = serendipity_walkRecursive($pages);
             $rows = 1;	// start with uneven row
             foreach ($pages as $page)
@@ -2816,7 +2815,7 @@ foreach($select AS $select_value => $select_desc) {
 	    $this->showEmptyList();
 	}
     }
-    
+
     function generate_content(&$title)
     {
         $title = STATICPAGE_TITLE;
@@ -3063,16 +3062,16 @@ foreach($select AS $select_value => $select_desc) {
                     }
 
 // Manko10 patch: http://board.s9y.org/viewtopic.php?f=3&t=17910&p=10426432#p10426432
-                    
+
                     // Check if static page exists or if this is an error 404
-                    // 
+                    //
                     // NOTE: as soon as you set a static page to be a 404 handler
                     // from within the backend, you need to add a specific redirect rule
                     // to your .htaccess for each static page generated by other
                     // plugins such as serendipity_event_contactform
                     // This behavior might change in future releases.
                     $this->error_404 = ($_SERVER['REDIRECT_STATUS'] == '404');
-                    
+
                     $pages = $this->fetchStaticPages(true, $nice_url);
                     if (is_array($pages)) {
                     foreach ($pages as $page) {
@@ -3085,7 +3084,7 @@ foreach($select AS $select_value => $select_desc) {
                         }
                     }
                     }
-                    
+
                     // Set static page to 404 error document if page not found
                     if ($this->error_404) {
                         $serendipity['GET']['subpage'] = $this->get404Errorpage();
@@ -3119,12 +3118,12 @@ foreach($select AS $select_value => $select_desc) {
                     if (!empty($md))
                     {
                         echo '        <meta name="description" content="' . $md . '" />' . "\n";
-                    }                    
-                    
-                     if (!empty($mk))
+                    }
+
+                    if (!empty($mk))
                     {
                         echo '        <meta name="keywords" content="' . $mk . '" />' . "\n";
-                    }                   
+                    }
                     break;
 
                 case 'frontend_fetchentries':
@@ -3171,9 +3170,9 @@ foreach($select AS $select_value => $select_desc) {
                     }
 
                     if ($eventData[0]['type'] == 'dir'){
-                    
+
                     }
-                    
+
                     elseif ($eventData[0]['type'] == 'filedir'){
 
                          $eventData[0]['oldDir'] .= $eventData[0]['name'];

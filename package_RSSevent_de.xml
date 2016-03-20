@@ -40,8 +40,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_entrypaging</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Wesley Hwang-Chung</author>
-<content:encoded>&lt;b&gt;serendipity_event_entrypaging&lt;br /&gt;Nächster/Voriger Artikel&lt;/b&gt;&lt;br /&gt;Ermöglicht bei Betrachten eines Eintrages vor und zurück zu blättern&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:14 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_entrypaging&lt;br /&gt;Nächster/Voriger Artikel&lt;/b&gt;&lt;br /&gt;Ermöglicht bei Betrachten eines Eintrages vor und zurück zu blättern&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Fri, 18 Mar 2016 22:30:44 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_entrypaging</guid>
 </item>
 <item>
@@ -283,8 +283,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_custom_permalinks</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_custom_permalinks&lt;br /&gt;Frei-definierbare Permalinks zu Einträgen&lt;/b&gt;&lt;br /&gt;Ermöglicht die Eingabe eines individuellen Permalinks (dauerhafter Link) um spezifische Artikel aufzurufen. Es können nur URL-Muster verwendet werden, die nicht bereits intern verwendet werden - eigene Permalinks innerhalb der /archives/ Struktur sind daher nicht möglich. Aber andere, auch nicht existierende, Verzeichnisse können verwendet werden.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:13 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_custom_permalinks&lt;br /&gt;Frei-definierbare Permalinks zu Einträgen&lt;/b&gt;&lt;br /&gt;Ermöglicht die Eingabe eines individuellen Permalinks (dauerhafter Link) um spezifische Artikel aufzurufen. Es können nur URL-Muster verwendet werden, die nicht bereits intern verwendet werden - eigene Permalinks innerhalb der /archives/ Struktur sind daher nicht möglich. Aber andere, auch nicht existierende, Verzeichnisse können verwendet werden.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Fri, 18 Mar 2016 22:30:42 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_custom_permalinks</guid>
 </item>
 <item>
@@ -1199,12 +1199,12 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <guid isPermaLink="false">serendipity_event_cal</guid>
 </item>
 <item>
-<title>Prettify for S9Y: Use Prettify to brush content between PRE tags for simple syntax highlighting.</title>
+<title>Prettify für S9Y: Prettify fügt Inhalten, die zwischen PRE-Tags stehen, simples Syntax-Highlighting hinzu.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_prettify</link>
 <category>Event Plugins</category>
 <author>Adam Krause</author>
-<content:encoded>&lt;b&gt;serendipity_event_prettify&lt;br /&gt;Prettify for S9Y&lt;/b&gt;&lt;br /&gt;Use Prettify to brush content between PRE tags for simple syntax highlighting.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:44 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_prettify&lt;br /&gt;Prettify für S9Y&lt;/b&gt;&lt;br /&gt;Prettify fügt Inhalten, die zwischen PRE-Tags stehen, simples Syntax-Highlighting hinzu.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
+<pubDate>Fri, 18 Mar 2016 22:30:54 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_prettify</guid>
 </item>
 <item>

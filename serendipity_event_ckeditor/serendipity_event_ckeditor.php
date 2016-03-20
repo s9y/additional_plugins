@@ -359,10 +359,10 @@ class serendipity_event_ckeditor extends serendipity_event
         if (in_array($row['version'], $versions)) return false;
 
         serendipity_db_query("UPDATE {$serendipity['dbPrefix']}pluginlist
-                                 SET version = '4." . serendipity_db_escape_string($oldVersion) . "'
+                                 SET version = '" . serendipity_db_escape_string($oldVersion) . "'
                                WHERE plugin_class    = '" . serendipity_db_escape_string('serendipity_event_ckeditor') . "'");
         serendipity_db_query("UPDATE {$serendipity['dbPrefix']}pluginlist
-                                 SET upgrade_version = '4." . serendipity_db_escape_string($newVersion) . "'
+                                 SET upgrade_version = '" . serendipity_db_escape_string($newVersion) . "'
                                WHERE plugin_class    = '" . serendipity_db_escape_string('serendipity_event_ckeditor') . "'");
 
     }

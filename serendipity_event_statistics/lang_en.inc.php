@@ -1,7 +1,7 @@
 <?php #
 
 /**
- *  @version 
+ *  @version
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */
@@ -38,6 +38,7 @@
 @define('PLUGIN_EVENT_STATISTICS_OUT_TOPTRACKBACK', 'Most frequently trackbacked entires');
 @define('PLUGIN_EVENT_STATISTICS_OUT_TOPTRACKBACK2', 'trackback(s)');
 @define('PLUGIN_EVENT_STATISTICS_OUT_TOPTRACKBACKS3', 'Most frequently trackbacking people');
+@define('PLUGIN_EVENT_STATISTICS_OUT_AVERAGES', 'Averages');
 @define('PLUGIN_EVENT_STATISTICS_OUT_COMMENTS_PER_ARTICLE', 'estimated comments per entry');
 @define('PLUGIN_EVENT_STATISTICS_OUT_TRACKBACKS_PER_ARTICLE', 'estimated trackbacks per entry');
 @define('PLUGIN_EVENT_STATISTICS_OUT_ARTICLES_PER_DAY', 'estimated entries per day');
@@ -103,4 +104,3 @@
 
 @define('PLUGIN_EVENT_STATISTICS_SHOW_CURRENTVISITORS', 'Show number of current visitors (aggregate past 15 minutes)');
 @define('PLUGIN_EVENT_STATISTICS_TEXT_CURRENTVISITORS', '%s visitor(s) online');
-

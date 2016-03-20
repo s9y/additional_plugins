@@ -38,6 +38,7 @@
 @define('PLUGIN_EVENT_STATISTICS_OUT_TOPTRACKBACK', 'Top Trackback-Artikel');
 @define('PLUGIN_EVENT_STATISTICS_OUT_TOPTRACKBACK2', 'eingetragene(r) Trackback(s)');
 @define('PLUGIN_EVENT_STATISTICS_OUT_TOPTRACKBACKS3', 'Top Trackbacker');
+@define('PLUGIN_EVENT_STATISTICS_OUT_AVERAGES', 'Durchschnittswerte');
 @define('PLUGIN_EVENT_STATISTICS_OUT_COMMENTS_PER_ARTICLE', 'Durchschnittliche Kommentare pro Artikel');
 @define('PLUGIN_EVENT_STATISTICS_OUT_TRACKBACKS_PER_ARTICLE', 'Durchschnittliche Trackbacks pro Artikel');
 @define('PLUGIN_EVENT_STATISTICS_OUT_ARTICLES_PER_DAY', 'Durchschnittliche Artikel pro Tag');
@@ -104,4 +105,3 @@
 @define('PLUGIN_EVENT_STATISTICS_SHOW_WEEKVISITORS', 'Besucher dieser Woche anzeigen');
 @define('PLUGIN_EVENT_STATISTICS_TEXT_DAYVISITORS', '%s Besucher heute');
 @define('PLUGIN_EVENT_STATISTICS_TEXT_WEEKVISITORS', '%s Besucher in dieser Woche');
-

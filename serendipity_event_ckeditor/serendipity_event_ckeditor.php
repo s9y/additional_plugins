@@ -49,14 +49,14 @@ class serendipity_event_ckeditor extends serendipity_event
      * @access protected
      * @var string
      */
-    protected $cke_zipfile = 'ckeditor_4.5.7.2-plus.zip';
+    protected $cke_zipfile = 'ckeditor_4.5.7.3-plus.zip';
 
     /**
      * Access property checkUpdateVersion
      * Verify release package versions - do update on upgrades!
      * @var array
      */
-    protected $checkUpdateVersion = array('ckeditor:4.5.7.2');
+    protected $checkUpdateVersion = array('ckeditor:4.5.7.3');
 
     /**
      * Access property revisionPackage
@@ -178,7 +178,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '4.5.7.2'); // is CKEDITOR Series 4.5.7 - and appended plugin revision .2
+        $propbag->add('version',       '4.5.7.3'); // is CKEDITOR Series 4.5.7 - and appended plugin revision .3
         $propbag->add('copyright',     'GPL or LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
@@ -352,15 +352,15 @@ class serendipity_event_ckeditor extends serendipity_event
         global $serendipity;
 
         $row = serendipity_db_query("SELECT version FROM {$serendipity['dbPrefix']}pluginlist
-                                      WHERE plugin_class    = '" . serendipity_db_escape_string('serendipity_event_ckeditor') . "'
+                                      WHERE plugin_class = '" . serendipity_db_escape_string('serendipity_event_ckeditor') . "'
                                       LIMIT 1", true, 'assoc');
 
-        $versions = array('4.5.7.0', '4.5.7.1', '4.5.7.2');
+        $versions = array('4.5.7.2', '4.5.7.3'); // keep prior and current version false check only
         if (in_array($row['version'], $versions)) return false;
 
         serendipity_db_query("UPDATE {$serendipity['dbPrefix']}pluginlist
-                                 SET version = '" . serendipity_db_escape_string($oldVersion) . "'
-                               WHERE plugin_class    = '" . serendipity_db_escape_string('serendipity_event_ckeditor') . "'");
+                                 SET version      = '" . serendipity_db_escape_string($oldVersion) . "'
+                               WHERE plugin_class = '" . serendipity_db_escape_string('serendipity_event_ckeditor') . "'");
         serendipity_db_query("UPDATE {$serendipity['dbPrefix']}pluginlist
                                  SET upgrade_version = '" . serendipity_db_escape_string($newVersion) . "'
                                WHERE plugin_class    = '" . serendipity_db_escape_string('serendipity_event_ckeditor') . "'");
@@ -373,7 +373,7 @@ class serendipity_event_ckeditor extends serendipity_event
      */
     private function updateTableZip()
     {
-        $this->temporaryDowngrade('4.5.7.2', '4.5.7.1'); // temporary
+        $this->temporaryDowngrade('4.5.7.3', '4.5.7.2'); // temporary
         foreach(array_values($this->checkUpdateVersion) AS $package) {
             $match = explode(':', $package);
             $this->set_config('last_'.$match[0].'_version', $match[1]);
@@ -387,7 +387,7 @@ class serendipity_event_ckeditor extends serendipity_event
      */
     private function checkUpdate()
     {
-        $this->temporaryDowngrade('4.5.7.2', '4.5.7.1'); // temporary
+        $this->temporaryDowngrade('4.5.7.3', '4.5.7.2'); // temporary
         $doupdate = false;
         foreach(array_values($this->checkUpdateVersion) AS $package) {
             $match = explode(':', $package);

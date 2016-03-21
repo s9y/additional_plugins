@@ -1,3 +1,10 @@
+4.5.7.3:
+-----
+    * Bugfix: Fix prior version 4.5.7.1 not being set one up
+
+4.5.7.2:
+-----
+    * Set prior and current version in pluginlist table
 
 5.7.1:
 -----

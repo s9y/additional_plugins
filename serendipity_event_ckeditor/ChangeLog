@@ -1,3 +1,7 @@
+4.5.8.0:
+-----
+    * Upgrade to CKEDITOR 4.5. Series, update 8 (http://ckeditor.com/whatsnew).
+
 4.5.7.3:
 -----
     * Bugfix: Fix prior version 4.5.7.1 not being set one up

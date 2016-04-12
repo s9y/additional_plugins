@@ -1,3 +1,8 @@
+2.93:
+-----
+
+When admin mails are enabled, return proper function call to prevent "ERROR" message.
+
 2.38:
 -----
 

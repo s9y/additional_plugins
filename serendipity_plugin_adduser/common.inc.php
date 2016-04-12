@@ -46,6 +46,7 @@ class serendipity_common_adduser {
 
         if ($approve_only) {
             // Only Admin-Mails, done in the foreach-loop above already.
+            $mail = true;
         } else {
             // Send out Mails to the actual receiver.
             $mail = serendipity_sendMail($email, $subject, $message, $email, null, $serendipity['blogTitle']);

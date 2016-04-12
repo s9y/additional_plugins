@@ -131,7 +131,7 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_adduser&lt;br /&gt;ユーザー自身での登録&lt;/b&gt;&lt;br /&gt;ブログ訪問者が自分のアカウントを作成することを許可します。Together with the Event-plugin (index.php?serendipity[subpage]=adduser) you can choose whether only registered users may post comments.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 14 Mar 2015 02:31:36 +0100</pubDate>
+<pubDate>Tue, 12 Apr 2016 12:17:36 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_adduser</guid>
 </item>
 <item>

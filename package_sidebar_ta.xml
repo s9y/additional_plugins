@@ -834,9 +834,9 @@
 <description>Allows blog visitors to create their own author account. Together with the Event-plugin (index.php?serendipity[subpage]=adduser) you can choose whether only registered users may post comments.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.38</version>
+  <version>2.39</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-03-14</date>
+  <date>2016-04-12</date>
   <filelist>
 <dir name="serendipity_plugin_adduser">
 <file>common.inc.php</file>

@@ -4,13 +4,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include_once dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_multilingual extends serendipity_event
 {
@@ -28,12 +22,12 @@ class serendipity_event_multilingual extends serendipity_event
         $propbag->add('stackable',      false);
         $propbag->add('author',         'Garvin Hicking, Wesley Hwang-Chung, Ian');
         $propbag->add('requirements',   array(
-            'serendipity' => '0.8',
+            'serendipity' => '1.6',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
         $propbag->add('groups',         array('FRONTEND_ENTRY_RELATED', 'BACKEND_EDITOR'));
-        $propbag->add('version',        '2.22');
+        $propbag->add('version',        '2.24');
         $propbag->add('configuration',  array('copytext', 'placement', 'tagged_title', 'tagged_entries', 'tagged_sidebar', 'langswitch'));
         $propbag->add('event_hooks',    array(
                 'frontend_fetchentries'     => true,
@@ -164,13 +158,15 @@ class serendipity_event_multilingual extends serendipity_event
             } else $this->set_config('db_built', 3);
         }
         if ($built == 3) {
+        // OPS !!!! config set [serendipity_event_multilingual/db_built 	2] is/was build without instance ????
             $q = "DELETE FROM {$serendipity['dbPrefix']}config WHERE name LIKE '%serendipity_event_multilingual/db_built%'";
             serendipity_db_schema_import($q);
             $this->set_config('db_built', 4);
         }
     }
 
-    function cleanheader($string) {
+    function cleanheader($string)
+    {
         $string = preg_replace('@[^0-9a-z_-]@imsU', '', $string);
     }
 
@@ -223,17 +219,20 @@ class serendipity_event_multilingual extends serendipity_event
                 $propbag->add('description', PLUGIN_EVENT_MULTILINGUAL_COPYDESC);
                 $propbag->add('default',     'true');
                 break;
+
             default:
-                    return false;
+                return false;
         }
         return true;
     }
 
-    function generate_content(&$title) {
+    function generate_content(&$title)
+    {
         $title = $this->title;
     }
 
-    function urlparam($key) {
+    function urlparam($key)
+    {
         static $langswitch = null;
 
         if ($langswitch === null) {
@@ -248,7 +247,8 @@ class serendipity_event_multilingual extends serendipity_event
         }
     }
 
-    function &getLang($id, &$properties) {
+    function &getLang($id, &$properties)
+    {
         global $serendipity;
         static $default_lang = null;
         static $false = false;
@@ -293,16 +293,18 @@ class serendipity_event_multilingual extends serendipity_event
     }
 
     //function neglang($lang) {
-    function neglang($lang, $assert = '?!') {
+    function neglang($lang, $assert = '?!')
+    {
         /* Creates the negation pattern from a two letter language identifier. */
-        // Negative look ahead assertion. ".*" is used because any letter except of the language string shall be allowed, without it, nothing woud ever match */
+        // Negative look ahead assertion. ".*" is used because any letter except of the language string shall be allowed, without it, nothing would ever match */
         return '(' . $assert . $lang . ').*';
         //return '(?!' . $lang . ').*';
 
         //return '[^'.$lang[0].'][^'.$lang[1].']';
     }
 
-    function strip_langs($msg) {
+    function strip_langs($msg)
+    {
         global $serendipity;
 
         if (!preg_match('@{{@', $msg)) return $msg;
@@ -323,10 +325,10 @@ class serendipity_event_multilingual extends serendipity_event
             if (empty($match)) continue; // Last block part, skip it.
             if (stristr($match, '{{!' . $serendipity['lang'] . '}}')) {
                 // Current language found. Keep the string, minus the {{!xx}} part.
-                $out .= preg_replace('@\{\{!' . $serendipity['lang'] . '\}\}@', '', $match);
+                $out .= preg_replace('@\{\{!' . $serendipity['lang'] . '\}\}@s', '', $match);
             } else {
                 // Current language not found. Remove everything after {{!xx}}.
-                $out .= preg_replace('@\{\{![^\}]+\}\}.+$@', '', $match);
+                $out .= preg_replace('@\{\{![^\}]+\}\}.+$@s', '', $match);
             }
         }
 
@@ -339,7 +341,8 @@ class serendipity_event_multilingual extends serendipity_event
         return $msg;
     }
 
-    function tag_title() {
+    function tag_title()
+    {
         global $serendipity;
 
         if (serendipity_db_bool($this->get_config('tagged_title', 'true'))) {
@@ -368,7 +371,8 @@ class serendipity_event_multilingual extends serendipity_event
         }
     }
 
-    function event_hook($event, &$bag, &$eventData, $addData = null) {
+    function event_hook($event, &$bag, &$eventData, $addData = null)
+    {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');
@@ -379,7 +383,6 @@ class serendipity_event_multilingual extends serendipity_event
                     if (isset($serendipity['POST']['no_save'])) {
                         $eventData['error'] = true;
                     }
-                    return true;
                     break;
 
                 case 'backend_entry_presave':
@@ -430,11 +433,10 @@ class serendipity_event_multilingual extends serendipity_event
 
                         serendipity_db_query($q);
                     }
-
-                    return true;
                     break;
 
                 case 'genpage':
+
                     if (!is_object($serendipity['smarty'])) {
                         // never init in genpage without adding previously set $vars, which is $view etc!
                         serendipity_smarty_init($serendipity['plugindata']['smartyvars']);
@@ -449,8 +451,6 @@ class serendipity_event_multilingual extends serendipity_event
                     } else {
                         $serendipity['smarty']->registerPlugin('modifier', 'multilingual_lang', array($this, 'strip_langs'));
                     }
-
-                    return true;
                     break;
 
                 case 'backend_entryform':
@@ -479,16 +479,14 @@ class serendipity_event_multilingual extends serendipity_event
                             }
                         }
                     }
-
-                    return true;
                     break;
 
                 case 'css':
-                    if (strpos($eventData, '.serendipity_multilingualInfo')) {
-                        // class exists in CSS, so a user has customized it and we don't need default
-                        return true;
-                    }
-?>
+                    // CSS class does NOT exist by user customized template styles, include default
+                    if (strpos($eventData, '.serendipity_multilingualInfo') === false) {
+                        $eventData .= '
+
+/* serendipity_event_multilingual start */
 
 .serendipity_multilingualInfo {
     margin-left: auto;
@@ -509,8 +507,10 @@ class serendipity_event_multilingual extends serendipity_event
     color: green;
 }
 
-<?php
-                    return true;
+/* serendipity_event_multilingual end */
+
+';
+                    }
                     break;
 
                 case 'frontend_display':
@@ -597,7 +597,6 @@ class serendipity_event_multilingual extends serendipity_event
                             }
                         }
                     }
-                    return true;
                     break;
 
                 case 'backend_display':
@@ -643,7 +642,6 @@ class serendipity_event_multilingual extends serendipity_event
                         </div>
                     </fieldset>
 <?php
-                    return true;
                     break;
 
                 case 'frontend_entryproperties':
@@ -659,7 +657,6 @@ class serendipity_event_multilingual extends serendipity_event
                     foreach($properties AS $idx => $row) {
                         $eventData[$addData[$row['entryid']]]['properties'][$row['property']] = $row['value'];
                     }
-                    return true;
                     break;
 
                 case 'frontend_entries_rss':
@@ -754,7 +751,6 @@ class serendipity_event_multilingual extends serendipity_event
                         }
 
                     }
-                    return true;
                     break;
 
                 case 'frontend_comment':
@@ -764,7 +760,6 @@ class serendipity_event_multilingual extends serendipity_event
                     if (serendipity_db_bool($this->get_config('tagged_title', 'true'))) {
                         $serendipity['smarty']->assign('head_subtitle', $this->strip_langs($serendipity['head_subtitle']));
                     }
-                    return true;
                     break;
 
                 case 'frontend_sidebar_plugins':
@@ -774,17 +769,19 @@ class serendipity_event_multilingual extends serendipity_event
                             $eventData[$key]['content'] = $this->strip_langs($eventData[$key]['content']);
                         }
                     }
-                    return true;
                     break;
 
                 default:
                     return false;
-                    break;
+
             }
+            return true;
         } else {
             return false;
         }
     }
+
 }
 
 /* vim: set sts=4 ts=4 expandtab : */
+?>

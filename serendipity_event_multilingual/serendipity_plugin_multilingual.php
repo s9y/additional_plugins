@@ -4,13 +4,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include_once dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_plugin_multilingual extends serendipity_event
 {
@@ -25,23 +19,23 @@ class serendipity_plugin_multilingual extends serendipity_event
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Wesley Hwang-Chung');
         $propbag->add('requirements',  array(
-            'serendipity' => '0.8',
+            'serendipity' => '1.6',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-
 
         $conf = array('title', 'show_submit', 'size');
         foreach($serendipity['languages'] AS $lkey => $lval) {
             $conf[] = $lkey;
         }
         $propbag->add('configuration', $conf);
-        $propbag->add('version',       '1.12');
+        $propbag->add('version',       '1.13');
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
         $this->dependencies = array('serendipity_event_multilingual' => 'remove');
     }
 
-    function introspect_config_item($name, &$propbag) {
+    function introspect_config_item($name, &$propbag)
+    {
         global $serendipity;
 
         foreach($serendipity['languages'] AS $lkey => $lval) {
@@ -49,7 +43,7 @@ class serendipity_plugin_multilingual extends serendipity_event
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        $lval);
                 $propbag->add('default',     'true');
-                return true;
+                #return true; // it does not break the following switch, but why should we need this here?!
             }
         }
 
@@ -80,7 +74,8 @@ class serendipity_plugin_multilingual extends serendipity_event
         return true;
     }
 
-    function generate_content(&$title) {
+    function generate_content(&$title)
+    {
         global $serendipity;
 
         $title = $this->get_config('title', $this->title);
@@ -101,6 +96,7 @@ class serendipity_plugin_multilingual extends serendipity_event
         }
         echo '</div></form>';
     }
+
 }
 
 /* vim: set sts=4 ts=4 expandtab : */

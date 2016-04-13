@@ -1,3 +1,19 @@
+2.24:
+-----
+
+ * Allow PCRE_DOTALL /s modifier, in case the |multilingual_lang Smarty
+   modifier replacement is used for content body textarea fields having
+   newlines.
+
+
+2.23 & 1.13 (sidebar):
+----------------------
+
+ * Load langs by lang API method - requires S9y 1.6+
+ * Fix some plugin inconsistencies
+ * Append the CSS if not already used by theme
+
+
 2.22:
 -----
 

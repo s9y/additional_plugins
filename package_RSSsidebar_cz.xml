@@ -85,8 +85,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_multilingual</link>
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking, Wesley Hwang-Chung</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_multilingual&lt;br /&gt;Výběr jazyka&lt;/b&gt;&lt;br /&gt;Povolit návštěvníkům měnit jazyk uživatelského rozhraní blogu&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 08 Aug 2015 02:31:32 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_plugin_multilingual&lt;br /&gt;Výběr jazyka&lt;/b&gt;&lt;br /&gt;Povolit návštěvníkům měnit jazyk uživatelského rozhraní blogu&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Wed, 13 Apr 2016 22:31:12 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_multilingual</guid>
 </item>
 <item>

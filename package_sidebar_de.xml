@@ -574,9 +574,9 @@
 <description>Ermöglicht Besuchern die Ausgabesprache von Serendipity zu ändern</description>
 <maintainers><maintainer><name>Garvin Hicking, Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.12</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-08-08</date>
+  <version>1.13</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2016-04-13</date>
   <filelist>
 <dir name="serendipity_event_multilingual">
 <file>lang_tr.inc.php</file>

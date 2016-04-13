@@ -325,7 +325,7 @@ class serendipity_event_multilingual extends serendipity_event
             if (empty($match)) continue; // Last block part, skip it.
             if (stristr($match, '{{!' . $serendipity['lang'] . '}}')) {
                 // Current language found. Keep the string, minus the {{!xx}} part.
-                $out .= preg_replace('@\{\{!' . $serendipity['lang'] . '\}\}@s', '', $match);
+                $out .= preg_replace('@\{\{!' . $serendipity['lang'] . '\}\}@', '', $match);
             } else {
                 // Current language not found. Remove everything after {{!xx}}.
                 $out .= preg_replace('@\{\{![^\}]+\}\}.+$@s', '', $match);

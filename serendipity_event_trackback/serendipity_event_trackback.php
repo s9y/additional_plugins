@@ -60,7 +60,6 @@ class serendipity_event_trackback extends serendipity_event
                 $propbag->add('default',     true);
                 break;
 
-
             case 'host':
                 $propbag->add('type',        'string');
                 $propbag->add('name',        'Proxy Host');
@@ -318,7 +317,7 @@ class serendipity_event_trackback extends serendipity_event
         if (preg_match('@(postgres|pgsql)@i', $serendipity['dbType'])) {
             // postgres < 9.3 IF NOT EXISTS workaround...
             $c = serendipity_db_query("SELECT COUNT(*) FROM {$serendipity['dbPrefix']}delayed_trackbacks;");
-            if ((int)$c >= 0) {
+            if (is_numeric($c)) {
                 return;
             } else {
                 $sql = "CREATE TABLE {$serendipity['dbPrefix']}delayed_trackbacks (

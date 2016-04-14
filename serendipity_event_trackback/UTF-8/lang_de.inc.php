@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 @define('PLUGIN_EVENT_MTRACKBACK_TITLETITLE', 'Trackbacks kontrollieren');
 @define('PLUGIN_EVENT_MTRACKBACK_TITLEDESC', 'Ermöglicht beim Anlegen eines Eintrages zu weiteren URLs Trackbacks zu schicken oder Trackbacks zu deaktivieren');

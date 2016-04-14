@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -12,4 +12,3 @@
 @define('PLUGIN_EVENT_MTRACKBACK_TITLETRACKOWN', 'Wysy³aæ ¶lady do w³asnego bloga?');
 @define('PLUGIN_EVENT_MTRACKBACK_TITLETRACKALL', 'Wy³±czyæ globalnie obs³ugê ¶ladów?');
 
-?>

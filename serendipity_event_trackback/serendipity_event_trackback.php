@@ -1,17 +1,10 @@
-<?php # 
+<?php
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_trackback extends serendipity_event
 {
@@ -26,20 +19,20 @@ class serendipity_event_trackback extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_MTRACKBACK_TITLEDESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Malte Paskuda');
-        $propbag->add('version',       '1.16.1');
+        $propbag->add('version',       '1.17');
         $propbag->add('requirements',  array(
-            'serendipity' => '0.8',
+            'serendipity' => '1.6',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
         $propbag->add('event_hooks',    array(
-            'backend_display' => true,
-            'backend_trackbacks' => true,
-            'backend_trackback_check' => true,
-            'backend_http_request' => true,
-            'genpage' => true,
-            'backend_publish' => true,
-            'backend_save' => true
+            'backend_display'           => true,
+            'backend_trackbacks'        => true,
+            'backend_trackback_check'   => true,
+            'backend_http_request'      => true,
+            'genpage'                   => true,
+            'backend_publish'           => true,
+            'backend_save'              => true
         ));
         $propbag->add('configuration', array('disable_trackall', 'trackown', 'delayed_trackbacks', 'host', 'port', 'user', 'password'));
         $propbag->add('groups', array('BACKEND_EDITOR'));
@@ -90,25 +83,31 @@ class serendipity_event_trackback extends serendipity_event
                  $propbag->add('type',        'string');
                  $propbag->add('name',        'Proxy Password');
                  $propbag->add('default',     '');
-                 break;
+                break;
+
+            default:
+                return false;
         }
         return true;
     }
 
-    function generate_content(&$title) {
+    function generate_content(&$title)
+    {
         $title = PLUGIN_EVENT_MTRACKBACK_TITLETITLE;
     }
 
-    function install() {
+    function install()
+    {
         $this->setupDB();
     }
 
-    function event_hook($event, &$bag, &$eventData, $addData = null) {
+    function event_hook($event, &$bag, &$eventData, $addData = null)
+    {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');
         if (isset($hooks[$event])) {
-            
+
             switch($event) {
                 case 'backend_http_request':
                     // Setup a Proxy?
@@ -119,8 +118,6 @@ class serendipity_event_trackback extends serendipity_event
                         $eventData['proxy_user'] = $this->get_config('user');
                         $eventData['proxy_pass'] = $this->get_config('password');
                     }
-
-                    return true;
                     break;
 
                 case 'backend_trackbacks':
@@ -154,8 +151,6 @@ class serendipity_event_trackback extends serendipity_event
                             }
                         }
                     }
-
-                    return true;
                     break;
 
                 case 'backend_trackback_check':
@@ -164,8 +159,6 @@ class serendipity_event_trackback extends serendipity_event
                         $eventData[2] = $addData;
                         $eventData['skipValidate'] = true;
                     }
-
-                    return true;
                     break;
 
                 case 'backend_display':
@@ -208,7 +201,6 @@ class serendipity_event_trackback extends serendipity_event
                                 <textarea rows="5" cols="50" id="input_additional_trackbacks" name="serendipity[additional_trackbacks]"><?php echo trim(implode("\n", $trackbackURLs)); ?></textarea>
                     </fieldset>
 <?php
-                    return true;
                     break;
 
                 case 'backend_save':
@@ -221,30 +213,30 @@ class serendipity_event_trackback extends serendipity_event
                         ) {
                         #trackbacks couldn't get generated, so store this entry
                         $this->delay($eventData['id'], $eventData['timestamp']);
-                        
                     }
-                    return true;
                     break;
+
                 case 'genpage':
                     #don't check on every page
                     $try = mt_rand(1, 10);
                     if ($try == 1 && serendipity_db_bool($this->get_config('delayed_trackbacks', true))) {
                         $this->generateDelayed();
                     }
-                    return true;
                     break;
 
                 default:
                     return false;
-                    break;
+
             }
+            return true;
         } else {
             return false;
         }
     }
 
-     #store id of an entry and wanted release-timestamp 
-    function delay($id, $timestamp) {
+    #store id of an entry and wanted release-timestamp
+    function delay($id, $timestamp)
+    {
         global $serendipity;
         $this->upgradeCheck();
         $this->removeDelayed($id);
@@ -256,10 +248,11 @@ class serendipity_event_trackback extends serendipity_event
     }
 
     #generate trackbacks for entries which now are shown
-    function generateDelayed() {
+    function generateDelayed()
+    {
         global $serendipity;
         $this->upgradeCheck();
-        
+
         $sql = "SELECT id, timestamp
                 FROM
                     {$serendipity['dbPrefix']}delayed_trackbacks";
@@ -269,9 +262,9 @@ class serendipity_event_trackback extends serendipity_event
             foreach ($entries as $entry) {
                 if ($entry['timestamp'] <= serendipity_serverOffsetHour()) {
                     include_once S9Y_INCLUDE_PATH . 'include/functions_trackbacks.inc.php';
-                    
+
                     $stored_entry = serendipity_fetchEntry('id', $entry['id'], 1, 1);
-                    
+
                     if (isset($_SESSION['serendipityRightPublish'])) {
                         $oldPublighRights = $_SESSION['serendipityRightPublish'];
                     } else {
@@ -285,12 +278,12 @@ class serendipity_event_trackback extends serendipity_event
                     if (isset($stored_entry['email'])) {
                         unset($stored_entry['email']);
                     }
-                    
-                    # Convert fetched categories to storable categories.    
+
+                    # Convert fetched categories to storable categories.
                     $current_cat = $stored_entry['categories'];
                     $stored_entry['categories'] = array();
                     foreach($current_cat AS $categoryidx => $category_data) {
-	                $stored_entry['categories'][$category_data['categoryid']] = $category_data['categoryid'];
+                        $stored_entry['categories'][$category_data['categoryid']] = $category_data['categoryid'];
                     }
 
                     ob_start();
@@ -310,7 +303,8 @@ class serendipity_event_trackback extends serendipity_event
     }
 
     #remove delayed entry from further use
-    function removeDelayed($id) {
+    function removeDelayed($id)
+    {
         global $serendipity;
         $sql = "DELETE FROM
                  {$serendipity['dbPrefix']}delayed_trackbacks
@@ -318,33 +312,39 @@ class serendipity_event_trackback extends serendipity_event
         serendipity_db_query($sql);
     }
 
-    function setupDB() {
-	    global $serendipity;
-		$sql = "CREATE TABLE {$serendipity['dbPrefix']}delayed_trackbacks (
-id int(11) NOT NULL ,
-timestamp int(10) {UNSIGNED},
-PRIMARY KEY (id)
-)";
-		serendipity_db_schema_import ( $sql );
-
-// Hotfix; better to check for pgsql vs. mysql here, but I didn't have time and needed this fixed for my install
-		$sql = "CREATE TABLE {$serendipity['dbPrefix']}delayed_trackbacks (
-id int(11) NOT NULL ,
-timestamp int(10) {UNSIGNED}
-PRIMARY KEY (id)
-)";
-		serendipity_db_schema_import ( $sql );
-
+    function setupDB()
+    {
+        global $serendipity;
+        if (preg_match('@(postgres|pgsql)@i', $serendipity['dbType'])) {
+            // postgres < 9.3 IF NOT EXISTS workaround...
+            $c = serendipity_db_query("SELECT COUNT(*) FROM {$serendipity['dbPrefix']}delayed_trackbacks;");
+            if ((int)$c >= 0) {
+                return;
+            } else {
+                $sql = "CREATE TABLE {$serendipity['dbPrefix']}delayed_trackbacks (
+                        id int(11) NOT NULL,
+                        timestamp int(10) {UNSIGNED},
+                        PRIMARY KEY (id))";
+            }
+        } else {
+            $sql = "CREATE TABLE IF NOT EXISTS {$serendipity['dbPrefix']}delayed_trackbacks (
+                    id int(11) NOT NULL,
+                    timestamp int(10) {UNSIGNED}
+                    PRIMARY KEY (id))";
+        }
+        serendipity_db_schema_import ( $sql ));
     }
 
-    function upgradeCheck() {
+    function upgradeCheck()
+    {
         $db_upgrade = serendipity_db_bool($this->get_config('db_upgrade', 2));
         if ((int)$db_upgrade !== 2) {
             $this->setupDB();
             $this->set_config('db_upgrade', 2);
         }
     }
-    
+
 }
 
 /* vim: set sts=4 ts=4 expandtab : */
+?>

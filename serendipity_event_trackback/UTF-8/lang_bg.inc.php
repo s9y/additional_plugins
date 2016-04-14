@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -12,3 +12,4 @@
 @define('PLUGIN_EVENT_MTRACKBACK_TITLETRACKOWN', 'Изпращане на проследявания към вашия собствен блог ?');
 @define('PLUGIN_EVENT_MTRACKBACK_TITLETRACKALL', 'Глобална забрана на проследяванията ?');
 @define('PLUGIN_EVENT_MTRACKBACK_TITLETRACKSEL', 'Проследявания само за URLs, показани по-долу');
+

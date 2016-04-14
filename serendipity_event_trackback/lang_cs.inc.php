@@ -19,3 +19,4 @@
 // Next lines were translated on 2010/05/02
 @define('PLUGIN_EVENT_MTRACKBACK_DELAYED_TRACKBACKS_NAME',		'Pozdržené odezvy');
 @define('PLUGIN_EVENT_MTRACKBACK_DELAYED_TRACKBACKS_DESC',		'Automaticky vytváøet odezvy èlánkù, které nebyly okamžitì publikovány.');
+

@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -12,4 +12,3 @@
 @define('PLUGIN_EVENT_MTRACKBACK_TITLETRACKOWN', '自分のブログにトラックバックを送信しますか?');
 @define('PLUGIN_EVENT_MTRACKBACK_TITLETRACKALL', '自動的なトラックバックを全体に使うことを無効にしますか?');
 
-?>

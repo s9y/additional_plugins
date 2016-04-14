@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -15,4 +15,3 @@
 @define('PLUGIN_EVENT_MTRACKBACK_DELAYED_TRACKBACKS_NAME', 'Delayed Trackbacks');
 @define('PLUGIN_EVENT_MTRACKBACK_DELAYED_TRACKBACKS_DESC', 'Automatically create trackbacks of entries which were not released immediately.');
 
-?>

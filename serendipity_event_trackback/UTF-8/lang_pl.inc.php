@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -12,4 +12,3 @@
 @define('PLUGIN_EVENT_MTRACKBACK_TITLETRACKOWN', 'Wysyłać ślady do własnego bloga?');
 @define('PLUGIN_EVENT_MTRACKBACK_TITLETRACKALL', 'Wyłączyć globalnie obsługę śladów?');
 
-?>

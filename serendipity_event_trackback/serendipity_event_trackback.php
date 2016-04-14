@@ -42,47 +42,47 @@ class serendipity_event_trackback extends serendipity_event
     {
         switch($name) {
             case 'trackown':
-                 $propbag->add('type',        'boolean');
-                 $propbag->add('name',        PLUGIN_EVENT_MTRACKBACK_TITLETRACKOWN);
-                 $propbag->add('default',     true);
-                 break;
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        PLUGIN_EVENT_MTRACKBACK_TITLETRACKOWN);
+                $propbag->add('default',     true);
+                break;
 
             case 'disable_trackall':
-                 $propbag->add('type',        'boolean');
-                 $propbag->add('name',        PLUGIN_EVENT_MTRACKBACK_TITLETRACKALL);
-                 $propbag->add('default',     false);
-                 break;
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        PLUGIN_EVENT_MTRACKBACK_TITLETRACKALL);
+                $propbag->add('default',     false);
+                break;
 
             case 'delayed_trackbacks':
-                 $propbag->add('type',        'boolean');
-                 $propbag->add('name',        PLUGIN_EVENT_MTRACKBACK_DELAYED_TRACKBACKS_NAME);
-                 $propbag->add('description', PLUGIN_EVENT_MTRACKBACK_DELAYED_TRACKBACKS_DESC);
-                 $propbag->add('default',     true);
-                 break;
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        PLUGIN_EVENT_MTRACKBACK_DELAYED_TRACKBACKS_NAME);
+                $propbag->add('description', PLUGIN_EVENT_MTRACKBACK_DELAYED_TRACKBACKS_DESC);
+                $propbag->add('default',     true);
+                break;
 
 
             case 'host':
-                 $propbag->add('type',        'string');
-                 $propbag->add('name',        'Proxy Host');
-                 $propbag->add('default',     '');
-                 break;
+                $propbag->add('type',        'string');
+                $propbag->add('name',        'Proxy Host');
+                $propbag->add('default',     '');
+                break;
 
             case 'port':
-                 $propbag->add('type',        'string');
-                 $propbag->add('name',        'Proxy Port');
-                 $propbag->add('default',     '');
-                 break;
+                $propbag->add('type',        'string');
+                $propbag->add('name',        'Proxy Port');
+                $propbag->add('default',     '');
+                break;
 
             case 'user':
-                 $propbag->add('type',        'string');
-                 $propbag->add('name',        'Proxy User');
-                 $propbag->add('default',     '');
-                 break;
+                $propbag->add('type',        'string');
+                $propbag->add('name',        'Proxy User');
+                $propbag->add('default',     '');
+                break;
 
             case 'password':
-                 $propbag->add('type',        'string');
-                 $propbag->add('name',        'Proxy Password');
-                 $propbag->add('default',     '');
+                $propbag->add('type',        'string');
+                $propbag->add('name',        'Proxy Password');
+                $propbag->add('default',     '');
                 break;
 
             default:

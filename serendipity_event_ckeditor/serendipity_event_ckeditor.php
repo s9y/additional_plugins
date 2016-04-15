@@ -49,14 +49,14 @@ class serendipity_event_ckeditor extends serendipity_event
      * @access protected
      * @var string
      */
-    protected $cke_zipfile = 'ckeditor_4.5.8.0-plus.zip';
+    protected $cke_zipfile = 'ckeditor_4.5.8.1-plus.zip';
 
     /**
      * Access property checkUpdateVersion
      * Verify release package versions - do update on upgrades!
      * @var array
      */
-    protected $checkUpdateVersion = array('ckeditor:4.5.8.0');
+    protected $checkUpdateVersion = array('ckeditor:4.5.8.1');
 
     /**
      * Access property revisionPackage
@@ -118,6 +118,8 @@ class serendipity_event_ckeditor extends serendipity_event
                     @unlink($this->cke_path . '/UTF-8/documentation_cz.html');
                     @unlink($this->cke_path . '/UTF-8/lang_en.inc.php');
                     @unlink($this->cke_path . '/UTF-8/documentation_cs.html');
+                    // purge accidently added Thumbs.db file with 4.5.8.0 throwing errors on unzip
+                    @unlink($this->cke_path . '/ckeditor/plugins/codesnippet/icons/hidpi/Thumbs.db');
                 }
                 // remove widget/dev samples directory
                 if (is_file(dirname(__FILE__) . '/ckeditor/plugins/widget/dev/console.js')) {
@@ -178,7 +180,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '4.5.8.0'); // is CKEDITOR Series 4.5.8 - and appended plugin revision .0
+        $propbag->add('version',       '4.5.8.1'); // is CKEDITOR Series 4.5.8 - and appended plugin revision .1
         $propbag->add('copyright',     'GPL or LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
@@ -355,7 +357,7 @@ class serendipity_event_ckeditor extends serendipity_event
                                       WHERE plugin_class = '" . serendipity_db_escape_string('serendipity_event_ckeditor') . "'
                                       LIMIT 1", true, 'assoc');
 
-        $versions = array('4.5.7.3', '4.5.8.0'); // keep prior and current version false check only
+        $versions = array('4.5.8.0', '4.5.8.1'); // keep prior and current version false check only
         if (in_array($row['version'], $versions)) return false;
 
         serendipity_db_query("UPDATE {$serendipity['dbPrefix']}pluginlist
@@ -373,7 +375,7 @@ class serendipity_event_ckeditor extends serendipity_event
      */
     private function updateTableZip()
     {
-        $this->temporaryDowngrade('4.5.8.0', '4.5.7.3'); // temporary
+        $this->temporaryDowngrade('4.5.8.1', '4.5.8.0'); // temporary
         foreach(array_values($this->checkUpdateVersion) AS $package) {
             $match = explode(':', $package);
             $this->set_config('last_'.$match[0].'_version', $match[1]);
@@ -387,7 +389,7 @@ class serendipity_event_ckeditor extends serendipity_event
      */
     private function checkUpdate()
     {
-        $this->temporaryDowngrade('4.5.8.0', '4.5.7.3'); // temporary
+        $this->temporaryDowngrade('4.5.8.1', '4.5.8.0'); // temporary
         $doupdate = false;
         foreach(array_values($this->checkUpdateVersion) AS $package) {
             $match = explode(':', $package);

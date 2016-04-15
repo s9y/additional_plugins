@@ -1,3 +1,7 @@
+4.5.8.1:
+-----
+    * Remove accidently added Thumbs.db file
+
 4.5.8.0:
 -----
     * Upgrade to CKEDITOR 4.5. Series, update 8 (http://ckeditor.com/whatsnew).

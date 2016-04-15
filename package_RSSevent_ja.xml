@@ -111,9 +111,9 @@
 <title>トラックバック制御: Allows granular control over how trackbacks are sent when creating entries</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_trackback</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking, Malte Paskuda</author>
-<content:encoded>&lt;b&gt;serendipity_event_trackback&lt;br /&gt;トラックバック制御&lt;/b&gt;&lt;br /&gt;Allows granular control over how trackbacks are sent when creating entries&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
+<author>Garvin Hicking, Malte Paskuda, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_event_trackback&lt;br /&gt;トラックバック制御&lt;/b&gt;&lt;br /&gt;Allows granular control over how trackbacks are sent when creating entries&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Fri, 15 Apr 2016 22:31:34 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_trackback</guid>
 </item>
 <item>
@@ -1334,7 +1334,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>Rustam Abdullaev, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_ckeditor&lt;br /&gt;CKEditor&lt;/b&gt;&lt;br /&gt;Uses CKEditor as the default WYSIWYG editor. For any JS-Editor usage: Recommended! After installation, go to the configuration screen of this plugin for further instructions.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
-<pubDate>Sun, 03 Apr 2016 22:30:36 +0200</pubDate>
+<pubDate>Fri, 15 Apr 2016 22:31:22 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_ckeditor</guid>
 </item>
 <item>

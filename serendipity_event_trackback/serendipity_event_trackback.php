@@ -331,7 +331,7 @@ class serendipity_event_trackback extends serendipity_event
                     timestamp int(10) {UNSIGNED}
                     PRIMARY KEY (id))";
         }
-        serendipity_db_schema_import ( $sql ));
+        serendipity_db_schema_import($sql);
     }
 
     function upgradeCheck()

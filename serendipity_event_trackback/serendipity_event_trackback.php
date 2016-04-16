@@ -19,7 +19,7 @@ class serendipity_event_trackback extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_MTRACKBACK_TITLEDESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Malte Paskuda, Ian');
-        $propbag->add('version',       '1.18');
+        $propbag->add('version',       '1.19');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -320,7 +320,7 @@ class serendipity_event_trackback extends serendipity_event
         }
         $sql = "CREATE TABLE {$serendipity['dbPrefix']}delayed_trackbacks (
                 id int(11) NOT NULL {PRIMARY},
-                timestamp int(10)
+                timestamp int(10) {UNSIGNED}
                 )";
         serendipity_db_schema_import($sql);
     }

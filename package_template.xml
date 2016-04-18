@@ -8,6 +8,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Kaustubh Srikanth</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -36,6 +37,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Kaustubh Srikanth</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -68,6 +70,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Evan Nemerson</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -96,6 +99,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Evan Nemerson</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -124,6 +128,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -168,6 +173,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Ivon Fong (ported by Ziyad Saeed)</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -276,6 +282,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Vladimir Simovic (aka Perun) | www.perun.net | www.vlad-design.de</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -322,6 +329,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Evan Nemerson</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -350,6 +358,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Evan Nemerson</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -378,6 +387,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Frederic Wenzel, blog.magenson.de</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -416,6 +426,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Kaustubh Srikanth</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -448,6 +459,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Sebastian Nohn</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -481,6 +493,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Hendrik Scholz</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -525,6 +538,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>risc</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0b3</version>
@@ -557,6 +571,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Evan Nemerson</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -585,6 +600,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Haran (ported by Sebastian Nohn)</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -614,6 +630,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Frederic Wenzel, blog.magenson.de</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -650,6 +667,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Florian Anderiasch</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -694,6 +712,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Evan Nemerson</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -722,6 +741,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Evan Nemerson</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -750,6 +770,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -810,6 +831,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Sebastian Schmieg (ported by Christian Hoffmann)</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -916,6 +938,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Eddie Traversa</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -1064,6 +1087,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Hendrik Scholz (Modified by David Cummins)</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -1110,6 +1134,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Piotr Polak and Ahmet Usal</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -1210,6 +1235,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Vladimir Simovic (aka Perun) | www.perun.net | www.vlad-design.de</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -1256,6 +1282,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Chetan Kunte. Port by Jason Levitt.</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -1320,6 +1347,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Carl Galloway, Andreas Viklund</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -1416,6 +1444,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Carl Galloway, www.carlgalloway.com</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -1464,6 +1493,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Carl Galloway, www.carlgalloway.com</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -1512,6 +1542,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Lordcoffee</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -1710,6 +1741,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Christian Hoffmann (ported by Ziyad Saeed)</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -1790,6 +1822,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Carl Galloway, Andreas Viklund</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -1922,6 +1955,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Carl Galloway</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -1994,6 +2028,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Carl Galloway &amp; Andreas Viklund</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -2072,6 +2107,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Carl Galloway</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -2164,6 +2200,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Rebecca Hemstad</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -2278,6 +2315,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Jude Anthony</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -2370,6 +2408,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Carl Galloway and Naoko M</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -2453,6 +2492,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Kostas CoSTa Brzezinski</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -2541,6 +2581,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>David Cummins</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -2645,6 +2686,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>David Cummins</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -2734,6 +2776,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Martin, Carl</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -2796,6 +2839,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Abdussamad Abdurrazzaq</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -2868,6 +2912,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>ceejay</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -2950,6 +2995,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Jude Anthony - restyled by David Cummins</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -3066,6 +3112,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>ceejay</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -3126,6 +3173,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Mads Sigvert @ www.evilsun.dk</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -3306,6 +3354,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>David Cummins</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -3356,6 +3405,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Carl Galloway &amp; Andreas Viklund</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -3430,6 +3480,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>David Cummins &amp; Carl Galloway</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -3496,6 +3547,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>N.Design Studio &amp; MangoOrange.&lt;br /&gt;&lt;i&gt;Ported to s9y by Matthias 'YellowLed' Mees.&lt;/i&gt;</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -3706,6 +3758,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>nerdwg.org port of Luka Cvrk Theme</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -3760,6 +3813,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>ReinhardL (Please install event_freetag, event_entryproperties, plugin_staticpage before you install the theme)</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -3926,6 +3980,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Carl Galloway &amp; Ricky Wilson</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -4002,6 +4057,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Abdussamad Abdurrazzaq</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -4102,6 +4158,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Rainer Steinke</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -4158,6 +4215,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Rainer Steinke</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -4200,6 +4258,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Rainer Steinke</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -4256,6 +4315,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Carl Galloway</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -4376,6 +4436,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Carl Galloway</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -4452,6 +4513,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>David Cummins</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -4518,6 +4580,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Pelle Boese</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -4592,6 +4655,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Reinhard Linnemann Based on Carl Galloway`s Serendipity Theme 3.0</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -4690,6 +4754,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Pelle Boese</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -4728,6 +4793,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Julien De Luca (ported by Abdussamad Abdurrazzaq)</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -4972,6 +5038,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Carl Galloway &amp; Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -5078,6 +5145,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>David Cummins</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -5195,6 +5263,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Jannis Hermanns</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -5239,6 +5308,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Manuel Hiptmair, based on a template by Jonathan Verrecchia</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -5301,6 +5371,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Carl Galloway, Rebecca Hemstad, Andreas Viklund</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -5393,6 +5464,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Carl Galloway</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -5495,6 +5567,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Sebastian Bergmann</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -5531,6 +5604,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Evan Nemerson</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -5559,6 +5633,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Evan Nemerson</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -5587,6 +5662,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Evan Nemerson</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -5615,6 +5691,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Evan Nemerson</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -5643,6 +5720,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Evan Nemerson</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -5671,6 +5749,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Kaustubh Srikanth</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -5699,6 +5778,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Kaustubh Srikanth &amp; Tom Sommer</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -5727,6 +5807,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Kaustubh Srikanth &amp; Tom Sommer</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -5755,6 +5836,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Kaustubh Srikanth</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -5783,6 +5865,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -5825,6 +5908,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -5857,6 +5941,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -5937,6 +6022,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Alp UÃ§kan</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -6089,6 +6175,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Reinhard Linnemann</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -6275,6 +6362,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Christian Hoffmann</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -6387,6 +6475,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>NodeThirtyThree (ported by Christian Hoffmann)</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -6493,6 +6582,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended>Yes</recommended>
 <maintainers><maintainer><name>onli</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -6541,6 +6631,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Carl Galloway</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -6657,6 +6748,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Free CSS Templates ported by Reinhard Linnemann</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -6758,6 +6850,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name></name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -6856,6 +6949,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Stefan2k1 (Ported by fwaggle)</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -6920,6 +7014,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>nuvio/kendahlin (ported by fwaggle)</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -7030,6 +7125,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Free Css Templates ported by Reinhard Linnemann</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -7238,6 +7334,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>NodeThirtyThree (Ported to s9y by YellowLed)</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -7332,6 +7429,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Darren Hoyt, ported to s9y by Matthias 'YellowLed' Mees.</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -7434,6 +7532,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>based on Free CSS Templates. - ported by Reinhard</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -7518,6 +7617,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended>Yes</recommended>
 <maintainers><maintainer><name>onli</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -7602,6 +7702,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>reinhardl</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -7758,6 +7859,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Phu ported by Kunze Media</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -7814,6 +7916,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>Blueprint Theme port with yaml by RL</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
@@ -8040,6 +8143,7 @@
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
+<recommended></recommended>
 <maintainers><maintainer><name>85ideas.com (Ported to s9y by YellowLed, sponsored by serendipity-templates.org)</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>

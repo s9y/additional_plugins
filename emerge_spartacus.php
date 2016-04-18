@@ -167,6 +167,7 @@ class emerge_spartacus {
             $x[] = '<license>' . $this->encode($info['license'], true) . '</license>';
             $x[] = '<summary>' . $this->encode($info['summary']) . '</summary>';
             $x[] = '<description>' . $this->encode($info['description']) . '</description>';
+            $x[] = '<recommended>' . $this->encode($info['recommended']) . '</recommended>';
             $x[] = '<maintainers><maintainer><name>' . $this->encode($info['author'], true) . '</name><role>lead</role></maintainer></maintainers>';
 
             $x[] = '<release>';

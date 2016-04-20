@@ -118,7 +118,7 @@ class serendipity_event_multilingual extends serendipity_event
 
             // case unforced language entry lang links
             if (isset($serendipity['GET']['lang_selected']) && !isset($serendipity['GET']['user_language'])) {
-                $this->lang_display = $this->showlang = $serendipity['GET']['lang_selected'];
+                $this->lang_display = $this->showlang = serendipity_db_escape_string($serendipity['GET']['lang_selected']);
             }
             if ($serendipity['GET']['lang_selected'] == 'default' && !isset($serendipity['GET']['user_language'])) {
                 $this->lang_display = ''; // sets entry lang to default
@@ -127,11 +127,11 @@ class serendipity_event_multilingual extends serendipity_event
 
         if (!isset($serendipity['languages'][$this->showlang])) {
             $this->showlang = '';
-            serendipity_header('X-Serendipity-ML-SL-RESET: ' . $this->cleanheader($serendipity['default_lang']));
+            if ($serendipity['expose_s9y']) serendipity_header('X-Serendipity-ML-SL-RESET: ' . $this->cleanheader($serendipity['default_lang']));
         }
 
         if (!headers_sent()) {
-            serendipity_header('X-Serendipity-ContentLang: ' . $this->cleanheader($this->showlang));
+            if ($serendipity['expose_s9y']) serendipity_header('X-Serendipity-ContentLang: ' . $this->cleanheader($this->showlang));
         }
 
         $this->setupDB();

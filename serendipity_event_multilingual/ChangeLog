@@ -1,3 +1,12 @@
+2.25:
+-----
+
+ * Fix "Select language" displaying entries false same "<lang>, <lang>" links
+ * This also fixes the "Force full language" switch
+ * Fix blogTitle tagged translations for /archive page
+ * Fix blogTitle tagged translations for backend
+
+
 2.24:
 -----
 

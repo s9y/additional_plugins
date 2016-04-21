@@ -1,3 +1,9 @@
+2.26:
+-----
+
+ * Fix possible missing Smarty object init
+ * Add blogDescription tagged translations to 2.25
+
 2.25:
 -----
 

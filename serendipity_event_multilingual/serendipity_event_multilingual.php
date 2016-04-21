@@ -27,7 +27,7 @@ class serendipity_event_multilingual extends serendipity_event
             'php'         => '4.1.0'
         ));
         $propbag->add('groups',         array('FRONTEND_ENTRY_RELATED', 'BACKEND_EDITOR'));
-        $propbag->add('version',        '2.25');
+        $propbag->add('version',        '2.26');
         $propbag->add('configuration',  array('copytext', 'placement', 'tagged_title', 'tagged_entries', 'tagged_sidebar', 'langswitch'));
         $propbag->add('event_hooks',    array(
                 'frontend_fetchentries'     => true,
@@ -380,7 +380,11 @@ class serendipity_event_multilingual extends serendipity_event
                     if (!is_array($eventData)) {
                         return false;
                     }
+                    if (!is_object($serendipity['smarty'])) {
+                        serendipity_smarty_init();
+                    }
                     $serendipity['smarty']->assign('blogTitle', $this->strip_langs($eventData['blogTitle']));
+                    $serendipity['smarty']->assign('blogDescription', $this->strip_langs($serendipity['blogDescription']));
                     break;
 
                 case 'backend_entry_updertEntry':
@@ -447,6 +451,7 @@ class serendipity_event_multilingual extends serendipity_event
                     // assign lang stripped blogTitle to archive page
                     if ($serendipity['plugindata']['smartyvars']['view'] == 'archive') {
                         $serendipity['smarty']->assign('blogTitle', $this->strip_langs($serendipity['blogTitle']));
+                        $serendipity['smarty']->assign('blogDescription', $this->strip_langs($serendipity['blogDescription']));
                     }
 
                     if (!defined('Smarty::SMARTY_VERSION')) {

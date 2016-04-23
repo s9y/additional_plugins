@@ -1031,6 +1031,7 @@ addLoadEvent(enableAutocomplete);
                     }
 
                     $taglist = (array)$this->getAllTags();
+                    $wicktags = array();
 
                     if ($this->get_config('admin_ftayt')) {
                         foreach ($taglist as $k => $v) {

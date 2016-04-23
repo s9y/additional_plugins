@@ -1,0 +1,18 @@
+0.4.0
+   * with Piwik v2 it is possible to use lsat x days for most
+     read entries instead of current week
+   * some optimizations for fetching most read entries (smaller arrays)
+
+0.3.1
+   * included some debug-logging
+   * included "known bugs" into README.markdown
+
+0.3
+   * renaming of language strings
+   * included some live-statistics
+
+0.2
+   * some changes and optimisations by mattsches, thanks!
+
+0.1
+   * first try, a lot of things could behave wrong

@@ -81,12 +81,12 @@
 <guid isPermaLink="false">serendipity_event_entrycheck</guid>
 </item>
 <item>
-<title>Tagging of entries: Allows freestyle tagging of entries</title>
+<title>글에 태그 달기: 글에 자유롭게 태그를 달 수 있게 합니다</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_freetag</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_freetag&lt;br /&gt;Tagging of entries&lt;/b&gt;&lt;br /&gt;Allows freestyle tagging of entries&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Fri, 21 Aug 2015 02:31:28 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_freetag&lt;br /&gt;글에 태그 달기&lt;/b&gt;&lt;br /&gt;글에 자유롭게 태그를 달 수 있게 합니다&lt;br/&gt;For: Serendipity 1.3</content:encoded>
+<pubDate>Sat, 23 Apr 2016 22:31:05 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_freetag</guid>
 </item>
 <item>

@@ -492,6 +492,15 @@
 <guid isPermaLink="false">serendipity_plugin_frappr</guid>
 </item>
 <item>
+<title>Piwik: show statistics of Piwik in sidebar</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_piwik</link>
+<category>Sidebar Plugins</category>
+<author>Bernd Distler</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_piwik&lt;br /&gt;Piwik&lt;/b&gt;&lt;br /&gt;show statistics of Piwik in sidebar&lt;br/&gt;For: Serendipity 1.3.1</content:encoded>
+<pubDate>Sat, 23 Apr 2016 22:31:18 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_piwik</guid>
+</item>
+<item>
 <title>Spam Report: Prints out a statistic about your comment spam if your antispam plugins report to the DB.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_spamblock_bee</link>
 <category>Sidebar Plugins</category>

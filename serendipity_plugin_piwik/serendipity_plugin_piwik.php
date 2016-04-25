@@ -1,10 +1,11 @@
-<?php # $Id$
- 
+<?php
+
 require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
- 
+
 @serendipity_plugin_api::load_language(dirname(__FILE__));
- 
-class serendipity_plugin_piwik extends serendipity_plugin {
+
+class serendipity_plugin_piwik extends serendipity_plugin
+{
     public $title = PLUGIN_SIDEBAR_PIWIK_NAME;
     protected $token;
     protected $url;
@@ -18,7 +19,7 @@ class serendipity_plugin_piwik extends serendipity_plugin {
     protected $entries_remove;
     protected $debug;
     protected $dependencies;
- 
+
     /**
      * @param serendipity_property_bag $propbag
      * @return void
@@ -30,9 +31,9 @@ class serendipity_plugin_piwik extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_SIDEBAR_PIWIK_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Bernd Distler');
-        $propbag->add('version',       '0.4.0');
+        $propbag->add('version',       '0.4.1');
         $propbag->add('requirements',  array(
-            'serendipity' => '1.3.1', // don't know about that
+            'serendipity' => '1.6',
             'smarty'      => '2.6.7',
             'php'         => '5.1.0'
         ));
@@ -40,7 +41,7 @@ class serendipity_plugin_piwik extends serendipity_plugin {
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
         $this->dependencies = array('serendipity_event_piwik' => 'remove');
     }
- 
+
     /**
      * @param string $name
      * @param serendipity_property_bag $propbag
@@ -131,12 +132,13 @@ class serendipity_plugin_piwik extends serendipity_plugin {
         }
         return true;
     }
- 
+
     /**
      * @param string $title
      * @return void
      */
-    public function generate_content(&$title) {
+    public function generate_content(&$title)
+    {
         $title = $this->get_config('title', $title ? $title : $this->title);
         $token = $this->get_config('token', $this->token);
         $site_id = $this->get_config('site_id', $this->site_id);
@@ -245,7 +247,7 @@ class serendipity_plugin_piwik extends serendipity_plugin {
             if ($error) {
                 return;
             }
- 
+
             // take pagetitles from seconed array and write it into first one
             for ($i = 0; $i < count($piwik_array_pagesurls); $i++) {
                 $piwik_array_pagesurls[$i]['label'] = $piwik_array_pagestitles[$i]['label'];
@@ -269,7 +271,7 @@ class serendipity_plugin_piwik extends serendipity_plugin {
             echo "\n</ol>\n";
         }
     }
- 
+
     /**
      * @param $api_url
      * @return bool|mixed|string
@@ -295,6 +297,8 @@ class serendipity_plugin_piwik extends serendipity_plugin {
         fwrite($fp, "\n".date('Y-m-d H:i:s', serendipity_serverOffsetHour()).' '.$debug_message);
         fclose($fp);
     }
+
 }
- 
+
 /* vim: set sts=4 ts=4 expandtab : */
+?>

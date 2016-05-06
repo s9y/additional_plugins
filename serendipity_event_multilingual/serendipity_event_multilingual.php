@@ -27,7 +27,7 @@ class serendipity_event_multilingual extends serendipity_event
             'php'         => '4.1.0'
         ));
         $propbag->add('groups',         array('FRONTEND_ENTRY_RELATED', 'BACKEND_EDITOR'));
-        $propbag->add('version',        '2.26');
+        $propbag->add('version',        '2.27');
         $propbag->add('configuration',  array('copytext', 'placement', 'tagged_title', 'tagged_entries', 'tagged_sidebar', 'langswitch'));
         $propbag->add('event_hooks',    array(
                 'frontend_fetchentries'     => true,
@@ -448,10 +448,14 @@ class serendipity_event_multilingual extends serendipity_event
                         // never init in genpage without adding previously set $vars, which is $view etc!
                         serendipity_smarty_init($serendipity['plugindata']['smartyvars']);
                     }
-                    // assign lang stripped blogTitle to archive page
+                    // set lang strip change more global, since we need this in the email subject too for example
+                    $serendipity['blogTitle'] = $this->strip_langs($serendipity['blogTitle']);
+                    $serendipity['blogDescription'] = $this->strip_langs($serendipity['blogDescription']);
+
+                    // assign lang stripped blogTitle to archive page, which overwrites them for case archive pages
                     if ($serendipity['plugindata']['smartyvars']['view'] == 'archive') {
-                        $serendipity['smarty']->assign('blogTitle', $this->strip_langs($serendipity['blogTitle']));
-                        $serendipity['smarty']->assign('blogDescription', $this->strip_langs($serendipity['blogDescription']));
+                        $serendipity['smarty']->assign('blogTitle', $serendipity['blogTitle']);
+                        $serendipity['smarty']->assign('blogDescription', $serendipity['blogDescription']);
                     }
 
                     if (!defined('Smarty::SMARTY_VERSION')) {

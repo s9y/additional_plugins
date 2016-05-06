@@ -1,3 +1,9 @@
+2.27:
+-----
+
+ * Extend blogTitle and description lang strip in the genpage hook
+   (fixes the email subject inclusion for example)
+
 2.26:
 -----
 

@@ -912,9 +912,9 @@
 <description>Позволява създаването на версии на статиите на различни езици</description>
 <maintainers><maintainer><name>Garvin Hicking, Wesley Hwang-Chung, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.26</version>
+  <version>2.27</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-04-21</date>
+  <date>2016-05-06</date>
   <filelist>
 <dir name="serendipity_event_multilingual">
 <file>lang_tr.inc.php</file>

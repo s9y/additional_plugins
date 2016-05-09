@@ -978,15 +978,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_ljupdate</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_ljupdate/ChangeLog</changelog>
 <license>GPL</license>
 <summary>LJ/MySpace/Serendipity aktualizace</summary>
 <groups>BACKEND_EDITOR</groups>
 <description>Používá XMLRPC protokol pro zasílání příspěvků na LiveJournal/MySpace/Serendipity</description>
 <maintainers><maintainer><name>Kaustubh Srikanth, Ivan Makhonin</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.13.1</version>
+  <version>1.13.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-05-09</date>
   <filelist>
 <dir name="serendipity_event_ljupdate">
 <file>serendipity_event_ljupdate.php</file>
@@ -1001,6 +1002,7 @@
 <file>lang_en.inc.php</file>
 <file>lang_tr.inc.php</file>
 <file>lang_ja.inc.php</file>
+<file>ChangeLog</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 </dir>
@@ -1017,6 +1019,7 @@
     <file>serendipity_event_ljupdate/lang_en.inc.php</file>
     <file>serendipity_event_ljupdate/lang_tr.inc.php</file>
     <file>serendipity_event_ljupdate/lang_ja.inc.php</file>
+    <file>serendipity_event_ljupdate/ChangeLog</file>
     <file>serendipity_event_ljupdate/lang_cs.inc.php</file>
     <file>serendipity_event_ljupdate/lang_cz.inc.php</file>
   </serendipityFilelist>

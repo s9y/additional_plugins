@@ -219,7 +219,9 @@ class serendipity_event_ljupdate extends serendipity_event
             }
             $props['current_mood']    = new XML_RPC_Value($serendipity['POST']['ljmood'], 'string');
             $props['current_music']   = new XML_RPC_Value($serendipity['POST']['ljmusic'], 'string');
-            $props['picture_keyword'] = new XML_RPC_Value($serendipity['POST']['ljuserpic'], 'string');
+            if ($serendipity['POST']['ljuserpic']) {
+                $props['picture_keyword'] = new XML_RPC_Value($serendipity['POST']['ljuserpic'], 'string');
+            }
             $props['opt_nocomments']  = new XML_RPC_Value($serendipity['POST']['ljcomment'], 'string');
             $params['props']          = new XML_RPC_Value($props,'struct');
         }
@@ -500,9 +502,7 @@ class serendipity_event_ljupdate extends serendipity_event
                             echo 'ERROR ' . $client->errno . ': ' . $client->errstr . '<br />';
                             return false;
                         }
-                        $v      = $res->value();
-                        $tmp    = $v->scalarval();
-                        $pictmp = $tmp['pickws']->scalarval();
+                        $pictmp = $res->value()->structmem('pickws');
                     }
 ?>
                     <input type="hidden" name="serendipity[ljmirror_hidden]" value="true" />
@@ -517,11 +517,13 @@ class serendipity_event_ljupdate extends serendipity_event
                         <td colspan="2">
                     <?php echo PLUGIN_LJUPDATE_USERPIC; ?>: <select name="serendipity[ljuserpic]">
 <?php
-                    if (is_array($pictmp)) {
-                        for($i=0; $i<count($pictmp); $i++) {
-                            echo "<option value=\"" . $pictmp[$i]->scalarval() . "\"";
-                            if ($pictmp[$i]->scalarval() == $userpic) echo " selected";
-                            echo ">" . $pictmp[$i]->scalarval() . "</option>";
+                    if (is_object($pictmp)) {
+                        echo "<option value=\"\">--</option>";
+                        for($i=0; $i<$pictmp->arraysize(); $i++) {
+                            $pictmp_item = $pictmp->arraymem($i)->scalarval();
+                            echo "<option value=\"" . $pictmp_item . "\"";
+                            if ($pictmp_item == $userpic) echo " selected";
+                            echo ">" . $pictmp_item . "</option>";
                         }
                     }
 ?>

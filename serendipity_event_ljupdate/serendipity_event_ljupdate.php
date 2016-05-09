@@ -26,7 +26,7 @@ class serendipity_event_ljupdate extends serendipity_event
             'php'         => '4.1.0'
         ));
         $propbag->add('author', 'Kaustubh Srikanth, Ivan Makhonin');
-        $propbag->add('version', '1.13.1');
+        $propbag->add('version', '1.13.2');
 
 
         $propbag->add('event_hooks',    array(

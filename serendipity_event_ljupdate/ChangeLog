@@ -1,0 +1,4 @@
+Version 1.13.2: (blackwarthog)
+------------------------------------------------------------------------
+ * Fix XML-RPC results reading bug
+ * Use default ljournal userpic if no picture is selected

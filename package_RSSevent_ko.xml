@@ -95,7 +95,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Wesley Hwang-Chung, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_multilingual&lt;br /&gt;다중 언어로 글 작성&lt;/b&gt;&lt;br /&gt;여러 언어 버전으로 된 글을 작성할 수 있습니다&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Fri, 06 May 2016 22:31:28 +0200</pubDate>
+<pubDate>Tue, 10 May 2016 22:31:32 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_multilingual</guid>
 </item>
 <item>
@@ -554,7 +554,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_cachesimple&lt;br /&gt;Simple Cached/Pregenerated Pages&lt;/b&gt;&lt;br /&gt;[EXPERIMENTAL] Allows to cache/pregenerate pages. Note: Destroys dynamic capabilites and may not interoperate well with dynamic plugins. But it's faster, if you don't depend on realtime dynamics.  (This plugin should be placed as early as possible in the event queue list. Only dynamic plugins like the karmavoting should be positioned before this plugin.)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:12 +0100</pubDate>
+<pubDate>Tue, 10 May 2016 22:31:23 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_cachesimple</guid>
 </item>
 <item>

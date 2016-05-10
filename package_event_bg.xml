@@ -912,9 +912,9 @@
 <description>Позволява създаването на версии на статиите на различни езици</description>
 <maintainers><maintainer><name>Garvin Hicking, Wesley Hwang-Chung, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.27</version>
+  <version>2.28</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-05-06</date>
+  <date>2016-05-10</date>
   <filelist>
 <dir name="serendipity_event_multilingual">
 <file>lang_tr.inc.php</file>
@@ -4452,9 +4452,9 @@
 <description>[ЕКСПЕРИМЕНТАЛЕН СТАДИЙ] Кешира/пре-генерира страници. Забележка: Пречи на динамичните възможности на блога и може да не работи добре с динамичните приставки. За сметка на това предоставя скорост, ако не блогът не зависи от динамика в реално време.  (Този плъгин трябва да бъде поставен колкото може по-напред в списъка на събитийните приставки. Само динамични приставки като karmavoting трябва да бъдат позиционирани преди тази приставка.)</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.2.1</version>
+  <version>1.2.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-05-10</date>
   <filelist>
 <dir name="serendipity_event_cachesimple">
 <file>serendipity_event_cachesimple.php</file>

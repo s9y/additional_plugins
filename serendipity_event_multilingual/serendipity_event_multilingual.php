@@ -27,7 +27,7 @@ class serendipity_event_multilingual extends serendipity_event
             'php'         => '4.1.0'
         ));
         $propbag->add('groups',         array('FRONTEND_ENTRY_RELATED', 'BACKEND_EDITOR'));
-        $propbag->add('version',        '2.27');
+        $propbag->add('version',        '2.28');
         $propbag->add('configuration',  array('copytext', 'placement', 'tagged_title', 'tagged_entries', 'tagged_sidebar', 'langswitch'));
         $propbag->add('event_hooks',    array(
                 'frontend_fetchentries'     => true,
@@ -48,6 +48,7 @@ class serendipity_event_multilingual extends serendipity_event
                 'frontend_entries_rss'      => true,
                 'frontend_comment'          => true,
                 'frontend_sidebar_plugins'  => true,
+                'frontend_rss'              => true,
                 'genpage'                   => true,
         ));
         $this->supported_properties = array('lang_selected', 'lang_display');
@@ -783,6 +784,13 @@ class serendipity_event_multilingual extends serendipity_event
                             $eventData[$key]['title'] = $this->strip_langs($eventData[$key]['title']);
                             $eventData[$key]['content'] = $this->strip_langs($eventData[$key]['content']);
                         }
+                    }
+                    break;
+
+                case 'frontend_rss':
+                    if (is_array($eventData)) {
+                        $eventData['title'] = $this->strip_langs($eventData['title']);
+                        $eventData['description'] = $this->strip_langs($eventData['description']);
                     }
                     break;
 

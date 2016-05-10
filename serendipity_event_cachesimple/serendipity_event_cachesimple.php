@@ -57,7 +57,7 @@ class serendipity_event_cachesimple extends serendipity_event
         'wfwcomment.php'
     ); // Leaves only index.php and rss.php
 
-    function serendipity_event_cachesimple() {
+    function __construct() {
         // garvin: Nasty shortcircuit to get Grandma's Performance Pennies.
 
         if ($this->cacheAllowed()) {
@@ -75,7 +75,7 @@ class serendipity_event_cachesimple extends serendipity_event
         $propbag->add('description', PLUGIN_EVENT_CACHESIMPLE_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Garvin Hicking');
-        $propbag->add('version',     '1.2.1');
+        $propbag->add('version',     '1.2.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

@@ -29,7 +29,7 @@ class serendipity_plugin_multilingual extends serendipity_event
             $conf[] = $lkey;
         }
         $propbag->add('configuration', $conf);
-        $propbag->add('version',       '1.13');
+        $propbag->add('version',       '1.14');
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
         $this->dependencies = array('serendipity_event_multilingual' => 'remove');
     }
@@ -43,7 +43,7 @@ class serendipity_plugin_multilingual extends serendipity_event
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        $lval);
                 $propbag->add('default',     'true');
-                #return true; // it does not break the following switch, but why should we need this here?!
+                return true; // keep!
             }
         }
 

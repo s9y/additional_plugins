@@ -32,4 +32,3 @@
 @define('PLUGIN_EVENT_CONTENTREWRITE_REWRITECHARDESC', 'Se utiliza um caracter especial para forçar a reescrita, introduza-lo aqui. Exemplo: se deseja somente substituir \'palavra*\' com o texto que definiu, mas não quer que o \'*\' seja mostrados, introduza o caracter aqui.');
 
 /* vim: set sts=4 ts=4 expandtab : */
-?>

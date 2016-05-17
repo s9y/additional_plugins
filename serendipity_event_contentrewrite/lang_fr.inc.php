@@ -1,5 +1,4 @@
 <?php
-
 ##########################################################################
 # serendipity - another blogger...                                       #
 ##########################################################################
@@ -33,4 +32,3 @@
 @define('PLUGIN_EVENT_CONTENTREWRITE_REWRITECHARDESC', 'Si vous utilisez un caractère spécial pour forcer la réecriture, entrez-le ici. Exemple: si vous désirez seulement remplacer \'mot*\' avec le texte que vous avez défini, mais ne voulez pas que le \'*\' s\'affiche, entrez ce caractère ici.');
 
 /* vim: set sts=4 ts=4 expandtab : */
-?>

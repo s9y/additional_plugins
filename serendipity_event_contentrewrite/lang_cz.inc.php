@@ -25,4 +25,4 @@
 @define('PLUGIN_EVENT_CONTENTREWRITE_REWRITECHAR', 'Pøepisování znakù');
 @define('PLUGIN_EVENT_CONTENTREWRITE_REWRITECHARDESC', 'Odmazávání znakù ze slova ({slovo}) - pøíklad pou¾ití: Máte podnikový blog a ¹éfy Hru¹ku, Jelínka a Vrátného. Chcete, aby se jména ¹éfù zvýrazòovala, ale nechcete, aby se slovo hru¹ka odkazovalo na ¹éfa, pokud mluvíte o ovoci, podobnì se slivovicí, pøípadnì nechcete zamìòovat ¹éfa s dùchodcem na vrátnici. V textu budete psát Hru¹ka_¹éf, Jelínek_¹éf, Vrátný_¹éf. V tomto poli zadáte \'_¹éf\'. Tato pøípona Vám umo¾ní rozpoznat ¹éfy, ale sama o sobì se nebude v poli {slovo} zobrazovat.');
 @define('PLUGIN_EVENT_CONTENTREWRITE_REWRITESTRING', 'Va¹e nahrazovací øetìzce jsou %s a %s.');
-?>
+

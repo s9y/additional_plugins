@@ -25,4 +25,4 @@
 @define('PLUGIN_EVENT_CONTENTREWRITE_REWRITECHAR', 'Pøepisování znakù');
 @define('PLUGIN_EVENT_CONTENTREWRITE_REWRITECHARDESC', 'Odmazávání znakù ze slova ({slovo}) - pøíklad použití: Máte podnikový blog a šéfy Hrušku, Jelínka a Vrátného. Chcete, aby se jména šéfù zvýrazòovala, ale nechcete, aby se slovo hruška odkazovalo na šéfa, pokud mluvíte o ovoci, podobnì se slivovicí, pøípadnì nechcete zamìòovat šéfa s dùchodcem na vrátnici. V textu budete psát Hruška_šéf, Jelínek_šéf, Vrátný_šéf. V tomto poli zadáte \'_šéf\'. Tato pøípona Vám umožní rozpoznat šéfy, ale sama o sobì se nebude v poli {slovo} zobrazovat.');
 @define('PLUGIN_EVENT_CONTENTREWRITE_REWRITESTRING', 'Vaše nahrazovací øetìzce jsou %s a %s.');
-?>
+

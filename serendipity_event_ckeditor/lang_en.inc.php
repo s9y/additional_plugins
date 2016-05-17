@@ -1,8 +1,8 @@
 <?php
 
 /**
- *  @file lang_en.inc.php 1.4.13 2016-02-06 Ian
- *  @version 1.4.12
+ *  @file lang_en.inc.php 1.4.14 2016-05-11 Ian
+ *  @version 1.4.14
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */
@@ -27,7 +27,8 @@
 
     <h3>Upgrading</h3>
     <p>This Plugin will provide Updates via Spartacus close to new CKEDITOR releases.</p>
-    <p>It is not advised to use or install any customized CKEDITOR releases, since this will lead to undesirable side effects with this Plugins configuration.</p>
+    <p>Please do not use any automatic plugin bulk update, if already available with your S9y version. Upgrade the CKEditor plugin singulary in list, to allow the internal routines to immediately fall back into this configuration, to run and deflate the ZIP-installer operations.</p>
+    <p>It is generally not advised to use or install any "customized" CKEDITOR releases, since this will lead to undesirable side effects with this Plugins configuration.</p>
 </div>');
 @define('PLUGIN_EVENT_CKEDITOR_CONFIG', '');
 @define('PLUGIN_EVENT_CKEDITOR_INSTALL_PLUGPATH', 'HTTP path to s9y plugins directory');

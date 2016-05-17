@@ -1,8 +1,8 @@
 <?php
 
 /**
- *  @file UTF-8/lang_de.inc.php 1.4.13 2016-02-06 Ian
- *  @version 1.4.12
+ *  @file UTF-8/lang_de.inc.php 1.4.14 2016-05-11 Ian
+ *  @version 1.4.14
  *  @author Translator Name <yourmail@example.com>
  *  DE-Revision: Revision of UTF-8/lang_de.inc.php
  */
@@ -27,7 +27,8 @@
 
     <h3>Upgrading</h3>
     <p>Dieses Plugin wird zeitnah selber Updates via Spartacus bereitstellen.</p>
-    <p>Es ist nicht zu raten, ein eigenes customized CKEDITOR release zu erstellen und herunterzuladen, da dies zu unerwünschten Nebenwirkungen in der Einbindung führt.</p>
+    <p>Bitte nutzen Sie keinen automatischen Bulk Updater, sofern in ihrer S9y Version schon vorhanden, sondern führen Sie das Upgrade des CKEditors einzeln durch, um für die internen ZIP-Installer Operationen in diese Konfiguration weiter geleitet zu werden.</p>
+    <p>Es ist generell abzuraten, ein eigenes "customized" CKEDITOR release zu erstellen und herunterzuladen, da dies zu unerwünschten Nebenwirkungen in der Einbindung führt.</p>
 </div>');
 @define('PLUGIN_EVENT_CKEDITOR_CONFIG', '');
 @define('PLUGIN_EVENT_CKEDITOR_INSTALL_PLUGPATH', 'HTTP Pfad des S9y Plugins Verzeichnisses');

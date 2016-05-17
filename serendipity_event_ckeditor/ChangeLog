@@ -1,3 +1,8 @@
+4.5.9.0:
+-----
+    * Changed upgrade hint for lang files lang_<en> and lang_<de>
+    * Upgrade to CKEDITOR 4.5. Series, update 9 (http://ckeditor.com/whatsnew).
+
 4.5.8.1:
 -----
     * Remove accidently added Thumbs.db file

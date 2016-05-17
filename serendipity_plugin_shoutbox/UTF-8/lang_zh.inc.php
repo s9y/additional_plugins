@@ -10,3 +10,4 @@
 @define('PLUGIN_SHOUTBOX_MAXCHARS_BLAHBLAH', '每个发言显示多少字符？(默认：120)');
 @define('PLUGIN_SHOUTBOX_MAXENTRIES', '发言数量');
 @define('PLUGIN_SHOUTBOX_MAXENTRIES_BLAHBLAH', '显示多少个发言？(默认：15)');
+

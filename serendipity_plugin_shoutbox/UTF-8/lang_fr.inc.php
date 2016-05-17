@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 ##########################################################################
 # serendipity - another blogger...                                       #
@@ -25,4 +25,3 @@
 @define('PLUGIN_SHOUTBOX_MAXENTRIES_BLAHBLAH', 'Définit le nombre maximum de commentaires à afficher.');
 
 /* vim: set sts=4 ts=4 expandtab : */
-?>

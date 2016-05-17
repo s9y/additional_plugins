@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 ##########################################################################
 # serendipity - another blogger...                                       #
@@ -24,4 +24,3 @@
 @define('PLUGIN_SHOUTBOX_MAXENTRIES_BLAHBLAH', 'Quantos comentários mostrar? Por omissão: 15');
 
 /* vim: set sts=4 ts=4 expandtab : */
-?>

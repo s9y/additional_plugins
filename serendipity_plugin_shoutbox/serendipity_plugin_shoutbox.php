@@ -1,8 +1,11 @@
-<?php #
+<?php
 
 /* Contributed by Matthias Lange (http://blog.dinnri.de/ml/) */
 
-if (IN_serendipity !== true) { die ("Don't hack!"); }
+if (IN_serendipity !== true) {
+    die ("Don't hack!");
+}
+
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_plugin_shoutbox extends serendipity_plugin
@@ -216,6 +219,7 @@ class serendipity_plugin_shoutbox extends serendipity_plugin
 </div>
 <?php
     }
+
 }
 
 /* vim: set sts=4 ts=4 expandtab : */

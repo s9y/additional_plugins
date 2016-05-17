@@ -1,4 +1,4 @@
-<?php # lang_cz.inc.php 1381.1 2009-08-15 10:30:56 VladaAjgl $
+<?php
 
 /**
  *  @version 1381.1
@@ -24,3 +24,4 @@
 @define('GENERAL_PLUGIN_BOX_COLS_BLAHBLAH',     'Poèet sloupcù pole pro zadávání výkøikù');
 @define('GENERAL_PLUGIN_BOX_ROWS',              'Poèet øádek shoutboxu');
 @define('GENERAL_PLUGIN_BOX_ROWS_BLAHBLAH',     'Poèet øádek pole pro zadávání výkøikù');
+

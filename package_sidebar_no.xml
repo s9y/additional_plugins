@@ -3520,9 +3520,9 @@
 <description>Søk etter en artikkel</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1</version>
+  <version>1.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-05-17</date>
   <filelist>
 <dir name="serendipity_plugin_quicksearch">
 <file>serendipity_plugin_quicksearch.php</file>
@@ -3544,7 +3544,7 @@
 <release>
   <version>1.02.2</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2015-01-27</date>
+  <date>2016-05-17</date>
   <filelist>
 <dir name="serendipity_plugin_shoutbox">
 <dir name="UTF-8">

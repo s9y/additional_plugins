@@ -526,7 +526,7 @@
 <category>Sidebar Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_quicksearch&lt;br /&gt;Ricerca veloce&lt;/b&gt;&lt;br /&gt;Cerca una notizia&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:31 +0100</pubDate>
+<pubDate>Tue, 17 May 2016 22:31:59 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_quicksearch</guid>
 </item>
 <item>
@@ -535,7 +535,7 @@
 <category>Sidebar Plugins</category>
 <author>Matthias Lange</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_shoutbox&lt;br /&gt;Shoutbox&lt;/b&gt;&lt;br /&gt;Displays a shoutbox for unrelated comments&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Tue, 27 Jan 2015 02:31:52 +0100</pubDate>
+<pubDate>Tue, 17 May 2016 22:31:59 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_shoutbox</guid>
 </item>
 <item>

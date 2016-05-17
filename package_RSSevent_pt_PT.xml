@@ -58,8 +58,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_head_nugget</link>
 <category>Event Plugins</category>
 <author>Jannis Hermanns</author>
-<content:encoded>&lt;b&gt;serendipity_event_head_nugget&lt;br /&gt;HTML-Code inside head (HTML-Head Nugget)&lt;/b&gt;&lt;br /&gt;Allows you to insert HTML-Code into the HEAD-area of your blog. You can use this for meta-tags or JavaScript inclusion.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Fri, 08 May 2015 02:31:31 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_head_nugget&lt;br /&gt;HTML-Code inside head (HTML-Head Nugget)&lt;/b&gt;&lt;br /&gt;Allows you to insert HTML-Code into the HEAD-area of your blog. You can use this for meta-tags or JavaScript inclusion.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 17 May 2016 22:31:45 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_head_nugget</guid>
 </item>
 <item>
@@ -365,7 +365,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_smartymarkup&lt;br /&gt;Markup: Smarty Parsing&lt;/b&gt;&lt;br /&gt;Parses Smarty instructions inside the article text. This is not usable in combination with syntax code-highlighters or multilingual tags in entry context fields!&lt;br/&gt;For: Serendipity 1.7</content:encoded>
-<pubDate>Tue, 20 Oct 2015 17:28:49 +0200</pubDate>
+<pubDate>Tue, 17 May 2016 22:31:51 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_smartymarkup</guid>
 </item>
 <item>
@@ -1330,7 +1330,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>Rustam Abdullaev, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_ckeditor&lt;br /&gt;CKEditor&lt;/b&gt;&lt;br /&gt;Uses CKEditor as the default WYSIWYG editor. For any JS-Editor usage: Recommended! After installation, go to the configuration screen of this plugin for further instructions.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
-<pubDate>Fri, 15 Apr 2016 22:31:22 +0200</pubDate>
+<pubDate>Tue, 17 May 2016 22:31:37 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_ckeditor</guid>
 </item>
 <item>
@@ -1348,7 +1348,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_contentrewrite&lt;br /&gt;Reescrita de conteúdo&lt;/b&gt;&lt;br /&gt;Substitui palavras por um texto pré definido (prático para as abreviaturas)&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Tue, 27 Jan 2015 02:31:34 +0100</pubDate>
+<pubDate>Tue, 17 May 2016 22:31:37 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_contentrewrite</guid>
 </item>
 <item>

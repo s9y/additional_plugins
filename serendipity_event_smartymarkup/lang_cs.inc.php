@@ -1,5 +1,4 @@
 <?php
-# lang_cs.inc.php 1.2 2012-02-02 20:46:40 VladaAjgl $
 
 /**
  *  @version 1.2

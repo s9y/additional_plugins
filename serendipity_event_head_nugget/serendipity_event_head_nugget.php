@@ -4,15 +4,12 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
-include dirname(__FILE__) . '/lang_en.inc.php';
+class serendipity_event_head_nugget extends serendipity_event
+ {
+    var $title = HEAD_NUGGET_TITLE;
 
-class serendipity_event_head_nugget extends serendipity_event {
     function introspect(&$propbag)
     {
         $propbag->add('name',          HEAD_NUGGET_TITLE);
@@ -23,9 +20,9 @@ class serendipity_event_head_nugget extends serendipity_event {
         );
         $propbag->add('event_hooks', array('frontend_header' => true));
         $propbag->add('author', 'Jannis Hermanns');
-        $propbag->add('version', '1.4');
+        $propbag->add('version', '1.5');
         $propbag->add('requirements',  array(
-            'serendipity' => '0.7',
+            'serendipity' => '1.6',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
@@ -33,8 +30,16 @@ class serendipity_event_head_nugget extends serendipity_event {
         $propbag->add('groups', array('BACKEND_METAINFORMATION'));
     }
 
-    function event_hook($event, &$bag, &$eventData, $addData = null) {
-        if ($event == 'frontend_header') echo $this->get_config('content');
+    function generate_content(&$title)
+    {
+        $title = $this->title;
+    }
+
+    function event_hook($event, &$bag, &$eventData, $addData = null)
+    {
+        if ($event == 'frontend_header') {
+            echo $this->get_config('content');
+        }
     }
 
     function introspect_config_item($name, &$propbag)
@@ -52,5 +57,7 @@ class serendipity_event_head_nugget extends serendipity_event {
         }
         return true;
     }
+
 }
+
 ?>

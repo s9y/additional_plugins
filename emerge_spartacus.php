@@ -18,7 +18,7 @@ class emerge_spartacus {
     var $xmlData = array();
     var $i18n    = true;
 
-    function emerge_spartacus($lang = 'en', $path = '/home/garvin/cvs/serendipity/recent/') {
+    function emerge_spartacus($lang = 'en', $path = '~/html/') {
         global $serendipity;
 
         if ($lang == 'final') {
@@ -103,7 +103,7 @@ class emerge_spartacus {
         $memUsage = $current;
     }
 
-    function getTemplates($dir = '/home/garvin/cvs/serendipity/additional_themes/') {
+    function getTemplates($dir = '~/workspace/additional_themes/') {
         $this->i18n = false;
         $ret = serendipity_traversePath($dir, '', true, null, 1, 1);
 

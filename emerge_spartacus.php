@@ -18,7 +18,7 @@ class emerge_spartacus {
     var $xmlData = array();
     var $i18n    = true;
 
-    function emerge_spartacus($lang = 'en', $path = '~/html/') {
+    function emerge_spartacus($lang = 'en', $path = '/var/www/virtual/s9y/html/') {
         global $serendipity;
 
         if ($lang == 'final') {
@@ -103,7 +103,7 @@ class emerge_spartacus {
         $memUsage = $current;
     }
 
-    function getTemplates($dir = '~/workspace/additional_themes/') {
+    function getTemplates($dir = '/home/s9y/workspace/additional_themes/') {
         $this->i18n = false;
         $ret = serendipity_traversePath($dir, '', true, null, 1, 1);
 
@@ -444,7 +444,7 @@ class emerge_spartacus {
         if (function_exists('ftp_connect')) {
             if (!is_resource($c) || !$login) {
                 $c = ftp_connect('netmirror.org');
-                $data = explode(':', file_get_contents('../emerge_spartacus.dat'));
+                $data = explode(':', file_get_contents('/home/s9y/bin/emerge_spartacus.dat'));
                 if (!$c || !is_resource($c)) {
                     echo "FTP Login failed.\n";
                     #die('FTP LOGIN IMPOSSIBLE');

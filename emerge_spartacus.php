@@ -399,7 +399,7 @@ class emerge_spartacus {
         $x[] = '<link>https://github.com/s9y/additional_plugins/</link>';
         $x[] = '<description>TOC</description>';
         $x[] = '<dc:language>en</dc:language>';
-        $x[] = '<generator>Serendipitx SPARTACUS</generator>';
+        $x[] = '<generator>Serendipity SPARTACUS</generator>';
 
         foreach($this->plugins[$key] AS $plugin_name => $plugin_data) {
             $version    = isset($plugin_data['properties']['version'])    ? $plugin_data['properties']['version'] : '1.0';

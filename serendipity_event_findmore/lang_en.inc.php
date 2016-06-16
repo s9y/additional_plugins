@@ -6,7 +6,7 @@
  *  EN-Revision: Revision of lang_en.inc.php
  */
 
-@define('PLUGIN_FINDMORE_NAME', 'Show links to services like Facebook, Digg, Technorati, del.icio.us, spread.ly etc related to your entry.');
+@define('PLUGIN_FINDMORE_NAME', 'Show social share buttons for services like Facebook and Twitter');
 @define('PLUGIN_FINDMORE_DESCRIPTION', 'You can remove/insert other custom services to link to via the "plugin_findmore.tpl" template file easily. Also remember that if you want to save grandma\'s performance pennies that you can also insert the HTML/JS snippets into your entries.tpl template file instead of using this plugin!');
 
 @define('PLUGIN_FINDMORE_PATH_NAME', 'Relative path to Findmore images');

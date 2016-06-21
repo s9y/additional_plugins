@@ -16,7 +16,7 @@ class serendipity_event_social extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_SOCIAL_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Matthias Mees');
-        $propbag->add('version',       '0.3');
+        $propbag->add('version',       '0.4');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0'
         ));
@@ -73,7 +73,11 @@ class serendipity_event_social extends serendipity_event {
                         return true;
                     }
                     $services = $this->get_config('services');
-                    $services = "&quot;" . str_replace("^", "&quot;,&quot;", $services) . "&quot";
+                    $services = '&quot;' . str_replace('^', '&quot;,&quot;', $services) . '&quot;';
+                    if (strpos($services, 'info') !== false) {
+                        // the info button looks strange if not at the end, hardcode that position
+                        $services = str_replace(',&quot;info&quot;', '', $services) . ',&quot;info&quot;';
+                    }
                     $theme = $this->get_config('theme');
                     $eventData['display_dat'] = '<div class="shariff" data-url="' . $eventData['rdf_ident'] .'" data-services="[' . $services . ']" data-theme="' . $theme . '" data-mail-url="mailto:foo@example.org"></div>';
                     break;

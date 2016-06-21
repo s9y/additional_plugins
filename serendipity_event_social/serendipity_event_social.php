@@ -43,7 +43,6 @@ class serendipity_event_social extends serendipity_event {
                 $propbag->add('default',        'twitter^facebook^googleplus');
                 $propbag->add('select_values',  array('twitter' => 'twitter', 'facebook' => 'facebook', 'googleplus' => 'googleplus', 'linkedin' => 'linkedin', 'pinterest' => 'pinterest', 'xing' => 'xing', 'whatsapp' => 'whatsapp', 'mail' => 'mail', 'info' => 'info', 'addthis' => 'addthis', 'tumblr' => 'tumblr', 'flattr' => 'flattr', 'diaspora' => 'diaspora', 'reddit' => 'reddit', 'stumbleupon' => 'stumbleupon', 'threema' => 'threema'));
                 break;
-
             case 'theme':
                 $propbag->add('type',           'select');
                 $propbag->add('name',           PLUGIN_EVENT_SOCIAL_THEME);
@@ -51,7 +50,6 @@ class serendipity_event_social extends serendipity_event {
                 $propbag->add('select_values',  array('standard' => PLUGIN_EVENT_SOCIAL_THEME_STD, 'white' => PLUGIN_EVENT_SOCIAL_THEME_WHITE, 'grey' => PLUGIN_EVENT_SOCIAL_THEME_GREY));
                 $propbag->add('default',        'standard');
                 break;
-
             case 'overview':
                 $propbag->add('type',           'boolean');
                 $propbag->add('name',           PLUGIN_EVENT_SOCIAL_OVERVIEW);

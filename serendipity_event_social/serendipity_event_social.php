@@ -67,7 +67,7 @@ class serendipity_event_social extends serendipity_event {
                     }
                     $services = $this->get_config('services');
                     $services = "&quot;" . str_replace("^", "&quot;,&quot;", $services) . "&quot";
-                    $eventData['display_dat'] = '<div class="shariff" data-url="' . $eventData['rdf_ident'] .'" data-services="[' . $services . ']"></div>';
+                    $eventData['display_dat'] = '<div class="shariff" data-url="' . $eventData['rdf_ident'] .'" data-services="[' . $services . ']" data-mail-url="mailto:foo@example.org"></div>';
                     break;
                 case 'css':
                     $eventData .= file_get_contents(dirname(__FILE__) . '/shariff.complete.css');

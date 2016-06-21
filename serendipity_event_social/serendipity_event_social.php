@@ -16,7 +16,7 @@ class serendipity_event_social extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_SOCIAL_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Matthias Mees');
-        $propbag->add('version',       '0.2');
+        $propbag->add('version',       '0.3');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0'
         ));
@@ -25,7 +25,7 @@ class serendipity_event_social extends serendipity_event {
                                        'frontend_footer' => true));
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
 
-        $propbag->add('configuration', array('services', 'overview'));
+        $propbag->add('configuration', array('services', 'theme', 'overview'));
     }
 
     function generate_content(&$title) {
@@ -43,6 +43,15 @@ class serendipity_event_social extends serendipity_event {
                 $propbag->add('default',        'twitter^facebook^googleplus');
                 $propbag->add('select_values',  array('twitter' => 'twitter', 'facebook' => 'facebook', 'googleplus' => 'googleplus', 'linkedin' => 'linkedin', 'pinterest' => 'pinterest', 'xing' => 'xing', 'whatsapp' => 'whatsapp', 'mail' => 'mail', 'info' => 'info', 'addthis' => 'addthis', 'tumblr' => 'tumblr', 'flattr' => 'flattr', 'diaspora' => 'diaspora', 'reddit' => 'reddit', 'stumbleupon' => 'stumbleupon', 'threema' => 'threema'));
                 break;
+
+            case 'theme':
+                $propbag->add('type',           'select');
+                $propbag->add('name',           PLUGIN_EVENT_SOCIAL_THEME);
+                $propbag->add('description',    PLUGIN_EVENT_SOCIAL_THEME_DESC);
+                $propbag->add('select_values',  array('standard' => PLUGIN_EVENT_SOCIAL_THEME_STD, 'white' => PLUGIN_EVENT_SOCIAL_THEME_WHITE, 'grey' => PLUGIN_EVENT_SOCIAL_THEME_GREY));
+                $propbag->add('default',        'standard');
+                break;
+
             case 'overview':
                 $propbag->add('type',           'boolean');
                 $propbag->add('name',           PLUGIN_EVENT_SOCIAL_OVERVIEW);
@@ -67,7 +76,8 @@ class serendipity_event_social extends serendipity_event {
                     }
                     $services = $this->get_config('services');
                     $services = "&quot;" . str_replace("^", "&quot;,&quot;", $services) . "&quot";
-                    $eventData['display_dat'] = '<div class="shariff" data-url="' . $eventData['rdf_ident'] .'" data-services="[' . $services . ']" data-mail-url="mailto:foo@example.org"></div>';
+                    $theme = $this->get_config('theme');
+                    $eventData['display_dat'] = '<div class="shariff" data-url="' . $eventData['rdf_ident'] .'" data-services="[' . $services . ']" data-theme="' . $theme . '" data-mail-url="mailto:foo@example.org"></div>';
                     break;
                 case 'css':
                     $eventData .= file_get_contents(dirname(__FILE__) . '/shariff.complete.css');

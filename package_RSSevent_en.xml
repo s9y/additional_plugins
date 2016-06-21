@@ -243,6 +243,15 @@
 <guid isPermaLink="false">serendipity_event_motm</guid>
 </item>
 <item>
+<title>Share buttons: Show social share buttons for services like Facebook and Twitter using shariff.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_social</link>
+<category>Event Plugins</category>
+<author>onli, Matthias Mees</author>
+<content:encoded>&lt;b&gt;serendipity_event_social&lt;br /&gt;Share buttons&lt;/b&gt;&lt;br /&gt;Show social share buttons for services like Facebook and Twitter using shariff.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Tue, 21 Jun 2016 22:32:41 +0200</pubDate>
+<guid isPermaLink="false">serendipity_event_social</guid>
+</item>
+<item>
 <title>Random Blog Description: Shows a random description in the header. (Seperate database table has currently to be maintained manually)</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_randomblogdescription</link>
 <category>Event Plugins</category>

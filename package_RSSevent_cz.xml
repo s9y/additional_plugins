@@ -245,6 +245,15 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <guid isPermaLink="false">serendipity_event_motm</guid>
 </item>
 <item>
+<title>PLUGIN_EVENT_SOCIAL_NAME: PLUGIN_EVENT_SOCIAL_DESC</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_social</link>
+<category>Event Plugins</category>
+<author>onli, Matthias Mees</author>
+<content:encoded>&lt;b&gt;serendipity_event_social&lt;br /&gt;PLUGIN_EVENT_SOCIAL_NAME&lt;/b&gt;&lt;br /&gt;PLUGIN_EVENT_SOCIAL_DESC&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Tue, 21 Jun 2016 22:32:41 +0200</pubDate>
+<guid isPermaLink="false">serendipity_event_social</guid>
+</item>
+<item>
 <title>Náhodný podtitulek blogu: Zobrazuje náhodný podtitulek v záhlaví blogu. (Oddělená databáze musí být spravována ručně)</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_randomblogdescription</link>
 <category>Event Plugins</category>

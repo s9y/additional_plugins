@@ -82,7 +82,7 @@ class serendipity_event_social extends serendipity_event {
                     break;
                 case 'frontend_footer':
                     // this script should go into the JS hook, but it has to be at the bottom to work, and the js hook places it at the top
-                    echo '<script src="' . $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_social/shariff.min.js' . '" type="text/javascript"></script>';
+                    echo '<script src="' . $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_social/shariff.min.js' . '"></script>';
                     break;
                 default:
                     return false;

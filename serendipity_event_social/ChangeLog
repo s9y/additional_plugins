@@ -1,0 +1,12 @@
+0.4:
+    * Always have the info button at the end
+
+0.3:
+    * Add option + support for color themes
+
+0.2:
+    * Set default mailto for data-mail-url
+    * Fix flexbox bug in Safari + iOS
+
+0.1:
+    * Initial version

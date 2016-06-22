@@ -1,6 +1,6 @@
 <?php #
 
-@define('PLUGIN_EVENT_SOCIAL_NAME', 'Share buttons');
+@define('PLUGIN_EVENT_SOCIAL_NAME', 'Share Buttons');
 @define('PLUGIN_EVENT_SOCIAL_DESC', 'Show social share buttons for services like Facebook and Twitter using shariff.');
 @define('PLUGIN_EVENT_SOCIAL_SERVICES', 'Available Services');
 @define('PLUGIN_EVENT_SOCIAL_SERVICES_DESC', 'Select the services for which you want to show a share button.');

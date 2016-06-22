@@ -243,12 +243,12 @@
 <guid isPermaLink="false">serendipity_event_motm</guid>
 </item>
 <item>
-<title>Share-Buttons: Zeige Share-Buttons für Netzwerke wie Facebook und Twitter (nutzt shariff)</title>
+<title>Sharebuttons: Zeige Sharebuttons für Netzwerke wie Facebook und Twitter (nutzt shariff)</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_social</link>
 <category>Event Plugins</category>
 <author>onli, Matthias Mees</author>
-<content:encoded>&lt;b&gt;serendipity_event_social&lt;br /&gt;Share-Buttons&lt;/b&gt;&lt;br /&gt;Zeige Share-Buttons für Netzwerke wie Facebook und Twitter (nutzt shariff)&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Tue, 21 Jun 2016 22:32:41 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_social&lt;br /&gt;Sharebuttons&lt;/b&gt;&lt;br /&gt;Zeige Sharebuttons für Netzwerke wie Facebook und Twitter (nutzt shariff)&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Wed, 22 Jun 2016 22:34:25 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_social</guid>
 </item>
 <item>

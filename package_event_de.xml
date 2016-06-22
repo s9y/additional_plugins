@@ -1658,32 +1658,39 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_social</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_social/ChangeLog</changelog>
 <license>GPL</license>
-<summary>Share-Buttons</summary>
+<summary>Sharebuttons</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
-<description>Zeige Share-Buttons für Netzwerke wie Facebook und Twitter (nutzt shariff)</description>
+<description>Zeige Sharebuttons für Netzwerke wie Facebook und Twitter (nutzt shariff)</description>
 <maintainers><maintainer><name>onli, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.4</version>
+  <version>0.6</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2016-06-21</date>
+  <date>2016-06-22</date>
   <filelist>
 <dir name="serendipity_event_social">
 <file>shariff.min.js</file>
+<file>lang_de.inc.php</file>
+<file>ChangeLog</file>
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 </dir>
 <file>serendipity_event_social.php</file>
+<file>lang_en.inc.php</file>
 <file>shariff.complete.css</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_social/shariff.min.js</file>
+    <file>serendipity_event_social/lang_de.inc.php</file>
+    <file>serendipity_event_social/ChangeLog</file>
     <file>serendipity_event_social/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_social/UTF-8/lang_en.inc.php</file>
     <file>serendipity_event_social/serendipity_event_social.php</file>
+    <file>serendipity_event_social/lang_en.inc.php</file>
     <file>serendipity_event_social/shariff.complete.css</file>
   </serendipityFilelist>
 </release>

@@ -11,3 +11,6 @@
 @define('PLUGIN_EVENT_SOCIAL_THEME_GREY', 'Grau');
 @define('PLUGIN_EVENT_SOCIAL_OVERVIEW', 'Auf Übersichtsseiten anzeigen');
 @define('PLUGIN_EVENT_SOCIAL_OVERVIEW_DESC', 'Zeige die Share-Buttons auch auf Übersichtsseiten (wie z.B. der Startseite).');
+@define('PLUGIN_EVENT_SOCIAL_TWITTERVIA', 'Twittererwähnung');
+@define('PLUGIN_EVENT_SOCIAL_TWITTER_DESC', 'Twittername, der am Ende des Tweets angehängtwerden soll ("none" deaktiviert dies).');
+@define('PLUGIN_EVENT_SOCIAL_LANG_DESC', 'Sprache der Sharebuttons.');

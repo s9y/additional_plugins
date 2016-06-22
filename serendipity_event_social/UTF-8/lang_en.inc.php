@@ -10,4 +10,7 @@
 @define('PLUGIN_EVENT_SOCIAL_THEME_WHITE', 'White');
 @define('PLUGIN_EVENT_SOCIAL_THEME_GREY', 'Grey');
 @define('PLUGIN_EVENT_SOCIAL_OVERVIEW', 'Show on overview pages');
-@define('PLUGIN_EVENT_SOCIAL_OVERVIEW_DESC', 'Also show the share buttons on overview pages (like i.e. the front page.');
+@define('PLUGIN_EVENT_SOCIAL_OVERVIEW_DESC', 'Also show the share buttons on overview pages (like i.e. the front page).');
+@define('PLUGIN_EVENT_SOCIAL_TWITTERVIA', 'Twitter mention');
+@define('PLUGIN_EVENT_SOCIAL_TWITTER_DESC', 'Username of the twitter user that shall be mentioned (set to "none" to disable.');
+@define('PLUGIN_EVENT_SOCIAL_LANG_DESC', 'Language of the share buttons');

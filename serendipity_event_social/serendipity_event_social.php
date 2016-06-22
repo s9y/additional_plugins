@@ -16,7 +16,7 @@ class serendipity_event_social extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_SOCIAL_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Matthias Mees');
-        $propbag->add('version',       '0.4');
+        $propbag->add('version',       '0.5');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0'
         ));

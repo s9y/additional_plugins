@@ -1,3 +1,7 @@
+0.5:
+    * Add latin1 lang files (de/en)
+    * Add ChangeLog
+
 0.4:
     * Always have the info button at the end
 

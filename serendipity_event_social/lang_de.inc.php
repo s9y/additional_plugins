@@ -14,3 +14,5 @@
 @define('PLUGIN_EVENT_SOCIAL_TWITTERVIA', 'Twittererwähnung');
 @define('PLUGIN_EVENT_SOCIAL_TWITTER_DESC', 'Twittername, der am Ende des Tweets angehängtwerden soll ("none" deaktiviert dies).');
 @define('PLUGIN_EVENT_SOCIAL_LANG_DESC', 'Sprache der Sharebuttons.');
+@define('PLUGIN_EVENT_SOCIAL_BACKEND', 'Backend für Zähler');
+@define('PLUGIN_EVENT_SOCIAL_BACKEND_DESC', 'URL für ein Shariff-Backend, mit dem einige der Buttons (u.a. Facebook) anzeigen wie oft der Artikel geteilt wurde. "none" deaktiviert den Zähler. Standard: "https://onli.columba.uberspace.de/s9y_shariff"');

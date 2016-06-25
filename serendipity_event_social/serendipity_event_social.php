@@ -16,7 +16,7 @@ class serendipity_event_social extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_SOCIAL_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Matthias Mees');
-        $propbag->add('version',       '0.6');
+        $propbag->add('version',       '0.7');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0'
         ));
@@ -26,7 +26,7 @@ class serendipity_event_social extends serendipity_event {
                                        'frontend_header' => true));
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
 
-        $propbag->add('configuration', array('services', 'theme', 'overview', 'twitter_via', 'lang'));
+        $propbag->add('configuration', array('services', 'theme', 'overview', 'twitter_via', 'lang', 'backend'));
     }
 
     function generate_content(&$title) {
@@ -70,6 +70,12 @@ class serendipity_event_social extends serendipity_event {
                 $propbag->add('default',        'en');
                 $propbag->add('select_values',        array('bg' => 'bg', 'de' => 'de', 'en' => 'en', 'es' => 'es', 'fi' => 'fi', 'hr' => 'hr', 'hu' => 'hu', 'ja' => 'ja', 'ko' => 'ko', 'no' => 'no', 'pl' => 'pl', 'pt' => 'pt', 'ro' => 'ro', 'ru' => 'ru', 'sk' => 'sk', 'sl' => 'sl', 'sr' => 'sr', 'sv' => 'sv', 'tr' => 'tr', 'zh' => 'zh'));
                 break;
+            case 'backend':
+                $propbag->add('type',           'string');
+                $propbag->add('name',           PLUGIN_EVENT_SOCIAL_BACKEND);
+                $propbag->add('description',    PLUGIN_EVENT_SOCIAL_BACKEND_DESC);
+                $propbag->add('default',        'https://onli.columba.uberspace.de/s9y_shariff/');
+                break;
         }
         return true;
     }
@@ -95,6 +101,10 @@ class serendipity_event_social extends serendipity_event {
                     if ($twitter_via != 'none') {
                         $twitter_via_tag = ' data-twitter-via="' . $twitter_via .'"';
                     }
+                    $backend = $this->get_config('backend', 'https://onli.columba.uberspace.de/s9y_shariff/');
+                    if ($backend != 'none') {
+                        $backend_tag = ' data-backend-url="' . $backend .'"';
+                    }
                     $theme = $this->get_config('theme');
                     $lang = $this->get_config('lang', 'en');
                     $services = $this->get_config('services');
@@ -104,7 +114,7 @@ class serendipity_event_social extends serendipity_event {
                         $services = str_replace(',&quot;info&quot;', '', $services) . ',&quot;info&quot;';
                     }
                     
-                    $eventData['display_dat'] = '<div class="shariff" data-url="' . $eventData['rdf_ident'] .'" data-services="[' . $services . ']" data-lang="' . $lang .'" data-theme="' . $theme . '" data-mail-url="mailto:foo@example.org"'. $hardcoded_title . $twitter_via_tag .'></div>';
+                    $eventData['display_dat'] = '<div class="shariff" data-url="' . $eventData['rdf_ident'] .'" data-services="[' . $services . ']" data-lang="' . $lang .'" data-theme="' . $theme . '" data-mail-url="mailto:foo@example.org"'. $hardcoded_title . $twitter_via_tag . $backend_tag . '></div>';
                     break;
                     
                 case 'css':

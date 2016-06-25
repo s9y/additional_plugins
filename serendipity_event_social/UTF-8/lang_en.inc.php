@@ -14,3 +14,5 @@
 @define('PLUGIN_EVENT_SOCIAL_TWITTERVIA', 'Twitter mention');
 @define('PLUGIN_EVENT_SOCIAL_TWITTER_DESC', 'Username of the twitter user that shall be mentioned (set to "none" to disable.');
 @define('PLUGIN_EVENT_SOCIAL_LANG_DESC', 'Language of the share buttons');
+@define('PLUGIN_EVENT_SOCIAL_BACKEND', 'Backend for share counter');
+@define('PLUGIN_EVENT_SOCIAL_BACKEND_DESC', 'URL to a shariff backend, that provides some buttons (like Facebook) with a share counter. Set to "none" to deacivate. Default: "https://onli.columba.uberspace.de/s9y_shariff"');

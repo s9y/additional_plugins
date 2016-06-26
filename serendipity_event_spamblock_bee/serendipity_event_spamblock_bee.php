@@ -11,7 +11,6 @@ if (file_exists($probelang)) {
 }
 include dirname(__FILE__) . '/lang_en.inc.php';
 include dirname(__FILE__) . '/version.inc.php';
-require_once dirname(__FILE__) . '/json/json.php4.include.php';
 
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_DEBUG', FALSE);
 
@@ -77,7 +76,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
      * Constructor. Initialize class variables from configuration
      * @return void
      */
-    function serendipity_event_spamblock_bee($instance) {
+    function __construct($instance) {
         $this->instance = $instance;
 
         $this->answerRetrievalMethod = $this->get_config('answer_retrieval_method', 'default');
@@ -103,7 +102,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
-            'php'         => '4.1.0'
+            'php'         => '5.2.0'
         ));
 
         $propbag->add('version',       PLUGIN_SPAMBLOCK_BEE_VERSION); // setup via version.inc.php

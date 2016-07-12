@@ -91,7 +91,7 @@ class serendipity_event_staticpage extends serendipity_event
         $propbag->add('page_configuration', $this->config);
         $propbag->add('type_configuration', $this->config_types);
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers');
-        $propbag->add('version', '4.09');
+        $propbag->add('version', '4.10');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -1467,7 +1467,7 @@ class serendipity_event_staticpage extends serendipity_event
         }
     }
 
-    function fetchPageType($id) // no more & 
+    function fetchPageType($id) // no more &
     {
         global $serendipity;
 
@@ -1869,7 +1869,7 @@ class serendipity_event_staticpage extends serendipity_event
                         echo ' <option value="' . $type['id'] . '" ' . ($serendipity['POST']['pagetype'] == $type['id'] ? 'selected="selected"' : '') . '>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($type['description']) : htmlspecialchars($type['description'], ENT_COMPAT, LANG_CHARSET)) . '</option>';
                     }
                 }
-                echo '</select> <input type="submit" class="serendipityPrettyButton input_button" name="serendipity[typeSubmit]" value="' . GO . '" /> <strong>-' . WORD_OR . '-</strong> <input type="submit" class="serendipityPrettyButton input_button" name="serendipity[typeDelete]" value="' . DELETE . '" />';
+                echo '</select> <input type="submit" class="serendipityPrettyButton input_button" name="serendipity[typeSubmit]" value="' . GO . '" /> <strong>-' . WORD_OR . '-</strong> <input type="submit" class="serendipityPrettyButton input_button state_cancel" name="serendipity[typeDelete]" value="' . DELETE . '" />';
                 echo '</select>';
                 echo '</div>';
                 echo '<div>';
@@ -2036,7 +2036,7 @@ class serendipity_event_staticpage extends serendipity_event
                         }
                     }
                 }
-                echo '</select> <input class="serendipityPrettyButton input_button" type="submit" name="serendipity[staticSubmit]" value="' . GO . '" /> <strong>-' . WORD_OR . '-</strong> <input type="submit" name="serendipity[staticDelete]" onclick="return confirm(\'' . sprintf(DELETE_SURE, '\' + document.getElementById(\'staticpage_dropdown\').options[document.getElementById(\'staticpage_dropdown\').selectedIndex].text + \'') . '\');" class="serendipityPrettyButton input_button" value="' . DELETE . '" />';
+                echo '</select> <input class="serendipityPrettyButton input_button" type="submit" name="serendipity[staticSubmit]" value="' . GO . '" /> <strong>-' . WORD_OR . '-</strong> <input class="state_cancel" type="submit" name="serendipity[staticDelete]" onclick="return confirm(\'' . sprintf(DELETE_SURE, '\' + document.getElementById(\'staticpage_dropdown\').options[document.getElementById(\'staticpage_dropdown\').selectedIndex].text + \'') . '\');" class="serendipityPrettyButton input_button" value="' . DELETE . '" />';
                 echo ' <strong>-' . WORD_OR . '-</strong> <input class="serendipityPrettyButton input_button" type="submit" name="serendipity[staticPreview]" value="' . PREVIEW . '" />';
 
                 if ($sbplav) {
@@ -2189,7 +2189,7 @@ class serendipity_event_staticpage extends serendipity_event
                 <div>
                 <?php } ?>
 <select class="direction_<?php echo $lang_direction; ?>" name="serendipity[plugin][<?php echo $config_item; ?>]">
-<?php 
+<?php
 foreach($select AS $select_value => $select_desc) {
     $id = (function_exists('serendipity_specialchars') ? serendipity_specialchars($config_item . $select_value) : htmlspecialchars($config_item . $select_value, ENT_COMPAT, LANG_CHARSET));
 ?>

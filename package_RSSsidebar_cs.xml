@@ -7,15 +7,15 @@
 <link>https://github.com/s9y/additional_plugins/</link>
 <description>TOC</description>
 <dc:language>en</dc:language>
-<generator>Serendipitx SPARTACUS</generator>
+<generator>Serendipity SPARTACUS</generator>
 <item>
-<title>Seznam statických stránek: Tento plugin zobrazuje nastavitelný seznam stálých (statických) stránek.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_staticpage</link>
+<title>Návštěvní kniha - postranní blok: Zobrazuje nejnovější vzkazy z návštěvní knihy v bloku v postranním sloupci</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_guestbook</link>
 <category>Sidebar Plugins</category>
-<author>Rob Antonishen, Falk Doering, Ian (Timbalu)</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_staticpage&lt;br /&gt;Seznam statických stránek&lt;/b&gt;&lt;br /&gt;Tento plugin zobrazuje nastavitelný seznam stálých (statických) stránek.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:26 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_staticpage</guid>
+<author>Jaap Boerma ( j@webbict.com ), Tadashi Jokagi &lt;elf2000@users.sourceforge.net&gt;, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_guestbook&lt;br /&gt;Návštěvní kniha - postranní blok&lt;/b&gt;&lt;br /&gt;Zobrazuje nejnovější vzkazy z návštěvní knihy v bloku v postranním sloupci&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Fri, 08 Jan 2016 22:32:18 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_guestbook</guid>
 </item>
 <item>
 <title>Přihlašovací formulář: Zobrazuje postranní blok s přihlašovacím formulářem</title>
@@ -23,44 +23,26 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking, Neil Dudman</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_loginform&lt;br /&gt;Přihlašovací formulář&lt;/b&gt;&lt;br /&gt;Zobrazuje postranní blok s přihlašovacím formulářem&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:47 +0200</pubDate>
+<pubDate>Mon, 12 Aug 2013 09:59:04 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_loginform</guid>
 </item>
 <item>
-<title>Doporučení Amazon: Doporučené produkty z Amazon v rámci partnerského programu Amazon</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_amazon</link>
+<title>IPv6 kontrola: Tento plugin zobrazuje v postranním bloku verzi IP použitou pro přístup k blogu.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_ipv6</link>
 <category>Sidebar Plugins</category>
-<author>Matthew Groeninger, (original plugin by Thomas Nesges)</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_amazon&lt;br /&gt;Doporučení Amazon&lt;/b&gt;&lt;br /&gt;Doporučené produkty z Amazon v rámci partnerského programu Amazon&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:46 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_amazon</guid>
+<author>Pascal Uhlmann</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_ipv6&lt;br /&gt;IPv6 kontrola&lt;/b&gt;&lt;br /&gt;Tento plugin zobrazuje v postranním bloku verzi IP použitou pro přístup k blogu.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Mon, 12 Aug 2013 09:59:04 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_ipv6</guid>
 </item>
 <item>
-<title>Poslední vyhledávání (Google, Yahoo, Bing, Croogle): Zobrazuje slova, která byla v poslední době vyhledávánavna tomto blogu (pomocí Googlu, Yahoo, Bingu nebo Scrooglu).</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_google_last_query</link>
+<title>@Heavy Rotation@: Tento přídavný modul zobrazuje ze serveru last.fm obal alba, které bylo minulý týden &quot;Heavy Rotation&quot; (první v hitparádě)</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_heavyrotation</link>
 <category>Sidebar Plugins</category>
-<author>Garvin Hicking, Grischa Brockhaus</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_google_last_query&lt;br /&gt;Poslední vyhledávání (Google, Yahoo, Bing, Croogle)&lt;/b&gt;&lt;br /&gt;Zobrazuje slova, která byla v poslední době vyhledávánavna tomto blogu (pomocí Googlu, Yahoo, Bingu nebo Scrooglu).&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:29 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_google_last_query</guid>
-</item>
-<item>
-<title>Hitmaps: Zobrazuje, z jakých stránek přicházejí návštěvníci na blog</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_hitmaps</link>
-<category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_hitmaps&lt;br /&gt;Hitmaps&lt;/b&gt;&lt;br /&gt;Zobrazuje, z jakých stránek přicházejí návštěvníci na blog&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 25 Dec 2011 00:34:08 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_hitmaps</guid>
-</item>
-<item>
-<title>Top odkazovače (Top Referers): Nejčastější připojení k tomuto weblogu</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_topreferers</link>
-<category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_topreferers&lt;br /&gt;Top odkazovače (Top Referers)&lt;/b&gt;&lt;br /&gt;Nejčastější připojení k tomuto weblogu&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:32 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_topreferers</guid>
+<author>Lars Strojny</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_heavyrotation&lt;br /&gt;@Heavy Rotation@&lt;/b&gt;&lt;br /&gt;Tento přídavný modul zobrazuje ze serveru last.fm obal alba, které bylo minulý týden &quot;Heavy Rotation&quot; (první v hitparádě)&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Fri, 15 Jul 2011 16:06:25 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_heavyrotation</guid>
 </item>
 <item>
 <title>Hledání na wikipedii: Vyber pojem (slovo nebo větu) a klikněte na ikonu. Pojem bude vyhledán na Wikipedii.</title>
@@ -68,71 +50,62 @@
 <category>Sidebar Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_wikipedia_finder&lt;br /&gt;Hledání na wikipedii&lt;/b&gt;&lt;br /&gt;Vyber pojem (slovo nebo větu) a klikněte na ikonu. Pojem bude vyhledán na Wikipedii.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 25 Dec 2011 00:35:46 +0100</pubDate>
+<pubDate>Fri, 01 Dec 2006 10:00:57 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_wikipedia_finder</guid>
 </item>
 <item>
-<title>Zobrazit příspěvky s klíčovými slovy: Zobrazí seznam existujících klíčových slov</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_freetag</link>
+<title>Google Rychlé hledání: Hledání záznamu (Google)</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_google_quicksearch</link>
 <category>Sidebar Plugins</category>
-<author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_freetag&lt;br /&gt;Zobrazit příspěvky s klíčovými slovy&lt;/b&gt;&lt;br /&gt;Zobrazí seznam existujících klíčových slov&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:41 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_freetag</guid>
+<author>Wesley Hwang-Chung</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_google_quicksearch&lt;br /&gt;Google Rychlé hledání&lt;/b&gt;&lt;br /&gt;Hledání záznamu (Google)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Mon, 12 Aug 2013 09:59:03 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_google_quicksearch</guid>
 </item>
 <item>
-<title>Výběr jazyka: Povolit návštěvníkům měnit jazyk uživatelského rozhraní blogu</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_multilingual</link>
+<title>Rychlé odkazy: Zobrazuje blok pro rychlé odkazy</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_quicklink</link>
 <category>Sidebar Plugins</category>
-<author>Garvin Hicking, Wesley Hwang-Chung</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_multilingual&lt;br /&gt;Výběr jazyka&lt;/b&gt;&lt;br /&gt;Povolit návštěvníkům měnit jazyk uživatelského rozhraní blogu&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Thu, 12 May 2016 22:31:26 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_multilingual</guid>
+<author>Omid Mottaghi Rad</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_quicklink&lt;br /&gt;Rychlé odkazy&lt;/b&gt;&lt;br /&gt;Zobrazuje blok pro rychlé odkazy&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Sun, 30 Nov 2014 03:12:59 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_quicklink</guid>
 </item>
 <item>
-<title>Oblíbené příspěvky: Zobrazuje nadpisy a počet komentářů nejoblíbenějších příspěvků. Oblíbenost je počítána na základě množství komentářů.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_popularentries</link>
+<title>FAQ - výběr kategorií: Vyberte kategorie FAQ, které chcete mít zobrazené v postranním sloupci na Vašem blogu.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_faq</link>
 <category>Sidebar Plugins</category>
-<author>Kaustubh Srikanth</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_popularentries&lt;br /&gt;Oblíbené příspěvky&lt;/b&gt;&lt;br /&gt;Zobrazuje nadpisy a počet komentářů nejoblíbenějších příspěvků. Oblíbenost je počítána na základě množství komentářů.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:30 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_popularentries</guid>
+<author>Falk Doering</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_faq&lt;br /&gt;FAQ - výběr kategorií&lt;/b&gt;&lt;br /&gt;Vyberte kategorie FAQ, které chcete mít zobrazené v postranním sloupci na Vašem blogu.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
+<pubDate>Mon, 12 Aug 2013 09:58:43 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_faq</guid>
 </item>
 <item>
-<title>Plugin del.icio.us: Podobný systém jako je &quot;Remaindered Links&quot; (zapamatované odkazy) nebo &quot;Blogmarks&quot; (blogovací značky). Používá módní systém del.icio.us jako backend.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_delicious</link>
+<title>Hitmaps: Zobrazuje, z jakých stránek přicházejí návštěvníci na blog</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_hitmaps</link>
 <category>Sidebar Plugins</category>
-<author>Riscky</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_delicious&lt;br /&gt;Plugin del.icio.us&lt;/b&gt;&lt;br /&gt;Podobný systém jako je &quot;Remaindered Links&quot; (zapamatované odkazy) nebo &quot;Blogmarks&quot; (blogovací značky). Používá módní systém del.icio.us jako backend.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:29 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_delicious</guid>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_hitmaps&lt;br /&gt;Hitmaps&lt;/b&gt;&lt;br /&gt;Zobrazuje, z jakých stránek přicházejí návštěvníci na blog&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Fri, 01 Dec 2006 10:00:55 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_hitmaps</guid>
 </item>
 <item>
-<title>Stromové menu kategorií: Menu kategorií vystavěné pomocí DHTML (dynamické, rozklikávatelné, schovávací).  Vyžaduje PEAR::HTML_TreeMenu.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_category_dhtml_menu</link>
+<title>Geotag Google Map: Tento plugin zobrazuje souřadnice u osouřadnicovaných příspěvků v mapách na Googlu</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_geotag</link>
 <category>Sidebar Plugins</category>
-<author>Jackson Miller, Sebastian Bauer</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_category_dhtml_menu&lt;br /&gt;Stromové menu kategorií&lt;/b&gt;&lt;br /&gt;Menu kategorií vystavěné pomocí DHTML (dynamické, rozklikávatelné, schovávací).  Vyžaduje PEAR::HTML_TreeMenu.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:46 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_category_dhtml_menu</guid>
+<author>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_geotag&lt;br /&gt;Geotag Google Map&lt;/b&gt;&lt;br /&gt;Tento plugin zobrazuje souřadnice u osouřadnicovaných příspěvků v mapách na Googlu&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Sun, 23 Mar 2014 02:32:03 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_geotag</guid>
 </item>
 <item>
-<title>Fotoblog: Ukazuje náhledy posledních příspěvků s obrázkem Fotoblogu (viz. plugin událostí Fotoblog).</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_photoblog</link>
+<title>Náhledy Coppermine: Zobrazuje v postranním sloupci náhledy z Coppermine galerie</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_coppermine</link>
 <category>Sidebar Plugins</category>
-<author>Cameron MacFarland</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_photoblog&lt;br /&gt;Fotoblog&lt;/b&gt;&lt;br /&gt;Ukazuje náhledy posledních příspěvků s obrázkem Fotoblogu (viz. plugin událostí Fotoblog).&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:30 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_photoblog</guid>
-</item>
-<item>
-<title>Samoregistrace nových uživatelů: Umožňuje návštěvníkům webu vytvořit si vlastní uživatelský účet. Dohromady s pluginem událostí (index.php?serendipity[subpage]=adduser) můžete určit, jestli komentáře mohou posílat pouze registrovaní uživatelé.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_adduser</link>
-<category>Sidebar Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_adduser&lt;br /&gt;Samoregistrace nových uživatelů&lt;/b&gt;&lt;br /&gt;Umožňuje návštěvníkům webu vytvořit si vlastní uživatelský účet. Dohromady s pluginem událostí (index.php?serendipity[subpage]=adduser) můžete určit, jestli komentáře mohou posílat pouze registrovaní uživatelé.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 12 Apr 2016 12:17:36 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_adduser</guid>
+<author>Matthew Maude</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_coppermine&lt;br /&gt;Náhledy Coppermine&lt;/b&gt;&lt;br /&gt;Zobrazuje v postranním sloupci náhledy z Coppermine galerie&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Fri, 01 Dec 2006 10:00:54 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_coppermine</guid>
 </item>
 <item>
 <title>Autoři: Zobrazuje příspěvky podle autorů</title>
@@ -140,53 +113,134 @@
 <category>Sidebar Plugins</category>
 <author>Victor Fusco</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_authors&lt;br /&gt;Autoři&lt;/b&gt;&lt;br /&gt;Zobrazuje příspěvky podle autorů&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:46 +0200</pubDate>
+<pubDate>Mon, 12 Aug 2013 09:59:01 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_authors</guid>
 </item>
 <item>
-<title>Link List: Správce odkazů (linků) - V bočním panelu zobrazuje vaše oblíbené odkazy.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_linklist</link>
+<title>AdSense: Zobrazení inzerátů z Googlu.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_google_adsense</link>
 <category>Sidebar Plugins</category>
-<author>Matthew Groeninger, Omid Mottaghi Rad</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_linklist&lt;br /&gt;Link List&lt;/b&gt;&lt;br /&gt;Správce odkazů (linků) - V bočním panelu zobrazuje vaše oblíbené odkazy.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 27 Jun 2015 02:31:27 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_linklist</guid>
+<author>Jim Dabell</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_google_adsense&lt;br /&gt;AdSense&lt;/b&gt;&lt;br /&gt;Zobrazení inzerátů z Googlu.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Tue, 14 Jul 2009 10:19:15 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_google_adsense</guid>
 </item>
 <item>
-<title>Návštěvní kniha - postranní blok: Zobrazuje nejnovější vzkazy z návštěvní knihy v bloku v postranním sloupci</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_guestbook</link>
+<title>Spam report: Vypíše statistiku o komentářovém spamu, pokud plugin ukládá logy do databáze.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_spamblock_bee</link>
 <category>Sidebar Plugins</category>
-<author>Jaap Boerma ( j@webbict.com ), Tadashi Jokagi &lt;elf2000@users.sourceforge.net&gt;, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_guestbook&lt;br /&gt;Návštěvní kniha - postranní blok&lt;/b&gt;&lt;br /&gt;Zobrazuje nejnovější vzkazy z návštěvní knihy v bloku v postranním sloupci&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Fri, 08 Jan 2016 22:31:30 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_guestbook</guid>
+<author>Grischa Brockhaus, Janek Bevendorff</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_spamblock_bee&lt;br /&gt;Spam report&lt;/b&gt;&lt;br /&gt;Vypíše statistiku o komentářovém spamu, pokud plugin ukládá logy do databáze.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Fri, 04 Sep 2015 02:32:25 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_spamblock_bee</guid>
 </item>
 <item>
-<title>Flickr Photostream: Zobrazuje nejnovější fotografie kanálu Flickr Photostream.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_flickr</link>
+<title>Sociální záložky: Plugin zobrazuje záložky z webových záložkovcích služeb (jako del.icio.us, ma.gnolia, furl.net, linkroll nebo Mister Wong) pomocí jejich RSS kanálu.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_socialbookmarks</link>
 <category>Sidebar Plugins</category>
-<author>Michael Kaiser</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_flickr&lt;br /&gt;Flickr Photostream&lt;/b&gt;&lt;br /&gt;Zobrazuje nejnovější fotografie kanálu Flickr Photostream.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:29 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_flickr</guid>
+<author>Matthias Gutjahr</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_socialbookmarks&lt;br /&gt;Sociální záložky&lt;/b&gt;&lt;br /&gt;Plugin zobrazuje záložky z webových záložkovcích služeb (jako del.icio.us, ma.gnolia, furl.net, linkroll nebo Mister Wong) pomocí jejich RSS kanálu.&lt;br/&gt;For: Serendipity 0.9alpha5</content:encoded>
+<pubDate>Sat, 06 Dec 2014 02:33:25 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_socialbookmarks</guid>
 </item>
 <item>
-<title>Ankety: V postranním sloupci zobrazí aktuální anketu</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_pollbox</link>
+<title>Top odkazovače: Nejčastější připojení k tomuto weblogu</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_topreferrers</link>
 <category>Sidebar Plugins</category>
-<author>Garvin Hicking, Evan Nemerson</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_pollbox&lt;br /&gt;Ankety&lt;/b&gt;&lt;br /&gt;V postranním sloupci zobrazí aktuální anketu&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 04 Feb 2015 02:31:21 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_pollbox</guid>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_topreferrers&lt;br /&gt;Top odkazovače&lt;/b&gt;&lt;br /&gt;Nejčastější připojení k tomuto weblogu&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 30 Nov 2014 03:13:01 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_topreferrers</guid>
 </item>
 <item>
-<title>Menalto galerie - Gallery Random Block: Vkládá odkaz na skript Gallery Random Block (podrobnosti o skriptu viz. http://gallery.menalto.com)</title>
+<title>Zobrazení příspěvků v postranním sloupci: Zobrazuje příspěvky ze zadaných kategorií v postranním sloupci. Dobré např. pro moblogování! (Moblogování = blogování pomocí mobilního telefonu, tedy krátké příspěvky)</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_showentries</link>
+<category>Sidebar Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_showentries&lt;br /&gt;Zobrazení příspěvků v postranním sloupci&lt;/b&gt;&lt;br /&gt;Zobrazuje příspěvky ze zadaných kategorií v postranním sloupci. Dobré např. pro moblogování! (Moblogování = blogování pomocí mobilního telefonu, tedy krátké příspěvky)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 30 Nov 2014 03:13:00 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_showentries</guid>
+</item>
+<item>
+<title>Twitter: Zobrazuje Vaše nejnovější příspěvky na Twitteru</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_twitter</link>
+<category>Sidebar Plugins</category>
+<author>Grischa Brockhaus, Damian Luszczymak, Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_twitter&lt;br /&gt;Twitter&lt;/b&gt;&lt;br /&gt;Zobrazuje Vaše nejnovější příspěvky na Twitteru&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 19 Jan 2014 02:32:01 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_twitter</guid>
+</item>
+<item>
+<title>Rychlé hledání: Hledání záznamu</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_quicksearch</link>
+<category>Sidebar Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_quicksearch&lt;br /&gt;Rychlé hledání&lt;/b&gt;&lt;br /&gt;Hledání záznamu&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Wed, 18 May 2016 09:58:44 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_quicksearch</guid>
+</item>
+<item>
+<title>Jednotné zobrazování obrázků v postranním sloupci: Umožňuje zobrazovat obrázky v postranním sloupci. Zdrojů těchto obrázků může být vícero. Plugin se dokáže připojit do Menalto Gallery, do databáze Coppermine galerie (pouze pokud běží na MySQL), k webové službě Zooomr (http://beta.zooomr.com/home) a samozřejmě i ke Knihovně médií Serendipity.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_imagesidebar</link>
+<category>Sidebar Plugins</category>
+<author>Andrew Brown (Menalto code), Matthew Groeninger (Unified/Media Lib. Code), Stefan Lange-Hegermann (Zooomr Code), Matthew Maude (Coppermine code)</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_imagesidebar&lt;br /&gt;Jednotné zobrazování obrázků v postranním sloupci&lt;/b&gt;&lt;br /&gt;Umožňuje zobrazovat obrázky v postranním sloupci. Zdrojů těchto obrázků může být vícero. Plugin se dokáže připojit do Menalto Gallery, do databáze Coppermine galerie (pouze pokud běží na MySQL), k webové službě Zooomr (http://beta.zooomr.com/home) a samozřejmě i ke Knihovně médií Serendipity.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Wed, 03 Jun 2015 02:32:41 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_imagesidebar</guid>
+</item>
+<item>
+<title>Externí PHP aplikace: Zobrazuje výstup externí PHP aplikace uvnitř blogu, v designu a formátování blogu. POUŽÍVAT S ROZVAHOU, TENTO PLUGIN S SEBOU NESE BEZPEČNOSTNÍ RIZIKA, PROTOŽE UMOŽŇUJE VLOŽIT LIBOVOLNÝ PHP KÓD! TENTO PLUGIN MŮŽE POUŽÍVAT POUZE ADMINISTRÁTOR!</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_externalphp</link>
+<category>Sidebar Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_externalphp&lt;br /&gt;Externí PHP aplikace&lt;/b&gt;&lt;br /&gt;Zobrazuje výstup externí PHP aplikace uvnitř blogu, v designu a formátování blogu. POUŽÍVAT S ROZVAHOU, TENTO PLUGIN S SEBOU NESE BEZPEČNOSTNÍ RIZIKA, PROTOŽE UMOŽŇUJE VLOŽIT LIBOVOLNÝ PHP KÓD! TENTO PLUGIN MŮŽE POUŽÍVAT POUZE ADMINISTRÁTOR!&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Mon, 12 Aug 2013 09:59:02 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_externalphp</guid>
+</item>
+<item>
+<title>SmileTag vzkazovník: Vloží blok se vzkazy systému SmileTag do postranního sloupce. Samotný SmileTag není přiložen k tomuto přídavnému modulu.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_smiletag</link>
+<category>Sidebar Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_smiletag&lt;br /&gt;SmileTag vzkazovník&lt;/b&gt;&lt;br /&gt;Vloží blok se vzkazy systému SmileTag do postranního sloupce. Samotný SmileTag není přiložen k tomuto přídavnému modulu.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Thu, 06 Mar 2014 02:32:39 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_smiletag</guid>
+</item>
+<item>
+<title>Náhodné foto (Gallery Random Photo Block): Přidává odkaz na skript Gallery Random Block (funkce Menalto Gallery, více viz. http://gallery.menalto.com)</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_gallery_menalto_random</link>
 <category>Sidebar Plugins</category>
 <author>Andrew Brown, Tadashi Jokagi</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_gallery_menalto_random&lt;br /&gt;Menalto galerie - Gallery Random Block&lt;/b&gt;&lt;br /&gt;Vkládá odkaz na skript Gallery Random Block (podrobnosti o skriptu viz. http://gallery.menalto.com)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:46 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_plugin_gallery_menalto_random&lt;br /&gt;Náhodné foto (Gallery Random Photo Block)&lt;/b&gt;&lt;br /&gt;Přidává odkaz na skript Gallery Random Block (funkce Menalto Gallery, více viz. http://gallery.menalto.com)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Mon, 12 Aug 2013 09:59:03 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_gallery_menalto_random</guid>
+</item>
+<item>
+<title>Status z Gadu-Gadu: Zobrazuje popis stavu z Gadu-Gadu IM (Instant Messenger = protokol pro posílání zpráv, alternativa ICQ, Jabberu apod.)</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_ggopis</link>
+<category>Sidebar Plugins</category>
+<author>Piotr Borys</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_ggopis&lt;br /&gt;Status z Gadu-Gadu&lt;/b&gt;&lt;br /&gt;Zobrazuje popis stavu z Gadu-Gadu IM (Instant Messenger = protokol pro posílání zpráv, alternativa ICQ, Jabberu apod.)&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Mon, 12 Aug 2013 09:59:03 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_ggopis</guid>
+</item>
+<item>
+<title>Náhodný citát: Zobrazuje blok s náhodně vybraným citátem</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_randomquotes</link>
+<category>Sidebar Plugins</category>
+<author>Florian Solcher</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_randomquotes&lt;br /&gt;Náhodný citát&lt;/b&gt;&lt;br /&gt;Zobrazuje blok s náhodně vybraným citátem&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 30 Nov 2014 03:12:59 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_randomquotes</guid>
+</item>
+<item>
+<title>Průměrné hodnocení: Zobrazit nejlépe hodnocené filmy podle jejich průměrného hodnocení</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_communityrating</link>
+<category>Sidebar Plugins</category>
+<author>Lewe Zipfel, Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_communityrating&lt;br /&gt;Průměrné hodnocení&lt;/b&gt;&lt;br /&gt;Zobrazit nejlépe hodnocené filmy podle jejich průměrného hodnocení&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Sun, 30 Nov 2014 03:12:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_communityrating</guid>
 </item>
 <item>
 <title>Serendipity Authors: Zobrazuje rozšířené profily autorů/uživatelů</title>
@@ -194,7 +248,7 @@
 <category>Sidebar Plugins</category>
 <author></author>
 <content:encoded>&lt;b&gt;serendipity_plugin_userprofiles&lt;br /&gt;Serendipity Authors&lt;/b&gt;&lt;br /&gt;Zobrazuje rozšířené profily autorů/uživatelů&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 03:12:53 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_userprofiles</guid>
 </item>
 <item>
@@ -203,8 +257,197 @@
 <category>Sidebar Plugins</category>
 <author>Falk Doering</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_userprofiles_birthdays&lt;br /&gt;Narozeniny uživatelů&lt;/b&gt;&lt;br /&gt;PLUGIN_USERPROFILES_BIRTHDAYSNAME_DESCRIPTION&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:46 +0200</pubDate>
+<pubDate>Mon, 12 Aug 2013 09:58:59 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_userprofiles_birthdays</guid>
+</item>
+<item>
+<title>Audioscrobbler: Ze služby audioscrobbler.net (neblo last.fm) Zobrazuje naposledy přehrávané skladby</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_audioscrobbler</link>
+<category>Sidebar Plugins</category>
+<author>Flo Solcher</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_audioscrobbler&lt;br /&gt;Audioscrobbler&lt;/b&gt;&lt;br /&gt;Ze služby audioscrobbler.net (neblo last.fm) Zobrazuje naposledy přehrávané skladby&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 30 Nov 2014 03:12:55 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_audioscrobbler</guid>
+</item>
+<item>
+<title>Výkřičník: Zobrazuje okno pro výkřiky, tzn. komentáře, které nejsou poslané ke konkrétnímu příspěvku</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_shoutbox</link>
+<category>Sidebar Plugins</category>
+<author>Matthias Lange</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_shoutbox&lt;br /&gt;Výkřičník&lt;/b&gt;&lt;br /&gt;Zobrazuje okno pro výkřiky, tzn. komentáře, které nejsou poslané ke konkrétnímu příspěvku&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Wed, 18 May 2016 09:58:44 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_shoutbox</guid>
+</item>
+<item>
+<title>Oblíbené příspěvky: Zobrazuje nadpisy a počet komentářů nejoblíbenějších příspěvků. Oblíbenost je počítána na základě množství komentářů.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_popularentries</link>
+<category>Sidebar Plugins</category>
+<author>Kaustubh Srikanth</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_popularentries&lt;br /&gt;Oblíbené příspěvky&lt;/b&gt;&lt;br /&gt;Zobrazuje nadpisy a počet komentářů nejoblíbenějších příspěvků. Oblíbenost je počítána na základě množství komentářů.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sun, 30 Nov 2014 03:12:58 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_popularentries</guid>
+</item>
+<item>
+<title>Samoregistrace nových uživatelů: Umožňuje návštěvníkům webu vytvořit si vlastní uživatelský účet. Dohromady s pluginem událostí (index.php?serendipity[subpage]=adduser) můžete určit, jestli komentáře mohou posílat pouze registrovaní uživatelé.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_adduser</link>
+<category>Sidebar Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_adduser&lt;br /&gt;Samoregistrace nových uživatelů&lt;/b&gt;&lt;br /&gt;Umožňuje návštěvníkům webu vytvořit si vlastní uživatelský účet. Dohromady s pluginem událostí (index.php?serendipity[subpage]=adduser) můžete určit, jestli komentáře mohou posílat pouze registrovaní uživatelé.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Tue, 12 Apr 2016 12:18:07 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_adduser</guid>
+</item>
+<item>
+<title>Časová pásma: Zobrazuje čas až ze čtyř různých časových pásem</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_timezones</link>
+<category>Sidebar Plugins</category>
+<author>Christoph Eunicke &lt;s9y-plugin@eunicke.org&gt;</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_timezones&lt;br /&gt;Časová pásma&lt;/b&gt;&lt;br /&gt;Zobrazuje čas až ze čtyř různých časových pásem&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Mon, 19 Jan 2009 22:11:00 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_timezones</guid>
+</item>
+<item>
+<title>Zobrazit příspěvky s klíčovými slovy: Zobrazí seznam existujících klíčových slov</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_freetag</link>
+<category>Sidebar Plugins</category>
+<author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_freetag&lt;br /&gt;Zobrazit příspěvky s klíčovými slovy&lt;/b&gt;&lt;br /&gt;Zobrazí seznam existujících klíčových slov&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Mon, 12 Aug 2013 09:58:45 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_freetag</guid>
+</item>
+<item>
+<title>Doporučení Amazon: Doporučené produkty z Amazon v rámci partnerského programu Amazon</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_amazon</link>
+<category>Sidebar Plugins</category>
+<author>Matthew Groeninger, (original plugin by Thomas Nesges)</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_amazon&lt;br /&gt;Doporučení Amazon&lt;/b&gt;&lt;br /&gt;Doporučené produkty z Amazon v rámci partnerského programu Amazon&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Mon, 12 Aug 2013 09:59:01 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_amazon</guid>
+</item>
+<item>
+<title>Poslední vyhledávání (Google, Yahoo, Bing, Croogle): Zobrazuje slova, která byla v poslední době vyhledávánavna tomto blogu (pomocí Googlu, Yahoo, Bingu nebo Scrooglu).</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_google_last_query</link>
+<category>Sidebar Plugins</category>
+<author>Garvin Hicking, Grischa Brockhaus</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_google_last_query&lt;br /&gt;Poslední vyhledávání (Google, Yahoo, Bing, Croogle)&lt;/b&gt;&lt;br /&gt;Zobrazuje slova, která byla v poslední době vyhledávánavna tomto blogu (pomocí Googlu, Yahoo, Bingu nebo Scrooglu).&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sun, 30 Nov 2014 03:12:57 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_google_last_query</guid>
+</item>
+<item>
+<title>Google PageRank: Dynamické zobrazení Google PageRanku</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_pagerank</link>
+<category>Sidebar Plugins</category>
+<author>Christian Lescuyer</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_pagerank&lt;br /&gt;Google PageRank&lt;/b&gt;&lt;br /&gt;Dynamické zobrazení Google PageRanku&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Tue, 14 Jul 2009 13:46:11 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_pagerank</guid>
+</item>
+<item>
+<title>Co právě dělám: Zobrazuje seznam toho, co právě posloucháte, hrajete nebo čtete.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_currently</link>
+<category>Sidebar Plugins</category>
+<author>Dustin Hawkins</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_currently&lt;br /&gt;Co právě dělám&lt;/b&gt;&lt;br /&gt;Zobrazuje seznam toho, co právě posloucháte, hrajete nebo čtete.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Wed, 18 Nov 2009 08:55:20 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_currently</guid>
+</item>
+<item>
+<title>Flickr badge: Zobrazuje nejnovější fotky z Flickr.com (pozn. překladatele - Stejné věci umí plugin Flickr, který toho navíc umí ještě víc.)</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_flickrbadge</link>
+<category>Sidebar Plugins</category>
+<author>Lars Strojny</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_flickrbadge&lt;br /&gt;Flickr badge&lt;/b&gt;&lt;br /&gt;Zobrazuje nejnovější fotky z Flickr.com (pozn. překladatele - Stejné věci umí plugin Flickr, který toho navíc umí ještě víc.)&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Sun, 30 Nov 2014 03:12:57 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_flickrbadge</guid>
+</item>
+<item>
+<title>Statistiky: Statistiky</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_statistics</link>
+<category>Sidebar Plugins</category>
+<author>Arnan de Gans, Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_statistics&lt;br /&gt;Statistiky&lt;/b&gt;&lt;br /&gt;Statistiky&lt;br/&gt;For: Serendipity 1.7</content:encoded>
+<pubDate>Mon, 26 Jan 2015 02:32:22 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_statistics</guid>
+</item>
+<item>
+<title>Zooomr: Zobrazuje nejnovější obrázky ze Zooomr feedu</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_zooomr</link>
+<category>Sidebar Plugins</category>
+<author>Stefan Lange-Hegermann</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_zooomr&lt;br /&gt;Zooomr&lt;/b&gt;&lt;br /&gt;Zobrazuje nejnovější obrázky ze Zooomr feedu&lt;br/&gt;For: Serendipity 1.0</content:encoded>
+<pubDate>Mon, 12 Aug 2013 09:59:07 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_zooomr</guid>
+</item>
+<item>
+<title>Piwik: show statistics of Piwik in sidebar</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_piwik</link>
+<category>Sidebar Plugins</category>
+<author>Bernd Distler</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_piwik&lt;br /&gt;Piwik&lt;/b&gt;&lt;br /&gt;show statistics of Piwik in sidebar&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Mon, 25 Apr 2016 22:32:08 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_piwik</guid>
+</item>
+<item>
+<title>Jazykově závislý HTML blok: Pro zadaný jazyk zobrazuje v postranním sloupci HTML blok.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_nugget_multilingual</link>
+<category>Sidebar Plugins</category>
+<author>Wesley Hwang-Chung</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_nugget_multilingual&lt;br /&gt;Jazykově závislý HTML blok&lt;/b&gt;&lt;br /&gt;Pro zadaný jazyk zobrazuje v postranním sloupci HTML blok.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Fri, 08 Jan 2016 22:32:18 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_nugget_multilingual</guid>
+</item>
+<item>
+<title>Stromové menu kategorií: Menu kategorií vystavěné pomocí DHTML (dynamické, rozklikávatelné, schovávací).  Vyžaduje PEAR::HTML_TreeMenu.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_category_dhtml_menu</link>
+<category>Sidebar Plugins</category>
+<author>Jackson Miller, Sebastian Bauer</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_category_dhtml_menu&lt;br /&gt;Stromové menu kategorií&lt;/b&gt;&lt;br /&gt;Menu kategorií vystavěné pomocí DHTML (dynamické, rozklikávatelné, schovávací).  Vyžaduje PEAR::HTML_TreeMenu.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Mon, 12 Aug 2013 09:59:01 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_category_dhtml_menu</guid>
+</item>
+<item>
+<title>Feedburner Sidebar: Adds assorted functionality of the feedburner service into the sidebar.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_feedburnersidebar</link>
+<category>Sidebar Plugins</category>
+<author>Aaron Axelsen</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_feedburnersidebar&lt;br /&gt;Feedburner Sidebar&lt;/b&gt;&lt;br /&gt;Adds assorted functionality of the feedburner service into the sidebar.&lt;br/&gt;For: Serendipity 1.2.1</content:encoded>
+<pubDate>Tue, 23 Oct 2012 02:32:31 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_feedburnersidebar</guid>
+</item>
+<item>
+<title>Shoutcast: Zobrazí kanál služby Shoutcast v postranním sloupci.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_shoutcast</link>
+<category>Sidebar Plugins</category>
+<author>John Mann</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_shoutcast&lt;br /&gt;Shoutcast&lt;/b&gt;&lt;br /&gt;Zobrazí kanál služby Shoutcast v postranním sloupci.&lt;br/&gt;For: Serendipity 0.8.4</content:encoded>
+<pubDate>Mon, 12 Aug 2013 09:59:06 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_shoutcast</guid>
+</item>
+<item>
+<title>Link List: Správce odkazů (linků) - V bočním panelu zobrazuje vaše oblíbené odkazy.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_linklist</link>
+<category>Sidebar Plugins</category>
+<author>Matthew Groeninger, Omid Mottaghi Rad</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_linklist&lt;br /&gt;Link List&lt;/b&gt;&lt;br /&gt;Správce odkazů (linků) - V bočním panelu zobrazuje vaše oblíbené odkazy.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 27 Jun 2015 02:32:30 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_linklist</guid>
+</item>
+<item>
+<title>Frappr (Freind Mapper - mapa přátel): Zobrazuje odkaz na Vaší mapu v internetové službě Frappr, a nejnovější avatary.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_frappr</link>
+<category>Sidebar Plugins</category>
+<author>Jabrwock</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_frappr&lt;br /&gt;Frappr (Freind Mapper - mapa přátel)&lt;/b&gt;&lt;br /&gt;Zobrazuje odkaz na Vaší mapu v internetové službě Frappr, a nejnovější avatary.&lt;br/&gt;For: Serendipity 0.9.1</content:encoded>
+<pubDate>Fri, 01 Dec 2006 10:00:54 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_frappr</guid>
+</item>
+<item>
+<title>Ankety: V postranním sloupci zobrazí aktuální anketu</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_pollbox</link>
+<category>Sidebar Plugins</category>
+<author>Garvin Hicking, Evan Nemerson</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_pollbox&lt;br /&gt;Ankety&lt;/b&gt;&lt;br /&gt;V postranním sloupci zobrazí aktuální anketu&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Wed, 04 Feb 2015 02:32:16 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_pollbox</guid>
 </item>
 <item>
 <title>Můj kalendář: Zobrazuje Váš osobní kalendář s X nadcházejícími událsotmi.</title>
@@ -212,8 +455,44 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking, Markus Gerstel</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_mycalendar&lt;br /&gt;Můj kalendář&lt;/b&gt;&lt;br /&gt;Zobrazuje Váš osobní kalendář s X nadcházejícími událsotmi.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:21 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 03:12:45 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_mycalendar</guid>
+</item>
+<item>
+<title>Plugin del.icio.us: Podobný systém jako je &quot;Remaindered Links&quot; (zapamatované odkazy) nebo &quot;Blogmarks&quot; (blogovací značky). Používá módní systém del.icio.us jako backend.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_delicious</link>
+<category>Sidebar Plugins</category>
+<author>Riscky</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_delicious&lt;br /&gt;Plugin del.icio.us&lt;/b&gt;&lt;br /&gt;Podobný systém jako je &quot;Remaindered Links&quot; (zapamatované odkazy) nebo &quot;Blogmarks&quot; (blogovací značky). Používá módní systém del.icio.us jako backend.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 30 Nov 2014 03:12:56 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_delicious</guid>
+</item>
+<item>
+<title>Výběr jazyka: Povolit návštěvníkům měnit jazyk uživatelského rozhraní blogu</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_multilingual</link>
+<category>Sidebar Plugins</category>
+<author>Garvin Hicking, Wesley Hwang-Chung</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_multilingual&lt;br /&gt;Výběr jazyka&lt;/b&gt;&lt;br /&gt;Povolit návštěvníkům měnit jazyk uživatelského rozhraní blogu&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Wed, 18 May 2016 09:58:40 +0200</pubDate>
+<guid isPermaLink="false">serendipity_plugin_multilingual</guid>
+</item>
+<item>
+<title>Seznam statických stránek: Tento plugin zobrazuje nastavitelný seznam stálých (statických) stránek.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_staticpage</link>
+<category>Sidebar Plugins</category>
+<author>Rob Antonishen, Falk Doering, Ian (Timbalu)</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_staticpage&lt;br /&gt;Seznam statických stránek&lt;/b&gt;&lt;br /&gt;Tento plugin zobrazuje nastavitelný seznam stálých (statických) stránek.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
+<pubDate>Sun, 30 Nov 2014 03:12:50 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_staticpage</guid>
+</item>
+<item>
+<title>Flickr Photostream: Zobrazuje nejnovější fotografie kanálu Flickr Photostream.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_flickr</link>
+<category>Sidebar Plugins</category>
+<author>Michael Kaiser</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_flickr&lt;br /&gt;Flickr Photostream&lt;/b&gt;&lt;br /&gt;Zobrazuje nejnovější fotografie kanálu Flickr Photostream.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 30 Nov 2014 03:12:56 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_flickr</guid>
 </item>
 <item>
 <title>Karma Ranking: Zobrazuje celkové skóre autorů</title>
@@ -221,17 +500,53 @@
 <category>Sidebar Plugins</category>
 <author>Andreas Brandmaier</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_karmaranking&lt;br /&gt;Karma Ranking&lt;/b&gt;&lt;br /&gt;Zobrazuje celkové skóre autorů&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:46 +0200</pubDate>
+<pubDate>Mon, 12 Aug 2013 09:59:04 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_karmaranking</guid>
 </item>
 <item>
-<title>Náhledy Coppermine: Zobrazuje v postranním sloupci náhledy z Coppermine galerie</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_coppermine</link>
+<title>Fotoblog: Ukazuje náhledy posledních příspěvků s obrázkem Fotoblogu (viz. plugin událostí Fotoblog).</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_photoblog</link>
 <category>Sidebar Plugins</category>
-<author>Matthew Maude</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_coppermine&lt;br /&gt;Náhledy Coppermine&lt;/b&gt;&lt;br /&gt;Zobrazuje v postranním sloupci náhledy z Coppermine galerie&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 02:34:06 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_coppermine</guid>
+<author>Cameron MacFarland</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_photoblog&lt;br /&gt;Fotoblog&lt;/b&gt;&lt;br /&gt;Ukazuje náhledy posledních příspěvků s obrázkem Fotoblogu (viz. plugin událostí Fotoblog).&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 30 Nov 2014 03:12:58 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_photoblog</guid>
+</item>
+<item>
+<title>SideBar Logo: Zobrazuje panel/blok, který obsahuje Vaše logo, jméno stránky a další informační údaje.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_sidebarlogo</link>
+<category>Sidebar Plugins</category>
+<author>Adam Krause</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_sidebarlogo&lt;br /&gt;SideBar Logo&lt;/b&gt;&lt;br /&gt;Zobrazuje panel/blok, který obsahuje Vaše logo, jméno stránky a další informační údaje.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Thu, 28 Nov 2013 02:32:04 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_sidebarlogo</guid>
+</item>
+<item>
+<title>Top odkazovače (Top Referers): Nejčastější připojení k tomuto weblogu</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_topreferers</link>
+<category>Sidebar Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_topreferers&lt;br /&gt;Top odkazovače (Top Referers)&lt;/b&gt;&lt;br /&gt;Nejčastější připojení k tomuto weblogu&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sun, 30 Nov 2014 03:13:00 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_topreferers</guid>
+</item>
+<item>
+<title>Top výstupy: Nejčastější výstupy z tohoto weblogu</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_topexits</link>
+<category>Sidebar Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_topexits&lt;br /&gt;Top výstupy&lt;/b&gt;&lt;br /&gt;Nejčastější výstupy z tohoto weblogu&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 30 Nov 2014 03:13:00 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_topexits</guid>
+</item>
+<item>
+<title>Nadcházející události: Zobrazit nejbližší a doporučené události v postranním sloupci a použít na ně mikroformat hCalendar.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_microformats</link>
+<category>Sidebar Plugins</category>
+<author>Matthias Gutjahr</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_microformats&lt;br /&gt;Nadcházející události&lt;/b&gt;&lt;br /&gt;Zobrazit nejbližší a doporučené události v postranním sloupci a použít na ně mikroformat hCalendar.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Sun, 30 Nov 2014 03:12:44 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_microformats</guid>
 </item>
 <item>
 <title>Zobrazit důvěryhodné autory: Zobrazuje uživatele s vyobrazením jejich etické úrovně (vyjádřenou semaforem
@@ -241,323 +556,8 @@
 <author>Loris Zena</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_xsstrust&lt;br /&gt;Zobrazit důvěryhodné autory&lt;/b&gt;&lt;br /&gt;Zobrazuje uživatele s vyobrazením jejich etické úrovně (vyjádřenou semaforem
 ).Zelená znamená &quot;v pohodě&quot;; oranžová znamená &quot;podezřelý&quot;; a červená znamená &quot;zakázaný&quot;. Administrátor může lehce měnit tyto hodnoty u jednotlivých uživatelů.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:28 +0100</pubDate>
+<pubDate>Sun, 30 Nov 2014 03:12:54 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_xsstrust</guid>
-</item>
-<item>
-<title>Jazykově závislý HTML blok: Pro zadaný jazyk zobrazuje v postranním sloupci HTML blok.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_nugget_multilingual</link>
-<category>Sidebar Plugins</category>
-<author>Wesley Hwang-Chung</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_nugget_multilingual&lt;br /&gt;Jazykově závislý HTML blok&lt;/b&gt;&lt;br /&gt;Pro zadaný jazyk zobrazuje v postranním sloupci HTML blok.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 08 Jan 2016 22:31:40 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_nugget_multilingual</guid>
-</item>
-<item>
-<title>Co právě dělám: Zobrazuje seznam toho, co právě posloucháte, hrajete nebo čtete.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_currently</link>
-<category>Sidebar Plugins</category>
-<author>Dustin Hawkins</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_currently&lt;br /&gt;Co právě dělám&lt;/b&gt;&lt;br /&gt;Zobrazuje seznam toho, co právě posloucháte, hrajete nebo čtete.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 02:50:09 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_currently</guid>
-</item>
-<item>
-<title>Audioscrobbler: Ze služby audioscrobbler.net (neblo last.fm) Zobrazuje naposledy přehrávané skladby</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_audioscrobbler</link>
-<category>Sidebar Plugins</category>
-<author>Flo Solcher</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_audioscrobbler&lt;br /&gt;Audioscrobbler&lt;/b&gt;&lt;br /&gt;Ze služby audioscrobbler.net (neblo last.fm) Zobrazuje naposledy přehrávané skladby&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:29 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_audioscrobbler</guid>
-</item>
-<item>
-<title>Náhodný citát: Zobrazuje blok s náhodně vybraným citátem</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_randomquotes</link>
-<category>Sidebar Plugins</category>
-<author>Florian Solcher</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_randomquotes&lt;br /&gt;Náhodný citát&lt;/b&gt;&lt;br /&gt;Zobrazuje blok s náhodně vybraným citátem&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:31 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_randomquotes</guid>
-</item>
-<item>
-<title>Shoutcast: Zobrazí kanál služby Shoutcast v postranním sloupci.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_shoutcast</link>
-<category>Sidebar Plugins</category>
-<author>John Mann</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_shoutcast&lt;br /&gt;Shoutcast&lt;/b&gt;&lt;br /&gt;Zobrazí kanál služby Shoutcast v postranním sloupci.&lt;br/&gt;For: Serendipity 0.8.4</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:47 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_shoutcast</guid>
-</item>
-<item>
-<title>Google Rychlé hledání: Hledání záznamu (Google)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_google_quicksearch</link>
-<category>Sidebar Plugins</category>
-<author>Wesley Hwang-Chung</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_google_quicksearch&lt;br /&gt;Google Rychlé hledání&lt;/b&gt;&lt;br /&gt;Hledání záznamu (Google)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:46 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_google_quicksearch</guid>
-</item>
-<item>
-<title>Geotag Google Map: Tento plugin zobrazuje souřadnice u osouřadnicovaných příspěvků v mapách na Googlu</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_geotag</link>
-<category>Sidebar Plugins</category>
-<author>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_geotag&lt;br /&gt;Geotag Google Map&lt;/b&gt;&lt;br /&gt;Tento plugin zobrazuje souřadnice u osouřadnicovaných příspěvků v mapách na Googlu&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 23 Mar 2014 02:31:07 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_geotag</guid>
-</item>
-<item>
-<title>Google PageRank: Dynamické zobrazení Google PageRanku</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_pagerank</link>
-<category>Sidebar Plugins</category>
-<author>Christian Lescuyer</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_pagerank&lt;br /&gt;Google PageRank&lt;/b&gt;&lt;br /&gt;Dynamické zobrazení Google PageRanku&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 03:31:03 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_pagerank</guid>
-</item>
-<item>
-<title>Časová pásma: Zobrazuje čas až ze čtyř různých časových pásem</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_timezones</link>
-<category>Sidebar Plugins</category>
-<author>Christoph Eunicke &lt;s9y-plugin@eunicke.org&gt;</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_timezones&lt;br /&gt;Časová pásma&lt;/b&gt;&lt;br /&gt;Zobrazuje čas až ze čtyř různých časových pásem&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 25 Dec 2011 03:31:15 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_timezones</guid>
-</item>
-<item>
-<title>Zobrazení příspěvků v postranním sloupci: Zobrazuje příspěvky ze zadaných kategorií v postranním sloupci. Dobré např. pro moblogování! (Moblogování = blogování pomocí mobilního telefonu, tedy krátké příspěvky)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_showentries</link>
-<category>Sidebar Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_showentries&lt;br /&gt;Zobrazení příspěvků v postranním sloupci&lt;/b&gt;&lt;br /&gt;Zobrazuje příspěvky ze zadaných kategorií v postranním sloupci. Dobré např. pro moblogování! (Moblogování = blogování pomocí mobilního telefonu, tedy krátké příspěvky)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:32 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_showentries</guid>
-</item>
-<item>
-<title>Průměrné hodnocení: Zobrazit nejlépe hodnocené filmy podle jejich průměrného hodnocení</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_communityrating</link>
-<category>Sidebar Plugins</category>
-<author>Lewe Zipfel, Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_communityrating&lt;br /&gt;Průměrné hodnocení&lt;/b&gt;&lt;br /&gt;Zobrazit nejlépe hodnocené filmy podle jejich průměrného hodnocení&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:13 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_communityrating</guid>
-</item>
-<item>
-<title>FAQ - výběr kategorií: Vyberte kategorie FAQ, které chcete mít zobrazené v postranním sloupci na Vašem blogu.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_faq</link>
-<category>Sidebar Plugins</category>
-<author>Falk Doering</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_faq&lt;br /&gt;FAQ - výběr kategorií&lt;/b&gt;&lt;br /&gt;Vyberte kategorie FAQ, které chcete mít zobrazené v postranním sloupci na Vašem blogu.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:40 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_faq</guid>
-</item>
-<item>
-<title>SmileTag vzkazovník: Vloží blok se vzkazy systému SmileTag do postranního sloupce. Samotný SmileTag není přiložen k tomuto přídavnému modulu.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_smiletag</link>
-<category>Sidebar Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_smiletag&lt;br /&gt;SmileTag vzkazovník&lt;/b&gt;&lt;br /&gt;Vloží blok se vzkazy systému SmileTag do postranního sloupce. Samotný SmileTag není přiložen k tomuto přídavnému modulu.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 06 Mar 2014 02:31:21 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_smiletag</guid>
-</item>
-<item>
-<title>Rychlé odkazy: Zobrazuje blok pro rychlé odkazy</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_quicklink</link>
-<category>Sidebar Plugins</category>
-<author>Omid Mottaghi Rad</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_quicklink&lt;br /&gt;Rychlé odkazy&lt;/b&gt;&lt;br /&gt;Zobrazuje blok pro rychlé odkazy&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:31 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_quicklink</guid>
-</item>
-<item>
-<title>Jednotné zobrazování obrázků v postranním sloupci: Umožňuje zobrazovat obrázky v postranním sloupci. Zdrojů těchto obrázků může být vícero. Plugin se dokáže připojit do Menalto Gallery, do databáze Coppermine galerie (pouze pokud běží na MySQL), k webové službě Zooomr (http://beta.zooomr.com/home) a samozřejmě i ke Knihovně médií Serendipity.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_imagesidebar</link>
-<category>Sidebar Plugins</category>
-<author>Andrew Brown (Menalto code), Matthew Groeninger (Unified/Media Lib. Code), Stefan Lange-Hegermann (Zooomr Code), Matthew Maude (Coppermine code)</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_imagesidebar&lt;br /&gt;Jednotné zobrazování obrázků v postranním sloupci&lt;/b&gt;&lt;br /&gt;Umožňuje zobrazovat obrázky v postranním sloupci. Zdrojů těchto obrázků může být vícero. Plugin se dokáže připojit do Menalto Gallery, do databáze Coppermine galerie (pouze pokud běží na MySQL), k webové službě Zooomr (http://beta.zooomr.com/home) a samozřejmě i ke Knihovně médií Serendipity.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 03 Jun 2015 02:31:39 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_imagesidebar</guid>
-</item>
-<item>
-<title>Zooomr: Zobrazuje nejnovější obrázky ze Zooomr feedu</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_zooomr</link>
-<category>Sidebar Plugins</category>
-<author>Stefan Lange-Hegermann</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_zooomr&lt;br /&gt;Zooomr&lt;/b&gt;&lt;br /&gt;Zobrazuje nejnovější obrázky ze Zooomr feedu&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:47 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_zooomr</guid>
-</item>
-<item>
-<title>Sociální záložky: Plugin zobrazuje záložky z webových záložkovcích služeb (jako del.icio.us, ma.gnolia, furl.net, linkroll nebo Mister Wong) pomocí jejich RSS kanálu.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_socialbookmarks</link>
-<category>Sidebar Plugins</category>
-<author>Matthias Gutjahr</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_socialbookmarks&lt;br /&gt;Sociální záložky&lt;/b&gt;&lt;br /&gt;Plugin zobrazuje záložky z webových záložkovcích služeb (jako del.icio.us, ma.gnolia, furl.net, linkroll nebo Mister Wong) pomocí jejich RSS kanálu.&lt;br/&gt;For: Serendipity 0.9alpha5</content:encoded>
-<pubDate>Sat, 06 Dec 2014 02:31:37 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_socialbookmarks</guid>
-</item>
-<item>
-<title>Nadcházející události: Zobrazit nejbližší a doporučené události v postranním sloupci a použít na ně mikroformat hCalendar.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_microformats</link>
-<category>Sidebar Plugins</category>
-<author>Matthias Gutjahr</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_microformats&lt;br /&gt;Nadcházející události&lt;/b&gt;&lt;br /&gt;Zobrazit nejbližší a doporučené události v postranním sloupci a použít na ně mikroformat hCalendar.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:20 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_microformats</guid>
-</item>
-<item>
-<title>Flickr badge: Zobrazuje nejnovější fotky z Flickr.com (pozn. překladatele - Stejné věci umí plugin Flickr, který toho navíc umí ještě víc.)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_flickrbadge</link>
-<category>Sidebar Plugins</category>
-<author>Lars Strojny</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_flickrbadge&lt;br /&gt;Flickr badge&lt;/b&gt;&lt;br /&gt;Zobrazuje nejnovější fotky z Flickr.com (pozn. překladatele - Stejné věci umí plugin Flickr, který toho navíc umí ještě víc.)&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:29 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_flickrbadge</guid>
-</item>
-<item>
-<title>@Heavy Rotation@: Tento přídavný modul zobrazuje ze serveru last.fm obal alba, které bylo minulý týden &quot;Heavy Rotation&quot; (první v hitparádě)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_heavyrotation</link>
-<category>Sidebar Plugins</category>
-<author>Lars Strojny</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_heavyrotation&lt;br /&gt;@Heavy Rotation@&lt;/b&gt;&lt;br /&gt;Tento přídavný modul zobrazuje ze serveru last.fm obal alba, které bylo minulý týden &quot;Heavy Rotation&quot; (první v hitparádě)&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 25 Dec 2011 04:25:59 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_heavyrotation</guid>
-</item>
-<item>
-<title>Externí PHP aplikace: Zobrazuje výstup externí PHP aplikace uvnitř blogu, v designu a formátování blogu. POUŽÍVAT S ROZVAHOU, TENTO PLUGIN S SEBOU NESE BEZPEČNOSTNÍ RIZIKA, PROTOŽE UMOŽŇUJE VLOŽIT LIBOVOLNÝ PHP KÓD! TENTO PLUGIN MŮŽE POUŽÍVAT POUZE ADMINISTRÁTOR!</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_externalphp</link>
-<category>Sidebar Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_externalphp&lt;br /&gt;Externí PHP aplikace&lt;/b&gt;&lt;br /&gt;Zobrazuje výstup externí PHP aplikace uvnitř blogu, v designu a formátování blogu. POUŽÍVAT S ROZVAHOU, TENTO PLUGIN S SEBOU NESE BEZPEČNOSTNÍ RIZIKA, PROTOŽE UMOŽŇUJE VLOŽIT LIBOVOLNÝ PHP KÓD! TENTO PLUGIN MŮŽE POUŽÍVAT POUZE ADMINISTRÁTOR!&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:46 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_externalphp</guid>
-</item>
-<item>
-<title>Status z Gadu-Gadu: Zobrazuje popis stavu z Gadu-Gadu IM (Instant Messenger = protokol pro posílání zpráv, alternativa ICQ, Jabberu apod.)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_ggopis</link>
-<category>Sidebar Plugins</category>
-<author>Piotr Borys</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_ggopis&lt;br /&gt;Status z Gadu-Gadu&lt;/b&gt;&lt;br /&gt;Zobrazuje popis stavu z Gadu-Gadu IM (Instant Messenger = protokol pro posílání zpráv, alternativa ICQ, Jabberu apod.)&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:46 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_ggopis</guid>
-</item>
-<item>
-<title>Feedburner Sidebar: Adds assorted functionality of the feedburner service into the sidebar.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_feedburnersidebar</link>
-<category>Sidebar Plugins</category>
-<author>Aaron Axelsen</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_feedburnersidebar&lt;br /&gt;Feedburner Sidebar&lt;/b&gt;&lt;br /&gt;Adds assorted functionality of the feedburner service into the sidebar.&lt;br/&gt;For: Serendipity 1.2.1</content:encoded>
-<pubDate>Tue, 23 Oct 2012 02:31:47 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_feedburnersidebar</guid>
-</item>
-<item>
-<title>Twitter: Zobrazuje Vaše nejnovější příspěvky na Twitteru</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_twitter</link>
-<category>Sidebar Plugins</category>
-<author>Grischa Brockhaus, Damian Luszczymak, Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_twitter&lt;br /&gt;Twitter&lt;/b&gt;&lt;br /&gt;Zobrazuje Vaše nejnovější příspěvky na Twitteru&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 19 Jan 2014 02:31:20 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_twitter</guid>
-</item>
-<item>
-<title>SideBar Logo: Zobrazuje panel/blok, který obsahuje Vaše logo, jméno stránky a další informační údaje.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_sidebarlogo</link>
-<category>Sidebar Plugins</category>
-<author>Adam Krause</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_sidebarlogo&lt;br /&gt;SideBar Logo&lt;/b&gt;&lt;br /&gt;Zobrazuje panel/blok, který obsahuje Vaše logo, jméno stránky a další informační údaje.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Thu, 28 Nov 2013 02:31:28 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_sidebarlogo</guid>
-</item>
-<item>
-<title>AdSense: Zobrazení inzerátů z Googlu.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_google_adsense</link>
-<category>Sidebar Plugins</category>
-<author>Jim Dabell</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_google_adsense&lt;br /&gt;AdSense&lt;/b&gt;&lt;br /&gt;Zobrazení inzerátů z Googlu.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 25 Dec 2011 11:10:10 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_google_adsense</guid>
-</item>
-<item>
-<title>Frappr (Freind Mapper - mapa přátel): Zobrazuje odkaz na Vaší mapu v internetové službě Frappr, a nejnovější avatary.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_frappr</link>
-<category>Sidebar Plugins</category>
-<author>Jabrwock</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_frappr&lt;br /&gt;Frappr (Freind Mapper - mapa přátel)&lt;/b&gt;&lt;br /&gt;Zobrazuje odkaz na Vaší mapu v internetové službě Frappr, a nejnovější avatary.&lt;br/&gt;For: Serendipity 0.9.1</content:encoded>
-<pubDate>Sun, 25 Dec 2011 11:11:10 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_frappr</guid>
-</item>
-<item>
-<title>Piwik: show statistics of Piwik in sidebar</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_piwik</link>
-<category>Sidebar Plugins</category>
-<author>Bernd Distler</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_piwik&lt;br /&gt;Piwik&lt;/b&gt;&lt;br /&gt;show statistics of Piwik in sidebar&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Mon, 25 Apr 2016 22:31:33 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_piwik</guid>
-</item>
-<item>
-<title>Spam report: Vypíše statistiku o komentářovém spamu, pokud plugin ukládá logy do databáze.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_spamblock_bee</link>
-<category>Sidebar Plugins</category>
-<author>Grischa Brockhaus, Janek Bevendorff</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_spamblock_bee&lt;br /&gt;Spam report&lt;/b&gt;&lt;br /&gt;Vypíše statistiku o komentářovém spamu, pokud plugin ukládá logy do databáze.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 04 Sep 2015 02:31:35 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_spamblock_bee</guid>
-</item>
-<item>
-<title>IPv6 kontrola: Tento plugin zobrazuje v postranním bloku verzi IP použitou pro přístup k blogu.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_ipv6</link>
-<category>Sidebar Plugins</category>
-<author>Pascal Uhlmann</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_ipv6&lt;br /&gt;IPv6 kontrola&lt;/b&gt;&lt;br /&gt;Tento plugin zobrazuje v postranním bloku verzi IP použitou pro přístup k blogu.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Aug 2013 02:30:46 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_ipv6</guid>
-</item>
-<item>
-<title>Rychlé hledání: Hledání záznamu</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_quicksearch</link>
-<category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_quicksearch&lt;br /&gt;Rychlé hledání&lt;/b&gt;&lt;br /&gt;Hledání záznamu&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 17 May 2016 22:31:59 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_quicksearch</guid>
-</item>
-<item>
-<title>Výkřičník: Zobrazuje okno pro výkřiky, tzn. komentáře, které nejsou poslané ke konkrétnímu příspěvku</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_shoutbox</link>
-<category>Sidebar Plugins</category>
-<author>Matthias Lange</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_shoutbox&lt;br /&gt;Výkřičník&lt;/b&gt;&lt;br /&gt;Zobrazuje okno pro výkřiky, tzn. komentáře, které nejsou poslané ke konkrétnímu příspěvku&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Tue, 17 May 2016 22:31:59 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_shoutbox</guid>
-</item>
-<item>
-<title>Top výstupy: Nejčastější výstupy z tohoto weblogu</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_topexits</link>
-<category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_topexits&lt;br /&gt;Top výstupy&lt;/b&gt;&lt;br /&gt;Nejčastější výstupy z tohoto weblogu&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:32 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_topexits</guid>
-</item>
-<item>
-<title>Top odkazovače: Nejčastější připojení k tomuto weblogu</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_topreferrers</link>
-<category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_topreferrers&lt;br /&gt;Top odkazovače&lt;/b&gt;&lt;br /&gt;Nejčastější připojení k tomuto weblogu&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 02:32:32 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_topreferrers</guid>
-</item>
-<item>
-<title>Statistiky: Statistiky</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_statistics</link>
-<category>Sidebar Plugins</category>
-<author>Arnan de Gans, Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_statistics&lt;br /&gt;Statistiky&lt;/b&gt;&lt;br /&gt;Statistiky&lt;br/&gt;For: Serendipity 1.7</content:encoded>
-<pubDate>Mon, 26 Jan 2015 02:31:32 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_statistics</guid>
 </item>
 </channel>
 </rss>

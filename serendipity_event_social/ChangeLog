@@ -1,0 +1,26 @@
+
+0.7:
+    * Add option to set shariff backend, to get a share
+      counter for some buttons (FB, G+, ...)
+
+0.6:
+    * Set Facebook og-tags if button is active
+    * Provide language selector
+    * Add option to set a username for a twitter mention
+
+0.5:
+    * Add latin1 lang files (de/en)
+    * Add ChangeLog
+
+0.4:
+    * Always have the info button at the end
+
+0.3:
+    * Add option + support for color themes
+
+0.2:
+    * Set default mailto for data-mail-url
+    * Fix flexbox bug in Safari + iOS
+
+0.1:
+    * Initial version

@@ -18,7 +18,7 @@ class emerge_spartacus {
     var $xmlData = array();
     var $i18n    = true;
 
-    function emerge_spartacus($lang = 'en', $path = '/home/garvin/cvs/serendipity/recent/') {
+    function emerge_spartacus($lang = 'en', $path = '/var/www/virtual/s9y/html/') {
         global $serendipity;
 
         if ($lang == 'final') {
@@ -103,7 +103,7 @@ class emerge_spartacus {
         $memUsage = $current;
     }
 
-    function getTemplates($dir = '/home/garvin/cvs/serendipity/additional_themes/') {
+    function getTemplates($dir = '/home/s9y/workspace/additional_themes/') {
         $this->i18n = false;
         $ret = serendipity_traversePath($dir, '', true, null, 1, 1);
 
@@ -399,7 +399,7 @@ class emerge_spartacus {
         $x[] = '<link>https://github.com/s9y/additional_plugins/</link>';
         $x[] = '<description>TOC</description>';
         $x[] = '<dc:language>en</dc:language>';
-        $x[] = '<generator>Serendipitx SPARTACUS</generator>';
+        $x[] = '<generator>Serendipity SPARTACUS</generator>';
 
         foreach($this->plugins[$key] AS $plugin_name => $plugin_data) {
             $version    = isset($plugin_data['properties']['version'])    ? $plugin_data['properties']['version'] : '1.0';
@@ -444,7 +444,7 @@ class emerge_spartacus {
         if (function_exists('ftp_connect')) {
             if (!is_resource($c) || !$login) {
                 $c = ftp_connect('netmirror.org');
-                $data = explode(':', file_get_contents('../emerge_spartacus.dat'));
+                $data = explode(':', file_get_contents('/home/s9y/bin/emerge_spartacus.dat'));
                 if (!$c || !is_resource($c)) {
                     echo "FTP Login failed.\n";
                     #die('FTP LOGIN IMPOSSIBLE');

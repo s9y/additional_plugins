@@ -94,6 +94,8 @@ $dispatches = array(
                         array('function' => 'wp_newComment'),
                     'wp.getTags' =>
                         array('function' => 'wp_getTags'),
+                    'wp.getPosts' =>
+                        array('function' => 'wp_getPosts'),
 					'wp.getOptions' =>
                         array('function' => 'wp_getOptions'),
                     'wp.getPostStatusList' =>
@@ -726,6 +728,94 @@ function wp_newComment($message) {
     $id = serendipity_insertComment($article_id, $commentInfo);
     return new XML_RPC_Response(new XML_RPC_Value($id, 'int'));
 }
+
+function wp_getPosts($message) {
+    global $serendipity;
+
+    $val = $message->params[1];
+    $username = $val->getval();
+
+    $val = $message->params[2];
+    $password = $val->getval();
+
+    $val = $message->params[3];
+    $filter = $val->getval();
+    // post_type
+    // post_status
+    // number
+    // offset
+    // orderby
+    // order
+    $numposts = $filter['number'];
+    $offset = $filter['offset'];
+    if ($offset > 1) {
+        $limit = $offset . ',' . $numposts;
+    } else {
+        $limit = $numposts;
+    }
+
+    if (!serendipity_authenticate_author($username, $password)) {
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
+    }
+
+    $entries = serendipity_fetchEntries('', true, $limit, true);
+    $xml_entries_vals = array();
+    foreach ((array) $entries as $entry ) {
+        if ($entry['id']) {
+            $categories = array();
+            foreach($entry['categories'] AS $_category_id => $_category) {
+                $categories[] = new XML_RPC_Value(
+                    array(
+                          'term_id'             => new XML_RPC_Value($_category['categoryid'], 'string'),
+                          'name'                => new XML_RPC_Value($_category['category_name'], 'string'),
+                          'slug'                => new XML_RPC_Value($_category['category_name'], 'string'),
+                          'term_group'          => new XML_RPC_Value(0, 'string'),
+                          'term_taxonomy_id'    => new XML_RPC_Value($_category['categoryid'], 'string'),
+                          'taxonomy'            => new XML_RPC_Value('category', 'string'),
+                          'description'         => new XML_RPC_Value($_category['category_description'], 'string'),
+                          'parent'              => new XML_RPC_Value($_category['parentid'], 'string'),
+                          'count'               => new XML_RPC_Value('1', 'string'),
+                          'filter'              => new XML_RPC_Value('raw', 'string'),
+                    ), 
+                    'struct'
+                );
+            }
+
+            $xml_entries_vals[] = new XML_RPC_Value(
+            array(
+                  'post_id'             => new XML_RPC_Value($entry['id'], 'string'),
+                  'post_title'          => new XML_RPC_Value($entry['title'], 'string'),
+                  'post_date'           => new XML_RPC_Value(XML_RPC_iso8601_encode($entry['timestamp'], false), 'dateTime.iso8601'),
+                  'post_date_gmt'       => new XML_RPC_Value(XML_RPC_iso8601_encode($entry['timestamp'], true), 'dateTime.iso8601'),
+                  'post_modified'       => new XML_RPC_Value(XML_RPC_iso8601_encode($entry['timestamp'], false), 'dateTime.iso8601'),
+                  'post_modified_gmt'   => new XML_RPC_Value(XML_RPC_iso8601_encode($entry['timestamp'], true), 'dateTime.iso8601'),
+                  'post_status'         => new XML_RPC_Value('publish', 'string'),
+                  'post_type'           => new XML_RPC_Value('post', 'string'),
+                  'post_format'         => new XML_RPC_Value('standard', 'string'),
+                  'post_name'           => new XML_RPC_Value($entry['title']), // slug
+                  'post_author'         => new XML_RPC_Value($entry['authorid'], 'string'),
+                  'post_excerpt'        => new XML_RPC_Value($entry['body']),
+                  'post_content'        => new XML_RPC_Value($entry['body'] . '<!--more-->' . $entry['extended'], 'string'),
+                  'post_parent'         => new XML_RPC_Value(0, 'string'),
+                  'post_mime_type'      => new XML_RPC_Value('', 'string'),
+                  'link'                => new XML_RPC_Value(serendipity_archiveURL($entry['id'], $entry['title'], 'baseURL', true, array('timestamp' => $entry['timestamp'])), 'string'),
+                  'guid'                => new XML_RPC_Value(serendipity_archiveURL($entry['id'], $entry['title'], 'baseURL', true, array('timestamp' => $entry['timestamp'])), 'string'),
+                  'menu_order'          => new XML_RPC_Value(0, 'int'),
+                  'comment_status'      => new XML_RPC_Value('open', 'string'), // open/closed
+                  'ping_status'         => new XML_RPC_Value('open', 'string'), // open/closed
+                  'sticky'              => new XML_RPC_Value(0, 'boolean'),
+                  'post_thumbnail'      => new XML_RPC_Value(array(), 'array'), // <array><data></data></array>
+                  'terms'               => new XML_RPC_Value($categories, 'array'),
+                  'custom_fields'       => new XML_RPC_Value(array(), 'array'), // <array><data></data></array>
+                  ), 'struct');
+        }
+    }
+    $xml_entries = new XML_RPC_Value($xml_entries_vals, 'array');
+
+    // universal_debug("RETURN ENTRIES: " . print_r($xml_entries, true) . "\n");
+    return new XML_RPC_Response($xml_entries);
+}
+
 function blogger_getUsersBlogs($message) {
     global $serendipity;
 
@@ -1779,7 +1869,7 @@ try {
     
 } catch (Exception $e) {
     $fp = fopen(DEBUG_LOG_XMLRPC, 'a');
-    fwrite($fp, $e . "\n---------------------------------------\n");
+    fwrite($fp, "[EXCEPTION]" . $e . "\n---------------------------------------\n");
     fclose($fp);
     ob_end_flush();
 }

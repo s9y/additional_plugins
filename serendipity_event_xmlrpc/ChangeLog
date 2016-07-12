@@ -1,4 +1,7 @@
 # 
+Version 1.54:
+    * Added wp.getPosts API function
+    
 Version 1.53:
     * Implement a kind of DOS protection, courtesy to a Drupal/WordPress commit:
        https://github.com/drupal/drupal/commit/90e884ad0f7f2cf269d953f7d70966de9fd821ff

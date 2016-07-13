@@ -94,6 +94,8 @@ $dispatches = array(
                         array('function' => 'wp_newComment'),
                     'wp.getTags' =>
                         array('function' => 'wp_getTags'),
+                    'wp.getPage' =>
+                        array('function' => 'wp_getPage'),  
                     'wp.getPosts' =>
                         array('function' => 'wp_getPosts'),
 					'wp.getOptions' =>
@@ -287,6 +289,26 @@ function wp_getPostFormats( $message ) {
         ),'struct'
     );
     return new XML_RPC_Response($supported_formats);
+}
+
+function wp_getPage($message) {
+    global $serendipity;
+
+    $val = $message->params[2];
+    $username = $val->getval();
+    $val = $message->params[3];
+    $password = $val->getval();
+    if (!serendipity_authenticate_author($username, $password)) {
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
+    }
+    
+    $xml_entries_vals = array();
+    
+    //TODO: For now this returns an empty array in order not to make the client crash. If we want to edit pages, we have to add some more code (to the static pages plugin) 
+    
+    $xml_entries = new XML_RPC_Value($xml_entries_vals, 'array');
+    return new XML_RPC_Response($xml_entries);
+
 }
 
 // wp.getPostStatusList
@@ -1662,6 +1684,8 @@ function mt_supportedMethods($message) {
             new XML_RPC_Value('wp.getOptions', 'string'),
             new XML_RPC_Value('wp.getPages', 'string'),
             new XML_RPC_Value('wp.getPageList', 'string'),
+            new XML_RPC_Value('wp.getPage', 'string'),
+            new XML_RPC_Value('wp.getPosts', 'string'),
 
         	/* Blogger API */
             new XML_RPC_Value('blogger.getUsersBlogs', 'string'),

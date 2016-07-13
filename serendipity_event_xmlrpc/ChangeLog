@@ -1,4 +1,7 @@
 # 
+Version 1.55:
+    * Added wp.getPage API function (with empty response though, not supporting staticpage yet)
+
 Version 1.54:
     * Added wp.getPosts API function
     

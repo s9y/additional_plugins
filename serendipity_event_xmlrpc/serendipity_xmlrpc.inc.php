@@ -98,7 +98,9 @@ $dispatches = array(
                         array('function' => 'wp_getPage'),  
                     'wp.getPosts' =>
                         array('function' => 'wp_getPosts'),
-					'wp.getOptions' =>
+                    'wp.getCommentStatusList' =>
+                        array('function' => 'wp_getCommentStatusList'),    
+                    'wp.getOptions' =>
                         array('function' => 'wp_getOptions'),
                     'wp.getPostStatusList' =>
                         array('function' => 'wp_getPostStatusList'),
@@ -354,6 +356,27 @@ function wp_getPageStatusList($message) {
     );
     return new XML_RPC_Response($values);
 }
+
+function wp_getCommentStatusList($message) {
+    global $serendipity;
+    
+    $val = $message->params[1];
+    $username = $val->getval();
+    $val = $message->params[2];
+    $password = $val->getval();
+    if (!serendipity_authenticate_author($username, $password)) {
+        return new XML_RPC_Response('', XMLRPC_ERR_CODE_AUTHFAILED, XMLRPC_ERR_NAME_AUTHFAILED);
+    }
+    
+    $values = new XML_RPC_Value(
+        array(
+         'approved' => new XML_RPC_Value("Approved", 'string'), 
+         'pending'  => new XML_RPC_Value("Pending", 'string')
+        ),'struct'
+    );
+    return new XML_RPC_Response($values);
+}
+
 function wp_getPageTemplates($message) {
     global $serendipity;
     

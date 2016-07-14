@@ -1,4 +1,7 @@
 # 
+Version 1.56:
+    * Added wp.getCommentStatusList API function
+    
 Version 1.55:
     * Added wp.getPage API function (with empty response though, not supporting staticpage yet)
 

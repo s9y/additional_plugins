@@ -1,3 +1,7 @@
+0.4.22:
+    * Use parseTemplate method to be compatible with s9y 2.1-beta1, some
+      template files needed to be moved from admin/ to the root dir
+
 0.4.21:
     * Fix mal-written case-statemens in setupdb, blocking sqlite
 

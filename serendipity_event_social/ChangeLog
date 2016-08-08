@@ -1,3 +1,6 @@
+0.8:
+    * set twitter card type to summary
+    * Fix: Headertags were not emitted
 
 0.7:
     * Add option to set shariff backend, to get a share

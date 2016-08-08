@@ -1,4 +1,7 @@
 # 
+Version 1.57:
+    * Added stub wp.editPage dummy API function
+    
 Version 1.56:
     * Added wp.getCommentStatusList API function
     

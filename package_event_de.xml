@@ -1665,9 +1665,9 @@
 <description>Zeige Sharebuttons für Netzwerke wie Facebook und Twitter (nutzt shariff)</description>
 <maintainers><maintainer><name>onli, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.7</version>
+  <version>0.8</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2016-06-25</date>
+  <date>2016-08-09</date>
   <filelist>
 <dir name="serendipity_event_social">
 <file>shariff.min.js</file>

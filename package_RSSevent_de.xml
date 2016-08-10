@@ -248,7 +248,7 @@
 <category>Event Plugins</category>
 <author>onli, Matthias Mees</author>
 <content:encoded>&lt;b&gt;serendipity_event_social&lt;br /&gt;Sharebuttons&lt;/b&gt;&lt;br /&gt;Zeige Sharebuttons für Netzwerke wie Facebook und Twitter (nutzt shariff)&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Sat, 25 Jun 2016 22:32:51 +0200</pubDate>
+<pubDate>Tue, 09 Aug 2016 22:34:19 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_social</guid>
 </item>
 <item>
@@ -1184,7 +1184,7 @@
 <category>Event Plugins</category>
 <author>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_bayes&lt;br /&gt;Spamschutz (Bayes)&lt;/b&gt;&lt;br /&gt;Filtert Kommentare mittels eines lernenden Algorithmus.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 13 Dec 2015 22:32:30 +0100</pubDate>
+<pubDate>Wed, 27 Jul 2016 22:32:20 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_bayes</guid>
 </item>
 <item>
@@ -1357,7 +1357,7 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_event_xmlrpc&lt;br /&gt;Einträge via XML-RPC erstellen&lt;/b&gt;&lt;br /&gt;Ermöglicht Einträge via XML-RPC API zu erstellen/bearbeiten (MT, Blogger, WordPress API-Endpunkte)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 13 Jul 2016 22:33:31 +0200</pubDate>
+<pubDate>Thu, 14 Jul 2016 22:32:42 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_xmlrpc</guid>
 </item>
 <item>

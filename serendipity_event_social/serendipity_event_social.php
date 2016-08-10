@@ -16,7 +16,7 @@ class serendipity_event_social extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_SOCIAL_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Matthias Mees');
-        $propbag->add('version',       '0.7');
+        $propbag->add('version',       '0.8');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0'
         ));
@@ -130,13 +130,14 @@ class serendipity_event_social extends serendipity_event {
                     if ($serendipity['view'] != 'entry') {
                         return true;
                     }
-                    // Facebook can profit from having the og-properties set
-                    if (strpos($this->get_config('services'), 'facebook' !== false)) {
-
+                    // Facebook & Twitter can profit from having the og-properties set
+                    if (strpos($this->get_config('services'), 'facebook') !== false || strpos($this->get_config('services'), 'twitter') !== false) {
+                        
                         // we iterate over the internal smarty object to see which entry we are printing. This is hacky and should be improved
                         $entry = (current($eventData['smarty']->tpl_vars['entries']->value)['entries'][0]);
                         
                         echo '<!--serendipity_event_shariff-->' . "\n";
+                        echo '<meta name="twitter:card" content="summary" />' . "\n";
                         echo '<meta property="og:title" content="' . serendipity_specialchars($entry['title']) . '" />' . "\n";
                         echo '<meta property="og:description" content="' . substr(strip_tags($entry['body']), 0, 200) . '..." />' . "\n";
                         echo '<meta property="og:type" content="article" />' . "\n";

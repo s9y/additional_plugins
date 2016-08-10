@@ -10783,9 +10783,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>Allows to post/edit entries via the XML-RPC API (MT, Blogger, WordPress Endpoints)</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.56</version>
+  <version>1.57</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-07-14</date>
+  <date>2016-08-10</date>
   <filelist>
 <dir name="serendipity_event_xmlrpc">
 <file>serendipity_event_xmlrpc.php</file>

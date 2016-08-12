@@ -1,3 +1,7 @@
+0.9:
+    * Add option to set  a fallback image for
+      twitter and facebook tags
+
 0.8:
     * set twitter card type to summary
     * Fix: Headertags were not emitted

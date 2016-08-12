@@ -16,7 +16,7 @@ class serendipity_event_social extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_SOCIAL_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Matthias Mees');
-        $propbag->add('version',       '0.8');
+        $propbag->add('version',       '0.9');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0'
         ));
@@ -26,7 +26,7 @@ class serendipity_event_social extends serendipity_event {
                                        'frontend_header' => true));
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
 
-        $propbag->add('configuration', array('services', 'theme', 'overview', 'twitter_via', 'lang', 'backend'));
+        $propbag->add('configuration', array('services', 'theme', 'overview', 'twitter_via', 'social_image', 'lang', 'backend'));
     }
 
     function generate_content(&$title) {
@@ -76,6 +76,13 @@ class serendipity_event_social extends serendipity_event {
                 $propbag->add('description',    PLUGIN_EVENT_SOCIAL_BACKEND_DESC);
                 $propbag->add('default',        'https://onli.columba.uberspace.de/s9y_shariff/');
                 break;
+            case 'social_image':
+                $propbag->add('type',           'media');
+                $propbag->add('name',           PLUGIN_EVENT_SOCIAL_IMAGE);
+                $propbag->add('description',    PLUGIN_EVENT_SOCIAL_IMAGE_DESC);
+                $propbag->add('default',        '');
+                break;
+
         }
         return true;
     }
@@ -135,6 +142,8 @@ class serendipity_event_social extends serendipity_event {
                         
                         // we iterate over the internal smarty object to see which entry we are printing. This is hacky and should be improved
                         $entry = (current($eventData['smarty']->tpl_vars['entries']->value)['entries'][0]);
+
+                        $blogURL = 'http' . ($_SERVER['HTTPS'] ? 's' : '') . '://' . $_SERVER['HTTP_HOST'];
                         
                         echo '<!--serendipity_event_shariff-->' . "\n";
                         echo '<meta name="twitter:card" content="summary" />' . "\n";
@@ -142,16 +151,21 @@ class serendipity_event_social extends serendipity_event {
                         echo '<meta property="og:description" content="' . substr(strip_tags($entry['body']), 0, 200) . '..." />' . "\n";
                         echo '<meta property="og:type" content="article" />' . "\n";
                         echo '<meta property="og:site_name" content="' . $serendipity['blogTitle'] . '" />' . "\n";
-                        echo '<meta property="og:url" content="http' . ($_SERVER['HTTPS'] ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . serendipity_specialchars($_SERVER['REQUEST_URI']) . '" />' . "\n";
+                        echo '<meta property="og:url" content="'. $blogURL . serendipity_specialchars($_SERVER['REQUEST_URI']) . '" />' . "\n";
 
+                        $social_image = $blogURL . $this->get_config('social_image', '');
                         // This is searching for the first image in an entry to use as facebook article image.
                         // A better approach would be to register in the entry editor when an image was added
                         if (preg_match('@<img.*src=["\'](.+)["\']@imsU', $entry['body'] . $entry['extended'], $im)) {
                             if (preg_match('/^http/i', $im[1])) {
-                              echo '<meta property="og:image" content="' . $im[1] . '" />' . "\n";
+                                $social_image = $im[1];
                             } else {
-                              echo '<meta property="og:image" content="http' . ($_SERVER['HTTPS'] ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . $im[1] . '" />' . "\n";
+                                $social_image = $blogURL . $im[1];
                            }
+                        }
+                        
+                        if ($social_image != $blogURL && $social_image != $blogURL . 'none') {
+                            echo '<meta property="og:image" content="' . $social_image . '" />' . "\n";
                         }
                     }
                 default:

@@ -16,7 +16,7 @@ class serendipity_event_social extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_SOCIAL_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Matthias Mees');
-        $propbag->add('version',       '0.9');
+        $propbag->add('version',       '0.10');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0'
         ));
@@ -106,7 +106,7 @@ class serendipity_event_social extends serendipity_event {
                     }
                     $twitter_via = $this->get_config('twitter_via', 'none');
                     if ($twitter_via != 'none') {
-                        $twitter_via_tag = ' data-twitter-via="' . $twitter_via .'"';
+                        $twitter_via_tag = ' data-twitter-via="' . str_replace('@', '', $twitter_via) .'"';
                     }
                     $backend = $this->get_config('backend', 'https://onli.columba.uberspace.de/s9y_shariff/');
                     if ($backend != 'none') {
@@ -148,7 +148,8 @@ class serendipity_event_social extends serendipity_event {
                         echo '<!--serendipity_event_shariff-->' . "\n";
                         echo '<meta name="twitter:card" content="summary" />' . "\n";
                         echo '<meta property="og:title" content="' . serendipity_specialchars($entry['title']) . '" />' . "\n";
-                        echo '<meta property="og:description" content="' . substr(strip_tags($entry['body']), 0, 200) . '..." />' . "\n";
+                                                                                        # /\s+/: multiple newline and whitespaces
+                        echo '<meta property="og:description" content="' . trim(preg_replace('/\s+/', ' ', substr(strip_tags($entry['body']), 0, 200))) . '..." />' . "\n";
                         echo '<meta property="og:type" content="article" />' . "\n";
                         echo '<meta property="og:site_name" content="' . $serendipity['blogTitle'] . '" />' . "\n";
                         echo '<meta property="og:url" content="'. $blogURL . serendipity_specialchars($_SERVER['REQUEST_URI']) . '" />' . "\n";
@@ -168,6 +169,7 @@ class serendipity_event_social extends serendipity_event {
                             echo '<meta property="og:image" content="' . $social_image . '" />' . "\n";
                         }
                     }
+                    break;
                 default:
                     return false;
             }

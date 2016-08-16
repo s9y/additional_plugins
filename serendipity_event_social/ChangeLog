@@ -1,3 +1,8 @@
+0.10:
+    * Strip newlines from description
+    * Fix unfilled language variable TWITTERVIA_DESC
+    * Work with and without @ in the twittervia username
+
 0.9:
     * Add option to set  a fallback image for
       twitter and facebook tags

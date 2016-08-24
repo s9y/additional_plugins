@@ -318,15 +318,18 @@ class emerge_spartacus {
 
             $x = '';
             $x .= '<div class="plugin">';
-            $x .= '<div class="plugin_summary">' . $this->encode($plugin_data['properties']['name']) . '</div>';
-            $x .= '<div class="plugin_name">' . $this->encode($plugin_name) . '</div>';
-            $x .= '<div class="plugin_version">' . $this->encode(VERSION . ' ' . $version) . ' (' . $this->encode($license) . ', ' . $this->encode(LAST_UPDATED) . ' ' . date('Y-m-d', filemtime($plugin_data['pluginPath'] . '/' . $plugin_data['name'] . '.php')) . ')</div>';
-            $x .= '<div class="plugin_maintainers">' . $this->encode($author) . '</div>';
-            $x .= '<div class="plugin_requirements">Serendipity &gt;= ' . $this->encode($s9yVersion) . '</div>';
-            #$x .= '<div class="plugin_groups">' . $this->encode(implode(',', (array)$plugin_data['properties']['groups'])) . '</div>';
+            $x .= '<h4 class="plugin_summary">' . $this->encode($plugin_data['properties']['name']) . '</h4>';
+            $x .= '<dl class="plugin_meta">';
+            $x .= '<dt class="plugin_name">' . $this->encode($plugin_name) . '</dt>';
+            $x .= '<dd class="plugin_version">' . $this->encode(VERSION . ' ' . $version) . ' (' . $this->encode($license) . ', ' . $this->encode(LAST_UPDATED) . ' ' . date('Y-m-d', filemtime($plugin_data['pluginPath'] . '/' . $plugin_data['name'] . '.php')) . ')</dd>';
+            $x .= '<dd class="plugin_maintainers">' . $this->encode($author) . '</dd>';
+            $x .= '<dd class="plugin_requirements">Serendipity &gt;= ' . $this->encode($s9yVersion) . '</dd>';
+            #$x .= '<dd class="plugin_groups">' . $this->encode(implode(',', (array)$plugin_data['properties']['groups'])) . '</dd>';
+            $x .= '</dl>';
 
-            $x .= '<div class="plugin_description">' . $this->encode($plugin_data['properties']['description']) . '</div>';
+            $x .= '<p class="plugin_description">' . $this->encode($plugin_data['properties']['description']) . '</p>';
 
+            $x .= '<ul class="plugin_actions">';
             if (is_dir($plugin_name)) {
                 $zipfile = $plugin_name;
             } else {
@@ -336,16 +339,16 @@ class emerge_spartacus {
                     $zipfile = str_replace('_plugin_', '_event_', $plugin_name);
                 }
             }
-            $x .= '<div class="plugin_download"><a href="cvs/additional_plugins/' . $zipfile . '.zip">Download</a> <a href="https://github.com/s9y/additional_plugins/tree/master/' . $this->encode($zipfile) . '">ViewCVS</a>';
-
+            $x .= '<li class="plugin_download"><a href="cvs/additional_plugins/' . $zipfile . '.zip">Download</a></li>';
+            $x .= '<li class="plugin_github"><a href="https://github.com/s9y/additional_plugins/tree/master/' . $this->encode($zipfile) . '">GitHub</a></li>';
             if (!empty($plugin_data['properties']['website'])) {
-                $x .= '<br /><a href="' . $this->encode($plugin_data['properties']['website']) . '">Documentation</a>';
+                $x .= '<li class="plugin_website"><a href="' . $this->encode($plugin_data['properties']['website']) . '">Documentation</a></li>';
             }
             if (!empty($plugin_data['properties']['changelog'])) {
-                $x .= '<br /><a href="' . $this->encode($plugin_data['properties']['changelog']) . '">ChangeLog</a>';
+                $x .= '<li class="plugin_changelog"><a href="' . $this->encode($plugin_data['properties']['changelog']) . '">ChangeLog</a></li>';
             }
-
-            $x .= '</div></div>';
+            $x .= '</ul">';
+            $x .= '</div>';
 
             foreach((array)$plugin_data['properties']['groups'] AS $group) {
                 $gnames[constant('PLUGIN_GROUP_' . $group)] = $group;

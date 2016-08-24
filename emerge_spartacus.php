@@ -374,10 +374,10 @@ class emerge_spartacus {
             foreach($group AS $plug) {
                 $p[] = $plug['content'];
             }
-            $c = '<div class="group" id="group_' . $gshort . '">
+            $c = '<section id="group_' . $gshort . '" class="group">
                     <h3>' . $gname . '</h3>
                     ' . implode("\n", $p) . '
-                 </div>';
+                 </section>';
             fwrite($fp, $c);
             $fp2 = fopen('homepage/bygroup_' . $key . '_' . $gshort . '_' . $serendipity['lang'] . '.htm', 'w');
             fwrite($fp2, $c);

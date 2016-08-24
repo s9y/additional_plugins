@@ -1,4 +1,4 @@
-<?php # 
+<?php #
 
 /* This file creates a package XML file for all additional_plugins CVS files
  *
@@ -9,7 +9,7 @@
 header('Content-Type: text/plain');
 define('IN_serendipity', true);
 error_reporting(E_ALL &  ~E_NOTICE);
-        
+
 class emerge_spartacus {
 
     var $helper;
@@ -141,25 +141,27 @@ class emerge_spartacus {
             chdir($olddir);
 
             $td = '';
-            $td .= '<div class="template_summary">' . $this->encode($info['name']) . '<br />' . $this->encode($info['summary']) . '</div>';
-            $td .= '<div class="template_name">' . $this->encode($path['name']) . '</template>';
+            $td .= '<h4 class="theme_summary">' . $this->encode($info['name']) . $this->encode($info['summary']) . '</h4>';
+            $td .= '<dl class="theme_meta">';
+            $td .= '<dt class="theme_name"><img alt="" src="cvs/additional_themes/' . $path['name'] . '/preview_fullsize.jpg"></dt>';
             if (empty($info['version'])) {
                 $info['version'] = '1.0';
             }
             if (empty($info['license'])) {
                 $info['license'] = 'N/A (=GPL)';
             }
-            $td .= '<div class="template_version">' . $this->encode(VERSION . ' ' . $info['version']) . '(' . $this->encode($info['license']) . ', ' . $this->encode($info['date']) . ')</div>';
-            $td .= '<div class="template_maintainers">' . $this->encode($info['author']) . '</div>';
+            $td .= '<dd class="theme_version">' . $this->encode(VERSION . ' ' . $info['version']) . '(' . $this->encode($info['license']) . ', ' . $this->encode($info['date']) . ')</dd>';
+            $td .= '<dd class="theme_maintainers">' . $this->encode($info['author']) . '</dd>';
             if (!empty($info['require serendipity'])) {
-                $td .= '<div class="template_requirements">Serendipity &gt;= ' . $this->encode($info['require serendipity']) . '</div>';
+                $td .= '<dd class="theme_requirements">Serendipity &gt;= ' . $this->encode($info['require serendipity']) . '</dd>';
             }
-
+            $td .= '</dl>';
+            $td .= '<ul class="theme_actions">';
             if (!isset($blacklist[$path['name']])) {
-                $td .= '<a style="font-weight: bold; margin: 0px auto" href="http://blog.s9y.org/index.php?user_template=additional_themes/' . $path['name'] . '">See demo on blog.s9y.org</a>' . "\n";
+                $td .= '<li class="theme_demo"><a href="http://blog.s9y.org/index.php?user_template=additional_themes/' . $path['name'] . '">Demo on blog.s9y.org</a></li>';
             }
-
-            $td .= '<div class="template_description"><span class="template_download"><a href="cvs/additional_themes/' . $path['name'] . '.zip"><img alt="Download" src="cvs/additional_themes/' . $path['name'] . '/preview_fullsize.jpg" width="100%" /></a></div>' . $this->encode($info['description']) . '</div>';
+            $td .= '<li class="theme_download"><a href="cvs/additional_themes/' . $path['name'] . '.zip">Download</a></li>';
+            $td .= '</ul>';
 
             $x[] = '<package version="1.0">';
             $x[] = '<name>' . $this->encode($info['name'], true) . '</name>';
@@ -187,7 +189,7 @@ class emerge_spartacus {
 
             $x[] = '</package>';
 
-            $t[$info['name']] .= '<div class="template">' . $td . '</div>' . "\n";
+            $t[$info['name']] .= '<div class="theme">' . $td . '</div>' . "\n";
             $nametofile[$info['name']] = $path['name'];
         }
         $x[] = '</packages>';
@@ -449,7 +451,7 @@ class emerge_spartacus {
                     echo "FTP Login failed.\n";
                     #die('FTP LOGIN IMPOSSIBLE');
                 }
-                
+
                 $login = ftp_login($c, $data[0], $data[1]);
             }
             if ($c && $login) {

@@ -1,3 +1,7 @@
+0.4.23:
+   * Add "IF NOT EXISTS" to sqlite-upgrade function, preventing
+     a php error
+
 0.4.22:
     * Use parseTemplate method to be compatible with s9y 2.1-beta1, some
       template files needed to be moved from admin/ to the root dir

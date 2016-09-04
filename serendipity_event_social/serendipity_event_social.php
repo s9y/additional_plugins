@@ -15,8 +15,8 @@ class serendipity_event_social extends serendipity_event {
         $propbag->add('name',          PLUGIN_EVENT_SOCIAL_NAME);
         $propbag->add('description',   PLUGIN_EVENT_SOCIAL_DESC);
         $propbag->add('stackable',     false);
-        $propbag->add('author',        'onli, Matthias Mees');
-        $propbag->add('version',       '0.10');
+        $propbag->add('author',        'onli, Matthias Mees, Thomas Hochstein');
+        $propbag->add('version',       '0.11');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0'
         ));
@@ -149,12 +149,11 @@ class serendipity_event_social extends serendipity_event {
                         echo '<meta name="twitter:card" content="summary" />' . "\n";
                         echo '<meta property="og:title" content="' . serendipity_specialchars($entry['title']) . '" />' . "\n";
                         # get desciption from serendipity_event_metadesc, if set; take first 200 chars from body otherwise
-                        $meta_description = $GLOBALS['entry'][0]['properties']['meta_description'];
+                        $meta_description = strip_tags($GLOBALS['entry'][0]['properties']['meta_description']);
                         if (empty($meta_description)) {
                                                                  # /\s+/: multiple newline and whitespaces
                             $meta_description = trim(preg_replace('/\s+/', ' ', substr(strip_tags($entry['body']), 0, 200))) . '...';
                         }
-                        $meta_description = (function_exists('serendipity_specialchars') ? serendipity_specialchars($meta_description) : htmlspecialchars($meta_description, ENT_COMPAT, LANG_CHARSET));
                         echo '<meta property="og:description" content="' . $meta_description . '" />' . "\n";
                         echo '<meta property="og:type" content="article" />' . "\n";
                         echo '<meta property="og:site_name" content="' . $serendipity['blogTitle'] . '" />' . "\n";

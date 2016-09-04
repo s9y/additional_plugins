@@ -246,9 +246,9 @@
 <title>Share Buttons: Show social share buttons for services like Facebook and Twitter using shariff.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_social</link>
 <category>Event Plugins</category>
-<author>onli, Matthias Mees</author>
+<author>onli, Matthias Mees, Thomas Hochstein</author>
 <content:encoded>&lt;b&gt;serendipity_event_social&lt;br /&gt;Share Buttons&lt;/b&gt;&lt;br /&gt;Show social share buttons for services like Facebook and Twitter using shariff.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Tue, 16 Aug 2016 22:32:26 +0200</pubDate>
+<pubDate>Sun, 04 Sep 2016 22:32:33 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_social</guid>
 </item>
 <item>

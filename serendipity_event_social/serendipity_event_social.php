@@ -154,6 +154,7 @@ class serendipity_event_social extends serendipity_event {
                                                                  # /\s+/: multiple newline and whitespaces
                             $meta_description = trim(preg_replace('/\s+/', ' ', substr(strip_tags($entry['body']), 0, 200))) . '...';
                         }
+                        $meta_description = serendipity_specialchars($meta_description);
                         echo '<meta property="og:description" content="' . $meta_description . '" />' . "\n";
                         echo '<meta property="og:type" content="article" />' . "\n";
                         echo '<meta property="og:site_name" content="' . $serendipity['blogTitle'] . '" />' . "\n";

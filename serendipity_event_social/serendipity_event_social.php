@@ -148,8 +148,14 @@ class serendipity_event_social extends serendipity_event {
                         echo '<!--serendipity_event_shariff-->' . "\n";
                         echo '<meta name="twitter:card" content="summary" />' . "\n";
                         echo '<meta property="og:title" content="' . serendipity_specialchars($entry['title']) . '" />' . "\n";
-                                                                                        # /\s+/: multiple newline and whitespaces
-                        echo '<meta property="og:description" content="' . trim(preg_replace('/\s+/', ' ', substr(strip_tags($entry['body']), 0, 200))) . '..." />' . "\n";
+                        # get desciption from serendipity_event_metadesc, if set; take first 200 chars from body otherwise
+                        $meta_description = $GLOBALS['entry'][0]['properties']['meta_description'];
+                        if (empty($meta_description)) {
+                                                                 # /\s+/: multiple newline and whitespaces
+                            $meta_description = trim(preg_replace('/\s+/', ' ', substr(strip_tags($entry['body']), 0, 200))) . '...';
+                        }
+                        $meta_description = (function_exists('serendipity_specialchars') ? serendipity_specialchars($meta_description) : htmlspecialchars($meta_description, ENT_COMPAT, LANG_CHARSET));
+                        echo '<meta property="og:description" content="' . $meta_description . '" />' . "\n";
                         echo '<meta property="og:type" content="article" />' . "\n";
                         echo '<meta property="og:site_name" content="' . $serendipity['blogTitle'] . '" />' . "\n";
                         echo '<meta property="og:url" content="'. $blogURL . serendipity_specialchars($_SERVER['REQUEST_URI']) . '" />' . "\n";

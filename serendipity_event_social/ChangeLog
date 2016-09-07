@@ -1,3 +1,7 @@
+0.12:
+    * Ignore smileys graphics for og:image
+    * Use entry picture from the timeline theme if set
+
 0.11:
     * Re-use description set in the metadesc-plugin
 

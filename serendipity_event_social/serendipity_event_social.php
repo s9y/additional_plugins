@@ -162,6 +162,8 @@ class serendipity_event_social extends serendipity_event {
                         $social_image = $this->get_config('social_image', '');
                         if (isset($entry['properties']) && isset($entry['properties']['timeline_image'])) {
                             $social_image = $entry['properties']['timeline_image'];
+                        } else if (isset($entry['properties']) && isset($entry['properties']['ep_featuredImage'])) {
+                            $social_image = $entry['properties']['ep_featuredImage'];
                         } else {
                             // This is searching for the first image in an entry to use as facebook article image.
                             // A better approach would be to register in the entry editor when an image was added

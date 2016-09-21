@@ -552,6 +552,55 @@
 </release>
 </package>
 <package version="1.0">
+<name>WP-compat</name>
+<template>wp</template>
+<license>N/A (=GPL)</license>
+<summary></summary>
+<description></description>
+<recommended></recommended>
+<maintainers><maintainer><name>Evan Nemerson</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion></requirements:s9yVersion>
+  <date>20/11-2004</date>
+  <filelist>
+<dir name="wp">
+<file>wp-layout.css</file>
+<file>plugin_calendar.tpl</file>
+<file>info.txt</file>
+<file>atom.css</file>
+<file>commentform.tpl</file>
+<file>comments.tpl</file>
+<file>index.tpl</file>
+<file>trackbacks.tpl</file>
+<file>preview.png</file>
+<file>entries.tpl</file>
+<file>entries_summary.tpl</file>
+<file>content.tpl</file>
+<file>sidebar.tpl</file>
+<file>entries_archives.tpl</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>wp/wp-layout.css</file>
+    <file>wp/plugin_calendar.tpl</file>
+    <file>wp/info.txt</file>
+    <file>wp/atom.css</file>
+    <file>wp/commentform.tpl</file>
+    <file>wp/comments.tpl</file>
+    <file>wp/index.tpl</file>
+    <file>wp/trackbacks.tpl</file>
+    <file>wp/preview.png</file>
+    <file>wp/entries.tpl</file>
+    <file>wp/entries_summary.tpl</file>
+    <file>wp/content.tpl</file>
+    <file>wp/sidebar.tpl</file>
+    <file>wp/entries_archives.tpl</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
 <name>Earphone (2007-04-03)</name>
 <template>earphone</template>
 <license>N/A (=GPL)</license>

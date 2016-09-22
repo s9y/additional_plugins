@@ -72,7 +72,7 @@ class serendipity_event_aggregator extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.31.1');
+        $propbag->add('version',       '0.33');
         $propbag->add('author',       'Evan Nemerson, Garvin Hicking, Kristian Koehntopp, Thomas Schulz, Claus Schmidt');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
@@ -664,7 +664,7 @@ class serendipity_event_aggregator extends serendipity_event {
             'last_update'       => time()
         );
 
-        if ($serendipity['version'][0] == '2') {
+        if ($serendipity['version'][0] > 1) {
             echo '<span class="msg_notice"><span class="icon-info-circled"></span> ';
         }
             echo PLUGIN_AGGREGATOR_DESC;
@@ -673,7 +673,7 @@ class serendipity_event_aggregator extends serendipity_event {
         } else {
             echo '</span>';
         }
-        if ($serendipity['version'][0] == '2') {
+        if ($serendipity['version'][0] > 1) {
             echo '<span class="msg_hint"><span class="icon-help-circled"></span> ';
         }
             echo PLUGIN_AGGREGATOR_FEEDLIST;
@@ -912,24 +912,30 @@ class serendipity_event_aggregator extends serendipity_event {
         global $serendipity;
 
         $file = $serendipity['POST']['aggregatorOPML'];
-        require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : S9Y_INCLUDE_PATH . 'bundled-libs/') . 'HTTP/Request.php';
-        if (function_exists('serendipity_request_start')) {
-            serendipity_request_start();
-        }
-        $req = new HTTP_Request($file);
 
-        if (PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200') {
-            $data = file_get_contents($file);
-            if (empty($data)) {
-                return false;
-            }
+        if (function_exists('serendipity_request_url')) {
+            $data = serendipity_request_url($file);
+            if (empty($data)) return false;
         } else {
-            // Fetch file
-            $data = $req->getResponseBody();
-        }
+            require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : S9Y_INCLUDE_PATH . 'bundled-libs/') . 'HTTP/Request.php';
+            if (function_exists('serendipity_request_start')) {
+                serendipity_request_start();
+            }
+            $req = new HTTP_Request($file);
 
-        if (function_exists('serendipity_request_end')) {
-            serendipity_request_end();
+            if (PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200') {
+                $data = file_get_contents($file);
+                if (empty($data)) {
+                    return false;
+                }
+            } else {
+                // Fetch file
+                $data = $req->getResponseBody();
+            }
+
+            if (function_exists('serendipity_request_end')) {
+                serendipity_request_end();
+            }
         }
 
         // XML functions
@@ -1136,16 +1142,22 @@ class serendipity_event_aggregator extends serendipity_event {
     function checkCharset(&$feed)
     {
         global $serendipity;
-        require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : S9Y_INCLUDE_PATH . 'bundled-libs/') . 'HTTP/Request.php';
-        $req = new HTTP_Request($feed['feedurl']);
-        if (PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200') {
-            $data = file_get_contents($feed['feedurl']);
-            if (empty($data)) {
-                return false;
-            }
+
+        if (function_exists('serendipity_request_url')) {
+            $data = serendipity_request_url($feed['feedurl']);
+            if (empty($data)) return false;
         } else {
-            # Fetch file
-            $data = $req->getResponseBody();
+            require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : S9Y_INCLUDE_PATH . 'bundled-libs/') . 'HTTP/Request.php';
+            $req = new HTTP_Request($feed['feedurl']);
+            if (PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200') {
+                $data = file_get_contents($feed['feedurl']);
+                if (empty($data)) {
+                    return false;
+                }
+            } else {
+                # Fetch file
+                $data = $req->getResponseBody();
+            }
         }
         #XML functions
         $xml_string = '<' . '?xml version="1.0" encoding="UTF-8"?' . '>';

@@ -1,8 +1,5 @@
 <?php # 
 
-require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
-
-
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -26,7 +23,7 @@ class serendipity_plugin_gallery_menalto_random extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_GALLERYRANDOMBLOCK_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Andrew Brown, Tadashi Jokagi');
-        $propbag->add('version',       '1.8');
+        $propbag->add('version',       '1.9');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -133,16 +130,27 @@ class serendipity_plugin_gallery_menalto_random extends serendipity_plugin {
             for ($i=1; $i <= $repeat; $i++) {
 
                 $options = array();
-                $req = new HTTP_Request($path.$file,$options);
-                $req_result = $req->sendRequest();
-                if ( PEAR::isError( $req_result)) {
-                    echo PLUGIN_GALLERYRANDOMBLOCK_ERROR_CONNECT . "<br />\n";
-                } else {
-                    $res_code = $req->getResponseCode();
-                    if ($res_code != "200") {
+
+                if (function_exists('serendipity_request_url')) {
+                    $data = serendipity_request_url($path . $file);
+                    if ($serendipity['last_http_request']['responseCode'] != '200') {
                         printf( PLUGIN_GALLERYRANDOMBLOCK_ERROR_HTTP . "<br />\n", $res_code);
                     } else {
-                        echo $req->getResponseBody();
+                        echo $data;
+                    }
+                } else {
+                    require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+                    $req = new HTTP_Request($path.$file,$options);
+                    $req_result = $req->sendRequest();
+                    if ( PEAR::isError( $req_result)) {
+                        echo PLUGIN_GALLERYRANDOMBLOCK_ERROR_CONNECT . "<br />\n";
+                    } else {
+                        $res_code = $req->getResponseCode();
+                        if ($res_code != "200") {
+                            printf( PLUGIN_GALLERYRANDOMBLOCK_ERROR_HTTP . "<br />\n", $res_code);
+                        } else {
+                            echo $req->getResponseBody();
+                        }
                     }
                 }
                 if ($i < $repeat) {
@@ -153,4 +161,3 @@ class serendipity_plugin_gallery_menalto_random extends serendipity_plugin {
     }
 }
 /* vim: set sts=4 ts=4 expandtab : */
-?>

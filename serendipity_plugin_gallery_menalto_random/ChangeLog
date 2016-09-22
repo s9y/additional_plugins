@@ -1,5 +1,4 @@
-1.12:
+1.9:
 -----
     * Added serendipity_request_url API method
     
-latest: Smarty3 forward compatibility

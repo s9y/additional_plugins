@@ -34,9 +34,14 @@ class AmazonSearchEngine {
         );
     }
     function doSearch($url) {
-        $req = new HTTP_Request($url);
-        $req->sendRequest();
-        $contents = $req->getResponseBody();
+        if (function_exists('serendipity_request_url')) {
+            $contents = serendipity_request_url($url);
+        } else {
+            $req = new HTTP_Request($url);
+            $req->sendRequest();
+            $contents = $req->getResponseBody();
+        }
+
         if (!xml_parse($this->_parser, $contents)) {
             die(sprintf('XML error: %s at line %d',
                 xml_error_string(xml_get_error_code($this->_parser)),

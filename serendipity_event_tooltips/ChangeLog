@@ -1,0 +1,5 @@
+1.6:
+----
+
+Try to change preg_replace('/e/') modifier calls with preg_replace_calllback.
+Probably a mess.

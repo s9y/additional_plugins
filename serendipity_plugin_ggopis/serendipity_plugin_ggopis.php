@@ -33,7 +33,7 @@ class serendipity_plugin_ggopis extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_GGOPIS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Piotr Borys');
-        $propbag->add('version',       '1.3');
+        $propbag->add('version',       '1.4');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',
@@ -149,20 +149,30 @@ class serendipity_plugin_ggopis extends serendipity_plugin {
 	  //
 	  // Getting a logon server
 	  //
-      require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
-	  serendipity_request_start();
-	  $req = new HTTP_Request('http://appmsg.gadu-gadu.pl:80/appsvc/appmsg.asp?fmnumber=<'.$numer_gg.'>');
-	  if (PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200') {
-        $error = PLUGIN_GGOPIS_MSG_NOCONNTOAPPMSG . $errno . " - " . $errstr . "\n";
-        serendipity_request_end();
-		return false;
-	  } else {
-	    $buf = $req->getResponseBody();
-        preg_match("/\s([\d\.]{8,16})\:([\d]{1,5})\s/", $buf, $adres);
-        $host = $adres[1];
-        $port = $adres[2];
-		serendipity_request_end();
-	  }
+      if (function_exists('serendipity_request_url')) {
+        $buf = serendipity_request_url('http://appmsg.gadu-gadu.pl:80/appsvc/appmsg.asp?fmnumber=<'.$numer_gg.'>');
+        if ($serendipity['last_http_request']['responseCode'] != '200') {
+          $error = PLUGIN_GGOPIS_MSG_NOCONNTOAPPMSG . $errno . " - " . $errstr . "\n";
+          return false;
+        }
+      } else {
+        require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+        serendipity_request_start();
+        $req = new HTTP_Request('http://appmsg.gadu-gadu.pl:80/appsvc/appmsg.asp?fmnumber=<'.$numer_gg.'>');
+        if (PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200') {
+          $error = PLUGIN_GGOPIS_MSG_NOCONNTOAPPMSG . $errno . " - " . $errstr . "\n";
+          serendipity_request_end();
+          return false;
+        } else {
+          $buf = $req->getResponseBody();
+          serendipity_request_end();
+	      }
+      }
+
+      preg_match("/\s([\d\.]{8,16})\:([\d]{1,5})\s/", $buf, $adres);
+      $host = $adres[1];
+      $port = $adres[2];
+
 
 	  //
 	  // Connecting to a server

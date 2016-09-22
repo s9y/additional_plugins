@@ -109,17 +109,23 @@ class UrlShortener {
      * @access   private
      */
     function shorten_via_simple( &$shorturls, $servicename, $servicecall ) {
-        require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
-        
         // if we already evaluated the shorturl, stop here
         if (!empty($shorturls[$servicename])) return;
         
-        serendipity_request_start();
-        $req = new HTTP_Request($servicecall, array('timeout' => 20, 'readTimeout' => array(5,0)));
-        $req->sendRequest();
-        $short_url = $req->getResponseBody();
-        serendipity_request_end();
-        if ($req->getResponseCode()==200) {
+        if (function_exists('serendipity_request_url')) {
+            $short_url = serendipity_request_url($servicecall);
+            if (empty($short_url)) return false;
+        } else {
+            require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+            
+            serendipity_request_start();
+            $req = new HTTP_Request($servicecall, array('timeout' => 20, 'readTimeout' => array(5,0)));
+            $req->sendRequest();
+            $short_url = $req->getResponseBody();
+            serendipity_request_end();
+        }
+
+        if (!empty($short_url)) {
             $short_url = trim($short_url);
             if (strlen($short_url)<255) { // Should be an URL at least
                 $shorturls[$servicename] = trim($short_url);
@@ -153,19 +159,26 @@ class UrlShortener {
     // works *sometimes*
     // tinyburner.com
     function shorten_via_twurl( $url, &$shorturls ) {
-        require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
-        
         // if we already evaluated the shorturl, stop here
         if (!empty($shorturls['twurl'])) return;
         
-        serendipity_request_start();
         $req_url = "http://tweetburner.com/links";
-        $req = new HTTP_Request($req_url, array('method' => HTTP_REQUEST_METHOD_POST, 'timeout' => 20, 'readTimeout' => array(5,0)));
-        $req->addPostData('link[url]',$url, true);
-        $req->sendRequest();
-        $short_url = trim($req->getResponseBody());
-        serendipity_request_end();
-        if ($req->getResponseCode()==200) {
+
+        if (function_exists('serendipity_request_url')) {
+            $short_url = serendipity_request_url($req_url, 'POST', null, array('link[url]' => $url));
+            if (empty($short_url)) return false;
+        } else {
+            require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+           
+            serendipity_request_start();
+            $req = new HTTP_Request($req_url, array('method' => HTTP_REQUEST_METHOD_POST, 'timeout' => 20, 'readTimeout' => array(5,0)));
+            $req->addPostData('link[url]',$url, true);
+            $req->sendRequest();
+            $short_url = trim($req->getResponseBody());
+            serendipity_request_end();
+        }
+
+        if ($short_url != '') {
             $shorturls['twurl'] = $short_url;
         }
     }
@@ -202,22 +215,26 @@ class UrlShortener {
     /* bit.ly called via api */
     function _make_bitly_api_url($url,$format = 'xml',$domain='bit.ly')
     {
-        require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
-        
         //create the API Call URL
         $bitly = 'http://api.bit.ly/v3/shorten?longUrl='.urlencode($url).'&login='.$this->bitly_login.'&apiKey='.$this->bitly_apikey.'&format='.$format.'&domain='.$domain;
         
         //get the url
-        serendipity_request_start();
-        $req = new HTTP_Request($bitly, array('timeout' => 20, 'readTimeout' => array(5,0)));
-        $req->sendRequest();
-        $response = $req->getResponseBody();
-        serendipity_request_end();
-        if ($req->getResponseCode()!=200) {
-            return false;
-        }
-        if (strlen($response) < 1) {
-            return false;
+        if (function_exists('serendipity_request_url')) {
+            $response = serendipity_request_url($bitlyreq_url, 'POST');
+            if (empty($response)) return false;
+        } else {
+            require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+            serendipity_request_start();
+            $req = new HTTP_Request($bitly, array('timeout' => 20, 'readTimeout' => array(5,0)));
+            $req->sendRequest();
+            $response = $req->getResponseBody();
+            serendipity_request_end();
+            if ($req->getResponseCode()!=200) {
+                return false;
+            }
+            if (strlen($response) < 1) {
+                return false;
+            }
         }
         
         //parse depending on desired format
@@ -242,8 +259,6 @@ class UrlShortener {
      * Doesn't work realy and is ultra slow..
      */
     function shorten_via_delivr( $url, &$shorturls ) {
-        require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
-
         // if we already evaluated the shorturl, stop here
         if (!empty($shorturls['delivr'])) return;
         
@@ -253,13 +268,19 @@ class UrlShortener {
         $url = urlencode($url);
         $req_url = "http://api.delivr.com/shorten?username=$login&apiKey=$apikey&format=xml&url=" . $url;
         
-        serendipity_request_start();
-        $req = new HTTP_Request($req_url, array('timeout' => 20, 'readTimeout' => array(5,0)));
-        $req->sendRequest();
-        $xml = $req->getResponseBody();
-        serendipity_request_end();
+        if (function_exists('serendipity_request_url')) {
+            $xml = serendipity_request_url($req_url);
+            if (empty($xml)) return false;
+        } else {
+            require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+            serendipity_request_start();
+            $req = new HTTP_Request($req_url, array('timeout' => 20, 'readTimeout' => array(5,0)));
+            $req->sendRequest();
+            $xml = $req->getResponseBody();
+            serendipity_request_end();
+        }
         
-        if ($req->getResponseCode()==200) {
+        if ($xml != '') {
             $vals = array();
             $index = array();
             $parser = xml_parser_create();

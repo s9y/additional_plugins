@@ -30,7 +30,7 @@ class serendipity_event_google_sitemap extends serendipity_event {
         $propbag->add('name', PLUGIN_EVENT_SITEMAP_TITLE);
         $propbag->add('description', PLUGIN_EVENT_SITEMAP_DESC);
         $propbag->add('author', 'Boris');
-        $propbag->add('version', '0.58.1');
+        $propbag->add('version', '0.58.2');
         $propbag->add('event_hooks',  array(
                 'backend_publish' => true,
                 'backend_save'    => true,
@@ -715,14 +715,30 @@ class serendipity_event_google_sitemap extends serendipity_event {
     
     function send_ping($loc) {
         global $serendipity;
-        require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : S9Y_INCLUDE_PATH . 'bundled-libs/') . 'HTTP/Request.php';
-        $req = new HTTP_Request($loc);
 
-        if (PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200') {
-            print_r($req);
-            return false;
-        } else {
+        if (function_exists('serendipity_request_url')) {
+            $data = serendipity_request_url($loc);
+            if (empty($data)) return false;
             return true;
+        } else {
+
+            if (function_exists('serendipity_request_url')) {
+                $data = serendipity_request_url($loc);
+                if ($serendipity['last_http_request']['responseCode'] == '200') {
+                    return true;
+                }
+                return false;
+            } else {
+                require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : S9Y_INCLUDE_PATH . 'bundled-libs/') . 'HTTP/Request.php';
+                $req = new HTTP_Request($loc);
+
+                if (PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200') {
+                    print_r($req);
+                    return false;
+                } else {
+                    return true;
+                }
+            }
         }
     }
 }

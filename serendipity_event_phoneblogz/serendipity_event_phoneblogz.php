@@ -25,7 +25,7 @@ class serendipity_event_phoneblogz extends serendipity_event
         $propbag->add('description', PLUGIN_EVENT_PHONEBLOGZ_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Garvin Hicking, phoneblogz.com');
-        $propbag->add('version',     '0.9');
+        $propbag->add('version',     '0.10');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -206,14 +206,22 @@ class serendipity_event_phoneblogz extends serendipity_event
             return array('error' => "Could not write file $new_file.");
         }
 
-        require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
-        $req = new HTTP_Request($url);
+        if (function_exists('serendipity_request_url')) {
+            $fc = serendipity_request_url($url);
+            if ($serendipity['last_http_request']['responseCode'] != '200') {
+              return array('error' => "Could not download file " . htmlspecialchars($url));
+            }
+            return false;
+        } else {
+          require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+          $req = new HTTP_Request($url);
 
-        if (PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200') {
-            return array('error' => "Could not download file " . htmlspecialchars($url));
+          if (PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200') {
+              return array('error' => "Could not download file " . htmlspecialchars($url));
+          }
+
+          $fc = $req->getResponseBody();
         }
-
-        $fc = $req->getResponseBody();
         $success = @fwrite($ifp, $fc);
         fclose($ifp);
         // Set correct file permissions

@@ -1,3 +1,7 @@
+1.08:
+-----
+    * Added serendipity_request_url API method
+
 Version 1.06
 * Add ability to formular custom comment texts.
 

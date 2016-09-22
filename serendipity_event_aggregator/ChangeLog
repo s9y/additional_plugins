@@ -1,3 +1,11 @@
+0.33:
+-----
+    * Added serendipity_request_url API method
+
+0.32:
+-----
+    * Compatibility check for Serendipity 2+
+
 0.31:
 -----
     * Adapted backend markup for 2.0 backend (yellowled)

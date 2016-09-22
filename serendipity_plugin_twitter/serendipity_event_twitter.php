@@ -1859,7 +1859,6 @@ a.twitter_update_time {
 
     function updateTwitterTimelineCache($parts){
         global $serendipity;
-        require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
 
         if (count($parts)<5) return time() + (60 * 60); // params corrupted next try allowed one minute later
 
@@ -1922,12 +1921,19 @@ a.twitter_update_time {
                     $search_twitter_uri = 'https://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $username . '&count=' . $number;
                 }
 
-                serendipity_request_start();
-                $req = new HTTP_Request($search_twitter_uri);
-                $req->sendRequest();
-                $response = trim($req->getResponseBody());
-                $error = $req->getResponseCode();
-                serendipity_request_end();
+
+                if (function_exists('serendipity_request_url')) {
+                    $response = serendipity_request_url($search_twitter_uri);
+                    $error = $serendipity['last_http_request']['responseCode'];
+                } else {
+                    require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+                    serendipity_request_start();
+                    $req = new HTTP_Request($search_twitter_uri);
+                    $req->sendRequest();
+                    $response = trim($req->getResponseBody());
+                    $error = $req->getResponseCode();
+                    serendipity_request_end();
+                }
             }
 
             $this->log("error: {$error}");

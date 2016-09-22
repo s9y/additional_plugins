@@ -33,7 +33,7 @@ class serendipity_event_facebook extends serendipity_event {
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '0.5.1');
+        $propbag->add('version',       '0.5.2');
         $propbag->add('groups', array('FRONTEND_VIEWS'));
         $propbag->add('event_hooks', array(
             'frontend_display' => true,
@@ -222,8 +222,10 @@ class serendipity_event_facebook extends serendipity_event {
         
         header('Content-Type: text/plain; charset=' . LANG_CHARSET);
         
-        require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
-        
+        if (!function_exists('serendipity_request_url')) {
+            require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+        }
+
         $users = explode(',', $this->get_config('facebook_users'));
         foreach($users AS $user) {
             $user = trim($user);
@@ -231,16 +233,25 @@ class serendipity_event_facebook extends serendipity_event {
 
             $url = 'http://graph.facebook.com/' . $user . '/posts?limit=' . $this->get_config('limit');
 
-            serendipity_request_start();
-            $req = new HTTP_Request($url, array('allowRedirects' => true, 'maxRedirects' => 3));
-            // code 200: OK, code 30x: REDIRECTION
-            if (PEAR::isError($req->sendRequest()) || !preg_match('/200/', $req->getResponseCode())) {
-                if ($this->debug) echo "Request failed. (" . $req->getResponseCode() . ")";
-                serendipity_request_end();
-                continue;
+
+            if (function_exists('serendipity_request_url')) {
+                $data = serendipity_request_url($url);
+                $code = $serendipity['last_http_request']['responseCode'];
             } else {
-                $data = $req->getResponseBody();
-                serendipity_request_end();
+                serendipity_request_start();
+                $req = new HTTP_Request($url, array('allowRedirects' => true, 'maxRedirects' => 3));
+                // code 200: OK, code 30x: REDIRECTION
+                if (PEAR::isError($req->sendRequest()) || !preg_match('/200/', $req->getResponseCode())) {
+                    if ($this->debug) echo "Request failed. (" . $req->getResponseCode() . ")";
+                    serendipity_request_end();
+                    continue;
+                } else {
+                    $data = $req->getResponseBody();
+                    serendipity_request_end();
+                }
+            }
+
+            if (!empty($data)) {
                 $fb   = json_decode($data);
                 #print_r($fb);
                 
@@ -276,12 +287,17 @@ class serendipity_event_facebook extends serendipity_event {
                         // NO, link not yet stored. Request final location.
                         if ($this->debug) echo "(No metadata yet)\n";
 
-                        serendipity_request_start();
-                        $subreq = new HTTP_Request($fb_item->link, array('allowRedirects' => true, 'maxRedirects' => 3));
-                        $ret = $subreq->sendRequest();
-                        serendipity_request_end();
-                        
-                        $check_url = $subreq->_url->url;
+                        if (function_exists('serendipity_request_url')) {
+                            $subdata = serendipity_request_url($fb_item->link);
+                            $check_url = $serendipity['last_http_request']['effectiveUrl'];
+                        } else {
+                            serendipity_request_start();
+                            $subreq = new HTTP_Request($fb_item->link, array('allowRedirects' => true, 'maxRedirects' => 3));
+                            $ret = $subreq->sendRequest();
+                            serendipity_request_end();
+                            
+                            $check_url = $subreq->_url->url;
+                        }
                         
                         $entry_id = $this->linkmatch($check_url);
                         
@@ -302,11 +318,15 @@ class serendipity_event_facebook extends serendipity_event {
                     $curl = 'http://graph.facebook.com/' . $fb_item->id . '/comments';
                     if ($this->debug) echo $curl . "\n";
 
-                    serendipity_request_start();
-                    $subreq = new HTTP_Request($curl, array('allowRedirects' => true, 'maxRedirects' => 3));
-                    $ret    = $subreq->sendRequest();
-                    $cdata  = $subreq->getResponseBody();
-                    serendipity_request_end();
+                    if (function_exists('serendipity_request_url')) {
+                        $cdata = serendipity_request_url($curl);
+                    } else {
+                        serendipity_request_start();
+                        $subreq = new HTTP_Request($curl, array('allowRedirects' => true, 'maxRedirects' => 3));
+                        $ret    = $subreq->sendRequest();
+                        $cdata  = $subreq->getResponseBody();
+                        serendipity_request_end();
+                    }
 
                     $cfb   = json_decode($cdata);
                     #print_r($cfb);

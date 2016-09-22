@@ -1,3 +1,7 @@
+1.33.2:
+-----
+    * Added serendipity_request_url API method
+    
 1.33 (mattsches)
 ----------------------------------
 * Fix bug when post title contains apostrophe.

@@ -1,1 +1,5 @@
+1.6:
+-----
+    * Added serendipity_request_url API method
+    
 1.5: Move to the correct nav section for 2.0 backend (yellowled)

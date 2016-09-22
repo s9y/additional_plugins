@@ -1,3 +1,7 @@
+0.76:
+-----
+  * Added serendipity_request_url API method
+
 0.75:
 -----
  * Use native API method parseTemplate() (only)

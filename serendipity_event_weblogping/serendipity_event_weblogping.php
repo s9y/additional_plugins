@@ -2,7 +2,6 @@
 
 if (IN_serendipity !== true) { die ("Don't hack!"); }
 
-require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_weblogping extends serendipity_event
@@ -17,7 +16,7 @@ class serendipity_event_weblogping extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_WEBLOGPING_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.08.2');
+        $propbag->add('version',       '1.09');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -206,28 +205,35 @@ class serendipity_event_weblogping extends serendipity_event
 
                             # 15 second timeout may not be long enough for weblogs.com
                             $message->createPayload();
-                            $options = array();
-                            serendipity_plugin_api::hook_event('backend_http_request', $options, 'weblogping');
-                            serendipity_request_start();
-
-                            $req = new HTTP_Request("http://".$service['host'].$service['path'], $options);
-                            $req->setMethod(HTTP_REQUEST_METHOD_POST);
-                            $req->addHeader("Content-Type", "text/xml");
                             if (strtoupper(LANG_CHARSET) != 'UTF-8') {
                                 $payload = utf8_encode($message->payload);
                             } else {
                                 $payload = $message->payload;
                             }
-                            $req->addRawPostData($payload);
-                            $http_result   = $req->sendRequest();
-                            $http_response = $req->getResponseBody();
+
+                            if (function_exists('serendipity_request_url')) {
+                                $http_response = serendipity_request_url("http://".$service['host'].$service['path'], 'POST', 'text/xml', $payload, null, 'weblogping');
+                            } else {
+                                $options = array();
+                                require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+                                serendipity_plugin_api::hook_event('backend_http_request', $options, 'weblogping');
+                                serendipity_request_start();
+
+                                $req = new HTTP_Request("http://".$service['host'].$service['path'], $options);
+                                $req->setMethod(HTTP_REQUEST_METHOD_POST);
+                                $req->addHeader("Content-Type", "text/xml");
+                                $req->addRawPostData($payload);
+                                $http_result   = $req->sendRequest();
+                                $http_response = $req->getResponseBody();
+                                serendipity_request_end();
+                            }
+
                             $xmlrpc_result = $message->parseResponse($http_response);
                             if ($xmlrpc_result->faultCode()) {
                                 $out = sprintf(PLUGIN_EVENT_WEBLOGPING_SEND_FAILURE . "<br />", (function_exists('serendipity_specialchars') ? serendipity_specialchars($xmlrpc_result->faultString()) : htmlspecialchars($xmlrpc_result->faultString(), ENT_COMPAT, LANG_CHARSET)));
                             } else {
                                 $out = PLUGIN_EVENT_WEBLOGPING_SEND_SUCCESS . "<br />";
                             }
-                            serendipity_request_end();
 
                             if (!defined('SERENDIPITY_IS_XMLRPC') || defined('SERENDIPITY_XMLRPC_VERBOSE')) {
                                 echo $out;

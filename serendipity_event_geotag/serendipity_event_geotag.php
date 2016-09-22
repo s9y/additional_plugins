@@ -281,13 +281,24 @@ class serendipity_event_geotag extends serendipity_event
         if($this->get_config('hdr_default_lat') && $this->get_config('hdr_default_long')) {
             echo '<div class="serendipityAdminMsgSuccess">';
             // Try to get the URL
-            include_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+
             $geourl = "http://geourl.org/ping/?p=" . $serendipity['baseURL'];
-            $req = new HTTP_Request($geourl);
-            if (PEAR::isError($req->sendRequest($geourl))) {
-                printf(REMOTE_FILE_NOT_FOUND, $geourl);
+
+            if (function_exists('serendipity_request_url')) {
+                $data = serendipity_request_url($geourl);
+                if (empty($data)) {
+                    printf(REMOTE_FILE_NOT_FOUND, $geourl);
+                } else {
+                    echo PLUGIN_EVENT_GEOTAG_GEOURL_PINGED;
+                }
             } else {
-                echo PLUGIN_EVENT_GEOTAG_GEOURL_PINGED;
+                include_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+                $req = new HTTP_Request($geourl);
+                if (PEAR::isError($req->sendRequest($geourl))) {
+                    printf(REMOTE_FILE_NOT_FOUND, $geourl);
+                } else {
+                    echo PLUGIN_EVENT_GEOTAG_GEOURL_PINGED;
+                }
             }
             echo '</div>';
         }
@@ -707,32 +718,35 @@ class serendipity_event_geotag extends serendipity_event
      * Caches a map and streams it back to the browser. 
      */
     function saveAndResponseMap($url, $lat, $long, $isArticle) {
-        require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
         global $serendipity;
         $fContent   = null;
         
-        if (function_exists('serendipity_request_start')) {
-            serendipity_request_start();
-        }
-        
-        $request_pars['allowRedirects'] = TRUE;
-        $req = new HTTP_Request($url, $request_pars);
-
-        // if the request leads to an error we don't want to have it: return false
-        if (PEAR::isError($req->sendRequest()) || ($req->getResponseCode() != '200')) {
-            $fContent = null;
-        }
-        else {
-            // Allow only images!
-            $mime = $req->getResponseHeader("content-type");
-            $mimeparts = explode('/',$mime);
-            if (count($mimeparts)==2 && $mimeparts[0]=='image') {
-                $fContent = $req->getResponseBody();
+        if (function_exists('serendipity_request_url')) {
+            $fContent = serendipity_request_url($url);
+        } else {
+            require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+            if (function_exists('serendipity_request_start')) {
+                serendipity_request_start();
             }
-        }
-        
-        if (function_exists('serendipity_request_start')) {
-            serendipity_request_end();
+            $request_pars['allowRedirects'] = TRUE;
+            $req = new HTTP_Request($url, $request_pars);
+
+            // if the request leads to an error we don't want to have it: return false
+            if (PEAR::isError($req->sendRequest()) || ($req->getResponseCode() != '200')) {
+                $fContent = null;
+            }
+            else {
+                // Allow only images!
+                $mime = $req->getResponseHeader("content-type");
+                $mimeparts = explode('/',$mime);
+                if (count($mimeparts)==2 && $mimeparts[0]=='image') {
+                    $fContent = $req->getResponseBody();
+                }
+            }
+            
+            if (function_exists('serendipity_request_start')) {
+                serendipity_request_end();
+            }
         }
         
         // if no content was fetched, return false

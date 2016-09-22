@@ -1,6 +1,5 @@
 <?php
 
-require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
 
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
@@ -31,7 +30,7 @@ class serendipity_plugin_piwik extends serendipity_plugin
         $propbag->add('description',   PLUGIN_SIDEBAR_PIWIK_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Bernd Distler');
-        $propbag->add('version',       '0.4.1');
+        $propbag->add('version',       '0.4.2');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -278,14 +277,20 @@ class serendipity_plugin_piwik extends serendipity_plugin
      */
     protected function requestPiwikData($api_url)
     {
-        serendipity_request_start();
-        $req = new HTTP_Request($api_url);
-        if (PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200') {
-            $piwik_fetched = file_get_contents($api_url);
+
+        if (function_exists('serendipity_request_url')) {
+            $piwik_fetched = serendipity_request_url($api_url);
         } else {
-            $piwik_fetched = $req->getResponseBody();
+            require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+            serendipity_request_start();
+            $req = new HTTP_Request($api_url);
+            if (PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200') {
+                $piwik_fetched = file_get_contents($api_url);
+            } else {
+                $piwik_fetched = $req->getResponseBody();
+            }
+            serendipity_request_end();
         }
-        serendipity_request_end();
         return $piwik_fetched;
     }
 

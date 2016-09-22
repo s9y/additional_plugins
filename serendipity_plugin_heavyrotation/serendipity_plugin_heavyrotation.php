@@ -7,7 +7,7 @@
  *
  * @author Lars Strojny <lars@strojny.net>
  */
-@define('SERENDIPITY_PLUGIN_HEAVYROTATION_VERSION', '0.9');
+@define('SERENDIPITY_PLUGIN_HEAVYROTATION_VERSION', '0.10');
 
 if (IN_SERENDIPITY != true) die("Don't hack");
 

@@ -101,22 +101,26 @@ class zooomr_sidebar extends subplug_sidebar {
     * @return string downloaded Data from "$url"
     */
     function getURL($url) {
-        $options = array();
-        require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
-        if (function_exists('serendipity_request_start')) {
-            serendipity_request_start();
-        }
-                                                                        
-        $req = new HTTP_Request($url,$options);
-        $req_result = $req->sendRequest();
-        if ( PEAR::isError( $req_result)) {
-            echo PLUGIN_GALLERYRANDOMBLOCK_ERROR_CONNECT . "<br />\n";
+        if (function_exists('serendipity_request_url')) {
+            $store = serendipity_request_url($url);
         } else {
-            $res_code = $req->getResponseCode();
-            if ($res_code != "200") {
-                printf( PLUGIN_GALLERYRANDOMBLOCK_ERROR_HTTP . "<br />\n", $res_code);
+            $options = array();
+            require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+            if (function_exists('serendipity_request_start')) {
+                serendipity_request_start();
+            }
+                                                                            
+            $req = new HTTP_Request($url,$options);
+            $req_result = $req->sendRequest();
+            if ( PEAR::isError( $req_result)) {
+                echo PLUGIN_GALLERYRANDOMBLOCK_ERROR_CONNECT . "<br />\n";
             } else {
-                $store = $req->getResponseBody();
+                $res_code = $req->getResponseCode();
+                if ($res_code != "200") {
+                    printf( PLUGIN_GALLERYRANDOMBLOCK_ERROR_HTTP . "<br />\n", $res_code);
+                } else {
+                    $store = $req->getResponseBody();
+                }
             }
         }
         return $store;

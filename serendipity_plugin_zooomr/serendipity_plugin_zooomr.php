@@ -23,14 +23,18 @@ class serendipity_plugin_zooomr extends serendipity_plugin {
 	*/
 	function get_url($url)
 	{
-		require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
-		$req = new HTTP_Request($url);
-
-        if (PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200') {
-			$store = file_get_contents($url);
+        if (function_exists('serendipity_request_url')) {
+            return serendipity_request_url($url);
         } else {
-			$store = $req->getResponseBody();
-        }
+			require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+			$req = new HTTP_Request($url);
+
+	        if (PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200') {
+				$store = file_get_contents($url);
+	        } else {
+				$store = $req->getResponseBody();
+	        }
+	    }
 
 		return $store;
 	}
@@ -100,7 +104,7 @@ class serendipity_plugin_zooomr extends serendipity_plugin {
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',  '0.3');
+        $propbag->add('version',  '0.4');
         $propbag->add('author',  'Stefan Lange-Hegermann');
         $propbag->add('configuration', array('title', 'feed','imagecount','imagewidth', 'dlink','logo'));
 

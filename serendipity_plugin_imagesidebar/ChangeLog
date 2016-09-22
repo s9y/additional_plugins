@@ -1,1 +1,5 @@
+0.99:
+-----
+    * Added serendipity_request_url API method
+    
 0.98 - add lightbox option for media_sidebar "In Page" only

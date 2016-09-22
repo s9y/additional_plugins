@@ -1,3 +1,7 @@
+1.23:
+-----
+    * Added serendipity_request_url API method
+    
 1.22: Patch by danst0, added analytics tracking
 
 Version 1.21

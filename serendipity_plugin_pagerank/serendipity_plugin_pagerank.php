@@ -33,7 +33,7 @@ class serendipity_plugin_pagerank extends serendipity_plugin
         $propbag->add('description',   PLUGIN_PAGERANK_DETAIL);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Christian Lescuyer');
-        $propbag->add('version',       '0.32');
+        $propbag->add('version',       '0.33');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -213,11 +213,15 @@ class serendipity_plugin_pagerank extends serendipity_plugin
       if (ini_get('allow_url_fopen')) {
           $data = file_get_contents($url, 128);
       } else {
-          require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
-          $req = new HTTP_Request($url);
-          if (!PEAR::isError($req->sendRequest())) {
-              $data = $req->getResponseBody();
-           }
+          if (function_exists('serendipity_request_url')) {
+              $data = serendipity_request_url($url);
+          } else {
+            require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+            $req = new HTTP_Request($url);
+            if (!PEAR::isError($req->sendRequest())) {
+                $data = $req->getResponseBody();
+            }
+          }
       }
 
       $rankarray = explode (':', $data);

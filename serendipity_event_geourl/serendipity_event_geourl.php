@@ -32,7 +32,7 @@ class serendipity_event_geourl extends serendipity_event {
         $propbag->add('event_hooks',   array('frontend_header' => true));
         $propbag->add('configuration', array('lat', 'long'));
         $propbag->add('description',   PLUGIN_EVENT_GEOURL_DESC);
-        $propbag->add('version',       '1.4.1');
+        $propbag->add('version',       '1.4.2');
         $propbag->add('groups', array('BACKEND_METAINFORMATION'));
     }
 
@@ -88,14 +88,23 @@ class serendipity_event_geourl extends serendipity_event {
         echo '<div class="serendipity_msg_notice">';
         if($this->get_config('lat') && $this->get_config('long')) {
             // Try to get the URL
-            include_once S9Y_PEAR_PATH . 'HTTP/Request.php';
             $geourl = "http://geourl.org/ping/?p=" . $serendipity['baseURL'];
-            $req = new HTTP_Request($geourl);
 
-            if (PEAR::isError($req->sendRequest($geourl))) {
-                printf(REMOTE_FILE_NOT_FOUND, $geourl);
+            if (function_exists('serendipity_request_url')) {
+                $data = serendipity_request_url($geourl);
+                if (empty($data)) {
+                    printf(REMOTE_FILE_NOT_FOUND, $geourl);
+                } else {
+                    echo PLUGIN_EVENT_GEOURL_PINGED;
+                }
             } else {
-                echo PLUGIN_EVENT_GEOURL_PINGED;
+                include_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+                $req = new HTTP_Request($geourl);
+                if (PEAR::isError($req->sendRequest($geourl))) {
+                    printf(REMOTE_FILE_NOT_FOUND, $geourl);
+                } else {
+                    echo PLUGIN_EVENT_GEOURL_PINGED;
+                }
             }
         } else {
             echo PLUGIN_EVENT_GEOURL_NOLATLONG;

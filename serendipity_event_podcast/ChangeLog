@@ -1,4 +1,8 @@
 # 
+1.37.2:
+-----
+    * Added serendipity_request_url API method
+    
 1.37:
   * Increased debug verbosity
   

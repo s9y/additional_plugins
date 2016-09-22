@@ -9,6 +9,10 @@ TODO:
 * Twitter announcements/credentials etc. per author instead of
   only per central blog
 
+1.67:
+-----
+    * Added serendipity_request_url API method
+    
 1.63
 --------------------------
     * Fix emitting the backend nav link twice (yellowled)

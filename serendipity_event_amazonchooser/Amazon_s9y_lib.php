@@ -595,16 +595,29 @@ function Amazon_ItemLookup ($AWSAccessKey,$AssociateTag,$secretKey,$SearchIndex,
 }
 
 function Amazon_Request ($request) {
-   require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : S9Y_INCLUDE_PATH . 'bundled-libs/') . 'HTTP/Request.php';
+  global $serendipity;
    $items = array();
    $totalcount = -1;
    $error_message = "";
    $error_result  = "";
-   $req = new HTTP_Request($request);
-   if (!(PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200')) {
-      $xml = xml_parser_create(LANG_CHARSET);
-      $totalcount = 0;
-      $bodyxml = $req->getResponseBody();
+
+  if (function_exists('serendipity_request_url')) {
+      $bodyxml = serendipity_request_url($file);
+      if (empty($bodyxml)) return false;
+      $responseCode = $serendipity['last_http_request']['responseCode'];
+  } else {
+      $bodyxml = false;
+      require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : S9Y_INCLUDE_PATH . 'bundled-libs/') . 'HTTP/Request.php';
+      $req = new HTTP_Request($request);
+      if (!(PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200')) {
+        $xml = xml_parser_create(LANG_CHARSET);
+        $totalcount = 0;
+        $bodyxml = $req->getResponseBody();
+        $responseCode = $req->getResponseCode();
+      }
+  }
+
+  if ($bodyxml) {
       $initem = false;
       $inattrib = false;
       if ( xml_parse_into_struct($xml, $bodyxml, $struct, $index) == 1 ) {
@@ -699,7 +712,7 @@ function Amazon_Request ($request) {
       }
       xml_parser_free($xml);
    } else {
-      if ($req->getResponseCode() == "403") {
+      if ($responseCode == "403") {
          $error_message = constant('PLUGIN_EVENT_AMAZONCHOOSER_HTTPREQFAIL');
          $error_result  = constant('PLUGIN_EVENT_AMAZONCHOOSER_RESPONSE') . ": ".$req->getResponseCode()."<br />".constant('PLUGIN_EVENT_AMAZONCHOOSER_SETTINGS_PROBLEM');
       } else {

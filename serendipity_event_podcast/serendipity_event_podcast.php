@@ -14,7 +14,7 @@ if (file_exists($probelang)) {
 include_once dirname(__FILE__) . '/lang_en.inc.php';
 include_once dirname(__FILE__) . '/podcast_player.php';
 
-@define("SERENDIPITY_EVENT_PODCAST_VERSION", "1.37.1");
+@define("SERENDIPITY_EVENT_PODCAST_VERSION", "1.37.2");
 
 class serendipity_event_podcast extends serendipity_event {
 /**
@@ -951,24 +951,35 @@ class serendipity_event_podcast extends serendipity_event{
         request and get the size that way (and MD5, if possible). Let's see if this works:
         */
         elseif (preg_match('@https?://@', $url)){
-            include_once(S9Y_PEAR_PATH . 'HTTP/Request.php');
-            if (function_exists('serendipity_request_start')) {
-                serendipity_request_start();
-            }
 
             $this->Log("Execute HTTP_Request for $url");
-            $http = new HTTP_Request($url);
-            $http->setMethod(HTTP_REQUEST_METHOD_HEAD);
 
-            if (!PEAR::isError($http->sendRequest(false))){
-                $fileInfo['length'] = intval($http->getResponseHeader('content-length'));
-                $fileInfo['md5']    = $http->getResponseHeader('content-md5'); //will return false if not present
-                $fileInfo['mime']   =$http->getResponseHeader('content-type');
+            if (function_exists('serendipity_request_url')) {
+                $data = serendipity_request_url($url, 'HEAD');
+                $header = $serendipity['last_http_request']['header'];
+                $fileInfo['length'] = intval($header['content-length']);
+                $fileInfo['md5']    = $header['content-md5']; //will return false if not present
+                $fileInfo['mime']   = $header['content-type'];
                 $this->Log("Filling MIME with HTTP Header: " . print_r($fileInfo, true));
-            }
+            } else {
+                include_once(S9Y_PEAR_PATH . 'HTTP/Request.php');
+                if (function_exists('serendipity_request_start')) {
+                    serendipity_request_start();
+                }
 
-            if (function_exists('serendipity_request_end')) {
-                serendipity_request_end();
+                $http = new HTTP_Request($url);
+                $http->setMethod(HTTP_REQUEST_METHOD_HEAD);
+
+                if (!PEAR::isError($http->sendRequest(false))){
+                    $fileInfo['length'] = intval($http->getResponseHeader('content-length'));
+                    $fileInfo['md5']    = $http->getResponseHeader('content-md5'); //will return false if not present
+                    $fileInfo['mime']   = $http->getResponseHeader('content-type');
+                    $this->Log("Filling MIME with HTTP Header: " . print_r($fileInfo, true));
+                }
+
+                if (function_exists('serendipity_request_end')) {
+                    serendipity_request_end();
+                }
             }
         } else { // Not found locally and no URL
             $fileInfo['notfound'] = true;

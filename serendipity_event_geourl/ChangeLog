@@ -1,5 +1,7 @@
-# 
-
+1.4.2:
+-----
+    * Added serendipity_request_url API method
+    
 Version 1.3 (brockhaus)
 ------------------------------------------------------------------------
 

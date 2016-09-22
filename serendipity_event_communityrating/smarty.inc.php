@@ -32,33 +32,40 @@ function communityrating_serendipity_show($params, &$smarty) {
                 fwrite($fp, date('d.m.Y H:i'));
                 fclose($fp);
             }
-            require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
-            $req = new HTTP_Request($url);
 
-            if (!PEAR::isError($req->sendRequest()) || $req->getResponseCode() == '200') {
-                $data = $req->getResponseBody();
+            if (function_exists('serendipity_request_url')) {
+                $data = serendipity_request_url($url);
+            } else {
+                require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+                $req = new HTTP_Request($url);
 
-                $id = '';
-                if (preg_match('@<rating>(.+)</rating>@imsU', $data, $match)) {
-                    $id = $match[1];
+                if (!PEAR::isError($req->sendRequest()) || $req->getResponseCode() == '200') {
+                    $data = $req->getResponseBody();
+                } else {
+                    $data = '';
                 }
+            }
 
-                $url = '';
-                if (preg_match('@<url>(.+)</url>@imsU', $data, $match)) {
-                    $url = $match[1];
-                }
+            $id = '';
+            if (preg_match('@<rating>(.+)</rating>@imsU', $data, $match)) {
+                $id = $match[1];
+            }
 
-                $fp = fopen($cache . '.id', 'w');
-                if ($fp) {
-                    fwrite($fp, $id);
-                    fclose($fp);
-                }
+            $url = '';
+            if (preg_match('@<url>(.+)</url>@imsU', $data, $match)) {
+                $url = $match[1];
+            }
 
-                $fp = fopen($cache . '.url', 'w');
-                if ($fp) {
-                    fwrite($fp, $url);
-                    fclose($fp);
-                }
+            $fp = fopen($cache . '.id', 'w');
+            if ($fp) {
+                fwrite($fp, $id);
+                fclose($fp);
+            }
+
+            $fp = fopen($cache . '.url', 'w');
+            if ($fp) {
+                fwrite($fp, $url);
+                fclose($fp);
             }
         }
 

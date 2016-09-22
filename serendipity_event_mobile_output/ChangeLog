@@ -1,5 +1,9 @@
 # 
 
+1.04.2:
+-----
+    * Added serendipity_request_url API method
+    
 1.04: Properly use the example() API method by returning, not echo'ing. Unimportant update.    
 
 1.03:

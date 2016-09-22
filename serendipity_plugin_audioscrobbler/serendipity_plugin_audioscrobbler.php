@@ -26,17 +26,23 @@ class s9y_audioscrobbler_XMLParser {
         xml_parser_free($xml_parser);
         return $xml_array;
     }
+
     function getXMLArray($file, $forced_encoding = null) {
-        require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : S9Y_INCLUDE_PATH . 'bundled-libs/') . 'HTTP/Request.php';
-        $req = new HTTP_Request($file);
-        if (PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200') {
-            if ( ini_get( "allow_url_fopen")) {
-                $data = file_get_contents($file);
-            } else {
-                $data = "";
-            }
+        if (function_exists('serendipity_request_url')) {
+            $data = serendipity_request_url($file);
+            if (empty($data)) return false;
         } else {
-            $data = $req->getResponseBody();
+            require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : S9Y_INCLUDE_PATH . 'bundled-libs/') . 'HTTP/Request.php';
+            $req = new HTTP_Request($file);
+            if (PEAR::isError($req->sendRequest()) || $req->getResponseCode() != '200') {
+                if ( ini_get( "allow_url_fopen")) {
+                    $data = file_get_contents($file);
+                } else {
+                    $data = "";
+                }
+            } else {
+                $data = $req->getResponseBody();
+            }
         }
         if (trim($data)== '') return false;
         return $this->parseXML($data, $forced_encoding);
@@ -63,7 +69,7 @@ class serendipity_plugin_audioscrobbler extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_AUDIOSCROBBLER_TITLE_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Flo Solcher');
-        $propbag->add('version',       '1.25.1');
+        $propbag->add('version',       '1.25.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

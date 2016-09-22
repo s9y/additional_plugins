@@ -1,4 +1,4 @@
 <?php
 
 // Actual version of both plugins
-@define('PLUGIN_TWITTER_VERSION', '1.66');
+@define('PLUGIN_TWITTER_VERSION', '1.67');

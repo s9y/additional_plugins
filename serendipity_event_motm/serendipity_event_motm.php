@@ -28,7 +28,7 @@ class serendipity_event_motm extends serendipity_event {
         $propbag->add('description',   PLUGIN_SIDEBAR_MOTM_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Tys von Gaza');
-        $propbag->add('version',       '1.5');
+        $propbag->add('version',       '1.6');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '4.1.0'

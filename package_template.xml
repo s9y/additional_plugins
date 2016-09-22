@@ -601,6 +601,37 @@
 </release>
 </package>
 <package version="1.0">
+<name>blue</name>
+<template>blue</template>
+<license>N/A (=GPL)</license>
+<summary></summary>
+<description></description>
+<recommended></recommended>
+<maintainers><maintainer><name>Sebastian Bergmann</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion></requirements:s9yVersion>
+  <date>16/02/2004</date>
+  <filelist>
+<dir name="blue">
+<file>preview_fullsize.jpg</file>
+<file>htmlarea.css</file>
+<file>info.txt</file>
+<file>style.css</file>
+<file>preview.png</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>blue/preview_fullsize.jpg</file>
+    <file>blue/htmlarea.css</file>
+    <file>blue/info.txt</file>
+    <file>blue/style.css</file>
+    <file>blue/preview.png</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
 <name>Earphone (2007-04-03)</name>
 <template>earphone</template>
 <license>N/A (=GPL)</license>
@@ -7526,6 +7557,152 @@
     <file>blue-haze/info.txt</file>
     <file>blue-haze/style.css</file>
     <file>blue-haze/preview.png</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>Kubrick 1.2.6 port</name>
+<template>kubrick</template>
+<license>N/A (=GPL)</license>
+<summary></summary>
+<description></description>
+<recommended></recommended>
+<maintainers><maintainer><name>Tom Sommer</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion></requirements:s9yVersion>
+  <date>2013-02-03</date>
+  <filelist>
+<dir name="kubrick">
+<file>lang_de.inc.php</file>
+<file>config.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_ko.inc.php</file>
+<dir name="UTF-8">
+<file>lang_cz.inc.php</file>
+<file>lang_cs.inc.php</file>
+</dir>
+<file>preview_fullsize.jpg</file>
+<dir name="images">
+<file>kubrickheader.jpg</file>
+<file>kubricklogo.jpg</file>
+<file>kubrickfooter.jpg</file>
+<file>kubrickbgwide.jpg</file>
+<file>kubrickportrait.png</file>
+<file>kubrickbgcolor.jpg</file>
+<file>kubrickbg.jpg</file>
+</dir>
+<file>lang_en.inc.php</file>
+<file>info.txt</file>
+<file>style.css</file>
+<file>comments.tpl</file>
+<file>index.tpl</file>
+<file>trackbacks.tpl</file>
+<file>preview.png</file>
+<file>entries.tpl</file>
+<file>lang_cs.inc.php</file>
+<file>sidebar.tpl</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>kubrick/lang_de.inc.php</file>
+    <file>kubrick/config.inc.php</file>
+    <file>kubrick/lang_cz.inc.php</file>
+    <file>kubrick/lang_ko.inc.php</file>
+    <file>kubrick/UTF-8/lang_cz.inc.php</file>
+    <file>kubrick/UTF-8/lang_cs.inc.php</file>
+    <file>kubrick/preview_fullsize.jpg</file>
+    <file>kubrick/images/kubrickheader.jpg</file>
+    <file>kubrick/images/kubricklogo.jpg</file>
+    <file>kubrick/images/kubrickfooter.jpg</file>
+    <file>kubrick/images/kubrickbgwide.jpg</file>
+    <file>kubrick/images/kubrickportrait.png</file>
+    <file>kubrick/images/kubrickbgcolor.jpg</file>
+    <file>kubrick/images/kubrickbg.jpg</file>
+    <file>kubrick/lang_en.inc.php</file>
+    <file>kubrick/info.txt</file>
+    <file>kubrick/style.css</file>
+    <file>kubrick/comments.tpl</file>
+    <file>kubrick/index.tpl</file>
+    <file>kubrick/trackbacks.tpl</file>
+    <file>kubrick/preview.png</file>
+    <file>kubrick/entries.tpl</file>
+    <file>kubrick/lang_cs.inc.php</file>
+    <file>kubrick/sidebar.tpl</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>Serendipity v3.0</name>
+<template>carl_contest</template>
+<license>N/A (=GPL)</license>
+<summary></summary>
+<description></description>
+<recommended></recommended>
+<maintainers><maintainer><name>Carl Galloway</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion></requirements:s9yVersion>
+  <date>26-01-2006</date>
+  <filelist>
+<dir name="carl_contest">
+<dir name="img">
+<file>xml.gif</file>
+<file>forward.gif</file>
+<file>back.gif</file>
+<file>link_blue.gif</file>
+<file>link_ltblue.gif</file>
+<file>background_alternate.png</file>
+<file>background.png</file>
+<file>graph_bar_horisontal.png</file>
+<file>link_orange.gif</file>
+<file>info_header_text_tile.gif</file>
+</dir>
+<file>screenshot.png</file>
+<dir name="admin">
+<dir name="img">
+<file>infobar_background.png</file>
+<file>button_background.png</file>
+<file>background.png</file>
+</dir>
+<file>style.css</file>
+</dir>
+<file>preview_fullsize.jpg</file>
+<file>plugin_calendar.tpl</file>
+<file>info.txt</file>
+<file>style.css</file>
+<file>index.tpl</file>
+<file>preview.png</file>
+<file>entries.tpl</file>
+<file>entries_summary.tpl</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>carl_contest/img/xml.gif</file>
+    <file>carl_contest/img/forward.gif</file>
+    <file>carl_contest/img/back.gif</file>
+    <file>carl_contest/img/link_blue.gif</file>
+    <file>carl_contest/img/link_ltblue.gif</file>
+    <file>carl_contest/img/background_alternate.png</file>
+    <file>carl_contest/img/background.png</file>
+    <file>carl_contest/img/graph_bar_horisontal.png</file>
+    <file>carl_contest/img/link_orange.gif</file>
+    <file>carl_contest/img/info_header_text_tile.gif</file>
+    <file>carl_contest/screenshot.png</file>
+    <file>carl_contest/admin/img/infobar_background.png</file>
+    <file>carl_contest/admin/img/button_background.png</file>
+    <file>carl_contest/admin/img/background.png</file>
+    <file>carl_contest/admin/style.css</file>
+    <file>carl_contest/preview_fullsize.jpg</file>
+    <file>carl_contest/plugin_calendar.tpl</file>
+    <file>carl_contest/info.txt</file>
+    <file>carl_contest/style.css</file>
+    <file>carl_contest/index.tpl</file>
+    <file>carl_contest/preview.png</file>
+    <file>carl_contest/entries.tpl</file>
+    <file>carl_contest/entries_summary.tpl</file>
   </serendipityFilelist>
 </release>
 </package>

@@ -1362,7 +1362,7 @@ class serendipity_event_guestbook extends serendipity_event {
                     $tfile = serendipity_getTemplateFile('style_guestbook_frontend.css', 'serendipityPath');
                     if ($tfile) {
                         $search       = array('{TEMPLATE_PATH}', '{PLUGIN_PATH}');
-                        $replace      = array('templates/' . $serendipity['defaultTemplate'] . '/', $serendipity['guestbook']['pluginpath']);
+                        $replace      = array('templates/' . $serendipity['template'] . '/', $serendipity['guestbook']['pluginpath']);
                         $tfilecontent = str_replace($search, $replace, @file_get_contents($tfile));
                     }
 
@@ -1417,7 +1417,7 @@ class serendipity_event_guestbook extends serendipity_event {
                     $tfile = serendipity_getTemplateFile('style_guestbook_backend.css', 'serendipityPath');
                     if ($tfile) {
                         $search       = array('{TEMPLATE_PATH}', '{PLUGIN_PATH}');
-                        $replace      = array('templates/' . $serendipity['defaultTemplate'] . '/', $serendipity['guestbook']['pluginpath']);
+                        $replace      = array('templates/' . $serendipity['template'] . '/', $serendipity['guestbook']['pluginpath']);
                         $tfilecontent = str_replace($search, $replace, @file_get_contents($tfile));
                     }
 

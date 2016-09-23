@@ -3,14 +3,22 @@
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
+// todo: add config groups, aka freetag dev
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
+if (!function_exists('array_combine')) {
+    function array_combine($a, $b) {
+        $c = array();
+        if (is_array($a) && is_array($b))
+            while (list(, $va) = each($a))
+                if (list(, $vb) = each($b))
+                    $c[$va] = $vb;
+                else
+                    break 1;
+        return $c;
+    }
 }
 
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_usergallery extends serendipity_event
 {
@@ -23,7 +31,7 @@ class serendipity_event_usergallery extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_USERGALLERY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Arnan de Gans, Matthew Groeninger, and Stefan Willoughby, Ian');
-        $propbag->add('version',       '2.65');
+        $propbag->add('version',       '2.68');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -46,7 +54,12 @@ class serendipity_event_usergallery extends serendipity_event
     function introspect_config_item($name, &$propbag)
     {
         global $serendipity;
+
         switch ($name) {
+            case 'separator2':
+            case 'separator1':
+                $propbag->add('type',        'separator');
+                break;
 
             case 'title':
                 $propbag->add('type',        'string');
@@ -92,7 +105,7 @@ class serendipity_event_usergallery extends serendipity_event
                                                       'desc'  => array(YES,NO)));
                 $propbag->add('radio_per_row', '2');
                 $propbag->add('default',       'no');
-               break;
+                break;
 
             case 'base_directory':
                 if ($this->get_config('style') == "thumbpage") {
@@ -105,21 +118,21 @@ class serendipity_event_usergallery extends serendipity_event
                     $propbag->add('name', PLUGIN_EVENT_USERGALLERY_DIRECTORY_NAME);
                     $propbag->add('description', PLUGIN_EVENT_USERGALLERY_DIRECTORY_DESC);
                     $propbag->add('select_values', $select);
-                }
+                } else $propbag->add('type', 'suboption');
                 break;
 
             case 'style':
-               $select["serendipity"] = PLUGIN_EVENT_USERGALLERY_STYLE_SERENDIPITY;
-               $select["thumbpage"]   = PLUGIN_EVENT_USERGALLERY_STYLE_THUMBPAGE;
-               $propbag->add('type',          'select');
-               $propbag->add('name',          PLUGIN_EVENT_USERGALLERY_STYLE_NAME);
-               $propbag->add('description',   PLUGIN_EVENT_USERGALLERY_STYLE_DESC);
-               $propbag->add('select_values', $select);
-               $propbag->add('default',       'thumbpage');
-               break;
+                $select["serendipity"] = PLUGIN_EVENT_USERGALLERY_STYLE_SERENDIPITY;
+                $select["thumbpage"]   = PLUGIN_EVENT_USERGALLERY_STYLE_THUMBPAGE;
+                $propbag->add('type',          'select');
+                $propbag->add('name',          PLUGIN_EVENT_USERGALLERY_STYLE_NAME);
+                $propbag->add('description',   PLUGIN_EVENT_USERGALLERY_STYLE_DESC);
+                $propbag->add('select_values', $select);
+                $propbag->add('default',       'thumbpage');
+                break;
 
             case 'dir_list':
-               if ($this->get_config('style') == 'thumbpage') {
+                if ($this->get_config('style') == 'thumbpage') {
                     $propbag->add('type',              'radio');
                     $propbag->add('name',              PLUGIN_EVENT_USERGALLERY_DIRLIST_NAME);
                     $propbag->add('description',       PLUGIN_EVENT_USERGALLERY_DIRLIST_DESC);
@@ -127,47 +140,47 @@ class serendipity_event_usergallery extends serendipity_event
                                                              'desc'  => array(YES,NO)));
                     $propbag->add('radio_per_row',     '2');
                     $propbag->add('default',           'no');
-               }
-               break;
+                } else $propbag->add('type', 'suboption');
+                break;
 
             case 'intro':
-               if ($this->get_config('style') == 'thumbpage') {
-                  $propbag->add('type',        'html');
-                  $propbag->add('name',        PLUGIN_EVENT_USERGALLERY_INTRO);
-                  $propbag->add('description', '');
-                  $propbag->add('default',     '');
-               }
-               break;
+                if ($this->get_config('style') == 'thumbpage') {
+                    $propbag->add('type',        'html');
+                    $propbag->add('name',        PLUGIN_EVENT_USERGALLERY_INTRO);
+                    $propbag->add('description', '');
+                    $propbag->add('default',     '');
+                } else $propbag->add('type', 'suboption');
+                break;
 
             case 'fixed_width':
-               if ($this->get_config('style') == 'thumbpage') {
-                  $propbag->add('type',        'string');
-                  $propbag->add('name',        PLUGIN_EVENT_USERGALLERY_FIXED_WIDTH);
-                  $propbag->add('description', PLUGIN_EVENT_USERGALLERY_FIXED_DESC);
-                  $propbag->add('default',     '0');
-               }
-               break;
+                if ($this->get_config('style') == 'thumbpage') {
+                    $propbag->add('type',        'string');
+                    $propbag->add('name',        PLUGIN_EVENT_USERGALLERY_FIXED_WIDTH);
+                    $propbag->add('description', PLUGIN_EVENT_USERGALLERY_FIXED_DESC);
+                    $propbag->add('default',     '0');
+                } else $propbag->add('type', 'suboption');
+                break;
 
             case 'image_width':
-               if ($this->get_config('image_display') == 'inpage') {
-                  $propbag->add('type',        'string');
-                  $propbag->add('name',        PLUGIN_EVENT_USERGALLERY_IMAGE_WIDTH_NAME);
-                  $propbag->add('description', PLUGIN_EVENT_USERGALLERY_IMAGE_WIDTH_DESC);
-                  $propbag->add('default',     '480');
-               }
-               break;
+                if ($this->get_config('image_display') == 'inpage') {
+                    $propbag->add('type',        'string');
+                    $propbag->add('name',        PLUGIN_EVENT_USERGALLERY_IMAGE_WIDTH_NAME);
+                    $propbag->add('description', PLUGIN_EVENT_USERGALLERY_IMAGE_WIDTH_DESC);
+                    $propbag->add('default',     '480');
+                } else $propbag->add('type', 'suboption');
+                break;
 
             case 'image_display':
-               if ($this->get_config('style') == 'thumbpage') {
-                  $select["inpage"] = PLUGIN_EVENT_USERGALLERY_IMAGEDISPLAY_INPAGE;
-                  $select["popup"]  = PLUGIN_EVENT_USERGALLERY_IMAGEDISPLAY_POPUP;
-                  $propbag->add('type',          'select');
-                  $propbag->add('name',          PLUGIN_EVENT_USERGALLERY_IMAGEDISPLAY_NAME);
-                  $propbag->add('description',   PLUGIN_EVENT_USERGALLERY_IMAGEDISPLAY_DESC);
-                  $propbag->add('select_values', $select);
-                  $propbag->add('default',       'inpage');
-               }
-               break;
+                if ($this->get_config('style') == 'thumbpage') {
+                    $select["inpage"] = PLUGIN_EVENT_USERGALLERY_IMAGEDISPLAY_INPAGE;
+                    $select["popup"]  = PLUGIN_EVENT_USERGALLERY_IMAGEDISPLAY_POPUP;
+                    $propbag->add('type',          'select');
+                    $propbag->add('name',          PLUGIN_EVENT_USERGALLERY_IMAGEDISPLAY_NAME);
+                    $propbag->add('description',   PLUGIN_EVENT_USERGALLERY_IMAGEDISPLAY_DESC);
+                    $propbag->add('select_values', $select);
+                    $propbag->add('default',       'inpage');
+                } else $propbag->add('type', 'suboption');
+                break;
 
             case 'show_lightbox':
                 $propbag->add('type',          'radio');
@@ -186,7 +199,7 @@ class serendipity_event_usergallery extends serendipity_event
                 $select_type["magnific"]     = 'Magnific-Popup';
                 $propbag->add('type',          'select');
                 $propbag->add('name',          PLUGIN_EVENT_USERGALLERY_LIGHTBOXTYPE_NAME);
-                $propbag->add('description',   '');
+                $propbag->add('description',   PLUGIN_EVENT_USERGALLERY_LIGHTBOXTYPE_DESC);
                 $propbag->add('select_values', $select_type);
                 $propbag->add('default',       'lightbox');
                 break;
@@ -208,7 +221,7 @@ class serendipity_event_usergallery extends serendipity_event
                 break;
 
             case 'image_strict':
-               if ($this->get_config('style') == 'thumbpage') {
+                if ($this->get_config('style') == 'thumbpage') {
                     $propbag->add('type',           'radio');
                     $propbag->add('name',           PLUGIN_EVENT_USERGALLERY_IMAGESTRICT_NAME);
                     $propbag->add('description',    PLUGIN_EVENT_USERGALLERY_IMAGESTRICT_DESC);
@@ -216,64 +229,64 @@ class serendipity_event_usergallery extends serendipity_event
                                                           'desc'  => array(YES,NO)));
                     $propbag->add('radio_per_row', '2');
                     $propbag->add('default',       'yes');
-               }
-               break;
+                } else $propbag->add('type', 'suboption');
+                break;
 
             case 'image_order':
-               if ($this->get_config('style') == 'thumbpage') {
-                  $select["nameacs"]  = PLUGIN_EVENT_USERGALLERY_IMAGEORDER_NAMEACS;
-                  $select["namedesc"] = PLUGIN_EVENT_USERGALLERY_IMAGEORDER_NAMEDESC;
-                  $select["dateacs"]  = PLUGIN_EVENT_USERGALLERY_IMAGEORDER_DATEACS;
-                  $select["datedesc"] = PLUGIN_EVENT_USERGALLERY_IMAGEORDER_DATEDESC;
-                  $propbag->add('type',          'select');
-                  $propbag->add('name',          PLUGIN_EVENT_USERGALLERY_IMAGEORDER_NAME);
-                  $propbag->add('description',   PLUGIN_EVENT_USERGALLERY_IMAGEORDER_DESC);
-                  $propbag->add('select_values', $select);
-                  $propbag->add('default',       'nameacs');
-               }
-               break;
+                if ($this->get_config('style') == 'thumbpage') {
+                    $select["nameacs"]  = PLUGIN_EVENT_USERGALLERY_IMAGEORDER_NAMEACS;
+                    $select["namedesc"] = PLUGIN_EVENT_USERGALLERY_IMAGEORDER_NAMEDESC;
+                    $select["dateacs"]  = PLUGIN_EVENT_USERGALLERY_IMAGEORDER_DATEACS;
+                    $select["datedesc"] = PLUGIN_EVENT_USERGALLERY_IMAGEORDER_DATEDESC;
+                    $propbag->add('type',          'select');
+                    $propbag->add('name',          PLUGIN_EVENT_USERGALLERY_IMAGEORDER_NAME);
+                    $propbag->add('description',   PLUGIN_EVENT_USERGALLERY_IMAGEORDER_DESC);
+                    $propbag->add('select_values', $select);
+                    $propbag->add('default',       'nameacs');
+                } else $propbag->add('type', 'suboption');
+                break;
 
             case 'display_dir_tree':
-               if ($this->get_config('style') == 'thumbpage' && $this->get_config('dir_list') == 'yes') {
-                  $propbag->add('type',          'radio');
-                  $propbag->add('name',          PLUGIN_EVENT_USERGALLERY_DISPLAYDIR_NAME);
-                  $propbag->add('description',   PLUGIN_EVENT_USERGALLERY_DISPLAYDIR_DESC);
-                  $propbag->add('radio',         array('value' => array('yes','no'),
+                if ($this->get_config('style') == 'thumbpage' && $this->get_config('dir_list') == 'yes') {
+                    $propbag->add('type',          'radio');
+                    $propbag->add('name',          PLUGIN_EVENT_USERGALLERY_DISPLAYDIR_NAME);
+                    $propbag->add('description',   PLUGIN_EVENT_USERGALLERY_DISPLAYDIR_DESC);
+                    $propbag->add('radio',         array('value' => array('yes','no'),
                                                        'desc'  => array(YES,NO)));
-                  $propbag->add('radio_per_row', '2');
-                  $propbag->add('default',       'no');
-               }
-               break;
+                    $propbag->add('radio_per_row', '2');
+                    $propbag->add('default',       'no');
+                } else $propbag->add('type', 'suboption');
+                break;
 
             case 'dir_tab':
-               if ($this->get_config('style') == 'thumbpage' && $this->get_config('dir_list') == 'yes') {
-                  $propbag->add('type',        'string');
-                  $propbag->add('name',        PLUGIN_EVENT_USERGALLERY_DIRTAB_NAME);
-                  $propbag->add('description', PLUGIN_EVENT_USERGALLERY_DIRTAB_DESC);
-                  $propbag->add('default',     '10');
-               }
-               break;
+                if ($this->get_config('style') == 'thumbpage' && $this->get_config('dir_list') == 'yes') {
+                    $propbag->add('type',        'string');
+                    $propbag->add('name',        PLUGIN_EVENT_USERGALLERY_DIRTAB_NAME);
+                    $propbag->add('description', PLUGIN_EVENT_USERGALLERY_DIRTAB_DESC);
+                    $propbag->add('default',     '10');
+                } else $propbag->add('type', 'suboption');
+                break;
 
             case 'show_1lvl_sub':
-               if ($this->get_config('style') == 'thumbpage' && $this->get_config('dir_list') == 'yes' && $this->get_config('display_dir_tree','no') == 'no') {
-                  $propbag->add('type',          'radio');
-                  $propbag->add('name',          PLUGIN_EVENT_USERGALLERY_1SUBLVL_NAME);
-                  $propbag->add('description',   PLUGIN_EVENT_USERGALLERY_1SUBLVL_DESC);
-                  $propbag->add('radio',         array('value' => array('yes','no'),
-                                                       'desc'  => array(YES,NO)));
-                  $propbag->add('radio_per_row', '2');
-                  $propbag->add('default',       'no');
-               }
-               break;
+                if ($this->get_config('style') == 'thumbpage' && $this->get_config('dir_list') == 'yes' && $this->get_config('display_dir_tree','no') == 'no') {
+                    $propbag->add('type',          'radio');
+                    $propbag->add('name',          PLUGIN_EVENT_USERGALLERY_1SUBLVL_NAME);
+                    $propbag->add('description',   PLUGIN_EVENT_USERGALLERY_1SUBLVL_DESC);
+                    $propbag->add('radio',         array('value' => array('yes','no'),
+                                                         'desc'  => array(YES,NO)));
+                    $propbag->add('radio_per_row', '2');
+                    $propbag->add('default',       'no');
+                } else $propbag->add('type', 'suboption');
+                break;
 
             case 'images_per_page':
-               if ($this->get_config('style') == 'thumbpage') {
-                  $propbag->add('type',        'string');
-                  $propbag->add('name',        PLUGIN_EVENT_USERGALLERY_IMAGESPERPAGE_NAME);
-                  $propbag->add('description', PLUGIN_EVENT_USERGALLERY_IMAGESPERPAGE_DESC);
-                  $propbag->add('default',     '20');
-               }
-               break;
+                if ($this->get_config('style') == 'thumbpage') {
+                    $propbag->add('type',        'string');
+                    $propbag->add('name',        PLUGIN_EVENT_USERGALLERY_IMAGESPERPAGE_NAME);
+                    $propbag->add('description', PLUGIN_EVENT_USERGALLERY_IMAGESPERPAGE_DESC);
+                    $propbag->add('default',     '20');
+                }
+                break;
 
             case 'exif_show_data':
                 $propbag->add('type',          'radio');
@@ -291,7 +304,7 @@ class serendipity_event_usergallery extends serendipity_event
                     $propbag->add('name',       PLUGIN_EVENT_USERGALLERY_DISPLAYDIR_NAME);
                     $propbag->add('description', PLUGIN_EVENT_USERGALLERY_DISPLAYDIR_DESC);
                     $propbag->add('default',     '<table>' . $this->makeExifSelector() . '</table>');
-                }
+                } else $propbag->add('type', 'suboption');
                 break;
 
             case 'feed_width':
@@ -331,7 +344,7 @@ class serendipity_event_usergallery extends serendipity_event
                     $propbag->add('name',        PLUGIN_EVENT_USERGALLERY_MEDIA_PROPERTIES_NAME);
                     $propbag->add('description', PLUGIN_EVENT_USERGALLERY_MEDIA_PROPERTIES_DESC);
                     $propbag->add('default',     'COPYRIGHT:Copyright;TITLE:Title;COMMENT2:Comment');
-                }
+                } else $propbag->add('type', 'suboption');
                 break;
 
             case 'linked_entries':
@@ -341,175 +354,19 @@ class serendipity_event_usergallery extends serendipity_event
                 $propbag->add('default',     'true');
                 break;
 
+            default:
+                return false;
         }
         return true;
     }
 
-    function &makeExifSelector() {
-        global $serendipity;
-
-        #$selector .= "</td></tr>\n";
-        $selector .= '<tr><td style="vertical-align: top; width: 80%"><strong>'.PLUGIN_EVENT_USERGALLERY_EXIFDATA_NAME.'</strong></td>';
-        $selector .= '<td style="vertical-align: top"><strong>Options</strong></td></tr>'."\n";
-        $selector .= '<tr><td colspan="2"><span style="color: rgb(94, 122, 148); font-size: 8pt;">'.PLUGIN_EVENT_USERGALLERY_EXIFDATA_DESC.'</span><br />'."\n";
-        $selector .= '<span style="color: rgb(94, 122, 148); font-size: 8pt;">'.PLUGIN_EVENT_USERGALLERY_EXIFDATA_CAMERA.'</span></td></tr>'."\n";
-
-        if (is_array($serendipity['POST']['plugin']['exifdata'])) {
-            //create new array
-            $exif_array = array();
-            foreach($serendipity['POST']['plugin']['exifdata'] as $key => $value) {
-                $exif_array[$key] = $key.'-'.$value;
-            }
-
-            //build new optionstring and save it
-            $newexifstring = implode(',', array_values($exif_array));
-            $this->set_config('exif_data', $newexifstring);
-            //break down the array and rebuild for immediate recycling on the page
-            foreach($exif_array as $key => $value) {
-                list($newkey, $newvalue) = explode('-', $value);
-                $res1_exif_array[] = $newkey;
-                $res2_exif_array[] = $newvalue;
-            }
-            $exif_array = array_combine($res1_exif_array, $res2_exif_array);
-        } else {
-            //get the optionstring
-            $exifsettings = $this->get_config('exif_data','Copyright Notice-no,Camera Make-no,Camera Model-no,Orientation-no,Resolution Unit-no,X Resolution-no,Y Resolution-no,Date and Time-no,YCbCr Positioning-no,Exposure Time-no,Aperture-no,Exposure Program-no,ISO-no,Exif Version-no,Date (Original)-no,Date (Digitized)-no,APEX Exposure Bias-no,APEX Max Aperture-no,Metering Mode-no,Light Source-no,Flash-no,FocalLength-no,User Comment-no,FlashPix Version-no,Colour Space-no,Pixel X Dimension-no,Pixel Y Dimension-no,File Source-no,Special Processing-no,Exposure Mode-no,White Balance-no,Digital Zoom Ratio-no,Scene Capture Type-no,Gain Control-no,Contrast-no,Saturation-no,Sharpness-no,Components Config-no');
-            if (!$exifsettings) {
-                //return empty array if invalid or non-existant
-                $exifsettings = array();
-                $selector .= '<tr><td colspan="2" style="color: #f00;">
-                    An error occured. Your website will function AS NORMAL. But EXIF tags cannot be shown.<br />
-                    Error: $this->get_config(\'exif_data\') is not fetched from the database properly.
-                    Please contact support at http://www.s9y.org/forums/.</td></tr>';
-            } else {
-                //split the string into options
-                $exifstring = explode(',', $exifsettings);
-                //split the options into name and value
-                foreach($exifstring as $key => $value) {
-                    $display = explode('-', $exifstring[$key]);
-                    $exif_array[$display[0]] = $display[1];
-                }
-            }
-        }
-
-        //output options
-        foreach($exif_array as $key => $value) {
-            $selector .= '<tr><td style="vertical-align: top">'.$key.'</td>';
-            $selector .= '<td><input name="serendipity[plugin][exifdata]['.$key.']" type="radio" value="yes"';
-            if ($value == "yes") {
-                $selector .= ' checked="checked"';
-            }
-            $selector .= '> ' . YES . ' <input name="serendipity[plugin][exifdata]['.$key.']" type="radio" value="no"';
-            if ($value == "no") {
-                $selector .= ' checked="checked"';
-            }
-            $selector .= '> ' . NO . '</td></tr>'."\n";
-        }
-        #$selector .= '<tr><td colspan="2" style="border-bottom: 1px solid #000;">&nbsp;</td></tr>';
-        return $selector;
-    }
-
-    function event_hook($event, &$bag, &$eventData, $addData = null) {
-        global $serendipity;
-        static $pluginDir = null;
-
-        $hooks = &$bag->get('event_hooks');
-        if (isset($hooks[$event])) {
-
-            if ($pluginDir === null) {
-                $pluginDir = $this->get_config('lightbox_path');
-            }
-
-            switch($event) {
-                case 'entry_display':
-                    if ($this->selected()) {
-                        if (is_array($eventData)) {
-                            $eventData['clean_page'] = true; // This is important to not display an entry list!
-                        } else {
-                            $eventData = array('clean_page' => true);
-                        }
-                    }
-                    return true;
-                    break;
-
-                case 'entries_header':
-                    if ($this->selected()) {
-                        $this->show();
-                    }
-                    return true;
-                    break;
-
-                case 'css':
-                    // If you only want to determine if a particular needle occurs within haystack, use the faster and less memory intensive function strpos() instead.
-                    if (strpos($eventData, '.exif_info') === false) {
-                        $out = serendipity_getTemplateFile('serendipity_event_usergallery.css', 'serendipityPath');
-                        if ($out && $out != 'serendipity_event_usergallery.css') {
-                            $eventData .= file_get_contents($out);
-                            // do not echo here and there, since this prevents the strpos check to work, which multiplies gallery css added to stream for multiple stacked galleries
-                        } else {
-                            $eventData .= file_get_contents(dirname(__FILE__) . '/serendipity_event_usergallery.css');
-                        }
-                    }
-                    return true;
-                    break;
-
-                case 'frontend_configure':
-                    if (isset($_REQUEST['gallery'])) {
-                        // Disallow RSS-caching, because the entry age that is used for caching does not apply here.
-                        $_GET['nocache'] = $_REQUEST['nocache'] = true;
-                        // We need to set this variable to circumvent FeedBurner relocation
-                        $_GET['type']    = 'comments';
-                    }
-                    return true;
-                    break;
-
-                case 'frontend_rss':
-                    $this->showRSS($eventData);
-                    return true;
-                    break;
-
-                case 'genpage':
-                    $args = implode('/', serendipity_getUriArguments($eventData, true));
-
-                    if ((empty($args) || trim($args) == $serendipity['indexFile']) && empty($serendipity['GET']['subpage'])) {
-                        if ($this->get_config('frontpage','no') == 'yes') {
-                            $serendipity['GET']['subpage'] = $this->get_config('subpage');
-                        }
-                    }
-
-                    if ($serendipity['rewrite'] != 'none') {
-                        $nice_url = $serendipity['serendipityHTTPPath'] . $args;
-                    } else {
-                        $nice_url = $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?/' . $args;
-                    }
-                    if (empty($serendipity['GET']['subpage'])) {
-                        $serendipity['GET']['subpage'] = $nice_url;
-                    }
-
-                    if ($this->selected()) {
-                        if ($this->get_config('base_directory') == 'gallery') {
-                            // this is to avoid having the word "gallery" as blog title
-                            $serendipity['head_title'] = preg_replace('@[^a-z0-9]@i', ' ',$this->get_config('title'));
-                        } else {
-                            $serendipity['head_title'] = preg_replace('@[^a-z0-9]@i', ' ',$this->get_config('base_directory'));
-                        }
-                        $serendipity['head_subtitle'] = $serendipity['blogTitle'];
-                    }
-                    return true;
-                    break;
-
-                default:
-                    return false;
-                    break;
-            }
-       }
-    }
-
-    function generate_content(&$title) {
+    function generate_content(&$title)
+    {
         $title = $this->get_config('title', PLUGIN_EVENT_USERGALLERY_TITLE);
     }
 
-    function show() {
+    function show()
+    {
         global $serendipity;
 
         if (!headers_sent()) {
@@ -760,7 +617,7 @@ class serendipity_event_usergallery extends serendipity_event
                 );
 
                 if ($this->get_config('image_strict') == 'yes') {
-                    $images = serendipity_fetchImagesFromDatabase($lower_limit, $images_per_page, $total, $orderby, $order, $limit_images_directory,'','', array(), true);
+                    $images = serendipity_fetchImagesFromDatabase($lower_limit, $images_per_page, $total, $orderby, $order, $limit_images_directory, '', '', array(), true);
                 } else {
                     $images = serendipity_fetchImagesFromDatabase($lower_limit, $images_per_page, $total, $orderby, $order, $limit_images_directory);
                 }
@@ -848,7 +705,101 @@ class serendipity_event_usergallery extends serendipity_event
          }
     }
 
-    function setResData($res, $unit) {
+    function event_hook($event, &$bag, &$eventData, $addData = null)
+    {
+        global $serendipity;
+        static $pluginDir = null;
+
+        $hooks = &$bag->get('event_hooks');
+        if (isset($hooks[$event])) {
+
+            if ($pluginDir === null) {
+                $pluginDir = $this->get_config('lightbox_path');
+            }
+
+            switch($event) {
+
+                case 'entry_display':
+                    if ($this->selected()) {
+                        if (is_array($eventData)) {
+                            $eventData['clean_page'] = true; // This is important to not display an entry list!
+                        } else {
+                            $eventData = array('clean_page' => true);
+                        }
+                    }
+                    break;
+
+                case 'entries_header':
+                    if ($this->selected()) {
+                        $this->show();
+                    }
+                    break;
+
+                case 'css':
+                    // CSS class does NOT exist by user customized template styles, include default
+                    if (strpos($eventData, '.exif_info') === false) {
+                        $out = serendipity_getTemplateFile('serendipity_event_usergallery.css', 'serendipityPath');
+                        if ($out && $out != 'serendipity_event_usergallery.css') {
+                            $eventData .= file_get_contents($out);
+                            // do not echo here and there, since this prevents the strpos check to work, which multiplies gallery css added to stream for multiple stacked galleries
+                        } else {
+                            $eventData .= file_get_contents(dirname(__FILE__) . '/serendipity_event_usergallery.css');
+                        }
+                    }
+                    break;
+
+                case 'frontend_configure':
+                    if (isset($_REQUEST['gallery'])) {
+                        // Disallow RSS-caching, because the entry age that is used for caching does not apply here.
+                        $_GET['nocache'] = $_REQUEST['nocache'] = true;
+                        // We need to set this variable to circumvent FeedBurner relocation
+                        $_GET['type']    = 'comments';
+                    }
+                    break;
+
+                case 'frontend_rss':
+                    $this->showRSS($eventData);
+                    break;
+
+                case 'genpage':
+                    if ((empty($addData['uriargs']) || trim($addData['uriargs']) == $serendipity['indexFile']) && empty($serendipity['GET']['subpage'])) {
+                        if ($this->get_config('frontpage','no') == 'yes') {
+                            $serendipity['GET']['subpage'] = $this->get_config('subpage');
+                        }
+                    }
+
+                    if ($serendipity['rewrite'] != 'none') {
+                        $nice_url = $serendipity['serendipityHTTPPath'] . $addData['uriargs'];
+                    } else {
+                        $nice_url = $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?/' . $addData['uriargs'];
+                    }
+                    if (empty($serendipity['GET']['subpage'])) {
+                        $serendipity['GET']['subpage'] = $nice_url;
+                    }
+
+                    if ($this->selected()) {
+                        if ($this->get_config('base_directory') == 'gallery') {
+                            // this is to avoid having the word "gallery" as blog title
+                            $serendipity['head_title'] = preg_replace('@[^a-z0-9]@i', ' ',$this->get_config('title'));
+                        } else {
+                            $serendipity['head_title'] = preg_replace('@[^a-z0-9]@i', ' ',$this->get_config('base_directory'));
+                        }
+                        $serendipity['head_subtitle'] = $serendipity['blogTitle'];
+                    }
+                    break;
+
+                default:
+                    return false;
+
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function setResData($res, $unit)
+    {
         $dir_arr = explode(' ', $res);
         $dir_arr[1] = trim($dir_arr[1], '()');
         $res_unit = rtrim($unit, 'es');
@@ -856,7 +807,8 @@ class serendipity_event_usergallery extends serendipity_event
         return($exif_res);
     }
 
-    function changeExifDate($date) {
+    function changeExifDate($date)
+    {
         $date = str_replace(array('-','T'),array(':',' '),preg_replace('/\+.*/', '', $date)); // sets a date string 2014-03-18T10:11:31+01:00 to (Format: YYYY:MM:DD HH:mm:SS)
         #echo $date . ' ';
         $dt_arr = explode(' ', $date);
@@ -878,7 +830,8 @@ class serendipity_event_usergallery extends serendipity_event
         return $exif_date;
     }
 
-    function getExifTags($path, $name, $type) {
+    function getExifTags($path, $name, $type)
+    {
         $exif_data = array();
         // Display additonal exif information if allowed.
         $JPEG_TOOLKIT = $serendipity['baseURL'].'plugins/serendipity_event_usergallery/JPEG_TOOLKIT/';
@@ -976,7 +929,72 @@ class serendipity_event_usergallery extends serendipity_event
         return($exif_data);
     }
 
-    function displayImage($id, $orderby, $order) {
+    function &makeExifSelector() {
+        global $serendipity;
+
+        #$selector .= "</td></tr>\n";
+        $selector .= '<tr><td style="vertical-align: top; width: 80%"><strong>'.PLUGIN_EVENT_USERGALLERY_EXIFDATA_NAME.'</strong></td>';
+        $selector .= '<td style="vertical-align: top"><strong>Options</strong></td></tr>'."\n";
+        $selector .= '<tr><td colspan="2"><span style="color: rgb(94, 122, 148); font-size: 8pt;">'.PLUGIN_EVENT_USERGALLERY_EXIFDATA_DESC.'</span><br />'."\n";
+        $selector .= '<span style="color: rgb(94, 122, 148); font-size: 8pt;">'.PLUGIN_EVENT_USERGALLERY_EXIFDATA_CAMERA.'</span></td></tr>'."\n";
+
+        if (is_array($serendipity['POST']['plugin']['exifdata'])) {
+            //create new array
+            $exif_array = array();
+            foreach($serendipity['POST']['plugin']['exifdata'] as $key => $value) {
+                $exif_array[$key] = $key.'-'.$value;
+            }
+
+            //build new optionstring and save it
+            $newexifstring = implode(',', array_values($exif_array));
+            $this->set_config('exif_data', $newexifstring);
+            //break down the array and rebuild for immediate recycling on the page
+            foreach($exif_array as $key => $value) {
+                list($newkey, $newvalue) = explode('-', $value);
+                $res1_exif_array[] = $newkey;
+                $res2_exif_array[] = $newvalue;
+            }
+            $exif_array = array_combine($res1_exif_array, $res2_exif_array);
+        } else {
+            //get the optionstring
+            $exifsettings = $this->get_config('exif_data','Copyright Notice-no,Camera Make-no,Camera Model-no,Orientation-no,Resolution Unit-no,X Resolution-no,Y Resolution-no,Date and Time-no,YCbCr Positioning-no,Exposure Time-no,Aperture-no,Exposure Program-no,ISO-no,Exif Version-no,Date (Original)-no,Date (Digitized)-no,APEX Exposure Bias-no,APEX Max Aperture-no,Metering Mode-no,Light Source-no,Flash-no,FocalLength-no,User Comment-no,FlashPix Version-no,Colour Space-no,Pixel X Dimension-no,Pixel Y Dimension-no,File Source-no,Special Processing-no,Exposure Mode-no,White Balance-no,Digital Zoom Ratio-no,Scene Capture Type-no,Gain Control-no,Contrast-no,Saturation-no,Sharpness-no,Components Config-no');
+            if (!$exifsettings) {
+                //return empty array if invalid or non-existant
+                $exifsettings = array();
+                $selector .= '<tr><td colspan="2" style="color: #f00;">
+                    An error occured. Your website will function AS NORMAL. But EXIF tags cannot be shown.<br />
+                    Error: $this->get_config(\'exif_data\') is not fetched from the database properly.
+                    Please contact support at http://www.s9y.org/forums/.</td></tr>';
+            } else {
+                //split the string into options
+                $exifstring = explode(',', $exifsettings);
+                //split the options into name and value
+                foreach($exifstring as $key => $value) {
+                    $display = explode('-', $exifstring[$key]);
+                    $exif_array[$display[0]] = $display[1];
+                }
+            }
+        }
+
+        //output options
+        foreach($exif_array as $key => $value) {
+            $selector .= '<tr><td style="vertical-align: top">'.$key.'</td>';
+            $selector .= '<td><input name="serendipity[plugin][exifdata]['.$key.']" type="radio" value="yes"';
+            if ($value == "yes") {
+                $selector .= ' checked="checked"';
+            }
+            $selector .= '> ' . YES . ' <input name="serendipity[plugin][exifdata]['.$key.']" type="radio" value="no"';
+            if ($value == "no") {
+                $selector .= ' checked="checked"';
+            }
+            $selector .= '> ' . NO . '</td></tr>'."\n";
+        }
+        #$selector .= '<tr><td colspan="2" style="border-bottom: 1px solid #000;">&nbsp;</td></tr>';
+        return $selector;
+    }
+
+    function displayImage($id, $orderby, $order)
+    {
         global $serendipity;
         $extended_data = array();
         $base_directory = $this->get_config('base_directory');
@@ -998,7 +1016,7 @@ class serendipity_event_usergallery extends serendipity_event
             }
 
             if ($this->get_config('image_strict') == 'yes') {
-                $images = serendipity_fetchImagesFromDatabase($lower_limit, $images_per_page, $total, $orderby, $order, $file['path'],'','', array(), true);
+                $images = serendipity_fetchImagesFromDatabase($lower_limit, $images_per_page, $total, $orderby, $order, $file['path'], '', '', array(), true);
             } else {
                 $images = serendipity_fetchImagesFromDatabase($lower_limit, $images_per_page, $total, $orderby, $order, $file['path']);
             }
@@ -1144,7 +1162,8 @@ class serendipity_event_usergallery extends serendipity_event
         }
     }
 
-    function selected() {
+    function selected()
+    {
         global $serendipity;
         if ($serendipity['GET']['subpage'] == $this->get_config('subpage') || preg_match('@^' . preg_quote($this->get_config('permalink')) . '@i', $serendipity['GET']['subpage'])) {
             return true;
@@ -1153,7 +1172,8 @@ class serendipity_event_usergallery extends serendipity_event
     }
 
     // Fetches a list of referenced entries
-    function fetchLinkedEntries($id, $big, $thumb, $single = false, $getBody = false) {
+    function fetchLinkedEntries($id, $big, $thumb, $single = false, $getBody = false)
+    {
         global $serendipity;
 
         if (strtolower($serendipity['dbType']) != 'mysql' && strtolower($serendipity['dbType']) != 'mysqli') {
@@ -1206,7 +1226,8 @@ class serendipity_event_usergallery extends serendipity_event
     }
 
     // Fetches a list of referenced static pages
-    function fetchStaticPages($id, $big, $thumb) {
+    function fetchStaticPages($id, $big, $thumb)
+    {
         global $serendipity;
 
         if (strtolower($serendipity['dbType']) != 'mysql' && strtolower($serendipity['dbType']) != 'mysqli') {
@@ -1243,7 +1264,8 @@ class serendipity_event_usergallery extends serendipity_event
     //    B: Path to a picture directory to limit to
     //    C: Width of the thumbnail pictures. Takes precedence over configured thumbnail size in this plugin and globally
     //    D: If set, no titles will be shown in the RSS feed.
-    function showRSS(&$eventData, $offset = 0) {
+    function showRSS(&$eventData, $offset = 0)
+    {
         global $serendipity;
         static $entries = array();
 
@@ -1343,16 +1365,5 @@ class serendipity_event_usergallery extends serendipity_event
     }
 }
 
-if (!function_exists('array_combine')) {
-    function array_combine($a, $b) {
-        $c = array();
-        if (is_array($a) && is_array($b))
-            while (list(, $va) = each($a))
-                if (list(, $vb) = each($b))
-                    $c[$va] = $vb;
-                else
-                    break 1;
-        return $c;
-    }
-}
 /* vim: set sts=4 ts=4 expandtab : */
+?>

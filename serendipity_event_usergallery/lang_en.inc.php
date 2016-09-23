@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -100,6 +100,7 @@
 @define('PLUGIN_EVENT_USERGALLERY_SHOWLIGHTBOX_NAME', 'Use lightbox output');
 @define('PLUGIN_EVENT_USERGALLERY_SHOWLIGHTBOX_DESC', 'Needs the lightbox-plugin installed and upper option "Display Single Image" set to "Scaled to fit"! When you want to use lightboxes only for Usergallery pages, install the lightbox plugin and move it into the hidden event field in your pluginlist!');
 @define('PLUGIN_EVENT_USERGALLERY_LIGHTBOXTYPE_NAME', 'Use lightbox plugin type');
+@define('PLUGIN_EVENT_USERGALLERY_LIGHTBOXTYPE_DESC', 'Choose the same as set in the lightbox plugin. Choosing another library will not work here.');
 
 @define('PLUGIN_EVENT_USERGALLERY_SHOWOBJECTS_NAME', 'Show all Non-Image objects');
 @define('PLUGIN_EVENT_USERGALLERY_SHOWOBJECTS_DESC', 'Include other media library object files to show up too, eg *.pdf application objects.');

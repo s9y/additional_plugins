@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -31,4 +31,4 @@
 @define('PLUGIN_EVENT_USERGALLERY_FIXED_DESC', 'Sets the image height and width to a fixed proportion.  Set to zero to use standard thumbnail.');
 @define('PLUGIN_EVENT_USERGALLERY_FILESIZE', 'ファイルサイズ');
 @define('PLUGIN_EVENT_USERGALLERY_DIMENSION', 'Dimension');
-?>
+

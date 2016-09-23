@@ -95,4 +95,4 @@
 
 @define('PLUGIN_EVENT_USERGALLERY_RSS_FEED_BODY', 'Pou¾ít originální formát pøíspìvku pro obrázek v RSS kanálu?');
 @define('PLUGIN_EVENT_USERGALLERY_RSS_FEED_BODY_DESC', 'Pokud je povoleno, obrázek z knihovny médií, který byl pou¾it v pøíspìvku na blogu, bude mít v RSS kanálu stejné tìlo pøíspìvku jako pøíspìvek místo výchozího jednoduchého odkazu na pøíspìvek a pùvodní umístìní obrázku.');
-?>
+

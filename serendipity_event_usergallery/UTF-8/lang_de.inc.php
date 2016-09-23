@@ -94,6 +94,7 @@
 @define('PLUGIN_EVENT_USERGALLERY_SHOWLIGHTBOX_NAME', 'Nutze Lightbox Ausgabe');
 @define('PLUGIN_EVENT_USERGALLERY_SHOWLIGHTBOX_DESC', 'Benötigt ein installiertes Lightbox-Plugin und obige Option: "Einzelbildanzeige" gesetzt als "In Seite einpassen"! Wenn das Lightbox Plugin nur für Usergalerieseiten benutzt werden soll, installiere und verschiebe es anschließend in der Pluginliste in das Inaktiv (hidden) event Feld!');
 @define('PLUGIN_EVENT_USERGALLERY_LIGHTBOXTYPE_NAME', 'Wähle Lightbox-Plugin-Typ');
+@define('PLUGIN_EVENT_USERGALLERY_LIGHTBOXTYPE_DESC', 'Wählen Sie den selben Typ wie im lightbox Plugin. Man kann kein anderes lightbox-widget hier anwählen.');
 
 @define('PLUGIN_EVENT_USERGALLERY_SHOWOBJECTS_NAME', 'Zeige alle Nicht-Bild Dateien');
 @define('PLUGIN_EVENT_USERGALLERY_SHOWOBJECTS_DESC', 'Erweitere das Galerie Array mit allen Nicht-Bild Dateien aus der Mediendatendank, zB. *.pdf Dateien.');

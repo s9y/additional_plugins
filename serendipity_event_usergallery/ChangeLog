@@ -1,3 +1,18 @@
+2.68:
+----
+
+ * Optimize URI args load
+
+2.67:
+-----
+ * Add an option description for lightbox type
+
+2.66:
+-----
+ * Requirement and consistent changes
+ * Use load language API
+ * Added suboption types, to get where options have hidden suboptions
+
 2.65:
 -----
  * Use native API method parseTemplate() for the tpl files

@@ -9,9 +9,9 @@
  *  @revisionDate 2013/10/26
  */
 
-@define('PLUGIN_EVENT_CKEDITOR_NAME', 'CKEditor');
+@define('PLUGIN_EVENT_CKEDITOR_NAME', 'CKEditor Plus');
 @define('PLUGIN_EVENT_CKEDITOR_DESC', 'Používá CKEditor jako výchozí WYSIWYG editor. Tento editor je aktuálním state-of-art. Použití: Doporučeno! Po instalaci přejděte na stránku s nastavením tohoto pluginu a čtěte další instrukce.');
-@define('PLUGIN_EVENT_CKEDITOR_INSTALL', '<h2>Instalace</h2>
+/*@define('PLUGIN_EVENT_CKEDITOR_INSTALL', '<h2>Instalace</h2>
 <ol style="line-height: 1.6">
 <li>V nastavení pluginu zadejte relativní HTTP cestu k adresáři <em>"ckeditor"</em>.
     <div><strong>Poznámka:</strong> ve většině instalací je tato cesta <em>"plugins/serendipity_event_ckeditor/ckeditor/"</em></div>
@@ -30,7 +30,7 @@ Pokud vůbec někdy budete potřebovat ručně aktualizovat dodané CKEditor bal
 <li><a href="http://ckeditor.com/download" target="_blank">stáhněte CKEditor</a></li>
 <li>Rozbalte jej do: <em>' . dirname(__FILE__) . '</em> (měl by být vytvořen podadresář <em>"ckeditor"</em>)</li>
 </ol>
-</p>');
+</p>');*/
 @define('PLUGIN_EVENT_CKEDITOR_CONFIG', '');
 @define('PLUGIN_EVENT_CKEDITOR_INSTALL_PLUGPATH', 'HTTP cesta do serendipity dresáře s pluginy');
 @define('PLUGIN_EVENT_CKEDITOR_CKEACF_OPTION', 'Vypnout "Pokročilé fitrlování obsahu" (tzv. ACF = Advanced-Content-Filter)');

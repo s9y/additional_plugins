@@ -1,13 +1,13 @@
 <?php
 
 /**
- *  @file UTF-8/lang_de.inc.php 1.4.14 2016-05-11 Ian
- *  @version 1.4.14
+ *  @file UTF-8/lang_de.inc.php 1.4.17 2016-08-15 Ian
+ *  @version 1.4.17
  *  @author Translator Name <yourmail@example.com>
  *  DE-Revision: Revision of UTF-8/lang_de.inc.php
  */
 
-@define('PLUGIN_EVENT_CKEDITOR_NAME', 'CKEditor');
+@define('PLUGIN_EVENT_CKEDITOR_NAME', 'CKEditor Plus');
 @define('PLUGIN_EVENT_CKEDITOR_DESC', 'Nutzt CKEditor als Standard WYSIWYG Editor. Benutzung für JS-Editoren: Empfohlen! Nach der Installation, lies die Plugin Konfigurations Seite für weitere Informationen.');
 @define('PLUGIN_EVENT_CKEDITOR_REVISION_TITLE', '<h3>Das Plugin enthält:</h3>');
 @define('PLUGIN_EVENT_CKEDITOR_INSTALL', '<h2>Installation</h2>
@@ -27,7 +27,7 @@
 
     <h3>Upgrading</h3>
     <p>Dieses Plugin wird zeitnah selber Updates via Spartacus bereitstellen.</p>
-    <p>Bitte nutzen Sie keinen automatischen Bulk Updater, sofern in ihrer S9y Version schon vorhanden, sondern führen Sie das Upgrade des CKEditors einzeln durch, um für die internen ZIP-Installer Operationen in diese Konfiguration weiter geleitet zu werden.</p>
+    <p><strong>Achtung</strong>: Bitte nutzen Sie nicht den automatisierten Spartacus Updater Button für alle Plugins, sofern in ihrer S9y Version schon vorhanden, sondern führen Sie das Upgrade des CKEditors einzeln durch, um für die internen ZIP-Installer Operationen in diese Konfiguration weiter geleitet zu werden. Ansonsten müssen Sie nach jedem CKEditor Upgrade selber die "Entpacke Zip Datei (im Notfall)" Option ausführen.</p>
     <p>Es ist generell abzuraten, ein eigenes "customized" CKEDITOR release zu erstellen und herunterzuladen, da dies zu unerwünschten Nebenwirkungen in der Einbindung führt.</p>
 </div>');
 @define('PLUGIN_EVENT_CKEDITOR_CONFIG', '');

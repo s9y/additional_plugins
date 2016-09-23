@@ -1,18 +1,52 @@
+4.5.10.5:
+---------
+    * Fix encoding issue in cheatsheet help plugin
+    * Rename plugin title to CKEditor Plus
+
+4.5.10.4:
+---------
+    * Fix and add lang of Scayt and wsc (web spell checker) option,
+      since the old Serendipity lang WYSIWYG_LANG defines did not work here.
+
+4.5.10.3:
+---------
+    * Fixed UPGRADE fallback issue. To simplify this approach, we now
+      force the script to redirect directly into the config on each
+      CKEditor upgrade request.
+      In case of using the Serendipity UPDATE ALL 1-click ajax-upgrader,
+      this redirection is disabled and you have to force the extraction
+      yourself in the config.
+    * Disabled the temporary runtime solution to downgrade version for
+      the harmonization of plugin and lib versions, which came in March
+      2016 with this plugins "old" 5.7.0.x version (see below).
+
+4.5.10.2:
+---------
+    * Unset serendipity_event_plugup cookies if plugup class exists
+
+4.5.10.1:
+---------
+    * Update lang constants and really force a halt for the upgrade config fallback!
+
+4.5.10.0:
+---------
+    * Upgrade to CKEDITOR 4.5. Series, update 10 (http://ckeditor.com/whatsnew).
+
 4.5.9.0:
------
+--------
     * Changed upgrade hint for lang files lang_<en> and lang_<de>
     * Upgrade to CKEDITOR 4.5. Series, update 9 (http://ckeditor.com/whatsnew).
 
 4.5.8.1:
------
+--------
     * Remove accidently added Thumbs.db file
 
 4.5.8.0:
------
+--------
     * Upgrade to CKEDITOR 4.5. Series, update 8 (http://ckeditor.com/whatsnew).
 
 4.5.7.3:
------
+--------
     * Bugfix: Fix prior version 4.5.7.1 not being set one up
 
 4.5.7.2:

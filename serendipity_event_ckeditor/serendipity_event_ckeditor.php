@@ -9,7 +9,7 @@ if (IN_serendipity !== true) {
 /**
  * Class member instance attribute values
  * Members must be initialized with a constant expression (like a string constant, numeric literal, etc), not a dynamic expression!
- **/
+ */
 if (!defined('CKEDITOR_DIRNAME_PLUGIN_PATH')) define('CKEDITOR_DIRNAME_PLUGIN_PATH', dirname(__FILE__));
 if (!defined('CKEDITOR_DIRNAME_CKEDITOR_PATH')) define('CKEDITOR_DIRNAME_CKEDITOR_PATH', dirname(__FILE__) . '/ckeditor');
 
@@ -49,28 +49,29 @@ class serendipity_event_ckeditor extends serendipity_event
      * @access protected
      * @var string
      */
-    protected $cke_zipfile = 'ckeditor_4.5.9.0-plus.zip';
+    protected $cke_zipfile = 'ckeditor_4.5.10.3-plus.zip';
 
     /**
      * Access property checkUpdateVersion
+     * Is zip file version and is independent from plugin version string
      * Verify release package versions - do update on upgrades!
      * @var array
      */
-    protected $checkUpdateVersion = array('ckeditor:4.5.9.0');
+    protected $checkUpdateVersion = array('ckeditor:4.5.10.3');
 
     /**
      * Access property revisionPackage
      * Note revisions of ckeditor and plugin additions to lang files
      * @var array
      */
-    protected $revisionPackage = array('CKEditor 4.5.9 (revision a35abfe, full package, 2016-05-13)',
+    protected $revisionPackage = array('CKEditor 4.5.10 (revision b47abaf, full package, 2016-07-13)',
                                        'CKEditor-Plugin: mediaembed, v. 0.6+ (https://github.com/frozeman/MediaEmbed, 2014-03-13)',
-                                       'CKEditor-Plugin: manually added codesnippet, fakeobjects, lineutils and widget plugins, 2016-05-13)',
+                                       'CKEditor-Plugin: manually added codesnippet, fakeobjects, lineutils and widget plugins, 2016-07-20)',
                                        'CKEditor-Plugin: procurator, v. 1.6 (Serendipity placeholder Plugin, 2016-01-01)',
-                                       'CKEditor-Plugin: cheatsheet, v. 1.2 (Serendipity CKE-Cheatsheet Plugin, 2015-01-28)',
+                                       'CKEditor-Plugin: cheatsheet, v. 1.2 (Serendipity CKE-Cheatsheet Plugin, 2016-08-15)',
                                        'CKEditor-S9yCustomConfig, cke_config.js, v. 2.5, 2016-01-01',
                                        'CKEditor-S9yCustomPlugins, cke_plugin.js, v. 1.10, 2015-12-19',
-                                       'CKEditor-S9yAddOn, fresh highlight.pack.js file v. 9.2.0 and github styles in highlight.css, (https://highlightjs.org/) 2016-03-12',
+                                       'CKEditor-S9yAddOn, fresh highlight.pack.js file v. 9.5.0 and github styles in highlight.css, (https://highlightjs.org/) 2016-06-28',
                                        'Prettify: JS & CSS files, v. "current", (http://code.google.com/p/google-code-prettify/, 2013-03-04)');
 
 
@@ -86,14 +87,15 @@ class serendipity_event_ckeditor extends serendipity_event
             // this is running while getting a new Plugin version
             if ($this->checkUpdate()) {
                 $this->set_config('installer', '4-'.date('Ymd-H:i:s')); // this is a faked debug notice, since falldown is extract true with case 0, 1 or 2
+                // continue
             } else {
-                $this->set_config('installer', '3-'.date('Ymd-H:i:s')); // this will happen, if no further extract is necessary in case of an update
-                return;
+                $this->set_config('installer', '3-'.date('Ymd-H:i:s')); // this will happen, if no further extract is necessary in case of an update - follow install or upgrade routines
+                return false;
             }
         }
 
         if (!extension_loaded('zip')) {
-            trigger_error(' ZIP extension has not been compiled or loaded in php.', E_USER_WARNING);
+            trigger_error(' ZIP extension has not been compiled or loaded in PHP.', E_USER_WARNING);
             return;
         }
 
@@ -103,9 +105,9 @@ class serendipity_event_ckeditor extends serendipity_event
                 $zip->extractTo($this->cke_path);
                 $zip->close();
                 $this->set_config('installer', '2-'.date('Ymd-H:i:s')); // returned by string[0], which is better than substr in this case
-                // Check to remove every old ckeditor_(*)-plus.zip files
-                foreach (glob($this->cke_path . '/*.zip') as $filename) {
-                    if($this->cke_path . '/' . $this->cke_zipfile != $filename) {
+                // Check to remove every old ckeditor_(*)-plus.zip files - checked by partial string "-plus"
+                foreach (glob($this->cke_path . '/*.zip') AS $filename) {
+                    if ($this->cke_path . '/' . $this->cke_zipfile != $filename && (false !== strpos($filename, '-plus')) ) {
                         @unlink($filename);
                         $is_update = true;
                     }
@@ -155,6 +157,7 @@ class serendipity_event_ckeditor extends serendipity_event
                     unset($_COOKIE['KCFINDER_orderDesc']);
                     unset($_COOKIE['KCFINDER_view']);
                 }
+                // extracted, continue to set this version into config
             } else {
                 $this->set_config('installer', '1-'.date('Ymd-H:i:s'));
                 return false;
@@ -163,8 +166,8 @@ class serendipity_event_ckeditor extends serendipity_event
             $this->set_config('installer', '0-'.date('Ymd-H:i:s')); // do it again, Sam
             return false;
         }
-        // make sure the new versions are set to last_ckeditor_version
-        $this->updateTableZip();
+        // Extraction found true, add the new version string to configs last_ckeditor_version
+        $this->updateConfig();
         return true;
     }
 
@@ -181,7 +184,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '4.5.9.0'); // is CKEDITOR Series 4.5.9 - and appended plugin revision .0
+        $propbag->add('version',       '4.5.10.5'); // is CKEDITOR Series 4.5.10 - and appended plugin revision .5
         $propbag->add('copyright',     'GPL or LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
@@ -303,7 +306,7 @@ class serendipity_event_ckeditor extends serendipity_event
             $this->forceZipInstall = false;
             $this->set_config('force_install', 'false');
             // forceZipInstall forces to surround the checkUpdate function, thus we set config database table to keep track
-            $this->updateTableZip();
+            $this->updateConfig();
             $s .= '<p class="msg_success"><span class="icon-ok"></span><strong>Force deflate done:</strong> Please reload this page <a href="'.$serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=plugins&serendipity[plugin_to_conf]='.urlencode($this->instance).'" target="_self">here</a>!</p>';
         }
 
@@ -318,7 +321,7 @@ class serendipity_event_ckeditor extends serendipity_event
         }
         $s .= "</ul>\n\n";
 
-        if( isset($installer) && !empty($installer) ) {
+        if (!empty($installer)) {
             switch ($installer[0]) {
                 case '4': // this won't happen, since case 2 is true - just a fake
                     $s .= '<p class="msg_notice"><span class="icon-attention"></span> <strong>Check Plugin Update Message:</strong> NO CONFIG SET OR NO MATCH -> config_set: "last_'.$parts[0].'_version:'. $parts[1].'"</p>';
@@ -341,42 +344,48 @@ class serendipity_event_ckeditor extends serendipity_event
         #echo $installer[0] . ' - ' . $this->instance; // this debug message on the other hand will do well, if all went through w/o install() returning false
         $s .= PLUGIN_EVENT_CKEDITOR_INSTALL;
         $s .= PLUGIN_EVENT_CKEDITOR_CONFIG;
+        $s .= PLUGIN_EVENT_CKEDITOR_SCAYT;
         return $s;
     }
 
     /**
      * Downgrade of version to keep plugin version track with CKE versioning for upcoming next major upgrades!
      * This method is temporary only!
-     * @see updateTableZip()
+     * @see updateConfig()
      * @see checkUpdate()
      */
     private function temporaryDowngrade($newVersion, $oldVersion)
     {
         global $serendipity;
 
+        $thisclass = serendipity_db_escape_string('serendipity_event_ckeditor');
         $row = serendipity_db_query("SELECT version FROM {$serendipity['dbPrefix']}pluginlist
-                                      WHERE plugin_class = '" . serendipity_db_escape_string('serendipity_event_ckeditor') . "'
+                                      WHERE plugin_class = '" . $thisclass . "'
+                                        AND pluginlocation = 'local'
                                       LIMIT 1", true, 'assoc');
 
         $versions = array($oldVersion, $newVersion); // keep prior and current versions false check
-        if (in_array($row['version'], $versions)) return false;
+        if (in_array($row['version'], $versions)) {
+            return false;
+        }
 
         serendipity_db_query("UPDATE {$serendipity['dbPrefix']}pluginlist
                                  SET version      = '" . serendipity_db_escape_string($oldVersion) . "'
-                               WHERE plugin_class = '" . serendipity_db_escape_string('serendipity_event_ckeditor') . "'");
+                               WHERE plugin_class = '" . $thisclass . "'
+                                 AND pluginlocation = 'local'");
         serendipity_db_query("UPDATE {$serendipity['dbPrefix']}pluginlist
                                  SET upgrade_version = '" . serendipity_db_escape_string($newVersion) . "'
-                               WHERE plugin_class    = '" . serendipity_db_escape_string('serendipity_event_ckeditor') . "'");
-
+                               WHERE plugin_class    = '" . $thisclass . "'
+                                 AND pluginlocation = 'local'");
     }
 
     /**
-     * Set config database table to keep track to zip updates
+     * Set config database table to keep track to zip update versions
      * @access    private
      */
-    private function updateTableZip()
+    private function updateConfig()
     {
-        $this->temporaryDowngrade('4.5.9.0', '4.5.8.1'); // temporary
+        #$this->temporaryDowngrade('4.5.10.3', '4.5.10.2'); // was temporary used for the harmonization of plugin and lib versions
         foreach(array_values($this->checkUpdateVersion) AS $package) {
             $match = explode(':', $package);
             $this->set_config('last_'.$match[0].'_version', $match[1]);
@@ -390,7 +399,7 @@ class serendipity_event_ckeditor extends serendipity_event
      */
     private function checkUpdate()
     {
-        $this->temporaryDowngrade('4.5.9.0', '4.5.8.1'); // temporary
+        #$this->temporaryDowngrade('4.5.10.3', '4.5.10.2'); // was temporary used for the harmonization of plugin and lib versions
         $doupdate = false;
         foreach(array_values($this->checkUpdateVersion) AS $package) {
             $match = explode(':', $package);
@@ -398,12 +407,11 @@ class serendipity_event_ckeditor extends serendipity_event
             if ($this->get_config('last_'.$match[0].'_version') == $match[1]) {
                 $doupdate = false;
             } else {
-                $this->set_config('last_'.$match[0].'_version', $match[1]); // redundant, since now done for both in updateTableZip, but leave here until new is proofed
                 $doupdate = true;
-                break; // this is possibly needed to force install upgrade routines
+                break; // this is probably needed to force install upgrade routines
             }
         }
-        return $doupdate ? true : false;
+        return $doupdate;
     }
 
     /**
@@ -421,8 +429,7 @@ class serendipity_event_ckeditor extends serendipity_event
                 return;
             }
         $iterator = new RecursiveIteratorIterator($_dir, RecursiveIteratorIterator::CHILD_FIRST);
-        //$iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir), RecursiveIteratorIterator::CHILD_FIRST);
-        foreach ($iterator as $file) {
+        foreach ($iterator AS $file) {
             if ($file->isFile()) {
                 @unlink($file->__toString());
             } else {
@@ -485,6 +492,24 @@ if ($headcss) {
 
                 case 'backend_header':
                     if (isset($serendipity['wysiwyg']) && $serendipity['wysiwyg'] && isset($eventData) && !isset($_GET['serendipity']['iframe_mode'])) {
+                        // Check, if Serendipity 2.1 changed WYSIWYG_LANG constant already is defined,
+                        // which changed 2-letter or "**-utf" marked langs eg. "en" to "en_US", using the POSIX underscore standard,
+                        // else workaround using DATE_LOCALES.
+                        if (defined('DATE_LOCALES') && (false !== strpos('_', WYSIWYG_LANG))) {
+                            // scayt available langs are ('en_US', 'en_GB', 'pt_BR', 'da_DK', 'nl_NL', 'en_CA', 'fi_FI', 'fr_FR', 'fr_CA', 'de_DE', 'el_GR', 'it_IT', 'la_VA', 'nb_NO', 'pt_PT', 'es_ES', 'sv_SE');
+                            $locale  = explode(',', DATE_LOCALES); // get the current defined locales as array
+                            $special = array('Arabic', 'bulgarian', 'pl.UTF-8', 'tw'); // special lang exceptions which have them at last position
+                            if (in_array($locale[0], $special)) {
+                                $slocale = @strtok(end($locale), "."); // strtok dot fixes 'ar_SA.windows-1256'
+                                @reset($locale);
+                            }
+                            $_locale = trim(isset($slocale) ? $slocale : $locale[0]); // set the current lang locale as string
+                            if (!empty($_locale)) {
+                                $flocale = explode('.', $_locale); // $flocale array is the first defined 4-letter lang locale, eg "de_DE".
+                                if ($flocale[0] == 'nl_BE') $flocale[0] = 'nl_NL'; // case locale Nederlands / België set back to Dutch (Netherlands)
+                                if ($flocale[0] == 'sv_SV') $flocale[0] = 'sv_SE'; // case Swedish set back to Swedish (Sweden)
+                            }
+                        }
                         $relpath = function_exists('serendipity_specialchars') ? serendipity_specialchars($this->get_config('path')) : htmlspecialchars($this->get_config('path'), ENT_COMPAT, LANG_CHARSET);
                         $plgpath = function_exists('serendipity_specialchars') ? serendipity_specialchars($this->get_config('plugpath')) : htmlspecialchars($this->get_config('plugpath'), ENT_COMPAT, LANG_CHARSET);
                         $acf_off = serendipity_db_bool($this->get_config('acf_off', 'false')) ? 'true' : 'false';    // need this, to be passed correctly as boolean true/false to custom cke_config.js
@@ -492,6 +517,9 @@ if ($headcss) {
                         $uats_on = $serendipity['use_autosave'] ? 'true' : 'false';                                  // dito
                         $toolbar = $this->get_config('toolbar', 'Standard');
                         $time    = $this->get_config('timestamp', time());
+                        $slang   = (isset($flocale) && !empty($flocale[0]) ? $flocale[0] : WYSIWYG_LANG); // set scayt locales 4-letter POSIX lang or fall back
+                        $lang    = $slang ? $slang : 'en_US'; // use new WYSIWYG_LANG, or the workaround locale, or fall back to default
+                        $lang    = str_replace('_', '-', $lang); // change to IETF standard unicode language tag, using a dash
                         /*
                             Define some global CKEDITOR plugin startup vars
                             Include the ckeditor
@@ -506,12 +534,12 @@ if ($headcss) {
         S9Y_VERSION_NEW         = <?php echo $serendipity['version'][0] < 2 ? 'false' : 'true'; ?>;
         CKECONFIG_ACF_OFF       = <?php echo $acf_off; ?>;
         CKECONFIG_CODE_ON       = <?php echo $code_on; ?>;
-        CKECONFIG_LANG          = '<?php echo WYSIWYG_LANG; ?>';
+        CKECONFIG_LANG          = '<?php echo $lang; ?>'; // as IETF
+        CKECONFIG_SLANG         = '<?php echo $slang; ?>'; // as POSIX
         CKECONFIG_TOOLBAR       = '<?php echo $toolbar; ?>';
         CKECONFIG_TOOLBAR_BREAK = <?php echo serendipity_db_bool($this->get_config('toolbar_break', 'false')) ? "'/'" : "''"; ?>;
         CKECONFIG_FORCE_LOAD    = <?php echo $time; ?>;
         CKECONFIG_USEAUTOSAVE   = <?php echo $uats_on; ?>;
-
     </script>
     <script type="text/javascript" src="<?php echo $serendipity['serendipityHTTPPath'] . $relpath; ?>ckeditor.js"></script>
     <script type="text/javascript" src="<?php echo $plgpath . 'serendipity_event_ckeditor/'; ?>cke_plugin.js"></script>
@@ -619,21 +647,31 @@ ol.linenums li {
                         if ($this->install()) {
                             header('Location: ' . $serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=plugins&serendipity[plugin_to_conf]='.urlencode($this->instance));
                         } else {
-                            header('Location: ' . $serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=plugins&serendipity[adminAction]=addnew&serendipity[only_group]=UPGRADE&serendipity[type]=event');
+                            header('Location: ' . $serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=plugins&serendipity[plugin_to_conf]='.urlencode($this->instance));
                         }
                     }
                     break;
 
                 case 'backend_plugins_update':
-                    // Make sure a Spartacus update really falls down to plugins config, for the need to deflate the zip, if necessary.
-                    // This needs a *real* new HTTP request! Using plugin_to_conf:instance (see above) would not do here!!
-                    // A request to ...&serendipity[install_plugin]=serendipity_event_ckeditor would force a deflate, but would install another plugin instance!
-                    header('Location: ' . $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/triggerckeinstall');
+                    if ($eventData == 'serendipity_event_ckeditor' && !$serendipity['ajax']) {
+                    // @TODO: This is is really messed up. Probably much better to perform a HTTP_Request to perform an action. Text below needs to be reworked, that all makes no sense to me.
+                    
+                        // Make sure a Spartacus update really falls down into this plugins config.
+                        // In case of using the UPDATE ALL 1-click ajax-upgrader, this redirection is disabled and you have to force the extraction yourself in the config.
+                        // This needs a *REAL* new HTTP request! Using plugin_to_conf:instance (see above) would not do here!!
+                        // A request to ...&serendipity[install_plugin]=serendipity_event_ckeditor would force a deflate, but would install another plugin instance!
+                        header('Location: ' . $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/triggerckeinstall');
+                        // This runtime breakage will reset all other plugins waiting to UPGRADE back to their current version in table pluginlist.
+                        // After this, the updater has to wait for a new read of the xml file(s) and to set pending plugins with setPluginInfo() method for versions and timestamp again.
+                        // This is not what we want here! So we nuke the blog-servers xml file in templates_c to later on continue with pending plugin updates.
+                        // Spartacus has to be prepared to set this global var. All other users probably have to wait up to 12h+.
+                        //#@unlink($serendipity['spartacus_cachedXMLfile']);
+                        //#die(); // now exit the runtime UPGRADE task executor, which forces to really halt into this->install() check redirector!
+                    }
                     break;
 
                 case 'backend_media_path_exclude_directories':
                     $eventData[".thumbs"] = true;
-
                     break;
 
                 case 'backend_wysiwyg':

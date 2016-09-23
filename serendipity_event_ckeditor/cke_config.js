@@ -3,7 +3,7 @@
  */
 
 /**
- * @fileOverview A Serendipity serendipity_event_ckeditor CKEDITOR custom config file: cke_config.js, v. 2.5, 2016-01-01
+ * @fileOverview A Serendipity serendipity_event_ckeditor CKEDITOR custom config file: cke_config.js, v. 2.6, 2016-07-31
  */
 
 /**
@@ -12,7 +12,7 @@
 CKEDITOR.editorConfig = function( config ) {
 
     // set Serendipity default lang
-    config.language = CKECONFIG_LANG;
+    config.language = CKECONFIG_LANG; // IETF standard unicode language 4-letter tag, using a dash
 
     /** SECTION: ACF
         Advanced Content Filter works in two modes:
@@ -142,6 +142,7 @@ CKEDITOR.editorConfig = function( config ) {
      PLEASE NOTE: If having used the prettify output already in your entries, your need to set the new compat mode option to allow both.
     */
 
+
     /** SECTION: Custom Config Content Styles
         We can not use templates/xxx/admin/ as a path here, since we would need template and userTemplate path parts as dynamic vars
     */
@@ -149,18 +150,35 @@ CKEDITOR.editorConfig = function( config ) {
     config.contentsCss = CKEDITOR_PLUGPATH + 'serendipity_event_ckeditor/wysiwyg-style.css';
 
 
-    /** SECTION: Custom Plugin and Button behaviour configurations **/
-    /**
+    /** SECTION: Web-Spellchecker (wsc) and SCAYT plug-in for CKEditor
+    // evaluate SCAYT on startup
+    // config.scayt_autoStartup = true;
     // Native spell check functionality is by default disabled in the editor, use this to enable it.
     // Do not wonder if this is not working on demand, since Browsers need to match spell checker settings, etc., you need to hit the correct place/word, and so on.
     //config.disableNativeSpellChecker = false;
+    // See full list of supported languages here: http://docs.ckeditor.com/#!/guide/dev_howtos_scayt
+    */
+    config.wsc_lang = CKECONFIG_SLANG; // The default wsc (spell checker language), eg. "de_DE", or "fr_FR", using POSIX underscore. Defaults to: 'en_US'.
+    config.scayt_sLang = CKECONFIG_SLANG; // The default SCAYT language, eg. "de_DE", or "fr_FR", using POSIX underscore. Defaults to: 'en_US'.
+    // enable/disable the "More Suggestions" sub-menu in the context menu.
+    // The possible values are "on" or "off".
+    config.scayt_moreSuggestions = 'off';
+    // set the visibility of the SCAYT tabs in the settings dialog and toolbar
+    // button. The value must contain a "1" (enabled) or "0" (disabled) number for
+    // each of the following entries, in this precise order, separated by a
+    // comma (","): "Options", "Languages" and "Dictionary".
+    // As long as not purchased a license, the "languages"-options wont work. You may only use the online spell checker from the Scayt-button last select option. Which isn't really fun to use.
+    // Visit http://wiki.webspellchecker.net/doku.php?id=installationandconfiguration:hostedscayt for more
+    config.scayt_uiTabs = '1,0,1'; // we disable the language tab option, since it does not work in this context, getting a list of languages and this breaking the popup-layer!
+
+
+    /** SECTION: Custom Plugin and Button behaviour configurations
     // [CRTL + right mouse click] gives access to Browsers contextmenu, else you need to disable and set these
     // The general idea is that you would need to remove all plugins that depend on the "contextmenu" one for removing the "contextmenu" one itself to work. But this has other sideeffects!
     //config.removePlugins = 'wsc,scayt,menubutton,liststyle,tabletools,contextmenu';
     //config.browserContextMenuOnCtrl = true;
-    //config.wsc_lang = 'de_DE'; //Defaults to: 'en_US'
-    //config.scayt_sLang = 'de_DE'; //Defaults to: 'en_US'
     */
+
 
     /**
     // Allow certain font sizes, eg.

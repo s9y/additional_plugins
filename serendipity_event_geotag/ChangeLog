@@ -1,6 +1,7 @@
 1.33.2:
 -----
     * Added serendipity_request_url API method
+    * Changed access to $entry, thanks to Ian
     
 1.33 (mattsches)
 ----------------------------------

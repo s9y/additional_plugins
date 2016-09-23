@@ -558,14 +558,16 @@ class serendipity_event_geotag extends serendipity_event
                 	}
                     return true;
                 case 'frontend_header':
-                    if (!isset($GLOBALS['entry'][0])) {
+                    if (!$serendipity['GET']['id'] && $serendipity['view'] != 'entry') {
                         $lat = $this->get_config('hdr_default_lat');
                         $long = $this->get_config('hdr_default_long');
                         $this->headerGeoTagging($lat,$long, $GLOBALS['serendipity']['blogTitle']);
                         return true;
                     }
-                    $props = $GLOBALS['entry'][0]['properties'];
-					$geotagged = true;
+                    // we fetch the internal smarty object to get the current entry body
+                    $entry = (array)$eventData['smarty']->tpl_vars['entry']->value;
+                    $props = $entry['properties'];
+                    $geotagged = true;
                     foreach($this->supported_properties AS $prop_key) {
                         if (!isset($props[$prop_key])) {
                             $geotagged = false;
@@ -573,7 +575,7 @@ class serendipity_event_geotag extends serendipity_event
                     }
                     if ($geotagged) {
                         // echo "<!-- g: " . print_r($GLOBALS['entry'][0],true) ." -->";
-	                    $this->headerGeoTagging($props["geo_lat"], $props["geo_long"], $GLOBALS['entry'][0]['title']);
+	                    $this->headerGeoTagging($props["geo_lat"], $props["geo_long"], $entry['title']);
                     }
                     else {
                         $long = $this->get_config('hdr_default_lat');

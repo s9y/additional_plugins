@@ -378,25 +378,29 @@ class serendipity_event_facebook extends serendipity_event {
                     break;
 
                 case 'frontend_header':
-                    if (!isset($GLOBALS['entry'][0])) return true;
+                    // Only emit in Single Entry Mode
+                    if ($serendipity['GET']['id'] && $serendipity['view'] == 'entry') {
+                        // we fetch the internal smarty object to get the current entry body
+                        $entry = (array)$eventData['smarty']->tpl_vars['entry']->value;
 
-                    // Taken from: http://developers.facebook.com/docs/opengraph/
-                    echo '<!--serendipity_event_facebook-->' . "\n";
-                    echo '<meta property="og:title" content="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($GLOBALS['entry'][0]['title']) : htmlspecialchars($GLOBALS['entry'][0]['title'], ENT_COMPAT, LANG_CHARSET)) . '" />' . "\n";
-                    echo '<meta property="og:description" content="' . substr(strip_tags($GLOBALS['entry'][0]['body']), 0, 200) . '..." />' . "\n";
+                        // Taken from: http://developers.facebook.com/docs/opengraph/
+                        echo '<!--serendipity_event_facebook-->' . "\n";
+                        echo '<meta property="og:title" content="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['title']) : htmlspecialchars($entry['title'], ENT_COMPAT, LANG_CHARSET)) . '" />' . "\n";
+                        echo '<meta property="og:description" content="' . substr(strip_tags($entry['body']), 0, 200) . '..." />' . "\n";
 
-                    echo '<meta property="og:type" content="article" />' . "\n";
-                    echo '<meta property="og:site_name" content="' . $serendipity['blogTitle'] . '" />' . "\n";
+                        echo '<meta property="og:type" content="article" />' . "\n";
+                        echo '<meta property="og:site_name" content="' . $serendipity['blogTitle'] . '" />' . "\n";
 
-                    echo '<meta property="og:url" content="http' . ($_SERVER['HTTPS'] ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . (function_exists('serendipity_specialchars') ? serendipity_specialchars($_SERVER['REQUEST_URI']) : htmlspecialchars($_SERVER['REQUEST_URI'], ENT_COMPAT, LANG_CHARSET)) . '" />' . "\n";
+                        echo '<meta property="og:url" content="http' . ($_SERVER['HTTPS'] ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . (function_exists('serendipity_specialchars') ? serendipity_specialchars($_SERVER['REQUEST_URI']) : htmlspecialchars($_SERVER['REQUEST_URI'], ENT_COMPAT, LANG_CHARSET)) . '" />' . "\n";
                     
-                    if (preg_match('@<img.*src=["\'](.+)["\']@imsU', $GLOBALS['entry'][0]['body'] . $GLOBALS['entry'][0]['extended'], $im)) {
-                        if (preg_match('/^http/i', $im[1])) {
-                          echo '<meta property="og:image" content="' . $im[1] . '" />' . "\n";
-                        } else {
-                          echo '<meta property="og:image" content="http' . ($_SERVER['HTTPS'] ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . $im[1] . '" />' . "\n";
-                       }
-                    }
+                        if (preg_match('@<img.*src=["\'](.+)["\']@imsU', $entry['body'] . $entry['extended'], $im)) {
+                            if (preg_match('/^http/i', $im[1])) {
+                              echo '<meta property="og:image" content="' . $im[1] . '" />' . "\n";
+                            } else {
+                              echo '<meta property="og:image" content="http' . ($_SERVER['HTTPS'] ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . $im[1] . '" />' . "\n";
+                           }
+                        }
+                    }    
 
                     return true;
                     break;

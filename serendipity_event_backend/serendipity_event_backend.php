@@ -150,10 +150,11 @@ class serendipity_event_backend extends serendipity_event {
 
                            if ($category == "") {
                                 $entries = serendipity_fetchEntries(null, true, $num, false, false, 'timestamp '.$order, '', false, true);
-                            } else {
+                           } else {
                                 $entries = serendipity_fetchEntries(null, true, $num, false, false, 'timestamp '.$order, 'c.category_name = \''.serendipity_db_escape_string($category).'\'', false, true);
-                            }
+                           }
 
+                           if (is_array($entries) && count($entries) > 0) {
                            for ($a=0, $maxa=count($entries); $a<$maxa; $a++) {
                                 if ($showtime == 1 && $showdate == 1) {
                                     $date = date($dateformat." ".$timeformat, $entries[$a]['timestamp']);
@@ -196,6 +197,7 @@ class serendipity_event_backend extends serendipity_event {
                                     echo "    document.write('<hr class=\"blog_hr\" />');\n";
                                     echo "    document.write('<span class=\"blog_author\">".addslashes($entries[$a]['author'])."</span><span class=\"blog_date\">".$date." <span class=\"blog_link\">[<a class=\"blog_link\" href=\"".$entryurl."\">&raquo;</a>]</span><br /><br />');\n";
                                }
+                            }
                             }
 
                             break;

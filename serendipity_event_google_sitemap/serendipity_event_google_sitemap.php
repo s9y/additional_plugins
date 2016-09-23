@@ -236,6 +236,9 @@ class serendipity_event_google_sitemap extends serendipity_event {
                 $sqlnullfunction = 'COALESCE';
                 break;
             case 'sqlite':
+            case 'sqlite3':
+            case 'pdo-sqlite':
+            case 'pdo-sqliteoo':
             case 'mysql':
             case 'mysqli':
                 $sqlnullfunction = 'IFNULL';

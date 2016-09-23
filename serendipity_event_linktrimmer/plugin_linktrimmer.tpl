@@ -4,13 +4,13 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="{$lang}"> <!--<![endif]-->
 <head>
     <meta charset="{$CONST.LANG_CHARSET}">
-    <title>{$CONST.PLUGIN_EVENT_AMAZONCHOOSER_MEDIA_BUTTON}</title>
+    <title>{$CONST.PLUGIN_LINKTRIMMER_NAME}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{$serendipityBaseURL}serendipity.css.php?serendipity[css_mode]=serendipity_admin.css">
 <!--[if lte IE 8]>
     <link rel="stylesheet" href="{serendipity_getFile file='admin/oldie.css'}">
 <![endif]-->
-    <script src="{serendipity_getFile file='admin/js/modernizr-2.8.3.min.js'}"></script>
+    <script src="{serendipity_getFile file='admin/js/modernizr.min.js'}"></script>
 
     <style>{* popup only classes *}
         .serendipity_linktrimmer_page .linktrimmer {

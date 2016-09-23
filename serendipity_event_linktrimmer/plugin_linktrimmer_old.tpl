@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
     <head>
-        <title>{$CONST.PLUGIN_EVENT_AMAZONCHOOSER_MEDIA_BUTTON}</title>
+        <title>{$CONST.PLUGIN_LINKTRIMMER_NAME}</title>
         <meta http-equiv="Content-Type" content="text/html; charset={$CONST.LANG_CHARSET}" />
 
         <link rel="stylesheet" type="text/css" href="{$serendipityBaseURL}serendipity.css.php?serendipity[css_mode]=serendipity_admin.css" />

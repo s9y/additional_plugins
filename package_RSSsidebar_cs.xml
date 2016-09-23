@@ -41,7 +41,7 @@
 <category>Sidebar Plugins</category>
 <author>Lars Strojny</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_heavyrotation&lt;br /&gt;@Heavy Rotation@&lt;/b&gt;&lt;br /&gt;Tento přídavný modul zobrazuje ze serveru last.fm obal alba, které bylo minulý týden &quot;Heavy Rotation&quot; (první v hitparádě)&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Fri, 15 Jul 2011 16:06:25 +0200</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_heavyrotation</guid>
 </item>
 <item>
@@ -76,8 +76,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_faq</link>
 <category>Sidebar Plugins</category>
 <author>Falk Doering</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_faq&lt;br /&gt;FAQ - výběr kategorií&lt;/b&gt;&lt;br /&gt;Vyberte kategorie FAQ, které chcete mít zobrazené v postranním sloupci na Vašem blogu.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:43 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_plugin_faq&lt;br /&gt;FAQ - výběr kategorií&lt;/b&gt;&lt;br /&gt;Vyberte kategorie FAQ, které chcete mít zobrazené v postranním sloupci na Vašem blogu.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Fri, 23 Sep 2016 22:32:40 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_faq</guid>
 </item>
 <item>
@@ -167,7 +167,7 @@
 <category>Sidebar Plugins</category>
 <author>Grischa Brockhaus, Damian Luszczymak, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_twitter&lt;br /&gt;Twitter&lt;/b&gt;&lt;br /&gt;Zobrazuje Vaše nejnovější příspěvky na Twitteru&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 19 Jan 2014 02:32:01 +0100</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_twitter</guid>
 </item>
 <item>
@@ -185,7 +185,7 @@
 <category>Sidebar Plugins</category>
 <author>Andrew Brown (Menalto code), Matthew Groeninger (Unified/Media Lib. Code), Stefan Lange-Hegermann (Zooomr Code), Matthew Maude (Coppermine code)</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_imagesidebar&lt;br /&gt;Jednotné zobrazování obrázků v postranním sloupci&lt;/b&gt;&lt;br /&gt;Umožňuje zobrazovat obrázky v postranním sloupci. Zdrojů těchto obrázků může být vícero. Plugin se dokáže připojit do Menalto Gallery, do databáze Coppermine galerie (pouze pokud běží na MySQL), k webové službě Zooomr (http://beta.zooomr.com/home) a samozřejmě i ke Knihovně médií Serendipity.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 03 Jun 2015 02:32:41 +0200</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_imagesidebar</guid>
 </item>
 <item>
@@ -212,7 +212,7 @@
 <category>Sidebar Plugins</category>
 <author>Andrew Brown, Tadashi Jokagi</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_gallery_menalto_random&lt;br /&gt;Náhodné foto (Gallery Random Photo Block)&lt;/b&gt;&lt;br /&gt;Přidává odkaz na skript Gallery Random Block (funkce Menalto Gallery, více viz. http://gallery.menalto.com)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:59:03 +0200</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_gallery_menalto_random</guid>
 </item>
 <item>
@@ -221,7 +221,7 @@
 <category>Sidebar Plugins</category>
 <author>Piotr Borys</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_ggopis&lt;br /&gt;Status z Gadu-Gadu&lt;/b&gt;&lt;br /&gt;Zobrazuje popis stavu z Gadu-Gadu IM (Instant Messenger = protokol pro posílání zpráv, alternativa ICQ, Jabberu apod.)&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:59:03 +0200</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_ggopis</guid>
 </item>
 <item>
@@ -266,7 +266,7 @@
 <category>Sidebar Plugins</category>
 <author>Flo Solcher</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_audioscrobbler&lt;br /&gt;Audioscrobbler&lt;/b&gt;&lt;br /&gt;Ze služby audioscrobbler.net (neblo last.fm) Zobrazuje naposledy přehrávané skladby&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:55 +0100</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_audioscrobbler</guid>
 </item>
 <item>
@@ -320,7 +320,7 @@
 <category>Sidebar Plugins</category>
 <author>Matthew Groeninger, (original plugin by Thomas Nesges)</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_amazon&lt;br /&gt;Doporučení Amazon&lt;/b&gt;&lt;br /&gt;Doporučené produkty z Amazon v rámci partnerského programu Amazon&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:59:01 +0200</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_amazon</guid>
 </item>
 <item>
@@ -338,7 +338,7 @@
 <category>Sidebar Plugins</category>
 <author>Christian Lescuyer</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_pagerank&lt;br /&gt;Google PageRank&lt;/b&gt;&lt;br /&gt;Dynamické zobrazení Google PageRanku&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 14 Jul 2009 13:46:11 +0200</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_pagerank</guid>
 </item>
 <item>
@@ -356,7 +356,7 @@
 <category>Sidebar Plugins</category>
 <author>Lars Strojny</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_flickrbadge&lt;br /&gt;Flickr badge&lt;/b&gt;&lt;br /&gt;Zobrazuje nejnovější fotky z Flickr.com (pozn. překladatele - Stejné věci umí plugin Flickr, který toho navíc umí ještě víc.)&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:57 +0100</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_flickrbadge</guid>
 </item>
 <item>
@@ -374,7 +374,7 @@
 <category>Sidebar Plugins</category>
 <author>Stefan Lange-Hegermann</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_zooomr&lt;br /&gt;Zooomr&lt;/b&gt;&lt;br /&gt;Zobrazuje nejnovější obrázky ze Zooomr feedu&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:59:07 +0200</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_zooomr</guid>
 </item>
 <item>
@@ -383,7 +383,7 @@
 <category>Sidebar Plugins</category>
 <author>Bernd Distler</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_piwik&lt;br /&gt;Piwik&lt;/b&gt;&lt;br /&gt;show statistics of Piwik in sidebar&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Mon, 25 Apr 2016 22:32:08 +0200</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_piwik</guid>
 </item>
 <item>
@@ -427,8 +427,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_linklist</link>
 <category>Sidebar Plugins</category>
 <author>Matthew Groeninger, Omid Mottaghi Rad</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_linklist&lt;br /&gt;Link List&lt;/b&gt;&lt;br /&gt;Správce odkazů (linků) - V bočním panelu zobrazuje vaše oblíbené odkazy.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 27 Jun 2015 02:32:30 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_plugin_linklist&lt;br /&gt;Link List&lt;/b&gt;&lt;br /&gt;Správce odkazů (linků) - V bočním panelu zobrazuje vaše oblíbené odkazy.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Fri, 23 Sep 2016 22:32:54 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_linklist</guid>
 </item>
 <item>
@@ -473,7 +473,7 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking, Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_multilingual&lt;br /&gt;Výběr jazyka&lt;/b&gt;&lt;br /&gt;Povolit návštěvníkům měnit jazyk uživatelského rozhraní blogu&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Wed, 18 May 2016 09:58:40 +0200</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_multilingual</guid>
 </item>
 <item>

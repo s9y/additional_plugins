@@ -4,15 +4,16 @@
 <packages>
 <package version="1.0">
 <name>serendipity_event_weblogping</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_weblogping/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Анонсиране на статии</summary>
 <groups>BACKEND_EDITOR</groups>
 <description>Изпраща известия за нови статии на онлайн услуги</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.08.2</version>
+  <version>1.09</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2015-01-27</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_weblogping">
 <file>lang_fr.inc.php</file>
@@ -20,6 +21,7 @@
 <file>lang_pt_PT.inc.php</file>
 <file>lang_pl.inc.php</file>
 <file>lang_de.inc.php</file>
+<file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <file>lang_ko.inc.php</file>
 <dir name="UTF-8">
@@ -58,6 +60,7 @@
     <file>serendipity_event_weblogping/lang_pt_PT.inc.php</file>
     <file>serendipity_event_weblogping/lang_pl.inc.php</file>
     <file>serendipity_event_weblogping/lang_de.inc.php</file>
+    <file>serendipity_event_weblogping/ChangeLog</file>
     <file>serendipity_event_weblogping/lang_cz.inc.php</file>
     <file>serendipity_event_weblogping/lang_ko.inc.php</file>
     <file>serendipity_event_weblogping/UTF-8/lang_fr.inc.php</file>
@@ -226,7 +229,7 @@
 <release>
   <version>3.59</version>
   <requirements:s9yVersion>1.7.0</requirements:s9yVersion>
-  <date>2016-01-08</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="img">
@@ -379,18 +382,20 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_phoneblogz</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_phoneblogz/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Phoneblogz</summary>
 <groups>BACKEND_FEATURES</groups>
 <description>This plugin allows to fetch messages from Phoneblogz.</description>
 <maintainers><maintainer><name>Garvin Hicking, phoneblogz.com</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.9</version>
+  <version>0.10</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_phoneblogz">
 <file>INSTALL.txt</file>
+<file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
 <file>lang_cz.inc.php</file>
@@ -408,6 +413,7 @@
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_phoneblogz/INSTALL.txt</file>
+    <file>serendipity_event_phoneblogz/ChangeLog</file>
     <file>serendipity_event_phoneblogz/lang_cz.inc.php</file>
     <file>serendipity_event_phoneblogz/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_phoneblogz/UTF-8/lang_cs.inc.php</file>
@@ -430,9 +436,9 @@
 <description>Display entries from multiple RSS feeds (&quot;Planet&quot;). IMPORTANT NOTE: Updating and &quot;feeding&quot; your Aggregator must currently still happen manually via Cronjobs or similar. Call this URL with your custom timing interval: index.php?/plugin/aggregator</description>
 <maintainers><maintainer><name>Evan Nemerson, Garvin Hicking, Kristian Koehntopp, Thomas Schulz, Claus Schmidt</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.31.1</version>
+  <version>0.33</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_aggregator">
 <dir name="simplepie">
@@ -883,7 +889,7 @@
 <release>
   <version>1.6.3</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2015-03-13</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_linktrimmer">
 <file>plugin_linktrimmer_old.tpl</file>
@@ -1354,9 +1360,9 @@
 <description>Поставя HTML блок на различни места в страницата или вътре в нейния HEAD таг</description>
 <maintainers><maintainer><name>Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.13</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-01-19</date>
+  <version>1.14</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_page_nugget">
 <file>lang_de.inc.php</file>
@@ -1602,9 +1608,9 @@
 <description>Real time music status from iTunes using iTunesBlogger: http://www.ituneshacking.com/wiki/wakka.php?wakka=iTunesBloggerHomePage</description>
 <maintainers><maintainer><name>Tys von Gaza</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
+  <version>1.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-05-22</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_motm">
 <file>motm_update.php</file>
@@ -1811,11 +1817,11 @@
 <summary>Често задавани въпроси</summary>
 <groups>FRONTEND_FEATURES</groups>
 <description>Редактира списък от често задавани въпроси.</description>
-<maintainers><maintainer><name>Falk Doering</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Falk Doering, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.12.1</version>
-  <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <version>1.23</version>
+  <requirements:s9yVersion>1.7</requirements:s9yVersion>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_faq">
 <dir name="img">
@@ -1928,9 +1934,9 @@
 <description>Allows entries to be geotagged with coordinates</description>
 <maintainers><maintainer><name>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.33.1</version>
+  <version>1.33.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_geotag">
 <file>lang_de.inc.php</file>
@@ -2079,9 +2085,9 @@
 <description>Sets HTML meta keywords/description tags and title element for single entry pages and default meta keywords/description tags for non-single entry pages.</description>
 <maintainers><maintainer><name>Garvin Hicking, Judebert, Don Chambers</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.15.1</version>
+  <version>0.15.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_metadesc">
 <file>lang_pl.inc.php</file>
@@ -2571,9 +2577,9 @@
 <description>Imports comments made on facebook postings (like through RSS Graffiti) back into the blog. Also embeds Facebook OpenGraph Meta-Tags into the blog. Note that adding &quot;like&quot;-Buttons to blog entries is achieved via the serendipity_event_findmore plugin! </description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.5.1</version>
+  <version>0.5.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_facebook">
 <file>ChangeLog</file>
@@ -2711,9 +2717,9 @@
 <description>Allows anonymous users to view Serendipity media gallery</description>
 <maintainers><maintainer><name>Arnan de Gans, Matthew Groeninger, and Stefan Willoughby, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.65</version>
+  <version>2.68</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2015-08-20</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_usergallery">
 <file>lang_ja.inc.php</file>
@@ -2820,9 +2826,9 @@
 <description>Adds a button to allow Amazon.com search which are insertable into your entry</description>
 <maintainers><maintainer><name>Matthew Groeninger, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.75</version>
+  <version>0.76</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2015-08-20</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_amazonchooser">
 <file>lang_ja.inc.php</file>
@@ -3368,9 +3374,9 @@
 <description>Adds a twitter/identica client to the admininistration interface, searches for tweetbacks and announces new articles to a microblogging account.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Peter Heimann</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.66</version>
+  <version>1.67</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="img">
@@ -3800,9 +3806,9 @@
 <description>This plugin handles mobile devices and outputs optimized XHTML MP markup if it detects a mobile browser and a specially optimized site for iPhone and iPod Touch. It also scales images to fit the display size.</description>
 <maintainers><maintainer><name>Pelle Boese, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.04.1</version>
+  <version>1.04.2</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_mobile_output">
 <file>template.class.php</file>
@@ -4497,9 +4503,9 @@
 <description>You can rate products, movies or anything else and display your rating within your associated entries. Also enables you to share your ratings with other users of these plugins. This plugin requires you to edit template files, please read the README file.</description>
 <maintainers><maintainer><name>Garvin Hicking, Lewe Zipfel</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.11.1</version>
+  <version>1.12</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_communityrating">
 <dir name="img">
@@ -5258,9 +5264,9 @@
 <description>Import images from flickr.com into the media library</description>
 <maintainers><maintainer><name>Jay Bertrand</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.5.1</version>
+  <version>0.5.2</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_flickr">
 <file>lang_fr.inc.php</file>
@@ -5700,9 +5706,9 @@
 <description>Ако тази приставка е инсталирана, бързото търсене ще се изпълнява и в коментарите</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-12-01</date>
+  <version>1.6</version>
+  <requirements:s9yVersion>1.7</requirements:s9yVersion>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_commentsearch">
 <file>serendipity_event_commentsearch.php</file>
@@ -6230,6 +6236,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_tooltips</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_tooltips/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Tooltips</summary>
 <groups>BACKEND_EDITOR,MARKUP</groups>
@@ -6257,6 +6264,7 @@
 <file>overlib_cssstyle.js</file>
 </dir>
 <file>lang_de.inc.php</file>
+<file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
 <file>lang_ja.inc.php</file>
@@ -6284,6 +6292,7 @@
     <file>serendipity_event_tooltips/overlib/overlib_shadow.js</file>
     <file>serendipity_event_tooltips/overlib/overlib_cssstyle.js</file>
     <file>serendipity_event_tooltips/lang_de.inc.php</file>
+    <file>serendipity_event_tooltips/ChangeLog</file>
     <file>serendipity_event_tooltips/lang_cz.inc.php</file>
     <file>serendipity_event_tooltips/UTF-8/lang_ja.inc.php</file>
     <file>serendipity_event_tooltips/UTF-8/lang_de.inc.php</file>
@@ -6801,14 +6810,14 @@
 <name>serendipity_event_ckeditor</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_ckeditor/ChangeLog</changelog>
 <license>GPL</license>
-<summary>CKEditor</summary>
+<summary>CKEditor Plus</summary>
 <groups>BACKEND_EDITOR</groups>
 <description>Uses CKEditor as the default WYSIWYG editor. For any JS-Editor usage: Recommended! After installation, go to the configuration screen of this plugin for further instructions.</description>
 <maintainers><maintainer><name>Rustam Abdullaev, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>4.5.9.0</version>
+  <version>4.5.10.5</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2016-05-18</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_ckeditor">
 <dir name="img">
@@ -7534,7 +7543,7 @@
 <release>
   <version>0.6.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_backend">
 <file>serendipity_event_backend.php</file>
@@ -7583,9 +7592,9 @@
 <description>Cleanup database</description>
 <maintainers><maintainer><name>Malte Paskuda, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.2.8</version>
+  <version>0.2.9</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-03-17</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_dbclean">
 <file>serendipity_event_dbclean.php</file>
@@ -7805,11 +7814,11 @@
 <summary>Downloadmanager</summary>
 <groups>FRONTEND_FULL_MODS</groups>
 <description>Provides full downloadmanager capabilities to your s9y. When uninstalling, all related tables will be dropped!</description>
-<maintainers><maintainer><name>Alexander 'dma147' Mieland, Grischa Brockhaus, Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Alexander 'dma147' Mieland, Grischa Brockhaus, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.30</version>
-  <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2014-04-09</date>
+  <version>0.37</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_downloadmanager">
 <dir name="img">
@@ -8116,9 +8125,9 @@
 <description>Менажер на връзките - показва връзки към други сайтове в странична приставка.</description>
 <maintainers><maintainer><name>Matthew Groeninger, Omid Mottaghi Rad</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.02</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-08-03</date>
+  <version>2.03</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_linklist">
 <dir name="img">
@@ -8260,11 +8269,11 @@
 <summary>Филтриране на статии</summary>
 <groups>FRONTEND_VIEWS</groups>
 <description>Позволява посетителите да филтрират статиите по различни критерии</description>
-<maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Garvin Hicking, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.7.1</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <version>1.7.2</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_filter_entries">
 <file>lang_de.inc.php</file>
@@ -8460,9 +8469,9 @@
 <description>Creates a sitemap.xml.gz, which can be used by miscellaneous Web-Crawlers. (Google, MSN, Yahoo and Ask)</description>
 <maintainers><maintainer><name>Boris</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.58.1</version>
+  <version>0.58.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_google_sitemap">
 <file>lang_pl.inc.php</file>
@@ -8517,9 +8526,9 @@
 <description>Позволява създаването на версии на статиите на различни езици</description>
 <maintainers><maintainer><name>Garvin Hicking, Wesley Hwang-Chung, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.29</version>
+  <version>2.32</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-05-18</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_multilingual">
 <file>lang_fr.inc.php</file>
@@ -9135,9 +9144,9 @@
 <description>Detects Spam via an algorithmus which learns.</description>
 <maintainers><maintainer><name>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.4.23</version>
+  <version>0.4.24</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-09-02</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bayes">
 <dir name="img">
@@ -9847,7 +9856,7 @@
 <release>
   <version>1.1.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-08-01</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_autoupdate">
 <file>lang_de.inc.php</file>
@@ -10138,9 +10147,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>GeoURL асоциира URL на блога с географски координати. Повече информация има на http://geourl.org/</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4.1</version>
+  <version>1.4.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_geourl">
 <file>lang_de.inc.php</file>
@@ -10317,9 +10326,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>Spice up your comments area with goodies like commenters twitter or last posted article link and nofollows by rules.</description>
 <maintainers><maintainer><name>Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.07</version>
+  <version>1.08</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-02-12</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_commentspice">
 <dir name="img">
@@ -10542,9 +10551,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>Adds &quot;podcasting&quot; capabilities hinzu (RSS enclosure, Video/Sound-Player)</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Hannes Gassert, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.37.1</version>
+  <version>1.37.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_podcast">
 <dir name="player">
@@ -11073,7 +11082,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <release>
   <version>1.12.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_customarchive">
 <file>customarchive.tpl</file>

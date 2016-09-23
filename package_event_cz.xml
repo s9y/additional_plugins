@@ -4,15 +4,16 @@
 <packages>
 <package version="1.0">
 <name>serendipity_event_weblogping</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_weblogping/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Oznamování příspěvků</summary>
 <groups>BACKEND_EDITOR</groups>
 <description>Posílá oznámení o nových příspěvcích na on-line internetové služby.</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.08.2</version>
+  <version>1.09</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2015-01-27</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_weblogping">
 <file>lang_fr.inc.php</file>
@@ -20,6 +21,7 @@
 <file>lang_pt_PT.inc.php</file>
 <file>lang_pl.inc.php</file>
 <file>lang_de.inc.php</file>
+<file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <file>lang_ko.inc.php</file>
 <dir name="UTF-8">
@@ -58,6 +60,7 @@
     <file>serendipity_event_weblogping/lang_pt_PT.inc.php</file>
     <file>serendipity_event_weblogping/lang_pl.inc.php</file>
     <file>serendipity_event_weblogping/lang_de.inc.php</file>
+    <file>serendipity_event_weblogping/ChangeLog</file>
     <file>serendipity_event_weblogping/lang_cz.inc.php</file>
     <file>serendipity_event_weblogping/lang_ko.inc.php</file>
     <file>serendipity_event_weblogping/UTF-8/lang_fr.inc.php</file>
@@ -226,7 +229,7 @@
 <release>
   <version>3.59</version>
   <requirements:s9yVersion>1.7.0</requirements:s9yVersion>
-  <date>2016-01-08</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="img">
@@ -379,18 +382,20 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_phoneblogz</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_phoneblogz/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Phoneblogz</summary>
 <groups>BACKEND_FEATURES</groups>
 <description>Tento plugin umožňuje vypisovat zprávy ze služby Phoneblogz.</description>
 <maintainers><maintainer><name>Garvin Hicking, phoneblogz.com</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.9</version>
+  <version>0.10</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_phoneblogz">
 <file>INSTALL.txt</file>
+<file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
 <file>lang_cz.inc.php</file>
@@ -408,6 +413,7 @@
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_phoneblogz/INSTALL.txt</file>
+    <file>serendipity_event_phoneblogz/ChangeLog</file>
     <file>serendipity_event_phoneblogz/lang_cz.inc.php</file>
     <file>serendipity_event_phoneblogz/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_phoneblogz/UTF-8/lang_cs.inc.php</file>
@@ -430,9 +436,9 @@
 <description>Zobrazuje zprávy z mnoha RSS kanálů. DŮLEŽITÁ POZNÁMKA: Aktualizace a &quot;krmení&quot; agregátoru je v současnosti nutno dělat ručně pomocí Cronjobs nebo podobně. Volejte následující adresu v libovolných časových intervalech: index.php?/plugin/aggregator</description>
 <maintainers><maintainer><name>Evan Nemerson, Garvin Hicking, Kristian Koehntopp, Thomas Schulz, Claus Schmidt</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.31.1</version>
+  <version>0.33</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_aggregator">
 <dir name="simplepie">
@@ -883,7 +889,7 @@
 <release>
   <version>1.6.3</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2015-03-13</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_linktrimmer">
 <file>plugin_linktrimmer_old.tpl</file>
@@ -1355,9 +1361,9 @@ aplikovány další typografické úpravy.</description>
 <description>Umístí HTML blok na vršek nebo spodek stránky, případně do tagu HEAD v záhlaví stránky</description>
 <maintainers><maintainer><name>Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.13</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-01-19</date>
+  <version>1.14</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_page_nugget">
 <file>lang_de.inc.php</file>
@@ -1603,9 +1609,9 @@ aplikovány další typografické úpravy.</description>
 <description>Okamžitý stav hudby z iTunes s pomocí iTunesBloggeru: http://www.ituneshacking.com/wiki/wakka.php?wakka=iTunesBloggerHomePage</description>
 <maintainers><maintainer><name>Tys von Gaza</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
+  <version>1.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-05-22</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_motm">
 <file>motm_update.php</file>
@@ -1812,11 +1818,11 @@ aplikovány další typografické úpravy.</description>
 <summary>FAQ - Často kladené otázky</summary>
 <groups>FRONTEND_FEATURES</groups>
 <description>Správa FAQ - často kladených otázek</description>
-<maintainers><maintainer><name>Falk Doering</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Falk Doering, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.12.1</version>
-  <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <version>1.23</version>
+  <requirements:s9yVersion>1.7</requirements:s9yVersion>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_faq">
 <dir name="img">
@@ -1929,9 +1935,9 @@ aplikovány další typografické úpravy.</description>
 <description>Umožňuje přidat k příspěvku zeměpisné souřadnice - geotag</description>
 <maintainers><maintainer><name>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.33.1</version>
+  <version>1.33.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_geotag">
 <file>lang_de.inc.php</file>
@@ -2080,9 +2086,9 @@ aplikovány další typografické úpravy.</description>
 <description>Zadejte HTML meta tagy pro klíčová slova nebo popis blogu. Také můžete zadávat různý titulek pro jednotlivé stránky blogu a výchozí hodnotu pro klíčová slova/popis pro stránky se zobrazenm více příspěvků (výchozí stránka, přehledy kategorií).</description>
 <maintainers><maintainer><name>Garvin Hicking, Judebert, Don Chambers</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.15.1</version>
+  <version>0.15.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_metadesc">
 <file>lang_pl.inc.php</file>
@@ -2572,9 +2578,9 @@ aplikovány další typografické úpravy.</description>
 <description>Importuje do blogu komentáře u příspěvků na facebooku (pomocí RSS Graffiti). Také do blogu vloží facebookové OpenGraph Meta-Tagy. Pamatujte, že přidání talčítka &quot;Líbí se mi&quot; k příspěvkům blogu je zajišťováno pluginem serendipity_event_findmore!</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.5.1</version>
+  <version>0.5.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_facebook">
 <file>ChangeLog</file>
@@ -2712,9 +2718,9 @@ aplikovány další typografické úpravy.</description>
 <description>Umožňuje nepřihlášeným uživatelům prohlížet Serendipity knihovnu médií</description>
 <maintainers><maintainer><name>Arnan de Gans, Matthew Groeninger, and Stefan Willoughby, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.65</version>
+  <version>2.68</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2015-08-20</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_usergallery">
 <file>lang_ja.inc.php</file>
@@ -2821,9 +2827,9 @@ aplikovány další typografické úpravy.</description>
 <description>Přidává tlačítko, které umožňuje vkládat do příspěvků výsledky hledání na Amazon.com</description>
 <maintainers><maintainer><name>Matthew Groeninger, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.75</version>
+  <version>0.76</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2015-08-20</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_amazonchooser">
 <file>lang_ja.inc.php</file>
@@ -3369,9 +3375,9 @@ aplikovány další typografické úpravy.</description>
 <description>Přidává klienta Twitter/Identica do administrační sekce a stahuje nové tweety a oznámuje nové články na účtu mikroblogu.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Peter Heimann</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.66</version>
+  <version>1.67</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="img">
@@ -3801,9 +3807,9 @@ aplikovány další typografické úpravy.</description>
 <description></description>
 <maintainers><maintainer><name>Pelle Boese, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.04.1</version>
+  <version>1.04.2</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_mobile_output">
 <file>template.class.php</file>
@@ -4498,9 +4504,9 @@ aplikovány další typografické úpravy.</description>
 <description>Můžete hodnotit výrobky, filmy nebo cokoliv jiného a zobrazovat jejich hodnocení v příslušných příspěvcích. Také umožňuje sdíle hodnocení s ostatními uživateli tohoto pluginu. Tento plugin vyžaduje zásah do šablon, přečtěte si prosím soubor README.</description>
 <maintainers><maintainer><name>Garvin Hicking, Lewe Zipfel</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.11.1</version>
+  <version>1.12</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_communityrating">
 <dir name="img">
@@ -5259,9 +5265,9 @@ aplikovány další typografické úpravy.</description>
 <description>Importuje obrázky z flickr.com do knihovny médií</description>
 <maintainers><maintainer><name>Jay Bertrand</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.5.1</version>
+  <version>0.5.2</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_flickr">
 <file>lang_fr.inc.php</file>
@@ -5701,9 +5707,9 @@ aplikovány další typografické úpravy.</description>
 <description>Pokud je tento plugin nainstalovaný, rychlé vyhledávání bude prohledávat také komentáře</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-12-01</date>
+  <version>1.6</version>
+  <requirements:s9yVersion>1.7</requirements:s9yVersion>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_commentsearch">
 <file>serendipity_event_commentsearch.php</file>
@@ -6231,6 +6237,7 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_tooltips</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_tooltips/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Tooltips - nápověda, tipy</summary>
 <groups>BACKEND_EDITOR,MARKUP</groups>
@@ -6258,6 +6265,7 @@ aplikovány další typografické úpravy.</description>
 <file>overlib_cssstyle.js</file>
 </dir>
 <file>lang_de.inc.php</file>
+<file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
 <file>lang_ja.inc.php</file>
@@ -6285,6 +6293,7 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_tooltips/overlib/overlib_shadow.js</file>
     <file>serendipity_event_tooltips/overlib/overlib_cssstyle.js</file>
     <file>serendipity_event_tooltips/lang_de.inc.php</file>
+    <file>serendipity_event_tooltips/ChangeLog</file>
     <file>serendipity_event_tooltips/lang_cz.inc.php</file>
     <file>serendipity_event_tooltips/UTF-8/lang_ja.inc.php</file>
     <file>serendipity_event_tooltips/UTF-8/lang_de.inc.php</file>
@@ -6802,14 +6811,14 @@ aplikovány další typografické úpravy.</description>
 <name>serendipity_event_ckeditor</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_ckeditor/ChangeLog</changelog>
 <license>GPL</license>
-<summary>CKEditor</summary>
+<summary>CKEditor Plus</summary>
 <groups>BACKEND_EDITOR</groups>
 <description>Používá CKEditor jako výchozí WYSIWYG editor. Tento editor je aktuálním state-of-art. Použití: Doporučeno! Po instalaci přejděte na stránku s nastavením tohoto pluginu a čtěte další instrukce.</description>
 <maintainers><maintainer><name>Rustam Abdullaev, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>4.5.9.0</version>
+  <version>4.5.10.5</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2016-05-18</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_ckeditor">
 <dir name="img">
@@ -7535,7 +7544,7 @@ aplikovány další typografické úpravy.</description>
 <release>
   <version>0.6.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_backend">
 <file>serendipity_event_backend.php</file>
@@ -7584,9 +7593,9 @@ aplikovány další typografické úpravy.</description>
 <description>Čistí databázi</description>
 <maintainers><maintainer><name>Malte Paskuda, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.2.8</version>
+  <version>0.2.9</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-03-17</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_dbclean">
 <file>serendipity_event_dbclean.php</file>
@@ -7806,11 +7815,11 @@ aplikovány další typografické úpravy.</description>
 <summary>Downloadmanager</summary>
 <groups>FRONTEND_FULL_MODS</groups>
 <description>Zajišťuje Serendipity všechny funkce download managera. Při odinstalování jsou odstraněny všechny tabulky z databáze (ztráta všech dat)!!!</description>
-<maintainers><maintainer><name>Alexander 'dma147' Mieland, Grischa Brockhaus, Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Alexander 'dma147' Mieland, Grischa Brockhaus, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.30</version>
-  <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2014-04-09</date>
+  <version>0.37</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_downloadmanager">
 <dir name="img">
@@ -8117,9 +8126,9 @@ aplikovány další typografické úpravy.</description>
 <description>Správce odkazů (linků) - V bočním panelu zobrazuje vaše oblíbené odkazy.</description>
 <maintainers><maintainer><name>Matthew Groeninger, Omid Mottaghi Rad</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.02</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-08-03</date>
+  <version>2.03</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_linklist">
 <dir name="img">
@@ -8261,11 +8270,11 @@ aplikovány další typografické úpravy.</description>
 <summary>Filtrování příspěvků</summary>
 <groups>FRONTEND_VIEWS</groups>
 <description>Umožňuje návštěvníkům blogu filtrovat/řadit příspěvky podle různých pravidel</description>
-<maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Garvin Hicking, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.7.1</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <version>1.7.2</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_filter_entries">
 <file>lang_de.inc.php</file>
@@ -8461,9 +8470,9 @@ aplikovány další typografické úpravy.</description>
 <description>Vytváří soubor sitemap.xml.gz, který používají nejrůznější webové vyhledávače (Google, MSN, Yahoo nebo Ask)</description>
 <maintainers><maintainer><name>Boris</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.58.1</version>
+  <version>0.58.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_google_sitemap">
 <file>lang_pl.inc.php</file>
@@ -8518,9 +8527,9 @@ aplikovány další typografické úpravy.</description>
 <description>Umožňuje vytvořit příspěvek (záznam) ve více jazykových variantách. Obsahuje též fromulář pro výběr základního jazyka blogu.</description>
 <maintainers><maintainer><name>Garvin Hicking, Wesley Hwang-Chung, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.29</version>
+  <version>2.32</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-05-18</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_multilingual">
 <file>lang_fr.inc.php</file>
@@ -9136,9 +9145,9 @@ aplikovány další typografické úpravy.</description>
 <description>Detekce spamu pomocí adaptivního algoritmu, který se dokáže sám učit.</description>
 <maintainers><maintainer><name>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.4.23</version>
+  <version>0.4.24</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-09-02</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bayes">
 <dir name="img">
@@ -9848,7 +9857,7 @@ aplikovány další typografické úpravy.</description>
 <release>
   <version>1.1.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-08-01</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_autoupdate">
 <file>lang_de.inc.php</file>
@@ -10138,9 +10147,9 @@ aplikovány další typografické úpravy.</description>
 <description>GeoURL vkládá informace o zeměpisné poloze URL blogu. Více informací na http://geourl.org/</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4.1</version>
+  <version>1.4.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_geourl">
 <file>lang_de.inc.php</file>
@@ -10317,9 +10326,9 @@ aplikovány další typografické úpravy.</description>
 <description>Okořeňte formulář pro zadání komentářů pomocí twitteru komentujícího, odkazem na poslední článek nebo pravidly pro ne-sledování.</description>
 <maintainers><maintainer><name>Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.07</version>
+  <version>1.08</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-02-12</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_commentspice">
 <dir name="img">
@@ -10542,9 +10551,9 @@ aplikovány další typografické úpravy.</description>
 <description>Přidává &quot;podcastovací&quot; možnosti (RSS zapouzdření, přehrávač videa a/nebo hudby)</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Hannes Gassert, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.37.1</version>
+  <version>1.37.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_podcast">
 <dir name="player">
@@ -11073,7 +11082,7 @@ aplikovány další typografické úpravy.</description>
 <release>
   <version>1.12.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_customarchive">
 <file>customarchive.tpl</file>

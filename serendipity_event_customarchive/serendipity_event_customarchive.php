@@ -610,8 +610,10 @@ class serendipity_event_customarchive extends serendipity_event {
                         $serendipity['GET']['subpage'] = $nice_url;
                     }
 
-                    serendipity_smarty_init();
-                                   $serendipity['smarty']->register_function('customArchive', array($this, 'smarty_customArchive'));
+                    if (!is_object($serendipity['smarty'])) {
+                        serendipity_smarty_init();
+                    }    
+                    $serendipity['smarty']->register_function('customArchive', array($this, 'smarty_customArchive'));
 
                     break;
 

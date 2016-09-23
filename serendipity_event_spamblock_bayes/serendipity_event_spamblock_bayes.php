@@ -42,7 +42,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '0.4.23' );
+		$propbag->add ( 'version', '0.4.24' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_spamblock_comments_shown' => true,
 		                                     'external_plugin' => true,
@@ -387,7 +387,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		foreach ($tokens as $token => $value) {
 			if (isset ($stored_values [$token])) {
 				$new_value [$token] = $stored_values [$token] + $value;
-                if ($serendipity['dbType'] == 'mysql') {
+                if ($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') {
                     $sql = "INSERT INTO
                         {$serendipity[dbPrefix]}spamblock_bayes
                             (token, $group, type)
@@ -405,7 +405,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                 }
 			} else {
 				$new_value [$token] = $value;
-                if ($serendipity['dbType'] == 'mysql') {
+                if ($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') {
                     $sql = "INSERT INTO
                         {$serendipity[dbPrefix]}spamblock_bayes
                             (token, $group, type)
@@ -1173,7 +1173,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     $comment[$this->type['body']] = $comment['fullBody'];
                     unset($comment['fullBody']);
 
-                    if ($serendipity['version'][0] == '1') {
+                    if ($serendipity['version'][0] == 1) {
                         $eventData['action_more'] = '<a id="ham'. $comment ['id'] .'"
                 class="serendipityIconLink spamblockBayesControls"
                 onclick="return ham('. $comment ['id'].');"
@@ -1277,7 +1277,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     if (!serendipity_checkPermission('adminComments')) {
                         break;
                     }
-                    if ($serendipity['version'][0] == '1') {
+                    if ($serendipity['version'][0] == 1) {
                         if ($this->get_config('menu', true)) {
                             echo '<li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks">
                                 <a href="?serendipity[adminModule]=event_display&serendipity[adminAction]=spamblock_bayes&serendipity[subpage]=1">
@@ -1294,7 +1294,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     if (!serendipity_checkPermission('adminComments')) {
                         break;
                     }
-                    if ($serendipity['version'][0] == '1') {
+                    if ($serendipity['version'][0] == 1) {
                     } else {
                         if ($this->get_config('menu', true)) {
                             echo '<li><a href="?serendipity[adminModule]=event_display&serendipity[adminAction]=spamblock_bayes&serendipity[subpage]=1">' . PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME . '</a></li>';
@@ -1317,21 +1317,21 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     }
                     global $serendipity;
                     if (isset($serendipity['GET']['message'])) {
-                        if ($serendipity['version'][0] == '1') {
+                        if ($serendipity['version'][0] == 1) {
                             echo '<p class="serendipityAdminMsgNote">'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['message']) : htmlspecialchars($serendipity['GET']['message'], ENT_COMPAT, LANG_CHARSET)).'</p>';
                         } else {
                             echo '<span class="msg_notice"><span class="icon-info-circled"></span> ' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['message']) : htmlspecialchars($serendipity['GET']['message'], ENT_COMPAT, LANG_CHARSET)) . '</span>';
                         }
                     }
                     if (isset($serendipity['GET']['success'])) {
-                        if ($serendipity['version'][0] == '1') {
+                        if ($serendipity['version'][0] == 1) {
                             echo '<p class="serendipityAdminMsgSuccess">'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['success']) : htmlspecialchars($serendipity['GET']['success'], ENT_COMPAT, LANG_CHARSET)).'</p>';
                         } else {
                             echo '<span class="msg_success"><span class="icon-ok-circled"></span> ' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['success']) : htmlspecialchars($serendipity['GET']['success'], ENT_COMPAT, LANG_CHARSET)) . '</span>';
                         }
                     }
                     if (isset($serendipity['GET']['error'])) {
-                        if ($serendipity['version'][0] == '1') {
+                        if ($serendipity['version'][0] == 1) {
                             echo '<p class="serendipityAdminMsgError">'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['error']) : htmlspecialchars($serendipity['GET']['error'], ENT_COMPAT, LANG_CHARSET)).'</p>';
                         } else {
                             echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['error']) : htmlspecialchars($serendipity['GET']['error'], ENT_COMPAT, LANG_CHARSET)) . '</span>';
@@ -1912,7 +1912,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                     $this->set_config("{$type}_spam", $this->get_config("{$type}_spam", 0) + 1);
                 }
             }
-        } else if ($serendipity['dbType'] == 'sqlite') {
+        } elseif ($serendipity['dbType'] == 'sqlite' || $serendipity['dbType'] == 'sqlite3' || $serendipity['dbType'] == 'sqlite3oo' || $serendipity['dbType'] == 'pdo-sqlite') {
             foreach ($importDatabase as $importToken) {
                 $token = $importToken[0];
                 $ham = $importToken[1];

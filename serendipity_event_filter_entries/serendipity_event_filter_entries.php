@@ -1,17 +1,10 @@
-<?php # 
-
+<?php
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_filter_entries extends serendipity_event
 {
@@ -25,10 +18,10 @@ class serendipity_event_filter_entries extends serendipity_event
         $propbag->add('name',          PLUGIN_EVENT_FILTER_ENTRIES_NAME);
         $propbag->add('description',   PLUGIN_EVENT_FILTER_ENTRIES_DESC);
         $propbag->add('stackable',     false);
-        $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.7.1');
+        $propbag->add('author',        'Garvin Hicking, Ian');
+        $propbag->add('version',       '1.7.2');
         $propbag->add('requirements',  array(
-            'serendipity' => '0.8',
+            'serendipity' => '1.6',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
@@ -41,11 +34,13 @@ class serendipity_event_filter_entries extends serendipity_event
         $propbag->add('groups', array('FRONTEND_VIEWS'));
     }
 
-    function generate_content(&$title) {
+    function generate_content(&$title)
+    {
         $title = $this->title;
     }
 
-    function event_hook($event, &$bag, &$eventData, $addData = null) {
+    function event_hook($event, &$bag, &$eventData, $addData = null)
+    {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');
@@ -108,7 +103,7 @@ class serendipity_event_filter_entries extends serendipity_event
 <?php
                     $categories = serendipity_fetchCategories();
                     $categories = serendipity_walkRecursive($categories, 'categoryid', 'parentid', VIEWMODE_THREADED);
-                    foreach ( $categories as $cat ) {
+                    foreach ( $categories AS $cat ) {
                         echo '<option value="'. $cat['categoryid'] .'"'. ($_SESSION['filter']['category'] == $cat['categoryid'] ? ' selected="selected"' : '') .'>'. str_repeat('&nbsp;', $cat['depth']) . $cat['category_name'] .'</option>' . "\n";
                     }
 ?>              </select>
@@ -124,7 +119,7 @@ class serendipity_event_filter_entries extends serendipity_event
             <td>
                 <select name="sort[order]">
 <?php
-    foreach($sort_order as $so_key => $so_val) {
+    foreach($sort_order AS $so_key => $so_val) {
         echo '<option value="' . $so_key . '" ' . (isset($_SESSION['sort']['order']) && $_SESSION['sort']['order'] == $so_key ? 'selected="selected"': '') . '>' . $so_val . '</option>' . "\n";
     }
 ?>              </select>
@@ -155,7 +150,6 @@ class serendipity_event_filter_entries extends serendipity_event
 </form>
 </div>
 <?php
-                    return true;
                     break;
 
                 case 'external_plugin':
@@ -206,7 +200,7 @@ class serendipity_event_filter_entries extends serendipity_event
                     }
 
                     /* Attempt to locate hidden variables within the URI */
-                    foreach ($serendipity['uriArguments'] as $k => $v){
+                    foreach ($serendipity['uriArguments'] AS $k => $v){
                         if ($v[0] == 'P') { /* Page */
                             $page = substr($v, 1);
                             if (is_numeric($page)) {
@@ -249,7 +243,7 @@ class serendipity_event_filter_entries extends serendipity_event
                             }
 
                             if (!empty($_SESSION['filter']['body'])) {
-                                if ($serendipity['dbType'] == 'mysql') {
+                                if ($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') {
                                     $filter[] = "MATCH (title,body,extended) AGAINST ('" . serendipity_db_escape_string($_SESSION['filter']['body']) . "')";
                                     $full     = true;
                                 }
@@ -282,18 +276,18 @@ class serendipity_event_filter_entries extends serendipity_event
                             $serendipity['smarty']->display(serendipity_getTemplateFile($serendipity['smarty_file'], 'serendipityPath'));
                             break;
                     }
-
-                    return true;
                     break;
 
                 default:
                     return false;
-                    break;
             }
+            return true;
         } else {
             return false;
         }
     }
+
 }
 
 /* vim: set sts=4 ts=4 expandtab : */
+?>

@@ -9,3 +9,4 @@
 
 @define('PLUGIN_EVENT_FILTER_ENTRIES_NAME',		'Filtrování pøíspìvkù');
 @define('PLUGIN_EVENT_FILTER_ENTRIES_DESC',		'Umo¾òuje náv¹tìvníkùm blogu filtrovat/øadit pøíspìvky podle rùzných pravidel');
+

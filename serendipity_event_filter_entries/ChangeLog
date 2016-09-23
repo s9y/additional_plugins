@@ -1,1 +1,12 @@
-1.6: Fix pagination being off by one page, thanks to montebianco
+1.7.2:
+------
+
+ * Set plugin consistencies
+ * Add missing db type for mysqli cases
+ * Use load language API - extends required Serendipity version to v.1.6
+
+
+1.6:
+----
+ * Fix pagination being off by one page, thanks to montebianco
+ 

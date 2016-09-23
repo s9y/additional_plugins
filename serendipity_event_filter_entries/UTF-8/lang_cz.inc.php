@@ -9,3 +9,4 @@
 
 @define('PLUGIN_EVENT_FILTER_ENTRIES_NAME',		'Filtrování příspěvků');
 @define('PLUGIN_EVENT_FILTER_ENTRIES_DESC',		'Umožňuje návštěvníkům blogu filtrovat/řadit příspěvky podle různých pravidel');
+

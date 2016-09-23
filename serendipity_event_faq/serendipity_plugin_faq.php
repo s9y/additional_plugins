@@ -1,17 +1,10 @@
-<?php # 
-
+<?php
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_plugin_faq extends serendipity_plugin
 {
@@ -22,14 +15,14 @@ class serendipity_plugin_faq extends serendipity_plugin
         $propbag->add('description',    FAQ_PLUGIN_NAME_DESC);
         $propbag->add('author',         'Falk Doering');
         $propbag->add('stackable',      true);
-        $propbag->add('version',        '0.2');
+        $propbag->add('version',        '0.3');
         $propbag->add('copyright',      'LGPL');
         $propbag->add('configuration',  array(
             'title',
             'category'
         ));
         $propbag->add('requirements',  array(
-            'serendipity'   => '1.0',
+            'serendipity'   => '1.6',
             'smarty'        => '2.6.7',
             'php'           => '4.1.0'
         ));
@@ -70,14 +63,14 @@ class serendipity_plugin_faq extends serendipity_plugin
     {
         global $serendipity;
 
-        $title      = $this->get_config('title');
-        $categoryids = explode('^',$this->get_config('category'));
+        $title       = $this->get_config('title');
+        $categoryids = explode('^', $this->get_config('category'));
 
         if (is_array($categoryids)) {
             $categories = $this->get_categories($categoryids);
-            $q = 'SELECT value
-                    FROM '.$serendipity['dbPrefix'].'config
-                   WHERE name LIKE \'%faqurl%\'';
+            $q = "SELECT value
+                    FROM {$serendipity['dbPrefix']}config
+                   WHERE name LIKE '%faqurl%'";
             $res = serendipity_db_query($q, true, 'assoc');
             $faqurl = $res['value'];
 
@@ -101,9 +94,9 @@ class serendipity_plugin_faq extends serendipity_plugin
     {
         global $serendipity;
 
-        $q = 'SELECT id, category
-                FROM '.$serendipity['dbPrefix'].'faq_categorys
-               WHERE ';
+        $q = "SELECT id, category
+                FROM {$serendipity['dbPrefix']}faq_categorys
+               WHERE ";
         if (is_array($ids)) {
             $q .= serendipity_db_in_sql('id', $ids, '');
         } else {
@@ -119,4 +112,5 @@ class serendipity_plugin_faq extends serendipity_plugin
     }
 
 }
+
 ?>

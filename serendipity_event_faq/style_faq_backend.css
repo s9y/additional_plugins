@@ -1,21 +1,130 @@
-#serendipityFAQNav ul {
-    padding:3px 0;
-    margin-left:0;
-    border-bottom:1px solid #000000;
+/* Set a content max-width for 1.7 backend Series */
+.serendipityAdminContent * { max-width: 1002px; }
+/* Set the content width responsive for 1.7 backend Series */
+.serendipityAdminContent #faqBackendPage { width: 100%; }
+/* Set box sizing for 1.7 backend Series */
+.serendipityAdminContent .boxsizingBorder {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
-#serendipityFAQNav ul li {
-    list-style:none;
-    margin:0;
-    display:inline;
+#faqBackendPage .plainList {
+    display: inline-table;
+    width: 100%;
 }
-
+#content #faqBackendPage ul.plainList {
+    /* 2.0 only fixes - unset ul margins */
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
+#faqBackendPage ul li {
+    list-style: none outside none;
+    display: inline;
+    width: auto;
+    margin: 0 0 0 1em;
+    padding-left: 0;
+}
+#faqBackendPage ul li:first-of-type {
+    margin-left: 1.5em;
+}
+#faqBackendPage li.fixed {
+    display: inline-table;
+    width: 30%;
+}
+#faqBackendPage li.fixed * {
+    display: inline;
+}
+#content #faqBackendPage li.fixed {
+    /* 2.0 only fixes - while 2.0 font.size is bigger */
+    width: 28%;
+}
+#faqBackendPage li.col,
+#content #faqBackendPage li.col {
+    width: 60%;
+}
+#faqBackendPage li.empty {
+    display: inline-table;
+    width: 1rem;
+}
+#content #faqBackendPage li.empty {
+    /* 2.0 only fixes - while 2.0 font.size is bigger */
+    width: 1.45rem; /* 24px */
+}
+#faqBackendPage ul li img {
+    width: auto;
+    vertical-align: middle;
+}
+#content #faqBackendPage ul li img {
+    /* 2.0 only fixes - unset auto */
+    width: 24px;
+    height: 24px;
+}
 #serendipityFAQNav ul li a {
     padding: 3px 0.5em;
-    margin-left:5px;
-    border:1px solid #000000;
+    margin-left: 5px;
+    border: 1px solid #222;
+}
+#serendipityFAQNav ul li a#active {
+    border-bottom: 1px solid #FFF;
+}
+#backend_faq_formpage label {
+    clear: both;
+    font-size: 1.125em;
+    font-weight: 600;
+    margin: 1em 0;
+    display: inline-table;
+}
+#backend_faq_formpage .title_descriptor {
+    display: table;
+    margin: 0;
+}
+#faqBackendPage .clear,
+#backend_faq_formpage .clear {
+    clear: right;
+}
+#content #faqBackendPage .clear,
+#content #backend_faq_formpage .clear {
+    /* 2.0 only fixes - unset styles */
+    margin: 0 auto; /* form_field */
+    line-height: 0; /* body */
+}
+#content #backend_faq_formpage .submit_set {
+    /* 2.0 only style - needs the #content though */
+    margin: 1.5em auto;
+}
+#faqBackendPage .action_field,
+#backend_faq_formpage .action_field,
+#backend_faq_formpage .plain_editor {
+    float: right;
+}
+#backend_faq_formpage .hook_buttons {
+    display: inline;
+}
+#backend_faq_formpage textarea {
+    width: 100%;
 }
 
-#serendipityFAQNav ul li a#active {
-    border-bottom:1px solid #ffffff;
+.faq_lang {
+    border: 1px solid #999;
+    background: #efefef;
+    padding: .1em .2em;
+}
+.faq_lang_navigation {
+    border: 1px solid #DDD;
+    padding: .5em;
+    display: table;
+}
+.faq_navigator {
+    background: #EEE;
+    border: 1px solid #CCC;
+    margin: 1em 0;
+    padding: .5em;
+}
+
+/* LARGER SCREENS */
+@media only screen and (min-width: 1200px) {
+    #faqBackendPage .action_field {
+        margin-right: 20%;
+    }
 }

@@ -1,13 +1,87 @@
-#serendipityFAQNav {
-    border-bottom:1px solid #000000;
-    margin:auto auto 10px auto;
+.faq-categoryfaqs,
+.faq-categories,
+.faq-category,
+.faq-searchresults {
+    display: table;
+}
+#serendipityFAQPagination p {
+    margin: inherit;
+    display: inline-block;
+}
+#serendipity_faq_plugin ul {
+    margin: 0 1.5em;
+}
+.faq-nav {
+    border-bottom: 1px solid #222;
+    margin: auto auto 1em auto;
 }
 
-#serendipityFAQNav a {
-    text-decoration:none;
+.faq-nav a {
+    text-decoration: none;
 }
 
-#serendipityFAQNav p {
-    margin:0px 0px 0px 0px;
-    padding:2px 2px 2px 2px;
+.faq-nav div {
+    margin: 0;
+    padding: .2em;
+}
+
+.faq-results {
+    text-align: left;
+}
+
+.faq_question-icon {
+    display: inline-block;
+    text-indent: -9999px;
+    width: 24px;
+    height: 24px;
+    background: url(plugins/serendipity_event_faq/img/question.svg);
+    background-size: 24px 24px;
+    vertical-align: middle;
+    margin-right: .5em;
+}
+.faq-faqs {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+.faq-faqs li {
+    display: block;
+    margin-bottom: .5em;
+}
+/* while uing the SVG icon */
+.faq_q *,
+.faq-faqs li *{
+    display: inline-block;
+}
+/* check for theme block elements with a margin set */
+.faq_q p, .faq_q div,
+.faq-faqs li p,.faq-faqs li div{
+    margin: auto;
+}
+.faq-status {
+    font-size: 0.875em;
+    color: #FF851B;
+    margin-left: .5em;
+}
+.faq-new {
+    color: #2ECC40;
+}
+.faq_a, .faq_q {
+    border: 1px solid #EEE;
+    margin: .5em 1em;
+    padding: .5em;
+    display: inline-table;
+    width: 100%;
+}
+.faq_q {
+    background: aliceblue;
+}
+.faq_a {
+    background: #F0F0F0;
+}
+.faq-footer {
+    display: block;
+}
+.faq-footer > div {
+    margin: .5em auto;
 }

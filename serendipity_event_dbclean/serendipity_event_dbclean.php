@@ -24,7 +24,7 @@ class serendipity_event_dbclean extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_DBCLEAN_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda, Matthias Mees');
-        $propbag->add('version',       '0.2.8');
+        $propbag->add('version',       '0.2.9');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8'
         ));
@@ -210,6 +210,8 @@ class serendipity_event_dbclean extends serendipity_event {
         switch($serendipity['dbType']) {
             case 'sqlite':
             case 'sqlite3':
+            case 'sqlite3oo':
+            case 'pdo-sqlite':
                 $sql = "VACUUM";
                 serendipity_db_query($sql);
                 break;

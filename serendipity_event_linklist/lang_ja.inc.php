@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -24,24 +24,24 @@
 @define('PLUGIN_LINKLIST_LINKS', 'リンク管理');
 @define('PLUGIN_LINKLIST_NOLINKS', '一覧にリンクがありません');
 @define('PLUGIN_LINKLIST_CATEGORY', 'カテゴリを使う');
-@define('PLUGIN_LINKLIST_CATEGORYDESC','リンクの組み立てにカテゴリを使用します。');
-@define('PLUGIN_LINKLIST_ADDLINK','リンクを追加する');
-@define('PLUGIN_LINKLIST_LINK_EXAMPLE','例: http://www.s9y.org or http://www.s9y.org/forums/');
-@define('PLUGIN_LINKLIST_EDITLINK','リンクを編集する');
-@define('PLUGIN_LINKLIST_LINKDESC','リンクの説明');
-@define('PLUGIN_LINKLIST_CATEGORY_NAME','使用するカテゴリシステム:');
-@define('PLUGIN_LINKLIST_CATEGORY_NAME_DESC','ブログのカテゴリシステムか、このプラグインで提供するカスタムカテゴリを使用するか選択することができます。');
-@define('PLUGIN_LINKLIST_CATEGORY_NAME_CUSTOM','カスタム');
-@define('PLUGIN_LINKLIST_CATEGORY_NAME_DEFAULT','デフォルト');
-@define('PLUGIN_LINKLIST_ADD_CAT','カテゴリ管理');
-@define('PLUGIN_LINKLIST_CAT_NAME','カテゴリ名');
-@define('PLUGIN_LINKLIST_PARENT_CATEGORY','親カテゴリ');
-@define('PLUGIN_LINKLIST_ADMINCAT','カテゴリ管理');
-@define('PLUGIN_LINKLIST_CACHE_NAME','サイドバーのキャッシュ');
-@define('PLUGIN_LINKLIST_CACHE_DESC','サイドバーをキャッシュし、ページ表示の速度を向上させます。Cache is only updated when links are added through the admin interface.');
-@define('PLUGIN_LINKLIST_ENABLED_NAME','有効');
-@define('PLUGIN_LINKLIST_ENABLED_DESC','プラグインは有効です。');
-@define('PLUGIN_LINKLIST_DELETE_WARN','When a category is deleted all its entries will be moved to the root category.');
+@define('PLUGIN_LINKLIST_CATEGORYDESC', 'リンクの組み立てにカテゴリを使用します。');
+@define('PLUGIN_LINKLIST_ADDLINK', 'リンクを追加する');
+@define('PLUGIN_LINKLIST_LINK_EXAMPLE', '例: http://www.s9y.org or http://www.s9y.org/forums/');
+@define('PLUGIN_LINKLIST_EDITLINK', 'リンクを編集する');
+@define('PLUGIN_LINKLIST_LINKDESC', 'リンクの説明');
+@define('PLUGIN_LINKLIST_CATEGORY_NAME', '使用するカテゴリシステム:');
+@define('PLUGIN_LINKLIST_CATEGORY_NAME_DESC', 'ブログのカテゴリシステムか、このプラグインで提供するカスタムカテゴリを使用するか選択することができます。');
+@define('PLUGIN_LINKLIST_CATEGORY_NAME_CUSTOM', 'カスタム');
+@define('PLUGIN_LINKLIST_CATEGORY_NAME_DEFAULT', 'デフォルト');
+@define('PLUGIN_LINKLIST_ADD_CAT', 'カテゴリ管理');
+@define('PLUGIN_LINKLIST_CAT_NAME', 'カテゴリ名');
+@define('PLUGIN_LINKLIST_PARENT_CATEGORY', '親カテゴリ');
+@define('PLUGIN_LINKLIST_ADMINCAT', 'カテゴリ管理');
+@define('PLUGIN_LINKLIST_CACHE_NAME', 'サイドバーのキャッシュ');
+@define('PLUGIN_LINKLIST_CACHE_DESC', 'サイドバーをキャッシュし、ページ表示の速度を向上させます。Cache is only updated when links are added through the admin interface.');
+@define('PLUGIN_LINKLIST_ENABLED_NAME', '有効');
+@define('PLUGIN_LINKLIST_ENABLED_DESC', 'プラグインは有効です。');
+@define('PLUGIN_LINKLIST_DELETE_WARN', 'When a category is deleted all its entries will be moved to the root category.');
 
 //
 //  serendipity_event_linklist.php
@@ -87,4 +87,3 @@
 @define('PLUGIN_LINKS_STYLE', '「dtree」スタイルを使う');
 @define('PLUGIN_LINKS_STYLE_BLAHBLAH', 'dtree スタイルの使用はより清潔な外観を提供しますが、リンクがロボットによって解析されることは許可しません。');
 
-?>

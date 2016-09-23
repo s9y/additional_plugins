@@ -24,24 +24,24 @@
 @define('PLUGIN_LINKLIST_LINKS', 'Manage Links');
 @define('PLUGIN_LINKLIST_NOLINKS', 'No Links in List');
 @define('PLUGIN_LINKLIST_CATEGORY', 'Use categories');
-@define('PLUGIN_LINKLIST_CATEGORYDESC','Use categories to organize links.');
-@define('PLUGIN_LINKLIST_ADDLINK','Add a Link');
-@define('PLUGIN_LINKLIST_LINK_EXAMPLE','Example: http://www.s9y.org or http://www.s9y.org/forums/');
-@define('PLUGIN_LINKLIST_EDITLINK','Edit a Link');
-@define('PLUGIN_LINKLIST_LINKDESC','Description of Link');
-@define('PLUGIN_LINKLIST_CATEGORY_NAME','Category system to use:');
-@define('PLUGIN_LINKLIST_CATEGORY_NAME_DESC','You can choose to use the blog category system, or the custom categories provided with this plugin.');
-@define('PLUGIN_LINKLIST_CATEGORY_NAME_CUSTOM','Custom');
-@define('PLUGIN_LINKLIST_CATEGORY_NAME_DEFAULT','Default');
-@define('PLUGIN_LINKLIST_ADD_CAT','Manage categories');
-@define('PLUGIN_LINKLIST_CAT_NAME','Category Name');
-@define('PLUGIN_LINKLIST_PARENT_CATEGORY','Parent Category');
-@define('PLUGIN_LINKLIST_ADMINCAT','Administer Categories');
-@define('PLUGIN_LINKLIST_CACHE_NAME','Cache sidebar');
-@define('PLUGIN_LINKLIST_CACHE_DESC','Caching the sidebar results increases the speed of your page.  To clear cache for troubleshooting purposes turn it off and then back on.');
-@define('PLUGIN_LINKLIST_ENABLED_NAME','Enabled');
-@define('PLUGIN_LINKLIST_ENABLED_DESC','Enable the plugin.');
-@define('PLUGIN_LINKLIST_DELETE_WARN','When a category is deleted all its entries will be moved to the root category.');
+@define('PLUGIN_LINKLIST_CATEGORYDESC', 'Use categories to organize links.');
+@define('PLUGIN_LINKLIST_ADDLINK', 'Add a Link');
+@define('PLUGIN_LINKLIST_LINK_EXAMPLE', 'Example: http://www.s9y.org or http://www.s9y.org/forums/');
+@define('PLUGIN_LINKLIST_EDITLINK', 'Edit a Link');
+@define('PLUGIN_LINKLIST_LINKDESC', 'Description of Link');
+@define('PLUGIN_LINKLIST_CATEGORY_NAME', 'Category system to use:');
+@define('PLUGIN_LINKLIST_CATEGORY_NAME_DESC', 'You can choose to use the blog category system, or the custom categories provided with this plugin.');
+@define('PLUGIN_LINKLIST_CATEGORY_NAME_CUSTOM', 'Custom');
+@define('PLUGIN_LINKLIST_CATEGORY_NAME_DEFAULT', 'Default');
+@define('PLUGIN_LINKLIST_ADD_CAT', 'Manage categories');
+@define('PLUGIN_LINKLIST_CAT_NAME', 'Category Name');
+@define('PLUGIN_LINKLIST_PARENT_CATEGORY', 'Parent Category');
+@define('PLUGIN_LINKLIST_ADMINCAT', 'Administer Categories');
+@define('PLUGIN_LINKLIST_CACHE_NAME', 'Cache sidebar');
+@define('PLUGIN_LINKLIST_CACHE_DESC', 'Caching the sidebar results increases the speed of your page.  To clear cache for troubleshooting purposes turn it off and then back on.');
+@define('PLUGIN_LINKLIST_ENABLED_NAME', 'Enabled');
+@define('PLUGIN_LINKLIST_ENABLED_DESC', 'Enable the plugin.');
+@define('PLUGIN_LINKLIST_DELETE_WARN', 'When a category is deleted all its entries will be moved to the root category.');
 
 //
 //  serendipity_plugin_linklist.php
@@ -96,8 +96,8 @@
 @define('PLUGIN_LINKS_OUTSTYLE_BLAHBLAH', 'Choose the output style for the linklist.  Dtree output uses javascript to render a cross-browser tree view.  CSS list uses CSS divs and a simple javascript to replicate the dtree view, but does not support all the features of dtree.  Simple CSS will output a simple CSS controlled list, which enables tight control over the presentation of links.  Note that dtree is not typically parsable by search engines.');
 @define('PLUGIN_LINKS_CALLMARKUP', 'Apply markup?');
 @define('PLUGIN_LINKS_CALLMARKUP_BLAHBLAH', 'Choose to apply markup to the linklist output.  This will apply all markup which is applied to HTML Nugget.');
-@define('PLUGIN_LINKS_USEDESC','Use the given description');
-@define('PLUGIN_LINKS_USEDESC_BLAHBLAH','Use the description for the link title if it is available.');
-@define('PLUGIN_LINKS_PREPEND','Enter any text to be shown before the list of links.');
-@define('PLUGIN_LINKS_APPEND','Enter any text to be shown after the list of links.');
+@define('PLUGIN_LINKS_USEDESC', 'Use the given description');
+@define('PLUGIN_LINKS_USEDESC_BLAHBLAH', 'Use the description for the link title if it is available.');
+@define('PLUGIN_LINKS_PREPEND', 'Enter any text to be shown before the list of links.');
+@define('PLUGIN_LINKS_APPEND', 'Enter any text to be shown after the list of links.');
 

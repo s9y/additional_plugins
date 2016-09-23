@@ -4,13 +4,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include_once dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_plugin_linklist extends serendipity_plugin
 {
@@ -24,7 +18,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
         $propbag->add('description',   PLUGIN_LINKS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Matthew Groeninger, Omid Mottaghi Rad');
-        $propbag->add('version',       '1.22');
+        $propbag->add('version',       '1.23');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array(
                                              'title',
@@ -55,7 +49,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                                              'imgdir'));
         $this->protected = TRUE; // If set to TRUE, only allows the owner of the plugin to modify its configuration
         $propbag->add('requirements',  array(
-            'serendipity' => '0.8',
+            'serendipity' => '1.6',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
@@ -63,31 +57,34 @@ class serendipity_plugin_linklist extends serendipity_plugin
         $propbag->add('groups', array('FRONTEND_FEATURES'));
     }
 
-    function introspect_config_item($name, &$propbag) {
+    function introspect_config_item($name, &$propbag)
+    {
         global $serendipity;
+
         switch($name) {
-           case 'title':
+
+            case 'title':
                 $propbag->add('type', 'string');
                 $propbag->add('name', PLUGIN_LINKS_TITLE);
                 $propbag->add('description', PLUGIN_LINKS_TITLE_BLAHBLAH);
                 $propbag->add('default', 'Bookmark');
                 break;
 
-           case 'prepend_text':
+            case 'prepend_text':
                 $propbag->add('type', 'html');
                 $propbag->add('name', PLUGIN_LINKS_PREPEND);
                 $propbag->add('description', '');
                 $propbag->add('default', '');
                 break;
 
-           case 'append_text':
+            case 'append_text':
                 $propbag->add('type', 'html');
                 $propbag->add('name', PLUGIN_LINKS_APPEND);
                 $propbag->add('description', '');
                 $propbag->add('default', '');
-                 break;
+                break;
 
-           case 'top_level':
+            case 'top_level':
                 $propbag->add('type', 'string');
                 $propbag->add('name', PLUGIN_LINKS_TOP_LEVEL);
                 $propbag->add('description', PLUGIN_LINKS_TOP_LEVEL_BLAHBLAH);
@@ -103,7 +100,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 break;
 
             case 'links':
-                if($this->get_config('directxml') == 'true')  {
+                if (serendipity_db_bool($this->get_config('directxml', 'true')))  {
                     $propbag->add('type', 'text');
                     $propbag->add('name', PLUGIN_LINKS_LINKS);
                     $propbag->add('description', PLUGIN_LINKS_LINKS_BLAHBLAH);
@@ -113,7 +110,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 break;
 
             case 'display':
-                if($this->get_config('directxml') != 'true')  {
+                if (!serendipity_db_bool($this->get_config('directxml', 'true')))  {
                     $select = array();
                     $select["alpha"] = PLUGIN_LINKLIST_ORDER_ALPHA;
                     $select["category"] = PLUGIN_LINKLIST_ORDER_CATEGORY;
@@ -129,7 +126,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 break;
 
             case 'category':
-                if($this->get_config('directxml') != 'true')  {
+                if (!serendipity_db_bool($this->get_config('directxml', 'true')))  {
                     $propbag->add('type', 'radio');
                     $propbag->add('name', PLUGIN_LINKLIST_CATEGORY_NAME);
                     $propbag->add('description', PLUGIN_LINKLIST_CATEGORY_NAME_DESC);
@@ -143,19 +140,19 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 break;
 
             case 'cache':
-                 $propbag->add('type', 'radio');
-                 $propbag->add('name', PLUGIN_LINKLIST_CACHE_NAME);
-                 $propbag->add('description', PLUGIN_LINKLIST_CACHE_DESC);
-                 $propbag->add('radio',
-                   array( 'value' => array('yes', 'no'),
-                          'desc'  => array(YES, NO)
-                      ));
-                 $propbag->add('radio_per_row', '2');
-                 $propbag->add('default', 'no');
+                $propbag->add('type', 'radio');
+                $propbag->add('name', PLUGIN_LINKLIST_CACHE_NAME);
+                $propbag->add('description', PLUGIN_LINKLIST_CACHE_DESC);
+                $propbag->add('radio',
+                    array( 'value' => array('yes', 'no'),
+                           'desc'  => array(YES, NO)
+                    ));
+                $propbag->add('radio_per_row', '2');
+                $propbag->add('default', 'no');
                 break;
 
             case 'openAllText':
-                if($this->get_config('style') == "dtree")  {
+                if ($this->get_config('style') == "dtree")  {
                     $propbag->add('type', 'string');
                     $propbag->add('name', PLUGIN_LINKS_OPENALL);
                     $propbag->add('description', PLUGIN_LINKS_OPENALL_BLAHBLAH);
@@ -164,7 +161,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 break;
 
             case 'closeAllText':
-                if($this->get_config('style') == "dtree")  {
+                if ($this->get_config('style') == "dtree")  {
                     $propbag->add('type', 'string');
                     $propbag->add('name', PLUGIN_LINKS_CLOSEALL);
                     $propbag->add('description', PLUGIN_LINKS_CLOSEALL_BLAHBLAH);
@@ -173,7 +170,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 break;
 
             case 'showOpenAndCloseLinks':
-                if($this->get_config('style') == "dtree")  {
+                if ($this->get_config('style') == "dtree")  {
                     $propbag->add('type', 'boolean');
                     $propbag->add('name', PLUGIN_LINKS_SHOW);
                     $propbag->add('description', PLUGIN_LINKS_SHOW_BLAHBLAH);
@@ -182,7 +179,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 break;
 
             case 'locationOfOpenAndClose':
-                if($this->get_config('style') == "dtree")  {
+                if ($this->get_config('style') == "dtree")  {
                     $propbag->add('type', 'radio');
                     $propbag->add('name', PLUGIN_LINKS_LOCATION);
                     $propbag->add('description', PLUGIN_LINKS_LOCATION_BLAHBLAH);
@@ -195,7 +192,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 break;
 
             case 'useSelection':
-                if($this->get_config('style') == "dtree")  {
+                if ($this->get_config('style') == "dtree")  {
                     $propbag->add('type', 'boolean');
                     $propbag->add('name', PLUGIN_LINKS_SELECTION);
                     $propbag->add('description', PLUGIN_LINKS_SELECTION_BLAHBLAH);
@@ -204,7 +201,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 break;
 
             case 'useCookies':
-                if($this->get_config('style') == "dtree")  {
+                if ($this->get_config('style') == "dtree")  {
                     $propbag->add('type', 'boolean');
                     $propbag->add('name', PLUGIN_LINKS_COOKIE);
                     $propbag->add('description', PLUGIN_LINKS_COOKIE_BLAHBLAH);
@@ -213,7 +210,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 break;
 
             case 'useLines':
-                if($this->get_config('style') != "simp_css")  {
+                if ($this->get_config('style') != "simp_css")  {
                     $propbag->add('type', 'boolean');
                     $propbag->add('name', PLUGIN_LINKS_LINE);
                     $propbag->add('description', PLUGIN_LINKS_LINE_BLAHBLAH);
@@ -222,7 +219,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 break;
 
             case 'useIcons':
-                if($this->get_config('style') != "simp_css")  {
+                if ($this->get_config('style') != "simp_css")  {
                     $propbag->add('type', 'boolean');
                     $propbag->add('name', PLUGIN_LINKS_ICON);
                     $propbag->add('description', PLUGIN_LINKS_ICON_BLAHBLAH);
@@ -231,7 +228,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 break;
 
             case 'useSVG':
-                if($this->get_config('style') == "css")  {
+                if ($this->get_config('style') == "css")  {
                     $propbag->add('type', 'boolean');
                     $propbag->add('name', PLUGIN_LINKS_SVGICON);
                     $propbag->add('description', '');
@@ -240,7 +237,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 break;
 
             case 'useStatusText':
-                if($this->get_config('style') == "dtree")  {
+                if ($this->get_config('style') == "dtree")  {
                     $propbag->add('type', 'boolean');
                     $propbag->add('name', PLUGIN_LINKS_STATUS);
                     $propbag->add('description', PLUGIN_LINKS_STATUS_BLAHBLAH);
@@ -249,7 +246,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 break;
 
             case 'closeSameLevel':
-                if($this->get_config('style') == "dtree")  {
+                if ($this->get_config('style') == "dtree")  {
                     $propbag->add('type', 'boolean');
                     $propbag->add('name', PLUGIN_LINKS_CLOSELEVEL);
                     $propbag->add('description', PLUGIN_LINKS_CLOSELEVEL_BLAHBLAH);
@@ -285,7 +282,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 break;
 
             case 'imgdir':
-                if($this->get_config('style') != "simp_css")  {
+                if ($this->get_config('style') != "simp_css")  {
                     $propbag->add('type', 'string');
                     $propbag->add('name', PLUGIN_LINKS_IMGDIR);
                     $propbag->add('description', PLUGIN_LINKS_IMGDIR_BLAHBLAH);
@@ -294,7 +291,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 break;
 
             case 'category_default_open':
-                if($this->get_config('style') != "simp_css")  {
+                if ($this->get_config('style') != "simp_css")  {
                     $propbag->add('type', 'radio');
                     $propbag->add('name', PLUGIN_LINKLIST_CATEGORY_DEFAULT_OPEN_NAME);
                     $propbag->add('description', PLUGIN_LINKLIST_CATEGORY_DEFAULT_OPEN_DESC);
@@ -308,7 +305,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 break;
 
             case 'call_markup':
-                if($this->get_config('style') != "dtree")  {
+                if ($this->get_config('style') != "dtree")  {
                     $propbag->add('type', 'boolean');
                     $propbag->add('name', PLUGIN_LINKS_CALLMARKUP);
                     $propbag->add('description', PLUGIN_LINKS_CALLMARKUP_BLAHBLAH);
@@ -316,13 +313,14 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 }
                 break;
 
-             default:
-                    return false;
+            default:
+                return false;
         }
         return true;
     }
 
-    function decode($string) {
+    function decode($string)
+    {
         if (LANG_CHARSET != 'UTF-8') {
             return utf8_decode($string);
         }
@@ -335,7 +333,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
         global $serendipity;
 
         $title = $this->get_config('title');
-        if(!$this->get_config('directxml')) {
+        if (!serendipity_db_bool($this->get_config('directxml', 'true')))  {
             serendipity_plugin_api::hook_event('plugins_linklist_input', $linkcode);
             $this->set_config('links',$linkcode['links']);
         }
@@ -359,20 +357,22 @@ class serendipity_plugin_linklist extends serendipity_plugin
             } else {
                 $output = $this->gen_output($links,$style);
             }
-         } else {
-             $output = $this->gen_output($links,$style);
-         }
+        } else {
+            $output = $this->gen_output($links,$style);
+        }
         echo $output;
 
     }
 
-    function gen_output($links, $style) {
+    function gen_output($links, $style)
+    {
         global $serendipity;
+
         $imgdir = $this->get_config('imgdir');
-        $use_descrip = $this->get_config('use_description',false);
+        $use_descrip = serendipity_db_bool($this->get_config('use_description', 'false'));
 
 
-        /* XML definitaion */
+        /* XML definition */
         $xml = xml_parser_create('UTF-8');
         $linkxml = serendipity_utf8_encode($links);
         xml_parse_into_struct($xml, '<list>' . $linkxml . '</list>', $struct, $index);
@@ -385,9 +385,10 @@ class serendipity_plugin_linklist extends serendipity_plugin
         $str  =  $this->get_config('prepend_text');
         $str .= "\n\n";
         if ($style == "dtree") {
-            $str .= "\n".'<script src="' . $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/lldtree.js" type="text/javascript"></script>'."\n";
+            #$str .= "\n".'<script src="' . $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/lldtree.js" type="text/javascript"></script>'."\n";
+            $str .= "\n".'<script type="text/javascript" src="'.$serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_linklist/lldtree.js"></script>'."\n";
 
-            if ($this->get_config('showOpenAndCloseLinks')=='true' && $this->get_config('locationOfOpenAndClose')=='top'){
+            if (serendipity_db_bool($this->get_config('showOpenAndCloseLinks', 'true')) && $this->get_config('locationOfOpenAndClose') == 'top'){
                 $str .= '<p><a href="javascript: d.openAll();">'.$this->get_config('openAllText').'</a> | <a href="javascript: d.closeAll();">'.$this->get_config('closeAllText').'</a></p>';
             }
 
@@ -396,12 +397,12 @@ class serendipity_plugin_linklist extends serendipity_plugin
             d = new dTree("d","'.$imgdir.'");'."\n";
 
             /* configuration section*/
-            if ($this->get_config('useSelection') != true) $str.='d.config.useSelection=false;'."\n";
-            if ($this->get_config('useCookies') != true) $str.='d.config.useCookies=false;'."\n";
-            if ($this->get_config('useLines') != true) $str.='d.config.useLines=false;'."\n";
-            if ($this->get_config('useIcons') != true) $str.='d.config.useIcons=false;'."\n";
-            if ($this->get_config('useStatusText') == true) $str.='d.config.useStatusText=true;'."\n";
-            if ($this->get_config('closeSameLevel') == true) $str.='d.config.closeSameLevel=true;'."\n";
+            if (!serendipity_db_bool($this->get_config('useSelection', 'false'))) $str.='d.config.useSelection=false;'."\n";
+            if (!serendipity_db_bool($this->get_config('useCookies', 'false'))) $str.='d.config.useCookies=false;'."\n";
+            if (!serendipity_db_bool($this->get_config('useLines', 'true'))) $str.='d.config.useLines=false;'."\n";
+            if (!serendipity_db_bool($this->get_config('useIcons', 'true'))) $str.='d.config.useIcons=false;'."\n";
+            if (serendipity_db_bool($this->get_config('useStatusText', 'true'))) $str.='d.config.useStatusText=true;'."\n";
+            if (serendipity_db_bool($this->get_config('closeSameLevel', 'false'))) $str.='d.config.closeSameLevel=true;'."\n";
             $my_target = $this->get_config('target');
             if (!empty($my_target)) {
                 $str .= 'd.config.target="'.$my_target.'";'."\n";
@@ -411,15 +412,15 @@ class serendipity_plugin_linklist extends serendipity_plugin
             $str .= 'd.add(0,-1,"'.$this->get_config('top_level').'");'."\n";
 
             for($level[]=0, $i=1, $j=1; isset($struct[$i]); $i++, $j++){
-                if(isset($struct[$i]['type'])){
-                    if($struct[$i]['type'] == 'open' && strtolower($struct[$i]['tag']) == 'dir'){
+                if (isset($struct[$i]['type'])){
+                    if ($struct[$i]['type'] == 'open' && strtolower($struct[$i]['tag']) == 'dir'){
                         $str .= 'd.add('.$j.','.$level[count($level)-1].',"'.$this->decode($struct[$i]['attributes']['NAME']).'");'."\n";
                         $level[] = $j;
                     }
-                    else if($struct[$i]['type'] == 'close' && strtolower($struct[$i]['tag']) == 'dir'){
+                    else if ($struct[$i]['type'] == 'close' && strtolower($struct[$i]['tag']) == 'dir'){
                         $dump=array_pop($level);
                     }
-                    else if($struct[$i]['type']=='complete' && strtolower($struct[$i]['tag'])=='link'){
+                    else if ($struct[$i]['type']=='complete' && strtolower($struct[$i]['tag'])=='link'){
                         if ((isset($struct[$i]['attributes']['NAME'])) && ($struct[$i]['attributes']['NAME'] != "") && ($use_descrip)) {
                            $title_text = $this->decode($struct[$i]['attributes']['DESCRIP']);
                         } else {
@@ -434,12 +435,12 @@ class serendipity_plugin_linklist extends serendipity_plugin
             //-->
             </script>';
 
-            if($this->get_config('showOpenAndCloseLinks')=='true' && $this->get_config('locationOfOpenAndClose')=='bottom'){
+            if (serendipity_db_bool($this->get_config('showOpenAndCloseLinks', 'true')) && $this->get_config('locationOfOpenAndClose') == 'bottom'){
                 $str.='<p><a href="javascript: d.openAll();">'.$this->get_config('openAllText').'</a> | <a href="javascript: d.closeAll();">'.$this->get_config('closeAllText').'</a></p>';
             }
         } else {
 
-            if($this->get_config('call_markup') != 'true') {
+            if (!serendipity_db_bool($this->get_config('call_markup', 'false'))) {
                 $delimiter = "\n";
             } else {
                 $delimiter = "";
@@ -456,16 +457,16 @@ class serendipity_plugin_linklist extends serendipity_plugin
             $dir_array[''] = array('dirname' => '','level' => 1,linkcount => 0,'links' => $link_array,'dircount' => 0,'directories' => $link_array);
             for($level[] = 0, $i=1, $j=1; isset($struct[$i]); $i++, $j++){
                 if (isset($struct[$i]['type'])){
-                    if($struct[$i]['type'] == 'open' && strtolower($struct[$i]['tag']) == 'dir'){
+                    if ($struct[$i]['type'] == 'open' && strtolower($struct[$i]['tag']) == 'dir'){
                         $dir_array[$dirname[0]]['directories'][] = $this->decode($struct[$i]['attributes']['NAME']);
                         $dir_array[$dirname[0]]['dircount']++;
                         array_unshift($dirname, $this->decode($struct[$i]['attributes']['NAME']));
                         array_unshift($level,$j);
                         $dir_array[$dirname[0]] = array('dirname' => $dirname[0],'level' => count($level),'linkcount' => 0,'links' => $link_array,'dircount' => 0,'directories' => $link_array);
-                    } else if($struct[$i]['type'] == 'close' && strtolower($struct[$i]['tag']) == 'dir'){
+                    } else if ($struct[$i]['type'] == 'close' && strtolower($struct[$i]['tag']) == 'dir'){
                         $dump=array_shift($dirname);
                         $dump=array_shift($level);
-                    } else if($struct[$i]['type'] == 'complete' && strtolower($struct[$i]['tag']) == 'link'){
+                    } else if ($struct[$i]['type'] == 'complete' && strtolower($struct[$i]['tag']) == 'link'){
                         $dir_array[$dirname[0]]['linkcount']++;
                         if (count($level) == 0) {
                             $level_pass = 1;
@@ -479,19 +480,19 @@ class serendipity_plugin_linklist extends serendipity_plugin
             }
             /* ???
             //Process array into output
-            if ($this->get_config('useIcons')) {
+            if (serendipity_db_bool($this->get_config('useIcons', 'true'))) {
             } else {
             }
             */
             $imagear['imgdir'] = $imgdir;
-            $imagear['uselines'] = $this->get_config('useLines');
-            $imagear['useicons'] = $this->get_config('useIcons');
+            $imagear['uselines'] = serendipity_db_bool($this->get_config('useLines', 'true'));
+            $imagear['useicons'] = serendipity_db_bool($this->get_config('useIcons', 'true'));
             if ($imagear['useicons']) {
                 $imagear['folder']      = '/img/folder.gif';
                 $imagear['folderopen']  = '/img/folderopen.gif';
                 $imagear['page']        = '/img/page.gif';
             }
-            if ($this->get_config('useLines')) {
+            if (serendipity_db_bool($this->get_config('useLines', 'true'))) {
                 $imagear['line']        = '/img/line.gif';
                 $imagear['join']        = '/img/join.gif';
                 $imagear['joinBottom']  = '/img/joinbottom.gif';
@@ -512,7 +513,8 @@ class serendipity_plugin_linklist extends serendipity_plugin
             }
 
             if (!$lessformatting) {
-                $str .= '<script src="'.$serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '').'plugin/linklist.js" type="text/javascript"></script>'."\n";
+                #$str .= '<script src="'.$serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '').'plugin/linklist.js" type="text/javascript"></script>'."\n";
+                $str .= '<script type="text/javascript" src="'.$serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_linklist/linklist.js"></script>'."\n";
             }
             $class = !$lessformatting ? 'csslist' : 'simple';
             $str .= '<div class="linklist"><ul class="'. $class .'">'.$delimiter;
@@ -523,7 +525,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
 
         $str .= $this->get_config('append_text');
 
-        if ($this->get_config('call_markup') == 'true') {
+        if (serendipity_db_bool($this->get_config('call_markup', 'false'))) {
             $entry = array('html_nugget' => $str);
             serendipity_plugin_api::hook_event('frontend_display', $entry);
             return $entry['html_nugget'];
@@ -533,7 +535,8 @@ class serendipity_plugin_linklist extends serendipity_plugin
     }
 
 
-    function cleanup()  {
+    function cleanup()
+    {
 
         $cache = $this->get_config('cache');
         if ($this->get_config('cache') == 'no') {
@@ -548,7 +551,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                          'style'    => $this->get_config('style'),
                          'cache'    => $cache);
 
-        if($this->get_config('directxml') != 'true') {
+        if (!serendipity_db_bool($this->get_config('directxml', 'true')))  {
            $blah = $this->get_config('display');
             if (!isset($blah)) {
                 $this->set_config('display','category');
@@ -565,7 +568,8 @@ class serendipity_plugin_linklist extends serendipity_plugin
 
     }
 
-    function build_tree ($fullarray, $rootdir, $imagearray, $more_track, $strtemp = "", $lessformatting = NULL, $delimiter = "\n", $use_descrip = false) {
+    function build_tree ($fullarray, $rootdir, $imagearray, $more_track, $strtemp = "", $lessformatting = NULL, $delimiter = "\n", $use_descrip = false)
+    {
         $imgdir    = $imagearray['imgdir'];
         $uselines  = $imagearray['uselines'];
         $useicons  = $imagearray['useicons'];
@@ -632,7 +636,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 }
             }
             if ($useicons) {
-                if (serendipity_db_bool($this->get_config('useSVG', true))) {
+                if (serendipity_db_bool($this->get_config('useSVG', 'true'))) {
                     $page_icon = '<img class="svg"/>';
                 } else {
                     $page_icon = '<img src="'.$imgdir.$imagearray['page'].'" alt="" />';
@@ -662,6 +666,8 @@ class serendipity_plugin_linklist extends serendipity_plugin
         }
         return $strtemp;
     }
+
 }
 
 /* vim: set sts=4 ts=4 expandtab : */
+?>

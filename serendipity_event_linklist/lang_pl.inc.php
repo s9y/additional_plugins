@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -24,24 +24,24 @@
 @define('PLUGIN_LINKLIST_LINKS', 'Zarz±dzaj linkami');
 @define('PLUGIN_LINKLIST_NOLINKS', 'Brak linków na li¶cie');
 @define('PLUGIN_LINKLIST_CATEGORY', 'U¿ywaj kategorii');
-@define('PLUGIN_LINKLIST_CATEGORYDESC','Uzywaj kategorii by organizowaæ swoje linki');
-@define('PLUGIN_LINKLIST_ADDLINK','Dodaj linka');
-@define('PLUGIN_LINKLIST_LINK_EXAMPLE','Przyk³ad: http://www.s9y.org lub http://www.s9y.org/forums/');
-@define('PLUGIN_LINKLIST_EDITLINK','Edytuj linka');
-@define('PLUGIN_LINKLIST_LINKDESC','Opis linka');
-@define('PLUGIN_LINKLIST_CATEGORY_NAME','U¿ywaæ którego systemu kategorii:');
-@define('PLUGIN_LINKLIST_CATEGORY_NAME_DESC','Mo¿esz wybraæ, jaki system kategorii ma byæ wykorzystywany. System kategorii bloga (Domy¶lny), czy te¿ dostarczany i zawiadywany przez wtyczkê (W³asny).');
-@define('PLUGIN_LINKLIST_CATEGORY_NAME_CUSTOM','W³asny');
-@define('PLUGIN_LINKLIST_CATEGORY_NAME_DEFAULT','Domy¶lny');
-@define('PLUGIN_LINKLIST_ADD_CAT','Zarz±dzaj kategoriami');
-@define('PLUGIN_LINKLIST_CAT_NAME','Nazwa kategorii');
-@define('PLUGIN_LINKLIST_PARENT_CATEGORY','Kategoria nadrzêdna');
-@define('PLUGIN_LINKLIST_ADMINCAT','Podgl±d i zarz±dzanie kategoriami');
-@define('PLUGIN_LINKLIST_CACHE_NAME','Buforowanie linków');
-@define('PLUGIN_LINKLIST_CACHE_DESC','Buforowanie listy linków skutkuje wzrostem wydajno¶ci strony. Bufor jest aktualizowany przy modyfikacji listy linków z poziomu Panelu administracyjnego.');
-@define('PLUGIN_LINKLIST_ENABLED_NAME','W³±cz');
-@define('PLUGIN_LINKLIST_ENABLED_DESC','W³±cz wtyczkê');
-@define('PLUGIN_LINKLIST_DELETE_WARN','Kiedy kategoria jest usuwana, wszystkie linki do niej przynale¿ne zostan± przeniesione do kategorii g³ównej drzewa linków.');
+@define('PLUGIN_LINKLIST_CATEGORYDESC', 'Uzywaj kategorii by organizowaæ swoje linki');
+@define('PLUGIN_LINKLIST_ADDLINK', 'Dodaj linka');
+@define('PLUGIN_LINKLIST_LINK_EXAMPLE', 'Przyk³ad: http://www.s9y.org lub http://www.s9y.org/forums/');
+@define('PLUGIN_LINKLIST_EDITLINK', 'Edytuj linka');
+@define('PLUGIN_LINKLIST_LINKDESC', 'Opis linka');
+@define('PLUGIN_LINKLIST_CATEGORY_NAME', 'U¿ywaæ którego systemu kategorii:');
+@define('PLUGIN_LINKLIST_CATEGORY_NAME_DESC', 'Mo¿esz wybraæ, jaki system kategorii ma byæ wykorzystywany. System kategorii bloga (Domy¶lny), czy te¿ dostarczany i zawiadywany przez wtyczkê (W³asny).');
+@define('PLUGIN_LINKLIST_CATEGORY_NAME_CUSTOM', 'W³asny');
+@define('PLUGIN_LINKLIST_CATEGORY_NAME_DEFAULT', 'Domy¶lny');
+@define('PLUGIN_LINKLIST_ADD_CAT', 'Zarz±dzaj kategoriami');
+@define('PLUGIN_LINKLIST_CAT_NAME', 'Nazwa kategorii');
+@define('PLUGIN_LINKLIST_PARENT_CATEGORY', 'Kategoria nadrzêdna');
+@define('PLUGIN_LINKLIST_ADMINCAT', 'Podgl±d i zarz±dzanie kategoriami');
+@define('PLUGIN_LINKLIST_CACHE_NAME', 'Buforowanie linków');
+@define('PLUGIN_LINKLIST_CACHE_DESC', 'Buforowanie listy linków skutkuje wzrostem wydajno¶ci strony. Bufor jest aktualizowany przy modyfikacji listy linków z poziomu Panelu administracyjnego.');
+@define('PLUGIN_LINKLIST_ENABLED_NAME', 'W³±cz');
+@define('PLUGIN_LINKLIST_ENABLED_DESC', 'W³±cz wtyczkê');
+@define('PLUGIN_LINKLIST_DELETE_WARN', 'Kiedy kategoria jest usuwana, wszystkie linki do niej przynale¿ne zostan± przeniesione do kategorii g³ównej drzewa linków.');
 
 //
 //  serendipity_plugin_linklist.php
@@ -93,4 +93,4 @@
 @define('PLUGIN_LINKLIST_ORDER_OUTSTYLE_SIMP_CSS', 'Prosty CSS');
 @define('PLUGIN_LINKS_OUTSTYLE', 'Wybierz styl wy¶wietlania dla listy linków');
 @define('PLUGIN_LINKS_OUTSTYLE_BLAHBLAH', 'Wybierz styl wy¶wietlania dla listy linków. Dtree u¿ywa javascriptu do tworzenia drzewa linków (skrypt dzia³a we wszystkich popularnych przegl±darkach). Lista CSS u¿ywa divów i prostego javascriptu dla stworzenia efektu uzyskiwanego przez zastosowanie Dtree ale nie jest tak zaawansowany jak Dtree. Prosty CSS to metoda najlepsza je¶li chcesz by wyszukiwarki parsowa³y linki umieszczone na Twojej stronie. Prosty CSS wy¶wietli kontrolowan± przez CSS listê. UWAGA! Metody z u¿yciem Dtree zazwyczaj NIE umozliwiaj± wyszukiwarkom interentowym na parsowanie wy¶wietlanych przez nie linków.');
-?>
+

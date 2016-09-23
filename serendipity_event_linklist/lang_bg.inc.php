@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 /**
  *  @version 
@@ -24,24 +24,24 @@
 @define('PLUGIN_LINKLIST_LINKS', 'Manage Links');
 @define('PLUGIN_LINKLIST_NOLINKS', 'No Links in List');
 @define('PLUGIN_LINKLIST_CATEGORY', 'Use categories');
-@define('PLUGIN_LINKLIST_CATEGORYDESC','Use categories to organize links.');
-@define('PLUGIN_LINKLIST_ADDLINK','Добавяне на връзка');
-@define('PLUGIN_LINKLIST_LINK_EXAMPLE','Пример: http://www.s9y.org или http://www.s9y.org/forums/');
-@define('PLUGIN_LINKLIST_EDITLINK','Редактиране на връзка');
-@define('PLUGIN_LINKLIST_LINKDESC','Описание на връзката');
-@define('PLUGIN_LINKLIST_CATEGORY_NAME','Система от категории:');
-@define('PLUGIN_LINKLIST_CATEGORY_NAME_DESC','Можете да изберете специфична за приставката система от категории или категориите на блога.');
-@define('PLUGIN_LINKLIST_CATEGORY_NAME_CUSTOM','Специфична');
-@define('PLUGIN_LINKLIST_CATEGORY_NAME_DEFAULT','От блога');
-@define('PLUGIN_LINKLIST_ADD_CAT','Управление на категориите');
-@define('PLUGIN_LINKLIST_CAT_NAME','Име на категорията');
-@define('PLUGIN_LINKLIST_PARENT_CATEGORY','Родителска категория');
-@define('PLUGIN_LINKLIST_ADMINCAT','Администриране на категориите');
-@define('PLUGIN_LINKLIST_CACHE_NAME','Кеширане на страничната приставка');
-@define('PLUGIN_LINKLIST_CACHE_DESC','Кеширането на страничната приставка увеличава скоростта на Вашата страница. Кеширането се обновява, когато се добавят връзки през административния интерфейс.');
-@define('PLUGIN_LINKLIST_ENABLED_NAME','Enabled');
-@define('PLUGIN_LINKLIST_ENABLED_DESC','Enable the plugin.');
-@define('PLUGIN_LINKLIST_DELETE_WARN','Когато избраните категории се изтрият, връзките които те са съдържали отиват в коренната директория (на първо ниво).');
+@define('PLUGIN_LINKLIST_CATEGORYDESC', 'Use categories to organize links.');
+@define('PLUGIN_LINKLIST_ADDLINK', 'Добавяне на връзка');
+@define('PLUGIN_LINKLIST_LINK_EXAMPLE', 'Пример: http://www.s9y.org или http://www.s9y.org/forums/');
+@define('PLUGIN_LINKLIST_EDITLINK', 'Редактиране на връзка');
+@define('PLUGIN_LINKLIST_LINKDESC', 'Описание на връзката');
+@define('PLUGIN_LINKLIST_CATEGORY_NAME', 'Система от категории:');
+@define('PLUGIN_LINKLIST_CATEGORY_NAME_DESC', 'Можете да изберете специфична за приставката система от категории или категориите на блога.');
+@define('PLUGIN_LINKLIST_CATEGORY_NAME_CUSTOM', 'Специфична');
+@define('PLUGIN_LINKLIST_CATEGORY_NAME_DEFAULT', 'От блога');
+@define('PLUGIN_LINKLIST_ADD_CAT', 'Управление на категориите');
+@define('PLUGIN_LINKLIST_CAT_NAME', 'Име на категорията');
+@define('PLUGIN_LINKLIST_PARENT_CATEGORY', 'Родителска категория');
+@define('PLUGIN_LINKLIST_ADMINCAT', 'Администриране на категориите');
+@define('PLUGIN_LINKLIST_CACHE_NAME', 'Кеширане на страничната приставка');
+@define('PLUGIN_LINKLIST_CACHE_DESC', 'Кеширането на страничната приставка увеличава скоростта на Вашата страница. Кеширането се обновява, когато се добавят връзки през административния интерфейс.');
+@define('PLUGIN_LINKLIST_ENABLED_NAME', 'Enabled');
+@define('PLUGIN_LINKLIST_ENABLED_DESC', 'Enable the plugin.');
+@define('PLUGIN_LINKLIST_DELETE_WARN', 'Когато избраните категории се изтрият, връзките които те са съдържали отиват в коренната директория (на първо ниво).');
 
 //
 //  serendipity_event_linklist.php
@@ -95,7 +95,8 @@
 @define('PLUGIN_LINKS_OUTSTYLE_BLAHBLAH', 'Изберете стил за списъка с връзки.  Dtree използва JavaScript, за да възпроизведе дървовиден изглед на списъка. Вариант CSS използва CSS divs и ограничен JavaScript, за да наподоби dtree, но не поддържа всички негови функции. Ограниченият CSS ще произведе прост CSS контролиран списък, което позволява силен контрол над представянето на списъка. Dtree обикновено не е откриваемо от търсещите машини.');
 @define('PLUGIN_LINKS_CALLMARKUP', 'Прилагане на форматиране ?');
 @define('PLUGIN_LINKS_CALLMARKUP_BLAHBLAH', 'Изберете дали да приложите форматиране на изхода от приставката.');
-@define('PLUGIN_LINKS_USEDESC','Използване на даденото описание');
-@define('PLUGIN_LINKS_USEDESC_BLAHBLAH','Използване на описанието на заглавието на връзката, ако има такова.');
-@define('PLUGIN_LINKS_PREPEND','Въведете текст, който да бъде показван преди списъка на връзките.');
-@define('PLUGIN_LINKS_APPEND','Въведете текст, който да бъде показван след списъка на връзките.');
+@define('PLUGIN_LINKS_USEDESC', 'Използване на даденото описание');
+@define('PLUGIN_LINKS_USEDESC_BLAHBLAH', 'Използване на описанието на заглавието на връзката, ако има такова.');
+@define('PLUGIN_LINKS_PREPEND', 'Въведете текст, който да бъде показван преди списъка на връзките.');
+@define('PLUGIN_LINKS_APPEND', 'Въведете текст, който да бъде показван след списъка на връзките.');
+

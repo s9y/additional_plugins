@@ -1,18 +1,30 @@
-2.02
- - IE CSS linklist fix
+2.03 && 1.23:
+-------------
 
-2.01
- - fix ul ident for csslist and simple option
- - added new config option for "CSS List" usage only,
+ * Requirement and Consistent changes
+ * Use lang API
+
+2.02:
+-----
+
+ * IE CSS linklist fix
+
+2.01:
+-----
+
+ * fix ul ident for csslist and simple option
+ * added new config option for "CSS List" usage only,
    to use a new SVG link icon by CSS (defaults true).
    If set false, this will return the previous used world icon image,
    which as a normal image will even work with very old and outdated browsers.
 
-2.00
- - silence cache lite non static PEAR errors on $obj->remove()
- - minor preparations for the Serendipity 2.0 backend
- - fix multiple dtree includements using a unique name
- - add css seperators
+2.00:
+-----
+
+ * silence cache lite non static PEAR errors on $obj->remove()
+ * minor preparations for the Serendipity 2.0 backend
+ * fix multiple dtree includements using a unique name
+ * add css separators
 
 1.99.1 - use serendipity_specialchars
 

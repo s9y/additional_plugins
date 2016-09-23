@@ -1,21 +1,15 @@
-<?php # 
-
+<?php
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_commentsearch extends serendipity_event
 {
     var $title = COMMENTSEARCH_TITLE;
+
     function introspect(&$propbag)
     {
         global $serendipity;
@@ -23,22 +17,23 @@ class serendipity_event_commentsearch extends serendipity_event
         $propbag->add('name', COMMENTSEARCH_TITLE);
         $propbag->add('description', COMMENTSEARCH_DESC);
         $propbag->add('event_hooks', array(
-            'entries_footer'                                    => true,
-            'frontend_fetchentries'                             => true
+            'entries_footer'        => true,
+            'frontend_fetchentries' => true
         ));
 
         $propbag->add('author', 'Garvin Hicking');
-        $propbag->add('version', '1.5');
+        $propbag->add('version', '1.6');
         $propbag->add('requirements',  array(
-            'serendipity' => '0.8',
-            'smarty'      => '2.6.7',
-            'php'         => '4.1.0'
+            'serendipity' => '1.7',
+            'smarty'      => '3.1.0',
+            'php'         => '5.1.0'
         ));
         $propbag->add('stackable', false);
-        $propbag->add('groups',                 array('FRONTEND_FEATURES'));
+        $propbag->add('groups',    array('FRONTEND_FEATURES'));
     }
 
-    function setupDB() {
+    function setupDB()
+    {
         global $serendipity;
 
         $built = $this->get_config('db_built', null);
@@ -49,7 +44,8 @@ class serendipity_event_commentsearch extends serendipity_event
         }
     }
 
-    function showSearch() {
+    function showSearch()
+    {
         global $serendipity;
 
         $this->setupDB();
@@ -59,12 +55,12 @@ class serendipity_event_commentsearch extends serendipity_event
             $group     = '';
             $distinct  = 'DISTINCT';
             $find_part = "(c.title ILIKE '%$term%' OR c.body ILIKE '%$term%')";
-        } elseif ($serendipity['dbType'] == 'sqlite') {
+        } elseif (stristr($serendipity['dbType'], 'sqlite') !== FALSE) {
             $group     = 'GROUP BY id';
             $distinct  = '';
             $term      = serendipity_mb('strtolower', $term);
             $find_part = "(lower(c.title) LIKE '%$term%' OR lower(c.body) LIKE '%$term%')";
-        } else {
+        } else { // MYSQL
             $group     = 'GROUP BY id';
             $distinct  = '';
             $term      = str_replace('&quot;', '"', $term);
@@ -95,11 +91,11 @@ class serendipity_event_commentsearch extends serendipity_event
         $myAddData = array("from" => "serendipity_plugin_commentsearch:generate_content");
         foreach($results AS $idx => $result) {
             $results[$idx]['permalink'] = serendipity_archiveURL($result['id'], $result['title'], 'baseURL', true, $result);
-            $results[$idx]['comment']   = $result['body'];//(function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($result['body'])) : htmlspecialchars(strip_tags($result['body']), ENT_COMPAT, LANG_CHARSET));
+            $results[$idx]['comment']   = $result['body']; // escape it in the template (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($result['body'])) : htmlspecialchars(strip_tags($result['body']), ENT_COMPAT, LANG_CHARSET));
             serendipity_plugin_api::hook_event('frontend_display', $results[$idx], $myAddData);
             // let the template decide, if we want to have tags or not
             $results[$idx]['commenthtml'] = $results[$idx]['comment'];
-            $results[$idx]['comment'] = strip_tags($results[$idx]['comment']);
+            $results[$idx]['comment']     = strip_tags($results[$idx]['comment']);
         }
 
         $serendipity['smarty']->assign(
@@ -110,18 +106,12 @@ class serendipity_event_commentsearch extends serendipity_event
         );
 
         $filename = 'plugin_commentsearch_searchresults.tpl';
-        $tfile = serendipity_getTemplateFile($filename, 'serendipityPath');
-        if (!$tfile) {
-            $tfile = dirname(__FILE__) . '/' . $filename;
-        }
-        $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-        $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
-        $content = $serendipity['smarty']->fetch('file:'. $tfile);
-        $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+        $content = $this->parseTemplate($filename);
         echo $content;
     }
 
-    function event_hook($event, &$bag, &$eventData, $addData = null) {
+    function event_hook($event, &$bag, &$eventData, $addData = null)
+    {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');
@@ -147,5 +137,8 @@ class serendipity_event_commentsearch extends serendipity_event
         }
         return false;
     }
+
 }
+
 /* vim: set sts=4 ts=4 expandtab : */
+?>

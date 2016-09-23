@@ -1,4 +1,4 @@
-<?php # lang_de.inc.php 1.0 2009-08-20 10:08:48 VladaAjgl $
+<?php
 
 /**
  *  @version 1.0
@@ -9,3 +9,4 @@
 @define('COMMENTSEARCH_TITLE', 'Durchsuche Kommentare mit der Schnellsuche');
 @define('COMMENTSEARCH_DESC', 'Wenn dieses Plugin installiert ist, durchsucht die Schnellsuche Ihres Blogs auch die Kommentare.');
 @define('COMMENT_SEARCHRESULTS', 'Such-Ergebnisse in Kommentaren');
+

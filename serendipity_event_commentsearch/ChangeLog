@@ -1,5 +1,23 @@
-Version 1.4:
-* Not stripping comment html tags in code, so the template can decide, how to display comments
-* Stripping tags before truncating comment in template, else tags will be truncated.
+1.6:
+----
+
+ * Set plugin consistencies
+ * Use load language API - extends required Serendipity version to v.1.6
+ * Removed old Smarty2 security settings - extends required Serendipity version to v.1.7
+ * Use native API method parseTemplate()
+ * Convert plugin template for Smarty3 usage
+
+
+1.5:
+----
+
+ * Fixed a remaining old htmlspecialchars usage
+
+
+1.4:
+----
+
+ * Not stripping comment html tags in code, so the template can decide, how to display comments
+ * Stripping tags before truncating comment in template, else tags will be truncated.
 
 latest: Smarty3 forward compatibility

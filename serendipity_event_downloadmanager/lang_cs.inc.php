@@ -18,11 +18,11 @@
 @define('PLUGIN_DOWNLOADMANAGER_PAGEURL', 'Statická URL adresa');
 @define('PLUGIN_DOWNLOADMANAGER_PAGEURL_BLAHBLAH', 'Definuje URL, pod kterou je download manaer pøístupnı (index.php?serendipity[subpage]=zde_zadané_jméno)');
 @define('PLUGIN_DOWNLOADMANAGER_PERMALINK', 'Permalink (stálı odkaz)');
-@define('PLUGIN_DOWNLOADMANAGER_PERMALINK_BLAHBLAH', 'Definuje stálou zkratku, která mùe bıt kratší a srozumitelnìjší ne statická URL adresa (nastavené vıše). Je tøeba zadat absolutní HTTP cestu, navíc musí konèit .htm nebo .html! (Vıchozí nastavení: [http://vas_blog.cz/]downloads.html]');
+@define('PLUGIN_DOWNLOADMANAGER_PERMALINK_BLAHBLAH', 'Definuje stálou zkratku, která mùe bıt kratší a srozumitelnìjší ne statická URL adresa (nastavené vıše). Je tøeba zadat absolutní HTTP cestu, navíc musí konèit .htm nebo .html. (Vıchozí nastavení: "%s")');
 @define('PLUGIN_DOWNLOADMANAGER_ABSINCOMINGPATH', 'Cesta pro pøíchozí data');
-@define('PLUGIN_DOWNLOADMANAGER_ABSINCOMINGPATH_BLAHBLAH', 'Plná absolutní cesta k adresáøi, do kterého nahráváte soubory. Plugin pracuje tak, e do tohoto adresáøe se nahrají soubory a teprve pak urèíte, které mají bıt nabízené ke staení. Ty si pak plugin pøemístí do adresáøe s downloady. (Adresáø musí bıt vytvoøen a webserver do nìj musí mít právo zápisu!)');
+@define('PLUGIN_DOWNLOADMANAGER_ABSINCOMINGPATH_BLAHBLAH', 'Plná absolutní cesta k adresáøi, do kterého nahráváte soubory. Plugin pracuje tak, e do tohoto adresáøe se nahrají soubory a teprve pak urèíte, které mají bıt nabízené ke staení. Ty si pak plugin pøemístí do adresáøe s downloady.');
 @define('PLUGIN_DOWNLOADMANAGER_ABSDOWNLOADPATH', 'Absolutní cesta adresáøe s downloady');
-@define('PLUGIN_DOWNLOADMANAGER_ABSDOWNLOADPATH_BLAHBLAH', 'Plná absolutní cesta k adresáøi, do kterého si bude downloadmanager umísovat soubory, které pak budou pøístupné z blogu. (Adresáø musí bıt vytvoøen a webserver do nìj musí mít právo zápisu!)');
+@define('PLUGIN_DOWNLOADMANAGER_ABSDOWNLOADPATH_BLAHBLAH', 'Plná absolutní cesta k adresáøi, do kterého si bude downloadmanager umísovat soubory, které pak budou pøístupné z blogu.');
 @define('PLUGIN_DOWNLOADMANAGER_HTTPPATH', 'HTTP cesta k pluginu');
 @define('PLUGIN_DOWNLOADMANAGER_HTTPPATH_BLAHBLAH', 'aboslutní http cesta k pluginu (obvykle "/plugins/serendipity_event_downloadmanager").');
 @define('PLUGIN_DOWNLOADMANAGER_DATEFORMAT', 'Formát data, podle pravidel PHP funkce date(). (vıchozí: "Y/m/d, h:ia")');
@@ -74,7 +74,14 @@
 @define('PLUGIN_DOWNLOADMANAGER_DELETE_IN_INCOMING_NOT_ALLOWED', 'Webserver nemá dostatek oprávnìní pro smazání souboru z pøíchozího adresáøe! Smate prosím soubor ruènì a potom pozmìòte pøístupová práva, aby to od pøíštì šlo.');
 @define('PLUGIN_DOWNLOADMANAGER_DELETE_IN_DOWNLOADDIR_NOT_ALLOWED', 'Webserver nemá dostatek oprávnìní pro smazání souboru z  adresáøe downloadù! Pozmìòte pøístupová práva, pak opakujte pokus o smazání.');
 @define('PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE', 'Pøíchozí adresáø:');
-@define('PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE_BLAHBLAH', 'Nahrajte soubor do tohoto adresáøe pomocí FTP, pokud Vám nejde nahrát pomocí funkce php-upload. To se mùe stát napø. pokud je soubor pøíliš velkı. Php má toti omezení na max. velikost uploadovaného souboru - nastavení v php.ini.<br />Aktuální adresáø: ');
+#@define('PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE_BLAHBLAH', 'Nahrajte soubor do tohoto adresáøe pomocí FTP, pokud Vám nejde nahrát pomocí funkce php-upload. To se mùe stát napø. pokud je soubor pøíliš velkı. Php má toti omezení na max. velikost uploadovaného souboru - nastavení v php.ini.<br />Aktuální adresáø: ');
+@define('PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE_BLAHBLAH', 'This directory "%s"
+<ul>
+    <li>allows to import files via FTP upload to the current category "<strong>%s</strong>"</li>
+    <li>is used as a temporary(!) directory for delete and/or for moving files between categories.</li>
+    <li>On the other hand you should not keep files in here and always erase stored files completly (see blue trash symbol link).</li>
+    <li>For keeping and hiding files in the longer term please use the root directory. See DLM Help box.</li>
+</ul>');
 @define('PLUGIN_DOWNLOADMANAGER_THIS_FILE', 'Vybranı soubor');
 @define('PLUGIN_DOWNLOADMANAGER_EDIT_FILE', 'Editovat soubor');
 @define('PLUGIN_DOWNLOADMANAGER_MOVE_TO_CAT', 'Pøesunout do');
@@ -116,10 +123,10 @@
 @define('PLUGIN_DOWNLOADMANAGER_REGISTERED_ONLY_ERROR', 'Soubory ke staení jsou pøístupné pouze registrovanım uivatelùm!');
 @define('PLUGIN_DOWNLOADMANAGER_ROOTLEVEL_TITLE', 'soubory v koøenovém adresáøi (v pøehledu schované, neviditelné!)');
 @define('PLUGIN_DOWNLOADMANAGER_ERRORS_UPGRADE_NOTCOPIED', 'Omlouváme se, vyskytla se chyba. Soubory z <br /><em>%s</em><br />nemohly bıt pøesunuty do<br /><em>%s</em>.<br /><br />Pøesuòte je proím ruènì a kliknìte na <a class="backend_error_link" href="%s">tento odkaz</a>, abyste o pøesunu informovali plugin!<br />Kromì toho odstraòte ruènì také staré adresáøe.<br />');
-@define('PLUGIN_DOWNLOADMANAGER_ALLFILES_COPIED_NEWDIR', 'Protoe jste aktualizovali plugin downloadmanager na verzi 0.24, byly všechny soubory ke staenı zkopírovány do novıch podadresáøù \'/.dlm/files\' a \'/.dlm/ftpin\' v adresáøi \'/archives\', aby se zamezilo konfliktu s cestami ke starım slokám.<br /><br />Nastavení bylo zmìnìno, aby ukazovalo na nové adresáøe a dále nelze mìnit.<br />Odstraòte prosím ruènì staré adresáøe.<br />');
-@define('PLUGIN_DOWNLOADMANAGER_ALLFILES_COPY_NEWDIR_REMEMBER', 'Úspìšnì jste zmìnili plugin, aby novì pracoval pouze s novımi adresáøi.<br /><br />Nezapomeòte prosím ruènì pøesunout soubory do novıch adresáøù \'archives/.dlm/files\' a \'archives/.dlm/ftpin\'!<br />Také ruènì odstraòte staré adresáøe.<br />');
+#@define('PLUGIN_DOWNLOADMANAGER_ALLFILES_COPIED_NEWDIR', 'Protoe jste aktualizovali plugin downloadmanager na verzi 0.24, byly všechny soubory ke staenı zkopírovány do novıch podadresáøù \'/.dlm/files\' a \'/.dlm/ftpin\' v adresáøi \'/archives\', aby se zamezilo konfliktu s cestami ke starım slokám.<br /><br />Nastavení bylo zmìnìno, aby ukazovalo na nové adresáøe a dále nelze mìnit.<br />Odstraòte prosím ruènì staré adresáøe.<br />');
+#@define('PLUGIN_DOWNLOADMANAGER_ALLFILES_COPY_NEWDIR_REMEMBER', 'Úspìšnì jste zmìnili plugin, aby novì pracoval pouze s novımi adresáøi.<br /><br />Nezapomeòte prosím ruènì pøesunout soubory do novıch adresáøù \'archives/.dlm/files\' a \'archives/.dlm/ftpin\'!<br />Také ruènì odstraòte staré adresáøe.<br />');
 @define('PLUGIN_DOWNLOADMANAGER_BUTTON_MARK', 'oznaèit/odznaèit vše');
-@define('PLUGIN_DOWNLOADMANAGER_BUTTON_MARK_TITLE', 'smazat všechny oznaèené');
+@define('PLUGIN_DOWNLOADMANAGER_BUTTON_MARK_TITLE', 'smazat všechny oznaèené to ftp/trash');
 @define('PLUGIN_DOWNLOADMANAGER_BUTTON_MOVE_TITLE', 'pøesunout všechny oznaèené do kategorie');
 @define('PLUGIN_DOWNLOADMANAGER_CLEAR_TRASH', 'Vymazat bin v adresáøi ftp/koš');
 @define('PLUGIN_DOWNLOADMANAGER_NO_TRASH', 'ádné soubory k vymazání v adresáøi ftp/koš');
@@ -137,3 +144,4 @@
 @define('PLUGIN_DOWNLOADMANAGER_BACK_CURRENT', 'Aktuální kategorie');
 @define('PLUGIN_DOWNLOADMANAGER_HELPTIP_FF_CHANGE', 'Zmìnit jméno souboru pod soubor-odkaz editovat-podstránka.');
 @define('PLUGIN_DOWNLOADMANAGER_HELPTIP_IF_LFTP', 'Nahrát soubory pomocí ftp do adresáøe /serendipity/archives/.dlm/ftpin folder.');
+

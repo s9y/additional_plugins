@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 # (c) 2005 by Alexander 'dma147' Mieland, http://blog.linux-stats.org, <dma147@linux-stats.org>
 # Contact me on IRC in #linux-stats, #archlinux, #archlinux.de, #s9y on irc.freenode.net
@@ -15,11 +15,11 @@
 @define('PLUGIN_DOWNLOADMANAGER_PAGEURL', 'URL Statico');
 @define('PLUGIN_DOWNLOADMANAGER_PAGEURL_BLAHBLAH', "Definisce l'URL della pagina (index.php?serendipity[subpage]=name)");
 @define('PLUGIN_DOWNLOADMANAGER_PERMALINK', 'Permalink');
-@define('PLUGIN_DOWNLOADMANAGER_PERMALINK_BLAHBLAH', "Definisce un permalink per l'URL che puo' essere piu' corto dell'URL statico. Deve essere un path HTTP assoluto e finire con .htm o .html! (defaults [http://blog/]downloads.html)");
+@define('PLUGIN_DOWNLOADMANAGER_PERMALINK_BLAHBLAH', 'Definisce un permalink per l\'URL che puo\' essere piu\' corto dell\'URL statico. Deve essere un path HTTP assoluto e finire con .htm o .html. (Default: "%s")');
 @define("PLUGIN_DOWNLOADMANAGER_ABSINCOMINGPATH", "Path di upload");
-@define("PLUGIN_DOWNLOADMANAGER_ABSINCOMINGPATH_BLAHBLAH", "Indirizzo completo e assoluto della directory di upload. (L'indirizzo deve esistere ed essere scrivibile dal server!)");
+@define("PLUGIN_DOWNLOADMANAGER_ABSINCOMINGPATH_BLAHBLAH", "Indirizzo completo e assoluto della directory di upload.");
 @define("PLUGIN_DOWNLOADMANAGER_ABSDOWNLOADPATH", "Path di download");
-@define("PLUGIN_DOWNLOADMANAGER_ABSDOWNLOADPATH_BLAHBLAH", "Indirizzo completo e assoluto della directory di download. (L'indirizzo deve esistere ed essere scrivibile dal server!)");
+@define("PLUGIN_DOWNLOADMANAGER_ABSDOWNLOADPATH_BLAHBLAH", "Indirizzo completo e assoluto della directory di download.");
 @define("PLUGIN_DOWNLOADMANAGER_DATEFORMAT", "Formato della data, utilizza la sintassi di PHP date(). (Italiana: \"d/m/Y, h:ia\")");
 @define("PLUGIN_DOWNLOADMANAGER_SHOWFILEDATE", "Visualizza la data del file");
 @define("PLUGIN_DOWNLOADMANAGER_SHOWFILEDATE_BLAHBLAH", "Visualizzare la data del file nell'elenco?");
@@ -69,7 +69,14 @@
 @define("PLUGIN_DOWNLOADMANAGER_DELETE_IN_INCOMING_NOT_ALLOWED", "Impossibile eliminare il file dalla directory di upload! Elimina il file manualmente e configura i permessi per permettere l'eliminazione dei file.");
 @define("PLUGIN_DOWNLOADMANAGER_DELETE_IN_DOWNLOADDIR_NOT_ALLOWED", "Impossibile eliminare il file dalla directory di download! Configura i permessi per permettere l'eliminazione dea file.");
 @define("PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE", "Directory di upload:");
-@define("PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE_BLAHBLAH", "Utilizza questa directory per caricare i file via FTP se non hai i diritti di caricare i file via php-upload. Il file potrebbe essere piu' grande del massimo valore settato in php.ini o se file_uploads sono disattivati nel php.ini.<br />Current directory: ");
+#@define("PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE_BLAHBLAH", "Utilizza questa directory per caricare i file via FTP se non hai i diritti di caricare i file via php-upload. Il file potrebbe essere piu' grande del massimo valore settato in php.ini o se file_uploads sono disattivati nel php.ini.<br />Current directory: ");
+@define('PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE_BLAHBLAH', 'This directory "%s"
+<ul>
+    <li>allows to import files via FTP upload to the current category "<strong>%s</strong>"</li>
+    <li>is used as a temporary(!) directory for delete and/or for moving files between categories.</li>
+    <li>On the other hand you should not keep files in here and always erase stored files completly (see blue trash symbol link).</li>
+    <li>For keeping and hiding files in the longer term please use the root directory. See DLM Help box.</li>
+</ul>');
 @define("PLUGIN_DOWNLOADMANAGER_THIS_FILE", "File selezionato");
 @define("PLUGIN_DOWNLOADMANAGER_EDIT_FILE", "Modifica questo file");
 @define("PLUGIN_DOWNLOADMANAGER_MOVE_TO_CAT", "Muovi in");
@@ -89,5 +96,3 @@
 @define("PLUGIN_DOWNLOADMANAGER_UNHIDE_TREE", "Visualizza questa categoria e tutte le sotto-categorie contenute...");
 @define("PLUGIN_DOWNLOADMANAGER_OPEN_CAT", "Clicca per aprire questa categoria per caricare e modificare i file...");
 
-
-?>

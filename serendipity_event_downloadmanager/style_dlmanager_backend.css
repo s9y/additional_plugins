@@ -1,5 +1,5 @@
 /**********************************************************************************************/
-/* style_dlmanager_backend.css in serendipity_event_downloadmanager.php v.0.25 2010-09-23 ian */
+/* style_dlmanager_backend.css in serendipity_event_downloadmanager.php v.0.32 2016-07-14 ian */
 /**********************************************************************************************/
 
 /*********************************************/
@@ -35,26 +35,23 @@
     border: 1px solid #aaa;
 }
 
-#dlm_messages {
-    margin: 16px 0;
-    padding: 4px;
-    text-align: center;
-}
-
 #dlm_toggle_optionall,
-#back_to_rootpage,
-#back_to_catpage {
-    display:inline;
-    float:right;
+.dlm_back_root,
+.dlm_back_up,
+.dlm_upload_to {
+    display: inline;
+    float: right;
+}
+.dlm_back_root,
+.dlm_back_up {
+    margin-top: 1.5em;
+}
+#back_to_catpage a {
+    background: #fff8bf;
 }
 
 #backend_downloadmanager h3 {
-    background-color: #f0f0f0;
-    border: 1px solid #777;
-    font-size: 1em;
-    margin: 0 0 16px;
-    padding: 10px 0 10px 20px;
-    background: -moz-linear-gradient(left 20deg, #BC8F8F, #F0F0F0);
+    margin-top: 1.5em;
 }
 
 .dlm_page_header {
@@ -67,7 +64,6 @@
        without breaking and still keeping the header box as small as possible! 
        If the filename is longer than this we'll have a break 
        - please note: the #dlm_edit_file has same width */
-    background: -moz-linear-gradient(left 20deg, #F0F0F0, #EDE3E3); /* I like it! */
 }
 .dlm_page_header h4 {
     background-color: rgb(248, 248, 248); 
@@ -77,8 +73,10 @@
     padding: 2px 0 2px 20px;
     font-size: 1em;
 }
-.dlm_page_header #back_to_rootpage a { display: inline-block; margin: -10px 0 0; padding: 0; }
-.dlm_page_header #back_to_rootpage img { vertical-align: text-bottom; }
+.dlm_page_header #back { display: inline-block; margin: .5em .25em; padding: .25em; }
+.dlm_page_header #back img { vertical-align: text-bottom; }
+
+#dlm_toggle_optionall:after, .dlm_back_root:after, .dlm_back_up:after, .dlm_upload_to:after { clear: both; }
 
 .dlm_page_header ul {
     list-style: none;
@@ -102,6 +100,8 @@
 #dlm1, #dlm2, #dlm3, #dlm4 { margin: -16px 0 32px 0; }
 /* special case dlm4 is dlm_help on rootpage */
 #dlm4.dlm_help_box { margin: 0; }
+
+#dlm2 ul { margin: 0px auto; }
 
 .dlm_backend_newcat select { min-width:120px; }
 
@@ -182,7 +182,7 @@ input#dlm_file_rename { border: 1px solid #888; background-color: rgb(221, 230, 
 #catlist tr,
 #ftpfiles tr,
 #smlfiles tr {
-    background: none repeat scroll 0 0 #e8e8e8;
+    background: #e8e8e8;
     padding: 0;
 }
 
@@ -194,7 +194,7 @@ input#dlm_file_rename { border: 1px solid #888; background-color: rgb(221, 230, 
 #catfiles thead th,
 #catlist thead th,
 #ftpfiles thead th,
-#smlfiles thead th { border-bottom: 1px solid #aaa; text-align: left; padding: 3px 2px; font-size: 11.0px;}
+#smlfiles thead th { border-bottom: 1px solid #aaa; text-align: left; padding: 3px 2px; font-size: .8em;}
 
 #catfiles #no_files_uploaded,
 #ftpfiles #no_ftp_files,
@@ -202,10 +202,43 @@ input#dlm_file_rename { border: 1px solid #888; background-color: rgb(221, 230, 
     font-weight: bold;
     text-align: center;
 }
-/* some little voodoo magic to make the tree/input pair appear as squeezed as possible */
-#catlist td img { margin: 0; width: 1.56em; vertical-align: bottom; }
+/* some little voodoo magic to make the tree/input pair appear as squeezed as possible width: 1.56em;*/
+#catlist td img { margin: 0; padding: .5em; vertical-align: bottom; }
 #catlist tbody tr { line-height: 1.4; }
 #catlist tbody td { padding: 0; background: none repeat scroll 0 0 #f8f8ff; }
+
+#smlfiles tr, .dlm_backend_ftp_box tr, .dlm_backend_file_box table tr { line-height: 2; }
+/* .dlm_backend_ftp_box and s9yml box */
+#dlm2 td:nth-of-type(1) {width: auto;}
+#dlm2 td:nth-of-type(2) {width: 12%;}
+#dlm2 td:nth-of-type(3) {width: 16%;}
+
+/* cat file table is colspan 4 */
+#catfiles  td:nth-of-type(1) {width: auto;}
+#catfiles  td:nth-of-type(2) {width: auto;}
+#catfiles  td:nth-of-type(3) {width: 12%;}
+#catfiles  td:nth-of-type(4) {width: 16%;}
+
+/* truncate long filenames in tables */
+#catfiles tbody td:nth-of-type(1),
+#ftpfiles tbody td:nth-of-type(1),
+#smlfiles tbody td:nth-of-type(1) {
+    text-overflow: ellipsis;
+    width: 42em;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+}
+.dlm_page_header h4 {
+    text-overflow: ellipsis;
+    width: 41.75em;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow: -moz-hidden-unscrollable;
+}
+#backend_downloadmanager .dlm_page_header h4 img {
+    vertical-align: middle;
+}
 
 .catlist_catname_input {
     background: none repeat scroll 0 0 #EEE; 
@@ -217,7 +250,7 @@ input#dlm_file_rename { border: 1px solid #888; background-color: rgb(221, 230, 
 .catlist_catname_input:hover { background: none repeat scroll 0 0 #FFFF99; /* light yellow */ }
 .catlist_catname_input:focus:hover { background: none repeat scroll 0 0 #99FF99; /* light green */ }
 
-#catname_submit { margin-bottom: 2px; }
+#catname_submit { margin: .25em 0; }
 
 .catlist_numoffiles {
     font-size: 1em;
@@ -292,6 +325,7 @@ input#dlm_file_rename { border: 1px solid #888; background-color: rgb(221, 230, 
     float: left;
     width: 50%;
 }
+.upload_file input { background: transparent; }
 
 /* put some colors to dynamic fields */
 #uploads textarea:hover { 
@@ -343,6 +377,12 @@ input#dlm_file_rename { border: 1px solid #888; background-color: rgb(221, 230, 
 /* the background of info text in subpage 2 trash and media library */
 .dlm_backend_info { background: none repeat scroll 0 0 #FAFAFA; }
 
+#ftpfiles input[type="checkbox"],
+.dlm_backend_file_box input[type="checkbox"] {
+    top: 0px;
+    vertical-align: middle;
+}
+
 /* the font-size of file and ftp box tfoot being smaller than id boxes 1em */
 .dlm_backend_file_box tfoot,
 .dlm_backend_ftp_box tfoot { font-size: 0.8em; }
@@ -351,3 +391,11 @@ input#dlm_file_rename { border: 1px solid #888; background-color: rgb(221, 230, 
 #backend_downloadmanager .dlm_backend_file_box img,
 #backend_downloadmanager .dlm_backend_ftp_box img,
 #backend_downloadmanager .dlm_backend_s9ml_box img { vertical-align: text-bottom; /* this is important */ }
+
+#backend_downloadmanager input[type="image"] {
+    vertical-align: middle;
+}
+
+#backend_downloadmanager .dlm_backend_file_box thead img,
+#backend_downloadmanager .dlm_backend_cats thead img,
+#ftpfiles thead img { height: 1em; }

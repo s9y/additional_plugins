@@ -1,4 +1,4 @@
-{* backend.dlm.subpage.tpl last modified 2010-09-23 *}
+{* backend.dlm.subpage.tpl last modified 2016-08-06 *}
 {if $dlmgbl.thispage == 2 && $dlmcfs.catfiles === true}
 {* Show all files in category *}
 <p id="dlm_files_header" class="dlm_backend_option"><a href="#" onclick="showConfig('dlm1'); return false" title="{$CONST.TOGGLE_OPTION}"><img src="{if $dlmcfs.ddiv === true}{serendipity_getFile file="img/minus.png"}{else}{serendipity_getFile file="img/plus.png"}{/if}" id="optiondlm1" alt="+/-" /> {$CONST.PLUGIN_DOWNLOADMANAGER_DLS_IN_THIS_CAT}[ {$dlmgbl[0].cat.payload} ]:</a> {$dlmgbl[0].cat.num}</p>
@@ -8,7 +8,7 @@
     <table id="catfiles" cellspacing="0">
     <thead>
         <tr>
-            <th><img src="{serendipity_getFile file="img/blank.png"}" width="84" height="4" />{$dlmgbl.filename_field}</th>
+            <th>{$dlmgbl.filename_field}</th>
             <th>{$dlmgbl.filenums_field}</th>
             <th>{$dlmgbl.filesize_field}</th>
             <th>{$dlmgbl.filedate_field}</th>
@@ -49,12 +49,12 @@
     </table>
     </form>
 </div>
-{if $dlmcfs.ddiv === false}<script type="text/javascript" language="JavaScript">document.getElementById('dlm1').style.display = 'none';</script>{/if}
+{if $dlmcfs.ddiv === false}<script type="text/javascript">document.getElementById('dlm1').style.display = 'none';</script>{/if}
 {/if}
 
 {if $dlmgbl.thispage == 2 && $dlmtfp.thisftp === true}
 {* Show all ftp/trash files in income dir *}
-<p id="dlm_ftp_header" class="dlm_backend_option"><a href="#" onclick="showConfig('dlm2'); return false" title="{$CONST.TOGGLE_OPTION}"><img src="{if $dlmtfp.ddiv === true}{serendipity_getFile file="img/minus.png"}{else}{serendipity_getFile file="img/plus.png"}{/if}" id="optiondlm2" alt="+/-" /> {$CONST.PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE}</a> {$dlmtfp.ftpfiles|@count}</p>
+<p id="dlm_ftp_header" class="dlm_backend_option"><a href="#" onclick="showConfig('dlm2'); return false" title="{$CONST.TOGGLE_OPTION}"><img src="{if $dlmtfp.ddiv === true}{serendipity_getFile file="img/minus.png"}{else}{serendipity_getFile file="img/plus.png"}{/if}" id="optiondlm2" alt="+/-" /> {$CONST.PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE}</a> {$dlmtfp.ftpfiles.f_arr|@count}</p>
 <!-- // div container page {$dlmgbl.thispage} dlm(2) -->
 <div id="dlm2" class="dlm_backend_ftp_box">
     <form name="ftpcheckform" method="post" action="./serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=downloadmanager&amp;thiscat={$dlmgbl.thiscat}{if $dlmtfp.ct === true}&amp;cleantrash=1{/if}">
@@ -65,31 +65,33 @@
         <input type="image" src="{$dlmgbl.httppath}img/trash_32.png" width="32" height="32" title="{$CONST.PLUGIN_DOWNLOADMANAGER_CLEAR_TRASH}" />
     </div>
     {/if}
-    {* this info text constant contains brs while there are 3 lines of information to understand *}
-    <p class="dlm_backend_info">{$CONST.PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE_BLAHBLAH} {$dlmtfp.ftppath}</p>
-    
+    {* this info text constant contains linebreaks while there are 3 lines of information to understand *}
+    <span class="msg_notice"><span class="icon-info-circled"></span> {$CONST.PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE_BLAHBLAH|sprintf:$dlmtfp.ftppath:$dlmgbl[0].cat.payload}</span>
+
     <table id="ftpfiles" cellspacing="0">
     <thead>
-    {if is_array( $dlmtfp.ftpfiles )}
+    {if is_array($dlmtfp.ftpfiles)}
         <tr class="dlm_backend_tr dlm_backend_bold">
-            <th><img src="{serendipity_getFile file="img/blank.png"}" width="84" height="4" />{$dlmgbl.filename_field}</th>
+            <th>{$dlmgbl.filename_field}</th>
             <th>{$dlmgbl.filesize_field}</th>
             <th>{$dlmgbl.filedate_field}</th>
         </tr>
     </thead>
     <tbody>
     {foreach from=$dlmtfp.ftpfiles item="ifile"}
+        {if !empty($ifile.filename)}{* remove to subarrays d_arr and f_arr *}
         <tr class="{cycle name="cycle1" values="odd,even"}">
             <td>
                 <input name="dlm[ifiles][]" value="{$ifile.filename}" type="checkbox">
-                <a href="./serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=downloadmanager&amp;delifile={$ifile.filename}&amp;thiscat={$dlmgbl.thiscat}"><img src="{$dlmgbl.httppath}img/del.png" alt="{$CONST.PLUGIN_DOWNLOADMANAGER_DEL_FILE}" title="{$CONST.PLUGIN_DOWNLOADMANAGER_DEL_FILE}" /></a>
-                <a href="./serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=downloadmanager&amp;importfile={$ifile.filename}&amp;thiscat={$dlmgbl.thiscat}"><img src="{$dlmgbl.httppath}img/importfile.gif" height="16" width="16" alt="{$CONST.PLUGIN_DOWNLOADMANAGER_IMPORT_FILE}" title="{$CONST.PLUGIN_DOWNLOADMANAGER_IMPORT_FILE}" /></a>
+                <a href="./serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=downloadmanager&amp;delinfile={$ifile.filename|escape:'url':$CONST.LANG_CHARSET:false}&amp;thiscat={$dlmgbl.thiscat}"><img src="{$dlmgbl.httppath}img/del.png" alt="{$CONST.PLUGIN_DOWNLOADMANAGER_DEL_FILE}" title="{$CONST.PLUGIN_DOWNLOADMANAGER_DEL_FILE}" /></a>
+                <a href="./serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=downloadmanager&amp;importfile={$ifile.filename|escape:'url':$CONST.LANG_CHARSET:false}&amp;thiscat={$dlmgbl.thiscat}"><img src="{$dlmgbl.httppath}img/importfile.gif" height="16" width="16" alt="{$CONST.PLUGIN_DOWNLOADMANAGER_IMPORT_FILE}" title="{$CONST.PLUGIN_DOWNLOADMANAGER_IMPORT_FILE}" /></a>
                 <img src="{$ifile.filemime.ICON}" alt="{$ifile.filemime.TYPE}" title="{$ifile.filemime.TYPE}" height="16" width="16" />
                 {$ifile.filename}
             </td>
             <td>{$ifile.filesize}</td>
             <td>{$ifile.filedate}</td>
         </tr>
+        {/if}
     {/foreach}
     </tbody>
     <tfoot>
@@ -111,7 +113,7 @@
     </table>
     </form>
 </div>
-{if $dlmtfp.ddiv === false}<script type="text/javascript" language="JavaScript">document.getElementById('dlm2').style.display = 'none';</script>{/if}
+{if $dlmtfp.ddiv === false}<script type="text/javascript">document.getElementById('dlm2').style.display = 'none';</script>{/if}
 {/if}
 
 {if $dlmgbl.thispage == 2 && $dlmtsl.thissml === true}
@@ -119,24 +121,23 @@
 <p id="dlm_s9ml_header" class="dlm_backend_option"><a href="#" onclick="showConfig('dlm3'); return false" title="{$CONST.TOGGLE_OPTION}"><img src="{if $dlmtsl.ddiv === true}{serendipity_getFile file="img/minus.png"}{else}{serendipity_getFile file="img/plus.png"}{/if}" id="optiondlm3" alt="+/-" /> {$CONST.PLUGIN_DOWNLOADMANAGER_MEDIA_LIBRARY}</a></p>
 <!-- // div container page {$dlmgbl.thispage} dlm(3) -->
 <div id="dlm3" class="dlm_backend_s9ml_box">
-    {* Erm ... shouldn't this be a form?!? No, this is single file movement only! We do not need multi file movement in media library. *}
-    <p class="dlm_backend_info">{$CONST.PLUGIN_DOWNLOADMANAGER_MEDIA_LIBRARY_BLAHBLAH} {$dlmtsl.smlpath}</p>
-    
+    {* Erm ... shouldn't this be a form?!? No, this is a single file movement only! We do not need multi file movement in media library. *}
+    <span class="msg_notice"><span class="icon-info-circled"></span> {$CONST.PLUGIN_DOWNLOADMANAGER_MEDIA_LIBRARY_BLAHBLAH} {$dlmtsl.smlpath}</span>
+
     <table id="smlfiles" cellspacing="0">
     <thead>
-    {if $dlmtsl.issmlarr === true}    
+    {if $dlmtsl.issmlarr === true}
         <tr>
-            <th><img src="{serendipity_getFile file="img/blank.png"}" width="84" height="4" />{$dlmgbl.filename_field}</th>
+            <th>{$dlmgbl.filename_field}</th>
             <th>{$dlmgbl.filesize_field}</th>
             <th>{$dlmgbl.filedate_field}</th>
         </tr>
     </thead>
     <tbody>
     {* header of serendipity directories in media library *}
-    {if !empty( $dlmtsl.extrapath )}
+    {if !empty($dlmtsl.extrapath)}
         <tr>
             <td colspan="3">
-                <img src="{serendipity_getFile file="img/blank.png"}" width="60" height="20" alt="" />
                 <img src="{$dlmgbl.httppath}img/fex.png" width="16" height="16" alt="" />
                 <a href="./serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=downloadmanager&amp;smlpath={$dlmtsl.backpath}&amp;thiscat={$dlmgbl.thiscat}">{$CONST.PLUGIN_DOWNLOADMANAGER_BACK}</a>
             </td>
@@ -146,7 +147,6 @@
     {foreach from=$dlmtsl.smldirs item="smlda"}
         <tr class="{cycle name="cycle1" values="odd,even"}">
             <td colspan="3">
-                <img src="{serendipity_getFile file="img/blank.png"}" width="60" height="20" alt="" />
                 <img src="{$dlmgbl.httppath}img/f.png" width="16" height="16" alt="" />
                 <a href="./serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=downloadmanager&amp;smlpath={$smlda.filepath}/{$smlda.filename}&amp;thiscat={$dlmgbl.thiscat}">{$smlda.filename}</a>
             </td>
@@ -156,7 +156,7 @@
     {foreach from=$dlmtsl.smlfiles item="smlfa"}
         <tr class="{cycle name="cycle1" values="odd,even"}">
             <td>
-                <img src="{serendipity_getFile file="img/blank.png"}" width="40" height="20" alt="" /><a href="./serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=downloadmanager&amp;medialib=1&amp;smlpath={$smlfa.filepath}{$dlmtsl.extrapath}&amp;ifile={$smlfa.filename}&amp;thiscat={$dlmgbl.thiscat}"><img src="{$dlmgbl.httppath}img/s9yml2.png" width="20" height="20" alt="{$CONST.PLUGIN_DOWNLOADMANAGER_IMPORT_FILE}" title="{$CONST.PLUGIN_DOWNLOADMANAGER_IMPORT_FILE}" /></a>
+                <a href="./serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=downloadmanager&amp;medialib=1&amp;smlpath={$smlfa.filepath}{$dlmtsl.extrapath}&amp;ifile={$smlfa.filename}&amp;thiscat={$dlmgbl.thiscat}"><img src="{$dlmgbl.httppath}img/s9yml2.png" width="20" height="20" alt="{$CONST.PLUGIN_DOWNLOADMANAGER_IMPORT_FILE}" title="{$CONST.PLUGIN_DOWNLOADMANAGER_IMPORT_FILE}" /></a>
                 <img src="{$smlfa.filemime.ICON}" width="16" height="16" alt="{$smlfa.filemime.TYPE}" title="{$smlfa.filemime.TYPE}" />
                 {$smlfa.filename}
             </td>
@@ -179,7 +179,7 @@
     {/if}
     </table>
 </div>
-{if $dlmtsl.ddiv === false}<script type="text/javascript" language="JavaScript">document.getElementById('dlm3').style.display = 'none';</script>{/if}
+{if $dlmtsl.ddiv === false}<script type="text/javascript">document.getElementById('dlm3').style.display = 'none';</script>{/if}
 {/if}
 
 {if $dlmgbl.thispage == 2 && $dlmhcs.hascats === true}
@@ -197,31 +197,31 @@
     <table id="catlist" cellspacing="0">
     <thead>
         <tr>
-            <th><img src="{serendipity_getFile file="img/blank.png"}" width="40" height="4" />{$CONST.PLUGIN_DOWNLOADMANAGER_CATEGORIES}</th>
+            <th>{$CONST.PLUGIN_DOWNLOADMANAGER_CATEGORIES}</th>
             <th>{$CONST.PLUGIN_DOWNLOADMANAGER_NUMBER_OF_DOWNLOADS}</th>
         </tr>
     </thead>
     <tbody>
     {section name="cat" loop=$dlmhcs.catlist}
     {* exclude cat[payload] = root being generated here! *}
-    {if $dlmhcs.catlist[cat].cat.payload != 'root'}        
+    {if $dlmhcs.catlist[cat].cat.payload != 'root'}
         <tr>
             <td>
             {if $dlmhcs.catlist[cat].cat.subcats <= 0}
-                <a href=./serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=downloadmanager&amp;delcat={$dlmhcs.catlist[cat].cat.node_id}><img src="{$dlmgbl.httppath}img/del.png" alt="{$CONST.PLUGIN_DOWNLOADMANAGER_DEL_CAT}" title="{$CONST.PLUGIN_DOWNLOADMANAGER_DEL_CAT}" /></a>
+                <a href="./serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=downloadmanager&amp;delcat={$dlmhcs.catlist[cat].cat.node_id}"><img src="{$dlmgbl.httppath}img/del.png" alt="{$CONST.PLUGIN_DOWNLOADMANAGER_DEL_CAT}" title="{$CONST.PLUGIN_DOWNLOADMANAGER_DEL_CAT}" /></a>
             {else}
                 <img src="{$dlmgbl.httppath}img/delch.png" alt="{$CONST.PLUGIN_DOWNLOADMANAGER_DEL_CAT_NOT_ALLOWD}" title="{$CONST.PLUGIN_DOWNLOADMANAGER_DEL_CAT_NOT_ALLOWD}" />
             {/if}
             {if $dlmhcs.catlist[cat].cat.hidden != 1}
-                <a href=./serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=downloadmanager&amp;hidecat=1&amp;hide=1&amp;catid={$dlmhcs.catlist[cat].cat.node_id}><img src="{$dlmgbl.httppath}img/hide2.png" alt="{$CONST.PLUGIN_DOWNLOADMANAGER_HIDE_TREE}" title="{$CONST.PLUGIN_DOWNLOADMANAGER_HIDE_TREE}" /></a>
+                <a href="./serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=downloadmanager&amp;hidecat=1&amp;hide=1&amp;catid={$dlmhcs.catlist[cat].cat.node_id}"><img src="{$dlmgbl.httppath}img/hide2.png" alt="{$CONST.PLUGIN_DOWNLOADMANAGER_HIDE_TREE}" title="{$CONST.PLUGIN_DOWNLOADMANAGER_HIDE_TREE}" /></a>
             {else}
-                <a href=./serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=downloadmanager&amp;hidecat=1&amp;hide=0&amp;catid={$dlmhcs.catlist[cat].cat.node_id}><img src="{$dlmgbl.httppath}img/unhide2.png" alt="{$CONST.PLUGIN_DOWNLOADMANAGER_UNHIDE_TREE}" title="{$CONST.PLUGIN_DOWNLOADMANAGER_UNHIDE_TREE}" /></a>
+                <a href="./serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=downloadmanager&amp;hidecat=1&amp;hide=0&amp;catid={$dlmhcs.catlist[cat].cat.node_id}"><img src="{$dlmgbl.httppath}img/unhide2.png" alt="{$CONST.PLUGIN_DOWNLOADMANAGER_UNHIDE_TREE}" title="{$CONST.PLUGIN_DOWNLOADMANAGER_UNHIDE_TREE}" /></a>
             {/if}
             {foreach from=$dlmhcs.catlist[cat].imgname item="s"}<img src="{$dlmgbl.httppath}img/{$s}.gif" alt="tree" /> {/foreach}
-            {if $dlmhcs.catlist[cat].cat.hidden != 1}   
-                <a href="./serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=downloadmanager&amp;thiscat={$dlmhcs.catlist[cat].cat.node_id}"><img src="{$dlmgbl.httppath}{if $dlmhcs.catlist[cat].cat.node_id == $dlmhcs.cn}img/fex.png{else}img/f.png{/if}"  alt="{$CONST.PLUGIN_DOWNLOADMANAGER_OPEN_CAT}" title="{$CONST.PLUGIN_DOWNLOADMANAGER_OPEN_CAT}" /></a>
+            {if $dlmhcs.catlist[cat].cat.hidden != 1}
+                <a href="./serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=downloadmanager&amp;thiscat={$dlmhcs.catlist[cat].cat.node_id}"><img src="{$dlmgbl.httppath}{if $dlmhcs.catlist[cat].cat.node_id == $dlmhcs.cn}img/fex.png{else}img/f.png{/if}" alt="{$CONST.PLUGIN_DOWNLOADMANAGER_OPEN_CAT}" title="{$CONST.PLUGIN_DOWNLOADMANAGER_OPEN_CAT}" /></a>
             {else}
-                <a href="./serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=downloadmanager&amp;thiscat={$dlmhcs.catlist[cat].cat.node_id}"><img src="{$dlmgbl.httppath}{if $dlmhcs.catlist[cat].cat.node_id == $dlmhcs.cn}img/hfex2.png{else}img/hf.png{/if}"  alt="{$CONST.PLUGIN_DOWNLOADMANAGER_OPEN_CAT}" title="{$CONST.PLUGIN_DOWNLOADMANAGER_OPEN_CAT}" /></a>
+                <a href="./serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=downloadmanager&amp;thiscat={$dlmhcs.catlist[cat].cat.node_id}"><img src="{$dlmgbl.httppath}{if $dlmhcs.catlist[cat].cat.node_id == $dlmhcs.cn}img/hfex2.png{else}img/hf.png{/if}" alt="{$CONST.PLUGIN_DOWNLOADMANAGER_OPEN_CAT}" title="{$CONST.PLUGIN_DOWNLOADMANAGER_OPEN_CAT}" /></a>
             {/if}
                 {* this input element changes the catname on the fly *}
                 <input class="catlist_catname_input{if $dlmhcs.catlist[cat].cat.node_id == $dlmhcs.cn} catlist_cats_selected{/if}" type="text" style="width:{$dlmhcs.catlist[cat].cat.inputsize}px" name="catname[{$dlmhcs.catlist[cat].cat.node_id}]" value="{$dlmhcs.catlist[cat].cat.payload}" />
@@ -242,7 +242,7 @@
     <p class="serendipityAdminMsgError">{$CONST.PLUGIN_DOWNLOADMANAGER_NO_CATS_FOUND}</p>
 {/if}
 </div>
-{if $dlmhcs.ddiv === false}<script type="text/javascript" language="JavaScript">document.getElementById('dlm4').style.display = 'none';</script>{/if}
+{if $dlmhcs.ddiv === false}<script type="text/javascript">document.getElementById('dlm4').style.display = 'none';</script>{/if}
 {/if}
 
 {if $dlmgbl.thispage == 2 && $dlmapx.appendix === true}
@@ -268,5 +268,5 @@
         </ul>
     </div>
 </div>
-<script type="text/javascript" language="JavaScript">document.getElementById('dlm5').style.display = 'none';</script>
+<script type="text/javascript">document.getElementById('dlm5').style.display = 'none';</script>
 {/if}

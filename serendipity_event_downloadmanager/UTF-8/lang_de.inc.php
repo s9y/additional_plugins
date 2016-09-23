@@ -1,4 +1,4 @@
-<?php # lang_de.inc.php 1.0 2011-11-22 10:20:54 VladaAjgl $
+<?php
 
 /**
  *  @version 1.0
@@ -14,11 +14,11 @@
 @define('PLUGIN_DOWNLOADMANAGER_PAGEURL', 'Statische URL');
 @define('PLUGIN_DOWNLOADMANAGER_PAGEURL_BLAHBLAH', 'Definiere hier den Namen der statischen URL (index.php?serendipity[subpage]=NAME)');
 @define('PLUGIN_DOWNLOADMANAGER_PERMALINK', 'Permalink');
-@define('PLUGIN_DOWNLOADMANAGER_PERMALINK_BLAHBLAH', 'Gibt den Permalink der statischen Seite an der sehr viel kürzer sein kann, als die Statische URL. Dieser muss eine absolute Pfadangabe vom HTTP-Root ab sein und die Dateiendung .htm oder .html besitzen! (default ist [http://blog/]downloads.html)');
+@define('PLUGIN_DOWNLOADMANAGER_PERMALINK_BLAHBLAH', 'Gibt den Permalink der statischen Download-Seite an, der sehr viel kürzer sein kann als die statische URL. Der Permalink muss eine absolute Pfadangabe vom HTTP-Root sein und die Dateiendung .htm oder .html besitzen. (Default ist "%s")');
 @define('PLUGIN_DOWNLOADMANAGER_ABSINCOMINGPATH', 'Pfad zu \'incoming\'');
-@define('PLUGIN_DOWNLOADMANAGER_ABSINCOMINGPATH_BLAHBLAH', 'Voller, absoluter Pfad zum \'incoming\' Verzeichnis, in welches man Dateien per FTP hochladen kann um sie in den Downloadmanager zu importieren, wenn die Datei zu gross ist, um sie mit dem PHP-Upload hochzuladen (Der Pfad und das Verzeichnis müssen existieren und für den Webserver beschreibbar sein!)');
-@define('PLUGIN_DOWNLOADMANAGER_ABSDOWNLOADPATH', 'Pfad zu \'download\' Verzeichnis');
-@define('PLUGIN_DOWNLOADMANAGER_ABSDOWNLOADPATH_BLAHBLAH', 'Voller und absoluter Pfad zum Download-Verzeichnis, in welchem die Dateien gespeichert werden sollen (Der Pfad und das Verzeichnis müssen existieren und für den Webserver beschreibbar sein!)');
+@define('PLUGIN_DOWNLOADMANAGER_ABSINCOMINGPATH_BLAHBLAH', 'Voller, absoluter Pfad zum \'incoming\' Verzeichnis in welches man Dateien per FTP hochladen kann, um sie in den Downloadmanager zu importieren. (Zum Beispiel, wenn die Datei zu gross für den PHP-HTTP-Upload ist.)');
+@define('PLUGIN_DOWNLOADMANAGER_ABSDOWNLOADPATH', 'Pfad zum \'download\' Verzeichnis');
+@define('PLUGIN_DOWNLOADMANAGER_ABSDOWNLOADPATH_BLAHBLAH', 'Voller und absoluter Pfad zum Download-Verzeichnis, in welchem die Dateien gespeichert werden.');
 @define('PLUGIN_DOWNLOADMANAGER_HTTPPATH', 'Pfad zum Downloadmanager Verzeichnis');
 @define('PLUGIN_DOWNLOADMANAGER_HTTPPATH_BLAHBLAH', 'Absoluter Pfad zum Plugin-Verzeichnis, in welchem der Downloadmanager installiert ist (üblicherweise \'/plugins/serendipity_event_downloadmanager\').');
 @define('PLUGIN_DOWNLOADMANAGER_DATEFORMAT', 'Format der Datumsanzeigen. Es werden die Variablen der PHP-Funktion date() verwendet (Default: \'Y/m/d, h:ia\')');
@@ -66,11 +66,17 @@
 @define('PLUGIN_DOWNLOADMANAGER_NUM_DOWNLOADS', 'dls');
 @define('PLUGIN_DOWNLOADMANAGER_NUM_DOWNLOADS_BLAH', 'Anzahl der Downloads');
 @define('PLUGIN_DOWNLOADMANAGER_IMPORT_FILE', 'Importieren von dieser Datei in die aktuelle Kategorie...');
-@define('PLUGIN_DOWNLOADMANAGER_COPY_NOT_ALLOWED', 'Konnte Datei nicht in das download-Verzeichnis kopieren!<br />Dies kann passieren, wenn der SAFE_MODE aktiviert ist<br />Bitte SAFE_MODE in der php.ini deaktivieren!');
-@define('PLUGIN_DOWNLOADMANAGER_DELETE_IN_INCOMING_NOT_ALLOWED', 'Konnte die Datei im import-Verzeichnis nicht löschen, da keine Schreibberechtigung bestand.<br />Bitte Berechtigungen ändern!');
-@define('PLUGIN_DOWNLOADMANAGER_DELETE_IN_DOWNLOADDIR_NOT_ALLOWED', 'Konnte die Datei im download-Verzeichnis nicht löschen, da keine Schreibberechtigung bestand.<br />Bitte Berechtigungen ändern!');
+@define('PLUGIN_DOWNLOADMANAGER_COPY_NOT_ALLOWED', 'Konnte Datei nicht in das Download-Verzeichnis kopieren!<br />Dies kann zB. passieren, wenn das encoding nicht stimmt. oder wenn der SAFE_MODE aktiviert ist<br />Bitte SAFE_MODE in der php.ini deaktivieren!');
+@define('PLUGIN_DOWNLOADMANAGER_DELETE_IN_INCOMING_NOT_ALLOWED', 'Konnte die Datei im Import-Verzeichnis nicht löschen, da keine Schreibberechtigung bestand.<br />Bitte Berechtigungen ändern!');
+@define('PLUGIN_DOWNLOADMANAGER_DELETE_IN_DOWNLOADDIR_NOT_ALLOWED', 'Konnte die Datei im Download-Verzeichnis nicht löschen, da keine Schreibberechtigung bestand.<br />Bitte Berechtigungen ändern!');
 /*@define('PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE', 'incoming Verzeichnis:');*/
-@define('PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE_BLAHBLAH', 'Dies ermöglicht den Import von per FTP hochgeladenen Dateien oder die vollständige Löschung aller hierhin verschobener Dateien (siehe blaues Trash Symbol).<br />Current directory: ');
+@define('PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE_BLAHBLAH', 'Dieses Verzeichnis "%s"
+<ul>
+    <li>ermöglicht den Import von per FTP hochgeladenen Dateien in die aktuelle Kategorie "<strong>%s</strong>"</li>
+    <li>fungiert als ein temporäres(!) Zwischenverzeichnis für zu verschiebene oder gelöschte Dateien und</li>
+    <li>erlaubt die vollständige Löschung aller hier befindlichen Dateien (über das blaue Trash Symbol).</li>
+    <li>Um Dateien längerfristig zu verstecken nutzen Sie das Stamm-Verzeichnis. Siehe DLM Help Box.</li>
+</ul>');
 @define('PLUGIN_DOWNLOADMANAGER_THIS_FILE', 'Gewählte Datei');
 @define('PLUGIN_DOWNLOADMANAGER_EDIT_FILE', 'Diese Datei ändern');
 @define('PLUGIN_DOWNLOADMANAGER_MOVE_TO_CAT', 'Diese Datei verschieben nach');
@@ -90,10 +96,10 @@
 @define('PLUGIN_DOWNLOADMANAGER_UNHIDE_TREE', 'Diese Kategorie und alle Unterkategorien wieder zeigen...');
 @define('PLUGIN_DOWNLOADMANAGER_OPEN_CAT', 'Klicken um die Kategorie zu öffnen um Dateien hochzuladen oder zu modifizieren...');
 
-@define('PLUGIN_DOWNLOADMANAGER_SHOWDESC_INLIST',       'Dateibeischreibungen in der Dateiliste');
+@define('PLUGIN_DOWNLOADMANAGER_SHOWDESC_INLIST',       'Dateibeschreibungen in der Dateiliste');
 @define('PLUGIN_DOWNLOADMANAGER_SHOWDESC_INLIST_DESC',  'Wenn Sie eine kompakte Liste wollen, so schalten Sie dies aus. Wenn Sie dem Benutzer viele Informationen geben wollen, schalten Sie diese Option an.');
 @define('PLUGIN_DOWNLOADMANAGER_DOWNLOAD_INLIST',       'Dateien direkt in der Dateiliste herunter laden');
-@define('PLUGIN_DOWNLOADMANAGER_DOWNLOAD_INLIST_DESC',  'Normaler Weise wird dem Besucher immer eine Informationsseite angezeigt, bevor er die Datei herunter laden kann. Hier können Sie einstellen, dass man bei einem Klick auf das Icon, den Namen oder beides direkt den Download startet.');
+@define('PLUGIN_DOWNLOADMANAGER_DOWNLOAD_INLIST_DESC',  'Normalerweise wird dem Besucher immer eine Informationsseite angezeigt, bevor er die Datei herunter laden kann. Hier können Sie einstellen, dass man bei einem Klick auf das Icon, den Namen oder beides direkt den Download startet.');
 @define('PLUGIN_DOWNLOADMANAGER_DOWNLOAD_INLIST_NO',    'Immer Infoseite anzeigen');
 @define('PLUGIN_DOWNLOADMANAGER_DOWNLOAD_INLIST_ICON',  'Download über Icon');
 @define('PLUGIN_DOWNLOADMANAGER_DOWNLOAD_INLIST_NAME',  'Download über Dateiname');
@@ -114,15 +120,16 @@
 @define('PLUGIN_DOWNLOADMANAGER_REGISTERED_ONLY_ERROR', 'Die Downloads stehen nur registrierten Benutzern dieses Blogs zur Verfügung!');
 @define('PLUGIN_DOWNLOADMANAGER_ROOTLEVEL_TITLE', 'Dateien auf der Rootebene (versteckt im Frontend!)');
 @define('PLUGIN_DOWNLOADMANAGER_ERRORS_UPGRADE_NOTCOPIED', 'Entschuldigung! Ein Fehler trat während des upgrade Prozesses auf. Die Dateien aus<br /><em>%s</em><br />konnten nicht nach<br /><em>%s</em><br />verschoben werden.<br /><br />Bitte verschieben Sie sie manuell und drücken sie <a class="backend_error_link" href="%s">diesen Link</a>, um das Plugin darüber zu informieren!<br />Löschen Sie die alten Verzeichnisse ebenfalls manuell.<br />');
-@define('PLUGIN_DOWNLOADMANAGER_ALLFILES_COPIED_NEWDIR', 'Da Sie das Downloadmanager Plugin auf v.0.24 hochgestuft haben, wurden alle alten Dateien in das neue \'/.dlm/files\' und \'/.dlm/ftpin\' Verzeichnis im Serendipity \'/archives\' Verzeichnis verschoben, um Konflikte mit dem alten Pfad zu vermeiden.<br /><br />Die Config Einstellungen wurden auf die neuen Pfade angepasst und sind künftig nicht mehr veränderbar.<br />Löschen Sie die alten Verzeichnisse manuell.<br />');
-@define('PLUGIN_DOWNLOADMANAGER_ALLFILES_COPY_NEWDIR_REMEMBER', 'Sie haben dem Plugin erfolgreich mitgeteilt, nur noch die neuen Pfade zu akzeptieren.<br /><br />Bitte denken Sie daran, ihre Dateien manuell in das neue \'archives/.dlm/files\' und \'archives/.dlm/ftpin\' Verzeichnis zu verschieben!<br />Löschen Sie die alten Verzeichnisse ebenfalls manuell.<br />');
+#@define('PLUGIN_DOWNLOADMANAGER_ALLFILES_COPIED_NEWDIR', 'Da Sie das Downloadmanager Plugin auf v.0.24 hochgestuft haben, wurden alle alten Dateien in das neue \'/.dlm/files\' und \'/.dlm/ftpin\' Verzeichnis im Serendipity \'/archives\' Verzeichnis verschoben, um Konflikte mit dem alten Pfad zu vermeiden.<br /><br />Die Config Einstellungen wurden auf die neuen Pfade angepasst und sind künftig nicht mehr veränderbar.<br />Löschen Sie die alten Verzeichnisse manuell.<br />');
+#@define('PLUGIN_DOWNLOADMANAGER_ALLFILES_COPY_NEWDIR_REMEMBER', 'Sie haben dem Plugin erfolgreich mitgeteilt, nur noch die neuen Pfade zu akzeptieren.<br /><br />Bitte denken Sie daran, ihre Dateien manuell in das neue \'archives/.dlm/files\' und \'archives/.dlm/ftpin\' Verzeichnis zu verschieben!<br />Löschen Sie die alten Verzeichnisse ebenfalls manuell.<br />');
 @define('PLUGIN_DOWNLOADMANAGER_BUTTON_MARK', 'alle markieren / unmarkieren');
-@define('PLUGIN_DOWNLOADMANAGER_BUTTON_MARK_TITLE', 'markierte löschen');
+@define('PLUGIN_DOWNLOADMANAGER_BUTTON_MARK_TITLE', 'markierte löschen nach ftp/trash');
 @define('PLUGIN_DOWNLOADMANAGER_BUTTON_MOVE_TITLE', 'markierte in Kategorie verschieben');
 @define('PLUGIN_DOWNLOADMANAGER_CLEAR_TRASH', 'Lösche alle Dateien im ftp/trash Verzeichnis');
 @define('PLUGIN_DOWNLOADMANAGER_NO_TRASH', 'Kein Müll im ftp/trash Verzeichnis');
 @define('PLUGIN_DOWNLOADMANAGER_EDIT_FILE_RENAME', 'Datei umbenennen in');
 /* HELPTIP_CF = category folder; HELPTIP_IF = incoming folder; HELPTIP_FF = file folder; HELPTIP_MF = s9y media library folder; */
+@define('PLUGIN_DOWNLOADMANAGER_HELPTIP_CF_START', 'Start: Erstellen Sie eine Kategorie, um Dateien hochzuladen.');
 @define('PLUGIN_DOWNLOADMANAGER_HELPTIP_CF_CHANGE', 'Kategorie Name im Feld selbst ändern / <em>Enter</em>');
 @define('PLUGIN_DOWNLOADMANAGER_HELPTIP_IF_VIEW', 'Um das ftp/trash Verzeichnis zu sehen, wählen sie einen Subordner von root.');
 @define('PLUGIN_DOWNLOADMANAGER_HELPTIP_FF_MULTI', 'Alle Dateien im ftp/trash Verzeichnis werden sofort gelöscht!');
@@ -143,3 +150,4 @@
 // Next lines were translated on 2011/11/22
 @define('PLUGIN_DOWNLOADMANAGER_BACK_ROOT', 'Wurzel-Kategorie');
 @define('PLUGIN_DOWNLOADMANAGER_BACK_CURRENT', 'Aktuelle Kategorie');
+

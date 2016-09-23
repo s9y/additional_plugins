@@ -1,9 +1,29 @@
-/** style_dlmanager_frontend.css last modified 2010-08-25 **/
+/** style_dlmanager_frontend.css last modified 2016-08-22 **/
+
+#downloadmanager {
+    width: 100%;
+    display: inline-table;
+}
+/* 2k11 */
+.plain-images #downloadmanager {
+    margin-left: 1em;
+}
+@media only screen and (min-width:1024px) {
+    /* 2k11 */
+    .plain-images #downloadmanager {
+        margin-left: 2em;
+    }
+}
+/* for the case the template does not have this class itself */
+#downloadmanager .serendipity_Entry_Date {
+    margin: .5em 1em;
+}
+
 #downloadmanager table {
     background: #ddd;
     border: 1px solid #aaa;
     margin: 10px 0;
-    width: 95%;
+    width: 96%;
 }
 
 #downloadmanager th {
@@ -32,3 +52,23 @@
 
 #downloadmanager .dlm_info,
 #downloadmanager .dlm_intro { display: block; margin: 10px 0; padding: 4px 2px; border: 1px solid #aaa; width: 94.4%; }
+
+/* .dlm_backend_ftp_box and s9yml box
+#filelist td {width: auto;} */
+
+/* truncate long filenames in filelist tables */
+#filelist a img {
+    margin: .2em;
+}
+#filelist tbody td:nth-of-type(1) {
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-table;
+    /* works nicely for responsive sizes */
+    display: -moz-box; /* Mozilla */
+    display: -webkit-box; /* WebKit */
+}
+
+/** style_dlmanager_frontend.css end **/

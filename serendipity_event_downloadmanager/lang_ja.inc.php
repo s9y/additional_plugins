@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 # (c) 2005 by Alexander 'dma147' Mieland, http://blog.linux-stats.org, <dma147@linux-stats.org>
 # Contact me on IRC in #linux-stats, #archlinux, #archlinux.de, #s9y on irc.freenode.net
@@ -21,11 +21,11 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 @define('PLUGIN_DOWNLOADMANAGER_PAGEURL', '静的 URL');
 @define('PLUGIN_DOWNLOADMANAGER_PAGEURL_BLAHBLAH', 'ページの URL を定義します (index.php?serendipity[subpage]=name)');
 @define('PLUGIN_DOWNLOADMANAGER_PERMALINK', '固定リンク');
-@define('PLUGIN_DOWNLOADMANAGER_PERMALINK_BLAHBLAH', 'Defines a custom permalink for the URL which can be much shorter than the Static URL. 絶対 HTTP パスの必要があり、最後に「.htm」か「.html」が必要です! (デフォルト: [http://blog/]downloads.html)');
+@define('PLUGIN_DOWNLOADMANAGER_PERMALINK_BLAHBLAH', 'Defines a custom permalink for the URL which can be much shorter than the Static URL. 絶対 HTTP パスの必要があり、最後に「.htm」か「.html」が必要です. (デフォルト: "%s")');
 @define("PLUGIN_DOWNLOADMANAGER_ABSINCOMINGPATH", "受付データのパス");
-@define("PLUGIN_DOWNLOADMANAGER_ABSINCOMINGPATH_BLAHBLAH", "Full and absolute path to the directory in which you can upload bigger files to import them into your downloadmanager. (path must exist and be writeable for the server!)");
+@define('PLUGIN_DOWNLOADMANAGER_ABSINCOMINGPATH_BLAHBLAH', 'Full and absolute path to the directory in which you can (FTP)-upload bigger files to import them into your downloadmanager.');
 @define("PLUGIN_DOWNLOADMANAGER_ABSDOWNLOADPATH", "絶対ダウンロードデータパス");
-@define("PLUGIN_DOWNLOADMANAGER_ABSDOWNLOADPATH_BLAHBLAH", "Full and absolute path to the directory in which the uploaded (and downloadable) files will be stored. (path must exist and be writeable for the server!)");
+@define("PLUGIN_DOWNLOADMANAGER_ABSDOWNLOADPATH_BLAHBLAH", "Full and absolute path to the directory in which the files are stored.");
 @define("PLUGIN_DOWNLOADMANAGER_HTTPPATH", "http path to plugin");
 @define("PLUGIN_DOWNLOADMANAGER_HTTPPATH_BLAHBLAH", "absolute http path to plugin (usually \"/plugins/serendipity_event_downloadmanager\").");
 @define("PLUGIN_DOWNLOADMANAGER_DATEFORMAT", "エントリの実際の日付の書式です、PHP の date() 関数の値を用います (デフォルト: \"Y/m/d, h:ia\")");
@@ -77,7 +77,13 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 @define("PLUGIN_DOWNLOADMANAGER_DELETE_IN_INCOMING_NOT_ALLOWED", "I'm not allowed to delete the file from your incoming directory! Please delete this one file manually and then set the file permissions that I can delete all further files for you.");
 @define("PLUGIN_DOWNLOADMANAGER_DELETE_IN_DOWNLOADDIR_NOT_ALLOWED", "I'm not allowed to delete the file from your download directory! Please set the file permissions that I can delete this file.");
 @define("PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE", "受け付けディレクトリ:");
-@define("PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE_BLAHBLAH", "Use this directory to upload files via FTP if you are not allowed to upload this file with the php-upload feature. This can happen if your file is too big than the maximum value in your php.ini or if file_uploads are deactivated in your php.ini.<br />現在のディレクトリ: ");
+@define('PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE_BLAHBLAH', 'This directory "%s"
+<ul>
+    <li>allows to import files via FTP upload to the current category "<strong>%s</strong>"</li>
+    <li>is used as a temporary(!) directory for delete and/or for moving files between categories.</li>
+    <li>On the other hand you should not keep files in here and always erase stored files completly (see blue trash symbol link).</li>
+    <li>For keeping and hiding files in the longer term please use the root directory. See DLM Help box.</li>
+</ul>');
 @define("PLUGIN_DOWNLOADMANAGER_THIS_FILE", "選択済ファイル");
 @define("PLUGIN_DOWNLOADMANAGER_EDIT_FILE", "このファイルを編集する");
 @define("PLUGIN_DOWNLOADMANAGER_MOVE_TO_CAT", "次にファイルを移動する:");
@@ -97,4 +103,3 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 @define("PLUGIN_DOWNLOADMANAGER_UNHIDE_TREE", "Unhide this and the complete subtree below this category...");
 @define("PLUGIN_DOWNLOADMANAGER_OPEN_CAT", "ファイルのアップロードか修正するこのカテゴリを開くためにクリックしてください...");
 
-?>

@@ -1,20 +1,62 @@
 ChangeLog:
 """"""""""
 
+0.37:
+----
+
+ * Optimize URI args load
+
+[Version 0.36 2016/08/22] by Ian
+--------------------------------
+ * Fix some frontend styles mainly for 2k11
+
+[Version 0.35 2016/08/06] by Ian
+--------------------------------
+ * Fix category purge and hide showing up
+
+[Version 0.34 2016/07/26] by Ian
+--------------------------------
+ * Add genpage hook for nice url rewriting
+
+[Version 0.33 2016/07/20] by Ian
+--------------------------------
+ * Set basename() to md_basename() because of locale-aware PHP bug
+
+[Version 0.32 2016/07/18] by Ian
+--------------------------------
+ * Improved filedir read iteration to PHP SPL Iterator, because of errors.
+ * In ISO-8859-1 to UTF-8 (recommended) environments we now support encoded filenames.
+ * Some more fixes related to these changes and other false or unconsistent usage.
+ * Some more minor 2.0 enhancements.
+ * Remove conversion to new archives location with version 0.24. Six years is enough!
+   (Improved some lang constant vars for this.)
+
+[Version 0.31 2016/05/09] by Ian
+--------------------------------
+ * Replaced the old method for generating random strings, which was broken with current PHP versions
+ * Some Serendipity 2.0x optimizing - changed requirement version
+ * Set Plugin consistencies
+ * Use lang API - extends required version
+ * Append CSS, not prepend
+
+--------------------------------
 Propagate $smarty.env.staticpage_pagetitle (and the others) so that it can be used in entries.tpl
 latest: Smarty3 forward compatibility
 
-[Version 0.26 2011/02/15] by Ian (Timbalu)
+[Version 0.26 2011/02/15] by Ian
+--------------------------------
     - changed smarty->fetch method call to be less strict to support smarty 2 to smarty3 parameter order change - removed param 4
     - added   restrict backend functionality and administration sidebar link to admin only
     - fixed   show Data for registered Users only in frontent tpls if set to true in config
     - added   serendipity_db_bool() to $this->get_config('registered_only')
 
-[Version 0.25.1 2010/10/20] by Ian (Timbalu)
+[Version 0.25.1 2010/10/20] by Ian
+--------------------------------
     - fixed   Call-time pass-by-reference has been deprecated since PHP 5.3.x
     - added   @silencer to mkdir and xhtml to <hr> tag in if($coname == 'absincomingpath') echo '<hr />';
 
-[Version 0.25 2010/09/23] by Ian (Timbalu)
+[Version 0.25 2010/09/23] by Ian
+--------------------------------
     - fixed   wrong path error, when copying a file from a s9y media library subfolder to selected category (0.25b only)
     - changed minor details in lang files and frontend filelist.tpl and filedetails.tpl
     - added   rename file ability in backends single file edit page (this added a new Constant to lang files too)
@@ -27,7 +69,8 @@ latest: Smarty3 forward compatibility
     - added   a complete smarty template to backend, which caused multiple changes in plugins code
 
 
-[Version 0.24 2010/08/26] by Ian (Timbalu)
+[Version 0.24 2010/08/26] by Ian
+--------------------------------
     - added   new config setting: 'intro', to have some more introduction text before frontend content (optional)
     - added   ics mime icon
     - changed frontend templates, frontend.css and download mime icons to show up refreshed in a new contemporary look (designed by YellowLed, thank you!)
@@ -53,10 +96,12 @@ latest: Smarty3 forward compatibility
     - added   mark and move all selected files in income folder to current folder
     - added   mark and erase all selected files in category and move them to the income (ftp/trash) folder to avoid unintentional destroying
 
-[Version 0.23.1 2010/08/16]
-    - Version bump to support belatedly added files (v.0.23) in CVS spartacus download. (Timbalu)
+[Version 0.23.1 2010/08/16] by Ian
+--------------------------------
+    - Version bump to support belatedly added files (v.0.23) in CVS spartacus download.
 
-[Version 0.23 2010/08/11] by Ian (Timbalu)
+[Version 0.23 2010/08/11] by Ian
+--------------------------------
     - added root level file appearance in backend (fixed: moved files to root level did not show up)
             The frontend did/does not show root level files, which isn't really a bug, while it is a feature (by now) ;-)
     - changed dlm file work behaviour to support root level files too (please report, if you experience some unusual behaviour)
@@ -70,10 +115,12 @@ latest: Smarty3 forward compatibility
     - added dlm_functions.js to support future dlm backend javascript - using foldable div containers by now
     - added some missing closing divs - hopefully all of them at the right place
 
-[Version 0.221 2010/08/09]
-    - Fix: Wrong fallback-dir when no config was set. (Timbalu)
+[Version 0.221 2010/08/09] by Ian
+--------------------------------
+    - Fix: Wrong fallback-dir when no config was set.
 
-[Version 0.22 2010/08/08] by Ian (Timbalu)
+[Version 0.22 2010/08/08] by Ian
+--------------------------------
     - changed upload folder to 'serendipity/uploads/dlmanager/incoming' (effects new installations only!)
     - changed download folder to 'serendipity/templates_c/.dlmanager/files' (effects new installations only!)
     - added missing mkdir of directories using the recursive mkdir function added with PHP 5.0.0

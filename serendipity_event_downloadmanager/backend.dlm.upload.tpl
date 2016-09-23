@@ -1,4 +1,4 @@
-{* backend.dlm.upload.tpl last modified 2010-09-06 *}
+{* backend.dlm.upload.tpl last modified 2016-07-11 *}
 <div id="dlm_backend_uploadform">
 {if !empty( $dlmulf.file_uploads ) && ( $dlmulf.file_uploads == 1 || $dlmulf.file_uploads == true || $dlmulf.file_uploads == 'On' )}
     <form action="?" name="uploadfileform" method="POST" enctype="multipart/form-data">
@@ -13,9 +13,9 @@
         <h4>{$CONST.PLUGIN_DOWNLOADMANAGER_UPLOAD_FILE}</h4>
         {section name=formloop start=1 loop=6 step=1}
         <div class="upload {cycle name="cycle1" values="odd,even"}">
-            <div class="upload_file">
+            <div class="form_field upload_file">
                 <label for="upload_file_{$smarty.section.formloop.index}">{$smarty.section.formloop.index}. {$CONST.PLUGIN_DOWNLOADMANAGER_FILE} (max. {$dlmulf.MAX_SIZE_PER_FILE})</label>
-                <input id="upload_file_{$smarty.section.formloop.index}" class="input_button" size="20" type="file" name="file[]" />
+                <input id="upload_file_{$smarty.section.formloop.index}" class="check_input input_button" multiple="" type="file" name="file[]" />
             </div>
             <div class="upload_description">
                 <label for="upload_desc_{$smarty.section.formloop.index}">{$CONST.PLUGIN_DOWNLOADMANAGER_EDIT_FILE_DESC}</label>

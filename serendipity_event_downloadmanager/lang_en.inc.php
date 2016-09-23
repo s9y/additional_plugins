@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 @define('PLUGIN_DOWNLOADMANAGER_TITLE', 'Downloadmanager');
 @define('PLUGIN_DOWNLOADMANAGER_DESC', 'Provides full downloadmanager capabilities to your s9y. When uninstalling, all related tables will be dropped!');
@@ -9,11 +9,11 @@
 @define('PLUGIN_DOWNLOADMANAGER_PAGEURL', 'Static URL');
 @define('PLUGIN_DOWNLOADMANAGER_PAGEURL_BLAHBLAH', 'Defines the URL of the page (index.php?serendipity[subpage]=name)');
 @define('PLUGIN_DOWNLOADMANAGER_PERMALINK', 'Permalink');
-@define('PLUGIN_DOWNLOADMANAGER_PERMALINK_BLAHBLAH', 'Defines a custom permalink for the URL which can be much shorter than the Static URL. Needs the absolute HTTP path and needs to end with .htm or .html! (defaults to [http://blog/]downloads.html)');
+@define('PLUGIN_DOWNLOADMANAGER_PERMALINK_BLAHBLAH', 'Defines a custom permalink for the URL which can be much shorter than the Static URL. Needs the absolute HTTP path and needs to end with .htm or .html. (Defaults to "%s")');
 @define('PLUGIN_DOWNLOADMANAGER_ABSINCOMINGPATH', 'Incoming data path');
-@define('PLUGIN_DOWNLOADMANAGER_ABSINCOMINGPATH_BLAHBLAH', 'Full and absolute path to the directory in which you can upload bigger files to import them into your downloadmanager. (path must exist and be writeable for the server!)');
+@define('PLUGIN_DOWNLOADMANAGER_ABSINCOMINGPATH_BLAHBLAH', 'Full and absolute path to the directory in which you can (FTP)-upload bigger files to import them into your downloadmanager.');
 @define('PLUGIN_DOWNLOADMANAGER_ABSDOWNLOADPATH', 'Absolute download data path');
-@define('PLUGIN_DOWNLOADMANAGER_ABSDOWNLOADPATH_BLAHBLAH', 'Full and absolute path to the directory in which the uploaded (and downloadable) files will be stored. (path must exist and be writeable for the server!)');
+@define('PLUGIN_DOWNLOADMANAGER_ABSDOWNLOADPATH_BLAHBLAH', 'Full and absolute path to the directory in which the files are stored.');
 @define('PLUGIN_DOWNLOADMANAGER_HTTPPATH', 'HTTP-path to plugin');
 @define('PLUGIN_DOWNLOADMANAGER_HTTPPATH_BLAHBLAH', 'absolute http path to plugin (usually \'/plugins/serendipity_event_downloadmanager\').');
 @define('PLUGIN_DOWNLOADMANAGER_DATEFORMAT', 'The format of the entry\'s actual date, using PHPs date() variables. (Default: \'Y/m/d, h:ia\')');
@@ -61,11 +61,17 @@
 @define('PLUGIN_DOWNLOADMANAGER_NUM_DOWNLOADS', 'dls');
 @define('PLUGIN_DOWNLOADMANAGER_NUM_DOWNLOADS_BLAH', 'Number of downloads');
 @define('PLUGIN_DOWNLOADMANAGER_IMPORT_FILE', 'Import this file from your incoming directory into this actual category...');
-@define('PLUGIN_DOWNLOADMANAGER_COPY_NOT_ALLOWED', 'Can not copy the new file from your incoming directory to the download directory!<br />This could happen if there is safe_mode activated in your php.ini.<br />Please deactivate the php safe_mode to use this feature!');
+@define('PLUGIN_DOWNLOADMANAGER_COPY_NOT_ALLOWED', 'Not able to copy the new file from your incoming directory to the download directory!<br />This can happen for example, if the file encoding is wrong, or when safe_mode is activated in your php.ini.<br />Please deactivate the php safe_mode to use this feature!');
 @define('PLUGIN_DOWNLOADMANAGER_DELETE_IN_INCOMING_NOT_ALLOWED', 'I\'m not allowed to delete the file from your incoming directory! Please delete this one file manually and then set the file permissions that I can delete all further files for you.');
 @define('PLUGIN_DOWNLOADMANAGER_DELETE_IN_DOWNLOADDIR_NOT_ALLOWED', 'I\'m not allowed to delete the file from your download directory! Please set the file permissions that I can delete this file.');
 /*@define('PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE', 'Incoming directory:');*/
-@define('PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE_BLAHBLAH', 'Use this directory to upload files via FTP if you are not allowed to upload this file with the php-upload feature. This can happen if your file is too big than the maximum value in your php.ini or if file_uploads are deactivated in your php.ini. On the other hand you can erase all moved files completly (see blue trash symbol).<br />Current directory: ');
+@define('PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE_BLAHBLAH', 'This directory "%s"
+<ul>
+    <li>allows to import files via FTP upload to the current category "<strong>%s</strong>"</li>
+    <li>is used as a temporary(!) directory for delete and/or for moving files between categories.</li>
+    <li>On the other hand you should not keep files in here and always erase stored files completly (see blue trash symbol link).</li>
+    <li>For keeping and hiding files in the longer term please use the root directory. See DLM Help box.</li>
+</ul>');
 @define('PLUGIN_DOWNLOADMANAGER_THIS_FILE', 'Selected file');
 @define('PLUGIN_DOWNLOADMANAGER_EDIT_FILE', 'Edit this file');
 @define('PLUGIN_DOWNLOADMANAGER_MOVE_TO_CAT', 'Move file to');
@@ -109,10 +115,10 @@
 @define('PLUGIN_DOWNLOADMANAGER_REGISTERED_ONLY_ERROR', 'The downloads are available only to this blogs registered users!');
 @define('PLUGIN_DOWNLOADMANAGER_ROOTLEVEL_TITLE', 'files at root level (hidden in frontend!)');
 @define('PLUGIN_DOWNLOADMANAGER_ERRORS_UPGRADE_NOTCOPIED', 'We are sorry! An error occured. The files of<br /><em>%s</em><br />could not be moved to<br /><em>%s</em>.<br /><br />Please move them manually and press <a class="backend_error_link" href="%s">this link</a>, to inform this plugin about it!<br />Additionally remove the old directories manually too.<br />');
-@define('PLUGIN_DOWNLOADMANAGER_ALLFILES_COPIED_NEWDIR', 'Since you upgraded your downloadmanager plugin to v.0.24, all you files were copied to the new \'/.dlm/files\' and \'/.dlm/ftpin\' directories in serendipities \'/archives\' folder to avoid oldpath conflicts.<br /><br />The config settings were set to hold the new path strings and are not alterable any more in future.<br />Please remove the old directories manually.<br />');
-@define('PLUGIN_DOWNLOADMANAGER_ALLFILES_COPY_NEWDIR_REMEMBER', 'You have successfull changed this plugin to accept the new path settings only.<br /><br />Please remember, to move your files manually to the new \'archives/.dlm/files\' and \'archives/.dlm/ftpin\' directories!<br />Additionally remove the old directories manually too.<br />');
+#@define('PLUGIN_DOWNLOADMANAGER_ALLFILES_COPIED_NEWDIR', 'Since you upgraded your downloadmanager plugin to v.0.24, all you files were copied to the new \'/.dlm/files\' and \'/.dlm/ftpin\' directories in serendipities \'/archives\' folder to avoid oldpath conflicts.<br /><br />The config settings were set to hold the new path strings and are not alterable any more in future.<br />Please remove the old directories manually.<br />');
+#@define('PLUGIN_DOWNLOADMANAGER_ALLFILES_COPY_NEWDIR_REMEMBER', 'You have successfully changed this plugin to accept the new path settings only.<br /><br />Please remember, to move your files manually to the new \'archives/.dlm/files\' and \'archives/.dlm/ftpin\' directories!<br />Additionally remove the old directories manually too.<br />');
 @define('PLUGIN_DOWNLOADMANAGER_BUTTON_MARK', 'mark all / unmark');
-@define('PLUGIN_DOWNLOADMANAGER_BUTTON_MARK_TITLE', 'erase all marked');
+@define('PLUGIN_DOWNLOADMANAGER_BUTTON_MARK_TITLE', 'erase all marked to ftp/trash');
 @define('PLUGIN_DOWNLOADMANAGER_BUTTON_MOVE_TITLE', 'move all marked to category');
 @define('PLUGIN_DOWNLOADMANAGER_CLEAR_TRASH', 'Clear bin in ftp/trash folder');
 @define('PLUGIN_DOWNLOADMANAGER_NO_TRASH', 'No files to destroy in ftp/trash folder');
@@ -120,6 +126,7 @@
 @define('PLUGIN_DOWNLOADMANAGER_BACK_ROOT', 'Root category');
 @define('PLUGIN_DOWNLOADMANAGER_BACK_CURRENT', 'Current category');
 /* HELPTIP_CF = category folder; HELPTIP_IF = incoming folder; HELPTIP_FF = file folder; HELPTIP_MF = s9y media library folder; */
+@define('PLUGIN_DOWNLOADMANAGER_HELPTIP_CF_START', 'Start: Create a category to upload files.');
 @define('PLUGIN_DOWNLOADMANAGER_HELPTIP_CF_CHANGE', 'Change category name in cat field directly / <em>Enter</em>');
 @define('PLUGIN_DOWNLOADMANAGER_HELPTIP_IF_VIEW', 'To view and handle ftp/trash folder, choose subcategory of root.');
 @define('PLUGIN_DOWNLOADMANAGER_HELPTIP_FF_MULTI', 'All file erasing in ftp/trash folder will happen immediately!');
@@ -136,3 +143,6 @@
 @define('PLUGIN_DOWNLOADMANAGER_HELPTIP_IF_VIEW', '');
 @define('PLUGIN_DOWNLOADMANAGER_HELPTIP_IF_VIEW', '');
 */
+
+@define('PLUGIN_DOWNLOADMANAGER_PHPMB_ERROR', 'PHP mb_* functions not available. Please use ASCII filenames only!');
+

@@ -544,6 +544,10 @@ EOS;
         $updateDir    = (string)$serendipity['serendipityPath'] . 'templates_c/' . "serendipity-$version/";
         $checksumFile = (string)$updateDir . "serendipity/checksums.inc.php";
 
+        if (strpos($version, 'beta') !== FALSE) {
+            return true;
+        }
+
         include_once $checksumFile;
 
         $checksums = $serendipity['checksums_' . $version];

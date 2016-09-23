@@ -1,3 +1,7 @@
+0.15.2:
+-------
+  * Fixed acces to $entry, thanks to Ian
+
 Made event_hook() declaration the same as in s9y core
 
 0.13:

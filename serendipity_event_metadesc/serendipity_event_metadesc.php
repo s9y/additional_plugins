@@ -25,7 +25,7 @@ class serendipity_event_metadesc extends serendipity_event {
         $propbag->add('description',   PLUGIN_METADESC_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Judebert, Don Chambers');
-        $propbag->add('version',       '0.15.1');
+        $propbag->add('version',       '0.15.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '4.1.0'
@@ -155,7 +155,9 @@ class serendipity_event_metadesc extends serendipity_event {
                     $default_keywords = $this->get_config('default_keywords');
 
                     // Only emit in Single Entry Mode
-                    if ($serendipity['GET']['id'] && isset($GLOBALS['entry'][0]['body'])) {
+                    if ($serendipity['GET']['id'] && $serendipity['view'] == 'entry') {
+                        // we fetch the internal smarty object to get the current entry body
+                        $entry = (array)$eventData['smarty']->tpl_vars['entry']->value;
 
                         // If we modified the <title>...
                         if (!empty($this->meta_title)) {
@@ -169,18 +171,18 @@ class serendipity_event_metadesc extends serendipity_event {
                             );
                         }
 
-                        $meta_description = $GLOBALS['entry'][0]['properties']['meta_description'];
+                        $meta_description = $entry['properties']['meta_description'];
                         if (empty($meta_description)) {
-                            $description_body = $GLOBALS['entry'][0]['body'];
-                            if (isset($GLOBALS['entry'][0]['plaintext_body'])) {
-                                $description_body = trim($GLOBALS['entry'][0]['plaintext_body']);
+                            $description_body = $entry[0]['body'];
+                            if (isset($entry['plaintext_body'])) {
+                                $description_body = trim($entry['plaintext_body']);
                             }
                             $meta_description = $this->extract_description($description_body);
                         }
 
-                        $meta_keywords = $GLOBALS['entry'][0]['properties']['meta_keywords'];
+                        $meta_keywords = $entry['properties']['meta_keywords'];
                         if (empty($meta_keywords)) {
-                            $meta_keywords = (array)$this->extract_keywords($GLOBALS['entry'][0]['body']);
+                            $meta_keywords = (array)$this->extract_keywords($entry['body']);
                             if (!empty($meta_keywords))
                             {
                                 $meta_keywords = implode(',', $meta_keywords);

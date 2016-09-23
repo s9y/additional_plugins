@@ -2,7 +2,7 @@
 function Amazon_country_code($country)  {
    switch ($country) {
        case 'ca':
-           $country_url = "http://ecs.amazonaws.ca/onca/xml";
+           $country_url = "http://webservices.amazon.ca/onca/xml";
            $mode = array (
                 'Blended',
                 'Books',
@@ -20,7 +20,7 @@ function Amazon_country_code($country)  {
             );
         break;
         case 'de':
-           $country_url = "http://ecs.amazonaws.de/onca/xml";
+           $country_url = "http://webservices.amazon.de/onca/xml";
            $mode = array (
                 'Apparel',
                 'Automotive',
@@ -63,7 +63,7 @@ function Amazon_country_code($country)  {
           );
           break;
          case 'jp':
-            $country_url = "http://ecs.amazonaws.jp/onca/xml";
+            $country_url = "http://webservicess.amazon.jp/onca/xml";
             $mode = array (
                 'Apparel',
                 'Automotive',
@@ -99,7 +99,7 @@ function Amazon_country_code($country)  {
          );
          break;
          case 'fr':
-            $country_url = "http://ecs.amazonaws.fr/onca/xml";
+            $country_url = "http://webservices.amazon.fr/onca/xml";
             $mode = array (
                 'Apparel',
                 'Baby',
@@ -111,6 +111,7 @@ function Amazon_country_code($country)  {
                 'Electronics',
                 'ForeignBooks',
                 'HealthPersonalCare',
+                'HomeImprovement',
                 'Jewelry',
                 'Kitchen',
                 'Lighting',
@@ -132,7 +133,7 @@ function Amazon_country_code($country)  {
          );
          break;
          case 'uk':
-            $country_url = "http://ecs.amazonaws.co.uk/onca/xml";
+            $country_url = "http://webservices.amazon.co.uk/onca/xml";
             $mode = array (
                 'Apparel',
                 'Automotive',
@@ -141,6 +142,7 @@ function Amazon_country_code($country)  {
                 'Beauty',
                 'Blended',
                 'Classical',
+                'Collectibles',
                 'DVD',
                 'Electronics',
                 'Grocery',
@@ -148,8 +150,9 @@ function Amazon_country_code($country)  {
                 'HomeGarden',
                 'HomeImprovement',
                 'Jewelry',
-				'KindleStore',
+				        'KindleStore',
                 'Kitchen',
+                'LawnAndGarden',
                 'Lighting',
                 'Marketplace',
                 'MP3Downloads',
@@ -234,7 +237,7 @@ function Amazon_country_code($country)  {
           break;
          case 'us':
          default:
-            $country_url = "http://ecs.amazonaws.com/onca/xml";
+            $country_url = "http://webservices.amazon.com/onca/xml";
             $mode = array (
                 'Apparel',
                 'Appliances',
@@ -245,6 +248,7 @@ function Amazon_country_code($country)  {
                 'Blended',
                 'Books',
                 'Classical',
+                'Collectibles',
                 'DigitalMusic',
                 'DVD',
                 'Electronics',
@@ -256,6 +260,7 @@ function Amazon_country_code($country)  {
                 'Jewelry',
                 'KindleStore',
                 'Kitchen',
+                'LawnAndGarden',
                 'Magazines',
                 'Marketplace',
                 'Miscellaneous',

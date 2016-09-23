@@ -4,14 +4,8 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+// Load possible language files.
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_page_nugget extends serendipity_event
 {
@@ -23,19 +17,21 @@ class serendipity_event_page_nugget extends serendipity_event
         $propbag->add('description',   PLUGIN_PAGE_NUGGET_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Wesley Hwang-Chung');
-        $propbag->add('version',       '1.13');
+        $propbag->add('version',       '1.14');
         $propbag->add('requirements',  array(
-            'serendipity' => '0.8',
+            'serendipity' => '1.6',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
         $propbag->add('groups', array('FRONTEND_ENTRY_RELATED'));
-        $propbag->add('event_hooks',   array('frontend_header' => true,
-                                             'entries_header' => true,
-                                             'entry_display' => true,
-                                             'entries_footer' => true,
-                                             'frontend_footer' => true,
-                                             'frontend_display' => true));
+        $propbag->add('event_hooks',   array(
+            'frontend_header'   => true,
+            'entries_header'    => true,
+            'entry_display'     => true,
+            'entries_footer'    => true,
+            'frontend_footer'   => true,
+            'frontend_display'  => true)
+        );
         $propbag->add('configuration', array('title', 'placement', 'language', 'content', 'content_plain', 'footer_close', 'markup', 'show_where'));
     }
 
@@ -50,52 +46,52 @@ class serendipity_event_page_nugget extends serendipity_event
                 $propbag->add('default',     '');
                 break;
 
-			case 'placement':
-				$select = array('head' => PLUGIN_PAGE_NUGGET_HEAD,
-				                'top' => PLUGIN_PAGE_NUGGET_TOP,
-				                'art_foot' => PLUGIN_PAGE_NUGGET_ART_FOOT,
-				                'bottom' => PLUGIN_PAGE_NUGGET_BOTTOM,
-				                'foot' => PLUGIN_PAGE_NUGGET_FOOT,
+            case 'placement':
+                $select = array('head' => PLUGIN_PAGE_NUGGET_HEAD,
+                                'top' => PLUGIN_PAGE_NUGGET_TOP,
+                                'art_foot' => PLUGIN_PAGE_NUGGET_ART_FOOT,
+                                'bottom' => PLUGIN_PAGE_NUGGET_BOTTOM,
+                                'foot' => PLUGIN_PAGE_NUGGET_FOOT,
                                 'rss' => PLUGIN_PAGE_NUGGET_RSS);
-				$propbag->add('type',        'select');
-				$propbag->add('select_values', $select);
-				$propbag->add('name',        PLUGIN_PAGE_NUGGET_PLACE);
-				$propbag->add('default',     'top');
-				break;
+                $propbag->add('type',        'select');
+                $propbag->add('select_values', $select);
+                $propbag->add('name',        PLUGIN_PAGE_NUGGET_PLACE);
+                $propbag->add('default',     'top');
+                break;
 
-        	case 'language':
-        		$select = array('all' => PLUGIN_PAGE_NUGGET_ALL,
-        			'en' => 'English',
-        			'de' => 'German',
-        			'da' => 'Danish',
-        			'es' => 'Spanish',
-        			'fr' => 'French',
-        			'fi' => 'Finnish',
-        			'cs' => 'Czech (Win-1250)',
-        			'cz' => 'Czech (ISO-8859-2)',
-        			'nl' => 'Dutch',
-        			'is' => 'Icelandic',
-        			'se' => 'Swedish',
-        			'pt' => 'Portuguese Brazilian',
-        			'pt_PT' => 'Portuguese European',
-        			'bg' => 'Bulgarian',
-        			'hu' => 'Hungarian',
-        			'no' => 'Norwegian',
-        			'ro' => 'Romanian',
-        			'it' => 'Italian',
-        			'ru' => 'Russian',
-        			'fa' => 'Persian',
-        			'tw' => 'Traditional Chinese (Big5)',
-        			'tn' => 'Traditional Chinese (UTF-8)',
-        			'zh' => 'Simplified Chinese (GB2312)',
-        			'cn' => 'Simplified Chinese (UTF-8)',
-        			'ja' => 'Japanese',
-        			'ko' => 'Korean');
+            case 'language':
+                $select = array('all' => PLUGIN_PAGE_NUGGET_ALL,
+                    'en' => 'English',
+                    'de' => 'German',
+                    'da' => 'Danish',
+                    'es' => 'Spanish',
+                    'fr' => 'French',
+                    'fi' => 'Finnish',
+                    'cs' => 'Czech (Win-1250)',
+                    'cz' => 'Czech (ISO-8859-2)',
+                    'nl' => 'Dutch',
+                    'is' => 'Icelandic',
+                    'se' => 'Swedish',
+                    'pt' => 'Portuguese Brazilian',
+                    'pt_PT' => 'Portuguese European',
+                    'bg' => 'Bulgarian',
+                    'hu' => 'Hungarian',
+                    'no' => 'Norwegian',
+                    'ro' => 'Romanian',
+                    'it' => 'Italian',
+                    'ru' => 'Russian',
+                    'fa' => 'Persian',
+                    'tw' => 'Traditional Chinese (Big5)',
+                    'tn' => 'Traditional Chinese (UTF-8)',
+                    'zh' => 'Simplified Chinese (GB2312)',
+                    'cn' => 'Simplified Chinese (UTF-8)',
+                    'ja' => 'Japanese',
+                    'ko' => 'Korean');
                 $propbag->add('type',        'select');
                 $propbag->add('select_values', $select);
                 $propbag->add('name',        PLUGIN_PAGE_NUGGET_LANG);
                 $propbag->add('default',     'all');
-        		break;
+                break;
 
             case 'content':
                 $propbag->add('type',        'html');
@@ -144,7 +140,8 @@ class serendipity_event_page_nugget extends serendipity_event
         $title = $this->get_config('title');
     }
 
-    function event_hook($event, &$bag, &$eventData, $addData = null) {
+    function event_hook($event, &$bag, &$eventData, $addData = null)
+    {
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');
@@ -152,11 +149,13 @@ class serendipity_event_page_nugget extends serendipity_event
         $language = $this->get_config('language', 'all');
         $show_where = $this->get_config('show_where', 'both');
 
-		// if the language doesn't match, do not display
-		if ($language != 'all' && $serendipity['lang'] != $language) return false;
+        // if the language doesn't match, do not display
+        if ($language != 'all' && $serendipity['lang'] != $language) {
+            return false;
+        }
 
         // RSS-Feed special case
-        if ($event == 'frontend_display' && $addData['from'] == 'functions_entries:printEntries_rss') {
+        if ($event == 'frontend_display' && (isset($addData['from']) && $addData['from'] == 'functions_entries:printEntries_rss')) {
             if ($placement == 'rss') {
                 if (serendipity_db_bool($this->get_config('markup', 'true')) && $event != 'frontend_header') {
                     $entry = array('html_nugget' => $this->get_config('content'));
@@ -166,50 +165,50 @@ class serendipity_event_page_nugget extends serendipity_event
                     $eventData['body'] .= $this->get_config('content') . $this->get_config('content_plain');
                 }
             }
-
             return true;
         }
 
-		// where to show
-		if ($show_where == 'extended' && (!isset($serendipity['GET']['id']) || !is_numeric($serendipity['GET']['id']))) {
-			return false;
-		} else if ($show_where == 'overview' && isset($serendipity['GET']['id']) && is_numeric($serendipity['GET']['id'])) {
-			return false;
-		}
+        // where to show
+        if ($show_where == 'extended' && (!isset($serendipity['GET']['id']) || !is_numeric($serendipity['GET']['id']))) {
+            return false;
+        } else if ($show_where == 'overview' && isset($serendipity['GET']['id']) && is_numeric($serendipity['GET']['id'])) {
+            return false;
+        }
 
-		if (($placement == 'head'   && $event == 'frontend_header') ||
-			($placement == 'top'    && $event == 'entries_header') ||
-			($placement == 'bottom' && $event == 'entries_footer') ||
-			($placement == 'foot'   && $event == 'frontend_footer')) {
-			// entries_footer hook location workaround: get out of the 'serendipity_entryFooter' class
-			if (serendipity_db_bool($this->get_config('footer_close', 'true')) && $event == 'entries_footer') {
+        if (($placement == 'head'   && $event == 'frontend_header') ||
+            ($placement == 'top'    && $event == 'entries_header') ||
+            ($placement == 'bottom' && $event == 'entries_footer') ||
+            ($placement == 'foot'   && $event == 'frontend_footer')) {
+            // entries_footer hook location workaround: get out of the 'serendipity_entryFooter' class
+            if (serendipity_db_bool($this->get_config('footer_close', 'true')) && $event == 'entries_footer') {
                 echo "\n</div>\n<div>\n";
             }
-			// if not for HEAD, apply markup?
-			if (serendipity_db_bool($this->get_config('markup', 'true')) && $event != 'frontend_header') {
-				$entry = array('html_nugget' => $this->get_config('content'));
-				serendipity_plugin_api::hook_event('frontend_display', $entry);
-				echo $entry['html_nugget'] .  $this->get_config('content_plain');
-			} else {
-				echo $this->get_config('content') . $this->get_config('content_plain');
-			}
-			return true;
-		} elseif ($placement == 'art_foot' && $event == 'entry_display') {
-			if (!is_array($eventData)) return false;
-			$elements = count($eventData);
-			for ($i = 0; $i < $elements; $i++) {
-				if (serendipity_db_bool($this->get_config('markup', 'true'))) {
-					$entry = array('html_nugget' => $this->get_config('content'));
-					serendipity_plugin_api::hook_event('frontend_display', $entry);
-					$eventData[$i]['add_footer'] .= sprintf("\n</div>\n" . $entry['html_nugget'] . $this->get_config('content_plain') . "\n<div>\n");
-				} else {
-					$eventData[$i]['add_footer'] .= sprintf("\n</div>\n" . $this->get_config('content') . $this->get_config('content_plain') . "\n<div>\n");
-				}
-			}
+            // if not for HEAD, apply markup?
+            if (serendipity_db_bool($this->get_config('markup', 'true')) && $event != 'frontend_header') {
+                $entry = array('html_nugget' => $this->get_config('content'));
+                serendipity_plugin_api::hook_event('frontend_display', $entry);
+                echo $entry['html_nugget'] .  $this->get_config('content_plain');
+            } else {
+                echo $this->get_config('content') . $this->get_config('content_plain');
+            }
+            return true;
+        } elseif ($placement == 'art_foot' && $event == 'entry_display') {
+            if (!is_array($eventData)) return false;
+            $elements = count($eventData);
+            for ($i = 0; $i < $elements; $i++) {
+                if (serendipity_db_bool($this->get_config('markup', 'true'))) {
+                    $entry = array('html_nugget' => $this->get_config('content'));
+                    serendipity_plugin_api::hook_event('frontend_display', $entry);
+                    $eventData[$i]['add_footer'] .= sprintf("\n</div>\n" . $entry['html_nugget'] . $this->get_config('content_plain') . "\n<div>\n");
+                } else {
+                    $eventData[$i]['add_footer'] .= sprintf("\n</div>\n" . $this->get_config('content') . $this->get_config('content_plain') . "\n<div>\n");
+                }
+            }
         } else {
             return false;
-		}
+        }
     }
+
 }
 
 ?>

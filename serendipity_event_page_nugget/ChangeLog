@@ -1,13 +1,17 @@
+1.14:
+-----
+ * Fix "Illegal string offset 'from'" error
+ * Use lang API - extends required Serendipity version to 1.6
+
 1.13:
 -----
-Add lang <de>
-Add new option for case bottom, closing a div class with certain templates
+ * Add lang <de>
+ * Add new option for case bottom, closing a div class with certain templates
 
 1.12:
 -----
-Add ability for "plaintext" markup
+ * Add ability for "plaintext" markup
 
 1.11:
 -----
-
-Add support for putting nuggets in RSS feeds
+ * Add support for putting nuggets in RSS feeds

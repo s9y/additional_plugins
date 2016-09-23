@@ -1663,11 +1663,11 @@
 <summary>Sharebuttons</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
 <description>Zeige Sharebuttons für Netzwerke wie Facebook und Twitter (nutzt shariff)</description>
-<maintainers><maintainer><name>onli, Matthias Mees</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>onli, Matthias Mees, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.9</version>
+  <version>0.12</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2016-08-12</date>
+  <date>2016-09-08</date>
   <filelist>
 <dir name="serendipity_event_social">
 <file>shariff.min.js</file>
@@ -9135,9 +9135,9 @@
 <description>Filtert Kommentare mittels eines lernenden Algorithmus.</description>
 <maintainers><maintainer><name>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.4.22</version>
+  <version>0.4.23</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-07-27</date>
+  <date>2016-09-02</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bayes">
 <dir name="img">
@@ -10781,9 +10781,9 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <description>Ermöglicht Einträge via XML-RPC API zu erstellen/bearbeiten (MT, Blogger, WordPress API-Endpunkte)</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.57</version>
+  <version>1.58</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-08-10</date>
+  <date>2016-08-15</date>
   <filelist>
 <dir name="serendipity_event_xmlrpc">
 <file>serendipity_event_xmlrpc.php</file>

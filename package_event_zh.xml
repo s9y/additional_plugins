@@ -2085,9 +2085,9 @@
 <description>Sets HTML meta keywords/description tags and title element for single entry pages and default meta keywords/description tags for non-single entry pages.</description>
 <maintainers><maintainer><name>Garvin Hicking, Judebert, Don Chambers</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.15.2</version>
+  <version>0.15.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2016-09-24</date>
   <filelist>
 <dir name="serendipity_event_metadesc">
 <file>lang_pl.inc.php</file>

@@ -2085,9 +2085,9 @@
 <description>Setzt Tags für HTML Meta-Schlüsselwörter/-Beschreibungen und das title-Element für Seiten mit nur einem einzelnen Eintrag bzw. allgemeine Meta-Schlüsselwörter/-Beschreibungen für Seite mit mehr als einem Eintrag.</description>
 <maintainers><maintainer><name>Garvin Hicking, Judebert, Don Chambers</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.15.2</version>
+  <version>0.15.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2016-09-24</date>
   <filelist>
 <dir name="serendipity_event_metadesc">
 <file>lang_pl.inc.php</file>

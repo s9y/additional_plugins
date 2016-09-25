@@ -1,7 +1,7 @@
-<?php # 
+<?php #
 
 /**
- *  @version 
+ *  @version
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */
@@ -174,6 +174,7 @@
 @define('STATICPAGE_SECTION_BASIC', 'Basic Content');
 @define('STATICPAGE_SECTION_OPT', 'Options');
 @define('STATICPAGE_SECTION_STRUCT', 'Structural');
+@define('STATICPAGE_SECTION_ACCESS', 'Access');
 
 @define('PLUGIN_STATICPAGELIST_SMARTIFY', 'Smartify Sidebar list');
 @define('PLUGIN_STATICPAGELIST_SMARTIFY_BLAHBLAH', 'Use smarty template file: "plugin_staticpage_sidebar.tpl" for sidebar output (allows to truncate length via smarty).');

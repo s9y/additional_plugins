@@ -1,77 +1,214 @@
-#serendipityStaticpagesNav ul {
-    padding:3px 0;
-    margin-left:0;
-    border-bottom:1px solid #000000;
-}
-
-#serendipityStaticpagesNav ul li {
+#serendipityStaticpagesNav {
     list-style:none;
-    margin:0;
-    display:inline;
+    margin-left: 0;
+    padding: 0;
 }
 
-#serendipityStaticpagesNav ul li a {
-    padding: 3px 0.5em;
-    margin-left:5px;
-    border:1px solid #000000;
+#serendipityStaticpagesNav li {
+    display: block;
+    margin: 0 0 .3125em
 }
 
-#serendipityStaticpagesNav ul li a#active {
-    border-bottom:1px solid #ffffff;
+#serendipityStaticpagesNav li:last-child {
+    margin: 0;
 }
 
-#serendipityStaticpagesRed {
-    color:#c00000;
+.staticpage_title {
+    position: relative;
+    top: 6px;
 }
 
-#serendipityStaticpagesYellow {
-    color:#eac131;
+.button_placeholder {
+    display: inline-block;
+    min-width: 32px;
 }
 
-#serendipityStaticpagesGreen {
-    color:#18f11d;
+.serendipityStaticpagesRed {
+    color: #b94a48;
 }
 
-#serendipityStaticpagesTableHeader {
-    background-color:#c0c0c0;
+.serendipityStaticpagesYellow {
+    color: #c09853;
 }
 
-#serendipityStaticpagesTable1 {
-    background-color:#dfdfdf;
+.serendipityStaticpagesGreen {
+    color: #468847;
 }
 
-#serendipityStaticpagesTable0 {
-    background-color:#f0f0f0;
+#serendipityStaticpagesTable {
+    border-top: 1px solid #aaa;
+    width: 100%;
 }
 
-.sp_templateselector {
-    float: right;
-    margin: 5px;
+#serendipityStaticpagesTable tr {
+    border-bottom: 1px solid #aaa;
+}
+
+#serendipityStaticpagesTable th,
+#serendipityStaticpagesTable td {
+    box-sizing: border-box;
+    padding: .25em .4em;
+}
+
+#serendipityStaticpagesTable thead {
+    background-color: #ccc;
+}
+
+#serendipityStaticpagesTable .odd {
+    background-color: #eee;
+}
+
+#serendipityStaticpagesTable .even {
+    background-color: #fff;
 }
 
 .sp_pageselector {
-    background-color: #E0E0E0;
-    padding: 5px;
+    background: #eee;
+    border: 1px solid #aaa;
+    box-sizing: border-box;
+    padding: .5em;
 }
 
-.default_staticpage .sp_label {
+.sp_pageselector label {
+    display: block;
+}
+
+.sp_pageselector select {
+    width: 100%;
+}
+
+.sp_pageselector .msg_notice {
+    clear: both;
+    margin: .5em 0 0;
+}
+
+.sp_pagetype {
+    border-top: 1px solid #aaa;
+    border-left: 1px solid #aaa;
+}
+
+.sp_pagetype tr {
+    border-bottom: 1px solid #aaa;
+}
+
+.sp_pagetype td {
+    padding: .25em .5em;
+    border-right: 1px solid #aaa;
+}
+
+.sp_pagetype strong,
+.sp_pagetype span {
+    display: block;
+}
+
+#staticpages_list h4 {
+    float: left;
+    font-size: 1em;
+    margin: .75em 0 0;
+}
+
+#staticpages_list .actions {
+    float: right;
+    margin: .75em 0 0;
+}
+
+#staticpages_list .entry_info > span {
+    display: inline-block;
+    margin: 0 1em .75em 0;
+}
+
+.staticpage_simple h4,
+.staticpage_simple h5 {
+    margin: .75em 0;
+}
+
+.staticpage_simple label {
     font-weight: bold;
 }
 
-.default_staticpage .sp_sect {
-    margin-bottom: 5px;
-}
-
-.default_staticpage .sect_opt {
-    font-size: 0.8em;
-}
-
-.default_staticpage fieldset {
-    margin: 5px;
-    border: 1px solid #F0F0F0;
-}
-
-.default_staticpage .input_textbox {
+.staticpage_simple .form_field input,
+.staticpage_simple .form_select select {
     width: 100%;
-    margin: 0px auto;
+}
+
+.staticpage_simple #tools_content,
+.staticpage_simple #tools_pre_content {
+    display: block;
+    margin: .375em 0;
+}
+
+.staticpage_simple #tools_pre_content input,
+.staticpage_simple #tools_content input {
+    width: auto;
+}
+
+.staticpage_section {
+    border: 1px solid #aaa;
+    box-sizing: border-box;
+    padding: .5em 1em;
+    margin-bottom: 1em;
+}
+
+.staticpage_section h4 {
+    background: #ddd;
+    background-image: -webkit-linear-gradient(#fff, #ddd);
+    background-image: linear-gradient(#fff, #ddd);
+    border-bottom: 1px solid #aaa;
+    color: #666;
+    font-size: 1em;
+    margin: -.5em -1em .75em;
+    padding: .5em 1em;
+}
+
+@media only screen and (min-width: 768px) {
+    #serendipityStaticpagesNav li {
+        display:inline-block;
+        margin: 0 .3125em 0 0;
+    }
+
+    #serendipityStaticpagesNav li:last-child {
+        margin: 0;
+    }
+
+    .sp_pageselector > .form_select,
+    .sp_pageselector .sp_buttons {
+        box-sizing: border-box;
+        float: left;
+        margin-top: 0;
+        padding-right: 1em;
+        width: 33%;
+    }
+
+    .sp_buttons {
+        padding-top: 1px;
+    }
+
+    .sp_pagetype_select {
+        float: left;
+        margin: 0 1em .75em 0 !important;
+        max-width: 30em;
+    }
+
+    .staticpage_structure,
+    .staticpage_access,
+    .staticpage_meta,
+    .staticpage_options {
+        box-sizing: border-box;
+        float: left;
+        width: 50%;
+    }
+
+    .staticpage_structure,
+    .staticpage_meta {
+        padding-right: .5em;
+    }
+
+    .staticpage_access,
+    .staticpage_options {
+        padding-left: .5em;
+    }
+
+    .staticpage_save {
+        clear: both;
+    }
 }

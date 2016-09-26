@@ -1,4 +1,4 @@
-<?php # 
+<?php #
 
 /* This file creates a package XML file for all additional_plugins CVS files
  *
@@ -9,7 +9,7 @@
 header('Content-Type: text/plain');
 define('IN_serendipity', true);
 error_reporting(E_ALL &  ~E_NOTICE);
-        
+
 class emerge_spartacus {
 
     var $helper;
@@ -141,25 +141,27 @@ class emerge_spartacus {
             chdir($olddir);
 
             $td = '';
-            $td .= '<div class="template_summary">' . $this->encode($info['name']) . '<br />' . $this->encode($info['summary']) . '</div>';
-            $td .= '<div class="template_name">' . $this->encode($path['name']) . '</template>';
+            $td .= '<h4 class="theme_summary">' . $this->encode($info['name']) . $this->encode($info['summary']) . '</h4>';
+            $td .= '<dl class="theme_meta">';
+            $td .= '<dt class="theme_name"><img alt="" src="cvs/additional_themes/' . $path['name'] . '/preview_fullsize.jpg"></dt>';
             if (empty($info['version'])) {
                 $info['version'] = '1.0';
             }
             if (empty($info['license'])) {
                 $info['license'] = 'N/A (=GPL)';
             }
-            $td .= '<div class="template_version">' . $this->encode(VERSION . ' ' . $info['version']) . '(' . $this->encode($info['license']) . ', ' . $this->encode($info['date']) . ')</div>';
-            $td .= '<div class="template_maintainers">' . $this->encode($info['author']) . '</div>';
+            $td .= '<dd class="theme_version">' . $this->encode(VERSION . ' ' . $info['version']) . '(' . $this->encode($info['license']) . ', ' . $this->encode($info['date']) . ')</dd>';
+            $td .= '<dd class="theme_maintainers">' . $this->encode($info['author']) . '</dd>';
             if (!empty($info['require serendipity'])) {
-                $td .= '<div class="template_requirements">Serendipity &gt;= ' . $this->encode($info['require serendipity']) . '</div>';
+                $td .= '<dd class="theme_requirements">Serendipity &gt;= ' . $this->encode($info['require serendipity']) . '</dd>';
             }
-
+            $td .= '</dl>';
+            $td .= '<ul class="theme_actions">';
             if (!isset($blacklist[$path['name']])) {
-                $td .= '<a style="font-weight: bold; margin: 0px auto" href="http://blog.s9y.org/index.php?user_template=additional_themes/' . $path['name'] . '">See demo on blog.s9y.org</a>' . "\n";
+                $td .= '<li class="theme_demo"><a href="http://blog.s9y.org/index.php?user_template=additional_themes/' . $path['name'] . '">Demo on blog.s9y.org</a></li>';
             }
-
-            $td .= '<div class="template_description"><span class="template_download"><a href="cvs/additional_themes/' . $path['name'] . '.zip"><img alt="Download" src="cvs/additional_themes/' . $path['name'] . '/preview_fullsize.jpg" width="100%" /></a></div>' . $this->encode($info['description']) . '</div>';
+            $td .= '<li class="theme_download"><a href="cvs/additional_themes/' . $path['name'] . '.zip">Download</a></li>';
+            $td .= '</ul>';
 
             $x[] = '<package version="1.0">';
             $x[] = '<name>' . $this->encode($info['name'], true) . '</name>';
@@ -187,7 +189,7 @@ class emerge_spartacus {
 
             $x[] = '</package>';
 
-            $t[$info['name']] .= '<div class="template">' . $td . '</div>' . "\n";
+            $t[$info['name']] .= '<div class="theme">' . $td . '</div>' . "\n";
             $nametofile[$info['name']] = $path['name'];
         }
         $x[] = '</packages>';
@@ -316,15 +318,18 @@ class emerge_spartacus {
 
             $x = '';
             $x .= '<div class="plugin">';
-            $x .= '<div class="plugin_summary">' . $this->encode($plugin_data['properties']['name']) . '</div>';
-            $x .= '<div class="plugin_name">' . $this->encode($plugin_name) . '</div>';
-            $x .= '<div class="plugin_version">' . $this->encode(VERSION . ' ' . $version) . ' (' . $this->encode($license) . ', ' . $this->encode(LAST_UPDATED) . ' ' . date('Y-m-d', filemtime($plugin_data['pluginPath'] . '/' . $plugin_data['name'] . '.php')) . ')</div>';
-            $x .= '<div class="plugin_maintainers">' . $this->encode($author) . '</div>';
-            $x .= '<div class="plugin_requirements">Serendipity &gt;= ' . $this->encode($s9yVersion) . '</div>';
-            #$x .= '<div class="plugin_groups">' . $this->encode(implode(',', (array)$plugin_data['properties']['groups'])) . '</div>';
+            $x .= '<h4 class="plugin_summary">' . $this->encode($plugin_data['properties']['name']) . '</h4>';
+            $x .= '<dl class="plugin_meta">';
+            $x .= '<dt class="plugin_name">' . $this->encode($plugin_name) . '</dt>';
+            $x .= '<dd class="plugin_version">' . $this->encode(VERSION . ' ' . $version) . ' (' . $this->encode($license) . ', ' . $this->encode(LAST_UPDATED) . ' ' . date('Y-m-d', filemtime($plugin_data['pluginPath'] . '/' . $plugin_data['name'] . '.php')) . ')</dd>';
+            $x .= '<dd class="plugin_maintainers">' . $this->encode($author) . '</dd>';
+            $x .= '<dd class="plugin_requirements">Serendipity &gt;= ' . $this->encode($s9yVersion) . '</dd>';
+            #$x .= '<dd class="plugin_groups">' . $this->encode(implode(',', (array)$plugin_data['properties']['groups'])) . '</dd>';
+            $x .= '</dl>';
 
-            $x .= '<div class="plugin_description">' . $this->encode($plugin_data['properties']['description']) . '</div>';
+            $x .= '<p class="plugin_description">' . $this->encode($plugin_data['properties']['description']) . '</p>';
 
+            $x .= '<ul class="plugin_actions">';
             if (is_dir($plugin_name)) {
                 $zipfile = $plugin_name;
             } else {
@@ -334,16 +339,16 @@ class emerge_spartacus {
                     $zipfile = str_replace('_plugin_', '_event_', $plugin_name);
                 }
             }
-            $x .= '<div class="plugin_download"><a href="cvs/additional_plugins/' . $zipfile . '.zip">Download</a> <a href="https://github.com/s9y/additional_plugins/tree/master/' . $this->encode($zipfile) . '">ViewCVS</a>';
-
+            $x .= '<li class="plugin_download"><a href="cvs/additional_plugins/' . $zipfile . '.zip">Download</a></li>';
+            $x .= '<li class="plugin_github"><a href="https://github.com/s9y/additional_plugins/tree/master/' . $this->encode($zipfile) . '">GitHub</a></li>';
             if (!empty($plugin_data['properties']['website'])) {
-                $x .= '<br /><a href="' . $this->encode($plugin_data['properties']['website']) . '">Documentation</a>';
+                $x .= '<li class="plugin_website"><a href="' . $this->encode($plugin_data['properties']['website']) . '">Documentation</a></li>';
             }
             if (!empty($plugin_data['properties']['changelog'])) {
-                $x .= '<br /><a href="' . $this->encode($plugin_data['properties']['changelog']) . '">ChangeLog</a>';
+                $x .= '<li class="plugin_changelog"><a href="' . $this->encode($plugin_data['properties']['changelog']) . '">ChangeLog</a></li>';
             }
-
-            $x .= '</div></div>';
+            $x .= '</ul">';
+            $x .= '</div>';
 
             foreach((array)$plugin_data['properties']['groups'] AS $group) {
                 $gnames[constant('PLUGIN_GROUP_' . $group)] = $group;
@@ -369,10 +374,10 @@ class emerge_spartacus {
             foreach($group AS $plug) {
                 $p[] = $plug['content'];
             }
-            $c = '<div class="group" id="group_' . $gshort . '">
+            $c = '<section id="group_' . $gshort . '" class="group">
                     <h3>' . $gname . '</h3>
                     ' . implode("\n", $p) . '
-                 </div>';
+                 </section>';
             fwrite($fp, $c);
             $fp2 = fopen('homepage/bygroup_' . $key . '_' . $gshort . '_' . $serendipity['lang'] . '.htm', 'w');
             fwrite($fp2, $c);
@@ -449,7 +454,7 @@ class emerge_spartacus {
                     echo "FTP Login failed.\n";
                     #die('FTP LOGIN IMPOSSIBLE');
                 }
-                
+
                 $login = ftp_login($c, $data[0], $data[1]);
             }
             if ($c && $login) {

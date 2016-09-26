@@ -141,7 +141,7 @@ class emerge_spartacus {
             chdir($olddir);
 
             $td = '';
-            $td .= '<h4 class="theme_summary">' . $this->encode($info['name']) . $this->encode($info['summary']) . '</h4>';
+            $td .= '<h4 class="theme_summary">' . $this->encode($info['name']) . ' ' . $this->encode($info['summary']) . '</h4>';
             $td .= '<dl class="theme_meta">';
             $td .= '<dt class="theme_name"><img alt="" src="cvs/additional_themes/' . $path['name'] . '/preview_fullsize.jpg"></dt>';
             if (empty($info['version'])) {

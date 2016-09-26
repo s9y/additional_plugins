@@ -72,6 +72,7 @@ class media_sidebar extends subplug_sidebar {
                   $select["popup"] = PLUGIN_SIDEBAR_MEDIASIDEBAR_LINKBEHAVIOR_POPUP;
                   $select["url"] = PLUGIN_SIDEBAR_MEDIASIDEBAR_LINKBEHAVIOR_URL;
                   $select["entry"] = PLUGIN_SIDEBAR_MEDIASIDEBAR_LINKBEHAVIOR_ENTRY;
+                  $select['none'] = NONE;
                   if (class_exists('serendipity_event_usergallery')){
                       $select["gallery"] = PLUGIN_SIDEBAR_MEDIASIDEBAR_LINKBEHAVIOR_GALLERY;
                   }
@@ -268,6 +269,9 @@ class media_sidebar extends subplug_sidebar {
                                     $gallery_str = $gallery_str.'?serendipity[image]='.$image['id'];
                                 }
                                 $output_str .= '<a href="'.$gallery_str.'"><img style="border: 0px; '.$width_str .'" src="'.$thumb_path.'" alt="" /></a>';
+                            break;
+                            case 'none':
+                                $output_str .= '<img style="border: 0px; '.$width_str .'" src="'.$thumb_path.'" alt="" />';
                             break;
                             case 'inpage':
                             default:

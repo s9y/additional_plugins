@@ -1,3 +1,7 @@
+0.100:
+-----
+    * Added option "none" for "Behavior of image link"
+    
 0.99:
 -----
     * Added serendipity_request_url API method

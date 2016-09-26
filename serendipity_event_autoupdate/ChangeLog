@@ -1,3 +1,8 @@
+1.1.6
+    * When curl download could not be tried, detect this as fail
+    * Improve error messages if update can't be downloaded
+    * Don't check checksums for beta
+
 1.1.5
     * Check for broken existing zip file
     * Set new requirement for PHP 5.2+

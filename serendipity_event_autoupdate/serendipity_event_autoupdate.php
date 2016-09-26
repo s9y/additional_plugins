@@ -22,7 +22,7 @@ class serendipity_event_autoupdate extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_AUTOUPDATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Ian');
-        $propbag->add('version',       '1.1.5');
+        $propbag->add('version',       '1.1.6');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '5.2'
@@ -284,11 +284,9 @@ EOS;
      */
     function fetchUpdate($version) {
         global $serendipity;
-
-        #$url     = (string)"http://prdownloads.sourceforge.net/php-blog/serendipity-$version.zip?download";
         $url     = (string)"https://github.com/s9y/Serendipity/releases/download/$version/serendipity-$version.zip";
         $update  = (string)$serendipity ['serendipityPath'] . 'templates_c/' . "serendipity-$version.zip";
-
+        
         // do we already have it and is it eventually broken?
         if (file_exists($update)) {
             $zip = new ZipArchive;
@@ -320,10 +318,13 @@ EOS;
                             
                 $success = @curl_exec($ch);
                 if (!$success) {
-                    $this->show_message('<p class="msg_error"><span class="icon-error"></span>Downloading update failed</p>');
+                    $this->show_message('<p class="msg_error"><span class="icon-error"></span>Downloading update failed (curl installed, but failed). Does '. $url .' exist?</p>');
                     return false;
                 }
-            } 
+            } else {
+                $this->show_message('<p class="msg_error"><span class="icon-error"></span>Downloading update failed (copy failed, curl not available). Does '. $url .' exist?</p>');
+                return false;
+            }
         }
         $this->show_message('<p class="msg_success"><span class="icon-ok"></span>Fetch download to templates_c done</p>');
         return $update;
@@ -336,14 +337,10 @@ EOS;
      * @return  boolean
      */
     function verifyUpdate($update, $version) {
-        #$url          = (string)"http://prdownloads.sourceforge.net/php-blog/serendipity-$version.zip?download";
         $url          = (string)"https://github.com/s9y/Serendipity/releases/download/$version/serendipity-$version.zip";
-        #$updatePage   = (string)$this->getPage("http://www.s9y.org/12.html");
         $updatePage   = (string)$this->getPage("https://github.com/s9y/Serendipity/releases/tag/$version");
-        #$downloadLink = substr($updatePage, strpos($updatePage, $url), 200);
         $found        = array();
         // grep the checksum
-        #preg_match("/\(MD5: (.*)\)/", $downloadLink, $found);
         preg_match("/\(MD5: (.*)\)/", $updatePage, $found);
         $checksum = $found[1];
         $this->show_message('<p class="msg_notice"><span class="icon-attention"></span>Checking MD5 zip file checksum: ' . $checksum . '</p>');
@@ -547,7 +544,6 @@ EOS;
         if (strpos($version, 'beta') !== FALSE) {
             return true;
         }
-
         include_once $checksumFile;
 
         $checksums = $serendipity['checksums_' . $version];

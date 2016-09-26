@@ -381,53 +381,6 @@
 </release>
 </package>
 <package version="1.0">
-<name>serendipity_event_phoneblogz</name>
-<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_phoneblogz/ChangeLog</changelog>
-<license>GPL</license>
-<summary>Phoneblogz</summary>
-<groups>BACKEND_FEATURES</groups>
-<description>This plugin allows to fetch messages from Phoneblogz.</description>
-<maintainers><maintainer><name>Garvin Hicking, phoneblogz.com</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>0.10</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-09-23</date>
-  <filelist>
-<dir name="serendipity_event_phoneblogz">
-<file>INSTALL.txt</file>
-<file>ChangeLog</file>
-<file>lang_cz.inc.php</file>
-<dir name="UTF-8">
-<file>lang_cz.inc.php</file>
-<file>lang_cs.inc.php</file>
-</dir>
-<file>CHANGELOG.txt</file>
-<file>lang_en.inc.php</file>
-<file>CREDITS.txt</file>
-<file>xmlrpc.inc</file>
-<file>lang_cs.inc.php</file>
-<file>phoneblogz-api.php</file>
-<file>serendipity_event_phoneblogz.php</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_event_phoneblogz/INSTALL.txt</file>
-    <file>serendipity_event_phoneblogz/ChangeLog</file>
-    <file>serendipity_event_phoneblogz/lang_cz.inc.php</file>
-    <file>serendipity_event_phoneblogz/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_phoneblogz/UTF-8/lang_cs.inc.php</file>
-    <file>serendipity_event_phoneblogz/CHANGELOG.txt</file>
-    <file>serendipity_event_phoneblogz/lang_en.inc.php</file>
-    <file>serendipity_event_phoneblogz/CREDITS.txt</file>
-    <file>serendipity_event_phoneblogz/xmlrpc.inc</file>
-    <file>serendipity_event_phoneblogz/lang_cs.inc.php</file>
-    <file>serendipity_event_phoneblogz/phoneblogz-api.php</file>
-    <file>serendipity_event_phoneblogz/serendipity_event_phoneblogz.php</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
 <name>serendipity_event_aggregator</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_aggregator/ChangeLog</changelog>
 <license>GPL</license>
@@ -1832,14 +1785,18 @@
 <file>plus.gif</file>
 <file>.htaccess</file>
 <file>join.gif</file>
+<file>move_up.png</file>
 <file>page.gif</file>
 <file>folderopen.gif</file>
 <file>minusbottom.gif</file>
 <file>folder.gif</file>
+<file>question.svg.png</file>
+<file>category.png</file>
 <file>nolines_minus.gif</file>
 <file>plusbottom.gif</file>
 <file>empty.gif</file>
 <file>joinbottom.gif</file>
+<file>move_down.png</file>
 </dir>
 <file>lang_ja.inc.php</file>
 <file>mkfaqpkg.sh</file>
@@ -1860,6 +1817,8 @@
 <file>lang_en.inc.php</file>
 <file>TODO</file>
 <file>documentation_cs.html</file>
+<file>class_inspectConfig.php</file>
+<file>jquery.serendipity_old_plain_editor.js</file>
 <file>plugin_faq_category_faqs.tpl</file>
 <file>lang_bg.inc.php</file>
 <file>serendipity_plugin_faq.php</file>
@@ -1885,14 +1844,18 @@
     <file>serendipity_event_faq/img/plus.gif</file>
     <file>serendipity_event_faq/img/.htaccess</file>
     <file>serendipity_event_faq/img/join.gif</file>
+    <file>serendipity_event_faq/img/move_up.png</file>
     <file>serendipity_event_faq/img/page.gif</file>
     <file>serendipity_event_faq/img/folderopen.gif</file>
     <file>serendipity_event_faq/img/minusbottom.gif</file>
     <file>serendipity_event_faq/img/folder.gif</file>
+    <file>serendipity_event_faq/img/question.svg.png</file>
+    <file>serendipity_event_faq/img/category.png</file>
     <file>serendipity_event_faq/img/nolines_minus.gif</file>
     <file>serendipity_event_faq/img/plusbottom.gif</file>
     <file>serendipity_event_faq/img/empty.gif</file>
     <file>serendipity_event_faq/img/joinbottom.gif</file>
+    <file>serendipity_event_faq/img/move_down.png</file>
     <file>serendipity_event_faq/lang_ja.inc.php</file>
     <file>serendipity_event_faq/mkfaqpkg.sh</file>
     <file>serendipity_event_faq/smartytags.txt</file>
@@ -1910,6 +1873,8 @@
     <file>serendipity_event_faq/lang_en.inc.php</file>
     <file>serendipity_event_faq/TODO</file>
     <file>serendipity_event_faq/documentation_cs.html</file>
+    <file>serendipity_event_faq/class_inspectConfig.php</file>
+    <file>serendipity_event_faq/jquery.serendipity_old_plain_editor.js</file>
     <file>serendipity_event_faq/plugin_faq_category_faqs.tpl</file>
     <file>serendipity_event_faq/lang_bg.inc.php</file>
     <file>serendipity_event_faq/serendipity_plugin_faq.php</file>
@@ -5452,123 +5417,6 @@
 </release>
 </package>
 <package version="1.0">
-<name>serendipity_event_findmore</name>
-<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_findmore/ChangeLog</changelog>
-<license>GPL</license>
-<summary>Show social share buttons for services like Facebook and Twitter</summary>
-<groups>FRONTEND_EXTERNAL_SERVICES</groups>
-<description>You can remove/insert other custom services to link to via the &quot;plugin_findmore.tpl&quot; template file easily. Also remember that if you want to save grandma's performance pennies that you can also insert the HTML/JS snippets into your entries.tpl template file instead of using this plugin!</description>
-<maintainers><maintainer><name>Garvin Hicking, Kodewulf</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>1.22</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
-  <filelist>
-<dir name="serendipity_event_findmore">
-<dir name="img">
-<file>blogmarks.png</file>
-<file>plugin_findmore.js</file>
-<file>stumbleupon.gif</file>
-<file>delicious.png</file>
-<file>bloglines.png</file>
-<file>identica.png</file>
-<file>fark.png</file>
-<file>wong18.gif</file>
-<file>facebook_dummy.png</file>
-<file>mixx-button4.png</file>
-<file>printfriendly.png</file>
-<file>googlebookmark.png</file>
-<file>technorati.png</file>
-<file>simpy.png</file>
-<file>twitter.png</file>
-<file>gplus_dummy.png</file>
-<file>email_link.png</file>
-<file>facebook.png</file>
-<file>magnolia.png</file>
-<file>blinklist.png</file>
-<file>furl.png</file>
-<file>newsvine.png</file>
-<file>friendfeed.png</file>
-<file>button0-bm.gif</file>
-<file>socialshareprivacy_on_off.png</file>
-<file>wists.png</file>
-<file>socialshareprivacy_off.png</file>
-<file>reddit.png</file>
-<file>socialshareprivacy_on.png</file>
-<file>diggman.png</file>
-<file>spurl.png</file>
-<file>yahoomyweb.png</file>
-</dir>
-<file>lang_pl.inc.php</file>
-<file>serendipity_event_findmore.php</file>
-<file>ChangeLog</file>
-<file>lang_cz.inc.php</file>
-<dir name="UTF-8">
-<file>lang_pl.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_bg.inc.php</file>
-<file>lang_cs.inc.php</file>
-</dir>
-<file>lang_en.inc.php</file>
-<file>documentation_cs.html</file>
-<file>lang_bg.inc.php</file>
-<file>documentation_cz.html</file>
-<file>lang_cs.inc.php</file>
-<file>plugin_findmore.tpl</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_event_findmore/img/blogmarks.png</file>
-    <file>serendipity_event_findmore/img/plugin_findmore.js</file>
-    <file>serendipity_event_findmore/img/stumbleupon.gif</file>
-    <file>serendipity_event_findmore/img/delicious.png</file>
-    <file>serendipity_event_findmore/img/bloglines.png</file>
-    <file>serendipity_event_findmore/img/identica.png</file>
-    <file>serendipity_event_findmore/img/fark.png</file>
-    <file>serendipity_event_findmore/img/wong18.gif</file>
-    <file>serendipity_event_findmore/img/facebook_dummy.png</file>
-    <file>serendipity_event_findmore/img/mixx-button4.png</file>
-    <file>serendipity_event_findmore/img/printfriendly.png</file>
-    <file>serendipity_event_findmore/img/googlebookmark.png</file>
-    <file>serendipity_event_findmore/img/technorati.png</file>
-    <file>serendipity_event_findmore/img/simpy.png</file>
-    <file>serendipity_event_findmore/img/twitter.png</file>
-    <file>serendipity_event_findmore/img/gplus_dummy.png</file>
-    <file>serendipity_event_findmore/img/email_link.png</file>
-    <file>serendipity_event_findmore/img/facebook.png</file>
-    <file>serendipity_event_findmore/img/magnolia.png</file>
-    <file>serendipity_event_findmore/img/blinklist.png</file>
-    <file>serendipity_event_findmore/img/furl.png</file>
-    <file>serendipity_event_findmore/img/newsvine.png</file>
-    <file>serendipity_event_findmore/img/friendfeed.png</file>
-    <file>serendipity_event_findmore/img/button0-bm.gif</file>
-    <file>serendipity_event_findmore/img/socialshareprivacy_on_off.png</file>
-    <file>serendipity_event_findmore/img/wists.png</file>
-    <file>serendipity_event_findmore/img/socialshareprivacy_off.png</file>
-    <file>serendipity_event_findmore/img/reddit.png</file>
-    <file>serendipity_event_findmore/img/socialshareprivacy_on.png</file>
-    <file>serendipity_event_findmore/img/diggman.png</file>
-    <file>serendipity_event_findmore/img/spurl.png</file>
-    <file>serendipity_event_findmore/img/yahoomyweb.png</file>
-    <file>serendipity_event_findmore/lang_pl.inc.php</file>
-    <file>serendipity_event_findmore/serendipity_event_findmore.php</file>
-    <file>serendipity_event_findmore/ChangeLog</file>
-    <file>serendipity_event_findmore/lang_cz.inc.php</file>
-    <file>serendipity_event_findmore/UTF-8/lang_pl.inc.php</file>
-    <file>serendipity_event_findmore/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_findmore/UTF-8/lang_bg.inc.php</file>
-    <file>serendipity_event_findmore/UTF-8/lang_cs.inc.php</file>
-    <file>serendipity_event_findmore/lang_en.inc.php</file>
-    <file>serendipity_event_findmore/documentation_cs.html</file>
-    <file>serendipity_event_findmore/lang_bg.inc.php</file>
-    <file>serendipity_event_findmore/documentation_cz.html</file>
-    <file>serendipity_event_findmore/lang_cs.inc.php</file>
-    <file>serendipity_event_findmore/plugin_findmore.tpl</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
 <name>serendipity_event_searchhighlight</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_searchhighlight/ChangeLog</changelog>
 <license>GPL</license>
@@ -8953,116 +8801,166 @@
 </release>
 </package>
 <package version="1.0">
-<name>serendipity_event_smfmarkup</name>
+<name>serendipity_event_phoneblogz</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/alpha/serendipity_event_phoneblogz/ChangeLog</changelog>
 <license>GPL</license>
-<summary>SMF Markup</summary>
-<groups>MARKUP</groups>
-<description>SMF Markup</description>
-<maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>1.01</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
-  <filelist>
-<dir name="alpha">
-<file>serendipity_event_smfmarkup.php</file>
-<file>bogo.php</file>
-<file>serendipity_event_mailcc.php</file>
-<file>serendipity_event_challengeresponse.php</file>
-<file>testing.php</file>
-<dir name="stalkerbuster">
-<file>lang_en.inc.php</file>
-<file>serendipity_event_stalkerbuster.php</file>
-</dir>
-<file>serendipity_plugin_sidebarlogo.zip</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>alpha/serendipity_event_smfmarkup.php</file>
-    <file>alpha/bogo.php</file>
-    <file>alpha/serendipity_event_mailcc.php</file>
-    <file>alpha/serendipity_event_challengeresponse.php</file>
-    <file>alpha/testing.php</file>
-    <file>alpha/stalkerbuster/lang_en.inc.php</file>
-    <file>alpha/stalkerbuster/serendipity_event_stalkerbuster.php</file>
-    <file>alpha/serendipity_plugin_sidebarlogo.zip</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
-<name>serendipity_event_mailcc</name>
-<license>GPL</license>
-<summary>Adds CC to all sent emails</summary>
+<summary>Phoneblogz</summary>
 <groups>BACKEND_FEATURES</groups>
-<description>(Notice: Make sure that the all of your authors have the option to receiv comment notification emails activated, or else no mails will be created that can be CCed</description>
-<maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>1.01</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
-  <filelist>
-<dir name="alpha">
-<file>serendipity_event_smfmarkup.php</file>
-<file>bogo.php</file>
-<file>serendipity_event_mailcc.php</file>
-<file>serendipity_event_challengeresponse.php</file>
-<file>testing.php</file>
-<dir name="stalkerbuster">
-<file>lang_en.inc.php</file>
-<file>serendipity_event_stalkerbuster.php</file>
-</dir>
-<file>serendipity_plugin_sidebarlogo.zip</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>alpha/serendipity_event_smfmarkup.php</file>
-    <file>alpha/bogo.php</file>
-    <file>alpha/serendipity_event_mailcc.php</file>
-    <file>alpha/serendipity_event_challengeresponse.php</file>
-    <file>alpha/testing.php</file>
-    <file>alpha/stalkerbuster/lang_en.inc.php</file>
-    <file>alpha/stalkerbuster/serendipity_event_stalkerbuster.php</file>
-    <file>alpha/serendipity_plugin_sidebarlogo.zip</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
-<name>serendipity_event_challengeresponse</name>
-<license>GPL</license>
-<summary>Spam: Challenge/Response</summary>
-<groups>ANTISPAM</groups>
-<description></description>
-<maintainers><maintainer><name>Nobody</name><role>lead</role></maintainer></maintainers>
+<description>This plugin allows to fetch messages from Phoneblogz.</description>
+<maintainers><maintainer><name>Garvin Hicking, phoneblogz.com</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>0.10</version>
-  <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2011-05-03</date>
+  <requirements:s9yVersion>0.8</requirements:s9yVersion>
+  <date>2016-09-26</date>
   <filelist>
-<dir name="alpha">
-<file>serendipity_event_smfmarkup.php</file>
-<file>bogo.php</file>
-<file>serendipity_event_mailcc.php</file>
-<file>serendipity_event_challengeresponse.php</file>
-<file>testing.php</file>
-<dir name="stalkerbuster">
-<file>lang_en.inc.php</file>
-<file>serendipity_event_stalkerbuster.php</file>
+<dir name="serendipity_event_phoneblogz">
+<file>INSTALL.txt</file>
+<file>ChangeLog</file>
+<file>lang_cz.inc.php</file>
+<dir name="UTF-8">
+<file>lang_cz.inc.php</file>
+<file>lang_cs.inc.php</file>
 </dir>
-<file>serendipity_plugin_sidebarlogo.zip</file>
+<file>CHANGELOG.txt</file>
+<file>lang_en.inc.php</file>
+<file>CREDITS.txt</file>
+<file>xmlrpc.inc</file>
+<file>lang_cs.inc.php</file>
+<file>phoneblogz-api.php</file>
+<file>serendipity_event_phoneblogz.php</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
-    <file>alpha/serendipity_event_smfmarkup.php</file>
-    <file>alpha/bogo.php</file>
-    <file>alpha/serendipity_event_mailcc.php</file>
-    <file>alpha/serendipity_event_challengeresponse.php</file>
-    <file>alpha/testing.php</file>
-    <file>alpha/stalkerbuster/lang_en.inc.php</file>
-    <file>alpha/stalkerbuster/serendipity_event_stalkerbuster.php</file>
-    <file>alpha/serendipity_plugin_sidebarlogo.zip</file>
+    <file>alpha/serendipity_event_phoneblogz/INSTALL.txt</file>
+    <file>alpha/serendipity_event_phoneblogz/ChangeLog</file>
+    <file>alpha/serendipity_event_phoneblogz/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_phoneblogz/UTF-8/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_phoneblogz/UTF-8/lang_cs.inc.php</file>
+    <file>alpha/serendipity_event_phoneblogz/CHANGELOG.txt</file>
+    <file>alpha/serendipity_event_phoneblogz/lang_en.inc.php</file>
+    <file>alpha/serendipity_event_phoneblogz/CREDITS.txt</file>
+    <file>alpha/serendipity_event_phoneblogz/xmlrpc.inc</file>
+    <file>alpha/serendipity_event_phoneblogz/lang_cs.inc.php</file>
+    <file>alpha/serendipity_event_phoneblogz/phoneblogz-api.php</file>
+    <file>alpha/serendipity_event_phoneblogz/serendipity_event_phoneblogz.php</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>serendipity_event_findmore</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/alpha/serendipity_event_findmore/ChangeLog</changelog>
+<license>GPL</license>
+<summary>Show social share buttons for services like Facebook and Twitter</summary>
+<groups>FRONTEND_EXTERNAL_SERVICES</groups>
+<description>You can remove/insert other custom services to link to via the &quot;plugin_findmore.tpl&quot; template file easily. Also remember that if you want to save grandma's performance pennies that you can also insert the HTML/JS snippets into your entries.tpl template file instead of using this plugin!</description>
+<maintainers><maintainer><name>Garvin Hicking, Kodewulf</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.22</version>
+  <requirements:s9yVersion>0.8</requirements:s9yVersion>
+  <date>2016-09-26</date>
+  <filelist>
+<dir name="serendipity_event_findmore">
+<dir name="img">
+<file>blogmarks.png</file>
+<file>plugin_findmore.js</file>
+<file>stumbleupon.gif</file>
+<file>delicious.png</file>
+<file>bloglines.png</file>
+<file>identica.png</file>
+<file>fark.png</file>
+<file>wong18.gif</file>
+<file>facebook_dummy.png</file>
+<file>mixx-button4.png</file>
+<file>printfriendly.png</file>
+<file>googlebookmark.png</file>
+<file>technorati.png</file>
+<file>simpy.png</file>
+<file>twitter.png</file>
+<file>gplus_dummy.png</file>
+<file>email_link.png</file>
+<file>facebook.png</file>
+<file>magnolia.png</file>
+<file>blinklist.png</file>
+<file>furl.png</file>
+<file>newsvine.png</file>
+<file>friendfeed.png</file>
+<file>button0-bm.gif</file>
+<file>socialshareprivacy_on_off.png</file>
+<file>wists.png</file>
+<file>socialshareprivacy_off.png</file>
+<file>reddit.png</file>
+<file>socialshareprivacy_on.png</file>
+<file>diggman.png</file>
+<file>spurl.png</file>
+<file>yahoomyweb.png</file>
+</dir>
+<file>lang_pl.inc.php</file>
+<file>serendipity_event_findmore.php</file>
+<file>ChangeLog</file>
+<file>lang_cz.inc.php</file>
+<dir name="UTF-8">
+<file>lang_pl.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_bg.inc.php</file>
+<file>lang_cs.inc.php</file>
+</dir>
+<file>lang_en.inc.php</file>
+<file>documentation_cs.html</file>
+<file>lang_bg.inc.php</file>
+<file>documentation_cz.html</file>
+<file>lang_cs.inc.php</file>
+<file>plugin_findmore.tpl</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>alpha/serendipity_event_findmore/img/blogmarks.png</file>
+    <file>alpha/serendipity_event_findmore/img/plugin_findmore.js</file>
+    <file>alpha/serendipity_event_findmore/img/stumbleupon.gif</file>
+    <file>alpha/serendipity_event_findmore/img/delicious.png</file>
+    <file>alpha/serendipity_event_findmore/img/bloglines.png</file>
+    <file>alpha/serendipity_event_findmore/img/identica.png</file>
+    <file>alpha/serendipity_event_findmore/img/fark.png</file>
+    <file>alpha/serendipity_event_findmore/img/wong18.gif</file>
+    <file>alpha/serendipity_event_findmore/img/facebook_dummy.png</file>
+    <file>alpha/serendipity_event_findmore/img/mixx-button4.png</file>
+    <file>alpha/serendipity_event_findmore/img/printfriendly.png</file>
+    <file>alpha/serendipity_event_findmore/img/googlebookmark.png</file>
+    <file>alpha/serendipity_event_findmore/img/technorati.png</file>
+    <file>alpha/serendipity_event_findmore/img/simpy.png</file>
+    <file>alpha/serendipity_event_findmore/img/twitter.png</file>
+    <file>alpha/serendipity_event_findmore/img/gplus_dummy.png</file>
+    <file>alpha/serendipity_event_findmore/img/email_link.png</file>
+    <file>alpha/serendipity_event_findmore/img/facebook.png</file>
+    <file>alpha/serendipity_event_findmore/img/magnolia.png</file>
+    <file>alpha/serendipity_event_findmore/img/blinklist.png</file>
+    <file>alpha/serendipity_event_findmore/img/furl.png</file>
+    <file>alpha/serendipity_event_findmore/img/newsvine.png</file>
+    <file>alpha/serendipity_event_findmore/img/friendfeed.png</file>
+    <file>alpha/serendipity_event_findmore/img/button0-bm.gif</file>
+    <file>alpha/serendipity_event_findmore/img/socialshareprivacy_on_off.png</file>
+    <file>alpha/serendipity_event_findmore/img/wists.png</file>
+    <file>alpha/serendipity_event_findmore/img/socialshareprivacy_off.png</file>
+    <file>alpha/serendipity_event_findmore/img/reddit.png</file>
+    <file>alpha/serendipity_event_findmore/img/socialshareprivacy_on.png</file>
+    <file>alpha/serendipity_event_findmore/img/diggman.png</file>
+    <file>alpha/serendipity_event_findmore/img/spurl.png</file>
+    <file>alpha/serendipity_event_findmore/img/yahoomyweb.png</file>
+    <file>alpha/serendipity_event_findmore/lang_pl.inc.php</file>
+    <file>alpha/serendipity_event_findmore/serendipity_event_findmore.php</file>
+    <file>alpha/serendipity_event_findmore/ChangeLog</file>
+    <file>alpha/serendipity_event_findmore/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_findmore/UTF-8/lang_pl.inc.php</file>
+    <file>alpha/serendipity_event_findmore/UTF-8/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_findmore/UTF-8/lang_bg.inc.php</file>
+    <file>alpha/serendipity_event_findmore/UTF-8/lang_cs.inc.php</file>
+    <file>alpha/serendipity_event_findmore/lang_en.inc.php</file>
+    <file>alpha/serendipity_event_findmore/documentation_cs.html</file>
+    <file>alpha/serendipity_event_findmore/lang_bg.inc.php</file>
+    <file>alpha/serendipity_event_findmore/documentation_cz.html</file>
+    <file>alpha/serendipity_event_findmore/lang_cs.inc.php</file>
+    <file>alpha/serendipity_event_findmore/plugin_findmore.tpl</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -9087,6 +8985,498 @@
   <serendipityFilelist>
     <file>alpha/stalkerbuster/lang_en.inc.php</file>
     <file>alpha/stalkerbuster/serendipity_event_stalkerbuster.php</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>serendipity_event_smfmarkup</name>
+<license>GPL</license>
+<summary>SMF Markup</summary>
+<groups>MARKUP</groups>
+<description>SMF Markup</description>
+<maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.01</version>
+  <requirements:s9yVersion>0.8</requirements:s9yVersion>
+  <date>2013-08-12</date>
+  <filelist>
+<dir name="alpha">
+<dir name="serendipity_event_phoneblogz">
+<file>INSTALL.txt</file>
+<file>ChangeLog</file>
+<file>lang_cz.inc.php</file>
+<dir name="UTF-8">
+<file>lang_cz.inc.php</file>
+<file>lang_cs.inc.php</file>
+</dir>
+<file>CHANGELOG.txt</file>
+<file>lang_en.inc.php</file>
+<file>CREDITS.txt</file>
+<file>xmlrpc.inc</file>
+<file>lang_cs.inc.php</file>
+<file>phoneblogz-api.php</file>
+<file>serendipity_event_phoneblogz.php</file>
+</dir>
+<file>serendipity_event_smfmarkup.php</file>
+<file>bogo.php</file>
+<file>serendipity_event_mailcc.php</file>
+<file>serendipity_event_challengeresponse.php</file>
+<file>testing.php</file>
+<dir name="serendipity_event_findmore">
+<dir name="img">
+<file>blogmarks.png</file>
+<file>plugin_findmore.js</file>
+<file>stumbleupon.gif</file>
+<file>delicious.png</file>
+<file>bloglines.png</file>
+<file>identica.png</file>
+<file>fark.png</file>
+<file>wong18.gif</file>
+<file>facebook_dummy.png</file>
+<file>mixx-button4.png</file>
+<file>printfriendly.png</file>
+<file>googlebookmark.png</file>
+<file>technorati.png</file>
+<file>simpy.png</file>
+<file>twitter.png</file>
+<file>gplus_dummy.png</file>
+<file>email_link.png</file>
+<file>facebook.png</file>
+<file>magnolia.png</file>
+<file>blinklist.png</file>
+<file>furl.png</file>
+<file>newsvine.png</file>
+<file>friendfeed.png</file>
+<file>button0-bm.gif</file>
+<file>socialshareprivacy_on_off.png</file>
+<file>wists.png</file>
+<file>socialshareprivacy_off.png</file>
+<file>reddit.png</file>
+<file>socialshareprivacy_on.png</file>
+<file>diggman.png</file>
+<file>spurl.png</file>
+<file>yahoomyweb.png</file>
+</dir>
+<file>lang_pl.inc.php</file>
+<file>serendipity_event_findmore.php</file>
+<file>ChangeLog</file>
+<file>lang_cz.inc.php</file>
+<dir name="UTF-8">
+<file>lang_pl.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_bg.inc.php</file>
+<file>lang_cs.inc.php</file>
+</dir>
+<file>lang_en.inc.php</file>
+<file>documentation_cs.html</file>
+<file>lang_bg.inc.php</file>
+<file>documentation_cz.html</file>
+<file>lang_cs.inc.php</file>
+<file>plugin_findmore.tpl</file>
+</dir>
+<dir name="stalkerbuster">
+<file>lang_en.inc.php</file>
+<file>serendipity_event_stalkerbuster.php</file>
+</dir>
+<file>serendipity_plugin_sidebarlogo.zip</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>alpha/serendipity_event_phoneblogz/INSTALL.txt</file>
+    <file>alpha/serendipity_event_phoneblogz/ChangeLog</file>
+    <file>alpha/serendipity_event_phoneblogz/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_phoneblogz/UTF-8/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_phoneblogz/UTF-8/lang_cs.inc.php</file>
+    <file>alpha/serendipity_event_phoneblogz/CHANGELOG.txt</file>
+    <file>alpha/serendipity_event_phoneblogz/lang_en.inc.php</file>
+    <file>alpha/serendipity_event_phoneblogz/CREDITS.txt</file>
+    <file>alpha/serendipity_event_phoneblogz/xmlrpc.inc</file>
+    <file>alpha/serendipity_event_phoneblogz/lang_cs.inc.php</file>
+    <file>alpha/serendipity_event_phoneblogz/phoneblogz-api.php</file>
+    <file>alpha/serendipity_event_phoneblogz/serendipity_event_phoneblogz.php</file>
+    <file>alpha/serendipity_event_smfmarkup.php</file>
+    <file>alpha/bogo.php</file>
+    <file>alpha/serendipity_event_mailcc.php</file>
+    <file>alpha/serendipity_event_challengeresponse.php</file>
+    <file>alpha/testing.php</file>
+    <file>alpha/serendipity_event_findmore/img/blogmarks.png</file>
+    <file>alpha/serendipity_event_findmore/img/plugin_findmore.js</file>
+    <file>alpha/serendipity_event_findmore/img/stumbleupon.gif</file>
+    <file>alpha/serendipity_event_findmore/img/delicious.png</file>
+    <file>alpha/serendipity_event_findmore/img/bloglines.png</file>
+    <file>alpha/serendipity_event_findmore/img/identica.png</file>
+    <file>alpha/serendipity_event_findmore/img/fark.png</file>
+    <file>alpha/serendipity_event_findmore/img/wong18.gif</file>
+    <file>alpha/serendipity_event_findmore/img/facebook_dummy.png</file>
+    <file>alpha/serendipity_event_findmore/img/mixx-button4.png</file>
+    <file>alpha/serendipity_event_findmore/img/printfriendly.png</file>
+    <file>alpha/serendipity_event_findmore/img/googlebookmark.png</file>
+    <file>alpha/serendipity_event_findmore/img/technorati.png</file>
+    <file>alpha/serendipity_event_findmore/img/simpy.png</file>
+    <file>alpha/serendipity_event_findmore/img/twitter.png</file>
+    <file>alpha/serendipity_event_findmore/img/gplus_dummy.png</file>
+    <file>alpha/serendipity_event_findmore/img/email_link.png</file>
+    <file>alpha/serendipity_event_findmore/img/facebook.png</file>
+    <file>alpha/serendipity_event_findmore/img/magnolia.png</file>
+    <file>alpha/serendipity_event_findmore/img/blinklist.png</file>
+    <file>alpha/serendipity_event_findmore/img/furl.png</file>
+    <file>alpha/serendipity_event_findmore/img/newsvine.png</file>
+    <file>alpha/serendipity_event_findmore/img/friendfeed.png</file>
+    <file>alpha/serendipity_event_findmore/img/button0-bm.gif</file>
+    <file>alpha/serendipity_event_findmore/img/socialshareprivacy_on_off.png</file>
+    <file>alpha/serendipity_event_findmore/img/wists.png</file>
+    <file>alpha/serendipity_event_findmore/img/socialshareprivacy_off.png</file>
+    <file>alpha/serendipity_event_findmore/img/reddit.png</file>
+    <file>alpha/serendipity_event_findmore/img/socialshareprivacy_on.png</file>
+    <file>alpha/serendipity_event_findmore/img/diggman.png</file>
+    <file>alpha/serendipity_event_findmore/img/spurl.png</file>
+    <file>alpha/serendipity_event_findmore/img/yahoomyweb.png</file>
+    <file>alpha/serendipity_event_findmore/lang_pl.inc.php</file>
+    <file>alpha/serendipity_event_findmore/serendipity_event_findmore.php</file>
+    <file>alpha/serendipity_event_findmore/ChangeLog</file>
+    <file>alpha/serendipity_event_findmore/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_findmore/UTF-8/lang_pl.inc.php</file>
+    <file>alpha/serendipity_event_findmore/UTF-8/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_findmore/UTF-8/lang_bg.inc.php</file>
+    <file>alpha/serendipity_event_findmore/UTF-8/lang_cs.inc.php</file>
+    <file>alpha/serendipity_event_findmore/lang_en.inc.php</file>
+    <file>alpha/serendipity_event_findmore/documentation_cs.html</file>
+    <file>alpha/serendipity_event_findmore/lang_bg.inc.php</file>
+    <file>alpha/serendipity_event_findmore/documentation_cz.html</file>
+    <file>alpha/serendipity_event_findmore/lang_cs.inc.php</file>
+    <file>alpha/serendipity_event_findmore/plugin_findmore.tpl</file>
+    <file>alpha/stalkerbuster/lang_en.inc.php</file>
+    <file>alpha/stalkerbuster/serendipity_event_stalkerbuster.php</file>
+    <file>alpha/serendipity_plugin_sidebarlogo.zip</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>serendipity_event_mailcc</name>
+<license>GPL</license>
+<summary>Adds CC to all sent emails</summary>
+<groups>BACKEND_FEATURES</groups>
+<description>(Notice: Make sure that the all of your authors have the option to receiv comment notification emails activated, or else no mails will be created that can be CCed</description>
+<maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.01</version>
+  <requirements:s9yVersion>0.8</requirements:s9yVersion>
+  <date>2013-08-12</date>
+  <filelist>
+<dir name="alpha">
+<dir name="serendipity_event_phoneblogz">
+<file>INSTALL.txt</file>
+<file>ChangeLog</file>
+<file>lang_cz.inc.php</file>
+<dir name="UTF-8">
+<file>lang_cz.inc.php</file>
+<file>lang_cs.inc.php</file>
+</dir>
+<file>CHANGELOG.txt</file>
+<file>lang_en.inc.php</file>
+<file>CREDITS.txt</file>
+<file>xmlrpc.inc</file>
+<file>lang_cs.inc.php</file>
+<file>phoneblogz-api.php</file>
+<file>serendipity_event_phoneblogz.php</file>
+</dir>
+<file>serendipity_event_smfmarkup.php</file>
+<file>bogo.php</file>
+<file>serendipity_event_mailcc.php</file>
+<file>serendipity_event_challengeresponse.php</file>
+<file>testing.php</file>
+<dir name="serendipity_event_findmore">
+<dir name="img">
+<file>blogmarks.png</file>
+<file>plugin_findmore.js</file>
+<file>stumbleupon.gif</file>
+<file>delicious.png</file>
+<file>bloglines.png</file>
+<file>identica.png</file>
+<file>fark.png</file>
+<file>wong18.gif</file>
+<file>facebook_dummy.png</file>
+<file>mixx-button4.png</file>
+<file>printfriendly.png</file>
+<file>googlebookmark.png</file>
+<file>technorati.png</file>
+<file>simpy.png</file>
+<file>twitter.png</file>
+<file>gplus_dummy.png</file>
+<file>email_link.png</file>
+<file>facebook.png</file>
+<file>magnolia.png</file>
+<file>blinklist.png</file>
+<file>furl.png</file>
+<file>newsvine.png</file>
+<file>friendfeed.png</file>
+<file>button0-bm.gif</file>
+<file>socialshareprivacy_on_off.png</file>
+<file>wists.png</file>
+<file>socialshareprivacy_off.png</file>
+<file>reddit.png</file>
+<file>socialshareprivacy_on.png</file>
+<file>diggman.png</file>
+<file>spurl.png</file>
+<file>yahoomyweb.png</file>
+</dir>
+<file>lang_pl.inc.php</file>
+<file>serendipity_event_findmore.php</file>
+<file>ChangeLog</file>
+<file>lang_cz.inc.php</file>
+<dir name="UTF-8">
+<file>lang_pl.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_bg.inc.php</file>
+<file>lang_cs.inc.php</file>
+</dir>
+<file>lang_en.inc.php</file>
+<file>documentation_cs.html</file>
+<file>lang_bg.inc.php</file>
+<file>documentation_cz.html</file>
+<file>lang_cs.inc.php</file>
+<file>plugin_findmore.tpl</file>
+</dir>
+<dir name="stalkerbuster">
+<file>lang_en.inc.php</file>
+<file>serendipity_event_stalkerbuster.php</file>
+</dir>
+<file>serendipity_plugin_sidebarlogo.zip</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>alpha/serendipity_event_phoneblogz/INSTALL.txt</file>
+    <file>alpha/serendipity_event_phoneblogz/ChangeLog</file>
+    <file>alpha/serendipity_event_phoneblogz/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_phoneblogz/UTF-8/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_phoneblogz/UTF-8/lang_cs.inc.php</file>
+    <file>alpha/serendipity_event_phoneblogz/CHANGELOG.txt</file>
+    <file>alpha/serendipity_event_phoneblogz/lang_en.inc.php</file>
+    <file>alpha/serendipity_event_phoneblogz/CREDITS.txt</file>
+    <file>alpha/serendipity_event_phoneblogz/xmlrpc.inc</file>
+    <file>alpha/serendipity_event_phoneblogz/lang_cs.inc.php</file>
+    <file>alpha/serendipity_event_phoneblogz/phoneblogz-api.php</file>
+    <file>alpha/serendipity_event_phoneblogz/serendipity_event_phoneblogz.php</file>
+    <file>alpha/serendipity_event_smfmarkup.php</file>
+    <file>alpha/bogo.php</file>
+    <file>alpha/serendipity_event_mailcc.php</file>
+    <file>alpha/serendipity_event_challengeresponse.php</file>
+    <file>alpha/testing.php</file>
+    <file>alpha/serendipity_event_findmore/img/blogmarks.png</file>
+    <file>alpha/serendipity_event_findmore/img/plugin_findmore.js</file>
+    <file>alpha/serendipity_event_findmore/img/stumbleupon.gif</file>
+    <file>alpha/serendipity_event_findmore/img/delicious.png</file>
+    <file>alpha/serendipity_event_findmore/img/bloglines.png</file>
+    <file>alpha/serendipity_event_findmore/img/identica.png</file>
+    <file>alpha/serendipity_event_findmore/img/fark.png</file>
+    <file>alpha/serendipity_event_findmore/img/wong18.gif</file>
+    <file>alpha/serendipity_event_findmore/img/facebook_dummy.png</file>
+    <file>alpha/serendipity_event_findmore/img/mixx-button4.png</file>
+    <file>alpha/serendipity_event_findmore/img/printfriendly.png</file>
+    <file>alpha/serendipity_event_findmore/img/googlebookmark.png</file>
+    <file>alpha/serendipity_event_findmore/img/technorati.png</file>
+    <file>alpha/serendipity_event_findmore/img/simpy.png</file>
+    <file>alpha/serendipity_event_findmore/img/twitter.png</file>
+    <file>alpha/serendipity_event_findmore/img/gplus_dummy.png</file>
+    <file>alpha/serendipity_event_findmore/img/email_link.png</file>
+    <file>alpha/serendipity_event_findmore/img/facebook.png</file>
+    <file>alpha/serendipity_event_findmore/img/magnolia.png</file>
+    <file>alpha/serendipity_event_findmore/img/blinklist.png</file>
+    <file>alpha/serendipity_event_findmore/img/furl.png</file>
+    <file>alpha/serendipity_event_findmore/img/newsvine.png</file>
+    <file>alpha/serendipity_event_findmore/img/friendfeed.png</file>
+    <file>alpha/serendipity_event_findmore/img/button0-bm.gif</file>
+    <file>alpha/serendipity_event_findmore/img/socialshareprivacy_on_off.png</file>
+    <file>alpha/serendipity_event_findmore/img/wists.png</file>
+    <file>alpha/serendipity_event_findmore/img/socialshareprivacy_off.png</file>
+    <file>alpha/serendipity_event_findmore/img/reddit.png</file>
+    <file>alpha/serendipity_event_findmore/img/socialshareprivacy_on.png</file>
+    <file>alpha/serendipity_event_findmore/img/diggman.png</file>
+    <file>alpha/serendipity_event_findmore/img/spurl.png</file>
+    <file>alpha/serendipity_event_findmore/img/yahoomyweb.png</file>
+    <file>alpha/serendipity_event_findmore/lang_pl.inc.php</file>
+    <file>alpha/serendipity_event_findmore/serendipity_event_findmore.php</file>
+    <file>alpha/serendipity_event_findmore/ChangeLog</file>
+    <file>alpha/serendipity_event_findmore/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_findmore/UTF-8/lang_pl.inc.php</file>
+    <file>alpha/serendipity_event_findmore/UTF-8/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_findmore/UTF-8/lang_bg.inc.php</file>
+    <file>alpha/serendipity_event_findmore/UTF-8/lang_cs.inc.php</file>
+    <file>alpha/serendipity_event_findmore/lang_en.inc.php</file>
+    <file>alpha/serendipity_event_findmore/documentation_cs.html</file>
+    <file>alpha/serendipity_event_findmore/lang_bg.inc.php</file>
+    <file>alpha/serendipity_event_findmore/documentation_cz.html</file>
+    <file>alpha/serendipity_event_findmore/lang_cs.inc.php</file>
+    <file>alpha/serendipity_event_findmore/plugin_findmore.tpl</file>
+    <file>alpha/stalkerbuster/lang_en.inc.php</file>
+    <file>alpha/stalkerbuster/serendipity_event_stalkerbuster.php</file>
+    <file>alpha/serendipity_plugin_sidebarlogo.zip</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>serendipity_event_challengeresponse</name>
+<license>GPL</license>
+<summary>Spam: Challenge/Response</summary>
+<groups>ANTISPAM</groups>
+<description></description>
+<maintainers><maintainer><name>Nobody</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>0.10</version>
+  <requirements:s9yVersion>1.0</requirements:s9yVersion>
+  <date>2011-05-03</date>
+  <filelist>
+<dir name="alpha">
+<dir name="serendipity_event_phoneblogz">
+<file>INSTALL.txt</file>
+<file>ChangeLog</file>
+<file>lang_cz.inc.php</file>
+<dir name="UTF-8">
+<file>lang_cz.inc.php</file>
+<file>lang_cs.inc.php</file>
+</dir>
+<file>CHANGELOG.txt</file>
+<file>lang_en.inc.php</file>
+<file>CREDITS.txt</file>
+<file>xmlrpc.inc</file>
+<file>lang_cs.inc.php</file>
+<file>phoneblogz-api.php</file>
+<file>serendipity_event_phoneblogz.php</file>
+</dir>
+<file>serendipity_event_smfmarkup.php</file>
+<file>bogo.php</file>
+<file>serendipity_event_mailcc.php</file>
+<file>serendipity_event_challengeresponse.php</file>
+<file>testing.php</file>
+<dir name="serendipity_event_findmore">
+<dir name="img">
+<file>blogmarks.png</file>
+<file>plugin_findmore.js</file>
+<file>stumbleupon.gif</file>
+<file>delicious.png</file>
+<file>bloglines.png</file>
+<file>identica.png</file>
+<file>fark.png</file>
+<file>wong18.gif</file>
+<file>facebook_dummy.png</file>
+<file>mixx-button4.png</file>
+<file>printfriendly.png</file>
+<file>googlebookmark.png</file>
+<file>technorati.png</file>
+<file>simpy.png</file>
+<file>twitter.png</file>
+<file>gplus_dummy.png</file>
+<file>email_link.png</file>
+<file>facebook.png</file>
+<file>magnolia.png</file>
+<file>blinklist.png</file>
+<file>furl.png</file>
+<file>newsvine.png</file>
+<file>friendfeed.png</file>
+<file>button0-bm.gif</file>
+<file>socialshareprivacy_on_off.png</file>
+<file>wists.png</file>
+<file>socialshareprivacy_off.png</file>
+<file>reddit.png</file>
+<file>socialshareprivacy_on.png</file>
+<file>diggman.png</file>
+<file>spurl.png</file>
+<file>yahoomyweb.png</file>
+</dir>
+<file>lang_pl.inc.php</file>
+<file>serendipity_event_findmore.php</file>
+<file>ChangeLog</file>
+<file>lang_cz.inc.php</file>
+<dir name="UTF-8">
+<file>lang_pl.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_bg.inc.php</file>
+<file>lang_cs.inc.php</file>
+</dir>
+<file>lang_en.inc.php</file>
+<file>documentation_cs.html</file>
+<file>lang_bg.inc.php</file>
+<file>documentation_cz.html</file>
+<file>lang_cs.inc.php</file>
+<file>plugin_findmore.tpl</file>
+</dir>
+<dir name="stalkerbuster">
+<file>lang_en.inc.php</file>
+<file>serendipity_event_stalkerbuster.php</file>
+</dir>
+<file>serendipity_plugin_sidebarlogo.zip</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>alpha/serendipity_event_phoneblogz/INSTALL.txt</file>
+    <file>alpha/serendipity_event_phoneblogz/ChangeLog</file>
+    <file>alpha/serendipity_event_phoneblogz/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_phoneblogz/UTF-8/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_phoneblogz/UTF-8/lang_cs.inc.php</file>
+    <file>alpha/serendipity_event_phoneblogz/CHANGELOG.txt</file>
+    <file>alpha/serendipity_event_phoneblogz/lang_en.inc.php</file>
+    <file>alpha/serendipity_event_phoneblogz/CREDITS.txt</file>
+    <file>alpha/serendipity_event_phoneblogz/xmlrpc.inc</file>
+    <file>alpha/serendipity_event_phoneblogz/lang_cs.inc.php</file>
+    <file>alpha/serendipity_event_phoneblogz/phoneblogz-api.php</file>
+    <file>alpha/serendipity_event_phoneblogz/serendipity_event_phoneblogz.php</file>
+    <file>alpha/serendipity_event_smfmarkup.php</file>
+    <file>alpha/bogo.php</file>
+    <file>alpha/serendipity_event_mailcc.php</file>
+    <file>alpha/serendipity_event_challengeresponse.php</file>
+    <file>alpha/testing.php</file>
+    <file>alpha/serendipity_event_findmore/img/blogmarks.png</file>
+    <file>alpha/serendipity_event_findmore/img/plugin_findmore.js</file>
+    <file>alpha/serendipity_event_findmore/img/stumbleupon.gif</file>
+    <file>alpha/serendipity_event_findmore/img/delicious.png</file>
+    <file>alpha/serendipity_event_findmore/img/bloglines.png</file>
+    <file>alpha/serendipity_event_findmore/img/identica.png</file>
+    <file>alpha/serendipity_event_findmore/img/fark.png</file>
+    <file>alpha/serendipity_event_findmore/img/wong18.gif</file>
+    <file>alpha/serendipity_event_findmore/img/facebook_dummy.png</file>
+    <file>alpha/serendipity_event_findmore/img/mixx-button4.png</file>
+    <file>alpha/serendipity_event_findmore/img/printfriendly.png</file>
+    <file>alpha/serendipity_event_findmore/img/googlebookmark.png</file>
+    <file>alpha/serendipity_event_findmore/img/technorati.png</file>
+    <file>alpha/serendipity_event_findmore/img/simpy.png</file>
+    <file>alpha/serendipity_event_findmore/img/twitter.png</file>
+    <file>alpha/serendipity_event_findmore/img/gplus_dummy.png</file>
+    <file>alpha/serendipity_event_findmore/img/email_link.png</file>
+    <file>alpha/serendipity_event_findmore/img/facebook.png</file>
+    <file>alpha/serendipity_event_findmore/img/magnolia.png</file>
+    <file>alpha/serendipity_event_findmore/img/blinklist.png</file>
+    <file>alpha/serendipity_event_findmore/img/furl.png</file>
+    <file>alpha/serendipity_event_findmore/img/newsvine.png</file>
+    <file>alpha/serendipity_event_findmore/img/friendfeed.png</file>
+    <file>alpha/serendipity_event_findmore/img/button0-bm.gif</file>
+    <file>alpha/serendipity_event_findmore/img/socialshareprivacy_on_off.png</file>
+    <file>alpha/serendipity_event_findmore/img/wists.png</file>
+    <file>alpha/serendipity_event_findmore/img/socialshareprivacy_off.png</file>
+    <file>alpha/serendipity_event_findmore/img/reddit.png</file>
+    <file>alpha/serendipity_event_findmore/img/socialshareprivacy_on.png</file>
+    <file>alpha/serendipity_event_findmore/img/diggman.png</file>
+    <file>alpha/serendipity_event_findmore/img/spurl.png</file>
+    <file>alpha/serendipity_event_findmore/img/yahoomyweb.png</file>
+    <file>alpha/serendipity_event_findmore/lang_pl.inc.php</file>
+    <file>alpha/serendipity_event_findmore/serendipity_event_findmore.php</file>
+    <file>alpha/serendipity_event_findmore/ChangeLog</file>
+    <file>alpha/serendipity_event_findmore/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_findmore/UTF-8/lang_pl.inc.php</file>
+    <file>alpha/serendipity_event_findmore/UTF-8/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_findmore/UTF-8/lang_bg.inc.php</file>
+    <file>alpha/serendipity_event_findmore/UTF-8/lang_cs.inc.php</file>
+    <file>alpha/serendipity_event_findmore/lang_en.inc.php</file>
+    <file>alpha/serendipity_event_findmore/documentation_cs.html</file>
+    <file>alpha/serendipity_event_findmore/lang_bg.inc.php</file>
+    <file>alpha/serendipity_event_findmore/documentation_cz.html</file>
+    <file>alpha/serendipity_event_findmore/lang_cs.inc.php</file>
+    <file>alpha/serendipity_event_findmore/plugin_findmore.tpl</file>
+    <file>alpha/stalkerbuster/lang_en.inc.php</file>
+    <file>alpha/stalkerbuster/serendipity_event_stalkerbuster.php</file>
+    <file>alpha/serendipity_plugin_sidebarlogo.zip</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -9854,9 +10244,9 @@
 <description>Sobald das Dashboard Plugin (einmal am Tag) ein Serendipity Update entdeckt, setzt dieses Plugin eine Ein-Klick Option in das Dashboard des Backends, um ein manuelles Download oder ein automatisches und gesichertes Upgrade der Blogsoftware zu starten.</description>
 <maintainers><maintainer><name>onli, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1.5</version>
+  <version>1.1.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2016-09-26</date>
   <filelist>
 <dir name="serendipity_event_autoupdate">
 <file>lang_de.inc.php</file>

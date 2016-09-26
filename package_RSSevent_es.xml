@@ -54,15 +54,6 @@
 <guid isPermaLink="false">serendipity_event_custom_permalinks</guid>
 </item>
 <item>
-<title>Phoneblogz: This plugin allows to fetch messages from Phoneblogz.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_phoneblogz</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, phoneblogz.com</author>
-<content:encoded>&lt;b&gt;serendipity_event_phoneblogz&lt;br /&gt;Phoneblogz&lt;/b&gt;&lt;br /&gt;This plugin allows to fetch messages from Phoneblogz.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_phoneblogz</guid>
-</item>
-<item>
 <title>RSS Aggregator: Display entries from multiple RSS feeds (&quot;Planet&quot;). IMPORTANT NOTE: Updating and &quot;feeding&quot; your Aggregator must currently still happen manually via Cronjobs or similar. Call this URL with your custom timing interval: index.php?/plugin/aggregator</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_aggregator</link>
 <category>Event Plugins</category>
@@ -747,15 +738,6 @@
 <guid isPermaLink="false">serendipity_event_cachesimple</guid>
 </item>
 <item>
-<title>Show social share buttons for services like Facebook and Twitter: You can remove/insert other custom services to link to via the &quot;plugin_findmore.tpl&quot; template file easily. Also remember that if you want to save grandma's performance pennies that you can also insert the HTML/JS snippets into your entries.tpl template file instead of using this plugin!</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_findmore</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Kodewulf</author>
-<content:encoded>&lt;b&gt;serendipity_event_findmore&lt;br /&gt;Show social share buttons for services like Facebook and Twitter&lt;/b&gt;&lt;br /&gt;You can remove/insert other custom services to link to via the &quot;plugin_findmore.tpl&quot; template file easily. Also remember that if you want to save grandma's performance pennies that you can also insert the HTML/JS snippets into your entries.tpl template file instead of using this plugin!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:43 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_findmore</guid>
-</item>
-<item>
 <title>Resaltar las palabras referenciadas: Resalta las palabras de consulta utilizadas por el motor de búsqueda para encontrar tu página</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_searchhighlight</link>
 <category>Event Plugins</category>
@@ -1134,6 +1116,33 @@
 <guid isPermaLink="false">serendipity_event_todolist</guid>
 </item>
 <item>
+<title>Phoneblogz: This plugin allows to fetch messages from Phoneblogz.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/alpha/serendipity_event_phoneblogz</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking, phoneblogz.com</author>
+<content:encoded>&lt;b&gt;serendipity_event_phoneblogz&lt;br /&gt;Phoneblogz&lt;/b&gt;&lt;br /&gt;This plugin allows to fetch messages from Phoneblogz.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Mon, 26 Sep 2016 22:32:28 +0200</pubDate>
+<guid isPermaLink="false">serendipity_event_phoneblogz</guid>
+</item>
+<item>
+<title>Show social share buttons for services like Facebook and Twitter: You can remove/insert other custom services to link to via the &quot;plugin_findmore.tpl&quot; template file easily. Also remember that if you want to save grandma's performance pennies that you can also insert the HTML/JS snippets into your entries.tpl template file instead of using this plugin!</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/alpha/serendipity_event_findmore</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking, Kodewulf</author>
+<content:encoded>&lt;b&gt;serendipity_event_findmore&lt;br /&gt;Show social share buttons for services like Facebook and Twitter&lt;/b&gt;&lt;br /&gt;You can remove/insert other custom services to link to via the &quot;plugin_findmore.tpl&quot; template file easily. Also remember that if you want to save grandma's performance pennies that you can also insert the HTML/JS snippets into your entries.tpl template file instead of using this plugin!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Mon, 26 Sep 2016 22:32:20 +0200</pubDate>
+<guid isPermaLink="false">serendipity_event_findmore</guid>
+</item>
+<item>
+<title>StalkerBuster (TM,C,R): Denies access to baddies. Write line-separated list of blocked cookies to a stalkerbuster.php file in your root.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/alpha/stalkerbuster</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_stalkerbuster&lt;br /&gt;StalkerBuster (TM,C,R)&lt;/b&gt;&lt;br /&gt;Denies access to baddies. Write line-separated list of blocked cookies to a stalkerbuster.php file in your root.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Mon, 12 Aug 2013 09:58:35 +0200</pubDate>
+<guid isPermaLink="false">serendipity_event_stalkerbuster</guid>
+</item>
+<item>
 <title>SMF Markup: SMF Markup</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/alpha</link>
 <category>Event Plugins</category>
@@ -1159,15 +1168,6 @@
 <content:encoded>&lt;b&gt;serendipity_event_challengeresponse&lt;br /&gt;Spam: Challenge/Response&lt;/b&gt;&lt;br /&gt;&lt;br/&gt;For: Serendipity 1.0</content:encoded>
 <pubDate>Tue, 03 May 2011 15:35:32 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_challengeresponse</guid>
-</item>
-<item>
-<title>StalkerBuster (TM,C,R): Denies access to baddies. Write line-separated list of blocked cookies to a stalkerbuster.php file in your root.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/alpha/stalkerbuster</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_stalkerbuster&lt;br /&gt;StalkerBuster (TM,C,R)&lt;/b&gt;&lt;br /&gt;Denies access to baddies. Write line-separated list of blocked cookies to a stalkerbuster.php file in your root.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:35 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_stalkerbuster</guid>
 </item>
 <item>
 <title>Hide/delete entries for non-registered users after a specific timespan: Hides all entries which are older than a specified age, so that they are only visible for registered users/authors.</title>
@@ -1229,7 +1229,7 @@
 <category>Event Plugins</category>
 <author>onli, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_autoupdate&lt;br /&gt;Serendipity Autoupdate&lt;/b&gt;&lt;br /&gt;When the dashboard-plugin (once a day) detects an update, this plugin adds the option to manually download or start an automatic and secured upgrade of the blog directly with one click from within the adminarea.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:34 +0200</pubDate>
+<pubDate>Mon, 26 Sep 2016 22:32:28 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_autoupdate</guid>
 </item>
 <item>

@@ -54,15 +54,6 @@
 <guid isPermaLink="false">serendipity_event_custom_permalinks</guid>
 </item>
 <item>
-<title>Phoneblogz: Tento plugin umožňuje vypisovat zprávy ze služby Phoneblogz.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_phoneblogz</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, phoneblogz.com</author>
-<content:encoded>&lt;b&gt;serendipity_event_phoneblogz&lt;br /&gt;Phoneblogz&lt;/b&gt;&lt;br /&gt;Tento plugin umožňuje vypisovat zprávy ze služby Phoneblogz.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_phoneblogz</guid>
-</item>
-<item>
 <title>RSS agregátor: Zobrazuje zprávy z mnoha RSS kanálů. DŮLEŽITÁ POZNÁMKA: Aktualizace a &quot;krmení&quot; agregátoru je v současnosti nutno dělat ručně pomocí Cronjobs nebo podobně. Volejte následující adresu v libovolných časových intervalech: index.php?/plugin/aggregator</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_aggregator</link>
 <category>Event Plugins</category>
@@ -749,15 +740,6 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <guid isPermaLink="false">serendipity_event_cachesimple</guid>
 </item>
 <item>
-<title>Zobrazuje odkazy jako Digg, Technorati, del.icio.us apod. vztažené k příspěvku.: Můžete vložit/odstranit další webové služby pomocí souboru šablony &quot;plugin_findmore.tpl&quot;. Pamatujte, že pokud chcete ušetřit pár drahocených bodů za výkon blogu, můžete stejného efektu dosáhnout také vložením HTML/JavaScript snipletu do souboru šablony entries.tpl namísto používání tohoto pluginu!</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_findmore</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Kodewulf</author>
-<content:encoded>&lt;b&gt;serendipity_event_findmore&lt;br /&gt;Zobrazuje odkazy jako Digg, Technorati, del.icio.us apod. vztažené k příspěvku.&lt;/b&gt;&lt;br /&gt;Můžete vložit/odstranit další webové služby pomocí souboru šablony &quot;plugin_findmore.tpl&quot;. Pamatujte, že pokud chcete ušetřit pár drahocených bodů za výkon blogu, můžete stejného efektu dosáhnout také vložením HTML/JavaScript snipletu do souboru šablony entries.tpl namísto používání tohoto pluginu!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:43 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_findmore</guid>
-</item>
-<item>
 <title>Zvýraznění vyhledávaných řetězců: Zvýrazňuje řetězce hledané v odkazujícím vyhledávači.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_searchhighlight</link>
 <category>Event Plugins</category>
@@ -1136,6 +1118,33 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <guid isPermaLink="false">serendipity_event_todolist</guid>
 </item>
 <item>
+<title>Phoneblogz: Tento plugin umožňuje vypisovat zprávy ze služby Phoneblogz.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/alpha/serendipity_event_phoneblogz</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking, phoneblogz.com</author>
+<content:encoded>&lt;b&gt;serendipity_event_phoneblogz&lt;br /&gt;Phoneblogz&lt;/b&gt;&lt;br /&gt;Tento plugin umožňuje vypisovat zprávy ze služby Phoneblogz.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Mon, 26 Sep 2016 22:32:28 +0200</pubDate>
+<guid isPermaLink="false">serendipity_event_phoneblogz</guid>
+</item>
+<item>
+<title>Zobrazuje odkazy jako Digg, Technorati, del.icio.us apod. vztažené k příspěvku.: Můžete vložit/odstranit další webové služby pomocí souboru šablony &quot;plugin_findmore.tpl&quot;. Pamatujte, že pokud chcete ušetřit pár drahocených bodů za výkon blogu, můžete stejného efektu dosáhnout také vložením HTML/JavaScript snipletu do souboru šablony entries.tpl namísto používání tohoto pluginu!</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/alpha/serendipity_event_findmore</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking, Kodewulf</author>
+<content:encoded>&lt;b&gt;serendipity_event_findmore&lt;br /&gt;Zobrazuje odkazy jako Digg, Technorati, del.icio.us apod. vztažené k příspěvku.&lt;/b&gt;&lt;br /&gt;Můžete vložit/odstranit další webové služby pomocí souboru šablony &quot;plugin_findmore.tpl&quot;. Pamatujte, že pokud chcete ušetřit pár drahocených bodů za výkon blogu, můžete stejného efektu dosáhnout také vložením HTML/JavaScript snipletu do souboru šablony entries.tpl namísto používání tohoto pluginu!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Mon, 26 Sep 2016 22:32:20 +0200</pubDate>
+<guid isPermaLink="false">serendipity_event_findmore</guid>
+</item>
+<item>
+<title>StalkerBuster (TM,C,R): Denies access to baddies. Write line-separated list of blocked cookies to a stalkerbuster.php file in your root.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/alpha/stalkerbuster</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_stalkerbuster&lt;br /&gt;StalkerBuster (TM,C,R)&lt;/b&gt;&lt;br /&gt;Denies access to baddies. Write line-separated list of blocked cookies to a stalkerbuster.php file in your root.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Mon, 12 Aug 2013 09:58:35 +0200</pubDate>
+<guid isPermaLink="false">serendipity_event_stalkerbuster</guid>
+</item>
+<item>
 <title>SMF Markup: SMF Markup</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/alpha</link>
 <category>Event Plugins</category>
@@ -1161,15 +1170,6 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <content:encoded>&lt;b&gt;serendipity_event_challengeresponse&lt;br /&gt;Spam: Challenge/Response&lt;/b&gt;&lt;br /&gt;&lt;br/&gt;For: Serendipity 1.0</content:encoded>
 <pubDate>Tue, 03 May 2011 15:35:32 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_challengeresponse</guid>
-</item>
-<item>
-<title>StalkerBuster (TM,C,R): Denies access to baddies. Write line-separated list of blocked cookies to a stalkerbuster.php file in your root.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/alpha/stalkerbuster</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_stalkerbuster&lt;br /&gt;StalkerBuster (TM,C,R)&lt;/b&gt;&lt;br /&gt;Denies access to baddies. Write line-separated list of blocked cookies to a stalkerbuster.php file in your root.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:35 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_stalkerbuster</guid>
 </item>
 <item>
 <title>Schovat/smazat staré příspěvky: Pro nepřihlášené čtenáře schová všechny příspěvky starší než nastavený čas, tyto příspěvky jsou viditelné pouze přihlášeným uživatelům/autorům.</title>
@@ -1231,7 +1231,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>onli, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_autoupdate&lt;br /&gt;Automatické aktualizace (experimentální)&lt;/b&gt;&lt;br /&gt;Experimentální. Když plugin &quot;tabule&quot; detekuje aktualizace, tento plugin přidá možnost automatické aktualizace blogu kliknutím na jediné tlačítko v administrační sekci.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:34 +0200</pubDate>
+<pubDate>Mon, 26 Sep 2016 22:32:28 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_autoupdate</guid>
 </item>
 <item>

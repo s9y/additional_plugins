@@ -442,14 +442,18 @@
 <file>plus.gif</file>
 <file>.htaccess</file>
 <file>join.gif</file>
+<file>move_up.png</file>
 <file>page.gif</file>
 <file>folderopen.gif</file>
 <file>minusbottom.gif</file>
 <file>folder.gif</file>
+<file>question.svg.png</file>
+<file>category.png</file>
 <file>nolines_minus.gif</file>
 <file>plusbottom.gif</file>
 <file>empty.gif</file>
 <file>joinbottom.gif</file>
+<file>move_down.png</file>
 </dir>
 <file>lang_ja.inc.php</file>
 <file>mkfaqpkg.sh</file>
@@ -470,6 +474,8 @@
 <file>lang_en.inc.php</file>
 <file>TODO</file>
 <file>documentation_cs.html</file>
+<file>class_inspectConfig.php</file>
+<file>jquery.serendipity_old_plain_editor.js</file>
 <file>plugin_faq_category_faqs.tpl</file>
 <file>lang_bg.inc.php</file>
 <file>serendipity_plugin_faq.php</file>
@@ -495,14 +501,18 @@
     <file>serendipity_event_faq/img/plus.gif</file>
     <file>serendipity_event_faq/img/.htaccess</file>
     <file>serendipity_event_faq/img/join.gif</file>
+    <file>serendipity_event_faq/img/move_up.png</file>
     <file>serendipity_event_faq/img/page.gif</file>
     <file>serendipity_event_faq/img/folderopen.gif</file>
     <file>serendipity_event_faq/img/minusbottom.gif</file>
     <file>serendipity_event_faq/img/folder.gif</file>
+    <file>serendipity_event_faq/img/question.svg.png</file>
+    <file>serendipity_event_faq/img/category.png</file>
     <file>serendipity_event_faq/img/nolines_minus.gif</file>
     <file>serendipity_event_faq/img/plusbottom.gif</file>
     <file>serendipity_event_faq/img/empty.gif</file>
     <file>serendipity_event_faq/img/joinbottom.gif</file>
+    <file>serendipity_event_faq/img/move_down.png</file>
     <file>serendipity_event_faq/lang_ja.inc.php</file>
     <file>serendipity_event_faq/mkfaqpkg.sh</file>
     <file>serendipity_event_faq/smartytags.txt</file>
@@ -520,6 +530,8 @@
     <file>serendipity_event_faq/lang_en.inc.php</file>
     <file>serendipity_event_faq/TODO</file>
     <file>serendipity_event_faq/documentation_cs.html</file>
+    <file>serendipity_event_faq/class_inspectConfig.php</file>
+    <file>serendipity_event_faq/jquery.serendipity_old_plain_editor.js</file>
     <file>serendipity_event_faq/plugin_faq_category_faqs.tpl</file>
     <file>serendipity_event_faq/lang_bg.inc.php</file>
     <file>serendipity_event_faq/serendipity_plugin_faq.php</file>
@@ -1081,9 +1093,9 @@
 <description>Umožňuje zobrazovat obrázky v postranním sloupci. Zdrojů těchto obrázků může být vícero. Plugin se dokáže připojit do Menalto Gallery, do databáze Coppermine galerie (pouze pokud běží na MySQL), k webové službě Zooomr (http://beta.zooomr.com/home) a samozřejmě i ke Knihovně médií Serendipity.</description>
 <maintainers><maintainer><name>Andrew Brown (Menalto code), Matthew Groeninger (Unified/Media Lib. Code), Stefan Lange-Hegermann (Zooomr Code), Matthew Maude (Coppermine code)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.99</version>
+  <version>0.100</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2016-09-26</date>
   <filelist>
 <dir name="serendipity_plugin_imagesidebar">
 <file>media_sidebar.php</file>

@@ -41,7 +41,7 @@
 <category>Sidebar Plugins</category>
 <author>Lars Strojny</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_heavyrotation&lt;br /&gt;On »Heavy Rotation«&lt;/b&gt;&lt;br /&gt;This plugin displays an album cover from last.fm which was on Heavy Rotation (top album) in the last week&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Fri, 15 Jul 2011 16:06:25 +0200</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_heavyrotation</guid>
 </item>
 <item>
@@ -76,8 +76,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_faq</link>
 <category>Sidebar Plugins</category>
 <author>Falk Doering</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_faq&lt;br /&gt;FAQs Category Chooser&lt;/b&gt;&lt;br /&gt;Choose the categories you will display on the blog.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:43 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_plugin_faq&lt;br /&gt;FAQs Category Chooser&lt;/b&gt;&lt;br /&gt;Choose the categories you will display on the blog.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Fri, 23 Sep 2016 22:32:40 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_faq</guid>
 </item>
 <item>
@@ -167,7 +167,7 @@
 <category>Sidebar Plugins</category>
 <author>Grischa Brockhaus, Damian Luszczymak, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_twitter&lt;br /&gt;Twitter Timeline&lt;/b&gt;&lt;br /&gt;Show your current Twitter entries&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 19 Jan 2014 02:32:01 +0100</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_twitter</guid>
 </item>
 <item>
@@ -185,7 +185,7 @@
 <category>Sidebar Plugins</category>
 <author>Andrew Brown (Menalto code), Matthew Groeninger (Unified/Media Lib. Code), Stefan Lange-Hegermann (Zooomr Code), Matthew Maude (Coppermine code)</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_imagesidebar&lt;br /&gt;Unified Sidebar Image Display&lt;/b&gt;&lt;br /&gt;Offers the ability to display images in the sidebar.  The source of the images is configurable.  The plugin is able to connect to a Menalto Gallery installs &quot;random&quot; url, access a Coppermine database directory (MySql only), connect to the web service Zooomr (http://beta.zooomr.com/home) or access images in the Serendipity Media Library.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 03 Jun 2015 02:32:41 +0200</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_imagesidebar</guid>
 </item>
 <item>
@@ -212,7 +212,7 @@
 <category>Sidebar Plugins</category>
 <author>Andrew Brown, Tadashi Jokagi</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_gallery_menalto_random&lt;br /&gt;Gallery Random Photo Block&lt;/b&gt;&lt;br /&gt;Adds a reference to a Gallery Random Block script (see http://gallery.menalto.com for details on this script)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:59:03 +0200</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_gallery_menalto_random</guid>
 </item>
 <item>
@@ -221,7 +221,7 @@
 <category>Sidebar Plugins</category>
 <author>Piotr Borys</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_ggopis&lt;br /&gt;Gadu-Gadu IM status description&lt;/b&gt;&lt;br /&gt;Gets and displays a status description of Gadu-Gadu IM&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:59:03 +0200</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_ggopis</guid>
 </item>
 <item>
@@ -266,7 +266,7 @@
 <category>Sidebar Plugins</category>
 <author>Flo Solcher</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_audioscrobbler&lt;br /&gt;Audioscrobbler&lt;/b&gt;&lt;br /&gt;Отображает список последних композиций в вашем блоге&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:55 +0100</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_audioscrobbler</guid>
 </item>
 <item>
@@ -320,7 +320,7 @@
 <category>Sidebar Plugins</category>
 <author>Matthew Groeninger, (original plugin by Thomas Nesges)</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_amazon&lt;br /&gt;Amazon Recommendations&lt;/b&gt;&lt;br /&gt;Recommend Products at Amazon within the Amazon-Partnerprogram&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:59:01 +0200</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_amazon</guid>
 </item>
 <item>
@@ -338,7 +338,7 @@
 <category>Sidebar Plugins</category>
 <author>Christian Lescuyer</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_pagerank&lt;br /&gt;Google PageRank&lt;/b&gt;&lt;br /&gt;Dynamic display of Google PageRank&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 14 Jul 2009 13:46:11 +0200</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_pagerank</guid>
 </item>
 <item>
@@ -356,7 +356,7 @@
 <category>Sidebar Plugins</category>
 <author>Lars Strojny</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_flickrbadge&lt;br /&gt;Flickr badge&lt;/b&gt;&lt;br /&gt;Shows your last photos on Flickr.com&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:57 +0100</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_flickrbadge</guid>
 </item>
 <item>
@@ -374,7 +374,7 @@
 <category>Sidebar Plugins</category>
 <author>Stefan Lange-Hegermann</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_zooomr&lt;br /&gt;PLUGIN_ZOOOMR_NAME&lt;/b&gt;&lt;br /&gt;Display the most recent pictures of any Zooomr Feed&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:59:07 +0200</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_zooomr</guid>
 </item>
 <item>
@@ -383,7 +383,7 @@
 <category>Sidebar Plugins</category>
 <author>Bernd Distler</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_piwik&lt;br /&gt;Piwik&lt;/b&gt;&lt;br /&gt;show statistics of Piwik in sidebar&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Mon, 25 Apr 2016 22:32:08 +0200</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_piwik</guid>
 </item>
 <item>
@@ -427,8 +427,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_linklist</link>
 <category>Sidebar Plugins</category>
 <author>Matthew Groeninger, Omid Mottaghi Rad</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_linklist&lt;br /&gt;Link List&lt;/b&gt;&lt;br /&gt;Links manager - Shows your favorite links in the sidebar.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 27 Jun 2015 02:32:30 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_plugin_linklist&lt;br /&gt;Link List&lt;/b&gt;&lt;br /&gt;Links manager - Shows your favorite links in the sidebar.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Fri, 23 Sep 2016 22:32:54 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_linklist</guid>
 </item>
 <item>
@@ -473,7 +473,7 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking, Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_multilingual&lt;br /&gt;Choose Language&lt;/b&gt;&lt;br /&gt;Allows visitors to change the frontend interface language&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Wed, 18 May 2016 09:58:40 +0200</pubDate>
+<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_multilingual</guid>
 </item>
 <item>

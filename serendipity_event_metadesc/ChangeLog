@@ -1,3 +1,7 @@
+0.15.3:
+-------
+  * Fixed access to $entry some more. :)
+
 0.15.2:
 -------
   * Fixed acces to $entry, thanks to Ian

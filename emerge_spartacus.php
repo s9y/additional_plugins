@@ -374,7 +374,7 @@ class emerge_spartacus {
             foreach($group AS $plug) {
                 $p[] = $plug['content'];
             }
-            $c = '<section id="group_' . $gshort . '" class="group">
+            $c = '<section id="group_' . $gshort . '" class="spartacus-group">
                     <h3>' . $gname . '</h3>
                     ' . implode("\n", $p) . '
                  </section>';

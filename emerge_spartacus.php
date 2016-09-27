@@ -203,7 +203,8 @@ class emerge_spartacus {
             fclose($fp);
         }
         $fp = fopen('homepage/template_all.htm', 'w');
-        fwrite($fp, implode("\n", $t));
+        $tplist = '<section class="spartacus-group"><h3>Frontend Themes</h3>' . implode("\n", $t) . '</section>';
+        fwrite($fp, $tplist);
         fclose($fp);
 
         $fp = fopen('homepage/box_groups_template.htm', 'w');

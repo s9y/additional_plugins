@@ -168,7 +168,7 @@ if (is_dir('homepage')) {
                     <h3>RSS Feeds</h3>
 
                     <ul>
-                        <li><a href="http://www.netmirror.org/mirror/serendipity/package_RSSevent.xml">Event olugins</a></li>
+                        <li><a href="http://www.netmirror.org/mirror/serendipity/package_RSSevent.xml">Event plugins</a></li>
                         <li><a href="http://www.netmirror.org/mirror/serendipity/package_RSSsidebar.xml">Sidebar plugins</a></li>
                         <li><a href="http://cia.navi.cx/stats/project/Serendipity/.rss">Commits</a></li>
                     </ul>

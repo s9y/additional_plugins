@@ -171,6 +171,7 @@ if (is_dir('homepage')) {
                         <li><a href="http://www.netmirror.org/mirror/serendipity/package_RSSevent.xml">Event plugins</a></li>
                         <li><a href="http://www.netmirror.org/mirror/serendipity/package_RSSsidebar.xml">Sidebar plugins</a></li>
                         <li><a href="https://github.com/s9y/additional_plugins/commits/master.atom">Plugin commits</a></li>
+                        <li><a href="https://github.com/s9y/additional_themes/commits/master.atom">Theme commits</a></li>
                     </ul>
                 </section>
             </aside>

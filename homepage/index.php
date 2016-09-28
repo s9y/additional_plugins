@@ -165,7 +165,7 @@ if (is_dir('homepage')) {
                 </section>
 
                 <section id="spartacus-feeds" class="widget">
-                    <h3>RSS Feeds</h3>
+                    <h3>Feeds</h3>
 
                     <ul>
                         <li><a href="http://www.netmirror.org/mirror/serendipity/package_RSSevent.xml">Event plugins</a></li>

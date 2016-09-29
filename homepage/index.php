@@ -34,7 +34,7 @@ if (is_dir('homepage')) {
 
             <ul id="site-nav" class="nav-collapse">
                 <li><a href="http://s9y.org">Start</a></li>
-                <li><a href="http://s9y.org/docs/">Docs</a></li>
+                <li><a href="http://docs.s9y.org/docs/">Docs</a></li>
                 <li><a href="http://blog.s9y.org">Blog</a></li>
                 <li><a href="http://board.s9y.org">Forums</a></li>
                 <li id="current-page"><a href="index.php">Plugins</a></li>

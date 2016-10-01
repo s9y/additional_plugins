@@ -37,8 +37,13 @@ if (is_dir('homepage')) {
                 <li><a href="http://docs.s9y.org/docs/">Docs</a></li>
                 <li><a href="http://blog.s9y.org">Blog</a></li>
                 <li><a href="http://board.s9y.org">Forums</a></li>
+            <?php if (($_REQUEST['mode']) == 'template_all') { ?>
+                <li><a href="index.php">Plugins</a></li>
+                <li id="current-page"><a href="index.php?mode=template_all">Themes</a></li>
+            <?php } else { ?>
                 <li id="current-page"><a href="index.php">Plugins</a></li>
                 <li><a href="index.php?mode=template_all">Themes</a></li>
+            <?php } ?>
                 <li><a href="https://github.com/s9y">GitHub</a></li>
             </ul>
         </div>

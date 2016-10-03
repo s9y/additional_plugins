@@ -1,3 +1,7 @@
+1.1.7
+    * Fix beta-version upgrade by using github-archive path and
+      making the file detection more reliable
+
 1.1.6
     * When curl download could not be tried, detect this as fail
     * Improve error messages if update can't be downloaded

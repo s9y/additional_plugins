@@ -22,7 +22,7 @@ class serendipity_event_autoupdate extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_AUTOUPDATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Ian');
-        $propbag->add('version',       '1.1.6');
+        $propbag->add('version',       '1.1.7');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '5.2'
@@ -285,6 +285,9 @@ EOS;
     function fetchUpdate($version) {
         global $serendipity;
         $url     = (string)"https://github.com/s9y/Serendipity/releases/download/$version/serendipity-$version.zip";
+        if (strpos($version, 'beta') !== FALSE) {
+            $url = (string)"https://github.com/s9y/Serendipity/archive/$version.zip";
+        }
         $update  = (string)$serendipity ['serendipityPath'] . 'templates_c/' . "serendipity-$version.zip";
         
         // do we already have it and is it eventually broken?
@@ -345,6 +348,9 @@ EOS;
         $checksum = $found[1];
         $this->show_message('<p class="msg_notice"><span class="icon-attention"></span>Checking MD5 zip file checksum: ' . $checksum . '</p>');
         $check = md5_file($update);
+        if (strpos($version, 'beta') !== FALSE) {
+            return true;
+        }
         if ($check == $checksum) {
             return true;
         } else {
@@ -436,7 +442,7 @@ EOS;
             $zip->close();
             // 2. copy them over
             foreach ($files as $file) {
-                $target = $serendipity['serendipityPath'] . substr($file, 12);
+                $target = $serendipity['serendipityPath'] . preg_replace('/[^\/]*/', '', $file, 1); # removes leading Serendipity[beta…]
                 if (is_dir($updateDir .$file)) {
                     if (!file_exists($target)) {
                         $success = mkdir($target);
@@ -447,7 +453,7 @@ EOS;
                     $success = @copy($updateDir . $file, $target);
                 }
                 if (!$success) {
-                    $this->show_message('<p class="msg_error"><span class="icon-error"></span>Error copying file to '.$target.'</p>');
+                    $this->show_message('<p class="msg_error"><span class="icon-error"></span>Error copying file '. $updateDir . $file .' to '. $target .'</p>');
                     return false;
                 }
             }

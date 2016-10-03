@@ -1231,7 +1231,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>onli, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_autoupdate&lt;br /&gt;Automatické aktualizace (experimentální)&lt;/b&gt;&lt;br /&gt;Experimentální. Když plugin &quot;tabule&quot; detekuje aktualizace, tento plugin přidá možnost automatické aktualizace blogu kliknutím na jediné tlačítko v administrační sekci.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 26 Sep 2016 22:32:28 +0200</pubDate>
+<pubDate>Mon, 03 Oct 2016 22:32:22 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_autoupdate</guid>
 </item>
 <item>

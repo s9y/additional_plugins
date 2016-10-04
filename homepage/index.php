@@ -37,7 +37,7 @@ if (is_dir('homepage')) {
                 <li><a href="http://docs.s9y.org/docs/">Docs</a></li>
                 <li><a href="http://blog.s9y.org">Blog</a></li>
                 <li><a href="http://board.s9y.org">Forums</a></li>
-            <?php if (($_REQUEST['mode']) == 'template_all') { ?>
+            <?php if (substr(($_REQUEST['mode']), 0, 8) === 'template') { ?>
                 <li><a href="index.php">Plugins</a></li>
                 <li id="current-page"><a href="index.php?mode=template_all">Themes</a></li>
             <?php } else { ?>

@@ -24,8 +24,8 @@ if (is_dir('homepage')) {
     <link rel="dns-prefetch" href="https://code.jquery.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet">
-    <link rel="stylesheet" href="css/master.css">
-    <script src="scripts/modernizr/modernizr.js"></script>
+    <link rel="stylesheet" href="homepage/css/master.css">
+    <script src="homepage/scripts/modernizr/modernizr.js"></script>
 </head>
 <body id="top">
     <nav id="nav-global" role="navigation">
@@ -195,8 +195,8 @@ if (is_dir('homepage')) {
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script>window.jQuery || document.write('<script src="scripts/jquery/dist/jquery.min.js"><\/script>')</script>
-    <script src="scripts/master.js"></script>
+    <script>window.jQuery || document.write('<script src="homepage/scripts/jquery/dist/jquery.min.js"><\/script>')</script>
+    <script src="homepage/scripts/master.js"></script>
     <!-- Google Analytics -->
     <script>
     window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;

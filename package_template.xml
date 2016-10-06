@@ -2396,7 +2396,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>Hemingway WP-port &amp;#160;&amp;#160;&lt;i&gt;&lt;small&gt;Requires Serendipity v1.1&lt;/small&gt;&lt;/i&gt; (2014-01-09)</name>
+<name>Hemingway WP-port (2014-01-09)</name>
 <template>hemingway</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -4559,7 +4559,7 @@
 <summary></summary>
 <description></description>
 <recommended></recommended>
-<maintainers><maintainer><name>N.Design Studio &amp; MangoOrange.&lt;br /&gt;&lt;i&gt;Ported to s9y by Matthias 'YellowLed' Mees.&lt;/i&gt;</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>N.Design Studio &amp; MangoOrange, ported to s9y by YellowLed</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
   <requirements:s9yVersion>1.1</requirements:s9yVersion>

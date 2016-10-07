@@ -275,6 +275,7 @@
 <file>sidebar_lc.gif</file>
 <file>old_hrc.gif</file>
 </dir>
+<file>preview_fullsize.jpg</file>
 <file>info.txt</file>
 <file>commentform.tpl</file>
 <file>style.css</file>
@@ -318,6 +319,7 @@
     <file>RoundedCorner/img/content_br.gif</file>
     <file>RoundedCorner/img/sidebar_lc.gif</file>
     <file>RoundedCorner/img/old_hrc.gif</file>
+    <file>RoundedCorner/preview_fullsize.jpg</file>
     <file>RoundedCorner/info.txt</file>
     <file>RoundedCorner/commentform.tpl</file>
     <file>RoundedCorner/style.css</file>
@@ -410,6 +412,7 @@
 <file>lang_cz.inc.php</file>
 <file>lang_cs.inc.php</file>
 </dir>
+<file>preview_fullsize.jpg</file>
 <file>plugin_calendar.tpl</file>
 <file>lang_en.inc.php</file>
 <file>preview_iframe.tpl</file>
@@ -454,6 +457,7 @@
     <file>translucency/lang_cz.inc.php</file>
     <file>translucency/UTF-8/lang_cz.inc.php</file>
     <file>translucency/UTF-8/lang_cs.inc.php</file>
+    <file>translucency/preview_fullsize.jpg</file>
     <file>translucency/plugin_calendar.tpl</file>
     <file>translucency/lang_en.inc.php</file>
     <file>translucency/preview_iframe.tpl</file>
@@ -566,6 +570,7 @@
   <filelist>
 <dir name="wp">
 <file>wp-layout.css</file>
+<file>preview_fullsize.jpg</file>
 <file>plugin_calendar.tpl</file>
 <file>info.txt</file>
 <file>atom.css</file>
@@ -584,6 +589,7 @@
   </filelist>
   <serendipityFilelist>
     <file>wp/wp-layout.css</file>
+    <file>wp/preview_fullsize.jpg</file>
     <file>wp/plugin_calendar.tpl</file>
     <file>wp/info.txt</file>
     <file>wp/atom.css</file>
@@ -960,6 +966,7 @@
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
 </dir>
+<file>preview_fullsize.jpg</file>
 <file>info.txt</file>
 <file>documentation_cs.html</file>
 <file>style.css</file>
@@ -988,6 +995,7 @@
     <file>brownpaper/credits.txt</file>
     <file>brownpaper/UTF-8/documentation_cs.html</file>
     <file>brownpaper/UTF-8/documentation_cz.html</file>
+    <file>brownpaper/preview_fullsize.jpg</file>
     <file>brownpaper/info.txt</file>
     <file>brownpaper/documentation_cs.html</file>
     <file>brownpaper/style.css</file>
@@ -1519,6 +1527,7 @@
 <file>documentation_cz.html</file>
 <file>lang_cs.inc.php</file>
 </dir>
+<file>preview_fullsize.jpg</file>
 <file>readme.txt</file>
 <file>plugin_calendar.tpl</file>
 <file>lang_en.inc.php</file>
@@ -1564,6 +1573,7 @@
     <file>terrafirma/UTF-8/documentation_cs.html</file>
     <file>terrafirma/UTF-8/documentation_cz.html</file>
     <file>terrafirma/UTF-8/lang_cs.inc.php</file>
+    <file>terrafirma/preview_fullsize.jpg</file>
     <file>terrafirma/readme.txt</file>
     <file>terrafirma/plugin_calendar.tpl</file>
     <file>terrafirma/lang_en.inc.php</file>
@@ -2437,6 +2447,7 @@
 <file>lang_cs.inc.php</file>
 </dir>
 <file>LICENSE</file>
+<file>preview_fullsize.jpg</file>
 <file>plugin_calendar.tpl</file>
 <file>lang_en.inc.php</file>
 <file>entries_latest.tpl</file>
@@ -2485,6 +2496,7 @@
     <file>hemingway/UTF-8/lang_cz.inc.php</file>
     <file>hemingway/UTF-8/lang_cs.inc.php</file>
     <file>hemingway/LICENSE</file>
+    <file>hemingway/preview_fullsize.jpg</file>
     <file>hemingway/plugin_calendar.tpl</file>
     <file>hemingway/lang_en.inc.php</file>
     <file>hemingway/entries_latest.tpl</file>
@@ -3043,6 +3055,7 @@
 </dir>
 <file>iui.js</file>
 <file>config.inc.php</file>
+<file>preview_fullsize.jpg</file>
 <file>info.txt</file>
 <file>style.css</file>
 <file>comments.tpl</file>
@@ -3073,6 +3086,7 @@
     <file>iphone.app/img/backButton.png</file>
     <file>iphone.app/iui.js</file>
     <file>iphone.app/config.inc.php</file>
+    <file>iphone.app/preview_fullsize.jpg</file>
     <file>iphone.app/info.txt</file>
     <file>iphone.app/style.css</file>
     <file>iphone.app/comments.tpl</file>
@@ -3101,6 +3115,7 @@
 <file>border.gif</file>
 </dir>
 <file>config.inc.php</file>
+<file>preview_fullsize.jpg</file>
 <file>info.txt</file>
 <file>style.css</file>
 <file>index.tpl</file>
@@ -3113,6 +3128,7 @@
   <serendipityFilelist>
     <file>xhtml_mp/img/border.gif</file>
     <file>xhtml_mp/config.inc.php</file>
+    <file>xhtml_mp/preview_fullsize.jpg</file>
     <file>xhtml_mp/info.txt</file>
     <file>xhtml_mp/style.css</file>
     <file>xhtml_mp/index.tpl</file>
@@ -5583,6 +5599,7 @@
 </dir>
 <file>style.css</file>
 </dir>
+<file>preview_fullsize.jpg</file>
 <file>iphone.css</file>
 <file>lang_en.inc.php</file>
 <file>info.txt</file>
@@ -5650,6 +5667,7 @@
     <file>adaptation/admin/img/button_background.png</file>
     <file>adaptation/admin/img/background.png</file>
     <file>adaptation/admin/style.css</file>
+    <file>adaptation/preview_fullsize.jpg</file>
     <file>adaptation/iphone.css</file>
     <file>adaptation/lang_en.inc.php</file>
     <file>adaptation/info.txt</file>
@@ -5835,6 +5853,7 @@
 <dir name="UTF-8">
 <file>lang_en.inc.php</file>
 </dir>
+<file>preview_fullsize.jpg</file>
 <dir name="images">
 <file>preback.jpg</file>
 <file>page_bottom.gif</file>
@@ -5953,6 +5972,7 @@
     <file>freshy/commentpopup.tpl</file>
     <file>freshy/config.inc.php</file>
     <file>freshy/UTF-8/lang_en.inc.php</file>
+    <file>freshy/preview_fullsize.jpg</file>
     <file>freshy/images/preback.jpg</file>
     <file>freshy/images/page_bottom.gif</file>
     <file>freshy/images/stripe_gray.png</file>
@@ -6967,6 +6987,7 @@
 </dir>
 <file>license.txt</file>
 <file>config.inc.php</file>
+<file>preview_fullsize.jpg</file>
 <file>lang_en.inc.php</file>
 <file>info.txt</file>
 <file>style.css</file>
@@ -7015,6 +7036,7 @@
     <file>rubyx/img/bg_page_in.jpg</file>
     <file>rubyx/license.txt</file>
     <file>rubyx/config.inc.php</file>
+    <file>rubyx/preview_fullsize.jpg</file>
     <file>rubyx/lang_en.inc.php</file>
     <file>rubyx/info.txt</file>
     <file>rubyx/style.css</file>
@@ -8103,6 +8125,7 @@
   <filelist>
 <dir name="youngbutstrong">
 <file>plugin_categories.tpl</file>
+<file>preview_fullsize.jpg</file>
 <dir name="images">
 <file>backward.jpg</file>
 <file>content_left_bg.gif</file>
@@ -8130,6 +8153,7 @@
   </filelist>
   <serendipityFilelist>
     <file>youngbutstrong/plugin_categories.tpl</file>
+    <file>youngbutstrong/preview_fullsize.jpg</file>
     <file>youngbutstrong/images/backward.jpg</file>
     <file>youngbutstrong/images/content_left_bg.gif</file>
     <file>youngbutstrong/images/logo.gif</file>

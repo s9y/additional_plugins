@@ -1,7 +1,7 @@
-<?php # 
+<?php #
 
 /**
- *  @version 
+ *  @version
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */
@@ -31,7 +31,7 @@
 @define("PLUGIN_BACKUP_WITH_DROP_TABLE", "With drop table");
 @define("PLUGIN_BACKUP_ZIPPED", "gzipped");
 @define("PLUGIN_BACKUP_WHOLE_DATABASE", "Whole database");
-@define("PLUGIN_BACKUP_START_BACKUP", "Start Backup...");
+@define("PLUGIN_BACKUP_START_BACKUP", "Start Backup");
 @define("PLUGIN_BACKUP_MINUTES", "minutes");
 @define("PLUGIN_BACKUP_HOUR", "hour");
 @define("PLUGIN_BACKUP_HOURS", "hours");
@@ -50,11 +50,17 @@
 @define("PLUGIN_BACKUP_FILESIZE", "Filesize");
 @define("PLUGIN_BACKUP_DATE", "Date");
 @define("PLUGIN_BACKUP_OPTION", "Option");
+@define("PLUGIN_BACKUP_RECOVER", "Recover");
 @define("PLUGIN_BACKUP_RECOVER_THIS", "Recover database with this backup...");
 @define("PLUGIN_BACKUP_DELETE", "Delete");
+@define("PLUGIN_BACKUP_DELETE_MARK", "Mark to delete");
 @define("PLUGIN_BACKUP_NO_BACKUPS", "no backups");
 @define("PLUGIN_BACKUP_WHOLE_BLOG", "Whole s9y");
 @define("PLUGIN_BACKUP_SQL_BACKUP", "SQL Backup");
 @define("PLUGIN_BACKUP_HTML_BACKUP", "HTML Backup");
+@define("PLUGIN_BACKUP_LABEL_TABLES", "Select tables to backup");
+@define("PLUGIN_BACKUP_LABEL_DATA", "Structure and/or data");
+@define("PLUGIN_BACKUP_LABEL_DIRS", "Select directories to backup");
+@define("PLUGIN_BACKUP_LABEL_BACKUPS", "Available backups");
 
 ?>

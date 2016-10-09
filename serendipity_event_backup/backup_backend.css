@@ -1,0 +1,73 @@
+.serendipity_backup_form select {
+    width: 100%;
+}
+
+.serendipity_backup_form fieldset {
+    background: #eee;
+    border: 1px solid #aaa;
+    box-sizing: border-box;
+    margin: 1em 0;
+    padding: .5em 1em;
+}
+
+.serendipity_backup_form .form_buttons,
+.serendipity_backups_wrap + .form_buttons,
+.serendipity_backups {
+    margin-top: 0;
+}
+
+.serendipity_backups_wrap {
+    min-height: .01%;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.serendipity_backups_wrap th,
+.serendipity_backups_wrap td {
+    white-space: nowrap;
+}
+
+.serendipity_backups {
+    border-top: 1px solid #aaa;
+    width: 100%;
+}
+
+.serendipity_backups tr {
+    border-bottom: 1px solid #aaa;
+}
+
+.serendipity_backups thead tr,
+.serendipity_backups tr:nth-child(even) {
+    background: #eee;
+}
+
+.serendipity_backups th,
+.serendipity_backups td {
+    padding: .25em .25em .25em 0;
+}
+
+@media screen and (min-width: 768px) {
+    .serendipity_backups_wrap {
+        overflow-y: auto;
+    }
+
+    .serendipity_backups_wrap th,
+    .serendipity_backups_wrap td {
+        white-space: normal;
+    }
+
+    .serendipity_backup_form fieldset {
+        float: left;
+        width: 48.5%;
+        margin: 0 1.5% 1em 0;
+    }
+
+    .serendipity_backup_form fieldset:nth-of-type(even) {
+        margin: 0 0 1em 1.5%;
+    }
+
+    .serendipity_backup_form .form_buttons {
+        clear: left;
+    }
+}

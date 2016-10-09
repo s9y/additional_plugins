@@ -4,11 +4,11 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-
 # (c) 2005 by Alexander 'dma147' Mieland, http://blog.linux-stats.org, <dma147@linux-stats.org>
 # Contact me on IRC in #linux-stats, #archlinux, #archlinux.de, #s9y on irc.freenode.net
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
+// Probe for a language include with constants. Still include defines later on,
+// if some constants were missing
 $probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
 if (file_exists($probelang)) {
     include $probelang;
@@ -16,12 +16,7 @@ if (file_exists($probelang)) {
 
 include dirname(__FILE__) . '/lang_en.inc.php';
 
-
-
-
-
 #########################################################################################
-
 
 class serendipity_event_backup extends serendipity_event {
 
@@ -38,7 +33,7 @@ class serendipity_event_backup extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.13');
+        $propbag->add('version',       '0.14');
         $propbag->add('author',       'Alexander \'dma147\' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
@@ -46,7 +41,8 @@ class serendipity_event_backup extends serendipity_event {
                                             'external_plugin'         => true,
                                             'backend_sidebar_entries' => true,
                                             'backend_sidebar_admin'   => true,
-                                            'backend_sidebar_entries_event_display_backup' => true
+                                            'backend_sidebar_entries_event_display_backup' => true,
+                                            'css_backend'             => true
                                         )
         );
         $propbag->add('configuration', array(
@@ -82,8 +78,6 @@ class serendipity_event_backup extends serendipity_event {
     }
 
 
-
-
     function selected() {
         global $serendipity;
 
@@ -94,9 +88,6 @@ class serendipity_event_backup extends serendipity_event {
 
         return false;
     }
-
-
-
 
 
     function setupDB() {
@@ -168,20 +159,12 @@ class serendipity_event_backup extends serendipity_event {
 		$sql = serendipity_db_schema_import($q);
     }
 
-
-
-
     function uninstall(&$propbag) {
         global $serendipity;
 
         serendipity_db_query("DROP TABLE {$serendipity['dbPrefix']}dma_sqlbackup");
         serendipity_db_query("DROP TABLE {$serendipity['dbPrefix']}dma_htmlbackup");
-
 	}
-
-
-
-
 
 
 	function getRelPath() {
@@ -193,11 +176,6 @@ class serendipity_event_backup extends serendipity_event {
 		$r_path = ".".str_replace($b_path, "", $c_path);
 		return $r_path;
 	}
-
-
-
-
-
 
 
 	function calcFilesize($filesize) {
@@ -223,10 +201,6 @@ class serendipity_event_backup extends serendipity_event {
 	}
 
 
-
-
-
-
 	function MakeHTMLBackup($dir_to_backup="", $exclude=NULL) {
 		global $serendipity;
 		$BACKUPDIR = $this->get_config('abspath_backupdir');
@@ -243,10 +217,6 @@ class serendipity_event_backup extends serendipity_event {
 
 		passthru($backupscript." \"".$dir_to_backup."\" \"".$BACKUPDIR."\" ".$excludes);
 	}
-
-
-
-
 
 
 	function MakeSQLBackup($complete=1, $tables="", $what="data", $drop=1) {
@@ -447,11 +417,6 @@ class serendipity_event_backup extends serendipity_event {
 	}
 
 
-
-
-
-
-
 	function CheckAutoHTMLBackup() {
 		global $serendipity;
 		$BACKUPDIR = $this->get_config('abspath_backupdir');
@@ -487,7 +452,6 @@ class serendipity_event_backup extends serendipity_event {
 	}
 
 
-
     function getTar() {
 		if (@include_once(dirname(__FILE__)."/bundled-libs/Tar.php")) {
 	        return true;
@@ -505,7 +469,6 @@ class serendipity_event_backup extends serendipity_event {
 	        return true;
 		}
     }
-
 
 
 	function CheckAutoSQLBackup() {
@@ -600,11 +563,6 @@ class serendipity_event_backup extends serendipity_event {
 	}
 
 
-
-
-
-
-
 	function CheckAutoDelHTMLBackup() {
 		global $serendipity;
 		$BACKUPDIR = $this->get_config('abspath_backupdir');
@@ -640,11 +598,6 @@ class serendipity_event_backup extends serendipity_event {
 		}
 		return true;
 	}
-
-
-
-
-
 
 
 	function CheckAutoDelSQLBackup() {
@@ -689,11 +642,6 @@ class serendipity_event_backup extends serendipity_event {
 		}
 		return true;
 	}
-
-
-
-
-
 
 
 	function RecoverSQLBackup($backupfile)
@@ -805,24 +753,6 @@ class serendipity_event_backup extends serendipity_event {
 		}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	function backup_interface() {
 		global $serendipity;
 		$BACKUPDIR = $this->get_config('abspath_backupdir');
@@ -830,9 +760,9 @@ class serendipity_event_backup extends serendipity_event {
 		$ARCHIVDIR = $BACKUPDIR;
 
 
-        $TITLE = "";
-        $TITLE .= "<h2>".PLUGIN_BACKUP_TITLE."</h2>\n";
-        $TITLE .= PLUGIN_BACKUP_DESC."<br /><br />\n";
+        $TITLE  = "";
+        $TITLE .= "<h2>" . PLUGIN_BACKUP_TITLE . "</h2>\n";
+        $TITLE .= "<span class='msg_notice'><span class='icon-info-circled'></span>" . PLUGIN_BACKUP_DESC . "</span>\n";
 
 		if (!file_exists($BACKUPDIR)) {
 			@mkdir($BACKUPDIR, 0777);
@@ -868,14 +798,14 @@ class serendipity_event_backup extends serendipity_event {
 				$UPDATECONF .= "		time_backup='".$serendipity['POST']['interval']."', ";
 				$UPDATECONF .= "		last_backup='".time()."', ";
 				$UPDATECONF .= "		data_backup='".addslashes($DATA_BACKUP)."' ";
-				$STATUSMSG .= '<b>'.PLUGIN_BACKUP_AUTO_SQL_BACKUP_STARTED.'</b><br />';
+				$STATUSMSG .= "<span class='msg_notice'><span class='icon-info-circled'></span>" . PLUGIN_BACKUP_AUTO_SQL_BACKUP_STARTED . '</span>';
 			} elseif (!isset($serendipity['POST']['delete']) && (count($serendipity['POST']) >= 1 && !isset($serendipity['POST']['bakautomatik']))) {
 				$UPDATECONF = "UPDATE {$serendipity['dbPrefix']}dma_sqlbackup SET ";
 				$UPDATECONF .= "		auto_backup='0', ";
 				$UPDATECONF .= "		time_backup='0', ";
 				$UPDATECONF .= "		last_backup='0', ";
 				$UPDATECONF .= "		data_backup='".addslashes($DATA_BACKUP)."' ";
-				$STATUSMSG .= '<b>'.PLUGIN_BACKUP_AUTO_SQL_BACKUP_STOPPED.'</b><br />';
+				$STATUSMSG .= "<span class='msg_notice'><span class='icon-info-circled'></span>" . PLUGIN_BACKUP_AUTO_SQL_BACKUP_STOPPED . '</span>';
 			}
 			if (isset($UPDATECONF)) {
 				serendipity_db_query($UPDATECONF);
@@ -886,13 +816,13 @@ class serendipity_event_backup extends serendipity_event {
 				$UPDATECONF .= "		auto_backdel='1', ";
 				$UPDATECONF .= "		time_backdel='".$serendipity['POST']['delage']."', ";
 				$UPDATECONF .= "		last_backdel='".time()."' ";
-				$STATUSMSG .= '<b>'.PLUGIN_BACKUP_AUTO_SQL_DELETE_STARTED.'</b><br />';
+				$STATUSMSG .= "<span class='msg_notice'><span class='icon-info-circled'></span>" . PLUGIN_BACKUP_AUTO_SQL_DELETE_STARTED . '</span>';
 			} elseif (!isset($serendipity['POST']['delete']) && (count($serendipity['POST']) >= 1 && !isset($serendipity['POST']['delautomatik']))) {
 				$UPDATECONF = "UPDATE {$serendipity['dbPrefix']}dma_sqlbackup SET ";
 				$UPDATECONF .= "		auto_backdel='0', ";
 				$UPDATECONF .= "		time_backdel='0', ";
 				$UPDATECONF .= "		last_backdel='0' ";
-				$STATUSMSG .= '<b>'.PLUGIN_BACKUP_AUTO_SQL_DELETE_STOPPED.'</b><br />';
+				$STATUSMSG .= "<span class='msg_notice'><span class='icon-info-circled'></span>" . PLUGIN_BACKUP_AUTO_SQL_DELETE_STOPPED . '</span>';
 			}
 			if (isset($UPDATECONF)) {
 				serendipity_db_query($UPDATECONF);
@@ -937,7 +867,7 @@ class serendipity_event_backup extends serendipity_event {
 					}
 				}
 				closedir($fe);
-				$STATUSMSG .= '<b>'.PLUGIN_BACKUP_SQL_SAVED.'</b><br />';
+				$STATUSMSG .= "<span class='msg_success'><span class='icon-ok-circled'></span>" . PLUGIN_BACKUP_SQL_SAVED . '</span>';
 			}
 		}
 
@@ -972,14 +902,14 @@ class serendipity_event_backup extends serendipity_event {
 				$UPDATECONF .= "		time_backup='".$serendipity['POST']['interval']."', ";
 				$UPDATECONF .= "		last_backup='".time()."', ";
 				$UPDATECONF .= "		data_backup='".addslashes($DATA_BACKUP)."' ";
-				$STATUSMSG .= '<b>'.PLUGIN_BACKUP_AUTO_HTML_BACKUP_STARTED.'</b><br />';
+				$STATUSMSG .= "<span class='msg_notice'><span class='icon-info-circled'></span>" . PLUGIN_BACKUP_AUTO_HTML_BACKUP_STARTED . '</span>';
 			} elseif (!isset($serendipity['POST']['delete']) && (count($serendipity['POST']) >= 1 && !isset($serendipity['POST']['bakautomatik']))) {
 				$UPDATECONF = "UPDATE {$serendipity['dbPrefix']}dma_htmlbackup SET ";
 				$UPDATECONF .= "		auto_backup='0', ";
 				$UPDATECONF .= "		time_backup='0', ";
 				$UPDATECONF .= "		last_backup='0', ";
 				$UPDATECONF .= "		data_backup='".addslashes($DATA_BACKUP)."' ";
-				$STATUSMSG .= '<b>'.PLUGIN_BACKUP_AUTO_HTML_BACKUP_STOPPED.'</b><br />';
+				$STATUSMSG .= "<span class='msg_notice'><span class='icon-info-circled'></span>" . PLUGIN_BACKUP_AUTO_HTML_BACKUP_STOPPED . '</span>';
 			}
 			if (isset($UPDATECONF)) {
 				serendipity_db_query($UPDATECONF);
@@ -990,13 +920,13 @@ class serendipity_event_backup extends serendipity_event {
 				$UPDATECONF .= "		auto_backdel='1', ";
 				$UPDATECONF .= "		time_backdel='".$serendipity['POST']['delage']."', ";
 				$UPDATECONF .= "		last_backdel='".time()."' ";
-				$STATUSMSG .= '<b>'.PLUGIN_BACKUP_AUTO_HTML_DELETE_STARTED.'</b><br />';
+				$STATUSMSG .= "<span class='msg_notice'><span class='icon-info-circled'></span>" . PLUGIN_BACKUP_AUTO_HTML_DELETE_STARTED . '</span>';
 			} elseif (!isset($serendipity['POST']['delete']) && (count($serendipity['POST']) >= 1 && !isset($serendipity['POST']['delautomatik']))) {
 				$UPDATECONF = "UPDATE {$serendipity['dbPrefix']}dma_htmlbackup SET ";
 				$UPDATECONF .= "		auto_backdel='0', ";
 				$UPDATECONF .= "		time_backdel='0', ";
 				$UPDATECONF .= "		last_backdel='0' ";
-				$STATUSMSG .= '<b>'.PLUGIN_BACKUP_AUTO_HTML_DELETE_STOPPED.'</b><br />';
+				$STATUSMSG .= "<span class='msg_notice'><span class='icon-info-circled'></span>" . PLUGIN_BACKUP_AUTO_HTML_DELETE_STOPPED . '</span>';
 			}
 			if (isset($UPDATECONF)) {
 				serendipity_db_query($UPDATECONF);
@@ -1007,7 +937,7 @@ class serendipity_event_backup extends serendipity_event {
 				} else {
 					$this->MakeHTMLBackup($s9ypath, $dirs_to_exclude);
 				}
-				$STATUSMSG .= '<b>'.PLUGIN_BACKUP_HTML_SAVED.'</b><br />';
+				$STATUSMSG .= "<span class='msg_success'><span class='icon-ok-circled'></span>" . PLUGIN_BACKUP_HTML_SAVED . '</span>';
 			}
 		}
 
@@ -1047,17 +977,15 @@ class serendipity_event_backup extends serendipity_event {
 		$drop = intval($backupdatas_array[3]);
 		$pack = intval($backupdatas_array[4]);
 
-		if (isset($tdbgcolor) && $tdbgcolor == "#ebebeb") { $tdbgcolor = "#efefef"; } else {  $tdbgcolor = "#ebebeb"; }
-		$BACKUPFORM = "<div align=\"center\"><b>".PLUGIN_BACKUP_SQL_BACKUP."</b></div>\n";
-		$BACKUPFORM .= '<table width="100%" border="0" cellspacing="1" cellpadding="2" align="center">';
+		$BACKUPFORM  = "<h3>".PLUGIN_BACKUP_SQL_BACKUP."</h3>\n";
+		$BACKUPFORM .= '<div class="serendipity_backup_form">';
 		$BACKUPFORM .= '<form name="NewBackupForm" action="?" method="POST">';
-		$BACKUPFORM .= '<input type="hidden" name="serendipity[c]" value="backup" />
-						<input type="hidden" name="serendipity[action]" value="makesqlbackup" />
-						<input type="hidden" name="serendipity[backup]" value="1" />';
-		$BACKUPFORM .= "<input type=\"hidden\" name=\"serendipity[adminModule]\" value=\"event_display\" />\n";
-		$BACKUPFORM .= "<input type=\"hidden\" name=\"serendipity[adminAction]\" value=\"backup\" />\n";
-		$BACKUPFORM .= '<tr>';
-		$BACKUPFORM .= '<td width="250px" rowspan="3" style="background-color:'.$tdbgcolor.'" align="left"><select style="width:250px" name="serendipity[tables][]" size="11" multiple>';
+		$BACKUPFORM .= '<input type="hidden" name="serendipity[c]" value="backup">
+						<input type="hidden" name="serendipity[action]" value="makesqlbackup">
+						<input type="hidden" name="serendipity[backup]" value="1">';
+		$BACKUPFORM .= "<input type=\"hidden\" name=\"serendipity[adminModule]\" value=\"event_display\">\n";
+		$BACKUPFORM .= "<input type=\"hidden\" name=\"serendipity[adminAction]\" value=\"backup\">\n";
+		$BACKUPFORM .= '<div class="form_multiselect"><label for="serendipity_tables">' . PLUGIN_BACKUP_LABEL_TABLES . '</label><select id="serendipity_tables" name="serendipity[tables][]" size="10" multiple>';
 		$QUERY = serendipity_db_query("SHOW TABLES");
 		$co = 0;
 		foreach ($QUERY AS $THISTABLE) {
@@ -1074,9 +1002,10 @@ class serendipity_event_backup extends serendipity_event {
 			}
 			$co++;
 		}
-		$BACKUPFORM .= '</select></td>';
-		$BACKUPFORM .= '<td style="background-color:'.$tdbgcolor.'" align="left" valign="top">
-							<select name="serendipity[data]">
+		$BACKUPFORM .= '</select></div>';
+		$BACKUPFORM .= '<div class="form_select">
+                            <label for="serendipity_data">' . PLUGIN_BACKUP_LABEL_DATA . '</label>
+							<select id="serendipity_data" name="serendipity[data]">
 								<option value="0"> --- '.PLUGIN_BACKUP_PLEASE_CHOOSE.' --- </option>';
 		if (isset($data) && $data == "data") {
 			$BACKUPFORM .= '		<option value="data" selected>'.PLUGIN_BACKUP_STRUCT_AND_DATA.'</option>';
@@ -1095,39 +1024,50 @@ class serendipity_event_backup extends serendipity_event {
 			$BACKUPFORM .= '		<option value="structure">'.PLUGIN_BACKUP_ONLY_STRUCT.'</option>';
 			$BACKUPFORM .= '		<option value="dataonly">'.PLUGIN_BACKUP_ONLY_DATA.'</option>';
 		}
-		$BACKUPFORM .= '	</select><br />';
-		if (isset($drop) && $drop == 1) 		          {$BACKUPFORM .= '	<input class="input_checkbox" type="checkbox" name="serendipity[drop]" value="1" checked /> '.PLUGIN_BACKUP_WITH_DROP_TABLE.'<br />';}
-		elseif (isset($drop) && $drop == "0")             {$BACKUPFORM .= '	<input class="input_checkbox" type="checkbox" name="serendipity[drop]" value="1" /> '.PLUGIN_BACKUP_WITH_DROP_TABLE.'<br />';}
-		elseif (!isset($drop))	                          {$BACKUPFORM .= '	<input class="input_checkbox" type="checkbox" name="serendipity[drop]" value="1" checked /> '.PLUGIN_BACKUP_WITH_DROP_TABLE.'<br />';}
-
-		if (isset($pack) && $pack == 1) 		          {$BACKUPFORM .= '	<input class="input_checkbox" type="checkbox" name="serendipity[pack]" value="1" checked /> '.PLUGIN_BACKUP_ZIPPED.'<br />';}
-		elseif (isset($pack) && $pack == "0")             {$BACKUPFORM .= '	<input class="input_checkbox" type="checkbox" name="serendipity[pack]" value="1" /> '.PLUGIN_BACKUP_ZIPPED.'<br />';}
-		elseif (!isset($pack))	                          {$BACKUPFORM .= '	<input class="input_checkbox" type="checkbox" name="serendipity[pack]" value="1" checked /> '.PLUGIN_BACKUP_ZIPPED.'<br />';}
-
-		if (isset($complete) && $complete == 1)           {$BACKUPFORM .= '	<input class="input_checkbox" type="checkbox" name="serendipity[complete]" value="1" checked /> '.PLUGIN_BACKUP_WHOLE_DATABASE.'<br />';}
-		elseif (isset($complete) && $complete == "0")     {$BACKUPFORM .= '	<input class="input_checkbox" type="checkbox" name="serendipity[complete]" value="1" /> '.PLUGIN_BACKUP_WHOLE_DATABASE.'<br />';}
-		elseif (!isset($complete))                        {$BACKUPFORM .= '	<input class="input_checkbox" type="checkbox" name="serendipity[complete]" value="1" /> '.PLUGIN_BACKUP_WHOLE_DATABASE.'<br />';}
-		$BACKUPFORM .= '	</td>';
-		$BACKUPFORM .= '<td width="75" style="background-color:'.$tdbgcolor.'" align="center" valign="middle"><input class="serendipityPrettyButton input_button" type="submit" name="serendipity[submit]" value="'.PLUGIN_BACKUP_START_BACKUP.'" /></td>';
-		$BACKUPFORM .= '</tr>';
-		$BACKUPFORM .= '<tr>';
-		if ($backupconfig['auto_backup'] == 1) {$C_automatik = ' checked';}
-		else {$C_automatik = '';}
-		if ($backupconfig['auto_backdel'] == 1) {$C_delmatik = ' checked';}
-		else {$C_delmatik = '';}
+		$BACKUPFORM .= '	</select></div>';
+		if (isset($drop) && $drop == 1) {
+            $BACKUPFORM .= '<div class="form_check"><input id="serendipity_drop_table" type="checkbox" name="serendipity[drop]" value="1" checked><label for="serendipity_drop_table">' . PLUGIN_BACKUP_WITH_DROP_TABLE . '</label></div>';
+        } elseif (isset($drop) && $drop == "0") {
+            $BACKUPFORM .= '<div class="form_check"><input id="serendipity_drop_table" type="checkbox" name="serendipity[drop]" value="1"><label for="serendipity_drop_table">' . PLUGIN_BACKUP_WITH_DROP_TABLE . '</label></div>';
+        } elseif (!isset($drop)) {
+            $BACKUPFORM .= '<div class="form_check"><input id="serendipity_drop_table" type="checkbox" name="serendipity[drop]" value="1" checked><label for="serendipity_drop_table">' . PLUGIN_BACKUP_WITH_DROP_TABLE . '</label></div>';
+        }
+		if (isset($pack) && $pack == 1) {
+            $BACKUPFORM .= '<div class="form_check"><input id="serendipity_pack_backup" type="checkbox" name="serendipity[pack]" value="1" checked><label for="serendipity_pack_backup">' . PLUGIN_BACKUP_ZIPPED . '</label></div>';
+        } elseif (isset($pack) && $pack == "0") {
+            $BACKUPFORM .= '<div class="form_check"><input id="serendipity_pack_backup" type="checkbox" name="serendipity[pack]" value="1"><label for="serendipity_pack_backup">' . PLUGIN_BACKUP_ZIPPED . '</label></div>';
+        } elseif (!isset($pack)) {
+            $BACKUPFORM .= '<div class="form_check"><input id="serendipity_pack_backup" type="checkbox" name="serendipity[pack]" value="1" checked><label for="serendipity_pack_backup">' . PLUGIN_BACKUP_ZIPPED . '</label></div>';
+        }
+		if (isset($complete) && $complete == 1) {
+            $BACKUPFORM .= '<div class="form_check"><input id="serendipity_complete_db" type="checkbox" name="serendipity[complete]" value="1" checked><label for="serendipity_complete_db">' . PLUGIN_BACKUP_WHOLE_DATABASE . '</label></div>';
+        } elseif (isset($complete) && $complete == "0") {
+            $BACKUPFORM .= '<div class="form_check"><input id="serendipity_complete_db" type="checkbox" name="serendipity[complete]" value="1"><label for="serendipity_complete_db">' . PLUGIN_BACKUP_WHOLE_DATABASE . '</label></div>';
+        } elseif (!isset($complete)) {
+            $BACKUPFORM .= '<div class="form_check"><input id="serendipity_complete_db" type="checkbox" name="serendipity[complete]" value="1"><label for="serendipity_complete_db">' . PLUGIN_BACKUP_WHOLE_DATABASE . '</label></div>';
+        }
+		if ($backupconfig['auto_backup'] == 1) {
+            $C_automatik = ' checked';
+        } else {
+            $C_automatik = '';
+        }
+		if ($backupconfig['auto_backdel'] == 1) {
+            $C_delmatik = ' checked';
+        } else {
+            $C_delmatik = '';
+        }
 		$BAKAUTO['TIME'] = array(600,3600,7200,21600,43200,86400,172800,345600,604800,1209600,2419200);
 		$BAKAUTO['TEXT'] = array('10 '.PLUGIN_BACKUP_MINUTES, PLUGIN_BACKUP_EVERY.' '.PLUGIN_BACKUP_HOUR,PLUGIN_BACKUP_EVERY.' 2 '.PLUGIN_BACKUP_HOURS,PLUGIN_BACKUP_EVERY.' 6 '.PLUGIN_BACKUP_HOURS,PLUGIN_BACKUP_EVERY.' 12 '.PLUGIN_BACKUP_HOURS,PLUGIN_BACKUP_EVERY.' 24 '.PLUGIN_BACKUP_HOURS,PLUGIN_BACKUP_EVERY.' 2 '.PLUGIN_BACKUP_DAYS,PLUGIN_BACKUP_EVERY.' 4 '.PLUGIN_BACKUP_DAYS,PLUGIN_BACKUP_EVERY.' 7 '.PLUGIN_BACKUP_DAYS,PLUGIN_BACKUP_EVERY.' 2 '.PLUGIN_BACKUP_WEEKS,PLUGIN_BACKUP_EVERY.' 4 '.PLUGIN_BACKUP_WEEKS);
 		$DELAUTO['TIME'] = array(43200,86400,172800,345600,604800,1209600,2419200,4838400,14515200);
 		$DELAUTO['TEXT'] = array('12 '.PLUGIN_BACKUP_HOURS,' 24 '.PLUGIN_BACKUP_HOURS,'2 '.PLUGIN_BACKUP_DAYS,'4 '.PLUGIN_BACKUP_DAYS,'7 '.PLUGIN_BACKUP_DAYS,'2 '.PLUGIN_BACKUP_WEEKS,'4 '.PLUGIN_BACKUP_WEEKS,'2 '.PLUGIN_BACKUP_MONTHS,'6 '.PLUGIN_BACKUP_MONTHS);
-		$BACKUPFORM .= '<td colspan="2" style="background-color:'.$tdbgcolor.'" align="center" valign="top">
-							<table width="100%" border="0" cellspacing="0" cellpadding="0">
-								<tr>
-									<td colspan="2">&nbsp;&nbsp;'.PLUGIN_BACKUP_AUTO_BACKUP.'<br />
-									<input class="input_checkbox" type="checkbox" name="serendipity[bakautomatik]" value="1"'.$C_automatik.' /> '.PLUGIN_BACKUP_ACTIVATE_AUTO_BACKUP.'<br /></td>
-								</tr>
-								<tr>
-									<td width="170">'.PLUGIN_BACKUP_TIME_BET_BACKUPS.'</td>
-									<td><select name="serendipity[interval]">';
+		$BACKUPFORM .= '<fieldset>
+							<span class="wrap_legend"><legend>' . PLUGIN_BACKUP_AUTO_BACKUP . '</legend></span>
+                            <div class="form_check">
+								<input id="serendipity_bakautomatik" type="checkbox" name="serendipity[bakautomatik]" value="1"' . $C_automatik . '><label for="serendipity_bakautomatik">' . PLUGIN_BACKUP_ACTIVATE_AUTO_BACKUP . '</label>
+							</div>
+							<div class="form_select">
+								<label for="serendipity_interval">' . PLUGIN_BACKUP_TIME_BET_BACKUPS . '</label>
+								<select id="serendipity_interval" name="serendipity[interval]">';
 		for ($BA=0;$BA<count($BAKAUTO['TIME']);$BA++) {
 			if ($backupconfig['time_backup'] >= 1) {
 				if ($BAKAUTO['TIME'][$BA] == $backupconfig['time_backup']) {
@@ -1143,21 +1083,15 @@ class serendipity_event_backup extends serendipity_event {
 				}
 			}
 		}
-		$BACKUPFORM .= '				</select></td>
-								</tr>
-							</table>
-							</td>';
-		$BACKUPFORM .= '</tr>';
-		$BACKUPFORM .= '<tr>';
-		$BACKUPFORM .= '<td colspan="2" style="background-color:'.$tdbgcolor.'" align="center" valign="top">
-							<table width="100%" border="0" cellspacing="0" cellpadding="0">
-								<tr>
-									<td colspan="2">&nbsp;&nbsp;'.PLUGIN_BACKUP_DEL_OLD_BACKUPS.'<br />
-									<input class="input_checkbox" type="checkbox" name="serendipity[delautomatik]" value="1"'.$C_delmatik.' /> '.PLUGIN_BACKUP_ACTIVATE_AUTO_DELETE.'<br /></td>
-								</tr>
-								<tr>
-									<td width="140">'.PLUGIN_BACKUP_OLDER_THAN.'</td>
-									<td><select name="serendipity[delage]">';
+		$BACKUPFORM .= '</select></div></fieldset>';
+        $BACKUPFORM .= '<fieldset>
+							<span class="wrap_legend"><legend>' . PLUGIN_BACKUP_DEL_OLD_BACKUPS . '</legend><span>
+                            <div class="form_check">
+								<input id="serendipity_delautomatik" type="checkbox" name="serendipity[delautomatik]" value="1"' . $C_delmatik . '><label for="serendipity_delautomatik">' . PLUGIN_BACKUP_ACTIVATE_AUTO_DELETE . '</label>
+							</div>
+							<div class="form_select">
+								<label for="serendipity_delage">' . PLUGIN_BACKUP_OLDER_THAN . '...' . PLUGIN_BACKUP_WILL_BE_DELETED . '</label>
+								<select id="serendipity_delage" name="serendipity[delage]">';
 		for ($BA=0;$BA<count($DELAUTO['TIME']);$BA++) {
 			if ($backupconfig['time_backdel'] >= 1) {
 				if ($DELAUTO['TIME'][$BA] == $backupconfig['time_backdel']) {
@@ -1173,16 +1107,11 @@ class serendipity_event_backup extends serendipity_event {
 				}
 			}
 		}
-		$BACKUPFORM .= '				</select>&nbsp;&nbsp;'.PLUGIN_BACKUP_WILL_BE_DELETED.'</td>
-								</tr>
-							</table>
-							</td>';
-		$BACKUPFORM .= '</tr>';
+		$BACKUPFORM .= '</select></div></fieldset>';
+        $BACKUPFORM .= '<div class="form_buttons"><input type="submit" name="serendipity[submit]" value="' . PLUGIN_BACKUP_START_BACKUP . '"></div>';
 		$BACKUPFORM .= '</form>';
-		$BACKUPFORM .= '</table><br />';
+		$BACKUPFORM .= '</div>';
 		unset($BACKUPS);
-
-
 
 		$retconfh = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}dma_htmlbackup");
 		foreach ($retconfh[0] as $key => $val) {
@@ -1195,18 +1124,17 @@ class serendipity_event_backup extends serendipity_event {
 		}
 		$exclude = unserialize(trim($backupdatah_array[1]));
 
-		$BACKUPFORM .= "<div align=\"center\"><b>".PLUGIN_BACKUP_HTML_BACKUP."</b></div>\n";
-		if (isset($tdbgcolor) && $tdbgcolor == "#ebebeb") { $tdbgcolor = "#efefef"; } else {  $tdbgcolor = "#ebebeb"; }
-		$BACKUPFORM .= '<table width="100%" border="0" cellspacing="1" cellpadding="2" align="center">';
+		$BACKUPFORM .= "<h3>" . PLUGIN_BACKUP_HTML_BACKUP . "</h3>\n";
+		$BACKUPFORM .= '<div class="serendipity_backup_form">';
 		$BACKUPFORM .= '<form name="NewHBackupForm" action="?" method="POST">';
-		$BACKUPFORM .= '<input type="hidden" name="serendipity[c]" value="backup" />
-						<input type="hidden" name="serendipity[action]" value="makehtmlbackup" />
-						<input type="hidden" name="serendipity[backup]" value="1" />';
-		$BACKUPFORM .= "<input type=\"hidden\" name=\"serendipity[adminModule]\" value=\"event_display\" />\n";
-		$BACKUPFORM .= "<input type=\"hidden\" name=\"serendipity[adminAction]\" value=\"backup\" />\n";
-		$BACKUPFORM .= '<tr>';
-		$BACKUPFORM .= '<td width="250px" rowspan="3" style="background-color:'.$tdbgcolor.'" align="left">
-							<select style="width:250px" name="serendipity[dirs][]" size="8" multiple>';
+		$BACKUPFORM .= '<input type="hidden" name="serendipity[c]" value="backup">
+						<input type="hidden" name="serendipity[action]" value="makehtmlbackup">
+						<input type="hidden" name="serendipity[backup]" value="1">';
+		$BACKUPFORM .= "<input type=\"hidden\" name=\"serendipity[adminModule]\" value=\"event_display\">\n";
+		$BACKUPFORM .= "<input type=\"hidden\" name=\"serendipity[adminAction]\" value=\"backup\">\n";
+		$BACKUPFORM .= '<div class="form_multiselect">
+                            <label for="serendipity_dirs">' . PLUGIN_BACKUP_LABEL_DIRS . '</label>
+							<select id="serendipity_dirs" name="serendipity[dirs][]" size="10" multiple>';
 
 		$s9ypath = trim($serendipity['serendipityPath']);
 		$s9ydir = preg_replace("`^.*\/([^\/]*)\/$`", "\\1", $s9ypath);
@@ -1239,29 +1167,32 @@ class serendipity_event_backup extends serendipity_event {
 			}
 			$co++;
 		}
-
-		$BACKUPFORM .= '</select></td>';
-		$BACKUPFORM .= '<td style="background-color:'.$tdbgcolor.'" align="left" valign="top">';
-
-		if (!is_array($exclude) || count($exclude) <= 0)	{$BACKUPFORM .= '	<input class="input_checkbox" type="checkbox" name="serendipity[complete]" value="1" checked /> '.PLUGIN_BACKUP_WHOLE_BLOG.'<br />';}
-		else					                        		{$BACKUPFORM .= '	<input class="input_checkbox" type="checkbox" name="serendipity[complete]" value="1" /> '.PLUGIN_BACKUP_WHOLE_BLOG.'<br />';}
-		$BACKUPFORM .= '	</td>';
-		$BACKUPFORM .= '<td width="75" style="background-color:'.$tdbgcolor.'" align="center" valign="middle"><input class="serendipityPrettyButton input_button" type="submit" name="serendipity[submit]" value="'.PLUGIN_BACKUP_START_BACKUP.'" /></td>';
-		$BACKUPFORM .= '</tr>';
-		$BACKUPFORM .= '<tr>';
-		if ($htmlbackupconfig['auto_backup'] == 1) {$C_automatik = ' checked';}
-		else {$C_automatik = '';}
-		if ($htmlbackupconfig['auto_backdel'] == 1) {$C_delmatik = ' checked';}
-		else {$C_delmatik = '';}
-		$BACKUPFORM .= '<td colspan="2" style="background-color:'.$tdbgcolor.'" align="center" valign="top">
-							<table width="100%" border="0" cellspacing="0" cellpadding="0">
-								<tr>
-									<td colspan="2">&nbsp;&nbsp;'.PLUGIN_BACKUP_AUTO_BACKUP.'<br />
-									<input class="input_checkbox" type="checkbox" name="serendipity[bakautomatik]" value="1"'.$C_automatik.' /> '.PLUGIN_BACKUP_ACTIVATE_AUTO_BACKUP.'<br /></td>
-								</tr>
-								<tr>
-									<td width="170">'.PLUGIN_BACKUP_TIME_BET_BACKUPS.'</td>
-									<td><select name="serendipity[interval]">';
+		$BACKUPFORM .= '</select></div>';
+		$BACKUPFORM .= '<div class="form_check">';
+		if (!is_array($exclude) || count($exclude) <= 0) {
+            $BACKUPFORM .= '	<input id="serendipity_complete_html" type="checkbox" name="serendipity[complete]" value="1" checked><label for="serendipity_complete_html">' . PLUGIN_BACKUP_WHOLE_BLOG . '</label>';
+        } else {
+            $BACKUPFORM .= ' <input id="serendipity_complete_html" type="checkbox" name="serendipity[complete]" value="1"><label for="serendipity_complete_html">' . PLUGIN_BACKUP_WHOLE_BLOG . '</label>';
+        }
+		$BACKUPFORM .= '</div>';
+        if ($htmlbackupconfig['auto_backup'] == 1) {
+            $C_automatik = ' checked';
+        } else {
+            $C_automatik = '';
+        }
+		if ($htmlbackupconfig['auto_backdel'] == 1) {
+            $C_delmatik = ' checked';
+        } else {
+            $C_delmatik = '';
+        }
+		$BACKUPFORM .= '<fieldset>
+							<span class="wrap_legend"><legend>' . PLUGIN_BACKUP_AUTO_BACKUP . '</legend></span>
+                            <div class="form_check">
+			                     <input id="serendipity_bakautomatik_html" type="checkbox" name="serendipity[bakautomatik]" value="1"' . $C_automatik . '><label for="serendipity_bakautomatik_html">' . PLUGIN_BACKUP_ACTIVATE_AUTO_BACKUP . '</label>
+							</div>
+							<div class="form_select">
+								<label for="serendipity_interval_html">' . PLUGIN_BACKUP_TIME_BET_BACKUPS . '</label>
+								<select id="serendipity_interval_html" name="serendipity[interval]">';
 		for ($BA=0;$BA<count($BAKAUTO['TIME']);$BA++) {
 			if ($htmlbackupconfig['time_backup'] >= 1) {
 				if ($BAKAUTO['TIME'][$BA] == $htmlbackupconfig['time_backup']) {
@@ -1277,21 +1208,15 @@ class serendipity_event_backup extends serendipity_event {
 				}
 			}
 		}
-		$BACKUPFORM .= '				</select></td>
-								</tr>
-							</table>
-							</td>';
-		$BACKUPFORM .= '</tr>';
-		$BACKUPFORM .= '<tr>';
-		$BACKUPFORM .= '<td colspan="2" style="background-color:'.$tdbgcolor.'" align="center" valign="top">
-							<table width="100%" border="0" cellspacing="0" cellpadding="0">
-								<tr>
-									<td colspan="2">&nbsp;&nbsp;'.PLUGIN_BACKUP_DEL_OLD_BACKUPS.'<br />
-									<input class="input_checkbox" type="checkbox" name="serendipity[delautomatik]" value="1"'.$C_delmatik.' /> '.PLUGIN_BACKUP_ACTIVATE_AUTO_DELETE.'<br /></td>
-								</tr>
-								<tr>
-									<td width="140">'.PLUGIN_BACKUP_OLDER_THAN.'</td>
-									<td><select name="serendipity[delage]">';
+		$BACKUPFORM .= '		</select></div></fieldset>';
+        $BACKUPFORM .= '<fieldset>
+							<span class="wrap_legend"><legend>' . PLUGIN_BACKUP_DEL_OLD_BACKUPS . '</legend></span>
+                            <div class="form_check">
+								<input id="serendipity_delautomatik_html" type="checkbox" name="serendipity[delautomatik]" value="1"' . $C_delmatik . '><label for="serendipity_delautomatik_html">' . PLUGIN_BACKUP_ACTIVATE_AUTO_DELETE . '</label>
+							</div>
+							<div class="form_select">
+								<label for="serendipity_delage_html">' . PLUGIN_BACKUP_OLDER_THAN . '...' . PLUGIN_BACKUP_WILL_BE_DELETED . '</label>
+								<select id="serendipity_delage_html" name="serendipity[delage]">';
 		for ($BA=0;$BA<count($DELAUTO['TIME']);$BA++) {
 			if ($htmlbackupconfig['time_backdel'] >= 1) {
 				if ($DELAUTO['TIME'][$BA] == $htmlbackupconfig['time_backdel']) {
@@ -1307,16 +1232,11 @@ class serendipity_event_backup extends serendipity_event {
 				}
 			}
 		}
-		$BACKUPFORM .= '				</select>&nbsp;&nbsp;'.PLUGIN_BACKUP_WILL_BE_DELETED.'</td>
-								</tr>
-							</table>
-							</td>';
-		$BACKUPFORM .= '</tr>';
+		$BACKUPFORM .= '</select></div></fieldset>';
+		$BACKUPFORM .= '<div class="form_buttons"><input type="submit" name="serendipity[submit]" value="' . PLUGIN_BACKUP_START_BACKUP . '"></div>';
 		$BACKUPFORM .= '</form>';
-		$BACKUPFORM .= '</table><br />';
+		$BACKUPFORM .= '</div>';
 		unset($BACKUPS);
-
-
 
 		$bc = 0;
 		$fd = opendir($BACKUPDIR);
@@ -1332,68 +1252,65 @@ class serendipity_event_backup extends serendipity_event {
 		closedir($fd);
 		@reset($BACKUPS);
 		@array_multisort($BACKUPS['TIME'], SORT_DESC, SORT_NUMERIC, $BACKUPS['NAME'], $BACKUPS['FILE'], $BACKUPS['SIZE']);
-		if (isset($tdbgcolor) && $tdbgcolor == "#ebebeb") { $tdbgcolor = "#efefef"; } else {  $tdbgcolor = "#ebebeb"; }
+
 		if (count($BACKUPS['NAME']) >= 1) {
-			$BACKUPFORM .= "\n\n\n".'<table width="100%" border="0" cellspacing="1" cellpadding="2" align="center">'."\n";
+            $BACKUPFORM .= '<h3>' . PLUGIN_BACKUP_LABEL_BACKUPS . '</h3>' . "\n";
 			$BACKUPFORM .= '<form name="UPForm" action="?" method="POST">'."\n";
-			$BACKUPFORM .= '<input type="hidden" name="serendipity[c]" value="backup" />
-							<input type="hidden" name="serendipity[action]" value="deletesqlbackup" />'."\n";
-			$BACKUPFORM .= "<input type=\"hidden\" name=\"serendipity[adminModule]\" value=\"event_display\" />\n";
-			$BACKUPFORM .= "<input type=\"hidden\" name=\"serendipity[adminAction]\" value=\"backup\" />\n";
+			$BACKUPFORM .= '<input type="hidden" name="serendipity[c]" value="backup">
+							<input type="hidden" name="serendipity[action]" value="deletesqlbackup">'."\n";
+			$BACKUPFORM .= "<input type=\"hidden\" name=\"serendipity[adminModule]\" value=\"event_display\">\n";
+			$BACKUPFORM .= "<input type=\"hidden\" name=\"serendipity[adminAction]\" value=\"backup\">\n";
+            $BACKUPFORM .= '<div class="serendipity_backups_wrap">'."\n";
+            $BACKUPFORM .= '<table class="serendipity_backups">'."\n";
+            $BACKUPFORM .= '<thead>'."\n";
 			$BACKUPFORM .= '<tr>'."\n";
-			$BACKUPFORM .= '<td style="background-color:'.$tdbgcolor.'" align="left"><span style="font-weight: bolder;">'.PLUGIN_BACKUP_FILENAME.'</span></td>'."\n";
-			$BACKUPFORM .= '<td width="100" style="background-color:'.$tdbgcolor.'" align="right"><span style="font-weight: bolder;">'.PLUGIN_BACKUP_FILESIZE.'</span></td>'."\n";
-			$BACKUPFORM .= '<td width="140" style="background-color:'.$tdbgcolor.'" align="right"><span style="font-weight: bolder;">'.PLUGIN_BACKUP_DATE.'</span></td>'."\n";
-			$BACKUPFORM .= '<td width="60" style="background-color:'.$tdbgcolor.'" align="center"><span style="font-weight: bolder;">'.PLUGIN_BACKUP_OPTION.'</span></td>'."\n";
+			$BACKUPFORM .= '<th>' . PLUGIN_BACKUP_FILENAME . '</th>'."\n";
+			$BACKUPFORM .= '<th>' . PLUGIN_BACKUP_FILESIZE . '</th>'."\n";
+			$BACKUPFORM .= '<th>' . PLUGIN_BACKUP_DATE . '</th>'."\n";
+			$BACKUPFORM .= '<th>' . PLUGIN_BACKUP_OPTION . '</th>'."\n";
 			$BACKUPFORM .= '</tr>'."\n";
+            $BACKUPFORM .= '</thead>'."\n";
+            $BACKUPFORM .= '<tbody>'."\n";
 			for ($bco=0;$bco<count($BACKUPS['NAME']);$bco++) {
-				if (isset($tdbgcolor) && $tdbgcolor == "#ebebeb") { $tdbgcolor = "#efefef"; } else {  $tdbgcolor = "#ebebeb"; }
 				$BACKUPFORM .= '<tr>'."\n";
-				$BACKUPFORM .= '<td style="background-color:'.$tdbgcolor.'" align="left"><a href="'.$serendipity['baseURL'] . ($serendipity['rewrite'] == "none" ? $serendipity['indexFile'] . "?/" : "") . 'plugin/dlbackup_'.$BACKUPS['NAME'][$bco].'">'.$BACKUPS['NAME'][$bco].'</a></td>'."\n";
-				$BACKUPFORM .= '<td width="100" style="background-color:'.$tdbgcolor.'" align="right">'.$this->calcFilesize($BACKUPS['SIZE'][$bco]).'</td>'."\n";
-				$BACKUPFORM .= '<td width="140" style="background-color:'.$tdbgcolor.'" align="right">'.date("d.m.Y, H:i",$BACKUPS['TIME'][$bco]).'</td>'."\n";
-				$BACKUPFORM .= '<td width="60" style="background-color:'.$tdbgcolor.'" align="center">'."\n";
+				$BACKUPFORM .= '<td><input id="serendipity_del_' . $bco . '" type="checkbox" name="serendipity[del][]" value="' . $BACKUPS['NAME'][$bco] . '"><label for="serendipity_del_' . $bco . '" class="visuallyhidden">' . PLUGIN_BACKUP_DELETE_MARK . '</label> <a href="'.$serendipity['baseURL'] . ($serendipity['rewrite'] == "none" ? $serendipity['indexFile'] . "?/" : "") . 'plugin/dlbackup_' . $BACKUPS['NAME'][$bco] . '">' . $BACKUPS['NAME'][$bco] . '</a></td>'."\n";
+				$BACKUPFORM .= '<td>' . $this->calcFilesize($BACKUPS['SIZE'][$bco]) . '</td>'."\n";
+				$BACKUPFORM .= '<td>' . date("d.m.Y, H:i",$BACKUPS['TIME'][$bco]) . '</td>'."\n";
+				$BACKUPFORM .= '<td>' . "\n";
 				if (preg_match("@htmlbackup@", $BACKUPS['NAME'][$bco])) {
-					$BACKUPFORM .= "	<img alt=\"\" src=\"".$this->getRelPath()."/img/e.gif\" width=18 height=18 border=\"0\" valign=\"absmiddle\" align=\"middle\" />";
+                    $BACKUPFORM .= "&nbsp;";
 				} else {
-					$BACKUPFORM .= "	<a href=\"./serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=backup&amp;backup=".$BACKUPS['NAME'][$bco]."&amp;recover=1\"><img alt=\"\" src=\"".$this->getRelPath()."/img/recover.gif\" width=18 height=18 border=\"0\" valign=\"absmiddle\" align=\"middle\" title=\"".PLUGIN_BACKUP_RECOVER_THIS."\" alt=\"".PLUGIN_BACKUP_RECOVER_THIS."\" /></a>";
+					$BACKUPFORM .= "<a title=\"".PLUGIN_BACKUP_RECOVER_THIS."\" href=\"./serendipity_admin.php?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=backup&amp;backup=" . $BACKUPS['NAME'][$bco] . "&amp;recover=1\">" . PLUGIN_BACKUP_RECOVER . "</a>";
 				}
-				$BACKUPFORM .= '	<input class="input_checkbox" type="checkbox" name="serendipity[del][]" value="'.$BACKUPS['NAME'][$bco].'" /></td>'."\n";
+				$BACKUPFORM .= '</td>'."\n";
 				$BACKUPFORM .= '</tr>'."\n";
 			}
-			if (isset($tdbgcolor) && $tdbgcolor == "#ebebeb") { $tdbgcolor = "#efefef"; } else {  $tdbgcolor = "#ebebeb"; }
-			$BACKUPFORM .= '<tr>'."\n";
-			$BACKUPFORM .= '<td colspan="4" style="background-color:'.$tdbgcolor.'" align="right"><span style="font-weight: bolder;">
-								<input class="serendipityPrettyButton input_button" type="submit" name="serendipity[delete]" value="'.PLUGIN_BACKUP_DELETE.'" />
-								</span></td>'."\n";
-			$BACKUPFORM .= '</tr>'."\n";
-			$BACKUPFORM .= '</form>'."\n";
-			$BACKUPFORM .= '</table>'."\n\n\n";
+			$BACKUPFORM .= '</tbody>' . "\n";
+            $BACKUPFORM .= '</table>' . "\n";
+            $BACKUPFORM .= '</div>' . "\n";
+            $BACKUPFORM .= '<div class="form_buttons"><input type="submit" name="serendipity[delete]" value="' . PLUGIN_BACKUP_DELETE . '"></div>' . "\n";
+			$BACKUPFORM .= '</form>' . "\n";
 		} else {
-			$BACKUPFORM .= '<table width="100%" border="0" cellspacing="1" cellpadding="2">'."\n";
-			$BACKUPFORM .= '<tr>'."\n";
-			$BACKUPFORM .= '<td style="background-color:'.$tdbgcolor.'" align="center"><span style="font-weight: bolder;">'.PLUGIN_BACKUP_NO_BACKUPS.'</span></td>'."\n";
-			$BACKUPFORM .= '</tr>'."\n";
-			$BACKUPFORM .= '</table>'."\n";
+			$BACKUPFORM .= "<span class='msg_notice'><span class='icon-info-circled'></span>" . PLUGIN_BACKUP_NO_BACKUPS . "</span>\n";
 		}
 
 		echo $TITLE;
 		if (isset($STATUSMSG) && trim($STATUSMSG) != "") {
-			echo $STATUSMSG."<br /><br />";
+			echo $STATUSMSG;
 		}
 		echo $BACKUPFORM;
 	}
-
-
 
 
     function generate_content(&$title) {
         $title = PLUGIN_BACKUP_TITLE.' ('.$this->get_config('pageurl').')';
     }
 
+
     function install() {
         $this->setupDB();
     }
+
 
     function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
@@ -1401,7 +1318,6 @@ class serendipity_event_backup extends serendipity_event {
         $hooks = &$bag->get('event_hooks');
         if (isset($hooks[$event])) {
             switch($event) {
-
 
                 case 'backend_sidebar_entries':
                     if ($serendipity['version'][0] == '1') {
@@ -1427,6 +1343,12 @@ class serendipity_event_backup extends serendipity_event {
 				case 'frontend_footer':
 					echo "<img src=\"".$serendipity['baseURL'] . ($serendipity['rewrite'] == "none" ? $serendipity['indexFile'] . "?/" : "") . "plugin/checkautobackup\" width=\"1\" height=\"1\" style=\"border: 0px\" alt=\"\" />";
 					break;
+
+
+                case 'css_backend':
+                    echo file_get_contents(dirname(__FILE__) . '/backup_backend.css');
+
+                    break;
 
 
                 case 'external_plugin':
@@ -1548,9 +1470,5 @@ class serendipity_event_backup extends serendipity_event {
 
         return true;
     }
-
-
 }
-
 /* vim: set sts=4 ts=4 expandtab : */
-

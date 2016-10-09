@@ -3451,9 +3451,9 @@ aplikovány další typografické úpravy.</description>
 <description>Zpřístupňuje možnost automatického zálohování Serendepity - databázových tabulek i souborů. V současnosti je podporována pouze databáze MySQL(i). VAROVÁNÍ: Plugin nefunguje optimálně s velkou databází nebo velkým množstvím souborů.</description>
 <maintainers><maintainer><name>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.13</version>
+  <version>0.14</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-05-22</date>
+  <date>2016-10-09</date>
   <filelist>
 <dir name="serendipity_event_backup">
 <dir name="img">
@@ -3475,6 +3475,7 @@ aplikovány další typografické úpravy.</description>
 <file>Tar.php</file>
 </dir>
 <file>lang_cs.inc.php</file>
+<file>backup_backend.css</file>
 </dir>
 
   </filelist>
@@ -3492,6 +3493,7 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_backup/lang_en.inc.php</file>
     <file>serendipity_event_backup/bundled-libs/Tar.php</file>
     <file>serendipity_event_backup/lang_cs.inc.php</file>
+    <file>serendipity_event_backup/backup_backend.css</file>
   </serendipityFilelist>
 </release>
 </package>

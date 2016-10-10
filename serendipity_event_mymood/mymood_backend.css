@@ -1,0 +1,62 @@
+.serendipity_mymood_wrap {
+    min-height: .01%;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.serendipity_mymood_wrap th,
+.serendipity_mymood_wrap td {
+    white-space: nowrap;
+}
+
+.serendipity_mymood_moods {
+    border: 1px solid #aaa;
+    border-bottom: 0;
+}
+
+.serendipity_mymood_moods,
+.mood_select {
+    margin-top: 0;
+    width: 100%;
+}
+
+.serendipity_mymood_moods input[type='text'] {
+    width: 100%;
+}
+
+.serendipity_mymood_moods tr {
+    border-bottom: 1px solid #aaa;
+}
+
+.serendipity_mymood_moods thead tr,
+.serendipity_mymood_moods .serendipity_admin_list_item_even {
+    background-color: #eee;
+}
+
+.serendipity_mymood_moods th,
+.serendipity_mymood_moods td {
+    padding: .25em;
+}
+
+#mymood_reset_form {
+    margin: .75em 0;
+}
+
+@media screen and (min-width: 768px) {
+    .serendipity_mymood_wrap {
+        overflow-y: auto;
+    }
+
+    .serendipity_mymood_wrap th,
+    .serendipity_mymood_wrap td {
+        white-space: normal;
+    }
+
+    #mymood_reset_form {
+        float: right;
+        margin: 0;
+        position: relative;
+        top: -1.75em;
+    }
+}

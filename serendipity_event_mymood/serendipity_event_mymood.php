@@ -51,13 +51,13 @@ class serendipity_event_mymood extends serendipity_event {
         $propbag->add('name',          PLUGIN_MYMOOD_TITLE);
         $propbag->add('description',   PLUGIN_MYMOOD_DESC);
         $propbag->add('requirements',  array(
-            'serendipity' => '0.8',
+            'serendipity' => '2.0',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.11.1');
-        $propbag->add('author',       'Brett Profitt');
+        $propbag->add('version',       '0.12.0');
+        $propbag->add('author',       'Brett Profitt, Matthias Mees');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
             'entry_display'                                     => true,
@@ -66,6 +66,7 @@ class serendipity_event_mymood extends serendipity_event {
             'backend_display'                                   => true,
             'backend_sidebar_entries'                           => true,
             'backend_sidebar_entries_event_display_mymood'      => true,
+            'css_backend'                                       => true,
         ));
 
         $propbag->add('groups', array('FRONTEND_ENTRY_RELATED', 'BACKEND_EDITOR'));
@@ -324,61 +325,60 @@ class serendipity_event_mymood extends serendipity_event {
         );
 
         echo '<h2>' . PLUGIN_MYMOOD_TITLE . '</h2>';
-        echo PLUGIN_MYMOOD_DESC . '<br /><br />';
-        echo PLUGIN_MYMOOD_MOOD_LIST . '<br /><br />';
+        echo '<p>' . PLUGIN_MYMOOD_DESC . ' (' . PLUGIN_MYMOOD_MOOD_LIST . ')</p>';
 
         echo '
             <form action="?" method="post">
-            <div>
-                <input type="hidden" name="serendipity[adminModule]" value="event_display" />
-                <input type="hidden" name="serendipity[adminAction]" value="mymood" />
-            </div>
-            <table align="center" width="100%" cellpadding="10" cellspacing="0">
-                <tr>
-                    <th>#</th>
-                    <th>' . PLUGIN_MYMOOD_MOOD_DELETE . '</th>
-                    <th>' . PLUGIN_MYMOOD_MOOD_NAME . '</th>
-                    <th>' . PLUGIN_MYMOOD_MOOD_IMG . '</th>
-                    <th>' . PLUGIN_MYMOOD_MOOD_ASCII . '</th>
-                </tr>';
-        $count = 1;
-        foreach($moods AS $m_id => $mood) {
-            $even  = ($m_id % 2 ? 'even' : 'uneven');
+                <input type="hidden" name="serendipity[adminModule]" value="event_display">
+                <input type="hidden" name="serendipity[adminAction]" value="mymood">
 
-            echo "<tr style='padding: 10px;' class='serendipity_admin_list_item serendipity_admin_list_item_$even'>\n";
-            echo "  <td><em>$count</em></td>\n";
-            echo "  <td style='text-align: center'><input class='input_checkbox' type='checkbox' value='1' name=\"serendipity[mymood][{$mood['mood_id']}][mood_delete]\"></td>\n";
-            echo "  <td><input class='input_textbox' type='text' name=\"serendipity[mymood][{$mood['mood_id']}][mood_name]\" value=\"" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($mood['mood_name']) : htmlspecialchars($mood['mood_name'], ENT_COMPAT, LANG_CHARSET)) . "\" /></td>\n";
-            echo "  <td><input class='input_textbox' style='width: 100%' type='text' name=\"serendipity[mymood][{$mood['mood_id']}][mood_img]\" value=\"" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($mood['mood_img']) : htmlspecialchars($mood['mood_img'], ENT_COMPAT, LANG_CHARSET)) . "\" /></td>\n";
-            echo "  <td style='text-align: center'><input class='input_textbox' style='text-align: center' type='text' size='5' name=\"serendipity[mymood][{$mood['mood_id']}][mood_ascii]\" value=\"" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($mood['mood_ascii']) : htmlspecialchars($mood['mood_ascii'], ENT_COMPAT, LANG_CHARSET)) . "\" /></td>\n";
-            echo "</tr>\n";
+                <div class="serendipity_mymood_wrap">
+                <table class="serendipity_mymood_moods">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>' . PLUGIN_MYMOOD_MOOD_DELETE . '</th>
+                            <th>' . PLUGIN_MYMOOD_MOOD_NAME . '</th>
+                            <th>' . PLUGIN_MYMOOD_MOOD_IMG . '</th>
+                            <th>' . PLUGIN_MYMOOD_MOOD_ASCII . '</th>
+                        </tr>
+                    </thead>
+                    <tbody>';
+                $count = 1;
+                foreach($moods AS $m_id => $mood) {
+                    $even  = ($m_id % 2 ? 'even' : 'uneven');
 
-            $count++;
-        }
+                    echo "<tr class='serendipity_admin_list_item serendipity_admin_list_item_$even'>\n";
+                    echo "  <td>$count</td>\n";
+                    echo "  <td><input type='checkbox' value='1' name=\"serendipity[mymood][{$mood['mood_id']}][mood_delete]\"></td>\n";
+                    echo "  <td><input type='text' name=\"serendipity[mymood][{$mood['mood_id']}][mood_name]\" value=\"" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($mood['mood_name']) : htmlspecialchars($mood['mood_name'], ENT_COMPAT, LANG_CHARSET)) . "\"></td>\n";
+                    echo "  <td><input type='text' name=\"serendipity[mymood][{$mood['mood_id']}][mood_img]\" value=\"" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($mood['mood_img']) : htmlspecialchars($mood['mood_img'], ENT_COMPAT, LANG_CHARSET)) . "\"></td>\n";
+                    echo "  <td><input type='text' size='5' name=\"serendipity[mymood][{$mood['mood_id']}][mood_ascii]\" value=\"" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($mood['mood_ascii']) : htmlspecialchars($mood['mood_ascii'], ENT_COMPAT, LANG_CHARSET)) . "\"></td>\n";
+                    echo "</tr>\n";
 
+                    $count++;
+                }
         echo '
-                <tr>
-                    <td colspan="4"><br />
-                        <input class="serendipityPrettyButton input_button" type="submit" name="serendipity[mymoodAction]" value="' . GO . '" />
-                    </td>
-                </tr>
-              </table>
-              </form>
+                    </tbody>
+                </table>
+                </div>
+                <input type="submit" name="serendipity[mymoodAction]" value="' . GO . '">
+            </form>
 
-              <script type="text/javascript">
+            <script type="text/javascript">
                 function confirm_reset() {
                     if (confirm(\'' . PLUGIN_MYMOOD_CONFIRM_RESET . '\')) {
                         document.reset_form.submit();
                     }
                 }
-              </script>
+            </script>
 
-              <form action="?" method="post" name="reset_form">
-                <input type="hidden" name="serendipity[adminModule]" value="event_display" />
-                <input type="hidden" name="serendipity[adminAction]" value="mymood" />
-                <input type="hidden" name="serendipity[mymood_resetdb]" value="true" />
-                <input type="button" class="serendipityPrettyButton input_button" value="' . PLUGIN_MYMOOD_CONFIRM_RESET_BUTTON . '" onclick="confirm_reset()" />
-              </form>
+            <form id="mymood_reset_form" action="?" method="post" name="reset_form">
+                <input type="hidden" name="serendipity[adminModule]" value="event_display">
+                <input type="hidden" name="serendipity[adminAction]" value="mymood">
+                <input type="hidden" name="serendipity[mymood_resetdb]" value="true">
+                <input type="button" value="' . PLUGIN_MYMOOD_CONFIRM_RESET_BUTTON . '" onclick="confirm_reset()">
+            </form>
               ';
     }
 
@@ -409,9 +409,10 @@ class serendipity_event_mymood extends serendipity_event {
             }
         }
 
-        echo "<fieldset style=\"margin: 5px\">\n";
-        echo '  <legend> ' . PLUGIN_MYMOOD_TITLE . '</legend>';
-        echo "  <table class=\"mood_select\" cellpadding=\"3\" cellspacing=\"0\" width=\"100%\">  \n";
+        echo "<fieldset>\n";
+        echo '    <span class="wrap_legend"><legend> ' . PLUGIN_MYMOOD_TITLE . '</legend></span>';
+        echo '    <div class="serendipity_mymood_wrap">';
+        echo "    <table class=\"mood_select\">  \n";
 
         $c = 0;
         $max = 5;
@@ -425,7 +426,7 @@ class serendipity_event_mymood extends serendipity_event {
                 echo "    <td>\n";
             }
 
-            echo "      <input class=\"input_checkbox\" type=\"checkbox\" id=\"{$mood['mood_id']}\" name=\"serendipity[mymood][]\" value=\"{$mood['mood_id']}\" $checked>\n";
+            echo "      <input type=\"checkbox\" id=\"{$mood['mood_id']}\" name=\"serendipity[mymood][]\" value=\"{$mood['mood_id']}\" $checked>\n";
             echo "      <label for=\"{$mood['mood_id']}\">$label</label>\n";
 
             if ($c == $max-1) {
@@ -447,7 +448,7 @@ class serendipity_event_mymood extends serendipity_event {
 
             echo "  </tr>\n";
         }
-        echo "  </table>\n";
+        echo "  </table></div>\n";
 
         # letting them add moods.
         #fixme:  if they list a mood that's already there, should we update??
@@ -455,8 +456,6 @@ class serendipity_event_mymood extends serendipity_event {
         #imgs.  Just keep adding them, I guess....
         $id = count ($new_moods) + 1;
     echo'
-        <br /><br />
-
 <script type="text/javascript">
     var id='.$id.';
     function mymood_new_entry() {
@@ -475,11 +474,11 @@ class serendipity_event_mymood extends serendipity_event {
 ';
         $i=0;
         foreach ($new_moods as $mood) {
-            echo '
-            '.PLUGIN_MYMOOD_NEW_MOOD.': <input class="input_textbox" type="text" name="serendipity[mymood_new]['.$i.'][mood_name]" value="{$mood[\'mood_name\']}" size="10">
-            '.PLUGIN_MYMOOD_NEW_ASCII.': <input class="input_textbox" type="text" size="3" name="serendipity[mymood_new]['.$i.'][mood_ascii]" value="{$mood[\'mood_ascii\']}" size="3">
-            '.PLUGIN_MYMOOD_NEW_IMAGE.': <input class="input_textbox" type="text" size="30" name="serendipity[mymood_new]['.$i.'][mood_img]" value="{$mood[\'mood_img\']}"><br />
-
+            echo '<div class="form_field">
+                      <label for="serendipity_mymood_newname">' . PLUGIN_MYMOOD_NEW_MOOD.':</label><input id="serendipity_mymood_newname" type="text" name="serendipity[mymood_new]['.$i.'][mood_name]" value="{$mood[\'mood_name\']}" size="10">
+                      <label for="serendipity_mymood_newascii">' . PLUGIN_MYMOOD_NEW_ASCII.':</label> <input id="serendipity_mymood_newascii" type="text" size="3" name="serendipity[mymood_new]['.$i.'][mood_ascii]" value="{$mood[\'mood_ascii\']}" size="3">
+                      <label for="serendipity_mymood_newimg">' . PLUGIN_MYMOOD_NEW_IMAGE.':</label> <input id="serendipity_mymood_newimg" type="text" size="30" name="serendipity[mymood_new]['.$i.'][mood_img]" value="{$mood[\'mood_img\']}">
+                  </div>
 ';
             $i++;
         }
@@ -487,15 +486,15 @@ class serendipity_event_mymood extends serendipity_event {
         #grawr lazy
         $new_moods = PLUGIN_MYMOOD_MORE_NEW_MOODS;
         $cur_id = $id-1;
-        echo '
-        '.PLUGIN_MYMOOD_NEW_MOOD.': <input type="text" name="serendipity[mymood_new]['.$cur_id.'][mood_name]" size="10">
-        '.PLUGIN_MYMOOD_NEW_ASCII.': <input class="input_textbox" type="text" size="3" name="serendipity[mymood_new]['.$cur_id.'][mood_ascii]" size="3">
-        '.PLUGIN_MYMOOD_NEW_IMAGE.': <input class="input_textbox" type="text" size=\"30\" name="serendipity[mymood_new]['.$cur_id.'][mood_img]"><br />
-        <div id="mymood_new_mood_'.$id.'"></div>
-        <input type="button" class="serendipityPrettyButton input_button" value="'.$new_moods.'" onClick="javascript:mymood_new_entry()" />
+        echo '<div class="form_field">
+                  <label for="serendipity_mymood_newname">' . PLUGIN_MYMOOD_NEW_MOOD.':</label> <input id="serendipity_mymood_newname" type="text" name="serendipity[mymood_new]['.$cur_id.'][mood_name]" size="10">
+                  <label for="serendipity_mymood_newascii">' . PLUGIN_MYMOOD_NEW_ASCII.':</label> <input id="serendipity_mymood_newascii" type="text" size="3" name="serendipity[mymood_new]['.$cur_id.'][mood_ascii]" size="3">
+                  <label for="serendipity_mymood_newimg">' . PLUGIN_MYMOOD_NEW_IMAGE.':</label> <input id="serendipity_mymood_newimg" type="text" size=\"30\" name="serendipity[mymood_new]['.$cur_id.'][mood_img]">
+              </div>
 
+              <div id="mymood_new_mood_'.$id.'"></div>
+              <input type="button" value="'.$new_moods.'" onClick="javascript:mymood_new_entry()">
         </fieldset>
-
 ';
     }
 
@@ -602,6 +601,11 @@ class serendipity_event_mymood extends serendipity_event {
                 case 'backend_save':
                     $this->b_add_moods($eventData['id']);
                     return true;
+                    break;
+
+                case 'css_backend':
+                    echo file_get_contents(dirname(__FILE__) . '/mymood_backend.css');
+
                     break;
 
                 case 'entry_display':

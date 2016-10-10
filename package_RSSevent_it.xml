@@ -804,9 +804,9 @@
 <title>My Mood: Allows you to add your current mood or moods to entries.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mymood</link>
 <category>Event Plugins</category>
-<author>Brett Profitt</author>
-<content:encoded>&lt;b&gt;serendipity_event_mymood&lt;br /&gt;My Mood&lt;/b&gt;&lt;br /&gt;Allows you to add your current mood or moods to entries.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:46 +0100</pubDate>
+<author>Brett Profitt, Matthias Mees</author>
+<content:encoded>&lt;b&gt;serendipity_event_mymood&lt;br /&gt;My Mood&lt;/b&gt;&lt;br /&gt;Allows you to add your current mood or moods to entries.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Mon, 10 Oct 2016 22:33:03 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_mymood</guid>
 </item>
 <item>
@@ -1192,8 +1192,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_staticpage</link>
 <category>Event Plugins</category>
 <author>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers</author>
-<content:encoded>&lt;b&gt;serendipity_event_staticpage&lt;br /&gt;Pagina statica&lt;/b&gt;&lt;br /&gt;Visualizza una pagina statica nel tuo blog con la stessa grafica e formattazione del blog stesso&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Wed, 15 Jun 2016 22:33:34 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_staticpage&lt;br /&gt;Pagina statica&lt;/b&gt;&lt;br /&gt;Visualizza una pagina statica nel tuo blog con la stessa grafica e formattazione del blog stesso&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Mon, 10 Oct 2016 22:33:07 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_staticpage</guid>
 </item>
 <item>

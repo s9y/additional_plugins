@@ -1,0 +1,50 @@
+.serendipity_mycalendar_wrap {
+    min-height: .01%;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.serendipity_mycalendar_wrap th,
+.serendipity_mycalendar_wrap td {
+    white-space: nowrap;
+}
+
+.serendipity_mycalendar_eventlist {
+    border: 1px solid #aaa;
+    border-bottom: 0;
+}
+
+.serendipity_mycalendar_eventlist {
+    margin-top: 0;
+    width: 100%;
+}
+
+.serendipity_mycalendar_eventlist input[type='text'] {
+    width: 100%;
+}
+
+.serendipity_mycalendar_eventlist tr {
+    border-bottom: 1px solid #aaa;
+}
+
+.serendipity_mycalendar_eventlist thead tr,
+.serendipity_mycalendar_eventlist .serendipity_admin_list_item_even {
+    background-color: #eee;
+}
+
+.serendipity_mycalendar_eventlist th,
+.serendipity_mycalendar_eventlist td {
+    padding: .25em;
+}
+
+@media screen and (min-width: 768px) {
+    .serendipity_mycalendar_wrap {
+        overflow-y: auto;
+    }
+
+    .serendipity_mycalendar_wrap th,
+    .serendipity_mycalendar_wrap td {
+        white-space: normal;
+    }
+}

@@ -1,4 +1,4 @@
-<?php # 
+<?php #
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -32,10 +32,11 @@ class serendipity_event_mycalendar extends serendipity_event {
         $propbag->add('author',        'Garvin Hicking, Markus Gerstel, Grischa Brockhaus');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
-                                            'backend_sidebar_entries' => true,
-                                            'backend_sidebar_entries_event_display_mycalendar' => true,
-                                            'frontend_calendar' => true,
-                                            'external_plugin' => true
+                                            'backend_sidebar_entries'                           => true,
+                                            'backend_sidebar_entries_event_display_mycalendar'  => true,
+                                            'frontend_calendar'                                 => true,
+                                            'external_plugin'                                   => true,
+                                            'css_backend'                                       => true
                                         )
         );
         $this->dependencies = array('serendipity_plugin_mycalendar' => 'remove');
@@ -122,7 +123,7 @@ class serendipity_event_mycalendar extends serendipity_event {
             foreach($items as $event) {
                 $day = date('j', $event['eventdate']);
                 $day2 = date('j', $event['eventdate2']);
-                
+
                 for ($theday=$day; $theday<=$day2; $theday++) {
 	                if (!isset($eventData[$theday])) {
 	                    $eventData[$theday] = array(
@@ -259,8 +260,7 @@ class serendipity_event_mycalendar extends serendipity_event {
         );
 
         echo '<h2>' . PLUGIN_MYCALENDAR_TITLE . '</h2>';
-        echo PLUGIN_MYCALENDAR_DESC . '<br /><br />';
-        echo PLUGIN_MYCALENDAR_EVENTLIST . '<br /><br />';
+        echo '<p>' . PLUGIN_MYCALENDAR_DESC . '. ' . PLUGIN_MYCALENDAR_EVENTLIST . '</p>';
 
         echo '
             <script type="text/javascript">
@@ -289,71 +289,71 @@ class serendipity_event_mycalendar extends serendipity_event {
             <form id="eventform" action="?" method="post">';
         echo serendipity_setFormToken();
 
-        echo '<div>
-                <input type="hidden" name="serendipity[adminModule]" value="event_display" />
-                <input type="hidden" name="serendipity[adminAction]" value="mycalendar" />
-            </div>
-            <table align="center" width="100%" cellpadding="10" cellspacing="0">
-                <tr>
-                    <th>#</th>
-                    <th>' . PLUGIN_MYCALENDAR_EVENTNAME . '</th>
-                    <th>' . PLUGIN_MYCALENDAR_EVENTURI . '</th>
-                    <th>' . PLUGIN_MYCALENDAR_EVENTDATE . '</th>
-                    <th>' . PLUGIN_MYCALENDAR_EVENTDATE2 . '</th>
-                </tr>';
+        echo '  <input type="hidden" name="serendipity[adminModule]" value="event_display">
+                <input type="hidden" name="serendipity[adminAction]" value="mycalendar">
 
-        foreach($events AS $idx => $event) {
-            $even  = ($idx % 2 ? 'even' : 'uneven');
-            $year  = date('Y', $event['eventdate']);
-            $month = date('m', $event['eventdate']);
-            $day   = date('d', $event['eventdate']);
+                <div class="serendipity_mycalendar_wrap">
+                <table class="serendipity_mycalendar_eventlist">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>' . PLUGIN_MYCALENDAR_EVENTNAME . '</th>
+                        <th>' . PLUGIN_MYCALENDAR_EVENTURI . '</th>
+                        <th>' . PLUGIN_MYCALENDAR_EVENTDATE . '</th>
+                        <th>' . PLUGIN_MYCALENDAR_EVENTDATE2 . '</th>
+                    </tr>
+                </thead>
+                <tbody>';
 
-            $year2  = date('Y', $event['eventdate2']);
-            $month2 = date('m', $event['eventdate2']);
-            $day2   = date('d', $event['eventdate2']);
+            foreach($events AS $idx => $event) {
+                $even  = ($idx % 2 ? 'even' : 'uneven');
+                $year  = date('Y', $event['eventdate']);
+                $month = date('m', $event['eventdate']);
+                $day   = date('d', $event['eventdate']);
 
-            echo "<tr style='padding: 10px;' class='serendipity_admin_list_item serendipity_admin_list_item_$even'>\n";
-            echo "  <td><em>$idx</em></td>\n";
-            echo "  <td><input class='input_textbox' id='eventname_{$event['eventid']}' type='text' name=\"serendipity[event][{$event['eventid']}][eventname]\" value=\"" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($event['eventname']) : htmlspecialchars($event['eventname'], ENT_COMPAT, LANG_CHARSET)) . "\" /></td>\n";
-            echo "  <td><input class='input_textbox' id='eventurl_{$event['eventid']}' style='width: 100%' type='text' name=\"serendipity[event][{$event['eventid']}][eventurl]\" value=\"" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($event['eventurl']) : htmlspecialchars($event['eventurl'], ENT_COMPAT, LANG_CHARSET)) . "\" /></td>\n";
-            echo "  <td>";
-            echo $this->getDropdown('day', $event['eventid'], range(1, 31), $day, false, 'changeDate('. $event['eventid'] .')') . ".";
-            echo $this->getDropdown('month', $event['eventid'], range(1, 12), $month, false, 'changeDate('. $event['eventid'] .')') . ".";
-            echo $this->getDropdown('year', $event['eventid'], range(date('Y'), date('Y')+2), $year, false, 'changeDate('. $event['eventid'] .')');
-            if ($event['eventdate'] < time()-86400) {
-                echo ' <a href="#" onclick="javascript:removeEvent(\'' . $event['eventid'] . '\');"><img src="' . serendipity_getTemplateFile('admin/img/delete.png') . '" alt="' . DELETE . '" border="0" /></a>';
+                $year2  = date('Y', $event['eventdate2']);
+                $month2 = date('m', $event['eventdate2']);
+                $day2   = date('d', $event['eventdate2']);
+
+                echo "<tr class='serendipity_admin_list_item serendipity_admin_list_item_$even'>\n";
+                echo "  <td>$idx</td>\n";
+                echo "  <td><input id='eventname_{$event['eventid']}' type='text' name=\"serendipity[event][{$event['eventid']}][eventname]\" value=\"" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($event['eventname']) : htmlspecialchars($event['eventname'], ENT_COMPAT, LANG_CHARSET)) . "\"></td>\n";
+                echo "  <td><input id='eventurl_{$event['eventid']}' type='text' name=\"serendipity[event][{$event['eventid']}][eventurl]\" value=\"" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($event['eventurl']) : htmlspecialchars($event['eventurl'], ENT_COMPAT, LANG_CHARSET)) . "\"></td>\n";
+                echo "  <td>";
+                echo $this->getDropdown('day', $event['eventid'], range(1, 31), $day, false, 'changeDate('. $event['eventid'] .')') . ".";
+                echo $this->getDropdown('month', $event['eventid'], range(1, 12), $month, false, 'changeDate('. $event['eventid'] .')') . ".";
+                echo $this->getDropdown('year', $event['eventid'], range(date('Y'), date('Y')+2), $year, false, 'changeDate('. $event['eventid'] .')');
+                if ($event['eventdate'] < time()-86400) {
+                    echo ' <a class="button_link" href="#" title="' . DELETE . '" onclick="javascript:removeEvent(\'' . $event['eventid'] . '\');"><span class="icon-trash"></span><span class="visuallyhidden">' . DELETE . '</span></a>';
+                }
+                echo "  </td>\n";
+                echo "  <td>";
+                echo $this->getDropdown('day2', $event['eventid'], range(1, 31), $day2, false, 'changeDate2('. $event['eventid'] .')') . ".";
+                echo $this->getDropdown('month2', $event['eventid'], range(1, 12), $month2, false, 'changeDate2('. $event['eventid'] .')') . ".";
+                echo $this->getDropdown('year2', $event['eventid'], range(date('Y'), date('Y')+2), $year2, false, 'changeDate2('. $event['eventid'] .')');
+
+                echo '<script type="text/javascript">';
+                if ($event['eventdate'] == $event['eventdate2']) {
+                    echo "isOneDayEvent[{$event['eventid']}] = true;";
+                } else {
+                    echo "isOneDayEvent[{$event['eventid']}] = false;";
+                }
+                echo "</script>";
+
+                echo "  </td>\n";
+                echo "</tr>\n";
+
+                echo "<tr class='serendipity_admin_list_item serendipity_admin_list_item_$even'>\n";
+                echo "  <td>&nbsp;</td>\n";
+                echo "  <td><label for='serendipity_eventurltitle_{$event['eventid']}'>" . PLUGIN_MYCALENDAR_EVENTURI_TITLE . ":</label></td>\n";
+                echo "  <td colspan='3'><input id='serendipity_eventurltitle_{$event['eventid']}' type='text' name=\"serendipity[event][{$event['eventid']}][eventurltitle]\" value=\"" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($event['eventurltitle']) : htmlspecialchars($event['eventurltitle'], ENT_COMPAT, LANG_CHARSET)) . "\"></td>\n";
+                echo "</tr>\n";
             }
-            echo "  </td>\n";
-            echo "  <td>";
-            echo $this->getDropdown('day2', $event['eventid'], range(1, 31), $day2, false, 'changeDate2('. $event['eventid'] .')') . ".";
-            echo $this->getDropdown('month2', $event['eventid'], range(1, 12), $month2, false, 'changeDate2('. $event['eventid'] .')') . ".";
-            echo $this->getDropdown('year2', $event['eventid'], range(date('Y'), date('Y')+2), $year2, false, 'changeDate2('. $event['eventid'] .')');
-
-            echo '<script type="text/javascript">';
-            if ($event['eventdate'] == $event['eventdate2']) {
-                echo "isOneDayEvent[{$event['eventid']}] = true;";
-            } else {
-                echo "isOneDayEvent[{$event['eventid']}] = false;";
-            }
-            echo "</script>";
-
-            echo "  </td>\n";
-            echo "</tr>\n";
-
-            echo "<tr style='padding: 10px;' class='serendipity_admin_list_item serendipity_admin_list_item_$even'>\n";
-            echo "  <td>&nbsp;</td>\n";
-            echo "  <td>" . PLUGIN_MYCALENDAR_EVENTURI_TITLE . ": </td>\n";
-            echo "  <td colspan='3'><input class='input_textbox' style='width: 100%' type='text' name=\"serendipity[event][{$event['eventid']}][eventurltitle]\" value=\"" . (function_exists('serendipity_specialchars') ? serendipity_specialchars($event['eventurltitle']) : htmlspecialchars($event['eventurltitle'], ENT_COMPAT, LANG_CHARSET)) . "\" /></td>\n";
-            echo "</tr>\n";
-        }
-
-        echo '
-                <tr>
-                    <td colspan="4"><br />
-                        <input class="serendipityPrettyButton input_button" type="submit" id="eventaction" name="serendipity[mycalendarAction]" value="' . GO . '" />
-                    </td>
-                </tr>
-              </table>
+            echo '
+                </tbody>
+                </table>
+                </div>
+                <input type="submit" id="eventaction" name="serendipity[mycalendarAction]" value="' . GO . '">
               </form>';
     }
 
@@ -370,7 +370,7 @@ class serendipity_event_mycalendar extends serendipity_event {
             switch($event) {
                 case 'backend_sidebar_entries':
 ?>
-                    <li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks"><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=mycalendar"><?php echo PLUGIN_MYCALENDAR_TITLE; ?></a></li>
+                    <li><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=mycalendar"><?php echo PLUGIN_MYCALENDAR_TITLE; ?></a></li>
 <?php
 
                     break;
@@ -431,6 +431,11 @@ class serendipity_event_mycalendar extends serendipity_event {
 </rss>
 <?php
                     }
+                    break;
+
+                case 'css_backend':
+                    echo file_get_contents(dirname(__FILE__) . '/mycalendar_backend.css');
+
                     break;
 
                 case 'frontend_calendar':

@@ -2775,6 +2775,7 @@
 <file>lang_en.inc.php</file>
 <file>documentation_cs.html</file>
 <file>lang_bg.inc.php</file>
+<file>mycalendar_backend.css</file>
 <file>documentation_cz.html</file>
 <file>lang_cs.inc.php</file>
 </dir>
@@ -2795,6 +2796,7 @@
     <file>serendipity_event_mycalendar/lang_en.inc.php</file>
     <file>serendipity_event_mycalendar/documentation_cs.html</file>
     <file>serendipity_event_mycalendar/lang_bg.inc.php</file>
+    <file>serendipity_event_mycalendar/mycalendar_backend.css</file>
     <file>serendipity_event_mycalendar/documentation_cz.html</file>
     <file>serendipity_event_mycalendar/lang_cs.inc.php</file>
   </serendipityFilelist>

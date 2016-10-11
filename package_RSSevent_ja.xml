@@ -1052,8 +1052,8 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mycalendar</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Markus Gerstel, Grischa Brockhaus</author>
-<content:encoded>&lt;b&gt;serendipity_event_mycalendar&lt;br /&gt;自分のカレンダー&lt;/b&gt;&lt;br /&gt;個人カレンダーの管理をします。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:45 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_mycalendar&lt;br /&gt;自分のカレンダー&lt;/b&gt;&lt;br /&gt;個人カレンダーの管理をします。&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Tue, 11 Oct 2016 22:32:56 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_mycalendar</guid>
 </item>
 <item>

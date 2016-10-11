@@ -8218,9 +8218,9 @@ aplikovány další typografické úpravy.</description>
 <description>Správa osobního kalendáře</description>
 <maintainers><maintainer><name>Garvin Hicking, Markus Gerstel, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.16.1</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <version>0.17.0</version>
+  <requirements:s9yVersion>2.0</requirements:s9yVersion>
+  <date>2016-10-11</date>
   <filelist>
 <dir name="serendipity_event_mycalendar">
 <file>lang_ja.inc.php</file>
@@ -8239,6 +8239,7 @@ aplikovány další typografické úpravy.</description>
 <file>lang_en.inc.php</file>
 <file>documentation_cs.html</file>
 <file>lang_bg.inc.php</file>
+<file>mycalendar_backend.css</file>
 <file>documentation_cz.html</file>
 <file>lang_cs.inc.php</file>
 </dir>
@@ -8259,6 +8260,7 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_mycalendar/lang_en.inc.php</file>
     <file>serendipity_event_mycalendar/documentation_cs.html</file>
     <file>serendipity_event_mycalendar/lang_bg.inc.php</file>
+    <file>serendipity_event_mycalendar/mycalendar_backend.css</file>
     <file>serendipity_event_mycalendar/documentation_cz.html</file>
     <file>serendipity_event_mycalendar/lang_cs.inc.php</file>
   </serendipityFilelist>

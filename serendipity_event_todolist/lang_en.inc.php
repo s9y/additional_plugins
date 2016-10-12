@@ -1,7 +1,7 @@
-<?php # 
+<?php #
 
 /**
- *  @version 
+ *  @version
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */
@@ -63,7 +63,7 @@
 @define('PLUGIN_EVENT_TODOLIST_CATEGORY_NAME_CUSTOM','Custom');
 @define('PLUGIN_EVENT_TODOLIST_CATEGORY_NAME_DEFAULT','Default');
 @define('PLUGIN_EVENT_TODOLIST_CATDB_WARNING','You are configured to use custom categories, but the category database does not exist. Please click here to create the database.');
-@define('PLUGIN_EVENT_TODOLIST_ADD_CAT','Manage categories');
+@define('PLUGIN_EVENT_TODOLIST_ADD_CAT','Add category');
 @define('PLUGIN_EVENT_TODOLIST_ADD_COLOR','Add a Color');
 @define('PLUGIN_EVENT_TODOLIST_MANAGE_COLORS','Manage Colors');
 @define('PLUGIN_EVENT_TODOLIST_CAT_NAME','Category Name');

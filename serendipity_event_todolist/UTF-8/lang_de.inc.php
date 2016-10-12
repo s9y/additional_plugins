@@ -40,7 +40,7 @@
         @define('PLUGIN_EVENT_TODOLIST_CATEGORY_NAME_CUSTOM','Besondere Formatierung');
         @define('PLUGIN_EVENT_TODOLIST_CATEGORY_NAME_DEFAULT','Standard-Formatierung');
         @define('PLUGIN_EVENT_TODOLIST_CATDB_WARNING','Die besondere Kategorisierung wurde aktiviert, aber die Kategoriedatenbank besteht nicht. Bitte hier klicken um die Datenbank anzulegen.');
-        @define('PLUGIN_EVENT_TODOLIST_ADD_CAT','Kategorien verwalten');
+        @define('PLUGIN_EVENT_TODOLIST_ADD_CAT','Kategorie anlegen');
         @define('PLUGIN_EVENT_TODOLIST_CAT_NAME','Name der Kategorie');
         @define('PLUGIN_EVENT_TODOLIST_PARENT_CATEGORY','Übergeordnete Kategorie');
         @define('PLUGIN_EVENT_TODOLIST_ADMINCAT','Kategorien verwalten');

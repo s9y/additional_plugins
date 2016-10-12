@@ -8651,14 +8651,15 @@ aplikovány další typografické úpravy.</description>
 <summary>Seznam úkolů / ToDo list / projektové řízení</summary>
 <groups>FRONTEND_FEATURES</groups>
 <description>Správa seznamu projektů/úkolů a jejich splnění v procentech</description>
-<maintainers><maintainer><name>Steven Tonnesen</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Steven Tonnesen, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.24.1</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <version>1.25.0</version>
+  <requirements:s9yVersion>2.0</requirements:s9yVersion>
+  <date>2016-10-12</date>
   <filelist>
 <dir name="serendipity_event_todolist">
 <file>lang_ja.inc.php</file>
+<file>todolist_backend.css</file>
 <file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
@@ -8738,6 +8739,7 @@ aplikovány další typografické úpravy.</description>
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_todolist/lang_ja.inc.php</file>
+    <file>serendipity_event_todolist/todolist_backend.css</file>
     <file>serendipity_event_todolist/lang_de.inc.php</file>
     <file>serendipity_event_todolist/lang_cz.inc.php</file>
     <file>serendipity_event_todolist/UTF-8/lang_ja.inc.php</file>

@@ -1114,9 +1114,9 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <title>ToDo/プロジェクト一覧: Maintain a list of projects and their percentage completion.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_todolist</link>
 <category>Event Plugins</category>
-<author>Steven Tonnesen</author>
-<content:encoded>&lt;b&gt;serendipity_event_todolist&lt;br /&gt;ToDo/プロジェクト一覧&lt;/b&gt;&lt;br /&gt;Maintain a list of projects and their percentage completion.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:51 +0100</pubDate>
+<author>Steven Tonnesen, Matthias Mees</author>
+<content:encoded>&lt;b&gt;serendipity_event_todolist&lt;br /&gt;ToDo/プロジェクト一覧&lt;/b&gt;&lt;br /&gt;Maintain a list of projects and their percentage completion.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Wed, 12 Oct 2016 22:33:32 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_todolist</guid>
 </item>
 <item>

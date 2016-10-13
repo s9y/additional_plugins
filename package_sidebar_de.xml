@@ -1471,6 +1471,7 @@
 <file>serendipity_plugin_userprofiles_birthdays.php</file>
 <file>lang_cs.inc.php</file>
 <file>plugin_groupmembers.tpl</file>
+<file>userprofiles_backend.css</file>
 </dir>
 
   </filelist>
@@ -1493,6 +1494,7 @@
     <file>serendipity_event_userprofiles/serendipity_plugin_userprofiles_birthdays.php</file>
     <file>serendipity_event_userprofiles/lang_cs.inc.php</file>
     <file>serendipity_event_userprofiles/plugin_groupmembers.tpl</file>
+    <file>serendipity_event_userprofiles/userprofiles_backend.css</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -1530,6 +1532,7 @@
 <file>serendipity_plugin_userprofiles_birthdays.php</file>
 <file>lang_cs.inc.php</file>
 <file>plugin_groupmembers.tpl</file>
+<file>userprofiles_backend.css</file>
 </dir>
 
   </filelist>
@@ -1552,6 +1555,7 @@
     <file>serendipity_event_userprofiles/serendipity_plugin_userprofiles_birthdays.php</file>
     <file>serendipity_event_userprofiles/lang_cs.inc.php</file>
     <file>serendipity_event_userprofiles/plugin_groupmembers.tpl</file>
+    <file>serendipity_event_userprofiles/userprofiles_backend.css</file>
   </serendipityFilelist>
 </release>
 </package>

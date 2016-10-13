@@ -5046,9 +5046,9 @@
 <description>Показва профил на автора с възможност за вграждане на негова снимка.</description>
 <maintainers><maintainer><name>Garvin Hicking, Falk Doering</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.29</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-03-15</date>
+  <version>0.30</version>
+  <requirements:s9yVersion>2.0</requirements:s9yVersion>
+  <date>2016-10-13</date>
   <filelist>
 <dir name="serendipity_event_userprofiles">
 <file>lang_ja.inc.php</file>
@@ -5071,6 +5071,7 @@
 <file>serendipity_plugin_userprofiles_birthdays.php</file>
 <file>lang_cs.inc.php</file>
 <file>plugin_groupmembers.tpl</file>
+<file>userprofiles_backend.css</file>
 </dir>
 
   </filelist>
@@ -5093,6 +5094,7 @@
     <file>serendipity_event_userprofiles/serendipity_plugin_userprofiles_birthdays.php</file>
     <file>serendipity_event_userprofiles/lang_cs.inc.php</file>
     <file>serendipity_event_userprofiles/plugin_groupmembers.tpl</file>
+    <file>serendipity_event_userprofiles/userprofiles_backend.css</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -10724,9 +10726,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>Spice up your comments area with goodies like commenters twitter or last posted article link and nofollows by rules.</description>
 <maintainers><maintainer><name>Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.08</version>
+  <version>1.09</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2016-10-13</date>
   <filelist>
 <dir name="serendipity_event_commentspice">
 <dir name="img">

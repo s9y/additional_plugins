@@ -672,8 +672,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_userprofiles</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Falk Doering</author>
-<content:encoded>&lt;b&gt;serendipity_event_userprofiles&lt;br /&gt;ユーザープロフィール&lt;/b&gt;&lt;br /&gt;簡単なユーザープロフィールを表示します。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 15 Mar 2015 02:32:46 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_userprofiles&lt;br /&gt;ユーザープロフィール&lt;/b&gt;&lt;br /&gt;簡単なユーザープロフィールを表示します。&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Thu, 13 Oct 2016 22:33:34 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_userprofiles</guid>
 </item>
 <item>
@@ -1316,7 +1316,7 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <category>Event Plugins</category>
 <author>Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_commentspice&lt;br /&gt;Comment Spice&lt;/b&gt;&lt;br /&gt;Spice up your comments area with goodies like commenters twitter or last posted article link and nofollows by rules.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:40 +0200</pubDate>
+<pubDate>Thu, 13 Oct 2016 22:33:02 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_commentspice</guid>
 </item>
 <item>

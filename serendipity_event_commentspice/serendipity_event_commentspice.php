@@ -34,7 +34,7 @@ class serendipity_event_commentspice extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.08');
+        $propbag->add('version',       '1.09');
 
         $propbag->add('event_hooks',    array(
             'entry_display' => true,
@@ -456,7 +456,7 @@ class serendipity_event_commentspice extends serendipity_event
         }
         
         if (serendipity_db_bool($this->get_config('followme_widget', false))) {
-            echo '<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>' . "\n";
+            echo '<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>' . "\n";
         }
     }
     function commentSaved($eventData, $addData) {

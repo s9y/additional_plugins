@@ -1,0 +1,63 @@
+.userprofiles_wrap {
+    min-height: .01%;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.userprofiles_wrap th,
+.userprofiles_wrap td {
+    white-space: nowrap;
+}
+
+.userprofiles_table {
+    border: 1px solid #aaa;
+    width: 100%;
+}
+
+.userprofiles_table tr:nth-child(odd) {
+    background: #eee;
+}
+
+.userprofiles_table td {
+    border-bottom: 1px solid #aaa;
+    padding: .25em;
+}
+
+@media only screen and (min-width: 768px) {
+    .userprofiles_wrap {
+        overflow-y: auto;
+    }
+
+    .userprofiles_wrap th,
+    .userprofiles_wrap td {
+        white-space: normal;
+    }
+
+    .userprofiles_table td {
+        min-width: 15em;
+    }
+
+    .userprofiles_show {
+        border: 1px solid #aaa;
+        border-bottom: 0;
+    }
+
+    .userprofiles_show dt,
+    .userprofiles_show dd {
+        border-bottom: 1px solid #aaa;
+        box-sizing: border-box;
+        float: left;
+        padding: .25em .5em;
+    }
+
+    .userprofiles_show dt {
+        border-right: 1px solid #aaa;
+        clear: left;
+        width: 40%;
+    }
+
+    .userprofiles_show dd {
+        width: 60%;
+    }
+}

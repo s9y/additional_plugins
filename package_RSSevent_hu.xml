@@ -522,6 +522,15 @@
 <guid isPermaLink="false">serendipity_event_feedflare</guid>
 </item>
 <item>
+<title>Compress Images: Compress PNG and JPG images with the TinyPNG service.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_tinypng</link>
+<category>Event Plugins</category>
+<author>onli</author>
+<content:encoded>&lt;b&gt;serendipity_event_tinypng&lt;br /&gt;Compress Images&lt;/b&gt;&lt;br /&gt;Compress PNG and JPG images with the TinyPNG service.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Sun, 16 Oct 2016 22:32:14 +0200</pubDate>
+<guid isPermaLink="false">serendipity_event_tinypng</guid>
+</item>
+<item>
 <title>Dejure.org automatic linking: Automatically links quoted statues and judicature (references and source of information) with contents of dejure.org.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_dejure</link>
 <category>Event Plugins</category>

@@ -3982,6 +3982,64 @@
 </release>
 </package>
 <package version="1.0">
+<name>serendipity_event_tinypng</name>
+<license>GPL</license>
+<summary>Compress Images</summary>
+<groups>IMAGES</groups>
+<description>Compress PNG and JPG images with the TinyPNG service.</description>
+<maintainers><maintainer><name>onli</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>0.1</version>
+  <requirements:s9yVersion>2.0</requirements:s9yVersion>
+  <date>2016-10-16</date>
+  <filelist>
+<dir name="serendipity_event_tinypng">
+<file>serendipity_event_tinypng.php</file>
+<dir name="UTF-8">
+<file>lang_en.inc.php</file>
+</dir>
+<file>lang_en.inc.php</file>
+<dir name="tinify-php">
+<file>LICENSE</file>
+<dir name="lib">
+<dir name="data">
+<file>cacert.pem</file>
+</dir>
+<dir name="Tinify">
+<file>ResultMeta.php</file>
+<file>Exception.php</file>
+<file>Source.php</file>
+<file>Result.php</file>
+<file>Client.php</file>
+</dir>
+<file>Tinify.php</file>
+</dir>
+<file>.travis.yml</file>
+<file>.gitignore</file>
+<file>README.md</file>
+</dir>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>serendipity_event_tinypng/serendipity_event_tinypng.php</file>
+    <file>serendipity_event_tinypng/UTF-8/lang_en.inc.php</file>
+    <file>serendipity_event_tinypng/lang_en.inc.php</file>
+    <file>serendipity_event_tinypng/tinify-php/LICENSE</file>
+    <file>serendipity_event_tinypng/tinify-php/lib/data/cacert.pem</file>
+    <file>serendipity_event_tinypng/tinify-php/lib/Tinify/ResultMeta.php</file>
+    <file>serendipity_event_tinypng/tinify-php/lib/Tinify/Exception.php</file>
+    <file>serendipity_event_tinypng/tinify-php/lib/Tinify/Source.php</file>
+    <file>serendipity_event_tinypng/tinify-php/lib/Tinify/Result.php</file>
+    <file>serendipity_event_tinypng/tinify-php/lib/Tinify/Client.php</file>
+    <file>serendipity_event_tinypng/tinify-php/lib/Tinify.php</file>
+    <file>serendipity_event_tinypng/tinify-php/.travis.yml</file>
+    <file>serendipity_event_tinypng/tinify-php/.gitignore</file>
+    <file>serendipity_event_tinypng/tinify-php/README.md</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
 <name>serendipity_event_dejure</name>
 <license>GPL</license>
 <summary>Dejure.org automatic linking</summary>

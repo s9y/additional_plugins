@@ -189,26 +189,41 @@
         max-width: 30em;
     }
 
-    .staticpage_structure,
-    .staticpage_access,
-    .staticpage_meta,
-    .staticpage_options {
+    .no-flexbox .staticpage_structure,
+    .no-flexbox .staticpage_access,
+    .no-flexbox .staticpage_meta,
+    .no-flexbox .staticpage_options {
         box-sizing: border-box;
         float: left;
         width: 50%;
     }
 
-    .staticpage_structure,
-    .staticpage_meta {
+    .no-flexbox .staticpage_structure,
+    .no-flexbox .staticpage_meta {
         padding-right: .5em;
     }
 
-    .staticpage_access,
-    .staticpage_options {
+    .no-flexbox .staticpage_access,
+    .no-flexbox .staticpage_options {
         padding-left: .5em;
     }
 
-    .staticpage_save {
+    .no-flexbox .staticpage_save {
         clear: both;
+    }
+
+    .staticpage_container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .staticpage_section {
+        flex: 0 0 48%;
+        margin: 0 2% 1em 0;
+    }
+
+    .staticpage_section:nth-of-type(even) {
+        margin: 0 0 1em 2%;
     }
 }

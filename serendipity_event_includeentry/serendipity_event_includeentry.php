@@ -38,10 +38,10 @@ class serendipity_event_includeentry extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_INCLUDEENTRY_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '2.16');
+        $propbag->add('version',       '2.17');
         $propbag->add('scrambles_true_content', true);
         $propbag->add('requirements',  array(
-            'serendipity' => '1.7',
+            'serendipity' => '2.0',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));

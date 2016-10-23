@@ -399,7 +399,7 @@ class serendipity_event_includeentry extends serendipity_event
                 if ($serendipity['version'][0] < 2) {
                     echo '<div class="serendipityAdminMsgError"><img style="width: 22px; height: 22px; border: 0px; padding-right: 4px; vertical-align: middle" src="' . serendipity_getTemplateFile('admin/img/admin_msg_error.png') . '" alt="" />ERROR: ' . $result . '</div>'."\n";
                 } else {
-                    echo '<div class="msg_error"><span class="icon-attention-circled"></span> ERROR: ' . $result . '</div>'."\n";
+                    echo '<span class="msg_error"><span class="icon-attention-circled"></span> ERROR: ' . $result . '</span>'."\n";
                 }
             }
             $serendipity["POST"]["staticblock"] = serendipity_db_insert_id("staticblocks", 'id');
@@ -409,7 +409,7 @@ class serendipity_event_includeentry extends serendipity_event
                 if ($serendipity['version'][0] < 2) {
                     echo '<div class="serendipityAdminMsgError"><img style="width: 22px; height: 22px; border: 0px; padding-right: 4px; vertical-align: middle" src="' . serendipity_getTemplateFile('admin/img/admin_msg_error.png') . '" alt="" />ERROR: ' . $result . '</div>'."\n";
                 } else {
-                    echo '<div class="msg_error"><span class="icon-attention-circled"></span> ERROR: ' . $result . '</div>'."\n";
+                    echo '<span class="msg_error"><span class="icon-attention-circled"></span> ERROR: ' . $result . '</span>'."\n";
                 }
             }
         }
@@ -445,10 +445,8 @@ class serendipity_event_includeentry extends serendipity_event
         if ($form === null) {
             $form = '
                     <form action="serendipity_admin.php" method="post">
-                        <div>
-                            <input type="hidden" name="serendipity[adminModule]" value="event_display"'.$solidus.'>
-                            <input type="hidden" name="serendipity[adminAction]" value="staticblocks"'.$solidus.'>
-                        </div>'."\n";
+                        <input type="hidden" name="serendipity[adminModule]" value="event_display"'.$solidus.'>
+                        <input type="hidden" name="serendipity[adminAction]" value="staticblocks"'.$solidus.'>'."\n";
         }
 
         if ($type == 'form') {
@@ -456,24 +454,23 @@ class serendipity_event_includeentry extends serendipity_event
         }
 
         $html = $form . '
-                        <div>
-                            <input type="hidden" name="serendipity[type]" value="' . $type . '"'.$solidus.'>
-                            <select id="staticblock_' . $type . '" name="serendipity[staticblock]">
-                                <option value="__new">' . NEW_ENTRY . '</option>
-                                <option value="__new">-----------------</option>';
+                        <input type="hidden" name="serendipity[type]" value="' . $type . '"'.$solidus.'>
+                        <select id="staticblock_' . $type . '" name="serendipity[staticblock]">
+                            <option value="__new">' . NEW_ENTRY . '</option>
+                            <option value="__new">-----------------</option>';
 
         $html .= $this->getPages($serendipity['POST']['staticblock'], $type);
         $html .= '
-                            </select><br'.$solidus.'>
-                            <input  class="serendipityPrettyButton input_button state_submit" type="submit" name="serendipity[staticSubmit]" value="' . GO . '" /> <input  class="serendipityPrettyButton input_button state_cancel" type="submit" name="serendipity[staticDelete]" value="' . DELETE . '"'.$solidus.'>';
+                        </select>
+                        <input type="submit" name="serendipity[staticSubmit]" value="' . GO . '">
+                        <input class="state_cancel" type="submit" name="serendipity[staticDelete]" value="' . DELETE . '">';
 
         if ($type == 'template') {
-            $html .= '<br'.$solidus.'><a onclick="this.href = this.href + document.getElementById(\'staticblock_template\').options[document.getElementById(\'staticblock_template\').selectedIndex].value" href="serendipity_admin.php?serendipity[adminModule]=entries&amp;serendipity[adminAction]=new&amp;serendipity[staticblock]=" style="margin-top: 5px; display: block" class="serendipityPrettyButton">' . STATICBLOCK_USE . '</a>';
+            $html .= ' <a onclick="this.href = this.href + document.getElementById(\'staticblock_template\').options[document.getElementById(\'staticblock_template\').selectedIndex].value" href="serendipity_admin.php?serendipity[adminModule]=entries&amp;serendipity[adminAction]=new&amp;serendipity[staticblock]=" class="button_link">' . STATICBLOCK_USE . '</a>';
         }
 
         $html .= '
-                        </div>
-                    </form>'."\n";
+                 </form>'."\n";
 
         return $html;
     }
@@ -533,6 +530,8 @@ class serendipity_event_includeentry extends serendipity_event
             $this->fetchStaticBlock($serendipity['POST']['staticblock']);
         }
 
+        echo '<h2>' . PLUGIN_EVENT_INCLUDEENTRY_BLOCKS . '</h2>';
+
         if ($serendipity['POST']['staticSave'] == "true" && !empty($serendipity['POST']['SAVECONF'])) {
             $serendipity['POST']['staticSubmit'] = true;
             $bag  = new serendipity_property_bag;
@@ -548,35 +547,31 @@ class serendipity_event_includeentry extends serendipity_event
                 }
             }
 
-            if ($serendipity['versioon'][0] < 2) {
+            if ($serendipity['version'][0] < 2) {
                 echo '<div class="serendipityAdminMsgSuccess"><img style="width: 22px; height: 22px; border: 0px; padding-right: 4px; vertical-align: middle" src="' . serendipity_getTemplateFile('admin/img/admin_msg_success.png') . '" alt="" />'. DONE . ': '. sprintf(SETTINGS_SAVED_AT, serendipity_strftime('%H:%M:%S')). '</div>'."\n";
             } else {
-                echo '<div class="msg_success"><span class="icon-ok-circled"></span> '. DONE . ': '. sprintf(SETTINGS_SAVED_AT, serendipity_strftime('%H:%M:%S')). '</div>'."\n";
+                echo '<span class="msg_success"><span class="icon-ok-circled"></span> '. DONE . ': '. sprintf(SETTINGS_SAVED_AT, serendipity_strftime('%H:%M:%S')). '</span>'."\n";
             }
             $this->updateStaticBlock();
         }
 
         if (!empty($serendipity['POST']['staticDelete']) && $serendipity['POST']['staticblock'] != '__new') {
             serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}staticblocks WHERE id = " . (int)$serendipity['POST']['staticblock']);
-            if ($serendipity['versioon'][0] < 2) {
+            if ($serendipity['version'][0] < 2) {
                 echo '<div class="serendipityAdminMsgSuccess"><img style="width: 22px; height: 22px; border: 0px; padding-right: 4px; vertical-align: middle" src="' . serendipity_getTemplateFile('admin/img/admin_msg_success.png') . '" alt="" />'. DONE .': '. sprintf(RIP_ENTRY, $this->staticblock['title']) . '</div>'."\n";
             } else {
-                echo '<div class="msg_success"><span class="icon-ok-circled"></span> '. DONE .': '. sprintf(RIP_ENTRY, $this->staticblock['title']) . '</div>'."\n";
+                echo '<span class="msg_success"><span class="icon-ok-circled"></span> '. DONE .': '. sprintf(RIP_ENTRY, $this->staticblock['title']) . '</span>'."\n";
             }
         }
 
-        echo '<table align="center">
-                <tr>
-                    <th>' . STATICBLOCK_SELECT_TEMPLATES . '</th>
-                    <th rowspan="2">&nbsp;&nbsp;&nbsp;&nbsp; - ' . WORD_OR . ' - &nbsp;&nbsp;&nbsp;&nbsp;</th>
-                    <th>' . STATICBLOCK_SELECT_BLOCKS . '</th>
-                </tr>
+        echo '<div class="form_select">
+                  <label for="staticblock_template">' . STATICBLOCK_SELECT_TEMPLATES . '</label>' . $this->showBlockForm('template') .
+             '</div>
 
-                <tr>
-                    <td style="text-align: center; vertical-align: top">' . $this->showBlockForm('template') . '</td>
-                    <td style="text-align: center; vertical-align: top">' . $this->showBlockForm('block') . '</td>
-                </tr>
-              </table>'."\n\n";
+              <div class="form_select">
+                  <label for="staticblock_block">' . STATICBLOCK_SELECT_BLOCKS . '</label>' .
+                  $this->showBlockForm('block') .
+             '</div>' . "\n";
 
         $solidus = ($serendipity['version'][0] < 2) ? ' /' : '';
 
@@ -584,19 +579,17 @@ class serendipity_event_includeentry extends serendipity_event
         echo $this->showBlockForm('form');
 
         if ($serendipity['POST']['staticSubmit']) {
-            echo '<h2>';
+            echo '<h3>';
             if ($serendipity['POST']['type'] == 'template') {
                 echo STATICBLOCK_EDIT_TEMPLATES;
             } else {
                 echo STATICBLOCK_EDIT_BLOCKS;
             }
-            echo '</h2>'."\n\n";
+            echo '</h3>'."\n\n";
 
-            echo '<div>'."\n";
-            echo '    <input type="hidden" name="serendipity[staticSave]" value="true"'.$solidus.'>'."\n";
-            echo '    <input type="hidden" name="serendipity[staticblock]" value="' . $serendipity['POST']['staticblock'] . '"'.$solidus.'>'."\n";
-            echo '    <input type="hidden" name="serendipity[type]" value="' . $serendipity['POST']['type'] . '"'.$solidus.'>'."\n";
-            echo '</div>'."\n\n";
+            echo '<input type="hidden" name="serendipity[staticSave]" value="true"'.$solidus.'>'."\n";
+            echo '<input type="hidden" name="serendipity[staticblock]" value="' . $serendipity['POST']['staticblock'] . '"'.$solidus.'>'."\n";
+            echo '<input type="hidden" name="serendipity[type]" value="' . $serendipity['POST']['type'] . '"'.$solidus.'>'."\n";
 
             $this->showForm($serendipity['POST']['type']);
         }
@@ -730,7 +723,7 @@ class serendipity_event_includeentry extends serendipity_event
 
                 case 'backend_sidebar_entries':
                     $this->check();
-                    echo '<li class="serendipitySideBarMenuLink serendipitySideBarMenuEntryLinks"><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=staticblocks">' . PLUGIN_EVENT_INCLUDEENTRY_BLOCKS . '</a></li>';
+                    echo '<li><a href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=staticblocks">' . PLUGIN_EVENT_INCLUDEENTRY_BLOCKS . '</a></li>';
                     return true;
                     break;
 

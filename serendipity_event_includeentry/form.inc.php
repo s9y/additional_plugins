@@ -146,7 +146,7 @@
     <div class="clearfix form_area<?php if ($cdesc != '') { ?> has_info<?php } ?>">
         <label for="nuggets<?php echo $elcount; ?>"><?php echo $cname; if ($cdesc != '' && !$backend_wysiwyg) { ?> <button class="toggle_info button_link" type="button" data-href="#nuggets<?php echo $elcount; ?>_info"><span class="icon-info-circled"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button><?php } ?></label>
         <?php if ($cdesc != '') { ?><span id="nuggets<?php echo $elcount; ?>_info" class="field_info additional_info"><?php echo $cdesc; ?></span><?php } ?>
-        <textarea id="nuggets<?php echo $elcount; ?>" class="direction_<?php echo $lang_direction; ?>" name="serendipity[plugin][<?php echo $config_item; ?>]" rows="{$text_rows}"><?php echo $hvalue; ?></textarea>
+        <textarea id="nuggets<?php echo $elcount; ?>" class="direction_<?php echo $lang_direction; ?>" name="serendipity[plugin][<?php echo $config_item; ?>]" rows="10"><?php echo $hvalue; ?></textarea>
     </div>
 
 <?php
@@ -178,7 +178,7 @@
     if (isset($serendipity['wysiwyg']) && $serendipity['wysiwyg'] && count($htmlnugget) > 0) {
         $ev = array('nuggets' => $htmlnugget, 'skip_nuggets' => false);
         serendipity_plugin_api::hook_event('backend_wysiwyg_nuggets', $ev);
-        
+
         if ($ev['skip_nuggets'] === false) {
 ?>
     <script type="text/javascript">

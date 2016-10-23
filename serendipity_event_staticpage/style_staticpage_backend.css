@@ -219,8 +219,9 @@
     }
 
     .staticpage_section {
-        flex: 0 0 48%;
+        flex: 0 0 auto;
         margin: 0 2% 1em 0;
+        width: 48%;
     }
 
     .staticpage_section:nth-of-type(even) {

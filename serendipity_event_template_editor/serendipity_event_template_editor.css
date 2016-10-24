@@ -1,36 +1,37 @@
-.templateEditorList li {
-    padding-top: 0.5em;
-    list-style-type: none;
+.templateEditorListItem {
+    display: inline-block;
+    padding: .5em;
+}
+
+.templateEditorForm {
+    margin: .75em 0;
 }
 
 #template_editor {
-    width: 100%;
     font-size: 1em;
+    width: 100%;
 }
 
 .CodeMirror-line-numbers {
     font-size: 1em;
 }
 
-img {
-    border: 0;
-}
-
 .templateEditorHighlight {
-    background: rgba(72,122,202,0.2);
+    background: rgba(72, 122, 202, .2);
     border: 1px solid grey;
 }
 
-#templateEditorUpload {
-    float: right;
-    margin-right: 5em;
-    margin-top: 0.5em;
-}
+@media only screen and (min-width: 768px) {
+     .templateEditorForm {
+         box-sizing: border-box;
+         float: left;
+         margin: 0;
+         padding: 0 1em 0 0;
+         width: 50%;
+     }
 
-#templateEditorUploadButton {
-    border: 1px solid grey;
-}
-
-#templateEditorPath {
-    margin-top: 0.5em;
+     #startEditorUpload {
+         position: relative;
+         top: 2.25em;
+     }
 }

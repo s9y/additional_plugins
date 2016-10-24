@@ -177,11 +177,7 @@ class serendipity_event_template_editor extends serendipity_event {
                     if (! (serendipity_checkPermission('siteConfiguration'))) {
                         return;
                     }
-                    echo '<h3>
-                            <a href="?&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=template_editor">
-                            '. PLUGIN_EVENT_TEMPLATE_EDITOR_START .' <img class="serendipityImageButton" title="Bearbeiten" alt="" src="'.serendipity_getTemplateFile('admin/img/configure.png').'" />
-                            </a>
-                            </h3>';
+                    echo '<a class="button_link template_editor_start" href="?&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=template_editor">'. PLUGIN_EVENT_TEMPLATE_EDITOR_START .'</a>';
                     return true;
                     break;
                 case 'backend_sidebar_entries_event_display_template_editor':
@@ -190,16 +186,14 @@ class serendipity_event_template_editor extends serendipity_event {
                     }
 
                     if (isset($serendipity['GET']['message'])) {
-                        echo '<p class="serendipityAdminMsgNote">'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['message']) : htmlspecialchars($serendipity['GET']['message'], ENT_COMPAT, LANG_CHARSET)).'</p>';
+                        echo '<span class="msg_notice"><span class="icon-info-circled"></span>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['message']) : htmlspecialchars($serendipity['GET']['message'], ENT_COMPAT, LANG_CHARSET)) . '</span>';
                     }
                     if (isset($serendipity['GET']['success'])) {
-                        echo '<p class="serendipityAdminMsgSuccess">'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['success']) : htmlspecialchars($serendipity['GET']['success'], ENT_COMPAT, LANG_CHARSET)).'</p>';
+                        echo '<span class="msg_success"><span class="icon-ok-circled"></span> ' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['success']) : htmlspecialchars($serendipity['GET']['success'], ENT_COMPAT, LANG_CHARSET)) . '</span>';
                     }
                     if (isset($serendipity['GET']['error'])) {
-                        echo '<p class="serendipityAdminMsgError">'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['error']) : htmlspecialchars($serendipity['GET']['error'], ENT_COMPAT, LANG_CHARSET)).'</p>';
+                        echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['error']) : htmlspecialchars($serendipity['GET']['error'], ENT_COMPAT, LANG_CHARSET)) . '</span>';
                     }
-
-
 
                     #only necessary for delivering the javascript and css
                     $pluginPath = $this->pluginPath = $this->get_config('path', '');
@@ -223,13 +217,13 @@ class serendipity_event_template_editor extends serendipity_event {
                             $path = $serendipity['GET']['template_editor_path'];
                         }
                         if ($this->forkTemplate()) {
+                            $this->showFiles($path);
+                            $this->showDirectories($path);
                             if (isset($serendipity['GET']['template_editor_upload'])) {
                                 $this->showUploader($path, true);
                             } else {
                                 $this->showUploader($path, false);
                             }
-                            $this->showFiles($path);
-                            $this->showDirectories($path);
                             $this->showCreator($path);
                         }
 
@@ -260,21 +254,22 @@ class serendipity_event_template_editor extends serendipity_event {
             $path = $template_path . $cur_template . '/';
         }
         if ($form) {
-            echo '<div id="templateEditorUpload"><h3>'.PLUGIN_EVENT_TEMPLATE_EDITOR_UPLOAD.'</h3>
-            <form enctype="multipart/form-data" action="'.$serendipity ['baseURL'] . 'index.php?/plugin/template_editor_upload" method="post">
-                <input type="hidden" name="path" value="'.$path.'" />
-                <input name="userfile" type="file" />
-                <input class="serendipityPrettyButton input_button" type="submit" value="'.GO.'" />
-            </form></div>';
+            echo '<form id="templateEditorUpload" class="templateEditorForm" enctype="multipart/form-data" action="' . $serendipity ['baseURL'] . 'index.php?/plugin/template_editor_upload" method="post">
+                <input type="hidden" name="path" value="' . $path . '">
+                <div class="form_field">
+                    <label for="userfile" class="block_level">' . PLUGIN_EVENT_TEMPLATE_EDITOR_UPLOAD . '</label>
+                    <input id="userfile" name="userfile" type="file">
+                    <input type="submit" value="' . GO . '">
+                </div>
+            </form>';
         } else {
-            echo '<div id="templateEditorUpload">
-                    <form action="serendipity_admin.php" method="get">
-                    <input type="hidden" name="serendipity[adminModule]" value="event_display" />
-                    <input type="hidden" name="serendipity[adminAction]" value="template_editor" />
-                    <input type="hidden" name="serendipity[template_editor_path]" value="'.$path.'" />
-                    <input type="hidden" name="serendipity[template_editor_upload]" value="" />
-                <input class="serendipityPrettyButton input_button" type="submit" value="'.PLUGIN_EVENT_TEMPLATE_EDITOR_UPLOAD.'" />
-                </form></div>';
+            echo '<form id="templateEditorUpload" class="templateEditorForm" action="serendipity_admin.php" method="get">
+                      <input type="hidden" name="serendipity[adminModule]" value="event_display">
+                      <input type="hidden" name="serendipity[adminAction]" value="template_editor">
+                      <input type="hidden" name="serendipity[template_editor_path]" value="' . $path . '">
+                      <input type="hidden" name="serendipity[template_editor_upload]" value="">
+                      <input type="submit" id="startEditorUpload" value="' . PLUGIN_EVENT_TEMPLATE_EDITOR_UPLOAD . '">
+                  </form>';
         }
 
     }
@@ -286,12 +281,14 @@ class serendipity_event_template_editor extends serendipity_event {
         if (!$path) {
             $path = $template_path . $cur_template . '/';
         }
-        echo '<h3>'.CREATE.'</h3>
-        <form action="'.$serendipity ['baseURL'] . 'index.php?/plugin/template_editor_create" method="post">
-            <input type="hidden" name="path" value="'.$path.'" />
-            <input type="text" name="file" value="" />
-            <input class="serendipityPrettyButton input_button" type="submit" value="'.GO.'" />
-        </form>';
+        echo '<form id="templateEditorCreate" class="templateEditorForm" action="'.$serendipity ['baseURL'] . 'index.php?/plugin/template_editor_create" method="post">
+                  <input type="hidden" name="path" value="' . $path . '">
+                  <div class="form_field">
+                      <label for="create_file" class="block_level">' . CREATE . '</label>
+                      <input id="create_file" type="text" name="file" value="">
+                      <input type="submit" value="' . GO . '">
+                  </div>
+              </form>';
     }
 
     function showEditor($path , $temp=false) {
@@ -313,11 +310,13 @@ class serendipity_event_template_editor extends serendipity_event {
 
         $heading = $this->linkify("?&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=template_editor&serendipity[template_editor_path]=", $path, $serendipity['template']);
 
-        echo '<h3>'.$heading.'</h3>
+        echo '<h2>' . $heading . '</h2>
         <form action="'.$serendipity ['baseURL'] . 'index.php?/plugin/template_editor_save" method="post">
-            <input type="hidden" name="path" value="'.$path.'" />
-            <textarea name="content" id="template_editor" cols="80" rows="38">'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($content) : htmlspecialchars($content, ENT_COMPAT, LANG_CHARSET)).'</textarea>
-            <input class="serendipityPrettyButton input_button" type="submit" value="'.SAVE.'" />
+            <input type="hidden" name="path" value="' . $path . '">
+            <textarea id="template_editor" name="content" rows="30">'.(function_exists('serendipity_specialchars') ? serendipity_specialchars($content) : htmlspecialchars($content, ENT_COMPAT, LANG_CHARSET)).'</textarea>
+            <div class="form_buttons">
+                <input type="submit" value="' . SAVE . '">
+            </div>
         </form>';
 
     }
@@ -334,31 +333,31 @@ class serendipity_event_template_editor extends serendipity_event {
 
         $heading = $this->linkify("?&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=template_editor&serendipity[template_editor_path]=", $path, $cur_template);
 
-        echo '<h3 id="templateEditorPath">'. $heading.'</h3>';
+        echo '<h2 id="templateEditorPath">' . $heading . '</h2>';
         if (empty($files)) {
             return;
         }
-        echo '<ul id="templateEditorFileList" class="templateEditorList">';
+        echo '<ul id="templateEditorFileList" class="plainList zebra_list templateEditorList">';
+        $filecount = 0;
+
         foreach ($files as $file) {
             if (getimagesize("{$path}{$file}")) {
                 #images shouldn't end in the textarea
-                echo "<li>
-                    <span class=\"templateEditorListItem\">$file</span>
-                    <a href=\"{$serendipity['baseURL']}index.php?/plugin/template_editor_delete&template_editor_path={$path}{$file}\">
-                        <img class=\"serendipityImageButton templateEditorDelete\" title=\"".DELETE."\" alt=\"".DELETE."\" src=\"".serendipity_getTemplateFile('admin/img/delete.png')."\" />
-                    </a>
-                </li>";
+                echo "<li class=\"clearfix " . (++$filecount%2 ? "odd" : "even") . "\">
+                          <span class=\"templateEditorListItem\">$file</span>
+                          <ul class=\"plainList clearfix edit_actions\">
+                            <li><a class=\"button_link\" href=\"{$serendipity['baseURL']}index.php?/plugin/template_editor_delete&template_editor_path={$path}{$file}\" title=\"" . DELETE . "\"><span class=\"icon-trash\"></span><span class=\"visuallyhidden\">" . DELETE . "</span></a></li>
+                          </ul>
+                      </li>";
                 $jsDeleteDialogs .= sprintf('var DELETE_SURE_'.str_replace('.', '_', $file).'="'.DELETE_SURE.'";', $file);
             } else {
-                echo "<li>
-                    <a href=\"?&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=template_editor&amp;serendipity[template_editor_path]={$path}{$file}\">
-                        <span class=\"templateEditorListItem\">$file</span>
-                        <img class=\"serendipityImageButton\" title=\"Datei bearbeiten\" alt=\"Datei bearbeiten\" src=\"".serendipity_getTemplateFile('admin/img/edit.png')."\" />
-                    </a>
-                    <a href=\"{$serendipity['baseURL']}index.php?/plugin/template_editor_delete&template_editor_path={$path}{$file}\">
-                        <img class=\"serendipityImageButton templateEditorDelete\" title=\"".DELETE."\" alt=\"".DELETE."\" src=\"".serendipity_getTemplateFile('admin/img/delete.png')."\" />
-                    </a>
-                </li>";
+                echo "<li class=\"clearfix " . (++$filecount%2 ? "odd" : "even") . "\">
+                          <span class=\"templateEditorListItem\">$file</span>
+                          <ul class=\"plainList clearfix edit_actions\">
+                            <li><a class=\"button_link\" href=\"?&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=template_editor&amp;serendipity[template_editor_path]={$path}{$file}\" title=\"" . EDIT . "\"><span class=\"icon-edit\"></span><span class=\"visuallyhidden\">" . EDIT . "</span></a></li>
+                            <li><a class=\"button_link\" href=\"{$serendipity['baseURL']}index.php?/plugin/template_editor_delete&template_editor_path={$path}{$file}\" title=\"" . DELETE . "\"><span class=\"icon-trash\"></span><span class=\"visuallyhidden\">" . DELETE . "</span></a></li>
+                          </ul>
+                      </li>";
                 $jsDeleteDialogs .= sprintf('var DELETE_SURE_'.str_replace('.', '_', $file).'="'.DELETE_SURE.'";', $file);
             }
         }
@@ -378,16 +377,12 @@ class serendipity_event_template_editor extends serendipity_event {
         if (empty($dirs)) {
             return;
         }
-        echo '<h3>'.PLUGIN_EVENT_TEMPLATE_SUBFOLDERS.'</h3>';
+        echo '<h3>' . PLUGIN_EVENT_TEMPLATE_SUBFOLDERS . '</h3>';
 
-        echo '<ul id="templateEditorFolderList" class="templateEditorList" >';
+        echo '<ul id="templateEditorFolderList" class="plainList zebra_list templateEditorList">';
+        $dircount = 0;
         foreach ($dirs as $dir) {
-            echo "<li>
-                    <a class=\"templateEditorListItem\" href=\"?&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=template_editor&serendipity[template_editor_path]={$path}{$dir}/\">
-                        $dir
-                        <img class=\"serendipityImageButton\" title=\"Ordner\" alt=\"Ordner öffnen\" src=\"".serendipity_getTemplateFile('admin/img/folder.png')."\" />
-                    </a>
-                </li>";
+            echo "<li class=\"" . (++$dircount%2 ? "odd" : "even") . "\"><span class=\"icon-folder-open\"></span> <a class=\"templateEditorListItem\" href=\"?&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=template_editor&serendipity[template_editor_path]={$path}{$dir}/\">$dir</a></li>";
         }
         echo '</ul>';
 

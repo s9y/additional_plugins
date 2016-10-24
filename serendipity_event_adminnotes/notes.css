@@ -1,10 +1,10 @@
 .serendipity_note {
     width: 50%;
-    border: 1px solid black;
+    border: 1px solid #000;
     margin: 5px;
     padding: 5px;
 }
 
 .note_new {
-    background-color: #00FF00;
+    background-color: #0f0;
 }

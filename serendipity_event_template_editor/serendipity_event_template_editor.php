@@ -25,9 +25,9 @@ class serendipity_event_template_editor extends serendipity_event {
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda');
         $propbag->add('license',       'GPL');
-        $propbag->add('version',       '0.7.1');
+        $propbag->add('version',       '0.8.0');
         $propbag->add('requirements',  array(
-            'serendipity' => '0.8'
+            'serendipity' => '2.0'
         ));
         $propbag->add('event_hooks',   array('backend_templates_configuration_bottom' => true,
                                              'backend_templates_configuration_none' => true,

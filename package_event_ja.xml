@@ -10968,9 +10968,9 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <description>Displays information for authors on the administration panel</description>
 <maintainers><maintainer><name>Garvin Hicking, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.14</version>
+  <version>0.15</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2015-03-18</date>
+  <date>2016-10-24</date>
   <filelist>
 <dir name="serendipity_event_adminnotes">
 <file>lang_de.inc.php</file>

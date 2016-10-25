@@ -337,8 +337,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_template_editor</link>
 <category>Event Plugins</category>
 <author>Malte Paskuda</author>
-<content:encoded>&lt;b&gt;serendipity_event_template_editor&lt;br /&gt;Template-Editor&lt;/b&gt;&lt;br /&gt;Bearbeite die Dateien des derzeit genutzen Templates direkt im Adminbereich.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:50 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_template_editor&lt;br /&gt;Template-Editor&lt;/b&gt;&lt;br /&gt;Bearbeite die Dateien des derzeit genutzen Templates direkt im Adminbereich.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Tue, 25 Oct 2016 22:32:01 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_template_editor</guid>
 </item>
 <item>

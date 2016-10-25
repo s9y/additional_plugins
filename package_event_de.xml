@@ -2249,9 +2249,9 @@
 <description>Bearbeite die Dateien des derzeit genutzen Templates direkt im Adminbereich.</description>
 <maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.7.1</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <version>0.8.0</version>
+  <requirements:s9yVersion>2.0</requirements:s9yVersion>
+  <date>2016-10-25</date>
   <filelist>
 <dir name="serendipity_event_template_editor">
 <file>lang_de.inc.php</file>

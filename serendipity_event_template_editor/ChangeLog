@@ -1,19 +1,21 @@
-0.7:
-* Fetch jQuery without protocol
+0.8: Adapt backend to 2.x (yellowled)
 
-0.6:
- * Fetch jquery via https
+0.7: Fetch jQuery without protocol
+
+0.6: Fetch jquery via https
 
 0.3:
- * Check if template directory is writeable
- * Don't save php-files with syntax-errors
- * Show link to template_editor also if there are no template options
+
+    * Check if template directory is writeable
+    * Don't save php-files with syntax-errors
+    * Show link to template_editor also if there are no template options
 
 0.2:
- * Changed necessary right to only "siteConfiguration"
- * Bugfix: Some translation-variables had the wrong name
- * Bugfix: Delete didn't work with files which had multiple "."
- * Made images deletable
- * Added Uploadbutton
- * Added Rename function
- * Minor usability improvements
+
+    * Changed necessary right to only "siteConfiguration"
+    * Bugfix: Some translation-variables had the wrong name
+    * Bugfix: Delete didn't work with files which had multiple "."
+    * Made images deletable
+    * Added Uploadbutton
+    * Added Rename function
+    * Minor usability improvements

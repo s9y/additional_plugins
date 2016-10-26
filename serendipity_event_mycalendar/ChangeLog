@@ -1,20 +1,10 @@
-# 
+0.17: Adapt backend to 2.x (yellowled)
 
-0.16
------
+0.16: Use htmlspecialchars() in the RSS output to prevent XML parsing errors
 
-Use htmlspecialchars() in the RSS output to prevent XML parsing errors
+sidebar 0.13: Filer by event enddate, not starttime
 
-sidebar 0.13
---------------
-    * Filer by event enddate, not starttime
-    
-Version 0.15 (brockhaus)
-------------------------------------------------------------------------
+0.15: events lasting more than one day are displayed completely in the calendar
+      sidebar plugin instead of showing the start day only (brockhaus)
 
-    * events lasting more than one day are displayed completely in the
-      calendar sidebar plugin instead of showing the start day only.
-
-Version 0.14
-------------------------------------------------------------------------
-    * earlier versions
+0.14: earlier versions

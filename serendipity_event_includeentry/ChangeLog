@@ -1,32 +1,30 @@
-2.17
-  - Fix 2.x version checks
-  - Adapt backend for 2.x
-  - extend required version
+2.17:
 
-2.16
-  - fix a php dulicating method compat error
+    * Fix 2.x version checks
+    * Adapt backend for 2.x
+    * extend required version
 
-2.15
-  - prepare for Serendipity 2.0 and check for (window.Spawnnuggets)
-  - fix 'show_multi' option non-template file fatal error
-  - db table set to use UTF8 on install
-  - extend required version
+2.16: fix a php dulicating method compat error
 
-2.14.1
-  - use serendipity_specialchars
+2.15:
 
-2.14
-  - fixed $serendipity['author'] to be $serendipity['serendipityUser'];
+    * prepare for Serendipity 2.0 and check for (window.Spawnnuggets)
+    * fix 'show_multi' option non-template file fatal error
+    * db table set to use UTF8 on install
+    * extend required version
 
-2.13:
-  - Use SQL RANDOM() instead of RAND() for db type, except mysql
+2.14.1: use serendipity_specialchars
+
+2.14: fixed $serendipity['author'] to be $serendipity['serendipityUser'];
+
+2.13: Use SQL RANDOM() instead of RAND() for db type, except mysql
 
 latest: Smarty3 forward compatibility
 
 2.0:
-  - Add ability to include page blocks and page templates.
-  - Blocks can be shown randomly on the interface panel, templates can be
-  used for new entries.
-  - Each block can use a different template.
-  - You can attach special blocks to an entry individually.
-  (Garvin Hicking)
+
+    * Add ability to include page blocks and page templates.
+    * Blocks can be shown randomly on the interface panel, templates can be
+      used for new entries.
+    * Each block can use a different template.
+    * You can attach special blocks to an entry individually. (Garvin Hicking)

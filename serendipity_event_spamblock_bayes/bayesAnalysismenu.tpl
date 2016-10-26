@@ -9,7 +9,7 @@
                 {if $s9ybackend == 1}
                 <a class="serendipityIconLink" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=4&amp;serendipity[commentpage]={$commentpage-1}"><img src="{serendipity_getFile file="admin/img/previous.png"}"/>{$CONST.PREVIOUS}</a>
                 {else}
-                <li class="prev"><a class="button_link" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=4&amp;serendipity[commentpage]={$commentpage-1}" title="{$CONST.PREVIOUS}"><span class="icon-left-dir"></span><span class="visuallyhidden"> {$CONST.PREVIOUS}</span></a></li>
+                <li class="prev"><a class="button_link" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=4&amp;serendipity[commentpage]={$commentpage-1}" title="{$CONST.PREVIOUS}"><span class="icon-left-dir" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.PREVIOUS}</span></a></li>
                 {/if}
             {/if}
 
@@ -17,7 +17,7 @@
                 {if $s9ybackend == 1}
                 <a class="serendipityIconLinkRight" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=4&amp;serendipity[commentpage]={$commentpage+1}">{$CONST.NEXT} <img src="{serendipity_getFile file="admin/img/next.png"}"/></a>
                 {else}
-                <li class="next"><a class="button_link" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=4&amp;serendipity[commentpage]={$commentpage+1}" title="{$CONST.NEXT}"><span class="visuallyhidden">{$CONST.NEXT} </span><span class="icon-right-dir"></span></a></li>
+                <li class="next"><a class="button_link" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=4&amp;serendipity[commentpage]={$commentpage+1}" title="{$CONST.NEXT}"><span class="visuallyhidden">{$CONST.NEXT} </span><span class="icon-right-dir" aria-hidden="true"></span></a></li>
                 {/if}
             {/if}
         {if $s9ybackend == 1}
@@ -53,7 +53,7 @@
                 {if $s9ybackend == 1}
                 <a class="serendipityIconLink" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=4&amp;serendipity[commentpage]={$commentpage-1}"><img src="{serendipity_getFile file="admin/img/previous.png"}"/>{$CONST.PREVIOUS}</a>
                 {else}
-                <li class="prev"><a class="button_link" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=4&amp;serendipity[commentpage]={$commentpage-1}" title="{$CONST.PREVIOUS}"><span class="icon-left-dir"></span><span class="visuallyhidden"> {$CONST.PREVIOUS}</span></a></li>
+                <li class="prev"><a class="button_link" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=4&amp;serendipity[commentpage]={$commentpage-1}" title="{$CONST.PREVIOUS}"><span class="icon-left-dir" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.PREVIOUS}</span></a></li>
                 {/if}
             {/if}
 
@@ -61,7 +61,7 @@
                 {if $s9ybackend == 1}
                 <a class="serendipityIconLinkRight" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=4&amp;serendipity[commentpage]={$commentpage+1}">{$CONST.NEXT} <img src="{serendipity_getFile file="admin/img/next.png"}"/></a>
                 {else}
-                <li class="next"><a class="button_link" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=4&amp;serendipity[commentpage]={$commentpage+1}" title="{$CONST.NEXT}"><span class="visuallyhidden">{$CONST.NEXT} </span><span class="icon-right-dir"></span></a></li>
+                <li class="next"><a class="button_link" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=spamblock_bayes&amp;serendipity[subpage]=4&amp;serendipity[commentpage]={$commentpage+1}" title="{$CONST.NEXT}"><span class="visuallyhidden">{$CONST.NEXT} </span><span class="icon-right-dir" aria-hidden="true"></span></a></li>
                 {/if}
             {/if}
         {if $s9ybackend == 1}

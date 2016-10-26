@@ -50,7 +50,7 @@
         {/if}
 
         {if $linktrimmer_error}
-            <span class="msg_error"><span class="icon-attention-circled"></span> {$CONST.PLUGIN_LINKTRIMMER_ERROR}</span>
+            <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PLUGIN_LINKTRIMMER_ERROR}</span>
         {/if}
 
             <div class="form_field">

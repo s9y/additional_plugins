@@ -28,7 +28,7 @@ class serendipity_event_mycalendar extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.17.0');
+        $propbag->add('version',       '0.17.1');
         $propbag->add('author',        'Garvin Hicking, Markus Gerstel, Grischa Brockhaus');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
@@ -324,7 +324,7 @@ class serendipity_event_mycalendar extends serendipity_event {
                 echo $this->getDropdown('month', $event['eventid'], range(1, 12), $month, false, 'changeDate('. $event['eventid'] .')') . ".";
                 echo $this->getDropdown('year', $event['eventid'], range(date('Y'), date('Y')+2), $year, false, 'changeDate('. $event['eventid'] .')');
                 if ($event['eventdate'] < time()-86400) {
-                    echo ' <a class="button_link" href="#" title="' . DELETE . '" onclick="javascript:removeEvent(\'' . $event['eventid'] . '\');"><span class="icon-trash"></span><span class="visuallyhidden">' . DELETE . '</span></a>';
+                    echo ' <a class="button_link" href="#" title="' . DELETE . '" onclick="javascript:removeEvent(\'' . $event['eventid'] . '\');"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden">' . DELETE . '</span></a>';
                 }
                 echo "  </td>\n";
                 echo "  <td>";

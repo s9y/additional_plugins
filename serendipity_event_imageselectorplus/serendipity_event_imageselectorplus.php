@@ -26,7 +26,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_IMAGESELECTORPLUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian');
-        $propbag->add('version',       '0.51');
+        $propbag->add('version',       '0.52');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -234,7 +234,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
             $newsizes  = array('width' => $_newsizes[0], 'height' => $_newsizes[1]);
         }
 
-        echo '<span class="msg_notice"><span class="icon-attention-circled"></span> Resizing thumb of ' . $orientation . ' ' . $fdim[0] . 'x' . $fdim[1] . ' to ' . $_newsizes[0] . 'x' . $_newsizes[1] . ' instead of ' . $s9ysizes[0] . 'x' . $s9ysizes[1] . "...</span>\n";
+        echo '<span class="msg_notice"><span class="icon-attention-circled" aria-hidden="true"></span> Resizing thumb of ' . $orientation . ' ' . $fdim[0] . 'x' . $fdim[1] . ' to ' . $_newsizes[0] . 'x' . $_newsizes[1] . ' instead of ' . $s9ysizes[0] . 'x' . $s9ysizes[1] . "...</span>\n";
         $dirname = dirname($target) . '/';
         $dirname = str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $dirname);
         $serendipity['imagemagick_nobang'] = true;
@@ -1189,7 +1189,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
      *     width="400" height="300" border=0 alt="This is an example!"
      * 
      * Which will produce an array as follows:
-     * 
+     *
      * <pre>
      * array(4) {
      *   ["width"]=>
@@ -1202,7 +1202,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
      *   string(19) "This is an example!"
      * }
      * </pre>
-     * 
+     *
      * @author Adam Charnock (http://omniwiki.co.uk)
      * @internal It may be possible to do this with a regex
      * @param string $attrs The tag string

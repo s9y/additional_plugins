@@ -1,153 +1,96 @@
-0.51:
------
- * Append CSS to end of eventData stream
+0.52: Iconfont a11y fix (yellowled)
 
+0.51: Append CSS to end of eventData stream
 
-0.50:
------
- * Try catch exception error to not break the flow
+0.50: Try catch exception error to not break the flow
 
+0.49: Fix 'array sizes are inconsistent' error with mediainsert tagged entries
+      and array_multisort()
 
-0.49:
------
- * Fix 'array sizes are inconsistent' error with
-   mediainsert tagged entries and array_multisort()
+0.48: Use native API method parseTemplate() (only)
 
-
-0.48:
------
- * Use native API method parseTemplate() (only)
-
-
-0.47:
------
- * htmlspecialchars fixes
-
+0.47: htmlspecialchars fixes
 
 0.46:
------
 
- * Introduce imagemagick_nobang variable for thumbnail image resizing
-   with Serendipity >= 2.x versions
- * Better description of MAX Value constants
-
+    * Introduce imagemagick_nobang variable for thumbnail image resizing with
+      Serendipity >= 2.x versions
+    * Better description of MAX Value constants
 
 0.45:
------
 
- * Added description for max-width and max-height option setting
- * Fix old bug with image resize thumb creation on both max-options = n
-   Part 2 of this bug was introduced in S9y 2.0 development for ImageMagick
-   escapeshellcmd method.
+    * Added description for max-width and max-height option setting
+    * Fix old bug with image resize thumb creation on both max-options = n
+      Part 2 of this bug was introduced in S9y 2.0 development for ImageMagick
+      escapeshellcmd method.
 
-
-0.43/44:
------
- * re-add enable markup in textarea form
-
+0.43, 0.44: re-add enable markup in textarea form
 
 0.42:
------
 
- * Merge new xml structure "picperrow" and "hideafter" by user "nogat"
-     http://board.s9y.org/viewtopic.php?f=4&t=20058, 2014-08-22
- * add some media gallery css
- * minors for version switch
+    * Merge new xml structure "picperrow" and "hideafter" by user "nogat"
+      board.s9y.org/viewtopic.php?f=4&t=20058, 2014-08-22
+    * add some media gallery css
+    * minors for version switch
 
-
-0.41:
------
-
- * removed wrong slash in plugin_mediainsert.tpl fullimage link path
-
+0.41: removed wrong slash in plugin_mediainsert.tpl fullimage link path
 
 0.40:
------
- * better pdf object preview in case of used imagemagick library
- * added serendipity_quickblog_image class to prevent preview borders
- * reset entries_header use for 2.0 and up
- * fix hardcoded thumbName check to its Serendipity variable
 
+    * better pdf object preview in case of used imagemagick library
+    * added serendipity_quickblog_image class to prevent preview borders
+    * reset entries_header use for 2.0 and up
+    * fix hardcoded thumbName check to its Serendipity variable
 
 0.39:
------
- * added form target to
- * added non-image object uploads with link/image generation via radio field,
-   which creates a real link instead of using the hidden quickblog tag
- * removed some obsolet functions
- * disabled allow_comments, moderate_comments to always take default values
 
+    * added form target to
+    * added non-image object uploads with link/image generation via radio field,
+      which creates a real link instead of using the hidden quickblog tag
+    * removed some obsolet functions
+    * disabled allow_comments, moderate_comments to always take default values
 
 0.38:
-----
 
- * Changed default value of quickblog image size to default
-   $serendipity['thumbSize']. This prevents creation of another
-   image copy to the MediaLibrary, if not changed to another value.
- * Added a description lang constant for this.
+    * Changed default value of quickblog image size to default
+      $serendipity['thumbSize']. This prevents creation of another image copy
+      to the MediaLibrary, if not changed to another value.
+    * Added a description lang constant for this.
 
-
-0.37:
-----
-
-silence exif_read_data errors
-
+0.37: silence exif_read_data errors
 
 0.36:
-----
 
-Some quoting markup fixes
-Use native parseTemplate API - extends s9y version >= 1.3
-Add 'No Category' to category selectbox
-Disable markup property plugin NL2BR in case of WYSIWYG use
+    * Some quoting markup fixes
+    * Use native parseTemplate API - extends s9y version >= 1.3
+    * Add 'No Category' to category selectbox
+    * Disable markup property plugin NL2BR in case of WYSIWYG use
 
 0.35:
-----
 
-Added 2.0 markup hooked into ML upload
-Added simple wysiwyg editor to quickblog textarea
-Minor marrkup fixes
-
+    * Added 2.0 markup hooked into ML upload
+    * Added simple wysiwyg editor to quickblog textarea
+    * Minor marrkup fixes
 
 0.34:
-----
 
-Fix some 'Division by zero' errors and possible 
-array_multisort(): Array sizes are inconsistent in blah blah errors
+    * Fix some 'Division by zero' errors and possible
+    * array_multisort(): Array sizes are inconsistent in blah blah errors
 
+0.33: Fix some wrong mediainserts by CKEDITOR
 
-0.33:
-----
+0.32: fixed upload path
 
-Fix some wrong mediainserts by CKEDITOR
+0.31: latest: Smarty3 forward compatibility
 
+0.30: Remove $selected, raises a smarty exception
 
-0.32:
-----
+0.28: Passed $eventData to the plugin_mediainsert.tpl file, as
+      {$plugin_mediainsert_entry}.
 
-fixed upload path
+0.20: (Vladimír Ajgl)
 
-0.31:
------
-
-latest: Smarty3 forward compatibility
-
-0.30:
-----
-
-Remove $selected, raises a smarty exception
-
-0.28:
-----
-
-Passed $eventData to the plugin_mediainsert.tpl file, as {$plugin_mediainsert_entry}.
-
-
-Version 0.20:
-------------
-
-(by Vladimír Ajgl)
-
-* Added documentation.html files
-* Added czech translation
-* Added ability to post XML code into entries that can be used to build galleries (PHP5 only)
+    * Added documentation.html files
+    * Added czech translation
+    * Added ability to post XML code into entries that can be used to build
+      galleries (PHP5 only)

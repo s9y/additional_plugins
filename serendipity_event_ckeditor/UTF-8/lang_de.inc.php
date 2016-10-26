@@ -12,7 +12,7 @@
 @define('PLUGIN_EVENT_CKEDITOR_REVISION_TITLE', '<h3>Das Plugin enthält:</h3>');
 @define('PLUGIN_EVENT_CKEDITOR_INSTALL', '<h2>Installation</h2>
 <p class="msg_notice">
-    <span class="icon-attention"></span> <strong>Abhängigkeiten:</strong> Deaktiviere body, extended und nugget parsing global im <strong>NL2BR</strong> Plugin, <strong>oder</strong> per entry über das entryproperties event plugin <strong>und/oder</strong> für statische Seiten über die Entry "Textformatierungs" Option! Seit Serendipity 2.0-rc1 sollte entryproperties den CKEditor diesbezüglich automatisch erkennen.
+    <span class="icon-attention" aria-hidden="true"></span> <strong>Abhängigkeiten:</strong> Deaktiviere body, extended und nugget parsing global im <strong>NL2BR</strong> Plugin, <strong>oder</strong> per entry über das entryproperties event plugin <strong>und/oder</strong> für statische Seiten über die Entry "Textformatierungs" Option! Seit Serendipity 2.0-rc1 sollte entryproperties den CKEditor diesbezüglich automatisch erkennen.
 </p>
 <ol style="line-height: 1.6">
     <li>Um anderen Plugins Zugriff auf das Plugin oder dessen Hook zu gewähren, plaziere das (CKEditor) Plugin nahe dem Ende deiner Pluginliste.</li>
@@ -49,4 +49,3 @@
 
 @define('PLUGIN_EVENT_CKEDITOR_CKEIBN_OPTION', 'Stelle den eingebauen Bildbutton ab?');
 @define('PLUGIN_EVENT_CKEDITOR_CKEIBN_OPTION_DESC', 'Dieser CKE eigene Toolbar Button folgt seinen eigenen Regeln für Stylings und Markup! Wir empfehlen daher nur den Serendipity Medien Datenbank Button zu nutzen, da dieser spezialisiert auf die Nöte dieses Blogsystem eingeht. Erlaube mit "Nein" und nutze auf eigenes Risiko.');
-

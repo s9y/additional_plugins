@@ -67,7 +67,7 @@ class serendipity_event_guestbook extends serendipity_event {
                         'dateformat'
                     ));
         $propbag->add('author',       'Ian');
-        $propbag->add('version',      '3.59');
+        $propbag->add('version',      '3.60');
         $propbag->add('requirements', array(
                         'serendipity' => '1.7.0',
                         'smarty'      => '3.1.0',
@@ -100,7 +100,7 @@ class serendipity_event_guestbook extends serendipity_event {
         // check possible config mismatch setting
         if (serendipity_db_bool($this->get_config('showapp')) === true && serendipity_db_bool($this->get_config('automoderate')) === true) {
             $this->set_config('automoderate', false);
-            echo '<div class="msg_error"><span class="icon-attention-circled"></span> ' . PLUGIN_GUESTBOOK_CONFIG_ERROR . '</div>';
+            echo '<div class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . PLUGIN_GUESTBOOK_CONFIG_ERROR . '</div>';
             return false;
         }
         // Cleanup. Remove all empty configs on SAVECONF-Submit.

@@ -1,372 +1,231 @@
-3.66:
------
- * Fix an issue refering to Smarty2->Smarty3 changes.
+3.67: Iconfont a11y fix (yellowled)
 
-3.65:
------
- * Use native API method parseTemplate() for the tpl file
+3.66: Fix an issue refering to Smarty2->Smarty3 changes.
 
-3.64.1
-----
- * Fix a bug where related entries were shown on overview sections when
-   that section had only one entry
+3.65: Use native API method parseTemplate() for the tpl file
+
+3.64.1:  Fix a bug where related entries were shown on overview sections when
+         that section had only one entry
 
 3.59:
-----
+
  * Remove CDNs and upgrade jquery-migrate
  * Minor fix for taglist
 
 3.58:
-----
+
  * Fix doubled encoded umlaut taglinks by searchengines backlinks.
  * Added a new option to allow showing taglink entries as a linklist.
-    This adds a 'taglist' tag as a reserved command to tags,
-    which not allows this tag as a normal tag any further.
-    The addition can be done either by the preset taglink as "/plugin/taglist/"
-    or manually added by certain taglinks as "/plugin/tag/allyourtags/taglist".
-    This needs you to modify your templates entries.tpl file,
-    as described in the documentation file or the README.
+ 
+   This adds a 'taglist' tag as a reserved command to tags, which not allows
+   this tag as a normal tag any further. The addition can be done either by the
+   preset taglink as "/plugin/taglist/" or manually added by certain taglinks
+   as "/plugin/tag/allyourtags/taglist". This needs you to modify your
+   templates entries.tpl file, as described in the documentation file or the
+   README.
 
-3.57:
-----
-Stricter array check to prevent PHP notices
+3.57: Stricter array check to prevent PHP notices
 
-3.56:
------
-Removed obsolete language attribute. (yellowled)
+3.56: Removed obsolete language attribute. (yellowled)
 
-3.55:
------
-Give container a unique id, add class for magnificPopup. Required
-for 2.x backend. (yellowled)
+3.55: Give container a unique id, add class for magnificPopup. Required for
+      2.x backend. (yellowled)
 
-3.54:
-----
-Fix autocomplete error message when not within entry editor page
+3.54: Fix autocomplete error message when not within entry editor page
 
-3.53.1:
------
-Fix autocomplete of tags in 2.0
+3.53.1: Fix autocomplete of tags in 2.0
 
 3.53:
------
-Fixes issue #177 Freetag plugin emits “1” (mattsches)
-Fixes wrong return values, unneeded parameters, missing checks
+
+    * Fixes issue #177 Freetag plugin emits “1” (mattsches)
+    * Fixes wrong return values, unneeded parameters, missing checks
 
 
 3.52: Added additional backend markup for 2.0 backend (yellowled)
+
 3.51: Stricter array check
+
 3.50: Optimize autocomplete for 2.0, fixes
+
 3.49: Repair autocomplete for 2.0
 
 3.48:
-----
 
-Support serendipity 2.0 "js" event hook for autocomplete
-Do not loose tags when recreating entry
+    * Support serendipity 2.0 "js" event hook for autocomplete
+    * Do not loose tags when recreating entry
 
-3.47:
------
-Make updertEntry not loose possible category associations
+3.47: Make updertEntry not loose possible category associations
 
-3.46:
------
+3.46: Try to get around a "is no array" error
 
-Try to get around a "is no array" error
+3.45: static fixes for more PHP5 compat
 
-3.45:
------
+3.43: static fixes for freetag<->flattr compatibility (no PHP5 error)
 
-static fixes for more PHP5 compat
+3.42: static fixes for spartacus generation
 
-3.43:
------
+3.41: Declare install() method as static
 
-static fixes for freetag<->flattr compatibility (no PHP5 error)
+3.39: Added specific is_array($eventData) chack, thanks to gregman
 
-3.42:
------
+3.38: Added missing fieldset in case of not set admin_show_taglist (thanks to
+      gregman)
 
-static fixes for spartacus generation
+3.37: When publishing an entry, cat2tag replacement is now even executed when
+      tags are empty, so that category tags will always be placed.
 
-3.41:
------
+3.36: Fixed [tag] in one instance of HTML form field, thanks to ascger from
+      the forums
 
-Declare install() method as static
+3.35: Change some instances of [tag] to HTML compliant %5Btag%5D,
+      bug report 3427291
+      
+3.34: Only use SHOW sql query for mysql
 
-3.39:
-----
-
-Added specific is_array($eventData) chack, thanks to gregman
-
-3.38:
------
-
-Added missing fieldset in case of not set admin_show_taglist (thanks to gregman)
-
-3.37:
------
-
-When publishing an entry, cat2tag replacement is now even executed when tags are empty, so that category tags will always be placed.
-
-3.36:
------
-
-Fixed [tag] in one instance of HTML form field, thanks to ascger from the forums
-
-3.35:
-----
-
-Change som einstances of [tag] to HTML compliant %5Btag%5D, bug report 3427291
-3.34:
------
-  Only use SHOW sql query for mysql
-
-3.33:
------
-
-Link to https instead of http for proper backend usage on SSL-enabled hosts,
-  thanks to Manko10
+3.33: Link to https instead of http for proper backend usage on SSL-enabled
+      hosts, thanks to Manko10
 
 3.30, 3.31, 3.32:
-----
 
-Updated bundled tagcloud.swf from WP-Cumulus/Roy Tanck to version 1.23.
-Fixes a html injection vulnerability reported by MustLive
-Fixes a XSS issue reported by Stefan Schurtz
+    * Updated bundled tagcloud.swf from WP-Cumulus/Roy Tanck to version 1.23.
+    * Fixes a html injection vulnerability reported by MustLive
+    * Fixes a XSS issue reported by Stefan Schurtz
 
-3.28:
------
+3.28: Allow to use ?serendipity[tag]=Tag1;Tag2;Tag3
 
-Allow to use ?serendipity[tag]=Tag1;Tag2;Tag3
+3.27: Proper MySQL collation detection
 
-3.27:
------
+3.26: Added is_array() chechk (Timbalu)
 
-Proper MySQL collation detection
+3.25: Fix for DB encoding
 
-3.26: 
------
+3.24: Add database encoding (MySQL), Patch by Vincent
 
-Added is_array() chechk (Timbalu)
+3.23: Add whitespace/non-breaking patch, board.s9y.org/viewtopic.php?f=5&t=17760
 
-3.25:
-----
+3.22: Fix possible XSS, reported by Stefan Schurtz (SSCHADV2011-004)
 
-Fix for DB encoding
+3.21: Add "sort" event hook for the serendipity_event_sort plugin by lazybadger
 
-3.24:
------
+3.20: Made tagcloud display as a smarty template "plugin_freetag.tpl". If you
+      want to customize that output, copy this file to your template directory
+      and adapt it there.
 
-Add database encoding (MySQL), Patch by Vincent
-
-3.23:
------
-
-Add whitespace/non-breaking patch, see http://board.s9y.org/viewtopic.php?f=5&t=17760
-
-3.22:
------
-
-Fix possible XSS, reported by Stefan Schurtz (SSCHADV2011-004)
-
-3.21:
------
-
-Add "sort" event hook for the serendipity_event_sort plugin by lazybadger
-
-3.20:
------
-
-Made tagcloud display as a smarty template "plugin_freetag.tpl". If you want to customize that output, copy this file to your template
-directory and adapt it there.
-
-3.18:
------
-Automatic keyword detection now only works outside of html tags, so nothing like <a href="/serendipity/"> would match 'serendipity' as a keyword
+3.18: Automatic keyword detection now only works outside of html tags, so
+      nothing like <a href="/serendipity/"> would match 'serendipity' as a
+      keyword
 
 3.17:
-----
-Added backend functionality to clean up tag assignments for non-existent entries
-Made submit button value in tag renaming form translatable
-Fixed a HTML syntax error in tag renaming form by using the corresponding HTML entity
 
-3.16:
-----
-Bugfix: Meta-keywords were not shown in entries.
+    * Added backend functionality to clean up tag assignments for non-existent
+      entries
+    * Made submit button value in tag renaming form translatable
+    * Fixed a HTML syntax error in tag renaming form by using the corresponding
+      HTML entity
 
-3.15:
-----
-Removed incorrect errormessage "FATAL ERROR! Unrecognized type for 
-serendipity_event_freetag:: !"
+3.16: Bugfix: Meta-keywords were not shown in entries.
 
-3.13, 3.14:
-----
-Added mb_internal_encoding() call for proper lowercasing
+3.15: Removed incorrect errormessage "FATAL ERROR! Unrecognized type for 
+      serendipity_event_freetag:: !"
 
-3.12.1:
-----
-Replaced wick-based autocompletion with a jquery-plugin (cause wick didn't
-work in Opera anymore)
+3.13, 3.14: Added mb_internal_encoding() call for proper lowercasing
+
+3.12.1: Replaced wick-based autocompletion with a jquery-plugin (cause wick
+        didn't work in Opera anymore)
 
 3.11.0:
-----
 
-Add an option to select if tags will be added according to automatted keywords
-Fixed false positives when searching for automatted keywords by changing the search to use a regular expression
+    * Add an option to select if tags will be added according to automatted
+      keywords
+    * Fixed false positives when searching for automatted keywords by changing
+      the search to use a regular expression
 
-3.10.5:
-----
-Catch possible errors for the tagcloud query
+3.10.5: Catch possible errors for the tagcloud query
 
-3.10.4:
-----
-Add another "empty" check to suppress DB error notices
+3.10.4: Add another "empty" check to suppress DB error notices
 
 3.10.3:
-----
-Fixed missing tags in preview of saved entry in entrylist
-Fixed attaching of output in editor-preview 
 
-3.10.2:
-----
-Fix false detection of extended/simple entry
+    * Fixed missing tags in preview of saved entry in entrylist
+    * Fixed attaching of output in editor-preview 
+
+3.10.2: Fix false detection of extended/simple entry
 
 3.10:
-----
 
-Emits related articles as unnumbered list.
-Descend one step deeper when searching related tags.
-"Related Tag" is now a p instead of a div
-Introduced extended Smarty-Markup
-Code-cleanup of displayEntry()
-	
+    * Emits related articles as unnumbered list.
+    * Descend one step deeper when searching related tags.
+    * "Related Tag" is now a p instead of a div
+    * Introduced extended Smarty-Markup
+    * Code-cleanup of displayEntry()
 
+3.09: Fix missing escaping of variable for SQL query
 
-3.09:
-----
+3.08: When viewing articles by tag, no category restrictions are used (like 
+      startcat plugin) (chessnut)
 
-Fix missing escaping of variable for SQL query
+3.07: sure that arrays get only set when SQL succeeds
 
-3.08
-----
-
-When viewing articles by tag, no category restrictions are used (like 
-startcat plugin) (chessnut)
-
-3.07
-----
-
-Make sure that arrays get only set when SQL succeeds
-
-3.06 (garvinhicking)
---------------------
-
-Make sure to also check for non-lowercased tags for automatted keywords
+3.06: Make sure to also check for non-lowercased tags for automatted keywords
+      (garvinhickicking)
 
 
-3.05 (garvinhicking)
---------------------
+3.05: Only use flash-bg/fg colors, when flash cloud is enabled. (garvinhicking)
 
-Only use flash-bg/fg colors, when flash cloud is enabled.
+3.04: Added uncommented possibility to put related entries to overview
+      (board.s9y.org/viewtopic.php?f=10&t=11124&p=83814#p83814) (garvinhicking)
 
+3.03: Add DB escaping to fetch entrytags, fix SQL duplicate LIMIT string.
+      (Thanks to rupa) (garvinhicking)
 
-3.04 (garvinhicking)
----------------
+3.01: Optimize output, using latest SWFObject (designor)
 
-Added uncommented possibility to put related entries to overview
-(http://board.s9y.org/viewtopic.php?f=10&t=11124&p=83814#p83814)
+3.0: Version fix (lstrojny)
 
-3.03 (garvinhicking)
----------------
-Add DB escaping to fetch entrytags, fix SQL duplicate LIMIT string.
-(Thanks to rupa)
+2.51: Fixed ordering of tags when used with templates (lstrojny)
 
-3.01 (designor)
---------------
-Optimize output, using latest SWFObject
+2.5: (lstrojny)
 
-3.0 (lstrojny)
---------------
+    * Allow to use a Smarty template to render the sidebar
+    * Unified version numbers
 
-Version fix
+2.105: Some Flash fixes, tag limitting, default options (RobA)
 
-2.51 (lstrojny)
----------------
+2.103: Added Flash rotating tagcloud (RobA)
 
-Fixed ordering of tags when used with templates
+2.97: Allow to place tag contents through {$entry.freetag} within smarty, when
+      configured. (garvinhicking)
 
-2.5 (lstrojny)
---------------
-
-Allow to use a Smarty template to render the sidebar
-Unified version numbers
-
-2.105 (RobA)
------------
-
-Some Flash fixes, tag limitting, default options
-
-2.103 (RobA)
------------
-
-Added Flash rotating tagcloud
-
-2.97 (garvinhicking)
---------------------
-
-Allow to place tag contents through {$entry.freetag} within smarty, when
-configured.
-
-2.96 (garvinhicking)
-----------
- * Fix XSS when displaying related tag cloud, thanks to Alex @ bitsploit.de
+2.96: Fix XSS when displaying related tag cloud, thanks to Alex @ bitsploit.de
+      (garvinhicking)
  
  
-2.95 (garvinhicking)
----------
- * Added configurable technorati image
- 
-2.92/2.45 (brockhaus):
----------
- * Added configuration for XML image
+2.95: Added configurable technorati image (garvinhicking)
 
-2.88/2.44 (brockhaus):
----------
- * Added optional technorati tag links behind tags in entry footers.
+2.92/2.45: Added configuration for XML image (brockhaus)
 
-2.88/2.43 (brockhaus):
----------
- * Made tags min/max font size for sidebar plugin configurable, too.
+2.88/2.44: Added optional technorati tag links behind tags in entry footers.
+           (brockhaus)
 
-2.88/2.42 (garvinhicking):
----------
- * Sort tags case insensitive in the sidebar.
+2.88/2.43: Made tags min/max font size for sidebar plugin configurable, too.
+           (brockhaus)
 
-2.88/2.41 (brockhaus):
----------
- * The sidebar plugin always loaded the first X tags by tagname, not by relevance (tagcount).
-   So relevant tags coming too late alphabetically didn't show up.
+2.88/2.42: Sort tags case insensitive in the sidebar. (garvinhicking)
 
-2.70:
------
- * Added possiblity for "automatted tags". These will indicate what tags to assign to an entry
-   when keywords are found in an entry
+2.88/2.41: The sidebar plugin always loaded the first X tags by tagname, not by
+           relevance (tagcount). So relevant tags coming too late
+           alphabetically didn't show up. (brockhaus)
 
-2.64:
------
- * Added option to convert categories to tags
+2.70: Added possiblity for "automatted tags". These will indicate what tags to
+      assign to an entry when keywords are found in an entry
 
-2.48:
------
- * Config option for lowercasing, patch by Lars Strojny
+2.64: Added option to convert categories to tags
 
-2.47:
-----
- * Better show metastuff
+2.48: Config option for lowercasing, patch by Lars Strojny
+
+2.47: Better show metastuff
 
 2.44:
-----
- * Show related Entries, patch by stain
- * Make configurable where to show tags
 
+    * Show related Entries, patch by stain
+    * Make configurable where to show tags

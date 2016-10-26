@@ -37,7 +37,7 @@ class serendipity_event_downloadmanager extends serendipity_event
             'php'         => '5.3.0'
         ));
 
-        $propbag->add('version',       '0.37');
+        $propbag->add('version',       '0.38');
         $propbag->add('author',       'Alexander \'dma147\' Mieland, Grischa Brockhaus, Ian');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
@@ -495,7 +495,7 @@ class serendipity_event_downloadmanager extends serendipity_event
                                         : $this->get_config('absdownloadspath')),
             'attention'     => (($serendipity['version'][0] < 2)
                                         ? '<img class="dlm_backend_attention" src="' . $serendipity['serendipityHTTPPath'] . 'templates/default/admin/img/admin_msg_note.png" alt="" />'
-                                        : '<span class="msg_error"><span class="icon-attention-circled"></span> ')
+                                        : '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ')
         );
     }
 

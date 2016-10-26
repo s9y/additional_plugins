@@ -44,7 +44,7 @@ class serendipity_event_karma extends serendipity_event
         $propbag->add('description',   PLUGIN_KARMA_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Grischa Brockhaus, Judebert, Gregor Voeltz, Ian');
-        $propbag->add('version',       '2.12');
+        $propbag->add('version',       '2.13');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -1452,32 +1452,32 @@ END_IMG_CSS;
                             // posted points
                             $ppoints = $kdata['points'];
                             if (!is_numeric($ppoints) || ((int)$ppoints < -2) || ((int)$ppoints > 2)) {
-                                print("<span class='msg_error'><span class='icon-attention-circled'></span> ".PLUGIN_KARMA_INVALID_INPUT."</span>\n");
+                                print("<span class='msg_error'><span class='icon-attention-circled' aria-hidden='true'></span> ".PLUGIN_KARMA_INVALID_INPUT."</span>\n");
                                 return false;
                             }
                             // posted id
                             $pid = $kdata['entryid'];
                             if (!is_numeric($pid)) {
-                                print("<span class='msg_error'><span class='icon-attention-circled'></span> ".PLUGIN_KARMA_INVALID_INPUT."</span>\n");
+                                print("<span class='msg_error'><span class='icon-attention-circled' aria-hidden='true'></span> ".PLUGIN_KARMA_INVALID_INPUT."</span>\n");
                                 return false;
                             }
                             // posted IP
                             $pip = long2ip(ip2long($kdata['ip']));
                             if ($pip == -1 || $pip === FALSE) {
-                                print("<span class='msg_error'><span class='icon-attention-circled'></span> ".PLUGIN_KARMA_INVALID_INPUT."</span>\n");
+                                print("<span class='msg_error'><span class='icon-attention-circled' aria-hidden='true'></span> ".PLUGIN_KARMA_INVALID_INPUT."</span>\n");
                                 return false;
                             }
                             // posted user agent (need a better validator, I think)
                             $puser_agent = $kdata['user_agent'];
                             if (serendipity_db_escape_string($puser_agent) != $puser_agent) {
-                                print("<span class='msg_error'><span class='icon-attention-circled'></span> ".PLUGIN_KARMA_INVALID_INPUT."</span>\n");
+                                print("<span class='msg_error'><span class='icon-attention-circled' aria-hidden='true'></span> ".PLUGIN_KARMA_INVALID_INPUT."</span>\n");
                                 return false;
                             }
                             // posted vote time
                             $pvotetime = $kdata['votetime'];
                             $unixsecs = date('U', $kdata['votetime']);
                             if ($pvotetime != $unixsecs) {
-                                print("<span class='msg_error'><span class='icon-attention-circled'></span> ".PLUGIN_KARMA_INVALID_INPUT."</span>\n");
+                                print("<span class='msg_error'><span class='icon-attention-circled' aria-hidden='true'></span> ".PLUGIN_KARMA_INVALID_INPUT."</span>\n");
                                 return false;
                             }
 
@@ -1503,13 +1503,13 @@ END_IMG_CSS;
                                         );
                                     $updated = serendipity_db_query($update);
                                     if ($updated != 1) {
-                                        printf("<span class='msg_error'><span class='icon-attention-circled'></span> ".PLUGIN_KARMA_REMOVE_ERROR."</span>\n", $pid);
+                                        printf("<span class='msg_error'><span class='icon-attention-circled' aria-hidden='true'></span> ".PLUGIN_KARMA_REMOVE_ERROR."</span>\n", $pid);
                                         // Don't delete from karma log if we couldn't take away the points
                                         continue;
                                     }
                                 } else {
                                     // This will only happen if someone is messing with the karma table or submit data
-                                    printf("<span class='msg_error'><span class='icon-attention-circled'></span> ".PLUGIN_KARMA_UPDATE_ERROR."</span>", $pid);
+                                    printf("<span class='msg_error'><span class='icon-attention-circled' aria-hidden='true'></span> ".PLUGIN_KARMA_UPDATE_ERROR."</span>", $pid);
                                     continue;
                                 }
                             }
@@ -1527,12 +1527,12 @@ END_IMG_CSS;
                             // User feedback
                             if ($deleted == 1) {
                                 if ($serendipity['POST']['delete_button']) {
-                                    printf("<span class='msg_success'><span class='icon-ok-circled'></span> ".PLUGIN_KARMA_REMOVED_POINTS."</span>\n", $ppoints, $pid);
+                                    printf("<span class='msg_success'><span class='icon-ok-circled' aria-hidden='true'></span> ".PLUGIN_KARMA_REMOVED_POINTS."</span>\n", $ppoints, $pid);
                                 } else {
-                                    printf("<span class='msg_success'><span class='icon-ok-circled'></span> ".PLUGIN_KARMA_APPROVED_POINTS."</span>\n", $ppoints, $pid);
+                                    printf("<span class='msg_success'><span class='icon-ok-circled' aria-hidden='true'></span> ".PLUGIN_KARMA_APPROVED_POINTS."</span>\n", $ppoints, $pid);
                                 }
                             } else {
-                                printf("<span class='msg_error'><span class='icon-attention-circled'></span> ".PLUGIN_KARMA_REMOVE_ERROR."</span>\n", $pid);
+                                printf("<span class='msg_error'><span class='icon-attention-circled' aria-hidden='true'></span> ".PLUGIN_KARMA_REMOVE_ERROR."</span>\n", $pid);
                             }
                         }
                     }
@@ -1548,8 +1548,8 @@ END_IMG_CSS;
     <input name='serendipity[adminAction]' type='hidden' value='{$serendipity['GET']['adminAction']}'>
 
     <ul class='filters_toolbar clearfix plainList'>
-        <li><a class='button_link' href='#serendipity_admin_filters' title='".FILTERS."'><span class='icon-filter'></span><span class='visuallyhidden'> ".FILTERS."</span></a></li>
-        <li><a class='button_link' href='#serendipity_admin_sort' title='".SORT_ORDER."'><span class='icon-sort'></span><span class='visuallyhidden'> ".SORT_ORDER."</span></a></li>
+        <li><a class='button_link' href='#serendipity_admin_filters' title='".FILTERS."'><span class='icon-filter' aria-hidden='true'></span><span class='visuallyhidden'> ".FILTERS."</span></a></li>
+        <li><a class='button_link' href='#serendipity_admin_sort' title='".SORT_ORDER."'><span class='icon-sort' aria-hidden='true'></span><span class='visuallyhidden'> ".SORT_ORDER."</span></a></li>
     </ul>
 
     <fieldset id='serendipity_admin_filters' class='additional_info filter_pane'>
@@ -1657,7 +1657,7 @@ END_IMG_CSS;
                     // Paging (partly ripped from include/admin/comments.inc.php)
                     $commentsPerPage = (int)(!empty($serendipity['GET']['filter']['perpage']) ? $serendipity['GET']['filter']['perpage'] : 25);
                     $sql = serendipity_db_query("SELECT COUNT(*) AS total FROM {$serendipity['dbPrefix']}karmalog l WHERE 1 = 1 " . $and, true);
-                    if (is_string($sql)) print("<span class='msg_error'><span class='icon-attention-circled'></span> ".$sql."</span>\n");
+                    if (is_string($sql)) print("<span class='msg_error'><span class='icon-attention-circled' aria-hidden='true'></span> ".$sql."</span>\n");
                     $totalVotes = (is_array($sql) &&  is_int($sql['total'])) ? $sql['total'] : 0;
                     $pages = ($commentsPerPage == COMMENTS_FILTER_ALL ? 1 : ceil($totalVotes/(int)$commentsPerPage));
                     $page = (int)$serendipity['GET']['page'];
@@ -1680,12 +1680,12 @@ END_IMG_CSS;
 
                     // Variables for display
                     if ($linkPrevious) {
-                        $linkPrevious = '<a class="button_link" href="' . $linkPrevious . '" title="'. PREVIOUS .'"><span class="icon-left-dir"></span><span class="visuallyhidden"> '. PREVIOUS .'</span></a>';
+                        $linkPrevious = '<a class="button_link" href="' . $linkPrevious . '" title="'. PREVIOUS .'"><span class="icon-left-dir" aria-hidden="true"></span><span class="visuallyhidden"> '. PREVIOUS .'</span></a>';
                     } else {
                         $linkPrevious = '<span class="visuallyhidden">'. NO_ENTRIES_TO_PRINT .'</span>';
                     }
                     if ($linkNext) {
-                        $linkNext = '<a class="button_link" href="' . $linkNext . '" title="'. NEXT .'"><span class="visuallyhidden">'. NEXT .' </span><span class="icon-right-dir"></span></a>';
+                        $linkNext = '<a class="button_link" href="' . $linkNext . '" title="'. NEXT .'"><span class="visuallyhidden">'. NEXT .' </span><span class="icon-right-dir" aria-hidden="true"></span></a>';
                     } else {
                         $linkNext = '<span class="visuallyhidden">'. NO_ENTRIES_TO_PRINT .'</span>';
                     }
@@ -1718,8 +1718,8 @@ END_IMG_CSS;
                                 $votetitle = $vote['title'];
                             }
                             $entrylink = serendipity_archiveURL($vote['entryid'], $vote['title'], 'serendipityHTTPPath', true);
-                            $entryFilterHtml = "<a class='button_link filter_karma' href='$url&serendipity[filter][entryid]={$vote['entryid']}' title='". FILTERS ."'><span class='icon-filter'></span><span class='visuallyhidden'>". FILTERS ."</span></a>";
-                            $ipFilterHtml = "<a class='button_link filter_karma' href='$url&serendipity[filter][ip]={$vote['ip']}' title='". FILTERS ."'><span class='icon-filter'></span><span class='visuallyhidden'>". FILTERS ."</span></a>";
+                            $entryFilterHtml = "<a class='button_link filter_karma' href='$url&serendipity[filter][entryid]={$vote['entryid']}' title='". FILTERS ."'><span class='icon-filter' aria-hidden='true'></span><span class='visuallyhidden'>". FILTERS ."</span></a>";
+                            $ipFilterHtml = "<a class='button_link filter_karma' href='$url&serendipity[filter][ip]={$vote['ip']}' title='". FILTERS ."'><span class='icon-filter' aria-hidden='true'></span><span class='visuallyhidden'>". FILTERS ."</span></a>";
                             $timestr = strftime('%a %b %d %Y, %H:%M:%S', $vote['votetime']);
                             $cssClass = (($i % 2 ==0)?'even':'odd');
                             $barClass = str_replace(array('.',' '), array('_','_'), $this->image_name);
@@ -1739,7 +1739,7 @@ END_IMG_CSS;
         </div>
 
         <h4><a href='$entrylink' title='ID: {$vote['entryid']}'>{$votetitle}</a>
-            <button class='toggle_info button_link' type='button' data-href='#karma_data_$i'><span class='icon-info-circled'></span><span class='visuallyhidden'> ". MORE ."</span></button>
+            <button class='toggle_info button_link' type='button' data-href='#karma_data_$i'><span class='icon-info-circled' aria-hidden='true'></span><span class='visuallyhidden'> ". MORE ."</span></button>
             $entryFilterHtml
         </h4>
 
@@ -1786,7 +1786,7 @@ END_IMG_CSS;
 
                     } else {
                         print("
-<span class='msg_notice'><span class='icon-info-circled'></span> No logs to display. You need to enable karma logging, if you want to see single votes displayed here.</span>
+<span class='msg_notice'><span class='icon-info-circled' aria-hidden='true'></span> No logs to display. You need to enable karma logging, if you want to see single votes displayed here.</span>
 ");
                     }
 
@@ -2158,7 +2158,7 @@ END_IMG_CSS;
      * @param mixed points The total karma points
      * @param mixed votes The total number of votes
      *
-     * @return string A word corresponding to the article rating, 
+     * @return string A word corresponding to the article rating,
      *     or PLUGIN_KARMA_IMAGE_NONE_RATING if no votes have been recorded.
      */
     function wordRating($points, $votes) {

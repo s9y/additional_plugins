@@ -27,7 +27,7 @@ class serendipity_event_multilingual extends serendipity_event
             'php'         => '4.1.0'
         ));
         $propbag->add('groups',         array('FRONTEND_ENTRY_RELATED', 'BACKEND_EDITOR'));
-        $propbag->add('version',        '2.32');
+        $propbag->add('version',        '2.33');
         $propbag->add('configuration',  array('copytext', 'placement', 'tagged_title', 'tagged_entries', 'tagged_sidebar', 'langswitch'));
         $propbag->add('event_hooks',    array(
                 'frontend_fetchentries'     => true,
@@ -153,7 +153,7 @@ class serendipity_event_multilingual extends serendipity_event
         if ($built == 2) {
             $q = "SHOW INDEX FROM {$serendipity['dbPrefix']}entryproperties FROM {$serendipity['dbName']}";
             if (!is_array(serendipity_db_query($q))) {
-                echo '<span class="msg_error"><span class="icon-attention-circled"></span> <strong>Error:</strong> '.$r.'. Does it exist? Please check your privileges to this table; triggered in serendipity_event_multilingual, setupDB() method.</span>';
+                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <strong>Error:</strong> '.$r.'. Does it exist? Please check your privileges to this table; triggered in serendipity_event_multilingual, setupDB() method.</span>';
             } else $this->set_config('db_built', 3);
         }
         if ($built == 3) {
@@ -656,7 +656,7 @@ class serendipity_event_multilingual extends serendipity_event
                         <input class="serendipityPrettyButton input_button" type="submit" name="serendipity[no_save]" value="<?php echo PLUGIN_EVENT_MULTILINGUAL_SWITCH; ?>" />
 <?php
                     } else {
-                        echo '<span class="msg_notice"><span class="icon-info-circled"></span> ' . PLUGIN_EVENT_MULTILINGUAL_NEEDTOSAVE . "</span>\n";
+                        echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . PLUGIN_EVENT_MULTILINGUAL_NEEDTOSAVE . "</span>\n";
                     }
 ?>
                         </div>

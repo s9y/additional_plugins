@@ -66,7 +66,7 @@
     </div>
     {/if}
     {* this info text constant contains linebreaks while there are 3 lines of information to understand *}
-    <span class="msg_notice"><span class="icon-info-circled"></span> {$CONST.PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE_BLAHBLAH|sprintf:$dlmtfp.ftppath:$dlmgbl[0].cat.payload}</span>
+    <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.PLUGIN_DOWNLOADMANAGER_INCOMINGTABLE_BLAHBLAH|sprintf:$dlmtfp.ftppath:$dlmgbl[0].cat.payload}</span>
 
     <table id="ftpfiles" cellspacing="0">
     <thead>
@@ -122,7 +122,7 @@
 <!-- // div container page {$dlmgbl.thispage} dlm(3) -->
 <div id="dlm3" class="dlm_backend_s9ml_box">
     {* Erm ... shouldn't this be a form?!? No, this is a single file movement only! We do not need multi file movement in media library. *}
-    <span class="msg_notice"><span class="icon-info-circled"></span> {$CONST.PLUGIN_DOWNLOADMANAGER_MEDIA_LIBRARY_BLAHBLAH} {$dlmtsl.smlpath}</span>
+    <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.PLUGIN_DOWNLOADMANAGER_MEDIA_LIBRARY_BLAHBLAH} {$dlmtsl.smlpath}</span>
 
     <table id="smlfiles" cellspacing="0">
     <thead>

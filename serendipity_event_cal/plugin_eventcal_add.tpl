@@ -62,7 +62,7 @@
                         </select>
                     </td>
                     <td class="eventformdesc">
-                        <input type="radio" name="calendar[type]" value="single" {$plugin_eventcal_add_tipo1} />{$CONST.CAL_EVENT_FORM_RIGHT_SINGLE} <b class="eventcal_tab">({$CONST.CAL_EVENT_FORM_RIGHT_SINGLE_NOEND})</b> <abbr title="{$CONST.CAL_EVENT_FORM_RIGHT_HELP_SINGLE}">{if !$S9y2}<input type="button" class="serendipityPrettyButton info" name="info" value="i" />{else}<span class="icon-info-circled"></span>{/if}</abbr>
+                        <input type="radio" name="calendar[type]" value="single" {$plugin_eventcal_add_tipo1} />{$CONST.CAL_EVENT_FORM_RIGHT_SINGLE} <b class="eventcal_tab">({$CONST.CAL_EVENT_FORM_RIGHT_SINGLE_NOEND})</b> <abbr title="{$CONST.CAL_EVENT_FORM_RIGHT_HELP_SINGLE}">{if !$S9y2}<input type="button" class="serendipityPrettyButton info" name="info" value="i" />{else}<span class="icon-info-circled" aria-hidden="true"></span>{/if}</abbr>
                     </td>
                 </tr>
                 <tr class="e0">
@@ -79,7 +79,7 @@
                         </select>
                     </td>
                     <td class="eventformdesc">
-                        <input type="radio" name="calendar[type]" value="multi" {$plugin_eventcal_add_tipo2} />{$CONST.CAL_EVENT_FORM_RIGHT_MULTI} <abbr title="{$CONST.CAL_EVENT_FORM_RIGHT_HELP_MULTI}">{if !$S9y2}<input type="button" class="serendipityPrettyButton info" name="info" value="i" />{else}<span class="icon-info-circled"></span>{/if}</abbr>
+                        <input type="radio" name="calendar[type]" value="multi" {$plugin_eventcal_add_tipo2} />{$CONST.CAL_EVENT_FORM_RIGHT_MULTI} <abbr title="{$CONST.CAL_EVENT_FORM_RIGHT_HELP_MULTI}">{if !$S9y2}<input type="button" class="serendipityPrettyButton info" name="info" value="i" />{else}<span class="icon-info-circled" aria-hidden="true"></span>{/if}</abbr>
                     </td>
                 </tr>
                 <tr class="e0">
@@ -93,21 +93,21 @@
                         </select>
                     </td>
                     <td class="eventformdesc">
-                        <input type="radio" name="calendar[type]" value="recur" {$plugin_eventcal_add_tipo3} />{$CONST.CAL_EVENT_FORM_RIGHT_RECUR} <b class="eventcal_tab">({$CONST.CAL_EVENT_FORM_RIGHT_RECUR_MONTH})</b> <abbr title="{$CONST.CAL_EVENT_FORM_RIGHT_HELP_MONTH}">{if !$S9y2}<input type="button" class="serendipityPrettyButton info" name="info" value="i" />{else}<span class="icon-info-circled"></span>{/if}</abbr>
+                        <input type="radio" name="calendar[type]" value="recur" {$plugin_eventcal_add_tipo3} />{$CONST.CAL_EVENT_FORM_RIGHT_RECUR} <b class="eventcal_tab">({$CONST.CAL_EVENT_FORM_RIGHT_RECUR_MONTH})</b> <abbr title="{$CONST.CAL_EVENT_FORM_RIGHT_HELP_MONTH}">{if !$S9y2}<input type="button" class="serendipityPrettyButton info" name="info" value="i" />{else}<span class="icon-info-circled" aria-hidden="true"></span>{/if}</abbr>
                     </td>
                 </tr>
                 <tr class="e0">
                     <th class="eventformtitle">&nbsp;</th>
                     <td class="eventformdesc">&nbsp;<sub>{$CONST.CAL_EVENT_FORM_RIGHT_RECURSTRICT1}</sub></td>
                     <td class="eventformdesc">
-                        <input type="radio" name="calendar[type]" value="weekly" {$plugin_eventcal_add_tipo4} />{$CONST.CAL_EVENT_FORM_RIGHT_RECUR} <b class="eventcal_tab">({$CONST.CAL_EVENT_FORM_RIGHT_RECUR_WEEK})</b> <abbr title="{$CONST.CAL_EVENT_FORM_RIGHT_HELP_WEEK}">{if !$S9y2}<input type="button" class="serendipityPrettyButton info" name="info" value="i" />{else}<span class="icon-info-circled"></span>{/if}</abbr>
+                        <input type="radio" name="calendar[type]" value="weekly" {$plugin_eventcal_add_tipo4} />{$CONST.CAL_EVENT_FORM_RIGHT_RECUR} <b class="eventcal_tab">({$CONST.CAL_EVENT_FORM_RIGHT_RECUR_WEEK})</b> <abbr title="{$CONST.CAL_EVENT_FORM_RIGHT_HELP_WEEK}">{if !$S9y2}<input type="button" class="serendipityPrettyButton info" name="info" value="i" />{else}<span class="icon-info-circled" aria-hidden="true"></span>{/if}</abbr>
                     </td>
                 </tr>
                 <tr class="e0">
                     <th class="eventformtitle">&nbsp;</th>
                     <td class="eventformdesc">&nbsp;<sup>{$CONST.CAL_EVENT_FORM_RIGHT_RECURSTRICT2}</sup></td>
                     <td class="eventformdesc">
-                        <input type="radio" name="calendar[type]" value="biweekly" {$plugin_eventcal_add_tipo5} />{$CONST.CAL_EVENT_FORM_RIGHT_RECUR} <b class="eventcal_tab">({$CONST.CAL_EVENT_FORM_RIGHT_RECUR_BIWEEK})</b> <abbr title="{$CONST.CAL_EVENT_FORM_RIGHT_HELP_BIWEEK}">{if !$S9y2}<input type="button" class="serendipityPrettyButton info" name="info" value="i" />{else}<span class="icon-info-circled"></span>{/if}</abbr>
+                        <input type="radio" name="calendar[type]" value="biweekly" {$plugin_eventcal_add_tipo5} />{$CONST.CAL_EVENT_FORM_RIGHT_RECUR} <b class="eventcal_tab">({$CONST.CAL_EVENT_FORM_RIGHT_RECUR_BIWEEK})</b> <abbr title="{$CONST.CAL_EVENT_FORM_RIGHT_HELP_BIWEEK}">{if !$S9y2}<input type="button" class="serendipityPrettyButton info" name="info" value="i" />{else}<span class="icon-info-circled" aria-hidden="true"></span>{/if}</abbr>
                     </td>
                 </tr>
                 <tr class="e0">
@@ -116,7 +116,7 @@
                         <input type="text" name="calendar[app_by]" value="{$plugin_eventcal_add_app_by}" size="16" maxlength="16" /><font class="eventcal_tab">{$CONST.CAL_EVENT_FORM_RIGHT_SHORTMAX}</font>
                     </td>
                     <td class="eventformdesc">
-                        <input type="radio" name="calendar[type]" value="yearly" {$plugin_eventcal_add_tipo6} />{$CONST.CAL_EVENT_FORM_RIGHT_RECUR} <b class="eventcal_tab">({$CONST.CAL_EVENT_FORM_RIGHT_RECUR_YEAR})</b> <abbr title="{$CONST.CAL_EVENT_FORM_RIGHT_HELP_YEAR}">{if !$S9y2}<input type="button" class="serendipityPrettyButton info" name="info" value="i" />{else}<span class="icon-info-circled"></span>{/if}</abbr>
+                        <input type="radio" name="calendar[type]" value="yearly" {$plugin_eventcal_add_tipo6} />{$CONST.CAL_EVENT_FORM_RIGHT_RECUR} <b class="eventcal_tab">({$CONST.CAL_EVENT_FORM_RIGHT_RECUR_YEAR})</b> <abbr title="{$CONST.CAL_EVENT_FORM_RIGHT_HELP_YEAR}">{if !$S9y2}<input type="button" class="serendipityPrettyButton info" name="info" value="i" />{else}<span class="icon-info-circled" aria-hidden="true"></span>{/if}</abbr>
                     </td>
                 </tr>
                 <tr class="e0">
@@ -156,7 +156,7 @@
                         {serendipity_hookPlugin hook="frontend_comment" data="$plugin_eventcal_cal_entry"}
                     </td>
                 </tr>
-                
+
                 {/if}
                 </tbody>
             </table>

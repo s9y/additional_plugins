@@ -41,7 +41,7 @@ class serendipity_event_todolist extends serendipity_event {
                                             'css_backend'                                           => true
                                             ));
         $propbag->add('author', 'Steven Tonnesen, Matthias Mees');
-        $propbag->add('version', '1.25.0');
+        $propbag->add('version', '1.25.1');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '2.6.7',
@@ -1534,12 +1534,12 @@ class serendipity_event_todolist extends serendipity_event {
                     if ($sort_idx == 0) {
                         $moveup   = '<td>&nbsp;</td>';
                     } else {
-                        $moveup   = '<td><a class="button_link" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=percentagedone&amp;submit=move+up&amp;serendipity[project_to_move]=' . $id . '"><span class="icon-up-dir"></span><span class="visuallyhidden">' . UP . '</span></a></td>';
+                        $moveup   = '<td><a class="button_link" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=percentagedone&amp;submit=move+up&amp;serendipity[project_to_move]=' . $id . '"><span class="icon-up-dir" aria-hidden="true"></span><span class="visuallyhidden">' . UP . '</span></a></td>';
                     }
                     if ($sort_idx == (count($sql)-1)) {
                         $movedown = '<td>&nbsp;</td>';
                     } else {
-                        $movedown = '<td><a class="button_link" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=percentagedone&amp;submit=move+down&serendipity[project_to_move]=' . $id . '"><span class="icon-down-dir"></span><span class="visuallyhidden">'. DOWN .'</span></a></td>';
+                        $movedown = '<td><a class="button_link" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=percentagedone&amp;submit=move+down&serendipity[project_to_move]=' . $id . '"><span class="icon-down-dir" aria-hidden="true"></span><span class="visuallyhidden">'. DOWN .'</span></a></td>';
                     }
                 }
 

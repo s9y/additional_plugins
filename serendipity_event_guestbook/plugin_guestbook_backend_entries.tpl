@@ -39,13 +39,13 @@
 {if $is_guestbook_message}{$msg_header=$error_occured}{call feedback}{/if}
 
 {if $is_gbadmin_noappresult}
-    <div class="msg_error"><span class="icon-attention-circled"></span> {$CONST.PLUGIN_GUESTBOOK_ADMIN_APP_NORESULT}</div>
+    <div class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PLUGIN_GUESTBOOK_ADMIN_APP_NORESULT}</div>
 {/if}
 {if $is_gbadmin_noviewresult}
-    <div class="msg_error"><span class="icon-attention-circled"></span> {$CONST.PLUGIN_GUESTBOOK_ADMIN_VIEW_NORESULT}</div>
+    <div class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PLUGIN_GUESTBOOK_ADMIN_VIEW_NORESULT}</div>
 {/if}
 {if $is_gbadmin_nodbcdb}
-    <div class="msg_error"><span class="icon-attention-circled"></span> {$CONST.PLUGIN_GUESTBOOK_ADMIN_DBC_NIXDA_DESC}</div>
+    <div class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PLUGIN_GUESTBOOK_ADMIN_DBC_NIXDA_DESC}</div>
 {/if}
 
 {if $guestbook_entries}
@@ -69,7 +69,7 @@
                 <div class="gb_entryhead">
                     <span>
                         <a href="mailto:{$entry.email}">{$entry.name}</a>
-                        {$CONST.PLUGIN_GUESTBOOK_USERSDATE_OF_ENTRY} <span class="icon-clock" title="{$CONST.TEXT_IMG_LASTMODIFIED}: {$entry.timestamp}"></span>
+                        {$CONST.PLUGIN_GUESTBOOK_USERSDATE_OF_ENTRY} <span class="icon-clock" aria-hidden="true" title="{$CONST.TEXT_IMG_LASTMODIFIED}: {$entry.timestamp}"></span>
                     </span>
                 {if $is_guestbook_admin_noapp != true}
 
@@ -92,7 +92,7 @@
 
                 <div class="gb_entrybody">
                     <label for="show">
-                        <span class="icon-show"></span>
+                        <span class="icon-show" aria-hidden="true"></span>
                     </label>
                     <input type=radio id="show" name="group">
                     <input type=radio id="hide" name="group">

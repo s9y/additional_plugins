@@ -91,7 +91,7 @@ class serendipity_event_staticpage extends serendipity_event
         $propbag->add('page_configuration', $this->config);
         $propbag->add('type_configuration', $this->config_types);
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers');
-        $propbag->add('version', '4.13');
+        $propbag->add('version', '4.14');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '2.6.7',
@@ -1676,13 +1676,13 @@ class serendipity_event_staticpage extends serendipity_event
         if (!isset($this->pagetype['id'])) {
             $result = serendipity_db_insert('staticpages_types', $this->pagetype);
             if (is_string($result)) {
-                echo '<span class="msg_error"><span class="icon-attention-circled"></span> ERROR: ' . $result . '</span>';
+                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ERROR: ' . $result . '</span>';
             }
             $serendipity["POST"]["pagetype"] = serendipity_db_insert_id('staticpages_types', 'id');
         } else {
             $result = serendipity_db_update('staticpages_types', array('id' => $this->pagetype['id']), $this->pagetype);
             if (is_string($result)) {
-                echo '<span class="msg_error"><span class="icon-attention-circled"></span> ERROR: ' . $result . '</span>';
+                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ERROR: ' . $result . '</span>';
             }
         }
     }
@@ -1803,14 +1803,14 @@ class serendipity_event_staticpage extends serendipity_event
                         if($sort_idx == 0) {
                             echo '<span class="button_placeholder">&nbsp;</span>';
                         } else {
-                            echo '<a class="button_link" href="?serendipity[adminModule]=staticpages&amp;serendipity[moveto]=moveup&amp;serendipity[pagetomove]=' . $page['id'] . '&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=staticpages&amp;serendipity[staticpagecategory]=pageorder"><span class="icon-up-dir"></span><span class="visuallyhidden">' . UP . '</span></a>';
+                            echo '<a class="button_link" href="?serendipity[adminModule]=staticpages&amp;serendipity[moveto]=moveup&amp;serendipity[pagetomove]=' . $page['id'] . '&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=staticpages&amp;serendipity[staticpagecategory]=pageorder"><span class="icon-up-dir" aria-hidden="true"></span><span class="visuallyhidden">' . UP . '</span></a>';
                         }
                         echo '</li>'."\n";
                         echo '<li>';
                         if ($sort_idx == (count($pages)-1)) {
                             echo '<span class="button_placeholder">&nbsp;</span>';
                         } else {
-                            echo ($page['moveup']!= '' ? '&nbsp;' : '') . '<a class="button_link" href="?serendipity[adminModule]=staticpages&amp;serendipity[moveto]=movedown&serendipity[pagetomove]=' . $page['id'] . '&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=staticpages&amp;serendipity[staticpagecategory]=pageorder"><span class="icon-down-dir"></span><span class="visuallyhidden">'. DOWN .'</span></a>';
+                            echo ($page['moveup']!= '' ? '&nbsp;' : '') . '<a class="button_link" href="?serendipity[adminModule]=staticpages&amp;serendipity[moveto]=movedown&serendipity[pagetomove]=' . $page['id'] . '&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=staticpages&amp;serendipity[staticpagecategory]=pageorder"><span class="icon-down-dir" aria-hidden="true"></span><span class="visuallyhidden">'. DOWN .'</span></a>';
                         }
                         echo '</li>'."\n";
                         echo '</div></li>'."\n";
@@ -1844,13 +1844,13 @@ class serendipity_event_staticpage extends serendipity_event
                             $this->pagetype[$config_item] = serendipity_get_bool($serendipity['POST']['plugin'][$config_item]);
                         }
                     }
-                    echo '<span class="msg_success"><span class="icon-ok-circled"></span>'. DONE .': '. sprintf(SETTINGS_SAVED_AT, serendipity_strftime('%H:%M:%S')) .'</span>';
+                    echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span>'. DONE .': '. sprintf(SETTINGS_SAVED_AT, serendipity_strftime('%H:%M:%S')) .'</span>';
                     $this->updatePageType();
                 }
 
                 if (!empty($serendipity['POST']['typeDelete']) && $serendipity['POST']['pagetype'] != '__new') {
                     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}staticpages_types WHERE id = " . (int)$serendipity['POST']['pagetype']);
-                    echo '<span class="msg_success"><span class="icon-ok-circled"></span>'. DONE .': '. sprintf(RIP_ENTRY, $this->pagetype['description']) . '</span>';
+                    echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span>'. DONE .': '. sprintf(RIP_ENTRY, $this->pagetype['description']) . '</span>';
                 }
 
                 echo '<form action="serendipity_admin.php" method="post" name="serendipityEntry">';
@@ -1969,9 +1969,9 @@ class serendipity_event_staticpage extends serendipity_event
 
                     $result = $this->updateStaticPage();
                     if (is_string($result)) {
-                        echo '<span class="msg_error"><span class="icon-attention-circled"></span> ERROR: ' . $result . '</span>';
+                        echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ERROR: ' . $result . '</span>';
                     } else {
-                        echo '<span class="msg_success"><span class="icon-ok-circled"></span>' . DONE . ': ' . sprintf(SETTINGS_SAVED_AT, serendipity_strftime('%H:%M:%S')). '</span>';
+                        echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span>' . DONE . ': ' . sprintf(SETTINGS_SAVED_AT, serendipity_strftime('%H:%M:%S')). '</span>';
                     }
 
                 }
@@ -1979,9 +1979,9 @@ class serendipity_event_staticpage extends serendipity_event
                 if (!empty($serendipity['POST']['staticDelete']) && $serendipity['POST']['staticpage'] != '__new') {
                     if (!$this->getChildPage($serendipity['POST']['staticpage'])) {
                         serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}staticpages WHERE id = " . (int)$serendipity['POST']['staticpage']);
-                        echo '<span class="msg_success"><span class="icon-ok-circled"></span>' . DONE . ': '. sprintf(RIP_ENTRY, $this->staticpage['pagetitle']) . '</span>';
+                        echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span>' . DONE . ': '. sprintf(RIP_ENTRY, $this->staticpage['pagetitle']) . '</span>';
                     } else {
-                        echo '<span class="msg_notice"><span class="icon-info-circled"></span>' . IMPORT_NOTES . ': '. STATICPAGE_CANNOTDELETE_MSG . '</span>';
+                        echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span>' . IMPORT_NOTES . ': '. STATICPAGE_CANNOTDELETE_MSG . '</span>';
                     }
                 }
 
@@ -2043,7 +2043,7 @@ class serendipity_event_staticpage extends serendipity_event
                 echo '</div>';
 
                 if ($sbplav) {
-                    echo '<span class="msg_notice"><span class="icon-info-circled"></span> ';
+                    echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ';
                     echo 'Staticpage Sidebar ' . STATICPAGE_PLUGIN_AVAILABLE;
                     echo '</span>';
                 }
@@ -2056,7 +2056,7 @@ class serendipity_event_staticpage extends serendipity_event
                     echo 'staticpage_preview.focus();' . "\n";
                     echo '</script>';
                     $serendipity['POST']['staticSubmit'] = true;
-                    echo '<span class="msg_notice"><span class="icon-info-circled"></span> ' . sprintf(PLUGIN_STATICPAGE_PREVIEW, '<a href="' . $link . '">' . $this->staticpage['pagetitle'] . '</a>') . '</span>';
+                    echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . sprintf(PLUGIN_STATICPAGE_PREVIEW, '<a href="' . $link . '">' . $this->staticpage['pagetitle'] . '</a>') . '</span>';
                 }
 
                 if ($serendipity['POST']['staticSubmit'] || isset($serendipity['GET']['staticid'])) {
@@ -2674,7 +2674,7 @@ foreach($select AS $select_value => $select_desc) {
         // Find out if the entry has been modified later than 30 minutes after creation
         if ( $entry['timestamp'] <= ($entry['last_modified'] - 60*30) )
         {
-            $lm = '<span class="icon-info-circled" title="' . LAST_UPDATED . ': ' . serendipity_formatTime(DATE_FORMAT_SHORT, $entry['last_modified']) . '"></span>';
+            $lm = '<span class="icon-info-circled" aria-hidden="true" title="' . LAST_UPDATED . ': ' . serendipity_formatTime(DATE_FORMAT_SHORT, $entry['last_modified']) . '"></span>';
         }
         else
         {
@@ -2703,7 +2703,7 @@ foreach($select AS $select_value => $select_desc) {
                     <input type="hidden" name="serendipity[staticpage]" value="<?php echo $entry['id']; ?>">
 
                     <ul class="plainList clearfix actions">
-                        <li><a target="_blank" href="<?php echo $link ?>" title="<?php echo VIEW . ' #' . $entry['pagetitle']; ?>" class="button_link"><span class="icon-search"></span><span class="visuallyhidden"> <?php echo VIEW . " #" . $entry['pagetitle']; ?></span></a></li>
+                        <li><a target="_blank" href="<?php echo $link ?>" title="<?php echo VIEW . ' #' . $entry['pagetitle']; ?>" class="button_link"><span class="icon-search" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo VIEW . " #" . $entry['pagetitle']; ?></span></a></li>
                         <li><input type="submit" name="serendipity[staticSubmit]" title="<?php echo EDIT . "#" . $entry['pagetitle']; ?>" value="<?php echo EDIT; ?>"></li>
                         <li><input type="submit" name="serendipity[staticDelete]" class="state_cancel" onclick="return confirm('<?php echo sprintf(DELETE_SURE, $entry['pagetitle']); ?>');" title="<?php echo DELETE . "#" . $entry['pagetitle']; ?>" value="<?php echo DELETE; ?>"></li>
                     </ul>
@@ -2751,7 +2751,7 @@ foreach($select AS $select_value => $select_desc) {
     {
     ?>
         <div class="serendipity_admin_list">
-            <span class="msg_notice"><span class="icon-info-circled"></span> <?php echo NO_ENTRIES_TO_PRINT ?></span>
+            <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> <?php echo NO_ENTRIES_TO_PRINT ?></span>
 		</div>
     <?php
     }

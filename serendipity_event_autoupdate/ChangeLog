@@ -1,62 +1,59 @@
-1.1.7
-    * Fix beta-version upgrade by using github-archive path and
-      making the file detection more reliable
+1.1.8: Iconfont a11y fix (yellowled)
 
-1.1.6
+1.1.7: Fix beta-version upgrade by using github-archive path and making the
+       file detection more reliable
+
+1.1.6:
+
     * When curl download could not be tried, detect this as fail
     * Improve error messages if update can't be downloaded
     * Don't check checksums for beta
 
-1.1.5
+1.1.5:
+
     * Check for broken existing zip file
     * Set new requirement for PHP 5.2+
 
-1.1.4
+1.1.4:
+
     * Check into github repository from now on
     * Remove dashboard plugin dependency with >= 2.0
 
-1.1.3
-    * Fix bug when trying to download with cURL
+1.1.3: Fix bug when trying to download with cURL
 
-1.1.2
-    * some fixes for 2.0
+1.1.2: some fixes for 2.0
 
-1.1.1
-    * (html)specialchars for PHP 5.4 charset changes
+1.1.1: (html)specialchars for PHP 5.4 charset changes
 
-1.1
-    * Translated and faked message unicode-icons to Chrome Browser, since this 
-      does not work with all native unicodes (like clock and triangled <!>).
+1.1: Translated and faked message unicode-icons to Chrome Browser, since this 
+     does not work with all native unicodes (like clock and triangled <!>).
 
-1.0
-    * Enable flush to work on FastCGI servers
+1.0: Enable flush to work on FastCGI servers
 
-0.9
-    * Check if ZIP extension is installed and loaded
+0.9: Check if ZIP extension is installed and loaded
 
-0.8
-    * Use native API method serendipity_db_escape_string()
+0.8: Use native API method serendipity_db_escape_string()
 
-0.7
-    * Added on error RELOAD note
+0.7: Added on error RELOAD note
 
-0.6
+0.6:
+
     * Added install by USERLEVEL_ADMIN only
-    * changed some lang <en> <de> Constants
-      this also removed the experimental status
+    * changed some lang <en> <de> Constants; this also removed the
+      experimental status
 
-0.5
-    * View and follow upgrade process
+0.5: View and follow upgrade process
 
-0.4
+0.4:
+
     * Fixed checksums var
     * Enhanced cleanTemplatesC()
     * Added some debug and process messages
 
-0.3
-    * Compatibility fixes [brockhaus]
+0.3: Compatibility fixes [brockhaus]
 
 0.2:
+
     * Fixed: Didn't create new directories which were part of the new version
     * Fixed: Choked on new files of the new version which didn't exist
              in the old version
@@ -64,7 +61,8 @@
       display-errors 
 
 0.1.2:
+
     * Fixed call-by-reference-warning in php 5.3
     * Added checksum-test prior to unpacking to kind of authenticate
       the update
-    * Added checksum-test after unpacking to check the integrity 
+    * Added checksum-test after unpacking to check the integrity

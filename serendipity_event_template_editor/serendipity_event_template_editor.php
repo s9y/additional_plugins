@@ -25,7 +25,7 @@ class serendipity_event_template_editor extends serendipity_event {
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda');
         $propbag->add('license',       'GPL');
-        $propbag->add('version',       '0.8.0');
+        $propbag->add('version',       '0.8.1');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0'
         ));
@@ -186,13 +186,13 @@ class serendipity_event_template_editor extends serendipity_event {
                     }
 
                     if (isset($serendipity['GET']['message'])) {
-                        echo '<span class="msg_notice"><span class="icon-info-circled"></span>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['message']) : htmlspecialchars($serendipity['GET']['message'], ENT_COMPAT, LANG_CHARSET)) . '</span>';
+                        echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['message']) : htmlspecialchars($serendipity['GET']['message'], ENT_COMPAT, LANG_CHARSET)) . '</span>';
                     }
                     if (isset($serendipity['GET']['success'])) {
-                        echo '<span class="msg_success"><span class="icon-ok-circled"></span> ' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['success']) : htmlspecialchars($serendipity['GET']['success'], ENT_COMPAT, LANG_CHARSET)) . '</span>';
+                        echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['success']) : htmlspecialchars($serendipity['GET']['success'], ENT_COMPAT, LANG_CHARSET)) . '</span>';
                     }
                     if (isset($serendipity['GET']['error'])) {
-                        echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['error']) : htmlspecialchars($serendipity['GET']['error'], ENT_COMPAT, LANG_CHARSET)) . '</span>';
+                        echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['error']) : htmlspecialchars($serendipity['GET']['error'], ENT_COMPAT, LANG_CHARSET)) . '</span>';
                     }
 
                     #only necessary for delivering the javascript and css
@@ -346,7 +346,7 @@ class serendipity_event_template_editor extends serendipity_event {
                 echo "<li class=\"clearfix " . (++$filecount%2 ? "odd" : "even") . "\">
                           <span class=\"templateEditorListItem\">$file</span>
                           <ul class=\"plainList clearfix edit_actions\">
-                            <li><a class=\"button_link\" href=\"{$serendipity['baseURL']}index.php?/plugin/template_editor_delete&template_editor_path={$path}{$file}\" title=\"" . DELETE . "\"><span class=\"icon-trash\"></span><span class=\"visuallyhidden\">" . DELETE . "</span></a></li>
+                            <li><a class=\"button_link\" href=\"{$serendipity['baseURL']}index.php?/plugin/template_editor_delete&template_editor_path={$path}{$file}\" title=\"" . DELETE . "\"><span class=\"icon-trash\" aria-hidden=\"true\"></span><span class=\"visuallyhidden\">" . DELETE . "</span></a></li>
                           </ul>
                       </li>";
                 $jsDeleteDialogs .= sprintf('var DELETE_SURE_'.str_replace('.', '_', $file).'="'.DELETE_SURE.'";', $file);
@@ -354,8 +354,8 @@ class serendipity_event_template_editor extends serendipity_event {
                 echo "<li class=\"clearfix " . (++$filecount%2 ? "odd" : "even") . "\">
                           <span class=\"templateEditorListItem\">$file</span>
                           <ul class=\"plainList clearfix edit_actions\">
-                            <li><a class=\"button_link\" href=\"?&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=template_editor&amp;serendipity[template_editor_path]={$path}{$file}\" title=\"" . EDIT . "\"><span class=\"icon-edit\"></span><span class=\"visuallyhidden\">" . EDIT . "</span></a></li>
-                            <li><a class=\"button_link\" href=\"{$serendipity['baseURL']}index.php?/plugin/template_editor_delete&template_editor_path={$path}{$file}\" title=\"" . DELETE . "\"><span class=\"icon-trash\"></span><span class=\"visuallyhidden\">" . DELETE . "</span></a></li>
+                            <li><a class=\"button_link\" href=\"?&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=template_editor&amp;serendipity[template_editor_path]={$path}{$file}\" title=\"" . EDIT . "\"><span class=\"icon-edit\" aria-hidden=\"true\"></span><span class=\"visuallyhidden\">" . EDIT . "</span></a></li>
+                            <li><a class=\"button_link\" href=\"{$serendipity['baseURL']}index.php?/plugin/template_editor_delete&template_editor_path={$path}{$file}\" title=\"" . DELETE . "\"><span class=\"icon-trash\" aria-hidden=\"true\"></span><span class=\"visuallyhidden\">" . DELETE . "</span></a></li>
                           </ul>
                       </li>";
                 $jsDeleteDialogs .= sprintf('var DELETE_SURE_'.str_replace('.', '_', $file).'="'.DELETE_SURE.'";', $file);
@@ -382,7 +382,7 @@ class serendipity_event_template_editor extends serendipity_event {
         echo '<ul id="templateEditorFolderList" class="plainList zebra_list templateEditorList">';
         $dircount = 0;
         foreach ($dirs as $dir) {
-            echo "<li class=\"" . (++$dircount%2 ? "odd" : "even") . "\"><span class=\"icon-folder-open\"></span> <a class=\"templateEditorListItem\" href=\"?&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=template_editor&serendipity[template_editor_path]={$path}{$dir}/\">$dir</a></li>";
+            echo "<li class=\"" . (++$dircount%2 ? "odd" : "even") . "\"><span class=\"icon-folder-open\" aria-hidden=\"true\"></span> <a class=\"templateEditorListItem\" href=\"?&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=template_editor&serendipity[template_editor_path]={$path}{$dir}/\">$dir</a></li>";
         }
         echo '</ul>';
 

@@ -20,7 +20,7 @@ class serendipity_event_pollbox extends serendipity_event {
         $propbag->add('configuration', array('permalink', "articleformat", "pagetitle", "articleformattitle"));
         $propbag->add('author', 'Garvin Hicking, Matthias Mees');
         $propbag->add('groups', array('STATISTICS'));
-        $propbag->add('version', '2.15');
+        $propbag->add('version', '2.16');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -273,7 +273,7 @@ class serendipity_event_pollbox extends serendipity_event {
 <?php
             } else {
 ?>
-    <span class="msg_success"><span class="icon-ok-circled"></span> <?php echo DONE .': '. sprintf(RIP_ENTRY, (int)$serendipity['POST']['poll']); ?></span>
+    <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> <?php echo DONE .': '. sprintf(RIP_ENTRY, (int)$serendipity['POST']['poll']); ?></span>
 <?php
             }
         }

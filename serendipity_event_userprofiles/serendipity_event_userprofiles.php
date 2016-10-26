@@ -97,7 +97,7 @@ class serendipity_event_userprofiles extends serendipity_event {
             'genpage'                                         => true
         ));
         $propbag->add('author', 'Garvin Hicking, Falk Doering');
-        $propbag->add('version', '0.30');
+        $propbag->add('version', '0.31');
         $propbag->add('requirements', array(
             'serendipity' => '2.0',
             'smarty'      => '2.6.7',
@@ -205,20 +205,20 @@ class serendipity_event_userprofiles extends serendipity_event {
         echo '<h2>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars(PLUGIN_EVENT_USERPROFILES_SELECT) : htmlspecialchars(PLUGIN_EVENT_USERPROFILES_SELECT, ENT_COMPAT, LANG_CHARSET)) . '</h2>'."\n";
 
         if(!empty($serendipity['POST']['submitProfile'])) {
-            echo '<span class="msg_success"><span class="icon-ok-circled"></span> ' . DONE . ': ' . sprintf(SETTINGS_SAVED_AT, serendipity_strftime('%H:%M:%S')) . '</span>';
+            echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DONE . ': ' . sprintf(SETTINGS_SAVED_AT, serendipity_strftime('%H:%M:%S')) . '</span>';
         }
 
         if(!empty($serendipity['POST']['submitProfileOptions'])) {
-            echo '<span class="msg_success"><span class="icon-ok-circled"></span> ' . DONE . ': ' . sprintf(SETTINGS_SAVED_AT, serendipity_strftime('%H:%M:%S')) . '</span>';
+            echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DONE . ': ' . sprintf(SETTINGS_SAVED_AT, serendipity_strftime('%H:%M:%S')) . '</span>';
         }
 
         if(!empty($serendipity['POST']['createVcard'])) {
             if ($this->createVCard($serendipity['POST']['profileUser'])) {
-                echo '<span class="msg_success"><span class="icon-ok-circled"></span> '. DONE . ': ' . sprintf(PLUGIN_EVENT_USERPROFILES_VCARDCREATED_AT, serendipity_strftime('%H:%M:%S')) . '</span>';
-                echo '<span class="msg_notice"><span class="icon-info-circled"></span> '. IMPORT_NOTES . ': '. PLUGIN_EVENT_USERPROFILES_VCARDCREATED_NOTE . '</span>';
+                echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> '. DONE . ': ' . sprintf(PLUGIN_EVENT_USERPROFILES_VCARDCREATED_AT, serendipity_strftime('%H:%M:%S')) . '</span>';
+                echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> '. IMPORT_NOTES . ': '. PLUGIN_EVENT_USERPROFILES_VCARDCREATED_NOTE . '</span>';
             }
             else {
-                echo '<span class="msg_error"><span class="icon-attention-circled"></span> '. ERROR . ': ' . PLUGIN_EVENT_USERPROFILES_VCARDNOTCREATED . '</span>';
+                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> '. ERROR . ': ' . PLUGIN_EVENT_USERPROFILES_VCARDNOTCREATED . '</span>';
             }
         }
 

@@ -72,7 +72,7 @@ class serendipity_event_aggregator extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.33');
+        $propbag->add('version',       '0.34');
         $propbag->add('author',       'Evan Nemerson, Garvin Hicking, Kristian Koehntopp, Thomas Schulz, Claus Schmidt');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
@@ -665,7 +665,7 @@ class serendipity_event_aggregator extends serendipity_event {
         );
 
         if ($serendipity['version'][0] > 1) {
-            echo '<span class="msg_notice"><span class="icon-info-circled"></span> ';
+            echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ';
         }
             echo PLUGIN_AGGREGATOR_DESC;
         if ($serendipity['version'][0] == '1') {
@@ -674,7 +674,7 @@ class serendipity_event_aggregator extends serendipity_event {
             echo '</span>';
         }
         if ($serendipity['version'][0] > 1) {
-            echo '<span class="msg_hint"><span class="icon-help-circled"></span> ';
+            echo '<span class="msg_hint"><span class="icon-help-circled" aria-hidden="true"></span> ';
         }
             echo PLUGIN_AGGREGATOR_FEEDLIST;
         if ($serendipity['version'][0] == '1') {
@@ -766,7 +766,7 @@ class serendipity_event_aggregator extends serendipity_event {
         } else {
         echo '
             <h3>' . PLUGIN_AGGREGATOR_IMPORTFEEDLIST . '</h3>
-            <span class="msg_hint"><span class="icon-help-circled"></span> ' . PLUGIN_AGGREGATOR_IMPORTFEEDLIST_DESC . '</span>
+            <span class="msg_hint"><span class="icon-help-circled" aria-hidden="true"></span> ' . PLUGIN_AGGREGATOR_IMPORTFEEDLIST_DESC . '</span>
             <div class="form_field">
                 <label for="serendipity_aggregator_opml">URL</label>
                 <input id="serendipity_aggregator_opml" type="text" name="serendipity[aggregatorOPML]" value="http://">
@@ -788,7 +788,7 @@ class serendipity_event_aggregator extends serendipity_event {
         } else {
         echo '
             <h3>' . PLUGIN_AGGREGATOR_EXPORTFEEDLIST . '</h3>
-            <a class="button_link" href="' . serendipity_rewriteURL('plugin/opmlfeeds.xml') .'"><span class="icon-rss"></span> ' . PLUGIN_AGGREGATOR_EXPORTFEEDLIST_BUTTON . '</a>
+            <a class="button_link" href="' . serendipity_rewriteURL('plugin/opmlfeeds.xml') .'"><span class="icon-rss" aria-hidden="true"></span> ' . PLUGIN_AGGREGATOR_EXPORTFEEDLIST_BUTTON . '</a>
             </form>';
         }
     }
@@ -1706,7 +1706,7 @@ class serendipity_event_aggregator extends serendipity_event {
         // Feed Icon parsen und in feeds speichern
         return true;
     }
-    
+
     function parse_template($filename) {
         global $serendipity;
 

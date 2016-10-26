@@ -27,7 +27,7 @@ class serendipity_event_adminnotes extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.15');
+        $propbag->add('version',       '0.16');
         $propbag->add('author',        'Garvin Hicking, Matthias Mees');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array('feedback', 'limit', 'html', 'markup', 'cutoff'));
@@ -237,7 +237,7 @@ class serendipity_event_adminnotes extends serendipity_event {
                     if ($serendipity['version'][0] < 2) {
                         echo '<div class="serendipityAdminMsgSuccess"><img style="width: 22px; height: 22px; border: 0px; padding-right: 4px; vertical-align: middle" src="' . serendipity_getTemplateFile('admin/img/admin_msg_success.png') . '" alt="" />' . DONE . ': '. sprintf(SETTINGS_SAVED_AT, serendipity_strftime('%H:%M:%S')) . '</div>';
                     } else {
-                        echo '<span class="msg_success"><span class="icon-ok-circled"></span> ' . DONE . ': '. sprintf(SETTINGS_SAVED_AT, serendipity_strftime('%H:%M:%S')) . '</span>';
+                        echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DONE . ': '. sprintf(SETTINGS_SAVED_AT, serendipity_strftime('%H:%M:%S')) . '</span>';
                     }
                 }
 
@@ -319,7 +319,7 @@ class serendipity_event_adminnotes extends serendipity_event {
                 $entry = $this->getMyNotes((int)$_REQUEST['note']);
 
                 if ($serendipity['version'][0] > 1) {
-                    echo '<span class="msg_hint"><span class="icon-help-circled"></span> ';
+                    echo '<span class="msg_hint"><span class="icon-help-circled" aria-hidden="true"></span> ';
                 }
                 printf(DELETE_SURE, $entry['noteid'] . ' - ' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['subject']) : htmlspecialchars($entry['subject'], ENT_COMPAT, LANG_CHARSET)));
                 if ($serendipity['version'][0] > 1) {
@@ -358,7 +358,7 @@ class serendipity_event_adminnotes extends serendipity_event {
                     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}adminnotes_to_groups WHERE noteid = " . (int)$_REQUEST['note']);
                 }
                 if ($serendipity['version'][0] > 1) {
-                    echo '<span class="msg_success"><span class="icon-ok-circled"></span> ';
+                    echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ';
                 }
                     printf(RIP_ENTRY, $entry['noteid'] . ' - ' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['subject']) : htmlspecialchars($entry['subject'], ENT_COMPAT, LANG_CHARSET)));
                 if ($serendipity['version'][0] > 1) {
@@ -547,7 +547,7 @@ function fulltext_toggle(id) {
                         <?php echo serendipity_mb('substr', $output, 0, $cutoff) . "&hellip;\n"; ?>
                     </div>
                     <div class="note_summarylink">
-                        <button class="button_link toggle_comment_full" type="button" onclick="fulltext_toggle(<?php echo $id ?>); return false;" data-href="#qn<?php echo $id ?>_full" title="<?php echo TOGGLE_ALL ?>"><span class="icon-right-dir"></span><span class="visuallyhidden"> <?php echo TOGGLE_ALL ?></span></button>
+                        <button class="button_link toggle_comment_full" type="button" onclick="fulltext_toggle(<?php echo $id ?>); return false;" data-href="#qn<?php echo $id ?>_full" title="<?php echo TOGGLE_ALL ?>"><span class="icon-right-dir" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo TOGGLE_ALL ?></span></button>
                     </div>
 <?php
                     } else {

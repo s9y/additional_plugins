@@ -1,10 +1,6 @@
-ChangeLog:
-""""""""""
+0.38: Iconfont a11y fix (yellowled)
 
-0.37:
-----
-
- * Optimize URI args load
+0.37: Optimize URI args load
 
 [Version 0.36 2016/08/22] by Ian
 --------------------------------
@@ -127,7 +123,7 @@ latest: Smarty3 forward compatibility
     - fixed is_dir($handle) bug and warning (onli)
     - added the ability to have a very own plugin stylesheet with some very minor values to start with
     - changed the frontend tpls to support these changes
-    
+
 [Version 0.21 2009/08/25]
     - PHP 5.3 compatibility, split() is deprecated
 
@@ -230,4 +226,3 @@ latest: Smarty3 forward compatibility
 
 [2005/09/09] dma147
     - Started the creation of this downloadmanager plugin for serendipity
-

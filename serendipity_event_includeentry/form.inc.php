@@ -45,7 +45,7 @@
                 $select = $cbag->get('select_values');
 ?>
     <div class="clearfix form_select<?php if ($cdesc != '') { ?> has_info<?php } ?>">
-        <label for="serendipity_<?php echo $config_item; ?>"><?php echo $cname; ?><?php if ($cdesc != '') { ?> <button class="toggle_info button_link" type="button" data-href="#<?php echo $config_item; ?>_info"><span class="icon-info-circled"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button><?php } ?></label>
+        <label for="serendipity_<?php echo $config_item; ?>"><?php echo $cname; ?><?php if ($cdesc != '') { ?> <button class="toggle_info button_link" type="button" data-href="#<?php echo $config_item; ?>_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button><?php } ?></label>
         <?php if ($cdesc != '') { ?><span id="<?php echo $config_item; ?>_info" class="field_info additional_info"><?php echo $cdesc; ?></span><?php } ?>
         <select id="serendipity_<?php echo $config_item; ?>" class="direction_<?php echo $lang_direction; ?>" name="serendipity[plugin][<?php echo $config_item; ?>]{($is_multi_select) ? '[]' : ''}" {($is_multi_select) ? 'multiple' : ''} {($is_multi_select && ($select_size > 0)) ? "size='{$select_size}'" : ''}>
 <?php
@@ -86,7 +86,7 @@
                 }
 ?>
     <fieldset<?php if ($cdesc != '') { ?> class="has_info"<?php } ?>>
-        <span class="wrap_legend"><legend><?php echo $cname; ?><?php if ($cdesc != '') { ?> <button class="toggle_info button_link" type="button" data-href="#<?php echo $config_item; ?>_info"><span class="icon-info-circled"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button><?php } ?></legend></span>
+        <span class="wrap_legend"><legend><?php echo $cname; ?><?php if ($cdesc != '') { ?> <button class="toggle_info button_link" type="button" data-href="#<?php echo $config_item; ?>_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button><?php } ?></legend></span>
         <?php if ($cdesc != '') { ?><span id="<?php echo $config_item; ?>_info" class="field_info additional_info"><?php echo $cdesc; ?></span><?php } ?>
         <div class="clearfix grouped">
 <?php
@@ -131,7 +131,7 @@
 ?>
     <div class="clearfix configuration_group">
         <div class="clearfix form_field<?php if ($cdesc != '') { ?> has_info<?php } ?>">
-            <label for="serendipity_<?php echo $config_item; ?>"><?php echo $cname; if ($cdesc != '') { ?> <button class="toggle_info button_link" type="button" data-href="#<?php echo $config_item; ?>_info"><span class="icon-info-circled"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button><?php } ?></label>
+            <label for="serendipity_<?php echo $config_item; ?>"><?php echo $cname; if ($cdesc != '') { ?> <button class="toggle_info button_link" type="button" data-href="#<?php echo $config_item; ?>_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button><?php } ?></label>
             <?php if ($cdesc != '') { ?><span id="<?php echo $config_item; ?>_info" class="field_info additional_info"><?php echo $cdesc; ?></span><?php } ?>
             <input id="serendipity_<?php echo $config_item; ?>" class="direction_<?php echo $lang_direction; ?>" name="serendipity[plugin][<?php echo $config_item; ?>]" type="text" value="<?php echo $hvalue; ?>">
         </div>
@@ -144,7 +144,7 @@
 ?>
 
     <div class="clearfix form_area<?php if ($cdesc != '') { ?> has_info<?php } ?>">
-        <label for="nuggets<?php echo $elcount; ?>"><?php echo $cname; if ($cdesc != '' && !$backend_wysiwyg) { ?> <button class="toggle_info button_link" type="button" data-href="#nuggets<?php echo $elcount; ?>_info"><span class="icon-info-circled"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button><?php } ?></label>
+        <label for="nuggets<?php echo $elcount; ?>"><?php echo $cname; if ($cdesc != '' && !$backend_wysiwyg) { ?> <button class="toggle_info button_link" type="button" data-href="#nuggets<?php echo $elcount; ?>_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button><?php } ?></label>
         <?php if ($cdesc != '') { ?><span id="nuggets<?php echo $elcount; ?>_info" class="field_info additional_info"><?php echo $cdesc; ?></span><?php } ?>
         <textarea id="nuggets<?php echo $elcount; ?>" class="direction_<?php echo $lang_direction; ?>" name="serendipity[plugin][<?php echo $config_item; ?>]" rows="10"><?php echo $hvalue; ?></textarea>
     </div>

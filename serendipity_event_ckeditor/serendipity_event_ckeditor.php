@@ -307,7 +307,7 @@ class serendipity_event_ckeditor extends serendipity_event
             $this->set_config('force_install', 'false');
             // forceZipInstall forces to surround the checkUpdate function, thus we set config database table to keep track
             $this->updateConfig();
-            $s .= '<p class="msg_success"><span class="icon-ok"></span><strong>Force deflate done:</strong> Please reload this page <a href="'.$serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=plugins&serendipity[plugin_to_conf]='.urlencode($this->instance).'" target="_self">here</a>!</p>';
+            $s .= '<p class="msg_success"><span class="icon-ok" aria-hidden="true"></span><strong>Force deflate done:</strong> Please reload this page <a href="'.$serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=plugins&serendipity[plugin_to_conf]='.urlencode($this->instance).'" target="_self">here</a>!</p>';
         }
 
         $installer = $this->get_config('installer'); // Can't use method return value in write context in '' with substr(), get_config() and isset()
@@ -324,19 +324,19 @@ class serendipity_event_ckeditor extends serendipity_event
         if (!empty($installer)) {
             switch ($installer[0]) {
                 case '4': // this won't happen, since case 2 is true - just a fake
-                    $s .= '<p class="msg_notice"><span class="icon-attention"></span> <strong>Check Plugin Update Message:</strong> NO CONFIG SET OR NO MATCH -> config_set: "last_'.$parts[0].'_version:'. $parts[1].'"</p>';
+                    $s .= '<p class="msg_notice"><span class="icon-attention" aria-hidden="true"></span> <strong>Check Plugin Update Message:</strong> NO CONFIG SET OR NO MATCH -> config_set: "last_'.$parts[0].'_version:'. $parts[1].'"</p>';
                     break;
                 case '3':
-                    $s .= '<p class="msg_success"><span class="icon-ok"></span> <strong>Installer Update Message:</strong> Check Update found false, no unpack needed. Plugin upgrade successfully done <strong>or</strong> has been triggered to be checked by an other Spartacus Plugin update!</p>';
+                    $s .= '<p class="msg_success"><span class="icon-ok" aria-hidden="true"></span> <strong>Installer Update Message:</strong> Check Update found false, no unpack needed. Plugin upgrade successfully done <strong>or</strong> has been triggered to be checked by an other Spartacus Plugin update!</p>';
                     break;
                 case '2':
-                    $s .= '<p class="msg_success"><span class="icon-ok"></span> <strong>Installer Message:</strong> Extracting the zip to ' . $this->cke_path . ' directory done!</p>';
+                    $s .= '<p class="msg_success"><span class="icon-ok" aria-hidden="true"></span> <strong>Installer Message:</strong> Extracting the zip to ' . $this->cke_path . ' directory done!</p>';
                     break;
                 case '1':
-                    $s .= '<p class="msg_error"><span class="icon-error"></span> <strong>Installer Error[1]:</strong> Extracting the zip to ' . $this->cke_path . ' directory failed!<br>Please extract ' . $this->cke_zipfile . ' by hand.</p>';
+                    $s .= '<p class="msg_error"><span class="icon-error" aria-hidden="true"></span> <strong>Installer Error[1]:</strong> Extracting the zip to ' . $this->cke_path . ' directory failed!<br>Please extract ' . $this->cke_zipfile . ' by hand.</p>';
                     break;
                 case '0':
-                    $s .= '<p class="msg_error"><span class="icon-error"></span> <strong>Installer Error[0]:</strong> Due to a writing permission error, extracting the zip to ' . $this->cke_path . ' directory failed!<br>Please set "/plugins" or "/plugins/serendipity_event_ckeditor" directory and files correct writing permissions and extract ' . $this->cke_zipfile . ' by hand or try again and <u>remove(!)</u> this plugin from your plugin list and install it again.</p>';
+                    $s .= '<p class="msg_error"><span class="icon-error" aria-hidden="true"></span> <strong>Installer Error[0]:</strong> Due to a writing permission error, extracting the zip to ' . $this->cke_path . ' directory failed!<br>Please set "/plugins" or "/plugins/serendipity_event_ckeditor" directory and files correct writing permissions and extract ' . $this->cke_zipfile . ' by hand or try again and <u>remove(!)</u> this plugin from your plugin list and install it again.</p>';
                     break;
             }
             $this->set_config('installer', ''); // can't use serendipity_plugin_api::remove_plugin_value($this->instance, array('installer')); here, since it delivers the wrong instance
@@ -712,7 +712,7 @@ ol.linenums li {
     <script type="text/javascript">
         jsEventData = <?php echo json_encode($eventData['buttons']); ?>;
     </script>
-<?php 
+<?php
                         }
                     }
                     break;

@@ -22,7 +22,7 @@ class serendipity_event_autoupdate extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_AUTOUPDATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Ian');
-        $propbag->add('version',       '1.1.7');
+        $propbag->add('version',       '1.1.8');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '5.2'
@@ -161,7 +161,7 @@ class serendipity_event_autoupdate extends serendipity_event {
                 <h2 class="visuallyhidden">User menu</h2> 
 
                 <ul>
-                    <li><a class="icon_link" href="serendipity_admin.php" title="Startpage"><span class="icon-home"></span><span class="visuallyhidden"> Startpage</span></a></li>
+                    <li><a class="icon_link" href="serendipity_admin.php" title="Startpage"><span class="icon-home" aria-hidden="true"></span><span class="visuallyhidden"> Startpage</span></a></li>
                 </ul>
             </nav>
         </div>
@@ -179,9 +179,9 @@ class serendipity_event_autoupdate extends serendipity_event {
             <article>
 EOS;
 
-                    $this->show_message('<p class="msg_notice"><span class="icon-attention"></span>Download, verify, check, unzip, copy, remove temporary stuff for Serendipity Update: ' . $_REQUEST['serendipity']['newVersion'] . ' may take a little while...<br>Please don\'t get nervous and do not close this page while in progress!</p><hr>');
-                    $this->show_message('<p class="msg_notice" style="font-size: small;color: #999;"><span class="icon-attention"></span>Please note: If this page ever stops with an error message during procession, you can normally just RELOAD your browser [by keyboard shortcut] to get another run. This does not do any harm to a continued upgrade.</p>');
-                    $this->show_message('<p class="msg_notice"><span class="icon-attention"></span>PHP max execution time set to 210 seconds</p>');
+                    $this->show_message('<p class="msg_notice"><span class="icon-attention" aria-hidden="true"></span>Download, verify, check, unzip, copy, remove temporary stuff for Serendipity Update: ' . $_REQUEST['serendipity']['newVersion'] . ' may take a little while...<br>Please don\'t get nervous and do not close this page while in progress!</p><hr>');
+                    $this->show_message('<p class="msg_notice" style="font-size: small;color: #999;"><span class="icon-attention" aria-hidden="true"></span>Please note: If this page ever stops with an error message during procession, you can normally just RELOAD your browser [by keyboard shortcut] to get another run. This does not do any harm to a continued upgrade.</p>');
+                    $this->show_message('<p class="msg_notice"><span class="icon-attention" aria-hidden="true"></span>PHP max execution time set to 210 seconds</p>');
                     $start = microtime(true);
                     if (false === ($update = $this->fetchUpdate($nv))) {
                         $this->close_page(true);
@@ -189,56 +189,56 @@ EOS;
                     usleep(3);
                     $time = microtime(true) - $start;
                     $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn fetchUpdate()...\n", $time); // print in readable format 1.2345
-                    $this->show_message('<p class="msg_run"><span class="icon-clock"></span><em>'.$lmsg.'</em></p>', 'Function fetch update', 'verify the update pack');
+                    $this->show_message('<p class="msg_run"><span class="icon-clock" aria-hidden="true"></span><em>'.$lmsg.'</em></p>', 'Function fetch update', 'verify the update pack');
                     if (!empty($update)) {
                         $start = microtime(true);
                         if ($this->verifyUpdate($update, $nv)) {
                             usleep(3);
                             $time = microtime(true) - $start;
                             $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn verifyUpdate()...\n", $time); // print in readable format 1.2345
-                            $this->show_message('<p class="msg_run"><span class="icon-clock"></span><em>'.$lmsg.'</em></p>', 'Function verify update', 'checking write permissions');
+                            $this->show_message('<p class="msg_run"><span class="icon-clock" aria-hidden="true"></span><em>'.$lmsg.'</em></p>', 'Function verify update', 'checking write permissions');
                             $start = microtime(true);
                             if ($this->checkWritePermissions($update)) {
                                 usleep(3);
                                 $time = microtime(true) - $start;
                                 $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn checkWritePermissions()...\n", $time); // print in readable format 1.2345
-                                $this->show_message('<p class="msg_run"><span class="icon-clock"></span><em>'.$lmsg.'</em></p>', 'Function check write permissions', 'unpacking the update');
+                                $this->show_message('<p class="msg_run"><span class="icon-clock" aria-hidden="true"></span><em>'.$lmsg.'</em></p>', 'Function check write permissions', 'unpacking the update');
                                 $start = microtime(true);
                                 $unpacked = $this->unpackUpdate($nv);
                                 usleep(3);
                                 $time = microtime(true) - $start;
                                 $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn unpackUpdate()...\n", $time); // print in readable format 1.2345
-                                $this->show_message('<p class="msg_run"><span class="icon-clock"></span><em>'.$lmsg.'</em></p>', 'Function unpack update', 'checking integrity');
+                                $this->show_message('<p class="msg_run"><span class="icon-clock" aria-hidden="true"></span><em>'.$lmsg.'</em></p>', 'Function unpack update', 'checking integrity');
                                 if ($unpacked) {
                                     $start = microtime(true);
                                     if ($this->checkIntegrity($nv)) {
                                         usleep(3);
                                         $time = microtime(true) - $start;
                                         $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn checkIntegrity()...\n", $time); // print in readable format 1.2345
-                                        $this->show_message('<p class="msg_run"><span class="icon-clock"></span><em>'.$lmsg.'</em></p>', 'Function check integrity', 'finally copy update');
+                                        $this->show_message('<p class="msg_run"><span class="icon-clock" aria-hidden="true"></span><em>'.$lmsg.'</em></p>', 'Function check integrity', 'finally copy update');
                                         $start = microtime(true);
                                         $copied = $this->copyUpdate($nv);
                                         usleep(3);
                                         $time = microtime(true) - $start;
                                         $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn copyUpdate()...\n", $time); // print in readable format 1.2345
-                                        $this->show_message('<p class="msg_run"><span class="icon-clock"></span><em>'.$lmsg.'</em></p>', 'Function copy update', 'cleaning up temporary directory');
+                                        $this->show_message('<p class="msg_run"><span class="icon-clock" aria-hidden="true"></span><em>'.$lmsg.'</em></p>', 'Function copy update', 'cleaning up temporary directory');
                                         if ($copied) {
                                             $start = microtime(true);
                                             if (true === $this->cleanTemplatesC($nv, true) ) {
-                                                $this->show_message('<p class="msg_success"><span class="icon-ok"></span>Cleanup download temp done!</p>');
+                                                $this->show_message('<p class="msg_success"><span class="icon-ok" aria-hidden="true"></span>Cleanup download temp done!</p>');
                                             }
                                             usleep(3);
                                             $time = microtime(true) - $start;
                                             $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn cleanTemplatesC()...\n", $time); // print in readable format 1.2345
-                                            $this->show_message('<p class="msg_run"><span class="icon-clock"></span><em>'.$lmsg.'</em></p>', 'Function cleanup templates_c', 'finish processing unit');
+                                            $this->show_message('<p class="msg_run"><span class="icon-clock" aria-hidden="true"></span><em>'.$lmsg.'</em></p>', 'Function cleanup templates_c', 'finish processing unit');
                                             sleep(2);
                                             echo '<script type="text/javascript">var el = document.getElementById("loader"); el.style.display = "none";</script>';
                                             sleep(2);
-                                            $this->show_message('<p class="msg_notice"><span class="icon-attention"></span><a href="'.$serendipity['serendipityHTTPPath'].'">click to start Serendipity Installer here</a>!</p>');
+                                            $this->show_message('<p class="msg_notice"><span class="icon-attention" aria-hidden="true"></span><a href="'.$serendipity['serendipityHTTPPath'].'">click to start Serendipity Installer here</a>!</p>');
                                             sleep(1);
                                            $this->doUpdate();//$logmsg
                                         } else {
-                                             $this->show_message('<p class="msg_error"><span class="icon-error"></span>Copying the files for the update failed</p>');
+                                             $this->show_message('<p class="msg_error"><span class="icon-error" aria-hidden="true"></span>Copying the files for the update failed</p>');
                                         }
                                      } else {
                                         $this->showChecksumErrors($nv);
@@ -248,11 +248,11 @@ EOS;
                                              </form>';
                                     }
                                 } else {
-                                    $this->show_message('<p class="msg_error"><span class="icon-error"></span>Unpacking the update failed</p>');
+                                    $this->show_message('<p class="msg_error"><span class="icon-error" aria-hidden="true"></span>Unpacking the update failed</p>');
                                     if (true === $this->cleanTemplatesC($nv, false)) {
-                                        $this->show_message('<p class="msg_success"><span class="icon-ok"></span>Cleaning up the failed unpack directory!</p>');
+                                        $this->show_message('<p class="msg_success"><span class="icon-ok" aria-hidden="true"></span>Cleaning up the failed unpack directory!</p>');
                                     }
-                                    $this->show_message('<p class="msg_notice"><span class="icon-attention"></span>Please reload this page by F5 to have another try upgrading your Blog successfully!</p>');
+                                    $this->show_message('<p class="msg_notice"><span class="icon-attention" aria-hidden="true"></span>Please reload this page by F5 to have another try upgrading your Blog successfully!</p>');
                                 }
                                 
                             } else {
@@ -297,7 +297,7 @@ EOS;
             if ($res === TRUE) {
                 $done = true;
             } else {
-                $this->show_message('<p class="msg_error"><span class="icon-error"></span>Existing Zip file Error, Code:' . $res. '. The autoupdater will try to download again...');
+                $this->show_message('<p class="msg_error"><span class="icon-error" aria-hidden="true"></span>Existing Zip file Error, Code:' . $res. '. The autoupdater will try to download again...');
                 @unlink($update);
                 sleep(1);
                 $done = @copy($url, $update) ? true : false;
@@ -321,15 +321,15 @@ EOS;
                             
                 $success = @curl_exec($ch);
                 if (!$success) {
-                    $this->show_message('<p class="msg_error"><span class="icon-error"></span>Downloading update failed (curl installed, but failed). Does '. $url .' exist?</p>');
+                    $this->show_message('<p class="msg_error"><span class="icon-error" aria-hidden="true"></span>Downloading update failed (curl installed, but failed). Does '. $url .' exist?</p>');
                     return false;
                 }
             } else {
-                $this->show_message('<p class="msg_error"><span class="icon-error"></span>Downloading update failed (copy failed, curl not available). Does '. $url .' exist?</p>');
+                $this->show_message('<p class="msg_error"><span class="icon-error" aria-hidden="true"></span>Downloading update failed (copy failed, curl not available). Does '. $url .' exist?</p>');
                 return false;
             }
         }
-        $this->show_message('<p class="msg_success"><span class="icon-ok"></span>Fetch download to templates_c done</p>');
+        $this->show_message('<p class="msg_success"><span class="icon-ok" aria-hidden="true"></span>Fetch download to templates_c done</p>');
         return $update;
     }
 
@@ -346,7 +346,7 @@ EOS;
         // grep the checksum
         preg_match("/\(MD5: (.*)\)/", $updatePage, $found);
         $checksum = $found[1];
-        $this->show_message('<p class="msg_notice"><span class="icon-attention"></span>Checking MD5 zip file checksum: ' . $checksum . '</p>');
+        $this->show_message('<p class="msg_notice"><span class="icon-attention" aria-hidden="true"></span>Checking MD5 zip file checksum: ' . $checksum . '</p>');
         $check = md5_file($update);
         if (strpos($version, 'beta') !== FALSE) {
             return true;
@@ -354,7 +354,7 @@ EOS;
         if ($check == $checksum) {
             return true;
         } else {
-            $this->show_message('<p class="msg_error"><span class="icon-error"></span>Error. Could not verify the update.</p>');
+            $this->show_message('<p class="msg_error"><span class="icon-error" aria-hidden="true"></span>Error. Could not verify the update.</p>');
             return false;
         }
     }
@@ -408,7 +408,7 @@ EOS;
             }
             // 2.extraxt all files to temp
             $zip->extractTo($updateDir);
-            $this->show_message('<p class="msg_success"><span class="icon-ok"></span>Extracting the zip in templates_c done</p>');
+            $this->show_message('<p class="msg_success"><span class="icon-ok" aria-hidden="true"></span>Extracting the zip in templates_c done</p>');
             $zip->close();
         } else {
             return false;
@@ -453,7 +453,7 @@ EOS;
                     $success = @copy($updateDir . $file, $target);
                 }
                 if (!$success) {
-                    $this->show_message('<p class="msg_error"><span class="icon-error"></span>Error copying file '. $updateDir . $file .' to '. $target .'</p>');
+                    $this->show_message('<p class="msg_error"><span class="icon-error" aria-hidden="true"></span>Error copying file '. $updateDir . $file .' to '. $target .'</p>');
                     return false;
                 }
             }
@@ -516,7 +516,7 @@ EOS;
             $zip->close();
 
             $notWritable = array();
-            
+
             foreach ($files as $file) {
                 $target = $serendipity['serendipityPath'] . substr($file, 12);
                 if ((!is_writable($target)) && file_exists($target)) {
@@ -525,7 +525,7 @@ EOS;
             }
         }
         ob_start();
-        echo '<p class="msg_error"><span class="icon-error"></span>Unpacking the update failed, because following files were not writeable:</p>';
+        echo '<p class="msg_error"><span class="icon-error" aria-hidden="true"></span>Unpacking the update failed, because following files were not writeable:</p>';
         echo "<ul>";
         foreach  ($notWriteable as $file) {
             echo "<li>$file</li>";
@@ -586,7 +586,7 @@ EOS;
             }
         }
         ob_start();
-        echo '<p class="msg_error"><span class="icon-error"></span>Updating failed, because the integrity-test for the following files failed:</p>';
+        echo '<p class="msg_error"><span class="icon-error" aria-hidden="true"></span>Updating failed, because the integrity-test for the following files failed:</p>';
         echo "<ul>";
         foreach ($errors as $file) {
             echo "<li>$file</li>";
@@ -625,7 +625,7 @@ EOS;
         global $serendipity;
 
         $msg = "Autoupdate successfully done!\\nWe now refresh to Serendipity Installer!\\n"; // escape for js
-        $this->show_message('<p class="msg_success"><span class="icon-ok"></span>Autoupdate successfully done - refresh to Serendipity Installer</p>', 'Autoupdate');
+        $this->show_message('<p class="msg_success"><span class="icon-ok" aria-hidden="true"></span>Autoupdate successfully done - refresh to Serendipity Installer</p>', 'Autoupdate');
         $this->close_page();
 
         // this is working for me.... is it for you?
@@ -681,22 +681,22 @@ EOS;
 
         // leave rm zip untouched here as not causing any errors
         #unlink($zip);// if (unlink($zip)) { else error note?
-        #$this->show_message('<p class="msg_success"><span class="icon-ok"></span>Removing the zip file in templates_c done</p>');
+        #$this->show_message('<p class="msg_success"><span class="icon-ok" aria-hidden="true"></span>Removing the zip file in templates_c done</p>');
 
         // As trying to remove a directory that php is still using, we use open/closedir($handle) to be sure
         if ($handle = opendir($zipDir)) {
             $this->empty_dir($zipDir);
-            $this->show_message('<p class="msg_success"><span class="icon-ok"></span>Removing all files in '.$zipDir.' done</p>');
+            $this->show_message('<p class="msg_success"><span class="icon-ok" aria-hidden="true"></span>Removing all files in '.$zipDir.' done</p>');
             closedir($handle);
         }
         if (rmdir($zipDir)) {
-            $this->show_message('<p class="msg_success"><span class="icon-ok"></span>Removing the empty directory: '.$zipDir.' done</p>');
+            $this->show_message('<p class="msg_success"><span class="icon-ok" aria-hidden="true"></span>Removing the empty directory: '.$zipDir.' done</p>');
         } else {
-            $this->show_message('<p class="msg_error"><span class="icon-error"></span>Removing the empty directory: '.$zipDir.' failed!</p>');
+            $this->show_message('<p class="msg_error"><span class="icon-error" aria-hidden="true"></span>Removing the empty directory: '.$zipDir.' failed!</p>');
         }
         // We clear all compiles smarty template files in templates_c which only leaves the page we are on: /serendipity/templates/default/admin/index.tpl
         if ($finish) {
-            // We have to reduce this call() = all tpl files, to clear the blogs template only, to not have the following automated recompile, force the servers memory 
+            // We have to reduce this call() = all tpl files, to clear the blogs template only, to not have the following automated recompile, force the servers memory
             // to get exhausted, when using serendipity_event_gravatar plugin, which can eat up some MB...
             if (method_exists($serendipity['smarty'], 'clearCompiledTemplate')) { // SMARTY 3
                 if ($serendipity['smarty']->clearCompiledTemplate(null, $serendipity['template'])) {

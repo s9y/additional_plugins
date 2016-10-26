@@ -76,7 +76,7 @@ class serendipity_event_faq extends serendipity_event
         $propbag->add('name',         FAQ_NAME);
         $propbag->add('description',  FAQ_NAME_DESC);
         $propbag->add('author',       'Falk Doering, Ian');
-        $propbag->add('version',      '1.23');
+        $propbag->add('version',      '1.24');
         $propbag->add('copyright',    'LGPL');
         $propbag->add('stackable',    false);
         $propbag->add('requirements', array(
@@ -618,11 +618,11 @@ class serendipity_event_faq extends serendipity_event
         // S9y 1.7 Series box sizing
         $bosi  = $serendipity['version'][0] > 1 ? '' : ' class="boxsizingBorder"';
         // notification switch
-        $error = $serendipity['version'][0] > 1 ? '<div class="msg_error"><span class="icon-attention-circled"></span> ' : '<div class="serendipityAdminMsgError"><img style="width: 22px; height: 22px; border: 0px; padding-right: 4px; vertical-align: middle" src="' . serendipity_getTemplateFile('admin/img/admin_msg_error.png') . '" alt="" />';
-        $ok    = $serendipity['version'][0] > 1 ? '<div class="msg_success"><span class="icon-ok"></span> ' : '<div class="serendipityAdminMsgSuccess"><img style="width: 22px; height: 22px; border: 0px; padding-right: 4px; vertical-align: middle" src="' . serendipity_getTemplateFile('admin/img/admin_msg_success.png') . '" alt="" />';
+        $error = $serendipity['version'][0] > 1 ? '<div class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' : '<div class="serendipityAdminMsgError"><img style="width: 22px; height: 22px; border: 0px; padding-right: 4px; vertical-align: middle" src="' . serendipity_getTemplateFile('admin/img/admin_msg_error.png') . '" alt="" />';
+        $ok    = $serendipity['version'][0] > 1 ? '<div class="msg_success"><span class="icon-ok" aria-hidden="true"></span> ' : '<div class="serendipityAdminMsgSuccess"><img style="width: 22px; height: 22px; border: 0px; padding-right: 4px; vertical-align: middle" src="' . serendipity_getTemplateFile('admin/img/admin_msg_success.png') . '" alt="" />';
         // iconizr by version
-        $editimg  = $serendipity['version'][0] > 1 ? '<span class="icon-edit"></span>' : '<img src="' . serendipity_getTemplateFile('admin/img/edit.png') . '" width="16" height="16" alt="EDIT" />';
-        $trashimg = $serendipity['version'][0] > 1 ? '<span class="icon-trash"></span>' : '<img src="' . serendipity_getTemplateFile('admin/img/delete.png') . '" width="16" height="16" alt="DELETE" />';
+        $editimg  = $serendipity['version'][0] > 1 ? '<span class="icon-edit" aria-hidden="true"></span>' : '<img src="' . serendipity_getTemplateFile('admin/img/edit.png') . '" width="16" height="16" alt="EDIT" />';
+        $trashimg = $serendipity['version'][0] > 1 ? '<span class="icon-trash" aria-hidden="true"></span>' : '<img src="' . serendipity_getTemplateFile('admin/img/delete.png') . '" width="16" height="16" alt="DELETE" />';
         $moveupimg = $serendipity['version'][0] > 1 ? '<img src="' . $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_faq/img/move_up.png" data-file-width="128" data-file-height="128" width="24" height="24" alt="UP" />' : '<img src="'.serendipity_getTemplateFile('admin/img/uparrow.png').'" width="16" height="16" alt="UP" />';
         $movedownimg = $serendipity['version'][0] > 1 ? '<img src="' . $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_faq/img/move_down.png" data-file-width="128" data-file-height="128" width="24" height="24" alt="DOWN" />' : '<img src="'.serendipity_getTemplateFile('admin/img/downarrow.png').'" width="16" height="16" alt="DOWN" />';
 

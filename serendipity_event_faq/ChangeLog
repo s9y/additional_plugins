@@ -1,48 +1,44 @@
-1.23:
------
+1.24: Iconfont a11y fix (yellowled)
 
- * Fix pagination to not show other category entries
+1.23: Fix pagination to not show other category entries
 
 1.22:
------
 
- * Fix bug with hidden config items default fallback even more,
-   since the category id 'cid' was not cached properly and so
-   every new Q/A wasn't set right by faqorder.
- * Fixes some more 2.0 issues with CSS and or missing CSS classes.
- * Convert frontend templates p tag usage to div
- * Allow custom CSS file copies in themes - by copy to the themes
-   root, or included to the style or user.css files as before.
+    * Fix bug with hidden config items default fallback even more, since the
+      category id 'cid' was not cached properly and so every new Q/A wasn't set
+      right by faqorder.
+    * Fixes some more 2.0 issues with CSS and or missing CSS classes.
+    * Convert frontend templates p tag usage to div
+    * Allow custom CSS file copies in themes - by copy to the themes root, or
+      included to the style or user.css files as before.
 
 1.21:
------
 
- * Fix some more markup and stylings
- * Touched templates in the 'alternatives' directory for Smarty3,
-   but not for the other new changes to the default used template files.
-   Make your own in comparisson. Recommended default copies for custom
-   themes are found in the root of this plugin.
- * Remove bash file
- * Added S9y 1.7 plain editor js file forgotten in v.1.20
- * Changed to Serendipity CONST Smarty wrapper usage
+    * Fix some more markup and stylings
+    * Touched templates in the 'alternatives' directory for Smarty3, but not
+      for the other new changes to the default used template files. Make your
+      own in comparison. Recommended default copies for custom themes are in
+      the root of this plugin.
+    * Remove bash file
+    * Added S9y 1.7 plain editor js file forgotten in v.1.20
+    * Changed to Serendipity CONST Smarty wrapper usage
 
 1.20:
------
 
- * Set some more plugin consistencies
- * Fix bug with hidden config items default fallback
- * Refactor inspectConfig item preparation
- * Serendipity 2.0+ ready markup changes
+    * Set some more plugin consistencies
+    * Fix bug with hidden config items default fallback
+    * Refactor inspectConfig item preparation
+    * Serendipity 2.0+ ready markup changes
 
 1.13:
------
 
- * Set plugin consistencies
- * Use load language API - extends required Serendipity version to v.1.6
- * Removed old Smarty2 security settings - extends required Serendipity version to v.1.7
- * Use native API method parseTemplate()
- * Convert plugin template for Smarty3 usage
- * Append, not prepend CSS data into eventData stream
+    * Set plugin consistencies
+    * Use load language API - extends required Serendipity version to v.1.6
+    * Removed old Smarty2 security settings - extends required Serendipity
+      version to v.1.7
+    * Use native API method parseTemplate()
+    * Convert plugin template for Smarty3 usage
+    * Append, not prepend CSS data into eventData stream
 
 latest: Smarty3 forward compatibility
 

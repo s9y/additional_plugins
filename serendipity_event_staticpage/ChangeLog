@@ -1,3 +1,5 @@
+4.14: Iconfont a11y fix (yellowled)
+
 4.13: IE11 backend flexbox fix (yellowled)
 
 4.12: Adapt to 2.x backend (yellowled)
@@ -123,7 +125,7 @@
        
        You can override the content of those files within your
        template directory, by placing a file named exactly the same way,
-       in the "backend_templates" sub-directory of your template. 
+       in the "backend_templates" sub-directory of your template.
        Thus, you can put an empty file inside your plugin
        directory to initialize the ability to use a template-preference.
 

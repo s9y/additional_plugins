@@ -12,7 +12,7 @@
 @define('PLUGIN_EVENT_CKEDITOR_REVISION_TITLE', '<h3>This Plugin includes:</h3>');
 @define('PLUGIN_EVENT_CKEDITOR_INSTALL', '<h2>Installation</h2>
 <p class="msg_notice">
-    <span class="icon-attention"></span> <strong>Dependencies:</strong> Disable global body, extended and nugget parsing in the <strong>NL2BR</strong> plugin, <strong>OR</strong> by entry with entryproperties event plugin <strong>and/or</strong> for staticpages by entry "Perform Markup Transformations" option!<br><strong>Since Serendipity 2.0</strong> the entryproperties plugin detects CKEditor automatically as to that!
+    <span class="icon-attention" aria-hidden="true"></span> <strong>Dependencies:</strong> Disable global body, extended and nugget parsing in the <strong>NL2BR</strong> plugin, <strong>OR</strong> by entry with entryproperties event plugin <strong>and/or</strong> for staticpages by entry "Perform Markup Transformations" option!<br><strong>Since Serendipity 2.0</strong> the entryproperties plugin detects CKEditor automatically as to that!
 </p>
 <ol style="line-height: 1.6">
     <li>To allow other plugins to use or hook into the editor, place this (CKEditor) plugin near the end of your plugin list.</li>
@@ -52,6 +52,5 @@
 
 @define('PLUGIN_EVENT_CKEDITOR_SCAYT', '<h2>Scayt/wsc</h2>
 <p class="msg_notice">
-    <span class="icon-attention"></span> As long as not purchased a license, you may only use the "SpellCheckAsYouType" (SCAYT-plugin) [ABC]-Button over the free online service "Check Spelling" dialog option, or define a custom dictionary, which first is stored to a cookie, later to the browsers localStorage and start from scratch.
+    <span class="icon-attention" aria-hidden="true"></span> As long as not purchased a license, you may only use the "SpellCheckAsYouType" (SCAYT-plugin) [ABC]-Button over the free online service "Check Spelling" dialog option, or define a custom dictionary, which first is stored to a cookie, later to the browsers localStorage and start from scratch.
 </p>');
-

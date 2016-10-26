@@ -27,7 +27,7 @@ class serendipity_event_custom_permalinks extends serendipity_event
                                         'backend_display'                   => true));
 
         $propbag->add('author', 'Garvin Hicking');
-        $propbag->add('version', '1.15');
+        $propbag->add('version', '1.16');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -53,7 +53,7 @@ class serendipity_event_custom_permalinks extends serendipity_event
 
         $_GET['serendipity']['action'] = 'read';
         $_GET['serendipity']['id']     = $id;
-        
+
         $serendipity['plugindata']['smartyvars']['view'] = $serendipity['view'] = 'entry';
 
         $title = serendipity_db_query("SELECT title FROM {$serendipity['dbPrefix']}entries WHERE id=$id", true);
@@ -180,7 +180,7 @@ meta_properties_permalink {
                             <legend>
                                 <?php echo PLUGIN_EVENT_CUSTOM_PERMALINKS_PL; ?>
                                 <button class="toggle_info button_link active" type="button" data-href="#meta_properties_permalink">
-                                    <span class="icon-info-circled"></span><b>i</b><span class="visuallyhidden"> <?php echo MORE; ?></span>
+                                    <span class="icon-info-circled" aria-hidden="true"></span><b>i</b><span class="visuallyhidden"> <?php echo MORE; ?></span>
                                 </button>
                             </legend>
                         </span>
@@ -188,7 +188,7 @@ meta_properties_permalink {
                             <input id="properties_permalink" class="input_textbox" type="text" name="serendipity[permalink]" value="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($permalink) : htmlspecialchars($permalink, ENT_COMPAT, LANG_CHARSET)); ?>" />
                         </div>
                         <div id="meta_properties_permalink" class="clearfix xfield_info additional_info">
-                            <span class="msg_notice"><span class="icon-info-circled"></span> <?php echo PLUGIN_EVENT_CUSTOM_PERMALINKS_PL_DESC; ?></span>
+                            <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> <?php echo PLUGIN_EVENT_CUSTOM_PERMALINKS_PL_DESC; ?></span>
                         </div>
                     </fieldset>
 <?php

@@ -19,7 +19,7 @@ class serendipity_event_smartymarkup extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SMARTYMARKUP_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.14');
+        $propbag->add('version',       '1.15');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
             'smarty'      => '3.1.0',
@@ -98,7 +98,7 @@ class serendipity_event_smartymarkup extends serendipity_event
         // test
         #$tpl_source = '{assign var="foo" value="bar"}{$foo|escape:"html"}'; 
 
-        // return success state 
+        // return success state
         return true;
     }
 
@@ -219,7 +219,7 @@ class serendipity_event_smartymarkup extends serendipity_event
                             try {
                                 $eventData[$element] = $this->smartymarkup($eventData[$element], $eventData);
                             } catch (Exception $e) {
-                                echo '<span class="msg-error"><span class="icon-attention-circled"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . "</span>\n";
+                                echo '<span class="msg-error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . "</span>\n";
                             }
                             if ($element == 'staticpage') {
                                 $eventData['markup_staticpage'] = true;

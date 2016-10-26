@@ -29,15 +29,15 @@
     <{$div|default:'span'} id="dlm_messages">
     {if $dlmerr.errormsg}
     {foreach from=$dlmerr.errormsg item="msg"}
-        <{$tag|default:'span'} class="serendipityAdminMsgError msg_error"><span class="icon-attention-circled"></span> {$msg}</{$tag|default:'span'}>
+        <{$tag|default:'span'} class="serendipityAdminMsgError msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$msg}</{$tag|default:'span'}>
     {/foreach}
     {elseif $dlmerr.successmsg}
     {foreach from=$dlmerr.successmsg item="msg"}
-        <{$tag|default:'span'} class="serendipityAdminMsgNotice msg_success"><span class="icon-ok-circled"></span> {$msg}</{$tag|default:'span'}>
+        <{$tag|default:'span'} class="serendipityAdminMsgNotice msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$msg}</{$tag|default:'span'}>
     {/foreach}
     {elseif $dlmerr.statusmsg}
     {foreach from=$dlmerr.statusmsg item="msg"}
-        <{$tag|default:'span'} class="serendipityAdminMsgNotice msg_notice"><span class="icon-info-circled"></span> {$msg}</{$tag|default:'span'}>
+        <{$tag|default:'span'} class="serendipityAdminMsgNotice msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$msg}</{$tag|default:'span'}>
     {/foreach}
     {/if}
     </{$div|default:'span'}>

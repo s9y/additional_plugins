@@ -356,7 +356,7 @@ xmlhttp.send(null);
 
         } elseif ($service === 'osm') {
             ?>
-<script src="http://openlayers.org/api/OpenLayers.js"></script>
+<script src="//openlayers.org/api/OpenLayers.js"></script>
 <script type="text/javascript">
 (function () {
     createPopup = function (evt) {

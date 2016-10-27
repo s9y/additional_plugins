@@ -594,9 +594,9 @@
 <description>Dieses Plugin zeigt eine Google Map oder Openstreetmap mit geocodierten Einträgen an.</description>
 <maintainers><maintainer><name>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.33.2</version>
+  <version>1.33.3</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2014-03-23</date>
+  <date>2016-10-27</date>
   <filelist>
 <dir name="serendipity_event_geotag">
 <file>lang_de.inc.php</file>
@@ -832,9 +832,9 @@
 <description>Ein Plugin, um Lesezeichen mithilfe eines RSS-Feeds eines social bookmarks-Dienstes (del.icio.us, ma.gnolia, furl.net, linkroll, Mister Wong) anzuzeigen.</description>
 <maintainers><maintainer><name>Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.47</version>
+  <version>0.48</version>
   <requirements:s9yVersion>0.9alpha5</requirements:s9yVersion>
-  <date>2014-12-06</date>
+  <date>2016-10-27</date>
   <filelist>
 <dir name="serendipity_plugin_socialbookmarks">
 <dir name="simplepie">
@@ -960,7 +960,7 @@
 <description>Zeigt die aktuellsten Twitter-Einträge an</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Damian Luszczymak, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.67</version>
+  <version>1.68</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
   <date>2016-09-23</date>
   <filelist>
@@ -1744,9 +1744,9 @@
 <description>Ermöglicht es Blog-Besuchern sich einen eigenen Autoren-Account anzulegen. Zusammen mit dem Event-Plugin (index.php?serendipity[subpage]=adduser) kann eingestellt werden ob nur registrierte Benutzer Kommentare posten dürfen.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.39</version>
+  <version>2.40</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-04-12</date>
+  <date>2016-10-27</date>
   <filelist>
 <dir name="serendipity_plugin_adduser">
 <file>common.inc.php</file>

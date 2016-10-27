@@ -6,7 +6,7 @@ include dirname(__FILE__) . '/twitter_entry_defs.include.php';
 class TwitterOAuthApi {
     var $oauthConnection = null;
     
-    function TwitterOAuthApi(&$oauthConnection) {
+    function __construct(&$oauthConnection) {
         $this->oauthConnection = $oauthConnection;        
     }
     

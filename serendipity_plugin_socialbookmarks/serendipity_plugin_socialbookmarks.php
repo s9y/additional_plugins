@@ -1,9 +1,9 @@
 <?php
 /*
-    A social bookmark services plug-in - v0.45
+    A social bookmark services plug-in - v0.48
     -------------------------------------------------
         email: mattsches@gmail.com
-        download: http://www.numblog.de/pages/s9y.html
+        download: https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_socialbookmarks
         forum announcement: http://www.s9y.org/forums/viewtopic.php?t=6067
     -------------------------------------------------
     About:
@@ -14,6 +14,10 @@
      Most of the source code was copied from the S9Y del.icio.us plugin v0.2.3 by riscky (thanks!)
 
     Change log:
+    v0.48:
+     * upgrade SimplePie library to version 1.4.1 (tags/1.4.2)
+     * add access modifiers to class methods
+     * fix some minor issues
     v0.47:
      * included more current version of SimplePie
      * added docblocks
@@ -62,23 +66,20 @@
     Todo:
      * fix a bug regarding special characters (or wait for the next SimplePie release, maybe?)
      * convert inline styles to CSS classes
-
-    Post release plans:
-     * Fix any bugs that will pop up ;OP
-     * add more services by user demand ;O)
-     * think about the file structure; maybe we need s9y_plugin_ and s9y_event? for styles and cache purging ...
-     * allow display of bookmark description?
+     * remove discontinued services!
+     * clean up code
+     * filter out sponsored items (inserted by delicious)
 */
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-$probelang = dirname(__FILE__).'/'.$serendipity['charset'].'lang_'.$serendipity['lang'].'.inc.php';
+$probelang = __DIR__ .'/'.$serendipity['charset'].'lang_'.$serendipity['lang'].'.inc.php';
 if (file_exists($probelang)) {
     include $probelang;
 } else {
-    include dirname(__FILE__).'/lang_en.inc.php';
+    include __DIR__ .'/lang_en.inc.php';
 }
 
 /**
@@ -89,12 +90,12 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
     /**
      * @var string
      */
-    var $title = PLUGIN_SOCIALBOOKMARKS_N;
+    public $title = PLUGIN_SOCIALBOOKMARKS_N;
 
     /**
      * @var array
      */
-    var $feed_types = array('misterwong'    => array(   'usr_bookmarks_page'    => 'http://www.mister-wong.de/user/%username%',
+    public $feed_types = array('misterwong'    => array(   'usr_bookmarks_page'    => 'http://www.mister-wong.de/user/%username%',
                                                         'usr_recent_bookmarks'  => 'http://www.mister-wong.de/rss/user/%username%/',
                                                         'gen_recent_bookmarks'  => 'http://www.mister-wong.de/rss/?more=fresh',
                                                         'gen_popular_bookmarks' => 'http://www.mister-wong.de/rss/?more=popular',
@@ -125,13 +126,13 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
      * @param serendipity_property_bag $propbag
      * @return void
      */
-    function introspect(&$propbag) {
+    public function introspect(&$propbag) {
         $this->title = $this->get_config('sidebarTitle', $this->title);
 
         $propbag->add('name', PLUGIN_SOCIALBOOKMARKS_N);
         $propbag->add('description', PLUGIN_SOCIALBOOKMARKS_D);
         $propbag->add('author', 'Matthias Gutjahr');
-        $propbag->add('version', '0.47');
+        $propbag->add('version', '0.48');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9alpha5',
             'smarty'      => '2.6.7',
@@ -159,7 +160,7 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
      * @param serendipity_property_bag $propbag
      * @return bool
      */
-    function introspect_config_item($name, &$propbag) {
+    public function introspect_config_item($name, &$propbag) {
         switch($name) {
             case 'sidebarTitle':
             	$propbag->add('type', 'string');
@@ -243,7 +244,7 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
      * @param string $title
      * @return bool
      */
-    function generate_content(&$title) {
+    public function generate_content(&$title) {
         global $serendipity;
 
         $socialbookmarksID = $this->get_config('socialbookmarksID');
@@ -252,7 +253,7 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
         }
 
         $socialbookmarksService = $this->get_config('socialbookmarksService');
-        if (($title = $this->get_config('sidebarTitle')) == '') {
+        if (($title = $this->get_config('sidebarTitle')) === '') {
             $title = $socialbookmarksService;
         }
         $moreLink = $this->get_config('moreLink');
@@ -260,9 +261,8 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
         $md5_socialbookmarksID = md5($socialbookmarksID);
         $md5_socialbookmarksService = md5($socialbookmarksService);
 
-        if ($this->get_config('displayNumber') < 31 && $this->get_config('displayNumber') >= 1) {
-            $displayNumber = $this->get_config('displayNumber');
-        } else {
+        $displayNumber = $this->get_config('displayNumber');
+        if ($displayNumber < 1 || $displayNumber > 30) {
             $displayNumber = 30;
         }
 
@@ -277,16 +277,16 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
         $gsocialbookmarksCacheLoc   = $serendipity['serendipityPath'].'/templates_c/socialbookmarks_';
         $parsedCache                = $gsocialbookmarksCacheLoc.$md5_socialbookmarksService.'_'.$md5_socialbookmarksID.'.cache';
 
-        if (!is_file($parsedCache) || ((mktime() - filectime($parsedCache)) > $cacheTime)) {
-            if (!is_dir($gsocialbookmarksCacheLoc) && !mkdir($gsocialbookmarksCacheLoc, 0775)) {
+        if (!is_file($parsedCache) || ((time() - filectime($parsedCache)) > $cacheTime)) {
+            if (!@mkdir($gsocialbookmarksCacheLoc, 0775) && !is_dir($gsocialbookmarksCacheLoc)) {
                 print 'Try to chmod go+rwx - permissions are wrong.';
             }
 
-            if ($this->get_config('specialFeatures') != 'usr_js_tagcloud') {
+            if ($this->get_config('specialFeatures') !== 'usr_js_tagcloud') {
                 if (file_exists(S9Y_PEAR_PATH . '/simplepie/simplepie.inc')) {
                     require_once S9Y_PEAR_PATH . '/simplepie/simplepie.inc';
                 } else {
-                    require_once dirname(__FILE__) . '/simplepie/simplepie.inc';
+                    require_once __DIR__ . '/simplepie/simplepie.inc';
                 }
                 $socialbookmarksFeed = new SimplePie();
                 $socialbookmarksFeed->set_feed_url(str_replace('%username%',urlencode(utf8_decode(stripslashes($socialbookmarksID))),$gsocialbookmarksFeedURL));
@@ -303,7 +303,7 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
                         for ($x = 0; $x < $max; $x++) {
                             /** @var SimplePie_Item $item */
                             $item = $socialbookmarksFeed->get_item($x);
-                            $socialbookmarksContent .= '<li class="serendipity_socialbookmarks_item xfolkentry" style="list-style-type:' . (($this->get_config('displayThumbnails')) ? 'none' : 'square') . ';list-style-position:inside;">';
+                            $socialbookmarksContent .= '<li class="serendipity_socialbookmarks_item xfolkentry" style="list-style-type:' . ($this->get_config('displayThumbnails') ? 'none' : 'square') . ';list-style-position:inside;">';
                             $socialbookmarksContent .= '<a href="' . $this->decode($item->get_permalink()).' " class="taggedlink" title="' . trim(substr($this->decode((function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($item->get_description())) : htmlspecialchars(strip_tags($item->get_description()), ENT_COMPAT, LANG_CHARSET))), 0, 100)) . '" rel="external">';
                             if ($this->get_config('displayThumbnails')) {
                                 $socialbookmarksContent .= $this->socialbookmarks_get_thumbnail($item->get_description());
@@ -340,42 +340,51 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
         if (serendipity_db_bool($moreLink)) {
             print '<a href="'.str_replace('%username%', urlencode(utf8_decode(stripslashes($socialbookmarksID))), $gsocialbookmarksURL).'/">('.PLUGIN_SOCIALBOOKMARKS_MORELINK.')</a>';
         }
+        return true;
     }
 
     /**
      * @param SimplePie_Item $item
      * @return string
      */
-    function socialbookmarks_get_tags($item) {
+    private function socialbookmarks_get_tags($item) {
         global $serendipity;
 
         $return = '';
-        $taglink = $serendipity['baseURL'].($serendipity['rewrite'] == 'none'?$serendipity['indexFile'].'?/':'').'plugin/tag/';
+        $taglink = $serendipity['baseURL'].($serendipity['rewrite'] === 'none'?$serendipity['indexFile'].'?/':'').'plugin/tag/';
 
         switch ($this->get_config('socialbookmarksService')) {
             case 'del.icio.us': // quite easy
                 $return .= '<br/><p style="font-size:.7em;margin:0;padding:0" class="serendipity_socialbookmarks_tags">[Tags:';
+                /** @var array $tags */
                 $tags = $item->get_categories();
-                /** @var SimplePie_Category $tag */
-                foreach ($tags as $tag) {
-                    $return .= ' <a href="'.$taglink.socialbookmarks_freetag_compat(strtolower($tag->get_term())).'" rel="tag">'.strtolower($tag->get_term()).'</a>';
+                if ($tags !== null) {
+                    /** @var SimplePie_Category $tag */
+                    foreach ($tags as $tag) {
+                        $return .= ' <a href="' . $taglink . socialbookmarks_freetag_compat(strtolower($tag->get_term())) . '" rel="tag">' . strtolower($tag->get_term()) . '</a>';
+                    }
                 }
                 $return .= ']</p>';
                 break;
             case 'ma.gnolia': // they've changed this recently
                 $return .= '<br/><p style="font-size:.7em;margin:0;padding:0" class="serendipity_socialbookmarks_tags">[Tags:';
+                /** @var array $tags */
                 $tags = $item->get_categories();
-                //$tags = explode(' ', $tags[0]);
-                foreach ($tags as $tag) {
-                    $return .= ' <a href="'.$taglink.socialbookmarks_freetag_compat(strtolower($tag)).'" rel="tag">'.strtolower($tag).'</a>';
+                if ($tags !== null) {
+                    foreach ($tags as $tag) {
+                        $return .= ' <a href="' . $taglink . socialbookmarks_freetag_compat(strtolower($tag)) . '" rel="tag">' . strtolower($tag) . '</a>';
+                    }
                 }
                 $return .= ']</p>';
                 break;
             case 'furl':
                 $return .= '<br/><p style="font-size:.7em;margin:0;padding:0" class="serendipity_socialbookmarks_tags">[Tags:';
+                /** @var array $tags */
                 $tags = $item->get_category();
-                foreach ($tags as $tag) {
-                    $return .= ' <a href="'.$taglink.socialbookmarks_freetag_compat(strtolower($tag)).'" rel="tag">'.strtolower($tag).'</a>';
+                if ($tags !== null) {
+                    foreach ($tags as $tag) {
+                        $return .= ' <a href="' . $taglink . socialbookmarks_freetag_compat(strtolower($tag)) . '" rel="tag">' . strtolower($tag) . '</a>';
+                    }
                 }
                 $return .= ']</p>';
                 break;
@@ -392,7 +401,7 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
      * @param string $item
      * @return string
      */
-    function socialbookmarks_get_thumbnail($item) {
+    private function socialbookmarks_get_thumbnail($item) {
         $regexp = '/(<img[^>]*src=")([^"]*)("[^>]*>)/i';
         preg_match($regexp, $item, $img);
         $return = $img[1] . $img[2] . '" style="border:none;margin:none;padding:none;" />';
@@ -403,8 +412,8 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
      * @param string $string
      * @return string
      */
-    function decode($string) {
-        if (LANG_CHARSET != 'UTF-8') {
+    private function decode($string) {
+        if (LANG_CHARSET !== 'UTF-8') {
             return utf8_decode($string);
         }
         return $string;

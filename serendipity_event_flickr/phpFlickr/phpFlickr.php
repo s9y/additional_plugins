@@ -63,7 +63,7 @@ class phpFlickr {
     var $token;
 
 
-    function phpFlickr ($api_key, $secret = NULL, $die_on_error = true)
+    function __construct($api_key, $secret = NULL, $die_on_error = true)
     {
         //The API Key must be set before any calls can be made.  You can
         //get your own at http://www.flickr.com/services/api/misc.api_keys.html

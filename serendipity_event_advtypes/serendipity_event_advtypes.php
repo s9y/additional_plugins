@@ -31,7 +31,7 @@ class serendipity_event_advtypes extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.7');
+        $propbag->add('version',       '0.8');
         $propbag->add('author',       'Judebert (<a href="http://judebert.com/">http://judebert.com/</a>)');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
@@ -85,7 +85,7 @@ class serendipity_event_advtypes extends serendipity_event {
         $title = PLUGIN_ADVTYPES_TITLE;
     }
 
-    function event_hook($event, &$bag, &$eventData, $addlData) {
+    function event_hook($event, &$bag, &$eventData, $addData = NULL) {
         global $serendipity;
         
         $hooks = &$bag->get('event_hooks');

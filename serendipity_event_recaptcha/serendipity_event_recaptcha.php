@@ -39,7 +39,7 @@ var $error=null;
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '0.11');
+        $propbag->add('version',       '0.20');
         $propbag->add('event_hooks',    array(
             'frontend_configure'   => true,
             'frontend_saveComment' => true,
@@ -71,8 +71,8 @@ var $error=null;
                 $propbag->add('description', PLUGIN_EVENT_RECAPTCHA_RECAPTCHA_DESC);
                 $propbag->add('default', 'no');
                 $propbag->add('radio', array(
-                    'value' => array('yes', 'no'),
-                    'desc'  => array(YES, NO)
+                    'value' => array('yes2', 'no', 'yes'),
+                    'desc'  => array(YES . ' (v2)', NO, YES . ' (old v1, deprecated)')
                 ));
                 break;
 
@@ -204,7 +204,7 @@ var $error=null;
         if (isset($hooks[$event])) {
             $captchas_ttl = $this->get_config('captchas_ttl', 7);
             $_recaptcha   = $this->get_config('recaptcha', 'no');
-            $recaptcha    = ($_recaptcha ==='yes' || $_recaptcha !== 'no'  || serendipity_db_bool($_recaptcha));
+            $recaptcha    = ($_recaptcha === 'yes' || $_recaptcha === 'yes2' || $_recaptcha !== 'no'  || serendipity_db_bool($_recaptcha));
 
             // Check if the entry is older than the allowed amount of time.
             // Enforce captchas if that is true of if captchas are activated
@@ -238,19 +238,64 @@ var $error=null;
                             $privatekey = $this->get_config('recaptcha_priv');
                             
                             if ($_POST["recaptcha_response_field"] != 1) {
+                                if ($_recaptcha === 'yes2') {
+                                    $resp_valid = '';
+                                    $resp_error = '';
+
+                                    $url = 'https://www.google.com/recaptcha/api/siteverify';
+                                    if (function_exists('serendipity_request_url')) {
+                                        $data = serendipity_request_url(
+                                            $url, 
+                                            'POST', 
+                                            null, 
+                                            array(
+                                                'secret' => $privatekey,
+                                                'response' => $_POST["g-recaptcha-response"],
+                                                'remoteip' => $_SERVER['REMOTE_ADDR']
+                                            )
+                                        );
+                                    } else {
+                                        require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+                                        serendipity_request_start();
+                                        $req = new HTTP_Request($url, array('method' => HTTP_REQUEST_METHOD_POST, 'allowRedirects' => true, 'timeout' => 20, 'readTimeout' => array(5,0), 'maxRedirects' => 3));
+                                        $req->addPostData('secret', $privatekey);
+                                        $req->addPostData('response', $_POST["g-recaptcha-response"]);
+                                        $req->addPostData('remoteip', $_SERVER['REMOTE_ADDR']);
+                                        $req->sendRequest();
+                                        $data = $req->getResponseBody();
+                                        serendipity_request_end();
+                                    }
+
+                                    if (empty($data)) {
+                                        $resp_valid = false;
+                                        $resp_error = 'Empty Request';
+                                    } else {
+                                        $json_data = json_decode($data);
+                                        if (!is_object($json_data)) {
+                                            $resp_valid = false;
+                                            $resp_error = 'Invalid JSON return: ' . $data;
+                                        } else {
+                                            $resp_valid = $json_data->success;
+                                            $resp_error = $json_data->{'error-codes'};
+                                        }
+                                    }
+                                } else {
                                     $resp = recaptcha_check_answer($privatekey,
                                                                     $_SERVER["REMOTE_ADDR"],
                                                                     $_POST["recaptcha_challenge_field"],
                                                                     $_POST["recaptcha_response_field"]);
+                                    $resp_valid = $resp->is_valid;
+                                    $resp_error = $resp->error;
+                                }
 
-                                    if (!$resp->is_valid) {
-                                        # set the error code so that we can display it
-                                        $this->error = $resp->error;
-                                        $this->log($logfile, $eventData['id'], 'REJECTED', $this->error,  $addData);
-                                        $eventData = array('allow_comments' => false);
-                                        $serendipity['messagestack']['comments'][] = PLUGIN_EVENT_RECAPTCHA_ERROR_CAPTCHAS;
-                                        return false;
-                                    }
+                                if (!$resp_valid) {
+                                    # set the error code so that we can display it
+                                    $this->error = $resp_error;
+                                    $this->log($logfile, $eventData['id'], 'REJECTED', $this->error,  $addData);
+                                    $eventData = array('allow_comments' => false);
+                                    $serendipity['messagestack']['comments'][] = PLUGIN_EVENT_RECAPTCHA_ERROR_CAPTCHAS;
+                                    return false;
+                                }
                             } else {
                                 return false;
                             }
@@ -276,14 +321,19 @@ var $error=null;
                          }
                             
                         // The response from recaptcha.net
-                        $resp    = null;
-                        $theme   = $this->get_config('recaptcha_style', 'red');
-                        echo "\n<script type=\"text/javascript\">\n var RecaptchaOptions = { theme : '".$theme."', lang : '" . $serendipity['lang'] . "' };\n</script>";
-                        $use_ssl = false;
-                        if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
-                            $use_ssl = true;
+                        if ($_recaptcha === 'yes2') {
+                            echo "<script src='https://www.google.com/recaptcha/api.js'></script>";
+                            echo '<div class="g-recaptcha" data-sitekey="' . $pubkey . '"></div>';
+                        } else {
+                            $resp    = null;
+                            $theme   = $this->get_config('recaptcha_style', 'red');
+                            echo "\n<script type=\"text/javascript\">\n var RecaptchaOptions = { theme : '".$theme."', lang : '" . $serendipity['lang'] . "' };\n</script>";
+                            $use_ssl = false;
+                            if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
+                                $use_ssl = true;
+                            }
+                            echo recaptcha_get_html($pubkey, $this->error, $use_ssl);
                         }
-                        echo recaptcha_get_html($pubkey, $this->error, $use_ssl);
                     }
 
                     return true;

@@ -91,7 +91,7 @@ class serendipity_event_staticpage extends serendipity_event
         $propbag->add('page_configuration', $this->config);
         $propbag->add('type_configuration', $this->config_types);
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers');
-        $propbag->add('version', '4.14');
+        $propbag->add('version', '4.15');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '2.6.7',
@@ -1134,6 +1134,8 @@ class serendipity_event_staticpage extends serendipity_event
 
     function parseStaticPage($pagevar = 'staticpage_', $template = 'plugin_staticpage.tpl') { /* No more & */
         global $serendipity;
+
+        $serendipity['content_message'] = ''; // Reset message for 404 error handling which is now overriden
 
         $filename = $this->get_static('filename');
         if (empty($filename) || $filename == 'none.html') {

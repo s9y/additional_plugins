@@ -1,3 +1,5 @@
+4.15: Override content message when 404 view is taken over by this plugin
+
 4.14: Iconfont a11y fix (yellowled)
 
 4.13: IE11 backend flexbox fix (yellowled)

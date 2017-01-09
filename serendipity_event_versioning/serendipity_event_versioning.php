@@ -34,7 +34,7 @@ class serendipity_event_versioning extends serendipity_event {
         ));
 
         $propbag->add('author', 'Garvin Hicking');
-        $propbag->add('version', '0.11.1');
+        $propbag->add('version', '0.11.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -301,6 +301,7 @@ class serendipity_event_versioning extends serendipity_event {
                         <div>
                             <select name="serendipity[versioning]">
 <?php
+                    if (is_array($versions)) {
                     foreach($versions AS $version) {
                         $text = htmlspecialchars(sprintf(VERSIONING_REVISION,
                                     $version['version'],
@@ -308,6 +309,7 @@ class serendipity_event_versioning extends serendipity_event {
                                     $version['realname']));
 
                         echo '<option value="' . $version['id'] . '" ' . ($serendipity['POST']['versioning'] == $version['id'] ? 'selected="selected"' : '') . '>' . $text . '</option>' . "\n";
+                    }
                     }
 ?>
                             </select>

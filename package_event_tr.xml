@@ -7289,9 +7289,9 @@
 <description>Can store and retrieve older versions of an entry</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.11.1</version>
+  <version>0.11.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2017-01-09</date>
   <filelist>
 <dir name="serendipity_event_versioning">
 <file>lang_de.inc.php</file>

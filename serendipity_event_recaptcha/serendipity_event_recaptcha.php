@@ -15,10 +15,6 @@ include dirname(__FILE__) . '/lang_en.inc.php';
 
 require_once dirname(__FILE__) . '/recaptcha/recaptchalib.php';
 
-$GLOBALS['recaptcha_api_server'] = 'http://api.recaptcha.net';
-$GLOBALS['recaptcha_api_secure_server'] = 'https://api-secure.recaptcha.net';
-$GLOBALS['recaptcha_verify_server'] = 'api-verify.recaptcha.net';
-
 class serendipity_event_recaptcha extends serendipity_event
 {
 var $error=null;

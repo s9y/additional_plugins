@@ -1997,9 +1997,9 @@
 <description>Recaptcha für die Kommentar-Funktion von Artikeln aktivieren (Sie müssen einen Schlüssel anfordern)</description>
 <maintainers><maintainer><name>Christian Brabandt (based on work of Garvin Hicking, Sebastian Nohn)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.20</version>
+  <version>0.20.1</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2016-12-19</date>
+  <date>2017-02-05</date>
   <filelist>
 <dir name="serendipity_event_recaptcha">
 <file>lang_de.inc.php</file>

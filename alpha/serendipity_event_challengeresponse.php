@@ -73,7 +73,9 @@ class serendipity_event_challengeresponse extends serendipity_event {
             switch($event) {
                 case 'frontend_saveComment':
                     if (!is_array($eventData) || serendipity_db_bool($eventData['allow_comments'])) {
-                        if (strtolower($_POST['response']) != strtolower($this->get_config('response'))) {
+                        if (is_string($_POST['response']) && strtolower($_POST['response']) === strtolower($this->get_config('response'))) {
+                            return true;
+                        }else{
                             $eventData = array('allow_comments' => false);
                             $serendipity['messagestack']['comments'][] = $this->get_config('error');
                             return false;

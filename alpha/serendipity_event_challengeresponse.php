@@ -16,7 +16,7 @@ class serendipity_event_challengeresponse extends serendipity_event {
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '0.10');
+        $propbag->add('version',       '0.11');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'frontend_comment'     => true

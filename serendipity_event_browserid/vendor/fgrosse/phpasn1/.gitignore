@@ -1,0 +1,11 @@
+# Project and backup files
+*~
+*.project
+.settings/*
+.idea
+
+# Composer
+vendor
+
+# Test coverage reports
+clover.xml

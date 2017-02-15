@@ -1,0 +1,21 @@
+language: php
+sudo: false
+
+php:
+  - 5.6
+  - 7
+  - hhvm
+
+cache:
+  directories:
+    - vendor
+
+before_script:
+  - composer install
+
+script:
+  - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+
+after_script:
+  # code coverage currently does not seem to be supported on travis php 7 or hhvm
+  - vendor/bin/coveralls --verbose

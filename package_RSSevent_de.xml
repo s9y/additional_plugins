@@ -372,9 +372,9 @@
 <title>BrowserID Authentifizierung: Ermöglicht Autoren, sich mittels de BrowserID Services einzuloggen.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_browserid</link>
 <category>Event Plugins</category>
-<author>Grischa Brockhaus</author>
-<content:encoded>&lt;b&gt;serendipity_event_browserid&lt;br /&gt;BrowserID Authentifizierung&lt;/b&gt;&lt;br /&gt;Ermöglicht Autoren, sich mittels de BrowserID Services einzuloggen.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:38 +0200</pubDate>
+<author>Grischa Brockhaus, Malte Paskuda</author>
+<content:encoded>&lt;b&gt;serendipity_event_browserid&lt;br /&gt;BrowserID Authentifizierung&lt;/b&gt;&lt;br /&gt;Ermöglicht Autoren, sich mittels de BrowserID Services einzuloggen.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Wed, 22 Feb 2017 22:33:27 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_browserid</guid>
 </item>
 <item>

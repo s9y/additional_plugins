@@ -1,0 +1,27 @@
+{
+    "name": "portier/client",
+    "description": "Portier client for PHP",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stéphan Kochen",
+            "email": "stephan@kochen.nl"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Portier\\Client\\": "src/"
+        }
+    },
+    "require": {
+        "spomky-labs/base64url": "^1.0",
+        "fgrosse/phpasn1": "^1.5",
+        "lcobucci/jwt": "^3.2",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.6",
+        "squizlabs/php_codesniffer": "^2.7"
+    }
+}

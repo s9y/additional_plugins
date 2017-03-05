@@ -1,3 +1,8 @@
+1.20
+-----
+ * change xhtml to html for case: radio, checkbox and select
+ * add missing code for case:select
+
 1.19:
 -----
  * reset encoded quotes for text and subject

@@ -29,7 +29,7 @@ class serendipity_event_contactform extends serendipity_event {
         $propbag->add('event_hooks',  array('entries_header' => true, 'entry_display' => true, 'genpage' => true));
         $propbag->add('configuration', array('permalink', 'pagetitle', 'backend_title', 'email', 'subject', 'counter', 'intro', 'sent', 'articleformat', 'dynamic_tpl', 'dynamic_fields', 'dynamic_fields_tpl', 'dynamic_fields_desc'));
         $propbag->add('author', 'Garvin Hicking');
-        $propbag->add('version', '1.19');
+        $propbag->add('version', '1.20');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
@@ -391,14 +391,23 @@ class serendipity_event_contactform extends serendipity_event {
                             case  'radio':
                                 foreach ($form_fields[$item['name']]['options'] as $option) {
                                     if ($option['id'] == $item['value']) {
-                                        $form_fields[$item['name']]['options'][$option['name']]['default'] = 'checked="checked"';
+                                        $form_fields[$item['name']]['options'][$option['name']]['default'] = 'checked';
                                     } else {
                                         $form_fields[$item['name']]['options'][$option['name']]['default'] = '';
                                     }
                                 }
                             break;
+                            case  'select':
+                                foreach ($form_fields[$item['name']]['options'] as $option) {
+                                    if ($option['id'] == $item['value']) {
+                                        $form_fields[$item['name']]['options'][$option['name']]['default'] = 'selected';
+                                    } else {
+                                        $form_fields[$item['name']]['options'][$option['name']]['default'] = '';
+                                    }
+                                }
+                            break;                            
                             case 'checkbox':
-                                $form_fields[$item['name']]['default'] = 'checked="checked"';
+                                $form_fields[$item['name']]['default'] = 'checked';
                             break;
                             default:
                                 $form_fields[$item['name']]['default'] = (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($item['value'])) : htmlspecialchars(strip_tags($item['value']), ENT_COMPAT, LANG_CHARSET));
@@ -553,7 +562,7 @@ class serendipity_event_contactform extends serendipity_event {
                         if (is_array($option_array)) {
                             foreach ($option_array as $option) {
                                if (strtolower($option) == 'checked') {
-                                  $return_array[$field_array[0]]['default'] = 'checked="checked"';
+                                  $return_array[$field_array[0]]['default'] = 'checked';
                                } else {
                                   $return_array[$field_array[0]]['message'] = $option;
                                }
@@ -572,8 +581,8 @@ class serendipity_event_contactform extends serendipity_event {
                                if (count($option_details) > 1) {
                                   $options[$option_details[0]]['value'] = $option_details[1];
                                }
-                               if (count($option_details) > 2 && strtolower($option_details[2]) == 'checked="checked"') {
-                                  $options[$option_details[0]]['default'] = 'checked="checked"';
+                               if (count($option_details) > 2 && strtolower($option_details[2]) == 'checked') {
+                                  $options[$option_details[0]]['default'] = 'checked';
                                }
                             }
                         }
@@ -616,6 +625,10 @@ class serendipity_event_contactform extends serendipity_event {
                         $return_array[$field_array[0]]['type'] = 'text';
                         $return_array[$field_array[0]]['default'] = $field_array[2];
                     break;
+                    case 'email':
+                        $return_array[$field_array[0]]['type'] = 'email';
+                        $return_array[$field_array[0]]['default'] = $field_array[2];
+                    break;                    
                     default:
                         $return_array[$field_array[0]]['type'] = $field_array[1];
                         $return_array[$field_array[0]]['default'] = $field_array[2];

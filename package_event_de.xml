@@ -12388,9 +12388,9 @@ Snap.com ist ein kostenloser Service, aber beachten Sie, dass es snap.com mögli
 <description>Dieses Plugin gibt an, welchen Autoren eines Mehrbenutzer-Blogs Sie genug trauen und von denen Sie keine Hackangriffe erwarten. Alle anderen Autoren dürfen kein HTML mehr verwenden!</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.6</version>
+  <version>0.7</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2015-03-14</date>
+  <date>2017-03-06</date>
   <filelist>
 <dir name="serendipity_event_xsstrust">
 <file>lang_de.inc.php</file>

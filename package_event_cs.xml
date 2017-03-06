@@ -12388,9 +12388,9 @@ aplikovány další typografické úpravy.</description>
 <description>Tento plugin umožňuje upřesnit, kteří autoři na více-uživatelském blogu jsou důvěryhodní a lze se spolehnout, že se nebudou pokoušet o hackování. Všichni ostatní autoři jsou bráni jako potenciálně nebezpeční a nemohou vytvřátet příspěvky v HTML kódu.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.6</version>
+  <version>0.7</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2015-03-14</date>
+  <date>2017-03-06</date>
   <filelist>
 <dir name="serendipity_event_xsstrust">
 <file>lang_de.inc.php</file>

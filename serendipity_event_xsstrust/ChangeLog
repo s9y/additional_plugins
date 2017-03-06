@@ -1,3 +1,8 @@
+0.7:
+----
+Fixed set_config() parameters for current s9y cure
+Fixed wrong variable for current authorid preventing htmlpurifier to properly being executed
+
 0.6:
 ----
 

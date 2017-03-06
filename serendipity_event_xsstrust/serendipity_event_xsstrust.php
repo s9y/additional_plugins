@@ -31,7 +31,7 @@ class serendipity_event_xsstrust extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '0.6');
+        $propbag->add('version',       '0.7');
         $propbag->add('event_hooks', array(
             'frontend_display' => true,
             'backend_media_check' => true,
@@ -93,7 +93,7 @@ class serendipity_event_xsstrust extends serendipity_event
         }
     }
 
-    function set_config($name, $value) {
+    function set_config($name, $value, $implodekey = '^') {
         $fname = $this->instance . '/' . $name;
 
         if (is_array($value)) {
@@ -150,7 +150,7 @@ class serendipity_event_xsstrust extends serendipity_event
         if (isset($hooks[$event])) {
             switch($event) {
                 case 'backend_entry_presave':
-                    if (serendipity_db_bool($this->get_config('htmlpurifier')) && !isset($this->trusted_authors[$eventData['authorid']])) {
+                    if (serendipity_db_bool($this->get_config('htmlpurifier')) && !isset($this->trusted_authors[$serendipity['authorid']])) {
                         require_once dirname(__FILE__) . '/htmlpurifier-4.6.0-standalone/HTMLPurifier.standalone.php';
                         $config = HTMLPurifier_Config::createDefault();
                         $config->set('Cache.SerializerPath', $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE);

@@ -4017,9 +4017,9 @@
 <description>Holt E-Mail inkl. Anhängen ab und veröffentlicht sie von einem POP3 E-Mail-Account (mit spezieller Handy-Unterstützung)</description>
 <maintainers><maintainer><name>Jason Levitt</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.46</version>
+  <version>1.47</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-06-27</date>
+  <date>2017-03-10</date>
   <filelist>
 <dir name="serendipity_event_popfetcher">
 <file>class.mimedecode.php</file>

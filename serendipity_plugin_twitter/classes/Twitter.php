@@ -34,7 +34,7 @@ class Twitter {
      * The constructor of this class.
      * @param boolean use_identi_ca default=false (use twitter mode)
      */
-    function Twitter($use_identi_ca = false) {
+    function __construct($use_identi_ca = false) {
         $this->use_identica = $use_identi_ca;
     }
     

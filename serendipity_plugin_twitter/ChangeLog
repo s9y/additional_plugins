@@ -9,6 +9,10 @@ TODO:
 * Twitter announcements/credentials etc. per author instead of
   only per central blog
 
+1.68:
+-----
+    * Fix PHP7 incompatibility
+  
 1.67:
 -----
     * Added serendipity_request_url API method

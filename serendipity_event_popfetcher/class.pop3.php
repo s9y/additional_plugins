@@ -41,7 +41,7 @@ class POP3 {
     //  This must be set to true
     //  manually
 
-    function POP3 ( $server = '', $timeout = '' ) {
+    function __construct ( $server = '', $timeout = '' ) {
         settype($this->BUFFER,"integer");
         if( !empty($server) ) {
             // Do not allow programs to alter MAILSERVER

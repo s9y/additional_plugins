@@ -121,7 +121,7 @@ class mimeDecode
     * @param string The input to decode
     * @access public
     */
-    function mimeDecode($input)
+    function __construct($input)
     {
         list($header, $body)   = $this->_splitBodyHeader($input);
 

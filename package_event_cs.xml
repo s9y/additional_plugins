@@ -4136,7 +4136,7 @@ aplikovány další typografické úpravy.</description>
 <description>Přidává klienta Twitter/Identica do administrační sekce a stahuje nové tweety a oznámuje nové články na účtu mikroblogu.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Peter Heimann</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.68</version>
+  <version>1.69</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
   <date>2016-09-23</date>
   <filelist>
@@ -8011,73 +8011,6 @@ aplikovány další typografické úpravy.</description>
 </release>
 </package>
 <package version="1.0">
-<name>serendipity_event_lsrstopper</name>
-<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_lsrstopper/ChangeLog</changelog>
-<license>GPL</license>
-<summary>D64 LSR-Stopper</summary>
-<groups>MARKUP</groups>
-<description>Pomocí tohoto pluginu zablokujete odkazy na média, která si nárokují autorská práva podle německého &quot;Leistungsschutzrecht&quot; (Ochrana duševního vlastnictví).</description>
-<maintainers><maintainer><name>Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>0.3</version>
-  <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2014-05-15</date>
-  <filelist>
-<dir name="serendipity_event_lsrstopper">
-<file>serendipity_event_lsrstopper.php</file>
-<file>lang_de.inc.php</file>
-<file>ChangeLog</file>
-<file>lang_cz.inc.php</file>
-<dir name="UTF-8">
-<file>lang_de.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_cs.inc.php</file>
-</dir>
-<file>LICENSE</file>
-<file>lang_en.inc.php</file>
-<dir name="tests">
-<dir name="fixtures">
-<file>blacklist.txt</file>
-</dir>
-<file>lsrstopperTest.php</file>
-<dir name="data">
-<file>.empty</file>
-</dir>
-</dir>
-<file>documentation_cs.html</file>
-<file>documentation_de.html</file>
-<dir name="libs">
-<file>simple_html_dom.php</file>
-</dir>
-<file>documentation_cz.html</file>
-<file>README.md</file>
-<file>lang_cs.inc.php</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_event_lsrstopper/serendipity_event_lsrstopper.php</file>
-    <file>serendipity_event_lsrstopper/lang_de.inc.php</file>
-    <file>serendipity_event_lsrstopper/ChangeLog</file>
-    <file>serendipity_event_lsrstopper/lang_cz.inc.php</file>
-    <file>serendipity_event_lsrstopper/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_event_lsrstopper/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_lsrstopper/UTF-8/lang_cs.inc.php</file>
-    <file>serendipity_event_lsrstopper/LICENSE</file>
-    <file>serendipity_event_lsrstopper/lang_en.inc.php</file>
-    <file>serendipity_event_lsrstopper/tests/fixtures/blacklist.txt</file>
-    <file>serendipity_event_lsrstopper/tests/lsrstopperTest.php</file>
-    <file>serendipity_event_lsrstopper/tests/data/.empty</file>
-    <file>serendipity_event_lsrstopper/documentation_cs.html</file>
-    <file>serendipity_event_lsrstopper/documentation_de.html</file>
-    <file>serendipity_event_lsrstopper/libs/simple_html_dom.php</file>
-    <file>serendipity_event_lsrstopper/documentation_cz.html</file>
-    <file>serendipity_event_lsrstopper/README.md</file>
-    <file>serendipity_event_lsrstopper/lang_cs.inc.php</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
 <name>serendipity_event_versioning</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_versioning/ChangeLog</changelog>
 <license>GPL</license>
@@ -9833,6 +9766,73 @@ aplikovány další typografické úpravy.</description>
 </release>
 </package>
 <package version="1.0">
+<name>serendipity_event_lsrstopper</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/alpha/serendipity_event_lsrstopper/ChangeLog</changelog>
+<license>GPL</license>
+<summary>D64 LSR-Stopper</summary>
+<groups>MARKUP</groups>
+<description>Pomocí tohoto pluginu zablokujete odkazy na média, která si nárokují autorská práva podle německého &quot;Leistungsschutzrecht&quot; (Ochrana duševního vlastnictví).</description>
+<maintainers><maintainer><name>Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>0.3</version>
+  <requirements:s9yVersion>1.6</requirements:s9yVersion>
+  <date>2017-03-15</date>
+  <filelist>
+<dir name="serendipity_event_lsrstopper">
+<file>serendipity_event_lsrstopper.php</file>
+<file>lang_de.inc.php</file>
+<file>ChangeLog</file>
+<file>lang_cz.inc.php</file>
+<dir name="UTF-8">
+<file>lang_de.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_cs.inc.php</file>
+</dir>
+<file>LICENSE</file>
+<file>lang_en.inc.php</file>
+<dir name="tests">
+<dir name="fixtures">
+<file>blacklist.txt</file>
+</dir>
+<file>lsrstopperTest.php</file>
+<dir name="data">
+<file>.empty</file>
+</dir>
+</dir>
+<file>documentation_cs.html</file>
+<file>documentation_de.html</file>
+<dir name="libs">
+<file>simple_html_dom.php</file>
+</dir>
+<file>documentation_cz.html</file>
+<file>README.md</file>
+<file>lang_cs.inc.php</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>alpha/serendipity_event_lsrstopper/serendipity_event_lsrstopper.php</file>
+    <file>alpha/serendipity_event_lsrstopper/lang_de.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/ChangeLog</file>
+    <file>alpha/serendipity_event_lsrstopper/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/UTF-8/lang_de.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/UTF-8/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/UTF-8/lang_cs.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/LICENSE</file>
+    <file>alpha/serendipity_event_lsrstopper/lang_en.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/tests/fixtures/blacklist.txt</file>
+    <file>alpha/serendipity_event_lsrstopper/tests/lsrstopperTest.php</file>
+    <file>alpha/serendipity_event_lsrstopper/tests/data/.empty</file>
+    <file>alpha/serendipity_event_lsrstopper/documentation_cs.html</file>
+    <file>alpha/serendipity_event_lsrstopper/documentation_de.html</file>
+    <file>alpha/serendipity_event_lsrstopper/libs/simple_html_dom.php</file>
+    <file>alpha/serendipity_event_lsrstopper/documentation_cz.html</file>
+    <file>alpha/serendipity_event_lsrstopper/README.md</file>
+    <file>alpha/serendipity_event_lsrstopper/lang_cs.inc.php</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
 <name>serendipity_event_stalkerbuster</name>
 <license>GPL</license>
 <summary>StalkerBuster (TM,C,R)</summary>
@@ -9942,6 +9942,36 @@ aplikovány další typografické úpravy.</description>
 <file>lang_cs.inc.php</file>
 <file>plugin_findmore.tpl</file>
 </dir>
+<dir name="serendipity_event_lsrstopper">
+<file>serendipity_event_lsrstopper.php</file>
+<file>lang_de.inc.php</file>
+<file>ChangeLog</file>
+<file>lang_cz.inc.php</file>
+<dir name="UTF-8">
+<file>lang_de.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_cs.inc.php</file>
+</dir>
+<file>LICENSE</file>
+<file>lang_en.inc.php</file>
+<dir name="tests">
+<dir name="fixtures">
+<file>blacklist.txt</file>
+</dir>
+<file>lsrstopperTest.php</file>
+<dir name="data">
+<file>.empty</file>
+</dir>
+</dir>
+<file>documentation_cs.html</file>
+<file>documentation_de.html</file>
+<dir name="libs">
+<file>simple_html_dom.php</file>
+</dir>
+<file>documentation_cz.html</file>
+<file>README.md</file>
+<file>lang_cs.inc.php</file>
+</dir>
 <dir name="stalkerbuster">
 <file>lang_en.inc.php</file>
 <file>serendipity_event_stalkerbuster.php</file>
@@ -10014,6 +10044,24 @@ aplikovány další typografické úpravy.</description>
     <file>alpha/serendipity_event_findmore/documentation_cz.html</file>
     <file>alpha/serendipity_event_findmore/lang_cs.inc.php</file>
     <file>alpha/serendipity_event_findmore/plugin_findmore.tpl</file>
+    <file>alpha/serendipity_event_lsrstopper/serendipity_event_lsrstopper.php</file>
+    <file>alpha/serendipity_event_lsrstopper/lang_de.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/ChangeLog</file>
+    <file>alpha/serendipity_event_lsrstopper/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/UTF-8/lang_de.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/UTF-8/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/UTF-8/lang_cs.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/LICENSE</file>
+    <file>alpha/serendipity_event_lsrstopper/lang_en.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/tests/fixtures/blacklist.txt</file>
+    <file>alpha/serendipity_event_lsrstopper/tests/lsrstopperTest.php</file>
+    <file>alpha/serendipity_event_lsrstopper/tests/data/.empty</file>
+    <file>alpha/serendipity_event_lsrstopper/documentation_cs.html</file>
+    <file>alpha/serendipity_event_lsrstopper/documentation_de.html</file>
+    <file>alpha/serendipity_event_lsrstopper/libs/simple_html_dom.php</file>
+    <file>alpha/serendipity_event_lsrstopper/documentation_cz.html</file>
+    <file>alpha/serendipity_event_lsrstopper/README.md</file>
+    <file>alpha/serendipity_event_lsrstopper/lang_cs.inc.php</file>
     <file>alpha/stalkerbuster/lang_en.inc.php</file>
     <file>alpha/stalkerbuster/serendipity_event_stalkerbuster.php</file>
     <file>alpha/serendipity_plugin_sidebarlogo.zip</file>
@@ -10106,6 +10154,36 @@ aplikovány další typografické úpravy.</description>
 <file>lang_cs.inc.php</file>
 <file>plugin_findmore.tpl</file>
 </dir>
+<dir name="serendipity_event_lsrstopper">
+<file>serendipity_event_lsrstopper.php</file>
+<file>lang_de.inc.php</file>
+<file>ChangeLog</file>
+<file>lang_cz.inc.php</file>
+<dir name="UTF-8">
+<file>lang_de.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_cs.inc.php</file>
+</dir>
+<file>LICENSE</file>
+<file>lang_en.inc.php</file>
+<dir name="tests">
+<dir name="fixtures">
+<file>blacklist.txt</file>
+</dir>
+<file>lsrstopperTest.php</file>
+<dir name="data">
+<file>.empty</file>
+</dir>
+</dir>
+<file>documentation_cs.html</file>
+<file>documentation_de.html</file>
+<dir name="libs">
+<file>simple_html_dom.php</file>
+</dir>
+<file>documentation_cz.html</file>
+<file>README.md</file>
+<file>lang_cs.inc.php</file>
+</dir>
 <dir name="stalkerbuster">
 <file>lang_en.inc.php</file>
 <file>serendipity_event_stalkerbuster.php</file>
@@ -10178,6 +10256,24 @@ aplikovány další typografické úpravy.</description>
     <file>alpha/serendipity_event_findmore/documentation_cz.html</file>
     <file>alpha/serendipity_event_findmore/lang_cs.inc.php</file>
     <file>alpha/serendipity_event_findmore/plugin_findmore.tpl</file>
+    <file>alpha/serendipity_event_lsrstopper/serendipity_event_lsrstopper.php</file>
+    <file>alpha/serendipity_event_lsrstopper/lang_de.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/ChangeLog</file>
+    <file>alpha/serendipity_event_lsrstopper/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/UTF-8/lang_de.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/UTF-8/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/UTF-8/lang_cs.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/LICENSE</file>
+    <file>alpha/serendipity_event_lsrstopper/lang_en.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/tests/fixtures/blacklist.txt</file>
+    <file>alpha/serendipity_event_lsrstopper/tests/lsrstopperTest.php</file>
+    <file>alpha/serendipity_event_lsrstopper/tests/data/.empty</file>
+    <file>alpha/serendipity_event_lsrstopper/documentation_cs.html</file>
+    <file>alpha/serendipity_event_lsrstopper/documentation_de.html</file>
+    <file>alpha/serendipity_event_lsrstopper/libs/simple_html_dom.php</file>
+    <file>alpha/serendipity_event_lsrstopper/documentation_cz.html</file>
+    <file>alpha/serendipity_event_lsrstopper/README.md</file>
+    <file>alpha/serendipity_event_lsrstopper/lang_cs.inc.php</file>
     <file>alpha/stalkerbuster/lang_en.inc.php</file>
     <file>alpha/stalkerbuster/serendipity_event_stalkerbuster.php</file>
     <file>alpha/serendipity_plugin_sidebarlogo.zip</file>
@@ -10270,6 +10366,36 @@ aplikovány další typografické úpravy.</description>
 <file>lang_cs.inc.php</file>
 <file>plugin_findmore.tpl</file>
 </dir>
+<dir name="serendipity_event_lsrstopper">
+<file>serendipity_event_lsrstopper.php</file>
+<file>lang_de.inc.php</file>
+<file>ChangeLog</file>
+<file>lang_cz.inc.php</file>
+<dir name="UTF-8">
+<file>lang_de.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_cs.inc.php</file>
+</dir>
+<file>LICENSE</file>
+<file>lang_en.inc.php</file>
+<dir name="tests">
+<dir name="fixtures">
+<file>blacklist.txt</file>
+</dir>
+<file>lsrstopperTest.php</file>
+<dir name="data">
+<file>.empty</file>
+</dir>
+</dir>
+<file>documentation_cs.html</file>
+<file>documentation_de.html</file>
+<dir name="libs">
+<file>simple_html_dom.php</file>
+</dir>
+<file>documentation_cz.html</file>
+<file>README.md</file>
+<file>lang_cs.inc.php</file>
+</dir>
 <dir name="stalkerbuster">
 <file>lang_en.inc.php</file>
 <file>serendipity_event_stalkerbuster.php</file>
@@ -10342,6 +10468,24 @@ aplikovány další typografické úpravy.</description>
     <file>alpha/serendipity_event_findmore/documentation_cz.html</file>
     <file>alpha/serendipity_event_findmore/lang_cs.inc.php</file>
     <file>alpha/serendipity_event_findmore/plugin_findmore.tpl</file>
+    <file>alpha/serendipity_event_lsrstopper/serendipity_event_lsrstopper.php</file>
+    <file>alpha/serendipity_event_lsrstopper/lang_de.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/ChangeLog</file>
+    <file>alpha/serendipity_event_lsrstopper/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/UTF-8/lang_de.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/UTF-8/lang_cz.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/UTF-8/lang_cs.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/LICENSE</file>
+    <file>alpha/serendipity_event_lsrstopper/lang_en.inc.php</file>
+    <file>alpha/serendipity_event_lsrstopper/tests/fixtures/blacklist.txt</file>
+    <file>alpha/serendipity_event_lsrstopper/tests/lsrstopperTest.php</file>
+    <file>alpha/serendipity_event_lsrstopper/tests/data/.empty</file>
+    <file>alpha/serendipity_event_lsrstopper/documentation_cs.html</file>
+    <file>alpha/serendipity_event_lsrstopper/documentation_de.html</file>
+    <file>alpha/serendipity_event_lsrstopper/libs/simple_html_dom.php</file>
+    <file>alpha/serendipity_event_lsrstopper/documentation_cz.html</file>
+    <file>alpha/serendipity_event_lsrstopper/README.md</file>
+    <file>alpha/serendipity_event_lsrstopper/lang_cs.inc.php</file>
     <file>alpha/stalkerbuster/lang_en.inc.php</file>
     <file>alpha/stalkerbuster/serendipity_event_stalkerbuster.php</file>
     <file>alpha/serendipity_plugin_sidebarlogo.zip</file>

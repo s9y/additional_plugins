@@ -945,15 +945,6 @@
 <guid isPermaLink="false">serendipity_event_geshi</guid>
 </item>
 <item>
-<title>D64 LSR-Stopper: With this plugin you prevent links to media that support the German &quot;Leistungsschutzrecht&quot;.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_lsrstopper</link>
-<category>Event Plugins</category>
-<author>Matthias Gutjahr</author>
-<content:encoded>&lt;b&gt;serendipity_event_lsrstopper&lt;br /&gt;D64 LSR-Stopper&lt;/b&gt;&lt;br /&gt;With this plugin you prevent links to media that support the German &quot;Leistungsschutzrecht&quot;.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Thu, 15 May 2014 02:32:46 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_lsrstopper</guid>
-</item>
-<item>
 <title>Versioning of entries: Can store and retrieve older versions of an entry</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_versioning</link>
 <category>Event Plugins</category>
@@ -1141,6 +1132,15 @@
 <content:encoded>&lt;b&gt;serendipity_event_findmore&lt;br /&gt;Pokaż linki do usług, takich jak Facebook, Digg, Technorati, del.icio.us itp. by promować twoje wpisy&lt;/b&gt;&lt;br /&gt;Możesz dodawać lub usuwać serwisy znajdujące się w pliku &quot;plugin_findmore.tpl&quot;. Pamiętaj także, że zamiast używać tej wtyczki, możesz wstawić fragmenty kodu do pliku entries.tpl znajdującego się w folderze twojego szablonu.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Mon, 26 Sep 2016 22:32:20 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_findmore</guid>
+</item>
+<item>
+<title>D64 LSR-Stopper: With this plugin you prevent links to media that support the German &quot;Leistungsschutzrecht&quot;.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/alpha/serendipity_event_lsrstopper</link>
+<category>Event Plugins</category>
+<author>Matthias Gutjahr</author>
+<content:encoded>&lt;b&gt;serendipity_event_lsrstopper&lt;br /&gt;D64 LSR-Stopper&lt;/b&gt;&lt;br /&gt;With this plugin you prevent links to media that support the German &quot;Leistungsschutzrecht&quot;.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Wed, 15 Mar 2017 22:32:18 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_lsrstopper</guid>
 </item>
 <item>
 <title>StalkerBuster (TM,C,R): Denies access to baddies. Write line-separated list of blocked cookies to a stalkerbuster.php file in your root.</title>

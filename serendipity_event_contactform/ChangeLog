@@ -1,3 +1,7 @@
+1.21
+-----
+  * Reset content message, as also needed in staticpage plugin.
+
 1.20
 -----
  * change xhtml to html for case: radio, checkbox and select

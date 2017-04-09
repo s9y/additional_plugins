@@ -6,7 +6,7 @@ class ProviderManager{
     private function __construct($maxwidth=null, $maxheight=null, $config = array()){
         $this->providers=array();
         $this->config = $config;
-        $xml = simplexml_load_file(PLUGIN_OEMBED_PROVIDER_XML_FILE);// PROVIDER_XML comes from config.php
+        $xml = simplexml_load_string(file_get_contents(PLUGIN_OEMBED_PROVIDER_XML_FILE));// PROVIDER_XML comes from config.php
         foreach($xml->provider as $provider){
             if(!isset($provider->class) && isset($provider->endpoint)){
                 $onlyJson = isset($provider->jsononly);

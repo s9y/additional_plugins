@@ -34,7 +34,7 @@ class PostlyProvider extends EmbedProvider {
         if (empty($post_id)) return null;
 
         $api_fetch = "http://posterous.com/api/getpost?id=" . $post_id;
-        $xml = simplexml_load_file($api_fetch);
+        $xml = simplexml_load_string(file_get_contents($api_fetch));
         $rsp_attributes = $xml->attributes();
         if ($rsp_attributes['stat']!="ok") return null;
         

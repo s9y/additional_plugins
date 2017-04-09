@@ -35,7 +35,7 @@ class AudioBooProvider extends EmbedProvider {
         if (empty($boo_id)) return null;
 
         $api_fetch = "http://api.audioboo.fm/audio_clips/" . $boo_id . ".xml";
-        $xml = simplexml_load_file($api_fetch);
+        $xml = simplexml_load_string(file_get_contents($api_fetch));
         if (!isset($xml) && !isset($xml->body)) return null;
         $audioboo = $xml->body;
         if (isset($audioboo->error)) return null;

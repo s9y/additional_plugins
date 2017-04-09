@@ -1,3 +1,7 @@
+Version 1.12
+-----------------------
+* Changed simplexml_load_file to simplexml_load_string to prevent I/O errors
+
 Version 1.11 (brockhaus)
 -----------------------
 * OEmbed result will be ignored now, if containing error field.

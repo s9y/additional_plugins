@@ -3338,9 +3338,9 @@
 <description>Imports comments made on facebook postings (like through RSS Graffiti) back into the blog. Also embeds Facebook OpenGraph Meta-Tags into the blog. Note that adding &quot;like&quot;-Buttons to blog entries is achieved via the serendipity_event_findmore plugin! </description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.5.2</version>
+  <version>0.5.3</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2017-04-10</date>
   <filelist>
 <dir name="serendipity_event_facebook">
 <file>ChangeLog</file>
@@ -5283,9 +5283,9 @@
 <description>This plugin periodically executes plugins that provide/require periodic tasks. See the configuration of this plugin for details.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.9.2</version>
+  <version>0.9.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-03-17</date>
+  <date>2017-04-10</date>
   <filelist>
 <dir name="serendipity_event_cronjob">
 <file>ChangeLog</file>
@@ -5845,9 +5845,9 @@
 <description>You can specify new/existing links to your blog entries via [[title]], link to staticpages via ((title)) and link to both via {{title}}. References can be automatically appended to the blog entry.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.25.1</version>
+  <version>0.25.2</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2017-04-10</date>
   <filelist>
 <dir name="serendipity_event_wikilinks">
 <file>create_internal.png</file>
@@ -7020,9 +7020,9 @@
 <description>관리 메뉴에 흥미로운 통계를 볼 수 있는 링크를 추가함</description>
 <maintainers><maintainer><name>Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin, Matthias Mees, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.63</version>
+  <version>1.64</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2017-04-10</date>
   <filelist>
 <dir name="serendipity_event_statistics">
 <file>lang_fr.inc.php</file>
@@ -8766,9 +8766,9 @@
 <description>Links manager - Shows your favorite links in the sidebar.</description>
 <maintainers><maintainer><name>Matthew Groeninger, Omid Mottaghi Rad</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.03</version>
+  <version>2.04</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2017-04-10</date>
   <filelist>
 <dir name="serendipity_event_linklist">
 <dir name="img">
@@ -9444,7 +9444,7 @@
 <release>
   <version>1.25.1</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2017-04-10</date>
   <filelist>
 <dir name="serendipity_event_todolist">
 <file>lang_ja.inc.php</file>
@@ -10602,9 +10602,9 @@
 <description>oEmbed is a format for allowing an embedded representation of a URL on your blog. It allows blog articles to display embedded content (such as tweets, photos or videos) when a user posts a link to that resource, without having to parse the resource directly.</description>
 <maintainers><maintainer><name>Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.11</version>
+  <version>1.12</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-11-04</date>
+  <date>2017-04-10</date>
   <filelist>
 <dir name="serendipity_event_oembed">
 <dir name="oembed">

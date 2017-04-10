@@ -3339,9 +3339,9 @@ aplikovány další typografické úpravy.</description>
 <description>Importuje do blogu komentáře u příspěvků na facebooku (pomocí RSS Graffiti). Také do blogu vloží facebookové OpenGraph Meta-Tagy. Pamatujte, že přidání talčítka &quot;Líbí se mi&quot; k příspěvkům blogu je zajišťováno pluginem serendipity_event_findmore!</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.5.2</version>
+  <version>0.5.3</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2017-04-10</date>
   <filelist>
 <dir name="serendipity_event_facebook">
 <file>ChangeLog</file>
@@ -5284,9 +5284,9 @@ aplikovány další typografické úpravy.</description>
 <description>Tento plugin periodicky vykonává pluginy, které poskytují/vyžadují opakované vykonávání. Podrobnosti v konfiguraci pluginu.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.9.2</version>
+  <version>0.9.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-03-17</date>
+  <date>2017-04-10</date>
   <filelist>
 <dir name="serendipity_event_cronjob">
 <file>ChangeLog</file>
@@ -5846,9 +5846,9 @@ aplikovány další typografické úpravy.</description>
 <description>V příspěvcích můžete zadat odkazy na existující/nové příspěvky pomocí [[nadpis příspěvku]], na statické stránky pomocí ((nadpis stránky)) a na obojí pomocí {{nadpis}}.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.25.1</version>
+  <version>0.25.2</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2017-04-10</date>
   <filelist>
 <dir name="serendipity_event_wikilinks">
 <file>create_internal.png</file>
@@ -7021,9 +7021,9 @@ aplikovány další typografické úpravy.</description>
 <description>Zobrazení statistik záznamů</description>
 <maintainers><maintainer><name>Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin, Matthias Mees, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.63</version>
+  <version>1.64</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2017-04-10</date>
   <filelist>
 <dir name="serendipity_event_statistics">
 <file>lang_fr.inc.php</file>
@@ -8767,9 +8767,9 @@ aplikovány další typografické úpravy.</description>
 <description>Správce odkazů (linků) - V bočním panelu zobrazuje vaše oblíbené odkazy.</description>
 <maintainers><maintainer><name>Matthew Groeninger, Omid Mottaghi Rad</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.03</version>
+  <version>2.04</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2017-04-10</date>
   <filelist>
 <dir name="serendipity_event_linklist">
 <dir name="img">
@@ -9445,7 +9445,7 @@ aplikovány další typografické úpravy.</description>
 <release>
   <version>1.25.1</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2017-04-10</date>
   <filelist>
 <dir name="serendipity_event_todolist">
 <file>lang_ja.inc.php</file>
@@ -10603,9 +10603,9 @@ aplikovány další typografické úpravy.</description>
 <description>oEmbed je formát, který umožňuje vkládat do blogu jiné stránky z internetu. Umožňuje zobrazovat v příspěvcích vložený obsah (jako tweety, fotky nebo videa), když autor příspěvku napíše odkaz na zdroj obsahu, aniž by bylo potřeba přímo parsovat cílovou stránku.</description>
 <maintainers><maintainer><name>Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.11</version>
+  <version>1.12</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-11-04</date>
+  <date>2017-04-10</date>
   <filelist>
 <dir name="serendipity_event_oembed">
 <dir name="oembed">

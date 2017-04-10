@@ -138,7 +138,7 @@ class TwitterPluginDbAccess {
                     "service varchar(15) not null, " .
                     "longurl varchar(255) not null, " .
                     "shorturl varchar(50) not null, " .
-                    "primary key (service, longurl)" .
+                    "primary key (service, longurl(176))" .
                 ")";
 
             $result = serendipity_db_schema_import($q);

@@ -22,7 +22,7 @@ class serendipity_event_cronjob extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_CRONJOB_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '0.9.2');
+        $propbag->add('version',       '0.9.3');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '4.1.0'
@@ -113,7 +113,7 @@ class serendipity_event_cronjob extends serendipity_event {
             $q   = "CREATE INDEX kspamidx ON {$serendipity['dbPrefix']}cronjoblog (timestamp);";
             $sql = serendipity_db_schema_import($q);
 
-            $q   = "CREATE INDEX kspamtypeidx ON {$serendipity['dbPrefix']}cronjoblog (type);";
+            $q   = "CREATE INDEX kspamtypeidx ON {$serendipity['dbPrefix']}cronjoblog (type(191));";
             $sql = serendipity_db_schema_import($q);
             $this->set_config('db_ver', 2);
         }

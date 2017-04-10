@@ -147,7 +147,7 @@ class TwitterPluginDbAccess {
                 return;
             }
 
-            serendipity_db_schema_import("CREATE INDEX idx_tweetbackshorturls_longurl ON {$serendipity['dbPrefix']}tweetbackshorturls (longurl)");
+            serendipity_db_schema_import("CREATE INDEX idx_tweetbackshorturls_longurl ON {$serendipity['dbPrefix']}tweetbackshorturls (longurl(191))");
             serendipity_db_schema_import("CREATE INDEX idx_tweetbackshorturls_service ON {$serendipity['dbPrefix']}tweetbackshorturls (service)");
 
         }

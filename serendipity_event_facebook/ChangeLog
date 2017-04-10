@@ -1,3 +1,5 @@
+0.5.3: Restrict sql index key length for utf8mb4 migration
+
 0.5.2:
 -----
     * Added serendipity_request_url API method

@@ -16,7 +16,7 @@ class serendipity_event_statistics extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_STATISTICS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin, Matthias Mees, Ian');
-        $propbag->add('version',       '1.63');
+        $propbag->add('version',       '1.64');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -987,7 +987,7 @@ class serendipity_event_statistics extends serendipity_event
             serendipity_db_schema_import($q);
             $q   = "CREATE INDEX visitortimeb ON {$serendipity['dbPrefix']}visitors_count (year, month, day);";
             serendipity_db_schema_import($q);
-            $q   = "CREATE INDEX refsrefs ON {$serendipity['dbPrefix']}refs (refs);";
+            $q   = "CREATE INDEX refsrefs ON {$serendipity['dbPrefix']}refs (refs(191));";
             serendipity_db_schema_import($q);
             $q   = "CREATE INDEX refscount ON {$serendipity['dbPrefix']}refs (count);";
             serendipity_db_schema_import($q);

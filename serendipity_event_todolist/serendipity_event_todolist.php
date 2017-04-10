@@ -24,7 +24,7 @@ if (file_exists($probelang)) {
 
 include dirname(__FILE__) . '/lang_en.inc.php';
 
-@define('PLUGIN_EVENT_TODOLIST_DBVERSION', '1.12');
+@define('PLUGIN_EVENT_TODOLIST_DBVERSION', '1.13');
 
 class serendipity_event_todolist extends serendipity_event {
 
@@ -1176,7 +1176,7 @@ class serendipity_event_todolist extends serendipity_event {
         $q   = "CREATE INDEX percentage_dateind ON {$serendipity['dbPrefix']}percentagedone (date_added);";
         $sql = serendipity_db_schema_import($q);
 
-        $q   = "CREATE INDEX percentage_titleind ON {$serendipity['dbPrefix']}percentagedone (title);";
+        $q   = "CREATE INDEX percentage_titleind ON {$serendipity['dbPrefix']}percentagedone (title(191));";
         $sql = serendipity_db_schema_import($q);
 
         $q   = "CREATE INDEX percentage_catind ON {$serendipity['dbPrefix']}percentagedone (category);";

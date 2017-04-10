@@ -1,5 +1,9 @@
 # 
 
+0.25:
+----------------
+   * Restrict sql index key length for utf8mb4 migration
+
 0.24:
 -----------------
    * Get ready for CKEDITOR (untested)

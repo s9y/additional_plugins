@@ -46,7 +46,7 @@ class DbSpice {
         // Version 3 updates
         if ($obj->get_config((PLUGIN_EVENT_COMMENTSPICE_CNAME_DBCONFIG)<3)) {
             $q = "CREATE INDEX IDX_COMMENTS_EMAIL" .
-                  " on {$serendipity['dbPrefix']}comments (email);";
+                  " on {$serendipity['dbPrefix']}comments (email(191));";
             serendipity_db_query($q); // if it already exists, it won't be created 
             $obj->set_config(PLUGIN_EVENT_COMMENTSPICE_CNAME_DBCONFIG, 3);
         }

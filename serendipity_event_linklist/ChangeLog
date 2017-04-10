@@ -1,3 +1,4 @@
+1.24: Restrict sql index key length for utf8mb4 migration
 2.03 && 1.23:
 -------------
 

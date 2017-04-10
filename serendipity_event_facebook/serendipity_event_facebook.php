@@ -33,7 +33,7 @@ class serendipity_event_facebook extends serendipity_event {
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '0.5.2');
+        $propbag->add('version',       '0.5.3');
         $propbag->add('groups', array('FRONTEND_VIEWS'));
         $propbag->add('event_hooks', array(
             'frontend_display' => true,
@@ -71,7 +71,7 @@ class serendipity_event_facebook extends serendipity_event {
 
             $result = serendipity_db_schema_import($q);
 
-            serendipity_db_schema_import("CREATE INDEX fbindex ON {$serendipity['dbPrefix']}facebook (base_url)");
+            serendipity_db_schema_import("CREATE INDEX fbindex ON {$serendipity['dbPrefix']}facebook (base_url(191))");
         }
     }
 

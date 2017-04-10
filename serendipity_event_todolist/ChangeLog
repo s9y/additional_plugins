@@ -1,3 +1,4 @@
+1.25.2: Restrict sql index key length for utf8mb4 migration
 1.25.1: Iconfont a11y fix (yellowled)
 
 1.25.0: Adapt backend to 2.x (yellowled)

@@ -139,6 +139,9 @@ class emerge_spartacus {
             $olddir = getcwd();
             chdir($dir);
             $info['files'] = $this->get_files($path['name']);
+            if (count($info['files']) == 0) {
+              continue;
+            }
             chdir($olddir);
 
             $td = '';

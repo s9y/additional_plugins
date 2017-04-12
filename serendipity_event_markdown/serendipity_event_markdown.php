@@ -25,13 +25,13 @@ class serendipity_event_markdown extends serendipity_event
         $propbag->add('name',          PLUGIN_EVENT_MARKDOWN_NAME);
         $propbag->add('description',   PLUGIN_EVENT_MARKDOWN_DESC);
         $propbag->add('stackable',     false);
-        $propbag->add('author',        'Serendipity Team and Jan Lehnardt');
+        $propbag->add('author',        'Serendipity Team, Jan Lehnardt and Thomas Hochstein');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
             'php'         => '5.3.0'
         ));
-        $propbag->add('version',       '1.22');
+        $propbag->add('version',       '1.23');
         $propbag->add('cachable_events', array('frontend_display' => true));
         $propbag->add('event_hooks',   array('frontend_display' => true, 'frontend_comment' => true));
         $propbag->add('groups', array('MARKUP'));

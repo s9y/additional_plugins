@@ -1116,69 +1116,6 @@
 <guid isPermaLink="false">serendipity_event_todolist</guid>
 </item>
 <item>
-<title>: </title>
-<link>https://github.com/s9y/additional_plugins/tree/master/alpha/serendipity_event_phoneblogz</link>
-<category>Event Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_event_phoneblogz&lt;br /&gt;&lt;/b&gt;&lt;br /&gt;&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 26 Sep 2016 22:32:28 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_phoneblogz</guid>
-</item>
-<item>
-<title>: </title>
-<link>https://github.com/s9y/additional_plugins/tree/master/alpha/serendipity_event_findmore</link>
-<category>Event Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_event_findmore&lt;br /&gt;&lt;/b&gt;&lt;br /&gt;&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 26 Sep 2016 22:32:20 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_findmore</guid>
-</item>
-<item>
-<title>: </title>
-<link>https://github.com/s9y/additional_plugins/tree/master/alpha/serendipity_event_lsrstopper</link>
-<category>Event Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_event_lsrstopper&lt;br /&gt;&lt;/b&gt;&lt;br /&gt;&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 15 Mar 2017 22:32:18 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_lsrstopper</guid>
-</item>
-<item>
-<title>: </title>
-<link>https://github.com/s9y/additional_plugins/tree/master/alpha/stalkerbuster</link>
-<category>Event Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_event_stalkerbuster&lt;br /&gt;&lt;/b&gt;&lt;br /&gt;&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:35 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_stalkerbuster</guid>
-</item>
-<item>
-<title>: </title>
-<link>https://github.com/s9y/additional_plugins/tree/master/alpha</link>
-<category>Event Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_event_smfmarkup&lt;br /&gt;&lt;/b&gt;&lt;br /&gt;&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:35 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_smfmarkup</guid>
-</item>
-<item>
-<title>: </title>
-<link>https://github.com/s9y/additional_plugins/tree/master/alpha</link>
-<category>Event Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_event_mailcc&lt;br /&gt;&lt;/b&gt;&lt;br /&gt;&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:35 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_mailcc</guid>
-</item>
-<item>
-<title>: </title>
-<link>https://github.com/s9y/additional_plugins/tree/master/alpha</link>
-<category>Event Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_event_challengeresponse&lt;br /&gt;&lt;/b&gt;&lt;br /&gt;&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 10 Feb 2017 22:32:26 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_challengeresponse</guid>
-</item>
-<item>
 <title>Скриване на статии от нерегистрирани посетители на блога: Скрива всички статии, които са по-стари от определена възраст, така че те да бъдат виждани само от регистирани посетители и автори</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_outdate_entries</link>
 <category>Event Plugins</category>

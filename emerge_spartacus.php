@@ -50,7 +50,10 @@ class emerge_spartacus {
 
         foreach($plugins AS $plugin_name => $plugin_data) {
             $path = $this->pluginpath . '/' . $plugin_data['pluginPath'] . '/';
-            if (preg_match('@/alpha/@i', $path)) continue;
+            if (preg_match('@/alpha/@i', $path)) {
+                unset($plugins[$plugin_name]);
+                continue;
+            }    
             include_once $path . $plugin_data['name'] . '.php';
             $plugins[$plugin_name]['plugin'] = new $plugin_data['name']($plugin_name);
             $plugin =&$plugins[$plugin_name]['plugin'];
@@ -68,6 +71,7 @@ class emerge_spartacus {
                 echo 'Successfully loaded plugin ' . $plugin_name . "\n";
             } else {
                 echo 'Error loading plugin ' . $plugin_name . ' (' . $plugin_data['pluginPath'] . ')' . "\n";
+                unset($plugins[$plugin_name]);
             }
             $this->memSnap($plugin_name);
             unset($plugins[$plugin_name]['plugin']);

@@ -117,15 +117,6 @@
 <guid isPermaLink="false">serendipity_event_linktrimmer</guid>
 </item>
 <item>
-<title>Layout-Plugin: Link-Markup: Umožňuje použít jiné označení odkazů v těle příspěvku</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_layout_linkmarkup</link>
-<category>Event Plugins</category>
-<author>Sebastian Nohn</author>
-<content:encoded>&lt;b&gt;serendipity_event_layout_linkmarkup&lt;br /&gt;Layout-Plugin: Link-Markup&lt;/b&gt;&lt;br /&gt;Umožňuje použít jiné označení odkazů v těle příspěvku&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:48 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_layout_linkmarkup</guid>
-</item>
-<item>
 <title>Layout plugin: verze pro tisk: Při použití funkce &quot;vytisknout stránku&quot; v prohlížeči uvidíte výstup, který bude na tiskárně lépe vypadat.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_layout_printerfriendly</link>
 <category>Event Plugins</category>
@@ -162,15 +153,6 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <content:encoded>&lt;b&gt;serendipity_event_contentrewrite&lt;br /&gt;Přepisovač obsahu&lt;/b&gt;&lt;br /&gt;Nahrazuje slovat libovolným řetězcem (užitečné pro vkládání akronymů)&lt;br/&gt;For: Serendipity 1.6</content:encoded>
 <pubDate>Wed, 18 May 2016 09:58:38 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_contentrewrite</guid>
-</item>
-<item>
-<title>TinyMCE jako WYSIWYG editor: Použije TiniMCE WYSIWYG editor pro psaní příspěvků. Vyžaduje Serendipity 0.9 nebo novější. Po instalaci si přečtěte instalačního průvodce v nastavení tohoto pluginu.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_tinymce</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Grischa Brockhaus</author>
-<content:encoded>&lt;b&gt;serendipity_event_tinymce&lt;br /&gt;TinyMCE jako WYSIWYG editor&lt;/b&gt;&lt;br /&gt;Použije TiniMCE WYSIWYG editor pro psaní příspěvků. Vyžaduje Serendipity 0.9 nebo novější. Po instalaci si přečtěte instalačního průvodce v nastavení tohoto pluginu.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Tue, 10 Jun 2014 02:32:37 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_tinymce</guid>
 </item>
 <item>
 <title>Prettify pro Serendipity: Použít skript Prettify pro vybroušení obsahu mezi tagy &amp;lt;PRE&amp;gt; pro jednoduché zvýrazňování syntaxe.</title>
@@ -225,15 +207,6 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <content:encoded>&lt;b&gt;serendipity_event_typesetbuttons&lt;br /&gt;Rozšířená tlačítka pro ne-WYSIWYG editor&lt;/b&gt;&lt;br /&gt;Přidá tlačítka pro vložení kódů různých html entit (čárky, tečky, uvozovky) + další akce.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
 <pubDate>Sun, 30 Nov 2014 03:12:53 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_typesetbuttons</guid>
-</item>
-<item>
-<title>Hudba, kterou právě poslouchám: Okamžitý stav hudby z iTunes s pomocí iTunesBloggeru: http://www.ituneshacking.com/wiki/wakka.php?wakka=iTunesBloggerHomePage</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_motm</link>
-<category>Event Plugins</category>
-<author>Tys von Gaza</author>
-<content:encoded>&lt;b&gt;serendipity_event_motm&lt;br /&gt;Hudba, kterou právě poslouchám&lt;/b&gt;&lt;br /&gt;Okamžitý stav hudby z iTunes s pomocí iTunesBloggeru: http://www.ituneshacking.com/wiki/wakka.php?wakka=iTunesBloggerHomePage&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_motm</guid>
 </item>
 <item>
 <title>Share Buttons: Show social share buttons for services like Facebook and Twitter using shariff.</title>
@@ -342,15 +315,6 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <content:encoded>&lt;b&gt;serendipity_event_template_editor&lt;br /&gt;Editor stylů vzhledu&lt;/b&gt;&lt;br /&gt;Upravujte soubory aktuálního stylu vzhledu/šablony přímo z adminstrační sekce.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
 <pubDate>Wed, 26 Oct 2016 22:32:23 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_template_editor</guid>
-</item>
-<item>
-<title>Babelfish: Překlad příspěvků blogu pomocí služby Babelfish</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_babelfish</link>
-<category>Event Plugins</category>
-<author>Sebastian Nohn</author>
-<content:encoded>&lt;b&gt;serendipity_event_babelfish&lt;br /&gt;Babelfish&lt;/b&gt;&lt;br /&gt;Překlad příspěvků blogu pomocí služby Babelfish&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:37 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_babelfish</guid>
 </item>
 <item>
 <title>Coppermine Selector: Vybírá obrázky z webové galerie Coppermine</title>
@@ -515,15 +479,6 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <guid isPermaLink="false">serendipity_event_mobile_output</guid>
 </item>
 <item>
-<title>Feedburner FeedFlare: Do patičky každého příspěvku přidává tag FeedFlare.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_feedflare</link>
-<category>Event Plugins</category>
-<author>Jim Davies</author>
-<content:encoded>&lt;b&gt;serendipity_event_feedflare&lt;br /&gt;Feedburner FeedFlare&lt;/b&gt;&lt;br /&gt;Do patičky každého příspěvku přidává tag FeedFlare.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 27 Jan 2015 02:32:45 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_feedflare</guid>
-</item>
-<item>
 <title>Compress Images: Compress PNG and JPG images with the TinyPNG service.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_tinypng</link>
 <category>Event Plugins</category>
@@ -558,15 +513,6 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <content:encoded>&lt;b&gt;serendipity_event_entrypaging&lt;br /&gt;Odkaz na další/předchozí příspěvek&lt;/b&gt;&lt;br /&gt;Umožňuje prohlížení dalších/předchozích příspěvků&lt;br/&gt;For: Serendipity 1.6</content:encoded>
 <pubDate>Fri, 18 Mar 2016 22:32:19 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_entrypaging</guid>
-</item>
-<item>
-<title>Použití FCKeditoru jako WYSIWYG editoru: Používá FCKeditor jako WYSIWYG editor. Vyžaduje Serendipity 0.9 nebo vyšší. Po instalaci si přečtěte instalačního průvodce na stránce s nastavením pluginu.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_fckeditor</link>
-<category>Event Plugins</category>
-<author>Ziyad Saeed, Garvin Hicking, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_fckeditor&lt;br /&gt;Použití FCKeditoru jako WYSIWYG editoru&lt;/b&gt;&lt;br /&gt;Používá FCKeditor jako WYSIWYG editor. Vyžaduje Serendipity 0.9 nebo vyšší. Po instalaci si přečtěte instalačního průvodce na stránce s nastavením pluginu.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:33 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_fckeditor</guid>
 </item>
 <item>
 <title>Správa odezev: Umožňuje podrobnou kontrolu chování odezev, jak jsou posílány při vytváření příspěvků</title>
@@ -632,15 +578,6 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <guid isPermaLink="false">serendipity_event_communityrating</guid>
 </item>
 <item>
-<title>Picasa: Zobrazuje fotoalba z Picasy exportovaná do XML formátu</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_picasa</link>
-<category>Event Plugins</category>
-<author>Thomas Nesges, Greg Greenway</author>
-<content:encoded>&lt;b&gt;serendipity_event_picasa&lt;br /&gt;Picasa&lt;/b&gt;&lt;br /&gt;Zobrazuje fotoalba z Picasy exportovaná do XML formátu&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:47 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_picasa</guid>
-</item>
-<item>
 <title>Diskusní fórum / zrcadlení phpBB fóra: Poskytuje kompletní diskusní fórum. Alternativě umožňuje přístup do diskusního fóra phpBB.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_forum</link>
 <category>Event Plugins</category>
@@ -659,15 +596,6 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <guid isPermaLink="false">serendipity_event_galleryimage</guid>
 </item>
 <item>
-<title> HTML validátor: Kontroluje při ukládání kompatibilitu příspěvků s XML standardem</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_htmlvalidator</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_htmlvalidator&lt;br /&gt; HTML validátor&lt;/b&gt;&lt;br /&gt;Kontroluje při ukládání kompatibilitu příspěvků s XML standardem&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:47 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_htmlvalidator</guid>
-</item>
-<item>
 <title>Wiki odkazy v příspěvcích: V příspěvcích můžete zadat odkazy na existující/nové příspěvky pomocí [[nadpis příspěvku]], na statické stránky pomocí ((nadpis stránky)) a na obojí pomocí {{nadpis}}.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_wikilinks</link>
 <category>Event Plugins</category>
@@ -684,24 +612,6 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <content:encoded>&lt;b&gt;serendipity_event_userprofiles&lt;br /&gt;Profily uživatelů&lt;/b&gt;&lt;br /&gt;Zobrazuje jednoduché profily uživatelů a dovoluje přiložit jejich fotku.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
 <pubDate>Wed, 26 Oct 2016 22:32:23 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_userprofiles</guid>
-</item>
-<item>
-<title>Mazací odkaz: Přidá odkaz na smazání příspěvku do patičky každého příspěvku.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_deletelink</link>
-<category>Event Plugins</category>
-<author>Cameron MacFarland, Brett Profitt</author>
-<content:encoded>&lt;b&gt;serendipity_event_deletelink&lt;br /&gt;Mazací odkaz&lt;/b&gt;&lt;br /&gt;Přidá odkaz na smazání příspěvku do patičky každého příspěvku.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 27 Jan 2015 02:32:45 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_deletelink</guid>
-</item>
-<item>
-<title>Layout-Plugin: Citace: Umožňuje změnit vzhled citací v těle příspěvku</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_layout_quotemarkup</link>
-<category>Event Plugins</category>
-<author>Sebastian Nohn</author>
-<content:encoded>&lt;b&gt;serendipity_event_layout_quotemarkup&lt;br /&gt;Layout-Plugin: Citace&lt;/b&gt;&lt;br /&gt;Umožňuje změnit vzhled citací v těle příspěvku&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:49 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_layout_quotemarkup</guid>
 </item>
 <item>
 <title>Přečteno/Nepřečteno označování příspěvků uživateli: Přečteno/Nepřečteno označování příspěvků uživateli</title>
@@ -740,15 +650,6 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <guid isPermaLink="false">serendipity_event_adduser</guid>
 </item>
 <item>
-<title>Jednoduché cachování / předgenerování stránek: [EXPERIMENTÁLNÍ] Umožňuje cachování (ve smyslu předgenerování) stránek. Pozor: Absolutně zruší veškeré vymoženosti dynamicky vytvářeného obsahu, nepracuje dobře s pluginy, které takový obsah vytvářejí. Ale tato funkce zvyšuje rychlost blogu, pokud nepotřebujete dynamické funkce. (Tento plugin by měl být umístěn co nejdříve v seznamu pluginů. Pouze nutné pluginy generující dynamický obsah, jako např. karma, by měly být umístěny před tímto pluginem.)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_cachesimple</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_cachesimple&lt;br /&gt;Jednoduché cachování / předgenerování stránek&lt;/b&gt;&lt;br /&gt;[EXPERIMENTÁLNÍ] Umožňuje cachování (ve smyslu předgenerování) stránek. Pozor: Absolutně zruší veškeré vymoženosti dynamicky vytvářeného obsahu, nepracuje dobře s pluginy, které takový obsah vytvářejí. Ale tato funkce zvyšuje rychlost blogu, pokud nepotřebujete dynamické funkce. (Tento plugin by měl být umístěn co nejdříve v seznamu pluginů. Pouze nutné pluginy generující dynamický obsah, jako např. karma, by měly být umístěny před tímto pluginem.)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 10 May 2016 22:32:24 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_cachesimple</guid>
-</item>
-<item>
 <title>Zvýraznění vyhledávaných řetězců: Zvýrazňuje řetězce hledané v odkazujícím vyhledávači.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_searchhighlight</link>
 <category>Event Plugins</category>
@@ -783,15 +684,6 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <content:encoded>&lt;b&gt;serendipity_event_freetag&lt;br /&gt;Klíčová slova&lt;/b&gt;&lt;br /&gt;Umožňuje libovolné přidávání klíčových slov k příspěvkům&lt;br/&gt;For: Serendipity 1.3</content:encoded>
 <pubDate>Wed, 26 Oct 2016 22:32:18 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_freetag</guid>
-</item>
-<item>
-<title>Použít XINHA jako WYSIWYG editor: Pozor! Xinha je experimentální! Používá XINHA WYSIWYG editor. Vyžaduje Serendipity 0.9 nebo vyšší. Po nainstalování pluginu si přečtěte průvodce instalací na konfigurační stránce pluginu.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_xinha</link>
-<category>Event Plugins</category>
-<author>Ziyad Saeed, Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_xinha&lt;br /&gt;Použít XINHA jako WYSIWYG editor&lt;/b&gt;&lt;br /&gt;Pozor! Xinha je experimentální! Používá XINHA WYSIWYG editor. Vyžaduje Serendipity 0.9 nebo vyšší. Po nainstalování pluginu si přečtěte průvodce instalací na konfigurační stránce pluginu.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Tue, 10 Jun 2014 02:32:37 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_xinha</guid>
 </item>
 <item>
 <title>Zvýrazňovač syntaxe dp.SyntaxHighlighter: Tento plugin je JavaScriptový zvýrazňovač syntaxe založený na stejnojmeném kódu Alexe Gorbačeva.Tento plugin zatěžuje server méně než GeSHi a vkládá méně značek do HTML kódu. Představuje čistější, odlehčenější alternativu ke GeSHi. Plugin vyžaduje použití šablony vzhledu, který podporuje následující hooky: frontend_header, frontend_footer (a volitelně také backend_preview prozobrazování i v administrační sekci).</title>
@@ -911,15 +803,6 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <guid isPermaLink="false">serendipity_event_ckeditor</guid>
 </item>
 <item>
-<title>Y!Q hledání podobných stránek: Nalezne podobné stránky pomocí Yahoo kontextové prohledávací technologie</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_yq</link>
-<category>Event Plugins</category>
-<author>Rasmus Lerdorf</author>
-<content:encoded>&lt;b&gt;serendipity_event_yq&lt;br /&gt;Y!Q hledání podobných stránek&lt;/b&gt;&lt;br /&gt;Nalezne podobné stránky pomocí Yahoo kontextové prohledávací technologie&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:54 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_yq</guid>
-</item>
-<item>
 <title>Ověření přihlášení autorů: Ověřuje správnost přihlašovacích údajů autora, který se přihlašuje přes formulář v postranním sloupci</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_loginform</link>
 <category>Event Plugins</category>
@@ -954,15 +837,6 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <content:encoded>&lt;b&gt;serendipity_event_versioning&lt;br /&gt;Starší verze příspěvků&lt;/b&gt;&lt;br /&gt;Umožňuje ukládat starší verze příspěvků a obnovovat je&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Mon, 09 Jan 2017 22:32:22 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_versioning</guid>
-</item>
-<item>
-<title>Markup: Zalamování dlouhého textu: Vkládá nové řádky do dlouhých příspěvků / komentářů</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_wordwrap</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_wordwrap&lt;br /&gt;Markup: Zalamování dlouhého textu&lt;/b&gt;&lt;br /&gt;Vkládá nové řádky do dlouhých příspěvků / komentářů&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:59 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_wordwrap</guid>
 </item>
 <item>
 <title>Markup: Wiki: Převádí značky Text_Wiki do HTML</title>
@@ -1035,15 +909,6 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <content:encoded>&lt;b&gt;serendipity_event_filter_entries&lt;br /&gt;Filtrování příspěvků&lt;/b&gt;&lt;br /&gt;Umožňuje návštěvníkům blogu filtrovat/řadit příspěvky podle různých pravidel&lt;br/&gt;For: Serendipity 1.6</content:encoded>
 <pubDate>Fri, 23 Sep 2016 22:32:49 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_filter_entries</guid>
-</item>
-<item>
-<title>PHPOpenTracker: Zaznamenává přístup na blog do logu pomocí aplikace PHPOpenTracker. Vyžaduje nainstalovanou aplikace PHPOpenTrakcer. Čtěte prosím soubor readme.txt pro další informace.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_phpopentracker</link>
-<category>Event Plugins</category>
-<author>Rene Schmidt</author>
-<content:encoded>&lt;b&gt;serendipity_event_phpopentracker&lt;br /&gt;PHPOpenTracker&lt;/b&gt;&lt;br /&gt;Zaznamenává přístup na blog do logu pomocí aplikace PHPOpenTracker. Vyžaduje nainstalovanou aplikace PHPOpenTrakcer. Čtěte prosím soubor readme.txt pro další informace.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:33:31 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_phpopentracker</guid>
 </item>
 <item>
 <title>Můj kalendář: Správa osobního kalendáře</title>
@@ -1199,24 +1064,6 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <guid isPermaLink="false">serendipity_event_oembed</guid>
 </item>
 <item>
-<title>Rozšířené typy konfigurace: Poskytuje rozšířené volby pro nastavení pluginů a šablon vzhledu pro verze Serendipity nižší než 1.2.2 (současné verze podporují widget 'sequence')</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_advtypes</link>
-<category>Event Plugins</category>
-<author>Judebert (&lt;a href=&quot;http://judebert.com/&quot;&gt;http://judebert.com/&lt;/a&gt;)</author>
-<content:encoded>&lt;b&gt;serendipity_event_advtypes&lt;br /&gt;Rozšířené typy konfigurace&lt;/b&gt;&lt;br /&gt;Poskytuje rozšířené volby pro nastavení pluginů a šablon vzhledu pro verze Serendipity nižší než 1.2.2 (současné verze podporují widget 'sequence')&lt;br/&gt;For: Serendipity 1.1</content:encoded>
-<pubDate>Thu, 27 Oct 2016 22:32:13 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_advtypes</guid>
-</item>
-<item>
-<title>Odkazy s náhledy pomocí služby www.snap.com: Tento plugin zobrazuje náhledy odkazů v příspěvcích, když na ně návštěvník najede myší. Náhledy jsou generovány službou SnapShot (www.snap.com). \nSnap.com je zadarmo, ale měli byste vědět, že *může* shromažďovat informace o odkazech na Vašich stránkách, ačkoliv ve svých obchodních podmínkách slibují, že to dělat nebudou.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_snapshotlinks</link>
-<category>Event Plugins</category>
-<author>Grischa Brockhaus</author>
-<content:encoded>&lt;b&gt;serendipity_event_snapshotlinks&lt;br /&gt;Odkazy s náhledy pomocí služby www.snap.com&lt;/b&gt;&lt;br /&gt;Tento plugin zobrazuje náhledy odkazů v příspěvcích, když na ně návštěvník najede myší. Náhledy jsou generovány službou SnapShot (www.snap.com). \nSnap.com je zadarmo, ale měli byste vědět, že *může* shromažďovat informace o odkazech na Vašich stránkách, ačkoliv ve svých obchodních podmínkách slibují, že to dělat nebudou.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:55 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_snapshotlinks</guid>
-</item>
-<item>
 <title>GeoURL: GeoURL vkládá informace o zeměpisné poloze URL blogu. Více informací na http://geourl.org/</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_geourl</link>
 <category>Event Plugins</category>
@@ -1233,15 +1080,6 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <content:encoded>&lt;b&gt;serendipity_event_sidebarhider&lt;br /&gt;Přepínání stavu postranního sloupce (sbalený/rozbalený)&lt;/b&gt;&lt;br /&gt;Smrští postranní sloupce pouze na jejich nadpisy. Přidává nastavení do psaní příspěvků a také položku &quot;Správa postranních sloupců&quot; do administrační sekce.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
 <pubDate>Sun, 30 Nov 2014 03:12:49 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_sidebarhider</guid>
-</item>
-<item>
-<title>UTF-8 řazení: Plugin nabízí speciální abecední třídění podle UTF-8 jako rozšíření pro specifické pluginy typu Freetag. Umožňuje řadit podle libovolné abecedy s jinými než anglickými písmeny, např. v azbuce, čínštině a jiných. Pomoc s vytvářením dalších abeced je vítaná (viz fórum serendipity).</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_sort</link>
-<category>Event Plugins</category>
-<author>LazyBadger, Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_sort&lt;br /&gt;UTF-8 řazení&lt;/b&gt;&lt;br /&gt;Plugin nabízí speciální abecední třídění podle UTF-8 jako rozšíření pro specifické pluginy typu Freetag. Umožňuje řadit podle libovolné abecedy s jinými než anglickými písmeny, např. v azbuce, čínštině a jiných. Pomoc s vytvářením dalších abeced je vítaná (viz fórum serendipity).&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 09 May 2011 10:22:32 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_sort</guid>
 </item>
 <item>
 <title>Markup: Smarty: Zpracovává instrukce šablonového systému Smarty napsané v těle příspěvku. This is not usable in combination with syntax code-highlighters or multilingual tags in entry context fields!</title>

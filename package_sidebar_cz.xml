@@ -175,51 +175,6 @@
 </release>
 </package>
 <package version="1.0">
-<name>serendipity_plugin_ipv6</name>
-<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_ipv6/ChangeLog</changelog>
-<license>GPL</license>
-<summary>IPv6 kontrola</summary>
-<groups>FRONTEND_VIEWS</groups>
-<description>Tento plugin zobrazuje v postranním bloku verzi IP použitou pro přístup k blogu.</description>
-<maintainers><maintainer><name>Pascal Uhlmann</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>1.0.0</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
-  <filelist>
-<dir name="serendipity_plugin_ipv6">
-<file>lang_de.inc.php</file>
-<file>ChangeLog</file>
-<file>lang_cz.inc.php</file>
-<dir name="UTF-8">
-<file>lang_de.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_cs.inc.php</file>
-</dir>
-<file>lang_en.inc.php</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
-<file>lang_cs.inc.php</file>
-<file>serendipity_plugin_ipv6.php</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_plugin_ipv6/lang_de.inc.php</file>
-    <file>serendipity_plugin_ipv6/ChangeLog</file>
-    <file>serendipity_plugin_ipv6/lang_cz.inc.php</file>
-    <file>serendipity_plugin_ipv6/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_plugin_ipv6/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_ipv6/UTF-8/lang_cs.inc.php</file>
-    <file>serendipity_plugin_ipv6/lang_en.inc.php</file>
-    <file>serendipity_plugin_ipv6/documentation_cs.html</file>
-    <file>serendipity_plugin_ipv6/documentation_cz.html</file>
-    <file>serendipity_plugin_ipv6/lang_cs.inc.php</file>
-    <file>serendipity_plugin_ipv6/serendipity_plugin_ipv6.php</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
 <name>serendipity_plugin_heavyrotation</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_heavyrotation/ChangeLog</changelog>
 <license>GPL</license>
@@ -544,44 +499,6 @@
     <file>serendipity_event_faq/alternatives/plugin_faq_category_faqs.tpl</file>
     <file>serendipity_event_faq/alternatives/plugin_faq_categories.tpl</file>
     <file>serendipity_event_faq/style_faq_backend.css</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
-<name>serendipity_plugin_hitmaps</name>
-<license>GPL</license>
-<summary>Hitmaps</summary>
-<groups>FRONTEND_EXTERNAL_SERVICES</groups>
-<description>Zobrazuje, z jakých stránek přicházejí návštěvníci na blog</description>
-<maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>1.1</version>
-  <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2006-12-01</date>
-  <filelist>
-<dir name="serendipity_plugin_hitmaps">
-<file>lang_de.inc.php</file>
-<file>lang_cz.inc.php</file>
-<dir name="UTF-8">
-<file>lang_de.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_cs.inc.php</file>
-</dir>
-<file>lang_en.inc.php</file>
-<file>lang_cs.inc.php</file>
-<file>serendipity_plugin_hitmaps.php</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_plugin_hitmaps/lang_de.inc.php</file>
-    <file>serendipity_plugin_hitmaps/lang_cz.inc.php</file>
-    <file>serendipity_plugin_hitmaps/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_plugin_hitmaps/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_hitmaps/UTF-8/lang_cs.inc.php</file>
-    <file>serendipity_plugin_hitmaps/lang_en.inc.php</file>
-    <file>serendipity_plugin_hitmaps/lang_cs.inc.php</file>
-    <file>serendipity_plugin_hitmaps/serendipity_plugin_hitmaps.php</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -1186,45 +1103,6 @@
 </release>
 </package>
 <package version="1.0">
-<name>serendipity_plugin_smiletag</name>
-<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_smiletag/ChangeLog</changelog>
-<license>GPL</license>
-<summary>SmileTag vzkazovník</summary>
-<groups>FRONTEND_FEATURES</groups>
-<description>Vloží blok se vzkazy systému SmileTag do postranního sloupce. Samotný SmileTag není přiložen k tomuto přídavnému modulu.</description>
-<maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>1.04</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-03-06</date>
-  <filelist>
-<dir name="serendipity_plugin_smiletag">
-<file>.htaccess</file>
-<file>ChangeLog</file>
-<file>lang_cz.inc.php</file>
-<dir name="UTF-8">
-<file>lang_cz.inc.php</file>
-<file>lang_cs.inc.php</file>
-</dir>
-<file>lang_en.inc.php</file>
-<file>serendipity_plugin_smiletag.php</file>
-<file>lang_cs.inc.php</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_plugin_smiletag/.htaccess</file>
-    <file>serendipity_plugin_smiletag/ChangeLog</file>
-    <file>serendipity_plugin_smiletag/lang_cz.inc.php</file>
-    <file>serendipity_plugin_smiletag/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_smiletag/UTF-8/lang_cs.inc.php</file>
-    <file>serendipity_plugin_smiletag/lang_en.inc.php</file>
-    <file>serendipity_plugin_smiletag/serendipity_plugin_smiletag.php</file>
-    <file>serendipity_plugin_smiletag/lang_cs.inc.php</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
 <name>serendipity_plugin_gallery_menalto_random</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_gallery_menalto_random/ChangeLog</changelog>
 <license>GPL</license>
@@ -1556,51 +1434,6 @@
     <file>serendipity_event_userprofiles/lang_cs.inc.php</file>
     <file>serendipity_event_userprofiles/plugin_groupmembers.tpl</file>
     <file>serendipity_event_userprofiles/userprofiles_backend.css</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
-<name>serendipity_plugin_audioscrobbler</name>
-<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_audioscrobbler/ChangeLog</changelog>
-<license>GPL</license>
-<summary>Audioscrobbler</summary>
-<groups>FRONTEND_EXTERNAL_SERVICES</groups>
-<description>Ze služby audioscrobbler.net (neblo last.fm) Zobrazuje naposledy přehrávané skladby</description>
-<maintainers><maintainer><name>Flo Solcher</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>1.25.2</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-09-23</date>
-  <filelist>
-<dir name="serendipity_plugin_audioscrobbler">
-<file>lang_de.inc.php</file>
-<file>ChangeLog</file>
-<file>lang_cz.inc.php</file>
-<dir name="UTF-8">
-<file>lang_de.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_ru.inc.php</file>
-<file>lang_cs.inc.php</file>
-</dir>
-<file>lang_en.inc.php</file>
-<file>serendipity_plugin_audioscrobbler.php</file>
-<file>lang_ru.inc.php</file>
-<file>lang_cs.inc.php</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_plugin_audioscrobbler/lang_de.inc.php</file>
-    <file>serendipity_plugin_audioscrobbler/ChangeLog</file>
-    <file>serendipity_plugin_audioscrobbler/lang_cz.inc.php</file>
-    <file>serendipity_plugin_audioscrobbler/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_plugin_audioscrobbler/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_audioscrobbler/UTF-8/lang_ru.inc.php</file>
-    <file>serendipity_plugin_audioscrobbler/UTF-8/lang_cs.inc.php</file>
-    <file>serendipity_plugin_audioscrobbler/lang_en.inc.php</file>
-    <file>serendipity_plugin_audioscrobbler/serendipity_plugin_audioscrobbler.php</file>
-    <file>serendipity_plugin_audioscrobbler/lang_ru.inc.php</file>
-    <file>serendipity_plugin_audioscrobbler/lang_cs.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -2324,49 +2157,6 @@
 </release>
 </package>
 <package version="1.0">
-<name>serendipity_plugin_zooomr</name>
-<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_zooomr/ChangeLog</changelog>
-<license>GPL</license>
-<summary>Zooomr</summary>
-<groups>FRONTEND_EXTERNAL_SERVICES</groups>
-<description>Zobrazuje nejnovější obrázky ze Zooomr feedu</description>
-<maintainers><maintainer><name>Stefan Lange-Hegermann</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>0.4</version>
-  <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2016-09-23</date>
-  <filelist>
-<dir name="serendipity_plugin_zooomr">
-<file>serendipity_plugin_zooomr.php</file>
-<file>lang_de.inc.php</file>
-<file>ChangeLog</file>
-<file>lang_cz.inc.php</file>
-<dir name="UTF-8">
-<file>lang_de.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_en.inc.php</file>
-<file>lang_cs.inc.php</file>
-</dir>
-<file>lang_en.inc.php</file>
-<file>lang_cs.inc.php</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_plugin_zooomr/serendipity_plugin_zooomr.php</file>
-    <file>serendipity_plugin_zooomr/lang_de.inc.php</file>
-    <file>serendipity_plugin_zooomr/ChangeLog</file>
-    <file>serendipity_plugin_zooomr/lang_cz.inc.php</file>
-    <file>serendipity_plugin_zooomr/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_plugin_zooomr/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_zooomr/UTF-8/lang_en.inc.php</file>
-    <file>serendipity_plugin_zooomr/UTF-8/lang_cs.inc.php</file>
-    <file>serendipity_plugin_zooomr/lang_en.inc.php</file>
-    <file>serendipity_plugin_zooomr/lang_cs.inc.php</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
 <name>serendipity_plugin_piwik</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_piwik/ChangeLog</changelog>
 <license>GPL</license>
@@ -2659,40 +2449,6 @@
     <file>serendipity_event_linklist/documentation_cz.html</file>
     <file>serendipity_event_linklist/lang_cs.inc.php</file>
     <file>serendipity_event_linklist/serendipity_event_linklist.php</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
-<name>serendipity_plugin_frappr</name>
-<license>GPL</license>
-<summary>Frappr (Freind Mapper - mapa přátel)</summary>
-<groups>FRONTEND_EXTERNAL_SERVICES</groups>
-<description>Zobrazuje odkaz na Vaší mapu v internetové službě Frappr, a nejnovější avatary.</description>
-<maintainers><maintainer><name>Jabrwock</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>0.2</version>
-  <requirements:s9yVersion>0.9.1</requirements:s9yVersion>
-  <date>2006-12-01</date>
-  <filelist>
-<dir name="serendipity_plugin_frappr">
-<file>lang_cz.inc.php</file>
-<dir name="UTF-8">
-<file>lang_cz.inc.php</file>
-<file>lang_cs.inc.php</file>
-</dir>
-<file>serendipity_plugin_frappr.php</file>
-<file>lang_en.inc.php</file>
-<file>lang_cs.inc.php</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_plugin_frappr/lang_cz.inc.php</file>
-    <file>serendipity_plugin_frappr/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_frappr/UTF-8/lang_cs.inc.php</file>
-    <file>serendipity_plugin_frappr/serendipity_plugin_frappr.php</file>
-    <file>serendipity_plugin_frappr/lang_en.inc.php</file>
-    <file>serendipity_plugin_frappr/lang_cs.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>

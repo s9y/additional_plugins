@@ -27,15 +27,6 @@
 <guid isPermaLink="false">serendipity_plugin_loginform</guid>
 </item>
 <item>
-<title>IPv6 Check: This plugin displays within a sidebar element the IP version used for accessing the website.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_ipv6</link>
-<category>Sidebar Plugins</category>
-<author>Pascal Uhlmann</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_ipv6&lt;br /&gt;IPv6 Check&lt;/b&gt;&lt;br /&gt;This plugin displays within a sidebar element the IP version used for accessing the website.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:59:04 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_ipv6</guid>
-</item>
-<item>
 <title>On »Heavy Rotation«: This plugin displays an album cover from last.fm which was on Heavy Rotation (top album) in the last week</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_heavyrotation</link>
 <category>Sidebar Plugins</category>
@@ -79,15 +70,6 @@
 <content:encoded>&lt;b&gt;serendipity_plugin_faq&lt;br /&gt;FAQs Category Chooser&lt;/b&gt;&lt;br /&gt;Choose the categories you will display on the blog.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
 <pubDate>Fri, 23 Sep 2016 22:32:40 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_faq</guid>
-</item>
-<item>
-<title>Hitmaps: Shows where the blogs visitors are coming from</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_hitmaps</link>
-<category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_hitmaps&lt;br /&gt;Hitmaps&lt;/b&gt;&lt;br /&gt;Shows where the blogs visitors are coming from&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:55 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_hitmaps</guid>
 </item>
 <item>
 <title>Geotag Google/OSM Map: This plugin displays a Google Map or Openstreetmap with geotagged entries</title>
@@ -198,15 +180,6 @@
 <guid isPermaLink="false">serendipity_plugin_externalphp</guid>
 </item>
 <item>
-<title>SmileTag shoutbox: Uses the SmileTag shoutbox inside your sidebar. SmileTag itself is not distributed with this plugin.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_smiletag</link>
-<category>Sidebar Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_smiletag&lt;br /&gt;SmileTag shoutbox&lt;/b&gt;&lt;br /&gt;Uses the SmileTag shoutbox inside your sidebar. SmileTag itself is not distributed with this plugin.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 06 Mar 2014 02:32:39 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_smiletag</guid>
-</item>
-<item>
 <title>Gallery Random Photo Block: Adds a reference to a Gallery Random Block script (see http://gallery.menalto.com for details on this script)</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_gallery_menalto_random</link>
 <category>Sidebar Plugins</category>
@@ -259,15 +232,6 @@
 <content:encoded>&lt;b&gt;serendipity_plugin_userprofiles_birthdays&lt;br /&gt;Birthdays of users&lt;/b&gt;&lt;br /&gt;PLUGIN_USERPROFILES_BIRTHDAYSNAME_DESCRIPTION&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Mon, 12 Aug 2013 09:58:59 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_userprofiles_birthdays</guid>
-</item>
-<item>
-<title>Audioscrobbler: Shows last played songs in your blog</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_audioscrobbler</link>
-<category>Sidebar Plugins</category>
-<author>Flo Solcher</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_audioscrobbler&lt;br /&gt;Audioscrobbler&lt;/b&gt;&lt;br /&gt;Shows last played songs in your blog&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_audioscrobbler</guid>
 </item>
 <item>
 <title>Shoutbox: Affiche une shoutbox où les visiteurs peuvent donner des commentaires en vrac</title>
@@ -369,15 +333,6 @@
 <guid isPermaLink="false">serendipity_plugin_statistics</guid>
 </item>
 <item>
-<title>PLUGIN_ZOOOMR_NAME: Display the most recent pictures of any Zooomr Feed</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_zooomr</link>
-<category>Sidebar Plugins</category>
-<author>Stefan Lange-Hegermann</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_zooomr&lt;br /&gt;PLUGIN_ZOOOMR_NAME&lt;/b&gt;&lt;br /&gt;Display the most recent pictures of any Zooomr Feed&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_zooomr</guid>
-</item>
-<item>
 <title>Piwik: show statistics of Piwik in sidebar</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_piwik</link>
 <category>Sidebar Plugins</category>
@@ -430,15 +385,6 @@
 <content:encoded>&lt;b&gt;serendipity_plugin_linklist&lt;br /&gt;Link List&lt;/b&gt;&lt;br /&gt;Links manager - Shows your favorite links in the sidebar.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
 <pubDate>Fri, 23 Sep 2016 22:32:54 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_linklist</guid>
-</item>
-<item>
-<title>Frappr (Friend Mapper): Display link to your Frappr map and recently added Frappr avatars. (stackable)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_frappr</link>
-<category>Sidebar Plugins</category>
-<author>Jabrwock</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_frappr&lt;br /&gt;Frappr (Friend Mapper)&lt;/b&gt;&lt;br /&gt;Display link to your Frappr map and recently added Frappr avatars. (stackable)&lt;br/&gt;For: Serendipity 0.9.1</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:54 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_frappr</guid>
 </item>
 <item>
 <title>Polls: Shows the current poll in your sidebar</title>

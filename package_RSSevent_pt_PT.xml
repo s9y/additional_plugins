@@ -117,15 +117,6 @@
 <guid isPermaLink="false">serendipity_event_linktrimmer</guid>
 </item>
 <item>
-<title>Layout-Plugin: Link-Markup: Allows to change the markup of links in the entrybody</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_layout_linkmarkup</link>
-<category>Event Plugins</category>
-<author>Sebastian Nohn</author>
-<content:encoded>&lt;b&gt;serendipity_event_layout_linkmarkup&lt;br /&gt;Layout-Plugin: Link-Markup&lt;/b&gt;&lt;br /&gt;Allows to change the markup of links in the entrybody&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:48 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_layout_linkmarkup</guid>
-</item>
-<item>
 <title>Layout-Plugin: Printerfriendly version: Using the print function of your browser, you will see a better printed representation of your Entry</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_layout_printerfriendly</link>
 <category>Event Plugins</category>
@@ -160,15 +151,6 @@
 <content:encoded>&lt;b&gt;serendipity_event_contentrewrite&lt;br /&gt;Reescrita de conteúdo&lt;/b&gt;&lt;br /&gt;Substitui palavras por um texto pré definido (prático para as abreviaturas)&lt;br/&gt;For: Serendipity 1.6</content:encoded>
 <pubDate>Wed, 18 May 2016 09:58:38 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_contentrewrite</guid>
-</item>
-<item>
-<title>Uses TinyMCE as WYSIWYG editor: Utilizes the TinyMCE WYSIWYG editor. Requires Serendipity 0.9 or later. After installation, read the installation guide in the configuration screen for this plugin.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_tinymce</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Grischa Brockhaus</author>
-<content:encoded>&lt;b&gt;serendipity_event_tinymce&lt;br /&gt;Uses TinyMCE as WYSIWYG editor&lt;/b&gt;&lt;br /&gt;Utilizes the TinyMCE WYSIWYG editor. Requires Serendipity 0.9 or later. After installation, read the installation guide in the configuration screen for this plugin.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Tue, 10 Jun 2014 02:32:37 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_tinymce</guid>
 </item>
 <item>
 <title>Prettify for S9Y: Use Prettify to brush content between PRE tags for simple syntax highlighting.</title>
@@ -223,15 +205,6 @@
 <content:encoded>&lt;b&gt;serendipity_event_typesetbuttons&lt;br /&gt;Typeset/Extended Buttons for non-WYSIWYG editors&lt;/b&gt;&lt;br /&gt;Adds buttons for various encoded typeset entities and other extended actions.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
 <pubDate>Sun, 30 Nov 2014 03:12:53 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_typesetbuttons</guid>
-</item>
-<item>
-<title>Music of the Moment: Real time music status from iTunes using iTunesBlogger: http://www.ituneshacking.com/wiki/wakka.php?wakka=iTunesBloggerHomePage</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_motm</link>
-<category>Event Plugins</category>
-<author>Tys von Gaza</author>
-<content:encoded>&lt;b&gt;serendipity_event_motm&lt;br /&gt;Music of the Moment&lt;/b&gt;&lt;br /&gt;Real time music status from iTunes using iTunesBlogger: http://www.ituneshacking.com/wiki/wakka.php?wakka=iTunesBloggerHomePage&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_motm</guid>
 </item>
 <item>
 <title>Share Buttons: Show social share buttons for services like Facebook and Twitter using shariff.</title>
@@ -340,15 +313,6 @@
 <content:encoded>&lt;b&gt;serendipity_event_template_editor&lt;br /&gt;Template Editor&lt;/b&gt;&lt;br /&gt;Edit the files of the currently used template directly form the adminarea.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
 <pubDate>Wed, 26 Oct 2016 22:32:23 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_template_editor</guid>
-</item>
-<item>
-<title>Babelfish: Translate blog entries (trash!)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_babelfish</link>
-<category>Event Plugins</category>
-<author>Sebastian Nohn</author>
-<content:encoded>&lt;b&gt;serendipity_event_babelfish&lt;br /&gt;Babelfish&lt;/b&gt;&lt;br /&gt;Translate blog entries (trash!)&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:37 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_babelfish</guid>
 </item>
 <item>
 <title>Coppermine Selector: Select images from a Coppermine gallery in new entries</title>
@@ -513,15 +477,6 @@
 <guid isPermaLink="false">serendipity_event_mobile_output</guid>
 </item>
 <item>
-<title>Feedburner FeedFlare: Adds a FeedFlare tag to the footer of each entry.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_feedflare</link>
-<category>Event Plugins</category>
-<author>Jim Davies</author>
-<content:encoded>&lt;b&gt;serendipity_event_feedflare&lt;br /&gt;Feedburner FeedFlare&lt;/b&gt;&lt;br /&gt;Adds a FeedFlare tag to the footer of each entry.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 27 Jan 2015 02:32:45 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_feedflare</guid>
-</item>
-<item>
 <title>Compress Images: Compress PNG and JPG images with the TinyPNG service.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_tinypng</link>
 <category>Event Plugins</category>
@@ -556,15 +511,6 @@
 <content:encoded>&lt;b&gt;serendipity_event_entrypaging&lt;br /&gt;Links to next/previous entry&lt;/b&gt;&lt;br /&gt;Allows viewing the next/previous entry when viewing&lt;br/&gt;For: Serendipity 1.6</content:encoded>
 <pubDate>Fri, 18 Mar 2016 22:32:19 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_entrypaging</guid>
-</item>
-<item>
-<title>Uses FCKeditor as WYSIWYG editor: Utilizes the FCKeditor WYSIWYG editor. Note: This is the old, but still developed version, of the famous new CKEditor package. This plugin does not support other Serendipity Plugin &quot;hook-in buttons&quot;! After installation, read the installation guide in the configuration screen for this plugin.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_fckeditor</link>
-<category>Event Plugins</category>
-<author>Ziyad Saeed, Garvin Hicking, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_fckeditor&lt;br /&gt;Uses FCKeditor as WYSIWYG editor&lt;/b&gt;&lt;br /&gt;Utilizes the FCKeditor WYSIWYG editor. Note: This is the old, but still developed version, of the famous new CKEditor package. This plugin does not support other Serendipity Plugin &quot;hook-in buttons&quot;! After installation, read the installation guide in the configuration screen for this plugin.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:33 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_fckeditor</guid>
 </item>
 <item>
 <title>Trackback-Control: Allows granular control over how trackbacks are sent when creating entries</title>
@@ -630,15 +576,6 @@
 <guid isPermaLink="false">serendipity_event_communityrating</guid>
 </item>
 <item>
-<title>Picasa: Shows Picasa albums exported as XML</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_picasa</link>
-<category>Event Plugins</category>
-<author>Thomas Nesges, Greg Greenway</author>
-<content:encoded>&lt;b&gt;serendipity_event_picasa&lt;br /&gt;Picasa&lt;/b&gt;&lt;br /&gt;Shows Picasa albums exported as XML&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:47 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_picasa</guid>
-</item>
-<item>
 <title>Discussion forum / phpBB comment mirroring: Provides a complete discussion forum to your users. Can alternatively provide to mirror comments into a phpBB installation.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_forum</link>
 <category>Event Plugins</category>
@@ -657,15 +594,6 @@
 <guid isPermaLink="false">serendipity_event_galleryimage</guid>
 </item>
 <item>
-<title>Validador HTML: Valida a conformidade do XML das entradas</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_htmlvalidator</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_htmlvalidator&lt;br /&gt;Validador HTML&lt;/b&gt;&lt;br /&gt;Valida a conformidade do XML das entradas&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:47 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_htmlvalidator</guid>
-</item>
-<item>
 <title>Free Wiki links for your entries: You can specify new/existing links to your blog entries via [[title]], link to staticpages via ((title)) and link to both via {{title}}. References can be automatically appended to the blog entry.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_wikilinks</link>
 <category>Event Plugins</category>
@@ -682,24 +610,6 @@
 <content:encoded>&lt;b&gt;serendipity_event_userprofiles&lt;br /&gt;User Profiles&lt;/b&gt;&lt;br /&gt;Shows simple user profiles and allows to embed author pictures.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
 <pubDate>Wed, 26 Oct 2016 22:32:23 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_userprofiles</guid>
-</item>
-<item>
-<title>Delete Link: Adds a delete link to the footer of each entry.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_deletelink</link>
-<category>Event Plugins</category>
-<author>Cameron MacFarland, Brett Profitt</author>
-<content:encoded>&lt;b&gt;serendipity_event_deletelink&lt;br /&gt;Delete Link&lt;/b&gt;&lt;br /&gt;Adds a delete link to the footer of each entry.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 27 Jan 2015 02:32:45 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_deletelink</guid>
-</item>
-<item>
-<title>Layout-Plugin: Quote-Markup: Allows to change the markup of quotes in the entrybody</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_layout_quotemarkup</link>
-<category>Event Plugins</category>
-<author>Sebastian Nohn</author>
-<content:encoded>&lt;b&gt;serendipity_event_layout_quotemarkup&lt;br /&gt;Layout-Plugin: Quote-Markup&lt;/b&gt;&lt;br /&gt;Allows to change the markup of quotes in the entrybody&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:49 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_layout_quotemarkup</guid>
 </item>
 <item>
 <title>Show read/unread state of entries for visitors: Show read/unread state of entries for visitors</title>
@@ -738,15 +648,6 @@
 <guid isPermaLink="false">serendipity_event_adduser</guid>
 </item>
 <item>
-<title>Simple Cached/Pregenerated Pages: [EXPERIMENTAL] Allows to cache/pregenerate pages. Note: Destroys dynamic capabilites and may not interoperate well with dynamic plugins. But it's faster, if you don't depend on realtime dynamics.  (This plugin should be placed as early as possible in the event queue list. Only dynamic plugins like the karmavoting should be positioned before this plugin.)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_cachesimple</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_cachesimple&lt;br /&gt;Simple Cached/Pregenerated Pages&lt;/b&gt;&lt;br /&gt;[EXPERIMENTAL] Allows to cache/pregenerate pages. Note: Destroys dynamic capabilites and may not interoperate well with dynamic plugins. But it's faster, if you don't depend on realtime dynamics.  (This plugin should be placed as early as possible in the event queue list. Only dynamic plugins like the karmavoting should be positioned before this plugin.)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 10 May 2016 22:32:24 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_cachesimple</guid>
-</item>
-<item>
 <title>Highlight search queries: Highlights queries used in the referring search engine to locate your page</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_searchhighlight</link>
 <category>Event Plugins</category>
@@ -781,15 +682,6 @@
 <content:encoded>&lt;b&gt;serendipity_event_freetag&lt;br /&gt;Tagging of entries&lt;/b&gt;&lt;br /&gt;Allows freestyle tagging of entries&lt;br/&gt;For: Serendipity 1.3</content:encoded>
 <pubDate>Wed, 26 Oct 2016 22:32:18 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_freetag</guid>
-</item>
-<item>
-<title>Uses XINHA as WYSIWYG editor: Warning! Xinha is experimental. Utilizes the XINHA WYSIWYG editor. Requires Serendipity 0.9. After installation, read the installation guide in the configuration screen for this plugin.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_xinha</link>
-<category>Event Plugins</category>
-<author>Ziyad Saeed, Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_xinha&lt;br /&gt;Uses XINHA as WYSIWYG editor&lt;/b&gt;&lt;br /&gt;Warning! Xinha is experimental. Utilizes the XINHA WYSIWYG editor. Requires Serendipity 0.9. After installation, read the installation guide in the configuration screen for this plugin.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Tue, 10 Jun 2014 02:32:37 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_xinha</guid>
 </item>
 <item>
 <title>Markup: Syntax Highlighter: This plugin is a JavaScript code highlighter based on the code of the same name by Alex Gorbatchev.   This plugin takes less server-side resources than GeSHi and displays less markup in the actual HTML code.  It's a lighter, cleaner alternative. This plugin requires the supporting theme to provide the following hooks: frontend_header, frontend_footer (and optionally backend_preview on the administrative theme only).</title>
@@ -909,15 +801,6 @@
 <guid isPermaLink="false">serendipity_event_ckeditor</guid>
 </item>
 <item>
-<title>Y!Q Related Search: Finds related pages using Yahoo's context sensitive search technology</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_yq</link>
-<category>Event Plugins</category>
-<author>Rasmus Lerdorf</author>
-<content:encoded>&lt;b&gt;serendipity_event_yq&lt;br /&gt;Y!Q Related Search&lt;/b&gt;&lt;br /&gt;Finds related pages using Yahoo's context sensitive search technology&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:54 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_yq</guid>
-</item>
-<item>
 <title>Validates authors login: Validates the login credentials of an author using the sidebar login form</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_loginform</link>
 <category>Event Plugins</category>
@@ -952,15 +835,6 @@
 <content:encoded>&lt;b&gt;serendipity_event_versioning&lt;br /&gt;Versioning of entries&lt;/b&gt;&lt;br /&gt;Can store and retrieve older versions of an entry&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Mon, 09 Jan 2017 22:32:22 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_versioning</guid>
-</item>
-<item>
-<title>Markup: Wordwrap long text: Inserts breaks for lengthy entries/comments</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_wordwrap</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_wordwrap&lt;br /&gt;Markup: Wordwrap long text&lt;/b&gt;&lt;br /&gt;Inserts breaks for lengthy entries/comments&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:59 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_wordwrap</guid>
 </item>
 <item>
 <title>Código: Wiki: Codificação do texto usando Text_Wiki</title>
@@ -1033,15 +907,6 @@
 <content:encoded>&lt;b&gt;serendipity_event_filter_entries&lt;br /&gt;Frontend entry filtering&lt;/b&gt;&lt;br /&gt;Allows visitors to filter/order your entries by several options&lt;br/&gt;For: Serendipity 1.6</content:encoded>
 <pubDate>Fri, 23 Sep 2016 22:32:49 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_filter_entries</guid>
-</item>
-<item>
-<title>PHPOpenTracker: Logs accesses to the blog using PHPOpenTracker. Requires installed phpOpenTracker, please see readme.txt for further information.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_phpopentracker</link>
-<category>Event Plugins</category>
-<author>Rene Schmidt</author>
-<content:encoded>&lt;b&gt;serendipity_event_phpopentracker&lt;br /&gt;PHPOpenTracker&lt;/b&gt;&lt;br /&gt;Logs accesses to the blog using PHPOpenTracker. Requires installed phpOpenTracker, please see readme.txt for further information.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:33:31 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_phpopentracker</guid>
 </item>
 <item>
 <title>My Calendar: Maintains a personal calendar</title>
@@ -1197,26 +1062,6 @@
 <guid isPermaLink="false">serendipity_event_oembed</guid>
 </item>
 <item>
-<title>Advanced configuration types: Provides advanced plugin and theme configuration options for Serendipity versions before 1.2.2 (currently supporting 'sequence' widget)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_advtypes</link>
-<category>Event Plugins</category>
-<author>Judebert (&lt;a href=&quot;http://judebert.com/&quot;&gt;http://judebert.com/&lt;/a&gt;)</author>
-<content:encoded>&lt;b&gt;serendipity_event_advtypes&lt;br /&gt;Advanced configuration types&lt;/b&gt;&lt;br /&gt;Provides advanced plugin and theme configuration options for Serendipity versions before 1.2.2 (currently supporting 'sequence' widget)&lt;br/&gt;For: Serendipity 1.1</content:encoded>
-<pubDate>Thu, 27 Oct 2016 22:32:13 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_advtypes</guid>
-</item>
-<item>
-<title>Link SnapShots using snap.com: This plugin shows page previews, while the user is hovering over a link. To reach this aim the SnapShot service at www.snap.com is used. 
-Snap.com is a free service, but be aware that snap.com *might* be able to collect data profiles about user IPs loading links from this blog site, although their privacy statement promise not to do so.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_snapshotlinks</link>
-<category>Event Plugins</category>
-<author>Grischa Brockhaus</author>
-<content:encoded>&lt;b&gt;serendipity_event_snapshotlinks&lt;br /&gt;Link SnapShots using snap.com&lt;/b&gt;&lt;br /&gt;This plugin shows page previews, while the user is hovering over a link. To reach this aim the SnapShot service at www.snap.com is used. 
-Snap.com is a free service, but be aware that snap.com *might* be able to collect data profiles about user IPs loading links from this blog site, although their privacy statement promise not to do so.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:55 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_snapshotlinks</guid>
-</item>
-<item>
 <title>GeoURL: GeoURL allocates URLs to locations. More Information at http://geourl.org/</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_geourl</link>
 <category>Event Plugins</category>
@@ -1233,15 +1078,6 @@ Snap.com is a free service, but be aware that snap.com *might* be able to collec
 <content:encoded>&lt;b&gt;serendipity_event_sidebarhider&lt;br /&gt;Toggle Sidebar state (collapsed/uncollapsed)&lt;/b&gt;&lt;br /&gt;Shrinks Sidebars to just their titles.  Extra configuration in Entries -&gt; Manage Sidebars in the Admin Suite.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
 <pubDate>Sun, 30 Nov 2014 03:12:49 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_sidebarhider</guid>
-</item>
-<item>
-<title>UTF-8 aware sorting: This plugin offers special UTF-8 alphabetic sorting as an extension so specific plugins like Freetag. It allows to sort by kyrillic and other foreign characters with a custom alphabet. Alphabet contributions are welcome (on the s9y forums).</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_sort</link>
-<category>Event Plugins</category>
-<author>LazyBadger, Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_sort&lt;br /&gt;UTF-8 aware sorting&lt;/b&gt;&lt;br /&gt;This plugin offers special UTF-8 alphabetic sorting as an extension so specific plugins like Freetag. It allows to sort by kyrillic and other foreign characters with a custom alphabet. Alphabet contributions are welcome (on the s9y forums).&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 09 May 2011 10:22:32 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_sort</guid>
 </item>
 <item>
 <title>Markup: Smarty Parsing: Parses Smarty instructions inside the article text. This is not usable in combination with syntax code-highlighters or multilingual tags in entry context fields!</title>

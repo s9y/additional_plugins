@@ -1,3 +1,6 @@
+1.17: Reset message for 404 error handling which is now
+      overriden
+
 1.16: Iconfont a11y fix (yellowled)
 
 1.15:

@@ -344,9 +344,9 @@
 <description>Můžete definovat stálé odkazy k jednotlivým příspěvkům. Lze použít pouze URL vzory, které JEŠTĚ NEJSOU používané - používání stálých odkazů ve tvaru /archives/odkaz není tedy možné. Ale používání jakéhokoliv jiného (virtuálního) adresáře možné je.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.16</version>
+  <version>1.17</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2017-04-17</date>
   <filelist>
 <dir name="serendipity_event_custom_permalinks">
 <file>lang_de.inc.php</file>

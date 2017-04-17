@@ -344,9 +344,9 @@
 <description>Дефинира постоянни връзки, които могат да се използват за достъп до избрани статии. Разрешени са варианти, които НЕ СЕ използват вече в структурата /archives/ . Но всяка друга (виртуална) директория е позволена.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.16</version>
+  <version>1.17</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2017-04-17</date>
   <filelist>
 <dir name="serendipity_event_custom_permalinks">
 <file>lang_de.inc.php</file>

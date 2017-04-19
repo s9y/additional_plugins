@@ -75,9 +75,9 @@
 <title>マークアップ: Markdown: エントリテキストに Markdown マークアップを適用します。</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_markdown</link>
 <category>Event Plugins</category>
-<author>Serendipity Team and Jan Lehnardt</author>
+<author>Serendipity Team, Jan Lehnardt and Thomas Hochstein</author>
 <content:encoded>&lt;b&gt;serendipity_event_markdown&lt;br /&gt;マークアップ: Markdown&lt;/b&gt;&lt;br /&gt;エントリテキストに Markdown マークアップを適用します。&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:41 +0100</pubDate>
+<pubDate>Wed, 19 Apr 2017 22:31:56 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_markdown</guid>
 </item>
 <item>

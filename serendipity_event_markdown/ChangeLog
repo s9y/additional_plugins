@@ -1,3 +1,18 @@
+Version 1.23:
+=============
+Changes by Thomas Hochstein <thh@inter.net>
+
+- Notice: The "classic" version is no longer supported from Feb 1, 2013
+          and stuck at PHP Markdown 1.0.2 / PHP Markdown Extra 1.2.8
+- Upgrade PHP Markdown Lib to 1.7.0 (was 1.4.0).
+- Get Markdown Extra working when using the PHP Markdown Lib;
+  it didn't before.
+
+Version 1.22:
+=============
+
+- Added parameters to html_entity_decode() and htmlentities().
+
 Version 1.21:
 =============
 
@@ -12,7 +27,6 @@ Version 1.21:
   It easily translates plain ASCII punctuation characters into "smart" 
   typographic punctuation HTML entities.
 - extend to PHP >= 5.3 only (while lib using namespaces)
-
 
 Version 1.1.5:
 ==============

@@ -175,69 +175,6 @@
 </release>
 </package>
 <package version="1.0">
-<name>serendipity_plugin_heavyrotation</name>
-<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_heavyrotation/ChangeLog</changelog>
-<license>GPL</license>
-<summary>@Heavy Rotation@</summary>
-<groups>FRONTEND_EXTERNAL_SERVICES</groups>
-<description>Tento přídavný modul zobrazuje ze serveru last.fm obal alba, které bylo minulý týden &quot;Heavy Rotation&quot; (první v hitparádě)</description>
-<maintainers><maintainer><name>Lars Strojny</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>0.10</version>
-  <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2016-09-23</date>
-  <filelist>
-<dir name="serendipity_plugin_heavyrotation">
-<file>plugin.inc.php</file>
-<file>ChangeLog</file>
-<file>lang_cz.inc.php</file>
-<dir name="UTF-8">
-<file>lang_de.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_cs.inc.php</file>
-</dir>
-<file>lang_en.inc.php</file>
-<file>serendipity_plugin_heavyrotation.php</file>
-<dir name="lib">
-<file>album.php</file>
-<file>coverfetcher.php</file>
-<dir name="albumhandler">
-<file>readerror.php</file>
-<file>chickeneggproblem.php</file>
-</dir>
-<dir name="helper">
-<file>aws_signed_request.php</file>
-<file>audioscrobbler.php</file>
-<file>abstract.php</file>
-</dir>
-<file>albumhandler.php</file>
-</dir>
-<file>lang_cs.inc.php</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_plugin_heavyrotation/plugin.inc.php</file>
-    <file>serendipity_plugin_heavyrotation/ChangeLog</file>
-    <file>serendipity_plugin_heavyrotation/lang_cz.inc.php</file>
-    <file>serendipity_plugin_heavyrotation/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_plugin_heavyrotation/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_heavyrotation/UTF-8/lang_cs.inc.php</file>
-    <file>serendipity_plugin_heavyrotation/lang_en.inc.php</file>
-    <file>serendipity_plugin_heavyrotation/serendipity_plugin_heavyrotation.php</file>
-    <file>serendipity_plugin_heavyrotation/lib/album.php</file>
-    <file>serendipity_plugin_heavyrotation/lib/coverfetcher.php</file>
-    <file>serendipity_plugin_heavyrotation/lib/albumhandler/readerror.php</file>
-    <file>serendipity_plugin_heavyrotation/lib/albumhandler/chickeneggproblem.php</file>
-    <file>serendipity_plugin_heavyrotation/lib/helper/aws_signed_request.php</file>
-    <file>serendipity_plugin_heavyrotation/lib/helper/audioscrobbler.php</file>
-    <file>serendipity_plugin_heavyrotation/lib/helper/abstract.php</file>
-    <file>serendipity_plugin_heavyrotation/lib/albumhandler.php</file>
-    <file>serendipity_plugin_heavyrotation/lang_cs.inc.php</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
 <name>serendipity_plugin_wikipedia_finder</name>
 <license>GPL</license>
 <summary>Hledání na wikipedii</summary>
@@ -1245,77 +1182,6 @@
 </release>
 </package>
 <package version="1.0">
-<name>serendipity_plugin_communityrating</name>
-<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_communityrating/ChangeLog</changelog>
-<license>GPL</license>
-<summary>Průměrné hodnocení</summary>
-<groups>STATISTICS</groups>
-<description>Zobrazit nejlépe hodnocené filmy podle jejich průměrného hodnocení</description>
-<maintainers><maintainer><name>Lewe Zipfel, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>1.2.1</version>
-  <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2014-11-30</date>
-  <filelist>
-<dir name="serendipity_event_communityrating">
-<dir name="img">
-<file>star_IMDB_full.png</file>
-<file>star_IMDB_zero.png</file>
-<file>star_Amazon_half.png</file>
-<file>star_Amazon_full.png</file>
-<file>star_IMDB_half.png</file>
-<file>star_Amazon_zero.png</file>
-</dir>
-<file>ChangeLog</file>
-<file>lang_cz.inc.php</file>
-<dir name="UTF-8">
-<file>lang_cz.inc.php</file>
-<file>lang_cs.inc.php</file>
-</dir>
-<file>serendipity_event_communityrating.php</file>
-<file>lang_en.inc.php</file>
-<file>smarty.inc.php</file>
-<file>README</file>
-<file>serendipity_plugin_communityrating.php</file>
-<file>communityrating_Amazon.tpl</file>
-<file>documentation_cs.html</file>
-<file>helper_compare.php</file>
-<file>communityrating_IMDB.tpl</file>
-<file>helper_imdb.php</file>
-<file>communityrating_IMDB_garvin.tpl</file>
-<file>documentation_cz.html</file>
-<file>lang_cs.inc.php</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_event_communityrating/img/star_IMDB_full.png</file>
-    <file>serendipity_event_communityrating/img/star_IMDB_zero.png</file>
-    <file>serendipity_event_communityrating/img/star_Amazon_half.png</file>
-    <file>serendipity_event_communityrating/img/star_Amazon_full.png</file>
-    <file>serendipity_event_communityrating/img/star_IMDB_half.png</file>
-    <file>serendipity_event_communityrating/img/star_Amazon_zero.png</file>
-    <file>serendipity_event_communityrating/ChangeLog</file>
-    <file>serendipity_event_communityrating/lang_cz.inc.php</file>
-    <file>serendipity_event_communityrating/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_communityrating/UTF-8/lang_cs.inc.php</file>
-    <file>serendipity_event_communityrating/serendipity_event_communityrating.php</file>
-    <file>serendipity_event_communityrating/lang_en.inc.php</file>
-    <file>serendipity_event_communityrating/smarty.inc.php</file>
-    <file>serendipity_event_communityrating/README</file>
-    <file>serendipity_event_communityrating/serendipity_plugin_communityrating.php</file>
-    <file>serendipity_event_communityrating/communityrating_Amazon.tpl</file>
-    <file>serendipity_event_communityrating/documentation_cs.html</file>
-    <file>serendipity_event_communityrating/helper_compare.php</file>
-    <file>serendipity_event_communityrating/communityrating_IMDB.tpl</file>
-    <file>serendipity_event_communityrating/helper_imdb.php</file>
-    <file>serendipity_event_communityrating/communityrating_IMDB_garvin.tpl</file>
-    <file>serendipity_event_communityrating/documentation_cz.html</file>
-    <file>serendipity_event_communityrating/lang_cs.inc.php</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
 <name>serendipity_plugin_userprofiles</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_userprofiles/ChangeLog</changelog>
 <license>GPL</license>
@@ -1899,53 +1765,6 @@
 </release>
 </package>
 <package version="1.0">
-<name>serendipity_plugin_pagerank</name>
-<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_pagerank/ChangeLog</changelog>
-<license>GPL</license>
-<summary>Google PageRank</summary>
-<groups>FRONTEND_EXTERNAL_SERVICES</groups>
-<description>Dynamické zobrazení Google PageRanku</description>
-<maintainers><maintainer><name>Christian Lescuyer</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>0.33</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-09-23</date>
-  <filelist>
-<dir name="serendipity_plugin_pagerank">
-<file>lang_fr.inc.php</file>
-<file>lang_ja.inc.php</file>
-<file>ChangeLog</file>
-<file>lang_cz.inc.php</file>
-<dir name="UTF-8">
-<file>lang_fr.inc.php</file>
-<file>lang_ja.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_en.inc.php</file>
-<file>lang_cs.inc.php</file>
-</dir>
-<file>lang_en.inc.php</file>
-<file>serendipity_plugin_pagerank.php</file>
-<file>lang_cs.inc.php</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_plugin_pagerank/lang_fr.inc.php</file>
-    <file>serendipity_plugin_pagerank/lang_ja.inc.php</file>
-    <file>serendipity_plugin_pagerank/ChangeLog</file>
-    <file>serendipity_plugin_pagerank/lang_cz.inc.php</file>
-    <file>serendipity_plugin_pagerank/UTF-8/lang_fr.inc.php</file>
-    <file>serendipity_plugin_pagerank/UTF-8/lang_ja.inc.php</file>
-    <file>serendipity_plugin_pagerank/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_pagerank/UTF-8/lang_en.inc.php</file>
-    <file>serendipity_plugin_pagerank/UTF-8/lang_cs.inc.php</file>
-    <file>serendipity_plugin_pagerank/lang_en.inc.php</file>
-    <file>serendipity_plugin_pagerank/serendipity_plugin_pagerank.php</file>
-    <file>serendipity_plugin_pagerank/lang_cs.inc.php</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
 <name>serendipity_plugin_currently</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_currently/ChangeLog</changelog>
 <license>GPL</license>
@@ -2312,50 +2131,6 @@
     <file>serendipity_plugin_feedburnersidebar/serendipity_plugin_feedburnersidebar.php</file>
     <file>serendipity_plugin_feedburnersidebar/lang_en.inc.php</file>
     <file>serendipity_plugin_feedburnersidebar/lang_cs.inc.php</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
-<name>serendipity_plugin_shoutcast</name>
-<license>GPL</license>
-<summary>Shoutcast</summary>
-<groups>FRONTEND_EXTERNAL_SERVICES</groups>
-<description>Zobrazí kanál služby Shoutcast v postranním sloupci.</description>
-<maintainers><maintainer><name>John Mann</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>1.05</version>
-  <requirements:s9yVersion>0.8.4</requirements:s9yVersion>
-  <date>2013-08-12</date>
-  <filelist>
-<dir name="serendipity_plugin_shoutcast">
-<file>serendipity_plugin_shoutcast.php</file>
-<file>lang_cz.inc.php</file>
-<dir name="UTF-8">
-<file>lang_cz.inc.php</file>
-<file>lang_cs.inc.php</file>
-</dir>
-<file>readme.txt</file>
-<file>lang_en.inc.php</file>
-<file>shoutcast_plugin_setup.jpg</file>
-<file>documentation_cs.html</file>
-<file>shoutcast_plugin_inaction.jpg</file>
-<file>documentation_cz.html</file>
-<file>lang_cs.inc.php</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_plugin_shoutcast/serendipity_plugin_shoutcast.php</file>
-    <file>serendipity_plugin_shoutcast/lang_cz.inc.php</file>
-    <file>serendipity_plugin_shoutcast/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_shoutcast/UTF-8/lang_cs.inc.php</file>
-    <file>serendipity_plugin_shoutcast/readme.txt</file>
-    <file>serendipity_plugin_shoutcast/lang_en.inc.php</file>
-    <file>serendipity_plugin_shoutcast/shoutcast_plugin_setup.jpg</file>
-    <file>serendipity_plugin_shoutcast/documentation_cs.html</file>
-    <file>serendipity_plugin_shoutcast/shoutcast_plugin_inaction.jpg</file>
-    <file>serendipity_plugin_shoutcast/documentation_cz.html</file>
-    <file>serendipity_plugin_shoutcast/lang_cs.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>

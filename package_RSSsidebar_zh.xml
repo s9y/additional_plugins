@@ -27,15 +27,6 @@
 <guid isPermaLink="false">serendipity_plugin_loginform</guid>
 </item>
 <item>
-<title>On »Heavy Rotation«: This plugin displays an album cover from last.fm which was on Heavy Rotation (top album) in the last week</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_heavyrotation</link>
-<category>Sidebar Plugins</category>
-<author>Lars Strojny</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_heavyrotation&lt;br /&gt;On »Heavy Rotation«&lt;/b&gt;&lt;br /&gt;This plugin displays an album cover from last.fm which was on Heavy Rotation (top album) in the last week&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_heavyrotation</guid>
-</item>
-<item>
 <title>维基百科搜索: 选中一个短语，再点击图标后在维基百科中搜索。</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_wikipedia_finder</link>
 <category>Sidebar Plugins</category>
@@ -207,15 +198,6 @@
 <guid isPermaLink="false">serendipity_plugin_randomquotes</guid>
 </item>
 <item>
-<title>Average Rating: Shows top-rated movies by their average rating</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_communityrating</link>
-<category>Sidebar Plugins</category>
-<author>Lewe Zipfel, Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_communityrating&lt;br /&gt;Average Rating&lt;/b&gt;&lt;br /&gt;Shows top-rated movies by their average rating&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:29 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_communityrating</guid>
-</item>
-<item>
 <title>Serendipity Authors: Shows a list for all Authors</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_userprofiles</link>
 <category>Sidebar Plugins</category>
@@ -297,15 +279,6 @@
 <guid isPermaLink="false">serendipity_plugin_google_last_query</guid>
 </item>
 <item>
-<title>Google PageRank: Dynamic display of Google PageRank</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_pagerank</link>
-<category>Sidebar Plugins</category>
-<author>Christian Lescuyer</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_pagerank&lt;br /&gt;Google PageRank&lt;/b&gt;&lt;br /&gt;Dynamic display of Google PageRank&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_pagerank</guid>
-</item>
-<item>
 <title>Currently...: Displays items you are currently listening, playing, or reading...</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_currently</link>
 <category>Sidebar Plugins</category>
@@ -367,15 +340,6 @@
 <content:encoded>&lt;b&gt;serendipity_plugin_feedburnersidebar&lt;br /&gt;Feedburner Sidebar&lt;/b&gt;&lt;br /&gt;Adds assorted functionality of the feedburner service into the sidebar.&lt;br/&gt;For: Serendipity 1.2.1</content:encoded>
 <pubDate>Tue, 23 Oct 2012 02:32:31 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_feedburnersidebar</guid>
-</item>
-<item>
-<title>Shoutcast: Display Shoutcast stream information in the sidebar.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_shoutcast</link>
-<category>Sidebar Plugins</category>
-<author>John Mann</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_shoutcast&lt;br /&gt;Shoutcast&lt;/b&gt;&lt;br /&gt;Display Shoutcast stream information in the sidebar.&lt;br/&gt;For: Serendipity 0.8.4</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:59:06 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_shoutcast</guid>
 </item>
 <item>
 <title>Link List: Links manager - Shows your favorite links in the sidebar.</title>

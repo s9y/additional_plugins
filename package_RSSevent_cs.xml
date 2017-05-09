@@ -569,15 +569,6 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <guid isPermaLink="false">serendipity_event_cronjob</guid>
 </item>
 <item>
-<title>Hodnocení: Můžete hodnotit výrobky, filmy nebo cokoliv jiného a zobrazovat jejich hodnocení v příslušných příspěvcích. Také umožňuje sdíle hodnocení s ostatními uživateli tohoto pluginu. Tento plugin vyžaduje zásah do šablon, přečtěte si prosím soubor README.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_communityrating</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Lewe Zipfel</author>
-<content:encoded>&lt;b&gt;serendipity_event_communityrating&lt;br /&gt;Hodnocení&lt;/b&gt;&lt;br /&gt;Můžete hodnotit výrobky, filmy nebo cokoliv jiného a zobrazovat jejich hodnocení v příslušných příspěvcích. Také umožňuje sdíle hodnocení s ostatními uživateli tohoto pluginu. Tento plugin vyžaduje zásah do šablon, přečtěte si prosím soubor README.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:40 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_communityrating</guid>
-</item>
-<item>
 <title>Diskusní fórum / zrcadlení phpBB fóra: Poskytuje kompletní diskusní fórum. Alternativě umožňuje přístup do diskusního fóra phpBB.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_forum</link>
 <category>Event Plugins</category>

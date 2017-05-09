@@ -569,15 +569,6 @@
 <guid isPermaLink="false">serendipity_event_cronjob</guid>
 </item>
 <item>
-<title>Community Rating: You can rate products, movies or anything else and display your rating within your associated entries. Also enables you to share your ratings with other users of these plugins. This plugin requires you to edit template files, please read the README file.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_communityrating</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Lewe Zipfel</author>
-<content:encoded>&lt;b&gt;serendipity_event_communityrating&lt;br /&gt;Community Rating&lt;/b&gt;&lt;br /&gt;You can rate products, movies or anything else and display your rating within your associated entries. Also enables you to share your ratings with other users of these plugins. This plugin requires you to edit template files, please read the README file.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:40 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_communityrating</guid>
-</item>
-<item>
 <title>ディスカッションフォーラム: ユーザーに完全なディスカッションフォーラムを提供します。</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_forum</link>
 <category>Event Plugins</category>

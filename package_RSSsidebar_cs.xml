@@ -27,15 +27,6 @@
 <guid isPermaLink="false">serendipity_plugin_loginform</guid>
 </item>
 <item>
-<title>@Heavy Rotation@: Tento přídavný modul zobrazuje ze serveru last.fm obal alba, které bylo minulý týden &quot;Heavy Rotation&quot; (první v hitparádě)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_heavyrotation</link>
-<category>Sidebar Plugins</category>
-<author>Lars Strojny</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_heavyrotation&lt;br /&gt;@Heavy Rotation@&lt;/b&gt;&lt;br /&gt;Tento přídavný modul zobrazuje ze serveru last.fm obal alba, které bylo minulý týden &quot;Heavy Rotation&quot; (první v hitparádě)&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_heavyrotation</guid>
-</item>
-<item>
 <title>Hledání na wikipedii: Vyber pojem (slovo nebo větu) a klikněte na ikonu. Pojem bude vyhledán na Wikipedii.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_wikipedia_finder</link>
 <category>Sidebar Plugins</category>
@@ -207,15 +198,6 @@
 <guid isPermaLink="false">serendipity_plugin_randomquotes</guid>
 </item>
 <item>
-<title>Průměrné hodnocení: Zobrazit nejlépe hodnocené filmy podle jejich průměrného hodnocení</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_communityrating</link>
-<category>Sidebar Plugins</category>
-<author>Lewe Zipfel, Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_communityrating&lt;br /&gt;Průměrné hodnocení&lt;/b&gt;&lt;br /&gt;Zobrazit nejlépe hodnocené filmy podle jejich průměrného hodnocení&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:29 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_communityrating</guid>
-</item>
-<item>
 <title>Serendipity Authors: Zobrazuje rozšířené profily autorů/uživatelů</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_userprofiles</link>
 <category>Sidebar Plugins</category>
@@ -297,15 +279,6 @@
 <guid isPermaLink="false">serendipity_plugin_google_last_query</guid>
 </item>
 <item>
-<title>Google PageRank: Dynamické zobrazení Google PageRanku</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_pagerank</link>
-<category>Sidebar Plugins</category>
-<author>Christian Lescuyer</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_pagerank&lt;br /&gt;Google PageRank&lt;/b&gt;&lt;br /&gt;Dynamické zobrazení Google PageRanku&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_pagerank</guid>
-</item>
-<item>
 <title>Co právě dělám: Zobrazuje seznam toho, co právě posloucháte, hrajete nebo čtete.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_currently</link>
 <category>Sidebar Plugins</category>
@@ -367,15 +340,6 @@
 <content:encoded>&lt;b&gt;serendipity_plugin_feedburnersidebar&lt;br /&gt;Feedburner Sidebar&lt;/b&gt;&lt;br /&gt;Adds assorted functionality of the feedburner service into the sidebar.&lt;br/&gt;For: Serendipity 1.2.1</content:encoded>
 <pubDate>Tue, 23 Oct 2012 02:32:31 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_feedburnersidebar</guid>
-</item>
-<item>
-<title>Shoutcast: Zobrazí kanál služby Shoutcast v postranním sloupci.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_shoutcast</link>
-<category>Sidebar Plugins</category>
-<author>John Mann</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_shoutcast&lt;br /&gt;Shoutcast&lt;/b&gt;&lt;br /&gt;Zobrazí kanál služby Shoutcast v postranním sloupci.&lt;br/&gt;For: Serendipity 0.8.4</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:59:06 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_shoutcast</guid>
 </item>
 <item>
 <title>Link List: Správce odkazů (linků) - V bočním panelu zobrazuje vaše oblíbené odkazy.</title>

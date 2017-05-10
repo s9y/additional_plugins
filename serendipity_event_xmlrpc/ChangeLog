@@ -1,4 +1,7 @@
 # 
+Version 1.59:
+    * Added stub wp.newPage dummy API function
+    
 Version 1.58:
     * Added stub wp.deletePage dummy API function
 

@@ -114,6 +114,8 @@ $dispatches = array(
                         array('function' => 'wp_getPageList'),
                     'wp.editPage' => 
                         array('function' => 'wp_editPage'),
+                    'wp.newPage' => 
+                        array('function' => 'wp_newPage'),
                     'wp.deletePage' =>
                         array('function' => 'wp_deletePage'),    
 
@@ -479,6 +481,13 @@ function wp_getPages($message) {
 }
 
 function wp_editPage($message) {
+    global $serendipity;
+    // TODO: stub
+    $return = true;
+    return new XML_RPC_Value($return, 'boolean');
+}
+
+function wp_newPage($message) {
     global $serendipity;
     // TODO: stub
     $return = true;

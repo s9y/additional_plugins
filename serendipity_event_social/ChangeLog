@@ -1,3 +1,6 @@
+0.12.1:
+    * Fix use of description from the metadesc-plugin
+
 0.12:
     * Ignore smileys graphics for og:image
     * Use entry picture from the timeline theme if set

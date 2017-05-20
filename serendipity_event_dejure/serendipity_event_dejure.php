@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -12,6 +12,8 @@ if (file_exists($probelang)) {
 
 include dirname(__FILE__) . '/lang_en.inc.php';
 
+define('CACHE_VORHALT', 4); # (Tage) Wann ein vernetzter Text aus dem Cache entfernt und neu vernetzt werden soll
+
 class serendipity_event_dejure extends serendipity_event
 {
     function introspect(&$propbag) {
@@ -19,8 +21,8 @@ class serendipity_event_dejure extends serendipity_event
 
         $propbag->add('name',        DEJURE_TITLE);
         $propbag->add('description', DEJURE_DESCRIPTION);
-        $propbag->add('author',      'Garvin Hicking, dejure.org');
-        $propbag->add('version',     '1.2');
+        $propbag->add('author',      'Garvin Hicking, Bjoern Urban, dejure.org');
+        $propbag->add('version',     '1.5');
         $propbag->add('stackable',   false);
         $propbag->add('groups',      array('FRONTEND_EXTERNAL_SERVICES'));
 
@@ -46,7 +48,8 @@ class serendipity_event_dejure extends serendipity_event
                 'newsletter',
                 'target',
                 'css',
-                'linkstyle'
+                'linkstyle',
+                'cache'
             )
         );
     }
@@ -95,6 +98,13 @@ class serendipity_event_dejure extends serendipity_event
                 $propbag->add('radio_per_row',  1);
                 break;
 
+            case 'cache':
+                $propbag->add('type',           'boolean');
+                $propbag->add('name',           DEJURE_CACHE);
+                $propbag->add('description',    DEJURE_CACHE_DESC);
+                $propbag->add('default',        false);
+                break;
+
             default:
                 return false;
         }
@@ -107,13 +117,19 @@ class serendipity_event_dejure extends serendipity_event
 
         $built = $this->get_config('db_built', null);
         if (empty($built)) {
-            serendipity_db_schema_import("CREATE TABLE {$serendipity['dbPrefix']}dejure (
+            serendipity_db_schema_import("CREATE TABLE IF NOT EXISTS {$serendipity['dbPrefix']}dejure (
                     ckey varchar(32),
                     cache text,
                     last_update int(10) {UNSIGNED}
-                    )");
+                    ) {UTF_8}");
             serendipity_db_schema_import('CREATE UNIQUE INDEX dejure_cacheidx ON {PREFIX}dejure (ckey)');
         }
+    }
+
+    function dropDB() {
+        global $serendipity;
+
+        serendipity_db_schema_import("DROP TABLE {$serendipity['dbPrefix']}dejure");
     }
 
     function generate_content(&$title) {
@@ -124,36 +140,44 @@ class serendipity_event_dejure extends serendipity_event
         $this->setupDB();
     }
 
+    function uninstall() {
+        $this->dropDB();
+    }
+
     function cleanup() {
         global $serendipity;
 
-        // Purge DB cache
+        // Purge the whole DB cache
         serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}dejure");
     }
 
     function cache_cleanup() {
         global $serendipity;
 
-        // Purge DB cache
-        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}dejure WHERE last_update < " . (time()-86400*4));
+        // Purge old DB cache
+        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}dejure
+                              WHERE last_update < " . (time()-86400*CACHE_VORHALT));
     }
-
 
     function djo_vernetzen_ueber_dejure_org($ausgangstext, $parameter = array()) {
     	// Mögliche Parameter: Anbieterkennung / Dokumentkennung / target / class / AktenzeichenIgnorieren / zeitlimit_in_sekunden
 
-    	$uebergabe = "Originaltext=".urlencode($ausgangstext);
+    	$uebergabe = 'Originaltext='.urlencode($ausgangstext);
     	foreach ($parameter as $option => $wert) {
-    		if ($option == "zeitlimit_in_sekunden") {
+    		if ($option == 'zeitlimit_in_sekunden') {
     			$zeitlimit_in_sekunden = $wert;
     		} else {
-    			$uebergabe .= "&" . urlencode($option) . "=" . urlencode($wert);
+                $uebergabe .= '&' . urlencode($option) . '=' . urlencode($wert);
     		}
     	}
 
     	if (!isset($zeitlimit_in_sekunden)) {
     		$zeitlimit_in_sekunden = 2;
     	}
+
+        if (preg_match("/<!-- zeitlimitDJO:([0-9]+) -->/", $ausgangstext, $wert_ARR)) {
+            $zeitlimit_in_sekunden = $wert_ARR[1];
+        }
 
     	$header = "POST http://rechtsnetz.dejure.org/dienste/vernetzung/vernetzen HTTP/1.0\r\n";
     	$header .= "Content-type: application/x-www-form-urlencoded\r\n";
@@ -169,7 +193,7 @@ class serendipity_event_dejure extends serendipity_event
     		fputs($fp, $header.$uebergabe);
     		$timeOutSock = false;
     		$eofSock = false;
-    		$rueckgabe="";
+    		$rueckgabe = '';
     		while (!$eofSock && !$timeOutSock) {
     			$rueckgabe.= fgets($fp, 1024); //
     			$stSock = socket_get_status($fp);
@@ -179,7 +203,7 @@ class serendipity_event_dejure extends serendipity_event
     		fclose($fp);
     		if (!preg_match("/^(.*?)\r?\n\r?\n\r?\n?(.*)/s",$rueckgabe, $rueckgabeARR)) {
     			return false; // Zeitüberschreitung oder Verbindungsproblem
-    		} else if (strpos($rueckgabeARR[1],"200 OK")===false) {
+    		} else if (strpos($rueckgabeARR[1],"200 OK") === false) {
     			return false; // sonstiges Serverproblem
     		} else {
     			$rueckgabe = $rueckgabeARR[2];
@@ -194,6 +218,8 @@ class serendipity_event_dejure extends serendipity_event
 
     function djo_zwischenspeicherung() {
         global $serendipity;
+        # Cache auf alte Eintraege pruefen vor dem Eintrag
+        $this->cache_cleanup();
 
     	if (is_array($this->djo_vernetzung_in_cache_schreiben)) {
     		foreach ($this->djo_vernetzung_in_cache_schreiben as $vernetzung) {
@@ -204,7 +230,9 @@ class serendipity_event_dejure extends serendipity_event
 				$text = $vernetzung[1];
 			}
     			serendipity_db_Query("DELETE FROM {$serendipity['dbPrefix']}dejure WHERE ckey = '" . $schluessel . "'");
-    			serendipity_db_Query("INSERT INTO {$serendipity['dbPrefix']}dejure (ckey, cache, last_update) VALUES ('" . $schluessel . "', '" . serendipity_db_escape_string($text) . "', " . time() . ")");
+                serendipity_db_Query("INSERT INTO {$serendipity['dbPrefix']}dejure
+                                     (ckey, cache, last_update)
+                                     VALUES ('".$schluessel."', '".serendipity_db_escape_string($text)."', " . time() . ")");
     		}
     	}
     }
@@ -213,9 +241,10 @@ class serendipity_event_dejure extends serendipity_event
         global $serendipity;
 
     	$schluessel = md5($ausgangstext);
-    	$rueckgabe = serendipity_db_query("SELECT cache FROM {$serendipity['dbPrefix']}dejure WHERE ckey = '" . $schluessel . "'", true, 'assoc');
+        $rueckgabe = serendipity_db_query("SELECT cache FROM {$serendipity['dbPrefix']}dejure
+                                           WHERE ckey = '".$schluessel."' AND last_update > " . (time()-86400*CACHE_VORHALT), true, 'assoc');
     	if (!empty($rueckgabe['cache']) && $rueckgabe['cache'] == "<!-- idem -->") {
-		return $ausgangstext;
+		    return $ausgangstext;
     	} else {
         	return $rueckgabe['cache'];
     	}
@@ -224,6 +253,12 @@ class serendipity_event_dejure extends serendipity_event
 
     function djo_vernetzen(&$text) {
     	global $serendipity;
+
+        # Cache leeren wenn Option gesetzt
+        if ($this->get_config('cache') === true) {
+            $this->cleanup;
+            $this->set_config('cache', false);
+        }
 
     	if (!preg_match("/§|&sect;|Art\.|\/[0-9][0-9](?![0-9\/])|[0-9][0-9], /", $text) || preg_match("/<!--ohnedjo-->/", $text)) {
     		return false;
@@ -275,7 +310,6 @@ class serendipity_event_dejure extends serendipity_event
                     if (date("G") < 6 && rand(0,50) < 1) {
                         $this->cache_cleanup();
                     }
-
                     break;
 
                 case 'frontend_display':
@@ -285,7 +319,6 @@ class serendipity_event_dejure extends serendipity_event
                     } elseif ($eventData['comment'] != '') {
                         $this->djo_vernetzen($eventData['comment']);
                     }
-
                     break;
 
                 case 'frontend_footer':

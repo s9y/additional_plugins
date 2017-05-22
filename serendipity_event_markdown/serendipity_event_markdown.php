@@ -31,7 +31,7 @@ class serendipity_event_markdown extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '5.3.0'
         ));
-        $propbag->add('version',       '1.23');
+        $propbag->add('version',       '1.24');
         $propbag->add('cachable_events', array('frontend_display' => true));
         $propbag->add('event_hooks',   array('frontend_display' => true, 'frontend_comment' => true));
         $propbag->add('groups', array('MARKUP'));
@@ -173,7 +173,9 @@ class serendipity_event_markdown extends serendipity_event
                             $element = $temp['element'];
                             if ($mdv == 2) {
                                 if ($mde) {
-                                    $eventData[$element] = str_replace('javascript:', '', MarkdownExtra::defaultTransform($eventData[$element]));
+                                    $parser = new MarkdownExtra;
+                                    $parser->fn_id_prefix = $eventData['id'] . '_';
+                                    $eventData[$element] = str_replace('javascript:', '', $parser->transform($eventData[$element]));
                                 } else {
                                     $eventData[$element] = str_replace('javascript:', '', Markdown::defaultTransform($eventData[$element]));
                                 }

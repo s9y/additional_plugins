@@ -529,9 +529,9 @@
 <description>Markdown Textformatierung durchführen</description>
 <maintainers><maintainer><name>Serendipity Team, Jan Lehnardt and Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.23</version>
+  <version>1.24</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2017-04-19</date>
+  <date>2017-05-22</date>
   <filelist>
 <dir name="serendipity_event_markdown">
 <file>lang_ja.inc.php</file>
@@ -4582,14 +4582,14 @@
 <package version="1.0">
 <name>serendipity_event_dejure</name>
 <license>GPL</license>
-<summary>Dejure.org Rechtvernetzung</summary>
+<summary>dejure.org Rechtsvernetzung</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
 <description>Verlinkt automatisch zitierte Gesetze und Rechtsprechung (Aktenzeichen und Fundstellen) mit den Inhalten von dejure.org.</description>
-<maintainers><maintainer><name>Garvin Hicking, dejure.org</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Garvin Hicking, Bjoern Urban, dejure.org</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.2</version>
+  <version>1.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2017-05-22</date>
   <filelist>
 <dir name="serendipity_event_dejure">
 <file>serendipity_event_dejure.php</file>

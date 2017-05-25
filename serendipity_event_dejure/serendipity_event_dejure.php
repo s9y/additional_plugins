@@ -12,7 +12,7 @@ if (file_exists($probelang)) {
 
 include dirname(__FILE__) . '/lang_en.inc.php';
 
-define('DJO_VERSION', '1.6');
+define('DJO_VERSION', '1.7');
 define('CACHE_VORHALT', 4); # (Tage) Wann ein vernetzter Text aus dem Cache entfernt und neu vernetzt werden soll
 
 class serendipity_event_dejure extends serendipity_event
@@ -22,7 +22,7 @@ class serendipity_event_dejure extends serendipity_event
 
         $propbag->add('name',        DEJURE_TITLE);
         $propbag->add('description', DEJURE_DESCRIPTION);
-        $propbag->add('author',      'Garvin Hicking, Bjoern Urban, dejure.org');
+        $propbag->add('author',      'Garvin Hicking, Bjoern Urban, dejure.org, Thomas Hochstein');
         $propbag->add('version',     DJO_VERSION);
         $propbag->add('stackable',   false);
         $propbag->add('groups',      array('FRONTEND_EXTERNAL_SERVICES'));

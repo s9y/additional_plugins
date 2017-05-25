@@ -14,5 +14,7 @@
 @define('DEJURE_LINKSTYLE_DESC', '');
 @define('DEJURE_LINKSTYLE_SHORT', 'Nur die Nummern der Vorschriften verlinken (Bsp.: § _242_ BGB; §§ _278_, _254_ BGB)');
 @define('DEJURE_LINKSTYLE_WIDE', 'Möglichst weite Verlinkung (Bsp.: _§ 242 BGB_; _§§ 278_, _254 BGB_)');
+@define('DEJURE_BUZER', 'Gesetzesumfang');
+@define('DEJURE_BUZER_DESC', 'Zu <a href="https://buzer.de/"><i>buzer.de</i></a> verlinken für Gesetze, die bei <i>dejure.org</i> nicht vorhanden sind.');
 @define('DEJURE_CACHE', 'Cache leeren');
-@define('DEJURE_CACHE_DESC', 'Den kompletten Cache beim nächsten Aufruf des Blogs leeren. Notwendig, wenn Sie das Linkziel, die CSS-Klasse oder den Linkstil ändern.');
+@define('DEJURE_CACHE_DESC', 'Den kompletten Cache beim nächsten Aufruf des Blogs leeren. Notwendig, wenn Sie das Linkziel, die CSS-Klasse, den Linkstil oder den Gesetzesumfang ändern.');

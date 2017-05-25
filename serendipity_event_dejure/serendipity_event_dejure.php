@@ -50,6 +50,7 @@ class serendipity_event_dejure extends serendipity_event
                 'target',
                 'css',
                 'linkstyle',
+                'buzer',
                 'cache'
             )
         );
@@ -97,6 +98,13 @@ class serendipity_event_dejure extends serendipity_event
                                                 ));
                 $propbag->add('default',        'schmal');
                 $propbag->add('radio_per_row',  1);
+                break;
+
+            case 'buzer':
+                $propbag->add('type',           'boolean');
+                $propbag->add('name',           DEJURE_BUZER);
+                $propbag->add('description',    DEJURE_BUZER_DESC);
+                $propbag->add('default',        true);
                 break;
 
             case 'cache':
@@ -276,6 +284,7 @@ class serendipity_event_dejure extends serendipity_event
                 array(
                     'Anbieterkennung' => urlencode($this->get_config('mail') . '|' . $serendipity['blogTitle']),
                     'format'          => $this->get_config('linkstyle'),
+                    'buzer'           => $this->get_config('buzer'),
                     'target'          => $this->get_config('target'),
                     'class'           => $this->get_config('css'),
                     'newsletter'      => serendipity_db_bool($this->get_config('newsletter')) ? 'ja' : 'nein',

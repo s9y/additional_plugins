@@ -14,5 +14,7 @@
 @define('DEJURE_LINKSTYLE_DESC', '');
 @define('DEJURE_LINKSTYLE_SHORT', 'Only link numbers of judicature (i.e.: § _242_ BGB; §§ _278_, _254_ BGB)');
 @define('DEJURE_LINKSTYLE_WIDE', 'Use detailed linking (i.e.: _§ 242 BGB_; _§§ 278_, _254 BGB_)');
+@define('DEJURE_BUZER', 'Coverage of statutes');
+@define('DEJURE_BUZER_DESC', 'Link to <a href="https://buzer.de/"><i>buzer.de</i></a> for statutes that are not available at <i>dejure.org</i>.');
 @define('DEJURE_CACHE', 'Purge cache');
-@define('DEJURE_CACHE_DESC', 'Completely purge the cache - necessary after changes to link targets ("Open links..."), CSS class or style.');
+@define('DEJURE_CACHE_DESC', 'Completely purge the cache - necessary after changes to link targets ("Open links..."), CSS class, style or coverage.');

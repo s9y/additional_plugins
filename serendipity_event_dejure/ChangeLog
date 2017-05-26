@@ -1,0 +1,17 @@
+1.7:
+    * Add option for linking to buzer.de
+    * Normalize whitespace.
+    * Add Changelog.
+
+1.6:
+    * Updated to v1.6 from upstream.
+    * Improve connection code, switch to SSL and
+      add an user agent.
+
+1.5:
+    * Updated to v1.5 from upstream.
+    * Add uninstall function (dropping database) and
+      option to clear the cache.
+
+1.2:
+    * Imported to git.

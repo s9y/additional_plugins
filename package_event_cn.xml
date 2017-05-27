@@ -4587,9 +4587,9 @@
 <description>Automatically links quoted statues and judicature (references and source of information) with contents of dejure.org.</description>
 <maintainers><maintainer><name>Garvin Hicking, Bjoern Urban, dejure.org</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
+  <version>1.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2017-05-22</date>
+  <date>2017-05-27</date>
   <filelist>
 <dir name="serendipity_event_dejure">
 <file>serendipity_event_dejure.php</file>

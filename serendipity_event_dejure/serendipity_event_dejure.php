@@ -12,6 +12,7 @@ if (file_exists($probelang)) {
 
 include dirname(__FILE__) . '/lang_en.inc.php';
 
+define('DJO_VERSION', '1.6');
 define('CACHE_VORHALT', 4); # (Tage) Wann ein vernetzter Text aus dem Cache entfernt und neu vernetzt werden soll
 
 class serendipity_event_dejure extends serendipity_event
@@ -22,7 +23,7 @@ class serendipity_event_dejure extends serendipity_event
         $propbag->add('name',        DEJURE_TITLE);
         $propbag->add('description', DEJURE_DESCRIPTION);
         $propbag->add('author',      'Garvin Hicking, Bjoern Urban, dejure.org');
-        $propbag->add('version',     '1.5');
+        $propbag->add('version',     DJO_VERSION);
         $propbag->add('stackable',   false);
         $propbag->add('groups',      array('FRONTEND_EXTERNAL_SERVICES'));
 
@@ -179,17 +180,21 @@ class serendipity_event_dejure extends serendipity_event
             $zeitlimit_in_sekunden = $wert_ARR[1];
         }
 
-    	$header = "POST http://rechtsnetz.dejure.org/dienste/vernetzung/vernetzen HTTP/1.0\r\n";
+    	$header  = "POST /dienste/vernetzung/vernetzen HTTP/1.0\r\n";
+        $header .= 'User-Agent: '.$_SERVER['SERVER_NAME'] . ' (Serendipity-Vernetzung ' . DJO_VERSION . ')' . "\r\n";
     	$header .= "Content-type: application/x-www-form-urlencoded\r\n";
-    	$header .= "Content-length: " . strlen($uebergabe) . "\r\n\r\n";
+    	$header .= "Content-length: " . strlen($uebergabe) . "\r\n";
+        $header .= 'Host: rechtsnetz.dejure.org'."\r\n";
+        $header .= 'Connection: close'."\r\n";
+        $header .= "\r\n";
 
-    	$fp = fsockopen("rechtsnetz.dejure.org", 80, $errno, $errstr, 12);
+        $fp = @fsockopen('ssl://rechtsnetz.dejure.org', 443, $errno, $errstr, $zeitlimit_in_sekunden);
 
     	if ($fp === false) { // Verbindung gescheitert
     		return false;
     	} else {
-    		socket_set_timeout($fp, $zeitlimit_in_sekunden, 0); // Socket nach $zeitlimit_in_sekunden Sekunden auf jeden Fall wieder frei geben
-    		socket_set_blocking($fp, true);
+    		stream_set_timeout($fp, $zeitlimit_in_sekunden, 0); // Verbindung nach $zeitlimit_in_sekunden Sekunden abbrechen
+    		stream_set_blocking($fp, true);
     		fputs($fp, $header.$uebergabe);
     		$timeOutSock = false;
     		$eofSock = false;
@@ -273,11 +278,14 @@ class serendipity_event_dejure extends serendipity_event
     		        'format'          => $this->get_config('linkstyle'),
     		        'target'          => $this->get_config('target'),
     		        'class'           => $this->get_config('css'),
-    		        'newsletter'      => serendipity_db_bool($this->get_config('newsletter')) ? 'ja' : 'nein'
+    		        'newsletter'      => serendipity_db_bool($this->get_config('newsletter')) ? 'ja' : 'nein',
+    		        'Schema'          => 'https'
     		    )
     		);
 
-            $ergebnis = $this->integritaetskontrolle($text, $ergebnis);
+            if ($ergebnis !== false) {
+                $ergebnis = $this->integritaetskontrolle($text, $ergebnis);
+            }
 
             if ($ergebnis) {
     		    $this->djo_vernetzung_in_cache_schreiben[] = array($text, $ergebnis);
@@ -292,7 +300,7 @@ class serendipity_event_dejure extends serendipity_event
     }
 
 	function integritaetskontrolle($ausgangstext, $neuertext) {
-		if (preg_replace("/<a href=\"http:\/\/dejure.org\/[^>]*>([^<]*)<\/a>/i", "\\1", $ausgangstext) == preg_replace("/<a href=\"http:\/\/dejure.org\/[^>]*>([^<]*)<\/a>/i", "\\1", $neuertext)) {
+		if (preg_replace("/<a href=\"https?:\/\/dejure.org\/[^>]*>([^<]*)<\/a>/i", "\\1", $ausgangstext) == preg_replace("/<a href=\"https?:\/\/dejure.org\/[^>]*>([^<]*)<\/a>/i", "\\1", $neuertext)) {
 			return $neuertext;
 		} else {
 			return $ausgangstext;

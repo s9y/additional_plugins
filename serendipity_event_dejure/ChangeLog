@@ -1,6 +1,7 @@
 1.7:
-    * Rephrase plugin configuration screen.
     * Add option for linking to buzer.de
+    * Add option to exclude headings from linking.
+    * Rephrase plugin configuration screen.
     * Normalize whitespace.
     * Add Changelog.
 

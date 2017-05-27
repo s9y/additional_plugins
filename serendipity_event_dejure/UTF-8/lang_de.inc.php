@@ -14,6 +14,8 @@
 @define('DEJURE_LINKSTYLE_DESC', 'Die erzeugten Links können entweder nur die Paragraphennummern verlinken (§ _242_ BGB; §§ _278_, _254_ BGB) oder möglichst auch Absatzangaben und die Gesetzesbezeichnung mit erfassen (_§ 242 BGB_; _§§ 278_, _254 BGB_).');
 @define('DEJURE_LINKSTYLE_SHORT', 'Nur Vorschriftennummern verlinken');
 @define('DEJURE_LINKSTYLE_WIDE', 'Möglichst weite Verlinkung');
+@define('DEJURE_NOHEADINGS', 'Überschriften von Verlinkung ausnehmen');
+@define('DEJURE_NOHEADINGS_DESC', 'Keine Verlinkung von Gesetzen und Rechtsprechung in Überschriften (<h1> bis <h9>).');
 @define('DEJURE_BUZER', 'Gesetze bei buzer.de verlinken');
 @define('DEJURE_BUZER_DESC', 'Zu buzer.de verlinken für Gesetze, die bei dejure.org nicht vorhanden sind.');
 @define('DEJURE_CACHE', 'Cache leeren');

@@ -14,6 +14,8 @@
 @define('DEJURE_LINKSTYLE_DESC', 'Generated links will span just the article or section number (§ _242_ BGB; §§ _278_, _254_ BGB) or include paragraphs or the abbreviation of the statute (_§ 242 BGB_; _§§ 278_, _254 BGB_).');
 @define('DEJURE_LINKSTYLE_SHORT', 'Only link from article/section numbers');
 @define('DEJURE_LINKSTYLE_WIDE', 'Use wide linking');
+@define('DEJURE_NOHEADINGS', 'Exclude headings');
+@define('DEJURE_NOHEADINGS_DESC', 'Do not create links in headings (<h1> bis <h9>).');
 @define('DEJURE_BUZER', 'Also link to buzer.de');
 @define('DEJURE_BUZER_DESC', 'Link to buzer.de for statutes that are not available at dejure.org.');
 @define('DEJURE_CACHE', 'Purge cache');

@@ -283,7 +283,9 @@ class serendipity_event_dejure extends serendipity_event
     		    )
     		);
 
-            $ergebnis = $this->integritaetskontrolle($text, $ergebnis);
+            if ($ergebnis !== false) {
+                $ergebnis = $this->integritaetskontrolle($text, $ergebnis);
+            }
 
             if ($ergebnis) {
     		    $this->djo_vernetzung_in_cache_schreiben[] = array($text, $ergebnis);

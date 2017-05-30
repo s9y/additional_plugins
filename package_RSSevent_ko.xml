@@ -489,9 +489,9 @@
 <title>dejure.org automatic linking: Automatically links quoted statues and judicature (references and source of information) with contents of dejure.org.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_dejure</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking, Bjoern Urban, dejure.org</author>
+<author>Garvin Hicking, Bjoern Urban, dejure.org, Thomas Hochstein</author>
 <content:encoded>&lt;b&gt;serendipity_event_dejure&lt;br /&gt;dejure.org automatic linking&lt;/b&gt;&lt;br /&gt;Automatically links quoted statues and judicature (references and source of information) with contents of dejure.org.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 27 May 2017 22:34:08 +0200</pubDate>
+<pubDate>Tue, 30 May 2017 22:36:36 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_dejure</guid>
 </item>
 <item>

@@ -4582,19 +4582,21 @@ aplikovány další typografické úpravy.</description>
 </package>
 <package version="1.0">
 <name>serendipity_event_dejure</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_dejure/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Automatické odkazy Dejure.org</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
 <description>Automaticky vytváří odkazy na citace a judikaturu (odkazy a zdroje informací) pomocí služby dejure.org.</description>
-<maintainers><maintainer><name>Garvin Hicking, Bjoern Urban, dejure.org</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Garvin Hicking, Bjoern Urban, dejure.org, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6</version>
+  <version>1.7</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2017-05-27</date>
+  <date>2017-05-30</date>
   <filelist>
 <dir name="serendipity_event_dejure">
 <file>serendipity_event_dejure.php</file>
 <file>lang_de.inc.php</file>
+<file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
@@ -4609,6 +4611,7 @@ aplikovány další typografické úpravy.</description>
   <serendipityFilelist>
     <file>serendipity_event_dejure/serendipity_event_dejure.php</file>
     <file>serendipity_event_dejure/lang_de.inc.php</file>
+    <file>serendipity_event_dejure/ChangeLog</file>
     <file>serendipity_event_dejure/lang_cz.inc.php</file>
     <file>serendipity_event_dejure/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_dejure/UTF-8/lang_cz.inc.php</file>

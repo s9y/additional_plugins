@@ -423,7 +423,7 @@ class serendipity_event_galleryimage extends serendipity_event
 
     function gimage_markup ($text, $case_sensitive=false) {
         $preg_flags = ($case_sensitive) ? 'e' : 'ei';
-        $output = preg_replace("'\[GImage\s*([^\]]*)]([^[]*)\[/GImage]'$preg_flags", "\$this->gimage_thumb('\\2', trim('\\1'))", $text);
+        $output = preg_replace_callback("'\[GImage\s*([^\]]*)]([^[]*)\[/GImage]'$preg_flags", function($matches){ return $this->gimage_thumb($matches[2],trim($matches[1])); }, $text);         
 
         return $output;
     }

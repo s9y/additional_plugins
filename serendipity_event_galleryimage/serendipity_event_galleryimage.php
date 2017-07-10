@@ -66,7 +66,7 @@ class serendipity_event_galleryimage extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_GALLERYIMAGE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rob Antonishen, Alexander Mieland');
-        $propbag->add('version',       '1.11');
+        $propbag->add('version',       '1.12');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -422,8 +422,8 @@ class serendipity_event_galleryimage extends serendipity_event
     }
 
     function gimage_markup ($text, $case_sensitive=false) {
-        $preg_flags = ($case_sensitive) ? 'e' : 'ei';
-        $output = preg_replace("'\[GImage\s*([^\]]*)]([^[]*)\[/GImage]'$preg_flags", "\$this->gimage_thumb('\\2', trim('\\1'))", $text);
+        $preg_flags = ($case_sensitive) ? '' : 'i';
+        $output = preg_replace_callback("'\[GImage\s*([^\]]*)]([^[]*)\[/GImage]'$preg_flags", function($matches){ return $this->gimage_thumb($matches[2],trim($matches[1])); }, $text);         
 
         return $output;
     }

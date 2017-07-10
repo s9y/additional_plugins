@@ -66,7 +66,7 @@ class serendipity_event_galleryimage extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_GALLERYIMAGE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rob Antonishen, Alexander Mieland');
-        $propbag->add('version',       '1.11');
+        $propbag->add('version',       '1.12');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

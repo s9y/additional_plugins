@@ -1,3 +1,6 @@
+1.8:
+    * Add local documentation (German language only).
+
 1.7:
     * Add option for linking to buzer.de
     * Add option to exclude headings from linking.

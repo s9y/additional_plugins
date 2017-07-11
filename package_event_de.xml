@@ -4588,9 +4588,9 @@
 <description>Verlinkt automatisch zitierte Gesetze und Rechtsprechung (Aktenzeichen und Fundstellen) mit den Inhalten von dejure.org.</description>
 <maintainers><maintainer><name>Garvin Hicking, Bjoern Urban, dejure.org, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.7</version>
+  <version>1.8</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2017-05-30</date>
+  <date>2017-07-10</date>
   <filelist>
 <dir name="serendipity_event_dejure">
 <file>serendipity_event_dejure.php</file>
@@ -4603,6 +4603,7 @@
 <file>lang_cs.inc.php</file>
 </dir>
 <file>lang_en.inc.php</file>
+<file>documentation_de.html</file>
 <file>lang_cs.inc.php</file>
 </dir>
 
@@ -4616,6 +4617,7 @@
     <file>serendipity_event_dejure/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_dejure/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_dejure/lang_en.inc.php</file>
+    <file>serendipity_event_dejure/documentation_de.html</file>
     <file>serendipity_event_dejure/lang_cs.inc.php</file>
   </serendipityFilelist>
 </release>
@@ -5306,9 +5308,9 @@
 <description>Inserts a Gallery album or image using markup text.</description>
 <maintainers><maintainer><name>Rob Antonishen, Alexander Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.11</version>
+  <version>1.12</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2017-07-10</date>
   <filelist>
 <dir name="serendipity_event_galleryimage">
 <file>lang_ja.inc.php</file>

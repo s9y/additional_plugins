@@ -529,9 +529,9 @@
 <description>Apply Markdown markup to entry text</description>
 <maintainers><maintainer><name>Serendipity Team, Jan Lehnardt and Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.24</version>
+  <version>1.25</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2017-05-22</date>
+  <date>2017-07-21</date>
   <filelist>
 <dir name="serendipity_event_markdown">
 <file>lang_ja.inc.php</file>
@@ -4588,9 +4588,9 @@
 <description>Automatically links quoted statues and judicature (references and source of information) with contents of dejure.org.</description>
 <maintainers><maintainer><name>Garvin Hicking, Bjoern Urban, dejure.org, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.8</version>
+  <version>1.8.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2017-07-10</date>
+  <date>2017-07-21</date>
   <filelist>
 <dir name="serendipity_event_dejure">
 <file>serendipity_event_dejure.php</file>

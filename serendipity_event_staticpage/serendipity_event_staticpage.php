@@ -67,7 +67,6 @@ class serendipity_event_staticpage extends serendipity_event
 
         $propbag->add('name', STATICPAGE_TITLE);
         $propbag->add('description', STATICPAGE_TITLE_BLAHBLAH);
-        $propbag->add('website', 'http://board.s9y.org');
 
         $propbag->add('event_hooks', array(
             'backend_category_addNew'                           => true,

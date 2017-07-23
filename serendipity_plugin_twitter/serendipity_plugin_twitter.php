@@ -26,7 +26,6 @@ class serendipity_plugin_twitter extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_TWITTER_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Grischa Brockhaus, Damian Luszczymak, Garvin Hicking');
-        //$propbag->add('website',       'http://board.s9y.org');
         $propbag->add('version',       PLUGIN_TWITTER_VERSION);
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',

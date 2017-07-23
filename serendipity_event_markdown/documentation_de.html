@@ -1,0 +1,195 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Hilfedatei: Markdown</title>
+<style type="text/css">
+body {
+  font-family: Arial, sans-serif!important;
+  margin: 20px;
+}
+ol li {
+  margin-bottom: 0.5em;
+}
+h2 {
+  background: #efefef;	
+  padding: 0.5em;
+}
+p {
+  max-width: 60em;
+}
+.titel {
+  background: #cfcfcf;    
+  margin: 0;
+  padding: 0.5em;
+}
+#inhalt {
+  background: #efefef;	
+  margin: 0;
+  padding: 0.5em;
+}
+#inhalt h2 {
+  padding: 0;
+}
+</style>
+</head>
+<body>
+<h1 class="titel">Textformatierung: <i>Markdown</i></h1>
+</div>
+<div id="inhalt">
+<h2>Inhalt</h2>
+<ol>
+    <li><a href="#description">Beschreibung</a></li>
+    <li><a href="#config">Konfiguration</a></li>
+    <li><a href="#notes">Hinweise</a></li>
+</ol>
+</div>
+
+<p>Diese Erweiterung stellt die Auszeichnungssprache
+<a href="https://daringfireball.net/projects/markdown/"><i>Markdown</i></a>
+von <i>John Gruber</i> in der PHP-Variante
+("<a href="https://michelf.ca/projects/php-markdown/">PHP Markdown</a>")
+mit der Erweiterung <i>Markdown Extra</i> von <i>Michel Fortin</i>
+zur Verfügung.</p>
+
+<p>Außerdem stehen optional die "Textverschönerer" (<em>prettyfier</em>)
+<i>PHP SmartyPants</i> und <i>PHP SmartyPants Typographer</i>
+zur Verfügung.</p>
+
+<h2 id="description">Beschreibung</h2>
+
+<p><i>Markdown</i> ist eine Auszeichnungssprache ("Markup") für Web-Autoren,
+mit der sich ein einfach lesbarer, leicht zu schreibender Klartext in valides
+HTML umsetzen lässt. Der "Rohtext" soll im Gegensatz zu anderen
+Auszeichnungssprachen möglichst einfach lesbar sein und "natürlich"
+wirken.</p>
+
+<p><i>Markdown Extra</i> ist eine <i>Markdown</i>-Erweiterung, die zusätzliche
+Funktionen wie Tabellen, Fußnoten und die Definition von Attributen
+(<i>ID</i> oder <i>class</i>) zur Verfügung stellt.</p>
+
+<p><i>SmartyPants</i> "verschönert" Texte, indem bestimmte einfache Zeichen
+durch typographische HTML-Elemente ersetzt werden.</p>
+
+<p>Mehr dazu:</p>
+
+<ul>
+  <li><a href="https://de.wikipedia.org/wiki/Markdown">Wikipedia-Eintrag</a> zu <i>Markdown</i> (dt.)</li>
+  <li><a href="https://daringfireball.net/projects/markdown/"><i>Markdown</i>-Projektseite</a> (engl., mit Dokumentation und Syntax-Beschreibung)</li>
+  <li><a href="https://daringfireball.net/projects/smartypants/"><i>SmartyPants</i>-Projektseite</a> (engl.)</li>
+</ul>
+
+<h2 id="config">Konfiguration</h2>
+
+<h3><i>Markdown</i>-Textformatierung aktivieren</h3>
+
+<p>Die Textformatierung kann für folgende Bereiche gesondert aktiviert oder
+deaktiviert werden:</p>
+
+<ul>
+  <li>Eintrag</li>
+  <li>Erweiterter Eintrag</li>
+  <li>Kommentare</li>
+  <li>HTML-Klotz <em>(wenn <code>serendipity_plugin_html_nugget</code> verwendet wird)</em></li>
+</ul>
+
+<h3><i>Markdown</i> oder <i>Markdown Extra</i></h3>
+
+<p>Es kann entweder das originale <i>Markdown</i> oder die Erweiterung
+<i>Markdown Extra</i> verwendet werden.</p>
+
+<p><i>Markdown Extra</i> hat folgende zusätzliche Features:</p>
+
+<ul>
+  <li>HTML in <i>Markdown</i> und <i>Markdown</i> in HTML</li>
+  <li>Attribute wie "id" oder "class" in <i>Markdown</i></li>
+  <li>Code-Blocks ohne Einrückung</li>
+  <li>Tabellen</li>
+  <li>Fußnoten</li>
+  <li>Abkürzungen <em>(abbreviations, &lt;abbr&gt;&lt;/abbr&gt;)</em></li>
+  <li>Definitions-Listen <em>(definition lists, &lt;dl&gt;&lt;/dl&gt;)</em></li>
+  <li>nummerierte Listen (&lt;ol&gt;&lt;/ol&gt;) können mit anderen Zahlen als "1" starten</li>
+</ul>
+
+<p>Syntax-Dokumentation:</p>
+
+<ul>
+  <li><a href="https://daringfireball.net/projects/markdown/syntax/"><i>Markdown</i>-Syntax</a> (engl.)</li>
+  <li><a href="https://michelf.ca/projects/php-markdown/extra/"><i>Markdown Extra</i></a> (engl.)</li>
+</ul>
+
+<p>Die <i>PHP-Markdown</i>-<a href="https://michelf.ca/projects/php-markdown/configuration/">Konfiguration</a>
+ist auf die Standardwerte gesetzt und nicht veränderbar. Wenn Sie die
+<code>lib</code>-Version verwenden, bekomme Fußnoten jedoch als Prefix die
+Nummer des Eintrags in <i>Serendipity</i> (<code>fn_id_prefix</code>).</p>
+
+<h3><i>Markdown</i>-Version</h3>
+
+<p>Zur Auswahl stehen eine klassische Implementation (<code>classic</code>) oder
+die Verwendung der <i>PHP-Markdown</i>-Bibliothek (<code>lib</code>).</p>
+
+<p><strong>Da die klassische Implementation seit 2013 nicht mehr weiter gepflegt
+wird, sollte hier jedenfalls die <code>lib</code>-Version ausgewählt
+werden.</strong> Nur diese Version unterstützt auch Prefixe für Fußnoten in
+<i>Markdown Extra</i> und die Textverschönerung durch <i>SmartyPants</i> oder
+<i>SmartyPants Typographer</i>.</p>
+
+<h3>Textformatierung mit <i>SmartyPants</i> und <i>SmartyPants Typographer</i> aktivieren</h3>
+
+<p><i>SmartyPants</i> und <i>SmartyPants Typographer</i> sind sog. "prettyfier",
+die Texte in typographischer Hinsicht "verschönern", indem sie bestimmte
+Elemente wie Anführungszeichen in die entsprechenden HTML-Entities verwandeln
+oder aus drei Punkten (...) eine "Ellipse" (&hellip;) machen.</p>
+
+<p><strong>Die Aktivierung setzt die Verwendung der <code>lib</code>-Version
+von <i>PHP-Markdown</i> voraus!</strong></p>
+
+<p>Dokumentation: <a href="https://michelf.ca/projects/php-smartypants/"><i>PHP SmartyPants</i></a> (engl.)</p>
+
+<h2 id="notes">Hinweise</h2>
+
+<h3><i>CSS</i> für Fußnoten</h3>
+
+<p>Für die Formatierung von Fußnotenzeichen und Fußnoten erzeugt das Plugin folgendes <i>CSS</i>:</p>
+
+<pre>
+/* Footnotes (generated by serendipity_event_markdown) */
+
+footnote-ref:after {
+  content: ")";
+}
+
+.footnotes hr {
+  border-top: dashed #ccc;
+  border-width: 1px;
+}
+
+/* mostly taken from http://www.456bereastreet.com/archive/201105/styling_ordered_list_numbers/ */
+.footnotes ol {
+  counter-reset: li;
+  margin-top: .2em;
+  margin-left: 1.5em;
+  padding-left: 0;
+}
+.footnotes ol > li {
+  list-style: none;
+  position: relative;
+  padding-left: .5em;
+  font-size: 90%;
+}
+.footnotes ol > li:before {
+  content: counter(li)")";
+  counter-increment: li;
+  position: absolute;
+  left: -2em;
+  top: -.1em;
+  width: 2em;
+  text-align: right;
+  font-size: 80%;
+  font-weight: bold;
+}
+
+/* --- end of Footnotes */
+</pre>
+
+</body>
+</html>

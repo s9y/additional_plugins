@@ -31,7 +31,7 @@ class serendipity_event_markdown extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '5.3.0'
         ));
-        $propbag->add('version',       '1.25');
+        $propbag->add('version',       '1.26');
         $propbag->add('cachable_events', array('frontend_display' => true));
         $propbag->add('event_hooks',   array(
             'frontend_display' => true,
@@ -112,7 +112,7 @@ class serendipity_event_markdown extends serendipity_event
                 $propbag->add('description', PLUGIN_EVENT_MARKDOWN_SMARTYPANTS_DESC);
                 $propbag->add('radio',       array(
                                                 'value' => array(1, 2, 0),
-                                                'desc'  => array(YES, PLUGIN_EVENT_MARKDOWN_SMARTYPANTS_EXTENDED, PLUGIN_EVENT_MARKDOWN_SMARTYPANTS_NEVER)
+                                                'desc'  => array(PLUGIN_EVENT_MARKDOWN_SMARTYPANTS, PLUGIN_EVENT_MARKDOWN_SMARTYPANTS_EXTENDED, PLUGIN_EVENT_MARKDOWN_SMARTYPANTS_NEVER)
                                              ));
                 $propbag->add('default',     0);
                 return true;

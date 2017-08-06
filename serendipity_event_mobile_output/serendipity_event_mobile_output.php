@@ -107,7 +107,6 @@ class serendipity_event_mobile_output extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_MOBILE_OUTPUT_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        PLUGIN_EVENT_MOBILE_AUTHORS);
-        $propbag->add('website',       'http://c.mobile-seo.de/');
         $propbag->add('version',       PLUGIN_EVENT_MOBILE_VERSION);
         $propbag->add('requirements',  array(
             'serendipity' => '1.0',

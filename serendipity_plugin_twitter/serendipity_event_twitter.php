@@ -55,7 +55,6 @@ class serendipity_event_twitter extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_EVENT_TWITTER_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Grischa Brockhaus, Peter Heimann');
-        //$propbag->add('website',       'http://board.s9y.org');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',

@@ -157,7 +157,7 @@ class serendipity_event_dejure extends serendipity_event
         $this->setupDB();
     }
 
-    function uninstall() {
+    function uninstall(&$bag) {
         $this->dropDB();
     }
 

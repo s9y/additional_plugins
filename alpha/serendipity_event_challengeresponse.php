@@ -16,7 +16,7 @@ class serendipity_event_challengeresponse extends serendipity_event {
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '0.11');
+        $propbag->add('version',       '0.12');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'frontend_comment'     => true
@@ -86,8 +86,8 @@ class serendipity_event_challengeresponse extends serendipity_event {
                     break;
 
                 case 'frontend_comment':
-                    echo '<div class="serendipity_challengeresponse">' . $this->get_config('challenge') . '<br />
-                        <input type="text" name="response" value="" />
+                    echo '<div class="serendipity_challengeresponse"><label for="serendipity_challengeresponse_response">' . $this->get_config('challenge') . '</label>
+                        <input type="text" id="serendipity_challengeresponse_response" name="response" value="" />
                         </div>';
 
                     return true;

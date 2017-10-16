@@ -13,7 +13,7 @@
 @define('PLUGIN_EVENT_LIGHTBOX_PATH_DESC', 'Enter the full HTTP path (everything after your domain name) that leads to this plugin\'s directory.');
 
 @define('PLUGIN_EVENT_LIGHTBOX_OPTIMIZATION', 'JavaScript Load optimization');
-@define('PLUGIN_EVENT_LIGHTBOX_OPTIMIZATION_DESC', 'Switching this option on will load Lightbox\' JavaScript and CSS only, if an image is shown on the current page. This may shorten the page loading time noticeable.');
+@define('PLUGIN_EVENT_LIGHTBOX_OPTIMIZATION_DESC', 'By default, Lightbox\'s JavaScript and CSS will be loaded all-the-time. Setting this to "Yes" will load it only when needed (because there rellay are images on the current page).  This may be a great way to shorten the page loading time and increase your site\'s speed.');
 @define('PLUGIN_EVENT_LIGHTBOX_GALLERY', 'Create Gallery');
 @define('PLUGIN_EVENT_LIGHTBOX_GALLERY_NONE', 'Single image only');
 @define('PLUGIN_EVENT_LIGHTBOX_GALLERY_ENTRY', 'Gallery with photos of the entry');
@@ -21,3 +21,5 @@
 
 @define('PLUGIN_EVENT_LIGHTBOX_INIT_JS', 'Initial JavaScript configuration object');
 @define('PLUGIN_EVENT_LIGHTBOX_INIT_JS_DESC', 'Some lightbox types allow to pass custom configuration objects, so you can enter "{social_tools: false}" for example. Currently works with prettyPhoto only.');
+
+

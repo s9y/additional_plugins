@@ -13,7 +13,7 @@
 @define('PLUGIN_EVENT_LIGHTBOX_PATH_DESC', 'Geben Sie hier den kompletten HTTP Pfad ein (alles nach ihrem Domain Namen), der das Verzeichnis des Plugins angibt.');
 
 @define('PLUGIN_EVENT_LIGHTBOX_OPTIMIZATION', 'JavaScript Ladeoptimierung');
-@define('PLUGIN_EVENT_LIGHTBOX_OPTIMIZATION_DESC', 'Wenn sie diese Option anschalten, so werden die Skripte und CSS Dateien von Lightbox nur in den Seitenfooter geladen, wenn auch ein Bild auf der aktuellen Seite dargestellt wird. Dies kann die Ladezeit von Seiten ohne Lightbox fähige Bilder spürbar verkürzen.');
+@define('PLUGIN_EVENT_LIGHTBOX_OPTIMIZATION_DESC', 'Grundsätzlich werden Skripte und CSS Dateien von Lightbox immer geladen. Setzen Sie diese Option auf "Ja", wenn Lightbox nur geladen werden soll, wenn sich auch wirklich Bilder auf der aktuellen Seite befinden. Dies kann die Ladezeit von Seiten ohne Bilder spürbar verkürzen.');
 @define('PLUGIN_EVENT_LIGHTBOX_GALLERY', 'Galerie-Erzeugung');
 @define('PLUGIN_EVENT_LIGHTBOX_GALLERY_NONE', 'Nur einzelnes Bild');
 @define('PLUGIN_EVENT_LIGHTBOX_GALLERY_ENTRY', 'nur Fotos eines Artikels');

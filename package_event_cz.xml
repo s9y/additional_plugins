@@ -9681,9 +9681,9 @@ aplikovány další typografické úpravy.</description>
 <description>oEmbed je formát, který umožňuje vkládat do blogu jiné stránky z internetu. Umožňuje zobrazovat v příspěvcích vložený obsah (jako tweety, fotky nebo videa), když autor příspěvku napíše odkaz na zdroj obsahu, aniž by bylo potřeba přímo parsovat cílovou stránku.</description>
 <maintainers><maintainer><name>Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.12</version>
+  <version>1.13</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2017-04-10</date>
+  <date>2017-11-18</date>
   <filelist>
 <dir name="serendipity_event_oembed">
 <dir name="oembed">

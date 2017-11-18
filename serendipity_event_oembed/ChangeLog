@@ -1,3 +1,8 @@
+Version 1.13
+-----------------------
+* Fixed wrong API endpoint for Twitter
+* Fixed forgotten change to simplexml_load_string in ProviderList.php
+
 Version 1.12
 -----------------------
 * Changed simplexml_load_file to simplexml_load_string to prevent I/O errors

@@ -326,7 +326,7 @@ class emerge_spartacus {
             $author     = isset($plugin_data['properties']['author'])     ? $plugin_data['properties']['author']     : 'Serendipity Team';
 
             $x = '';
-            $x .= '<div class="plugin">';
+            $x .= '<div class="plugin" id="' . $this->encode($plugin_name) . '">';
             $x .= '<h4 class="plugin_summary">' . $this->encode($plugin_data['properties']['name']) . '</h4>';
             $x .= '<dl class="plugin_meta">';
             $x .= '<dt class="plugin_name">' . $this->encode($plugin_name) . '</dt>';

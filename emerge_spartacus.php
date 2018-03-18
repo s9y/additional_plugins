@@ -53,7 +53,7 @@ class emerge_spartacus {
             if (preg_match('@/alpha/@i', $path)) {
                 unset($plugins[$plugin_name]);
                 continue;
-            }    
+            }
             include_once $path . $plugin_data['name'] . '.php';
             $plugins[$plugin_name]['plugin'] = new $plugin_data['name']($plugin_name);
             $plugin =&$plugins[$plugin_name]['plugin'];
@@ -356,6 +356,7 @@ class emerge_spartacus {
             if (!empty($plugin_data['properties']['changelog'])) {
                 $x .= '<li class="plugin_changelog"><a href="' . $this->encode($plugin_data['properties']['changelog']) . '">ChangeLog</a></li>';
             }
+            $x .= '<li class="plugin_linkto"><a href="#' . $this->encode($plugin_name) . '">Link</a></li>';
             $x .= '</ul">';
             $x .= '</div>';
 

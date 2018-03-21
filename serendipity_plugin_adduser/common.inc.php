@@ -14,7 +14,7 @@ if (file_exists($probelang)) {
 include dirname(__FILE__) . '/lang_en.inc.php';
 
 class serendipity_common_adduser {
-    static function sendMail(&$username, &$hash, &$email, $approve_only = false, $admin_cc = true) {
+    static function sendMail($username, $hash, $email, $approve_only = false, $admin_cc = true) {
         global $serendipity;
 
         if ($approve_only) {

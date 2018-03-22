@@ -637,7 +637,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_adduser&lt;br /&gt;ユーザー自身での登録&lt;/b&gt;&lt;br /&gt;ブログ訪問者が自分のアカウントを作成することを許可します。Together with the Event-plugin (index.php?serendipity[subpage]=adduser) you can choose whether only registered users may post comments.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 14 Mar 2015 02:50:53 +0100</pubDate>
+<pubDate>Wed, 21 Mar 2018 22:31:36 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_adduser</guid>
 </item>
 <item>

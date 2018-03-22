@@ -635,7 +635,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_adduser&lt;br /&gt;Auto-enregistrement des utilisateurs&lt;/b&gt;&lt;br /&gt;Permettre aux visiteurs du blog de créer leur propre compte utilisateur. En conjonction avec le plugin d'évènement (index.php?serendipity[subpage]=adduser), vous pouvez décider de n'autoriser que les utilisateurs enregistrés à poster des commentaires.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 14 Mar 2015 02:50:53 +0100</pubDate>
+<pubDate>Wed, 21 Mar 2018 22:31:36 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_adduser</guid>
 </item>
 <item>

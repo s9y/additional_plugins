@@ -213,27 +213,38 @@ class serendipity_event_entrycheck extends serendipity_event
 
                             defaultcat = '<?php echo $this->get_config('defaultCat'); ?>';
                             el = document.getElementById('categoryselector');
-                            empty_category = false;
-                            if (el.options[0].selected) {
-                                empty_category = true;
-                            }
-
-                            for (i = 1; i < el.options.length; i++) {
-                                if (el.options[i].selected) {
-                                    empty_category = false;
+                            if (el != null) {
+                                empty_category = false;
+                                if (el.options[0].selected) {
+                                    empty_category = true;
                                 }
-                            }
 
+                                for (i = 1; i < el.options.length; i++) {
+                                    if (el.options[i].selected) {
+                                        empty_category = false;
+                                    }
+                                }
+                            }                            
+                            if (typeof serendipity.hasNoCategoryEnabled === "function") {
+                                empty_category = serendipity.hasNoCategoryEnabled();
+                            }
+                            
                             error = false;
                             if (empty_category) {
                                 showerror = true;
                                 if (defaultcat != 'none' && defaultcat != '') {
-                                    for (i = 1; i < el.options.length; i++) {
-                                        if (el.options[i].value == defaultcat) {
-                                            el.options[i].selected = true;
-                                            showerror = false;
-                                            el.selectedIndex = i;
+                                    if (el != null) {
+                                        for (i = 1; i < el.options.length; i++) {
+                                            if (el.options[i].value == defaultcat) {
+                                                el.options[i].selected = true;
+                                                showerror = false;
+                                                el.selectedIndex = i;
+                                            }
                                         }
+                                    }
+                                    if (typeof serendipity.enableCategory === "function") {
+                                        serendipity.enableCategory(defaultcat);
+                                        showerror = false;
                                     }
                                 }
 

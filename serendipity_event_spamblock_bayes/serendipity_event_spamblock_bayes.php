@@ -683,7 +683,8 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 				    //catch learnAction here because the GET-Params prevent
 				    //the normal switch/case to find this
 				    if (strpos($eventData, 'learnAction') !== false) {
-                        if (!serendipity_checkPermission('adminComments')) {
+                        $goodtoken = $this->is_goodtoken($_REQUEST['path'], $_REQUEST['id']);
+                        if (!serendipity_checkPermission('adminComments')&&!$goodtoken) {
                             return;
                         }
                         $this->learnAction($_REQUEST['id'], $_REQUEST['category'], $_REQUEST['action'], $_REQUEST['entry_id']);
@@ -1226,11 +1227,11 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 
                 case 'backend_sendcomment':
                     $delete = PLUGIN_EVENT_SPAMBLOCK_BAYES_DELETE . ': ';
-                    $delete .= $serendipity['baseURL'] . 'index.php?/plugin/learnAction&action=delete&category=spam&id=' . $eventData['comment_id'] . '&entry_id='. $eventData['entry_id'];
+                    $delete .= $serendipity['baseURL'] . 'index.php?/plugin/learnAction&action=delete&category=spam&id=' . $eventData['comment_id'] . '&entry_id='. $eventData['entry_id'] . '&path=' . $eventData['path'];
                     $eventData['action_more']['delete'] = $delete;
                     if (!empty($eventData['moderate_comment']) && $eventData['moderate_comment']) {
                         $approve = PLUGIN_EVENT_SPAMBLOCK_BAYES_APPROVE . ': ';
-                        $approve .= $serendipity['baseURL'] . 'index.php?/plugin/learnAction&action=approve&category=ham&id=' . $eventData['comment_id'] . '&entry_id='. $eventData['entry_id'];
+                        $approve .= $serendipity['baseURL'] . 'index.php?/plugin/learnAction&action=approve&category=ham&id=' . $eventData['comment_id'] . '&entry_id='. $eventData['entry_id'] . '&path=' . $eventData['path'];
                         $eventData['action_more']['approve'] = $approve;
                     }
                     return true;
@@ -2012,6 +2013,21 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		}
 		fclose ( $this->debug_fp );
 	}
+
+        function is_goodtoken($rpath, $cid) {
+                $tokenparse = explode("_",$rpath);
+                // check that we got a 32 char tokeni
+                if (is_array($tokenparse)) {
+                    if (strlen($tokenparse[2]) == 32) {
+                        $ret=serendipity_checkCommentToken($tokenparse[2], (int)$cid);
+                        return $ret;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+        }
 
 	function log($logfile, $id, $switch, $reason, $addData) {
         global $serendipity;

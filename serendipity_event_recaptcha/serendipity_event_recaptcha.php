@@ -35,7 +35,7 @@ var $error=null;
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '0.20.1');
+        $propbag->add('version',       '0.20.2');
         $propbag->add('event_hooks',    array(
             'frontend_configure'   => true,
             'frontend_saveComment' => true,
@@ -67,8 +67,8 @@ var $error=null;
                 $propbag->add('description', PLUGIN_EVENT_RECAPTCHA_RECAPTCHA_DESC);
                 $propbag->add('default', 'no');
                 $propbag->add('radio', array(
-                    'value' => array('yes2', 'no', 'yes'),
-                    'desc'  => array(YES . ' (v2)', NO, YES . ' (old v1, deprecated)')
+                    'value' => array('yes2', 'no'),
+                    'desc'  => array(YES . ' (v2)', NO)
                 ));
                 break;
 
@@ -161,6 +161,12 @@ var $error=null;
         return true;
     }
 
+    function performConfig(&$bag) {
+        // set "yes" (recaptcha v1 is active) to "yes2" (recaptcha v2 is active)
+        //because v1 has been phased out
+        if ($this->get_config('recaptcha', 'no') === 'yes') { $this->set_config('recaptcha', 'yes2'); }; 
+    }
+
     function generate_content(&$title) {
         $title = $this->title;
     }
@@ -234,7 +240,8 @@ var $error=null;
                             $privatekey = $this->get_config('recaptcha_priv');
                             
                             if ($_POST["recaptcha_response_field"] != 1) {
-                                if ($_recaptcha === 'yes2') {
+                                // interpret "yes" as "yes2"
+                                if ($_recaptcha === 'yes2' || $_recaptcha === 'yes') {
                                     $resp_valid = '';
                                     $resp_error = '';
 
@@ -275,13 +282,6 @@ var $error=null;
                                             $resp_error = $json_data->{'error-codes'};
                                         }
                                     }
-                                } else {
-                                    $resp = recaptcha_check_answer($privatekey,
-                                                                    $_SERVER["REMOTE_ADDR"],
-                                                                    $_POST["recaptcha_challenge_field"],
-                                                                    $_POST["recaptcha_response_field"]);
-                                    $resp_valid = $resp->is_valid;
-                                    $resp_error = $resp->error;
                                 }
 
                                 if (!$resp_valid) {
@@ -317,18 +317,10 @@ var $error=null;
                          }
                             
                         // The response from recaptcha.net
-                        if ($_recaptcha === 'yes2') {
+                        // interpret "yes" as "yes2"
+                        if ($_recaptcha === 'yes2' || $_recaptcha === 'yes') {
                             echo "<script src='https://www.google.com/recaptcha/api.js'></script>";
                             echo '<div class="g-recaptcha" data-sitekey="' . $pubkey . '"></div>';
-                        } else {
-                            $resp    = null;
-                            $theme   = $this->get_config('recaptcha_style', 'red');
-                            echo "\n<script type=\"text/javascript\">\n var RecaptchaOptions = { theme : '".$theme."', lang : '" . $serendipity['lang'] . "' };\n</script>";
-                            $use_ssl = false;
-                            if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
-                                $use_ssl = true;
-                            }
-                            echo recaptcha_get_html($pubkey, $this->error, $use_ssl);
                         }
                     }
 

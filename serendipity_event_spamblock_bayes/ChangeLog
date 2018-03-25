@@ -1,3 +1,6 @@
+0.5.0: Use tokens to classificate comments via E-Mail if the option is activated in your Blog
+       Caution: This feature is only available if you use Serendipity 2.1.2 or higher.
+
 0.4.25: Iconfont a11y fix (yellowled)
 
 0.4.24: Added mysqli checks

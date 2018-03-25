@@ -42,7 +42,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '0.5.0' );
+		$propbag->add ( 'version', '0.5.1' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_spamblock_comments_shown' => true,
 		                                     'external_plugin' => true,
@@ -1592,7 +1592,10 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
     }
 
     #For email-notification. Learn a spam or ham and delete or approve.
-	function learnAction($id, $category, $action, $entry_id) {
+        function learnAction($id, $category, $action, $entry_id) {
+
+        global $serendipity;
+
         $comment = $this->getComment($id);
         if (is_array ($comment)) {
             $comment = $comment['0'];
@@ -1600,10 +1603,26 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 
         $this->startLearn($comment, $category);
 
+        # This generates a new Token if this function is called via e-mail comment token
+	# this should be a function in the core. It will be replaced if the core-modification is live.
+        if ($serendipity['useCommentTokens']) {
+            $token = md5(uniqid(rand(),1));
+            $path = $path . "_token_" . $token;
+            //Delete any comment tokens older than 1 week.
+            serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options
+                              WHERE okey LIKE 'comment_%' AND name < " . (time() - 604800) );
+            // Issue new comment moderation hash
+            serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey)
+                              VALUES ('" . time() . "', '" . $token . "', 'comment_" . $id ."')");
+        }
+
+
+
+
         if ($action == 'delete') {
-            serendipity_deleteComment($id, $entry_id);
+            serendipity_deleteComment($id, $entry_id, 'comment', $token);
         } else if ($action == 'approve') {
-            serendipity_approveComment($id, $entry_id);
+            serendipity_approveComment($id, $entry_id, 'comment', $token);
         }
     }
 

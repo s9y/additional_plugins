@@ -6209,6 +6209,47 @@
 </release>
 </package>
 <package version="1.0">
+<name>Idea</name>
+<template>idea</template>
+<license>N/A (=GPL)</license>
+<summary></summary>
+<description></description>
+<recommended></recommended>
+<maintainers><maintainer><name>Evan Nemerson</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion></requirements:s9yVersion>
+  <date>01/07/2004</date>
+  <filelist>
+<dir name="idea">
+<dir name="img">
+<file>quote.gif</file>
+<file>I_had_an_idea.jpg</file>
+<file>clock_face_messy_paint_runs.jpg</file>
+<file>bullet.gif</file>
+</dir>
+<file>config.inc.php</file>
+<file>preview_fullsize.jpg</file>
+<file>info.txt</file>
+<file>style.css</file>
+<file>preview.png</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>idea/img/quote.gif</file>
+    <file>idea/img/I_had_an_idea.jpg</file>
+    <file>idea/img/clock_face_messy_paint_runs.jpg</file>
+    <file>idea/img/bullet.gif</file>
+    <file>idea/config.inc.php</file>
+    <file>idea/preview_fullsize.jpg</file>
+    <file>idea/info.txt</file>
+    <file>idea/style.css</file>
+    <file>idea/preview.png</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
 <name>Slate Grey (2007-04-03)</name>
 <template>slate-grey</template>
 <license>N/A (=GPL)</license>

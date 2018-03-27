@@ -1,6 +1,6 @@
 <?php
 if (isset($_GET['language'])) {
-    setcookie('language', $_GET['language']);
+    #setcookie('language', $_GET['language']);
 }
 if (empty($_REQUEST['language'])) {
     $_REQUEST['language'] = 'en';
@@ -197,11 +197,12 @@ if (is_dir('homepage')) {
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script>window.jQuery || document.write('<script src="homepage/scripts/jquery/dist/jquery.min.js"><\/script>')</script>
     <script src="homepage/scripts/master.js"></script>
-    <!-- Google Analytics -->
+    <!-- Google Analytics
     <script>
     window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
     ga('create','UA-77038-1','auto');ga('send','pageview')
     </script>
     <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    -->
 </body>
 </html>

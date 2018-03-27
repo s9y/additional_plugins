@@ -4589,11 +4589,11 @@
 <summary>dejure.org Rechtsvernetzung</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
 <description>Verlinkt automatisch zitierte Gesetze und Rechtsprechung (Aktenzeichen und Fundstellen) mit den Inhalten von dejure.org.</description>
-<maintainers><maintainer><name>Garvin Hicking, Bjoern Urban, dejure.org, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Garvin Hicking, dejure.org, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.8.1</version>
+  <version>1.8.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2017-08-06</date>
+  <date>2018-03-27</date>
   <filelist>
 <dir name="serendipity_event_dejure">
 <file>serendipity_event_dejure.php</file>

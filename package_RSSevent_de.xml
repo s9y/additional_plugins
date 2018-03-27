@@ -489,9 +489,9 @@
 <title>dejure.org Rechtsvernetzung: Verlinkt automatisch zitierte Gesetze und Rechtsprechung (Aktenzeichen und Fundstellen) mit den Inhalten von dejure.org.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_dejure</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking, Bjoern Urban, dejure.org, Thomas Hochstein</author>
+<author>Garvin Hicking, dejure.org, Thomas Hochstein</author>
 <content:encoded>&lt;b&gt;serendipity_event_dejure&lt;br /&gt;dejure.org Rechtsvernetzung&lt;/b&gt;&lt;br /&gt;Verlinkt automatisch zitierte Gesetze und Rechtsprechung (Aktenzeichen und Fundstellen) mit den Inhalten von dejure.org.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 06 Aug 2017 22:35:41 +0200</pubDate>
+<pubDate>Tue, 27 Mar 2018 22:31:23 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_dejure</guid>
 </item>
 <item>

@@ -11,16 +11,16 @@ if (file_exists($probelang)) {
 
 include dirname(__FILE__) . '/lang_en.inc.php';
 
-class serendipity_event_dsgvo_gpdr extends serendipity_event
+class serendipity_event_dsgvo_gdpr extends serendipity_event
 {
-    var $title = PLUGIN_EVENT_DSGVO_GPDR_NAME;
+    var $title = PLUGIN_EVENT_DSGVO_GDPR_NAME;
 
     function introspect(&$propbag)
     {
         global $serendipity;
 
-        $propbag->add('name',          PLUGIN_EVENT_DSGVO_GPDR_NAME);
-        $propbag->add('description',   PLUGIN_EVENT_DSGVO_GPDR_DESC);
+        $propbag->add('name',          PLUGIN_EVENT_DSGVO_GDPR_NAME);
+        $propbag->add('description',   PLUGIN_EVENT_DSGVO_GDPR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
         $propbag->add('version', '1.0');
@@ -43,10 +43,10 @@ class serendipity_event_dsgvo_gpdr extends serendipity_event
             )
         );
 
-        $propbag->add('configuration', array('commentform_checkbox', 'commentform_text', 'gpdr_url', 'gpdr_info', 'gpdr_content', 'show_in_footer', 'show_in_footer_text', 'cookie_consent', 'cookie_consent_text', 'cookie_consent_path'));
+        $propbag->add('configuration', array('commentform_checkbox', 'commentform_text', 'gdpr_url', 'gdpr_info', 'gdpr_content', 'show_in_footer', 'show_in_footer_text', 'cookie_consent', 'cookie_consent_text', 'cookie_consent_path'));
         $propbag->add('config_groups', array(
-            PLUGIN_EVENT_DSGVO_GPDR_MENU => array('gpdr_url', 'gpdr_info', 'gpdr_content'),
-            PLUGIN_EVENT_DSGVO_GPDR_COOKIE_MENU => array('cookie_consent', 'cookie_consent_text', 'cookie_consent_path')
+            PLUGIN_EVENT_DSGVO_GDPR_MENU => array('gdpr_url', 'gdpr_info', 'gdpr_content'),
+            PLUGIN_EVENT_DSGVO_GDPR_COOKIE_MENU => array('cookie_consent', 'cookie_consent_text', 'cookie_consent_path')
         ));
     }
 
@@ -59,74 +59,74 @@ class serendipity_event_dsgvo_gpdr extends serendipity_event
         global $serendipity;
 
         switch($name) {
-            case 'gpdr_url':
+            case 'gdpr_url':
                 $propbag->add('type',        'string');
-                $propbag->add('name',        PLUGIN_EVENT_DSGVO_GPDR_URL);
-                $propbag->add('description', PLUGIN_EVENT_DSGVO_GPDR_URL_DESC);
+                $propbag->add('name',        PLUGIN_EVENT_DSGVO_GDPR_URL);
+                $propbag->add('description', PLUGIN_EVENT_DSGVO_GDPR_URL_DESC);
                 $propbag->add('default',     '');
                 break;
 
-            case 'gpdr_content':
+            case 'gdpr_content':
                 $propbag->add('type',        'html');
-                $propbag->add('name',        PLUGIN_EVENT_DSGVO_GPDR_STATEMENT);
-                $propbag->add('description', PLUGIN_EVENT_DSGVO_GPDR_STATEMENT_DESC);
+                $propbag->add('name',        PLUGIN_EVENT_DSGVO_GDPR_STATEMENT);
+                $propbag->add('description', PLUGIN_EVENT_DSGVO_GDPR_STATEMENT_DESC);
                 $propbag->add('default',     "");
                 break;
 
             case 'commentform_text':
                 $propbag->add('type',        'html');
-                $propbag->add('name',        PLUGIN_EVENT_DSGVO_GPDR_COMMENTFORM_TEXT);
-                $propbag->add('description', PLUGIN_EVENT_DSGVO_GPDR_COMMENTFORM_TEXT_DESC);
-                $propbag->add('default',     PLUGIN_EVENT_DSGVO_GPDR_COMMENTFORM_TEXT_DEFAULT);
+                $propbag->add('name',        PLUGIN_EVENT_DSGVO_GDPR_COMMENTFORM_TEXT);
+                $propbag->add('description', PLUGIN_EVENT_DSGVO_GDPR_COMMENTFORM_TEXT_DESC);
+                $propbag->add('default',     PLUGIN_EVENT_DSGVO_GDPR_COMMENTFORM_TEXT_DEFAULT);
                 break;
 
             case 'commentform_checkbox':
                 $propbag->add('type','boolean');
-                $propbag->add('name', PLUGIN_EVENT_DSGVO_GPDR_COMMENTFORM_CHECKBOX);
-                $propbag->add('description', PLUGIN_EVENT_DSGVO_GPDR_COMMENTFORM_CHECKBOX_DESC);
+                $propbag->add('name', PLUGIN_EVENT_DSGVO_GDPR_COMMENTFORM_CHECKBOX);
+                $propbag->add('description', PLUGIN_EVENT_DSGVO_GDPR_COMMENTFORM_CHECKBOX_DESC);
                 $propbag->add('default', 'true');
                 break;
 
             case 'show_in_footer':
                 $propbag->add('type','boolean');
-                $propbag->add('name', PLUGIN_EVENT_DSGVO_GPDR_SHOW_IN_FOOTER);
-                $propbag->add('description', PLUGIN_EVENT_DSGVO_GPDR_SHOW_IN_FOOTER_DESC);
+                $propbag->add('name', PLUGIN_EVENT_DSGVO_GDPR_SHOW_IN_FOOTER);
+                $propbag->add('description', PLUGIN_EVENT_DSGVO_GDPR_SHOW_IN_FOOTER_DESC);
                 $propbag->add('default', 'true');
                 break;
 
             case 'show_in_footer_text':
                 $propbag->add('type',        'html');
-                $propbag->add('name', PLUGIN_EVENT_DSGVO_GPDR_SHOW_IN_FOOTER_TEXT);
-                $propbag->add('description', PLUGIN_EVENT_DSGVO_GPDR_SHOW_IN_FOOTER_TEXT_DESC);
-                $propbag->add('default',     PLUGIN_EVENT_DSGVO_GPDR_SHOW_IN_FOOTER_TEXT_DEFAULT);
+                $propbag->add('name', PLUGIN_EVENT_DSGVO_GDPR_SHOW_IN_FOOTER_TEXT);
+                $propbag->add('description', PLUGIN_EVENT_DSGVO_GDPR_SHOW_IN_FOOTER_TEXT_DESC);
+                $propbag->add('default',     PLUGIN_EVENT_DSGVO_GDPR_SHOW_IN_FOOTER_TEXT_DEFAULT);
                 break;
 
-            case 'gpdr_info':
+            case 'gdpr_info':
                 $propbag->add('type',        'content');
-                $propbag->add('name',        PLUGIN_EVENT_DSGVO_GPDR_INFO);
-                $propbag->add('description', PLUGIN_EVENT_DSGVO_GPDR_INFO_DESC);
-                $propbag->add('default',     $this->inspect_gpdr());
+                $propbag->add('name',        PLUGIN_EVENT_DSGVO_GDPR_INFO);
+                $propbag->add('description', PLUGIN_EVENT_DSGVO_GDPR_INFO_DESC);
+                $propbag->add('default',     $this->inspect_gdpr());
                 break;
 
             case 'cookie_consent':
                 $propbag->add('type','boolean');
-                $propbag->add('name', PLUGIN_EVENT_DSGVO_GPDR_COOKIE_CONSENT);
-                $propbag->add('description', PLUGIN_EVENT_DSGVO_GPDR_COOKIE_CONSENT_DESC);
+                $propbag->add('name', PLUGIN_EVENT_DSGVO_GDPR_COOKIE_CONSENT);
+                $propbag->add('description', PLUGIN_EVENT_DSGVO_GDPR_COOKIE_CONSENT_DESC);
                 $propbag->add('default', 'true');
                 break;
 
             case 'cookie_consent_text':
                 $propbag->add('type',        'text');
-                $propbag->add('name', PLUGIN_EVENT_DSGVO_GPDR_COOKIE_CONSENT_TEXT);
-                $propbag->add('description', PLUGIN_EVENT_DSGVO_GPDR_COOKIE_CONSENT_TEXT_DESC);
-                $propbag->add('default',     PLUGIN_EVENT_DSGVO_GPDR_COOKIE_CONSENT_TEXT_DEFAULT);
+                $propbag->add('name', PLUGIN_EVENT_DSGVO_GDPR_COOKIE_CONSENT_TEXT);
+                $propbag->add('description', PLUGIN_EVENT_DSGVO_GDPR_COOKIE_CONSENT_TEXT_DESC);
+                $propbag->add('default',     PLUGIN_EVENT_DSGVO_GDPR_COOKIE_CONSENT_TEXT_DEFAULT);
                 break;
 
             case 'cookie_consent_path':
                 $propbag->add('type',        'string');
-                $propbag->add('name',        PLUGIN_EVENT_DSGVO_GPDR_COOKIE_CONSENT_PATH);
-                $propbag->add('description', PLUGIN_EVENT_DSGVO_GPDR_COOKIE_CONSENT_PATH_DESC);
-                $propbag->add('default',     $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_dsgvo_gpdr/');
+                $propbag->add('name',        PLUGIN_EVENT_DSGVO_GDPR_COOKIE_CONSENT_PATH);
+                $propbag->add('description', PLUGIN_EVENT_DSGVO_GDPR_COOKIE_CONSENT_PATH_DESC);
+                $propbag->add('default',     $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_dsgvo_gdpr/');
                 break;
 
         }
@@ -134,8 +134,8 @@ class serendipity_event_dsgvo_gpdr extends serendipity_event
         return true;
     }
 
-    function inspect_gpdr() {
-        $out = PLUGIN_EVENT_DSGVO_GPDR_SERENDIPITY_CORE;
+    function inspect_gdpr() {
+        $out = PLUGIN_EVENT_DSGVO_GDPR_SERENDIPITY_CORE;
 
         $classes = serendipity_plugin_api::enum_plugins();
         foreach ($classes as $class_data) {
@@ -234,18 +234,18 @@ class serendipity_event_dsgvo_gpdr extends serendipity_event
     function parseText($text) {
         global $serendipity;
 
-        $url = $this->get_config('gpdr_url');
+        $url = $this->get_config('gdpr_url');
         if (empty($url)) {
-            $url = $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?serendipity[subpage]=dsgvo_gpdr_privacy';
+            $url = $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?serendipity[subpage]=dsgvo_gdpr_privacy';
         }
-        $text = str_replace('%gpdr_url%', $url, $text);
+        $text = str_replace('%gdpr_url%', $url, $text);
         return $text;
     }
 
     function isActive() {
         global $serendipity;
 
-        if ($serendipity['GET']['subpage'] == 'dsgvo_gpdr_privacy') {
+        if ($serendipity['GET']['subpage'] == 'dsgvo_gdpr_privacy') {
             return true;
         }
 
@@ -265,7 +265,7 @@ class serendipity_event_dsgvo_gpdr extends serendipity_event
                             // Only act to comments. Trackbacks are an API so we cannot add checks there.
                             if (empty($serendipity['POST']['accept_privacy'])) {
                                 $eventData = array('allow_comments' => false);
-                                $serendipity['messagestack']['comments'][] = PLUGIN_EVENT_DSGVO_GPDR_COMMENTFORM_ERROR;
+                                $serendipity['messagestack']['comments'][] = PLUGIN_EVENT_DSGVO_GDPR_COMMENTFORM_ERROR;
                                 return false;
                             }
                         }
@@ -276,9 +276,9 @@ class serendipity_event_dsgvo_gpdr extends serendipity_event
                 case 'frontend_comment':
                     if (serendipity_db_bool($this->get_config('commentform_checkbox'))) {
 ?>
-                        <fieldset class="form_toolbar dsgvo_gpdr_comment">
+                        <fieldset class="form_toolbar dsgvo_gdpr_comment">
                             <div class="form_box">
-                                <input id="checkbox_dsgvo_gpdr" name="serendipity[accept_privacy]" value="1" type="checkbox" <?php echo ($serendipity['POST']['accept_privacy'] == 1 ? 'checked="checked"' : ''); ?>><label for="checkbox_dsgvo_gpdr"><?php echo $this->parseText($this->get_config('commentform_text')); ?></label>
+                                <input id="checkbox_dsgvo_gdpr" name="serendipity[accept_privacy]" value="1" type="checkbox" <?php echo ($serendipity['POST']['accept_privacy'] == 1 ? 'checked="checked"' : ''); ?>><label for="checkbox_dsgvo_gdpr"><?php echo $this->parseText($this->get_config('commentform_text')); ?></label>
                             </div>
                         </fieldset>
 <?php
@@ -310,20 +310,20 @@ class serendipity_event_dsgvo_gpdr extends serendipity_event
                         serendipity_header($_SERVER['SERVER_PROTOCOL'].' 200 OK');
                         serendipity_header('Status: 200 OK');
 
-                        $statement = $this->get_config('gpdr_content');
+                        $statement = $this->get_config('gdpr_content');
 
                         if (empty($statement)) {
-                            $statement = '<div class="dsgvo_gpdr_statement_error">' . PLUGIN_EVENT_DSGVO_GPDR_STATEMENT_ERROR . '</div>';
+                            $statement = '<div class="dsgvo_gdpr_statement_error">' . PLUGIN_EVENT_DSGVO_GDPR_STATEMENT_ERROR . '</div>';
                         }
 
-                        echo '<div class="dsgvo_gpdr_statement">' . $statement . '</div>';
+                        echo '<div class="dsgvo_gdpr_statement">' . $statement . '</div>';
                     }
                     return true;
                     break;
 
                 case 'frontend_footer':
                     if (serendipity_db_bool($this->get_config('show_in_footer'))) {
-                        echo '<div class="dsgvo_gpdr_footer">' . $this->parseText($this->get_config('show_in_footer_text')) . '</div>';
+                        echo '<div class="dsgvo_gdpr_footer">' . $this->parseText($this->get_config('show_in_footer_text')) . '</div>';
                     }
 
                     if (serendipity_db_bool($this->get_config('cookie_consent'))) {
@@ -337,7 +337,7 @@ class serendipity_event_dsgvo_gpdr extends serendipity_event
                     break;
                     
                 case 'css':
-                    if (!strpos($eventData, '.dsgvo_gpdr')) {
+                    if (!strpos($eventData, '.dsgvo_gdpr')) {
                         // class exists in CSS, so a user has customized it and we don't need default
                         echo file_get_contents(dirname(__FILE__) . '/style.css');
                     }

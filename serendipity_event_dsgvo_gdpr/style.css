@@ -1,0 +1,12 @@
+/*
+Default style.css file of serendipity_event_dsgvo_gdpr.
+You can customize this CSS by editing your template's stylesheet and simply placing a ".dsgvo_gdpr" class somewhere, then this file will no longer be loaded.
+ */
+
+.dsgvo_gdpr_footer {
+    text-align: center;
+}
+
+.dsgvo_gdpr_statement {
+    margin: 1em;
+}

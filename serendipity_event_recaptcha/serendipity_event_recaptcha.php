@@ -35,12 +35,36 @@ var $error=null;
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '0.20.2');
+        $propbag->add('version',       '0.20.3');
         $propbag->add('event_hooks',    array(
             'frontend_configure'   => true,
             'frontend_saveComment' => true,
             'frontend_comment'     => true
         ));
+
+        $propbag->add('legal',    array(
+            'services' => array(
+                'Google reCaptcha' => array(
+                    'url'  => 'https://developers.google.com/recaptcha/',
+                    'desc' => 'Transmits captcha form data to Google Servers to check for human (=non robot) input to prevent spam'
+                )
+            ),
+            'frontend' => array(
+                'If logging is enabled, saves user comment data (name, email, url, user agent, ip, comment body, timestamp, referrer) in database or file.',
+                'Transmits comment data to the Google ReCaptcha API'
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+            ),
+            'sessiondata' => array(
+            ),
+            'stores_user_input'     => true,
+            'stores_ip'             => true,
+            'uses_ip'               => true,
+            'transmits_user_input'  => true
+        ));
+
         $propbag->add('configuration', array(
             'info',
             'sep',

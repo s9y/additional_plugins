@@ -1,3 +1,6 @@
+0.20.3:
+Add legal information to be used by serendipity_event_dsgvo_gpdr
+
 0.20.2:
 remove recaptcha v1 (deprecated and switched off 2018-03-31)
 change description for recaptcha v2

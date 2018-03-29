@@ -1,5 +1,9 @@
 # 
-    * Allows other plugins to fetch user metadata via 
+Version 1.60:
+    * Add legal information to be used by serendipity_event_dsgvo_gpdr
+
+Version 1.59:
+    * Allows other plugins to fetch user metadata via
       avatar_fetch_userinfos hook.
     * supports !# twitter links now, too.
     

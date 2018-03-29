@@ -1444,6 +1444,38 @@
 </release>
 </package>
 <package version="1.0">
+<name>serendipity_event_dsgvo_gdpr</name>
+<license>GPL</license>
+<summary>DSGVO / GDPR: General Data Protection Regulation</summary>
+<groups>FRONTEND_FEATURES,BACKEND_FEATURES</groups>
+<description>This plugin aims to help blog owners apply conformity to the General Data Protection Regulation Act.</description>
+<maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion>2.0</requirements:s9yVersion>
+  <date>2018-03-29</date>
+  <filelist>
+<dir name="serendipity_event_dsgvo_gdpr">
+<file>todo.txt</file>
+<file>cookieconsent.min.js</file>
+<file>serendipity_event_dsgvo_gdpr.php</file>
+<file>lang_en.inc.php</file>
+<file>style.css</file>
+<file>cookieconsent.min.css</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>serendipity_event_dsgvo_gdpr/todo.txt</file>
+    <file>serendipity_event_dsgvo_gdpr/cookieconsent.min.js</file>
+    <file>serendipity_event_dsgvo_gdpr/serendipity_event_dsgvo_gdpr.php</file>
+    <file>serendipity_event_dsgvo_gdpr/lang_en.inc.php</file>
+    <file>serendipity_event_dsgvo_gdpr/style.css</file>
+    <file>serendipity_event_dsgvo_gdpr/cookieconsent.min.css</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
 <name>serendipity_event_social</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_social/ChangeLog</changelog>
 <license>GPL</license>
@@ -1825,9 +1857,9 @@
 <description>Enabling a recaptcha for commenting articles (You need to apply for a key)</description>
 <maintainers><maintainer><name>Christian Brabandt (based on work of Garvin Hicking, Sebastian Nohn)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.20.2</version>
+  <version>0.20.3</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2018-03-24</date>
+  <date>2018-03-29</date>
   <filelist>
 <dir name="serendipity_event_recaptcha">
 <file>lang_de.inc.php</file>
@@ -3444,9 +3476,9 @@
 <description>Show avatars inside comments. Gravatars, Pavatars, Favatars, Twitter, Identica and MyBlogLog avatars are supported.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.59</version>
+  <version>1.60</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2015-03-13</date>
+  <date>2018-03-29</date>
   <filelist>
 <dir name="serendipity_event_gravatar">
 <dir name="wavatars">

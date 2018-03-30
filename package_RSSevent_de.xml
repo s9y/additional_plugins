@@ -275,7 +275,7 @@
 <category>Event Plugins</category>
 <author>Christian Brabandt (based on work of Garvin Hicking, Sebastian Nohn)</author>
 <content:encoded>&lt;b&gt;serendipity_event_recaptcha&lt;br /&gt;Recaptcha&lt;/b&gt;&lt;br /&gt;Recaptcha für die Kommentar-Funktion von Artikeln aktivieren (Sie müssen einen Schlüssel anfordern)&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Thu, 29 Mar 2018 22:31:49 +0200</pubDate>
+<pubDate>Fri, 30 Mar 2018 22:31:53 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_recaptcha</guid>
 </item>
 <item>
@@ -500,7 +500,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, dejure.org, Thomas Hochstein</author>
 <content:encoded>&lt;b&gt;serendipity_event_dejure&lt;br /&gt;dejure.org Rechtsvernetzung&lt;/b&gt;&lt;br /&gt;Verlinkt automatisch zitierte Gesetze und Rechtsprechung (Aktenzeichen und Fundstellen) mit den Inhalten von dejure.org.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 27 Mar 2018 22:31:23 +0200</pubDate>
+<pubDate>Fri, 30 Mar 2018 22:31:44 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_dejure</guid>
 </item>
 <item>

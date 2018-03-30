@@ -1860,7 +1860,7 @@ aplikovány další typografické úpravy.</description>
 <release>
   <version>0.20.3</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2018-03-29</date>
+  <date>2018-03-30</date>
   <filelist>
 <dir name="serendipity_event_recaptcha">
 <file>lang_de.inc.php</file>
@@ -4624,9 +4624,9 @@ aplikovány další typografické úpravy.</description>
 <description>Automaticky vytváří odkazy na citace a judikaturu (odkazy a zdroje informací) pomocí služby dejure.org.</description>
 <maintainers><maintainer><name>Garvin Hicking, dejure.org, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.8.2</version>
+  <version>1.8.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-03-27</date>
+  <date>2018-03-30</date>
   <filelist>
 <dir name="serendipity_event_dejure">
 <file>serendipity_event_dejure.php</file>

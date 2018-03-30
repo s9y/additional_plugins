@@ -277,7 +277,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Christian Brabandt (based on work of Garvin Hicking, Sebastian Nohn)</author>
 <content:encoded>&lt;b&gt;serendipity_event_recaptcha&lt;br /&gt;Recaptcha&lt;/b&gt;&lt;br /&gt;Při vkládání komentářů používá systém kryptogramů Recaptcha (je třeba předem zažádat o přístupový klíč)&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Thu, 29 Mar 2018 22:31:49 +0200</pubDate>
+<pubDate>Fri, 30 Mar 2018 22:31:53 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_recaptcha</guid>
 </item>
 <item>
@@ -502,7 +502,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Garvin Hicking, dejure.org, Thomas Hochstein</author>
 <content:encoded>&lt;b&gt;serendipity_event_dejure&lt;br /&gt;Automatické odkazy Dejure.org&lt;/b&gt;&lt;br /&gt;Automaticky vytváří odkazy na citace a judikaturu (odkazy a zdroje informací) pomocí služby dejure.org.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 27 Mar 2018 22:31:23 +0200</pubDate>
+<pubDate>Fri, 30 Mar 2018 22:31:44 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_dejure</guid>
 </item>
 <item>

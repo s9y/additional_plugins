@@ -39,7 +39,7 @@ class serendipity_event_dejure extends serendipity_event
             array(
                 'serendipity' => '0.8',
                 'smarty'      => '2.6.7',
-                'php'         => '4.1.0'
+                'php'         => '4.3.0'
             )
         );
 

@@ -12,7 +12,7 @@ if (file_exists($probelang)) {
 
 include dirname(__FILE__) . '/lang_en.inc.php';
 
-define('DJO_VERSION', '1.8.2');
+define('DJO_VERSION', '1.8.3');
 define('CACHE_VORHALT', 4); # (Tage) Wann ein vernetzter Text aus dem Cache entfernt und neu vernetzt werden soll
 
 class serendipity_event_dejure extends serendipity_event
@@ -204,7 +204,11 @@ class serendipity_event_dejure extends serendipity_event
         $header .= 'Connection: close'."\r\n";
         $header .= "\r\n";
 
-        $fp = @fsockopen('ssl://rechtsnetz.dejure.org', 443, $errno, $errstr, $zeitlimit_in_sekunden);
+        if (extension_loaded('openssl')) { 
+            $fp = @fsockopen('ssl://rechtsnetz.dejure.org', 443, $errno, $errstr, $zeitlimit_in_sekunden); 
+        } else { 
+            $fp = @fsockopen('rechtsnetz.dejure.org', 80, $errno, $errstr, $zeitlimit_in_sekunden); 
+        } 
 
         if ($fp === false) { // Verbindung gescheitert
             return false;

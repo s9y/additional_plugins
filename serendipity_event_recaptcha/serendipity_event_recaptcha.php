@@ -187,7 +187,7 @@ var $error=null;
 
     function performConfig(&$bag) {
         // set "yes" (recaptcha v1 is active) to "yes2" (recaptcha v2 is active)
-        //because v1 has been phased out
+        // because v1 has been phased out
         if ($this->get_config('recaptcha', 'no') === 'yes') { $this->set_config('recaptcha', 'yes2'); }; 
     }
 

@@ -8351,7 +8351,7 @@
 <release>
   <version>0.58.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2018-03-31</date>
   <filelist>
 <dir name="serendipity_event_google_sitemap">
 <file>lang_pl.inc.php</file>

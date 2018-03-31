@@ -7,7 +7,7 @@ if (IN_serendipity !== true) {
 
 /** This plugin builds a sitemap.xml according to sitemap.org's defintion of the
   * "Sitemap XML format" Version 0.9 after every save and publish.
-  * See http://www.sitemaps.org/protocol.html for details
+  * See https://www.sitemaps.org/protocol.html for details
   * 
   */
 
@@ -56,7 +56,7 @@ class serendipity_event_google_sitemap extends serendipity_event {
                 $propbag->add('type', 'string');
                 $propbag->add('name', PLUGIN_EVENT_SITEMAP_URL);
                 $propbag->add('description', PLUGIN_EVENT_SITEMAP_URL_DESC);
-                $propbag->add('default', 'http://www.google.com/webmasters/tools/ping?sitemap=%s;http://submissions.ask.com/ping?sitemap=%s');
+                $propbag->add('default', 'https://www.google.com/webmasters/tools/ping?sitemap=%s;http://submissions.ask.com/ping?sitemap=%s');
             break;
             case 'gzip_sitemap':
                 $propbag->add('type', 'boolean');

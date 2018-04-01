@@ -3,7 +3,7 @@
 @define('PLUGIN_EVENT_DSGVO_GDPR_NAME', 'DSGVO / GDPR: General Data Protection Regulation');
 @define('PLUGIN_EVENT_DSGVO_GDPR_DESC', 'This plugin aims to help blog owners apply conformity to the General Data Protection Regulation Act.');
 @define('PLUGIN_EVENT_DSGVO_GDPR_MENU', 'GDPR statement');
-@define('PLUGIN_EVENT_DSGVO_GDPR_STATEMENT', 'Your privacy statement / imprint');
+@define('PLUGIN_EVENT_DSGVO_GDPR_STATEMENT', 'Your privacy statement / legal notice');
 @define('PLUGIN_EVENT_DSGVO_GDPR_STATEMENT_DESC', 'You can use the automatic inspection above as a rough draft of information you should include in your privacy statement. Make sure that your privacy statement contains all relevant information. Contact a lawyer if you need help with this, we sadly cannot provide a bulletproof statement draft for you for liability reasons.');
 @define('PLUGIN_EVENT_DSGVO_GDPR_URL', 'Optional URL to privacy statement');
 @define('PLUGIN_EVENT_DSGVO_GDPR_URL_DESC', 'By default, an internal link is created that displays the text of your privacy statement with the text you enter here. However if you have a specific URL (or a staticpage URL) that you want to link your visitors to, you can enter it here. Then the privacy statement text will not be displayed and does not need to be entered.');
@@ -12,7 +12,7 @@
 
 @define('PLUGIN_EVENT_DSGVO_GDPR_COMMENTFORM_TEXT', 'Text for comment consent');
 @define('PLUGIN_EVENT_DSGVO_GDPR_COMMENTFORM_TEXT_DESC', 'Enter the text here that is displayed to the user for accepting your terms of reference. Use %gdpr_url% as a placeholder for the URL.');
-@define('PLUGIN_EVENT_DSGVO_GDPR_COMMENTFORM_TEXT_DEFAULT', 'I agree that my data will be stored. Please review the <a href="%gdpr_url%" target="_blank">terms of usage / imprint</a> for further details.');
+@define('PLUGIN_EVENT_DSGVO_GDPR_COMMENTFORM_TEXT_DEFAULT', 'I agree that my data will be stored. Please review the <a href="%gdpr_url%" target="_blank">terms of usage / legal notice</a> for further details.');
 @define('PLUGIN_EVENT_DSGVO_GDPR_INFO', 'Information to your blog\'s GDPR relevance');
 @define('PLUGIN_EVENT_DSGVO_GDPR_INFO_DESC', 'Serendipity allows plugins to specify, which impact they have on your blog\'s usage and handling of sensible data. At this place, this data is automatically evaluted and printed here for your information. Please be sure to always have the recent versions of plugins. You yourself are legally responsible to disclose any used services to the visitor. If you use any functionality outside of core and plugin Serendipity (custom plugins, custom templates, snippets) that is relevant, be sure to include them in your privacy statement!');
 
@@ -21,7 +21,7 @@
 @define('PLUGIN_EVENT_DSGVO_GDPR_SHOW_IN_FOOTER_DESC', 'When enabled, a link to your privacy statement is included in the footer of your blog. You can adjust the displayed text. The placeholder %gdpr_url% can be used for that link.');
 @define('PLUGIN_EVENT_DSGVO_GDPR_SHOW_IN_FOOTER_TEXT', 'Privacy statement link text');
 @define('PLUGIN_EVENT_DSGVO_GDPR_SHOW_IN_FOOTER_TEXT_DESC', 'If the privacy statement link is enabled, enter the text you want to show up there');
-@define('PLUGIN_EVENT_DSGVO_GDPR_SHOW_IN_FOOTER_TEXT_DEFAULT', '<a href="%gdpr_url%">Privacy statement / Imprint</a>');
+@define('PLUGIN_EVENT_DSGVO_GDPR_SHOW_IN_FOOTER_TEXT_DEFAULT', '<a href="%gdpr_url%">Privacy statement / legal notice</a>');
 
 @define('PLUGIN_EVENT_DSGVO_GDPR_COOKIE_MENU', 'CookieConsent');
 @define('PLUGIN_EVENT_DSGVO_GDPR_COOKIE_CONSENT', 'Enable CookieConsent by Insites?');
@@ -62,12 +62,12 @@ window.cookieconsent.initialise({
 
 <h4>Serendipity Core</h4>
 
-<p>Serendipity uses a so-called "Session cookie" for both frontend and backend. A visitor will receive a cookie with 
-a unique ID, which is used on the server to store temporary session user data (i.e. login validity, user preferences). 
-This cookie is mandatory for logging in to the backend, but optional for the frontend. 
+<p>Serendipity uses a so-called "Session cookie" for both frontend and backend. A visitor will receive a cookie with
+a unique ID, which is used on the server to store temporary session user data (i.e. login validity, user preferences).
+This cookie is mandatory for logging in to the backend, but optional for the frontend.
 Certain plugins can use the session cookie to store additional temporary data.</p>
 
-<p>The following data can be stored by the Serendipity application on the server (temporarily, invalidated after the server-configured timeout, usually in the rang of hours):</p>
+<p>The following data can be stored by the Serendipity application on the server (temporarily, invalidated after the server-configured timeout, usually in the range of hours):</p>
 
 <ul>
 <li>HTTP browser referer when entering the blog</li>

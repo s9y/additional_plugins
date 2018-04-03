@@ -1453,12 +1453,16 @@
 <release>
   <version>1.0.1</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2018-04-01</date>
+  <date>2018-04-03</date>
   <filelist>
 <dir name="serendipity_event_dsgvo_gdpr">
 <file>todo.txt</file>
 <file>cookieconsent.min.js</file>
+<file>lang_de.inc.php</file>
 <file>serendipity_event_dsgvo_gdpr.php</file>
+<dir name="UTF-8">
+<file>lang_de.inc.php</file>
+</dir>
 <file>lang_en.inc.php</file>
 <file>style.css</file>
 <file>cookieconsent.min.css</file>
@@ -1468,7 +1472,9 @@
   <serendipityFilelist>
     <file>serendipity_event_dsgvo_gdpr/todo.txt</file>
     <file>serendipity_event_dsgvo_gdpr/cookieconsent.min.js</file>
+    <file>serendipity_event_dsgvo_gdpr/lang_de.inc.php</file>
     <file>serendipity_event_dsgvo_gdpr/serendipity_event_dsgvo_gdpr.php</file>
+    <file>serendipity_event_dsgvo_gdpr/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_dsgvo_gdpr/lang_en.inc.php</file>
     <file>serendipity_event_dsgvo_gdpr/style.css</file>
     <file>serendipity_event_dsgvo_gdpr/cookieconsent.min.css</file>
@@ -3949,9 +3955,9 @@
 <description>Adds a twitter/identica client to the admininistration interface, searches for tweetbacks and announces new articles to a microblogging account.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Peter Heimann</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.69</version>
+  <version>1.70</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2017-08-06</date>
+  <date>2018-04-03</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="img">
@@ -4918,6 +4924,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_spamblock_surbl</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_spamblock_surbl/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Spam Protector (SURBL)</summary>
 <groups>ANTISPAM</groups>
@@ -4932,6 +4939,7 @@
 <file>lang_ja.inc.php</file>
 <file>serendipity_event_spamblock_surbl.php</file>
 <file>lang_de.inc.php</file>
+<file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
 <file>lang_ja.inc.php</file>
@@ -4948,6 +4956,7 @@
     <file>serendipity_event_spamblock_surbl/lang_ja.inc.php</file>
     <file>serendipity_event_spamblock_surbl/serendipity_event_spamblock_surbl.php</file>
     <file>serendipity_event_spamblock_surbl/lang_de.inc.php</file>
+    <file>serendipity_event_spamblock_surbl/ChangeLog</file>
     <file>serendipity_event_spamblock_surbl/lang_cz.inc.php</file>
     <file>serendipity_event_spamblock_surbl/UTF-8/lang_ja.inc.php</file>
     <file>serendipity_event_spamblock_surbl/UTF-8/lang_de.inc.php</file>
@@ -5491,6 +5500,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_markread</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_markread/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Show read/unread state of entries for visitors</summary>
 <groups>STATISTICS</groups>
@@ -5502,6 +5512,7 @@
   <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_markread">
+<file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
 <file>lang_cz.inc.php</file>
@@ -5516,6 +5527,7 @@
 
   </filelist>
   <serendipityFilelist>
+    <file>serendipity_event_markread/ChangeLog</file>
     <file>serendipity_event_markread/lang_cz.inc.php</file>
     <file>serendipity_event_markread/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_markread/UTF-8/lang_bg.inc.php</file>
@@ -5629,9 +5641,9 @@
 <description>Allows blog visitors to create their own author account. Together with the Event-plugin (index.php?serendipity[subpage]=adduser) you can choose whether only registered users may post comments.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.38.1</version>
+  <version>2.38.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-03-21</date>
+  <date>2018-04-03</date>
   <filelist>
 <dir name="serendipity_plugin_adduser">
 <file>common.inc.php</file>
@@ -6480,6 +6492,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_mailentry</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_mailentry/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Enviar por correo</summary>
 <groups>FRONTEND_ENTRY_RELATED</groups>
@@ -6493,6 +6506,7 @@
 <dir name="serendipity_event_mailentry">
 <file>lang_ja.inc.php</file>
 <file>lang_de.inc.php</file>
+<file>ChangeLog</file>
 <file>lang_tr.inc.php</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
@@ -6519,6 +6533,7 @@
   <serendipityFilelist>
     <file>serendipity_event_mailentry/lang_ja.inc.php</file>
     <file>serendipity_event_mailentry/lang_de.inc.php</file>
+    <file>serendipity_event_mailentry/ChangeLog</file>
     <file>serendipity_event_mailentry/lang_tr.inc.php</file>
     <file>serendipity_event_mailentry/lang_cz.inc.php</file>
     <file>serendipity_event_mailentry/UTF-8/lang_ja.inc.php</file>
@@ -6644,6 +6659,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_trackexits</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_trackexits/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Formato: Seguimiento de salidas</summary>
 <groups>STATISTICS</groups>
@@ -6660,6 +6676,7 @@
 <file>lang_pt_PT.inc.php</file>
 <file>lang_pl.inc.php</file>
 <file>lang_de.inc.php</file>
+<file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <file>lang_ko.inc.php</file>
 <dir name="UTF-8">
@@ -6694,6 +6711,7 @@
     <file>serendipity_event_trackexits/lang_pt_PT.inc.php</file>
     <file>serendipity_event_trackexits/lang_pl.inc.php</file>
     <file>serendipity_event_trackexits/lang_de.inc.php</file>
+    <file>serendipity_event_trackexits/ChangeLog</file>
     <file>serendipity_event_trackexits/lang_cz.inc.php</file>
     <file>serendipity_event_trackexits/lang_ko.inc.php</file>
     <file>serendipity_event_trackexits/UTF-8/lang_fr.inc.php</file>
@@ -8141,9 +8159,9 @@
 <description>Maintains your votings / polls</description>
 <maintainers><maintainer><name>Garvin Hicking, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.16</version>
+  <version>2.17</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2018-04-03</date>
   <filelist>
 <dir name="serendipity_plugin_pollbox">
 <file>common.inc.php</file>
@@ -10053,6 +10071,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_smtpmail</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_smtpmail/ChangeLog</changelog>
 <license>GPL</license>
 <summary>SMTP Mail</summary>
 <groups>BACKEND_FEATURES</groups>
@@ -10074,6 +10093,7 @@
 <file>class.smtp.php</file>
 </dir>
 <file>lang_de.inc.php</file>
+<file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
@@ -10103,6 +10123,7 @@
     <file>serendipity_event_smtpmail/php4/README</file>
     <file>serendipity_event_smtpmail/php4/class.smtp.php</file>
     <file>serendipity_event_smtpmail/lang_de.inc.php</file>
+    <file>serendipity_event_smtpmail/ChangeLog</file>
     <file>serendipity_event_smtpmail/lang_cz.inc.php</file>
     <file>serendipity_event_smtpmail/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_smtpmail/UTF-8/lang_cz.inc.php</file>

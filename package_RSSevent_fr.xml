@@ -212,7 +212,7 @@
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_event_dsgvo_gdpr&lt;br /&gt;DSGVO / GDPR: General Data Protection Regulation&lt;/b&gt;&lt;br /&gt;This plugin aims to help blog owners apply conformity to the General Data Protection Regulation Act.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Sun, 01 Apr 2018 22:31:39 +0200</pubDate>
+<pubDate>Tue, 03 Apr 2018 22:31:27 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_dsgvo_gdpr</guid>
 </item>
 <item>
@@ -428,7 +428,7 @@
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Peter Heimann</author>
 <content:encoded>&lt;b&gt;serendipity_event_twitter&lt;br /&gt;Microblogging (Twitter,Identica)&lt;/b&gt;&lt;br /&gt;Adds a twitter/identica client to the admininistration interface, searches for tweetbacks and announces new articles to a microblogging account.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 06 Aug 2017 22:36:14 +0200</pubDate>
+<pubDate>Tue, 03 Apr 2018 22:31:31 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_twitter</guid>
 </item>
 <item>
@@ -644,7 +644,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_adduser&lt;br /&gt;Auto-enregistrement des utilisateurs&lt;/b&gt;&lt;br /&gt;Permettre aux visiteurs du blog de créer leur propre compte utilisateur. En conjonction avec le plugin d'évènement (index.php?serendipity[subpage]=adduser), vous pouvez décider de n'autoriser que les utilisateurs enregistrés à poster des commentaires.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Mar 2018 22:31:36 +0100</pubDate>
+<pubDate>Tue, 03 Apr 2018 22:31:31 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_adduser</guid>
 </item>
 <item>
@@ -896,7 +896,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Matthias Mees</author>
 <content:encoded>&lt;b&gt;serendipity_event_pollbox&lt;br /&gt;Polls&lt;/b&gt;&lt;br /&gt;Maintains your votings / polls&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 26 Oct 2016 22:32:23 +0200</pubDate>
+<pubDate>Tue, 03 Apr 2018 22:31:31 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_pollbox</guid>
 </item>
 <item>

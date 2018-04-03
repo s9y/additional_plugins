@@ -9,6 +9,10 @@ TODO:
 * Twitter announcements/credentials etc. per author instead of
   only per central blog
 
+1.70:
+-----
+Added legal information for gdpr/dsgvo
+
 1.69:
 -----
     * Fix PHP7 incompatibility

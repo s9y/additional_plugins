@@ -31,14 +31,36 @@ class serendipity_plugin_feedburnersidebar extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_FEEDBURNERSIDEBAR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Aaron Axelsen');
-        $propbag->add('version',       '1.0');
+        $propbag->add('version',       '1.1');
         $propbag->add('requirements',  array(
             'serendipity' => '1.2.1',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
-	$propbag->add('configuration', array('title', 'feedid', 'feedaddress', 'email_subscribe', 'email_title', 'feedflare'));
+	    $propbag->add('configuration', array('title', 'feedid', 'feedaddress', 'email_subscribe', 'email_title', 'feedflare'));
+
+        $propbag->add('legal',    array(
+            'services' => array(
+                'Feedburner' => array(
+                    'url'  => 'https://www.feedburner.com',
+                    'desc' => 'Transmits data from a userto be able to subscribe to a blog through feedburner.'
+                ),
+            ),
+            'frontend' => array(
+                'Transmits data and metadata to feedburner, when a visitor subscribes to the blog',
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+            ),
+            'stores_user_input'     => false,
+            'stores_ip'             => false,
+            'uses_ip'               => true,
+            'transmits_user_input'  => true
+        ));
+
+
     }
 
     function introspect_config_item($name, &$propbag) {

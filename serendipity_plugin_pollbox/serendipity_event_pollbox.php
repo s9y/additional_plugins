@@ -20,13 +20,35 @@ class serendipity_event_pollbox extends serendipity_event {
         $propbag->add('configuration', array('permalink', "articleformat", "pagetitle", "articleformattitle"));
         $propbag->add('author', 'Garvin Hicking, Matthias Mees');
         $propbag->add('groups', array('STATISTICS'));
-        $propbag->add('version', '2.16');
+        $propbag->add('version', '2.17');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
         $propbag->add('stackable', false);
+
+        $propbag->add('legal',    array(
+            'services' => array(
+            ),
+            'frontend' => array(
+                'Anonymized voting only increases the vote count number, no other user data is stored.',
+                'A session cookie is used to store session data (so that multiple votes can be prevented).',
+                'Sessiondata plus a user cookie is set for each poll so that multiple votes can be prevented.',
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+                'PHP Session ID cookie',
+                'User cookie "pollHasVotedX" which identifies an existing vote'
+            ),
+            'stores_user_input'     => true,
+            'stores_ip'             => false,
+            'uses_ip'               => false,
+            'transmits_user_input'  => true
+        ));
+
+
         $this->dependencies = array('serendipity_plugin_pollbox' => 'keep');
     }
 

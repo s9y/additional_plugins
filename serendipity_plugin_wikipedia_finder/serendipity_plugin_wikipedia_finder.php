@@ -30,7 +30,29 @@ class serendipity_plugin_wikipedia_finder extends serendipity_plugin {
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',     '1.4');
+
+        $propbag->add('legal',    array(
+            'services' => array(
+                'wikipedia' => array(
+                    'url'  => 'https://www.wikipedia.com/',
+                    'desc' => 'Looks up a selected term on the Wikipedia'
+                )
+            ),
+            'frontend' => array(
+                'Users can select text on the blog and look up the term on Wikipedia. When clicking the submit button, the selected text is submitted to wikipedia from the client\'s browser. Wikipedia will then be able to submit Cookies and knows the visitor\s IP.',
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+            ),
+            'stores_user_input'     => false,
+            'stores_ip'             => false,
+            'uses_ip'               => true,
+            'transmits_user_input'  => true
+        ));
+
+
+        $propbag->add('version',     '1.5');
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
     }
 

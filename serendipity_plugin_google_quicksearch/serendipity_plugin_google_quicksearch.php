@@ -23,10 +23,31 @@ class serendipity_plugin_google_quicksearch extends serendipity_plugin {
         $propbag->add('description',   SEARCH_FOR_ENTRY . ' (' . PLUGIN_GOOGLE_QS_GOOGLE . ')');
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Wesley Hwang-Chung');
-        $propbag->add('version',       '1.5');
+        $propbag->add('version',       '1.6');
         $propbag->add('configuration', array('submit', 'adsense', 'background', 'text', 'border', 'title_s', 'faint_text', 'url', 'logo_background', 'visited_url', 'logo_place', 'logo_url', 'logo_height', 'logo_width'));
 	$propbag->add('groups',        array('FRONTEND_EXTERNAL_SERVICES'));
         $this->protected = TRUE; // If set to TRUE, only allows the owner of the plugin to modify its configuration
+
+        $propbag->add('legal',    array(
+            'services' => array(
+                'google.com' => array(
+                    'url'  => 'https://www.google.com/',
+                    'desc' => 'You know Google.'
+                ),
+            ),
+            'frontend' => array(
+                'Embeds a quicksearch form, which submits all entered data to google (search term, and request metadata like visitor IP etc.)',
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+            ),
+            'stores_user_input'     => false,
+            'stores_ip'             => false,
+            'uses_ip'               => false,
+            'transmits_user_input'  => true
+        ));
+
     }
 
     function introspect_config_item($name, &$propbag)

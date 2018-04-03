@@ -78,6 +78,40 @@ class serendipity_event_twitter extends serendipity_plugin {
             'frontend_saveComment'      => true, // Set moderation if needed.
             ));
 
+        $propbag->add('legal',    array(
+            'services' => array(
+                'twitter.com' => array(
+                    'url'  => 'https://www.twitter.com',
+                    'desc' => 'Transmits data to and from twitter'
+                ),
+                'bit.ly' => array(
+                    'url'  => 'https://www.bit.ly',
+                    'desc' => 'Transmits data to and from bit.ly for URL shortening'
+                ),
+                'yourls' => array(
+                    'url'  => 'https://www.yourls.org',
+                    'desc' => 'Transmits data to and from yourls.org for URL shortening'
+                ),
+                'piratly' => array(
+                    'url'  => 'https://www.pirat.ly',
+                    'desc' => 'Transmits data to and from pirat.ly for URL shortening'
+                ),
+            ),
+            'frontend' => array(
+                'Depending on the configuration, can embed JavaScript from twitter.com, which transmits the IP and visitor metadata to twitter.',
+            ),
+            'backend' => array(
+                'Can send entry data to twitter.com, can embed tweets in the backend and frontend'
+            ),
+            'cookies' => array(
+            ),
+            'stores_user_input'     => false,
+            'stores_ip'             => false,
+            'uses_ip'               => false,
+            'transmits_user_input'  => true
+        ));
+
+
         $configuration = array();
 
         if (class_exists('serendipity_event_twittertweeter')) {

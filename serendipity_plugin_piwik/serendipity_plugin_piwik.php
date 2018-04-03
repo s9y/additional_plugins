@@ -30,7 +30,7 @@ class serendipity_plugin_piwik extends serendipity_plugin
         $propbag->add('description',   PLUGIN_SIDEBAR_PIWIK_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Bernd Distler');
-        $propbag->add('version',       '0.4.2');
+        $propbag->add('version',       '0.4.3');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -38,6 +38,7 @@ class serendipity_plugin_piwik extends serendipity_plugin
         ));
         $propbag->add('configuration', array('title','token','site_id','url','live_show','live_title','live_minutes','entries_show','entries_title','entries_days','entries_max','entries_remove','debug'));
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
+
         $this->dependencies = array('serendipity_event_piwik' => 'remove');
     }
 

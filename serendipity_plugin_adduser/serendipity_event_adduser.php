@@ -12,7 +12,7 @@ class serendipity_event_adduser extends serendipity_event
         $propbag->add('description', PLUGIN_ADDUSER_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Garvin Hicking');
-        $propbag->add('version',     '2.38.1');
+        $propbag->add('version',     '2.38.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -34,6 +34,23 @@ class serendipity_event_adduser extends serendipity_event
             'registered_only_group',
             'true_identities'
         ));
+
+        $propbag->add('legal',    array(
+            'services' => array(
+            ),
+            'frontend' => array(
+                'Visitors can create their own author accounts, all their information is stored in the database (username, password, etc.)',
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+            ),
+            'stores_user_input'     => true,
+            'stores_ip'             => false,
+            'uses_ip'               => false,
+            'transmits_user_input'  => true
+        ));
+
 
         // Register (multiple) dependencies. KEY is the name of the depending plugin. VALUE is a mode of either 'remove' or 'keep'.
         // If the mode 'remove' is set, removing the plugin results in a removal of the depending plugin. 'Keep' meens to

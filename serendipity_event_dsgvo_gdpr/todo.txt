@@ -6,8 +6,6 @@ serendipity_request (oder so)
 _session
 remote_addr
 
-* Config option to anonymize IPs (simply write $_SERVER['REMOTE_ADDR'] to something else)
-
 * Patch s9y core: Emit warning when the plugin is not installed. Allow user to remove that warning if he doesnt want the plugin.
 
 * Patch s9y core: Create config option that prevents session_start() on the frontend [if possible]

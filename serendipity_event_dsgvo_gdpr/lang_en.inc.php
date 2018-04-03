@@ -119,3 +119,6 @@ Certain plugins can use the session cookie to store additional temporary data.</
 <p>Additionally, the following plugins are currently enabled and this is their automatically generated manifest:</p>
 
 ');
+
+@define('PLUGIN_EVENT_DSGVO_GDPR_ANONYMIZE', 'Anonymize IPs?');
+@define('PLUGIN_EVENT_DSGVO_GDPR_ANONYMIZE_DESC', 'If enabled, the last parts of the IP address (ipv4 and ipv6) will be replaced with "0". This means, all places where serendipity saves or utilizes the IP address of the visitor (also for anti-spam methods) the recorded IP will not be the actual IP of the user. In case of abuse, you will not be able to tell the actual IP used for a comment, for example.');

@@ -38,12 +38,13 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
                 'entry_display'         => true,
                 'genpage'               => true,
                 'frontend_footer'       => true,
+                'frontend_configure'    => true,
                 'css'                   => true
 
             )
         );
 
-        $propbag->add('configuration', array('commentform_checkbox', 'commentform_text', 'gdpr_url', 'gdpr_info', 'gdpr_content', 'show_in_footer', 'show_in_footer_text', 'cookie_consent', 'cookie_consent_text', 'cookie_consent_path'));
+        $propbag->add('configuration', array('commentform_checkbox', 'commentform_text', 'gdpr_url', 'gdpr_info', 'gdpr_content', 'show_in_footer', 'show_in_footer_text', 'cookie_consent', 'cookie_consent_text', 'cookie_consent_path', 'anonymizeIp'));
         $propbag->add('config_groups', array(
             PLUGIN_EVENT_DSGVO_GDPR_MENU => array('gdpr_url', 'gdpr_info', 'gdpr_content'),
             PLUGIN_EVENT_DSGVO_GDPR_COOKIE_MENU => array('cookie_consent', 'cookie_consent_text', 'cookie_consent_path')
@@ -84,6 +85,13 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
                 $propbag->add('type','boolean');
                 $propbag->add('name', PLUGIN_EVENT_DSGVO_GDPR_COMMENTFORM_CHECKBOX);
                 $propbag->add('description', PLUGIN_EVENT_DSGVO_GDPR_COMMENTFORM_CHECKBOX_DESC);
+                $propbag->add('default', 'true');
+                break;
+
+            case 'anonymizeIp':
+                $propbag->add('type','boolean');
+                $propbag->add('name', PLUGIN_EVENT_DSGVO_GDPR_ANONYMIZE);
+                $propbag->add('description', PLUGIN_EVENT_DSGVO_GDPR_ANONYMIZE_DESC);
                 $propbag->add('default', 'true');
                 break;
 
@@ -259,6 +267,13 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
 
         if (isset($hooks[$event])) {
             switch($event) {
+                case 'frontend_configure':
+                    if (serendipity_db_bool($this->get_config('anonymizeIp'))) {
+                        $_SERVER['REMOTE_ADDR'] = IpAnonymizer::anonymizeIp($_SERVER['REMOTE_ADDR']);
+                    }
+                    return true;
+                    break;
+
                 case 'frontend_saveComment':
                     if (serendipity_db_bool($this->get_config('commentform_checkbox'))) {
                         if ($addData['type'] == 'NORMAL') {
@@ -351,6 +366,84 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
         } else {
             return false;
         }
+    }
+}
+
+/*
+https://github.com/geertw/php-ip-anonymizer/blob/master/LICENSE
+
+MIT License
+
+Copyright (c) 2016 Geert Wirken
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+ */
+class IpAnonymizer {
+    /**
+     * @var string IPv4 netmask used to anonymize IPv4 address.
+     */
+    public $ipv4NetMask = "255.255.255.0";
+    /**
+     * @var string IPv6 netmask used to anonymize IPv6 address.
+     */
+    public $ipv6NetMask = "ffff:ffff:ffff:ffff:0000:0000:0000:0000";
+    /**
+     * Anonymize an IPv4 or IPv6 address.
+     *
+     * @param $address string IP address that must be anonymized
+     * @return string The anonymized IP address. Returns an empty string when the IP address is invalid.
+     */
+    public static function anonymizeIp($address) {
+        $anonymizer = new IpAnonymizer();
+        return $anonymizer->anonymize($address);
+    }
+    /**
+     * Anonymize an IPv4 or IPv6 address.
+     *
+     * @param $address string IP address that must be anonymized
+     * @return string The anonymized IP address. Returns an empty string when the IP address is invalid.
+     */
+    public function anonymize($address) {
+        $packedAddress = inet_pton($address);
+        if (strlen($packedAddress) == 4) {
+            return $this->anonymizeIPv4($address);
+        } elseif (strlen($packedAddress) == 16) {
+            return $this->anonymizeIPv6($address);
+        } else {
+            return "";
+        }
+    }
+    /**
+     * Anonymize an IPv4 address
+     * @param $address string IPv4 address
+     * @return string Anonymized address
+     */
+    public function anonymizeIPv4($address) {
+        return inet_ntop(inet_pton($address) & inet_pton($this->ipv4NetMask));
+    }
+    /**
+     * Anonymize an IPv6 address
+     * @param $address string IPv6 address
+     * @return string Anonymized address
+     */
+    public function anonymizeIPv6($address) {
+        return inet_ntop(inet_pton($address) & inet_pton($this->ipv6NetMask));
     }
 }
 

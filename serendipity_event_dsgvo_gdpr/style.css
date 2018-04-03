@@ -10,3 +10,7 @@ You can customize this CSS by editing your template's stylesheet and simply plac
 .dsgvo_gdpr_statement {
     margin: 1em;
 }
+
+#checkbox_dsgvo_gdpr {
+    margin-right: .4em;
+}

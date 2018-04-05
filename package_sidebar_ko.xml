@@ -11,9 +11,9 @@
 <description>옆줄에 최신 방명록 내용을 보여줌</description>
 <maintainers><maintainer><name>Jaap Boerma ( j@webbict.com ), Tadashi Jokagi &lt;elf2000@users.sourceforge.net&gt;, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.25</version>
+  <version>1.26</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2016-01-08</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="img">
@@ -645,7 +645,7 @@
 <description>Prints out a statistic about your comment spam if your antispam plugins report to the DB.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Janek Bevendorff</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.3.0</version>
+  <version>1.3.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
   <date>2015-09-04</date>
   <filelist>

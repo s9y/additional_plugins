@@ -100,9 +100,9 @@
 <description>Shows a email contactform on your blog as a static page. It can be accessed by either the custom permalink or by index.php?serendipity[subpage]=contactform. You can customize the look of the contact form by putting the plugin_contactform.tpl file into your template directory and modify it there. Captchas from the Spamblock plugin (if enabled) will be applied.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.21</version>
+  <version>1.22</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2017-03-31</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_contactform">
 <file>lang_fr.inc.php</file>
@@ -227,9 +227,9 @@
 <description>Shows a guestbook inside your blog with your normal blog design.</description>
 <maintainers><maintainer><name>Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.60</version>
+  <version>3.61</version>
   <requirements:s9yVersion>1.7.0</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="img">
@@ -624,9 +624,9 @@
 <description>Let visitors rate your entries</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus, Judebert, Gregor Voeltz, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.13</version>
+  <version>2.14</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_karma">
 <dir name="img">
@@ -1297,9 +1297,9 @@
 <description>Change the password for selected user</description>
 <maintainers><maintainer><name>Omid Mottaghi</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.12.1</version>
+  <version>0.12.2</version>
   <requirements:s9yVersion>0.9.1</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_forgotpassword">
 <file>lang_ja.inc.php</file>
@@ -1451,9 +1451,9 @@
 <description>This plugin aims to help blog owners apply conformity to the General Data Protection Regulation Act.</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2018-04-03</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_dsgvo_gdpr">
 <file>todo.txt</file>
@@ -1490,9 +1490,9 @@
 <description>Show social share buttons for services like Facebook and Twitter using shariff.</description>
 <maintainers><maintainer><name>onli, Matthias Mees, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.12.1</version>
+  <version>0.12.2</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2017-05-17</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_social">
 <file>shariff.min.js</file>
@@ -1567,9 +1567,9 @@
 <description>This plugin adds extendet Google Analytic funcionality to youre Page like tracking external links or download links.</description>
 <maintainers><maintainer><name>&lt;a href=&quot;https://github.com/kleinerChemiker&quot; target=&quot;_blank&quot;&gt;kleinerChemiker&lt;/a&gt;</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4.1</version>
+  <version>1.4.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_google_analytics">
 <dir name="CVSROOT">
@@ -1822,9 +1822,9 @@
 <description>Allows you to show only one category on the frontpage</description>
 <maintainers><maintainer><name>Stefan Willoughby, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.10</version>
+  <version>1.11</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_startcat">
 <file>serendipity_event_startcat.php</file>
@@ -2015,9 +2015,9 @@
 <description>Implements simple comment antispam mechanisms, that are easy to configure but very effective.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Janek Bevendorff</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.3.0</version>
+  <version>1.3.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-06-26</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bee">
 <file>version.inc.php</file>
@@ -2066,9 +2066,9 @@
 <description>Uses XMLRPC to post to your Livejournal/MySpace/Serendipity</description>
 <maintainers><maintainer><name>Kaustubh Srikanth, Ivan Makhonin</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.13.2</version>
+  <version>1.13.3</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2016-05-09</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_ljupdate">
 <file>lang_ja.inc.php</file>
@@ -2313,9 +2313,9 @@
 <description>Allows authors to authenticate using the BrowserID service.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.0</version>
+  <version>2.0.1</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2017-02-22</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_browserid">
 <file>phpunit.xml</file>
@@ -3158,9 +3158,9 @@
 <description>Imports comments made on facebook postings (like through RSS Graffiti) back into the blog. Also embeds Facebook OpenGraph Meta-Tags into the blog. Note that adding &quot;like&quot;-Buttons to blog entries is achieved via the serendipity_event_findmore plugin! </description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.5.3</version>
+  <version>0.5.4</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2017-04-10</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_facebook">
 <file>ChangeLog</file>
@@ -3910,9 +3910,9 @@
 <description>Flattr is a social micropayment platform that lets you show love for the things you like. This plugin embedds &quot;Flattr&quot;-Badges in blog entries and RSS feeds. You can specify flattr-specific options per-entry, with a default global fallback.</description>
 <maintainers><maintainer><name>Garvin Hicking, Joachim Breitner</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.13</version>
+  <version>1.14</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-12-28</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_flattr">
 <file>lang_de.inc.php</file>
@@ -4246,9 +4246,9 @@
 <description>Shows an event calendar inside your blogs with your normal blog design. It supports backend/frontend administration, multiple events and iCal export. (MySQL-only)</description>
 <maintainers><maintainer><name>Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.76</version>
+  <version>1.77</version>
   <requirements:s9yVersion>1.4</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_cal">
 <dir name="img">
@@ -4629,9 +4629,9 @@
 <description>Automatically links quoted statues and judicature (references and source of information) with contents of dejure.org.</description>
 <maintainers><maintainer><name>Garvin Hicking, dejure.org, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.8.3</version>
+  <version>1.8.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-03-30</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_dejure">
 <file>serendipity_event_dejure.php</file>
@@ -4672,9 +4672,9 @@
 <description>Disqus.com is a webservice that allows you to manage comments, with central logins. It stores and manages comments outside of your Serendipity installation, and is embedded using JavaScript. For more information see disqus.com.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.3</version>
+  <version>0.4</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-03-06</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_disqus">
 <file>ChangeLog</file>
@@ -4931,9 +4931,9 @@
 <description>Reject comments that contain blacklisted URLs</description>
 <maintainers><maintainer><name>Sebastian Nohn</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1</version>
+  <version>1.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_spamblock_surbl">
 <file>lang_ja.inc.php</file>
@@ -5072,9 +5072,9 @@
 <description>Provides a complete discussion forum to your users. Can alternatively provide to mirror comments into a phpBB installation.</description>
 <maintainers><maintainer><name>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.38.2</version>
+  <version>0.38.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-03-13</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_forum">
 <dir name="img">
@@ -5507,9 +5507,9 @@
 <description>Show read/unread state of entries for visitors</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.3</version>
+  <version>1.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_markread">
 <file>ChangeLog</file>
@@ -6239,9 +6239,9 @@
 <description>Offers more buttons to the editing screen to implement easy access to HTML/JS snippets like Youtube etc.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.3</version>
+  <version>1.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_youtube">
 <file>serendipity_event_youtube.php</file>
@@ -6394,9 +6394,9 @@
 <description>Adds a link to interesting statistics in your entries panel, including a visitors counter</description>
 <maintainers><maintainer><name>Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin, Matthias Mees, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.64</version>
+  <version>1.65</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2017-04-10</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_statistics">
 <file>lang_fr.inc.php</file>
@@ -6499,9 +6499,9 @@
 <description>Allow users to e-mail a blog entry to a friend. Pay attention that this plugin can cause automatted traffic if bots are submitting your forms.</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.23</version>
+  <version>1.24</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_mailentry">
 <file>lang_ja.inc.php</file>
@@ -6619,9 +6619,9 @@
 <description>Will reject comments made from hosts which are listed in RBLs. Pay attention that this may affect proxy-users or dial-up users.</description>
 <maintainers><maintainer><name>Sebastian Nohn</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4</version>
+  <version>1.5</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_spamblock_rbl">
 <file>lang_ja.inc.php</file>
@@ -6666,9 +6666,9 @@
 <description>Track clicks on external URLs</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.9.2</version>
+  <version>1.9.3</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2015-01-27</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_trackexits">
 <file>lang_fr.inc.php</file>
@@ -7016,9 +7016,9 @@
 <description>Embeds Ads into your page.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.12.1</version>
+  <version>0.12.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_textlinkads">
 <file>ChangeLog</file>
@@ -7580,9 +7580,9 @@
 <description>Allows authors to authenticate using an OpenID, their Google or Yahoo account.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Rob Richards</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.2.2</version>
+  <version>1.2.3</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>
-  <date>2015-01-15</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_openid">
 <file>common.inc.php</file>
@@ -8212,9 +8212,9 @@
 <description>Allows visitors to filter/order your entries by several options</description>
 <maintainers><maintainer><name>Garvin Hicking, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.7.2</version>
+  <version>1.7.3</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_filter_entries">
 <file>lang_de.inc.php</file>
@@ -8424,9 +8424,9 @@
 <description>Allows to create multiple language versions of an entry</description>
 <maintainers><maintainer><name>Garvin Hicking, Wesley Hwang-Chung, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.33</version>
+  <version>2.34</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_multilingual">
 <file>lang_fr.inc.php</file>
@@ -8911,7 +8911,7 @@
 <release>
   <version>0.5.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-03-25</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bayes">
 <dir name="img">
@@ -9732,7 +9732,7 @@
 <release>
   <version>1.13</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2017-11-18</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_oembed">
 <dir name="oembed">
@@ -9964,9 +9964,9 @@
 <description>Spice up your comments area with goodies like commenters twitter or last posted article link and nofollows by rules.</description>
 <maintainers><maintainer><name>Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.09</version>
+  <version>1.10</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-10-13</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_commentspice">
 <dir name="img">
@@ -10078,9 +10078,9 @@
 <description>Use a SMTP server to send your mails</description>
 <maintainers><maintainer><name>kleinerChemiker</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.11</version>
+  <version>0.12</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2009-05-18</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_smtpmail">
 <file>serendipity_event_smtpmail.php</file>
@@ -11198,9 +11198,9 @@
 <description>Allows non-registered authors to suggest entries for publishing</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.11.1</version>
+  <version>0.11.2</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_suggest">
 <file>plugin_suggest.tpl</file>

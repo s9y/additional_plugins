@@ -117,3 +117,6 @@ Bestimmte Plugins können das Session-Cookie verwenden, um zustätzlich temporä
 <p>Zudem sind derzeit die folgenden Plugins aktiviert und erzeugen automatisch die folgende Liste an Ausgaben:</p>
 
 ');
+
+@define('PLUGIN_EVENT_DSGVO_GDPR_ANONYMIZE', 'Anonymisiere IPs?');
+@define('PLUGIN_EVENT_DSGVO_GDPR_ANONYMIZE_DESC', 'Falls aktiviert werden die letzten Teile der IP-Adressen (ipv4 und ipv6) mit "0" überschrieben. Das bedeutet, dass an allen Stellen, an denen Serendipity die IP-Adresse des Benutzers speichert oder verwendet (auch für Anti-Spam-Techniken), die aufgezeichnete IP nicht die tatsächliche IP des Bsuchers sein wird. So werden Sie z.B. im Fall eines Missbrauchs nicht wissen, von welcher IP-Adresse ein Kommentar tatsächlich abgegeben wurde.');

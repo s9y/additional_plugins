@@ -32,7 +32,7 @@
 <category>Sidebar Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_wikipedia_finder&lt;br /&gt;Wikipedia Finder&lt;/b&gt;&lt;br /&gt;Highlight a phrase and click the icon to search on using Wikipedia.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:57 +0100</pubDate>
+<pubDate>Tue, 03 Apr 2018 22:31:31 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_wikipedia_finder</guid>
 </item>
 <item>
@@ -41,7 +41,7 @@
 <category>Sidebar Plugins</category>
 <author>Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_google_quicksearch&lt;br /&gt;Google Ricerca veloce&lt;/b&gt;&lt;br /&gt;Cerca una notizia (Google)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:59:03 +0200</pubDate>
+<pubDate>Tue, 03 Apr 2018 22:31:31 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_google_quicksearch</guid>
 </item>
 <item>
@@ -50,7 +50,7 @@
 <category>Sidebar Plugins</category>
 <author>Omid Mottaghi Rad</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_quicklink&lt;br /&gt;Quick Link&lt;/b&gt;&lt;br /&gt;Displays a box for quick links&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:59 +0100</pubDate>
+<pubDate>Tue, 03 Apr 2018 22:31:31 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_quicklink</guid>
 </item>
 <item>
@@ -95,7 +95,7 @@
 <category>Sidebar Plugins</category>
 <author>Jim Dabell</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_google_adsense&lt;br /&gt;AdSense&lt;/b&gt;&lt;br /&gt;Displays adverts from Google.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 14 Jul 2009 10:19:15 +0200</pubDate>
+<pubDate>Tue, 03 Apr 2018 22:31:31 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_google_adsense</guid>
 </item>
 <item>
@@ -221,7 +221,7 @@
 <category>Sidebar Plugins</category>
 <author>Matthias Lange</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_shoutbox&lt;br /&gt;Shoutbox&lt;/b&gt;&lt;br /&gt;Displays a shoutbox for unrelated comments&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Wed, 18 May 2016 09:58:44 +0200</pubDate>
+<pubDate>Tue, 03 Apr 2018 22:31:31 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_shoutbox</guid>
 </item>
 <item>
@@ -311,7 +311,7 @@
 <category>Sidebar Plugins</category>
 <author>Bernd Distler</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_piwik&lt;br /&gt;Piwik&lt;/b&gt;&lt;br /&gt;show statistics of Piwik in sidebar&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
+<pubDate>Tue, 03 Apr 2018 22:31:31 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_piwik</guid>
 </item>
 <item>
@@ -338,7 +338,7 @@
 <category>Sidebar Plugins</category>
 <author>Aaron Axelsen</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_feedburnersidebar&lt;br /&gt;Feedburner Sidebar&lt;/b&gt;&lt;br /&gt;Adds assorted functionality of the feedburner service into the sidebar.&lt;br/&gt;For: Serendipity 1.2.1</content:encoded>
-<pubDate>Tue, 23 Oct 2012 02:32:31 +0200</pubDate>
+<pubDate>Tue, 03 Apr 2018 22:31:31 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_feedburnersidebar</guid>
 </item>
 <item>

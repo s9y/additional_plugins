@@ -16,7 +16,7 @@ class serendipity_event_statistics extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_STATISTICS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin, Matthias Mees, Ian');
-        $propbag->add('version',       '1.64');
+        $propbag->add('version',       '1.65');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -31,6 +31,21 @@ class serendipity_event_statistics extends serendipity_event
             'css_backend'        => true
         ));
 
+        $propbag->add('legal',    array(
+            'services' => array(
+            ),
+            'frontend' => array(
+                'Saves user visitor data to the local database (visitors) for statistical analysis. Tracks IP, User Agent, HTTP Referer',
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+            ),
+            'stores_user_input'     => true,
+            'stores_ip'             => true,
+            'uses_ip'               => true,
+            'transmits_user_input'  => false
+        ));
         $propbag->add('configuration', array('max_items','ext_vis_stat','stat_all','banned_bots'));
     }
 

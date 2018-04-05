@@ -44,6 +44,28 @@ class serendipity_event_oembed extends serendipity_event
         $configuration = $configuration = array('info','maxwidth','maxheight','generic_service','embedly_apikey', 'audioboo_player');
         $configuration[] = 'supported'; // always last
         $propbag->add('configuration', $configuration);
+
+        $propbag->add('legal',    array(
+            'services' => array(
+                'oEmbed' => array(
+                    'url'  => '#',
+                    'desc' => 'oEmbed providers will receive visitor metadata (IP, User Agent, etc) when embedded content is loaded'
+                ),
+            ),
+            'frontend' => array(
+                'oEmbed providers will receive visitor metadata (IP, User Agent, etc) when embedded content is loaded'
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+                'oEmbed providers might set cookies for tracking purposes of embedded content'
+            ),
+            'stores_user_input'     => false,
+            'stores_ip'             => false,
+            'uses_ip'               => true,
+            'transmits_user_input'  => true
+        ));
+
     }
 
     function introspect_config_item($name, &$propbag)

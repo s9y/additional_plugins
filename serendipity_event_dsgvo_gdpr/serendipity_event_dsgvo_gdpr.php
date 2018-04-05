@@ -23,7 +23,7 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_DSGVO_GDPR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version', '1.0.1');
+        $propbag->add('version', '1.0.2');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '2.6.7',
@@ -159,6 +159,10 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
                 if (is_array($legal)) {
                     $out .= '<h3>' . $class_data['classname'] . '</h3>';
 
+                    // "services" should list every service that a plugin connects to via a HTTP or other API interface,
+                    // and describe what each service does, and which data it gets.
+                    // Only services that are executed on visitor input must be listed; services that the blog server (instead
+                    // of a client) connects to are nice to have, but are only required to be shown if it includes visitor (meta)data
                     if (is_array($legal['services']) && count($legal['services']) > 0) {
                         $out .= '<h4>Web services / Third Party</h4>';
                         $out .= '<ul>';
@@ -168,6 +172,7 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
                         $out .= '</ul>';
                     }
 
+                    // "frontend" lists descriptions what the plugin does on the frontendside and where it uses visitor data or metadata
                     if (is_array($legal['frontend']) && count($legal['frontend']) > 0) {
                         $out .= '<h4>Frontend</h4>';
                         $out .= '<ul>';
@@ -177,6 +182,7 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
                         $out .= '</ul>';
                     }
 
+                    // "backend" lists descriptions what the plugin does on the backend and where it uses visitor data or metadata
                     if (is_array($legal['backend']) && count($legal['backend']) > 0) {
                         $out .= '<h4>Backend</h4>';
                         $out .= '<ul>';
@@ -186,6 +192,8 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
                         $out .= '</ul>';
                     }
 
+                    // "cookies" lists an array of which cookies might be set a a plugin and why. If a plugin makes use of
+                    // session features, also mention that it relies on that session id.
                     if (is_array($legal['cookies']) && count($legal['cookies']) > 0) {
                         $out .= '<h4>Cookies</h4>';
                         $out .= '<ul>';
@@ -195,6 +203,7 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
                         $out .= '</ul>';
                     }
 
+                    // "sessiondata" lists an array of which PHP session data values are (temporarily) saved
                     if (is_array($legal['sessiondata']) && count($legal['sessiondata']) > 0) {
                         $out .= '<h4>Session data</h4>';
                         $out .= '<ul>';
@@ -204,28 +213,29 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
                         $out .= '</ul>';
                     }
 
+                    // This is a list of TRUE/FALSE boolean toggles
                     $out .= '<h4>Attributes</h4>';
                     $out .= '<ul>';
                     if ($legal['stores_user_input']) {
-                        $out .= '<li>Stores user data</li>';
+                        $out .= '<li>Stores user data (like names, text, preferences) to a database, file or other storage (mail)</li>';
                     } else {
                         $out .= '<li>Does not store user data (or not specified)</li>';
                     }
 
                     if ($legal['stores_ip']) {
-                        $out .= '<li>Stores IP data</li>';
+                        $out .= '<li>Stores IP data (written to storage)</li>';
                     } else {
                         $out .= '<li>Does not store IP data (or not specified)</li>';
                     }
 
                     if ($legal['uses_ip']) {
-                        $out .= '<li>Operates on IP data</li>';
+                        $out .= '<li>Operates on IP data (read-access, also when passing through metadata)</li>';
                     } else {
                         $out .= '<li>Does not operate on IP data (or not specified)</li>';
                     }
 
                     if ($legal['transmits_user_input']) {
-                        $out .= '<li>Transmits user input to services / third parties</li>';
+                        $out .= '<li>Transmits user input to services / third parties (not necessarily stored)</li>';
                     } else {
                         $out .= '<li>Does not transmit user input to services / third parties (or not specified)</li>';
                     }

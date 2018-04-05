@@ -31,7 +31,7 @@ class serendipity_event_suggest extends serendipity_event {
                                          ));
         $propbag->add('configuration',   array('permalink', 'pagetitle', 'authorid', 'email'));
         $propbag->add('author',          'Garvin Hicking');
-        $propbag->add('version',         '0.11.1');
+        $propbag->add('version',         '0.11.2');
         $propbag->add('groups',          array('FRONTEND_FEATURES'));
         $propbag->add('requirements',    array(
                                             'serendipity' => '0.9',
@@ -39,6 +39,24 @@ class serendipity_event_suggest extends serendipity_event {
                                             'php'         => '4.1.0'
                                          ));
         $propbag->add('stackable',       true);
+
+        $propbag->add('legal',    array(
+            'services' => array(
+            ),
+            'frontend' => array(
+                'Stores recommended entries in the database, contains some visitor metadata (IP addresses)',
+                'Sends user data via e-mail'
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+            ),
+            'stores_user_input'     => true,
+            'stores_ip'             => true,
+            'uses_ip'               => true,
+            'transmits_user_input'  => true
+        ));
+
         $propbag->add('license',         'Commercial');
     }
 

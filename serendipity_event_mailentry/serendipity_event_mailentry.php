@@ -19,10 +19,27 @@ class serendipity_event_mailentry extends serendipity_event {
         $propbag->add('name',        PLUGIN_MAILENTRY_NAME);
         $propbag->add('description', PLUGIN_MAILENTRY_DESC);
         $propbag->add('configuration', array('title'));
-        $propbag->add('version',     '1.23');
+        $propbag->add('version',     '1.24');
         $propbag->add('event_hooks',
                       array('frontend_display:html:per_entry' => true));
         $propbag->add('groups', array('FRONTEND_ENTRY_RELATED'));
+
+        $propbag->add('legal',    array(
+            'services' => array(
+            ),
+            'frontend' => array(
+                'Blog entries can be mailed to user-specified mail adresses by the server (without opt-in)',
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+            ),
+            'stores_user_input'     => false,
+            'stores_ip'             => false,
+            'uses_ip'               => true,
+            'transmits_user_input'  => true
+        ));
+
     }
 
     function introspect_config_item($name, &$propbag)

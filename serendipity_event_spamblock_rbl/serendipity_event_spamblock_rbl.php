@@ -31,7 +31,7 @@ class serendipity_event_spamblock_rbl extends serendipity_event
             'serendipity' => '1.2',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.4');
+        $propbag->add('version',       '1.5');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true
         ));
@@ -39,6 +39,27 @@ class serendipity_event_spamblock_rbl extends serendipity_event
             'rbllist',
             'httpBL_key'));
         $propbag->add('groups', array('ANTISPAM'));
+
+        $propbag->add('legal',    array(
+            'services' => array(
+                'httpbl.org' => array(
+                    'url'  => '#',
+                    'desc' => 'Checks submitted comment URLs through the HTTPBL'
+                ),
+            ),
+            'frontend' => array(
+                'Comment URLs are checked by the HTTPBL, entered URLs and the visitors IP are passed through that service',
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+            ),
+            'stores_user_input'     => false,
+            'stores_ip'             => false,
+            'uses_ip'               => true,
+            'transmits_user_input'  => true
+        ));
+
     }
 
     function introspect_config_item($name, &$propbag)

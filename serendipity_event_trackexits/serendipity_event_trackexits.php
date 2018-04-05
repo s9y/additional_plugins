@@ -16,7 +16,7 @@ class serendipity_event_trackexits extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_TRACKBACK_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.9.2');
+        $propbag->add('version',       '1.9.3');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -45,6 +45,31 @@ class serendipity_event_trackexits extends serendipity_event
               'element'  => 'html_nugget',
             )
         );
+
+        $propbag->add('legal',    array(
+            'services' => array(
+                'bmi' => array(
+                    'url'  => 'https://bmi.pfo.biz',
+                    'desc' => 'BMI Link deflector'
+                ),
+                'favatar' => array(
+                    'url'  => 'http://www.google.com',
+                    'desc' => 'Google link deflector.'
+                ),
+            ),
+            'frontend' => array(
+                'Outgoing links are routed through a link deflector, so the target page will not get the referrer of this blog. However, this means that the link deflector service will get both the target and the originating link plus metadata of a visitor.',
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+            ),
+            'stores_user_input'     => false,
+            'stores_ip'             => false,
+            'uses_ip'               => true,
+            'transmits_user_input'  => true
+        ));
+
 
         $conf_array = array();
         foreach($this->markup_elements as $element) {

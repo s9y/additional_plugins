@@ -25,7 +25,7 @@ class serendipity_event_startcat extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_STARTCAT_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Stefan Willoughby, Garvin Hicking');
-        $propbag->add('version',       '1.10');
+        $propbag->add('version',       '1.11');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -39,6 +39,23 @@ class serendipity_event_startcat extends serendipity_event
             'genpage'            => true
         ));
         $propbag->add('groups', array('FRONTEND_VIEWS'));
+
+        $propbag->add('legal',    array(
+            'services' => array(
+            ),
+            'frontend' => array(
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+                'If enabled, saves the last selected category in a cookie ("category")',
+            ),
+            'stores_user_input'     => false,
+            'stores_ip'             => false,
+            'uses_ip'               => false,
+            'transmits_user_input'  => false
+        ));
+
 
         $propbag->add('configuration', array('base_category', 'hide_category', 'base_categories', 'hide_categories', 'remembercat'));
     }

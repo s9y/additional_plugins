@@ -12,7 +12,7 @@ if (file_exists($probelang)) {
 
 include dirname(__FILE__) . '/lang_en.inc.php';
 
-define('DJO_VERSION', '1.8.3');
+define('DJO_VERSION', '1.8.4');
 define('CACHE_VORHALT', 4); # (Tage) Wann ein vernetzter Text aus dem Cache entfernt und neu vernetzt werden soll
 
 class serendipity_event_dejure extends serendipity_event
@@ -55,6 +55,26 @@ class serendipity_event_dejure extends serendipity_event
                 'cache'
             )
         );
+
+        $propbag->add('legal',    array(
+            'services' => array(
+                'dejure.org' => array(
+                    'url'  => 'https://www.dejure.org',
+                    'desc' => 'Receives comment text from users (and the blog)'
+                ),
+            ),
+            'frontend' => array(
+                'Every visitor-generated comment text (no other visitor data) that is entered into the blog is transferred to dejure.org to reference links',
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+            ),
+            'stores_user_input'     => false,
+            'stores_ip'             => false,
+            'uses_ip'               => false,
+            'transmits_user_input'  => true
+        ));
     }
 
     function introspect_config_item($name, &$propbag) {
@@ -177,7 +197,7 @@ class serendipity_event_dejure extends serendipity_event
     }
 
     function djo_vernetzen_ueber_dejure_org($ausgangstext, $parameter = array()) {
-        // Mögliche Parameter: Anbieterkennung / Dokumentkennung / target / class / AktenzeichenIgnorieren / zeitlimit_in_sekunden
+        // Mï¿½gliche Parameter: Anbieterkennung / Dokumentkennung / target / class / AktenzeichenIgnorieren / zeitlimit_in_sekunden
 
         $uebergabe = 'Originaltext='.urlencode($ausgangstext);
         foreach ($parameter as $option => $wert) {
@@ -227,7 +247,7 @@ class serendipity_event_dejure extends serendipity_event
             }
             fclose($fp);
             if (!preg_match("/^(.*?)\r?\n\r?\n\r?\n?(.*)/s",$rueckgabe, $rueckgabeARR)) {
-                return false; // Zeitüberschreitung oder Verbindungsproblem
+                return false; // Zeitï¿½berschreitung oder Verbindungsproblem
             } else if (strpos($rueckgabeARR[1],"200 OK") === false) {
                 return false; // sonstiges Serverproblem
             } else {
@@ -285,7 +305,7 @@ class serendipity_event_dejure extends serendipity_event
             $this->set_config('cache', false);
         }
 
-        if (!preg_match("/§|&sect;|Art\.|\/[0-9][0-9](?![0-9\/])|[0-9][0-9], /", $text) || preg_match("/<!--ohnedjo-->/", $text)) {
+        if (!preg_match("/ï¿½|&sect;|Art\.|\/[0-9][0-9](?![0-9\/])|[0-9][0-9], /", $text) || preg_match("/<!--ohnedjo-->/", $text)) {
             return false;
         }
 

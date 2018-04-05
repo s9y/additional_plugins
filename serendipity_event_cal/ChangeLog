@@ -2,6 +2,8 @@
 * Legend: ! Bugfix, + New Features, * Changed, - Info Only 
 * 
 
+1.77:  Added legal gdpr/dsgvo info
+
 1.76: Iconfont a11y fix (yellowled)
 
 
@@ -148,7 +150,7 @@ v.1.70:
 * 2010-02-08 CHANGED - CW week view in plugin_eventcal_calweek.tpl to be same as in month calendar and CW's date view in css to be xx-small
 * 2010-02-08 CHANGED - font css behaviour to be more strict to eventcal output only, get back control over blog templates settings
 * 2010-02-07 CHANGED - log ical request behaviour. Now it is possible to log via email and/or file backend/ical.log
-* 2010-02-07 ADDED   - in plugin_eventcal_ical.tpl the ORGANIZER part the RSVP=FALSE:MAILTO:"" directive, meaning "répondez, s'il vous plaît" set to NO
+* 2010-02-07 ADDED   - in plugin_eventcal_ical.tpl the ORGANIZER part the RSVP=FALSE:MAILTO:"" directive, meaning "rï¿½pondez, s'il vous plaï¿½t" set to NO
 * 2010-02-06 CHANGED - hook_event 'external_plugin' and ical function to support all approved events admin download via email or download
 * 2010-02-04 ADDED   - changed recurring error constant in LANG files to show supposed startday number
 * 2010-02-04 BUG     - in function calculate_recur_validday - check recurring errors if startday does not correspond to selected weekday now matches 

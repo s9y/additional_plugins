@@ -1,3 +1,6 @@
+Version 1.2.3:
+* Added legal gdpr/dsgvo info
+
 Version 1.2.2
 * Use PHP 5.3+ "static" function keyword
 

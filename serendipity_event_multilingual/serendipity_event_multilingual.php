@@ -27,7 +27,7 @@ class serendipity_event_multilingual extends serendipity_event
             'php'         => '4.1.0'
         ));
         $propbag->add('groups',         array('FRONTEND_ENTRY_RELATED', 'BACKEND_EDITOR'));
-        $propbag->add('version',        '2.33');
+        $propbag->add('version',        '2.34');
         $propbag->add('configuration',  array('copytext', 'placement', 'tagged_title', 'tagged_entries', 'tagged_sidebar', 'langswitch'));
         $propbag->add('event_hooks',    array(
                 'frontend_fetchentries'     => true,
@@ -50,6 +50,24 @@ class serendipity_event_multilingual extends serendipity_event
                 'frontend_rss'              => true,
                 'genpage'                   => true,
         ));
+
+        $propbag->add('legal',    array(
+            'services' => array(
+            ),
+            'frontend' => array(
+                'To remember the last selected language, it is stored in a session and cookie variable (last_lang, serendipityLanguage)',
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+                'Cookies are used to store the selected language of blog entries'
+            ),
+            'stores_user_input'     => false,
+            'stores_ip'             => false,
+            'uses_ip'               => false,
+            'transmits_user_input'  => false
+        ));
+
         $this->supported_properties = array('lang_selected', 'lang_display');
         $this->dependencies = array('serendipity_plugin_multilingual' => 'remove');
 

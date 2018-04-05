@@ -1,1 +1,4 @@
-Properly use the example() API method by returning, not echo'ing. Unimportant update.    
+0.12.2:
+Removed HTTP referer and URI variables to outgoing request
+
+Properly use the example() API method by returning, not echo'ing. Unimportant update.

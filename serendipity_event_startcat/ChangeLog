@@ -1,3 +1,7 @@
+1.11:
+-----
+Added legal gdpr/dsgvo info
+
 1.9:
 ----
 If ?serendipity[hide_category] is set in the URL, the plugin will not

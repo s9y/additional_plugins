@@ -76,7 +76,7 @@ class serendipity_event_cal extends serendipity_event {
                                         )
                     );
         $propbag->add('author',         'Ian (Timbalu)');
-        $propbag->add('version',        '1.76');
+        $propbag->add('version',        '1.77');
         $propbag->add('groups',         array('FRONTEND_FEATURES', 'BACKEND_FEATURES'));
         $propbag->add('requirements',   array(
                                             'serendipity' => '1.4',
@@ -84,6 +84,26 @@ class serendipity_event_cal extends serendipity_event {
                                             'php'         => '5.1.0'
                                         )
                     );
+
+        $propbag->add('legal',    array(
+            'services' => array(
+                'mail' => array(
+                    'url'  => '#',
+                    'desc' => 'Transmits IP address and ical data via e-mail'
+                ),
+            ),
+            'frontend' => array(
+                'Transmits IP address and ical data via e-mail'
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+            ),
+            'stores_user_input'     => false,
+            'stores_ip'             => false,
+            'uses_ip'               => true,
+            'transmits_user_input'  => true
+        ));
     }
 
     function introspect_config_item($name, &$propbag) {

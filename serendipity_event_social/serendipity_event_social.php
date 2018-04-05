@@ -16,7 +16,7 @@ class serendipity_event_social extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_SOCIAL_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Matthias Mees, Thomas Hochstein');
-        $propbag->add('version',       '0.12.1');
+        $propbag->add('version',       '0.12.2');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0'
         ));
@@ -27,6 +27,31 @@ class serendipity_event_social extends serendipity_event {
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
 
         $propbag->add('configuration', array('services', 'theme', 'overview', 'twitter_via', 'social_image', 'lang', 'backend'));
+
+        $propbag->add('legal',    array(
+            'services' => array(
+                'Multiple' => array(
+                    'url' => 'https://github.com/heiseonline/shariff',
+                    'desc' => 'All supported social platforms can receive user data and metadata (IP, cookies)'
+                ),
+                's9y Shariff' => array(
+                    'url' => 'https://onli.columba.uberspace.de/s9y_shariff/',
+                    'desc' => 'When enabled, this shariff backend will receive metadata of URL requests'
+                )
+            ),
+            'frontend' => array(
+                'When sharing functions of the plugin are used by the visitor, those selected sharing services will receive the URL and the metadata of the visitor (IP, User Agent, Referrer, etc.).',
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+            ),
+            'stores_user_input'     => false,
+            'stores_ip'             => false,
+            'uses_ip'               => false,
+            'transmits_user_input'  => true
+        ));
+
     }
 
     function generate_content(&$title) {

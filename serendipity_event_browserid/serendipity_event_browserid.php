@@ -17,7 +17,7 @@ class serendipity_event_browserid extends serendipity_event
         $propbag->add('description', PLUGIN_BROWSERID_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Grischa Brockhaus, Malte Paskuda');
-        $propbag->add('version',     '2.0');
+        $propbag->add('version',     '2.0.1');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'php'         => '7.0'
@@ -31,6 +31,29 @@ class serendipity_event_browserid extends serendipity_event
 
         $propbag->add('configuration', array(
             'plugin_desc',
+        ));
+
+        $propbag->add('legal',    array(
+            'services' => array(
+                'browserid' => array(
+                    'url'  => '#',
+                    'desc' => '???'
+                ),
+            ),
+            'frontend' => array(
+                'Does something with browserID/portier',
+            ),
+            'backend' => array(
+                'Does something with browserID/portier',
+            ),
+            'cookies' => array(
+                'Does something with browserID/portier, might save cookies',
+            ),
+            // I do not know if any of this is true
+            'stores_user_input'     => true,
+            'stores_ip'             => true,
+            'uses_ip'               => true,
+            'transmits_user_input'  => true
         ));
     }
 

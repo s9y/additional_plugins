@@ -27,7 +27,7 @@ class serendipity_event_disqus extends serendipity_event {
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '0.3');
+        $propbag->add('version',       '0.4');
         $propbag->add('groups', array('FRONTEND_VIEWS'));
         $propbag->add('event_hooks', array(
             'frontend_display:html:per_entry' => true,
@@ -36,6 +36,27 @@ class serendipity_event_disqus extends serendipity_event {
         ));
         
         $propbag->add('configuration', array('shortname', 'enable_since','template_hide_css','footer_comment_link'));
+
+        $propbag->add('legal',    array(
+            'services' => array(
+                'disqus' => array(
+                    'url'  => 'https://www.disqus.com',
+                    'desc' => 'Embeds a javascript widget from disqus to display comment badges, which allows Disqus to receive visitor metadata (IP, browser, referrer).'
+                ),
+            ),
+            'frontend' => array(
+                'Embeds a javascript widget from disqus to display comment badges, which allows Disqus to receive visitor metadata (IP, browser, referrer).',
+                'Comments will be stored in Disqus and are subject to their terms; all comment data will be handled on disqus servers.'
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+            ),
+            'stores_user_input'     => false,
+            'stores_ip'             => false,
+            'uses_ip'               => true,
+            'transmits_user_input'  => true
+        ));
     }
 
     function introspect_config_item($name, &$propbag) {
@@ -101,7 +122,7 @@ class serendipity_event_disqus extends serendipity_event {
     (function () {
         var s = document.createElement('script'); s.async = true;
         s.type = 'text/javascript';
-        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
 </script>
@@ -194,11 +215,11 @@ class serendipity_event_disqus extends serendipity_event {
     
         (function() {
             var dsq = document.createElement(\'script\'); dsq.type = \'text/javascript\'; dsq.async = true;
-            dsq.src = \'http://\' + disqus_shortname + \'.disqus.com/embed.js\';
+            dsq.src = \'https://\' + disqus_shortname + \'.disqus.com/embed.js\';
             (document.getElementsByTagName(\'head\')[0] || document.getElementsByTagName(\'body\')[0]).appendChild(dsq);
         })();
     </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
 ';
     }

@@ -13,7 +13,7 @@ class serendipity_event_openid extends serendipity_event
         $propbag->add('description', PLUGIN_OPENID_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Grischa Brockhaus, Rob Richards');
-        $propbag->add('version',     '1.2.2');
+        $propbag->add('version',     '1.2.3');
         $propbag->add('requirements',  array(
             'serendipity' => '1.2',
             'smarty'      => '2.6.7',
@@ -26,6 +26,27 @@ class serendipity_event_openid extends serendipity_event
             'backend_sidebar_entries_event_display_profiles' => true,
             'frontend_header'           => true,
             'external_plugin'			=> true
+        ));
+
+        $propbag->add('legal',    array(
+            'services' => array(
+                'openID' => array(
+                    'url'  => '#',
+                    'desc' => 'OpenID provides will receive login data'
+                ),
+            ),
+            'frontend' => array(
+                'When a openID login provider is selected, logging in to the blog will transmit data from and to the selected OpenID provider.',
+            ),
+            'backend' => array(
+                'When a openID login provider is selected, logging in to the blog will transmit data from and to the selected OpenID provider.',
+            ),
+            'cookies' => array(
+            ),
+            'stores_user_input'     => false,
+            'stores_ip'             => false,
+            'uses_ip'               => true,
+            'transmits_user_input'  => true
         ));
 
         $propbag->add('configuration', array(

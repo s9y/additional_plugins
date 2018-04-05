@@ -116,6 +116,23 @@ class serendipity_event_spamblock_bee extends serendipity_event
         ));
         $propbag->add('groups', array('ANTISPAM'));
 
+        $propbag->add('legal',    array(
+            'services' => array(
+            ),
+            'frontend' => array(
+                'Anti-Spam measurements by this plugin can transfer user data and metadata (??? plugin description missing ???)',
+                'All user data and metadata (IP address, comment fields) can be logged to database or file'
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+            ),
+            'stores_user_input'     => true,
+            'stores_ip'             => true,
+            'uses_ip'               => true,
+            'transmits_user_input'  => true
+        ));
+
         $configuration = array('header_desc','do_honeypot', 'do_hiddencaptcha' );
         // Only do that, if spamblock is not installed
         if (!class_exists('serendipity_event_spamblock')) {

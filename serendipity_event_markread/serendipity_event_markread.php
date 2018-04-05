@@ -36,7 +36,7 @@ class serendipity_event_markread extends serendipity_event
         $propbag->add('description',   PLUGIN_MARKREAD_NAME);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.3');
+        $propbag->add('version',       '1.4');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -53,6 +53,24 @@ class serendipity_event_markread extends serendipity_event
 
         $propbag->add('groups', array('STATISTICS'));
         $propbag->add('configuration', array('marklink', 'markedtext'));
+
+        $propbag->add('legal',    array(
+            'services' => array(
+            ),
+            'frontend' => array(
+                'To remember the read-state of entries, they are stored in a cookie (markread_visitor). Read indicators are stored in the database, referencing anonymous visitor IDs plus their read-timestamp and author-ids for logged in authors.',
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+                'Cookies are used to store the read-state of entries, by referencing visitor IDs to a database table'
+            ),
+            'stores_user_input'     => false,
+            'stores_ip'             => false,
+            'uses_ip'               => false,
+            'transmits_user_input'  => false
+        ));
+
     }
 
     function introspect_config_item($name, &$propbag)

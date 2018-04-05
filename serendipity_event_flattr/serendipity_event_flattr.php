@@ -60,7 +60,7 @@ class serendipity_event_flattr extends serendipity_event {
             'add_to_feed',
         ));
         $propbag->add('author',  'Garvin Hicking, Joachim Breitner', 'Matthias Gutjahr');
-        $propbag->add('version', '1.13');
+        $propbag->add('version', '1.14');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
@@ -157,6 +157,24 @@ class serendipity_event_flattr extends serendipity_event {
             'flattr_tag' => PLUGIN_FLATTR_TAG
         );
         $propbag->add('groups', array('FRONTEND_FEATURES'));
+
+        $propbag->add('legal',    array(
+            'services' => array(
+                'flattr' => array(
+                    'url'  => 'https://www.flattr.com',
+                    'desc' => 'Transmits user metadata (IP) to flattr for embedded widgets'
+                ),
+            ),
+            'frontend' => array(
+                'To display a flattr badge and the ability to sponsor sites, a widget is embedded from a foreign server, which transmits the user metadata (IP, browser, referrer).',
+            ),
+            'cookies' => array(
+            ),
+            'stores_user_input'     => false,
+            'stores_ip'             => false,
+            'uses_ip'               => false,
+            'transmits_user_input'  => true
+        ));
     }
 
     /**

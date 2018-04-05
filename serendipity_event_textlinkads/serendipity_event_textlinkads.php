@@ -30,13 +30,34 @@ class serendipity_event_textlinkads extends serendipity_event
             'php'         => '4.1.0'
         ));
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
-        $propbag->add('version',       '0.12.1');
+        $propbag->add('version',       '0.12.2');
         $propbag->add('configuration', array('htmlid', 'xmlfilename'));
         $propbag->add('event_hooks',    array(
             'css'                  => true,
             'external_service_tla' => true,
             'external_service_ad'  => true
         ));
+
+        $propbag->add('legal',    array(
+            'services' => array(
+                'text-link-ads.com' => array(
+                    'url'  => 'https://www.text-link-ads.com',
+                    'desc' => 'Receives text link ads.'
+                ),
+            ),
+            'frontend' => array(
+                '',
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+            ),
+            'stores_user_input'     => true,
+            'stores_ip'             => false,
+            'uses_ip'               => true,
+            'transmits_user_input'  => true
+        ));
+
     }
 
     function example() {
@@ -89,8 +110,8 @@ class serendipity_event_textlinkads extends serendipity_event
         }
 
         if (filemtime($LOCAL_XML_FILENAME) < (time() - 3600) || filesize($LOCAL_XML_FILENAME) < 20) {
-            $request_uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : "";
-            $user_agent  = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : "";
+            $request_uri = '';
+            $user_agent  = '';
             $this->tla_updateLocalXML("http://www.text-link-ads.com/xml.php?inventory_key=0FPDC7VH5JLP3YAN8K1M&referer=" . urlencode($request_uri) . "&user_agent=" . urlencode($user_agent), $LOCAL_XML_FILENAME, $CONNECTION_TIMEOUT);
         }
 

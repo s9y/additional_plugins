@@ -19,7 +19,7 @@ class serendipity_event_filter_entries extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_FILTER_ENTRIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '1.7.2');
+        $propbag->add('version',       '1.7.3');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -32,6 +32,23 @@ class serendipity_event_filter_entries extends serendipity_event
             'frontend_fetchentries' => true
         ));
         $propbag->add('groups', array('FRONTEND_VIEWS'));
+
+        $propbag->add('legal',    array(
+            'services' => array(
+            ),
+            'frontend' => array(
+                'Temporarily stores user-selected sort order and search restrictions in a PHP session variable on the server, which requires a PHP session cookie',
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+                'Temporarily stores user-selected sort order and search restrictions in a PHP session variable on the server, which requires a PHP session cookie',
+            ),
+            'stores_user_input'     => false,
+            'stores_ip'             => false,
+            'uses_ip'               => false,
+            'transmits_user_input'  => false
+        ));
     }
 
     function generate_content(&$title)

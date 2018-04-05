@@ -31,11 +31,32 @@ class serendipity_event_spamblock_surbl extends serendipity_event
 					 'serendipity' => '0.8',
 					 'php'         => '4.1.0'
 					 ));
-    $propbag->add('version',       '1.1');
+    $propbag->add('version',       '1.2');
     $propbag->add('event_hooks',    array(
 					  'frontend_saveComment' => true
 					  ));
     $propbag->add('groups', array('ANTISPAM'));
+
+      $propbag->add('legal',    array(
+          'services' => array(
+              'surbl' => array(
+                  'url'  => '#',
+                  'desc' => 'Checks submitted comment URLs through the SURBL BL'
+              ),
+          ),
+          'frontend' => array(
+              'Comment URLs are checked by the SURBL BL, entered URLs are passed through that service',
+          ),
+          'backend' => array(
+          ),
+          'cookies' => array(
+          ),
+          'stores_user_input'     => false,
+          'stores_ip'             => false,
+          'uses_ip'               => false,
+          'transmits_user_input'  => true
+      ));
+
   }
 
   function generate_content(&$title) {

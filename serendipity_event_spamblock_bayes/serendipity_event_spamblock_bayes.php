@@ -71,6 +71,24 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 			'logtype',
             'logfile'
 			));
+
+        $propbag->add('legal',    array(
+            'services' => array(
+            ),
+            'frontend' => array(
+                'Anti-Spam measurements by this plugin can transfer user data and metadata (??? plugin description missing ???)',
+                'All user data and metadata (IP address, comment fields) can be logged to database or file'
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+            ),
+            'stores_user_input'     => true,
+            'stores_ip'             => true,
+            'uses_ip'               => true,
+            'transmits_user_input'  => true
+        ));
+
 	}
 
 
@@ -442,7 +460,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
         //preg_split won't accept e.g. Umlaute as part of \w
         mb_regex_encoding('UTF-8');
         $tokens = mb_split("\W", $text );
-        #preg_match_all('/[\w]+/u', "aaa´bbb", $words);
+        #preg_match_all('/[\w]+/u', "aaaï¿½bbb", $words);
 
 		$temp = array ();
 		foreach ( $tokens as $token ) {

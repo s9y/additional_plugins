@@ -30,11 +30,34 @@ class serendipity_event_youtube extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.3');
+        $propbag->add('version',       '1.4');
         $propbag->add('event_hooks',    array(
             'backend_entry_toolbar_extended' => true,
             'backend_entry_toolbar_body' => true,
         ));
+
+        $propbag->add('legal',    array(
+            'services' => array(
+                'youtube' => array(
+                    'url'  => 'https://www.youtube.com',
+                    'desc' => 'Youtube.'
+                ),
+            ),
+            'frontend' => array(
+                'When youtube videos are embedded, google gets the request metadata (IP address, user agent) of the visitor',
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+                'Google can set tracking cookies for videos'
+            ),
+            'stores_user_input'     => false,
+            'stores_ip'             => false,
+            'uses_ip'               => false,
+            'transmits_user_input'  => true
+        ));
+
+
         $propbag->add('groups', array('BACKEND_EDITOR'));
         $propbag->add('configuration', array('youtube_server', 'youtube_width', 'youtube_height', 'youtube_rel', 'youtube_border', 'youtube_color1', 'youtube_color2'));
     }

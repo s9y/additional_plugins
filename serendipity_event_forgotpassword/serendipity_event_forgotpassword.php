@@ -23,7 +23,7 @@ class serendipity_event_forgotpassword extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_FORGOTPASSWORD_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Omid Mottaghi');
-        $propbag->add('version',       '0.12.1');
+        $propbag->add('version',       '0.12.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9.1',
             'smarty'      => '2.6.7',
@@ -33,6 +33,26 @@ class serendipity_event_forgotpassword extends serendipity_event
         
         $propbag->add('configuration', array('nomailinfo', 'nomailadd', 'nomailtxt'));
         $propbag->add('groups', array('BACKEND_FEATURES'));
+
+        $propbag->add('legal',    array(
+            'services' => array(
+                'mail' => array(
+                    'url'  => '#',
+                    'desc' => 'Sends E-Mails to user-specified addresses'
+                ),
+            ),
+            'frontend' => array(
+            ),
+            'backend' => array(
+                'This plugin sends tokens/links via e-mail as the result of a "forgot login" function.',
+            ),
+            'cookies' => array(
+            ),
+            'stores_user_input'     => false,
+            'stores_ip'             => false,
+            'uses_ip'               => false,
+            'transmits_user_input'  => true
+        ));
     }
 
     function generate_content(&$title) {

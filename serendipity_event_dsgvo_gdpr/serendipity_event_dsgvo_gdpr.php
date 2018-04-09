@@ -23,7 +23,7 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_DSGVO_GDPR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version', '1.0.2');
+        $propbag->add('version', '1.0.3');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '2.6.7',
@@ -143,6 +143,8 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
     }
 
     function inspect_gdpr() {
+        global $serendipity;
+
         $out = PLUGIN_EVENT_DSGVO_GDPR_SERENDIPITY_CORE;
 
         $classes = serendipity_plugin_api::enum_plugins();
@@ -245,6 +247,70 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
             }
 
         }
+
+        // Themes
+        $stack = array();
+        serendipity_plugin_api::hook_event('backend_templates_fetchlist', $stack);
+        $themes = serendipity_fetchTemplates();
+        foreach($themes AS $theme) {
+            $stack[$theme] = serendipity_fetchTemplateInfo($theme);
+        }
+        ksort($stack);
+
+        $theme_active = '';
+        $theme_other = '';
+
+        $static_info =  array(
+                '2k11' => array(
+                    'This theme can optionally use webfonts. If enabled, webfonts are loaded from Google/CDN servers, who will receive the IP address of the visitor and his metadata (browser, referrer, user agent, possible cookies)'
+                ),
+                'next' => array(
+                    'This theme can optionally use webfonts. If enabled, webfonts are loaded from Google/CDN servers, who will receive the IP address of the visitor and his metadata (browser, referrer, user agent, possible cookies)'
+                ),
+
+                'clean-blog' => array(
+                    'This theme uses webfonts. Webfonts are loaded from Google/CDN servers, who will receive the IP address of the visitor and his metadata (browser, referrer, user agent, possible cookies)'
+                ),
+                'skeleton' => array(
+                    'This theme uses webfonts. Webfonts are loaded from Google/CDN servers, who will receive the IP address of the visitor and his metadata (browser, referrer, user agent, possible cookies)'
+                ),
+                'timeline' => array(
+                    'This theme uses webfonts. Webfonts are loaded from Google/CDN servers, who will receive the IP address of the visitor and his metadata (browser, referrer, user agent, possible cookies)'
+                ),
+
+        );
+
+        foreach ($stack as $theme => $info) {
+            if ( strtolower($info['engine']) == 'yes') {
+                continue;
+            }
+
+            if (file_exists($serendipity["serendipityPath"] . $serendipity["templatePath"] . $theme . "/legal.txt") || isset($static_info[$theme])) {
+                if ($theme == $serendipity['template']) {
+                    $pointer = 'theme_active';
+
+                    $$pointer .= '<h3>Active Theme "' . $theme .  '"</h3>';
+                } else {
+                    $pointer = 'theme_other';
+
+                    $$pointer .= '<h3>Available Theme "' . $theme .  '"</h3>';
+                }
+
+                $$pointer .= '<ul>';
+                if (isset($static_info[$theme])) {
+                    foreach($static_info[$theme] AS $themeout) {
+                        $$pointer .= '<li>' . $themeout . '</li>';
+                    }
+                }
+
+                if (file_exists($serendipity["serendipityPath"] . $serendipity["templatePath"] . $theme . "/legal.txt")) {
+                    $$pointer .= '<li>' . file_get_contents($serendipity["serendipityPath"] . $serendipity["templatePath"] . $theme . "/legal.txt") . '</li>';
+                }
+                $$pointer .= '</ul>';
+            }
+        }
+
+        $out .= $theme_active . $theme_other;
 
         return $out;
     }

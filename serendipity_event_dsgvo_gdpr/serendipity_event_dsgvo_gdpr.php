@@ -272,7 +272,7 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
                     'This theme uses webfonts. Webfonts are loaded from Google/CDN servers, who will receive the IP address of the visitor and his metadata (browser, referrer, user agent, possible cookies)'
                 ),
                 'skeleton' => array(
-                    'This theme uses webfonts. Webfonts are loaded from Google/CDN servers, who will receive the IP address of the visitor and his metadata (browser, referrer, user agent, possible cookies)'
+                    'This theme can optionally use webfonts. If enabled, webfonts are loaded from Google/CDN servers, who will receive the IP address of the visitor and his metadata (browser, referrer, user agent, possible cookies)'
                 ),
                 'timeline' => array(
                     'This theme uses webfonts. Webfonts are loaded from Google/CDN servers, who will receive the IP address of the visitor and his metadata (browser, referrer, user agent, possible cookies)'
@@ -426,7 +426,7 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
                     }
                     return true;
                     break;
-                    
+
                 case 'css':
                     if (!strpos($eventData, '.dsgvo_gdpr')) {
                         // class exists in CSS, so a user has customized it and we don't need default

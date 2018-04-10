@@ -23,7 +23,7 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_DSGVO_GDPR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version', '1.0.3');
+        $propbag->add('version', '1.0.4');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '2.6.7',
@@ -267,15 +267,14 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
                 'next' => array(
                     'This theme can optionally use webfonts. If enabled, webfonts are loaded from Google/CDN servers, who will receive the IP address of the visitor and his metadata (browser, referrer, user agent, possible cookies)'
                 ),
-
                 'clean-blog' => array(
-                    'This theme uses webfonts. Webfonts are loaded from Google/CDN servers, who will receive the IP address of the visitor and his metadata (browser, referrer, user agent, possible cookies)'
+                    'This theme can optionally use webfonts. If enabled, webfonts are loaded from Google/CDN servers, who will receive the IP address of the visitor and his metadata (browser, referrer, user agent, possible cookies)'
                 ),
                 'skeleton' => array(
                     'This theme can optionally use webfonts. If enabled, webfonts are loaded from Google/CDN servers, who will receive the IP address of the visitor and his metadata (browser, referrer, user agent, possible cookies)'
                 ),
                 'timeline' => array(
-                    'This theme uses webfonts. Webfonts are loaded from Google/CDN servers, who will receive the IP address of the visitor and his metadata (browser, referrer, user agent, possible cookies)'
+                    'This theme can optionally use webfonts. If enabled, webfonts are loaded from Google/CDN servers, who will receive the IP address of the visitor and his metadata (browser, referrer, user agent, possible cookies)'
                 ),
 
         );

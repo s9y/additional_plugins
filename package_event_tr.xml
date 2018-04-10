@@ -1452,9 +1452,9 @@
 <description>This plugin aims to help blog owners apply conformity to the General Data Protection Regulation Act.</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2018-04-09</date>
+  <date>2018-04-10</date>
   <filelist>
 <dir name="serendipity_event_dsgvo_gdpr">
 <file>todo.txt</file>

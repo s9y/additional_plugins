@@ -16,7 +16,7 @@ class serendipity_event_social extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_SOCIAL_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Matthias Mees, Thomas Hochstein');
-        $propbag->add('version',       '0.12.2');
+        $propbag->add('version',       '0.13.0');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0'
         ));
@@ -145,31 +145,31 @@ class serendipity_event_social extends serendipity_event {
                         // the info button looks strange if not at the end, hardcode that position
                         $services = str_replace(',&quot;info&quot;', '', $services) . ',&quot;info&quot;';
                     }
-                    
+
                     $eventData['display_dat'] = '<div class="shariff" data-url="' . $eventData['rdf_ident'] .'" data-services="[' . $services . ']" data-lang="' . $lang .'" data-theme="' . $theme . '" data-mail-url="mailto:foo@example.org"'. $hardcoded_title . $twitter_via_tag . $backend_tag . '></div>';
                     break;
-                    
+
                 case 'css':
                     $eventData .= file_get_contents(dirname(__FILE__) . '/shariff.complete.css');
                     break;
-                    
+
                 case 'frontend_footer':
                     // this script should go into the JS hook, but it has to be at the bottom to work, and the js hook places it at the top
                     echo '<script src="' . $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_social/shariff.min.js' . '"></script>';
                     break;
-                    
+
                 case 'frontend_header':
                     if ($serendipity['view'] != 'entry') {
                         return true;
                     }
                     // Facebook & Twitter can profit from having the og-properties set
                     if (strpos($this->get_config('services'), 'facebook') !== false || strpos($this->get_config('services'), 'twitter') !== false) {
-                        
+
                         // we iterate over the internal smarty object to see which entry we are printing. This is hacky and should be improved
                         $entry = (current($eventData['smarty']->tpl_vars['entries']->value)['entries'][0]);
 
                         $blogURL = 'http' . ($_SERVER['HTTPS'] ? 's' : '') . '://' . $_SERVER['HTTP_HOST'];
-                        
+
                         echo '<!--serendipity_event_shariff-->' . "\n";
                         echo '<meta name="twitter:card" content="summary" />' . "\n";
                         echo '<meta property="og:title" content="' . serendipity_specialchars($entry['title']) . '" />' . "\n";
@@ -205,7 +205,7 @@ class serendipity_event_social extends serendipity_event {
                         if (! preg_match('/^http/i', $social_image)) {
                             $social_image = $blogURL . $social_image;
                         }
-                        
+
                         if ($social_image != $blogURL && $social_image != $blogURL . 'none') {
                             echo '<meta property="og:image" content="' . $social_image . '" />' . "\n";
                         }

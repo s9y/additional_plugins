@@ -23,7 +23,7 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_DSGVO_GDPR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version', '1.0.5');
+        $propbag->add('version', '1.0.6');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '2.6.7',
@@ -375,7 +375,7 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
                     $where[] = 'email IN (' . implode(', ', $email_list) . ')';
                 }
 
-                $clist = serendipity_db_query("SELECT * 
+                $clist = serendipity_db_query("SELECT *
                                                  FROM {$serendipity['dbPrefix']}comments
                                                 WHERE " . implode(' OR ', $where), false, 'assoc');
             }
@@ -486,11 +486,11 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
                 case 'frontend_comment':
                     if (serendipity_db_bool($this->get_config('commentform_checkbox'))) {
 ?>
-                        <fieldset class="form_toolbar dsgvo_gdpr_comment">
+                        <div class="form_toolbar dsgvo_gdpr_comment">
                             <div class="form_box">
                                 <input id="checkbox_dsgvo_gdpr" name="serendipity[accept_privacy]" value="1" type="checkbox" <?php echo ($serendipity['POST']['accept_privacy'] == 1 ? 'checked="checked"' : ''); ?>><label for="checkbox_dsgvo_gdpr"><?php echo $this->parseText($this->get_config('commentform_text')); ?></label>
                             </div>
-                        </fieldset>
+                        </div>
 <?php
                     }
                     return true;
@@ -506,7 +506,7 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
                 case 'backend_deletecomment':
                     // Vanilla s9y does not delete all metadata of a comment that has threaded replies, it only sets the body to "Deleted".
                     // Here we take care that all metadata is cleared in that case.
-                    serendipity_db_query("UPDATE {$serendipity['dbPrefix']}comments 
+                    serendipity_db_query("UPDATE {$serendipity['dbPrefix']}comments
                                              SET title = '', author = '', email = '', url = '', ip = '', referer = ''
                                            WHERE id = {$addData['cid']}");
 

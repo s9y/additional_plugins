@@ -1,2 +1,3 @@
+1.0.6: Typos, German translation, frontend markup fix
 1.0.5: Added ability to export and/or remove comments made by users to comply with the Auskunftsgesuch
 1.0.3: Added ability to make themes provide a "legal.txt" with information, and a hard-coded internal array that yields information

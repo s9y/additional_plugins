@@ -4,7 +4,7 @@
 @define('PLUGIN_EVENT_DSGVO_GDPR_DESC', 'Dieses Plugin soll Blogbetreibern helfen, Konformität zur Datenschutz-Grundverordnung herzustellen.');
 @define('PLUGIN_EVENT_DSGVO_GDPR_MENU', 'DSGVO-Erklärung');
 @define('PLUGIN_EVENT_DSGVO_GDPR_STATEMENT', 'Ihre Datenschutzerklärung / Impressum');
-@define('PLUGIN_EVENT_DSGVO_GDPR_STATEMENT_DESC', 'Sie können die oebn stehende, automatisch erzeugte Inspektion als ersten groben Entwurf der benötigten Informationen, die Ihre Datenschutzerklärung enthalten sollte, verwenden. Versichern Sie sich jedoch, dass Ihre Datenschutzerklärung alle relevanten Informationen enthält. Falls Sie Hilfe benötigen, wenden Sie sich bitte an juristischen Beistand; wir können leider aus Haftungsgründen keine wasserdichte Vorlage einer solchen Erklärung bereit stellen.');
+@define('PLUGIN_EVENT_DSGVO_GDPR_STATEMENT_DESC', 'Sie können die oben stehende, automatisch erzeugte Inspektion als ersten groben Entwurf der benötigten Informationen, die Ihre Datenschutzerklärung enthalten sollte, verwenden. Versichern Sie sich jedoch, dass Ihre Datenschutzerklärung alle relevanten Informationen enthält. Falls Sie Hilfe benötigen, wenden Sie sich bitte an juristischen Beistand; wir können leider aus Haftungsgründen keine wasserdichte Vorlage einer solchen Erklärung bereit stellen.');
 @define('PLUGIN_EVENT_DSGVO_GDPR_URL', 'Optional: URL zur Datenschutzerklärung');
 @define('PLUGIN_EVENT_DSGVO_GDPR_URL_DESC', 'Standardmäßig wird ein interner Link erzeugt, der den hier eingegebenen Text als Ihre Datenschutzerklärung anzeigt. Haben Sie jedoch bereits eine spezifische URL (oder eine statische Seite), auf die Sie Ihre Besucher verweisen möchten, können Sie diese hier angeben. In dem Fall wird der Text für die Datenschutzerklärung aus dem Plugin nicht angezeigt und muss daher nicht eingegeben werden.');
 @define('PLUGIN_EVENT_DSGVO_GDPR_COMMENTFORM_CHECKBOX', 'Müssen Kommentatoren die Datenschutzerklärung akzeptieren?');
@@ -24,7 +24,7 @@
 
 @define('PLUGIN_EVENT_DSGVO_GDPR_COOKIE_MENU', 'CookieConsent');
 @define('PLUGIN_EVENT_DSGVO_GDPR_COOKIE_CONSENT', 'CookieConsent von Insites verwenden?');
-@define('PLUGIN_EVENT_DSGVO_GDPR_COOKIE_CONSENT_DESC', 'Falls aktiviert wird in Ihrem Blog ein Cookie-Hinweis angezeigt. Dazu wird das Javascript-Plugin CookieConsent verwendet. Es unterstützt nur eine einfache Zustimmung / Information zu Cookies. Sie können den Generator auf<a href="https://cookieconsent.insites.com/download/">https://cookieconsent.insites.com/download/</a> verwenden, um den Code anzupassen; achten Sie jedoch darauf, hier NUR den Hauptteil des JavaScripts anzugeben, aber KEINE links zu CSS oder JavaScript, damit dieser Code nur von Ihrem eigenen Server geladen wird und nicht von fremden Servern.');
+@define('PLUGIN_EVENT_DSGVO_GDPR_COOKIE_CONSENT_DESC', 'Falls aktiviert wird in Ihrem Blog ein Cookie-Hinweis angezeigt. Dazu wird das Javascript-Plugin CookieConsent verwendet. Es unterstützt nur eine einfache Zustimmung / Information zu Cookies. Sie können den Generator auf <a href="https://cookieconsent.insites.com/download/">https://cookieconsent.insites.com/download/</a> verwenden, um den Code anzupassen; achten Sie jedoch darauf, hier NUR den Hauptteil des JavaScripts anzugeben, aber KEINE Links zu CSS oder JavaScript, damit dieser Code nur von Ihrem eigenen Server geladen wird und nicht von fremden Servern.');
 @define('PLUGIN_EVENT_DSGVO_GDPR_COOKIE_CONSENT_TEXT', 'CookieConsent-Code');
 @define('PLUGIN_EVENT_DSGVO_GDPR_COOKIE_CONSENT_TEXT_DESC', 'Dieses JavaScript ist leicht verständlich, Sie können hier alle Farben und Texte anpassen. Verwenden Sie %gdpr_url% als Platzhalter für den Link zu Ihrer Datenschutzerklärung.');
 @define('PLUGIN_EVENT_DSGVO_GDPR_COOKIE_CONSENT_TEXT_DEFAULT', '
@@ -63,7 +63,7 @@ window.cookieconsent.initialise({
 
 <p>Serendipity verwendet ein sogenanntes "Session cookie" für sowohl das Frontend als auch das Backend. Ein Besucher bekommt ein Cookie mit einer eindeutigen ID, welches auf dem Server verwendet wird, um temporäre Benutzerdaten für die Session zu speichern (z.B. Gültigkeit des Login, Benutzereinstellungen).
 Dieses Cookie ist notwendig, um sich ins Backend einzuloggen, aber optional im Frontend.
-Bestimmte Plugins können das Session-Cookie verwenden, um zustätzlich temporäre Daten zu speichern.</p>
+Bestimmte Plugins können das Session-Cookie verwenden, um zusätzlich temporäre Daten zu speichern.</p>
 
 <p>Die folgenden Daten können von der Anwendung Serendipity auf dem Server gespeichert werden (vorübergehend, werden nach einer auf dem Server voreingestellten Zeit ungültig, üblicherweise binnen Stunden):</p>
 
@@ -74,7 +74,7 @@ Bestimmte Plugins können das Session-Cookie verwenden, um zustätzlich temporäre 
     <ul>
         <li>Passwort</li>
         <li>ID des Benutzers</li>
-        <li>eingestellter Sprache des Benutzers</li>
+        <li>eingestellte Sprache des Benutzers</li>
         <li>Benutzername</li>
         <li>E-Mail</li>
         <li>Hashtyp des Logins</li>
@@ -83,7 +83,7 @@ Bestimmte Plugins können das Session-Cookie verwenden, um zustätzlich temporäre 
 </li>
 <li>Inhalt des letzten Blogeintrags beim Speichern</li>
 <li>Indikator, ob Smarty-Templates verwendet werden</li>
-<li>möglicher Inhalt eines erzeugten CAPTCHA-Bilders</li>
+<li>möglicher Inhalt eines erzeugten CAPTCHA-Bildes</li>
 <li>das eingestellte Frontend-Theme</li>
 </ul>
 
@@ -120,3 +120,7 @@ Bestimmte Plugins können das Session-Cookie verwenden, um zustätzlich temporäre 
 
 @define('PLUGIN_EVENT_DSGVO_GDPR_ANONYMIZE', 'Anonymisiere IPs?');
 @define('PLUGIN_EVENT_DSGVO_GDPR_ANONYMIZE_DESC', 'Falls aktiviert werden die letzten Teile der IP-Adressen (ipv4 und ipv6) mit "0" überschrieben. Das bedeutet, dass an allen Stellen, an denen Serendipity die IP-Adresse des Benutzers speichert oder verwendet (auch für Anti-Spam-Techniken), die aufgezeichnete IP nicht die tatsächliche IP des Bsuchers sein wird. So werden Sie z.B. im Fall eines Missbrauchs nicht wissen, von welcher IP-Adresse ein Kommentar tatsächlich abgegeben wurde.');
+
+@define('PLUGIN_EVENT_DSGVO_GDPR_BACKEND', 'Benutzerdaten verwalten');
+@define('PLUGIN_EVENT_DSGVO_GDPR_BACKEND_INFO', 'Hier können Sie einen exakt übereinstimmenden Benutzernamen oder eine E-Mail-Adresse eingeben, um diesen Benutzer zu entfernen oder seine Daten zu exportieren. Sie können mehrere Namen auf jeweils eines neuen Zeile eingeben.');
+@define('PLUGIN_EVENT_DSGVO_GDPR_BACKEND_DELFAIL', 'Um exportieren oder löschen zu können muss mindestens ein Benutzername oder eine E-Mail-Adresse eingegeben werden.');

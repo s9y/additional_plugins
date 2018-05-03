@@ -122,5 +122,5 @@ Bestimmte Plugins können das Session-Cookie verwenden, um zusätzlich temporäre D
 @define('PLUGIN_EVENT_DSGVO_GDPR_ANONYMIZE_DESC', 'Falls aktiviert werden die letzten Teile der IP-Adressen (ipv4 und ipv6) mit "0" überschrieben. Das bedeutet, dass an allen Stellen, an denen Serendipity die IP-Adresse des Benutzers speichert oder verwendet (auch für Anti-Spam-Techniken), die aufgezeichnete IP nicht die tatsächliche IP des Bsuchers sein wird. So werden Sie z.B. im Fall eines Missbrauchs nicht wissen, von welcher IP-Adresse ein Kommentar tatsächlich abgegeben wurde.');
 
 @define('PLUGIN_EVENT_DSGVO_GDPR_BACKEND', 'Benutzerdaten verwalten');
-@define('PLUGIN_EVENT_DSGVO_GDPR_BACKEND_INFO', 'Hier können Sie einen exakt übereinstimmenden Benutzernamen oder eine E-Mail-Adresse eingeben, um diesen Benutzer zu entfernen oder seine Daten zu exportieren. Sie können mehrere Namen auf jeweils eines neuen Zeile eingeben.');
+@define('PLUGIN_EVENT_DSGVO_GDPR_BACKEND_INFO', 'Hier können Sie einen exakt übereinstimmenden Benutzernamen oder eine E-Mail-Adresse eingeben, um diesen Benutzer zu entfernen oder seine Daten zu exportieren. Sie können mehrere Namen auf jeweils einer neuen Zeile eingeben.');
 @define('PLUGIN_EVENT_DSGVO_GDPR_BACKEND_DELFAIL', 'Um exportieren oder löschen zu können muss mindestens ein Benutzername oder eine E-Mail-Adresse eingegeben werden.');

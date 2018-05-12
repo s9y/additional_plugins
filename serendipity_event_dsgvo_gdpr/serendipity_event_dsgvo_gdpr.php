@@ -23,7 +23,7 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_DSGVO_GDPR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version', '1.0.6');
+        $propbag->add('version', '1.1.0');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '2.6.7',
@@ -88,7 +88,7 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
                 $propbag->add('type','boolean');
                 $propbag->add('name', PLUGIN_EVENT_DSGVO_GDPR_COMMENTFORM_CHECKBOX);
                 $propbag->add('description', PLUGIN_EVENT_DSGVO_GDPR_COMMENTFORM_CHECKBOX_DESC);
-                $propbag->add('default', 'true');
+                $propbag->add('default', 'false');
                 break;
 
             case 'anonymizeIp':

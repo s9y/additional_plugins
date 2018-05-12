@@ -23,7 +23,7 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_DSGVO_GDPR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version', '1.0.6');
+        $propbag->add('version', '1.1.1');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '2.6.7',
@@ -88,7 +88,7 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
                 $propbag->add('type','boolean');
                 $propbag->add('name', PLUGIN_EVENT_DSGVO_GDPR_COMMENTFORM_CHECKBOX);
                 $propbag->add('description', PLUGIN_EVENT_DSGVO_GDPR_COMMENTFORM_CHECKBOX_DESC);
-                $propbag->add('default', 'true');
+                $propbag->add('default', 'false');
                 break;
 
             case 'anonymizeIp':
@@ -116,7 +116,7 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
                 $propbag->add('type',        'content');
                 $propbag->add('name',        PLUGIN_EVENT_DSGVO_GDPR_INFO);
                 $propbag->add('description', PLUGIN_EVENT_DSGVO_GDPR_INFO_DESC);
-                $propbag->add('default',     $this->inspect_gdpr());
+                $propbag->add('default',     $this->inspect_gdpr() . $this->buttonCopyToClipboard($this->inspect_gdpr()));
                 break;
 
             case 'cookie_consent':
@@ -291,17 +291,17 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
                 if ($theme == $serendipity['template']) {
                     $pointer = 'theme_active';
 
-                    $$pointer .= '<h3>Active Theme "' . $theme .  '"</h3>';
+                    $$pointer .= '<h3>Active Theme "' . $theme .  '"</h3>' . "\n";
                 } else {
                     $pointer = 'theme_other';
 
-                    $$pointer .= '<h3>Available Theme "' . $theme .  '"</h3>';
+                    $$pointer .= '<h3>Available Theme "' . $theme .  '"</h3>' . "\n";
                 }
 
                 $$pointer .= '<ul>';
                 if (isset($static_info[$theme])) {
                     foreach($static_info[$theme] AS $themeout) {
-                        $$pointer .= '<li>' . $themeout . '</li>';
+                        $$pointer .= '<li>' . $themeout . "</li>\n";
                     }
                 }
 
@@ -346,6 +346,22 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
             if (empty($part)) continue;
             $out[] = "'" . serendipity_db_escape_string($part) . "'";
         }
+        return $out;
+    }
+
+    // outputs html for a button that copies the given text to the browser clipboard
+    function buttonCopyToClipboard($text) {
+        $out = '<textarea style="display: none;white-space: pre;" id="copyWrapper">' . serendipity_specialchars($text) . '</textarea>';
+        $out .= '<button type="button" onclick="copyTextFromWrapper()">Copy to Clipboard</button>';
+        $out .= '<script>
+            function copyTextFromWrapper() {
+                var target = document.getElementById("copyWrapper");
+                target.style.display = "block";
+                target.focus();
+                target.select();
+                document.execCommand("Copy");
+                target.style.display = "none";
+            }</script>';
         return $out;
     }
 

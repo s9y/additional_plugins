@@ -118,6 +118,8 @@ $dispatches = array(
                         array('function' => 'wp_newPage'),
                     'wp.deletePage' =>
                         array('function' => 'wp_deletePage'),    
+                    'wp.getProfile' =>
+                        array('function' => 'wp_getProfile'),    
 
 					/* BLOGGER API */
                     'blogger.getUsersBlogs' =>
@@ -481,6 +483,14 @@ function wp_getPages($message) {
 }
 
 function wp_editPage($message) {
+    global $serendipity;
+    // TODO: stub
+    $return = true;
+    return new XML_RPC_Value($return, 'boolean');
+}
+
+
+function wp_getProfile($message) {
     global $serendipity;
     // TODO: stub
     $return = true;

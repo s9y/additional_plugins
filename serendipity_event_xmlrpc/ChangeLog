@@ -1,4 +1,7 @@
 # 
+Version 1.60:
+    * Added stub wp.getProfile dummy API function
+
 Version 1.59:
     * Added stub wp.newPage dummy API function
     

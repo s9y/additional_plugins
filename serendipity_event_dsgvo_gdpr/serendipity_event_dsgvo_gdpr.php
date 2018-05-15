@@ -422,6 +422,7 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
                         }
                         echo "\n";
                     }
+                    exit;
                 }
             }
         }

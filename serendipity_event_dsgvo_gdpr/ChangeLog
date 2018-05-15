@@ -1,3 +1,4 @@
+1.1.0: Set default value of commentform checkbox to false
 1.0.7: Properly quit once the CSV dump is sent, and not embed this in HTML 
 1.0.6: Typos, German translation, frontend markup fix
 1.0.5: Added ability to export and/or remove comments made by users to comply with the Auskunftsgesuch

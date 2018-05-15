@@ -126,3 +126,4 @@ Certain plugins can use the session cookie to store additional temporary data.</
 @define('PLUGIN_EVENT_DSGVO_GDPR_BACKEND', 'Manage user data');
 @define('PLUGIN_EVENT_DSGVO_GDPR_BACKEND_INFO', 'Here you can enter an exactly matching username or e-mail address to remove or export data for that user. You can separate multiple names with a newline.');
 @define('PLUGIN_EVENT_DSGVO_GDPR_BACKEND_DELFAIL', 'To export or delete data you must specify at least one username or e-mail address.');
+@define('PLUGIN_EVENT_DSGVO_GDPR_COPY_CLIPBOARD', 'Copy to clipboard');

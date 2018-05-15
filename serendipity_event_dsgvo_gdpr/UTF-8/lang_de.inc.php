@@ -124,3 +124,4 @@ Bestimmte Plugins können das Session-Cookie verwenden, um zusätzlich temporär
 @define('PLUGIN_EVENT_DSGVO_GDPR_BACKEND', 'Benutzerdaten verwalten');
 @define('PLUGIN_EVENT_DSGVO_GDPR_BACKEND_INFO', 'Hier können Sie einen exakt übereinstimmenden Benutzernamen oder eine E-Mail-Adresse eingeben, um diesen Benutzer zu entfernen oder seine Daten zu exportieren. Sie können mehrere Namen auf jeweils einer neuen Zeile eingeben.');
 @define('PLUGIN_EVENT_DSGVO_GDPR_BACKEND_DELFAIL', 'Um exportieren oder löschen zu können muss mindestens ein Benutzername oder eine E-Mail-Adresse eingegeben werden.');
+@define('PLUGIN_EVENT_DSGVO_GDPR_COPY_CLIPBOARD', 'In Zwischenablage kopieren');

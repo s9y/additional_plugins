@@ -212,7 +212,7 @@
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_event_dsgvo_gdpr&lt;br /&gt;DSGVO / GDPR: General Data Protection Regulation&lt;/b&gt;&lt;br /&gt;This plugin aims to help blog owners apply conformity to the General Data Protection Regulation Act.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Tue, 01 May 2018 22:31:23 +0200</pubDate>
+<pubDate>Mon, 14 May 2018 22:31:36 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_dsgvo_gdpr</guid>
 </item>
 <item>
@@ -1130,7 +1130,7 @@
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Hannes Gassert, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_podcast&lt;br /&gt;Easy Podcasting Plugin&lt;/b&gt;&lt;br /&gt;Adds &quot;podcasting&quot; capabilities hinzu (RSS enclosure, Video/Sound-Player)&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
+<pubDate>Mon, 14 May 2018 22:31:41 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_podcast</guid>
 </item>
 <item>
@@ -1139,7 +1139,7 @@
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_event_xmlrpc&lt;br /&gt;Post via XML-RPC&lt;/b&gt;&lt;br /&gt;Allows to post/edit entries via the XML-RPC API (MT, Blogger, WordPress Endpoints)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 10 May 2017 22:33:26 +0200</pubDate>
+<pubDate>Mon, 14 May 2018 22:31:42 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_xmlrpc</guid>
 </item>
 <item>

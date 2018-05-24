@@ -27,7 +27,7 @@ class serendipity_plugin_google_adsense extends serendipity_plugin
         $propbag->add('description',   PLUGIN_ADSENSE_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jim Dabell');
-        $propbag->add('version',       '0.4');
+        $propbag->add('version',       '0.5');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -147,7 +147,7 @@ class serendipity_plugin_google_adsense extends serendipity_plugin
           echo("google_ad_type = '$type';\n");
           echo("google_ad_channel = '$channel';\n");
           echo("//--></script>\n");
-          echo('<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">');
+          echo('<script type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/show_ads.js">');
           echo('</script>');
             echo('<br />');
         }
@@ -160,7 +160,7 @@ class serendipity_plugin_google_adsense extends serendipity_plugin
           echo("google_ad_width = $width;\n");
           echo("google_ad_height = $height;\n");
           echo("//--></script>\n");
-          echo('<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">');
+          echo('<script type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/show_ads.js">');
           echo('</script>');
             echo('<br />');
            }

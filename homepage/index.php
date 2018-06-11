@@ -20,10 +20,6 @@ if (is_dir('homepage')) {
     <title>Spartacus | Serendipity Blog System</title>
     <meta name="description" content="Serendipity is a PHP-powered weblog engine giving users an easy way to maintain a blog and developers a framework with the power for professional applications.">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="dns-prefetch" href="https://ajax.googleapis.com">
-    <link rel="dns-prefetch" href="https://code.jquery.com">
-    <link rel="dns-prefetch" href="https://www.google-analytics.com">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet">
     <link rel="stylesheet" href="homepage/css/master.css">
     <script src="homepage/scripts/modernizr/modernizr.js"></script>
 </head>
@@ -194,8 +190,7 @@ if (is_dir('homepage')) {
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script>window.jQuery || document.write('<script src="homepage/scripts/jquery/dist/jquery.min.js"><\/script>')</script>
+    <script src="homepage/scripts/jquery/dist/jquery.min.js"></script>
     <script src="homepage/scripts/master.js"></script>
     <!-- Google Analytics
     <script>

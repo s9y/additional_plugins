@@ -1,3 +1,5 @@
+3.69: Fix possible SQL injection for tagnames, Thanks to Brian carpenter (geeknik) and Hanno BÃck
+
 3.67: Iconfont a11y fix (yellowled)
 
 3.66: Fix an issue refering to Smarty2->Smarty3 changes.

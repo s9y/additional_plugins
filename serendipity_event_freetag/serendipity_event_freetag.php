@@ -72,7 +72,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.68');
+        $propbag->add('version',       '3.69');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -1556,8 +1556,8 @@ addLoadEvent(enableAutocomplete);
         } else {
 
             if (is_string($tag)) {
-                $cond = "main.tag = '$tag'";
-                $ncond = "neg.tag != '$tag'";
+                $cond = "main.tag = '" . serendipity_db_escape_string($tag) . "'";
+                $ncond = "neg.tag != '" . serendipity_db_escape_string($tag) . "'";
                 $join = "LEFT JOIN {$serendipity['dbPrefix']}entrytags AS neg ".
                       "ON main.entryid = neg.entryid ";
                 $totalModifier = '';
@@ -1582,8 +1582,8 @@ addLoadEvent(enableAutocomplete);
 
                     $join .= "LEFT JOIN {$serendipity['dbPrefix']}entrytags AS sub{$i} ".
                                 "ON main.entryid = sub{$i}.entryid ";
-                    $cond .= "sub{$i}.tag = '{$tag[$i]}' ";
-                    $ncond .= "neg.tag != '{$tag[$i]}' ";
+                    $cond .= "sub{$i}.tag = '" . serendipity_db_escape_string($tag[$i]) . "' ";
+                    $ncond .= "neg.tag != '" . serendipity_db_escape_string($tag[$i]) . "' ";
                 }
             } else {
                 return;

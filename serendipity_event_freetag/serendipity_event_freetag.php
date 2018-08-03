@@ -1295,6 +1295,7 @@ addLoadEvent(enableAutocomplete);
                     } else {
                         if (serendipity_db_bool($this->get_config('send_http_header', true))) {
                             @header('X-FreeTag-Count: Empty');
+                            return true;
                         }
                         $this->TaggedEntries = 0;
                     }

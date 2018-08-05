@@ -38,8 +38,8 @@ class StrikeButton extends Button
         } else {
             $this->addClass('wrap_selection');
             $this->addClass('lang-html');
-            $this->setOpenTag('p style=\'text-decoration: line-through;\'');
-            $this->setCloseTag('p');
+            $this->setOpenTag('del');
+            $this->setCloseTag('del');
         }
         return parent::render();
     }

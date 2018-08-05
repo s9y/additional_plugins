@@ -36,7 +36,7 @@ class serendipity_event_typesetbuttons extends serendipity_event
         $propbag->add('description', PLUGIN_EVENT_TYPESETBUTTONS_DESC);
         $propbag->add('stackable', false);
         $propbag->add('author', 'Matthew Groeninger, Malte Diers, Matthias Gutjahr');
-        $propbag->add('version', '0.22.1');
+        $propbag->add('version', '0.23');
         $propbag->add('requirements', array(
             'serendipity' => '1.7',
             'smarty'      => '2.6.7',

@@ -1350,9 +1350,9 @@ aplikovány další typografické úpravy.</description>
 <description>Přidá tlačítka pro vložení kódů různých html entit (čárky, tečky, uvozovky) + další akce.</description>
 <maintainers><maintainer><name>Matthew Groeninger, Malte Diers, Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.22.1</version>
+  <version>0.23</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2018-08-06</date>
   <filelist>
 <dir name="serendipity_event_typesetbuttons">
 <file>serendipity_event_typesetbuttons.php</file>
@@ -10649,7 +10649,7 @@ aplikovány další typografické úpravy.</description>
 <release>
   <version>1.4</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-04-09</date>
+  <date>2018-08-06</date>
   <filelist>
 <dir name="serendipity_event_externalphp">
 <file>lang_de.inc.php</file>

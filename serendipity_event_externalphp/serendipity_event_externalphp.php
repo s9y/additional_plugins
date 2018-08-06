@@ -83,6 +83,9 @@ class serendipity_event_externalphp extends serendipity_event {
         global $serendipity;
 
         if ($this->selected()) {
+            
+            $serendipity['content_message'] = ''; // Reset message for 404 error handling which is now overriden
+            
             if (!headers_sent()) {
                 header('HTTP/1.0 200');
                 header('Status: 200 OK');

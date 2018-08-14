@@ -27,7 +27,7 @@ class serendipity_event_multilingual extends serendipity_event
             'php'         => '4.1.0'
         ));
         $propbag->add('groups',         array('FRONTEND_ENTRY_RELATED', 'BACKEND_EDITOR'));
-        $propbag->add('version',        '2.34');
+        $propbag->add('version',        '2.35');
         $propbag->add('configuration',  array('copytext', 'placement', 'tagged_title', 'tagged_entries', 'tagged_sidebar', 'langswitch'));
         $propbag->add('event_hooks',    array(
                 'frontend_fetchentries'     => true,
@@ -475,11 +475,9 @@ class serendipity_event_multilingual extends serendipity_event
                     $serendipity['blogTitle'] = $this->strip_langs($serendipity['blogTitle']);
                     $serendipity['blogDescription'] = $this->strip_langs($serendipity['blogDescription']);
 
-                    // assign lang stripped blogTitle to archive page, which overwrites them for case archive pages
-                    if ($serendipity['plugindata']['smartyvars']['view'] == 'archive') {
-                        $serendipity['smarty']->assign('blogTitle', $serendipity['blogTitle']);
-                        $serendipity['smarty']->assign('blogDescription', $serendipity['blogDescription']);
-                    }
+                    // assign lang stripped blogTitle to all generated pages (empty search pages aren't processed otherwise)
+                    $serendipity['smarty']->assign('blogTitle', $serendipity['blogTitle']);
+                    $serendipity['smarty']->assign('blogDescription', $serendipity['blogDescription']);
 
                     if (!defined('Smarty::SMARTY_VERSION')) {
                         $this->tag_title(); // in Smarty 2 only

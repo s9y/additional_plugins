@@ -682,7 +682,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_freetag&lt;br /&gt;エントリーのタグ&lt;/b&gt;&lt;br /&gt;エントリーの自由なタグを許可します。&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Thu, 19 Jul 2018 22:32:09 +0200</pubDate>
+<pubDate>Wed, 15 Aug 2018 22:32:05 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_freetag</guid>
 </item>
 <item>
@@ -945,7 +945,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Garvin Hicking, Wesley Hwang-Chung, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_multilingual&lt;br /&gt;多言語エントリ&lt;/b&gt;&lt;br /&gt;エントリの複数の言語バージョンを作成することを可能にします。&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:42 +0200</pubDate>
+<pubDate>Wed, 15 Aug 2018 22:32:10 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_multilingual</guid>
 </item>
 <item>

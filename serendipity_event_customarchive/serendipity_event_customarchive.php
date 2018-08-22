@@ -265,14 +265,15 @@ class serendipity_event_customarchive extends serendipity_event {
 
 
             if ($this->get_config('articleformat') == TRUE) {
-                echo '<div class="serendipity_Entry_Date">
-                         <h3 class="serendipity_date">' . PLUGIN_CUSTOMARCHIVE_TITLE . '</h3>';
+                echo '<article class="clearfix serendipity_entry" id="customarchive" role="article">
+                         <header class="clearfix">
+                         <h2><a href="'. $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?/pages/archives.html">' . PLUGIN_CUSTOMARCHIVE_TITLE .  '</a></h2></header>';
             }
 
             echo '<h4 class="serendipity_title"><a href="#">' . $this->get_config('headline') . '</a></h4>';
 
             if ($this->get_config('articleformat') == TRUE) {
-                echo '<div class="serendipity_entry"><div class="serendipity_entry_body">';
+                echo '<div class="clearfix content serendipity_entry_body">';
             }
 
             $first_entry = serendipity_db_query("SELECT min(timestamp) AS first FROM {$serendipity['dbPrefix']}entries WHERE isdraft = 'false' LIMIT 1", true);
@@ -324,7 +325,7 @@ class serendipity_event_customarchive extends serendipity_event {
 
 ?>
 <form action="<?php echo $serendipity['baseURL']; ?>index.php?" method="get">
-<div>
+<p>
     <input type="hidden" name="serendipity[subpage]" value="<?php echo $page; ?>" />
 <?php echo SORT_BY; ?><br />
 <?php echo $this->dropdown('custom_sortfield', $custom_sortfield); ?>
@@ -332,14 +333,14 @@ class serendipity_event_customarchive extends serendipity_event {
 <?php echo $this->dropdown('custom_sortyears', $custom_sortyears); ?>
 <?php echo $this->dropdown('custom_sortauthors', $custom_sortauthors); ?>
     <input type="submit" name="submit" value="<?php echo GO; ?>" />
-</div>
+</p>
 </form>
 <?php
 
             $this->showEntries();
 
             if ($this->get_config('articleformat') == TRUE) {
-                echo '</div></div></div>';
+                echo '</div></article>';
             }
         }
     }

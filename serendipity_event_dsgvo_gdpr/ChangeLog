@@ -1,3 +1,4 @@
+1.2.1: Really display legal information for plugins.
 1.2.0: Add button to copy pricvacy draft in html
 1.1.0: Set default value of commentform checkbox to false
 1.0.7: Properly quit once the CSV dump is sent, and not embed this in HTML 

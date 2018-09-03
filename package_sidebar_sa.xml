@@ -548,42 +548,24 @@
 <package version="1.0">
 <name>serendipity_plugin_authors</name>
 <license>GPL</license>
-<summary>Authors</summary>
+<summary>المحررين</summary>
 <groups>FRONTEND_VIEWS</groups>
-<description>Displays entries by author.</description>
-<maintainers><maintainer><name>Victor Fusco</name><role>lead</role></maintainer></maintainers>
+<description>أعرض قائمة بأسماء الكتاب</description>
+<maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.11</version>
+  <version>2.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2018-09-02</date>
   <filelist>
 <dir name="serendipity_plugin_authors">
-<file>lang_de.inc.php</file>
-<file>lang_cz.inc.php</file>
 <dir name="UTF-8">
-<file>lang_de.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_pt.inc.php</file>
-<file>lang_cs.inc.php</file>
 </dir>
 <file>serendipity_plugin_authors.php</file>
-<file>lang_en.inc.php</file>
-<file>lang_pt.inc.php</file>
-<file>lang_cs.inc.php</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
-    <file>serendipity_plugin_authors/lang_de.inc.php</file>
-    <file>serendipity_plugin_authors/lang_cz.inc.php</file>
-    <file>serendipity_plugin_authors/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_plugin_authors/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_plugin_authors/UTF-8/lang_pt.inc.php</file>
-    <file>serendipity_plugin_authors/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_authors/serendipity_plugin_authors.php</file>
-    <file>serendipity_plugin_authors/lang_en.inc.php</file>
-    <file>serendipity_plugin_authors/lang_pt.inc.php</file>
-    <file>serendipity_plugin_authors/lang_cs.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -935,7 +917,7 @@
 <release>
   <version>1.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-05-18</date>
+  <date>2018-09-02</date>
   <filelist>
 <dir name="serendipity_plugin_quicksearch">
 <file>serendipity_plugin_quicksearch.php</file>

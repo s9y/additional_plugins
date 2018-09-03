@@ -81,12 +81,12 @@
 <guid isPermaLink="false">serendipity_plugin_coppermine</guid>
 </item>
 <item>
-<title>Autoři: Zobrazuje příspěvky podle autorů</title>
+<title>Autoři: Zobrazit seznam autorů</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_authors</link>
 <category>Sidebar Plugins</category>
-<author>Victor Fusco</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_authors&lt;br /&gt;Autoři&lt;/b&gt;&lt;br /&gt;Zobrazuje příspěvky podle autorů&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:59:01 +0200</pubDate>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_authors&lt;br /&gt;Autoři&lt;/b&gt;&lt;br /&gt;Zobrazit seznam autorů&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 02 Sep 2018 22:32:09 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_authors</guid>
 </item>
 <item>
@@ -149,7 +149,7 @@
 <category>Sidebar Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_quicksearch&lt;br /&gt;Rychlé hledání&lt;/b&gt;&lt;br /&gt;Hledání záznamu&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 18 May 2016 09:58:44 +0200</pubDate>
+<pubDate>Sun, 02 Sep 2018 22:32:09 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_quicksearch</guid>
 </item>
 <item>

@@ -454,7 +454,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
             $link_array = array();
             $dirname = array();
             $level = array();
-            $dir_array[''] = array('dirname' => '','level' => 1,linkcount => 0,'links' => $link_array,'dircount' => 0,'directories' => $link_array);
+            $dir_array[''] = array('dirname' => '','level' => 1,'linkcount' => 0,'links' => $link_array,'dircount' => 0,'directories' => $link_array);
             for($level[] = 0, $i=1, $j=1; isset($struct[$i]); $i++, $j++){
                 if (isset($struct[$i]['type'])){
                     if ($struct[$i]['type'] == 'open' && strtolower($struct[$i]['tag']) == 'dir'){

@@ -5,7 +5,7 @@
 <blockquote>{$oembed.html}</blockquote>
 {elseif $oembed.provider_name=="IMDB"} {* beautify noembed.com IMDB content *}
 <blockquote>{$oembed.html|replace:"<h2>":"<strong>"|replace:"</h2>":"</strong>"|replace:"<img":"<img align='right'"}</blockquote>
-{elseif $oembed.provider-name=="Soundcloud"} {* beautify SoundCloud *}
+{elseif $oembed.provider_name=="Soundcloud"} {* beautify SoundCloud *}
 {$oembed.html|replace:"</object>":"</object><br/>"}
 {else}
 {$oembed.html}

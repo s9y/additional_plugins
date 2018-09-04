@@ -1,7 +1,10 @@
+Version 1.15
+-----------------------
+* Fixed PHP warning caused by typo in template
+
 Version 1.14
 -------------
-
-Added legal gdpr/dsgvo info
+* Added legal gdpr/dsgvo info
 
 Version 1.13
 -----------------------

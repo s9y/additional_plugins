@@ -31,7 +31,7 @@ class serendipity_event_markdown extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '5.3.0'
         ));
-        $propbag->add('version',       '1.26');
+        $propbag->add('version',       '1.27');
         $propbag->add('cachable_events', array('frontend_display' => true));
         $propbag->add('event_hooks',   array(
             'frontend_display' => true,
@@ -175,6 +175,14 @@ class serendipity_event_markdown extends serendipity_event
                             !$eventData['properties']['ep_disable_markup_' . $this->instance] &&
                             !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
                             $element = $temp['element'];
+                            # HTML special chars like ">" in comments may have been replaced by entities ("&gt;")
+                            # by serendipity_event_unstrip_tags; we have to - partially - undo that, as ">" is
+                            # used for blockquotes in Markdown.
+                            # The regexp will only match "&gt;" preceded by the start of the line or another "&gt;",
+                            # both optionally followed by whitespace.-
+                            if ($element == 'comment') {
+                              $eventData[$element] = preg_replace('/(^|(?<=&gt;))\s*&gt;/m', '>', $eventData[$element]);
+                            }
                             if ($mdv == 2) {
                                 if ($mde) {
                                     $parser = new MarkdownExtra;

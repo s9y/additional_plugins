@@ -1,3 +1,10 @@
+Version 1.27:
+=============
+Changes by Thomas Hochstein <thh@inter.net>
+
+- Undo replacing of ">" (by "&gt;"), done by serendipity_event_unstrip_tags,
+  at the beginning of the line in comments to make blockquotes possible.
+
 Version 1.26:
 =============
 Changes by Thomas Hochstein <thh@inter.net>

@@ -30,7 +30,7 @@ class serendipity_event_youtube extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.4');
+        $propbag->add('version',       '1.5');
         $propbag->add('event_hooks',    array(
             'backend_entry_toolbar_extended' => true,
             'backend_entry_toolbar_body' => true,
@@ -59,7 +59,7 @@ class serendipity_event_youtube extends serendipity_event
 
 
         $propbag->add('groups', array('BACKEND_EDITOR'));
-        $propbag->add('configuration', array('youtube_server', 'youtube_width', 'youtube_height', 'youtube_rel', 'youtube_border', 'youtube_color1', 'youtube_color2'));
+        $propbag->add('configuration', array('youtube_server', 'youtube_iframe', 'youtube_width', 'youtube_height', 'youtube_rel', 'youtube_border', 'youtube_color1', 'youtube_color2'));
     }
 
     function generate_content(&$title) {
@@ -96,6 +96,14 @@ class serendipity_event_youtube extends serendipity_event
                 $propbag->add('default',     'true');
                 return true;
                 break;
+
+            case 'youtube_iframe':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        PLUGIN_EVENT_YOUTUBE_IFRAME);
+                $propbag->add('default',     'true');
+                return true;
+                break;
+
 
             case 'youtube_border':
                 $propbag->add('type',        'boolean');
@@ -165,6 +173,7 @@ var youtube_rel    = '<?php echo (serendipity_db_bool($this->get_config('youtube
 var youtube_border = '<?php echo (serendipity_db_bool($this->get_config('youtube_border')) ? '1' : '0'); ?>';
 var youtube_color1 = '<?php echo $this->get_config('youtube_color1'); ?>';
 var youtube_color2 = '<?php echo $this->get_config('youtube_color2'); ?>';
+var youtube_iframe = '<?php echo (serendipity_db_bool($this->get_config('youtube_iframe')) ? '1' : '0'); ?>';
 
 function use_text_<?php echo $func; ?>(img) {
 
@@ -191,6 +200,10 @@ function use_text_<?php echo $func; ?>(img) {
         + '<noscript><a href="http://www.youtube.com/watch?v='+ videoid + '"></a></noscript>'
         + "\n";
 
+    if (youtube_iframe) {
+        img = "\n" + '<div class="youtube_player youtube_player_iframe"><iframe allow="encrypted-media" frameborder="0" height="' + youtube_height + '" src="https://www.youtube-nocookie.com/embed/' + videoid + '" width="' + youtube_width + '"><' + '/iframe></div>';
+    }
+    
     if(typeof(CKEDITOR) != 'undefined') {
         var oEditor = CKEDITOR.instances['<?php echo $cke_txtarea; ?>'];
         oEditor.insertHtml(img);

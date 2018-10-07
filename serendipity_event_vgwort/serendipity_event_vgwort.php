@@ -16,7 +16,7 @@ class serendipity_event_vgwort extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_VGWORT_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda');
-        $propbag->add('version',       '0.3');
+        $propbag->add('version',       '0.3.1');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1'
         ));
@@ -77,11 +77,14 @@ class serendipity_event_vgwort extends serendipity_event {
         $csv = explode(";Zählmarke für HTML Texte;Zählmarke für HTML Texte - SSL (https://...);Zählmarke für Dokumente (erlaubte Formate: PDF, ePub);Zählmarke für Dokumente (erlaubte Formate: PDF, ePub) - SSL (https://...)", $csv);
         $entries = $this->markableEntries();
         foreach ($csv as $csvline) {
+            // we have to remvoe newlines here, because the CSV currently contains newlines where there should be none,
+            // which trips up the selection via array indexes selection below
+            $csvline = str_replace(array("\n", "\r"), '', $csvline);
             $csvline = explode(';', $csvline);
             if (strpos($csvline[1], 'img') !== false) {
                 preg_match('@.*/na/(.*?)"@', $csvline[1], $counterPublic);
                 $counterPublic = $counterPublic[1];
-                $counterPrivate = $csvline[4];
+                $counterPrivate = $csvline[6];
                 $entryId = array_pop($entries);
                 $this->storeCounter($entryId, $counterPublic, $counterPrivate);
             }
@@ -269,7 +272,7 @@ class serendipity_event_vgwort extends serendipity_event {
                     return true;
                     break;
                 case 'frontend_fetchentries':
-                    if (IN_serendipity_admin && (! empty($serendipity['GET']['filter']['body']))) {
+                    if ((defined('IN_serendipity_admin') && IN_serendipity_admin === true) && (! empty($serendipity['GET']['filter']['body']))) {
                         $join = " LEFT OUTER JOIN {$serendipity['dbPrefix']}vgwort
                                 ON e.id = {$serendipity['dbPrefix']}vgwort.entry_id ";
                         $term = serendipity_db_escape_string($serendipity['GET']['filter']['body']);

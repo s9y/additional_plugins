@@ -306,6 +306,15 @@
 <guid isPermaLink="false">serendipity_event_spamblock_bee</guid>
 </item>
 <item>
+<title>PLUGIN_EVENT_VGWORT_NAME: PLUGIN_EVENT_VGWORT_DESC</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_vgwort</link>
+<category>Event Plugins</category>
+<author>Malte Paskuda</author>
+<content:encoded>&lt;b&gt;serendipity_event_vgwort&lt;br /&gt;PLUGIN_EVENT_VGWORT_NAME&lt;/b&gt;&lt;br /&gt;PLUGIN_EVENT_VGWORT_DESC&lt;br/&gt;For: Serendipity 2.1</content:encoded>
+<pubDate>Sun, 07 Oct 2018 22:33:39 +0200</pubDate>
+<guid isPermaLink="false">serendipity_event_vgwort</guid>
+</item>
+<item>
 <title>LJ/MySpace 更新プラグイン: ライブジャーナル/MySpace へ XMLRPC を使用して投稿します。</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_ljupdate</link>
 <category>Event Plugins</category>

@@ -2082,6 +2082,36 @@ aplikovány další typografické úpravy.</description>
 </release>
 </package>
 <package version="1.0">
+<name>serendipity_event_vgwort</name>
+<license>GPL</license>
+<summary>PLUGIN_EVENT_VGWORT_NAME</summary>
+<groups>MARKUP</groups>
+<description>PLUGIN_EVENT_VGWORT_DESC</description>
+<maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>0.3.1</version>
+  <requirements:s9yVersion>2.1</requirements:s9yVersion>
+  <date>2018-10-07</date>
+  <filelist>
+<dir name="serendipity_event_vgwort">
+<dir name="UTF-8">
+<file>lang_de.inc.php</file>
+<file>lang_en.inc.php</file>
+</dir>
+<file>serendipity_event_vgwort.php</file>
+<file>vgwortMenu.tpl</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>serendipity_event_vgwort/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_vgwort/UTF-8/lang_en.inc.php</file>
+    <file>serendipity_event_vgwort/serendipity_event_vgwort.php</file>
+    <file>serendipity_event_vgwort/vgwortMenu.tpl</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
 <name>serendipity_event_ljupdate</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_ljupdate/ChangeLog</changelog>
 <license>GPL</license>

@@ -16,7 +16,7 @@ class serendipity_event_vgwort extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_VGWORT_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda');
-        $propbag->add('version',       '0.3.1');
+        $propbag->add('version',       '0.3.2');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1'
         ));
@@ -229,7 +229,7 @@ class serendipity_event_vgwort extends serendipity_event {
                     $eventData['info_more'] = '<section class="vgwort">
                         <span>Length: ' . $this->entryLength($eventData['id']) . '</span>';
 
-                    if ($counter['counter_public']) {
+                    if (is_array($counter) && $counter['counter_public']) {
                         $eventData['info_more'] .='<span>Zählmarke: ' . $counter['counter_public'] . '</span>
                         <span>Identifikationscode: ' . $counter['counter_private'] . '</span>';
                     }

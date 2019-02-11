@@ -2088,9 +2088,9 @@
 <description>PLUGIN_EVENT_VGWORT_DESC</description>
 <maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.3.1</version>
+  <version>0.3.2</version>
   <requirements:s9yVersion>2.1</requirements:s9yVersion>
-  <date>2018-10-07</date>
+  <date>2019-02-10</date>
   <filelist>
 <dir name="serendipity_event_vgwort">
 <dir name="UTF-8">

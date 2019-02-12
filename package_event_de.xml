@@ -10484,9 +10484,9 @@
 <description>Ermöglicht Einträge via XML-RPC API zu erstellen/bearbeiten (MT, Blogger, WordPress API-Endpunkte)</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.60</version>
+  <version>1.60.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-05-14</date>
+  <date>2019-02-11</date>
   <filelist>
 <dir name="serendipity_event_xmlrpc">
 <file>serendipity_event_xmlrpc.php</file>

@@ -7,7 +7,7 @@ if (IN_serendipity !== true) {
 
 /** This plugin builds a sitemap.xml according to sitemap.org's defintion of the
   * "Sitemap XML format" Version 0.9 after every save and publish.
-  * See https://www.sitemaps.org/protocol.html for details
+  * See http://www.sitemaps.org/protocol.html for details
   * 
   */
 
@@ -30,7 +30,7 @@ class serendipity_event_google_sitemap extends serendipity_event {
         $propbag->add('name', PLUGIN_EVENT_SITEMAP_TITLE);
         $propbag->add('description', PLUGIN_EVENT_SITEMAP_DESC);
         $propbag->add('author', 'Boris');
-        $propbag->add('version', '0.58.2');
+        $propbag->add('version', '0.58.3');
         $propbag->add('event_hooks',  array(
                 'backend_publish' => true,
                 'backend_save'    => true,
@@ -56,7 +56,7 @@ class serendipity_event_google_sitemap extends serendipity_event {
                 $propbag->add('type', 'string');
                 $propbag->add('name', PLUGIN_EVENT_SITEMAP_URL);
                 $propbag->add('description', PLUGIN_EVENT_SITEMAP_URL_DESC);
-                $propbag->add('default', 'https://www.google.com/webmasters/tools/ping?sitemap=%s');
+                $propbag->add('default', 'http://www.google.com/webmasters/tools/ping?sitemap=%s;http://submissions.ask.com/ping?sitemap=%s');
             break;
             case 'gzip_sitemap':
                 $propbag->add('type', 'boolean');
@@ -316,7 +316,7 @@ class serendipity_event_google_sitemap extends serendipity_event {
                     '.$serendipity['dbPrefix'].'entries AS entries
                 WHERE entryproperties.property = \'permalink\'
                     AND timestamp < ' . time() . '
-                    AND value NOT LIKE \'%/' . UNKNOWN . '%\'
+                    AND value NOT LIKE \'%/UNKNOWN%\'
                     AND entries.id=entryproperties.entryid',
             false, 'assoc');
 
@@ -694,7 +694,7 @@ class serendipity_event_google_sitemap extends serendipity_event {
         // Walk through the list of pingback-URLs
         echo $basefilename . ':<br />';
         foreach(explode(';', $pingback_url) as $cur_pingback_url) {
-            $pingback_name = PLUGIN_EVENT_SITEMAP_UNKNOWN_HOST;
+            $pingback_name = PLUGIN_EVENT_SITEMAP_UNKNOWN_SERVICE;
             $cur_url = sprintf($cur_pingback_url, rawurlencode($serendipity['baseURL'].$filename));
 
             // extract domain-portion from URL

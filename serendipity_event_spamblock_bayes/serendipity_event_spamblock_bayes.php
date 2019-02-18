@@ -42,7 +42,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '0.5.1' );
+		$propbag->add ( 'version', '0.5.2' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_spamblock_comments_shown' => true,
 		                                     'external_plugin' => true,
@@ -407,7 +407,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 				$new_value [$token] = $stored_values [$token] + $value;
                 if ($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') {
                     $sql = "INSERT INTO
-                        {$serendipity[dbPrefix]}spamblock_bayes
+                        {$serendipity['dbPrefix']}spamblock_bayes
                             (token, $group, type)
                     VALUES('$token', $value, '$type')
                     ON DUPLICATE KEY
@@ -415,7 +415,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                             $group = $group + VALUES($group);";
                 } else {
                     $sql = "UPDATE
-                            {$serendipity[dbPrefix]}spamblock_bayes
+                            {$serendipity['dbPrefix']}spamblock_bayes
                             SET
                                 $group = $group + $value
                             WHERE
@@ -425,7 +425,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 				$new_value [$token] = $value;
                 if ($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') {
                     $sql = "INSERT INTO
-                        {$serendipity[dbPrefix]}spamblock_bayes
+                        {$serendipity['dbPrefix']}spamblock_bayes
                             (token, $group, type)
                     VALUES('$token', $value, '$type')
                     ON DUPLICATE KEY
@@ -433,7 +433,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                             $group = $group + VALUES($group);";
                 } else {
                     $sql = "INSERT INTO
-                                {$serendipity[dbPrefix]}spamblock_bayes
+                                {$serendipity['dbPrefix']}spamblock_bayes
                                     (token, $group, type)
                              VALUES('$token', $value, '$type')";
                 }

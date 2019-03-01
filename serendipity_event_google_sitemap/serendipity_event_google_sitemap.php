@@ -592,20 +592,8 @@ class serendipity_event_google_sitemap extends serendipity_event {
     function write_sitemap($basefilename = 'sitemap.xml', &$eventData, $gnewsmode = false) {
         global $serendipity;
 
-        // start the xml
-        $sitemap_xml  = '<?xml version="1.0" encoding="UTF-8"?>'."\n";
-        $sitemap_xml .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"\n";
-        $sitemap_xml .= "\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n";
-        if ($gnewsmode) {
-            $sitemap_xml .= "\txmlns:news=\"http://www.google.com/schemas/sitemap-news/0.9\"\n";                    
-        }
-        $sitemap_xml .= "\txsi:schemaLocation=\"http://www.sitemaps.org/schemas/sitemap/0.9\n";
-        $sitemap_xml .= "\t\t\thttp://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd\" ";
-        $sitemap_xml .= $this->get_config('custom2');
-        $sitemap_xml .= ">\n";
-
         $this->gnewsmode = false;
-        
+
         // If this variable is enabled, each XML article will get its gnews:... counterpart.
         // This is NOT desired in the usual sitemap!
         if ($gnewsmode) {
@@ -613,6 +601,19 @@ class serendipity_event_google_sitemap extends serendipity_event {
         } elseif (serendipity_db_bool($this->get_config('gnews_single')) && serendipity_db_bool($this->get_config('gnews'))) {
             $this->gnewsmode = true;
         }
+
+        // start the xml
+        $sitemap_xml  = '<?xml version="1.0" encoding="UTF-8"?>'."\n";
+        $sitemap_xml .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"\n";
+        $sitemap_xml .= "\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n";
+        if ($this->gnewsmode) {
+            $sitemap_xml .= "\txmlns:news=\"http://www.google.com/schemas/sitemap-news/0.9\"\n";                    
+        }
+        $sitemap_xml .= "\txsi:schemaLocation=\"http://www.sitemaps.org/schemas/sitemap/0.9\n";
+        $sitemap_xml .= "\t\t\thttp://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd\" ";
+        $sitemap_xml .= $this->get_config('custom2');
+        $sitemap_xml .= ">\n";
+
 
 
         // add link to the main page

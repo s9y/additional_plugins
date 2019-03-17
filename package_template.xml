@@ -932,17 +932,17 @@
 </release>
 </package>
 <package version="1.0">
-<name>Brown Paper (2008-02-14)</name>
+<name>Brown Paper 2 (responsive)</name>
 <template>brownpaper</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
 <description></description>
 <recommended></recommended>
-<maintainers><maintainer><name>Abdussamad Abdurrazzaq</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Abdussamad Abdurrazzaq / Jari Turkia</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>28 April 2006</date>
+  <requirements:s9yVersion>2.0</requirements:s9yVersion>
+  <date>2019-02-26</date>
   <filelist>
 <dir name="brownpaper">
 <dir name="img">
@@ -962,18 +962,26 @@
 <file>br.jpg</file>
 </dir>
 <file>credits.txt</file>
+<file>config.inc.php</file>
 <dir name="UTF-8">
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
 </dir>
 <file>preview_fullsize.jpg</file>
+<file>preview_iframe.tpl</file>
 <file>info.txt</file>
-<file>documentation_cs.html</file>
 <file>style.css</file>
 <file>index.tpl</file>
-<file>documentation_cz.html</file>
 <file>preview.png</file>
 <file>entries.tpl</file>
+<dir name="bootstrap-4.3.1-dist">
+<dir name="css">
+<file>bootstrap.min.css.map</file>
+<file>bootstrap.min.css</file>
+</dir>
+<dir name="js">
+<file>bootstrap.min.js.map</file>
+<file>bootstrap.min.js</file>
+</dir>
+</dir>
 </dir>
 
   </filelist>
@@ -993,16 +1001,18 @@
     <file>brownpaper/img/tl.jpg</file>
     <file>brownpaper/img/br.jpg</file>
     <file>brownpaper/credits.txt</file>
-    <file>brownpaper/UTF-8/documentation_cs.html</file>
-    <file>brownpaper/UTF-8/documentation_cz.html</file>
+    <file>brownpaper/config.inc.php</file>
     <file>brownpaper/preview_fullsize.jpg</file>
+    <file>brownpaper/preview_iframe.tpl</file>
     <file>brownpaper/info.txt</file>
-    <file>brownpaper/documentation_cs.html</file>
     <file>brownpaper/style.css</file>
     <file>brownpaper/index.tpl</file>
-    <file>brownpaper/documentation_cz.html</file>
     <file>brownpaper/preview.png</file>
     <file>brownpaper/entries.tpl</file>
+    <file>brownpaper/bootstrap-4.3.1-dist/css/bootstrap.min.css.map</file>
+    <file>brownpaper/bootstrap-4.3.1-dist/css/bootstrap.min.css</file>
+    <file>brownpaper/bootstrap-4.3.1-dist/js/bootstrap.min.js.map</file>
+    <file>brownpaper/bootstrap-4.3.1-dist/js/bootstrap.min.js</file>
   </serendipityFilelist>
 </release>
 </package>

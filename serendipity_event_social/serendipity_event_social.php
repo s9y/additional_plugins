@@ -16,7 +16,7 @@ class serendipity_event_social extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_SOCIAL_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Matthias Mees, Thomas Hochstein');
-        $propbag->add('version',       '0.13.1');
+        $propbag->add('version',       '0.13.2');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0'
         ));
@@ -66,8 +66,8 @@ class serendipity_event_social extends serendipity_event {
                 $propbag->add('type',           'multiselect');
                 $propbag->add('name',           PLUGIN_EVENT_SOCIAL_SERVICES);
                 $propbag->add('description',    PLUGIN_EVENT_SOCIAL_SERVICES_DESC);
-                $propbag->add('default',        'twitter^facebook^googleplus');
-                $propbag->add('select_values',  array('twitter' => 'twitter', 'facebook' => 'facebook', 'googleplus' => 'googleplus', 'linkedin' => 'linkedin', 'pinterest' => 'pinterest', 'xing' => 'xing', 'whatsapp' => 'whatsapp', 'mail' => 'mail', 'info' => 'info', 'addthis' => 'addthis', 'tumblr' => 'tumblr', 'flattr' => 'flattr', 'diaspora' => 'diaspora', 'reddit' => 'reddit', 'stumbleupon' => 'stumbleupon', 'threema' => 'threema', 'weibo' => 'weibo', 'tencent-weibo' => 'tencent-weibo', 'qzone' => 'qzone', 'print' => 'print', 'telegram' => 'telegram', 'vk' => 'vk', 'flipboard' => 'flipboard'));
+                $propbag->add('default',        'twitter^facebook');
+                $propbag->add('select_values',  array('twitter' => 'twitter', 'facebook' => 'facebook', 'linkedin' => 'linkedin', 'pinterest' => 'pinterest', 'xing' => 'xing', 'whatsapp' => 'whatsapp', 'mail' => 'mail', 'info' => 'info', 'addthis' => 'addthis', 'tumblr' => 'tumblr', 'flattr' => 'flattr', 'diaspora' => 'diaspora', 'reddit' => 'reddit', 'stumbleupon' => 'stumbleupon', 'threema' => 'threema', 'weibo' => 'weibo', 'tencent-weibo' => 'tencent-weibo', 'qzone' => 'qzone', 'print' => 'print', 'telegram' => 'telegram', 'vk' => 'vk', 'flipboard' => 'flipboard'));
                 break;
             case 'theme':
                 $propbag->add('type',           'select');
@@ -113,6 +113,15 @@ class serendipity_event_social extends serendipity_event {
     }
 
 
+    function performConfig(&$bag) {
+        // remove googleplus from config
+        $services = $this->get_config('services');
+        if (strpos($services, 'googleplus') !== false) {
+            $services = preg_replace('/\^?googleplus/', '', $services);
+            $this->set_config('services', $services);
+        }
+    }
+
     function event_hook($event, &$bag, &$eventData, $addData = null) {
         global $serendipity;
 
@@ -140,6 +149,10 @@ class serendipity_event_social extends serendipity_event {
                     $theme = $this->get_config('theme');
                     $lang = $this->get_config('lang', 'en');
                     $services = $this->get_config('services');
+                    # remove googleplus from services
+                    if (strpos($services, 'googleplus') !== false) {
+                        $services = preg_replace('/\^?googleplus/', '', $services);
+                    }
                     $services = '&quot;' . str_replace('^', '&quot;,&quot;', $services) . '&quot;';
                     if (strpos($services, 'info') !== false) {
                         // the info button looks strange if not at the end, hardcode that position

@@ -1493,9 +1493,9 @@
 <description>Show social share buttons for services like Facebook and Twitter using shariff.</description>
 <maintainers><maintainer><name>onli, Matthias Mees, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.13.1</version>
+  <version>0.13.2</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2018-04-30</date>
+  <date>2019-04-05</date>
   <filelist>
 <dir name="serendipity_event_social">
 <file>shariff.min.js</file>

@@ -289,8 +289,8 @@ class serendipity_common_adduser {
         if (!$tfile || $tfile == $filename) {
             $tfile = dirname(__FILE__) . '/' . $filename;
         }
-        $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-        $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
+        $inclusion = $serendipity['smarty']->security_settings['INCLUDE_ANY'];
+        $serendipity['smarty']->security_settings['INCLUDE_ANY'] = true;
         $serendipity['smarty']->display($tfile);
     }
 }

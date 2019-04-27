@@ -31,7 +31,7 @@ class serendipity_event_suggest extends serendipity_event {
                                          ));
         $propbag->add('configuration',   array('permalink', 'pagetitle', 'authorid', 'email'));
         $propbag->add('author',          'Garvin Hicking');
-        $propbag->add('version',         '0.11.2');
+        $propbag->add('version',         '0.11.3');
         $propbag->add('groups',          array('FRONTEND_FEATURES'));
         $propbag->add('requirements',    array(
                                             'serendipity' => '0.9',
@@ -310,10 +310,10 @@ class serendipity_event_suggest extends serendipity_event {
             if (!$tfile) {
                 $tfile = dirname(__FILE__) . '/plugin_suggest.tpl';
             }
-            $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-            $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
+            $inclusion = $serendipity['smarty']->security_settings['INCLUDE_ANY'];
+            $serendipity['smarty']->security_settings['INCLUDE_ANY'] = true;
             $content = $serendipity['smarty']->fetch('file:'. $tfile);
-            $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+            $serendipity['smarty']->security_settings['INCLUDE_ANY'] = $inclusion;
 
             echo $content;
         }

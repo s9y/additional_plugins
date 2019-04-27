@@ -28,7 +28,7 @@ class serendipity_plugin_showentries extends serendipity_plugin {
             'php'         => '4.1.0'
         ));
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',     '1.8.1');
+        $propbag->add('version',     '1.8.2');
         $propbag->add('stackable', true);
         $propbag->add('groups', array('FRONTEND_VIEWS'));
     }
@@ -156,10 +156,10 @@ class serendipity_plugin_showentries extends serendipity_plugin {
         if (!$tfile) {
             $tfile = dirname(__FILE__) . '/plugin_showentries.tpl';
         }
-        $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-        $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
+        $inclusion = $serendipity['smarty']->security_settings['INCLUDE_ANY'];
+        $serendipity['smarty']->security_settings['INCLUDE_ANY'] = true;
         $content = $serendipity['smarty']->fetch('file:'. $tfile);
-        $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+        $serendipity['smarty']->security_settings['INCLUDE_ANY'] = $inclusion;
 
         echo $content;
 

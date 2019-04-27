@@ -97,7 +97,7 @@ class serendipity_event_userprofiles extends serendipity_event {
             'genpage'                                         => true
         ));
         $propbag->add('author', 'Garvin Hicking, Falk Doering');
-        $propbag->add('version', '0.31');
+        $propbag->add('version', '0.31.1');
         $propbag->add('requirements', array(
             'serendipity' => '2.0',
             'smarty'      => '2.6.7',
@@ -309,10 +309,10 @@ class serendipity_event_userprofiles extends serendipity_event {
             if (!$tfile) {
                 $tfile = dirname(__FILE__) . '/plugin_groupmembers.tpl';
             }
-            $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-            $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
+            $inclusion = $serendipity['smarty']->security_settings['INCLUDE_ANY'];
+            $serendipity['smarty']->security_settings['INCLUDE_ANY'] = true;
             $content = $serendipity['smarty']->fetch('file:'. $tfile);
-            $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+            $serendipity['smarty']->security_settings['INCLUDE_ANY'] = $inclusion;
 
             echo $content;
         }
@@ -544,8 +544,8 @@ class serendipity_event_userprofiles extends serendipity_event {
                         if (!$tfile) {
                             $tfile = dirname(__FILE__) . '/plugin_userprofile.tpl';
                         }
-                        $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-                        $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
+                        $inclusion = $serendipity['smarty']->security_settings['INCLUDE_ANY'];
+                        $serendipity['smarty']->security_settings['INCLUDE_ANY'] = true;
                         $profile = $this->getConfigVars($serendipity['GET']['viewAuthor']);
                         $local_properties =& $this->getLocalProperties();
                         foreach($local_properties as $property => $info) {
@@ -565,7 +565,7 @@ class serendipity_event_userprofiles extends serendipity_event {
                         $serendipity['smarty']->assign('userProfileTitle', PLUGIN_EVENT_USERPROFILES_SHOW);
 
                         $content = $serendipity['smarty']->fetch('file:'. $tfile);
-                        $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+                        $serendipity['smarty']->security_settings['INCLUDE_ANY'] = $inclusion;
 
                         echo $content;
                     }

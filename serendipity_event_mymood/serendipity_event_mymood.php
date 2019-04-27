@@ -56,7 +56,7 @@ class serendipity_event_mymood extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.12.0');
+        $propbag->add('version',       '0.12.1');
         $propbag->add('author',       'Brett Profitt, Matthias Mees');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
@@ -552,14 +552,14 @@ class serendipity_event_mymood extends serendipity_event {
         if (!$tfile) {
             $tfile = dirname(__FILE__) . '/plugin_mymood.tpl';
         }
-        $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-        $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
+        $inclusion = $serendipity['smarty']->security_settings['INCLUDE_ANY'];
+        $serendipity['smarty']->security_settings['INCLUDE_ANY'] = true;
         $serendipity['smarty']->assign('plugin_mymood_intro', $this->get_config('intro', ''));
         $serendipity['smarty']->assign('plugin_mymood_location', $this->get_config('location', 'body'));
         $serendipity['smarty']->assign('plugin_mymood_mood_list', $formatted_moods);
         $serendipity['smarty']->assign('plugin_mymood_outro', $this->get_config('outro', ''));
         $content = $serendipity['smarty']->fetch('file:'. $tfile);
-        $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+        $serendipity['smarty']->security_settings['INCLUDE_ANY'] = $inclusion;
 
         return $content;
     }

@@ -107,8 +107,8 @@ echo '</pre>';*/
     if (!$tfile || $tfile == $filename) {
         $tfile = dirname(__FILE__).'/'.$filename;
     }
-    $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-    $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
+    $inclusion = $serendipity['smarty']->security_settings['INCLUDE_ANY'];
+    $serendipity['smarty']->security_settings['INCLUDE_ANY'] = true;
     switch ($params['mf_type']) {
         case 'hReview':
             $serendipity['smarty']->assign(
@@ -158,7 +158,7 @@ echo '</pre>';*/
             break;
     }
     $content = $serendipity['smarty']->fetch('file:'.$tfile);
-    $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+    $serendipity['smarty']->security_settings['INCLUDE_ANY'] = $inclusion;
 
     if (!empty($params['escaped'])) {
         echo serendipity_utf8_encode((function_exists('serendipity_specialchars') ? serendipity_specialchars($content) : htmlspecialchars($content, ENT_COMPAT, LANG_CHARSET)));

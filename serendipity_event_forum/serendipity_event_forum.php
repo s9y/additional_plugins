@@ -53,7 +53,7 @@ class serendipity_event_forum extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.38.3');
+        $propbag->add('version',       '0.38.4');
         $propbag->add('author',       'Alexander \'dma147\' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(
@@ -1934,10 +1934,10 @@ class serendipity_event_forum extends serendipity_event {
         if (!$tfile || $tfile == $filename) {
             $tfile = dirname(__FILE__) . '/' . $filename;
         }
-        $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-        $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
+        $inclusion = $serendipity['smarty']->security_settings['INCLUDE_ANY'];
+        $serendipity['smarty']->security_settings['INCLUDE_ANY'] = true;
         $content = $serendipity['smarty']->fetch('file:'. $tfile);
-        $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+        $serendipity['smarty']->security_settings['INCLUDE_ANY'] = $inclusion;
         echo $content;
     }
 

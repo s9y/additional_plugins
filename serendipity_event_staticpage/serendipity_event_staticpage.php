@@ -90,7 +90,7 @@ class serendipity_event_staticpage extends serendipity_event
         $propbag->add('page_configuration', $this->config);
         $propbag->add('type_configuration', $this->config_types);
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers');
-        $propbag->add('version', '4.15');
+        $propbag->add('version', '4.15.1');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '2.6.7',
@@ -1287,10 +1287,10 @@ class serendipity_event_staticpage extends serendipity_event
         if (!$tfile || $tfile == $filename) {
             $tfile = dirname(__FILE__) . '/' . $filename;
         }
-        $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-        $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
+        $inclusion = $serendipity['smarty']->security_settings['INCLUDE_ANY'];
+        $serendipity['smarty']->security_settings['INCLUDE_ANY'] = true;
         $content = $serendipity['smarty']->fetch('file:'. $tfile);
-        $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+        $serendipity['smarty']->security_settings['INCLUDE_ANY'] = $inclusion;
 
         return $content;
     }
@@ -2557,8 +2557,8 @@ foreach($select AS $select_value => $select_desc) {
                     $tfile = dirname(__FILE__) . '/backend_templates/' . $filename;
                 }
             }
-            $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-            $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
+            $inclusion = $serendipity['smarty']->security_settings['INCLUDE_ANY'];
+            $serendipity['smarty']->security_settings['INCLUDE_ANY'] = true;
             $serendipity['smarty']->assign(
                 array(
                     'showmeta'       => serendipity_db_bool($this->get_config('showmeta')),
@@ -2570,7 +2570,7 @@ foreach($select AS $select_value => $select_desc) {
                 )
             );
             $content = $serendipity['smarty']->fetch('file:'. $tfile);
-            $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+            $serendipity['smarty']->security_settings['INCLUDE_ANY'] = $inclusion;
 
             echo $content;
             return true;

@@ -30,7 +30,7 @@ class serendipity_event_relatedlinks extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.8.1');
+        $propbag->add('version',       '1.8.2');
         $propbag->add('event_hooks',    array(
             'frontend_display:html:per_entry'                   => true,
             'backend_publish'                                   => true,
@@ -175,14 +175,14 @@ class serendipity_event_relatedlinks extends serendipity_event
                     if (!$tfile) {
                         $tfile = dirname(__FILE__) . '/plugin_relatedlinks.tpl';
                     }
-                    $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-                    $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
+                    $inclusion = $serendipity['smarty']->security_settings['INCLUDE_ANY'];
+                    $serendipity['smarty']->security_settings['INCLUDE_ANY'] = true;
                     $content = $serendipity['smarty']->fetch('file:'. $tfile);
                     if (count($html_links) < 1) {
                         $content = true;
                     }
 
-                    $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+                    $serendipity['smarty']->security_settings['INCLUDE_ANY'] = $inclusion;
 
                     if (!empty($content)) {
                         $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = ". (int)$eventData['id'] . " AND (property = 'relatedentries' OR property = 'post_relatedentries')";

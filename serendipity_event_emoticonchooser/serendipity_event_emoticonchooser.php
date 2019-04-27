@@ -158,7 +158,7 @@ class serendipity_event_emoticonchooser extends serendipity_event
                     // the actual plugin:
                     $plugins = serendipity_plugin_api::get_event_plugins();
                     $emoticate_plugin = null;
-                    while(list($plugin, $plugin_data) = each($plugins)) {
+                    foreach ($plugins as $plugin => $plugin_data) {
                         if (strpos($plugin, 'serendipity_event_emoticate') !== FALSE) {
                             $emoticate_plugin =& $plugin_data['p'];
                             break;
@@ -178,7 +178,7 @@ class serendipity_event_emoticonchooser extends serendipity_event
                         $unique[$value] = $key;
                     }
                     // script include has to stick to to backend_header, while using inline onclick (see above)
-                    if (IN_serendipity_admin === true) {
+                    if (defined('IN_serendipity_admin') && IN_serendipity_admin === true) {
 ?>
 <div class="serendipity_emoticon_bar">
     <script type="text/javascript">

@@ -18,6 +18,7 @@ class serendipity_plugin_topreferers extends serendipity_plugin {
     function introspect(&$propbag) {
         $propbag->add('name',        PLUGIN_TOPREFERERS_TITLE);
         $propbag->add('description', SHOWS_TOP_SITES);
+        $propbag->add('author',        'Serendipity Team');
         $propbag->add('configuration', array('title', 'limit', 'daylimit', 'use_links', 'filter_out'));
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',

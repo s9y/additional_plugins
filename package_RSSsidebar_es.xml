@@ -117,21 +117,12 @@
 <guid isPermaLink="false">serendipity_plugin_socialbookmarks</guid>
 </item>
 <item>
-<title>Sitios asociados: Muestra los sitios que enlazan a tu weblog</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_topreferrers</link>
-<category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_topreferrers&lt;br /&gt;Sitios asociados&lt;/b&gt;&lt;br /&gt;Muestra los sitios que enlazan a tu weblog&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:13:01 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_topreferrers</guid>
-</item>
-<item>
 <title>Show Entries in sidebar: Shows entries of special categories in your sidebar. Good for Sidebar Moblogging!</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_showentries</link>
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_showentries&lt;br /&gt;Show Entries in sidebar&lt;/b&gt;&lt;br /&gt;Shows entries of special categories in your sidebar. Good for Sidebar Moblogging!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:13:00 +0100</pubDate>
+<pubDate>Sat, 27 Apr 2019 22:32:25 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_showentries</guid>
 </item>
 <item>
@@ -437,7 +428,7 @@
 <category>Sidebar Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_topreferers&lt;br /&gt;Top Referers&lt;/b&gt;&lt;br /&gt;Muestra los sitios que enlazan a tu weblog&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:13:00 +0100</pubDate>
+<pubDate>Sat, 27 Apr 2019 22:32:25 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_topreferers</guid>
 </item>
 <item>

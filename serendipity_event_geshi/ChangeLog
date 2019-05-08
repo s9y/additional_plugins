@@ -1,1 +1,3 @@
+0.9.9: Fix constructor for compatibility with PHP7.2
+
 0.7: Upgrade to Geshi 1.0.8.1

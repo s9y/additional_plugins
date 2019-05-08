@@ -588,7 +588,9 @@ class GeSHi {
      *               {@link GeSHi->set_language_path()}
      * @since 1.0.0
      */
-    function GeSHi($source = '', $language = '', $path = '') {
+
+    function __construct($source = '', $language = '', $path = '') {
+
         if (!empty($source)) {
             $this->set_source($source);
         }
@@ -597,6 +599,12 @@ class GeSHi {
         }
         $this->set_language_path($path);
     }
+
+
+    function GeSHi($source = '', $language = '', $path = '') {
+        self::__construct($source, $language, $path);
+    }
+
 
     /**
      * Returns an error message associated with the last GeSHi operation,

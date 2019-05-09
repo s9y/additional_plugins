@@ -833,7 +833,7 @@
 <category>Event Plugins</category>
 <author>David Rolston</author>
 <content:encoded>&lt;b&gt;serendipity_event_geshi&lt;br /&gt;Textformatierung: GeSHi&lt;/b&gt;&lt;br /&gt;Computer Language Color Syntax Highlighting. Benutzen Sie das Tag [geshi lang=php][/geshi]&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:45 +0200</pubDate>
+<pubDate>Wed, 08 May 2019 22:31:22 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_geshi</guid>
 </item>
 <item>

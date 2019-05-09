@@ -7122,9 +7122,9 @@
 <description>Computer Language Color Syntax Highlighting. Benutzen Sie das Tag [geshi lang=php][/geshi]</description>
 <maintainers><maintainer><name>David Rolston</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.9</version>
+  <version>0.9.9</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2019-05-08</date>
   <filelist>
 <dir name="serendipity_event_geshi">
 <file>lang_de.inc.php</file>

@@ -833,7 +833,7 @@
 <category>Event Plugins</category>
 <author>David Rolston</author>
 <content:encoded>&lt;b&gt;serendipity_event_geshi&lt;br /&gt;Форматиране на текст: GeSHi&lt;/b&gt;&lt;br /&gt;Синтактично оцветяване на програмни текстове. Приложение: [geshi lang=lang_name [,ln={y|n}]] програмен текст (без HTML) [/geshi]. Поддържани езици: actionscript, ada, apache, asm, asp, bash, c, c_mac, caddcl, cadlisp, cpp, csharp (C#), css, delphi, html4strict, java, javascript, lisp, lua, mpasm, nsis, objc, oobas, oracle8, pascal, perl, php, python, qbasic, smarty, vb, vbnet, visualfoxpro, xml&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Wed, 08 May 2019 22:31:22 +0200</pubDate>
+<pubDate>Thu, 09 May 2019 22:31:09 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_geshi</guid>
 </item>
 <item>

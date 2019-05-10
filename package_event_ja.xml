@@ -7123,9 +7123,9 @@
 <description>Computer Language Color Syntax Highlighting. Tag usage: [geshi lang=lang_name [,ln={y|n}]]code snippet[/geshi]</description>
 <maintainers><maintainer><name>David Rolston</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.9.9</version>
+  <version>1.0</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2019-05-08</date>
+  <date>2019-05-09</date>
   <filelist>
 <dir name="serendipity_event_geshi">
 <file>lang_de.inc.php</file>

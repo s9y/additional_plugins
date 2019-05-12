@@ -8551,9 +8551,9 @@ aplikovány další typografické úpravy.</description>
 <description>Zobrazí lištu se smajlíky, které je možné vložit do textu příspěvku nebo komentáře.</description>
 <maintainers><maintainer><name>Garvin Hicking, Jay Bertrandt, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.11</version>
+  <version>2.12</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2019-05-11</date>
   <filelist>
 <dir name="serendipity_event_emoticonchooser">
 <file>lang_ja.inc.php</file>

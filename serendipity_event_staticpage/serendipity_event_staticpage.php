@@ -90,7 +90,7 @@ class serendipity_event_staticpage extends serendipity_event
         $propbag->add('page_configuration', $this->config);
         $propbag->add('type_configuration', $this->config_types);
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers');
-        $propbag->add('version', '4.15.1');
+        $propbag->add('version', '4.15.2');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '2.6.7',
@@ -2435,7 +2435,7 @@ foreach($select AS $select_value => $select_desc) {
         }
     }
 
-    function SmartyInspectConfig($params, &$smarty) {
+    function SmartyInspectConfig($params, $smarty) {
         static $elcount = 0;
         global $serendipity;
 
@@ -2484,7 +2484,7 @@ foreach($select AS $select_value => $select_desc) {
         return $out;
     }
 
-    function SmartyInspectConfigFinish($params, &$smarty) {
+    function SmartyInspectConfigFinish($params, $smarty) {
         global $serendipity;
 
         ob_start();

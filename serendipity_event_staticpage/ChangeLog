@@ -1,3 +1,5 @@
+4.15.2: Fix smarty reference.
+
 4.15.1: Fix deprecated use of undefined constant INCLUDE_ANY
 
 4.15: Override content message when 404 view is taken over by this plugin

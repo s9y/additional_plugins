@@ -1017,7 +1017,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers</author>
 <content:encoded>&lt;b&gt;serendipity_event_staticpage&lt;br /&gt;静的ページ&lt;/b&gt;&lt;br /&gt;デザインとすべての書式化されたブログとウェブログ内部に静的ページを表示します。管理インターフェースに新しいメニューを追加します。&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Sat, 27 Apr 2019 22:32:25 +0200</pubDate>
+<pubDate>Mon, 13 May 2019 22:31:29 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_staticpage</guid>
 </item>
 <item>

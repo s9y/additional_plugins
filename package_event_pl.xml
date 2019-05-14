@@ -9055,9 +9055,9 @@
 <description>Pokazuje Strony statyczne w Twoim blogu tak, jak pokazywane są wszystkie inne wpisy (z zachowaniem formatowania i layoutu). Dodaje nową zakładkę w menu w Panelu administracyjnym.</description>
 <maintainers><maintainer><name>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>4.15.1</version>
+  <version>4.15.2</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2019-05-13</date>
   <filelist>
 <dir name="serendipity_event_staticpage">
 <dir name="img">

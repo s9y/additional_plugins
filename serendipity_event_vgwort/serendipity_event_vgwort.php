@@ -46,8 +46,8 @@ class serendipity_event_vgwort extends serendipity_event {
         global $serendipity;
         $sql = "CREATE TABLE  IF NOT EXISTS {$serendipity['dbPrefix']}vgwort (
                     entry_id INTEGER,
-                    counter_public TEXT UNIQUE NOT NULL,
-                    counter_private TEXT UNIQUE NOT NULL);";
+                    counter_public VARCHAR(32) UNIQUE NOT NULL,
+                    counter_private VARCHAR(32) UNIQUE NOT NULL);";
         serendipity_db_schema_import($sql);
     }
 

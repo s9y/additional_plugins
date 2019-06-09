@@ -4,13 +4,15 @@
  * ----------
  * Author: Roberto Rossi (rsoftware@altervista.org)
  * Copyright: (c) 2004 Roberto Rossi (http://rsoftware.altervista.org), Nigel McNie (http://qbnz.com/highlighter)
- * Release Version: 1.0.8.1
+ * Release Version: 1.0.9.0
  * Date Started: 2004/08/30
  *
  * Python language file for GeSHi.
  *
  * CHANGES
  * -------
+ * 2008/12/18
+ *  -  Added missing functions and keywords. Also added two new Python 3.0 types. SF#2441839
  * 2005/05/26
  *  -  Modifications by Tim (tim@skreak.com): added more keyword categories, tweaked colors
  * 2004/11/27 (1.0.1)
@@ -47,8 +49,13 @@ $language_data = array (
     'COMMENT_MULTI' => array(),
     'CASE_KEYWORDS' => GESHI_CAPS_NO_CHANGE,
     //Longest quotemarks ALWAYS first
-    'QUOTEMARKS' => array('"""', '"', "'"),
+    'QUOTEMARKS' => array('"""', "'''", '"', "'"),
     'ESCAPE_CHAR' => '\\',
+    'NUMBERS' =>
+        GESHI_NUMBER_INT_BASIC | GESHI_NUMBER_BIN_PREFIX_0B |
+        GESHI_NUMBER_OCT_PREFIX_0O | GESHI_NUMBER_HEX_PREFIX |
+        GESHI_NUMBER_FLT_NONSCI | GESHI_NUMBER_FLT_NONSCI_F |
+        GESHI_NUMBER_FLT_SCI_SHORT | GESHI_NUMBER_FLT_SCI_ZERO,
     'KEYWORDS' => array(
 
         /*
@@ -58,7 +65,7 @@ $language_data = array (
         1 => array(
             'and', 'del', 'for', 'is', 'raise', 'assert', 'elif', 'from', 'lambda', 'return', 'break',
             'else', 'global', 'not', 'try', 'class', 'except', 'if', 'or', 'while', 'continue', 'exec',
-            'import', 'pass', 'yield', 'def', 'finally', 'in', 'print'
+            'import', 'pass', 'yield', 'def', 'finally', 'in', 'print', 'with', 'as', 'nonlocal'
             ),
 
         /*
@@ -87,7 +94,9 @@ $language_data = array (
             'UserWarning', 'DeprecationWarning', 'PendingDeprecationWarning', 'SyntaxWarning',
             'RuntimeWarning', 'FutureWarning',
             // self: this is a common python convention (but not a reserved word)
-            'self'
+            'self',
+            // other
+            'any', 'all'
             ),
 
         /*
@@ -124,7 +133,9 @@ $language_data = array (
             'tokenize', 'traceback', 'tty', 'turtle', 'types', 'unicodedata', 'unittest', 'urllib2',
             'urllib', 'urlparse', 'user', 'UserDict', 'UserList', 'UserString', 'uu', 'warnings',
             'wave', 'weakref', 'webbrowser', 'whichdb', 'whrandom', 'winsound', 'xdrlib', 'xml',
-            'xmllib', 'xmlrpclib', 'zipfile', 'zipimport', 'zlib'
+            'xmllib', 'xmlrpclib', 'zipfile', 'zipimport', 'zlib',
+            // Python 3.0
+            'bytes', 'bytearray'
             ),
 
         /*
@@ -166,7 +177,9 @@ $language_data = array (
             )
         ),
     'SYMBOLS' => array(
-            '(', ')', '[', ']', '{', '}', '*', '&', '%', '!', ';', '<', '>', '?', '`'
+        '<', '>', '=', '!', '<=', '>=',             //·comparison·operators
+        '~', '@',                                   //·unary·operators
+        ';', ','                                    //·statement·separator
         ),
     'CASE_SENSITIVE' => array(
         GESHI_COMMENTS => false,
@@ -227,5 +240,3 @@ $language_data = array (
     'HIGHLIGHT_STRICT_BLOCK' => array(
         )
 );
-
-?>

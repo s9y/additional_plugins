@@ -78,9 +78,9 @@ class serendipity_event_geshi extends serendipity_event
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
-            'php'         => '4.1.0'
+            'php'         => '7.0'
         ));
-        $propbag->add('version',       '1.0');
+        $propbag->add('version',       '1.1');
         $propbag->add('event_hooks', array('frontend_display' => true, 'frontend_comment' => true));
         $propbag->add('groups', array('MARKUP'));
 

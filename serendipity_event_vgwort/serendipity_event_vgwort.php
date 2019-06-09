@@ -143,7 +143,7 @@ class serendipity_event_vgwort extends serendipity_event {
     function getCounter($entry_id) {
         global $serendipity;
         $sql = "SELECT counter_public, counter_private FROM {$serendipity['dbPrefix']}vgwort
-                WHERE entry_id == " . (int) $entry_id;
+                WHERE entry_id = " . (int) $entry_id;
         return serendipity_db_query($sql, false);
     }
 

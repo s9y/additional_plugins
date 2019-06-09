@@ -1,6 +1,6 @@
 <?php
 
-@define('PLUGIN_EVENT_VGWORT_NAME', 'VG Wort (unofficial)');
+@define('PLUGIN_EVENT_VGWORT_NAME', 'VG Wort');
 @define('PLUGIN_EVENT_VGWORT_DESC', 'Integrate VG Wort counters into your blog.');
 @define('PLUGIN_EVENT_VGWORT_TPL_TITLE', 'VG Wort counter codes');
 @define('PLUGIN_EVENT_VGWORT_TPL_IMPORT', 'Import a new CSV with counter codes from');

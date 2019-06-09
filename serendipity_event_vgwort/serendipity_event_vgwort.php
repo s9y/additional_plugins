@@ -61,7 +61,7 @@ class serendipity_event_vgwort extends serendipity_event {
         $entry = array_values($entry)[0]['entries'][0];
         $fullEntry = $entry['body'];
         if (! empty($entry['extended'])) {
-            $fullEntry += $entry['extended'];
+            $fullEntry .= $entry['extended'];
         }
         
         $rawEntry = strip_tags($fullEntry);
@@ -233,7 +233,7 @@ class serendipity_event_vgwort extends serendipity_event {
                         $eventData['info_more'] .='<span>' . PLUGIN_EVENT_VGWORT_COUNTERCODE . ': ' . $counter['counter_public'] . '</span>
                         <span>' . PLUGIN_EVENT_VGWORT_PRIVATECODE . ': ' . $counter['counter_private'] . '</span>';
                     }
-                        
+
                     $eventData['info_more'] .= '</section>';
                     return true;
                     break;

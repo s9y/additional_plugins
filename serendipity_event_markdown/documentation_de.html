@@ -147,6 +147,12 @@ von <i>PHP-Markdown</i> voraus!</strong></p>
 
 <h2 id="notes">Hinweise</h2>
 
+<h3>Plugin-Reihenfolge</h3>
+
+<p>Das Markdown-Plugin sollte auf jeden Fall <strong>nach dem GeSHi-Plugin</strong>
+(<code>serendipity_event_geshi</code>) platziert werden, , aber vor allen Plugins,
+die als Eingabe HTML erwarten.</p>
+
 <h3><i>CSS</i> für Fußnoten</h3>
 
 <p>Für die Formatierung von Fußnotenzeichen und Fußnoten erzeugt das Plugin folgendes <i>CSS</i>:</p>

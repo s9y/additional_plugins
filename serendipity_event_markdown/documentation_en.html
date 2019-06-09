@@ -142,6 +142,12 @@ punctuation characters into "smart" typographic punctuation HTML entities.</p>
 
 <h2 id="notes">Notes</h2>
 
+<h3>Plugin ordering</h3>
+
+<p>The Markdown plugin should always be placed <strong>after the GeSHi-Plugin</strong>
+(<code>serendipity_event_geshi</code>), but before all plugins that expect HTML
+as their input.</p>
+
 <h3><i>CSS</i> for footnotes</h3>
 
 <p>The plugin will add some <i>CSS</i> to style footnotes and footnote markers:</p>

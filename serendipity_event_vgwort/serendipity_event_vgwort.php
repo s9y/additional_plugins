@@ -16,7 +16,7 @@ class serendipity_event_vgwort extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_VGWORT_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda');
-        $propbag->add('version',       '0.3.2');
+        $propbag->add('version',       '0.4');
         $propbag->add('requirements',  array(
             'serendipity' => '2.2.1'
         ));

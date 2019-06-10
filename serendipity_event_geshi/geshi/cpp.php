@@ -7,13 +7,15 @@
  *  - M. Uli Kusterer (witness.of.teachtext@gmx.net)
  *  - Jack Lloyd (lloyd@randombit.net)
  * Copyright: (c) 2004 Dennis Bayer, Nigel McNie (http://qbnz.com/highlighter)
- * Release Version: 1.0.8.1
+ * Release Version: 1.0.9.0
  * Date Started: 2004/09/27
  *
  * C++ language file for GeSHi.
  *
  * CHANGES
  * -------
+ * 2013/11/06
+ *  -  Added nullptr from c++11 & others
  * 2008/05/23 (1.0.7.22)
  *  -  Added description of extra language features (SF#1970248)
  * 2004/XX/XX (1.0.2)
@@ -52,11 +54,31 @@ $language_data = array (
     'LANG_NAME' => 'C++',
     'COMMENT_SINGLE' => array(1 => '//', 2 => '#'),
     'COMMENT_MULTI' => array('/*' => '*/'),
-    //Multiline-continued single-line comments
-    'COMMENT_REGEXP' => array(1 => '/\/\/(?:\\\\\\\\|\\\\\\n|.)*$/m'),
+    'COMMENT_REGEXP' => array(
+        //Multiline-continued single-line comments
+        1 => '/\/\/(?:\\\\\\\\|\\\\\\n|.)*$/m',
+        //Multiline-continued preprocessor define
+        2 => '/#(?:\\\\\\\\|\\\\\\n|.)*$/m',
+        //C++ 11 string literal extensions
+        3 => '/(?:L|u8?|U)(?=")/',
+        //C++ 11 string literal extensions (raw)
+        4 => '/R"([^()\s\\\\]*)\((?:(?!\)\\1").)*\)\\1"/ms'
+        ),
     'CASE_KEYWORDS' => GESHI_CAPS_NO_CHANGE,
     'QUOTEMARKS' => array("'", '"'),
-    'ESCAPE_CHAR' => '\\',
+    'ESCAPE_CHAR' => '',
+    'ESCAPE_REGEXP' => array(
+        //Simple Single Char Escapes
+        1 => "#\\\\[abfnrtv\\\'\"?\n]#",
+        //Hexadecimal Char Specs
+        2 => "#\\\\x[\da-fA-F]{2}#",
+        //Hexadecimal Char Specs
+        3 => "#\\\\u[\da-fA-F]{4}#",
+        //Hexadecimal Char Specs
+        4 => "#\\\\U[\da-fA-F]{8}#",
+        //Octal Char Specs
+        5 => "#\\\\[0-7]{1,3}#"
+        ),
     'NUMBERS' =>
         GESHI_NUMBER_INT_BASIC | GESHI_NUMBER_INT_CSTYLE | GESHI_NUMBER_BIN_PREFIX_0B |
         GESHI_NUMBER_OCT_PREFIX | GESHI_NUMBER_HEX_PREFIX | GESHI_NUMBER_FLT_NONSCI |
@@ -81,10 +103,13 @@ $language_data = array (
             'EXIT_FAILURE', 'EXIT_SUCCESS', 'RAND_MAX', 'CLOCKS_PER_SEC',
             'virtual', 'public', 'private', 'protected', 'template', 'using', 'namespace',
             'try', 'catch', 'inline', 'dynamic_cast', 'const_cast', 'reinterpret_cast',
-            'static_cast', 'explicit', 'friend', 'wchar_t', 'typename', 'typeid', 'class'
+            'static_cast', 'explicit', 'friend', 'typename', 'typeid', 'class', 'nullptr',
+            'decltype', 'override', 'final', 'noexcept', 'alignas', 'alignof', 'noreturn',
+            'constexpr', 'and', 'and_eq', 'asm', 'bitand', 'bitor', 'thread_local',
+            'static_assert', 'compl', 'or', 'or_eq', 'xor', 'xor_eq', 'not', 'not_eq'
             ),
         3 => array(
-            'cin', 'cerr', 'clog', 'cout', 'delete', 'new', 'this',
+            'cin', 'cerr', 'clog', 'cout', 'delete', 'new', 'this', 'export',
             'printf', 'fprintf', 'snprintf', 'sprintf', 'assert',
             'isalnum', 'isalpha', 'isdigit', 'iscntrl', 'isgraph', 'islower', 'isprint',
             'ispunct', 'isspace', 'isupper', 'isxdigit', 'tolower', 'toupper',
@@ -106,11 +131,26 @@ $language_data = array (
             'asctime', 'ctime', 'gmtime', 'localtime', 'strftime'
             ),
         4 => array(
-            'auto', 'bool', 'char', 'const', 'double', 'float', 'int', 'long', 'longint',
-            'register', 'short', 'shortint', 'signed', 'static', 'struct',
-            'typedef', 'union', 'unsigned', 'void', 'volatile', 'extern', 'jmp_buf',
-            'signal', 'raise', 'va_list', 'ptrdiff_t', 'size_t', 'FILE', 'fpos_t',
-            'div_t', 'ldiv_t', 'clock_t', 'time_t', 'tm',
+            'auto', 'bool', 'char', 'char16_t', 'char32_t', 'const', 'double', 'float',
+            'int', 'long', 'longint','register', 'short', 'shortint', 'signed',
+            'static', 'struct', 'typedef', 'union', 'unsigned', 'void', 'volatile',
+            'extern', 'jmp_buf','signal', 'raise', 'va_list', 'ptrdiff_t', 'size_t',
+            'FILE', 'fpos_t', 'div_t', 'ldiv_t', 'clock_t', 'time_t', 'tm', 'wchar_t',
+            'mutable',
+
+            'int8', 'int16', 'int32', 'int64',
+            'uint8', 'uint16', 'uint32', 'uint64',
+
+            'int_fast8_t', 'int_fast16_t', 'int_fast32_t', 'int_fast64_t',
+            'uint_fast8_t', 'uint_fast16_t', 'uint_fast32_t', 'uint_fast64_t',
+
+            'int_least8_t', 'int_least16_t', 'int_least32_t', 'int_least64_t',
+            'uint_least8_t', 'uint_least16_t', 'uint_least32_t', 'uint_least64_t',
+
+            'int8_t', 'int16_t', 'int32_t', 'int64_t',
+            'uint8_t', 'uint16_t', 'uint32_t', 'uint64_t',
+
+            'intmax_t', 'uintmax_t', 'intptr_t', 'uintptr_t'
             ),
         ),
     'SYMBOLS' => array(
@@ -122,10 +162,10 @@ $language_data = array (
         ),
     'CASE_SENSITIVE' => array(
         GESHI_COMMENTS => false,
-        1 => false,
-        2 => false,
-        3 => false,
-        4 => false,
+        1 => true,
+        2 => true,
+        3 => true,
+        4 => true,
         ),
     'STYLES' => array(
         'KEYWORDS' => array(
@@ -137,10 +177,18 @@ $language_data = array (
         'COMMENTS' => array(
             1 => 'color: #666666;',
             2 => 'color: #339900;',
+            3 => 'color: #FF0000;',
+            4 => 'color: #FF0000;',
             'MULTI' => 'color: #ff0000; font-style: italic;'
             ),
         'ESCAPE_CHAR' => array(
-            0 => 'color: #666666; font-weight: bold;'
+            0 => 'color: #000099; font-weight: bold;',
+            1 => 'color: #000099; font-weight: bold;',
+            2 => 'color: #660099; font-weight: bold;',
+            3 => 'color: #660099; font-weight: bold;',
+            4 => 'color: #660099; font-weight: bold;',
+            5 => 'color: #006699; font-weight: bold;',
+            'HARD' => '',
             ),
         'BRACKETS' => array(
             0 => 'color: #008000;'
@@ -200,5 +248,3 @@ $language_data = array (
         )
     )
 );
-
-?>

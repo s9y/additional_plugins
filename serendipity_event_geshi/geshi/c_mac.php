@@ -4,7 +4,7 @@
  * ---------
  * Author: M. Uli Kusterer (witness.of.teachtext@gmx.net)
  * Copyright: (c) 2004 M. Uli Kusterer, Nigel McNie (http://qbnz.com/highlighter/)
- * Release Version: 1.0.8.1
+ * Release Version: 1.0.9.0
  * Date Started: 2004/06/04
  *
  * C for Macs language file for GeSHi.
@@ -43,11 +43,27 @@ $language_data = array (
     'LANG_NAME' => 'C (Mac)',
     'COMMENT_SINGLE' => array(1 => '//', 2 => '#'),
     'COMMENT_MULTI' => array('/*' => '*/'),
-    //Multiline-continued single-line comments
-    'COMMENT_REGEXP' => array(1 => '/\/\/(?:\\\\\\\\|\\\\\\n|.)*$/m'),
+    'COMMENT_REGEXP' => array(
+        //Multiline-continued single-line comments
+        1 => '/\/\/(?:\\\\\\\\|\\\\\\n|.)*$/m',
+        //Multiline-continued preprocessor define
+        2 => '/#(?:\\\\\\\\|\\\\\\n|.)*$/m'
+        ),
     'CASE_KEYWORDS' => GESHI_CAPS_NO_CHANGE,
     'QUOTEMARKS' => array("'", '"'),
-    'ESCAPE_CHAR' => '\\',
+    'ESCAPE_CHAR' => '',
+    'ESCAPE_REGEXP' => array(
+        //Simple Single Char Escapes
+        1 => "#\\\\[\\\\abfnrtv\'\"?\n]#i",
+        //Hexadecimal Char Specs
+        2 => "#\\\\x[\da-fA-F]{2}#",
+        //Hexadecimal Char Specs
+        3 => "#\\\\u[\da-fA-F]{4}#",
+        //Hexadecimal Char Specs
+        4 => "#\\\\U[\da-fA-F]{8}#",
+        //Octal Char Specs
+        5 => "#\\\\[0-7]{1,3}#"
+        ),
     'NUMBERS' =>
         GESHI_NUMBER_INT_BASIC | GESHI_NUMBER_INT_CSTYLE | GESHI_NUMBER_BIN_PREFIX_0B |
         GESHI_NUMBER_OCT_PREFIX | GESHI_NUMBER_HEX_PREFIX | GESHI_NUMBER_FLT_NONSCI |
@@ -96,10 +112,25 @@ $language_data = array (
             ),
         4 => array(
             'auto', 'char', 'const', 'double',  'float', 'int', 'long',
-            'register', 'short', 'signed', 'static', 'string', 'struct',
+            'register', 'short', 'signed', 'static', 'struct',
             'typedef', 'union', 'unsigned', 'void', 'volatile', 'extern', 'jmp_buf',
             'signal', 'raise', 'va_list', 'ptrdiff_t', 'size_t', 'FILE', 'fpos_t',
-            'div_t', 'ldiv_t', 'clock_t', 'time_t', 'tm',
+            'div_t', 'ldiv_t', 'clock_t', 'time_t', 'tm', 'wchar_t',
+
+            'int8', 'int16', 'int32', 'int64',
+            'uint8', 'uint16', 'uint32', 'uint64',
+
+            'int_fast8_t', 'int_fast16_t', 'int_fast32_t', 'int_fast64_t',
+            'uint_fast8_t', 'uint_fast16_t', 'uint_fast32_t', 'uint_fast64_t',
+
+            'int_least8_t', 'int_least16_t', 'int_least32_t', 'int_least64_t',
+            'uint_least8_t', 'uint_least16_t', 'uint_least32_t', 'uint_least64_t',
+
+            'int8_t', 'int16_t', 'int32_t', 'int64_t',
+            'uint8_t', 'uint16_t', 'uint32_t', 'uint64_t',
+
+            'intmax_t', 'uintmax_t', 'intptr_t', 'uintptr_t',
+
             // Mac-specific types:
             'CFArrayRef', 'CFDictionaryRef', 'CFMutableDictionaryRef', 'CFBundleRef', 'CFSetRef', 'CFStringRef',
             'CFURLRef', 'CFLocaleRef', 'CFDateFormatterRef', 'CFNumberFormatterRef', 'CFPropertyListRef',
@@ -118,10 +149,10 @@ $language_data = array (
         ),
     'CASE_SENSITIVE' => array(
         GESHI_COMMENTS => false,
-        1 => false,
-        2 => false,
-        3 => false,
-        4 => false,
+        1 => true,
+        2 => true,
+        3 => true,
+        4 => true,
         ),
     'STYLES' => array(
         'KEYWORDS' => array(
@@ -136,7 +167,13 @@ $language_data = array (
             'MULTI' => 'color: #ff0000; font-style: italic;'
             ),
         'ESCAPE_CHAR' => array(
-            0 => 'color: #666666; font-weight: bold;'
+            0 => 'color: #000099; font-weight: bold;',
+            1 => 'color: #000099; font-weight: bold;',
+            2 => 'color: #660099; font-weight: bold;',
+            3 => 'color: #660099; font-weight: bold;',
+            4 => 'color: #660099; font-weight: bold;',
+            5 => 'color: #006699; font-weight: bold;',
+            'HARD' => '',
             ),
         'BRACKETS' => array(
             0 => 'color: #000000;'
@@ -186,5 +223,3 @@ $language_data = array (
         ),
     'TAB_WIDTH' => 4
 );
-
-?>

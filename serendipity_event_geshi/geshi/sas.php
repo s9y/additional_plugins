@@ -4,7 +4,7 @@
  * -------
  * Author: Galen Johnson (solitaryr@gmail.com)
  * Copyright: (c) 2004 Nigel McNie (http://qbnz.com/highlighter/)
- * Release Version: 1.0.8.1
+ * Release Version: 1.0.9.0
  * Date Started: 2005/12/27
  *
  * SAS language file for GeSHi. Based on the sas vim file.
@@ -44,7 +44,7 @@
 $language_data = array (
     'LANG_NAME' => 'SAS',
     'COMMENT_SINGLE' => array(),
-    'COMMENT_MULTI' => array('/*' => '*/'),
+    'COMMENT_MULTI' => array('/*' => '*/', '*' => ';'),
     'CASE_KEYWORDS' => GESHI_CAPS_NO_CHANGE,
     'QUOTEMARKS' => array("'", '"'),
     'ESCAPE_CHAR' => '\\',
@@ -108,12 +108,12 @@ $language_data = array (
             'ABORT','ADD','ALTER','AND','ARRAY','AS','ATTRIB','BY','CALL',
             'CARDS4','CASCADE','CATNAME','CHECK','CONTINUE','CREATE',
             'DATALINES4','DELETE','DESCRIBE','DISPLAY','DISTINCT','DM','DROP',
-            'ENDSAS','FILE','FILENAME','FOOTNOTE','FOREIGN','FORMAT','FROM',
-            'GOTO','GROUP','HAVING','IN','INDEX','INFILE','INFORMAT','INPUT',
-            'INSERT','INTO','KEEP','KEY','LABEL','LEAVE','LENGTH','LIBNAME',
+            'ENDSAS','FILE','FOOTNOTE','FOREIGN','FORMAT','FROM',
+            'GOTO','GROUP','HAVING','IN','INFILE','INFORMAT',
+            'INSERT','INTO','KEEP','KEY','LABEL','LEAVE',
             'LIKE','LINK','LIST','LOSTCARD','MERGE','MESSAGE','MISSING',
             'MODIFY','MSGTYPE','NOT','NULL','ON','OPTIONS','OR','ORDER',
-            'OUTPUT','PAGE','PRIMARY','PUT','REDIRECT','REFERENCES','REMOVE',
+            'OUTPUT','PAGE','PRIMARY','REDIRECT','REFERENCES','REMOVE',
             'RENAME','REPLACE','RESET','RESTRICT','RETAIN','RETURN','SELECT',
             'SET','SKIP','STARTSAS','STOP','SYSTASK','TABLE','TITLE','UNIQUE',
             'UPDATE','VALIDATE','VIEW','WAITSAS','WHERE','WINDOW','X'
@@ -286,5 +286,3 @@ $language_data = array (
     'HIGHLIGHT_STRICT_BLOCK' => array(
         )
 );
-
-?>

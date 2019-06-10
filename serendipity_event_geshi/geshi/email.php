@@ -4,7 +4,7 @@
  * ---------------
  * Author: Benny Baumann (BenBE@geshi.org)
  * Copyright: (c) 2008 Benny Baumann (http://qbnz.com/highlighter/)
- * Release Version: 1.0.8.1
+ * Release Version: 1.0.9.0
  * Date Started: 2008/10/19
  *
  * Email (mbox \ eml \ RFC format) language file for GeSHi.
@@ -47,17 +47,21 @@ $language_data = array (
     'QUOTEMARKS' => array('"'),
     'ESCAPE_CHAR' => '',
     'KEYWORDS' => array(
+        1 => array(
+            'HTTP', 'SMTP', 'ASMTP', 'ESMTP'
+            ),
         2 => array(
-            'content-type','content-transfer-encoding','content-disposition',
-            'delivered-to','dkim-signature','domainkey-signature','message-id',
-            'mime-version','received','received-spf','resend-from','resend-to',
-            'return-path',
+            'Authentication-Results','Comment','Content-Description','Content-Type',
+            'Content-Disposition','Content-Transfer-Encoding','Delivered-To',
+            'Dkim-Signature','Domainkey-Signature','In-Reply-To','Message-Id',
+            'MIME-Version','OpenPGP','Received','Received-SPF','References',
+            'Reply-To', 'Resend-From','Resend-To','Return-Path','User-Agent'
             ),
         3 => array(
-            'date','from','subject','to',
+            'Date','From','Sender','Subject','To','CC'
             ),
         4 => array(
-            'by', 'from', 'id', 'with'
+            'by', 'for', 'from', 'id', 'with'
             )
         ),
     'SYMBOLS' => array(
@@ -65,12 +69,14 @@ $language_data = array (
         ),
     'CASE_SENSITIVE' => array(
         GESHI_COMMENTS => false,
+        1 => true,
         2 => false,
         3 => false,
         4 => true
         ),
     'STYLES' => array(
         'KEYWORDS' => array(
+            1 => 'color: #0000FF; font-weight: bold;',
             2 => 'color: #000000; font-weight: bold;',
             3 => 'color: #800000; font-weight: bold;',
             4 => 'font-weight: bold;',
@@ -100,10 +106,14 @@ $language_data = array (
         'REGEXPS' => array(
             1 => 'color: #000000; font-weight: bold;',
             2 => 'color: #0000FF;',
-            3 => 'color: #008000;'
+            3 => 'color: #008000;',
+            4 => 'color: #0000FF; font-weight: bold;',
+            5 => 'font-weight: bold;',
+            6 => 'color: #400080;'
             )
         ),
     'URLS' => array(
+        1 => '',
         2 => '',
         3 => '',
         4 => ''
@@ -114,7 +124,7 @@ $language_data = array (
     'REGEXPS' => array(
         // Non-Standard-Header
         1 => array(
-            GESHI_SEARCH => "(?<![:=])x-[a-z0-9\-]*(?=\s*:|\s*<)",
+            GESHI_SEARCH => "(?<=\A\x20|\n)x-[a-z0-9\-]*(?=\s*:|\s*<)",
             GESHI_REPLACE => "\\0",
             GESHI_MODIFIERS => "smi",
             GESHI_BEFORE => "",
@@ -122,7 +132,7 @@ $language_data = array (
             ),
         //Email-Adresses or Mail-IDs
         2 => array(
-            GESHI_SEARCH => "\b[\w\.]+@\w+(?:(?:\.\w+)*\.\w{2,4})?",
+            GESHI_SEARCH => "\b(?<!\\/)(?P<q>\"?)[\w\.\-]+\k<q>@(?!-)[\w\-]+(?<!-)(?:(?:\.(?!-)[\w\-]+(?<!-))*)?",
             GESHI_REPLACE => "\\0",
             GESHI_MODIFIERS => "mi",
             GESHI_BEFORE => "",
@@ -137,11 +147,50 @@ $language_data = array (
             GESHI_MODIFIERS => "mi",
             GESHI_BEFORE => "",
             GESHI_AFTER => ""
+            ),
+        //IP addresses
+        4 => array(
+            GESHI_SEARCH => "(?<=\s)\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(?=\s)|".
+                "(?<=\[)\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(?=\])|".
+                "(?<==)\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(?=<)|".
+
+                "(?<=\s)(?:[a-f\d]{1,4}\:)+(?:[a-f\d]{0,4})?(?:\:[a-f\d]{1,4})+(?=\s)|".
+                "(?<=\[)(?:[a-f\d]{1,4}\:)+(?:[a-f\d]{0,4})?(?:\:[a-f\d]{1,4})+(?=\])|".
+                "(?<==)(?:[a-f\d]{1,4}\:)+(?:[a-f\d]{0,4})?(?:\:[a-f\d]{1,4})+(?=<)|".
+
+                "(?<=\s)\:(?:\:[a-f\d]{1,4})+(?=\s)|".
+                "(?<=\[)\:(?:\:[a-f\d]{1,4})+(?=\])|".
+                "(?<==)\:(?:\:[a-f\d]{1,4})+(?=<)|".
+
+                "(?<=\s)(?:[a-f\d]{1,4}\:)+\:(?=\s)|".
+                "(?<=\[)(?:[a-f\d]{1,4}\:)+\:(?=\])|".
+                "(?<==)(?:[a-f\d]{1,4}\:)+\:(?=<)",
+            GESHI_REPLACE => "\\0",
+            GESHI_MODIFIERS => "i",
+            GESHI_BEFORE => "",
+            GESHI_AFTER => ""
+            ),
+        //Field-Assignments
+        5 => array(
+            GESHI_SEARCH => "(?<=\s)[A-Z0-9\-\.]+(?==(?:$|\s$|[^\s=]))",
+            GESHI_REPLACE => "\\0",
+            GESHI_MODIFIERS => "mi",
+            GESHI_BEFORE => "",
+            GESHI_AFTER => ""
+            ),
+        //MIME type
+        6 => array(
+            GESHI_SEARCH => "(?<=\s)(?:audio|application|image|multipart|text|".
+                "video|x-[a-z0-9\-]+)\/[a-z0-9][a-z0-9\-]*(?=\s|<|$)",
+            GESHI_REPLACE => "\\0",
+            GESHI_MODIFIERS => "m",
+            GESHI_BEFORE => "",
+            GESHI_AFTER => ""
             )
         ),
     'STRICT_MODE_APPLIES' => GESHI_ALWAYS,
     'SCRIPT_DELIMITERS' => array(
-        0 => "/(^)[A-Z][a-zA-Z0-9\-]*\s*:\s*(?:.|(?=\n\s)\n)*($)/m"
+        0 => "/(?P<start>^)[A-Za-z][a-zA-Z0-9\-]*\s*:\s*(?:.|(?=\n\s)\n)*(?P<end>$)/m"
     ),
     'HIGHLIGHT_STRICT_BLOCK' => array(
         0 => true,
@@ -150,11 +199,11 @@ $language_data = array (
     'PARSER_CONTROL' => array(
         'KEYWORDS' => array(
             2 => array(
-                'DISALLOWED_BEFORE' => '(?<![:=])',
+                'DISALLOWED_BEFORE' => '(?<=\A\x20|\n)',
                 'DISALLOWED_AFTER' => '(?=\s*:)',
             ),
             3 => array(
-                'DISALLOWED_BEFORE' => '(?<![:=])',
+                'DISALLOWED_BEFORE' => '(?<=\A\x20|\n)',
                 'DISALLOWED_AFTER' => '(?=\s*:)',
             ),
             4 => array(
@@ -169,5 +218,3 @@ $language_data = array (
         )
     )
 );
-
-?>

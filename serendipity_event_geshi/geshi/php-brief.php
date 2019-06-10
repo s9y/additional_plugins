@@ -4,7 +4,7 @@
  * -------------
  * Author: Nigel McNie (nigel@geshi.org)
  * Copyright: (c) 2004 Nigel McNie (http://qbnz.com/highlighter/)
- * Release Version: 1.0.8.1
+ * Release Version: 1.0.9.0
  * Date Started: 2004/06/02
  *
  * PHP (brief version) language file for GeSHi.
@@ -69,7 +69,7 @@ $language_data = array (
             ),
         2 => array(
             'null', '__LINE__', '__FILE__',
-            'false', '&lt;?php', '&lt;?', '&lt;?=', '?&gt;', '&lt;%', '&lt;%=', '%&gt;',
+            'false', '&lt;?php',
             'true', 'var', 'default',
             'function', 'class', 'new', '&amp;new', 'public', 'private', 'interface', 'extends',
             'const', 'self'
@@ -91,11 +91,16 @@ $language_data = array (
             )
         ),
     'SYMBOLS' => array(
-        '(', ')', '[', ']', '{', '}',
-        '!', '@', '%', '&', '|', '/',
-        '<', '>',
-        '=', '-', '+', '*',
-        '.', ':', ',', ';'
+        1 => array(
+            '<%', '<%=', '%>', '<?', '<?=', '?>'
+            ),
+        0 => array(
+            '(', ')', '[', ']', '{', '}',
+            '!', '@', '%', '&', '|', '/',
+            '<', '>',
+            '=', '-', '+', '*',
+            '.', ':', ',', ';'
+            )
         ),
     'CASE_SENSITIVE' => array(
         GESHI_COMMENTS => false,
@@ -137,7 +142,8 @@ $language_data = array (
             2 => 'color: #004000;'
             ),
         'SYMBOLS' => array(
-            0 => 'color: #339933;'
+            0 => 'color: #339933;',
+            1 => 'color: #000000; font-weight: bold;'
             ),
         'REGEXPS' => array(
             0 => 'color: #0000ff;'
@@ -163,7 +169,7 @@ $language_data = array (
         ),
     'REGEXPS' => array(
         //Variables
-        0 => "[\\$]{1,2}[a-zA-Z_][a-zA-Z0-9_]*"
+        0 => "[\\$]+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*"
         ),
     'STRICT_MODE_APPLIES' => GESHI_MAYBE,
     'SCRIPT_DELIMITERS' => array(
@@ -179,8 +185,28 @@ $language_data = array (
         3 => array(
             '<script language="php">' => '</script>'
             ),
-        4 => "/(<\?(?:php)?)(?:'(?:[^'\\\\]|\\\\.)*?'|\"(?:[^\"\\\\]|\\\\.)*?\"|\/\*(?!\*\/).*?\*\/|.)*?(\?>|\Z)/sm",
-        5 => "/(<%)(?:'(?:[^'\\\\]|\\\\.)*?'|\"(?:[^\"\\\\]|\\\\.)*?\"|\/\*(?!\*\/).*?\*\/|.)*?(%>|\Z)/sm"
+        4 => "/(?P<start><\\?(?>php\b)?)(?:".
+            "(?>[^\"'?\\/<]+)|".
+            "\\?(?!>)|".
+            "(?>'(?>[^'\\\\]|\\\\'|\\\\\\\|\\\\)*')|".
+            "(?>\"(?>[^\"\\\\]|\\\\\"|\\\\\\\\|\\\\)*\")|".
+            "(?>\\/\\*(?>[^\\*]|(?!\\*\\/)\\*)*\\*\\/)|".
+            "\\/\\/(?>.*?$)|".
+            "\\/(?=[^*\\/])|".
+            "<(?!<<)|".
+            "<<<(?P<phpdoc>\w+)\s.*?\s\k<phpdoc>".
+            ")*(?P<end>\\?>|\Z)/sm",
+        5 => "/(?P<start><%)(?:".
+            "(?>[^\"'%\\/<]+)|".
+            "%(?!>)|".
+            "(?>'(?>[^'\\\\]|\\\\'|\\\\\\\|\\\\)*')|".
+            "(?>\"(?>[^\\\"\\\\]|\\\\\"|\\\\\\\\|\\\\)*\")|".
+            "(?>\\/\\*(?>[^\\*]|(?!\\*\\/)\\*)*\\*\\/)|".
+            "\\/\\/(?>.*?$)|".
+            "\\/(?=[^*\\/])|".
+            "<(?!<<)|".
+            "<<<(?P<phpdoc>\w+)\s.*?\s\k<phpdoc>".
+            ")*(?P<end>%>)/sm"
         ),
     'HIGHLIGHT_STRICT_BLOCK' => array(
         0 => true,
@@ -192,5 +218,3 @@ $language_data = array (
         ),
     'TAB_WIDTH' => 4
 );
-
-?>

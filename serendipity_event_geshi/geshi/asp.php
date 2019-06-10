@@ -4,7 +4,7 @@
  * --------
  * Author: Amit Gupta (http://blog.igeek.info/)
  * Copyright: (c) 2004 Amit Gupta (http://blog.igeek.info/), Nigel McNie (http://qbnz.com/highlighter)
- * Release Version: 1.0.8.1
+ * Release Version: 1.0.9.0
  * Date Started: 2004/08/13
  *
  * ASP language file for GeSHi.
@@ -62,9 +62,8 @@ $language_data = array (
             ),
         2 => array(
             'Null', 'Nothing', 'And',
-            'False', '&lt;%', '%&gt;',
-            '&lt;script language=', '&lt;/script&gt;',
-            'True', 'var', 'Or', 'BOF', 'EOF',
+            'False',
+            'True', 'var', 'Or', 'BOF', 'EOF', 'xor',
             'Function', 'Class', 'New', 'Sub'
             ),
         3 => array(
@@ -78,8 +77,12 @@ $language_data = array (
             )
         ),
     'SYMBOLS' => array(
-        '(', ')', '[', ']', '!', '@', '%', '&', '*', '|', '/', '<', '>',
-        ';', ':', '?', '='
+        1 => array(
+            '<%', '%>'
+            ),
+        0 => array(
+            '(', ')', '[', ']', '!', '@', '%', '&', '*', '|', '/', '<', '>',
+            ';', ':', '?', '='),
         ),
     'CASE_SENSITIVE' => array(
         GESHI_COMMENTS => false,
@@ -102,7 +105,7 @@ $language_data = array (
             0 => 'color: #000099; font-weight: bold;'
             ),
         'BRACKETS' => array(
-            0 => 'color: #006600; font-weight:bold'
+            0 => 'color: #006600; font-weight:bold;'
             ),
         'STRINGS' => array(
             0 => 'color: #cc0000;'
@@ -114,7 +117,8 @@ $language_data = array (
             1 => 'color: #9900cc;'
             ),
         'SYMBOLS' => array(
-            0 => 'color: #006600; font-weight: bold'
+            0 => 'color: #006600; font-weight: bold;',
+            1 => 'color: #000000; font-weight: bold;'
             ),
         'REGEXPS' => array(
             ),
@@ -147,7 +151,7 @@ $language_data = array (
         2 => array(
             '<script language="javascript" runat="server">' => '</script>'
             ),
-        3 => "/(<%=?)(?:\"[^\"]*?\"|\/\*(?!\*\/).*?\*\/|.)*?(%>|\Z)/sm"
+        3 => "/(?P<start><%=?)(?:\"[^\"]*?\"|\/\*(?!\*\/).*?\*\/|.)*?(?P<end>%>|\Z)/sm"
         ),
     'HIGHLIGHT_STRICT_BLOCK' => array(
         0 => true,
@@ -156,5 +160,3 @@ $language_data = array (
         3 => true
         )
 );
-
-?>

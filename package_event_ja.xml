@@ -1939,9 +1939,9 @@
 <description>Sets HTML meta keywords/description tags and title element for single entry pages and default meta keywords/description tags for non-single entry pages.</description>
 <maintainers><maintainer><name>Garvin Hicking, Judebert, Don Chambers</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.15.3</version>
+  <version>0.15.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-09-24</date>
+  <date>2019-06-15</date>
   <filelist>
 <dir name="serendipity_event_metadesc">
 <file>lang_pl.inc.php</file>
@@ -7126,38 +7126,82 @@
 <description>Computer Language Color Syntax Highlighting. Tag usage: [geshi lang=lang_name [,ln={y|n}]]code snippet[/geshi]</description>
 <maintainers><maintainer><name>David Rolston</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.0</version>
+  <version>1.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2019-05-09</date>
+  <date>2019-06-10</date>
   <filelist>
 <dir name="serendipity_event_geshi">
 <file>lang_de.inc.php</file>
 <dir name="geshi">
+<file>swift.php</file>
+<file>hicest.php</file>
 <file>csharp.php</file>
+<file>whois.php</file>
+<file>mathematica.php</file>
 <file>asp.php</file>
+<file>intercal.php</file>
+<file>c_loadrunner.php</file>
 <file>povray.php</file>
 <file>xorg_conf.php</file>
+<file>netrexx.php</file>
+<file>6502acme.php</file>
+<file>ceylon.php</file>
+<file>cpp-winapi.php</file>
+<file>ispfpanel.php</file>
 <file>abap.php</file>
 <file>bnf.php</file>
+<file>j.php</file>
 <file>dos.php</file>
 <file>powershell.php</file>
+<file>pli.php</file>
 <file>eiffel.php</file>
+<file>6502tasm.php</file>
 <file>scilab.php</file>
+<file>mercury.php</file>
+<file>providex.php</file>
+<file>qml.php</file>
 <file>ada.php</file>
 <file>genero.php</file>
 <file>lua.php</file>
+<file>tclegg.php</file>
+<file>locobasic.php</file>
+<file>e.php</file>
+<file>texgraph.php</file>
+<file>freeswitch.php</file>
+<file>rust.php</file>
 <file>z80.php</file>
+<file>lsl2.php</file>
+<file>powerbuilder.php</file>
+<file>objeck.php</file>
+<file>nimrod.php</file>
+<file>chaiscript.php</file>
+<file>lscript.php</file>
+<file>falcon.php</file>
+<file>vedit.php</file>
+<file>html5.php</file>
 <file>dot.php</file>
 <file>bash.php</file>
 <file>javascript.php</file>
+<file>bf.php</file>
 <file>boo.php</file>
+<file>genie.php</file>
+<file>unicon.php</file>
+<file>dart.php</file>
 <file>nsis.php</file>
+<file>autoconf.php</file>
+<file>pixelbender.php</file>
+<file>purebasic.php</file>
 <file>lisp.php</file>
 <file>gml.php</file>
+<file>jquery.php</file>
+<file>lolcode.php</file>
+<file>zxbasic.php</file>
 <file>cadlisp.php</file>
 <file>rails.php</file>
 <file>mirc.php</file>
 <file>scala.php</file>
+<file>cuesheet.php</file>
+<file>proftpd.php</file>
 <file>actionscript3.php</file>
 <file>cfm.php</file>
 <file>cobol.php</file>
@@ -7165,92 +7209,188 @@
 <file>xpp.php</file>
 <file>php-brief.php</file>
 <file>tsql.php</file>
+<file>perl6.php</file>
 <file>gettext.php</file>
 <file>klonecpp.php</file>
+<file>haxe.php</file>
 <file>oracle11.php</file>
 <file>progress.php</file>
+<file>f1.php</file>
 <file>mxml.php</file>
+<file>q.php</file>
 <file>io.php</file>
 <file>vhdl.php</file>
+<file>gdb.php</file>
+<file>fsharp.php</file>
+<file>oorexx.php</file>
 <file>glsl.php</file>
+<file>68000devpac.php</file>
+<file>parasail.php</file>
 <file>thinbasic.php</file>
-<file>actionscript-french.php</file>
+<file>gwbasic.php</file>
 <file>cfdg.php</file>
+<file>euphoria.php</file>
 <file>basic4gl.php</file>
 <file>ruby.php</file>
+<file>scl.php</file>
 <file>diff.php</file>
 <file>php.php</file>
 <file>java5.php</file>
 <file>latex.php</file>
+<file>pys60.php</file>
 <file>qbasic.php</file>
+<file>mapbasic.php</file>
+<file>vala.php</file>
+<file>urbi.php</file>
 <file>robots.php</file>
 <file>smarty.php</file>
+<file>asymptote.php</file>
 <file>java.php</file>
 <file>delphi.php</file>
+<file>cmake.php</file>
 <file>apache.php</file>
+<file>pcre.php</file>
+<file>whitespace.php</file>
 <file>haskell.php</file>
 <file>c.php</file>
 <file>teraterm.php</file>
 <file>typoscript.php</file>
+<file>rebol.php</file>
 <file>oracle8.php</file>
+<file>oxygene.php</file>
 <file>d.php</file>
 <file>cil.php</file>
+<file>dcl.php</file>
 <file>visualfoxpro.php</file>
 <file>vb.php</file>
 <file>mpasm.php</file>
+<file>awk.php</file>
 <file>actionscript.php</file>
 <file>lotusscript.php</file>
+<file>twig.php</file>
+<file>gambas.php</file>
 <file>inno.php</file>
+<file>ldif.php</file>
 <file>reg.php</file>
+<file>nginx.php</file>
+<file>kotlin.php</file>
+<file>bascomavr.php</file>
 <file>cpp-qt.php</file>
 <file>ini.php</file>
+<file>phix.php</file>
+<file>oz.php</file>
 <file>text.php</file>
+<file>coffeescript.php</file>
 <file>fortran.php</file>
 <file>python.php</file>
+<file>standardml.php</file>
+<file>upc.php</file>
 <file>kixtart.php</file>
 <file>lotusformulas.php</file>
+<file>bibtex.php</file>
+<file>erlang.php</file>
 <file>apt_sources.php</file>
+<file>sass.php</file>
 <file>verilog.php</file>
+<file>algol68.php</file>
+<file>xyscript.php</file>
 <file>xml.php</file>
+<file>pike.php</file>
 <file>smalltalk.php</file>
+<file>clojure.php</file>
 <file>html4strict.php</file>
+<file>properties.php</file>
 <file>blitzbasic.php</file>
 <file>freebasic.php</file>
+<file>icon.php</file>
 <file>prolog.php</file>
+<file>postgresql.php</file>
+<file>racket.php</file>
+<file>epc.php</file>
+<file>hq9plus.php</file>
+<file>visualprolog.php</file>
+<file>vim.php</file>
 <file>autoit.php</file>
+<file>parigp.php</file>
+<file>batch.php</file>
+<file>4cs.php</file>
 <file>tcl.php</file>
+<file>stonescript.php</file>
+<file>oberon2.php</file>
+<file>postscript.php</file>
 <file>sas.php</file>
+<file>mk-61.php</file>
+<file>go.php</file>
 <file>sql.php</file>
+<file>biblatex.php</file>
 <file>objc.php</file>
+<file>ecmascript.php</file>
+<file>sparql.php</file>
 <file>matlab.php</file>
+<file>magiksf.php</file>
+<file>newlisp.php</file>
+<file>pycon.php</file>
+<file>fo.php</file>
 <file>gnuplot.php</file>
 <file>div.php</file>
 <file>pic16.php</file>
+<file>nagios.php</file>
+<file>julia.php</file>
+<file>aimms.php</file>
+<file>arm.php</file>
 <file>applescript.php</file>
+<file>6502kickass.php</file>
+<file>systemverilog.php</file>
+<file>octave.php</file>
 <file>make.php</file>
 <file>klonec.php</file>
+<file>xbasic.php</file>
 <file>pascal.php</file>
 <file>caddcl.php</file>
 <file>ocaml.php</file>
 <file>m68k.php</file>
+<file>xojo.php</file>
+<file>spark.php</file>
+<file>c_winapi.php</file>
 <file>css.php</file>
+<file>logtalk.php</file>
 <file>per.php</file>
 <file>asm.php</file>
 <file>idl.php</file>
 <file>mysql.php</file>
 <file>ocaml-brief.php</file>
+<file>vbscript.php</file>
+<file>lb.php</file>
 <file>sdlbasic.php</file>
 <file>scheme.php</file>
-<file>css-gen.cfg</file>
+<file>julia.php.bak</file>
+<file>llvm.php</file>
+<file>dcpu16.php</file>
+<file>modula3.php</file>
+<file>jcl.php</file>
+<file>mmix.php</file>
 <file>c_mac.php</file>
 <file>avisynth.php</file>
+<file>dcs.php</file>
 <file>plsql.php</file>
+<file>uscript.php</file>
+<file>pf.php</file>
+<file>rbs.php</file>
 <file>email.php</file>
+<file>autohotkey.php</file>
 <file>oobas.php</file>
+<file>rexx.php</file>
+<file>rsplus.php</file>
+<file>metapost.php</file>
+<file>yaml.php</file>
 <file>groovy.php</file>
 <file>vbnet.php</file>
+<file>modula2.php</file>
 <file>cpp.php</file>
+<file>ezt.php</file>
 <file>winbatch.php</file>
+<file>rpmspec.php</file>
+<file>chapel.php</file>
 </dir>
 <file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
@@ -7273,31 +7413,75 @@
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_geshi/lang_de.inc.php</file>
+    <file>serendipity_event_geshi/geshi/swift.php</file>
+    <file>serendipity_event_geshi/geshi/hicest.php</file>
     <file>serendipity_event_geshi/geshi/csharp.php</file>
+    <file>serendipity_event_geshi/geshi/whois.php</file>
+    <file>serendipity_event_geshi/geshi/mathematica.php</file>
     <file>serendipity_event_geshi/geshi/asp.php</file>
+    <file>serendipity_event_geshi/geshi/intercal.php</file>
+    <file>serendipity_event_geshi/geshi/c_loadrunner.php</file>
     <file>serendipity_event_geshi/geshi/povray.php</file>
     <file>serendipity_event_geshi/geshi/xorg_conf.php</file>
+    <file>serendipity_event_geshi/geshi/netrexx.php</file>
+    <file>serendipity_event_geshi/geshi/6502acme.php</file>
+    <file>serendipity_event_geshi/geshi/ceylon.php</file>
+    <file>serendipity_event_geshi/geshi/cpp-winapi.php</file>
+    <file>serendipity_event_geshi/geshi/ispfpanel.php</file>
     <file>serendipity_event_geshi/geshi/abap.php</file>
     <file>serendipity_event_geshi/geshi/bnf.php</file>
+    <file>serendipity_event_geshi/geshi/j.php</file>
     <file>serendipity_event_geshi/geshi/dos.php</file>
     <file>serendipity_event_geshi/geshi/powershell.php</file>
+    <file>serendipity_event_geshi/geshi/pli.php</file>
     <file>serendipity_event_geshi/geshi/eiffel.php</file>
+    <file>serendipity_event_geshi/geshi/6502tasm.php</file>
     <file>serendipity_event_geshi/geshi/scilab.php</file>
+    <file>serendipity_event_geshi/geshi/mercury.php</file>
+    <file>serendipity_event_geshi/geshi/providex.php</file>
+    <file>serendipity_event_geshi/geshi/qml.php</file>
     <file>serendipity_event_geshi/geshi/ada.php</file>
     <file>serendipity_event_geshi/geshi/genero.php</file>
     <file>serendipity_event_geshi/geshi/lua.php</file>
+    <file>serendipity_event_geshi/geshi/tclegg.php</file>
+    <file>serendipity_event_geshi/geshi/locobasic.php</file>
+    <file>serendipity_event_geshi/geshi/e.php</file>
+    <file>serendipity_event_geshi/geshi/texgraph.php</file>
+    <file>serendipity_event_geshi/geshi/freeswitch.php</file>
+    <file>serendipity_event_geshi/geshi/rust.php</file>
     <file>serendipity_event_geshi/geshi/z80.php</file>
+    <file>serendipity_event_geshi/geshi/lsl2.php</file>
+    <file>serendipity_event_geshi/geshi/powerbuilder.php</file>
+    <file>serendipity_event_geshi/geshi/objeck.php</file>
+    <file>serendipity_event_geshi/geshi/nimrod.php</file>
+    <file>serendipity_event_geshi/geshi/chaiscript.php</file>
+    <file>serendipity_event_geshi/geshi/lscript.php</file>
+    <file>serendipity_event_geshi/geshi/falcon.php</file>
+    <file>serendipity_event_geshi/geshi/vedit.php</file>
+    <file>serendipity_event_geshi/geshi/html5.php</file>
     <file>serendipity_event_geshi/geshi/dot.php</file>
     <file>serendipity_event_geshi/geshi/bash.php</file>
     <file>serendipity_event_geshi/geshi/javascript.php</file>
+    <file>serendipity_event_geshi/geshi/bf.php</file>
     <file>serendipity_event_geshi/geshi/boo.php</file>
+    <file>serendipity_event_geshi/geshi/genie.php</file>
+    <file>serendipity_event_geshi/geshi/unicon.php</file>
+    <file>serendipity_event_geshi/geshi/dart.php</file>
     <file>serendipity_event_geshi/geshi/nsis.php</file>
+    <file>serendipity_event_geshi/geshi/autoconf.php</file>
+    <file>serendipity_event_geshi/geshi/pixelbender.php</file>
+    <file>serendipity_event_geshi/geshi/purebasic.php</file>
     <file>serendipity_event_geshi/geshi/lisp.php</file>
     <file>serendipity_event_geshi/geshi/gml.php</file>
+    <file>serendipity_event_geshi/geshi/jquery.php</file>
+    <file>serendipity_event_geshi/geshi/lolcode.php</file>
+    <file>serendipity_event_geshi/geshi/zxbasic.php</file>
     <file>serendipity_event_geshi/geshi/cadlisp.php</file>
     <file>serendipity_event_geshi/geshi/rails.php</file>
     <file>serendipity_event_geshi/geshi/mirc.php</file>
     <file>serendipity_event_geshi/geshi/scala.php</file>
+    <file>serendipity_event_geshi/geshi/cuesheet.php</file>
+    <file>serendipity_event_geshi/geshi/proftpd.php</file>
     <file>serendipity_event_geshi/geshi/actionscript3.php</file>
     <file>serendipity_event_geshi/geshi/cfm.php</file>
     <file>serendipity_event_geshi/geshi/cobol.php</file>
@@ -7305,92 +7489,188 @@
     <file>serendipity_event_geshi/geshi/xpp.php</file>
     <file>serendipity_event_geshi/geshi/php-brief.php</file>
     <file>serendipity_event_geshi/geshi/tsql.php</file>
+    <file>serendipity_event_geshi/geshi/perl6.php</file>
     <file>serendipity_event_geshi/geshi/gettext.php</file>
     <file>serendipity_event_geshi/geshi/klonecpp.php</file>
+    <file>serendipity_event_geshi/geshi/haxe.php</file>
     <file>serendipity_event_geshi/geshi/oracle11.php</file>
     <file>serendipity_event_geshi/geshi/progress.php</file>
+    <file>serendipity_event_geshi/geshi/f1.php</file>
     <file>serendipity_event_geshi/geshi/mxml.php</file>
+    <file>serendipity_event_geshi/geshi/q.php</file>
     <file>serendipity_event_geshi/geshi/io.php</file>
     <file>serendipity_event_geshi/geshi/vhdl.php</file>
+    <file>serendipity_event_geshi/geshi/gdb.php</file>
+    <file>serendipity_event_geshi/geshi/fsharp.php</file>
+    <file>serendipity_event_geshi/geshi/oorexx.php</file>
     <file>serendipity_event_geshi/geshi/glsl.php</file>
+    <file>serendipity_event_geshi/geshi/68000devpac.php</file>
+    <file>serendipity_event_geshi/geshi/parasail.php</file>
     <file>serendipity_event_geshi/geshi/thinbasic.php</file>
-    <file>serendipity_event_geshi/geshi/actionscript-french.php</file>
+    <file>serendipity_event_geshi/geshi/gwbasic.php</file>
     <file>serendipity_event_geshi/geshi/cfdg.php</file>
+    <file>serendipity_event_geshi/geshi/euphoria.php</file>
     <file>serendipity_event_geshi/geshi/basic4gl.php</file>
     <file>serendipity_event_geshi/geshi/ruby.php</file>
+    <file>serendipity_event_geshi/geshi/scl.php</file>
     <file>serendipity_event_geshi/geshi/diff.php</file>
     <file>serendipity_event_geshi/geshi/php.php</file>
     <file>serendipity_event_geshi/geshi/java5.php</file>
     <file>serendipity_event_geshi/geshi/latex.php</file>
+    <file>serendipity_event_geshi/geshi/pys60.php</file>
     <file>serendipity_event_geshi/geshi/qbasic.php</file>
+    <file>serendipity_event_geshi/geshi/mapbasic.php</file>
+    <file>serendipity_event_geshi/geshi/vala.php</file>
+    <file>serendipity_event_geshi/geshi/urbi.php</file>
     <file>serendipity_event_geshi/geshi/robots.php</file>
     <file>serendipity_event_geshi/geshi/smarty.php</file>
+    <file>serendipity_event_geshi/geshi/asymptote.php</file>
     <file>serendipity_event_geshi/geshi/java.php</file>
     <file>serendipity_event_geshi/geshi/delphi.php</file>
+    <file>serendipity_event_geshi/geshi/cmake.php</file>
     <file>serendipity_event_geshi/geshi/apache.php</file>
+    <file>serendipity_event_geshi/geshi/pcre.php</file>
+    <file>serendipity_event_geshi/geshi/whitespace.php</file>
     <file>serendipity_event_geshi/geshi/haskell.php</file>
     <file>serendipity_event_geshi/geshi/c.php</file>
     <file>serendipity_event_geshi/geshi/teraterm.php</file>
     <file>serendipity_event_geshi/geshi/typoscript.php</file>
+    <file>serendipity_event_geshi/geshi/rebol.php</file>
     <file>serendipity_event_geshi/geshi/oracle8.php</file>
+    <file>serendipity_event_geshi/geshi/oxygene.php</file>
     <file>serendipity_event_geshi/geshi/d.php</file>
     <file>serendipity_event_geshi/geshi/cil.php</file>
+    <file>serendipity_event_geshi/geshi/dcl.php</file>
     <file>serendipity_event_geshi/geshi/visualfoxpro.php</file>
     <file>serendipity_event_geshi/geshi/vb.php</file>
     <file>serendipity_event_geshi/geshi/mpasm.php</file>
+    <file>serendipity_event_geshi/geshi/awk.php</file>
     <file>serendipity_event_geshi/geshi/actionscript.php</file>
     <file>serendipity_event_geshi/geshi/lotusscript.php</file>
+    <file>serendipity_event_geshi/geshi/twig.php</file>
+    <file>serendipity_event_geshi/geshi/gambas.php</file>
     <file>serendipity_event_geshi/geshi/inno.php</file>
+    <file>serendipity_event_geshi/geshi/ldif.php</file>
     <file>serendipity_event_geshi/geshi/reg.php</file>
+    <file>serendipity_event_geshi/geshi/nginx.php</file>
+    <file>serendipity_event_geshi/geshi/kotlin.php</file>
+    <file>serendipity_event_geshi/geshi/bascomavr.php</file>
     <file>serendipity_event_geshi/geshi/cpp-qt.php</file>
     <file>serendipity_event_geshi/geshi/ini.php</file>
+    <file>serendipity_event_geshi/geshi/phix.php</file>
+    <file>serendipity_event_geshi/geshi/oz.php</file>
     <file>serendipity_event_geshi/geshi/text.php</file>
+    <file>serendipity_event_geshi/geshi/coffeescript.php</file>
     <file>serendipity_event_geshi/geshi/fortran.php</file>
     <file>serendipity_event_geshi/geshi/python.php</file>
+    <file>serendipity_event_geshi/geshi/standardml.php</file>
+    <file>serendipity_event_geshi/geshi/upc.php</file>
     <file>serendipity_event_geshi/geshi/kixtart.php</file>
     <file>serendipity_event_geshi/geshi/lotusformulas.php</file>
+    <file>serendipity_event_geshi/geshi/bibtex.php</file>
+    <file>serendipity_event_geshi/geshi/erlang.php</file>
     <file>serendipity_event_geshi/geshi/apt_sources.php</file>
+    <file>serendipity_event_geshi/geshi/sass.php</file>
     <file>serendipity_event_geshi/geshi/verilog.php</file>
+    <file>serendipity_event_geshi/geshi/algol68.php</file>
+    <file>serendipity_event_geshi/geshi/xyscript.php</file>
     <file>serendipity_event_geshi/geshi/xml.php</file>
+    <file>serendipity_event_geshi/geshi/pike.php</file>
     <file>serendipity_event_geshi/geshi/smalltalk.php</file>
+    <file>serendipity_event_geshi/geshi/clojure.php</file>
     <file>serendipity_event_geshi/geshi/html4strict.php</file>
+    <file>serendipity_event_geshi/geshi/properties.php</file>
     <file>serendipity_event_geshi/geshi/blitzbasic.php</file>
     <file>serendipity_event_geshi/geshi/freebasic.php</file>
+    <file>serendipity_event_geshi/geshi/icon.php</file>
     <file>serendipity_event_geshi/geshi/prolog.php</file>
+    <file>serendipity_event_geshi/geshi/postgresql.php</file>
+    <file>serendipity_event_geshi/geshi/racket.php</file>
+    <file>serendipity_event_geshi/geshi/epc.php</file>
+    <file>serendipity_event_geshi/geshi/hq9plus.php</file>
+    <file>serendipity_event_geshi/geshi/visualprolog.php</file>
+    <file>serendipity_event_geshi/geshi/vim.php</file>
     <file>serendipity_event_geshi/geshi/autoit.php</file>
+    <file>serendipity_event_geshi/geshi/parigp.php</file>
+    <file>serendipity_event_geshi/geshi/batch.php</file>
+    <file>serendipity_event_geshi/geshi/4cs.php</file>
     <file>serendipity_event_geshi/geshi/tcl.php</file>
+    <file>serendipity_event_geshi/geshi/stonescript.php</file>
+    <file>serendipity_event_geshi/geshi/oberon2.php</file>
+    <file>serendipity_event_geshi/geshi/postscript.php</file>
     <file>serendipity_event_geshi/geshi/sas.php</file>
+    <file>serendipity_event_geshi/geshi/mk-61.php</file>
+    <file>serendipity_event_geshi/geshi/go.php</file>
     <file>serendipity_event_geshi/geshi/sql.php</file>
+    <file>serendipity_event_geshi/geshi/biblatex.php</file>
     <file>serendipity_event_geshi/geshi/objc.php</file>
+    <file>serendipity_event_geshi/geshi/ecmascript.php</file>
+    <file>serendipity_event_geshi/geshi/sparql.php</file>
     <file>serendipity_event_geshi/geshi/matlab.php</file>
+    <file>serendipity_event_geshi/geshi/magiksf.php</file>
+    <file>serendipity_event_geshi/geshi/newlisp.php</file>
+    <file>serendipity_event_geshi/geshi/pycon.php</file>
+    <file>serendipity_event_geshi/geshi/fo.php</file>
     <file>serendipity_event_geshi/geshi/gnuplot.php</file>
     <file>serendipity_event_geshi/geshi/div.php</file>
     <file>serendipity_event_geshi/geshi/pic16.php</file>
+    <file>serendipity_event_geshi/geshi/nagios.php</file>
+    <file>serendipity_event_geshi/geshi/julia.php</file>
+    <file>serendipity_event_geshi/geshi/aimms.php</file>
+    <file>serendipity_event_geshi/geshi/arm.php</file>
     <file>serendipity_event_geshi/geshi/applescript.php</file>
+    <file>serendipity_event_geshi/geshi/6502kickass.php</file>
+    <file>serendipity_event_geshi/geshi/systemverilog.php</file>
+    <file>serendipity_event_geshi/geshi/octave.php</file>
     <file>serendipity_event_geshi/geshi/make.php</file>
     <file>serendipity_event_geshi/geshi/klonec.php</file>
+    <file>serendipity_event_geshi/geshi/xbasic.php</file>
     <file>serendipity_event_geshi/geshi/pascal.php</file>
     <file>serendipity_event_geshi/geshi/caddcl.php</file>
     <file>serendipity_event_geshi/geshi/ocaml.php</file>
     <file>serendipity_event_geshi/geshi/m68k.php</file>
+    <file>serendipity_event_geshi/geshi/xojo.php</file>
+    <file>serendipity_event_geshi/geshi/spark.php</file>
+    <file>serendipity_event_geshi/geshi/c_winapi.php</file>
     <file>serendipity_event_geshi/geshi/css.php</file>
+    <file>serendipity_event_geshi/geshi/logtalk.php</file>
     <file>serendipity_event_geshi/geshi/per.php</file>
     <file>serendipity_event_geshi/geshi/asm.php</file>
     <file>serendipity_event_geshi/geshi/idl.php</file>
     <file>serendipity_event_geshi/geshi/mysql.php</file>
     <file>serendipity_event_geshi/geshi/ocaml-brief.php</file>
+    <file>serendipity_event_geshi/geshi/vbscript.php</file>
+    <file>serendipity_event_geshi/geshi/lb.php</file>
     <file>serendipity_event_geshi/geshi/sdlbasic.php</file>
     <file>serendipity_event_geshi/geshi/scheme.php</file>
-    <file>serendipity_event_geshi/geshi/css-gen.cfg</file>
+    <file>serendipity_event_geshi/geshi/julia.php.bak</file>
+    <file>serendipity_event_geshi/geshi/llvm.php</file>
+    <file>serendipity_event_geshi/geshi/dcpu16.php</file>
+    <file>serendipity_event_geshi/geshi/modula3.php</file>
+    <file>serendipity_event_geshi/geshi/jcl.php</file>
+    <file>serendipity_event_geshi/geshi/mmix.php</file>
     <file>serendipity_event_geshi/geshi/c_mac.php</file>
     <file>serendipity_event_geshi/geshi/avisynth.php</file>
+    <file>serendipity_event_geshi/geshi/dcs.php</file>
     <file>serendipity_event_geshi/geshi/plsql.php</file>
+    <file>serendipity_event_geshi/geshi/uscript.php</file>
+    <file>serendipity_event_geshi/geshi/pf.php</file>
+    <file>serendipity_event_geshi/geshi/rbs.php</file>
     <file>serendipity_event_geshi/geshi/email.php</file>
+    <file>serendipity_event_geshi/geshi/autohotkey.php</file>
     <file>serendipity_event_geshi/geshi/oobas.php</file>
+    <file>serendipity_event_geshi/geshi/rexx.php</file>
+    <file>serendipity_event_geshi/geshi/rsplus.php</file>
+    <file>serendipity_event_geshi/geshi/metapost.php</file>
+    <file>serendipity_event_geshi/geshi/yaml.php</file>
     <file>serendipity_event_geshi/geshi/groovy.php</file>
     <file>serendipity_event_geshi/geshi/vbnet.php</file>
+    <file>serendipity_event_geshi/geshi/modula2.php</file>
     <file>serendipity_event_geshi/geshi/cpp.php</file>
+    <file>serendipity_event_geshi/geshi/ezt.php</file>
     <file>serendipity_event_geshi/geshi/winbatch.php</file>
+    <file>serendipity_event_geshi/geshi/rpmspec.php</file>
+    <file>serendipity_event_geshi/geshi/chapel.php</file>
     <file>serendipity_event_geshi/ChangeLog</file>
     <file>serendipity_event_geshi/lang_cz.inc.php</file>
     <file>serendipity_event_geshi/UTF-8/lang_de.inc.php</file>

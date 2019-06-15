@@ -455,6 +455,8 @@ class emerge_spartacus {
     }
 
     function upload($file, $remotefile) {
+        # netmirror.org is no longer functional nor is it used
+        return;
         static $c, $login;
         if (function_exists('ftp_connect')) {
             if (!is_resource($c) || !$login) {

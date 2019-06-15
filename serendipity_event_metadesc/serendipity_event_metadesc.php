@@ -242,7 +242,7 @@ class serendipity_event_metadesc extends serendipity_event {
                             $q = "INSERT INTO {$serendipity['dbPrefix']}entryproperties (entryid, property, value) VALUES (" . (int)$eventData['id'] . ", '" . serendipity_db_escape_string($prop_key) . "', '" . serendipity_db_escape_string($prop_val) . "')";
                         } elseif ($property[$propkey] != $prop_val && !empty($prop_val)) {
                             $q = "UPDATE {$serendipity['dbPrefix']}entryproperties SET value = '" . serendipity_db_escape_string($prop_val) . "' WHERE entryid = " . (int)$eventData['id'] . " AND property = '" . serendipity_db_escape_string($prop_key) . "'";
-                        } elseif (!empty($property[$prop_key] && empty($prop_val)) {
+                        } elseif (!empty($property[$prop_key]) && empty($prop_val)) {
                             $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$eventData['id'] . " AND property = '" . serendipity_db_escape_string($prop_key) . "'";
                         } else {
                           // nothing to do

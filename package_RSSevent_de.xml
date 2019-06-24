@@ -792,15 +792,6 @@
 <guid isPermaLink="false">serendipity_event_trackexits</guid>
 </item>
 <item>
-<title>Blog als PDF exportieren: Exportiert alle Einträge des Blogs in eine PDF-Datei</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_blogpdf</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Olivier PLATHEY, Steven Wittens</author>
-<content:encoded>&lt;b&gt;serendipity_event_blogpdf&lt;br /&gt;Blog als PDF exportieren&lt;/b&gt;&lt;br /&gt;Exportiert alle Einträge des Blogs in eine PDF-Datei&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:27 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_blogpdf</guid>
-</item>
-<item>
 <title>CKEditor Plus: Nutzt CKEditor als Standard WYSIWYG Editor. Benutzung für JS-Editoren: Empfohlen! Nach der Installation, lies die Plugin Konfigurations Seite für weitere Informationen.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_ckeditor</link>
 <category>Event Plugins</category>

@@ -792,15 +792,6 @@
 <guid isPermaLink="false">serendipity_event_trackexits</guid>
 </item>
 <item>
-<title>블로그를 PDF로 내보내기: 방문자가 블로그를 PDF 파일로 다운로드할 수 있게 함</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_blogpdf</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Olivier PLATHEY, Steven Wittens</author>
-<content:encoded>&lt;b&gt;serendipity_event_blogpdf&lt;br /&gt;블로그를 PDF로 내보내기&lt;/b&gt;&lt;br /&gt;방문자가 블로그를 PDF 파일로 다운로드할 수 있게 함&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:27 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_blogpdf</guid>
-</item>
-<item>
 <title>CKEditor Plus: Uses CKEditor as the default WYSIWYG editor. For any JS-Editor usage: Recommended! After installation, go to the configuration screen of this plugin for further instructions.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_ckeditor</link>
 <category>Event Plugins</category>

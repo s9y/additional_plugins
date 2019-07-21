@@ -25,7 +25,7 @@ class serendipity_event_metadesc extends serendipity_event {
         $propbag->add('description',   PLUGIN_METADESC_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Judebert, Don Chambers');
-        $propbag->add('version',       '0.15.4');
+        $propbag->add('version',       '0.15.5');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '4.1.0'
@@ -245,10 +245,11 @@ class serendipity_event_metadesc extends serendipity_event {
                         } elseif (!empty($property[$prop_key]) && empty($prop_val)) {
                             $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$eventData['id'] . " AND property = '" . serendipity_db_escape_string($prop_key) . "'";
                         } else {
-                          // nothing to do
+                            // nothing to do
+                            $q = '';
                         }
 
-                        serendipity_db_query($q);
+                        if (!empty($q)) serendipity_db_query($q);
                     }
 
                     return true;

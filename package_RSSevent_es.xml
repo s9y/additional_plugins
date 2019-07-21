@@ -86,7 +86,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus, Judebert, Gregor Voeltz, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_karma&lt;br /&gt;Karma&lt;/b&gt;&lt;br /&gt;Permite a los visitantes calificar la calidad de tus entradas&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:38 +0200</pubDate>
+<pubDate>Sun, 21 Jul 2019 22:31:24 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_karma</guid>
 </item>
 <item>
@@ -284,7 +284,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Judebert, Don Chambers</author>
 <content:encoded>&lt;b&gt;serendipity_event_metadesc&lt;br /&gt;HTML META-Tags&lt;/b&gt;&lt;br /&gt;Sets HTML meta keywords/description tags and title element for single entry pages and default meta keywords/description tags for non-single entry pages.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 15 Jun 2019 12:57:07 +0200</pubDate>
+<pubDate>Sun, 21 Jul 2019 22:31:27 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_metadesc</guid>
 </item>
 <item>

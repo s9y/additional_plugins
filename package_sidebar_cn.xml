@@ -183,9 +183,9 @@
 <description>选中一个短语，再点击图标后在维基百科中搜索。</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
+  <version>1.5.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2018-04-03</date>
+  <date>2019-07-21</date>
   <filelist>
 <dir name="serendipity_plugin_wikipedia_finder">
 <file>lang_fr.inc.php</file>

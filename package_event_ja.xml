@@ -624,9 +624,9 @@
 <description>訪問者にあなたのエントリの品質を評価させます。</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus, Judebert, Gregor Voeltz, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.14</version>
+  <version>2.14.1</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2019-07-21</date>
   <filelist>
 <dir name="serendipity_event_karma">
 <dir name="img">
@@ -1939,9 +1939,9 @@
 <description>Sets HTML meta keywords/description tags and title element for single entry pages and default meta keywords/description tags for non-single entry pages.</description>
 <maintainers><maintainer><name>Garvin Hicking, Judebert, Don Chambers</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.15.4</version>
+  <version>0.15.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-06-15</date>
+  <date>2019-07-21</date>
   <filelist>
 <dir name="serendipity_event_metadesc">
 <file>lang_pl.inc.php</file>

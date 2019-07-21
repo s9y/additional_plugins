@@ -1,1 +1,4 @@
+1.5.1:
+    Fix baseURL being a constant, needed in PHP 7
+
 Added legal information for gdpr/dsgvo

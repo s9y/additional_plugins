@@ -52,7 +52,7 @@ class serendipity_plugin_wikipedia_finder extends serendipity_plugin {
         ));
 
 
-        $propbag->add('version',     '1.5');
+        $propbag->add('version',     '1.5.1');
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
     }
 
@@ -162,7 +162,7 @@ class serendipity_plugin_wikipedia_finder extends serendipity_plugin {
         echo "      getSelectedText(); return false;'
                     onclick='return false;'
                     type='image' style='height:30px; width:31px;'
-                    src='".$serendipity[baseURL]."plugins/".$plugin_dir."/wikipedia_".$color.".gif' /><br />
+                    src='".$serendipity['baseURL']."plugins/".$plugin_dir."/wikipedia_".$color.".gif' /><br />
                 ".PLUGIN_WIKIPEDIAFINDER_DESC."
             </form></div>";
     }

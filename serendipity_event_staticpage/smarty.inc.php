@@ -80,7 +80,7 @@ function staticpage_display($params, &$smarty) {
  * @return string       The URL of the category - must be added to {$serendipityBaseURL} for a full URL
  */
 
-function smarty_getCategoryLinkByID ($data, &$smarty) {
+function smarty_getCategoryLinkByID ($data, $smarty) {
     $cat    = serendipity_fetchCategoryInfo($data['cid']);
     $result = serendipity_getPermalink($cat, 'category');
     return $result;

@@ -1,3 +1,6 @@
+4.15.3: Fix smarty_getCategoryLinkByID expecting a smarty reference, 
+        for compatibility with serendipity 2.3
+
 4.15.2: Fix smarty reference.
 
 4.15.1: Fix deprecated use of undefined constant INCLUDE_ANY

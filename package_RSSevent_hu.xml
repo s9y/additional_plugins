@@ -1004,7 +1004,7 @@
 <category>Event Plugins</category>
 <author>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers</author>
 <content:encoded>&lt;b&gt;serendipity_event_staticpage&lt;br /&gt;Static Pages&lt;/b&gt;&lt;br /&gt;Shows static pages inside your blog with your blogs design and all formattings. Adds a new menu item to the admin interface.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Mon, 13 May 2019 22:31:29 +0200</pubDate>
+<pubDate>Wed, 24 Jul 2019 22:31:31 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_staticpage</guid>
 </item>
 <item>

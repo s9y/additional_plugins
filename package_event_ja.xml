@@ -9184,9 +9184,9 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <description>デザインとすべての書式化されたブログとウェブログ内部に静的ページを表示します。管理インターフェースに新しいメニューを追加します。</description>
 <maintainers><maintainer><name>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>4.15.2</version>
+  <version>4.15.3</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2019-05-13</date>
+  <date>2019-07-24</date>
   <filelist>
 <dir name="serendipity_event_staticpage">
 <dir name="img">

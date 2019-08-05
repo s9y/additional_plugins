@@ -306,12 +306,12 @@
 <guid isPermaLink="false">serendipity_event_spamblock_bee</guid>
 </item>
 <item>
-<title>VG Wort (inoffiziell): Integriert VG Wort Zählmarken.</title>
+<title>VG Wort: Integriert Zählmarken der VG Wort.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_vgwort</link>
 <category>Event Plugins</category>
 <author>Malte Paskuda</author>
-<content:encoded>&lt;b&gt;serendipity_event_vgwort&lt;br /&gt;VG Wort (inoffiziell)&lt;/b&gt;&lt;br /&gt;Integriert VG Wort Zählmarken.&lt;br/&gt;For: Serendipity 2.1</content:encoded>
-<pubDate>Sun, 10 Feb 2019 22:31:26 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_vgwort&lt;br /&gt;VG Wort&lt;/b&gt;&lt;br /&gt;Integriert Zählmarken der VG Wort.&lt;br/&gt;For: Serendipity 2.2.1</content:encoded>
+<pubDate>Mon, 05 Aug 2019 22:31:30 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_vgwort</guid>
 </item>
 <item>

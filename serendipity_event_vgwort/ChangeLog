@@ -1,0 +1,13 @@
+Version 0.4:
+============
+Changes by Thomas Hochstein <thh@inter.net>
+- Require s9y 2.2.1-alpha1 or higher due to backend template changes
+  missing in older versions.
+- Change table columns counter_public and counter_private to
+  VARCHAR(32) as MySQL doesn't accept UNIQUE constraints on TEXT
+  or BLOB columns.
+- Fix MySQL comparison (use "=" instead of "=="); otherwise, no
+  counter codes will ever be found.
+- Fix concatenation of body and extended, fixing wrong length
+  calculations for all entries with an extended entry.
+- Internationalisation.

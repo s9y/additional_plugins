@@ -8249,9 +8249,9 @@
 <description>Manadżer linków - pokazuje Twoje ulubione linki w Panelu bocznym.</description>
 <maintainers><maintainer><name>Matthew Groeninger, Omid Mottaghi Rad</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.04</version>
+  <version>2.04.1</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2017-04-10</date>
+  <date>2019-08-09</date>
   <filelist>
 <dir name="serendipity_event_linklist">
 <dir name="img">

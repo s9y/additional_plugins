@@ -2118,9 +2118,9 @@
 <description>Менажер на връзките - показва връзки към други сайтове в странична приставка чрез дървовидно меню.</description>
 <maintainers><maintainer><name>Matthew Groeninger, Omid Mottaghi Rad</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.24</version>
+  <version>1.24.1</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2018-09-04</date>
+  <date>2019-08-09</date>
   <filelist>
 <dir name="serendipity_event_linklist">
 <dir name="img">

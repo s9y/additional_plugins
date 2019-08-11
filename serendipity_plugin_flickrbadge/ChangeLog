@@ -1,3 +1,7 @@
+0.13:
+-----
+   * Use serendipity_request_url()
+
 0.12:
 -----
     * Added serendipity_request_url API method

@@ -7,7 +7,7 @@
  *
  * @author Lars Strojny <lars@strojny.net>
  */
-@define('SERENDIPITY_PLUGIN_FLICKRBADGE_VERSION', '0.12');
+@define('SERENDIPITY_PLUGIN_FLICKRBADGE_VERSION', '0.13');
 
 if (IN_SERENDIPITY != true) die("Don't hack");
 

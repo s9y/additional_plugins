@@ -8,7 +8,7 @@
 @define('PLUGIN_SIDEBAR_FLICKR_TITLE_TITLE', 'Titel');
 @define('PLUGIN_SIDEBAR_FLICKR_TITLE_BLAHBLAH', 'Titel der Seitenleiste. Kann leer sein.');
 @define('PLUGIN_SIDEBAR_FLICKR_USER_TITLE', 'flickr-Account');
-@define('PLUGIN_SIDEBAR_FLICKR_USER_TITLE_BLAHBLAH', 'Benutzername oder Email');
+@define('PLUGIN_SIDEBAR_FLICKR_USER_BLAHBLAH', 'Benutzername oder Email');
 
 @define('PLUGIN_SIDEBAR_FLICKR_IMG_SQUARE', 'Quadratisch');
 @define('PLUGIN_SIDEBAR_FLICKR_IMG_THUMBNAIL', 'Vorschaubild');

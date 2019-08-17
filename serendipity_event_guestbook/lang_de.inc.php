@@ -25,8 +25,8 @@
 @define('PLUGIN_GUESTBOOK_EMAILADMIN_BLAHBLAH', 'Soll der Administrator bei jedem neuen Eintrag eine E-Mail bekommen?');
 @define('PLUGIN_GUESTBOOK_TARGETMAILADMIN', 'E-Mailadresse des Admin');
 @define('PLUGIN_GUESTBOOK_TARGETMAILADMIN_BLAHBLAH', 'Bitte eine gültige E-Mailadresse eintragen. Wenn "E-Mail Admin" aktiviert, dann wird diese Adresse über jeden neuen Eintrag per Mail informiert.');
-@define('PLUGIN_GUESTBOOK_SHOWE-MAIL', 'E-Mailadresse des Users?');
-@define('PLUGIN_GUESTBOOK_SHOWE-MAIL_BLAHBLAH', 'Soll ein Feld für die E-Mailadresse des Users angezeigt werden?');
+@define('PLUGIN_GUESTBOOK_SHOWEMAIL', 'E-Mailadresse des Users?');
+@define('PLUGIN_GUESTBOOK_SHOWEMAIL_BLAHBLAH', 'Soll ein Feld für die E-Mailadresse des Users angezeigt werden?');
 @define('PLUGIN_GUESTBOOK_SHOWURL', 'Homepage des Users?');
 @define('PLUGIN_GUESTBOOK_SHOWURL_BLAHBLAH', 'Soll ein Feld für die Homepage des Users angezeigt werden?');
 @define('PLUGIN_GUESTBOOK_SHOWCAPTCHA', 'Captcha-Schutz aktivieren?');
@@ -165,8 +165,8 @@
 @define('PLUGIN_GUESTSIDE_BLAHBLAH', 'Zeige die letzten Einträge des Gästebuchs');
 @define('PLUGIN_GUESTSIDE_TITLE', 'Titel');
 @define('PLUGIN_GUESTSIDE_TITLE_BLAHBLAH', 'Geben Sie den Titel für die Sidebar an.');
-@define('PLUGIN_GUESTSIDE_SHOWE-MAIL', 'Zeige E-Mail');
-@define('PLUGIN_GUESTSIDE_SHOWE-MAIL_BLAHBLAH', 'Soll die E-Mailadresse der Absender gezeigt werden?');
+@define('PLUGIN_GUESTSIDE_SHOWEMAIL', 'Zeige E-Mail');
+@define('PLUGIN_GUESTSIDE_SHOWEMAIL_BLAHBLAH', 'Soll die E-Mailadresse der Absender gezeigt werden?');
 @define('PLUGIN_GUESTSIDE_SHOWHOMEPAGE', 'Zeige Homepage');
 @define('PLUGIN_GUESTSIDE_SHOWHOMEPAGE_BLAHBLAH', 'Soll die Homepage der Absender gezeigt worden?');
 @define('PLUGIN_GUESTSIDE_MAXCHARS', 'Max. Buchstaben');

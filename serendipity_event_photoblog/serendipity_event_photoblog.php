@@ -11,7 +11,7 @@ if (file_exists($probelang)) {
     include $probelang;
 }
 
-@define('PLUGIN_EVENT_PHOTOBLOG_VERSION', '1.6');
+@define('PLUGIN_EVENT_PHOTOBLOG_VERSION', '1.6.1');
 
 include dirname(__FILE__) . '/lang_en.inc.php';
 

@@ -73,7 +73,6 @@
 @define('TEXT_EMAIL', 'E-Mail');
 @define('TEXT_NAME', 'Name');
 @define('TEXT_HOMEPAGE', 'Homepage');
-@define('TEXT_BODY', 'Eintrag');
 @define('TEXT_EMAILSUBJECT', 'Neuer Gaestebuch Eintrag');//this is email
 @define('TEXT_EMAILTEXT', "%s hat gerade folgendes in das Gästebuch geschrieben:\n%s\n%s\n");
 @define('TEXT_CONVERTBOLDUNDERLINE', 'Umschließende Sterne heben ein Wort hervor (*wort*), per _wort_ kann ein Wort unterstrichen werden.');

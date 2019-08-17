@@ -1,5 +1,7 @@
 <?php
 
+@define('PLUGIN_FEEDBURNERSIDEBAR_NAME','Feedburner Sidebar');
+@define('PLUGIN_FEEDBURNERSIDEBAR_DESC','Adds assorted functionality of the feedburner service into the sidebar.');
 @define('FEEDBURNERSIDEBAR_TITLE','Sidebar Title');
 @define('FEEDBURNERSIDEBAR_TITLE_DESC','Embed email form with serendipity.');
 @define('FEEDBURNERSIDEBAR_FEEDID','Feed ID');

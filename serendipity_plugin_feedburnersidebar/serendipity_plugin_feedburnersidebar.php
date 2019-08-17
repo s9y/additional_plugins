@@ -31,7 +31,7 @@ class serendipity_plugin_feedburnersidebar extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_FEEDBURNERSIDEBAR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Aaron Axelsen');
-        $propbag->add('version',       '1.1');
+        $propbag->add('version',       '1.2');
         $propbag->add('requirements',  array(
             'serendipity' => '1.2.1',
             'smarty'      => '2.6.7',
@@ -44,11 +44,11 @@ class serendipity_plugin_feedburnersidebar extends serendipity_plugin {
             'services' => array(
                 'Feedburner' => array(
                     'url'  => 'https://www.feedburner.com',
-                    'desc' => 'Transmits data from a userto be able to subscribe to a blog through feedburner.'
+                    'desc' => 'Transmits data from a user to be able to subscribe to a blog through feedburner.'
                 ),
             ),
             'frontend' => array(
-                'Transmits data and metadata to feedburner, when a visitor subscribes to the blog',
+                'Transmits data and metadata to feedburner when a visitor subscribes to the blog.',
             ),
             'backend' => array(
             ),

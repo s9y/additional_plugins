@@ -1,3 +1,6 @@
+0.13:
+Added German translation.
+
 0.12.2:
 Removed HTTP referer and URI variables to outgoing request
 

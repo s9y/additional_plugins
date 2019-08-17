@@ -18,7 +18,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
         $propbag->add('description',   PLUGIN_LINKS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Matthew Groeninger, Omid Mottaghi Rad');
-        $propbag->add('version',       '1.24.1');
+        $propbag->add('version',       '1.25');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array(
                                              'title',

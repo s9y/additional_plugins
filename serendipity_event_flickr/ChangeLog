@@ -1,3 +1,7 @@
+0.6:
+---
+    * Added German translation.
+
 0.5.2:
 -----
     * Added serendipity_request_url API method

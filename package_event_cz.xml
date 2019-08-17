@@ -844,17 +844,19 @@
 <description>Umožňuje zkrátit odkaz na Váš blog, podobně jako třeba tr.im, tinyurl.com apod.</description>
 <maintainers><maintainer><name>Garvin Hicking, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6.3</version>
+  <version>1.6.4</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_linktrimmer">
 <file>plugin_linktrimmer_old.tpl</file>
 <file>linktrimmer.css</file>
 <file>plugin_linktrimmer.tpl</file>
+<file>lang_de.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_cs.inc.php</file>
 </dir>
@@ -872,8 +874,10 @@
     <file>serendipity_event_linktrimmer/plugin_linktrimmer_old.tpl</file>
     <file>serendipity_event_linktrimmer/linktrimmer.css</file>
     <file>serendipity_event_linktrimmer/plugin_linktrimmer.tpl</file>
+    <file>serendipity_event_linktrimmer/lang_de.inc.php</file>
     <file>serendipity_event_linktrimmer/ChangeLog</file>
     <file>serendipity_event_linktrimmer/lang_cz.inc.php</file>
+    <file>serendipity_event_linktrimmer/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_linktrimmer/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_linktrimmer/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_linktrimmer/lang_en.inc.php</file>
@@ -1170,29 +1174,35 @@ aplikovány další typografické úpravy.</description>
 <description>Ověřuje uživatele pomocí HTTP auth s použitím jejich serendipity přihlašovacích dat.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6</version>
+  <version>1.7</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_httpauth">
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_cs.inc.php</file>
 </dir>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_httpauth.php</file>
 <file>lang_cs.inc.php</file>
+<file>Changelog</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
+    <file>serendipity_event_httpauth/lang_de.inc.php</file>
     <file>serendipity_event_httpauth/lang_cz.inc.php</file>
+    <file>serendipity_event_httpauth/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_httpauth/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_httpauth/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_httpauth/lang_en.inc.php</file>
     <file>serendipity_event_httpauth/serendipity_event_httpauth.php</file>
     <file>serendipity_event_httpauth/lang_cs.inc.php</file>
+    <file>serendipity_event_httpauth/Changelog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -2277,16 +2287,18 @@ aplikovány další typografické úpravy.</description>
 <description>Vybírá obrázky z webové galerie Coppermine</description>
 <maintainers><maintainer><name>Matthew Maude (modified by Jim Davies)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.08.2</version>
+  <version>2.09</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-03-13</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_cpgselector">
 <file>cpgselector.inc.php</file>
 <file>serendipity_event_cpgselector.php</file>
+<file>lang_de.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
@@ -2303,8 +2315,10 @@ aplikovány další typografické úpravy.</description>
   <serendipityFilelist>
     <file>serendipity_event_cpgselector/cpgselector.inc.php</file>
     <file>serendipity_event_cpgselector/serendipity_event_cpgselector.php</file>
+    <file>serendipity_event_cpgselector/lang_de.inc.php</file>
     <file>serendipity_event_cpgselector/ChangeLog</file>
     <file>serendipity_event_cpgselector/lang_cz.inc.php</file>
+    <file>serendipity_event_cpgselector/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_cpgselector/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_cpgselector/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_event_cpgselector/UTF-8/lang_cs.inc.php</file>
@@ -3215,14 +3229,16 @@ aplikovány další typografické úpravy.</description>
 <description>Importuje do blogu komentáře u příspěvků na facebooku (pomocí RSS Graffiti). Také do blogu vloží facebookové OpenGraph Meta-Tagy. Pamatujte, že přidání talčítka &quot;Líbí se mi&quot; k příspěvkům blogu je zajišťováno pluginem serendipity_event_findmore!</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.5.4</version>
+  <version>0.6</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_facebook">
+<file>lang_de.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_cs.inc.php</file>
 </dir>
@@ -3235,8 +3251,10 @@ aplikovány další typografické úpravy.</description>
 
   </filelist>
   <serendipityFilelist>
+    <file>serendipity_event_facebook/lang_de.inc.php</file>
     <file>serendipity_event_facebook/ChangeLog</file>
     <file>serendipity_event_facebook/lang_cz.inc.php</file>
+    <file>serendipity_event_facebook/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_facebook/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_facebook/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_facebook/lang_en.inc.php</file>
@@ -4123,9 +4141,9 @@ aplikovány další typografické úpravy.</description>
 <description>Zpřístupňuje možnost automatického zálohování Serendepity - databázových tabulek i souborů. V současnosti je podporována pouze databáze MySQL(i). VAROVÁNÍ: Plugin nefunguje optimálně s velkou databází nebo velkým množstvím souborů.</description>
 <maintainers><maintainer><name>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.14</version>
+  <version>0.15</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-10-09</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_backup">
 <dir name="img">
@@ -4134,11 +4152,13 @@ aplikovány další typografické úpravy.</description>
 </dir>
 <file>lang_ja.inc.php</file>
 <file>serendipity_event_backup.php</file>
+<file>lang_de.inc.php</file>
 <file>ChangeLog</file>
 <file>backup.sh</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
 <file>lang_ja.inc.php</file>
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_cs.inc.php</file>
 </dir>
@@ -4156,10 +4176,12 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_backup/img/e.gif</file>
     <file>serendipity_event_backup/lang_ja.inc.php</file>
     <file>serendipity_event_backup/serendipity_event_backup.php</file>
+    <file>serendipity_event_backup/lang_de.inc.php</file>
     <file>serendipity_event_backup/ChangeLog</file>
     <file>serendipity_event_backup/backup.sh</file>
     <file>serendipity_event_backup/lang_cz.inc.php</file>
     <file>serendipity_event_backup/UTF-8/lang_ja.inc.php</file>
+    <file>serendipity_event_backup/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_backup/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_backup/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_backup/lang_en.inc.php</file>
@@ -4627,13 +4649,15 @@ aplikovány další typografické úpravy.</description>
 <description>Compress PNG and JPG images with the TinyPNG service.</description>
 <maintainers><maintainer><name>onli</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.1</version>
+  <version>0.2</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2016-10-16</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_tinypng">
 <file>serendipity_event_tinypng.php</file>
+<file>lang_de.inc.php</file>
 <dir name="UTF-8">
+<file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 </dir>
 <file>lang_en.inc.php</file>
@@ -4656,11 +4680,14 @@ aplikovány další typografické úpravy.</description>
 <file>.gitignore</file>
 <file>README.md</file>
 </dir>
+<file>Changelog</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_tinypng/serendipity_event_tinypng.php</file>
+    <file>serendipity_event_tinypng/lang_de.inc.php</file>
+    <file>serendipity_event_tinypng/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_tinypng/UTF-8/lang_en.inc.php</file>
     <file>serendipity_event_tinypng/lang_en.inc.php</file>
     <file>serendipity_event_tinypng/tinify-php/LICENSE</file>
@@ -4674,6 +4701,7 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_tinypng/tinify-php/.travis.yml</file>
     <file>serendipity_event_tinypng/tinify-php/.gitignore</file>
     <file>serendipity_event_tinypng/tinify-php/README.md</file>
+    <file>serendipity_event_tinypng/Changelog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -4729,14 +4757,16 @@ aplikovány další typografické úpravy.</description>
 <description>Disqus.com je webová služba pro správu komentářů. Ukládá a spravuje komentáře vně instalace serendipity a je do blogu vkládána pomocí JavaScriptu. Pro více informací přejděte na www.disqus.com.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.4</version>
+  <version>0.5</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_disqus">
+<file>lang_de.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_cs.inc.php</file>
 </dir>
@@ -4749,8 +4779,10 @@ aplikovány další typografické úpravy.</description>
 
   </filelist>
   <serendipityFilelist>
+    <file>serendipity_event_disqus/lang_de.inc.php</file>
     <file>serendipity_event_disqus/ChangeLog</file>
     <file>serendipity_event_disqus/lang_cz.inc.php</file>
+    <file>serendipity_event_disqus/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_disqus/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_disqus/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_disqus/lang_en.inc.php</file>
@@ -5088,14 +5120,16 @@ aplikovány další typografické úpravy.</description>
 <description>Tento plugin periodicky vykonává pluginy, které poskytují/vyžadují opakované vykonávání. Podrobnosti v konfiguraci pluginu.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.9.3</version>
+  <version>0.10</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2017-04-10</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_cronjob">
+<file>lang_de.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_cs.inc.php</file>
 </dir>
@@ -5108,8 +5142,10 @@ aplikovány další typografické úpravy.</description>
 
   </filelist>
   <serendipityFilelist>
+    <file>serendipity_event_cronjob/lang_de.inc.php</file>
     <file>serendipity_event_cronjob/ChangeLog</file>
     <file>serendipity_event_cronjob/lang_cz.inc.php</file>
+    <file>serendipity_event_cronjob/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_cronjob/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_cronjob/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_cronjob/lang_en.inc.php</file>
@@ -5409,33 +5445,39 @@ aplikovány další typografické úpravy.</description>
 <description>Vkládá album nebo obrázek z fotoalba aplikace Gallery pomocí značky v textu příspěvku.</description>
 <maintainers><maintainer><name>Rob Antonishen, Alexander Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.12</version>
+  <version>1.13</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2017-07-10</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_galleryimage">
 <file>lang_ja.inc.php</file>
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
 <file>lang_ja.inc.php</file>
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_cs.inc.php</file>
 </dir>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_galleryimage.php</file>
 <file>lang_cs.inc.php</file>
+<file>Changelog</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_galleryimage/lang_ja.inc.php</file>
+    <file>serendipity_event_galleryimage/lang_de.inc.php</file>
     <file>serendipity_event_galleryimage/lang_cz.inc.php</file>
     <file>serendipity_event_galleryimage/UTF-8/lang_ja.inc.php</file>
+    <file>serendipity_event_galleryimage/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_galleryimage/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_galleryimage/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_galleryimage/lang_en.inc.php</file>
     <file>serendipity_event_galleryimage/serendipity_event_galleryimage.php</file>
     <file>serendipity_event_galleryimage/lang_cs.inc.php</file>
+    <file>serendipity_event_galleryimage/Changelog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -5564,11 +5606,12 @@ aplikovány další typografické úpravy.</description>
 <description>Přečteno/Nepřečteno označování příspěvků uživateli</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4</version>
+  <version>1.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_markread">
+<file>lang_de.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
@@ -5584,6 +5627,7 @@ aplikovány další typografické úpravy.</description>
 
   </filelist>
   <serendipityFilelist>
+    <file>serendipity_event_markread/lang_de.inc.php</file>
     <file>serendipity_event_markread/ChangeLog</file>
     <file>serendipity_event_markread/lang_cz.inc.php</file>
     <file>serendipity_event_markread/UTF-8/lang_cz.inc.php</file>
@@ -5605,17 +5649,19 @@ aplikovány další typografické úpravy.</description>
 <description>Importuje obrázky z flickr.com do knihovny médií</description>
 <maintainers><maintainer><name>Jay Bertrand</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.5.3</version>
+  <version>0.6</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2016-10-27</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_flickr">
 <file>lang_fr.inc.php</file>
 <file>serendipity_event_flickr.php</file>
+<file>lang_de.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
 <file>lang_fr.inc.php</file>
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_cs.inc.php</file>
 </dir>
@@ -5634,9 +5680,11 @@ aplikovány další typografické úpravy.</description>
   <serendipityFilelist>
     <file>serendipity_event_flickr/lang_fr.inc.php</file>
     <file>serendipity_event_flickr/serendipity_event_flickr.php</file>
+    <file>serendipity_event_flickr/lang_de.inc.php</file>
     <file>serendipity_event_flickr/ChangeLog</file>
     <file>serendipity_event_flickr/lang_cz.inc.php</file>
     <file>serendipity_event_flickr/UTF-8/lang_fr.inc.php</file>
+    <file>serendipity_event_flickr/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_flickr/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_flickr/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_flickr/Readme.txt</file>
@@ -5843,14 +5891,16 @@ aplikovány další typografické úpravy.</description>
 <description>Vydávejte na svém blogu komix</description>
 <maintainers><maintainer><name>Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4.1</version>
+  <version>1.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_comics">
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_ko.inc.php</file>
 <dir name="UTF-8">
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_ko.inc.php</file>
 <file>lang_cs.inc.php</file>
@@ -5861,12 +5911,15 @@ aplikovány další typografické úpravy.</description>
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
 <file>lang_cs.inc.php</file>
+<file>Changelog</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
+    <file>serendipity_event_comics/lang_de.inc.php</file>
     <file>serendipity_event_comics/lang_cz.inc.php</file>
     <file>serendipity_event_comics/lang_ko.inc.php</file>
+    <file>serendipity_event_comics/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_comics/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_comics/UTF-8/lang_ko.inc.php</file>
     <file>serendipity_event_comics/UTF-8/lang_cs.inc.php</file>
@@ -5876,6 +5929,7 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_comics/documentation_cs.html</file>
     <file>serendipity_event_comics/documentation_cz.html</file>
     <file>serendipity_event_comics/lang_cs.inc.php</file>
+    <file>serendipity_event_comics/Changelog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -6048,15 +6102,17 @@ aplikovány další typografické úpravy.</description>
 <description>Tento plugin je JavaScriptový zvýrazňovač syntaxe založený na stejnojmeném kódu Alexe Gorbačeva.Tento plugin zatěžuje server méně než GeSHi a vkládá méně značek do HTML kódu. Představuje čistější, odlehčenější alternativu ke GeSHi. Plugin vyžaduje použití šablony vzhledu, který podporuje následující hooky: frontend_header, frontend_footer (a volitelně také backend_preview prozobrazování i v administrační sekci).</description>
 <maintainers><maintainer><name>Alex Gorbatchev (core), Brendon Kozlowski and J.M. Roth (plugin)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.0.83</version>
+  <version>3.0.83.1</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2014-04-29</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_dpsyntaxhighlighter">
 <file>.htaccess</file>
+<file>lang_de.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_cs.inc.php</file>
 </dir>
@@ -6139,8 +6195,10 @@ aplikovány další typografické úpravy.</description>
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_dpsyntaxhighlighter/.htaccess</file>
+    <file>serendipity_event_dpsyntaxhighlighter/lang_de.inc.php</file>
     <file>serendipity_event_dpsyntaxhighlighter/ChangeLog</file>
     <file>serendipity_event_dpsyntaxhighlighter/lang_cz.inc.php</file>
+    <file>serendipity_event_dpsyntaxhighlighter/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_dpsyntaxhighlighter/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_dpsyntaxhighlighter/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_dpsyntaxhighlighter/lang_en.inc.php</file>
@@ -6299,15 +6357,17 @@ aplikovány další typografické úpravy.</description>
 <description>Přidává tlačítka do editačního formuláře pro lehčí vkládání HTML/JS akriptů jako např. Youtube apod.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
+  <version>1.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-09-11</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_youtube">
 <file>serendipity_event_youtube.php</file>
+<file>lang_de.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_cs.inc.php</file>
 </dir>
@@ -6318,8 +6378,10 @@ aplikovány další typografické úpravy.</description>
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_youtube/serendipity_event_youtube.php</file>
+    <file>serendipity_event_youtube/lang_de.inc.php</file>
     <file>serendipity_event_youtube/ChangeLog</file>
     <file>serendipity_event_youtube/lang_cz.inc.php</file>
+    <file>serendipity_event_youtube/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_youtube/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_youtube/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_youtube/lang_en.inc.php</file>
@@ -6679,9 +6741,9 @@ aplikovány další typografické úpravy.</description>
 <description>Odmítne komentáře, které jsou zadány ze adres, které jsou vedeny v blacklistu RBL. Pozor, že tato volba může znemožnit posílání komentářů uživatelům, kteří sedí za proxy serverem nebo kteří používají vytáčené spojení.</description>
 <maintainers><maintainer><name>Sebastian Nohn</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
+  <version>1.5.1</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_spamblock_rbl">
 <file>lang_ja.inc.php</file>
@@ -6920,14 +6982,16 @@ aplikovány další typografické úpravy.</description>
 <description>Vkládá reklamy do blogu.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.12.2</version>
+  <version>0.13</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_textlinkads">
+<file>lang_de.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
@@ -6948,8 +7012,10 @@ aplikovány další typografické úpravy.</description>
 
   </filelist>
   <serendipityFilelist>
+    <file>serendipity_event_textlinkads/lang_de.inc.php</file>
     <file>serendipity_event_textlinkads/ChangeLog</file>
     <file>serendipity_event_textlinkads/lang_cz.inc.php</file>
+    <file>serendipity_event_textlinkads/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_textlinkads/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_textlinkads/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_event_textlinkads/UTF-8/lang_cs.inc.php</file>
@@ -8250,9 +8316,9 @@ aplikovány další typografické úpravy.</description>
 <description>Správce odkazů (linků) - V bočním panelu zobrazuje vaše oblíbené odkazy.</description>
 <maintainers><maintainer><name>Matthew Groeninger, Omid Mottaghi Rad</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.04.1</version>
+  <version>2.05</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2019-08-09</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_linklist">
 <dir name="img">
@@ -8274,11 +8340,13 @@ aplikovány další typografické úpravy.</description>
 <file>lang_ja.inc.php</file>
 <file>dtree.js</file>
 <file>lang_pl.inc.php</file>
+<file>lang_de.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
 <file>lang_ja.inc.php</file>
 <file>lang_pl.inc.php</file>
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
@@ -8314,10 +8382,12 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_linklist/lang_ja.inc.php</file>
     <file>serendipity_event_linklist/dtree.js</file>
     <file>serendipity_event_linklist/lang_pl.inc.php</file>
+    <file>serendipity_event_linklist/lang_de.inc.php</file>
     <file>serendipity_event_linklist/ChangeLog</file>
     <file>serendipity_event_linklist/lang_cz.inc.php</file>
     <file>serendipity_event_linklist/UTF-8/lang_ja.inc.php</file>
     <file>serendipity_event_linklist/UTF-8/lang_pl.inc.php</file>
+    <file>serendipity_event_linklist/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_linklist/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_linklist/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_event_linklist/UTF-8/lang_cs.inc.php</file>
@@ -8502,9 +8572,9 @@ aplikovány další typografické úpravy.</description>
 <description>Přidá do příspěvku jednu fotku</description>
 <maintainers><maintainer><name>Cameron MacFarland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6</version>
+  <version>1.6.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_photoblog">
 <file>lang_ja.inc.php</file>
@@ -9093,9 +9163,9 @@ aplikovány další typografické úpravy.</description>
 <description>Detekce spamu pomocí adaptivního algoritmu, který se dokáže sám učit.</description>
 <maintainers><maintainer><name>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.5.2</version>
+  <version>0.5.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-02-18</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bayes">
 <dir name="img">
@@ -10225,14 +10295,16 @@ aplikovány další typografické úpravy.</description>
 <description>Do těla blogu vloží IFRAME, který zobrazuje jinou cizí stránku</description>
 <maintainers><maintainer><name>Rob Antonishen, Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.10.1</version>
+  <version>0.11</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_wrapurl">
+<file>lang_de.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_cs.inc.php</file>
 </dir>
@@ -10243,8 +10315,10 @@ aplikovány další typografické úpravy.</description>
 
   </filelist>
   <serendipityFilelist>
+    <file>serendipity_event_wrapurl/lang_de.inc.php</file>
     <file>serendipity_event_wrapurl/ChangeLog</file>
     <file>serendipity_event_wrapurl/lang_cz.inc.php</file>
+    <file>serendipity_event_wrapurl/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_wrapurl/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_wrapurl/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_wrapurl/lang_en.inc.php</file>

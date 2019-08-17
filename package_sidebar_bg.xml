@@ -293,14 +293,16 @@
 <description>Displays a box for quick links</description>
 <maintainers><maintainer><name>Omid Mottaghi Rad</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.7.2</version>
+  <version>0.8</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2018-04-03</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_plugin_quicklink">
+<file>lang_de.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_cs.inc.php</file>
 </dir>
@@ -311,8 +313,10 @@
 
   </filelist>
   <serendipityFilelist>
+    <file>serendipity_plugin_quicklink/lang_de.inc.php</file>
     <file>serendipity_plugin_quicklink/ChangeLog</file>
     <file>serendipity_plugin_quicklink/lang_cz.inc.php</file>
+    <file>serendipity_plugin_quicklink/UTF-8/lang_de.inc.php</file>
     <file>serendipity_plugin_quicklink/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_plugin_quicklink/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_quicklink/lang_en.inc.php</file>
@@ -732,9 +736,9 @@
 <description>Показва статиите от указани категории в страничния панел. Може да се използва за Моblogging.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.8.2</version>
+  <version>1.9</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_plugin_showentries">
 <file>lang_ja.inc.php</file>
@@ -744,6 +748,7 @@
 <file>lang_ja.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_bg.inc.php</file>
+<file>lang_de.inc .php</file>
 <file>lang_cs.inc.php</file>
 </dir>
 <file>lang_en.inc.php</file>
@@ -752,6 +757,7 @@
 <file>lang_bg.inc.php</file>
 <file>plugin_showentries.tpl</file>
 <file>documentation_cz.html</file>
+<file>lang_de.inc .php</file>
 <file>lang_cs.inc.php</file>
 </dir>
 
@@ -763,6 +769,7 @@
     <file>serendipity_plugin_showentries/UTF-8/lang_ja.inc.php</file>
     <file>serendipity_plugin_showentries/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_plugin_showentries/UTF-8/lang_bg.inc.php</file>
+    <file>serendipity_plugin_showentries/UTF-8/lang_de.inc .php</file>
     <file>serendipity_plugin_showentries/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_showentries/lang_en.inc.php</file>
     <file>serendipity_plugin_showentries/serendipity_plugin_showentries.php</file>
@@ -770,6 +777,7 @@
     <file>serendipity_plugin_showentries/lang_bg.inc.php</file>
     <file>serendipity_plugin_showentries/plugin_showentries.tpl</file>
     <file>serendipity_plugin_showentries/documentation_cz.html</file>
+    <file>serendipity_plugin_showentries/lang_de.inc .php</file>
     <file>serendipity_plugin_showentries/lang_cs.inc.php</file>
   </serendipityFilelist>
 </release>
@@ -1062,9 +1070,9 @@
 <description>Gets and displays a status description of Gadu-Gadu IM</description>
 <maintainers><maintainer><name>Piotr Borys</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4</version>
+  <version>1.5</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_plugin_ggopis">
 <dir name="img">
@@ -1073,10 +1081,12 @@
 <file>gg12.png</file>
 </dir>
 <file>lang_pl.inc.php</file>
+<file>lang_de.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
 <file>lang_pl.inc.php</file>
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_cs.inc.php</file>
 </dir>
@@ -1094,9 +1104,11 @@
     <file>serendipity_plugin_ggopis/img/gg11.png</file>
     <file>serendipity_plugin_ggopis/img/gg12.png</file>
     <file>serendipity_plugin_ggopis/lang_pl.inc.php</file>
+    <file>serendipity_plugin_ggopis/lang_de.inc.php</file>
     <file>serendipity_plugin_ggopis/ChangeLog</file>
     <file>serendipity_plugin_ggopis/lang_cz.inc.php</file>
     <file>serendipity_plugin_ggopis/UTF-8/lang_pl.inc.php</file>
+    <file>serendipity_plugin_ggopis/UTF-8/lang_de.inc.php</file>
     <file>serendipity_plugin_ggopis/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_plugin_ggopis/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_ggopis/lang_en.inc.php</file>
@@ -1475,13 +1487,15 @@
 <description>Показва времето в две времеви зони</description>
 <maintainers><maintainer><name>Christoph Eunicke &lt;s9y-plugin@eunicke.org&gt;</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.5</version>
+  <version>0.6</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2009-01-19</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_plugin_timezones">
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
@@ -1490,11 +1504,14 @@
 <file>lang_en.inc.php</file>
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
+<file>Changelog</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
+    <file>serendipity_plugin_timezones/lang_de.inc.php</file>
     <file>serendipity_plugin_timezones/lang_cz.inc.php</file>
+    <file>serendipity_plugin_timezones/UTF-8/lang_de.inc.php</file>
     <file>serendipity_plugin_timezones/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_plugin_timezones/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_plugin_timezones/UTF-8/lang_cs.inc.php</file>
@@ -1502,6 +1519,7 @@
     <file>serendipity_plugin_timezones/lang_en.inc.php</file>
     <file>serendipity_plugin_timezones/lang_bg.inc.php</file>
     <file>serendipity_plugin_timezones/lang_cs.inc.php</file>
+    <file>serendipity_plugin_timezones/Changelog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -2081,14 +2099,16 @@
 <description>Adds assorted functionality of the feedburner service into the sidebar.</description>
 <maintainers><maintainer><name>Aaron Axelsen</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1</version>
+  <version>1.2</version>
   <requirements:s9yVersion>1.2.1</requirements:s9yVersion>
-  <date>2018-04-03</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_plugin_feedburnersidebar">
+<file>lang_de.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_cs.inc.php</file>
 </dir>
@@ -2099,8 +2119,10 @@
 
   </filelist>
   <serendipityFilelist>
+    <file>serendipity_plugin_feedburnersidebar/lang_de.inc.php</file>
     <file>serendipity_plugin_feedburnersidebar/ChangeLog</file>
     <file>serendipity_plugin_feedburnersidebar/lang_cz.inc.php</file>
+    <file>serendipity_plugin_feedburnersidebar/UTF-8/lang_de.inc.php</file>
     <file>serendipity_plugin_feedburnersidebar/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_plugin_feedburnersidebar/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_feedburnersidebar/serendipity_plugin_feedburnersidebar.php</file>
@@ -2118,9 +2140,9 @@
 <description>Менажер на връзките - показва връзки към други сайтове в странична приставка чрез дървовидно меню.</description>
 <maintainers><maintainer><name>Matthew Groeninger, Omid Mottaghi Rad</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.24.1</version>
+  <version>1.25</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2019-08-09</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_linklist">
 <dir name="img">
@@ -2142,11 +2164,13 @@
 <file>lang_ja.inc.php</file>
 <file>dtree.js</file>
 <file>lang_pl.inc.php</file>
+<file>lang_de.inc.php</file>
 <file>ChangeLog</file>
 <file>lang_cz.inc.php</file>
 <dir name="UTF-8">
 <file>lang_ja.inc.php</file>
 <file>lang_pl.inc.php</file>
+<file>lang_de.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
@@ -2182,10 +2206,12 @@
     <file>serendipity_event_linklist/lang_ja.inc.php</file>
     <file>serendipity_event_linklist/dtree.js</file>
     <file>serendipity_event_linklist/lang_pl.inc.php</file>
+    <file>serendipity_event_linklist/lang_de.inc.php</file>
     <file>serendipity_event_linklist/ChangeLog</file>
     <file>serendipity_event_linklist/lang_cz.inc.php</file>
     <file>serendipity_event_linklist/UTF-8/lang_ja.inc.php</file>
     <file>serendipity_event_linklist/UTF-8/lang_pl.inc.php</file>
+    <file>serendipity_event_linklist/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_linklist/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_linklist/UTF-8/lang_bg.inc.php</file>
     <file>serendipity_event_linklist/UTF-8/lang_cs.inc.php</file>

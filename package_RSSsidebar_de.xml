@@ -45,12 +45,12 @@
 <guid isPermaLink="false">serendipity_plugin_google_quicksearch</guid>
 </item>
 <item>
-<title>Quick Link: Displays a box for quick links</title>
+<title>Quicklink: Zeigt ein Feld für Quicklinks an</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_quicklink</link>
 <category>Sidebar Plugins</category>
 <author>Omid Mottaghi Rad</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_quicklink&lt;br /&gt;Quick Link&lt;/b&gt;&lt;br /&gt;Displays a box for quick links&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Tue, 03 Apr 2018 22:31:31 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_plugin_quicklink&lt;br /&gt;Quicklink&lt;/b&gt;&lt;br /&gt;Zeigt ein Feld für Quicklinks an&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Sat, 17 Aug 2019 22:31:02 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_quicklink</guid>
 </item>
 <item>
@@ -122,7 +122,7 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_showentries&lt;br /&gt;Show Entries in sidebar&lt;/b&gt;&lt;br /&gt;Shows entries of special categories in your sidebar. Good for Sidebar Moblogging!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 27 Apr 2019 22:32:25 +0200</pubDate>
+<pubDate>Sat, 17 Aug 2019 22:31:02 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_showentries</guid>
 </item>
 <item>
@@ -171,12 +171,12 @@
 <guid isPermaLink="false">serendipity_plugin_gallery_menalto_random</guid>
 </item>
 <item>
-<title>Gadu-Gadu IM status description: Gets and displays a status description of Gadu-Gadu IM</title>
+<title>Statusanzeige für Gadu-Gadu: Ruft einen Statustext vom Gadu-Gadu Instant Messenger ab und zeigt sie an.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_ggopis</link>
 <category>Sidebar Plugins</category>
 <author>Piotr Borys</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_ggopis&lt;br /&gt;Gadu-Gadu IM status description&lt;/b&gt;&lt;br /&gt;Gets and displays a status description of Gadu-Gadu IM&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_plugin_ggopis&lt;br /&gt;Statusanzeige für Gadu-Gadu&lt;/b&gt;&lt;br /&gt;Ruft einen Statustext vom Gadu-Gadu Instant Messenger ab und zeigt sie an.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Sat, 17 Aug 2019 22:31:02 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_ggopis</guid>
 </item>
 <item>
@@ -234,12 +234,12 @@
 <guid isPermaLink="false">serendipity_plugin_adduser</guid>
 </item>
 <item>
-<title>Timezones: Shows the time of up to four timezones</title>
+<title>Zeitzone: Zeigt die Zeit von bis zu vier Zeitzonen an.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_timezones</link>
 <category>Sidebar Plugins</category>
 <author>Christoph Eunicke &lt;s9y-plugin@eunicke.org&gt;</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_timezones&lt;br /&gt;Timezones&lt;/b&gt;&lt;br /&gt;Shows the time of up to four timezones&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Mon, 19 Jan 2009 22:11:00 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_plugin_timezones&lt;br /&gt;Zeitzone&lt;/b&gt;&lt;br /&gt;Zeigt die Zeit von bis zu vier Zeitzonen an.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Sat, 17 Aug 2019 22:31:02 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_timezones</guid>
 </item>
 <item>
@@ -324,21 +324,21 @@
 <guid isPermaLink="false">serendipity_plugin_category_dhtml_menu</guid>
 </item>
 <item>
-<title>Feedburner Sidebar: Adds assorted functionality of the feedburner service into the sidebar.</title>
+<title>Feedburner-Seitenleiste: Fügt der Seitenleiste eine Funktion hinzu, um das Blog über den E-Mail-Dienst von Feedburner zu abonnieren.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_feedburnersidebar</link>
 <category>Sidebar Plugins</category>
 <author>Aaron Axelsen</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_feedburnersidebar&lt;br /&gt;Feedburner Sidebar&lt;/b&gt;&lt;br /&gt;Adds assorted functionality of the feedburner service into the sidebar.&lt;br/&gt;For: Serendipity 1.2.1</content:encoded>
-<pubDate>Tue, 03 Apr 2018 22:31:31 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_plugin_feedburnersidebar&lt;br /&gt;Feedburner-Seitenleiste&lt;/b&gt;&lt;br /&gt;Fügt der Seitenleiste eine Funktion hinzu, um das Blog über den E-Mail-Dienst von Feedburner zu abonnieren.&lt;br/&gt;For: Serendipity 1.2.1</content:encoded>
+<pubDate>Sat, 17 Aug 2019 22:31:02 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_feedburnersidebar</guid>
 </item>
 <item>
-<title>Link List: Links manager - Shows your favorite links in the sidebar.</title>
+<title>Linkliste: Linkmanager - zeigt Ihre Lieblingslinks in der Seitenleiste an.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_linklist</link>
 <category>Sidebar Plugins</category>
 <author>Matthew Groeninger, Omid Mottaghi Rad</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_linklist&lt;br /&gt;Link List&lt;/b&gt;&lt;br /&gt;Links manager - Shows your favorite links in the sidebar.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Fri, 09 Aug 2019 22:31:04 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_plugin_linklist&lt;br /&gt;Linkliste&lt;/b&gt;&lt;br /&gt;Linkmanager - zeigt Ihre Lieblingslinks in der Seitenleiste an.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 17 Aug 2019 22:31:01 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_linklist</guid>
 </item>
 <item>

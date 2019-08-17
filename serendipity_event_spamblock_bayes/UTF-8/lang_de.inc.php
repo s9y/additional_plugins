@@ -10,8 +10,6 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC', 'Filtert Kommentare mittels eines lernenden Algorithmus.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_HAM',  'Valid');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_SPAM', 'Spam');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_DIRECTBLOCK', 'Direktes Abweisen');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_DIRECTBLOCK_DESC', 'Weist Spam-Kommentare direkt ab anstatt sie erst zu moderieren.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_AUTOLEARN', 'Lernen');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_AUTOLEARN_DESC', 'Sehr eindeutige Spam-Kommentare werden direkt als Spam gelernt. So können schleichend stattfindende Modifikationen am Spam automatisch erfasst werden.');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_LOGFILE', 'Speicherplatz für das Logfile');

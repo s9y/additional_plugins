@@ -31,7 +31,7 @@ class serendipity_event_spamblock_rbl extends serendipity_event
             'serendipity' => '1.2',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.5');
+        $propbag->add('version',       '1.5.1');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true
         ));
@@ -104,7 +104,9 @@ class serendipity_event_spamblock_rbl extends serendipity_event
                 case 'frontend_saveComment':
                     if (!is_array($eventData) || serendipity_db_bool($eventData['allow_comments'])) {
 
-                        $serendipity['csuccess'] = 'true';
+                        if (!isset($serendipity['csuccess'])) {
+                            $serendipity['csuccess'] = 'true';
+                        }
 
                         // Check for IP listed in RBL
                         require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : 'bundled-libs/') . 'Net/DNSBL.php';

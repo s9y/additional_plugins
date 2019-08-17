@@ -42,7 +42,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '0.5.2' );
+		$propbag->add ( 'version', '0.5.3' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_spamblock_comments_shown' => true,
 		                                     'external_plugin' => true,
@@ -1144,7 +1144,9 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 
 				case 'frontend_saveComment' :
 					if (! is_array ( $eventData ) || serendipity_db_bool ( $eventData ['allow_comments'] )) {
-						$serendipity ['csuccess'] = 'true';
+						if (!isset($serendipity['csuccess'])) {
+							$serendipity['csuccess'] = 'true';
+						}
 						$comment = array(   $this->type['url']       => $addData['url'],
 						                    $this->type['body']      => $addData['comment'],
 						                    $this->type['name']      => $addData['name'],

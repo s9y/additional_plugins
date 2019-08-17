@@ -20,7 +20,7 @@ class serendipity_plugin_amazon extends serendipity_plugin {
         $propbag->add('configuration',  array('title','server', 'newwindows', 'small_medium_large','button','asin','cnt','cache','tracking'));
         $propbag->add('author',         'Matthew Groeninger, (original plugin by Thomas Nesges)');
         $propbag->add('stackable',      true);
-        $propbag->add('version',        '1.23');
+        $propbag->add('version',        '1.24');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

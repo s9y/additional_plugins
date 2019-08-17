@@ -8,7 +8,6 @@
 @define('PLUGIN_EVENT_AMAZONCHOOSER_DEV_TOKEN', 'Entwickler-Token');
 @define('PLUGIN_EVENT_AMAZONCHOOSER_DEV_TOKEN_DESC', 'Der zu benutzende Entwickler-Token.');
 @define('PLUGIN_EVENT_AMAZONCHOOSER_ASSOCIATE_ID', 'Amazon Associate/Partner ID');
-@define('PLUGIN_EVENT_AMAZONCHOOSER_ASSOCIATE__ID_DESC', 'Ihre Amazon Associate/Partner ID');
 @define('PLUGIN_EVENT_AMAZONCHOOSER_SERVER', 'Standard-Server');
 @define('PLUGIN_EVENT_AMAZONCHOOSER_SERVER_DESC', 'Amazon-Server der für lokalisierte Anfragen genutzt werden soll');
 @define('PLUGIN_EVENT_AMAZONCHOOSER_GERMANY', 'Deutschland');

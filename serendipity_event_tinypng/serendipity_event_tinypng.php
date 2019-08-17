@@ -16,7 +16,7 @@ class serendipity_event_tinypng extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_TINYPNG_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli');
-        $propbag->add('version',       '0.1');
+        $propbag->add('version',       '0.2');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0'
         ));

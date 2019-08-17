@@ -17,6 +17,6 @@
 @define('PLUGIN_HTTPAUTH_REMOTEUSER_USERLEVEL', 'Wildcard autentifikace: Oprávnìní');
 @define('PLUGIN_HTTPAUTH_REMOTEUSER_USERLEVEL_DESC', 'Zadejte oprávnìní, kterými bude disponovat uživatele pøihlášený jako "wildacard".');
 @define('PLUGIN_HTTPAUTH_FRONTEND', 'Vyžadovat autentifikaci pro frontend');
-@define('PLUGIN_HTTPAUTH_FRONTEND_DESC', 'Má být autentifikaèní rutina vyžadována už pro frontend blogu? Pokud ano, pak je pøístup k blogu nemožný bez pøhlášení. Pokud volba není zapnuta, pak je pøihášení vyžadováno pouze pro pøístup do backendu (zadní - admnistrátorské èásti) blogu. Mìjte na pamìti, že pøihlášení do administraèní sekce je možné až od verze Serendipity 0.9-beta2!');
+@define('PLUGIN_HTTPAUTH_FRONTEND_DESC', 'Má být autentifikaèní rutina vyžadována už pro frontend blogu? Pokud ano, pak je pøístup k blogu nemožný bez pøhlášení. Pokud volba není zapnuta, pak je pøihášení vyžadováno pouze pro pøístup do backendu (zadní - admnistrátorské èásti) blogu.');
 
 ?>

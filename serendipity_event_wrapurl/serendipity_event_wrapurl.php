@@ -27,7 +27,7 @@ class serendipity_event_wrapURL extends serendipity_event {
         $propbag->add('event_hooks',  array('entries_header' => true, 'entry_display' => true, 'genpage' => true, 'frontend_generate_plugins' => true, 'css' => true));
         $propbag->add('configuration', array('headline', 'permalink', 'pagetitle', 'wrapurl', 'height', 'wrapurl_append', 'hide_sidebar'));
         $propbag->add('author', 'Rob Antonishen, Ian (Timbalu)');
-        $propbag->add('version', '0.10.1');
+        $propbag->add('version', '0.11');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',

@@ -26,7 +26,7 @@ class serendipity_event_httpauth extends serendipity_event
         $propbag->add('description',   PLUGIN_HTTPAUTH_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.6');
+        $propbag->add('version',       '1.7');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

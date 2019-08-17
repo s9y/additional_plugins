@@ -18,6 +18,6 @@
 @define('PLUGIN_HTTPAUTH_REMOTEUSER_USERLEVEL', 'Wildcard auth: Userlevel');
 @define('PLUGIN_HTTPAUTH_REMOTEUSER_USERLEVEL_DESC', 'Specify the userlevel with which a wildcard-authenticated user will be logged in.');
 @define('PLUGIN_HTTPAUTH_FRONTEND', 'Require authentication for frontend');
-@define('PLUGIN_HTTPAUTH_FRONTEND_DESC', 'Shall the authentication routine already be required for the frontend? If enabled, access to the blog is denied without login - if disabled, login is only performed on the backend. Please bear in mind that the backend login functionality only works sine Serendipity 0.9-beta2!');
+@define('PLUGIN_HTTPAUTH_FRONTEND_DESC', 'Shall the authentication routine already be required for the frontend? If enabled, access to the blog is denied without login - if disabled, login is only performed on the backend.');
 
 ?>

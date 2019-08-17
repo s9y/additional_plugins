@@ -6,6 +6,7 @@
  *  EN-Revision: Revision of lang_en.inc.php
  */
 
+@define('PLUGIN_KARMARANKING_TITLE',                "Karma Ranking");
 @define('PLUGIN_KARMARANKING_DESC',                 "Shows overall score by author");
 @define('PLUGIN_KARMARANKING_PROP_TITLE',           "Title");
 @define('PLUGIN_KARMARANKING_PROP_TITLE_DESC',      "Title of Sidebarblock");

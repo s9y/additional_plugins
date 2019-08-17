@@ -24,7 +24,7 @@ class serendipity_plugin_timezones extends serendipity_plugin {
                             'zone4_text', 'zone4_name', 'zone4_format', 'timeshift4'));
         $propbag->add('author',         'Christoph Eunicke <s9y-plugin@eunicke.org>');
         $propbag->add('stackable',      true);
-        $propbag->add('version',        '0.5');
+        $propbag->add('version',        '0.6');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',

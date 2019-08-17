@@ -1,0 +1,5 @@
+1.5: Added German translation.
+1.3: Potential parameter-related bug fixed
+1.2: Moved up the navigation links above 'Posted by...' line when
+     viewing individual entries to keep visual consistency.
+1.1: Initial Release

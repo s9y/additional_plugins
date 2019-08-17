@@ -28,7 +28,7 @@ class serendipity_plugin_showentries extends serendipity_plugin {
             'php'         => '4.1.0'
         ));
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',     '1.8.2');
+        $propbag->add('version',     '1.9');
         $propbag->add('stackable', true);
         $propbag->add('groups', array('FRONTEND_VIEWS'));
     }

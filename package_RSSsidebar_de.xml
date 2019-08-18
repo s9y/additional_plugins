@@ -14,7 +14,7 @@
 <category>Sidebar Plugins</category>
 <author>Jaap Boerma ( j@webbict.com ), Tadashi Jokagi &lt;elf2000@users.sourceforge.net&gt;, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_guestbook&lt;br /&gt;Gästebuch-Seitenleiste&lt;/b&gt;&lt;br /&gt;Zeige die letzten Einträge des Gästebuchs&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:38 +0200</pubDate>
+<pubDate>Sun, 18 Aug 2019 22:31:14 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_guestbook</guid>
 </item>
 <item>
@@ -257,7 +257,7 @@
 <category>Sidebar Plugins</category>
 <author>Matthew Groeninger, (original plugin by Thomas Nesges)</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_amazon&lt;br /&gt;Amazon Empfehlungen&lt;/b&gt;&lt;br /&gt;Empfehlungsblock für Produkte innerhalb des Amazon-Partnerprogramms&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
+<pubDate>Sun, 18 Aug 2019 22:31:19 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_amazon</guid>
 </item>
 <item>
@@ -392,7 +392,7 @@
 <category>Sidebar Plugins</category>
 <author>Michael Kaiser</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_flickr&lt;br /&gt;flickr Fotostream&lt;/b&gt;&lt;br /&gt;Zeigt die aktuellen Bilder von FLICKR-Fotostreams an.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:56 +0100</pubDate>
+<pubDate>Sun, 18 Aug 2019 22:31:19 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_flickr</guid>
 </item>
 <item>

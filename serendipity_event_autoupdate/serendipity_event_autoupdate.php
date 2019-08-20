@@ -22,13 +22,16 @@ class serendipity_event_autoupdate extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_AUTOUPDATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Ian');
-        $propbag->add('version',       '1.1.8');
+        $propbag->add('version',       '1.1.9');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '5.2'
         ));
         $propbag->add('event_hooks',   array('plugin_dashboard_updater' => true,
                                              'backend_sidebar_entries_event_display_update' => true));
+        $propbag->add('configuration', array(
+            'disable_integrity_checks',
+        ));
         $propbag->add('groups', array('BACKEND_FEATURES'));
         if ($serendipity['version'][0] < 2) {
             $this->dependencies   = array('serendipity_event_dashboard' => 'keep');
@@ -47,9 +50,26 @@ class serendipity_event_autoupdate extends serendipity_event {
         }
     }
 
-    /*function introspect_config_item($name, &$propbag) {
-        
-    }*/
+    /**
+     * @param string $name
+     * @param serendipity_property_bag $propbag
+     * @return bool
+     */
+    function introspect_config_item($name, &$propbag)
+    {
+        switch ($name) {
+            case 'disable_integrity_checks':
+                $propbag->add('type', 'boolean');
+                $propbag->add('name', PLUGIN_EVENT_AUTOUPDATE_DISABLE_INTEGRITY_CHECKS);
+                $propbag->add('description', PLUGIN_EVENT_AUTOUPDATE_DISABLE_INTEGRITY_CHECKS_DESC);
+                $propbag->add('default', false);
+                break;
+            default:
+                return false;
+        }
+
+        return true;
+    }
 
     /**
      * flush progress or error messages
@@ -211,10 +231,16 @@ EOS;
                                 $this->show_message('<p class="msg_run"><span class="icon-clock" aria-hidden="true"></span><em>'.$lmsg.'</em></p>', 'Function unpack update', 'checking integrity');
                                 if ($unpacked) {
                                     $start = microtime(true);
-                                    if ($this->checkIntegrity($nv)) {
+                                    $disableIntegrityChecks = $this->get_config('disable_integrity_checks', false);
+                                    if ($disableIntegrityChecks === true || $this->checkIntegrity($nv)) {
                                         usleep(3);
                                         $time = microtime(true) - $start;
-                                        $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn checkIntegrity()...\n", $time); // print in readable format 1.2345
+                                        if ($disableIntegrityChecks === true) {
+                                            $this->set_config('disable_integrity_checks', false); //reset config
+                                            $logmsg .= $lmsg = "fcn checkIntegrity() skipped...\nReset 'disable_integrity_checks' to false\n";
+                                        } else {
+                                            $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn checkIntegrity()...\n", $time); // print in readable format 1.2345
+                                        }
                                         $this->show_message('<p class="msg_run"><span class="icon-clock" aria-hidden="true"></span><em>'.$lmsg.'</em></p>', 'Function check integrity', 'finally copy update');
                                         $start = microtime(true);
                                         $copied = $this->copyUpdate($nv);
@@ -236,7 +262,7 @@ EOS;
                                             sleep(2);
                                             $this->show_message('<p class="msg_notice"><span class="icon-attention" aria-hidden="true"></span><a href="'.$serendipity['serendipityHTTPPath'].'">click to start Serendipity Installer here</a>!</p>');
                                             sleep(1);
-                                           $this->doUpdate();//$logmsg
+                                            $this->doUpdate();//$logmsg
                                         } else {
                                              $this->show_message('<p class="msg_error"><span class="icon-error" aria-hidden="true"></span>Copying the files for the update failed</p>');
                                         }

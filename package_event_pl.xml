@@ -9871,9 +9871,9 @@
 <description>When the dashboard-plugin (once a day) detects an update, this plugin adds the option to manually download or start an automatic and secured upgrade of the blog directly with one click from within the adminarea.</description>
 <maintainers><maintainer><name>onli, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1.8</version>
+  <version>1.1.9</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2019-08-21</date>
   <filelist>
 <dir name="serendipity_event_autoupdate">
 <file>lang_de.inc.php</file>

@@ -1,3 +1,6 @@
+1.1.9: Add config setting 'disable_integrity_checks' to disable file integrity
+       checks for one run (see https://board.s9y.org/viewtopic.php?f=1&t=24492)
+
 1.1.8: Iconfont a11y fix (yellowled)
 
 1.1.7: Fix beta-version upgrade by using github-archive path and making the

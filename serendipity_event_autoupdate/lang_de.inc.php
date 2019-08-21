@@ -8,3 +8,7 @@
     'PLUGIN_EVENT_AUTOUPDATE_DISABLE_INTEGRITY_CHECKS_DESC',
     'Diese Einstellung deaktiviert die Integritätsprüfung für Dateien für einen Durchlauf des automatischen Updates. Sie wird danach automatisch wieder auf `Nein` gesetzt.'
 );
+@define(
+    'PLUGIN_EVENT_AUTOUPDATE_RETRY_NO_INTEGRITY_CHECKS_BUTTON',
+    'Automatisches Upgrade ohne Integritätsprüfung wiederholen'
+);

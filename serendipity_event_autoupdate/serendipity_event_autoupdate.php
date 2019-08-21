@@ -27,8 +27,14 @@ class serendipity_event_autoupdate extends serendipity_event {
             'serendipity' => '0.8',
             'php'         => '5.2'
         ));
-        $propbag->add('event_hooks',   array('plugin_dashboard_updater' => true,
-                                             'backend_sidebar_entries_event_display_update' => true));
+        $propbag->add(
+            'event_hooks',
+            array(
+                'plugin_dashboard_updater' => true,
+                'backend_sidebar_entries_event_display_update' => true,
+                'backend_sidebar_entries_event_display_update_no_integrity_checks' => true,
+            )
+        );
         $propbag->add('configuration', array(
             'disable_integrity_checks',
         ));
@@ -133,6 +139,9 @@ class serendipity_event_autoupdate extends serendipity_event {
                     return true;
                     break;
 
+                case 'backend_sidebar_entries_event_display_update_no_integrity_checks':
+                    $this->set_config('disable_integrity_checks', true);
+                    // `break` statement intentionally omitted!
                 case 'backend_sidebar_entries_event_display_update':
                     if (!(serendipity_checkPermission('siteConfiguration') || serendipity_checkPermission('blogConfiguration'))) {
                         return;
@@ -232,10 +241,10 @@ EOS;
                                 if ($unpacked) {
                                     $start = microtime(true);
                                     $disableIntegrityChecks = $this->get_config('disable_integrity_checks', false);
-                                    if ($disableIntegrityChecks === true || $this->checkIntegrity($nv)) {
+                                    if ($disableIntegrityChecks !== false || $this->checkIntegrity($nv)) {
                                         usleep(3);
                                         $time = microtime(true) - $start;
-                                        if ($disableIntegrityChecks === true) {
+                                        if ($disableIntegrityChecks !== false) {
                                             $this->set_config('disable_integrity_checks', false); //reset config
                                             $logmsg .= $lmsg = "fcn checkIntegrity() skipped...\nReset 'disable_integrity_checks' to false\n";
                                         } else {
@@ -268,10 +277,11 @@ EOS;
                                         }
                                      } else {
                                         $this->showChecksumErrors($nv);
-                                        echo '<form action="?serendipity[adminModule]=event_display&serendipity[adminAction]=update" method="POST">
-                                             <input type="hidden" name="serendipity[newVersion]" value="'.$nv.'" />
-                                             <input type="submit" value="'.PLUGIN_EVENT_AUTOUPDATE_UPDATEBUTTON.'" />
-                                             </form>';
+                                        echo sprintf(
+                                            '<form action="?serendipity[adminModule]=event_display&serendipity[adminAction]=update_no_integrity_checks" method="POST"><input type="hidden" name="serendipity[newVersion]" value="%s"/>%s</form>',
+                                            $nv,
+                                            $serendipity['version'][0] > 1 ? '<button type="submit">'.PLUGIN_EVENT_AUTOUPDATE_RETRY_NO_INTEGRITY_CHECKS_BUTTON.'</button>' : '<input type="submit" value="'.PLUGIN_EVENT_AUTOUPDATE_RETRY_NO_INTEGRITY_CHECKS_BUTTON.'" />'
+                                        );
                                     }
                                 } else {
                                     $this->show_message('<p class="msg_error"><span class="icon-error" aria-hidden="true"></span>Unpacking the update failed</p>');
@@ -569,6 +579,7 @@ EOS;
      */
     function checkIntegrity($version) {
         global $serendipity;
+        return false;
 
         $updateDir    = (string)$serendipity['serendipityPath'] . 'templates_c/' . "serendipity-$version/";
         $checksumFile = (string)$updateDir . "serendipity/checksums.inc.php";

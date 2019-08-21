@@ -579,7 +579,6 @@ EOS;
      */
     function checkIntegrity($version) {
         global $serendipity;
-        return false;
 
         $updateDir    = (string)$serendipity['serendipityPath'] . 'templates_c/' . "serendipity-$version/";
         $checksumFile = (string)$updateDir . "serendipity/checksums.inc.php";

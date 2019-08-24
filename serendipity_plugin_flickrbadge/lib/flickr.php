@@ -81,11 +81,16 @@ class serendipity_plugin_flickrbadge_flickr
 		$params = '';
 		foreach ($arguments as $key => $argument) $params .= "{$key}=" . urlencode($argument) . "&";
 		$url = $this->_url . "?" . $params;
-		require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
-		$request = new HTTP_Request($url);
-		$request->setMethod(HTTP_REQUEST_METHOD_GET);
-		$request->sendRequest();
-		$response = unserialize($request->getResponseBody());
+		if (function_exists('serendipity_request_url')) {
+			$response = unserialize(serendipity_request_url($url));
+		} else {
+			require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
+			serendipity_request_start();
+			$request = new HTTP_Request($url);
+			$request->setMethod(HTTP_REQUEST_METHOD_GET);
+			$request->sendRequest();
+			$response = unserialize($request->getResponseBody());
+		}
 		if ($response['stat'] != 'ok')
 			throw new Exception($response['message'], $response['code']);
 		return $response;

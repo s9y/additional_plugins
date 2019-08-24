@@ -1818,9 +1818,9 @@
 <description>Zeigt deine letzten Photos auf Flickr.com</description>
 <maintainers><maintainer><name>Lars Strojny</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.12</version>
+  <version>0.13</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2019-08-24</date>
   <filelist>
 <dir name="serendipity_plugin_flickrbadge">
 <file>plugin.inc.php</file>

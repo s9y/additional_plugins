@@ -22,7 +22,7 @@ class serendipity_event_autoupdate extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_AUTOUPDATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Ian');
-        $propbag->add('version',       '1.1.9');
+        $propbag->add('version',       '1.1.10');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '5.2'
@@ -580,56 +580,54 @@ EOS;
     function checkIntegrity($version) {
         global $serendipity;
 
-        $updateDir    = (string)$serendipity['serendipityPath'] . 'templates_c/' . "serendipity-$version/";
-        $checksumFile = (string)$updateDir . "serendipity/checksums.inc.php";
-
-        if (strpos($version, 'beta') !== FALSE) {
+        if (strpos($version, 'beta') !== false) {
             return true;
         }
+        $updateDir    = $serendipity['serendipityPath'] . 'templates_c/' . "serendipity-$version/";
+        $checksumFile = $updateDir .'serendipity/checksums.inc.php';
         include_once $checksumFile;
 
         $checksums = $serendipity['checksums_' . $version];
 
         foreach ($checksums as $file => $checksum) {
-            $check = serendipity_FTPChecksum($updateDir . "serendipity/" . $file);
-            if ($checksum != $check) {
+            $path = $updateDir.'serendipity/'.$file;
+            if ($checksum !== serendipity_FTPChecksum($path) && $checksum !== serendipity_FTPChecksum($path, 'text')) {
                 return false;
             }
         }
+
         return true;
     }
 
     /**
-     * checks updates checksum file array with updates realfiles
+     * shows error message and list of files with wrong checksum
      * @param   string version
-     * @return  error
+     * @return  void
      */
     function showChecksumErrors($version) {
         global $serendipity;
 
-        $updateDir    = (string)$serendipity['serendipityPath'] . 'templates_c/' . "serendipity-$version/";
-        $checksumFile = (string)$updateDir . "serendipity/checksums.inc.php";
-
+        $updateDir    = $serendipity['serendipityPath'] . 'templates_c/' . "serendipity-$version/";
+        $checksumFile = $updateDir .'serendipity/checksums.inc.php';
         include_once $checksumFile;
 
         $checksums = $serendipity['checksums_' . $version];
         $errors    = array();
 
         foreach ($checksums as $file => $checksum) {
-            $check = serendipity_FTPChecksum($updateDir . "serendipity/" . $file);
-            if ($checksum != $check) {
-                $errors[] = $updateDir . "serendipity/" . $file;
+            $path = $updateDir.'serendipity/'.$file;
+            if ($checksum !== serendipity_FTPChecksum($path) && $checksum !== serendipity_FTPChecksum($path, 'text')) {
+                $errors[] = $path;
             }
         }
         ob_start();
-        echo '<p class="msg_error"><span class="icon-error" aria-hidden="true"></span>Updating failed, because the integrity-test for the following files failed:</p>';
-        echo "<ul>";
+        echo '<p class="msg_error"><span class="icon-error" aria-hidden="true"></span>'.PLUGIN_EVENT_AUTOUPDATE_ERROR_INTEGRITY_CHECKS.'</p>';
+        echo '<ul>';
         foreach ($errors as $file) {
             echo "<li>$file</li>";
         }
-        echo "</ul>";
-        $integrity_error = ob_get_contents();
-        ob_end_clean();
+        echo '</ul>';
+        $integrity_error = ob_get_clean();
         $this->show_message($integrity_error);
     }
 

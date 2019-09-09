@@ -12,7 +12,7 @@ require_once('tmobile.php');
 require_once('o2.php');
 
 // Default values
-define('POPFETCHER_VERSION',  '1.48');       // This version of Popfetcher
+define('POPFETCHER_VERSION',  '1.49');       // This version of Popfetcher
 define('DEFAULT_ADMINMENU',   'true');       // True if run as sidebar plugin. False if external plugin.
 define('DEFAULT_HIDENAME',    'popfetcher'); // User should set this to something unguessable
 define('DEFAULT_MAILSERVER',  '');
@@ -1131,7 +1131,7 @@ class serendipity_event_popfetcher extends serendipity_event
             $date    = (isset($s->headers['date']))    ? $s->headers['date']    : MF_MSG3;
             $from    = (isset($s->headers['from']))    ? $s->headers['from']    : MF_MSG4;
             if (strlen($onlyfrom) > 0) {
-                $onlyfrom_parts = explode(',', $onlyfrom);
+                $onlyfrom_parts = explode(';', $onlyfrom);
                 $validSender = false;
                 foreach($onlyfrom_parts AS $onlyfrom_part) {
                     if (trim($from) == trim($onlyfrom_part)) {

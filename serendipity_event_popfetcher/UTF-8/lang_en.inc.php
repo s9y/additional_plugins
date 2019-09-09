@@ -89,7 +89,7 @@
 @define('PLUGIN_MF_STRIPTEXT_DESC', 'If you want to cut advertisement or other texts, you can specify a "magic string" sequence here. All text after this special string is removed from your posting.');
 
 @define('PLUGIN_MF_ONLYFROM', 'Restrict e-mail sender');
-@define('PLUGIN_MF_ONLYFROM_DESC', 'If you only want to allow a certain e-mail address to send mails, you can enter it here. If you leave this field empty, all mails received for your configured account are stored in the blog.');
+@define('PLUGIN_MF_ONLYFROM_DESC', 'If you only want to allow a certain e-mail address to send mails, you can enter it here. If you leave this field empty, all mails received for your configured account are stored in the blog. Separate multiple mail adresses with a semicolon.');
 @define('MF_ERROR_ONLYFROM', 'E-mail address %s is not the same as configured restriction to %s. Ignoring mail.');
 @define('PLUGIN_MF_SPLITTEXT', 'Define a string which separates body/extended parts');
 @define('PLUGIN_MF_SPLITTEXT_DESC', 'If you want to use a special string which separates the body and the extended body text in your emails, enter that string here. Serendipity will look for the occurence of that string, and put everything before that string in the body part, and everything after the string in the extended section. Be sure to use a unique string that does not occur as usual text, like "xxx-SPLIT-xxx". If you leave this option empty, the email will be computed as usual - but if you configure a magic string here, some of the other options will be overridden!');

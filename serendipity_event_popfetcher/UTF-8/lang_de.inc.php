@@ -88,7 +88,7 @@
 @define('PLUGIN_MF_STRIPTEXT', 'Text nach speziellen Buchstaben abschneiden');
 @define('PLUGIN_MF_STRIPTEXT_DESC', 'Wenn Sie Werbung oder andere Textpassagen abschneiden wollen, können Sie hier einen "magischen Text" angeben. Sobald dieser im Inhalt ihrer Mail vorkommt, wird aller Text danach aus dem Eintrag gelöscht.');
 @define('PLUGIN_MF_ONLYFROM', 'E-Mail Absender');
-@define('PLUGIN_MF_ONLYFROM_DESC', 'Wenn nur ein spezieller Absender anerkannt werden soll, tragen Sie hier diese E-Mail Addresse ein. Bei einem leeren Feld werden alle E-Mails im Blog angenommen');
+@define('PLUGIN_MF_ONLYFROM_DESC', 'Wenn nur ein spezieller Absender anerkannt werden soll, tragen Sie hier diese E-Mail Addresse ein. Bei einem leeren Feld werden alle E-Mails im Blog angenommen. Mehrere Mail-Adressen mit Semikolon trennen.');
 @define('MF_ERROR_ONLYFROM', 'E-Mail Absender %s entspricht nicht dem zugelassenen Absender %s. Ignoriere E-Mail.');
 
 @define('PLUGIN_MF_SPLITTEXT', 'Spezieller Text, der Text und erweiterten Eintrag einer E-Mail aufteilt');

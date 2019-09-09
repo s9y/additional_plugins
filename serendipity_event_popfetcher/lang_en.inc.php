@@ -95,7 +95,7 @@
 @define('PLUGIN_MF_STRIPTEXT_DESC', 'If you want to cut advertisement or other texts, you can specify a "magic string" sequence here. All text after this special string is removed from your posting.');
 
 @define('PLUGIN_MF_ONLYFROM', 'Restrict e-mail sender');
-@define('PLUGIN_MF_ONLYFROM_DESC', 'If you only want to allow a certain e-mail address to send mails, you can enter it here. If you leave this field empty, all mails received for your configured account are stored in the blog.');
+@define('PLUGIN_MF_ONLYFROM_DESC', 'If you only want to allow a certain e-mail address to send mails, you can enter it here. If you leave this field empty, all mails received for your configured account are stored in the blog. Separate multiple mail adresses with a semicolon.');
 @define('MF_ERROR_ONLYFROM', 'E-mail address %s is not the same as configured restriction to %s. Ignoring mail.');
 @define('MF_ERROR_NOAUTHOR', 'No author with email address %s.  Skipping email.');
 

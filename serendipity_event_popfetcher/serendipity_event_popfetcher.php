@@ -12,7 +12,7 @@ require_once('tmobile.php');
 require_once('o2.php');
 
 // Default values
-define('POPFETCHER_VERSION',  '1.47');       // This version of Popfetcher
+define('POPFETCHER_VERSION',  '1.48');       // This version of Popfetcher
 define('DEFAULT_ADMINMENU',   'true');       // True if run as sidebar plugin. False if external plugin.
 define('DEFAULT_HIDENAME',    'popfetcher'); // User should set this to something unguessable
 define('DEFAULT_MAILSERVER',  '');
@@ -405,7 +405,6 @@ class serendipity_event_popfetcher extends serendipity_event
 
             serendipity_approveComment($cid, $id, true);
 
-            serendipity_purgeEntry($id, $t);
             return $cid;
         } else {
             return false;
@@ -476,6 +475,19 @@ class serendipity_event_popfetcher extends serendipity_event
 
         $entry['allow_comments']    = serendipity_db_bool($this->get_config('default_comments', true));
         $entry['moderate_comments'] = serendipity_db_bool($this->get_config('default_moderate', false));;
+
+        // s9y internally works with false/true strings.
+        if (serendipity_db_bool($entry['allow_comments'])) {
+            $entry['allow_comments'] = 'true';
+        } else {
+            $entry['allow_comments'] = 'false';
+        }
+
+        if (serendipity_db_bool($entry['moderate_comments'])) {
+            $entry['moderate_comments'] = 'true';
+        } else {
+            $entry['moderate_comments'] = 'false';
+        }
 
         if (!empty($usetext)) {
             // Only match the text we specified.
@@ -1063,7 +1075,7 @@ class serendipity_event_popfetcher extends serendipity_event
 
             // Extract the msg from MessArray and store it in Message
             $Message[$i-1]='';
-            while (list($lineNum, $line) = each ($MessArray)) {
+            foreach($MessArray AS $lineNum => $line) {
                 $Message[$i-1] .= $line;
             }
 
@@ -1118,11 +1130,26 @@ class serendipity_event_popfetcher extends serendipity_event
 
             $date    = (isset($s->headers['date']))    ? $s->headers['date']    : MF_MSG3;
             $from    = (isset($s->headers['from']))    ? $s->headers['from']    : MF_MSG4;
-            if (!empty($onlyfrom) && trim($from) != trim($onlyfrom)) {
-                $this->out('<br />'.sprintf(MF_ERROR_ONLYFROM, '"' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($from) : htmlspecialchars($from, ENT_COMPAT, LANG_CHARSET)) . '"', '"' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($onlyfrom) : htmlspecialchars($onlyfrom, ENT_COMPAT, LANG_CHARSET)) . '"'));
-                continue;
+            if (strlen($onlyfrom) > 0) {
+                $onlyfrom_parts = explode(',', $onlyfrom);
+                $validSender = false;
+                foreach($onlyfrom_parts AS $onlyfrom_part) {
+                    if (trim($from) == trim($onlyfrom_part)) {
+                        $validSender = true;
+                    }
+                    if (preg_match('@^[^<]*<([^>]+)>$@imsU', trim($from), $rfc_from)) {
+                        if (trim($rfc_from[1]) == trim($onlyfrom_part)) {
+                            $validSender = true;
+                        }
+                    }
+                }
+
+                if (!$validSender) {
+                    $this->out('<br />'.sprintf(MF_ERROR_ONLYFROM, '"' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($from) : htmlspecialchars($from, ENT_COMPAT, LANG_CHARSET)) . '"', '"' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($onlyfrom) : htmlspecialchars($onlyfrom, ENT_COMPAT, LANG_CHARSET)) . '"'));
+                    continue;
+                }
             }
-            
+
             if (empty($s->ctype_parameters['charset'])) {
                 $s->ctype_parameters['charset'] = 'UTF-8';
             }

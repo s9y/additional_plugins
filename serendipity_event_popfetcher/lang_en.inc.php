@@ -4,7 +4,7 @@
 // Email: fredb86@users.sourceforge.net
 
 /**
- *  @version 
+ *  @version
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of lang_en.inc.php
  */

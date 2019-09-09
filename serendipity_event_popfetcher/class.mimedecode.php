@@ -53,7 +53,7 @@
 * $params['input'] = $input;
 * $structure = mimeDecode::decode($params);
 * print_r($structure);
-* @version 
+* @version
 *
 * July 10, 2004 -- Modifed for standalone use
 */
@@ -522,7 +522,7 @@ class mimeDecode
         } else {
             //$input .= "\n\n(delsp NOT triggered: " . print_r($return, true) . ")\n\n";
         }
-        
+
         switch (strtolower($encoding)) {
             case '7bit':
             return $input;

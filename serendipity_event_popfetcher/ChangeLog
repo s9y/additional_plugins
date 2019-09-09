@@ -19,7 +19,7 @@
 
 * Also add [attach:X] syntax to text attachments, where X represents the number of the attachment (starting with 1)
   that should be positioned inline
-  
+
 1.41:
 ----
 

@@ -6,6 +6,7 @@
  *  EN-Revision: Revision of lang_en.inc.php
  */
 
+@define('PLUGIN_EVENT_KUBRICKHEADER_STYLE', 'Kubrik-style template header/logo');
 @define('PLUGIN_EVENT_KUBRICKHEADER_STYLE_DESC',      'Which Template are you using ?');
 @define('PLUGIN_EVENT_KUBRICKHEADER_STYLE_DESC_BLAH', 'Choose the Style you are currently using');
 @define('PLUGIN_EVENT_KUBRICKHEADER_KUBRICK',         'Kubrick');

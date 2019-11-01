@@ -58,3 +58,5 @@
 
 @define('PLUGIN_EVENT_SITEMAP_NEWS_SINGLE', 'Merge GoogleNews sitemap with normal sitemap?');
 @define('PLUGIN_EVENT_SITEMAP_NEWS_SINGLE_DESC', 'This option only applies if you have enabled GoogleNews content. If enabled, the normal sitemap.xml file will contain GoogleNews markup. When disabled, only the news_sitemap.xml file will contain GoogleNews formatted data. If you have more than then allowed 1000 blog articles, you must disable this option to not confuse the GoogleSpiders with your "normal" sitemap.');
+@define('PLUGIN_EVENT_SITEMAP_AVOID_NOINDEX', 'Avoid Noindex Pages');
+@define('PLUGIN_EVENT_SITEMAP_AVOID_NOINDEX_DESC', 'Modern themes will set overview pages to noindex, to improve search engine placements. This option removes those pages from the sitemap as well, even if they are selected below.');

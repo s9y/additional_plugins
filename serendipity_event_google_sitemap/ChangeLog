@@ -1,3 +1,7 @@
+0.60:
+-----
+    * By default do not add pages that modern themes will set as noindex (overview pages)
+
 0.59:
 -----
     * Set xmlns for sitemap-news also with gnews_single mode

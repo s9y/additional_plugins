@@ -1,9 +1,11 @@
-Propagate $smarty.env.staticpage_pagetitle (and the others) so that it can be used in entries.tpl
-latest: Smarty3 forward compatibility
+1.12:
+-----
+* Propagate $smarty.env.staticpage_pagetitle (and the others) so that
+  it can be used in entries.tpl
+* Latest: Smarty3 forward compatibility
 
 1.11:
 -----
-
 Added new smarty function to allow building for archive overviews based
 on custom entryproperties. See the serendipity_event_customarchive.php file
 for example use of the Smarty function, that you can for example use

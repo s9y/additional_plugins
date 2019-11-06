@@ -30,7 +30,7 @@ class serendipity_event_google_sitemap extends serendipity_event {
         $propbag->add('name', PLUGIN_EVENT_SITEMAP_TITLE);
         $propbag->add('description', PLUGIN_EVENT_SITEMAP_DESC);
         $propbag->add('author', 'Boris');
-        $propbag->add('version', '0.59');
+        $propbag->add('version', '0.60');
         $propbag->add('event_hooks',  array(
                 'backend_publish' => true,
                 'backend_save'    => true,
@@ -39,7 +39,7 @@ class serendipity_event_google_sitemap extends serendipity_event {
             ));
         $propbag->add('stackable', false);
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
-        $propbag->add('configuration', array('report', 'url', 'gzip_sitemap', 'types_to_add', 'gnews', 'gnews_single', 'custom', 'custom2', 'gnews_name', 'gnews_subscription', 'gnews_genre'));
+        $propbag->add('configuration', array('report', 'url', 'gzip_sitemap', 'avoid_noindex', 'types_to_add', 'gnews', 'gnews_single', 'custom', 'custom2', 'gnews_name', 'gnews_subscription', 'gnews_genre'));
         $propbag->add('requirements',  array('serendipity' => '0.8'));
     }
 
@@ -62,6 +62,12 @@ class serendipity_event_google_sitemap extends serendipity_event {
                 $propbag->add('type', 'boolean');
                 $propbag->add('name', PLUGIN_EVENT_SITEMAP_GZIP_SITEMAP);
                 $propbag->add('description', PLUGIN_EVENT_SITEMAP_GZIP_SITEMAP_DESC);
+                $propbag->add('default', true);
+            break;
+            case 'avoid_noindex':
+                $propbag->add('type', 'boolean');
+                $propbag->add('name', PLUGIN_EVENT_SITEMAP_AVOID_NOINDEX);
+                $propbag->add('description', PLUGIN_EVENT_SITEMAP_AVOID_NOINDEX_DESC);
                 $propbag->add('default', true);
             break;
             case 'types_to_add':
@@ -214,6 +220,12 @@ class serendipity_event_google_sitemap extends serendipity_event {
 
     /*! This functions returns whether a URL-type should be added or not */
     function should_add($type) {
+        if (serendipity_db_bool($this->get_config('avoid_noindex', true))) {
+            // modern themes set overview pages to noindex. We should follow, otherwise google will complain
+            if ($type == 'sm_categories' || $type == 'sm_authors' || $type == 'sm_archives' || $type == 'sm_tags') {
+                return false;
+            }
+        }
         if(!isset($this->types)) {
             $this->types = explode('^', $this->get_config('types_to_add'));
         }

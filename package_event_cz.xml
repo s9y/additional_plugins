@@ -8621,9 +8621,9 @@ aplikovány další typografické úpravy.</description>
 <description>Vytváří soubor sitemap.xml.gz, který používají nejrůznější webové vyhledávače (Google, MSN, Yahoo nebo Ask)</description>
 <maintainers><maintainer><name>Boris</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.59</version>
+  <version>0.60</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-03-01</date>
+  <date>2019-11-06</date>
   <filelist>
 <dir name="serendipity_event_google_sitemap">
 <file>lang_pl.inc.php</file>

@@ -12,7 +12,6 @@
 			$propbag->add('name', PLUGIN_EVENT_GEO_JSON_NAME);
 			$propbag->add('description', PLUGIN_EVENT_GEO_JSON_DESCRIPTION);
 			$propbag->add('copyright', 'GPL');
-			$propbag->add('configuration', array('content'));
 			$propbag->add('event_hooks', array('frontend_header' => true));
 			$propbag->add('author', 'Martin Sewelies');
 			$propbag->add('version', '0.1');
@@ -82,22 +81,11 @@
 					'uploads' => $uploads
 				];
 				echo '    <script>const geo = '.json_encode($object, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES).';</script>'.PHP_EOL;
-				//echo $this->get_config('content'); //TODO
 			}
 		}
 
 		function introspect_config_item($name, &$propbag)
 		{
-			switch($name) {
-				case 'content':
-					$propbag->add('type',        'string');
-					$propbag->add('name',        CONTENT);
-					$propbag->add('description', THE_NUGGET);
-					$propbag->add('default',     '');
-					break;
-				default:
-					return false;
-			}
 			return true;
 		}
 	}

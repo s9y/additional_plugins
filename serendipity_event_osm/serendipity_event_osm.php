@@ -13,7 +13,7 @@
 			$propbag->add('description', PLUGIN_EVENT_OSM_DESCRIPTION);
 			$propbag->add('copyright', 'GPL');
 			$propbag->add('configuration', array('height', 'latitude', 'longitude', 'zoom'));
-			$propbag->add('event_hooks', array('frontend_header' => true, 'entries_header' => true));
+			$propbag->add('event_hooks', array('entries_header' => true));
 			$propbag->add('author', 'Martin Sewelies');
 			$propbag->add('version', '0.1');
 			$propbag->add('requirements', array(
@@ -30,13 +30,7 @@
 
 		function event_hook($event, &$bag, &$eventData, $addData = null)
 		{
-			global $serendipity;
-			if ($event == 'frontend_header') {
-				echo '    <link rel="stylesheet" href="'.$this->getFile('ol.css', 'serendipityHTTPPath').'" type="text/css">'.PHP_EOL;
-				echo '    <link rel="stylesheet" href="'.$this->getFile('osm.css', 'serendipityHTTPPath').'" type="text/css">'.PHP_EOL;
-				echo '    <script src="'.$this->getFile('ol.js', 'serendipityHTTPPath').'"></script>'.PHP_EOL;
-				echo '    <script src="'.$this->getFile('osm.js', 'serendipityHTTPPath').'"></script>'.PHP_EOL;
-			} else if ($event == 'entries_header') {
+			if ($event == 'entries_header') {
 				echo '    <div id="map" style="height: '.$this->get_config('height', '463px').'" data-latitude="'.$this->get_config('latitude', 51.48165).'" data-longitude="'.$this->get_config('longitude', 7.21648).'" data-zoom="'.$this->get_config('zoom', 15).'"></div>'.PHP_EOL;
 				echo '    <div id="popup" class="ol-popup"></div>'.PHP_EOL;
 			}

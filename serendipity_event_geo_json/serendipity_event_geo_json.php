@@ -6,27 +6,25 @@ if (IN_serendipity !== true) {
 
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
-class serendipity_event_head_geo extends serendipity_event
+class serendipity_event_geo_json extends serendipity_event
 {
-    var $title = HEAD_GEO_TITLE;
-
     function introspect(&$propbag)
     {
-        $propbag->add('name',          HEAD_GEO_TITLE);
-        $propbag->add('description',   HEAD_GEO_DESCRIPTION);
+        $propbag->add('name',          PLUGIN_EVENT_GEO_JSON_NAME);
+        $propbag->add('description',   PLUGIN_EVENT_GEO_JSON_DESCRIPTION);
         $propbag->add('copyright', 'GPL');
         $propbag->add('configuration', array('content'));
         $propbag->add('event_hooks', array('frontend_header' => true));
         $propbag->add('author', 'Martin Sewelies');
         $propbag->add('version', '0.1');
         $propbag->add('requirements', array('serendipity' => '2.3'));
-        $propbag->add('stackable', true);
-        $propbag->add('groups', array('BACKEND_METAINFORMATION'));
+        $propbag->add('stackable', false);
+        $propbag->add('groups', array('FRONTEND_FEATURES'));
     }
 
     function generate_content(&$title)
     {
-        $title = $this->title;
+        $title = PLUGIN_EVENT_GEO_JSON_NAME;
     }
 
     function event_hook($event, &$bag, &$eventData, $addData = null)
@@ -84,7 +82,7 @@ class serendipity_event_head_geo extends serendipity_event
                 'entries' => $entries,
                 'uploads' => $uploads
             ];
-            echo "    <script>const geo = ".json_encode($object,  JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES).";</script>\n";
+            echo '    <script>const geo = '.json_encode($object, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES).';</script>'.PHP_EOL;
             //echo $this->get_config('content'); //TODO
         }
     }
@@ -93,7 +91,7 @@ class serendipity_event_head_geo extends serendipity_event
     {
         switch($name) {
             case 'content':
-                $propbag->add('type',        'text');
+                $propbag->add('type',        'string');
                 $propbag->add('name',        CONTENT);
                 $propbag->add('description', THE_NUGGET);
                 $propbag->add('default',     '');

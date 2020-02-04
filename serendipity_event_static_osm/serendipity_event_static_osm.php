@@ -18,7 +18,7 @@
 			$propbag->add('requirements', array(
 				'serendipity' => '2.3'
 			));
-			$propbag->add('stackable', true);
+			$propbag->add('stackable', false);
 			$propbag->add('groups', array('FRONTEND_ENTRY_RELATED'));
 		}
 
@@ -31,8 +31,8 @@
 		{
 			global $serendipity;
 			if ($event == 'frontend_header') {
-				echo '    <link rel="stylesheet" href="'.$this->getFile('ol.css', 'serendipityHTTPPath').'" type="text/css">'.PHP_EOL;
-				echo '    <link rel="stylesheet" href="'.$this->getFile('osm.css', 'serendipityHTTPPath').'" type="text/css">'.PHP_EOL;
+				echo '    <link rel="stylesheet" href="'.$this->getFile('ol.css', 'serendipityHTTPPath').'" type="text/css" />'.PHP_EOL;
+				echo '    <link rel="stylesheet" href="'.$this->getFile('osm.css', 'serendipityHTTPPath').'" type="text/css" />'.PHP_EOL;
 				echo '    <script src="'.$this->getFile('ol.js', 'serendipityHTTPPath').'"></script>'.PHP_EOL;
 				echo '    <script src="'.$this->getFile('osm.js', 'serendipityHTTPPath').'"></script>'.PHP_EOL;
 			}

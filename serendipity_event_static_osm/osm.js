@@ -41,7 +41,8 @@ window.onload = () => {
             zIndex: Infinity
         })
     ];
-    for (const upload of geo.uploads) {
+    const data = document.getElementById("map").dataset;
+    for (const upload of geo.uploads.filter(x => x.url.startsWith(data.path))) {
         const layer = new ol.layer.Vector({
             source: new ol.source.Vector({
                 url: upload.url,
@@ -57,7 +58,6 @@ window.onload = () => {
         });
         layers.push(layer);
     }
-    const data = document.getElementById("map").dataset;
     const map = new ol.Map({
         controls: ol.control.defaults({rotate: false}).extend([
             new ol.control.FullScreen(),

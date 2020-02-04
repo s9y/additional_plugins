@@ -12,7 +12,7 @@
 			$propbag->add('name', PLUGIN_EVENT_OSM_NAME);
 			$propbag->add('description', PLUGIN_EVENT_OSM_DESCRIPTION);
 			$propbag->add('copyright', 'GPL');
-			$propbag->add('configuration', array('height', 'latitude', 'longitude', 'zoom'));
+			$propbag->add('configuration', array('title', 'height', 'latitude', 'longitude', 'zoom'));
 			$propbag->add('event_hooks', array('entries_header' => true));
 			$propbag->add('author', 'Martin Sewelies');
 			$propbag->add('version', '0.1');
@@ -25,7 +25,7 @@
 
 		function generate_content(&$title)
 		{
-			$title = PLUGIN_EVENT_OSM_NAME;
+			$title = $this->get_config('title');
 		}
 
 		function event_hook($event, &$bag, &$eventData, $addData = null)
@@ -39,6 +39,12 @@
 		function introspect_config_item($name, &$propbag)
 		{
 			switch($name) {
+				case 'title':
+					$propbag->add('type',        'string');
+					$propbag->add('name',        TITLE);
+					$propbag->add('description', TITLE . PLUGIN_PAGE_NUGGET_NOSHOW);
+					$propbag->add('default',     PLUGIN_EVENT_OSM_NAME);
+					break;
 				case 'height':
 					$propbag->add('type',        'string');
 					$propbag->add('name',        PLUGIN_EVENT_OSM_HEIGHT);

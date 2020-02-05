@@ -47,7 +47,7 @@
 		{
 			if ($event == 'entries_header') {
 				if (in_array($this->get_config('category_id'), $this->get_page_categories())) {
-					echo '    <div id="map" data-path="'.$this->get_config('path', '').'" data-latitude="'.$this->get_config('latitude', 51.48165).'" data-longitude="'.$this->get_config('longitude', 7.21648).'" data-zoom="'.$this->get_config('zoom', 15).'" style="height: '.$this->get_config('height', '463px').'"></div>'.PHP_EOL;
+					echo '    <div id="map" data-category="'.$this->get_config('category_id', '').'" data-path="'.$this->get_config('path', '').'" data-latitude="'.$this->get_config('latitude', 51.48165).'" data-longitude="'.$this->get_config('longitude', 7.21648).'" data-zoom="'.$this->get_config('zoom', 15).'" style="height: '.$this->get_config('height', '463px').'"></div>'.PHP_EOL;
 					echo '    <div id="popup" class="ol-popup"></div>'.PHP_EOL;
 				}
 			}

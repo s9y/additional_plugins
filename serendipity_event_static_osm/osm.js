@@ -14,12 +14,14 @@ window.onload = () => {
         element: popup
     });
 
-    const features = [];
-    for (const [id, entry] of Object.entries(geo.entries)) {
+    const data = document.getElementById("map").dataset;
+    const entries = geo.entries.filter(x => x.categories.includes(data.category));
+    const uploads = geo.uploads.filter(x => x.url.startsWith(data.path));
+    const features = entries.map((entry, id) => {
         const feature = new ol.Feature(new ol.geom.Point(ol.proj.fromLonLat(entry.pos.reverse())));
         feature.setId(id);
-        features.push(feature);
-    }
+        return feature;
+    });
 
     const osmSource = new ol.source.OSM();
     const layers = [
@@ -28,7 +30,7 @@ window.onload = () => {
             source: new ol.source.Vector({features: features}),
             style: feature => {
                 const id = feature.getId();
-                const entry = geo.entries[id];
+                const entry = entries[id];
                 const date = new Date(entry.date * 1000);
 
                 return new ol.style.Style({
@@ -41,8 +43,7 @@ window.onload = () => {
             zIndex: Infinity
         })
     ];
-    const data = document.getElementById("map").dataset;
-    for (const upload of geo.uploads.filter(x => x.url.startsWith(data.path))) {
+    for (const upload of uploads) {
         const layer = new ol.layer.Vector({
             source: new ol.source.Vector({
                 url: upload.url,
@@ -95,32 +96,32 @@ window.onload = () => {
             return li;
         };
 
-        const entries = [];
-        const uploads = [];
+        const foundEntries = [];
+        const foundUploads = [];
         map.forEachFeatureAtPixel(event.pixel, (feature, layer) => {
             const id = feature.getId();
             if (id !== undefined) {
-                entries.push(id);
+                foundEntries.push(id);
             } else {
                 const url = layer.getSource().getUrl();
-                const id = geo.uploads.findIndex(upload => upload.url === url);
-                uploads.push(id);
+                const id = uploads.findIndex(upload => upload.url === url);
+                foundUploads.push(id);
             }
         }, {hitTolerance: 10});
-        entries.sort((x, y) => x - y);
-        uploads.sort((x, y) => x - y);
+        foundEntries.sort((x, y) => x - y);
+        foundUploads.sort((x, y) => x - y);
 
-        if (entries.length || uploads.length) {
+        if (foundEntries.length || foundUploads.length) {
             const initUl = title => {
                 const ul = document.createElement("ul");
                 ul.setAttribute("data-title", title);
                 return ul;
             };
-            const ulEntries = entries.map(x => makeItem(geo.entries[x])).reduce((x, y) => {x.appendChild(y); return x;}, initUl("Blogs"));
-            const ulUploads = uploads.map(x => makeItem(geo.uploads[x])).reduce((x, y) => {x.appendChild(y); return x;}, initUl("Downloads"));
-            popup.innerHTML = (entries.length ? ulEntries.outerHTML : '') + (uploads.length ? ulUploads.outerHTML : '');
-            overlay.setPosition(entries.length ? ol.proj.fromLonLat(
-                [0, 1].map(latLon => entries.map(x => geo.entries[x].pos[latLon]).reduce((x, y) => x + y, 0) / entries.length)
+            const ulEntries = foundEntries.map(x => makeItem(entries[x])).reduce((x, y) => {x.appendChild(y); return x;}, initUl("Blogs"));
+            const ulUploads = foundUploads.map(x => makeItem(uploads[x])).reduce((x, y) => {x.appendChild(y); return x;}, initUl("Downloads"));
+            popup.innerHTML = (foundEntries.length ? ulEntries.outerHTML : '') + (foundUploads.length ? ulUploads.outerHTML : '');
+            overlay.setPosition(foundEntries.length ? ol.proj.fromLonLat(
+                [0, 1].map(latLon => foundEntries.map(x => entries[x].pos[latLon]).reduce((x, y) => x + y, 0) / foundEntries.length)
             ) : event.coordinate);
         } else {
             overlay.setPosition(undefined);

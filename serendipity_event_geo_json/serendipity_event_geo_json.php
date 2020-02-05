@@ -25,68 +25,82 @@
 			$title = PLUGIN_EVENT_GEO_JSON_NAME;
 		}
 
-		function get_geo_json()
-		{
+		function simple_query($sql) {
+			$rows = serendipity_db_query($sql, false, 'assoc');
+			return is_array($rows) ? $rows : [];
+		}
+
+		function get_entries() {
 			global $serendipity;
-
-			$tt = serendipity_db_query(
-				"SELECT e.title, p.permalink, e.timestamp, LENGTH(e.body) AS size, a.realname, e2.value AS lat, e1.value AS lng
-				FROM {$serendipity['dbPrefix']}entries e
-				JOIN {$serendipity['dbPrefix']}entryproperties e1 ON (e1.entryid = e.id AND e1.property='geo_long')
-				JOIN {$serendipity['dbPrefix']}entryproperties e2 ON (e2.entryid = e.id AND e2.property='geo_lat')
-				LEFT JOIN {$serendipity['dbPrefix']}permalinks p ON (p.entry_id = e.id AND p.type='entry')
-				LEFT JOIN {$serendipity['dbPrefix']}authors a ON (a.authorid = e.authorid)
-				WHERE e.isdraft = 'false'
-				ORDER BY p.permalink"
-			);
-
 			$entries = [];
-			if (is_array($tt)) {
-				foreach ($tt as $t) {
-					$entries[] = [
-						'title' => $t['title'],
-						'url' => $serendipity['serendipityHTTPPath'].$t['permalink'],
-						'date' => (int)$t['timestamp'],
-						'size' => (int)$t['size'],
-						'author' => $t['realname'],
-						'pos' => [(double)$t['lat'], (double)$t['lng']]
-					];
-				}
+			foreach ($this->simple_query(
+				"SELECT e.id, e.title, p.permalink, e.timestamp, LENGTH(e.body) AS size, a.realname, eplat.value AS lat, eplng.value AS lng
+				FROM {$serendipity['dbPrefix']}entries e
+				JOIN {$serendipity['dbPrefix']}entryproperties eplng ON (eplng.entryid = e.id AND eplng.property = 'geo_long')
+				JOIN {$serendipity['dbPrefix']}entryproperties eplat ON (eplat.entryid = e.id AND eplat.property = 'geo_lat')
+				JOIN {$serendipity['dbPrefix']}permalinks p ON (p.entry_id = e.id AND p.type = 'entry')
+				JOIN {$serendipity['dbPrefix']}authors a ON a.authorid = e.authorid
+				WHERE e.isdraft = 'false'
+				ORDER BY p.permalink",
+				false, 'assoc'
+			) as $row) {
+				$entries[$row['id']] = [
+					'title' => $row['title'],
+					'url' => $serendipity['serendipityHTTPPath'].$row['permalink'],
+					'date' => $row['timestamp'],
+					'size' => $row['size'],
+					'author' => $row['realname'],
+					'pos' => [(double)$row['lat'], (double)$row['lng']],
+					'categories' => []
+				];
 			}
-
-			$tt = serendipity_db_query(
+			foreach ($this->simple_query(
+				"SELECT ec.entryid, ec.categoryid
+				FROM {$serendipity['dbPrefix']}entrycat ec
+				JOIN {$serendipity['dbPrefix']}entries e ON e.id = ec.entryid
+				JOIN {$serendipity['dbPrefix']}entryproperties eplat ON (eplat.entryid = ec.entryid AND eplat.property = 'geo_lat')
+				JOIN {$serendipity['dbPrefix']}entryproperties eplng ON (eplng.entryid = ec.entryid AND eplng.property = 'geo_long')
+				WHERE e.isdraft = 'false'"
+			) as $row) {
+				$entries[$row['entryid']]['categories'][] = $row['categoryid'];
+			}
+			return array_values($entries);
+		}
+		
+		function get_uploads() {
+			global $serendipity;
+			return array_map(function($row) {
+				global $serendipity;
+				return [
+					'title' => $row['realname'],
+					'url' => $serendipity['serendipityHTTPPath'].$serendipity['uploadPath'].$row['path'].$row['realname'],
+					'date' => $row['date'],
+					'size' => $row['size']
+				];
+			}, $this->simple_query(
 				"SELECT i.realname, i.path, IFNULL(m.value, i.date) AS date, i.size
 				FROM {$serendipity['dbPrefix']}images i
 				LEFT JOIN {$serendipity['dbPrefix']}mediaproperties m ON (
 					m.mediaid = i.id AND m.property='DATE' AND m.property_group = 'base_property' AND property_subgroup = ''
 				)
 				WHERE i.extension = 'gpx'
-				ORDER BY i.path, i.realname"
-			);
+				ORDER BY i.path, i.realname",
+				false, 'assoc'
+			));
+		}
 
-			$uploads = [];
-			if (is_array($tt)) {
-				foreach ($tt as $t) {
-					$uploads[] = [
-						'title' => $t['realname'],
-						'url' => $serendipity['serendipityHTTPPath'].$serendipity['uploadPath'].$t['path'].$t['realname'],
-						'date' => (int)$t['date'],
-						'size' => (int)$t['size']
-					];
-				}
-			}
-
-			$object = [
-				'entries' => $entries,
-				'uploads' => $uploads
-			];
-			return json_encode($object, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+		function get_geo_json()
+		{
+			return json_encode([
+				'entries' => $this->get_entries(),
+				'uploads' => $this->get_uploads()
+			], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 		}
 
 		function event_hook($event, &$bag, &$eventData, $addData = null)
 		{
 			if ($event == 'frontend_header') {
-            echo '    <script>const geo = '.$this->get_geo_json().';</script>'.PHP_EOL;
+				echo '    <script>const geo = '.$this->get_geo_json().';</script>'.PHP_EOL;
 			}
 		}
 

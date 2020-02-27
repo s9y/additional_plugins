@@ -67,7 +67,7 @@
 			}
 			return array_values($entries);
 		}
-		
+
 		function get_uploads() {
 			global $serendipity;
 			return array_map(function($row) {

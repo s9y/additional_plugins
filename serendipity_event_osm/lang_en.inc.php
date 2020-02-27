@@ -1,5 +1,5 @@
 <?php
-	@define('PLUGIN_EVENT_OSM_NAME', 'OpenStreetMaps integration');
+	@define('PLUGIN_EVENT_OSM_NAME', 'OpenStreetMap integration');
 	@define('PLUGIN_EVENT_OSM_DESCRIPTION', 'Provides an interactive map with *.gpx uploads and tagged geo data.');
 
 

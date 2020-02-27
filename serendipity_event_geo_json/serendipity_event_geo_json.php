@@ -32,6 +32,7 @@
 
 		function get_entries() {
 			global $serendipity;
+			$andFutureCondition = !serendipity_db_bool($serendipity['showFutureEntries']) ? 'AND timestamp <= ' . serendipity_db_time() : '';
 			$entries = [];
 			foreach ($this->simple_query(
 				"SELECT e.id, e.title, p.permalink, e.timestamp, LENGTH(e.body) AS size, a.realname, eplat.value AS lat, eplng.value AS lng
@@ -40,7 +41,7 @@
 				JOIN {$serendipity['dbPrefix']}entryproperties eplat ON (eplat.entryid = e.id AND eplat.property = 'geo_lat')
 				JOIN {$serendipity['dbPrefix']}permalinks p ON (p.entry_id = e.id AND p.type = 'entry')
 				JOIN {$serendipity['dbPrefix']}authors a ON a.authorid = e.authorid
-				WHERE e.isdraft = 'false'
+				WHERE e.isdraft = 'false' $andFutureCondition
 				ORDER BY p.permalink",
 				false, 'assoc'
 			) as $row) {

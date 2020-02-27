@@ -90,7 +90,7 @@
 					$propbag->add('default',       'all');
 					break;
 				case 'path':
-					$propbag->add('type',        'string');
+					$propbag->add('type',        'text');
 					$propbag->add('name',        PLUGIN_EVENT_OSM_PATH);
 					$propbag->add('description', PLUGIN_EVENT_OSM_PATH_DESC);
 					$propbag->add('default',     '');

@@ -46,15 +46,23 @@
 		function event_hook($event, &$bag, &$eventData, $addData = null)
 		{
 			if ($event == 'entries_header') {
-				if ($this->get_config('category_id') === '0' || in_array($this->get_config('category_id'), $this->get_page_categories())) {
-					echo '    <div class="map" data-category="'.$this->get_config('category_id', '').'" data-path="'.$this->get_config('path', '').'" data-latitude="'.$this->get_config('latitude', 51.48165).'" data-longitude="'.$this->get_config('longitude', 7.21648).'" data-zoom="'.$this->get_config('zoom', 15).'" style="height: '.$this->get_config('height', '463px').'"></div>'.PHP_EOL;
+				$category_id = $this->get_config('category_id', 'all');
+				$page_categories = $this->get_page_categories();
+				if (
+					$category_id === 'all'
+					||
+					($category_id === 'none' && empty($page_categories))
+					||
+					in_array($category_id, $page_categories)
+				) {
+					echo '    <div class="map" data-category="'.$category_id.'" data-path="'.$this->get_config('path', '').'" data-latitude="'.$this->get_config('latitude', 51.48165).'" data-longitude="'.$this->get_config('longitude', 7.21648).'" data-zoom="'.$this->get_config('zoom', 15).'" style="height: '.$this->get_config('height', '463px').'"></div>'.PHP_EOL;
 				}
 			}
 		}
 
 		function get_selectable_categories()
 		{
-			$categories = array(0 => ALL_CATEGORIES);
+			$categories = array('all' => ALL_CATEGORIES, 'none' => NO_CATEGORIES);
 			$cats = serendipity_fetchCategories();
 			if (is_array($cats)) {
 				$cats = serendipity_walkRecursive($cats, 'categoryid', 'parentid', VIEWMODE_THREADED);
@@ -79,7 +87,7 @@
 					$propbag->add('name',          PLUGIN_EVENT_OSM_CATEGORY);
 					$propbag->add('description',   PLUGIN_EVENT_OSM_CATEGORY_DESCRIPTION);
 					$propbag->add('select_values', $this->get_selectable_categories());
-					$propbag->add('default',       '0');
+					$propbag->add('default',       'all');
 					break;
 				case 'path':
 					$propbag->add('type',        'string');

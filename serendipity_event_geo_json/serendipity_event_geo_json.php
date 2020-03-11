@@ -42,7 +42,7 @@
 				JOIN {$serendipity['dbPrefix']}permalinks p ON (p.entry_id = e.id AND p.type = 'entry')
 				JOIN {$serendipity['dbPrefix']}authors a ON a.authorid = e.authorid
 				WHERE e.isdraft = 'false' $andFutureCondition
-				ORDER BY p.permalink",
+				ORDER BY e.timestamp",
 				false, 'assoc'
 			) as $row) {
 				$entries[$row['id']] = [

@@ -31,10 +31,10 @@
 		{
 			global $serendipity;
 			if ($event == 'frontend_header') {
-				echo '    <link rel="stylesheet" href="'.$this->getFile('ol.css', 'serendipityHTTPPath').'" type="text/css" />'.PHP_EOL;
-				echo '    <link rel="stylesheet" href="'.$this->getFile('osm.css', 'serendipityHTTPPath').'" type="text/css" />'.PHP_EOL;
-				echo '    <script src="'.$this->getFile('ol.js', 'serendipityHTTPPath').'"></script>'.PHP_EOL;
-				echo '    <script src="'.$this->getFile('osm.js', 'serendipityHTTPPath').'"></script>'.PHP_EOL;
+				echo '    <link rel="stylesheet" href="'.$this->getFile('ressources/ol.css', 'serendipityHTTPPath').'" type="text/css" />'.PHP_EOL;
+				echo '    <link rel="stylesheet" href="'.$this->getFile('ressources/osm.css', 'serendipityHTTPPath').'" type="text/css" />'.PHP_EOL;
+				echo '    <script src="'.$this->getFile('ressources/ol.js', 'serendipityHTTPPath').'"></script>'.PHP_EOL;
+				echo '    <script src="'.$this->getFile('ressources/osm.js', 'serendipityHTTPPath').'"></script>'.PHP_EOL;
 			}
 		}
 

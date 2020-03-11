@@ -350,11 +350,29 @@ class serendipity_event_geotag extends serendipity_event
                     $initZoom = $this->get_config('zoom', 14);
     	            $autofill_editor = serendipity_db_bool($this->get_config('editor_autofill',false));
                     ?>
+                    <script type="text/javascript">
+                        function paste(event) {
+                           if (Math.abs(this.selectionEnd - this.selectionStart) === this.value.length) {
+                              const geo = event.clipboardData.getData('text/plain');
+                              const found = geo.match(/^\s*(\d+(\.\d+))\s*[,/]\s*(\d+(\.\d+)?)\s*$/);
+                              if (found !== null) {
+                                 this.value = found[1];
+                                 document.getElementById(this.id === "properties_geo_lat" ? "properties_geo_long" : "properties_geo_lat").value = found[3];
+                              } else {
+                                 this.value = geo;
+                              }
+                              this.selectionStart = this.value.length;
+                              this.selectionEnd = this.value.length;
+                              return false;
+                           }
+                           return true;
+                        }
+                    </script>
                     <fieldset style="margin: 5px">
                         <legend><?php echo PLUGIN_EVENT_GEOTAG_TITLE; ?></legend>
-                            <input class="input_textbox" type="text" name="serendipity[properties][geo_lat]" id="properties_geo_lat" value="<?php echo $geo_lat ?>"  onkeydown="if (event.keyCode == 13) {updateMap(); return false}"/>
+                            <input class="input_textbox" type="text" name="serendipity[properties][geo_lat]" id="properties_geo_lat" value="<?php echo $geo_lat ?>"  onkeydown="if (event.keyCode == 13) {updateMap(); return false}" onpaste="return paste.call(this, arguments[0])"/>
                             <label title="<?php echo PLUGIN_EVENT_GEOTAG_LAT; ?>" for="properties_geo_lat">&nbsp;<?php echo PLUGIN_EVENT_GEOTAG_LAT; ?>&nbsp;&nbsp;</label>
-                            <input class="input_textbox" type="text" name="serendipity[properties][geo_long]" id="properties_geo_long" value="<?php echo $geo_long ?>"  onkeydown="if (event.keyCode == 13) {updateMap(); return false}"/>
+                            <input class="input_textbox" type="text" name="serendipity[properties][geo_long]" id="properties_geo_long" value="<?php echo $geo_long ?>"  onkeydown="if (event.keyCode == 13) {updateMap(); return false}" onpaste="return paste.call(this, arguments[0])"/>
                             <label title="<?php echo PLUGIN_EVENT_GEOTAG_LONG; ?>" for="properties_geo_long">&nbsp;<?php echo PLUGIN_EVENT_GEOTAG_LONG; ?>&nbsp;&nbsp;</label>
                             <?php if ($this->get_config('api_key') !== ''): ?>
                             <input type="button" onClick="getCurrentPosition(true)" value="<?php echo PLUGIN_GEOTAG_GMAP_GEOCODE_GET_CODE; ?>" />

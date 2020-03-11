@@ -61,7 +61,7 @@
 				JOIN {$serendipity['dbPrefix']}entries e ON e.id = ec.entryid
 				JOIN {$serendipity['dbPrefix']}entryproperties eplat ON (eplat.entryid = ec.entryid AND eplat.property = 'geo_lat')
 				JOIN {$serendipity['dbPrefix']}entryproperties eplng ON (eplng.entryid = ec.entryid AND eplng.property = 'geo_long')
-				WHERE e.isdraft = 'false'"
+				WHERE e.isdraft = 'false' $andFutureCondition"
 			) as $row) {
 				$entries[$row['entryid']]['categories'][] = $row['categoryid'];
 			}

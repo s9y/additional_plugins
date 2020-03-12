@@ -1432,7 +1432,7 @@ class serendipity_event_aggregator extends serendipity_event {
                 }
            }
 
-           while(list($key, $item) = each($stack)) {
+           foreach($stack as $key => $item) {
 
                 if ($opt['store_seperate']) {
                     $ep_id = $cache_entries[$item['title']][$feed['feedid']][$item['date']];

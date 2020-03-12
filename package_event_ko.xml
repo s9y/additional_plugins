@@ -389,9 +389,9 @@
 <description>Display entries from multiple RSS feeds (&quot;Planet&quot;). IMPORTANT NOTE: Updating and &quot;feeding&quot; your Aggregator must currently still happen manually via Cronjobs or similar. Call this URL with your custom timing interval: index.php?/plugin/aggregator</description>
 <maintainers><maintainer><name>Evan Nemerson, Garvin Hicking, Kristian Koehntopp, Thomas Schulz, Claus Schmidt</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.34.1</version>
+  <version>0.34.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2020-03-12</date>
   <filelist>
 <dir name="serendipity_event_aggregator">
 <dir name="simplepie">

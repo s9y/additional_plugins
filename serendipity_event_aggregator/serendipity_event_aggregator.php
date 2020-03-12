@@ -129,13 +129,13 @@ class serendipity_event_aggregator extends serendipity_event {
                 $markups = array();
 
                 if (is_array($plugins)) {
-                    // foreach() operates on copies of values, but we want to operate on references, so we use while()
+                    // foreach() operates on copies of values by default and it's not recommended to use it with references
                     @reset($plugins);
-                    while(list($plugin, $plugin_data) = each($plugins)) {
-                        if (!is_array($plugin_data['p']->markup_elements)) {
+                    foreach( array_keys($plugins) as $plugin ) {
+                        if (!is_array($plugins[$plugin]['p']->markup_elements)) {
                             continue;
                         }
-                        $markups[$plugin_data['p']->instance] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($plugin_data['p']->title) : htmlspecialchars($plugin_data['p']->title, ENT_COMPAT, LANG_CHARSET));
+                        $markups[ $plugins[$plugin]['p']->instance ] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($plugins[$plugin]['p']->title) : htmlspecialchars($plugins[$plugin]['p']->title, ENT_COMPAT, LANG_CHARSET));
                     }
                 }
 

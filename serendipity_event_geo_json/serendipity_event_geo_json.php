@@ -14,7 +14,7 @@
 			$propbag->add('copyright', 'GPL');
 			$propbag->add('event_hooks', array('frontend_header' => true));
 			$propbag->add('author', 'Martin Sewelies');
-			$propbag->add('version', '0.1');
+			$propbag->add('version', '0.2');
 			$propbag->add('requirements', array('serendipity' => '2.3'));
 			$propbag->add('stackable', false);
 			$propbag->add('groups', array('FRONTEND_FEATURES'));

@@ -32,7 +32,6 @@
 
 		function get_entries() {
 			global $serendipity;
-			$andFutureCondition = serendipity_db_bool($serendipity['showFutureEntries']) ? '' : 'AND timestamp <= ' . serendipity_db_time();
 			$entries = [];
 			foreach ($this->simple_query(
 				"SELECT e.id, e.title, p.permalink, e.timestamp, LENGTH(e.body) AS size, a.realname, eplat.value AS lat, eplng.value AS lng
@@ -41,13 +40,15 @@
 				JOIN {$serendipity['dbPrefix']}entryproperties eplng ON (eplng.entryid = e.id AND eplng.property = 'geo_long')
 				JOIN {$serendipity['dbPrefix']}permalinks p ON (p.entry_id = e.id AND p.type = 'entry')
 				JOIN {$serendipity['dbPrefix']}authors a ON a.authorid = e.authorid
-				WHERE e.isdraft = 'false' $andFutureCondition
+				WHERE e.isdraft = 'false'
 				ORDER BY e.timestamp",
 				false, 'assoc'
 			) as $row) {
 				$entries[$row['id']] = [
 					'title' => $row['title'],
-					'url' => $serendipity['serendipityHTTPPath'].$row['permalink'],
+					'url' => serendipity_db_bool($serendipity['showFutureEntries']) || $row['timestamp'] <= serendipity_db_time()
+						? $serendipity['serendipityHTTPPath'].$row['permalink']
+						: null,
 					'date' => $row['timestamp'],
 					'size' => $row['size'],
 					'author' => $row['realname'],
@@ -61,7 +62,7 @@
 				JOIN {$serendipity['dbPrefix']}entries e ON e.id = ec.entryid
 				JOIN {$serendipity['dbPrefix']}entryproperties eplat ON (eplat.entryid = ec.entryid AND eplat.property = 'geo_lat')
 				JOIN {$serendipity['dbPrefix']}entryproperties eplng ON (eplng.entryid = ec.entryid AND eplng.property = 'geo_long')
-				WHERE e.isdraft = 'false' $andFutureCondition"
+				WHERE e.isdraft = 'false'"
 			) as $row) {
 				$entries[$row['entryid']]['categories'][] = $row['categoryid'];
 			}

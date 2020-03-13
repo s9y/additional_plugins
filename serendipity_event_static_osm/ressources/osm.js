@@ -89,12 +89,18 @@ window.onload = () => {
 
 		map.on("singleclick", event => {
 			const makeItem = object => {
-				const a = document.createElement("a");
-				a.appendChild(document.createTextNode(object.title));
-				a.setAttribute("href", object.url);
-				a.setAttribute("title", (object.author !== undefined ? object.author + ", " : "") + new Date(object.date * 1000).toLocaleString(undefined, {year: "numeric", month: "long", day: "2-digit", hour: "2-digit", minute: "2-digit"}));
+				const title = document.createTextNode(object.title);
 				const li = document.createElement("li");
-				li.appendChild(a);
+				li.appendChild(object.url !== null
+					? (() => {
+						const a = document.createElement("a");
+						a.appendChild(title);
+						a.setAttribute("href", object.url);
+						a.setAttribute("title", (object.author !== undefined ? object.author + ", " : "") + new Date(object.date * 1000).toLocaleString(undefined, {year: "numeric", month: "long", day: "2-digit", hour: "2-digit", minute: "2-digit"}));
+						return a;
+					})()
+					: title
+				)
 				return li;
 			};
 

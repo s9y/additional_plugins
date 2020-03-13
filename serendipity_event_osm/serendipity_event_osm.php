@@ -40,6 +40,9 @@
 					}, $vars['entry']['categories']);
 				case 'categories':
 					return $serendipity['POST']['multiCat'] ?? [$vars['category']];
+				case 'plugin':
+				case 'start':
+					return [$vars['staticpage_related_category_id']];
 			}
 			return [];
 		}

@@ -4,6 +4,7 @@
 	}
 
 	@serendipity_plugin_api::load_language(dirname(__FILE__));
+	include dirname(__FILE__) . '/plugin_version.inc.php';
 
 	class serendipity_event_static_osm extends serendipity_event
 	{
@@ -13,8 +14,8 @@
 			$propbag->add('description', PLUGIN_EVENT_STATIC_OSM_DESCRIPTION);
 			$propbag->add('copyright', 'GPL');
 			$propbag->add('event_hooks', array('frontend_header' => true));
-			$propbag->add('author', 'Martin Sewelies');
-			$propbag->add('version', '0.1');
+			$propbag->add('author', PLUGIN_EVENT_OSM_AUTHOR);
+			$propbag->add('version', PLUGIN_EVENT_OSM_VERSION);
 			$propbag->add('requirements', array(
 				'serendipity' => '2.3'
 			));

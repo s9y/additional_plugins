@@ -9,58 +9,22 @@
 <dc:language>en</dc:language>
 <generator>Serendipity SPARTACUS</generator>
 <item>
-<title>Guestbook Sidebar: Display the latest guestbook items in the sidebar</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_guestbook</link>
-<category>Sidebar Plugins</category>
-<author>Jaap Boerma ( j@webbict.com ), Tadashi Jokagi &lt;elf2000@users.sourceforge.net&gt;, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_guestbook&lt;br /&gt;Guestbook Sidebar&lt;/b&gt;&lt;br /&gt;Display the latest guestbook items in the sidebar&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 18 Aug 2019 22:31:14 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_guestbook</guid>
-</item>
-<item>
-<title>Authors login: Show a login form for authors</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_loginform</link>
-<category>Sidebar Plugins</category>
-<author>Garvin Hicking, Neil Dudman</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_loginform&lt;br /&gt;Authors login&lt;/b&gt;&lt;br /&gt;Show a login form for authors&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:59:04 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_loginform</guid>
-</item>
-<item>
-<title>Wikipedia Finder: Highlight a phrase and click the icon to search on using Wikipedia.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_wikipedia_finder</link>
-<category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_wikipedia_finder&lt;br /&gt;Wikipedia Finder&lt;/b&gt;&lt;br /&gt;Highlight a phrase and click the icon to search on using Wikipedia.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 21 Jul 2019 22:31:27 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_wikipedia_finder</guid>
-</item>
-<item>
-<title>Google Wyszukaj na stronie: Szukaj wpisu (Google)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_google_quicksearch</link>
-<category>Sidebar Plugins</category>
-<author>Wesley Hwang-Chung</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_google_quicksearch&lt;br /&gt;Google Wyszukaj na stronie&lt;/b&gt;&lt;br /&gt;Szukaj wpisu (Google)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 03 Apr 2018 22:31:31 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_google_quicksearch</guid>
-</item>
-<item>
-<title>Quick Link: Displays a box for quick links</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_quicklink</link>
-<category>Sidebar Plugins</category>
-<author>Omid Mottaghi Rad</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_quicklink&lt;br /&gt;Quick Link&lt;/b&gt;&lt;br /&gt;Displays a box for quick links&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:31:02 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_quicklink</guid>
-</item>
-<item>
 <title>FAQs Category Chooser: Choose the categories you will display on the blog.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_faq</link>
 <category>Sidebar Plugins</category>
 <author>Falk Doering</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_faq&lt;br /&gt;FAQs Category Chooser&lt;/b&gt;&lt;br /&gt;Choose the categories you will display on the blog.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:40 +0200</pubDate>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_faq</guid>
+</item>
+<item>
+<title>Tagi: Pokazuje listę tagów zdefiniowanych dla wpisów</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_freetag</link>
+<category>Sidebar Plugins</category>
+<author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_freetag&lt;br /&gt;Tagi&lt;/b&gt;&lt;br /&gt;Pokazuje listę tagów zdefiniowanych dla wpisów&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_freetag</guid>
 </item>
 <item>
 <title>Geotag Google/OSM Map: This plugin displays a Google Map or Openstreetmap with geotagged entries</title>
@@ -68,35 +32,53 @@
 <category>Sidebar Plugins</category>
 <author>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Martin Sewelies</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_geotag&lt;br /&gt;Geotag Google/OSM Map&lt;/b&gt;&lt;br /&gt;This plugin displays a Google Map or Openstreetmap with geotagged entries&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Thu, 27 Oct 2016 22:32:35 +0200</pubDate>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_geotag</guid>
 </item>
 <item>
-<title>Coppermine Thumbnails: Display thumbnails from a Coppermine gallery in the sidebar</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_coppermine</link>
+<title>Guestbook Sidebar: Display the latest guestbook items in the sidebar</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_guestbook</link>
 <category>Sidebar Plugins</category>
-<author>Matthew Maude</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_coppermine&lt;br /&gt;Coppermine Thumbnails&lt;/b&gt;&lt;br /&gt;Display thumbnails from a Coppermine gallery in the sidebar&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 01 Dec 2006 10:00:54 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_coppermine</guid>
+<author>Jaap Boerma ( j@webbict.com ), Tadashi Jokagi &lt;elf2000@users.sourceforge.net&gt;, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_guestbook&lt;br /&gt;Guestbook Sidebar&lt;/b&gt;&lt;br /&gt;Display the latest guestbook items in the sidebar&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_guestbook</guid>
 </item>
 <item>
-<title>Autorzy: Pokazuje listę autorów</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_authors</link>
+<title>Lista linków: Manadżer linków - pokazuje Twoje ulubione linki w Panelu bocznym.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_linklist</link>
 <category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_authors&lt;br /&gt;Autorzy&lt;/b&gt;&lt;br /&gt;Pokazuje listę autorów&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 02 Sep 2018 22:32:09 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_authors</guid>
+<author>Matthew Groeninger, Omid Mottaghi Rad</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_linklist&lt;br /&gt;Lista linków&lt;/b&gt;&lt;br /&gt;Manadżer linków - pokazuje Twoje ulubione linki w Panelu bocznym.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_linklist</guid>
 </item>
 <item>
-<title>AdSense: Displays adverts from Google.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_google_adsense</link>
+<title>Upcoming Events: Display upcoming and recommended events in the sidebar and apply the hCalendar microformat to them.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_microformats</link>
 <category>Sidebar Plugins</category>
-<author>Jim Dabell</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_google_adsense&lt;br /&gt;AdSense&lt;/b&gt;&lt;br /&gt;Displays adverts from Google.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 24 May 2018 22:32:11 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_google_adsense</guid>
+<author>Matthias Gutjahr</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_microformats&lt;br /&gt;Upcoming Events&lt;/b&gt;&lt;br /&gt;Display upcoming and recommended events in the sidebar and apply the hCalendar microformat to them.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_microformats</guid>
+</item>
+<item>
+<title>Choose Language: Allows visitors to change the frontend interface language</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_multilingual</link>
+<category>Sidebar Plugins</category>
+<author>Garvin Hicking, Wesley Hwang-Chung</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_multilingual&lt;br /&gt;Choose Language&lt;/b&gt;&lt;br /&gt;Allows visitors to change the frontend interface language&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_multilingual</guid>
+</item>
+<item>
+<title>My Calendar: Shows your personal calendar with X upcoming scheduled events</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mycalendar</link>
+<category>Sidebar Plugins</category>
+<author>Garvin Hicking, Markus Gerstel</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_mycalendar&lt;br /&gt;My Calendar&lt;/b&gt;&lt;br /&gt;Shows your personal calendar with X upcoming scheduled events&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_mycalendar</guid>
 </item>
 <item>
 <title>Spam Report: Prints out a statistic about your comment spam if your antispam plugins report to the DB.</title>
@@ -104,89 +86,26 @@
 <category>Sidebar Plugins</category>
 <author>Grischa Brockhaus, Janek Bevendorff</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_spamblock_bee&lt;br /&gt;Spam Report&lt;/b&gt;&lt;br /&gt;Prints out a statistic about your comment spam if your antispam plugins report to the DB.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 04 Sep 2015 02:32:25 +0200</pubDate>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_spamblock_bee</guid>
 </item>
 <item>
-<title>Social Bookmarks Plugin: A plugin to display bookmarks from a social bookmark service (del.icio.us, ma.gnolia, furl.net, linkroll, Mister Wong) via an RSS feed.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_socialbookmarks</link>
+<title>Lista Stron statycznych: Ta wtyczka pokazuje konfigurowalną listę Stron statycznych (menu). Wymaga wtyczki Strony statyczne w wersji minimum 1.22.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_staticpage</link>
 <category>Sidebar Plugins</category>
-<author>Matthias Gutjahr</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_socialbookmarks&lt;br /&gt;Social Bookmarks Plugin&lt;/b&gt;&lt;br /&gt;A plugin to display bookmarks from a social bookmark service (del.icio.us, ma.gnolia, furl.net, linkroll, Mister Wong) via an RSS feed.&lt;br/&gt;For: Serendipity 0.9alpha5</content:encoded>
-<pubDate>Thu, 27 Oct 2016 22:32:48 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_socialbookmarks</guid>
+<author>Rob Antonishen, Falk Doering, Ian (Timbalu)</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_staticpage&lt;br /&gt;Lista Stron statycznych&lt;/b&gt;&lt;br /&gt;Ta wtyczka pokazuje konfigurowalną listę Stron statycznych (menu). Wymaga wtyczki Strony statyczne w wersji minimum 1.22.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_staticpage</guid>
 </item>
 <item>
-<title>Show Entries in sidebar: Shows entries of special categories in your sidebar. Good for Sidebar Moblogging!</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_showentries</link>
+<title>Statystyki: Statystyki</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_statistics</link>
 <category>Sidebar Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_showentries&lt;br /&gt;Show Entries in sidebar&lt;/b&gt;&lt;br /&gt;Shows entries of special categories in your sidebar. Good for Sidebar Moblogging!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:31:02 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_showentries</guid>
-</item>
-<item>
-<title>Twitter Timeline: Show your current Twitter entries</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_twitter</link>
-<category>Sidebar Plugins</category>
-<author>Grischa Brockhaus, Damian Luszczymak, Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_twitter&lt;br /&gt;Twitter Timeline&lt;/b&gt;&lt;br /&gt;Show your current Twitter entries&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 06 Aug 2017 22:36:14 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_twitter</guid>
-</item>
-<item>
-<title>Wyszukaj na stronie: Szukaj wpisu</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_quicksearch</link>
-<category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_quicksearch&lt;br /&gt;Wyszukaj na stronie&lt;/b&gt;&lt;br /&gt;Szukaj wpisu&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 02 Sep 2018 22:32:09 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_quicksearch</guid>
-</item>
-<item>
-<title>Unified Sidebar Image Display: Offers the ability to display images in the sidebar.  The source of the images is configurable.  The plugin is able to connect to a Menalto Gallery installs &quot;random&quot; url, access a Coppermine database directory (MySql only), connect to the web service Zooomr (http://beta.zooomr.com/home) or access images in the Serendipity Media Library.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_imagesidebar</link>
-<category>Sidebar Plugins</category>
-<author>Andrew Brown (Menalto code), Matthew Groeninger (Unified/Media Lib. Code), Stefan Lange-Hegermann (Zooomr Code), Matthew Maude (Coppermine code)</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_imagesidebar&lt;br /&gt;Unified Sidebar Image Display&lt;/b&gt;&lt;br /&gt;Offers the ability to display images in the sidebar.  The source of the images is configurable.  The plugin is able to connect to a Menalto Gallery installs &quot;random&quot; url, access a Coppermine database directory (MySql only), connect to the web service Zooomr (http://beta.zooomr.com/home) or access images in the Serendipity Media Library.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 26 Sep 2016 22:32:51 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_imagesidebar</guid>
-</item>
-<item>
-<title>External PHP Application: Shows an external PHP application inside your blog with your blogs design and all formattings. USE WITH CARE, THIS PLUGIN HAS SECURITY IMPLICATIONS AS IT INCLUDES ANY GENERIC PHP FILE! YOU CAN ONLY USE THIS PLUGIN AS ADMIN!</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_externalphp</link>
-<category>Sidebar Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_externalphp&lt;br /&gt;External PHP Application&lt;/b&gt;&lt;br /&gt;Shows an external PHP application inside your blog with your blogs design and all formattings. USE WITH CARE, THIS PLUGIN HAS SECURITY IMPLICATIONS AS IT INCLUDES ANY GENERIC PHP FILE! YOU CAN ONLY USE THIS PLUGIN AS ADMIN!&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:59:02 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_externalphp</guid>
-</item>
-<item>
-<title>Gallery Random Photo Block: Adds a reference to a Gallery Random Block script (see http://gallery.menalto.com for details on this script)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_gallery_menalto_random</link>
-<category>Sidebar Plugins</category>
-<author>Andrew Brown, Tadashi Jokagi</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_gallery_menalto_random&lt;br /&gt;Gallery Random Photo Block&lt;/b&gt;&lt;br /&gt;Adds a reference to a Gallery Random Block script (see http://gallery.menalto.com for details on this script)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_gallery_menalto_random</guid>
-</item>
-<item>
-<title>Opis statusu Gadu-Gadu: Pobiera i wyświetla opis statusu Gadu-Gadu</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_ggopis</link>
-<category>Sidebar Plugins</category>
-<author>Piotr Borys</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_ggopis&lt;br /&gt;Opis statusu Gadu-Gadu&lt;/b&gt;&lt;br /&gt;Pobiera i wyświetla opis statusu Gadu-Gadu&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:31:02 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_ggopis</guid>
-</item>
-<item>
-<title>Cytaty: Pokazuje w Panelu bocznym blok z losowym cytatem</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_randomquotes</link>
-<category>Sidebar Plugins</category>
-<author>Florian Solcher</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_randomquotes&lt;br /&gt;Cytaty&lt;/b&gt;&lt;br /&gt;Pokazuje w Panelu bocznym blok z losowym cytatem&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:59 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_randomquotes</guid>
+<author>Arnan de Gans, Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_statistics&lt;br /&gt;Statystyki&lt;/b&gt;&lt;br /&gt;Statystyki&lt;br/&gt;For: Serendipity 1.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_statistics</guid>
 </item>
 <item>
 <title>Serendipity Authors: Shows a list for all Authors</title>
@@ -194,7 +113,7 @@
 <category>Sidebar Plugins</category>
 <author></author>
 <content:encoded>&lt;b&gt;serendipity_plugin_userprofiles&lt;br /&gt;Serendipity Authors&lt;/b&gt;&lt;br /&gt;Shows a list for all Authors&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:53 +0100</pubDate>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_userprofiles</guid>
 </item>
 <item>
@@ -203,251 +122,8 @@
 <category>Sidebar Plugins</category>
 <author>Falk Doering</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_userprofiles_birthdays&lt;br /&gt;Birthdays of users&lt;/b&gt;&lt;br /&gt;PLUGIN_USERPROFILES_BIRTHDAYSNAME_DESCRIPTION&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:59 +0200</pubDate>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_userprofiles_birthdays</guid>
-</item>
-<item>
-<title>Shoutbox: Pokazuje małe okienko w Panelu Bocznym dla niezwiązanych z wpisami komentarzami</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_shoutbox</link>
-<category>Sidebar Plugins</category>
-<author>Matthias Lange</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_shoutbox&lt;br /&gt;Shoutbox&lt;/b&gt;&lt;br /&gt;Pokazuje małe okienko w Panelu Bocznym dla niezwiązanych z wpisami komentarzami&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Tue, 03 Apr 2018 22:31:31 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_shoutbox</guid>
-</item>
-<item>
-<title>Popularne wpisy: Pokazuje tytuły i ilość komentarzy najpopularniejszych wpisów.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_popularentries</link>
-<category>Sidebar Plugins</category>
-<author>Kaustubh Srikanth</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_popularentries&lt;br /&gt;Popularne wpisy&lt;/b&gt;&lt;br /&gt;Pokazuje tytuły i ilość komentarzy najpopularniejszych wpisów.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:58 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_popularentries</guid>
-</item>
-<item>
-<title>User Self-Registration: Allows blog visitors to create their own author account. Together with the Event-plugin (index.php?serendipity[subpage]=adduser) you can choose whether only registered users may post comments.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_adduser</link>
-<category>Sidebar Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_adduser&lt;br /&gt;User Self-Registration&lt;/b&gt;&lt;br /&gt;Allows blog visitors to create their own author account. Together with the Event-plugin (index.php?serendipity[subpage]=adduser) you can choose whether only registered users may post comments.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 21 Mar 2018 22:31:36 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_adduser</guid>
-</item>
-<item>
-<title>Timezones: Shows the time of up to four timezones</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_timezones</link>
-<category>Sidebar Plugins</category>
-<author>Christoph Eunicke &lt;s9y-plugin@eunicke.org&gt;</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_timezones&lt;br /&gt;Timezones&lt;/b&gt;&lt;br /&gt;Shows the time of up to four timezones&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:31:02 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_timezones</guid>
-</item>
-<item>
-<title>Tagi: Pokazuje listę tagów zdefiniowanych dla wpisów</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_freetag</link>
-<category>Sidebar Plugins</category>
-<author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_freetag&lt;br /&gt;Tagi&lt;/b&gt;&lt;br /&gt;Pokazuje listę tagów zdefiniowanych dla wpisów&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:45 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_freetag</guid>
-</item>
-<item>
-<title>Amazon Recommendations: Recommend Products at Amazon within the Amazon-Partnerprogram</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_amazon</link>
-<category>Sidebar Plugins</category>
-<author>Matthew Groeninger, (original plugin by Thomas Nesges)</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_amazon&lt;br /&gt;Amazon Recommendations&lt;/b&gt;&lt;br /&gt;Recommend Products at Amazon within the Amazon-Partnerprogram&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 18 Aug 2019 22:31:19 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_amazon</guid>
-</item>
-<item>
-<title>Last Search (Google, Yahoo, Bing, Scroogle): Shows searched word of the last Google, Yahoo, Bing or Scoogle search, that lead to this blog.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_google_last_query</link>
-<category>Sidebar Plugins</category>
-<author>Garvin Hicking, Grischa Brockhaus</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_google_last_query&lt;br /&gt;Last Search (Google, Yahoo, Bing, Scroogle)&lt;/b&gt;&lt;br /&gt;Shows searched word of the last Google, Yahoo, Bing or Scoogle search, that lead to this blog.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:57 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_google_last_query</guid>
-</item>
-<item>
-<title>Currently...: Displays items you are currently listening, playing, or reading...</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_currently</link>
-<category>Sidebar Plugins</category>
-<author>Dustin Hawkins</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_currently&lt;br /&gt;Currently...&lt;/b&gt;&lt;br /&gt;Displays items you are currently listening, playing, or reading...&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 18 Nov 2009 08:55:20 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_currently</guid>
-</item>
-<item>
-<title>Flickr badge: Shows your last photos on Flickr.com</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_flickrbadge</link>
-<category>Sidebar Plugins</category>
-<author>Lars Strojny</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_flickrbadge&lt;br /&gt;Flickr badge&lt;/b&gt;&lt;br /&gt;Shows your last photos on Flickr.com&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sat, 24 Aug 2019 22:31:23 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_flickrbadge</guid>
-</item>
-<item>
-<title>Statystyki: Statystyki</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_statistics</link>
-<category>Sidebar Plugins</category>
-<author>Arnan de Gans, Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_statistics&lt;br /&gt;Statystyki&lt;/b&gt;&lt;br /&gt;Statystyki&lt;br/&gt;For: Serendipity 1.7</content:encoded>
-<pubDate>Mon, 26 Jan 2015 02:32:22 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_statistics</guid>
-</item>
-<item>
-<title>Piwik: show statistics of Piwik in sidebar</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_piwik</link>
-<category>Sidebar Plugins</category>
-<author>Bernd Distler</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_piwik&lt;br /&gt;Piwik&lt;/b&gt;&lt;br /&gt;show statistics of Piwik in sidebar&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Tue, 03 Apr 2018 22:31:31 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_piwik</guid>
-</item>
-<item>
-<title>Language-Specific HTML Nugget: Shows an HTML nugget on the sidebar, for a specific language.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_nugget_multilingual</link>
-<category>Sidebar Plugins</category>
-<author>Wesley Hwang-Chung</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_nugget_multilingual&lt;br /&gt;Language-Specific HTML Nugget&lt;/b&gt;&lt;br /&gt;Shows an HTML nugget on the sidebar, for a specific language.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 08 Jan 2016 22:32:18 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_nugget_multilingual</guid>
-</item>
-<item>
-<title>Category Tree Menu: DHTML category menu.  Requires PEAR::HTML_TreeMenu.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_category_dhtml_menu</link>
-<category>Sidebar Plugins</category>
-<author>Jackson Miller, Sebastian Bauer</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_category_dhtml_menu&lt;br /&gt;Category Tree Menu&lt;/b&gt;&lt;br /&gt;DHTML category menu.  Requires PEAR::HTML_TreeMenu.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:59:01 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_category_dhtml_menu</guid>
-</item>
-<item>
-<title>Feedburner Sidebar: Adds assorted functionality of the feedburner service into the sidebar.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_feedburnersidebar</link>
-<category>Sidebar Plugins</category>
-<author>Aaron Axelsen</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_feedburnersidebar&lt;br /&gt;Feedburner Sidebar&lt;/b&gt;&lt;br /&gt;Adds assorted functionality of the feedburner service into the sidebar.&lt;br/&gt;For: Serendipity 1.2.1</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:31:02 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_feedburnersidebar</guid>
-</item>
-<item>
-<title>Lista linków: Manadżer linków - pokazuje Twoje ulubione linki w Panelu bocznym.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_linklist</link>
-<category>Sidebar Plugins</category>
-<author>Matthew Groeninger, Omid Mottaghi Rad</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_linklist&lt;br /&gt;Lista linków&lt;/b&gt;&lt;br /&gt;Manadżer linków - pokazuje Twoje ulubione linki w Panelu bocznym.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:31:01 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_linklist</guid>
-</item>
-<item>
-<title>Głosowania: Umieszcza w Panelu Bocznym aktualnie aktywne głosowanie (poll)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_pollbox</link>
-<category>Sidebar Plugins</category>
-<author>Garvin Hicking, Evan Nemerson</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_pollbox&lt;br /&gt;Głosowania&lt;/b&gt;&lt;br /&gt;Umieszcza w Panelu Bocznym aktualnie aktywne głosowanie (poll)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 04 Feb 2015 02:32:16 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_pollbox</guid>
-</item>
-<item>
-<title>My Calendar: Shows your personal calendar with X upcoming scheduled events</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mycalendar</link>
-<category>Sidebar Plugins</category>
-<author>Garvin Hicking, Markus Gerstel</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_mycalendar&lt;br /&gt;My Calendar&lt;/b&gt;&lt;br /&gt;Shows your personal calendar with X upcoming scheduled events&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:45 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_mycalendar</guid>
-</item>
-<item>
-<title>A del.icio.us plug-in: A clone of the &quot;Remaindered Links&quot; &amp; &quot;Blogmarks&quot; systems, and uses the trendy del.icio.us for its back-end support.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_delicious</link>
-<category>Sidebar Plugins</category>
-<author>Riscky</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_delicious&lt;br /&gt;A del.icio.us plug-in&lt;/b&gt;&lt;br /&gt;A clone of the &quot;Remaindered Links&quot; &amp; &quot;Blogmarks&quot; systems, and uses the trendy del.icio.us for its back-end support.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:56 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_delicious</guid>
-</item>
-<item>
-<title>Choose Language: Allows visitors to change the frontend interface language</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_multilingual</link>
-<category>Sidebar Plugins</category>
-<author>Garvin Hicking, Wesley Hwang-Chung</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_multilingual&lt;br /&gt;Choose Language&lt;/b&gt;&lt;br /&gt;Allows visitors to change the frontend interface language&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_multilingual</guid>
-</item>
-<item>
-<title>Lista Stron statycznych: Ta wtyczka pokazuje konfigurowalną listę Stron statycznych (menu). Wymaga wtyczki Strony statyczne w wersji minimum 1.22.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_staticpage</link>
-<category>Sidebar Plugins</category>
-<author>Rob Antonishen, Falk Doering, Ian (Timbalu)</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_staticpage&lt;br /&gt;Lista Stron statycznych&lt;/b&gt;&lt;br /&gt;Ta wtyczka pokazuje konfigurowalną listę Stron statycznych (menu). Wymaga wtyczki Strony statyczne w wersji minimum 1.22.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:50 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_staticpage</guid>
-</item>
-<item>
-<title>flickr Photostream: Display the latest photos from flickr Photostreams.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_flickr</link>
-<category>Sidebar Plugins</category>
-<author>Michael Kaiser</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_flickr&lt;br /&gt;flickr Photostream&lt;/b&gt;&lt;br /&gt;Display the latest photos from flickr Photostreams.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 18 Aug 2019 22:31:19 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_flickr</guid>
-</item>
-<item>
-<title>Karma Ranking: Shows overall score by author</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_karmaranking</link>
-<category>Sidebar Plugins</category>
-<author>Andreas Brandmaier</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_karmaranking&lt;br /&gt;Karma Ranking&lt;/b&gt;&lt;br /&gt;Shows overall score by author&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:59:04 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_karmaranking</guid>
-</item>
-<item>
-<title>Photoblog Entries: Shows the thumbnails of the most recent photoblog entries (see event plugin).</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_photoblog</link>
-<category>Sidebar Plugins</category>
-<author>Cameron MacFarland</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_photoblog&lt;br /&gt;Photoblog Entries&lt;/b&gt;&lt;br /&gt;Shows the thumbnails of the most recent photoblog entries (see event plugin).&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:58 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_photoblog</guid>
-</item>
-<item>
-<title>SideBar Logo: Displays a panel containing your logo with a description including all relevant information about your site (an about box).</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_sidebarlogo</link>
-<category>Sidebar Plugins</category>
-<author>Adam Krause &amp; Oliver Gerlach</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_sidebarlogo&lt;br /&gt;SideBar Logo&lt;/b&gt;&lt;br /&gt;Displays a panel containing your logo with a description including all relevant information about your site (an about box).&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Thu, 28 Nov 2013 02:32:04 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_sidebarlogo</guid>
-</item>
-<item>
-<title>Top Referers: Pokazuje strony, z których najczęściej łączono się z Twoim blogiem</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_topreferers</link>
-<category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_topreferers&lt;br /&gt;Top Referers&lt;/b&gt;&lt;br /&gt;Pokazuje strony, z których najczęściej łączono się z Twoim blogiem&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sat, 27 Apr 2019 22:32:25 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_topreferers</guid>
-</item>
-<item>
-<title>Top Exits: Pokazuje ilość wychodzących z Twojego bloga kliknięć do innych stron</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_topexits</link>
-<category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_topexits&lt;br /&gt;Top Exits&lt;/b&gt;&lt;br /&gt;Pokazuje ilość wychodzących z Twojego bloga kliknięć do innych stron&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:13:00 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_topexits</guid>
-</item>
-<item>
-<title>Upcoming Events: Display upcoming and recommended events in the sidebar and apply the hCalendar microformat to them.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_microformats</link>
-<category>Sidebar Plugins</category>
-<author>Matthias Gutjahr</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_microformats&lt;br /&gt;Upcoming Events&lt;/b&gt;&lt;br /&gt;Display upcoming and recommended events in the sidebar and apply the hCalendar microformat to them.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:44 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_microformats</guid>
 </item>
 <item>
 <title>Show trusted users: Displays all users with their ethics (represented by a traffic light). 
@@ -461,8 +137,332 @@
                                    Green light means 'cool'; yellow light means 
                                    'warning'; red light means 'banned'
                                    The administrator can easily modify this value for each user.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:54 +0100</pubDate>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_xsstrust</guid>
+</item>
+<item>
+<title>User Self-Registration: Allows blog visitors to create their own author account. Together with the Event-plugin (index.php?serendipity[subpage]=adduser) you can choose whether only registered users may post comments.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_adduser</link>
+<category>Sidebar Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_adduser&lt;br /&gt;User Self-Registration&lt;/b&gt;&lt;br /&gt;Allows blog visitors to create their own author account. Together with the Event-plugin (index.php?serendipity[subpage]=adduser) you can choose whether only registered users may post comments.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_adduser</guid>
+</item>
+<item>
+<title>Amazon Recommendations: Recommend Products at Amazon within the Amazon-Partnerprogram</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_amazon</link>
+<category>Sidebar Plugins</category>
+<author>Matthew Groeninger, (original plugin by Thomas Nesges)</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_amazon&lt;br /&gt;Amazon Recommendations&lt;/b&gt;&lt;br /&gt;Recommend Products at Amazon within the Amazon-Partnerprogram&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_amazon</guid>
+</item>
+<item>
+<title>Autorzy: Pokazuje listę autorów</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_authors</link>
+<category>Sidebar Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_authors&lt;br /&gt;Autorzy&lt;/b&gt;&lt;br /&gt;Pokazuje listę autorów&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_authors</guid>
+</item>
+<item>
+<title>Category Tree Menu: DHTML category menu.  Requires PEAR::HTML_TreeMenu.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_category_dhtml_menu</link>
+<category>Sidebar Plugins</category>
+<author>Jackson Miller, Sebastian Bauer</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_category_dhtml_menu&lt;br /&gt;Category Tree Menu&lt;/b&gt;&lt;br /&gt;DHTML category menu.  Requires PEAR::HTML_TreeMenu.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_category_dhtml_menu</guid>
+</item>
+<item>
+<title>Coppermine Thumbnails: Display thumbnails from a Coppermine gallery in the sidebar</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_coppermine</link>
+<category>Sidebar Plugins</category>
+<author>Matthew Maude</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_coppermine&lt;br /&gt;Coppermine Thumbnails&lt;/b&gt;&lt;br /&gt;Display thumbnails from a Coppermine gallery in the sidebar&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_coppermine</guid>
+</item>
+<item>
+<title>Currently...: Displays items you are currently listening, playing, or reading...</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_currently</link>
+<category>Sidebar Plugins</category>
+<author>Dustin Hawkins</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_currently&lt;br /&gt;Currently...&lt;/b&gt;&lt;br /&gt;Displays items you are currently listening, playing, or reading...&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_currently</guid>
+</item>
+<item>
+<title>A del.icio.us plug-in: A clone of the &quot;Remaindered Links&quot; &amp; &quot;Blogmarks&quot; systems, and uses the trendy del.icio.us for its back-end support.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_delicious</link>
+<category>Sidebar Plugins</category>
+<author>Riscky</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_delicious&lt;br /&gt;A del.icio.us plug-in&lt;/b&gt;&lt;br /&gt;A clone of the &quot;Remaindered Links&quot; &amp; &quot;Blogmarks&quot; systems, and uses the trendy del.icio.us for its back-end support.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_delicious</guid>
+</item>
+<item>
+<title>External PHP Application: Shows an external PHP application inside your blog with your blogs design and all formattings. USE WITH CARE, THIS PLUGIN HAS SECURITY IMPLICATIONS AS IT INCLUDES ANY GENERIC PHP FILE! YOU CAN ONLY USE THIS PLUGIN AS ADMIN!</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_externalphp</link>
+<category>Sidebar Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_externalphp&lt;br /&gt;External PHP Application&lt;/b&gt;&lt;br /&gt;Shows an external PHP application inside your blog with your blogs design and all formattings. USE WITH CARE, THIS PLUGIN HAS SECURITY IMPLICATIONS AS IT INCLUDES ANY GENERIC PHP FILE! YOU CAN ONLY USE THIS PLUGIN AS ADMIN!&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_externalphp</guid>
+</item>
+<item>
+<title>Feedburner Sidebar: Adds assorted functionality of the feedburner service into the sidebar.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_feedburnersidebar</link>
+<category>Sidebar Plugins</category>
+<author>Aaron Axelsen</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_feedburnersidebar&lt;br /&gt;Feedburner Sidebar&lt;/b&gt;&lt;br /&gt;Adds assorted functionality of the feedburner service into the sidebar.&lt;br/&gt;For: Serendipity 1.2.1</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_feedburnersidebar</guid>
+</item>
+<item>
+<title>flickr Photostream: Display the latest photos from flickr Photostreams.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_flickr</link>
+<category>Sidebar Plugins</category>
+<author>Michael Kaiser</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_flickr&lt;br /&gt;flickr Photostream&lt;/b&gt;&lt;br /&gt;Display the latest photos from flickr Photostreams.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_flickr</guid>
+</item>
+<item>
+<title>Flickr badge: Shows your last photos on Flickr.com</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_flickrbadge</link>
+<category>Sidebar Plugins</category>
+<author>Lars Strojny</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_flickrbadge&lt;br /&gt;Flickr badge&lt;/b&gt;&lt;br /&gt;Shows your last photos on Flickr.com&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_flickrbadge</guid>
+</item>
+<item>
+<title>Gallery Random Photo Block: Adds a reference to a Gallery Random Block script (see http://gallery.menalto.com for details on this script)</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_gallery_menalto_random</link>
+<category>Sidebar Plugins</category>
+<author>Andrew Brown, Tadashi Jokagi</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_gallery_menalto_random&lt;br /&gt;Gallery Random Photo Block&lt;/b&gt;&lt;br /&gt;Adds a reference to a Gallery Random Block script (see http://gallery.menalto.com for details on this script)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_gallery_menalto_random</guid>
+</item>
+<item>
+<title>Opis statusu Gadu-Gadu: Pobiera i wyświetla opis statusu Gadu-Gadu</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_ggopis</link>
+<category>Sidebar Plugins</category>
+<author>Piotr Borys</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_ggopis&lt;br /&gt;Opis statusu Gadu-Gadu&lt;/b&gt;&lt;br /&gt;Pobiera i wyświetla opis statusu Gadu-Gadu&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_ggopis</guid>
+</item>
+<item>
+<title>AdSense: Displays adverts from Google.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_google_adsense</link>
+<category>Sidebar Plugins</category>
+<author>Jim Dabell</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_google_adsense&lt;br /&gt;AdSense&lt;/b&gt;&lt;br /&gt;Displays adverts from Google.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_google_adsense</guid>
+</item>
+<item>
+<title>Last Search (Google, Yahoo, Bing, Scroogle): Shows searched word of the last Google, Yahoo, Bing or Scoogle search, that lead to this blog.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_google_last_query</link>
+<category>Sidebar Plugins</category>
+<author>Garvin Hicking, Grischa Brockhaus</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_google_last_query&lt;br /&gt;Last Search (Google, Yahoo, Bing, Scroogle)&lt;/b&gt;&lt;br /&gt;Shows searched word of the last Google, Yahoo, Bing or Scoogle search, that lead to this blog.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_google_last_query</guid>
+</item>
+<item>
+<title>Google Wyszukaj na stronie: Szukaj wpisu (Google)</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_google_quicksearch</link>
+<category>Sidebar Plugins</category>
+<author>Wesley Hwang-Chung</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_google_quicksearch&lt;br /&gt;Google Wyszukaj na stronie&lt;/b&gt;&lt;br /&gt;Szukaj wpisu (Google)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_google_quicksearch</guid>
+</item>
+<item>
+<title>Unified Sidebar Image Display: Offers the ability to display images in the sidebar.  The source of the images is configurable.  The plugin is able to connect to a Menalto Gallery installs &quot;random&quot; url, access a Coppermine database directory (MySql only), connect to the web service Zooomr (http://beta.zooomr.com/home) or access images in the Serendipity Media Library.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_imagesidebar</link>
+<category>Sidebar Plugins</category>
+<author>Andrew Brown (Menalto code), Matthew Groeninger (Unified/Media Lib. Code), Stefan Lange-Hegermann (Zooomr Code), Matthew Maude (Coppermine code)</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_imagesidebar&lt;br /&gt;Unified Sidebar Image Display&lt;/b&gt;&lt;br /&gt;Offers the ability to display images in the sidebar.  The source of the images is configurable.  The plugin is able to connect to a Menalto Gallery installs &quot;random&quot; url, access a Coppermine database directory (MySql only), connect to the web service Zooomr (http://beta.zooomr.com/home) or access images in the Serendipity Media Library.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_imagesidebar</guid>
+</item>
+<item>
+<title>Karma Ranking: Shows overall score by author</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_karmaranking</link>
+<category>Sidebar Plugins</category>
+<author>Andreas Brandmaier</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_karmaranking&lt;br /&gt;Karma Ranking&lt;/b&gt;&lt;br /&gt;Shows overall score by author&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_karmaranking</guid>
+</item>
+<item>
+<title>Authors login: Show a login form for authors</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_loginform</link>
+<category>Sidebar Plugins</category>
+<author>Garvin Hicking, Neil Dudman</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_loginform&lt;br /&gt;Authors login&lt;/b&gt;&lt;br /&gt;Show a login form for authors&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_loginform</guid>
+</item>
+<item>
+<title>Language-Specific HTML Nugget: Shows an HTML nugget on the sidebar, for a specific language.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_nugget_multilingual</link>
+<category>Sidebar Plugins</category>
+<author>Wesley Hwang-Chung</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_nugget_multilingual&lt;br /&gt;Language-Specific HTML Nugget&lt;/b&gt;&lt;br /&gt;Shows an HTML nugget on the sidebar, for a specific language.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_nugget_multilingual</guid>
+</item>
+<item>
+<title>Photoblog Entries: Shows the thumbnails of the most recent photoblog entries (see event plugin).</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_photoblog</link>
+<category>Sidebar Plugins</category>
+<author>Cameron MacFarland</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_photoblog&lt;br /&gt;Photoblog Entries&lt;/b&gt;&lt;br /&gt;Shows the thumbnails of the most recent photoblog entries (see event plugin).&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_photoblog</guid>
+</item>
+<item>
+<title>Piwik: show statistics of Piwik in sidebar</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_piwik</link>
+<category>Sidebar Plugins</category>
+<author>Bernd Distler</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_piwik&lt;br /&gt;Piwik&lt;/b&gt;&lt;br /&gt;show statistics of Piwik in sidebar&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_piwik</guid>
+</item>
+<item>
+<title>Głosowania: Umieszcza w Panelu Bocznym aktualnie aktywne głosowanie (poll)</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_pollbox</link>
+<category>Sidebar Plugins</category>
+<author>Garvin Hicking, Evan Nemerson</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_pollbox&lt;br /&gt;Głosowania&lt;/b&gt;&lt;br /&gt;Umieszcza w Panelu Bocznym aktualnie aktywne głosowanie (poll)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_pollbox</guid>
+</item>
+<item>
+<title>Popularne wpisy: Pokazuje tytuły i ilość komentarzy najpopularniejszych wpisów.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_popularentries</link>
+<category>Sidebar Plugins</category>
+<author>Kaustubh Srikanth</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_popularentries&lt;br /&gt;Popularne wpisy&lt;/b&gt;&lt;br /&gt;Pokazuje tytuły i ilość komentarzy najpopularniejszych wpisów.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_popularentries</guid>
+</item>
+<item>
+<title>Quick Link: Displays a box for quick links</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_quicklink</link>
+<category>Sidebar Plugins</category>
+<author>Omid Mottaghi Rad</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_quicklink&lt;br /&gt;Quick Link&lt;/b&gt;&lt;br /&gt;Displays a box for quick links&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_quicklink</guid>
+</item>
+<item>
+<title>Wyszukaj na stronie: Szukaj wpisu</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_quicksearch</link>
+<category>Sidebar Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_quicksearch&lt;br /&gt;Wyszukaj na stronie&lt;/b&gt;&lt;br /&gt;Szukaj wpisu&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_quicksearch</guid>
+</item>
+<item>
+<title>Cytaty: Pokazuje w Panelu bocznym blok z losowym cytatem</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_randomquotes</link>
+<category>Sidebar Plugins</category>
+<author>Florian Solcher</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_randomquotes&lt;br /&gt;Cytaty&lt;/b&gt;&lt;br /&gt;Pokazuje w Panelu bocznym blok z losowym cytatem&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_randomquotes</guid>
+</item>
+<item>
+<title>Shoutbox: Pokazuje małe okienko w Panelu Bocznym dla niezwiązanych z wpisami komentarzami</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_shoutbox</link>
+<category>Sidebar Plugins</category>
+<author>Matthias Lange</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_shoutbox&lt;br /&gt;Shoutbox&lt;/b&gt;&lt;br /&gt;Pokazuje małe okienko w Panelu Bocznym dla niezwiązanych z wpisami komentarzami&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_shoutbox</guid>
+</item>
+<item>
+<title>Show Entries in sidebar: Shows entries of special categories in your sidebar. Good for Sidebar Moblogging!</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_showentries</link>
+<category>Sidebar Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_showentries&lt;br /&gt;Show Entries in sidebar&lt;/b&gt;&lt;br /&gt;Shows entries of special categories in your sidebar. Good for Sidebar Moblogging!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_showentries</guid>
+</item>
+<item>
+<title>SideBar Logo: Displays a panel containing your logo with a description including all relevant information about your site (an about box).</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_sidebarlogo</link>
+<category>Sidebar Plugins</category>
+<author>Adam Krause &amp; Oliver Gerlach</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_sidebarlogo&lt;br /&gt;SideBar Logo&lt;/b&gt;&lt;br /&gt;Displays a panel containing your logo with a description including all relevant information about your site (an about box).&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_sidebarlogo</guid>
+</item>
+<item>
+<title>Social Bookmarks Plugin: A plugin to display bookmarks from a social bookmark service (del.icio.us, ma.gnolia, furl.net, linkroll, Mister Wong) via an RSS feed.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_socialbookmarks</link>
+<category>Sidebar Plugins</category>
+<author>Matthias Gutjahr</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_socialbookmarks&lt;br /&gt;Social Bookmarks Plugin&lt;/b&gt;&lt;br /&gt;A plugin to display bookmarks from a social bookmark service (del.icio.us, ma.gnolia, furl.net, linkroll, Mister Wong) via an RSS feed.&lt;br/&gt;For: Serendipity 0.9alpha5</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_socialbookmarks</guid>
+</item>
+<item>
+<title>Timezones: Shows the time of up to four timezones</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_timezones</link>
+<category>Sidebar Plugins</category>
+<author>Christoph Eunicke &lt;s9y-plugin@eunicke.org&gt;</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_timezones&lt;br /&gt;Timezones&lt;/b&gt;&lt;br /&gt;Shows the time of up to four timezones&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_timezones</guid>
+</item>
+<item>
+<title>Top Exits: Pokazuje ilość wychodzących z Twojego bloga kliknięć do innych stron</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_topexits</link>
+<category>Sidebar Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_topexits&lt;br /&gt;Top Exits&lt;/b&gt;&lt;br /&gt;Pokazuje ilość wychodzących z Twojego bloga kliknięć do innych stron&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_topexits</guid>
+</item>
+<item>
+<title>Top Referers: Pokazuje strony, z których najczęściej łączono się z Twoim blogiem</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_topreferers</link>
+<category>Sidebar Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_topreferers&lt;br /&gt;Top Referers&lt;/b&gt;&lt;br /&gt;Pokazuje strony, z których najczęściej łączono się z Twoim blogiem&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_topreferers</guid>
+</item>
+<item>
+<title>Twitter Timeline: Show your current Twitter entries</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_twitter</link>
+<category>Sidebar Plugins</category>
+<author>Grischa Brockhaus, Damian Luszczymak, Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_twitter&lt;br /&gt;Twitter Timeline&lt;/b&gt;&lt;br /&gt;Show your current Twitter entries&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_twitter</guid>
+</item>
+<item>
+<title>Wikipedia Finder: Highlight a phrase and click the icon to search on using Wikipedia.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_wikipedia_finder</link>
+<category>Sidebar Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_plugin_wikipedia_finder&lt;br /&gt;Wikipedia Finder&lt;/b&gt;&lt;br /&gt;Highlight a phrase and click the icon to search on using Wikipedia.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_plugin_wikipedia_finder</guid>
 </item>
 </channel>
 </rss>

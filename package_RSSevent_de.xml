@@ -9,49 +9,22 @@
 <dc:language>en</dc:language>
 <generator>Serendipity SPARTACUS</generator>
 <item>
-<title>Einträge ankündigen: Benachrichtigt diverse Internetseiten, das ein neuer Eintrag erstellt wurde.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_weblogping</link>
+<title>Comics: Webcomics im Blog posten</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_comics</link>
 <category>Event Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_event_weblogping&lt;br /&gt;Einträge ankündigen&lt;/b&gt;&lt;br /&gt;Benachrichtigt diverse Internetseiten, das ein neuer Eintrag erstellt wurde.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_weblogping</guid>
+<author>Wesley Hwang-Chung</author>
+<content:encoded>&lt;b&gt;serendipity_event_comics&lt;br /&gt;Comics&lt;/b&gt;&lt;br /&gt;Webcomics im Blog posten&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:28 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_comics</guid>
 </item>
 <item>
-<title>Kontaktformular: Stellt ein E-Mail Kontaktformular auf Ihrem Blog als statische Seite dar. Darauf kann entweder mittels des eigenen Permalinks oder mittels index.php?serendipity[subpage]=contactform aufgerufen werden. Die Darstellung kann durch Smarty Templates angepasst werden, indem die Datei plugin_contactform.tpl in Ihren Templateordner kopiert und modifiziert wird. Captchas des Spamblock-Plugins (falls aktiviert) werden angewendet.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_contactform</link>
+<title>QuickNotes: Zeigt Hinweise für angemeldete Autoren in der Admin-Oberfläche an.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_adminnotes</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_contactform&lt;br /&gt;Kontaktformular&lt;/b&gt;&lt;br /&gt;Stellt ein E-Mail Kontaktformular auf Ihrem Blog als statische Seite dar. Darauf kann entweder mittels des eigenen Permalinks oder mittels index.php?serendipity[subpage]=contactform aufgerufen werden. Die Darstellung kann durch Smarty Templates angepasst werden, indem die Datei plugin_contactform.tpl in Ihren Templateordner kopiert und modifiziert wird. Captchas des Spamblock-Plugins (falls aktiviert) werden angewendet.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:34 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_contactform</guid>
-</item>
-<item>
-<title>Regeln für Veröffentlichungen: Führt einige Prüfungen vor der Veröffentlichung eines Artikels durch. Arbeitet nicht mit eingesetztem WYSIWYG-CKEDITOR!</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_entrycheck</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Gregor Voeltz</author>
-<content:encoded>&lt;b&gt;serendipity_event_entrycheck&lt;br /&gt;Regeln für Veröffentlichungen&lt;/b&gt;&lt;br /&gt;Führt einige Prüfungen vor der Veröffentlichung eines Artikels durch. Arbeitet nicht mit eingesetztem WYSIWYG-CKEDITOR!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 23 Mar 2018 22:31:40 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_entrycheck</guid>
-</item>
-<item>
-<title>Gästebuch: Zeigt ein Gästebuch innerhalb des Blogs mit dem gewählten Design und allen Formatierungen an.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_guestbook</link>
-<category>Event Plugins</category>
-<author>Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_guestbook&lt;br /&gt;Gästebuch&lt;/b&gt;&lt;br /&gt;Zeigt ein Gästebuch innerhalb des Blogs mit dem gewählten Design und allen Formatierungen an.&lt;br/&gt;For: Serendipity 1.7.0</content:encoded>
-<pubDate>Sun, 18 Aug 2019 22:31:14 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_guestbook</guid>
-</item>
-<item>
-<title>Frei-definierbare Permalinks zu Einträgen: Ermöglicht die Eingabe eines individuellen Permalinks (dauerhafter Link) um spezifische Artikel aufzurufen. Es können nur URL-Muster verwendet werden, die nicht bereits intern verwendet werden - eigene Permalinks innerhalb der /archives/ Struktur sind daher nicht möglich. Aber andere, auch nicht existierende, Verzeichnisse können verwendet werden.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_custom_permalinks</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_custom_permalinks&lt;br /&gt;Frei-definierbare Permalinks zu Einträgen&lt;/b&gt;&lt;br /&gt;Ermöglicht die Eingabe eines individuellen Permalinks (dauerhafter Link) um spezifische Artikel aufzurufen. Es können nur URL-Muster verwendet werden, die nicht bereits intern verwendet werden - eigene Permalinks innerhalb der /archives/ Struktur sind daher nicht möglich. Aber andere, auch nicht existierende, Verzeichnisse können verwendet werden.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Mon, 17 Apr 2017 22:32:13 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_custom_permalinks</guid>
+<author>Garvin Hicking, Matthias Mees</author>
+<content:encoded>&lt;b&gt;serendipity_event_adminnotes&lt;br /&gt;QuickNotes&lt;/b&gt;&lt;br /&gt;Zeigt Hinweise für angemeldete Autoren in der Admin-Oberfläche an.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:27 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_adminnotes</guid>
 </item>
 <item>
 <title>RSS Aggregator: Aggregiert Einträge von mehreren RSS Feeds (&quot;Planet&quot;). WICHTIGER HINWEIS: Die Aktualisierung des Aggregators muss derzeit noch manuell via Crontab aufgerufen werden. Rufen Sie im gewünschten Abstand per cronjob o.ä. folgende URL auf: index.php?/plugin/aggregator</title>
@@ -59,341 +32,8 @@
 <category>Event Plugins</category>
 <author>Evan Nemerson, Garvin Hicking, Kristian Koehntopp, Thomas Schulz, Claus Schmidt</author>
 <content:encoded>&lt;b&gt;serendipity_event_aggregator&lt;br /&gt;RSS Aggregator&lt;/b&gt;&lt;br /&gt;Aggregiert Einträge von mehreren RSS Feeds (&quot;Planet&quot;). WICHTIGER HINWEIS: Die Aktualisierung des Aggregators muss derzeit noch manuell via Crontab aufgerufen werden. Rufen Sie im gewünschten Abstand per cronjob o.ä. folgende URL auf: index.php?/plugin/aggregator&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 12 Mar 2020 22:31:10 +0100</pubDate>
+<pubDate>Sat, 21 Mar 2020 20:02:27 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_aggregator</guid>
-</item>
-<item>
-<title>Proxy Real-IP: Setzt die richtige IP des Besuchers bei Benutzung eines Proxy vor dem Webserver. Sollte das erste Plugin in der Liste sein.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_proxy_realip</link>
-<category>Event Plugins</category>
-<author>&lt;a href=&quot;http://blog.kleinerChemiker.net/&quot; target=&quot;_blank&quot;&gt;kleinerChemiker&lt;/a&gt;</author>
-<content:encoded>&lt;b&gt;serendipity_event_proxy_realip&lt;br /&gt;Proxy Real-IP&lt;/b&gt;&lt;br /&gt;Setzt die richtige IP des Besuchers bei Benutzung eines Proxy vor dem Webserver. Sollte das erste Plugin in der Liste sein.&lt;br/&gt;For: Serendipity 1.6.2</content:encoded>
-<pubDate>Tue, 02 Jul 2013 02:32:09 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_proxy_realip</guid>
-</item>
-<item>
-<title>Textformatierung: Markdown: Markdown-Textformatierung durchführen</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_markdown</link>
-<category>Event Plugins</category>
-<author>Serendipity Team, Jan Lehnardt and Thomas Hochstein</author>
-<content:encoded>&lt;b&gt;serendipity_event_markdown&lt;br /&gt;Textformatierung: Markdown&lt;/b&gt;&lt;br /&gt;Markdown-Textformatierung durchführen&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 11 Nov 2018 22:31:40 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_markdown</guid>
-</item>
-<item>
-<title>Karma: Abstimmung über die Einträge</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_karma</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Grischa Brockhaus, Judebert, Gregor Voeltz, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_karma&lt;br /&gt;Karma&lt;/b&gt;&lt;br /&gt;Abstimmung über die Einträge&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Sun, 21 Jul 2019 22:31:24 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_karma</guid>
-</item>
-<item>
-<title>Kategorien zuweisen: Ermöglicht mehrere Kategorien zu bestehenden Einträgen zuzuweisen, bzw. die Zuweisungen schnell für alle Artikel zu ändern.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_assigncategories</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Matthias Mees</author>
-<content:encoded>&lt;b&gt;serendipity_event_assigncategories&lt;br /&gt;Kategorien zuweisen&lt;/b&gt;&lt;br /&gt;Ermöglicht mehrere Kategorien zu bestehenden Einträgen zuzuweisen, bzw. die Zuweisungen schnell für alle Artikel zu ändern.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 26 Oct 2016 22:32:04 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_assigncategories</guid>
-</item>
-<item>
-<title>Echtzeit-Kommentare: Lade Kommentare, die gerade gespeichert wurden, und stelle sie ohne Neuladen der Seite dar.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_realtimecomments</link>
-<category>Event Plugins</category>
-<author>Malte Paskuda</author>
-<content:encoded>&lt;b&gt;serendipity_event_realtimecomments&lt;br /&gt;Echtzeit-Kommentare&lt;/b&gt;&lt;br /&gt;Lade Kommentare, die gerade gespeichert wurden, und stelle sie ohne Neuladen der Seite dar.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:33:32 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_realtimecomments</guid>
-</item>
-<item>
-<title>Linkverkürzung: Ermöglicht Linkverkürzung zur Weiterleitung in Ihrem eigenen Blog, z.B. vermittels tr.im, tinyurl.com usw.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_linktrimmer</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_linktrimmer&lt;br /&gt;Linkverkürzung&lt;/b&gt;&lt;br /&gt;Ermöglicht Linkverkürzung zur Weiterleitung in Ihrem eigenen Blog, z.B. vermittels tr.im, tinyurl.com usw.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:31:01 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_linktrimmer</guid>
-</item>
-<item>
-<title>Layout-Plugin: Druckfreundliche Version: Ermöglicht den besseren Ausdruck eines Eintrages im Browser</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_layout_printerfriendly</link>
-<category>Event Plugins</category>
-<author>Sebastian Nohn</author>
-<content:encoded>&lt;b&gt;serendipity_event_layout_printerfriendly&lt;br /&gt;Layout-Plugin: Druckfreundliche Version&lt;/b&gt;&lt;br /&gt;Ermöglicht den besseren Ausdruck eines Eintrages im Browser&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:48 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_layout_printerfriendly</guid>
-</item>
-<item>
-<title>Kubrick/Joshua-Template Bild im Kopfbereich: Wechselt das Bild im Kubrick/Joshua-Template</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_kubrickheader</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Sebastian Mayeres, Jude Anthony</author>
-<content:encoded>&lt;b&gt;serendipity_event_kubrickheader&lt;br /&gt;Kubrick/Joshua-Template Bild im Kopfbereich&lt;/b&gt;&lt;br /&gt;Wechselt das Bild im Kubrick/Joshua-Template&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:48 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_kubrickheader</guid>
-</item>
-<item>
-<title>Textformatierung: Typografische Anführungszeichen: Wandelt normale Anführungszeichen in typografische Anführungszeichen</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_typoquote</link>
-<category>Event Plugins</category>
-<author>Jonathan Spalink and Matthew Groeninger</author>
-<content:encoded>&lt;b&gt;serendipity_event_typoquote&lt;br /&gt;Textformatierung: Typografische Anführungszeichen&lt;/b&gt;&lt;br /&gt;Wandelt normale Anführungszeichen in typografische Anführungszeichen&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:58 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_typoquote</guid>
-</item>
-<item>
-<title>Wort-Ersetzer: Ersetzt ein Wort mit einem neuen Inhalt, z.B. für Akronyme</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_contentrewrite</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_contentrewrite&lt;br /&gt;Wort-Ersetzer&lt;/b&gt;&lt;br /&gt;Ersetzt ein Wort mit einem neuen Inhalt, z.B. für Akronyme&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Wed, 18 May 2016 09:58:38 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_contentrewrite</guid>
-</item>
-<item>
-<title>Prettify für S9Y: Prettify fügt Inhalten, die zwischen PRE-Tags stehen, simples Syntax-Highlighting hinzu.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_prettify</link>
-<category>Event Plugins</category>
-<author>Adam Krause</author>
-<content:encoded>&lt;b&gt;serendipity_event_prettify&lt;br /&gt;Prettify für S9Y&lt;/b&gt;&lt;br /&gt;Prettify fügt Inhalten, die zwischen PRE-Tags stehen, simples Syntax-Highlighting hinzu.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Fri, 18 Mar 2016 22:32:19 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_prettify</guid>
-</item>
-<item>
-<title>HTTP-Authentifizierung: Authentifiziert Benutzer über HTTP-Authentifizierung (basic_auth) mit ihren s9y-Anmeldedaten.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_httpauth</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_httpauth&lt;br /&gt;HTTP-Authentifizierung&lt;/b&gt;&lt;br /&gt;Authentifiziert Benutzer über HTTP-Authentifizierung (basic_auth) mit ihren s9y-Anmeldedaten.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:31:01 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_httpauth</guid>
-</item>
-<item>
-<title>HTML-Klotz in Seite(n): Setzt einen HTML-Klotz in die Seite(n), an deren Anfang, Ende oder ins head-Element.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_page_nugget</link>
-<category>Event Plugins</category>
-<author>Wesley Hwang-Chung</author>
-<content:encoded>&lt;b&gt;serendipity_event_page_nugget&lt;br /&gt;HTML-Klotz in Seite(n)&lt;/b&gt;&lt;br /&gt;Setzt einen HTML-Klotz in die Seite(n), an deren Anfang, Ende oder ins head-Element.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_page_nugget</guid>
-</item>
-<item>
-<title>HTML in Kommentaren maskieren: Üblicherweise wird HTML in Kommentaren komplett entfernt (strip_tags). Hiermit wird HTML nur in seine Entities umgewandelt. Dieses Plugin sollte vor anderen Textformatierungs-Plugin stehen.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_unstrip_tags</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_unstrip_tags&lt;br /&gt;HTML in Kommentaren maskieren&lt;/b&gt;&lt;br /&gt;Üblicherweise wird HTML in Kommentaren komplett entfernt (strip_tags). Hiermit wird HTML nur in seine Entities umgewandelt. Dieses Plugin sollte vor anderen Textformatierungs-Plugin stehen.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:53 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_unstrip_tags</guid>
-</item>
-<item>
-<title>Passwort vergessen: Ändere das Passwort für ausgewählten Benutzer</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_forgotpassword</link>
-<category>Event Plugins</category>
-<author>Omid Mottaghi</author>
-<content:encoded>&lt;b&gt;serendipity_event_forgotpassword&lt;br /&gt;Passwort vergessen&lt;/b&gt;&lt;br /&gt;Ändere das Passwort für ausgewählten Benutzer&lt;br/&gt;For: Serendipity 0.9.1</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:38 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_forgotpassword</guid>
-</item>
-<item>
-<title>Sonderzeichen/Erweiterte Buttons für Non-WYSIWYG: Fügt Buttons für diverse Sonderzeichen und Aktionen in die Oberfläche zum Erzeugen eines Artikels ein. Dieses Plugin funktioniert nicht mit dem WYSIWYG-Editor zusammen.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_typesetbuttons</link>
-<category>Event Plugins</category>
-<author>Matthew Groeninger, Malte Diers, Matthias Gutjahr</author>
-<content:encoded>&lt;b&gt;serendipity_event_typesetbuttons&lt;br /&gt;Sonderzeichen/Erweiterte Buttons für Non-WYSIWYG&lt;/b&gt;&lt;br /&gt;Fügt Buttons für diverse Sonderzeichen und Aktionen in die Oberfläche zum Erzeugen eines Artikels ein. Dieses Plugin funktioniert nicht mit dem WYSIWYG-Editor zusammen.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
-<pubDate>Mon, 06 Aug 2018 22:33:51 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_typesetbuttons</guid>
-</item>
-<item>
-<title>DSGVO / GDPR: Datenschutz-Grundverordnung: Dieses Plugin soll Blogbetreibern helfen, Konformität zur Datenschutz-Grundverordnung herzustellen.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_dsgvo_gdpr</link>
-<category>Event Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_event_dsgvo_gdpr&lt;br /&gt;DSGVO / GDPR: Datenschutz-Grundverordnung&lt;/b&gt;&lt;br /&gt;Dieses Plugin soll Blogbetreibern helfen, Konformität zur Datenschutz-Grundverordnung herzustellen.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Sun, 02 Sep 2018 22:31:57 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_dsgvo_gdpr</guid>
-</item>
-<item>
-<title>Sharebuttons: Zeige Sharebuttons für Netzwerke wie Facebook und Twitter (nutzt shariff)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_social</link>
-<category>Event Plugins</category>
-<author>onli, Matthias Mees, Thomas Hochstein</author>
-<content:encoded>&lt;b&gt;serendipity_event_social&lt;br /&gt;Sharebuttons&lt;/b&gt;&lt;br /&gt;Zeige Sharebuttons für Netzwerke wie Facebook und Twitter (nutzt shariff)&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Fri, 05 Apr 2019 22:31:42 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_social</guid>
-</item>
-<item>
-<title>Zufällige Beschreibung des Blogs: Zeigt eine zufällige Beschreibung unter dem Titel an.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_randomblogdescription</link>
-<category>Event Plugins</category>
-<author>Florian Anderiasch</author>
-<content:encoded>&lt;b&gt;serendipity_event_randomblogdescription&lt;br /&gt;Zufällige Beschreibung des Blogs&lt;/b&gt;&lt;br /&gt;Zeigt eine zufällige Beschreibung unter dem Titel an.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:33:32 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_randomblogdescription</guid>
-</item>
-<item>
-<title>Google Analytics: Dieses Plugin fügt Google Analytics Funktionalität hinzu. So können auch externe Links oder Downloads verfolgt werden.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_google_analytics</link>
-<category>Event Plugins</category>
-<author>&lt;a href=&quot;https://github.com/kleinerChemiker&quot; target=&quot;_blank&quot;&gt;kleinerChemiker&lt;/a&gt;</author>
-<content:encoded>&lt;b&gt;serendipity_event_google_analytics&lt;br /&gt;Google Analytics&lt;/b&gt;&lt;br /&gt;Dieses Plugin fügt Google Analytics Funktionalität hinzu. So können auch externe Links oder Downloads verfolgt werden.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:38 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_google_analytics</guid>
-</item>
-<item>
-<title>FAQs: Liste von Fragen und Antworten werden übersichtlich aufbereitet dargestellt.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_faq</link>
-<category>Event Plugins</category>
-<author>Falk Doering, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_faq&lt;br /&gt;FAQs&lt;/b&gt;&lt;br /&gt;Liste von Fragen und Antworten werden übersichtlich aufbereitet dargestellt.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
-<pubDate>Wed, 26 Oct 2016 22:32:13 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_faq</guid>
-</item>
-<item>
-<title>Geotag: Erlaubt Einträge mit Geokoordinaten zu versehen</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_geotag</link>
-<category>Event Plugins</category>
-<author>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Martin Sewelies</author>
-<content:encoded>&lt;b&gt;serendipity_event_geotag&lt;br /&gt;Geotag&lt;/b&gt;&lt;br /&gt;Erlaubt Einträge mit Geokoordinaten zu versehen&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 11 Mar 2020 22:31:08 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_geotag</guid>
-</item>
-<item>
-<title>Kategorie als Startseite: Ermöglicht, die Artikel einer speziellen Kategorie anstelle der Übersicht aller Artikel auf der Startseite anzuzeigen.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_startcat</link>
-<category>Event Plugins</category>
-<author>Stefan Willoughby, Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_startcat&lt;br /&gt;Kategorie als Startseite&lt;/b&gt;&lt;br /&gt;Ermöglicht, die Artikel einer speziellen Kategorie anstelle der Übersicht aller Artikel auf der Startseite anzuzeigen.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:42 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_startcat</guid>
-</item>
-<item>
-<title>Recaptcha: Recaptcha für die Kommentar-Funktion von Artikeln aktivieren (Sie müssen einen Schlüssel anfordern)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_recaptcha</link>
-<category>Event Plugins</category>
-<author>Christian Brabandt (based on work of Garvin Hicking, Sebastian Nohn)</author>
-<content:encoded>&lt;b&gt;serendipity_event_recaptcha&lt;br /&gt;Recaptcha&lt;/b&gt;&lt;br /&gt;Recaptcha für die Kommentar-Funktion von Artikeln aktivieren (Sie müssen einen Schlüssel anfordern)&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Fri, 30 Mar 2018 22:31:53 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_recaptcha</guid>
-</item>
-<item>
-<title>HTML Meta-Tags: Setzt Tags für HTML Meta-Schlüsselwörter/-Beschreibungen und das title-Element für Seiten mit nur einem einzelnen Eintrag bzw. allgemeine Meta-Schlüsselwörter/-Beschreibungen für Seite mit mehr als einem Eintrag.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_metadesc</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Judebert, Don Chambers</author>
-<content:encoded>&lt;b&gt;serendipity_event_metadesc&lt;br /&gt;HTML Meta-Tags&lt;/b&gt;&lt;br /&gt;Setzt Tags für HTML Meta-Schlüsselwörter/-Beschreibungen und das title-Element für Seiten mit nur einem einzelnen Eintrag bzw. allgemeine Meta-Schlüsselwörter/-Beschreibungen für Seite mit mehr als einem Eintrag.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 21 Jul 2019 22:31:27 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_metadesc</guid>
-</item>
-<item>
-<title>HTML-Code für den head-Bereich (HTML-Kopf Klotz): Beinhaltet HTML-Code der im HEAD-Bereich des Blogs eingebunden werden kann, z.B. für Meta-Tags oder JavaScripts.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_head_nugget</link>
-<category>Event Plugins</category>
-<author>Jannis Hermanns</author>
-<content:encoded>&lt;b&gt;serendipity_event_head_nugget&lt;br /&gt;HTML-Code für den head-Bereich (HTML-Kopf Klotz)&lt;/b&gt;&lt;br /&gt;Beinhaltet HTML-Code der im HEAD-Bereich des Blogs eingebunden werden kann, z.B. für Meta-Tags oder JavaScripts.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Wed, 18 May 2016 09:58:38 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_head_nugget</guid>
-</item>
-<item>
-<title>Spamschutz Biene (Honeypot, Verstecktes Captcha): Implementiert Kommentar AntiSpam Maßnahmen, die einfach zu konfigurieren aber sehr effektiv sind.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_spamblock_bee</link>
-<category>Event Plugins</category>
-<author>Grischa Brockhaus, Janek Bevendorff</author>
-<content:encoded>&lt;b&gt;serendipity_event_spamblock_bee&lt;br /&gt;Spamschutz Biene (Honeypot, Verstecktes Captcha)&lt;/b&gt;&lt;br /&gt;Implementiert Kommentar AntiSpam Maßnahmen, die einfach zu konfigurieren aber sehr effektiv sind.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:42 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_spamblock_bee</guid>
-</item>
-<item>
-<title>VG Wort: Integriert Zählmarken der VG Wort.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_vgwort</link>
-<category>Event Plugins</category>
-<author>Malte Paskuda</author>
-<content:encoded>&lt;b&gt;serendipity_event_vgwort&lt;br /&gt;VG Wort&lt;/b&gt;&lt;br /&gt;Integriert Zählmarken der VG Wort.&lt;br/&gt;For: Serendipity 2.2.1</content:encoded>
-<pubDate>Sun, 18 Aug 2019 22:31:19 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_vgwort</guid>
-</item>
-<item>
-<title>LiveJournal/MySpace/Serendipity Aktualisierung: Benutzt XML-RPC Methoden um Einträge zu einem LiveJournal/MySpace/Serendipity zu übertragen</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_ljupdate</link>
-<category>Event Plugins</category>
-<author>Kaustubh Srikanth, Ivan Makhonin</author>
-<content:encoded>&lt;b&gt;serendipity_event_ljupdate&lt;br /&gt;LiveJournal/MySpace/Serendipity Aktualisierung&lt;/b&gt;&lt;br /&gt;Benutzt XML-RPC Methoden um Einträge zu einem LiveJournal/MySpace/Serendipity zu übertragen&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:42 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_ljupdate</guid>
-</item>
-<item>
-<title>Template-Editor: Bearbeite die Dateien des derzeit genutzen Templates direkt im Adminbereich.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_template_editor</link>
-<category>Event Plugins</category>
-<author>Malte Paskuda</author>
-<content:encoded>&lt;b&gt;serendipity_event_template_editor&lt;br /&gt;Template-Editor&lt;/b&gt;&lt;br /&gt;Bearbeite die Dateien des derzeit genutzen Templates direkt im Adminbereich.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Wed, 26 Oct 2016 22:32:23 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_template_editor</guid>
-</item>
-<item>
-<title>Coppermine-Selektor: Wählen Sie Bilder aus einer Coppermine-Galerie für neue Einträge aus.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_cpgselector</link>
-<category>Event Plugins</category>
-<author>Matthew Maude (modified by Jim Davies)</author>
-<content:encoded>&lt;b&gt;serendipity_event_cpgselector&lt;br /&gt;Coppermine-Selektor&lt;/b&gt;&lt;br /&gt;Wählen Sie Bilder aus einer Coppermine-Galerie für neue Einträge aus.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:30:56 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_cpgselector</guid>
-</item>
-<item>
-<title>Glossary: A user defined glossary as highlighted text with a tooltip.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_glossary</link>
-<category>Event Plugins</category>
-<author>Rob Antonishen</author>
-<content:encoded>&lt;b&gt;serendipity_event_glossary&lt;br /&gt;Glossary&lt;/b&gt;&lt;br /&gt;A user defined glossary as highlighted text with a tooltip.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:35 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_glossary</guid>
-</item>
-<item>
-<title>BrowserID Authentifizierung: Ermöglicht Autoren, sich mittels de BrowserID Services einzuloggen.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_browserid</link>
-<category>Event Plugins</category>
-<author>Grischa Brockhaus, Malte Paskuda</author>
-<content:encoded>&lt;b&gt;serendipity_event_browserid&lt;br /&gt;BrowserID Authentifizierung&lt;/b&gt;&lt;br /&gt;Ermöglicht Autoren, sich mittels de BrowserID Services einzuloggen.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:26 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_browserid</guid>
-</item>
-<item>
-<title>Facebook (Experimentell!): Importiert Kommentare von Facebook-Posts (vergleichbar RSS-Graffiti) zurück in den Blog. Bettet auch Facebook-OpenGraph-Meta-Tags in den Blog ein.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_facebook</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_facebook&lt;br /&gt;Facebook (Experimentell!)&lt;/b&gt;&lt;br /&gt;Importiert Kommentare von Facebook-Posts (vergleichbar RSS-Graffiti) zurück in den Blog. Bettet auch Facebook-OpenGraph-Meta-Tags in den Blog ein.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:31:01 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_facebook</guid>
-</item>
-<item>
-<title>MimeTex Tex Interpreter: Erzeugt ein GIF von TeX-Ausdrücken mittels MimeTex</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mimetex</link>
-<category>Event Plugins</category>
-<author>Matthew Groeninger</author>
-<content:encoded>&lt;b&gt;serendipity_event_mimetex&lt;br /&gt;MimeTex Tex Interpreter&lt;/b&gt;&lt;br /&gt;Erzeugt ein GIF von TeX-Ausdrücken mittels MimeTex&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:44 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_mimetex</guid>
-</item>
-<item>
-<title>Thumbnail-Seite des Photoblog-Plugins: Zeigt eine Seite mit Thumbnails des Photoblog-Plugins. Die URL ist index.php?serendipity[page]=thumbs</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_thumbnails</link>
-<category>Event Plugins</category>
-<author>Cameron MacFarland</author>
-<content:encoded>&lt;b&gt;serendipity_event_thumbnails&lt;br /&gt;Thumbnail-Seite des Photoblog-Plugins&lt;/b&gt;&lt;br /&gt;Zeigt eine Seite mit Thumbnails des Photoblog-Plugins. Die URL ist index.php?serendipity[page]=thumbs&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:51 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_thumbnails</guid>
-</item>
-<item>
-<title>Bildergalerie: Ermöglicht es den Besuchern, die Mediendatenbank anzusehen</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_usergallery</link>
-<category>Event Plugins</category>
-<author>Arnan de Gans, Matthew Groeninger, and Stefan Willoughby, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_usergallery&lt;br /&gt;Bildergalerie&lt;/b&gt;&lt;br /&gt;Ermöglicht es den Besuchern, die Mediendatenbank anzusehen&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_usergallery</guid>
 </item>
 <item>
 <title>Amazon Medien-Button: Fügt einen Button zum Artikeleditor hinzu, über den eine Amazon.com Suche für Produkte ausgeführt werden kann und die Ergebnisse in den Eintrag eingebettet werden</title>
@@ -401,80 +41,17 @@
 <category>Event Plugins</category>
 <author>Matthew Groeninger, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_amazonchooser&lt;br /&gt;Amazon Medien-Button&lt;/b&gt;&lt;br /&gt;Fügt einen Button zum Artikeleditor hinzu, über den eine Amazon.com Suche für Produkte ausgeführt werden kann und die Ergebnisse in den Eintrag eingebettet werden&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:34 +0200</pubDate>
+<pubDate>Sat, 21 Mar 2020 20:02:27 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_amazonchooser</guid>
 </item>
 <item>
-<title>Avatar Plugin: Avatare bei Kommentaren anzeigen. Unterstützt werden Gravatare, Pavatare, Favatare, Twitter, Identica und MyBlogLog Avatare</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_gravatar</link>
+<title>Kategorien zuweisen: Ermöglicht mehrere Kategorien zu bestehenden Einträgen zuzuweisen, bzw. die Zuweisungen schnell für alle Artikel zu ändern.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_assigncategories</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking, Grischa Brockhaus</author>
-<content:encoded>&lt;b&gt;serendipity_event_gravatar&lt;br /&gt;Avatar Plugin&lt;/b&gt;&lt;br /&gt;Avatare bei Kommentaren anzeigen. Unterstützt werden Gravatare, Pavatare, Favatare, Twitter, Identica und MyBlogLog Avatare&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Sun, 02 Sep 2018 22:32:04 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_gravatar</guid>
-</item>
-<item>
-<title>POPfetcher: Holt E-Mail inkl. Anhängen ab und veröffentlicht sie von einem POP3 E-Mail-Account (mit spezieller Handy-Unterstützung)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_popfetcher</link>
-<category>Event Plugins</category>
-<author>Jason Levitt</author>
-<content:encoded>&lt;b&gt;serendipity_event_popfetcher&lt;br /&gt;POPfetcher&lt;/b&gt;&lt;br /&gt;Holt E-Mail inkl. Anhängen ab und veröffentlicht sie von einem POP3 E-Mail-Account (mit spezieller Handy-Unterstützung)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 09 Sep 2019 22:32:12 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_popfetcher</guid>
-</item>
-<item>
-<title>Flattr: Flattr ist eine Social-Micropayment-Plattform, mit der man Liebe versprühen kann für Artikel, die man liebt. Das Plugin bindet &quot;Flattr&quot;-Buttons in den Blogeinträgen und RSS-Feeds ein. Flattr-spezifische Attribute können sowohl global als auch pro Eintrag vergeben werden.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_flattr</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Joachim Breitner</author>
-<content:encoded>&lt;b&gt;serendipity_event_flattr&lt;br /&gt;Flattr&lt;/b&gt;&lt;br /&gt;Flattr ist eine Social-Micropayment-Plattform, mit der man Liebe versprühen kann für Artikel, die man liebt. Das Plugin bindet &quot;Flattr&quot;-Buttons in den Blogeinträgen und RSS-Feeds ein. Flattr-spezifische Attribute können sowohl global als auch pro Eintrag vergeben werden.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:38 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_flattr</guid>
-</item>
-<item>
-<title>Microblogging (Twitter,Identica): Fügt einen Twitter/Identica Client zum Administrator Interface hinzu, sucht nach Tweetbacks und kündigt neue Artikel über Twitter/Identica Accounts an.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_twitter</link>
-<category>Event Plugins</category>
-<author>Grischa Brockhaus, Peter Heimann</author>
-<content:encoded>&lt;b&gt;serendipity_event_twitter&lt;br /&gt;Microblogging (Twitter,Identica)&lt;/b&gt;&lt;br /&gt;Fügt einen Twitter/Identica Client zum Administrator Interface hinzu, sucht nach Tweetbacks und kündigt neue Artikel über Twitter/Identica Accounts an.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Tue, 03 Apr 2018 22:31:31 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_twitter</guid>
-</item>
-<item>
-<title>Backup-Interface: Bietet die Möglichkeit, automatisch Backups von Ihren Serendipity - den Datenbanktabellen, der gesamten Datenbank und den Dateien - zu erstellen. Derzeit werden nur MySQL(i)-Datenbanken unterstützt. WARNUNG: Dieses Plugin funktioniert nicht gut mit großen Datenbanken oder Verzeichnissen.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_backup</link>
-<category>Event Plugins</category>
-<author>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</author>
-<content:encoded>&lt;b&gt;serendipity_event_backup&lt;br /&gt;Backup-Interface&lt;/b&gt;&lt;br /&gt;Bietet die Möglichkeit, automatisch Backups von Ihren Serendipity - den Datenbanktabellen, der gesamten Datenbank und den Dateien - zu erstellen. Derzeit werden nur MySQL(i)-Datenbanken unterstützt. WARNUNG: Dieses Plugin funktioniert nicht gut mit großen Datenbanken oder Verzeichnissen.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:30:56 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_backup</guid>
-</item>
-<item>
-<title>Newsbox: Group a category's entries in a frontpage box instead of the usual article listing.  Supports nested newsboxes.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_newsbox</link>
-<category>Event Plugins</category>
-<author>Jude Anthony</author>
-<content:encoded>&lt;b&gt;serendipity_event_newsbox&lt;br /&gt;Newsbox&lt;/b&gt;&lt;br /&gt;Group a category's entries in a frontpage box instead of the usual article listing.  Supports nested newsboxes.&lt;br/&gt;For: Serendipity 1.0-alpha1</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:53 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_newsbox</guid>
-</item>
-<item>
-<title>Erweiterter Kommentarbereich: Eine Livevorschau und Formatierungsbuttons erweitern den Kommentarbereich mittels JavaScript.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_livecomment</link>
-<category>Event Plugins</category>
-<author>Malte Paskuda, Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_livecomment&lt;br /&gt;Erweiterter Kommentarbereich&lt;/b&gt;&lt;br /&gt;Eine Livevorschau und Formatierungsbuttons erweitern den Kommentarbereich mittels JavaScript.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:50 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_livecomment</guid>
-</item>
-<item>
-<title>Event-Terminkalender: Zeigt einen Terminkalender innerhalb des Blogs mit dem Blog-Design und allen Formatierungen an. Unterstützt Backend/Frontend Administration, vielfache Termine und iCal Export. (Nur MySQL)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_cal</link>
-<category>Event Plugins</category>
-<author>Ian (Timbalu)</author>
-<content:encoded>&lt;b&gt;serendipity_event_cal&lt;br /&gt;Event-Terminkalender&lt;/b&gt;&lt;br /&gt;Zeigt einen Terminkalender innerhalb des Blogs mit dem Blog-Design und allen Formatierungen an. Unterstützt Backend/Frontend Administration, vielfache Termine und iCal Export. (Nur MySQL)&lt;br/&gt;For: Serendipity 1.4</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:33 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_cal</guid>
+<author>Garvin Hicking, Matthias Mees</author>
+<content:encoded>&lt;b&gt;serendipity_event_assigncategories&lt;br /&gt;Kategorien zuweisen&lt;/b&gt;&lt;br /&gt;Ermöglicht mehrere Kategorien zu bestehenden Einträgen zuzuweisen, bzw. die Zuweisungen schnell für alle Artikel zu ändern.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:27 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_assigncategories</guid>
 </item>
 <item>
 <title>Markup: Auto-Titel: Fügt automatischen den Titel der verlinkten Seite als als &quot;title&quot;-Tag zum Link hinzu.</title>
@@ -482,26 +59,170 @@
 <category>Event Plugins</category>
 <author>Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_autotitle&lt;br /&gt;Markup: Auto-Titel&lt;/b&gt;&lt;br /&gt;Fügt automatischen den Titel der verlinkten Seite als als &quot;title&quot;-Tag zum Link hinzu.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:37 +0200</pubDate>
+<pubDate>Sat, 21 Mar 2020 20:02:27 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_autotitle</guid>
 </item>
 <item>
-<title>Markup: Mobile Ausgabe: Dieses Plugin erkennt automatisch mobile Endgeraete und gibt optimiertes XHTML MP fuer diese aus. Fuer das Apple iPhone und den iPod Touch wird eine speziell angepasste Seite ausgegeben. Weiterhin werden Bilder automatisch passend skaliert.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mobile_output</link>
+<title>Serendipity Autoupdate: Sobald das Dashboard Plugin (einmal am Tag) ein Serendipity Update entdeckt, setzt dieses Plugin eine Ein-Klick Option in das Dashboard des Backends, um ein manuelles Download oder ein automatisches und gesichertes Upgrade der Blogsoftware zu starten.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_autoupdate</link>
 <category>Event Plugins</category>
-<author>Pelle Boese, Grischa Brockhaus</author>
-<content:encoded>&lt;b&gt;serendipity_event_mobile_output&lt;br /&gt;Markup: Mobile Ausgabe&lt;/b&gt;&lt;br /&gt;Dieses Plugin erkennt automatisch mobile Endgeraete und gibt optimiertes XHTML MP fuer diese aus. Fuer das Apple iPhone und den iPod Touch wird eine speziell angepasste Seite ausgegeben. Weiterhin werden Bilder automatisch passend skaliert.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Sun, 06 Aug 2017 22:36:04 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_mobile_output</guid>
+<author>onli, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_event_autoupdate&lt;br /&gt;Serendipity Autoupdate&lt;/b&gt;&lt;br /&gt;Sobald das Dashboard Plugin (einmal am Tag) ein Serendipity Update entdeckt, setzt dieses Plugin eine Ein-Klick Option in das Dashboard des Backends, um ein manuelles Download oder ein automatisches und gesichertes Upgrade der Blogsoftware zu starten.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:27 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_autoupdate</guid>
 </item>
 <item>
-<title>Bilder komprimieren: PNG- und JPG-Bilder mit dem TinyPNG-Dienst komprimieren.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_tinypng</link>
+<title>Zeige Einträge mittels JavaScript: Stellt JavaScript Ausgabe der letzten Einträge zum Einbinden in andere, externe Webseiten bereit. (Siehe README im Plugin Verzeichnis!)</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_backend</link>
 <category>Event Plugins</category>
-<author>onli</author>
-<content:encoded>&lt;b&gt;serendipity_event_tinypng&lt;br /&gt;Bilder komprimieren&lt;/b&gt;&lt;br /&gt;PNG- und JPG-Bilder mit dem TinyPNG-Dienst komprimieren.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:31:02 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_tinypng</guid>
+<author>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</author>
+<content:encoded>&lt;b&gt;serendipity_event_backend&lt;br /&gt;Zeige Einträge mittels JavaScript&lt;/b&gt;&lt;br /&gt;Stellt JavaScript Ausgabe der letzten Einträge zum Einbinden in andere, externe Webseiten bereit. (Siehe README im Plugin Verzeichnis!)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:27 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_backend</guid>
+</item>
+<item>
+<title>Display RSS-Feed in Backend Overview: Displays a RSS feed on the overview page (right after login) to the administration interface</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_backendrss</link>
+<category>Event Plugins</category>
+<author>Sebastian Nohn</author>
+<content:encoded>&lt;b&gt;serendipity_event_backendrss&lt;br /&gt;Display RSS-Feed in Backend Overview&lt;/b&gt;&lt;br /&gt;Displays a RSS feed on the overview page (right after login) to the administration interface&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:27 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_backendrss</guid>
+</item>
+<item>
+<title>Event-Terminkalender: Zeigt einen Terminkalender innerhalb des Blogs mit dem Blog-Design und allen Formatierungen an. Unterstützt Backend/Frontend Administration, vielfache Termine und iCal Export. (Nur MySQL)</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_cal</link>
+<category>Event Plugins</category>
+<author>Ian (Timbalu)</author>
+<content:encoded>&lt;b&gt;serendipity_event_cal&lt;br /&gt;Event-Terminkalender&lt;/b&gt;&lt;br /&gt;Zeigt einen Terminkalender innerhalb des Blogs mit dem Blog-Design und allen Formatierungen an. Unterstützt Backend/Frontend Administration, vielfache Termine und iCal Export. (Nur MySQL)&lt;br/&gt;For: Serendipity 1.4</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:28 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_cal</guid>
+</item>
+<item>
+<title>Backup-Interface: Bietet die Möglichkeit, automatisch Backups von Ihren Serendipity - den Datenbanktabellen, der gesamten Datenbank und den Dateien - zu erstellen. Derzeit werden nur MySQL(i)-Datenbanken unterstützt. WARNUNG: Dieses Plugin funktioniert nicht gut mit großen Datenbanken oder Verzeichnissen.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_backup</link>
+<category>Event Plugins</category>
+<author>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</author>
+<content:encoded>&lt;b&gt;serendipity_event_backup&lt;br /&gt;Backup-Interface&lt;/b&gt;&lt;br /&gt;Bietet die Möglichkeit, automatisch Backups von Ihren Serendipity - den Datenbanktabellen, der gesamten Datenbank und den Dateien - zu erstellen. Derzeit werden nur MySQL(i)-Datenbanken unterstützt. WARNUNG: Dieses Plugin funktioniert nicht gut mit großen Datenbanken oder Verzeichnissen.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:27 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_backup</guid>
+</item>
+<item>
+<title>Eigenschaften/Templates von Kategorien: Dieses Plugin ermöglicht erweitete Eigenschaften für Kategorien und deren Einträge festzulegen: speziell angepassete Templates, Anzeigereihenfolge, Anzeigeanzahl, Passwort-Schutz und Ausschluss aus dem RSS-Feed.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_categorytemplates</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking, Judebert</author>
+<content:encoded>&lt;b&gt;serendipity_event_categorytemplates&lt;br /&gt;Eigenschaften/Templates von Kategorien&lt;/b&gt;&lt;br /&gt;Dieses Plugin ermöglicht erweitete Eigenschaften für Kategorien und deren Einträge festzulegen: speziell angepassete Templates, Anzeigereihenfolge, Anzeigeanzahl, Passwort-Schutz und Ausschluss aus dem RSS-Feed.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:28 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_categorytemplates</guid>
+</item>
+<item>
+<title>CKEditor Plus: Nutzt CKEditor als Standard WYSIWYG Editor. Benutzung für JS-Editoren: Empfohlen! Nach der Installation, lies die Plugin Konfigurations Seite für weitere Informationen.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_ckeditor</link>
+<category>Event Plugins</category>
+<author>Rustam Abdullaev, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_event_ckeditor&lt;br /&gt;CKEditor Plus&lt;/b&gt;&lt;br /&gt;Nutzt CKEditor als Standard WYSIWYG Editor. Benutzung für JS-Editoren: Empfohlen! Nach der Installation, lies die Plugin Konfigurations Seite für weitere Informationen.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:28 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_ckeditor</guid>
+</item>
+<item>
+<title>BrowserID Authentifizierung: Ermöglicht Autoren, sich mittels de BrowserID Services einzuloggen.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_browserid</link>
+<category>Event Plugins</category>
+<author>Grischa Brockhaus, Malte Paskuda</author>
+<content:encoded>&lt;b&gt;serendipity_event_browserid&lt;br /&gt;BrowserID Authentifizierung&lt;/b&gt;&lt;br /&gt;Ermöglicht Autoren, sich mittels de BrowserID Services einzuloggen.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:27 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_browserid</guid>
+</item>
+<item>
+<title>Kommentarbearbeitung: Ermöglicht Besuchern ihren Kommentar nachträglich zu editieren.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_commentedit</link>
+<category>Event Plugins</category>
+<author>Malte Paskuda</author>
+<content:encoded>&lt;b&gt;serendipity_event_commentedit&lt;br /&gt;Kommentarbearbeitung&lt;/b&gt;&lt;br /&gt;Ermöglicht Besuchern ihren Kommentar nachträglich zu editieren.&lt;br/&gt;For: Serendipity 1.5</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:28 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_commentedit</guid>
+</item>
+<item>
+<title>Durchsuche Kommentare mit der Schnellsuche: Wenn dieses Plugin installiert ist, durchsucht die Schnellsuche Ihres Blogs auch die Kommentare.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_commentsearch</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_commentsearch&lt;br /&gt;Durchsuche Kommentare mit der Schnellsuche&lt;/b&gt;&lt;br /&gt;Wenn dieses Plugin installiert ist, durchsucht die Schnellsuche Ihres Blogs auch die Kommentare.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:28 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_commentsearch</guid>
+</item>
+<item>
+<title>Comment Spice: Würze Deinen Kommentarbereich mit Extras wie einem Twitterlink oder einem Link auf den letzten Artikel des Kommentators und nofollow nach bestimmten Regeln.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_commentspice</link>
+<category>Event Plugins</category>
+<author>Grischa Brockhaus</author>
+<content:encoded>&lt;b&gt;serendipity_event_commentspice&lt;br /&gt;Comment Spice&lt;/b&gt;&lt;br /&gt;Würze Deinen Kommentarbereich mit Extras wie einem Twitterlink oder einem Link auf den letzten Artikel des Kommentators und nofollow nach bestimmten Regeln.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:28 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_commentspice</guid>
+</item>
+<item>
+<title>Kontaktformular: Stellt ein E-Mail Kontaktformular auf Ihrem Blog als statische Seite dar. Darauf kann entweder mittels des eigenen Permalinks oder mittels index.php?serendipity[subpage]=contactform aufgerufen werden. Die Darstellung kann durch Smarty Templates angepasst werden, indem die Datei plugin_contactform.tpl in Ihren Templateordner kopiert und modifiziert wird. Captchas des Spamblock-Plugins (falls aktiviert) werden angewendet.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_contactform</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_contactform&lt;br /&gt;Kontaktformular&lt;/b&gt;&lt;br /&gt;Stellt ein E-Mail Kontaktformular auf Ihrem Blog als statische Seite dar. Darauf kann entweder mittels des eigenen Permalinks oder mittels index.php?serendipity[subpage]=contactform aufgerufen werden. Die Darstellung kann durch Smarty Templates angepasst werden, indem die Datei plugin_contactform.tpl in Ihren Templateordner kopiert und modifiziert wird. Captchas des Spamblock-Plugins (falls aktiviert) werden angewendet.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:28 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_contactform</guid>
+</item>
+<item>
+<title>Wort-Ersetzer: Ersetzt ein Wort mit einem neuen Inhalt, z.B. für Akronyme</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_contentrewrite</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_contentrewrite&lt;br /&gt;Wort-Ersetzer&lt;/b&gt;&lt;br /&gt;Ersetzt ein Wort mit einem neuen Inhalt, z.B. für Akronyme&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:28 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_contentrewrite</guid>
+</item>
+<item>
+<title>Coppermine-Selektor: Wählen Sie Bilder aus einer Coppermine-Galerie für neue Einträge aus.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_cpgselector</link>
+<category>Event Plugins</category>
+<author>Matthew Maude (modified by Jim Davies)</author>
+<content:encoded>&lt;b&gt;serendipity_event_cpgselector&lt;br /&gt;Coppermine-Selektor&lt;/b&gt;&lt;br /&gt;Wählen Sie Bilder aus einer Coppermine-Galerie für neue Einträge aus.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:28 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_cpgselector</guid>
+</item>
+<item>
+<title>Cronjob-Planer: Dieses Plugin führt andere Plugins, die regelmäßig bestimmte Aufgaben ausführen sollen, in bestimmten Zeitabständen aus. Einzelheiten finden Sie in der Konfiguration dieses Plugins.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_cronjob</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_cronjob&lt;br /&gt;Cronjob-Planer&lt;/b&gt;&lt;br /&gt;Dieses Plugin führt andere Plugins, die regelmäßig bestimmte Aufgaben ausführen sollen, in bestimmten Zeitabständen aus. Einzelheiten finden Sie in der Konfiguration dieses Plugins.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:28 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_cronjob</guid>
+</item>
+<item>
+<title>Frei-definierbare Permalinks zu Einträgen: Ermöglicht die Eingabe eines individuellen Permalinks (dauerhafter Link) um spezifische Artikel aufzurufen. Es können nur URL-Muster verwendet werden, die nicht bereits intern verwendet werden - eigene Permalinks innerhalb der /archives/ Struktur sind daher nicht möglich. Aber andere, auch nicht existierende, Verzeichnisse können verwendet werden.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_custom_permalinks</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_custom_permalinks&lt;br /&gt;Frei-definierbare Permalinks zu Einträgen&lt;/b&gt;&lt;br /&gt;Ermöglicht die Eingabe eines individuellen Permalinks (dauerhafter Link) um spezifische Artikel aufzurufen. Es können nur URL-Muster verwendet werden, die nicht bereits intern verwendet werden - eigene Permalinks innerhalb der /archives/ Struktur sind daher nicht möglich. Aber andere, auch nicht existierende, Verzeichnisse können verwendet werden.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:28 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_custom_permalinks</guid>
+</item>
+<item>
+<title>Sortierbares Archiv der Einträge: Zeigt eine sortierbare Ansicht aller Artikel für den Besucher an. Der Link zu dieser eigenständigen Seite sollte in einem eigenen HTML Klotz verlinkt werden!</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_customarchive</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_customarchive&lt;br /&gt;Sortierbares Archiv der Einträge&lt;/b&gt;&lt;br /&gt;Zeigt eine sortierbare Ansicht aller Artikel für den Besucher an. Der Link zu dieser eigenständigen Seite sollte in einem eigenen HTML Klotz verlinkt werden!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:28 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_customarchive</guid>
+</item>
+<item>
+<title>DBClean: Datenbank aufräumen</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_dbclean</link>
+<category>Event Plugins</category>
+<author>Malte Paskuda, Matthias Mees</author>
+<content:encoded>&lt;b&gt;serendipity_event_dbclean&lt;br /&gt;DBClean&lt;/b&gt;&lt;br /&gt;Datenbank aufräumen&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:28 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_dbclean</guid>
 </item>
 <item>
 <title>dejure.org Rechtsvernetzung: Verlinkt automatisch zitierte Gesetze und Rechtsprechung (Aktenzeichen und Fundstellen) mit den Inhalten von dejure.org.</title>
@@ -509,7 +230,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, dejure.org, Thomas Hochstein</author>
 <content:encoded>&lt;b&gt;serendipity_event_dejure&lt;br /&gt;dejure.org Rechtsvernetzung&lt;/b&gt;&lt;br /&gt;Verlinkt automatisch zitierte Gesetze und Rechtsprechung (Aktenzeichen und Fundstellen) mit den Inhalten von dejure.org.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:34 +0200</pubDate>
+<pubDate>Sat, 21 Mar 2020 20:02:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_dejure</guid>
 </item>
 <item>
@@ -518,359 +239,8 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_disqus&lt;br /&gt;Disqus-Kommentare&lt;/b&gt;&lt;br /&gt;Disqus.com ist ein Webservice, mit dem Sie Kommentare zentral verwalten können. Der Dienst speichert und verwaltet Kommentare außerhalb Ihrer Serendipity-Installation und ist mit JavaScript eingebettet. Weitere Informationen finden Sie unter https://disqus.com/.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:31:01 +0200</pubDate>
+<pubDate>Sat, 21 Mar 2020 20:02:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_disqus</guid>
-</item>
-<item>
-<title>Nächster/Voriger Artikel: Ermöglicht bei Betrachten eines Eintrages vor und zurück zu blättern</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_entrypaging</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Wesley Hwang-Chung</author>
-<content:encoded>&lt;b&gt;serendipity_event_entrypaging&lt;br /&gt;Nächster/Voriger Artikel&lt;/b&gt;&lt;br /&gt;Ermöglicht bei Betrachten eines Eintrages vor und zurück zu blättern&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Fri, 18 Mar 2016 22:32:19 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_entrypaging</guid>
-</item>
-<item>
-<title>Trackbacks kontrollieren: Ermöglicht beim Anlegen eines Eintrages zu weiteren URLs Trackbacks zu schicken oder Trackbacks zu deaktivieren</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_trackback</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Malte Paskuda, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_trackback&lt;br /&gt;Trackbacks kontrollieren&lt;/b&gt;&lt;br /&gt;Ermöglicht beim Anlegen eines Eintrages zu weiteren URLs Trackbacks zu schicken oder Trackbacks zu deaktivieren&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Sat, 16 Apr 2016 22:32:28 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_trackback</guid>
-</item>
-<item>
-<title>Kommentarbearbeitung: Ermöglicht Besuchern ihren Kommentar nachträglich zu editieren.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_commentedit</link>
-<category>Event Plugins</category>
-<author>Malte Paskuda</author>
-<content:encoded>&lt;b&gt;serendipity_event_commentedit&lt;br /&gt;Kommentarbearbeitung&lt;/b&gt;&lt;br /&gt;Ermöglicht Besuchern ihren Kommentar nachträglich zu editieren.&lt;br/&gt;For: Serendipity 1.5</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:39 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_commentedit</guid>
-</item>
-<item>
-<title>Externe Benutzer-Authentifizierung (LDAP) [EXPERIMENTAL]: Ermöglicht die externe authentifizierung für Logins der Benutzer. Die Zugangsdaten werden im lokalen Serendipity Datenbank-Framework gecached.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_externalauth</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking/Justin Alcorn</author>
-<content:encoded>&lt;b&gt;serendipity_event_externalauth&lt;br /&gt;Externe Benutzer-Authentifizierung (LDAP) [EXPERIMENTAL]&lt;/b&gt;&lt;br /&gt;Ermöglicht die externe authentifizierung für Logins der Benutzer. Die Zugangsdaten werden im lokalen Serendipity Datenbank-Framework gecached.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:43 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_externalauth</guid>
-</item>
-<item>
-<title>Spamschutz (SURBL): URL abweisen die als SPAM geblacklistet sind.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_spamblock_surbl</link>
-<category>Event Plugins</category>
-<author>Sebastian Nohn</author>
-<content:encoded>&lt;b&gt;serendipity_event_spamblock_surbl&lt;br /&gt;Spamschutz (SURBL)&lt;/b&gt;&lt;br /&gt;URL abweisen die als SPAM geblacklistet sind.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:42 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_spamblock_surbl</guid>
-</item>
-<item>
-<title>Textformatierung: Eintragsdaten einfügen: Ermöglicht das Hinzufügen von HTML-ähnlichen Tags um Teile von anderen Einträgen einzubinden. Benutzen Sie folgende Formatierung: [s9y-include-entry:XXX:YYY]. Ersetzen Sie XXX mit der Ziel-ID des Eintrags und YYY mit dem Zielfeldnamen der Datenbank (z.B. &quot;body&quot;, &quot;extended&quot;, &quot;title&quot; usw.).</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_includeentry</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_includeentry&lt;br /&gt;Textformatierung: Eintragsdaten einfügen&lt;/b&gt;&lt;br /&gt;Ermöglicht das Hinzufügen von HTML-ähnlichen Tags um Teile von anderen Einträgen einzubinden. Benutzen Sie folgende Formatierung: [s9y-include-entry:XXX:YYY]. Ersetzen Sie XXX mit der Ziel-ID des Eintrags und YYY mit dem Zielfeldnamen der Datenbank (z.B. &quot;body&quot;, &quot;extended&quot;, &quot;title&quot; usw.).&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Wed, 26 Oct 2016 22:32:18 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_includeentry</guid>
-</item>
-<item>
-<title>Cronjob-Planer: Dieses Plugin führt andere Plugins, die regelmäßig bestimmte Aufgaben ausführen sollen, in bestimmten Zeitabständen aus. Einzelheiten finden Sie in der Konfiguration dieses Plugins.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_cronjob</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_cronjob&lt;br /&gt;Cronjob-Planer&lt;/b&gt;&lt;br /&gt;Dieses Plugin führt andere Plugins, die regelmäßig bestimmte Aufgaben ausführen sollen, in bestimmten Zeitabständen aus. Einzelheiten finden Sie in der Konfiguration dieses Plugins.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:30:56 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_cronjob</guid>
-</item>
-<item>
-<title>Diskussions-Forum / phpBB-Kommentare: Stellt ein komplettes Diskussions-Forum zur Verfügung, kann alternativ Blog-Kommentare in eine phpBB-Installation spiegeln.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_forum</link>
-<category>Event Plugins</category>
-<author>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</author>
-<content:encoded>&lt;b&gt;serendipity_event_forum&lt;br /&gt;Diskussions-Forum / phpBB-Kommentare&lt;/b&gt;&lt;br /&gt;Stellt ein komplettes Diskussions-Forum zur Verfügung, kann alternativ Blog-Kommentare in eine phpBB-Installation spiegeln.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 27 Apr 2019 22:32:20 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_forum</guid>
-</item>
-<item>
-<title>Markup: Gallery: Fügt ein Gallery-Album oder Bild in Form von Markup ein.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_galleryimage</link>
-<category>Event Plugins</category>
-<author>Rob Antonishen, Alexander Mieland</author>
-<content:encoded>&lt;b&gt;serendipity_event_galleryimage&lt;br /&gt;Markup: Gallery&lt;/b&gt;&lt;br /&gt;Fügt ein Gallery-Album oder Bild in Form von Markup ein.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:31:01 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_galleryimage</guid>
-</item>
-<item>
-<title>Freie Wiki-Links für Einträge: Ermöglicht Links zu blog-internen Einträgen via [[Titel]], Links zu Statischen Seiten via ((Titel)) und einen Link zu beidem via {{Titel}}. Zudem wird ein Button zu internen Einträgen bereitgestellt. Referenzen können am Ende eines Blogeintrags eingehangen werden.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_wikilinks</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Grischa Brockhaus</author>
-<content:encoded>&lt;b&gt;serendipity_event_wikilinks&lt;br /&gt;Freie Wiki-Links für Einträge&lt;/b&gt;&lt;br /&gt;Ermöglicht Links zu blog-internen Einträgen via [[Titel]], Links zu Statischen Seiten via ((Titel)) und einen Link zu beidem via {{Titel}}. Zudem wird ein Button zu internen Einträgen bereitgestellt. Referenzen können am Ende eines Blogeintrags eingehangen werden.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Mon, 10 Apr 2017 22:33:26 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_wikilinks</guid>
-</item>
-<item>
-<title>Benutzerprofile: Zeigt einfache Benutzerprofile</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_userprofiles</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Falk Doering</author>
-<content:encoded>&lt;b&gt;serendipity_event_userprofiles&lt;br /&gt;Benutzerprofile&lt;/b&gt;&lt;br /&gt;Zeigt einfache Benutzerprofile&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Sat, 27 Apr 2019 22:32:25 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_userprofiles</guid>
-</item>
-<item>
-<title>Show read/unread state of entries for visitors: Show read/unread state of entries for visitors</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_markread</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_markread&lt;br /&gt;Show read/unread state of entries for visitors&lt;/b&gt;&lt;br /&gt;Show read/unread state of entries for visitors&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:31:02 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_markread</guid>
-</item>
-<item>
-<title>Aus Flickr importieren: Bilder von flickr.com in die Mediendatenbank importieren.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_flickr</link>
-<category>Event Plugins</category>
-<author>Jay Bertrand</author>
-<content:encoded>&lt;b&gt;serendipity_event_flickr&lt;br /&gt;Aus Flickr importieren&lt;/b&gt;&lt;br /&gt;Bilder von flickr.com in die Mediendatenbank importieren.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:31:01 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_flickr</guid>
-</item>
-<item>
-<title>Display RSS-Feed in Backend Overview: Displays a RSS feed on the overview page (right after login) to the administration interface</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_backendrss</link>
-<category>Event Plugins</category>
-<author>Sebastian Nohn</author>
-<content:encoded>&lt;b&gt;serendipity_event_backendrss&lt;br /&gt;Display RSS-Feed in Backend Overview&lt;/b&gt;&lt;br /&gt;Displays a RSS feed on the overview page (right after login) to the administration interface&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:37 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_backendrss</guid>
-</item>
-<item>
-<title>Registrierung neuer User: Ermöglicht es Blog-Besuchern sich einen eigenen Autoren-Account anzulegen. Zusammen mit dem Event-Plugin (index.php?serendipity[subpage]=adduser) kann eingestellt werden ob nur registrierte Benutzer Kommentare posten dürfen.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_adduser</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_adduser&lt;br /&gt;Registrierung neuer User&lt;/b&gt;&lt;br /&gt;Ermöglicht es Blog-Besuchern sich einen eigenen Autoren-Account anzulegen. Zusammen mit dem Event-Plugin (index.php?serendipity[subpage]=adduser) kann eingestellt werden ob nur registrierte Benutzer Kommentare posten dürfen.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 27 Apr 2019 22:32:25 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_adduser</guid>
-</item>
-<item>
-<title>Hebe Suchwörter hervor: Hebt Suchwörter hervor, die ein User in einer Suchmaschine eingegeben hat</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_searchhighlight</link>
-<category>Event Plugins</category>
-<author>Tom Sommer</author>
-<content:encoded>&lt;b&gt;serendipity_event_searchhighlight&lt;br /&gt;Hebe Suchwörter hervor&lt;/b&gt;&lt;br /&gt;Hebt Suchwörter hervor, die ein User in einer Suchmaschine eingegeben hat&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Tue, 27 Jan 2015 02:32:46 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_searchhighlight</guid>
-</item>
-<item>
-<title>Comics: Webcomics im Blog posten</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_comics</link>
-<category>Event Plugins</category>
-<author>Wesley Hwang-Chung</author>
-<content:encoded>&lt;b&gt;serendipity_event_comics&lt;br /&gt;Comics&lt;/b&gt;&lt;br /&gt;Webcomics im Blog posten&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:30:56 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_comics</guid>
-</item>
-<item>
-<title>Durchsuche Kommentare mit der Schnellsuche: Wenn dieses Plugin installiert ist, durchsucht die Schnellsuche Ihres Blogs auch die Kommentare.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_commentsearch</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_commentsearch&lt;br /&gt;Durchsuche Kommentare mit der Schnellsuche&lt;/b&gt;&lt;br /&gt;Wenn dieses Plugin installiert ist, durchsucht die Schnellsuche Ihres Blogs auch die Kommentare.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:40 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_commentsearch</guid>
-</item>
-<item>
-<title>Freie Artikel-Tags: Erlaubt das freie Tagging von Artikeln</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_freetag</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_freetag&lt;br /&gt;Freie Artikel-Tags&lt;/b&gt;&lt;br /&gt;Erlaubt das freie Tagging von Artikeln&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Wed, 15 Aug 2018 22:32:05 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_freetag</guid>
-</item>
-<item>
-<title>Markup: Syntax-Hervorhebung: Dieses Plugin ist ein JavaScript-Syntax-Hervorheber, der auf dem gleichnamigen Code von Alex Gorbatchev basiert. Es benötigt weniger serverseitige Ressourcen als GeSHi und zeigt im eigentlichen HTML-Code weniger Markups an; eine leichtgewichtigere, sauberere Alternative. Dieses Plugin benötigt das zugehörige Theme, um die folgenden Hooks bereitzustellen: frontend_header, frontend_footer (und optional backend_preview im Admin-Theme).</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_dpsyntaxhighlighter</link>
-<category>Event Plugins</category>
-<author>Alex Gorbatchev (core), Brendon Kozlowski and J.M. Roth (plugin)</author>
-<content:encoded>&lt;b&gt;serendipity_event_dpsyntaxhighlighter&lt;br /&gt;Markup: Syntax-Hervorhebung&lt;/b&gt;&lt;br /&gt;Dieses Plugin ist ein JavaScript-Syntax-Hervorheber, der auf dem gleichnamigen Code von Alex Gorbatchev basiert. Es benötigt weniger serverseitige Ressourcen als GeSHi und zeigt im eigentlichen HTML-Code weniger Markups an; eine leichtgewichtigere, sauberere Alternative. Dieses Plugin benötigt das zugehörige Theme, um die folgenden Hooks bereitzustellen: frontend_header, frontend_footer (und optional backend_preview im Admin-Theme).&lt;br/&gt;For: Serendipity 1.0</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:31:01 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_dpsyntaxhighlighter</guid>
-</item>
-<item>
-<title>Datum der letzten Aktualisierung eines Eintrags anzeigen: Zeigt das Datum der letzten Aktualisierung eines Eintrags an.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_entrylastmodified</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_entrylastmodified&lt;br /&gt;Datum der letzten Aktualisierung eines Eintrags anzeigen&lt;/b&gt;&lt;br /&gt;Zeigt das Datum der letzten Aktualisierung eines Eintrags an.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 09 Jun 2019 22:31:14 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_entrylastmodified</guid>
-</item>
-<item>
-<title>My Mood: Allows you to add your current mood or moods to entries.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mymood</link>
-<category>Event Plugins</category>
-<author>Brett Profitt, Matthias Mees</author>
-<content:encoded>&lt;b&gt;serendipity_event_mymood&lt;br /&gt;My Mood&lt;/b&gt;&lt;br /&gt;Allows you to add your current mood or moods to entries.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Sat, 27 Apr 2019 22:32:25 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_mymood</guid>
-</item>
-<item>
-<title>Zusätzliche Editor-Buttons: Youtube usw.: Bietet mehr Schaltflächen für den Editor, um einen einfachen Zugriff auf HTML-/Javescript-Snippets wie Youtube usw. zu ermöglichen.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_youtube</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_youtube&lt;br /&gt;Zusätzliche Editor-Buttons: Youtube usw.&lt;/b&gt;&lt;br /&gt;Bietet mehr Schaltflächen für den Editor, um einen einfachen Zugriff auf HTML-/Javescript-Snippets wie Youtube usw. zu ermöglichen.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:31:02 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_youtube</guid>
-</item>
-<item>
-<title>HTML Link Metatags: Fügt Tags für link rel=&quot;start|up|prev|next|canonical&quot; in die Ansichten des Weblogs ein um so mittels spezieller Tools (Mozilla Erweiterungen, ...) durch Meta-Ebenen zu navigieren.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_linktoolbar</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_linktoolbar&lt;br /&gt;HTML Link Metatags&lt;/b&gt;&lt;br /&gt;Fügt Tags für link rel=&quot;start|up|prev|next|canonical&quot; in die Ansichten des Weblogs ein um so mittels spezieller Tools (Mozilla Erweiterungen, ...) durch Meta-Ebenen zu navigieren.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:39 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_linktoolbar</guid>
-</item>
-<item>
-<title>Tooltips: Aktiviert Tooltips für Textbereiche und Bilder.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_tooltips</link>
-<category>Event Plugins</category>
-<author>Enrico Stahn</author>
-<content:encoded>&lt;b&gt;serendipity_event_tooltips&lt;br /&gt;Tooltips&lt;/b&gt;&lt;br /&gt;Aktiviert Tooltips für Textbereiche und Bilder.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 04 Feb 2015 02:32:15 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_tooltips</guid>
-</item>
-<item>
-<title>Statistiken: Zeigt einen Link zu informativen Statistiken (inkl. Besucherzähler) in der Administrationsoberfläche an.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_statistics</link>
-<category>Event Plugins</category>
-<author>Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin, Matthias Mees, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_statistics&lt;br /&gt;Statistiken&lt;/b&gt;&lt;br /&gt;Zeigt einen Link zu informativen Statistiken (inkl. Besucherzähler) in der Administrationsoberfläche an.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:42 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_statistics</guid>
-</item>
-<item>
-<title>Eintrag per E-Mail verschicken: Erlaubt es Besuchern einen Eintrag per E-Mail an einen Freund zu verschicken</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mailentry</link>
-<category>Event Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_event_mailentry&lt;br /&gt;Eintrag per E-Mail verschicken&lt;/b&gt;&lt;br /&gt;Erlaubt es Besuchern einen Eintrag per E-Mail an einen Freund zu verschicken&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:42 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_mailentry</guid>
-</item>
-<item>
-<title>Textformatierung: Klickbare E-Mail-Adressen - Verschleiern von E-Mail-Adressen : Macht E-Mail-Adressen klickbar, aber verschleiert sie, um sie vor Spambots zu schützen</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_email_bot_obfuscator</link>
-<category>Event Plugins</category>
-<author>Stephan Manske, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_email_bot_obfuscator&lt;br /&gt;Textformatierung: Klickbare E-Mail-Adressen - Verschleiern von E-Mail-Adressen &lt;/b&gt;&lt;br /&gt;Macht E-Mail-Adressen klickbar, aber verschleiert sie, um sie vor Spambots zu schützen&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 06 Jan 2016 22:32:20 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_email_bot_obfuscator</guid>
-</item>
-<item>
-<title>Spamschutz (RBL): Blockiert SPAM Anhand von IP-Blacklists. Wird diese Option aktiviert, werden Kommentare abgewiesen die von IPs stammen, die in einer RBL/Blacklist geführt werden. Die Aktivierung hiervon kann Dial-Up oder Proxy-User betreffen!</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_spamblock_rbl</link>
-<category>Event Plugins</category>
-<author>Sebastian Nohn</author>
-<content:encoded>&lt;b&gt;serendipity_event_spamblock_rbl&lt;br /&gt;Spamschutz (RBL)&lt;/b&gt;&lt;br /&gt;Blockiert SPAM Anhand von IP-Blacklists. Wird diese Option aktiviert, werden Kommentare abgewiesen die von IPs stammen, die in einer RBL/Blacklist geführt werden. Die Aktivierung hiervon kann Dial-Up oder Proxy-User betreffen!&lt;br/&gt;For: Serendipity 1.2</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:31:02 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_spamblock_rbl</guid>
-</item>
-<item>
-<title>Textformatierung: Externe Links zählen: Click auf Externe Links verfolgen</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_trackexits</link>
-<category>Event Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_event_trackexits&lt;br /&gt;Textformatierung: Externe Links zählen&lt;/b&gt;&lt;br /&gt;Click auf Externe Links verfolgen&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:42 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_trackexits</guid>
-</item>
-<item>
-<title>CKEditor Plus: Nutzt CKEditor als Standard WYSIWYG Editor. Benutzung für JS-Editoren: Empfohlen! Nach der Installation, lies die Plugin Konfigurations Seite für weitere Informationen.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_ckeditor</link>
-<category>Event Plugins</category>
-<author>Rustam Abdullaev, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_ckeditor&lt;br /&gt;CKEditor Plus&lt;/b&gt;&lt;br /&gt;Nutzt CKEditor als Standard WYSIWYG Editor. Benutzung für JS-Editoren: Empfohlen! Nach der Installation, lies die Plugin Konfigurations Seite für weitere Informationen.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
-<pubDate>Wed, 26 Oct 2016 22:32:04 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_ckeditor</guid>
-</item>
-<item>
-<title>Überprüft Autoren-Login: Überprüft die Logindaten des Autoren nach Benutzung des Login-Formulars in der Seitenleiste</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_loginform</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_loginform&lt;br /&gt;Überprüft Autoren-Login&lt;/b&gt;&lt;br /&gt;Überprüft die Logindaten des Autoren nach Benutzung des Login-Formulars in der Seitenleiste&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:50 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_loginform</guid>
-</item>
-<item>
-<title>Werbeanzeigen einbetten (TextLinkAds.com oder benutzerdefiniert): Werbenanzeigen ins Blog einbetten.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_textlinkads</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_textlinkads&lt;br /&gt;Werbeanzeigen einbetten (TextLinkAds.com oder benutzerdefiniert)&lt;/b&gt;&lt;br /&gt;Werbenanzeigen ins Blog einbetten.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:31:02 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_textlinkads</guid>
-</item>
-<item>
-<title>Textformatierung: GeSHi: Computer Language Color Syntax Highlighting. Benutzen Sie das Tag [geshi lang=php][/geshi]</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_geshi</link>
-<category>Event Plugins</category>
-<author>David Rolston</author>
-<content:encoded>&lt;b&gt;serendipity_event_geshi&lt;br /&gt;Textformatierung: GeSHi&lt;/b&gt;&lt;br /&gt;Computer Language Color Syntax Highlighting. Benutzen Sie das Tag [geshi lang=php][/geshi]&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 10 Jun 2019 22:30:57 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_geshi</guid>
-</item>
-<item>
-<title>Versionierung der Einträge: Ältere Versionen werden gespeichert und können wiederhergestellt werden</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_versioning</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_versioning&lt;br /&gt;Versionierung der Einträge&lt;/b&gt;&lt;br /&gt;Ältere Versionen werden gespeichert und können wiederhergestellt werden&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 09 Jan 2017 22:32:22 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_versioning</guid>
-</item>
-<item>
-<title>Textformatierung: Wiki: Wiki-Formatierung durchführen</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_textwiki</link>
-<category>Event Plugins</category>
-<author>Tobias Schlitt</author>
-<content:encoded>&lt;b&gt;serendipity_event_textwiki&lt;br /&gt;Textformatierung: Wiki&lt;/b&gt;&lt;br /&gt;Wiki-Formatierung durchführen&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Tue, 27 Jan 2015 02:32:46 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_textwiki</guid>
-</item>
-<item>
-<title>Zeige Einträge mittels JavaScript: Stellt JavaScript Ausgabe der letzten Einträge zum Einbinden in andere, externe Webseiten bereit. (Siehe README im Plugin Verzeichnis!)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_backend</link>
-<category>Event Plugins</category>
-<author>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</author>
-<content:encoded>&lt;b&gt;serendipity_event_backend&lt;br /&gt;Zeige Einträge mittels JavaScript&lt;/b&gt;&lt;br /&gt;Stellt JavaScript Ausgabe der letzten Einträge zum Einbinden in andere, externe Webseiten bereit. (Siehe README im Plugin Verzeichnis!)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:34 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_backend</guid>
-</item>
-<item>
-<title>DBClean: Datenbank aufräumen</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_dbclean</link>
-<category>Event Plugins</category>
-<author>Malte Paskuda, Matthias Mees</author>
-<content:encoded>&lt;b&gt;serendipity_event_dbclean&lt;br /&gt;DBClean&lt;/b&gt;&lt;br /&gt;Datenbank aufräumen&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:40 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_dbclean</guid>
-</item>
-<item>
-<title>OpenID Authentifizierung: Ermöglicht es Autoren des Blogs, sich mit ihrer OpenID (oder Google/Yahoo Account) einzuloggen.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_openid</link>
-<category>Event Plugins</category>
-<author>Grischa Brockhaus, Rob Richards</author>
-<content:encoded>&lt;b&gt;serendipity_event_openid&lt;br /&gt;OpenID Authentifizierung&lt;/b&gt;&lt;br /&gt;Ermöglicht es Autoren des Blogs, sich mit ihrer OpenID (oder Google/Yahoo Account) einzuloggen.&lt;br/&gt;For: Serendipity 1.2</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:42 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_openid</guid>
 </item>
 <item>
 <title>Downloadmanager: Stellt einen kompletten Downloadmanager zur Verfügung. Bei Deinstallation werden alle zugehörigen Tabellen gelöscht!</title>
@@ -878,71 +248,35 @@
 <category>Event Plugins</category>
 <author>Alexander 'dma147' Mieland, Grischa Brockhaus, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_downloadmanager&lt;br /&gt;Downloadmanager&lt;/b&gt;&lt;br /&gt;Stellt einen kompletten Downloadmanager zur Verfügung. Bei Deinstallation werden alle zugehörigen Tabellen gelöscht!&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Wed, 26 Oct 2016 22:32:13 +0200</pubDate>
+<pubDate>Sat, 21 Mar 2020 20:02:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_downloadmanager</guid>
 </item>
 <item>
-<title>Linkliste: Linkmanager - zeigt Ihre Lieblingslinks in der Seitenleiste an.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_linklist</link>
+<title>Markup: Syntax-Hervorhebung: Dieses Plugin ist ein JavaScript-Syntax-Hervorheber, der auf dem gleichnamigen Code von Alex Gorbatchev basiert. Es benötigt weniger serverseitige Ressourcen als GeSHi und zeigt im eigentlichen HTML-Code weniger Markups an; eine leichtgewichtigere, sauberere Alternative. Dieses Plugin benötigt das zugehörige Theme, um die folgenden Hooks bereitzustellen: frontend_header, frontend_footer (und optional backend_preview im Admin-Theme).</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_dpsyntaxhighlighter</link>
 <category>Event Plugins</category>
-<author>Matthew Groeninger, Omid Mottaghi Rad</author>
-<content:encoded>&lt;b&gt;serendipity_event_linklist&lt;br /&gt;Linkliste&lt;/b&gt;&lt;br /&gt;Linkmanager - zeigt Ihre Lieblingslinks in der Seitenleiste an.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:31:01 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_linklist</guid>
+<author>Alex Gorbatchev (core), Brendon Kozlowski and J.M. Roth (plugin)</author>
+<content:encoded>&lt;b&gt;serendipity_event_dpsyntaxhighlighter&lt;br /&gt;Markup: Syntax-Hervorhebung&lt;/b&gt;&lt;br /&gt;Dieses Plugin ist ein JavaScript-Syntax-Hervorheber, der auf dem gleichnamigen Code von Alex Gorbatchev basiert. Es benötigt weniger serverseitige Ressourcen als GeSHi und zeigt im eigentlichen HTML-Code weniger Markups an; eine leichtgewichtigere, sauberere Alternative. Dieses Plugin benötigt das zugehörige Theme, um die folgenden Hooks bereitzustellen: frontend_header, frontend_footer (und optional backend_preview im Admin-Theme).&lt;br/&gt;For: Serendipity 1.0</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:28 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_dpsyntaxhighlighter</guid>
 </item>
 <item>
-<title>Umfragen: Verwaltet beliebige Umfragen!</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_pollbox</link>
+<title>DSGVO / GDPR: Datenschutz-Grundverordnung: Dieses Plugin soll Blogbetreibern helfen, Konformität zur Datenschutz-Grundverordnung herzustellen.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_dsgvo_gdpr</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking, Matthias Mees</author>
-<content:encoded>&lt;b&gt;serendipity_event_pollbox&lt;br /&gt;Umfragen&lt;/b&gt;&lt;br /&gt;Verwaltet beliebige Umfragen!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 03 Apr 2018 22:31:31 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_pollbox</guid>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_event_dsgvo_gdpr&lt;br /&gt;DSGVO / GDPR: Datenschutz-Grundverordnung&lt;/b&gt;&lt;br /&gt;Dieses Plugin soll Blogbetreibern helfen, Konformität zur Datenschutz-Grundverordnung herzustellen.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_dsgvo_gdpr</guid>
 </item>
 <item>
-<title>Filtern von Einträgen im Frontend: Ermöglich Besuchern die Einträge im Blog nach Kriterien zu durchsuchen/sortieren</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_filter_entries</link>
+<title>Textformatierung: Klickbare E-Mail-Adressen - Verschleiern von E-Mail-Adressen : Macht E-Mail-Adressen klickbar, aber verschleiert sie, um sie vor Spambots zu schützen</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_email_bot_obfuscator</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_filter_entries&lt;br /&gt;Filtern von Einträgen im Frontend&lt;/b&gt;&lt;br /&gt;Ermöglich Besuchern die Einträge im Blog nach Kriterien zu durchsuchen/sortieren&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:38 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_filter_entries</guid>
-</item>
-<item>
-<title>Mein Kalender: Pflegt einen persönlichen Kalender</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mycalendar</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Markus Gerstel, Grischa Brockhaus</author>
-<content:encoded>&lt;b&gt;serendipity_event_mycalendar&lt;br /&gt;Mein Kalender&lt;/b&gt;&lt;br /&gt;Pflegt einen persönlichen Kalender&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Wed, 26 Oct 2016 22:32:23 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_mycalendar</guid>
-</item>
-<item>
-<title>Photoblog Einträge/Bilder: Ein Bild zu einem Eintrag hinzufügen</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_photoblog</link>
-<category>Event Plugins</category>
-<author>Cameron MacFarland</author>
-<content:encoded>&lt;b&gt;serendipity_event_photoblog&lt;br /&gt;Photoblog Einträge/Bilder&lt;/b&gt;&lt;br /&gt;Ein Bild zu einem Eintrag hinzufügen&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:31:02 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_photoblog</guid>
-</item>
-<item>
-<title>Suchmaschinen-Sitemap Generator: Erstellt eine sitemap.xml.gz für verschiedene Suchmaschinen-Crawler (Google, MSN, Yahoo und Ask).</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_google_sitemap</link>
-<category>Event Plugins</category>
-<author>Boris</author>
-<content:encoded>&lt;b&gt;serendipity_event_google_sitemap&lt;br /&gt;Suchmaschinen-Sitemap Generator&lt;/b&gt;&lt;br /&gt;Erstellt eine sitemap.xml.gz für verschiedene Suchmaschinen-Crawler (Google, MSN, Yahoo und Ask).&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 06 Nov 2019 22:31:20 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_google_sitemap</guid>
-</item>
-<item>
-<title>Multilinguale Einträge: Erlaubt die Erstellung mehrerer Sprachversionen eines Eintrags</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_multilingual</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Wesley Hwang-Chung, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_multilingual&lt;br /&gt;Multilinguale Einträge&lt;/b&gt;&lt;br /&gt;Erlaubt die Erstellung mehrerer Sprachversionen eines Eintrags&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Wed, 15 Aug 2018 22:32:10 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_multilingual</guid>
+<author>Stephan Manske, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_event_email_bot_obfuscator&lt;br /&gt;Textformatierung: Klickbare E-Mail-Adressen - Verschleiern von E-Mail-Adressen &lt;/b&gt;&lt;br /&gt;Macht E-Mail-Adressen klickbar, aber verschleiert sie, um sie vor Spambots zu schützen&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_email_bot_obfuscator</guid>
 </item>
 <item>
 <title>Smiley-Auswahlleiste: Zeigt eine Auswahlleiste bei der Erstellung eines Eintrags um Smileys einzufügen.</title>
@@ -950,116 +284,161 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jay Bertrandt, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_emoticonchooser&lt;br /&gt;Smiley-Auswahlleiste&lt;/b&gt;&lt;br /&gt;Zeigt eine Auswahlleiste bei der Erstellung eines Eintrags um Smileys einzufügen.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 11 May 2019 22:31:17 +0200</pubDate>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_emoticonchooser</guid>
 </item>
 <item>
-<title>LiveSearch: Erweitert die Suchfunktion mit einer Live-aktualisierung (JavaScript)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_livesearch</link>
+<title>Regeln für Veröffentlichungen: Führt einige Prüfungen vor der Veröffentlichung eines Artikels durch. Arbeitet nicht mit eingesetztem WYSIWYG-CKEDITOR!</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_entrycheck</link>
 <category>Event Plugins</category>
-<author>Christian Stocker, Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_livesearch&lt;br /&gt;LiveSearch&lt;/b&gt;&lt;br /&gt;Erweitert die Suchfunktion mit einer Live-aktualisierung (JavaScript)&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Tue, 27 Jan 2015 02:32:45 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_livesearch</guid>
+<author>Garvin Hicking, Gregor Voeltz</author>
+<content:encoded>&lt;b&gt;serendipity_event_entrycheck&lt;br /&gt;Regeln für Veröffentlichungen&lt;/b&gt;&lt;br /&gt;Führt einige Prüfungen vor der Veröffentlichung eines Artikels durch. Arbeitet nicht mit eingesetztem WYSIWYG-CKEDITOR!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_entrycheck</guid>
 </item>
 <item>
-<title>Textformatierung: Regexp: Textformatierung mittels benutzerdefinierter regexp-Datei. Beachten Sie die Beispieldateien im &quot;regexps&quot;-Unterverzeichnis dieses Plugins.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_regexpmarkup</link>
-<category>Event Plugins</category>
-<author>Rob Antonishen</author>
-<content:encoded>&lt;b&gt;serendipity_event_regexpmarkup&lt;br /&gt;Textformatierung: Regexp&lt;/b&gt;&lt;br /&gt;Textformatierung mittels benutzerdefinierter regexp-Datei. Beachten Sie die Beispieldateien im &quot;regexps&quot;-Unterverzeichnis dieses Plugins.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:54 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_regexpmarkup</guid>
-</item>
-<item>
-<title>ToDo/Projekt-Liste: Verwaltet eine Liste von Projekten und deren aktuellem Status</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_todolist</link>
-<category>Event Plugins</category>
-<author>Steven Tonnesen, Matthias Mees</author>
-<content:encoded>&lt;b&gt;serendipity_event_todolist&lt;br /&gt;ToDo/Projekt-Liste&lt;/b&gt;&lt;br /&gt;Verwaltet eine Liste von Projekten und deren aktuellem Status&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Mon, 10 Apr 2017 22:33:20 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_todolist</guid>
-</item>
-<item>
-<title>Einträge für nicht-registrierte Benutzer nach Verfallsdatum ausblenden: Blendet alle Einträge die ein definiertes Alter überschritten haben aus, so dass sie nur für registrierte Benutzer sichtbar sind.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_outdate_entries</link>
+<title>Datum der letzten Aktualisierung eines Eintrags anzeigen: Zeigt das Datum der letzten Aktualisierung eines Eintrags an.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_entrylastmodified</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_outdate_entries&lt;br /&gt;Einträge für nicht-registrierte Benutzer nach Verfallsdatum ausblenden&lt;/b&gt;&lt;br /&gt;Blendet alle Einträge die ein definiertes Alter überschritten haben aus, so dass sie nur für registrierte Benutzer sichtbar sind.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 11 Dec 2013 02:31:59 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_outdate_entries</guid>
+<content:encoded>&lt;b&gt;serendipity_event_entrylastmodified&lt;br /&gt;Datum der letzten Aktualisierung eines Eintrags anzeigen&lt;/b&gt;&lt;br /&gt;Zeigt das Datum der letzten Aktualisierung eines Eintrags an.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_entrylastmodified</guid>
 </item>
 <item>
-<title>Spamschutz (Bayes): Filtert Kommentare mittels eines lernenden Algorithmus.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_spamblock_bayes</link>
+<title>Nächster/Voriger Artikel: Ermöglicht bei Betrachten eines Eintrages vor und zurück zu blättern</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_entrypaging</link>
 <category>Event Plugins</category>
-<author>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</author>
-<content:encoded>&lt;b&gt;serendipity_event_spamblock_bayes&lt;br /&gt;Spamschutz (Bayes)&lt;/b&gt;&lt;br /&gt;Filtert Kommentare mittels eines lernenden Algorithmus.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 18 Aug 2019 22:31:19 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_spamblock_bayes</guid>
+<author>Garvin Hicking, Wesley Hwang-Chung</author>
+<content:encoded>&lt;b&gt;serendipity_event_entrypaging&lt;br /&gt;Nächster/Voriger Artikel&lt;/b&gt;&lt;br /&gt;Ermöglicht bei Betrachten eines Eintrages vor und zurück zu blättern&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_entrypaging</guid>
 </item>
 <item>
-<title>Statische Seiten: Verwaltet beliebige statische Seiten innerhalb des Blogs mit dem Blog-Design und allen Formatierungen. Fügt einen neuen Menüpunkt in der Admin-Oberfläche hinzu!</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_staticpage</link>
+<title>Lange Einträge aufteilen: Erlaubt die Aufteilung eines langen Artikels in mehrere Unterseiten sowie das Einfügen eines Inhaltsverzeichnisses</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_entrysplit</link>
 <category>Event Plugins</category>
-<author>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers</author>
-<content:encoded>&lt;b&gt;serendipity_event_staticpage&lt;br /&gt;Statische Seiten&lt;/b&gt;&lt;br /&gt;Verwaltet beliebige statische Seiten innerhalb des Blogs mit dem Blog-Design und allen Formatierungen. Fügt einen neuen Menüpunkt in der Admin-Oberfläche hinzu!&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Wed, 24 Jul 2019 22:31:31 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_staticpage</guid>
+<author>Garvin Hicking, Tadashi Jokagi, Thomas Werner</author>
+<content:encoded>&lt;b&gt;serendipity_event_entrysplit&lt;br /&gt;Lange Einträge aufteilen&lt;/b&gt;&lt;br /&gt;Erlaubt die Aufteilung eines langen Artikels in mehrere Unterseiten sowie das Einfügen eines Inhaltsverzeichnisses&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_entrysplit</guid>
 </item>
 <item>
-<title>Lightbox für Blog Einträge mit Bildern: Das Lightbox Plugin ist eine einfaches unauffälliges Skript, das Bilder auf der Seite überlagern kann, wenn die große Version angeklickt wurde. Es fügt sich selbstständig in die Seite ein und funktioniert mit jedem modernen Browser. Alle Leuchtkästen verschönern Bilder-Popups. Dieses Plugin durchsucht ihre Einträge und ersetzt jeden auf ein Bild verweisenden 'a href=&quot;XXX&quot;' Link so, dass die interne Darstellung benutzt wird. Wenn Sie also ein Thumbnail Bild mit einem Popup der großen Version haben wollen, so fügen Sie das Thumbnail in ihren Eintrag ein und verlinken dieses mit der großen Version. Um auch versteckte Bilder mit display:none anzuzeigen, nutzen Sie das Lightbox2 Script. Diese Leuchtkasten Scripte sind alle jQuery basiert. Sie unterstützen nicht allein nur Bildtypen, sondern überwiegend auch anderes, wie Ajax, Videos, Flash, YouTube, iFrame, Inline oder modale Felder. Dieses Plugin nutzt sie nur für Fotografie Leuchtkästen, aber Sie können leicht andere Typen ihren Blog-Einträgen manuell hinzufügen und eine lightbox entsprechend für diesen Zweck initiieren, so wie es den jeweiligen Online-Dokumentationen beschrieben wird.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_lightbox</link>
+<title>Externe Benutzer-Authentifizierung (LDAP) [EXPERIMENTAL]: Ermöglicht die externe authentifizierung für Logins der Benutzer. Die Zugangsdaten werden im lokalen Serendipity Datenbank-Framework gecached.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_externalauth</link>
 <category>Event Plugins</category>
-<author>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_lightbox&lt;br /&gt;Lightbox für Blog Einträge mit Bildern&lt;/b&gt;&lt;br /&gt;Das Lightbox Plugin ist eine einfaches unauffälliges Skript, das Bilder auf der Seite überlagern kann, wenn die große Version angeklickt wurde. Es fügt sich selbstständig in die Seite ein und funktioniert mit jedem modernen Browser. Alle Leuchtkästen verschönern Bilder-Popups. Dieses Plugin durchsucht ihre Einträge und ersetzt jeden auf ein Bild verweisenden 'a href=&quot;XXX&quot;' Link so, dass die interne Darstellung benutzt wird. Wenn Sie also ein Thumbnail Bild mit einem Popup der großen Version haben wollen, so fügen Sie das Thumbnail in ihren Eintrag ein und verlinken dieses mit der großen Version. Um auch versteckte Bilder mit display:none anzuzeigen, nutzen Sie das Lightbox2 Script. Diese Leuchtkasten Scripte sind alle jQuery basiert. Sie unterstützen nicht allein nur Bildtypen, sondern überwiegend auch anderes, wie Ajax, Videos, Flash, YouTube, iFrame, Inline oder modale Felder. Dieses Plugin nutzt sie nur für Fotografie Leuchtkästen, aber Sie können leicht andere Typen ihren Blog-Einträgen manuell hinzufügen und eine lightbox entsprechend für diesen Zweck initiieren, so wie es den jeweiligen Online-Dokumentationen beschrieben wird.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Fri, 20 Sep 2019 22:31:39 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_lightbox</guid>
+<author>Garvin Hicking/Justin Alcorn</author>
+<content:encoded>&lt;b&gt;serendipity_event_externalauth&lt;br /&gt;Externe Benutzer-Authentifizierung (LDAP) [EXPERIMENTAL]&lt;/b&gt;&lt;br /&gt;Ermöglicht die externe authentifizierung für Logins der Benutzer. Die Zugangsdaten werden im lokalen Serendipity Datenbank-Framework gecached.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_externalauth</guid>
 </item>
 <item>
-<title>flickr Fotostream CSS: Dieses Plugin ist eine Ergänzung zum flickr Fotostream-Seitenleistenplugin und sorgt für ein ansprechendes Aussehen der Bilddarstellung.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_flickr</link>
+<title>Externe PHP-Anwendung: Bettet eine externe PHP Anwendung in Ihrem Blog ein, dass im gewohnten Design präsentiert wird. MIT VORSICHT BENUTZEN, DA DIESES PLUGIN GROSSE SICHERHEITSLÜCKEN ERMÖGLICHEN KANN WENN EINE BELIEBIGE PHP-DATEI EINGEBUNDEN WIRD! Dieses Plugin kann daher nur als Administrator konfiguriert werden.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_externalphp</link>
 <category>Event Plugins</category>
-<author>Michael Kaiser</author>
-<content:encoded>&lt;b&gt;serendipity_event_flickrcss&lt;br /&gt;flickr Fotostream CSS&lt;/b&gt;&lt;br /&gt;Dieses Plugin ist eine Ergänzung zum flickr Fotostream-Seitenleistenplugin und sorgt für ein ansprechendes Aussehen der Bilddarstellung.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 14 Jun 2012 02:33:33 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_flickrcss</guid>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_externalphp&lt;br /&gt;Externe PHP-Anwendung&lt;/b&gt;&lt;br /&gt;Bettet eine externe PHP Anwendung in Ihrem Blog ein, dass im gewohnten Design präsentiert wird. MIT VORSICHT BENUTZEN, DA DIESES PLUGIN GROSSE SICHERHEITSLÜCKEN ERMÖGLICHEN KANN WENN EINE BELIEBIGE PHP-DATEI EINGEBUNDEN WIRD! Dieses Plugin kann daher nur als Administrator konfiguriert werden.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_externalphp</guid>
 </item>
 <item>
-<title>getID3() Unterstützung zum Erkennen von Medien Eigenschaften: Benutzt die getID3() Bibliothek um erweiterte Medien Eigenschaften für Filme und Audios zu erkennen. getID3() selbst wird nicht mit dem Plugin ausgeliefert.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_getid3</link>
+<title>Facebook (Experimentell!): Importiert Kommentare von Facebook-Posts (vergleichbar RSS-Graffiti) zurück in den Blog. Bettet auch Facebook-OpenGraph-Meta-Tags in den Blog ein.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_facebook</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking, Grischa Brockhaus</author>
-<content:encoded>&lt;b&gt;serendipity_event_getid3&lt;br /&gt;getID3() Unterstützung zum Erkennen von Medien Eigenschaften&lt;/b&gt;&lt;br /&gt;Benutzt die getID3() Bibliothek um erweiterte Medien Eigenschaften für Filme und Audios zu erkennen. getID3() selbst wird nicht mit dem Plugin ausgeliefert.&lt;br/&gt;For: Serendipity 1.1</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:46 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_getid3</guid>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_facebook&lt;br /&gt;Facebook (Experimentell!)&lt;/b&gt;&lt;br /&gt;Importiert Kommentare von Facebook-Posts (vergleichbar RSS-Graffiti) zurück in den Blog. Bettet auch Facebook-OpenGraph-Meta-Tags in den Blog ein.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_facebook</guid>
 </item>
 <item>
-<title>Serendipity Autoupdate: Sobald das Dashboard Plugin (einmal am Tag) ein Serendipity Update entdeckt, setzt dieses Plugin eine Ein-Klick Option in das Dashboard des Backends, um ein manuelles Download oder ein automatisches und gesichertes Upgrade der Blogsoftware zu starten.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_autoupdate</link>
+<title>FAQs: Liste von Fragen und Antworten werden übersichtlich aufbereitet dargestellt.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_faq</link>
 <category>Event Plugins</category>
-<author>onli, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_autoupdate&lt;br /&gt;Serendipity Autoupdate&lt;/b&gt;&lt;br /&gt;Sobald das Dashboard Plugin (einmal am Tag) ein Serendipity Update entdeckt, setzt dieses Plugin eine Ein-Klick Option in das Dashboard des Backends, um ein manuelles Download oder ein automatisches und gesichertes Upgrade der Blogsoftware zu starten.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 24 Aug 2019 22:31:15 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_autoupdate</guid>
+<author>Falk Doering, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_event_faq&lt;br /&gt;FAQs&lt;/b&gt;&lt;br /&gt;Liste von Fragen und Antworten werden übersichtlich aufbereitet dargestellt.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_faq</guid>
 </item>
 <item>
-<title>Erweiterte Optionen für Bildauswahl: Ermöglicht erweiterte Optionen beim Einfügen von Bildern aus der Mediendatenbank.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_imageselectorplus</link>
+<title>Filtern von Einträgen im Frontend: Ermöglich Besuchern die Einträge im Blog nach Kriterien zu durchsuchen/sortieren</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_filter_entries</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_imageselectorplus&lt;br /&gt;Erweiterte Optionen für Bildauswahl&lt;/b&gt;&lt;br /&gt;Ermöglicht erweiterte Optionen beim Einfügen von Bildern aus der Mediendatenbank.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Wed, 26 Oct 2016 22:32:18 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_imageselectorplus</guid>
+<author>Garvin Hicking, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_event_filter_entries&lt;br /&gt;Filtern von Einträgen im Frontend&lt;/b&gt;&lt;br /&gt;Ermöglich Besuchern die Einträge im Blog nach Kriterien zu durchsuchen/sortieren&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_filter_entries</guid>
 </item>
 <item>
-<title>oEmbed Plugin: oEmbed is a format for allowing an embedded representation of a URL on your blog. It allows blog articles to display embedded content (such as tweets, photos or videos) when a user posts a link to that resource, without having to parse the resource directly.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_oembed</link>
+<title>Flattr: Flattr ist eine Social-Micropayment-Plattform, mit der man Liebe versprühen kann für Artikel, die man liebt. Das Plugin bindet &quot;Flattr&quot;-Buttons in den Blogeinträgen und RSS-Feeds ein. Flattr-spezifische Attribute können sowohl global als auch pro Eintrag vergeben werden.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_flattr</link>
 <category>Event Plugins</category>
-<author>Grischa Brockhaus</author>
-<content:encoded>&lt;b&gt;serendipity_event_oembed&lt;br /&gt;oEmbed Plugin&lt;/b&gt;&lt;br /&gt;oEmbed is a format for allowing an embedded representation of a URL on your blog. It allows blog articles to display embedded content (such as tweets, photos or videos) when a user posts a link to that resource, without having to parse the resource directly.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 27 Apr 2019 22:32:25 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_oembed</guid>
+<author>Garvin Hicking, Joachim Breitner</author>
+<content:encoded>&lt;b&gt;serendipity_event_flattr&lt;br /&gt;Flattr&lt;/b&gt;&lt;br /&gt;Flattr ist eine Social-Micropayment-Plattform, mit der man Liebe versprühen kann für Artikel, die man liebt. Das Plugin bindet &quot;Flattr&quot;-Buttons in den Blogeinträgen und RSS-Feeds ein. Flattr-spezifische Attribute können sowohl global als auch pro Eintrag vergeben werden.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_flattr</guid>
+</item>
+<item>
+<title>Aus Flickr importieren: Bilder von flickr.com in die Mediendatenbank importieren.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_flickr</link>
+<category>Event Plugins</category>
+<author>Jay Bertrand</author>
+<content:encoded>&lt;b&gt;serendipity_event_flickr&lt;br /&gt;Aus Flickr importieren&lt;/b&gt;&lt;br /&gt;Bilder von flickr.com in die Mediendatenbank importieren.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_flickr</guid>
+</item>
+<item>
+<title>Passwort vergessen: Ändere das Passwort für ausgewählten Benutzer</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_forgotpassword</link>
+<category>Event Plugins</category>
+<author>Omid Mottaghi</author>
+<content:encoded>&lt;b&gt;serendipity_event_forgotpassword&lt;br /&gt;Passwort vergessen&lt;/b&gt;&lt;br /&gt;Ändere das Passwort für ausgewählten Benutzer&lt;br/&gt;For: Serendipity 0.9.1</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_forgotpassword</guid>
+</item>
+<item>
+<title>Diskussions-Forum / phpBB-Kommentare: Stellt ein komplettes Diskussions-Forum zur Verfügung, kann alternativ Blog-Kommentare in eine phpBB-Installation spiegeln.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_forum</link>
+<category>Event Plugins</category>
+<author>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</author>
+<content:encoded>&lt;b&gt;serendipity_event_forum&lt;br /&gt;Diskussions-Forum / phpBB-Kommentare&lt;/b&gt;&lt;br /&gt;Stellt ein komplettes Diskussions-Forum zur Verfügung, kann alternativ Blog-Kommentare in eine phpBB-Installation spiegeln.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_forum</guid>
+</item>
+<item>
+<title>Freie Artikel-Tags: Erlaubt das freie Tagging von Artikeln</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_freetag</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_event_freetag&lt;br /&gt;Freie Artikel-Tags&lt;/b&gt;&lt;br /&gt;Erlaubt das freie Tagging von Artikeln&lt;br/&gt;For: Serendipity 1.3</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_freetag</guid>
+</item>
+<item>
+<title>Markup: Gallery: Fügt ein Gallery-Album oder Bild in Form von Markup ein.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_galleryimage</link>
+<category>Event Plugins</category>
+<author>Rob Antonishen, Alexander Mieland</author>
+<content:encoded>&lt;b&gt;serendipity_event_galleryimage&lt;br /&gt;Markup: Gallery&lt;/b&gt;&lt;br /&gt;Fügt ein Gallery-Album oder Bild in Form von Markup ein.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_galleryimage</guid>
+</item>
+<item>
+<title>Geo-JSON: Erstellt ein JSON-Object mit allen Geo-Daten, welches mit JavaScript verarbeiete werden kann.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_geo_json</link>
+<category>Event Plugins</category>
+<author>Martin Sewelies</author>
+<content:encoded>&lt;b&gt;serendipity_event_geo_json&lt;br /&gt;Geo-JSON&lt;/b&gt;&lt;br /&gt;Erstellt ein JSON-Object mit allen Geo-Daten, welches mit JavaScript verarbeiete werden kann.&lt;br/&gt;For: Serendipity 2.3</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_geo_json</guid>
+</item>
+<item>
+<title>Geotag: Erlaubt Einträge mit Geokoordinaten zu versehen</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_geotag</link>
+<category>Event Plugins</category>
+<author>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Martin Sewelies</author>
+<content:encoded>&lt;b&gt;serendipity_event_geotag&lt;br /&gt;Geotag&lt;/b&gt;&lt;br /&gt;Erlaubt Einträge mit Geokoordinaten zu versehen&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_geotag</guid>
 </item>
 <item>
 <title>GeoURL: GeoURL ordnet URLs Örtlichkeiten zu. Mehr Infos unter http://geourl.org/</title>
@@ -1067,8 +446,458 @@
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_event_geourl&lt;br /&gt;GeoURL&lt;/b&gt;&lt;br /&gt;GeoURL ordnet URLs Örtlichkeiten zu. Mehr Infos unter http://geourl.org/&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:49 +0200</pubDate>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_geourl</guid>
+</item>
+<item>
+<title>Textformatierung: GeSHi: Computer Language Color Syntax Highlighting. Benutzen Sie das Tag [geshi lang=php][/geshi]</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_geshi</link>
+<category>Event Plugins</category>
+<author>David Rolston</author>
+<content:encoded>&lt;b&gt;serendipity_event_geshi&lt;br /&gt;Textformatierung: GeSHi&lt;/b&gt;&lt;br /&gt;Computer Language Color Syntax Highlighting. Benutzen Sie das Tag [geshi lang=php][/geshi]&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_geshi</guid>
+</item>
+<item>
+<title>getID3() Unterstützung zum Erkennen von Medien Eigenschaften: Benutzt die getID3() Bibliothek um erweiterte Medien Eigenschaften für Filme und Audios zu erkennen. getID3() selbst wird nicht mit dem Plugin ausgeliefert.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_getid3</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking, Grischa Brockhaus</author>
+<content:encoded>&lt;b&gt;serendipity_event_getid3&lt;br /&gt;getID3() Unterstützung zum Erkennen von Medien Eigenschaften&lt;/b&gt;&lt;br /&gt;Benutzt die getID3() Bibliothek um erweiterte Medien Eigenschaften für Filme und Audios zu erkennen. getID3() selbst wird nicht mit dem Plugin ausgeliefert.&lt;br/&gt;For: Serendipity 1.1</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_getid3</guid>
+</item>
+<item>
+<title>Glossary: A user defined glossary as highlighted text with a tooltip.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_glossary</link>
+<category>Event Plugins</category>
+<author>Rob Antonishen</author>
+<content:encoded>&lt;b&gt;serendipity_event_glossary&lt;br /&gt;Glossary&lt;/b&gt;&lt;br /&gt;A user defined glossary as highlighted text with a tooltip.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_glossary</guid>
+</item>
+<item>
+<title>Google Analytics: Dieses Plugin fügt Google Analytics Funktionalität hinzu. So können auch externe Links oder Downloads verfolgt werden.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_google_analytics</link>
+<category>Event Plugins</category>
+<author>&lt;a href=&quot;https://github.com/kleinerChemiker&quot; target=&quot;_blank&quot;&gt;kleinerChemiker&lt;/a&gt;</author>
+<content:encoded>&lt;b&gt;serendipity_event_google_analytics&lt;br /&gt;Google Analytics&lt;/b&gt;&lt;br /&gt;Dieses Plugin fügt Google Analytics Funktionalität hinzu. So können auch externe Links oder Downloads verfolgt werden.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_google_analytics</guid>
+</item>
+<item>
+<title>Suchmaschinen-Sitemap Generator: Erstellt eine sitemap.xml.gz für verschiedene Suchmaschinen-Crawler (Google, MSN, Yahoo und Ask).</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_google_sitemap</link>
+<category>Event Plugins</category>
+<author>Boris</author>
+<content:encoded>&lt;b&gt;serendipity_event_google_sitemap&lt;br /&gt;Suchmaschinen-Sitemap Generator&lt;/b&gt;&lt;br /&gt;Erstellt eine sitemap.xml.gz für verschiedene Suchmaschinen-Crawler (Google, MSN, Yahoo und Ask).&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_google_sitemap</guid>
+</item>
+<item>
+<title>Avatar Plugin: Avatare bei Kommentaren anzeigen. Unterstützt werden Gravatare, Pavatare, Favatare, Twitter, Identica und MyBlogLog Avatare</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_gravatar</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking, Grischa Brockhaus</author>
+<content:encoded>&lt;b&gt;serendipity_event_gravatar&lt;br /&gt;Avatar Plugin&lt;/b&gt;&lt;br /&gt;Avatare bei Kommentaren anzeigen. Unterstützt werden Gravatare, Pavatare, Favatare, Twitter, Identica und MyBlogLog Avatare&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_gravatar</guid>
+</item>
+<item>
+<title>Gästebuch: Zeigt ein Gästebuch innerhalb des Blogs mit dem gewählten Design und allen Formatierungen an.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_guestbook</link>
+<category>Event Plugins</category>
+<author>Ian</author>
+<content:encoded>&lt;b&gt;serendipity_event_guestbook&lt;br /&gt;Gästebuch&lt;/b&gt;&lt;br /&gt;Zeigt ein Gästebuch innerhalb des Blogs mit dem gewählten Design und allen Formatierungen an.&lt;br/&gt;For: Serendipity 1.7.0</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_guestbook</guid>
+</item>
+<item>
+<title>HTML-Code für den head-Bereich (HTML-Kopf Klotz): Beinhaltet HTML-Code der im HEAD-Bereich des Blogs eingebunden werden kann, z.B. für Meta-Tags oder JavaScripts.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_head_nugget</link>
+<category>Event Plugins</category>
+<author>Jannis Hermanns</author>
+<content:encoded>&lt;b&gt;serendipity_event_head_nugget&lt;br /&gt;HTML-Code für den head-Bereich (HTML-Kopf Klotz)&lt;/b&gt;&lt;br /&gt;Beinhaltet HTML-Code der im HEAD-Bereich des Blogs eingebunden werden kann, z.B. für Meta-Tags oder JavaScripts.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_head_nugget</guid>
+</item>
+<item>
+<title>HTTP-Authentifizierung: Authentifiziert Benutzer über HTTP-Authentifizierung (basic_auth) mit ihren s9y-Anmeldedaten.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_httpauth</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_httpauth&lt;br /&gt;HTTP-Authentifizierung&lt;/b&gt;&lt;br /&gt;Authentifiziert Benutzer über HTTP-Authentifizierung (basic_auth) mit ihren s9y-Anmeldedaten.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_httpauth</guid>
+</item>
+<item>
+<title>Erweiterte Optionen für Bildauswahl: Ermöglicht erweiterte Optionen beim Einfügen von Bildern aus der Mediendatenbank.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_imageselectorplus</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_event_imageselectorplus&lt;br /&gt;Erweiterte Optionen für Bildauswahl&lt;/b&gt;&lt;br /&gt;Ermöglicht erweiterte Optionen beim Einfügen von Bildern aus der Mediendatenbank.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_imageselectorplus</guid>
+</item>
+<item>
+<title>Textformatierung: Eintragsdaten einfügen: Ermöglicht das Hinzufügen von HTML-ähnlichen Tags um Teile von anderen Einträgen einzubinden. Benutzen Sie folgende Formatierung: [s9y-include-entry:XXX:YYY]. Ersetzen Sie XXX mit der Ziel-ID des Eintrags und YYY mit dem Zielfeldnamen der Datenbank (z.B. &quot;body&quot;, &quot;extended&quot;, &quot;title&quot; usw.).</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_includeentry</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_includeentry&lt;br /&gt;Textformatierung: Eintragsdaten einfügen&lt;/b&gt;&lt;br /&gt;Ermöglicht das Hinzufügen von HTML-ähnlichen Tags um Teile von anderen Einträgen einzubinden. Benutzen Sie folgende Formatierung: [s9y-include-entry:XXX:YYY]. Ersetzen Sie XXX mit der Ziel-ID des Eintrags und YYY mit dem Zielfeldnamen der Datenbank (z.B. &quot;body&quot;, &quot;extended&quot;, &quot;title&quot; usw.).&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_includeentry</guid>
+</item>
+<item>
+<title>Karma: Abstimmung über die Einträge</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_karma</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking, Grischa Brockhaus, Judebert, Gregor Voeltz, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_event_karma&lt;br /&gt;Karma&lt;/b&gt;&lt;br /&gt;Abstimmung über die Einträge&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_karma</guid>
+</item>
+<item>
+<title>Kubrick/Joshua-Template Bild im Kopfbereich: Wechselt das Bild im Kubrick/Joshua-Template</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_kubrickheader</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking, Sebastian Mayeres, Jude Anthony</author>
+<content:encoded>&lt;b&gt;serendipity_event_kubrickheader&lt;br /&gt;Kubrick/Joshua-Template Bild im Kopfbereich&lt;/b&gt;&lt;br /&gt;Wechselt das Bild im Kubrick/Joshua-Template&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_kubrickheader</guid>
+</item>
+<item>
+<title>Layout-Plugin: Druckfreundliche Version: Ermöglicht den besseren Ausdruck eines Eintrages im Browser</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_layout_printerfriendly</link>
+<category>Event Plugins</category>
+<author>Sebastian Nohn</author>
+<content:encoded>&lt;b&gt;serendipity_event_layout_printerfriendly&lt;br /&gt;Layout-Plugin: Druckfreundliche Version&lt;/b&gt;&lt;br /&gt;Ermöglicht den besseren Ausdruck eines Eintrages im Browser&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_layout_printerfriendly</guid>
+</item>
+<item>
+<title>Lightbox für Blog Einträge mit Bildern: Das Lightbox Plugin ist eine einfaches unauffälliges Skript, das Bilder auf der Seite überlagern kann, wenn die große Version angeklickt wurde. Es fügt sich selbstständig in die Seite ein und funktioniert mit jedem modernen Browser. Alle Leuchtkästen verschönern Bilder-Popups. Dieses Plugin durchsucht ihre Einträge und ersetzt jeden auf ein Bild verweisenden 'a href=&quot;XXX&quot;' Link so, dass die interne Darstellung benutzt wird. Wenn Sie also ein Thumbnail Bild mit einem Popup der großen Version haben wollen, so fügen Sie das Thumbnail in ihren Eintrag ein und verlinken dieses mit der großen Version. Um auch versteckte Bilder mit display:none anzuzeigen, nutzen Sie das Lightbox2 Script. Diese Leuchtkasten Scripte sind alle jQuery basiert. Sie unterstützen nicht allein nur Bildtypen, sondern überwiegend auch anderes, wie Ajax, Videos, Flash, YouTube, iFrame, Inline oder modale Felder. Dieses Plugin nutzt sie nur für Fotografie Leuchtkästen, aber Sie können leicht andere Typen ihren Blog-Einträgen manuell hinzufügen und eine lightbox entsprechend für diesen Zweck initiieren, so wie es den jeweiligen Online-Dokumentationen beschrieben wird.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_lightbox</link>
+<category>Event Plugins</category>
+<author>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_event_lightbox&lt;br /&gt;Lightbox für Blog Einträge mit Bildern&lt;/b&gt;&lt;br /&gt;Das Lightbox Plugin ist eine einfaches unauffälliges Skript, das Bilder auf der Seite überlagern kann, wenn die große Version angeklickt wurde. Es fügt sich selbstständig in die Seite ein und funktioniert mit jedem modernen Browser. Alle Leuchtkästen verschönern Bilder-Popups. Dieses Plugin durchsucht ihre Einträge und ersetzt jeden auf ein Bild verweisenden 'a href=&quot;XXX&quot;' Link so, dass die interne Darstellung benutzt wird. Wenn Sie also ein Thumbnail Bild mit einem Popup der großen Version haben wollen, so fügen Sie das Thumbnail in ihren Eintrag ein und verlinken dieses mit der großen Version. Um auch versteckte Bilder mit display:none anzuzeigen, nutzen Sie das Lightbox2 Script. Diese Leuchtkasten Scripte sind alle jQuery basiert. Sie unterstützen nicht allein nur Bildtypen, sondern überwiegend auch anderes, wie Ajax, Videos, Flash, YouTube, iFrame, Inline oder modale Felder. Dieses Plugin nutzt sie nur für Fotografie Leuchtkästen, aber Sie können leicht andere Typen ihren Blog-Einträgen manuell hinzufügen und eine lightbox entsprechend für diesen Zweck initiieren, so wie es den jeweiligen Online-Dokumentationen beschrieben wird.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_lightbox</guid>
+</item>
+<item>
+<title>Linkliste: Linkmanager - zeigt Ihre Lieblingslinks in der Seitenleiste an.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_linklist</link>
+<category>Event Plugins</category>
+<author>Matthew Groeninger, Omid Mottaghi Rad</author>
+<content:encoded>&lt;b&gt;serendipity_event_linklist&lt;br /&gt;Linkliste&lt;/b&gt;&lt;br /&gt;Linkmanager - zeigt Ihre Lieblingslinks in der Seitenleiste an.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_linklist</guid>
+</item>
+<item>
+<title>HTML Link Metatags: Fügt Tags für link rel=&quot;start|up|prev|next|canonical&quot; in die Ansichten des Weblogs ein um so mittels spezieller Tools (Mozilla Erweiterungen, ...) durch Meta-Ebenen zu navigieren.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_linktoolbar</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_linktoolbar&lt;br /&gt;HTML Link Metatags&lt;/b&gt;&lt;br /&gt;Fügt Tags für link rel=&quot;start|up|prev|next|canonical&quot; in die Ansichten des Weblogs ein um so mittels spezieller Tools (Mozilla Erweiterungen, ...) durch Meta-Ebenen zu navigieren.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_linktoolbar</guid>
+</item>
+<item>
+<title>Linkverkürzung: Ermöglicht Linkverkürzung zur Weiterleitung in Ihrem eigenen Blog, z.B. vermittels tr.im, tinyurl.com usw.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_linktrimmer</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_event_linktrimmer&lt;br /&gt;Linkverkürzung&lt;/b&gt;&lt;br /&gt;Ermöglicht Linkverkürzung zur Weiterleitung in Ihrem eigenen Blog, z.B. vermittels tr.im, tinyurl.com usw.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_linktrimmer</guid>
+</item>
+<item>
+<title>Erweiterter Kommentarbereich: Eine Livevorschau und Formatierungsbuttons erweitern den Kommentarbereich mittels JavaScript.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_livecomment</link>
+<category>Event Plugins</category>
+<author>Malte Paskuda, Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_livecomment&lt;br /&gt;Erweiterter Kommentarbereich&lt;/b&gt;&lt;br /&gt;Eine Livevorschau und Formatierungsbuttons erweitern den Kommentarbereich mittels JavaScript.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_livecomment</guid>
+</item>
+<item>
+<title>LiveSearch: Erweitert die Suchfunktion mit einer Live-aktualisierung (JavaScript)</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_livesearch</link>
+<category>Event Plugins</category>
+<author>Christian Stocker, Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_livesearch&lt;br /&gt;LiveSearch&lt;/b&gt;&lt;br /&gt;Erweitert die Suchfunktion mit einer Live-aktualisierung (JavaScript)&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_livesearch</guid>
+</item>
+<item>
+<title>LiveJournal/MySpace/Serendipity Aktualisierung: Benutzt XML-RPC Methoden um Einträge zu einem LiveJournal/MySpace/Serendipity zu übertragen</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_ljupdate</link>
+<category>Event Plugins</category>
+<author>Kaustubh Srikanth, Ivan Makhonin</author>
+<content:encoded>&lt;b&gt;serendipity_event_ljupdate&lt;br /&gt;LiveJournal/MySpace/Serendipity Aktualisierung&lt;/b&gt;&lt;br /&gt;Benutzt XML-RPC Methoden um Einträge zu einem LiveJournal/MySpace/Serendipity zu übertragen&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_ljupdate</guid>
+</item>
+<item>
+<title>Überprüft Autoren-Login: Überprüft die Logindaten des Autoren nach Benutzung des Login-Formulars in der Seitenleiste</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_loginform</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_loginform&lt;br /&gt;Überprüft Autoren-Login&lt;/b&gt;&lt;br /&gt;Überprüft die Logindaten des Autoren nach Benutzung des Login-Formulars in der Seitenleiste&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_loginform</guid>
+</item>
+<item>
+<title>Eintrag per E-Mail verschicken: Erlaubt es Besuchern einen Eintrag per E-Mail an einen Freund zu verschicken</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mailentry</link>
+<category>Event Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_event_mailentry&lt;br /&gt;Eintrag per E-Mail verschicken&lt;/b&gt;&lt;br /&gt;Erlaubt es Besuchern einen Eintrag per E-Mail an einen Freund zu verschicken&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_mailentry</guid>
+</item>
+<item>
+<title>Textformatierung: Markdown: Markdown-Textformatierung durchführen</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_markdown</link>
+<category>Event Plugins</category>
+<author>Serendipity Team, Jan Lehnardt and Thomas Hochstein</author>
+<content:encoded>&lt;b&gt;serendipity_event_markdown&lt;br /&gt;Textformatierung: Markdown&lt;/b&gt;&lt;br /&gt;Markdown-Textformatierung durchführen&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:29 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_markdown</guid>
+</item>
+<item>
+<title>Show read/unread state of entries for visitors: Show read/unread state of entries for visitors</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_markread</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_markread&lt;br /&gt;Show read/unread state of entries for visitors&lt;/b&gt;&lt;br /&gt;Show read/unread state of entries for visitors&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_markread</guid>
+</item>
+<item>
+<title>HTML Meta-Tags: Setzt Tags für HTML Meta-Schlüsselwörter/-Beschreibungen und das title-Element für Seiten mit nur einem einzelnen Eintrag bzw. allgemeine Meta-Schlüsselwörter/-Beschreibungen für Seite mit mehr als einem Eintrag.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_metadesc</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking, Judebert, Don Chambers</author>
+<content:encoded>&lt;b&gt;serendipity_event_metadesc&lt;br /&gt;HTML Meta-Tags&lt;/b&gt;&lt;br /&gt;Setzt Tags für HTML Meta-Schlüsselwörter/-Beschreibungen und das title-Element für Seiten mit nur einem einzelnen Eintrag bzw. allgemeine Meta-Schlüsselwörter/-Beschreibungen für Seite mit mehr als einem Eintrag.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_metadesc</guid>
+</item>
+<item>
+<title>Microformats: Dieses Plugin ermöglicht es, auf einfache Weise Rezensionen zu veröffentlichen und Veranstaltungen anzukündigen: Es unterstützt die jeweiligen Mikroformate.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_microformats</link>
+<category>Event Plugins</category>
+<author>Matthias Gutjahr</author>
+<content:encoded>&lt;b&gt;serendipity_event_microformats&lt;br /&gt;Microformats&lt;/b&gt;&lt;br /&gt;Dieses Plugin ermöglicht es, auf einfache Weise Rezensionen zu veröffentlichen und Veranstaltungen anzukündigen: Es unterstützt die jeweiligen Mikroformate.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_microformats</guid>
+</item>
+<item>
+<title>MimeTex Tex Interpreter: Erzeugt ein GIF von TeX-Ausdrücken mittels MimeTex</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mimetex</link>
+<category>Event Plugins</category>
+<author>Matthew Groeninger</author>
+<content:encoded>&lt;b&gt;serendipity_event_mimetex&lt;br /&gt;MimeTex Tex Interpreter&lt;/b&gt;&lt;br /&gt;Erzeugt ein GIF von TeX-Ausdrücken mittels MimeTex&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_mimetex</guid>
+</item>
+<item>
+<title>Markup: Mobile Ausgabe: Dieses Plugin erkennt automatisch mobile Endgeraete und gibt optimiertes XHTML MP fuer diese aus. Fuer das Apple iPhone und den iPod Touch wird eine speziell angepasste Seite ausgegeben. Weiterhin werden Bilder automatisch passend skaliert.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mobile_output</link>
+<category>Event Plugins</category>
+<author>Pelle Boese, Grischa Brockhaus</author>
+<content:encoded>&lt;b&gt;serendipity_event_mobile_output&lt;br /&gt;Markup: Mobile Ausgabe&lt;/b&gt;&lt;br /&gt;Dieses Plugin erkennt automatisch mobile Endgeraete und gibt optimiertes XHTML MP fuer diese aus. Fuer das Apple iPhone und den iPod Touch wird eine speziell angepasste Seite ausgegeben. Weiterhin werden Bilder automatisch passend skaliert.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_mobile_output</guid>
+</item>
+<item>
+<title>Multilinguale Einträge: Erlaubt die Erstellung mehrerer Sprachversionen eines Eintrags</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_multilingual</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking, Wesley Hwang-Chung, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_event_multilingual&lt;br /&gt;Multilinguale Einträge&lt;/b&gt;&lt;br /&gt;Erlaubt die Erstellung mehrerer Sprachversionen eines Eintrags&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_multilingual</guid>
+</item>
+<item>
+<title>Mein Kalender: Pflegt einen persönlichen Kalender</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mycalendar</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking, Markus Gerstel, Grischa Brockhaus</author>
+<content:encoded>&lt;b&gt;serendipity_event_mycalendar&lt;br /&gt;Mein Kalender&lt;/b&gt;&lt;br /&gt;Pflegt einen persönlichen Kalender&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_mycalendar</guid>
+</item>
+<item>
+<title>My Mood: Allows you to add your current mood or moods to entries.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mymood</link>
+<category>Event Plugins</category>
+<author>Brett Profitt, Matthias Mees</author>
+<content:encoded>&lt;b&gt;serendipity_event_mymood&lt;br /&gt;My Mood&lt;/b&gt;&lt;br /&gt;Allows you to add your current mood or moods to entries.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_mymood</guid>
+</item>
+<item>
+<title>Newsbox: Group a category's entries in a frontpage box instead of the usual article listing.  Supports nested newsboxes.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_newsbox</link>
+<category>Event Plugins</category>
+<author>Jude Anthony</author>
+<content:encoded>&lt;b&gt;serendipity_event_newsbox&lt;br /&gt;Newsbox&lt;/b&gt;&lt;br /&gt;Group a category's entries in a frontpage box instead of the usual article listing.  Supports nested newsboxes.&lt;br/&gt;For: Serendipity 1.0-alpha1</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_newsbox</guid>
+</item>
+<item>
+<title>oEmbed Plugin: oEmbed is a format for allowing an embedded representation of a URL on your blog. It allows blog articles to display embedded content (such as tweets, photos or videos) when a user posts a link to that resource, without having to parse the resource directly.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_oembed</link>
+<category>Event Plugins</category>
+<author>Grischa Brockhaus</author>
+<content:encoded>&lt;b&gt;serendipity_event_oembed&lt;br /&gt;oEmbed Plugin&lt;/b&gt;&lt;br /&gt;oEmbed is a format for allowing an embedded representation of a URL on your blog. It allows blog articles to display embedded content (such as tweets, photos or videos) when a user posts a link to that resource, without having to parse the resource directly.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_oembed</guid>
+</item>
+<item>
+<title>OpenID Authentifizierung: Ermöglicht es Autoren des Blogs, sich mit ihrer OpenID (oder Google/Yahoo Account) einzuloggen.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_openid</link>
+<category>Event Plugins</category>
+<author>Grischa Brockhaus, Rob Richards</author>
+<content:encoded>&lt;b&gt;serendipity_event_openid&lt;br /&gt;OpenID Authentifizierung&lt;/b&gt;&lt;br /&gt;Ermöglicht es Autoren des Blogs, sich mit ihrer OpenID (oder Google/Yahoo Account) einzuloggen.&lt;br/&gt;For: Serendipity 1.2</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_openid</guid>
+</item>
+<item>
+<title>OpenStreetMap Integration: Bietet eine interaktive Karte für *.gpx Uploads und Blogs mit Geo-Daten.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_osm</link>
+<category>Event Plugins</category>
+<author>Martin Sewelies</author>
+<content:encoded>&lt;b&gt;serendipity_event_osm&lt;br /&gt;OpenStreetMap Integration&lt;/b&gt;&lt;br /&gt;Bietet eine interaktive Karte für *.gpx Uploads und Blogs mit Geo-Daten.&lt;br/&gt;For: Serendipity 2.3</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_osm</guid>
+</item>
+<item>
+<title>OpenStreetMap Statische Dateien: Fügt Scripte und Stylesheets für OpenStreetMap ein.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_osm</link>
+<category>Event Plugins</category>
+<author>Martin Sewelies</author>
+<content:encoded>&lt;b&gt;serendipity_event_static_osm&lt;br /&gt;OpenStreetMap Statische Dateien&lt;/b&gt;&lt;br /&gt;Fügt Scripte und Stylesheets für OpenStreetMap ein.&lt;br/&gt;For: Serendipity 2.3</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_static_osm</guid>
+</item>
+<item>
+<title>Einträge für nicht-registrierte Benutzer nach Verfallsdatum ausblenden: Blendet alle Einträge die ein definiertes Alter überschritten haben aus, so dass sie nur für registrierte Benutzer sichtbar sind.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_outdate_entries</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_outdate_entries&lt;br /&gt;Einträge für nicht-registrierte Benutzer nach Verfallsdatum ausblenden&lt;/b&gt;&lt;br /&gt;Blendet alle Einträge die ein definiertes Alter überschritten haben aus, so dass sie nur für registrierte Benutzer sichtbar sind.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_outdate_entries</guid>
+</item>
+<item>
+<title>HTML-Klotz in Seite(n): Setzt einen HTML-Klotz in die Seite(n), an deren Anfang, Ende oder ins head-Element.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_page_nugget</link>
+<category>Event Plugins</category>
+<author>Wesley Hwang-Chung</author>
+<content:encoded>&lt;b&gt;serendipity_event_page_nugget&lt;br /&gt;HTML-Klotz in Seite(n)&lt;/b&gt;&lt;br /&gt;Setzt einen HTML-Klotz in die Seite(n), an deren Anfang, Ende oder ins head-Element.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_page_nugget</guid>
+</item>
+<item>
+<title>Photoblog Einträge/Bilder: Ein Bild zu einem Eintrag hinzufügen</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_photoblog</link>
+<category>Event Plugins</category>
+<author>Cameron MacFarland</author>
+<content:encoded>&lt;b&gt;serendipity_event_photoblog&lt;br /&gt;Photoblog Einträge/Bilder&lt;/b&gt;&lt;br /&gt;Ein Bild zu einem Eintrag hinzufügen&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_photoblog</guid>
+</item>
+<item>
+<title>Easy Podcasting Plugin: Fügt &quot;Podcasting&quot; Faehigkeiten hinzu (RSS enclosure, Video/Sound-Player)</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_podcast</link>
+<category>Event Plugins</category>
+<author>Grischa Brockhaus, Hannes Gassert, Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_podcast&lt;br /&gt;Easy Podcasting Plugin&lt;/b&gt;&lt;br /&gt;Fügt &quot;Podcasting&quot; Faehigkeiten hinzu (RSS enclosure, Video/Sound-Player)&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_podcast</guid>
+</item>
+<item>
+<title>POPfetcher: Holt E-Mail inkl. Anhängen ab und veröffentlicht sie von einem POP3 E-Mail-Account (mit spezieller Handy-Unterstützung)</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_popfetcher</link>
+<category>Event Plugins</category>
+<author>Jason Levitt</author>
+<content:encoded>&lt;b&gt;serendipity_event_popfetcher&lt;br /&gt;POPfetcher&lt;/b&gt;&lt;br /&gt;Holt E-Mail inkl. Anhängen ab und veröffentlicht sie von einem POP3 E-Mail-Account (mit spezieller Handy-Unterstützung)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_popfetcher</guid>
+</item>
+<item>
+<title>Prettify für S9Y: Prettify fügt Inhalten, die zwischen PRE-Tags stehen, simples Syntax-Highlighting hinzu.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_prettify</link>
+<category>Event Plugins</category>
+<author>Adam Krause</author>
+<content:encoded>&lt;b&gt;serendipity_event_prettify&lt;br /&gt;Prettify für S9Y&lt;/b&gt;&lt;br /&gt;Prettify fügt Inhalten, die zwischen PRE-Tags stehen, simples Syntax-Highlighting hinzu.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_prettify</guid>
+</item>
+<item>
+<title>Proxy Real-IP: Setzt die richtige IP des Besuchers bei Benutzung eines Proxy vor dem Webserver. Sollte das erste Plugin in der Liste sein.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_proxy_realip</link>
+<category>Event Plugins</category>
+<author>&lt;a href=&quot;http://blog.kleinerChemiker.net/&quot; target=&quot;_blank&quot;&gt;kleinerChemiker&lt;/a&gt;</author>
+<content:encoded>&lt;b&gt;serendipity_event_proxy_realip&lt;br /&gt;Proxy Real-IP&lt;/b&gt;&lt;br /&gt;Setzt die richtige IP des Besuchers bei Benutzung eines Proxy vor dem Webserver. Sollte das erste Plugin in der Liste sein.&lt;br/&gt;For: Serendipity 1.6.2</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_proxy_realip</guid>
+</item>
+<item>
+<title>Zufällige Beschreibung des Blogs: Zeigt eine zufällige Beschreibung unter dem Titel an.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_randomblogdescription</link>
+<category>Event Plugins</category>
+<author>Florian Anderiasch</author>
+<content:encoded>&lt;b&gt;serendipity_event_randomblogdescription&lt;br /&gt;Zufällige Beschreibung des Blogs&lt;/b&gt;&lt;br /&gt;Zeigt eine zufällige Beschreibung unter dem Titel an.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_randomblogdescription</guid>
+</item>
+<item>
+<title>Echtzeit-Kommentare: Lade Kommentare, die gerade gespeichert wurden, und stelle sie ohne Neuladen der Seite dar.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_realtimecomments</link>
+<category>Event Plugins</category>
+<author>Malte Paskuda</author>
+<content:encoded>&lt;b&gt;serendipity_event_realtimecomments&lt;br /&gt;Echtzeit-Kommentare&lt;/b&gt;&lt;br /&gt;Lade Kommentare, die gerade gespeichert wurden, und stelle sie ohne Neuladen der Seite dar.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_realtimecomments</guid>
+</item>
+<item>
+<title>Recaptcha: Recaptcha für die Kommentar-Funktion von Artikeln aktivieren (Sie müssen einen Schlüssel anfordern)</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_recaptcha</link>
+<category>Event Plugins</category>
+<author>Christian Brabandt (based on work of Garvin Hicking, Sebastian Nohn)</author>
+<content:encoded>&lt;b&gt;serendipity_event_recaptcha&lt;br /&gt;Recaptcha&lt;/b&gt;&lt;br /&gt;Recaptcha für die Kommentar-Funktion von Artikeln aktivieren (Sie müssen einen Schlüssel anfordern)&lt;br/&gt;For: Serendipity 1.0</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_recaptcha</guid>
+</item>
+<item>
+<title>Textformatierung: Regexp: Textformatierung mittels benutzerdefinierter regexp-Datei. Beachten Sie die Beispieldateien im &quot;regexps&quot;-Unterverzeichnis dieses Plugins.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_regexpmarkup</link>
+<category>Event Plugins</category>
+<author>Rob Antonishen</author>
+<content:encoded>&lt;b&gt;serendipity_event_regexpmarkup&lt;br /&gt;Textformatierung: Regexp&lt;/b&gt;&lt;br /&gt;Textformatierung mittels benutzerdefinierter regexp-Datei. Beachten Sie die Beispieldateien im &quot;regexps&quot;-Unterverzeichnis dieses Plugins.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_regexpmarkup</guid>
+</item>
+<item>
+<title>Verwandte Links/Einträge: Fügt verwandte Links/Einträge in die Artikelansicht ein, die manuell für jeden Eintrag eingegeben werden können. Für flexible Ausgabe kann das Smarty-Template &quot;plugin_relatedlinks.tpl&quot; angepasst werde.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_relatedlinks</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_relatedlinks&lt;br /&gt;Verwandte Links/Einträge&lt;/b&gt;&lt;br /&gt;Fügt verwandte Links/Einträge in die Artikelansicht ein, die manuell für jeden Eintrag eingegeben werden können. Für flexible Ausgabe kann das Smarty-Template &quot;plugin_relatedlinks.tpl&quot; angepasst werde.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_relatedlinks</guid>
+</item>
+<item>
+<title>Hebe Suchwörter hervor: Hebt Suchwörter hervor, die ein User in einer Suchmaschine eingegeben hat</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_searchhighlight</link>
+<category>Event Plugins</category>
+<author>Tom Sommer</author>
+<content:encoded>&lt;b&gt;serendipity_event_searchhighlight&lt;br /&gt;Hebe Suchwörter hervor&lt;/b&gt;&lt;br /&gt;Hebt Suchwörter hervor, die ein User in einer Suchmaschine eingegeben hat&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_searchhighlight</guid>
 </item>
 <item>
 <title>Seitenleisten ein/ausklappbar machen: Verkleinert Seitenleisten-Elemente auf ihren Titel und ermöglicht das individuelle Ausklappen. Zusätzliche Konfiguration siehe Einträge -&gt; Seitenleisten verwalten in der Administrationsoberfläche.</title>
@@ -1076,7 +905,7 @@
 <category>Event Plugins</category>
 <author>Tys von Gaza, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_sidebarhider&lt;br /&gt;Seitenleisten ein/ausklappbar machen&lt;/b&gt;&lt;br /&gt;Verkleinert Seitenleisten-Elemente auf ihren Titel und ermöglicht das individuelle Ausklappen. Zusätzliche Konfiguration siehe Einträge -&gt; Seitenleisten verwalten in der Administrationsoberfläche.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:49 +0100</pubDate>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_sidebarhider</guid>
 </item>
 <item>
@@ -1085,26 +914,8 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_smartymarkup&lt;br /&gt;Textformatierung: Smarty Parsing&lt;/b&gt;&lt;br /&gt;Parst Smarty-Anweisungen im Artikeltext. Dies ist nicht nutzbar in Kombination mit Syntax Code-Highlightern oder Multilingual tags in Textfeldern!&lt;br/&gt;For: Serendipity 1.7</content:encoded>
-<pubDate>Wed, 26 Oct 2016 22:32:23 +0200</pubDate>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_smartymarkup</guid>
-</item>
-<item>
-<title>Comment Spice: Würze Deinen Kommentarbereich mit Extras wie einem Twitterlink oder einem Link auf den letzten Artikel des Kommentators und nofollow nach bestimmten Regeln.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_commentspice</link>
-<category>Event Plugins</category>
-<author>Grischa Brockhaus</author>
-<content:encoded>&lt;b&gt;serendipity_event_commentspice&lt;br /&gt;Comment Spice&lt;/b&gt;&lt;br /&gt;Würze Deinen Kommentarbereich mit Extras wie einem Twitterlink oder einem Link auf den letzten Artikel des Kommentators und nofollow nach bestimmten Regeln.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:33 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_commentspice</guid>
-</item>
-<item>
-<title>Wrap-URL: : Bindet eine andere Seite in einen IFRAME ein, der im Hauptteil angezeigt werden soll.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_wrapurl</link>
-<category>Event Plugins</category>
-<author>Rob Antonishen, Ian (Timbalu)</author>
-<content:encoded>&lt;b&gt;serendipity_event_wrapurl&lt;br /&gt;Wrap-URL: &lt;/b&gt;&lt;br /&gt;Bindet eine andere Seite in einen IFRAME ein, der im Hauptteil angezeigt werden soll.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:31:02 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_wrapurl</guid>
 </item>
 <item>
 <title>SMTP Mail: Nutze einen beliebigen SMTP Server zum versenden deiner Mails</title>
@@ -1112,98 +923,80 @@
 <category>Event Plugins</category>
 <author>kleinerChemiker</author>
 <content:encoded>&lt;b&gt;serendipity_event_smtpmail&lt;br /&gt;SMTP Mail&lt;/b&gt;&lt;br /&gt;Nutze einen beliebigen SMTP Server zum versenden deiner Mails&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:42 +0200</pubDate>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_smtpmail</guid>
 </item>
 <item>
-<title>QuickNotes: Zeigt Hinweise für angemeldete Autoren in der Admin-Oberfläche an.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_adminnotes</link>
+<title>Sharebuttons: Zeige Sharebuttons für Netzwerke wie Facebook und Twitter (nutzt shariff)</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_social</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking, Matthias Mees</author>
-<content:encoded>&lt;b&gt;serendipity_event_adminnotes&lt;br /&gt;QuickNotes&lt;/b&gt;&lt;br /&gt;Zeigt Hinweise für angemeldete Autoren in der Admin-Oberfläche an.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Wed, 26 Oct 2016 22:32:04 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_adminnotes</guid>
+<author>onli, Matthias Mees, Thomas Hochstein</author>
+<content:encoded>&lt;b&gt;serendipity_event_social&lt;br /&gt;Sharebuttons&lt;/b&gt;&lt;br /&gt;Zeige Sharebuttons für Netzwerke wie Facebook und Twitter (nutzt shariff)&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_social</guid>
 </item>
 <item>
-<title>Easy Podcasting Plugin: Fügt &quot;Podcasting&quot; Faehigkeiten hinzu (RSS enclosure, Video/Sound-Player)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_podcast</link>
+<title>Spamschutz (Bayes): Filtert Kommentare mittels eines lernenden Algorithmus.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_spamblock_bayes</link>
 <category>Event Plugins</category>
-<author>Grischa Brockhaus, Hannes Gassert, Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_podcast&lt;br /&gt;Easy Podcasting Plugin&lt;/b&gt;&lt;br /&gt;Fügt &quot;Podcasting&quot; Faehigkeiten hinzu (RSS enclosure, Video/Sound-Player)&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 14 May 2018 22:31:41 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_podcast</guid>
+<author>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</author>
+<content:encoded>&lt;b&gt;serendipity_event_spamblock_bayes&lt;br /&gt;Spamschutz (Bayes)&lt;/b&gt;&lt;br /&gt;Filtert Kommentare mittels eines lernenden Algorithmus.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_spamblock_bayes</guid>
 </item>
 <item>
-<title>Einträge via XML-RPC erstellen: Ermöglicht Einträge via XML-RPC API zu erstellen/bearbeiten (MT, Blogger, WordPress API-Endpunkte)</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_xmlrpc</link>
+<title>Spamschutz Biene (Honeypot, Verstecktes Captcha): Implementiert Kommentar AntiSpam Maßnahmen, die einfach zu konfigurieren aber sehr effektiv sind.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_spamblock_bee</link>
 <category>Event Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_event_xmlrpc&lt;br /&gt;Einträge via XML-RPC erstellen&lt;/b&gt;&lt;br /&gt;Ermöglicht Einträge via XML-RPC API zu erstellen/bearbeiten (MT, Blogger, WordPress API-Endpunkte)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 11 Feb 2019 22:31:48 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_xmlrpc</guid>
+<author>Grischa Brockhaus, Janek Bevendorff</author>
+<content:encoded>&lt;b&gt;serendipity_event_spamblock_bee&lt;br /&gt;Spamschutz Biene (Honeypot, Verstecktes Captcha)&lt;/b&gt;&lt;br /&gt;Implementiert Kommentar AntiSpam Maßnahmen, die einfach zu konfigurieren aber sehr effektiv sind.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_spamblock_bee</guid>
 </item>
 <item>
-<title>Microformats: Dieses Plugin ermöglicht es, auf einfache Weise Rezensionen zu veröffentlichen und Veranstaltungen anzukündigen: Es unterstützt die jeweiligen Mikroformate.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_microformats</link>
+<title>Spamschutz (RBL): Blockiert SPAM Anhand von IP-Blacklists. Wird diese Option aktiviert, werden Kommentare abgewiesen die von IPs stammen, die in einer RBL/Blacklist geführt werden. Die Aktivierung hiervon kann Dial-Up oder Proxy-User betreffen!</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_spamblock_rbl</link>
 <category>Event Plugins</category>
-<author>Matthias Gutjahr</author>
-<content:encoded>&lt;b&gt;serendipity_event_microformats&lt;br /&gt;Microformats&lt;/b&gt;&lt;br /&gt;Dieses Plugin ermöglicht es, auf einfache Weise Rezensionen zu veröffentlichen und Veranstaltungen anzukündigen: Es unterstützt die jeweiligen Mikroformate.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sat, 27 Apr 2019 22:32:25 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_microformats</guid>
+<author>Sebastian Nohn</author>
+<content:encoded>&lt;b&gt;serendipity_event_spamblock_rbl&lt;br /&gt;Spamschutz (RBL)&lt;/b&gt;&lt;br /&gt;Blockiert SPAM Anhand von IP-Blacklists. Wird diese Option aktiviert, werden Kommentare abgewiesen die von IPs stammen, die in einer RBL/Blacklist geführt werden. Die Aktivierung hiervon kann Dial-Up oder Proxy-User betreffen!&lt;br/&gt;For: Serendipity 1.2</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_spamblock_rbl</guid>
 </item>
 <item>
-<title>Lange Einträge aufteilen: Erlaubt die Aufteilung eines langen Artikels in mehrere Unterseiten sowie das Einfügen eines Inhaltsverzeichnisses</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_entrysplit</link>
+<title>Spamschutz (SURBL): URL abweisen die als SPAM geblacklistet sind.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_spamblock_surbl</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking, Tadashi Jokagi, Thomas Werner</author>
-<content:encoded>&lt;b&gt;serendipity_event_entrysplit&lt;br /&gt;Lange Einträge aufteilen&lt;/b&gt;&lt;br /&gt;Erlaubt die Aufteilung eines langen Artikels in mehrere Unterseiten sowie das Einfügen eines Inhaltsverzeichnisses&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:42 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_entrysplit</guid>
+<author>Sebastian Nohn</author>
+<content:encoded>&lt;b&gt;serendipity_event_spamblock_surbl&lt;br /&gt;Spamschutz (SURBL)&lt;/b&gt;&lt;br /&gt;URL abweisen die als SPAM geblacklistet sind.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_spamblock_surbl</guid>
 </item>
 <item>
-<title>Externe PHP-Anwendung: Bettet eine externe PHP Anwendung in Ihrem Blog ein, dass im gewohnten Design präsentiert wird. MIT VORSICHT BENUTZEN, DA DIESES PLUGIN GROSSE SICHERHEITSLÜCKEN ERMÖGLICHEN KANN WENN EINE BELIEBIGE PHP-DATEI EINGEBUNDEN WIRD! Dieses Plugin kann daher nur als Administrator konfiguriert werden.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_externalphp</link>
+<title>Kategorie als Startseite: Ermöglicht, die Artikel einer speziellen Kategorie anstelle der Übersicht aller Artikel auf der Startseite anzuzeigen.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_startcat</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_externalphp&lt;br /&gt;Externe PHP-Anwendung&lt;/b&gt;&lt;br /&gt;Bettet eine externe PHP Anwendung in Ihrem Blog ein, dass im gewohnten Design präsentiert wird. MIT VORSICHT BENUTZEN, DA DIESES PLUGIN GROSSE SICHERHEITSLÜCKEN ERMÖGLICHEN KANN WENN EINE BELIEBIGE PHP-DATEI EINGEBUNDEN WIRD! Dieses Plugin kann daher nur als Administrator konfiguriert werden.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 06 Aug 2018 22:33:29 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_externalphp</guid>
+<author>Stefan Willoughby, Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_startcat&lt;br /&gt;Kategorie als Startseite&lt;/b&gt;&lt;br /&gt;Ermöglicht, die Artikel einer speziellen Kategorie anstelle der Übersicht aller Artikel auf der Startseite anzuzeigen.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_startcat</guid>
 </item>
 <item>
-<title>Eigenschaften/Templates von Kategorien: Dieses Plugin ermöglicht erweitete Eigenschaften für Kategorien und deren Einträge festzulegen: speziell angepassete Templates, Anzeigereihenfolge, Anzeigeanzahl, Passwort-Schutz und Ausschluss aus dem RSS-Feed.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_categorytemplates</link>
+<title>Statische Seiten: Verwaltet beliebige statische Seiten innerhalb des Blogs mit dem Blog-Design und allen Formatierungen. Fügt einen neuen Menüpunkt in der Admin-Oberfläche hinzu!</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_staticpage</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking, Judebert</author>
-<content:encoded>&lt;b&gt;serendipity_event_categorytemplates&lt;br /&gt;Eigenschaften/Templates von Kategorien&lt;/b&gt;&lt;br /&gt;Dieses Plugin ermöglicht erweitete Eigenschaften für Kategorien und deren Einträge festzulegen: speziell angepassete Templates, Anzeigereihenfolge, Anzeigeanzahl, Passwort-Schutz und Ausschluss aus dem RSS-Feed.&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:28 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_categorytemplates</guid>
+<author>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers</author>
+<content:encoded>&lt;b&gt;serendipity_event_staticpage&lt;br /&gt;Statische Seiten&lt;/b&gt;&lt;br /&gt;Verwaltet beliebige statische Seiten innerhalb des Blogs mit dem Blog-Design und allen Formatierungen. Fügt einen neuen Menüpunkt in der Admin-Oberfläche hinzu!&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_staticpage</guid>
 </item>
 <item>
-<title>Sortierbares Archiv der Einträge: Zeigt eine sortierbare Ansicht aller Artikel für den Besucher an. Der Link zu dieser eigenständigen Seite sollte in einem eigenen HTML Klotz verlinkt werden!</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_customarchive</link>
+<title>Statistiken: Zeigt einen Link zu informativen Statistiken (inkl. Besucherzähler) in der Administrationsoberfläche an.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_statistics</link>
 <category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_customarchive&lt;br /&gt;Sortierbares Archiv der Einträge&lt;/b&gt;&lt;br /&gt;Zeigt eine sortierbare Ansicht aller Artikel für den Besucher an. Der Link zu dieser eigenständigen Seite sollte in einem eigenen HTML Klotz verlinkt werden!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 27 Apr 2019 22:32:20 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_customarchive</guid>
-</item>
-<item>
-<title>Einstellungen für vertrauenswürdige Mehrbenutzer-Blogs / HTMLPurifier: Dieses Plugin gibt an, welchen Autoren eines Mehrbenutzer-Blogs Sie genug trauen und von denen Sie keine Hackangriffe erwarten. Alle anderen Autoren dürfen kein HTML mehr verwenden!</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_xsstrust</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_xsstrust&lt;br /&gt;Einstellungen für vertrauenswürdige Mehrbenutzer-Blogs / HTMLPurifier&lt;/b&gt;&lt;br /&gt;Dieses Plugin gibt an, welchen Autoren eines Mehrbenutzer-Blogs Sie genug trauen und von denen Sie keine Hackangriffe erwarten. Alle anderen Autoren dürfen kein HTML mehr verwenden!&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 06 Mar 2017 22:34:08 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_xsstrust</guid>
-</item>
-<item>
-<title>Verwandte Links/Einträge: Fügt verwandte Links/Einträge in die Artikelansicht ein, die manuell für jeden Eintrag eingegeben werden können. Für flexible Ausgabe kann das Smarty-Template &quot;plugin_relatedlinks.tpl&quot; angepasst werde.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_relatedlinks</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_relatedlinks&lt;br /&gt;Verwandte Links/Einträge&lt;/b&gt;&lt;br /&gt;Fügt verwandte Links/Einträge in die Artikelansicht ein, die manuell für jeden Eintrag eingegeben werden können. Für flexible Ausgabe kann das Smarty-Template &quot;plugin_relatedlinks.tpl&quot; angepasst werde.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 27 Apr 2019 22:32:25 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_relatedlinks</guid>
+<author>Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin, Matthias Mees, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_event_statistics&lt;br /&gt;Statistiken&lt;/b&gt;&lt;br /&gt;Zeigt einen Link zu informativen Statistiken (inkl. Besucherzähler) in der Administrationsoberfläche an.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_statistics</guid>
 </item>
 <item>
 <title>Bestätigung für Artikel: Erlaubt nicht registrierten Autoren, eigene Artikel vorzuschlagen</title>
@@ -1211,8 +1004,242 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_suggest&lt;br /&gt;Bestätigung für Artikel&lt;/b&gt;&lt;br /&gt;Erlaubt nicht registrierten Autoren, eigene Artikel vorzuschlagen&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sat, 27 Apr 2019 22:32:25 +0200</pubDate>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_suggest</guid>
+</item>
+<item>
+<title>Template-Editor: Bearbeite die Dateien des derzeit genutzen Templates direkt im Adminbereich.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_template_editor</link>
+<category>Event Plugins</category>
+<author>Malte Paskuda</author>
+<content:encoded>&lt;b&gt;serendipity_event_template_editor&lt;br /&gt;Template-Editor&lt;/b&gt;&lt;br /&gt;Bearbeite die Dateien des derzeit genutzen Templates direkt im Adminbereich.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_template_editor</guid>
+</item>
+<item>
+<title>Werbeanzeigen einbetten (TextLinkAds.com oder benutzerdefiniert): Werbenanzeigen ins Blog einbetten.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_textlinkads</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_textlinkads&lt;br /&gt;Werbeanzeigen einbetten (TextLinkAds.com oder benutzerdefiniert)&lt;/b&gt;&lt;br /&gt;Werbenanzeigen ins Blog einbetten.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_textlinkads</guid>
+</item>
+<item>
+<title>Textformatierung: Wiki: Wiki-Formatierung durchführen</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_textwiki</link>
+<category>Event Plugins</category>
+<author>Tobias Schlitt</author>
+<content:encoded>&lt;b&gt;serendipity_event_textwiki&lt;br /&gt;Textformatierung: Wiki&lt;/b&gt;&lt;br /&gt;Wiki-Formatierung durchführen&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_textwiki</guid>
+</item>
+<item>
+<title>Thumbnail-Seite des Photoblog-Plugins: Zeigt eine Seite mit Thumbnails des Photoblog-Plugins. Die URL ist index.php?serendipity[page]=thumbs</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_thumbnails</link>
+<category>Event Plugins</category>
+<author>Cameron MacFarland</author>
+<content:encoded>&lt;b&gt;serendipity_event_thumbnails&lt;br /&gt;Thumbnail-Seite des Photoblog-Plugins&lt;/b&gt;&lt;br /&gt;Zeigt eine Seite mit Thumbnails des Photoblog-Plugins. Die URL ist index.php?serendipity[page]=thumbs&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_thumbnails</guid>
+</item>
+<item>
+<title>Bilder komprimieren: PNG- und JPG-Bilder mit dem TinyPNG-Dienst komprimieren.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_tinypng</link>
+<category>Event Plugins</category>
+<author>onli</author>
+<content:encoded>&lt;b&gt;serendipity_event_tinypng&lt;br /&gt;Bilder komprimieren&lt;/b&gt;&lt;br /&gt;PNG- und JPG-Bilder mit dem TinyPNG-Dienst komprimieren.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_tinypng</guid>
+</item>
+<item>
+<title>ToDo/Projekt-Liste: Verwaltet eine Liste von Projekten und deren aktuellem Status</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_todolist</link>
+<category>Event Plugins</category>
+<author>Steven Tonnesen, Matthias Mees</author>
+<content:encoded>&lt;b&gt;serendipity_event_todolist&lt;br /&gt;ToDo/Projekt-Liste&lt;/b&gt;&lt;br /&gt;Verwaltet eine Liste von Projekten und deren aktuellem Status&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_todolist</guid>
+</item>
+<item>
+<title>Tooltips: Aktiviert Tooltips für Textbereiche und Bilder.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_tooltips</link>
+<category>Event Plugins</category>
+<author>Enrico Stahn</author>
+<content:encoded>&lt;b&gt;serendipity_event_tooltips&lt;br /&gt;Tooltips&lt;/b&gt;&lt;br /&gt;Aktiviert Tooltips für Textbereiche und Bilder.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_tooltips</guid>
+</item>
+<item>
+<title>Trackbacks kontrollieren: Ermöglicht beim Anlegen eines Eintrages zu weiteren URLs Trackbacks zu schicken oder Trackbacks zu deaktivieren</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_trackback</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking, Malte Paskuda, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_event_trackback&lt;br /&gt;Trackbacks kontrollieren&lt;/b&gt;&lt;br /&gt;Ermöglicht beim Anlegen eines Eintrages zu weiteren URLs Trackbacks zu schicken oder Trackbacks zu deaktivieren&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_trackback</guid>
+</item>
+<item>
+<title>Textformatierung: Externe Links zählen: Click auf Externe Links verfolgen</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_trackexits</link>
+<category>Event Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_event_trackexits&lt;br /&gt;Textformatierung: Externe Links zählen&lt;/b&gt;&lt;br /&gt;Click auf Externe Links verfolgen&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_trackexits</guid>
+</item>
+<item>
+<title>Sonderzeichen/Erweiterte Buttons für Non-WYSIWYG: Fügt Buttons für diverse Sonderzeichen und Aktionen in die Oberfläche zum Erzeugen eines Artikels ein. Dieses Plugin funktioniert nicht mit dem WYSIWYG-Editor zusammen.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_typesetbuttons</link>
+<category>Event Plugins</category>
+<author>Matthew Groeninger, Malte Diers, Matthias Gutjahr</author>
+<content:encoded>&lt;b&gt;serendipity_event_typesetbuttons&lt;br /&gt;Sonderzeichen/Erweiterte Buttons für Non-WYSIWYG&lt;/b&gt;&lt;br /&gt;Fügt Buttons für diverse Sonderzeichen und Aktionen in die Oberfläche zum Erzeugen eines Artikels ein. Dieses Plugin funktioniert nicht mit dem WYSIWYG-Editor zusammen.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_typesetbuttons</guid>
+</item>
+<item>
+<title>Textformatierung: Typografische Anführungszeichen: Wandelt normale Anführungszeichen in typografische Anführungszeichen</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_typoquote</link>
+<category>Event Plugins</category>
+<author>Jonathan Spalink and Matthew Groeninger</author>
+<content:encoded>&lt;b&gt;serendipity_event_typoquote&lt;br /&gt;Textformatierung: Typografische Anführungszeichen&lt;/b&gt;&lt;br /&gt;Wandelt normale Anführungszeichen in typografische Anführungszeichen&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_typoquote</guid>
+</item>
+<item>
+<title>HTML in Kommentaren maskieren: Üblicherweise wird HTML in Kommentaren komplett entfernt (strip_tags). Hiermit wird HTML nur in seine Entities umgewandelt. Dieses Plugin sollte vor anderen Textformatierungs-Plugin stehen.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_unstrip_tags</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_unstrip_tags&lt;br /&gt;HTML in Kommentaren maskieren&lt;/b&gt;&lt;br /&gt;Üblicherweise wird HTML in Kommentaren komplett entfernt (strip_tags). Hiermit wird HTML nur in seine Entities umgewandelt. Dieses Plugin sollte vor anderen Textformatierungs-Plugin stehen.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_unstrip_tags</guid>
+</item>
+<item>
+<title>Bildergalerie: Ermöglicht es den Besuchern, die Mediendatenbank anzusehen</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_usergallery</link>
+<category>Event Plugins</category>
+<author>Arnan de Gans, Matthew Groeninger, and Stefan Willoughby, Ian</author>
+<content:encoded>&lt;b&gt;serendipity_event_usergallery&lt;br /&gt;Bildergalerie&lt;/b&gt;&lt;br /&gt;Ermöglicht es den Besuchern, die Mediendatenbank anzusehen&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_usergallery</guid>
+</item>
+<item>
+<title>Benutzerprofile: Zeigt einfache Benutzerprofile</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_userprofiles</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking, Falk Doering</author>
+<content:encoded>&lt;b&gt;serendipity_event_userprofiles&lt;br /&gt;Benutzerprofile&lt;/b&gt;&lt;br /&gt;Zeigt einfache Benutzerprofile&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_userprofiles</guid>
+</item>
+<item>
+<title>Versionierung der Einträge: Ältere Versionen werden gespeichert und können wiederhergestellt werden</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_versioning</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_versioning&lt;br /&gt;Versionierung der Einträge&lt;/b&gt;&lt;br /&gt;Ältere Versionen werden gespeichert und können wiederhergestellt werden&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_versioning</guid>
+</item>
+<item>
+<title>VG Wort: Integriert Zählmarken der VG Wort.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_vgwort</link>
+<category>Event Plugins</category>
+<author>Malte Paskuda</author>
+<content:encoded>&lt;b&gt;serendipity_event_vgwort&lt;br /&gt;VG Wort&lt;/b&gt;&lt;br /&gt;Integriert Zählmarken der VG Wort.&lt;br/&gt;For: Serendipity 2.2.1</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_vgwort</guid>
+</item>
+<item>
+<title>Einträge ankündigen: Benachrichtigt diverse Internetseiten, das ein neuer Eintrag erstellt wurde.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_weblogping</link>
+<category>Event Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_event_weblogping&lt;br /&gt;Einträge ankündigen&lt;/b&gt;&lt;br /&gt;Benachrichtigt diverse Internetseiten, das ein neuer Eintrag erstellt wurde.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_weblogping</guid>
+</item>
+<item>
+<title>Freie Wiki-Links für Einträge: Ermöglicht Links zu blog-internen Einträgen via [[Titel]], Links zu Statischen Seiten via ((Titel)) und einen Link zu beidem via {{Titel}}. Zudem wird ein Button zu internen Einträgen bereitgestellt. Referenzen können am Ende eines Blogeintrags eingehangen werden.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_wikilinks</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking, Grischa Brockhaus</author>
+<content:encoded>&lt;b&gt;serendipity_event_wikilinks&lt;br /&gt;Freie Wiki-Links für Einträge&lt;/b&gt;&lt;br /&gt;Ermöglicht Links zu blog-internen Einträgen via [[Titel]], Links zu Statischen Seiten via ((Titel)) und einen Link zu beidem via {{Titel}}. Zudem wird ein Button zu internen Einträgen bereitgestellt. Referenzen können am Ende eines Blogeintrags eingehangen werden.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_wikilinks</guid>
+</item>
+<item>
+<title>Wrap-URL: : Bindet eine andere Seite in einen IFRAME ein, der im Hauptteil angezeigt werden soll.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_wrapurl</link>
+<category>Event Plugins</category>
+<author>Rob Antonishen, Ian (Timbalu)</author>
+<content:encoded>&lt;b&gt;serendipity_event_wrapurl&lt;br /&gt;Wrap-URL: &lt;/b&gt;&lt;br /&gt;Bindet eine andere Seite in einen IFRAME ein, der im Hauptteil angezeigt werden soll.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_wrapurl</guid>
+</item>
+<item>
+<title>Einträge via XML-RPC erstellen: Ermöglicht Einträge via XML-RPC API zu erstellen/bearbeiten (MT, Blogger, WordPress API-Endpunkte)</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_xmlrpc</link>
+<category>Event Plugins</category>
+<author>Serendipity Team</author>
+<content:encoded>&lt;b&gt;serendipity_event_xmlrpc&lt;br /&gt;Einträge via XML-RPC erstellen&lt;/b&gt;&lt;br /&gt;Ermöglicht Einträge via XML-RPC API zu erstellen/bearbeiten (MT, Blogger, WordPress API-Endpunkte)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:30 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_xmlrpc</guid>
+</item>
+<item>
+<title>Einstellungen für vertrauenswürdige Mehrbenutzer-Blogs / HTMLPurifier: Dieses Plugin gibt an, welchen Autoren eines Mehrbenutzer-Blogs Sie genug trauen und von denen Sie keine Hackangriffe erwarten. Alle anderen Autoren dürfen kein HTML mehr verwenden!</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_xsstrust</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_xsstrust&lt;br /&gt;Einstellungen für vertrauenswürdige Mehrbenutzer-Blogs / HTMLPurifier&lt;/b&gt;&lt;br /&gt;Dieses Plugin gibt an, welchen Autoren eines Mehrbenutzer-Blogs Sie genug trauen und von denen Sie keine Hackangriffe erwarten. Alle anderen Autoren dürfen kein HTML mehr verwenden!&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_xsstrust</guid>
+</item>
+<item>
+<title>Zusätzliche Editor-Buttons: Youtube usw.: Bietet mehr Schaltflächen für den Editor, um einen einfachen Zugriff auf HTML-/Javescript-Snippets wie Youtube usw. zu ermöglichen.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_youtube</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_youtube&lt;br /&gt;Zusätzliche Editor-Buttons: Youtube usw.&lt;/b&gt;&lt;br /&gt;Bietet mehr Schaltflächen für den Editor, um einen einfachen Zugriff auf HTML-/Javescript-Snippets wie Youtube usw. zu ermöglichen.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_youtube</guid>
+</item>
+<item>
+<title>Registrierung neuer User: Ermöglicht es Blog-Besuchern sich einen eigenen Autoren-Account anzulegen. Zusammen mit dem Event-Plugin (index.php?serendipity[subpage]=adduser) kann eingestellt werden ob nur registrierte Benutzer Kommentare posten dürfen.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_adduser</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking</author>
+<content:encoded>&lt;b&gt;serendipity_event_adduser&lt;br /&gt;Registrierung neuer User&lt;/b&gt;&lt;br /&gt;Ermöglicht es Blog-Besuchern sich einen eigenen Autoren-Account anzulegen. Zusammen mit dem Event-Plugin (index.php?serendipity[subpage]=adduser) kann eingestellt werden ob nur registrierte Benutzer Kommentare posten dürfen.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_adduser</guid>
+</item>
+<item>
+<title>flickr Fotostream CSS: Dieses Plugin ist eine Ergänzung zum flickr Fotostream-Seitenleistenplugin und sorgt für ein ansprechendes Aussehen der Bilddarstellung.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_flickr</link>
+<category>Event Plugins</category>
+<author>Michael Kaiser</author>
+<content:encoded>&lt;b&gt;serendipity_event_flickrcss&lt;br /&gt;flickr Fotostream CSS&lt;/b&gt;&lt;br /&gt;Dieses Plugin ist eine Ergänzung zum flickr Fotostream-Seitenleistenplugin und sorgt für ein ansprechendes Aussehen der Bilddarstellung.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_flickrcss</guid>
+</item>
+<item>
+<title>Umfragen: Verwaltet beliebige Umfragen!</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_pollbox</link>
+<category>Event Plugins</category>
+<author>Garvin Hicking, Matthias Mees</author>
+<content:encoded>&lt;b&gt;serendipity_event_pollbox&lt;br /&gt;Umfragen&lt;/b&gt;&lt;br /&gt;Verwaltet beliebige Umfragen!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_pollbox</guid>
+</item>
+<item>
+<title>Microblogging (Twitter,Identica): Fügt einen Twitter/Identica Client zum Administrator Interface hinzu, sucht nach Tweetbacks und kündigt neue Artikel über Twitter/Identica Accounts an.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_twitter</link>
+<category>Event Plugins</category>
+<author>Grischa Brockhaus, Peter Heimann</author>
+<content:encoded>&lt;b&gt;serendipity_event_twitter&lt;br /&gt;Microblogging (Twitter,Identica)&lt;/b&gt;&lt;br /&gt;Fügt einen Twitter/Identica Client zum Administrator Interface hinzu, sucht nach Tweetbacks und kündigt neue Artikel über Twitter/Identica Accounts an.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<pubDate>Sat, 21 Mar 2020 20:02:31 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_twitter</guid>
 </item>
 </channel>
 </rss>

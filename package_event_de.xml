@@ -3,56 +3,6 @@
 
 <packages>
 <package version="1.0">
-<name>serendipity_event_comics</name>
-<license>GPL</license>
-<summary>Comics</summary>
-<groups>FRONTEND_ENTRY_RELATED</groups>
-<description>Webcomics im Blog posten</description>
-<maintainers><maintainer><name>Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>1.5</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
-  <filelist>
-<dir name="serendipity_event_comics">
-<dir name="UTF-8">
-<file>lang_cs.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_de.inc.php</file>
-<file>lang_ko.inc.php</file>
-</dir>
-<file>Changelog</file>
-<file>README</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
-<file>lang_cs.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_de.inc.php</file>
-<file>lang_en.inc.php</file>
-<file>lang_ko.inc.php</file>
-<file>serendipity_event_comics.php</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_event_comics/UTF-8/lang_cs.inc.php</file>
-    <file>serendipity_event_comics/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_comics/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_event_comics/UTF-8/lang_ko.inc.php</file>
-    <file>serendipity_event_comics/Changelog</file>
-    <file>serendipity_event_comics/README</file>
-    <file>serendipity_event_comics/documentation_cs.html</file>
-    <file>serendipity_event_comics/documentation_cz.html</file>
-    <file>serendipity_event_comics/lang_cs.inc.php</file>
-    <file>serendipity_event_comics/lang_cz.inc.php</file>
-    <file>serendipity_event_comics/lang_de.inc.php</file>
-    <file>serendipity_event_comics/lang_en.inc.php</file>
-    <file>serendipity_event_comics/lang_ko.inc.php</file>
-    <file>serendipity_event_comics/serendipity_event_comics.php</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
 <name>serendipity_event_adminnotes</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_adminnotes/ChangeLog</changelog>
 <license>GPL</license>
@@ -63,7 +13,7 @@
 <release>
   <version>0.16</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-10-26</date>
   <filelist>
 <dir name="serendipity_event_adminnotes">
 <dir name="UTF-8">
@@ -106,7 +56,7 @@
 <release>
   <version>0.34.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2020-03-12</date>
   <filelist>
 <dir name="serendipity_event_aggregator">
 <dir name="UTF-8">
@@ -199,7 +149,7 @@
 <release>
   <version>0.76</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_amazonchooser">
 <dir name="UTF-8">
@@ -208,6 +158,8 @@
 <file>lang_de.inc.php</file>
 <file>lang_es.inc.php</file>
 <file>lang_ja.inc.php</file>
+</dir>
+<dir name="nusoap">
 </dir>
 <dir name="sha256">
 <file>example.php</file>
@@ -272,7 +224,7 @@
 <release>
   <version>1.4.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-10-26</date>
   <filelist>
 <dir name="serendipity_event_assigncategories">
 <dir name="UTF-8">
@@ -321,7 +273,7 @@
 <release>
   <version>0.1.12</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_autotitle">
 <dir name="UTF-8">
@@ -368,7 +320,7 @@
 <release>
   <version>1.1.10</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-08-24</date>
   <filelist>
 <dir name="serendipity_event_autoupdate">
 <dir name="UTF-8">
@@ -416,7 +368,7 @@
 <release>
   <version>0.6.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_backend">
 <dir name="UTF-8">
@@ -466,7 +418,7 @@
 <release>
   <version>1.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_backendrss">
 <dir name="UTF-8">
@@ -497,101 +449,6 @@
 </release>
 </package>
 <package version="1.0">
-<name>serendipity_event_cal</name>
-<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_cal/ChangeLog</changelog>
-<license>GPL</license>
-<summary>Event-Terminkalender</summary>
-<groups>FRONTEND_FEATURES,BACKEND_FEATURES</groups>
-<description>Zeigt einen Terminkalender innerhalb des Blogs mit dem Blog-Design und allen Formatierungen an. Unterstützt Backend/Frontend Administration, vielfache Termine und iCal Export. (Nur MySQL)</description>
-<maintainers><maintainer><name>Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>1.77</version>
-  <requirements:s9yVersion>1.4</requirements:s9yVersion>
-  <date>2020-03-21</date>
-  <filelist>
-<dir name="serendipity_event_cal">
-<dir name="UTF-8">
-<file>lang_cs.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_de.inc.php</file>
-</dir>
-<dir name="img">
-<file>abhaken.gif</file>
-<file>blank.png</file>
-<file>button_background.png</file>
-<file>delete.png</file>
-<file>icalm.png</file>
-<file>icalw.png</file>
-<file>info.gif</file>
-<file>notes-add.gif</file>
-<file>notes-approve.gif</file>
-<file>notes-change.gif</file>
-<file>notes-checkmark.gif</file>
-<file>notes-delete.gif</file>
-<file>notes-reject.gif</file>
-</dir>
-<file>ChangeLog</file>
-<file>README</file>
-<file>backend_inherits.css</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
-<file>lang_cs.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_de.inc.php</file>
-<file>lang_en.inc.php</file>
-<file>modifier.close_tags.php</file>
-<file>plugin_eventcal_add.tpl</file>
-<file>plugin_eventcal_app.tpl</file>
-<file>plugin_eventcal_cal.tpl</file>
-<file>plugin_eventcal_calweek.tpl</file>
-<file>plugin_eventcal_entry.tpl</file>
-<file>plugin_eventcal_ical.tpl</file>
-<file>serendipity_event_cal.php</file>
-<file>style_eventcal.css</file>
-<file>style_eventcal_backend.css</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_event_cal/UTF-8/lang_cs.inc.php</file>
-    <file>serendipity_event_cal/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_cal/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_event_cal/img/abhaken.gif</file>
-    <file>serendipity_event_cal/img/blank.png</file>
-    <file>serendipity_event_cal/img/button_background.png</file>
-    <file>serendipity_event_cal/img/delete.png</file>
-    <file>serendipity_event_cal/img/icalm.png</file>
-    <file>serendipity_event_cal/img/icalw.png</file>
-    <file>serendipity_event_cal/img/info.gif</file>
-    <file>serendipity_event_cal/img/notes-add.gif</file>
-    <file>serendipity_event_cal/img/notes-approve.gif</file>
-    <file>serendipity_event_cal/img/notes-change.gif</file>
-    <file>serendipity_event_cal/img/notes-checkmark.gif</file>
-    <file>serendipity_event_cal/img/notes-delete.gif</file>
-    <file>serendipity_event_cal/img/notes-reject.gif</file>
-    <file>serendipity_event_cal/ChangeLog</file>
-    <file>serendipity_event_cal/README</file>
-    <file>serendipity_event_cal/backend_inherits.css</file>
-    <file>serendipity_event_cal/documentation_cs.html</file>
-    <file>serendipity_event_cal/documentation_cz.html</file>
-    <file>serendipity_event_cal/lang_cs.inc.php</file>
-    <file>serendipity_event_cal/lang_cz.inc.php</file>
-    <file>serendipity_event_cal/lang_de.inc.php</file>
-    <file>serendipity_event_cal/lang_en.inc.php</file>
-    <file>serendipity_event_cal/modifier.close_tags.php</file>
-    <file>serendipity_event_cal/plugin_eventcal_add.tpl</file>
-    <file>serendipity_event_cal/plugin_eventcal_app.tpl</file>
-    <file>serendipity_event_cal/plugin_eventcal_cal.tpl</file>
-    <file>serendipity_event_cal/plugin_eventcal_calweek.tpl</file>
-    <file>serendipity_event_cal/plugin_eventcal_entry.tpl</file>
-    <file>serendipity_event_cal/plugin_eventcal_ical.tpl</file>
-    <file>serendipity_event_cal/serendipity_event_cal.php</file>
-    <file>serendipity_event_cal/style_eventcal.css</file>
-    <file>serendipity_event_cal/style_eventcal_backend.css</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
 <name>serendipity_event_backup</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_backup/ChangeLog</changelog>
 <license>GPL</license>
@@ -602,7 +459,7 @@
 <release>
   <version>0.15</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_backup">
 <dir name="UTF-8">
@@ -651,134 +508,6 @@
 </release>
 </package>
 <package version="1.0">
-<name>serendipity_event_categorytemplates</name>
-<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_categorytemplates/ChangeLog</changelog>
-<license>GPL</license>
-<summary>Eigenschaften/Templates von Kategorien</summary>
-<groups>FRONTEND_FULL_MODS,FRONTEND_VIEWS,BACKEND_TEMPLATES</groups>
-<description>Dieses Plugin ermöglicht erweitete Eigenschaften für Kategorien und deren Einträge festzulegen: speziell angepassete Templates, Anzeigereihenfolge, Anzeigeanzahl, Passwort-Schutz und Ausschluss aus dem RSS-Feed.</description>
-<maintainers><maintainer><name>Garvin Hicking, Judebert</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>0.35.1</version>
-  <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2020-03-21</date>
-  <filelist>
-<dir name="serendipity_event_categorytemplates">
-<dir name="UTF-8">
-<file>lang_bg.inc.php</file>
-<file>lang_cs.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_de.inc.php</file>
-<file>lang_ja.inc.php</file>
-</dir>
-<file>ChangeLog</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
-<file>lang_bg.inc.php</file>
-<file>lang_cs.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_de.inc.php</file>
-<file>lang_en.inc.php</file>
-<file>lang_ja.inc.php</file>
-<file>serendipity_event_categorytemplates.php</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_event_categorytemplates/UTF-8/lang_bg.inc.php</file>
-    <file>serendipity_event_categorytemplates/UTF-8/lang_cs.inc.php</file>
-    <file>serendipity_event_categorytemplates/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_categorytemplates/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_event_categorytemplates/UTF-8/lang_ja.inc.php</file>
-    <file>serendipity_event_categorytemplates/ChangeLog</file>
-    <file>serendipity_event_categorytemplates/documentation_cs.html</file>
-    <file>serendipity_event_categorytemplates/documentation_cz.html</file>
-    <file>serendipity_event_categorytemplates/lang_bg.inc.php</file>
-    <file>serendipity_event_categorytemplates/lang_cs.inc.php</file>
-    <file>serendipity_event_categorytemplates/lang_cz.inc.php</file>
-    <file>serendipity_event_categorytemplates/lang_de.inc.php</file>
-    <file>serendipity_event_categorytemplates/lang_en.inc.php</file>
-    <file>serendipity_event_categorytemplates/lang_ja.inc.php</file>
-    <file>serendipity_event_categorytemplates/serendipity_event_categorytemplates.php</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
-<name>serendipity_event_ckeditor</name>
-<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_ckeditor/ChangeLog</changelog>
-<license>GPL</license>
-<summary>CKEditor Plus</summary>
-<groups>BACKEND_EDITOR</groups>
-<description>Nutzt CKEditor als Standard WYSIWYG Editor. Benutzung für JS-Editoren: Empfohlen! Nach der Installation, lies die Plugin Konfigurations Seite für weitere Informationen.</description>
-<maintainers><maintainer><name>Rustam Abdullaev, Ian</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>4.5.10.5</version>
-  <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2020-03-21</date>
-  <filelist>
-<dir name="serendipity_event_ckeditor">
-<dir name="UTF-8">
-<file>lang_cs.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_de.inc.php</file>
-</dir>
-<dir name="img">
-<file>mls9y.png</file>
-</dir>
-<file>ChangeLog</file>
-<file>basic_toolbar1.css</file>
-<file>basic_toolbar2.css</file>
-<file>cke_backend.css</file>
-<file>cke_config.js</file>
-<file>cke_ibn.css</file>
-<file>cke_olds9y.css</file>
-<file>cke_plugin.js</file>
-<file>ckeditor_4.5.9.0-plus.zip</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
-<file>highlight.css</file>
-<file>highlight.pack.js</file>
-<file>lang_cs.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_de.inc.php</file>
-<file>lang_en.inc.php</file>
-<file>prettify.css</file>
-<file>prettify.js</file>
-<file>serendipity_event_ckeditor.php</file>
-<file>wysiwyg-style.css</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_event_ckeditor/UTF-8/lang_cs.inc.php</file>
-    <file>serendipity_event_ckeditor/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_ckeditor/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_event_ckeditor/img/mls9y.png</file>
-    <file>serendipity_event_ckeditor/ChangeLog</file>
-    <file>serendipity_event_ckeditor/basic_toolbar1.css</file>
-    <file>serendipity_event_ckeditor/basic_toolbar2.css</file>
-    <file>serendipity_event_ckeditor/cke_backend.css</file>
-    <file>serendipity_event_ckeditor/cke_config.js</file>
-    <file>serendipity_event_ckeditor/cke_ibn.css</file>
-    <file>serendipity_event_ckeditor/cke_olds9y.css</file>
-    <file>serendipity_event_ckeditor/cke_plugin.js</file>
-    <file>serendipity_event_ckeditor/ckeditor_4.5.9.0-plus.zip</file>
-    <file>serendipity_event_ckeditor/documentation_cs.html</file>
-    <file>serendipity_event_ckeditor/documentation_cz.html</file>
-    <file>serendipity_event_ckeditor/highlight.css</file>
-    <file>serendipity_event_ckeditor/highlight.pack.js</file>
-    <file>serendipity_event_ckeditor/lang_cs.inc.php</file>
-    <file>serendipity_event_ckeditor/lang_cz.inc.php</file>
-    <file>serendipity_event_ckeditor/lang_de.inc.php</file>
-    <file>serendipity_event_ckeditor/lang_en.inc.php</file>
-    <file>serendipity_event_ckeditor/prettify.css</file>
-    <file>serendipity_event_ckeditor/prettify.js</file>
-    <file>serendipity_event_ckeditor/serendipity_event_ckeditor.php</file>
-    <file>serendipity_event_ckeditor/wysiwyg-style.css</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
 <name>serendipity_event_browserid</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_browserid/ChangeLog</changelog>
 <license>GPL</license>
@@ -789,7 +518,7 @@
 <release>
   <version>2.0.1</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_browserid">
 <dir name="UTF-8">
@@ -1624,6 +1353,279 @@
 </release>
 </package>
 <package version="1.0">
+<name>serendipity_event_cal</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_cal/ChangeLog</changelog>
+<license>GPL</license>
+<summary>Event-Terminkalender</summary>
+<groups>FRONTEND_FEATURES,BACKEND_FEATURES</groups>
+<description>Zeigt einen Terminkalender innerhalb des Blogs mit dem Blog-Design und allen Formatierungen an. Unterstützt Backend/Frontend Administration, vielfache Termine und iCal Export. (Nur MySQL)</description>
+<maintainers><maintainer><name>Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.77</version>
+  <requirements:s9yVersion>1.4</requirements:s9yVersion>
+  <date>2018-04-05</date>
+  <filelist>
+<dir name="serendipity_event_cal">
+<dir name="UTF-8">
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_de.inc.php</file>
+</dir>
+<dir name="img">
+<file>abhaken.gif</file>
+<file>blank.png</file>
+<file>button_background.png</file>
+<file>delete.png</file>
+<file>icalm.png</file>
+<file>icalw.png</file>
+<file>info.gif</file>
+<file>notes-add.gif</file>
+<file>notes-approve.gif</file>
+<file>notes-change.gif</file>
+<file>notes-checkmark.gif</file>
+<file>notes-delete.gif</file>
+<file>notes-reject.gif</file>
+</dir>
+<file>ChangeLog</file>
+<file>README</file>
+<file>backend_inherits.css</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_de.inc.php</file>
+<file>lang_en.inc.php</file>
+<file>modifier.close_tags.php</file>
+<file>plugin_eventcal_add.tpl</file>
+<file>plugin_eventcal_app.tpl</file>
+<file>plugin_eventcal_cal.tpl</file>
+<file>plugin_eventcal_calweek.tpl</file>
+<file>plugin_eventcal_entry.tpl</file>
+<file>plugin_eventcal_ical.tpl</file>
+<file>serendipity_event_cal.php</file>
+<file>style_eventcal.css</file>
+<file>style_eventcal_backend.css</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>serendipity_event_cal/UTF-8/lang_cs.inc.php</file>
+    <file>serendipity_event_cal/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_cal/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_cal/img/abhaken.gif</file>
+    <file>serendipity_event_cal/img/blank.png</file>
+    <file>serendipity_event_cal/img/button_background.png</file>
+    <file>serendipity_event_cal/img/delete.png</file>
+    <file>serendipity_event_cal/img/icalm.png</file>
+    <file>serendipity_event_cal/img/icalw.png</file>
+    <file>serendipity_event_cal/img/info.gif</file>
+    <file>serendipity_event_cal/img/notes-add.gif</file>
+    <file>serendipity_event_cal/img/notes-approve.gif</file>
+    <file>serendipity_event_cal/img/notes-change.gif</file>
+    <file>serendipity_event_cal/img/notes-checkmark.gif</file>
+    <file>serendipity_event_cal/img/notes-delete.gif</file>
+    <file>serendipity_event_cal/img/notes-reject.gif</file>
+    <file>serendipity_event_cal/ChangeLog</file>
+    <file>serendipity_event_cal/README</file>
+    <file>serendipity_event_cal/backend_inherits.css</file>
+    <file>serendipity_event_cal/documentation_cs.html</file>
+    <file>serendipity_event_cal/documentation_cz.html</file>
+    <file>serendipity_event_cal/lang_cs.inc.php</file>
+    <file>serendipity_event_cal/lang_cz.inc.php</file>
+    <file>serendipity_event_cal/lang_de.inc.php</file>
+    <file>serendipity_event_cal/lang_en.inc.php</file>
+    <file>serendipity_event_cal/modifier.close_tags.php</file>
+    <file>serendipity_event_cal/plugin_eventcal_add.tpl</file>
+    <file>serendipity_event_cal/plugin_eventcal_app.tpl</file>
+    <file>serendipity_event_cal/plugin_eventcal_cal.tpl</file>
+    <file>serendipity_event_cal/plugin_eventcal_calweek.tpl</file>
+    <file>serendipity_event_cal/plugin_eventcal_entry.tpl</file>
+    <file>serendipity_event_cal/plugin_eventcal_ical.tpl</file>
+    <file>serendipity_event_cal/serendipity_event_cal.php</file>
+    <file>serendipity_event_cal/style_eventcal.css</file>
+    <file>serendipity_event_cal/style_eventcal_backend.css</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>serendipity_event_categorytemplates</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_categorytemplates/ChangeLog</changelog>
+<license>GPL</license>
+<summary>Eigenschaften/Templates von Kategorien</summary>
+<groups>FRONTEND_FULL_MODS,FRONTEND_VIEWS,BACKEND_TEMPLATES</groups>
+<description>Dieses Plugin ermöglicht erweitete Eigenschaften für Kategorien und deren Einträge festzulegen: speziell angepassete Templates, Anzeigereihenfolge, Anzeigeanzahl, Passwort-Schutz und Ausschluss aus dem RSS-Feed.</description>
+<maintainers><maintainer><name>Garvin Hicking, Judebert</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>0.35.1</version>
+  <requirements:s9yVersion>0.9</requirements:s9yVersion>
+  <date>2014-11-30</date>
+  <filelist>
+<dir name="serendipity_event_categorytemplates">
+<dir name="UTF-8">
+<file>lang_bg.inc.php</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_de.inc.php</file>
+<file>lang_ja.inc.php</file>
+</dir>
+<file>ChangeLog</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
+<file>lang_bg.inc.php</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_de.inc.php</file>
+<file>lang_en.inc.php</file>
+<file>lang_ja.inc.php</file>
+<file>serendipity_event_categorytemplates.php</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>serendipity_event_categorytemplates/UTF-8/lang_bg.inc.php</file>
+    <file>serendipity_event_categorytemplates/UTF-8/lang_cs.inc.php</file>
+    <file>serendipity_event_categorytemplates/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_categorytemplates/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_categorytemplates/UTF-8/lang_ja.inc.php</file>
+    <file>serendipity_event_categorytemplates/ChangeLog</file>
+    <file>serendipity_event_categorytemplates/documentation_cs.html</file>
+    <file>serendipity_event_categorytemplates/documentation_cz.html</file>
+    <file>serendipity_event_categorytemplates/lang_bg.inc.php</file>
+    <file>serendipity_event_categorytemplates/lang_cs.inc.php</file>
+    <file>serendipity_event_categorytemplates/lang_cz.inc.php</file>
+    <file>serendipity_event_categorytemplates/lang_de.inc.php</file>
+    <file>serendipity_event_categorytemplates/lang_en.inc.php</file>
+    <file>serendipity_event_categorytemplates/lang_ja.inc.php</file>
+    <file>serendipity_event_categorytemplates/serendipity_event_categorytemplates.php</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>serendipity_event_ckeditor</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_ckeditor/ChangeLog</changelog>
+<license>GPL</license>
+<summary>CKEditor Plus</summary>
+<groups>BACKEND_EDITOR</groups>
+<description>Nutzt CKEditor als Standard WYSIWYG Editor. Benutzung für JS-Editoren: Empfohlen! Nach der Installation, lies die Plugin Konfigurations Seite für weitere Informationen.</description>
+<maintainers><maintainer><name>Rustam Abdullaev, Ian</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>4.5.10.5</version>
+  <requirements:s9yVersion>1.7</requirements:s9yVersion>
+  <date>2016-10-26</date>
+  <filelist>
+<dir name="serendipity_event_ckeditor">
+<dir name="UTF-8">
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_de.inc.php</file>
+</dir>
+<dir name="img">
+<file>mls9y.png</file>
+</dir>
+<file>ChangeLog</file>
+<file>basic_toolbar1.css</file>
+<file>basic_toolbar2.css</file>
+<file>cke_backend.css</file>
+<file>cke_config.js</file>
+<file>cke_ibn.css</file>
+<file>cke_olds9y.css</file>
+<file>cke_plugin.js</file>
+<file>ckeditor_4.5.9.0-plus.zip</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
+<file>highlight.css</file>
+<file>highlight.pack.js</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_de.inc.php</file>
+<file>lang_en.inc.php</file>
+<file>prettify.css</file>
+<file>prettify.js</file>
+<file>serendipity_event_ckeditor.php</file>
+<file>wysiwyg-style.css</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>serendipity_event_ckeditor/UTF-8/lang_cs.inc.php</file>
+    <file>serendipity_event_ckeditor/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_ckeditor/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_ckeditor/img/mls9y.png</file>
+    <file>serendipity_event_ckeditor/ChangeLog</file>
+    <file>serendipity_event_ckeditor/basic_toolbar1.css</file>
+    <file>serendipity_event_ckeditor/basic_toolbar2.css</file>
+    <file>serendipity_event_ckeditor/cke_backend.css</file>
+    <file>serendipity_event_ckeditor/cke_config.js</file>
+    <file>serendipity_event_ckeditor/cke_ibn.css</file>
+    <file>serendipity_event_ckeditor/cke_olds9y.css</file>
+    <file>serendipity_event_ckeditor/cke_plugin.js</file>
+    <file>serendipity_event_ckeditor/ckeditor_4.5.9.0-plus.zip</file>
+    <file>serendipity_event_ckeditor/documentation_cs.html</file>
+    <file>serendipity_event_ckeditor/documentation_cz.html</file>
+    <file>serendipity_event_ckeditor/highlight.css</file>
+    <file>serendipity_event_ckeditor/highlight.pack.js</file>
+    <file>serendipity_event_ckeditor/lang_cs.inc.php</file>
+    <file>serendipity_event_ckeditor/lang_cz.inc.php</file>
+    <file>serendipity_event_ckeditor/lang_de.inc.php</file>
+    <file>serendipity_event_ckeditor/lang_en.inc.php</file>
+    <file>serendipity_event_ckeditor/prettify.css</file>
+    <file>serendipity_event_ckeditor/prettify.js</file>
+    <file>serendipity_event_ckeditor/serendipity_event_ckeditor.php</file>
+    <file>serendipity_event_ckeditor/wysiwyg-style.css</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>serendipity_event_comics</name>
+<license>GPL</license>
+<summary>Comics</summary>
+<groups>FRONTEND_ENTRY_RELATED</groups>
+<description>Webcomics im Blog posten</description>
+<maintainers><maintainer><name>Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.5</version>
+  <requirements:s9yVersion>0.8</requirements:s9yVersion>
+  <date>2019-08-17</date>
+  <filelist>
+<dir name="serendipity_event_comics">
+<dir name="UTF-8">
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_de.inc.php</file>
+<file>lang_ko.inc.php</file>
+</dir>
+<file>Changelog</file>
+<file>README</file>
+<file>documentation_cs.html</file>
+<file>documentation_cz.html</file>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_de.inc.php</file>
+<file>lang_en.inc.php</file>
+<file>lang_ko.inc.php</file>
+<file>serendipity_event_comics.php</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>serendipity_event_comics/UTF-8/lang_cs.inc.php</file>
+    <file>serendipity_event_comics/UTF-8/lang_cz.inc.php</file>
+    <file>serendipity_event_comics/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_comics/UTF-8/lang_ko.inc.php</file>
+    <file>serendipity_event_comics/Changelog</file>
+    <file>serendipity_event_comics/README</file>
+    <file>serendipity_event_comics/documentation_cs.html</file>
+    <file>serendipity_event_comics/documentation_cz.html</file>
+    <file>serendipity_event_comics/lang_cs.inc.php</file>
+    <file>serendipity_event_comics/lang_cz.inc.php</file>
+    <file>serendipity_event_comics/lang_de.inc.php</file>
+    <file>serendipity_event_comics/lang_en.inc.php</file>
+    <file>serendipity_event_comics/lang_ko.inc.php</file>
+    <file>serendipity_event_comics/serendipity_event_comics.php</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
 <name>serendipity_event_commentedit</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_commentedit/ChangeLog</changelog>
 <license>GPL</license>
@@ -1634,7 +1636,7 @@
 <release>
   <version>0.2.3</version>
   <requirements:s9yVersion>1.5</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_commentedit">
 <dir name="UTF-8">
@@ -1687,7 +1689,7 @@
 <release>
   <version>1.6</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_commentsearch">
 <dir name="UTF-8">
@@ -1738,7 +1740,7 @@
 <release>
   <version>1.10</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_commentspice">
 <dir name="UTF-8">
@@ -1815,7 +1817,7 @@
 <release>
   <version>1.22</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_contactform">
 <dir name="UTF-8">
@@ -1891,7 +1893,7 @@
 <release>
   <version>1.4.1</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-05-18</date>
   <filelist>
 <dir name="serendipity_event_contentrewrite">
 <dir name="UTF-8">
@@ -1970,7 +1972,7 @@
 <release>
   <version>2.09</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_cpgselector">
 <dir name="UTF-8">
@@ -2023,7 +2025,7 @@
 <release>
   <version>0.10</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_cronjob">
 <dir name="UTF-8">
@@ -2068,7 +2070,7 @@
 <release>
   <version>1.17</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2017-04-17</date>
   <filelist>
 <dir name="serendipity_event_custom_permalinks">
 <dir name="UTF-8">
@@ -2113,7 +2115,7 @@
 <release>
   <version>1.12.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-04-27</date>
   <filelist>
 <dir name="serendipity_event_customarchive">
 <dir name="UTF-8">
@@ -2164,7 +2166,7 @@
 <release>
   <version>0.2.9</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_dbclean">
 <dir name="UTF-8">
@@ -2211,7 +2213,7 @@
 <release>
   <version>1.8.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_dejure">
 <dir name="UTF-8">
@@ -2254,7 +2256,7 @@
 <release>
   <version>0.5</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_disqus">
 <dir name="UTF-8">
@@ -2299,7 +2301,7 @@
 <release>
   <version>0.38</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-10-26</date>
   <filelist>
 <dir name="serendipity_event_downloadmanager">
 <dir name="UTF-8">
@@ -2313,20 +2315,21 @@
 <dir name="dlicons">
 <file>rtf.png</file>
 <file>3ds.png</file>
-<file>sdd.png</file>
-<file>ac3.png</file>
 <file>sdw.png</file>
+<file>ac3.png</file>
+<file>sdd.png</file>
 <file>ace.png</file>
 <file>sql.png</file>
 <file>afm.png</file>
-<file>tar.png</file>
-<file>aiff.png</file>
 <file>svg.png</file>
+<file>aiff.png</file>
+<file>xcf.png</file>
 <file>apm.png</file>
-<file>tex.png</file>
+<file>xls.png</file>
 <file>arj.png</file>
-<file>tga.png</file>
+<file>xpm.png</file>
 <file>asf.png</file>
+<file>zip.png</file>
 <file>au.png</file>
 <file>avi.png</file>
 <file>bak.png</file>
@@ -2380,6 +2383,9 @@
 <file>rar.png</file>
 <file>rm.png</file>
 <file>rpm.png</file>
+<file>tar.png</file>
+<file>tex.png</file>
+<file>tga.png</file>
 <file>tiff.png</file>
 <file>ttf.png</file>
 <file>txt.png</file>
@@ -2387,10 +2393,6 @@
 <file>unknown_small.png</file>
 <file>wav.png</file>
 <file>wmv.png</file>
-<file>xcf.png</file>
-<file>xls.png</file>
-<file>xpm.png</file>
-<file>zip.png</file>
 </dir>
 <file>b.gif</file>
 <file>del.gif</file>
@@ -2460,20 +2462,21 @@
     <file>serendipity_event_downloadmanager/UTF-8/lang_ja.inc.php</file>
     <file>serendipity_event_downloadmanager/img/dlicons/rtf.png</file>
     <file>serendipity_event_downloadmanager/img/dlicons/3ds.png</file>
-    <file>serendipity_event_downloadmanager/img/dlicons/sdd.png</file>
-    <file>serendipity_event_downloadmanager/img/dlicons/ac3.png</file>
     <file>serendipity_event_downloadmanager/img/dlicons/sdw.png</file>
+    <file>serendipity_event_downloadmanager/img/dlicons/ac3.png</file>
+    <file>serendipity_event_downloadmanager/img/dlicons/sdd.png</file>
     <file>serendipity_event_downloadmanager/img/dlicons/ace.png</file>
     <file>serendipity_event_downloadmanager/img/dlicons/sql.png</file>
     <file>serendipity_event_downloadmanager/img/dlicons/afm.png</file>
-    <file>serendipity_event_downloadmanager/img/dlicons/tar.png</file>
-    <file>serendipity_event_downloadmanager/img/dlicons/aiff.png</file>
     <file>serendipity_event_downloadmanager/img/dlicons/svg.png</file>
+    <file>serendipity_event_downloadmanager/img/dlicons/aiff.png</file>
+    <file>serendipity_event_downloadmanager/img/dlicons/xcf.png</file>
     <file>serendipity_event_downloadmanager/img/dlicons/apm.png</file>
-    <file>serendipity_event_downloadmanager/img/dlicons/tex.png</file>
+    <file>serendipity_event_downloadmanager/img/dlicons/xls.png</file>
     <file>serendipity_event_downloadmanager/img/dlicons/arj.png</file>
-    <file>serendipity_event_downloadmanager/img/dlicons/tga.png</file>
+    <file>serendipity_event_downloadmanager/img/dlicons/xpm.png</file>
     <file>serendipity_event_downloadmanager/img/dlicons/asf.png</file>
+    <file>serendipity_event_downloadmanager/img/dlicons/zip.png</file>
     <file>serendipity_event_downloadmanager/img/dlicons/au.png</file>
     <file>serendipity_event_downloadmanager/img/dlicons/avi.png</file>
     <file>serendipity_event_downloadmanager/img/dlicons/bak.png</file>
@@ -2527,6 +2530,9 @@
     <file>serendipity_event_downloadmanager/img/dlicons/rar.png</file>
     <file>serendipity_event_downloadmanager/img/dlicons/rm.png</file>
     <file>serendipity_event_downloadmanager/img/dlicons/rpm.png</file>
+    <file>serendipity_event_downloadmanager/img/dlicons/tar.png</file>
+    <file>serendipity_event_downloadmanager/img/dlicons/tex.png</file>
+    <file>serendipity_event_downloadmanager/img/dlicons/tga.png</file>
     <file>serendipity_event_downloadmanager/img/dlicons/tiff.png</file>
     <file>serendipity_event_downloadmanager/img/dlicons/ttf.png</file>
     <file>serendipity_event_downloadmanager/img/dlicons/txt.png</file>
@@ -2534,10 +2540,6 @@
     <file>serendipity_event_downloadmanager/img/dlicons/unknown_small.png</file>
     <file>serendipity_event_downloadmanager/img/dlicons/wav.png</file>
     <file>serendipity_event_downloadmanager/img/dlicons/wmv.png</file>
-    <file>serendipity_event_downloadmanager/img/dlicons/xcf.png</file>
-    <file>serendipity_event_downloadmanager/img/dlicons/xls.png</file>
-    <file>serendipity_event_downloadmanager/img/dlicons/xpm.png</file>
-    <file>serendipity_event_downloadmanager/img/dlicons/zip.png</file>
     <file>serendipity_event_downloadmanager/img/b.gif</file>
     <file>serendipity_event_downloadmanager/img/del.gif</file>
     <file>serendipity_event_downloadmanager/img/del.png</file>
@@ -2608,7 +2610,7 @@
 <release>
   <version>3.0.83.1</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_dpsyntaxhighlighter">
 <dir name="UTF-8">
@@ -2616,7 +2618,23 @@
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
 </dir>
+<dir name="dp.SyntaxHighlighter">
+<dir name="Scripts">
+</dir>
+<dir name="Styles">
+</dir>
+<dir name="Templates">
+</dir>
+<dir name="Uncompressed">
+</dir>
+</dir>
 <dir name="sh">
+<dir name="2.1.364">
+<dir name="scripts">
+</dir>
+<dir name="styles">
+</dir>
+</dir>
 <dir name="3.0.83">
 <dir name="scripts">
 <file>shAutoloader.js</file>
@@ -2753,7 +2771,7 @@
 <release>
   <version>1.2.1</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-09-02</date>
   <filelist>
 <dir name="serendipity_event_dsgvo_gdpr">
 <dir name="UTF-8">
@@ -2794,7 +2812,7 @@
 <release>
   <version>1.03</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-01-06</date>
   <filelist>
 <dir name="serendipity_event_email_bot_obfuscator">
 <dir name="UTF-8">
@@ -2849,7 +2867,7 @@
 <release>
   <version>2.12</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-05-11</date>
   <filelist>
 <dir name="serendipity_event_emoticonchooser">
 <dir name="UTF-8">
@@ -2903,7 +2921,7 @@
 <release>
   <version>1.16</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-03-23</date>
   <filelist>
 <dir name="serendipity_event_entrycheck">
 <dir name="UTF-8">
@@ -2954,7 +2972,7 @@
 <release>
   <version>1.10</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-06-09</date>
   <filelist>
 <dir name="serendipity_event_entrylastmodified">
 <dir name="UTF-8">
@@ -3003,7 +3021,7 @@
 <release>
   <version>1.40</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-03-18</date>
   <filelist>
 <dir name="serendipity_event_entrypaging">
 <dir name="UTF-8">
@@ -3059,7 +3077,7 @@
 <release>
   <version>1.5.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_entrysplit">
 <dir name="UTF-8">
@@ -3110,7 +3128,7 @@
 <release>
   <version>1.23</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_externalauth">
 <dir name="UTF-8">
@@ -3161,7 +3179,7 @@
 <release>
   <version>1.4</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-08-06</date>
   <filelist>
 <dir name="serendipity_event_externalphp">
 <dir name="UTF-8">
@@ -3206,7 +3224,7 @@
 <release>
   <version>0.6</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_facebook">
 <dir name="UTF-8">
@@ -3251,7 +3269,7 @@
 <release>
   <version>1.24</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-10-26</date>
   <filelist>
 <dir name="serendipity_event_faq">
 <dir name="UTF-8">
@@ -3378,7 +3396,7 @@
 <release>
   <version>1.7.3</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_filter_entries">
 <dir name="UTF-8">
@@ -3427,7 +3445,7 @@
 <release>
   <version>1.14</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_flattr">
 <dir name="UTF-8">
@@ -3472,7 +3490,7 @@
 <release>
   <version>0.6</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_flickr">
 <dir name="UTF-8">
@@ -3529,7 +3547,7 @@
 <release>
   <version>0.12.2</version>
   <requirements:s9yVersion>0.9.1</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_forgotpassword">
 <dir name="UTF-8">
@@ -3582,7 +3600,7 @@
 <release>
   <version>0.38.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-04-27</date>
   <filelist>
 <dir name="serendipity_event_forum">
 <dir name="UTF-8">
@@ -3596,19 +3614,17 @@
 <dir name="dlicons">
 <file>sdw.png</file>
 <file>3ds.png</file>
-<file>sql.png</file>
-<file>ac3.png</file>
 <file>svg.png</file>
+<file>ac3.png</file>
+<file>sql.png</file>
 <file>ace.png</file>
 <file>tar.png</file>
 <file>afm.png</file>
-<file>tga.png</file>
-<file>aiff.png</file>
 <file>tex.png</file>
+<file>aiff.png</file>
+<file>zip.png</file>
 <file>apm.png</file>
-<file>tiff.png</file>
 <file>arj.png</file>
-<file>ttf.png</file>
 <file>asf.png</file>
 <file>au.png</file>
 <file>avi.png</file>
@@ -3663,6 +3679,9 @@
 <file>rpm.png</file>
 <file>rtf.png</file>
 <file>sdd.png</file>
+<file>tga.png</file>
+<file>tiff.png</file>
+<file>ttf.png</file>
 <file>txt.png</file>
 <file>unknown.png</file>
 <file>wav.png</file>
@@ -3670,7 +3689,6 @@
 <file>xcf.png</file>
 <file>xls.png</file>
 <file>xpm.png</file>
-<file>zip.png</file>
 </dir>
 <file>.htaccess</file>
 <file>blanc.png</file>
@@ -3731,19 +3749,17 @@
     <file>serendipity_event_forum/UTF-8/lang_ja.inc.php</file>
     <file>serendipity_event_forum/img/dlicons/sdw.png</file>
     <file>serendipity_event_forum/img/dlicons/3ds.png</file>
-    <file>serendipity_event_forum/img/dlicons/sql.png</file>
-    <file>serendipity_event_forum/img/dlicons/ac3.png</file>
     <file>serendipity_event_forum/img/dlicons/svg.png</file>
+    <file>serendipity_event_forum/img/dlicons/ac3.png</file>
+    <file>serendipity_event_forum/img/dlicons/sql.png</file>
     <file>serendipity_event_forum/img/dlicons/ace.png</file>
     <file>serendipity_event_forum/img/dlicons/tar.png</file>
     <file>serendipity_event_forum/img/dlicons/afm.png</file>
-    <file>serendipity_event_forum/img/dlicons/tga.png</file>
-    <file>serendipity_event_forum/img/dlicons/aiff.png</file>
     <file>serendipity_event_forum/img/dlicons/tex.png</file>
+    <file>serendipity_event_forum/img/dlicons/aiff.png</file>
+    <file>serendipity_event_forum/img/dlicons/zip.png</file>
     <file>serendipity_event_forum/img/dlicons/apm.png</file>
-    <file>serendipity_event_forum/img/dlicons/tiff.png</file>
     <file>serendipity_event_forum/img/dlicons/arj.png</file>
-    <file>serendipity_event_forum/img/dlicons/ttf.png</file>
     <file>serendipity_event_forum/img/dlicons/asf.png</file>
     <file>serendipity_event_forum/img/dlicons/au.png</file>
     <file>serendipity_event_forum/img/dlicons/avi.png</file>
@@ -3798,6 +3814,9 @@
     <file>serendipity_event_forum/img/dlicons/rpm.png</file>
     <file>serendipity_event_forum/img/dlicons/rtf.png</file>
     <file>serendipity_event_forum/img/dlicons/sdd.png</file>
+    <file>serendipity_event_forum/img/dlicons/tga.png</file>
+    <file>serendipity_event_forum/img/dlicons/tiff.png</file>
+    <file>serendipity_event_forum/img/dlicons/ttf.png</file>
     <file>serendipity_event_forum/img/dlicons/txt.png</file>
     <file>serendipity_event_forum/img/dlicons/unknown.png</file>
     <file>serendipity_event_forum/img/dlicons/wav.png</file>
@@ -3805,7 +3824,6 @@
     <file>serendipity_event_forum/img/dlicons/xcf.png</file>
     <file>serendipity_event_forum/img/dlicons/xls.png</file>
     <file>serendipity_event_forum/img/dlicons/xpm.png</file>
-    <file>serendipity_event_forum/img/dlicons/zip.png</file>
     <file>serendipity_event_forum/img/.htaccess</file>
     <file>serendipity_event_forum/img/blanc.png</file>
     <file>serendipity_event_forum/img/buttons.xcf</file>
@@ -3863,7 +3881,7 @@
 <release>
   <version>3.70</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-08-15</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <dir name="UTF-8">
@@ -3971,7 +3989,7 @@
 <release>
   <version>1.13</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_galleryimage">
 <dir name="UTF-8">
@@ -4015,7 +4033,7 @@
 <release>
   <version>0.2</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2020-03-13</date>
   <filelist>
 <dir name="serendipity_event_geo_json">
 <dir name="UTF-8">
@@ -4048,7 +4066,7 @@
 <release>
   <version>1.34</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2020-03-11</date>
   <filelist>
 <dir name="serendipity_event_geotag">
 <dir name="UTF-8">
@@ -4105,7 +4123,7 @@
 <release>
   <version>1.4.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_geourl">
 <dir name="UTF-8">
@@ -4154,7 +4172,7 @@
 <release>
   <version>1.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-06-10</date>
   <filelist>
 <dir name="serendipity_event_geshi">
 <dir name="UTF-8">
@@ -4164,139 +4182,139 @@
 <file>lang_de.inc.php</file>
 </dir>
 <dir name="geshi">
-<file>genero.php</file>
+<file>gambas.php</file>
 <file>4cs.php</file>
-<file>genie.php</file>
+<file>gdb.php</file>
 <file>6502acme.php</file>
-<file>dcs.php</file>
+<file>dcl.php</file>
 <file>6502kickass.php</file>
-<file>gettext.php</file>
+<file>genero.php</file>
 <file>6502tasm.php</file>
 <file>dcpu16.php</file>
 <file>68000devpac.php</file>
-<file>glsl.php</file>
+<file>genie.php</file>
 <file>abap.php</file>
-<file>delphi.php</file>
+<file>dcs.php</file>
 <file>actionscript.php</file>
-<file>diff.php</file>
+<file>delphi.php</file>
 <file>actionscript3.php</file>
-<file>gml.php</file>
+<file>gettext.php</file>
 <file>ada.php</file>
-<file>gnuplot.php</file>
+<file>glsl.php</file>
 <file>aimms.php</file>
-<file>go.php</file>
+<file>gml.php</file>
 <file>algol68.php</file>
-<file>groovy.php</file>
+<file>gnuplot.php</file>
 <file>apache.php</file>
-<file>ezt.php</file>
+<file>div.php</file>
 <file>applescript.php</file>
-<file>euphoria.php</file>
+<file>diff.php</file>
 <file>apt_sources.php</file>
-<file>gwbasic.php</file>
+<file>go.php</file>
 <file>arm.php</file>
-<file>haskell.php</file>
+<file>groovy.php</file>
 <file>asm.php</file>
-<file>haxe.php</file>
+<file>gwbasic.php</file>
 <file>asp.php</file>
-<file>f1.php</file>
+<file>dos.php</file>
 <file>asymptote.php</file>
-<file>hicest.php</file>
+<file>haskell.php</file>
 <file>autoconf.php</file>
-<file>falcon.php</file>
+<file>dot.php</file>
 <file>autohotkey.php</file>
-<file>hq9plus.php</file>
+<file>haxe.php</file>
 <file>autoit.php</file>
-<file>html4strict.php</file>
+<file>hicest.php</file>
 <file>avisynth.php</file>
-<file>html5.php</file>
+<file>hq9plus.php</file>
 <file>awk.php</file>
-<file>fo.php</file>
+<file>e.php</file>
 <file>bascomavr.php</file>
-<file>icon.php</file>
+<file>html4strict.php</file>
 <file>bash.php</file>
-<file>idl.php</file>
+<file>html5.php</file>
 <file>basic4gl.php</file>
-<file>ini.php</file>
+<file>icon.php</file>
 <file>batch.php</file>
-<file>inno.php</file>
+<file>idl.php</file>
 <file>bf.php</file>
-<file>intercal.php</file>
+<file>ini.php</file>
 <file>biblatex.php</file>
-<file>io.php</file>
+<file>inno.php</file>
 <file>bibtex.php</file>
-<file>fortran.php</file>
-<file>blitzbasic.php</file>
-<file>ispfpanel.php</file>
-<file>bnf.php</file>
-<file>j.php</file>
-<file>boo.php</file>
-<file>java.php</file>
-<file>c.php</file>
 <file>freebasic.php</file>
+<file>blitzbasic.php</file>
+<file>intercal.php</file>
+<file>bnf.php</file>
+<file>io.php</file>
+<file>boo.php</file>
+<file>ispfpanel.php</file>
+<file>c.php</file>
+<file>fortran.php</file>
 <file>c_loadrunner.php</file>
-<file>java5.php</file>
+<file>j.php</file>
 <file>c_mac.php</file>
-<file>javascript.php</file>
+<file>java.php</file>
 <file>c_winapi.php</file>
-<file>jcl.php</file>
+<file>java5.php</file>
 <file>caddcl.php</file>
-<file>jquery.php</file>
+<file>javascript.php</file>
 <file>cadlisp.php</file>
-<file>julia.php</file>
+<file>jcl.php</file>
 <file>ceylon.php</file>
-<file>julia.php.bak</file>
+<file>jquery.php</file>
 <file>cfdg.php</file>
-<file>kixtart.php</file>
+<file>julia.php</file>
 <file>cfm.php</file>
 <file>freeswitch.php</file>
 <file>chaiscript.php</file>
-<file>klonec.php</file>
+<file>julia.php.bak</file>
 <file>chapel.php</file>
-<file>klonecpp.php</file>
+<file>kixtart.php</file>
 <file>cil.php</file>
-<file>kotlin.php</file>
+<file>klonec.php</file>
 <file>clojure.php</file>
-<file>latex.php</file>
+<file>klonecpp.php</file>
 <file>cmake.php</file>
-<file>lb.php</file>
+<file>kotlin.php</file>
 <file>cobol.php</file>
 <file>fsharp.php</file>
 <file>coffeescript.php</file>
-<file>ldif.php</file>
+<file>latex.php</file>
 <file>cpp-qt.php</file>
 <file>cpp-winapi.php</file>
-<file>lisp.php</file>
+<file>lb.php</file>
 <file>cpp.php</file>
-<file>llvm.php</file>
+<file>ldif.php</file>
 <file>csharp.php</file>
-<file>locobasic.php</file>
+<file>lisp.php</file>
 <file>css.php</file>
-<file>logtalk.php</file>
+<file>llvm.php</file>
 <file>cuesheet.php</file>
-<file>lolcode.php</file>
+<file>locobasic.php</file>
 <file>d.php</file>
-<file>lotusformulas.php</file>
+<file>logtalk.php</file>
 <file>dart.php</file>
-<file>lotusscript.php</file>
-<file>dcl.php</file>
-<file>div.php</file>
-<file>lscript.php</file>
-<file>dos.php</file>
-<file>lsl2.php</file>
-<file>dot.php</file>
-<file>lua.php</file>
-<file>e.php</file>
-<file>gambas.php</file>
 <file>ecmascript.php</file>
-<file>m68k.php</file>
+<file>lolcode.php</file>
 <file>eiffel.php</file>
-<file>magiksf.php</file>
+<file>lotusformulas.php</file>
 <file>email.php</file>
-<file>make.php</file>
+<file>lotusscript.php</file>
 <file>epc.php</file>
-<file>mapbasic.php</file>
+<file>lscript.php</file>
 <file>erlang.php</file>
-<file>gdb.php</file>
+<file>lsl2.php</file>
+<file>euphoria.php</file>
+<file>lua.php</file>
+<file>ezt.php</file>
+<file>m68k.php</file>
+<file>f1.php</file>
+<file>magiksf.php</file>
+<file>falcon.php</file>
+<file>make.php</file>
+<file>fo.php</file>
+<file>mapbasic.php</file>
 <file>mathematica.php</file>
 <file>matlab.php</file>
 <file>mercury.php</file>
@@ -4442,139 +4460,139 @@
     <file>serendipity_event_geshi/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_geshi/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_geshi/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_event_geshi/geshi/genero.php</file>
+    <file>serendipity_event_geshi/geshi/gambas.php</file>
     <file>serendipity_event_geshi/geshi/4cs.php</file>
-    <file>serendipity_event_geshi/geshi/genie.php</file>
+    <file>serendipity_event_geshi/geshi/gdb.php</file>
     <file>serendipity_event_geshi/geshi/6502acme.php</file>
-    <file>serendipity_event_geshi/geshi/dcs.php</file>
+    <file>serendipity_event_geshi/geshi/dcl.php</file>
     <file>serendipity_event_geshi/geshi/6502kickass.php</file>
-    <file>serendipity_event_geshi/geshi/gettext.php</file>
+    <file>serendipity_event_geshi/geshi/genero.php</file>
     <file>serendipity_event_geshi/geshi/6502tasm.php</file>
     <file>serendipity_event_geshi/geshi/dcpu16.php</file>
     <file>serendipity_event_geshi/geshi/68000devpac.php</file>
-    <file>serendipity_event_geshi/geshi/glsl.php</file>
+    <file>serendipity_event_geshi/geshi/genie.php</file>
     <file>serendipity_event_geshi/geshi/abap.php</file>
-    <file>serendipity_event_geshi/geshi/delphi.php</file>
+    <file>serendipity_event_geshi/geshi/dcs.php</file>
     <file>serendipity_event_geshi/geshi/actionscript.php</file>
-    <file>serendipity_event_geshi/geshi/diff.php</file>
+    <file>serendipity_event_geshi/geshi/delphi.php</file>
     <file>serendipity_event_geshi/geshi/actionscript3.php</file>
-    <file>serendipity_event_geshi/geshi/gml.php</file>
+    <file>serendipity_event_geshi/geshi/gettext.php</file>
     <file>serendipity_event_geshi/geshi/ada.php</file>
-    <file>serendipity_event_geshi/geshi/gnuplot.php</file>
+    <file>serendipity_event_geshi/geshi/glsl.php</file>
     <file>serendipity_event_geshi/geshi/aimms.php</file>
-    <file>serendipity_event_geshi/geshi/go.php</file>
+    <file>serendipity_event_geshi/geshi/gml.php</file>
     <file>serendipity_event_geshi/geshi/algol68.php</file>
-    <file>serendipity_event_geshi/geshi/groovy.php</file>
+    <file>serendipity_event_geshi/geshi/gnuplot.php</file>
     <file>serendipity_event_geshi/geshi/apache.php</file>
-    <file>serendipity_event_geshi/geshi/ezt.php</file>
+    <file>serendipity_event_geshi/geshi/div.php</file>
     <file>serendipity_event_geshi/geshi/applescript.php</file>
-    <file>serendipity_event_geshi/geshi/euphoria.php</file>
+    <file>serendipity_event_geshi/geshi/diff.php</file>
     <file>serendipity_event_geshi/geshi/apt_sources.php</file>
-    <file>serendipity_event_geshi/geshi/gwbasic.php</file>
+    <file>serendipity_event_geshi/geshi/go.php</file>
     <file>serendipity_event_geshi/geshi/arm.php</file>
-    <file>serendipity_event_geshi/geshi/haskell.php</file>
+    <file>serendipity_event_geshi/geshi/groovy.php</file>
     <file>serendipity_event_geshi/geshi/asm.php</file>
-    <file>serendipity_event_geshi/geshi/haxe.php</file>
+    <file>serendipity_event_geshi/geshi/gwbasic.php</file>
     <file>serendipity_event_geshi/geshi/asp.php</file>
-    <file>serendipity_event_geshi/geshi/f1.php</file>
+    <file>serendipity_event_geshi/geshi/dos.php</file>
     <file>serendipity_event_geshi/geshi/asymptote.php</file>
-    <file>serendipity_event_geshi/geshi/hicest.php</file>
+    <file>serendipity_event_geshi/geshi/haskell.php</file>
     <file>serendipity_event_geshi/geshi/autoconf.php</file>
-    <file>serendipity_event_geshi/geshi/falcon.php</file>
+    <file>serendipity_event_geshi/geshi/dot.php</file>
     <file>serendipity_event_geshi/geshi/autohotkey.php</file>
-    <file>serendipity_event_geshi/geshi/hq9plus.php</file>
+    <file>serendipity_event_geshi/geshi/haxe.php</file>
     <file>serendipity_event_geshi/geshi/autoit.php</file>
-    <file>serendipity_event_geshi/geshi/html4strict.php</file>
+    <file>serendipity_event_geshi/geshi/hicest.php</file>
     <file>serendipity_event_geshi/geshi/avisynth.php</file>
-    <file>serendipity_event_geshi/geshi/html5.php</file>
+    <file>serendipity_event_geshi/geshi/hq9plus.php</file>
     <file>serendipity_event_geshi/geshi/awk.php</file>
-    <file>serendipity_event_geshi/geshi/fo.php</file>
+    <file>serendipity_event_geshi/geshi/e.php</file>
     <file>serendipity_event_geshi/geshi/bascomavr.php</file>
-    <file>serendipity_event_geshi/geshi/icon.php</file>
+    <file>serendipity_event_geshi/geshi/html4strict.php</file>
     <file>serendipity_event_geshi/geshi/bash.php</file>
-    <file>serendipity_event_geshi/geshi/idl.php</file>
+    <file>serendipity_event_geshi/geshi/html5.php</file>
     <file>serendipity_event_geshi/geshi/basic4gl.php</file>
-    <file>serendipity_event_geshi/geshi/ini.php</file>
+    <file>serendipity_event_geshi/geshi/icon.php</file>
     <file>serendipity_event_geshi/geshi/batch.php</file>
-    <file>serendipity_event_geshi/geshi/inno.php</file>
+    <file>serendipity_event_geshi/geshi/idl.php</file>
     <file>serendipity_event_geshi/geshi/bf.php</file>
-    <file>serendipity_event_geshi/geshi/intercal.php</file>
+    <file>serendipity_event_geshi/geshi/ini.php</file>
     <file>serendipity_event_geshi/geshi/biblatex.php</file>
-    <file>serendipity_event_geshi/geshi/io.php</file>
+    <file>serendipity_event_geshi/geshi/inno.php</file>
     <file>serendipity_event_geshi/geshi/bibtex.php</file>
-    <file>serendipity_event_geshi/geshi/fortran.php</file>
-    <file>serendipity_event_geshi/geshi/blitzbasic.php</file>
-    <file>serendipity_event_geshi/geshi/ispfpanel.php</file>
-    <file>serendipity_event_geshi/geshi/bnf.php</file>
-    <file>serendipity_event_geshi/geshi/j.php</file>
-    <file>serendipity_event_geshi/geshi/boo.php</file>
-    <file>serendipity_event_geshi/geshi/java.php</file>
-    <file>serendipity_event_geshi/geshi/c.php</file>
     <file>serendipity_event_geshi/geshi/freebasic.php</file>
+    <file>serendipity_event_geshi/geshi/blitzbasic.php</file>
+    <file>serendipity_event_geshi/geshi/intercal.php</file>
+    <file>serendipity_event_geshi/geshi/bnf.php</file>
+    <file>serendipity_event_geshi/geshi/io.php</file>
+    <file>serendipity_event_geshi/geshi/boo.php</file>
+    <file>serendipity_event_geshi/geshi/ispfpanel.php</file>
+    <file>serendipity_event_geshi/geshi/c.php</file>
+    <file>serendipity_event_geshi/geshi/fortran.php</file>
     <file>serendipity_event_geshi/geshi/c_loadrunner.php</file>
-    <file>serendipity_event_geshi/geshi/java5.php</file>
+    <file>serendipity_event_geshi/geshi/j.php</file>
     <file>serendipity_event_geshi/geshi/c_mac.php</file>
-    <file>serendipity_event_geshi/geshi/javascript.php</file>
+    <file>serendipity_event_geshi/geshi/java.php</file>
     <file>serendipity_event_geshi/geshi/c_winapi.php</file>
-    <file>serendipity_event_geshi/geshi/jcl.php</file>
+    <file>serendipity_event_geshi/geshi/java5.php</file>
     <file>serendipity_event_geshi/geshi/caddcl.php</file>
-    <file>serendipity_event_geshi/geshi/jquery.php</file>
+    <file>serendipity_event_geshi/geshi/javascript.php</file>
     <file>serendipity_event_geshi/geshi/cadlisp.php</file>
-    <file>serendipity_event_geshi/geshi/julia.php</file>
+    <file>serendipity_event_geshi/geshi/jcl.php</file>
     <file>serendipity_event_geshi/geshi/ceylon.php</file>
-    <file>serendipity_event_geshi/geshi/julia.php.bak</file>
+    <file>serendipity_event_geshi/geshi/jquery.php</file>
     <file>serendipity_event_geshi/geshi/cfdg.php</file>
-    <file>serendipity_event_geshi/geshi/kixtart.php</file>
+    <file>serendipity_event_geshi/geshi/julia.php</file>
     <file>serendipity_event_geshi/geshi/cfm.php</file>
     <file>serendipity_event_geshi/geshi/freeswitch.php</file>
     <file>serendipity_event_geshi/geshi/chaiscript.php</file>
-    <file>serendipity_event_geshi/geshi/klonec.php</file>
+    <file>serendipity_event_geshi/geshi/julia.php.bak</file>
     <file>serendipity_event_geshi/geshi/chapel.php</file>
-    <file>serendipity_event_geshi/geshi/klonecpp.php</file>
+    <file>serendipity_event_geshi/geshi/kixtart.php</file>
     <file>serendipity_event_geshi/geshi/cil.php</file>
-    <file>serendipity_event_geshi/geshi/kotlin.php</file>
+    <file>serendipity_event_geshi/geshi/klonec.php</file>
     <file>serendipity_event_geshi/geshi/clojure.php</file>
-    <file>serendipity_event_geshi/geshi/latex.php</file>
+    <file>serendipity_event_geshi/geshi/klonecpp.php</file>
     <file>serendipity_event_geshi/geshi/cmake.php</file>
-    <file>serendipity_event_geshi/geshi/lb.php</file>
+    <file>serendipity_event_geshi/geshi/kotlin.php</file>
     <file>serendipity_event_geshi/geshi/cobol.php</file>
     <file>serendipity_event_geshi/geshi/fsharp.php</file>
     <file>serendipity_event_geshi/geshi/coffeescript.php</file>
-    <file>serendipity_event_geshi/geshi/ldif.php</file>
+    <file>serendipity_event_geshi/geshi/latex.php</file>
     <file>serendipity_event_geshi/geshi/cpp-qt.php</file>
     <file>serendipity_event_geshi/geshi/cpp-winapi.php</file>
-    <file>serendipity_event_geshi/geshi/lisp.php</file>
+    <file>serendipity_event_geshi/geshi/lb.php</file>
     <file>serendipity_event_geshi/geshi/cpp.php</file>
-    <file>serendipity_event_geshi/geshi/llvm.php</file>
+    <file>serendipity_event_geshi/geshi/ldif.php</file>
     <file>serendipity_event_geshi/geshi/csharp.php</file>
-    <file>serendipity_event_geshi/geshi/locobasic.php</file>
+    <file>serendipity_event_geshi/geshi/lisp.php</file>
     <file>serendipity_event_geshi/geshi/css.php</file>
-    <file>serendipity_event_geshi/geshi/logtalk.php</file>
+    <file>serendipity_event_geshi/geshi/llvm.php</file>
     <file>serendipity_event_geshi/geshi/cuesheet.php</file>
-    <file>serendipity_event_geshi/geshi/lolcode.php</file>
+    <file>serendipity_event_geshi/geshi/locobasic.php</file>
     <file>serendipity_event_geshi/geshi/d.php</file>
-    <file>serendipity_event_geshi/geshi/lotusformulas.php</file>
+    <file>serendipity_event_geshi/geshi/logtalk.php</file>
     <file>serendipity_event_geshi/geshi/dart.php</file>
-    <file>serendipity_event_geshi/geshi/lotusscript.php</file>
-    <file>serendipity_event_geshi/geshi/dcl.php</file>
-    <file>serendipity_event_geshi/geshi/div.php</file>
-    <file>serendipity_event_geshi/geshi/lscript.php</file>
-    <file>serendipity_event_geshi/geshi/dos.php</file>
-    <file>serendipity_event_geshi/geshi/lsl2.php</file>
-    <file>serendipity_event_geshi/geshi/dot.php</file>
-    <file>serendipity_event_geshi/geshi/lua.php</file>
-    <file>serendipity_event_geshi/geshi/e.php</file>
-    <file>serendipity_event_geshi/geshi/gambas.php</file>
     <file>serendipity_event_geshi/geshi/ecmascript.php</file>
-    <file>serendipity_event_geshi/geshi/m68k.php</file>
+    <file>serendipity_event_geshi/geshi/lolcode.php</file>
     <file>serendipity_event_geshi/geshi/eiffel.php</file>
-    <file>serendipity_event_geshi/geshi/magiksf.php</file>
+    <file>serendipity_event_geshi/geshi/lotusformulas.php</file>
     <file>serendipity_event_geshi/geshi/email.php</file>
-    <file>serendipity_event_geshi/geshi/make.php</file>
+    <file>serendipity_event_geshi/geshi/lotusscript.php</file>
     <file>serendipity_event_geshi/geshi/epc.php</file>
-    <file>serendipity_event_geshi/geshi/mapbasic.php</file>
+    <file>serendipity_event_geshi/geshi/lscript.php</file>
     <file>serendipity_event_geshi/geshi/erlang.php</file>
-    <file>serendipity_event_geshi/geshi/gdb.php</file>
+    <file>serendipity_event_geshi/geshi/lsl2.php</file>
+    <file>serendipity_event_geshi/geshi/euphoria.php</file>
+    <file>serendipity_event_geshi/geshi/lua.php</file>
+    <file>serendipity_event_geshi/geshi/ezt.php</file>
+    <file>serendipity_event_geshi/geshi/m68k.php</file>
+    <file>serendipity_event_geshi/geshi/f1.php</file>
+    <file>serendipity_event_geshi/geshi/magiksf.php</file>
+    <file>serendipity_event_geshi/geshi/falcon.php</file>
+    <file>serendipity_event_geshi/geshi/make.php</file>
+    <file>serendipity_event_geshi/geshi/fo.php</file>
+    <file>serendipity_event_geshi/geshi/mapbasic.php</file>
     <file>serendipity_event_geshi/geshi/mathematica.php</file>
     <file>serendipity_event_geshi/geshi/matlab.php</file>
     <file>serendipity_event_geshi/geshi/mercury.php</file>
@@ -4725,7 +4743,7 @@
 <release>
   <version>1.4</version>
   <requirements:s9yVersion>1.1</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_getid3">
 <dir name="UTF-8">
@@ -4773,7 +4791,7 @@
 <release>
   <version>1.7.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_event_glossary">
 <dir name="UTF-8">
@@ -4818,10 +4836,12 @@
 <release>
   <version>1.4.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_google_analytics">
 <dir name="CVSROOT">
+<dir name="Emptydir">
+</dir>
 <file>checkoutlist</file>
 <file>commitinfo</file>
 <file>config</file>
@@ -4887,7 +4907,7 @@
 <release>
   <version>0.60</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-11-06</date>
   <filelist>
 <dir name="serendipity_event_google_sitemap">
 <dir name="UTF-8">
@@ -4944,7 +4964,7 @@
 <release>
   <version>1.62.3</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-09-02</date>
   <filelist>
 <dir name="serendipity_event_gravatar">
 <dir name="UTF-8">
@@ -5026,19 +5046,17 @@
 <dir name="parts">
 <file>pupils5.png</file>
 <file>brow1.png</file>
-<file>pupils6.png</file>
-<file>brow2.png</file>
 <file>pupils7.png</file>
+<file>brow2.png</file>
+<file>pupils6.png</file>
 <file>brow3.png</file>
 <file>pupils8.png</file>
 <file>brow4.png</file>
-<file>shine1.png</file>
-<file>brow5.png</file>
 <file>pupils9.png</file>
+<file>brow5.png</file>
+<file>shine9.png</file>
 <file>brow6.png</file>
-<file>shine10.png</file>
 <file>brow7.png</file>
-<file>shine11.png</file>
 <file>brow8.png</file>
 <file>eyes1.png</file>
 <file>eyes10.png</file>
@@ -5093,6 +5111,9 @@
 <file>pupils2.png</file>
 <file>pupils3.png</file>
 <file>pupils4.png</file>
+<file>shine1.png</file>
+<file>shine10.png</file>
+<file>shine11.png</file>
 <file>shine2.png</file>
 <file>shine3.png</file>
 <file>shine4.png</file>
@@ -5100,14 +5121,16 @@
 <file>shine6.png</file>
 <file>shine7.png</file>
 <file>shine8.png</file>
-<file>shine9.png</file>
 </dir>
 <file>wavatars.php</file>
 </dir>
 <dir name="ycon">
+<dir name="UTF-8">
+</dir>
 <file>ycon.image.php</file>
 <file>ycon.php</file>
 </dir>
+<file>.cvsignore</file>
 <file>ChangeLog</file>
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
@@ -5192,19 +5215,17 @@
     <file>serendipity_event_gravatar/monsterid/monsterid.php</file>
     <file>serendipity_event_gravatar/wavatars/parts/pupils5.png</file>
     <file>serendipity_event_gravatar/wavatars/parts/brow1.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/pupils6.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/brow2.png</file>
     <file>serendipity_event_gravatar/wavatars/parts/pupils7.png</file>
+    <file>serendipity_event_gravatar/wavatars/parts/brow2.png</file>
+    <file>serendipity_event_gravatar/wavatars/parts/pupils6.png</file>
     <file>serendipity_event_gravatar/wavatars/parts/brow3.png</file>
     <file>serendipity_event_gravatar/wavatars/parts/pupils8.png</file>
     <file>serendipity_event_gravatar/wavatars/parts/brow4.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/shine1.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/brow5.png</file>
     <file>serendipity_event_gravatar/wavatars/parts/pupils9.png</file>
+    <file>serendipity_event_gravatar/wavatars/parts/brow5.png</file>
+    <file>serendipity_event_gravatar/wavatars/parts/shine9.png</file>
     <file>serendipity_event_gravatar/wavatars/parts/brow6.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/shine10.png</file>
     <file>serendipity_event_gravatar/wavatars/parts/brow7.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/shine11.png</file>
     <file>serendipity_event_gravatar/wavatars/parts/brow8.png</file>
     <file>serendipity_event_gravatar/wavatars/parts/eyes1.png</file>
     <file>serendipity_event_gravatar/wavatars/parts/eyes10.png</file>
@@ -5259,6 +5280,9 @@
     <file>serendipity_event_gravatar/wavatars/parts/pupils2.png</file>
     <file>serendipity_event_gravatar/wavatars/parts/pupils3.png</file>
     <file>serendipity_event_gravatar/wavatars/parts/pupils4.png</file>
+    <file>serendipity_event_gravatar/wavatars/parts/shine1.png</file>
+    <file>serendipity_event_gravatar/wavatars/parts/shine10.png</file>
+    <file>serendipity_event_gravatar/wavatars/parts/shine11.png</file>
     <file>serendipity_event_gravatar/wavatars/parts/shine2.png</file>
     <file>serendipity_event_gravatar/wavatars/parts/shine3.png</file>
     <file>serendipity_event_gravatar/wavatars/parts/shine4.png</file>
@@ -5266,10 +5290,10 @@
     <file>serendipity_event_gravatar/wavatars/parts/shine6.png</file>
     <file>serendipity_event_gravatar/wavatars/parts/shine7.png</file>
     <file>serendipity_event_gravatar/wavatars/parts/shine8.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/shine9.png</file>
     <file>serendipity_event_gravatar/wavatars/wavatars.php</file>
     <file>serendipity_event_gravatar/ycon/ycon.image.php</file>
     <file>serendipity_event_gravatar/ycon/ycon.php</file>
+    <file>serendipity_event_gravatar/.cvsignore</file>
     <file>serendipity_event_gravatar/ChangeLog</file>
     <file>serendipity_event_gravatar/documentation_cs.html</file>
     <file>serendipity_event_gravatar/documentation_cz.html</file>
@@ -5295,7 +5319,7 @@
 <release>
   <version>3.61.1</version>
   <requirements:s9yVersion>1.7.0</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-08-18</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="UTF-8">
@@ -5411,7 +5435,7 @@
 <release>
   <version>1.5</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-05-18</date>
   <filelist>
 <dir name="serendipity_event_head_nugget">
 <dir name="UTF-8">
@@ -5457,7 +5481,7 @@
 <release>
   <version>1.7</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_httpauth">
 <dir name="UTF-8">
@@ -5498,7 +5522,7 @@
 <release>
   <version>0.52</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-10-26</date>
   <filelist>
 <dir name="serendipity_event_imageselectorplus">
 <dir name="UTF-8">
@@ -5561,7 +5585,7 @@
 <release>
   <version>2.18</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-10-26</date>
   <filelist>
 <dir name="serendipity_event_includeentry">
 <dir name="UTF-8">
@@ -5616,7 +5640,7 @@
 <release>
   <version>2.14.1</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-07-21</date>
   <filelist>
 <dir name="serendipity_event_karma">
 <dir name="UTF-8">
@@ -5744,7 +5768,7 @@
 <release>
   <version>1.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_kubrickheader">
 <dir name="UTF-8">
@@ -5782,7 +5806,7 @@
 <release>
   <version>1.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_layout_printerfriendly">
 <dir name="UTF-8">
@@ -5829,7 +5853,7 @@
 <release>
   <version>2.5.2</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-09-20</date>
   <filelist>
 <dir name="serendipity_event_lightbox">
 <dir name="UTF-8">
@@ -5893,6 +5917,12 @@
 <file>jquery.colorbox.init.js</file>
 <file>jquery.colorbox.js</file>
 </dir>
+<dir name="graybox">
+</dir>
+<dir name="greybox">
+</dir>
+<dir name="lightbox">
+</dir>
 <dir name="lightbox2-jquery">
 <dir name="css">
 <file>lightbox.css</file>
@@ -5903,6 +5933,8 @@
 <file>next.png</file>
 <file>prev.png</file>
 </dir>
+<dir name="img">
+</dir>
 <dir name="js">
 <file>lightbox-plus-jquery.js</file>
 <file>lightbox-plus-jquery.min.js</file>
@@ -5912,6 +5944,12 @@
 <file>lightbox.min.map</file>
 </dir>
 <file>README.md</file>
+</dir>
+<dir name="lightbox2">
+</dir>
+<dir name="lightbox_images">
+</dir>
+<dir name="lightbox_plus">
 </dir>
 <dir name="magnific-popup">
 <file>README.md</file>
@@ -5926,6 +5964,10 @@
 <file>prettyPhotoScreens.css</file>
 </dir>
 <dir name="images">
+<dir name="backgrounds">
+</dir>
+<dir name="fullscreen">
+</dir>
 <dir name="prettyPhoto">
 <dir name="dark_rounded">
 <file>btnNext.png</file>
@@ -5978,12 +6020,16 @@
 <file>sprite.png</file>
 </dir>
 </dir>
+<dir name="thumbnails">
+</dir>
 </dir>
 <dir name="js">
 <file>jquery.prettyPhoto.js</file>
 <file>jquery.prettyPhoto.min.js</file>
 </dir>
 <file>README</file>
+</dir>
+<dir name="thickbox">
 </dir>
 <file>.htaccess</file>
 <file>ChangeLog</file>
@@ -6138,7 +6184,7 @@
 <release>
   <version>2.05</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_linklist">
 <dir name="UTF-8">
@@ -6235,7 +6281,7 @@
 <release>
   <version>1.5.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_event_linktoolbar">
 <dir name="UTF-8">
@@ -6284,7 +6330,7 @@
 <release>
   <version>1.6.4</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_linktrimmer">
 <dir name="UTF-8">
@@ -6339,7 +6385,7 @@
 <release>
   <version>2.5.5</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_livecomment">
 <dir name="UTF-8">
@@ -6427,7 +6473,7 @@
 <release>
   <version>1.4.2</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2015-01-27</date>
   <filelist>
 <dir name="serendipity_event_livesearch">
 <dir name="UTF-8">
@@ -6516,7 +6562,7 @@
 <release>
   <version>1.13.3</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_ljupdate">
 <dir name="UTF-8">
@@ -6564,7 +6610,7 @@
 <release>
   <version>1.04</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_loginform">
 <dir name="UTF-8">
@@ -6603,7 +6649,7 @@
 <release>
   <version>1.24</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_mailentry">
 <dir name="UTF-8">
@@ -6668,7 +6714,7 @@
 <release>
   <version>1.28</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-11-11</date>
   <filelist>
 <dir name="serendipity_event_markdown">
 <dir name="UTF-8">
@@ -6763,7 +6809,7 @@
 <release>
   <version>1.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_markread">
 <dir name="UTF-8">
@@ -6806,7 +6852,7 @@
 <release>
   <version>0.15.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-07-21</date>
   <filelist>
 <dir name="serendipity_event_metadesc">
 <dir name="UTF-8">
@@ -6859,7 +6905,7 @@
 <release>
   <version>0.46.2</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-04-27</date>
   <filelist>
 <dir name="serendipity_event_microformats">
 <dir name="UTF-8">
@@ -6937,7 +6983,7 @@
 <release>
   <version>1.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_event_mimetex">
 <dir name="UTF-8">
@@ -6988,7 +7034,7 @@
 <release>
   <version>1.04.2</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2017-08-06</date>
   <filelist>
 <dir name="serendipity_event_mobile_output">
 <dir name="UTF-8">
@@ -7171,7 +7217,7 @@
 <release>
   <version>2.35</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-08-15</date>
   <filelist>
 <dir name="serendipity_event_multilingual">
 <dir name="UTF-8">
@@ -7244,7 +7290,7 @@
 <release>
   <version>0.17.1</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-10-26</date>
   <filelist>
 <dir name="serendipity_event_mycalendar">
 <dir name="UTF-8">
@@ -7301,7 +7347,7 @@
 <release>
   <version>0.12.1</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-04-27</date>
   <filelist>
 <dir name="serendipity_event_mymood">
 <dir name="UTF-8">
@@ -7345,7 +7391,7 @@
 <release>
   <version>0.6</version>
   <requirements:s9yVersion>1.0-alpha1</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_newsbox">
 <dir name="UTF-8">
@@ -7382,7 +7428,7 @@
 <release>
   <version>1.15.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-04-27</date>
   <filelist>
 <dir name="serendipity_event_oembed">
 <dir name="UTF-8">
@@ -7471,7 +7517,7 @@
 <release>
   <version>1.2.3</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_openid">
 <dir name="PHP-openid">
@@ -7647,7 +7693,7 @@
 <release>
   <version>0.2</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2020-03-13</date>
   <filelist>
 <dir name="serendipity_event_osm">
 <dir name="UTF-8">
@@ -7697,7 +7743,7 @@
 <release>
   <version>0.2</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2020-03-13</date>
   <filelist>
 <dir name="serendipity_event_osm">
 <dir name="UTF-8">
@@ -7748,7 +7794,7 @@
 <release>
   <version>1.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2013-12-11</date>
   <filelist>
 <dir name="serendipity_event_outdate_entries">
 <dir name="UTF-8">
@@ -7793,7 +7839,7 @@
 <release>
   <version>1.14</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_page_nugget">
 <dir name="UTF-8">
@@ -7848,7 +7894,7 @@
 <release>
   <version>1.6.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_photoblog">
 <dir name="UTF-8">
@@ -7897,7 +7943,7 @@
 <release>
   <version>1.37.3</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-05-14</date>
   <filelist>
 <dir name="serendipity_event_podcast">
 <dir name="UTF-8">
@@ -7929,70 +7975,76 @@
 <file>module.graphic.gif.php</file>
 <file>license.commercial.txt</file>
 <file>license.txt</file>
-<file>module.misc.cue.php</file>
+<file>module.graphic.pcd.php</file>
 <file>module.archive.gzip.php</file>
-<file>module.misc.doc.php</file>
+<file>module.graphic.jpg.php</file>
 <file>module.archive.rar.php</file>
-<file>module.misc.exe.php</file>
+<file>module.graphic.png.php</file>
 <file>module.archive.szip.php</file>
-<file>module.misc.iso.php</file>
+<file>module.graphic.svg.php</file>
 <file>module.archive.tar.php</file>
-<file>module.misc.msoffice.php</file>
+<file>module.graphic.tiff.php</file>
 <file>module.archive.zip.php</file>
-<file>module.misc.par2.php</file>
+<file>module.misc.cue.php</file>
 <file>module.audio-video.asf.php</file>
-<file>module.misc.pdf.php</file>
-<file>module.audio-video.bink.php</file>
 <file>module.tag.apetag.php</file>
-<file>module.audio-video.flv.php</file>
-<file>module.audio-video.matroska.php</file>
+<file>module.audio-video.bink.php</file>
 <file>module.tag.id3v1.php</file>
-<file>module.audio-video.mpeg.php</file>
+<file>module.audio-video.flv.php</file>
+<file>module.audio.voc.php</file>
+<file>module.audio-video.matroska.php</file>
 <file>module.tag.id3v2.php</file>
+<file>module.audio-video.mpeg.php</file>
+<file>module.tag.lyrics3.php</file>
 <file>module.audio-video.nsv.php</file>
 <file>module.audio.vqf.php</file>
 <file>module.audio-video.quicktime.php</file>
-<file>module.tag.lyrics3.php</file>
-<file>module.audio-video.real.php</file>
 <file>module.tag.xmp.php</file>
-<file>module.audio-video.riff.php</file>
+<file>module.audio-video.real.php</file>
 <file>readme.txt</file>
+<file>module.audio-video.riff.php</file>
+<file>write.apetag.php</file>
 <file>module.audio-video.swf.php</file>
 <file>module.audio.aa.php</file>
 <file>module.audio.aac.php</file>
 <file>module.audio.ac3.php</file>
 <file>module.audio.au.php</file>
 <file>module.audio.avr.php</file>
-<file>write.apetag.php</file>
+<file>write.id3v1.php</file>
 <file>module.audio.bonk.php</file>
 <file>module.audio.dss.php</file>
 <file>module.audio.dts.php</file>
-<file>write.id3v1.php</file>
+<file>write.id3v2.php</file>
 <file>module.audio.flac.php</file>
 <file>module.audio.la.php</file>
-<file>write.id3v2.php</file>
-<file>module.audio.lpac.php</file>
 <file>write.lyrics3.php</file>
+<file>module.audio.lpac.php</file>
+<file>write.metaflac.php</file>
 <file>module.audio.midi.php</file>
 <file>module.audio.mod.php</file>
-<file>write.metaflac.php</file>
+<file>write.php</file>
 <file>module.audio.monkey.php</file>
 <file>module.audio.mp3.php</file>
 <file>module.audio.mpc.php</file>
 <file>module.audio.ogg.php</file>
-<file>write.php</file>
-<file>module.audio.optimfrog.php</file>
 <file>write.real.php</file>
-<file>module.audio.rkau.php</file>
+<file>module.audio.optimfrog.php</file>
 <file>write.vorbiscomment.php</file>
+<file>module.audio.rkau.php</file>
 <file>module.audio.shorten.php</file>
 <file>module.audio.tta.php</file>
-<file>module.audio.voc.php</file>
-<file>module.graphic.jpg.php</file>
-<file>module.graphic.pcd.php</file>
-<file>module.graphic.png.php</file>
-<file>module.graphic.svg.php</file>
-<file>module.graphic.tiff.php</file>
+<file>module.misc.doc.php</file>
+<file>module.misc.exe.php</file>
+<file>module.misc.iso.php</file>
+<file>module.misc.msoffice.php</file>
+<file>module.misc.par2.php</file>
+<file>module.misc.pdf.php</file>
+</dir>
+<dir name="jw-flv">
+<dir name="extras">
+</dir>
+<dir name="readme">
+</dir>
 </dir>
 <dir name="xspf">
 <file>license.txt</file>
@@ -8001,6 +8053,7 @@
 <file>xspf_player_slim.swf</file>
 </dir>
 </dir>
+<file>.cvsignore</file>
 <file>ChangeLog</file>
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
@@ -8036,74 +8089,75 @@
     <file>serendipity_event_podcast/player/getid3/module.graphic.gif.php</file>
     <file>serendipity_event_podcast/player/getid3/license.commercial.txt</file>
     <file>serendipity_event_podcast/player/getid3/license.txt</file>
-    <file>serendipity_event_podcast/player/getid3/module.misc.cue.php</file>
+    <file>serendipity_event_podcast/player/getid3/module.graphic.pcd.php</file>
     <file>serendipity_event_podcast/player/getid3/module.archive.gzip.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.misc.doc.php</file>
+    <file>serendipity_event_podcast/player/getid3/module.graphic.jpg.php</file>
     <file>serendipity_event_podcast/player/getid3/module.archive.rar.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.misc.exe.php</file>
+    <file>serendipity_event_podcast/player/getid3/module.graphic.png.php</file>
     <file>serendipity_event_podcast/player/getid3/module.archive.szip.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.misc.iso.php</file>
+    <file>serendipity_event_podcast/player/getid3/module.graphic.svg.php</file>
     <file>serendipity_event_podcast/player/getid3/module.archive.tar.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.misc.msoffice.php</file>
+    <file>serendipity_event_podcast/player/getid3/module.graphic.tiff.php</file>
     <file>serendipity_event_podcast/player/getid3/module.archive.zip.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.misc.par2.php</file>
+    <file>serendipity_event_podcast/player/getid3/module.misc.cue.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio-video.asf.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.misc.pdf.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio-video.bink.php</file>
     <file>serendipity_event_podcast/player/getid3/module.tag.apetag.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio-video.flv.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio-video.matroska.php</file>
+    <file>serendipity_event_podcast/player/getid3/module.audio-video.bink.php</file>
     <file>serendipity_event_podcast/player/getid3/module.tag.id3v1.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio-video.mpeg.php</file>
+    <file>serendipity_event_podcast/player/getid3/module.audio-video.flv.php</file>
+    <file>serendipity_event_podcast/player/getid3/module.audio.voc.php</file>
+    <file>serendipity_event_podcast/player/getid3/module.audio-video.matroska.php</file>
     <file>serendipity_event_podcast/player/getid3/module.tag.id3v2.php</file>
+    <file>serendipity_event_podcast/player/getid3/module.audio-video.mpeg.php</file>
+    <file>serendipity_event_podcast/player/getid3/module.tag.lyrics3.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio-video.nsv.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio.vqf.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio-video.quicktime.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.tag.lyrics3.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio-video.real.php</file>
     <file>serendipity_event_podcast/player/getid3/module.tag.xmp.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio-video.riff.php</file>
+    <file>serendipity_event_podcast/player/getid3/module.audio-video.real.php</file>
     <file>serendipity_event_podcast/player/getid3/readme.txt</file>
+    <file>serendipity_event_podcast/player/getid3/module.audio-video.riff.php</file>
+    <file>serendipity_event_podcast/player/getid3/write.apetag.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio-video.swf.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio.aa.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio.aac.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio.ac3.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio.au.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio.avr.php</file>
-    <file>serendipity_event_podcast/player/getid3/write.apetag.php</file>
+    <file>serendipity_event_podcast/player/getid3/write.id3v1.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio.bonk.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio.dss.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio.dts.php</file>
-    <file>serendipity_event_podcast/player/getid3/write.id3v1.php</file>
+    <file>serendipity_event_podcast/player/getid3/write.id3v2.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio.flac.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio.la.php</file>
-    <file>serendipity_event_podcast/player/getid3/write.id3v2.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.lpac.php</file>
     <file>serendipity_event_podcast/player/getid3/write.lyrics3.php</file>
+    <file>serendipity_event_podcast/player/getid3/module.audio.lpac.php</file>
+    <file>serendipity_event_podcast/player/getid3/write.metaflac.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio.midi.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio.mod.php</file>
-    <file>serendipity_event_podcast/player/getid3/write.metaflac.php</file>
+    <file>serendipity_event_podcast/player/getid3/write.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio.monkey.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio.mp3.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio.mpc.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio.ogg.php</file>
-    <file>serendipity_event_podcast/player/getid3/write.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.optimfrog.php</file>
     <file>serendipity_event_podcast/player/getid3/write.real.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.rkau.php</file>
+    <file>serendipity_event_podcast/player/getid3/module.audio.optimfrog.php</file>
     <file>serendipity_event_podcast/player/getid3/write.vorbiscomment.php</file>
+    <file>serendipity_event_podcast/player/getid3/module.audio.rkau.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio.shorten.php</file>
     <file>serendipity_event_podcast/player/getid3/module.audio.tta.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.voc.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.graphic.jpg.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.graphic.pcd.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.graphic.png.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.graphic.svg.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.graphic.tiff.php</file>
+    <file>serendipity_event_podcast/player/getid3/module.misc.doc.php</file>
+    <file>serendipity_event_podcast/player/getid3/module.misc.exe.php</file>
+    <file>serendipity_event_podcast/player/getid3/module.misc.iso.php</file>
+    <file>serendipity_event_podcast/player/getid3/module.misc.msoffice.php</file>
+    <file>serendipity_event_podcast/player/getid3/module.misc.par2.php</file>
+    <file>serendipity_event_podcast/player/getid3/module.misc.pdf.php</file>
     <file>serendipity_event_podcast/player/xspf/license.txt</file>
     <file>serendipity_event_podcast/player/xspf/xspf_player_slim.as</file>
     <file>serendipity_event_podcast/player/xspf/xspf_player_slim.fla</file>
     <file>serendipity_event_podcast/player/xspf/xspf_player_slim.swf</file>
+    <file>serendipity_event_podcast/.cvsignore</file>
     <file>serendipity_event_podcast/ChangeLog</file>
     <file>serendipity_event_podcast/documentation_cs.html</file>
     <file>serendipity_event_podcast/documentation_cz.html</file>
@@ -8128,7 +8182,7 @@
 <release>
   <version>1.49</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-09-09</date>
   <filelist>
 <dir name="serendipity_event_popfetcher">
 <dir name="UTF-8">
@@ -8136,6 +8190,10 @@
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
+</dir>
+<dir name="lang">
+<dir name="UTF-8">
+</dir>
 </dir>
 <dir name="testcases">
 <file>mail_germany_mmstt.txt</file>
@@ -8197,7 +8255,7 @@
 <release>
   <version>1.6.2</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-03-18</date>
   <filelist>
 <dir name="serendipity_event_prettify">
 <dir name="UTF-8">
@@ -8264,7 +8322,7 @@
 <release>
   <version>1.0.1</version>
   <requirements:s9yVersion>1.6.2</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2013-07-02</date>
   <filelist>
 <dir name="serendipity_event_proxy_realip">
 <dir name="UTF-8">
@@ -8310,7 +8368,7 @@
 <release>
   <version>0.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2012-06-14</date>
   <filelist>
 <dir name="serendipity_event_randomblogdescription">
 <dir name="UTF-8">
@@ -8348,7 +8406,7 @@
 <release>
   <version>0.1.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2012-06-14</date>
   <filelist>
 <dir name="serendipity_event_realtimecomments">
 <dir name="UTF-8">
@@ -8391,7 +8449,7 @@
 <release>
   <version>0.20.3</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-03-30</date>
   <filelist>
 <dir name="serendipity_event_recaptcha">
 <dir name="UTF-8">
@@ -8444,7 +8502,7 @@
 <release>
   <version>0.9</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_regexpmarkup">
 <dir name="UTF-8">
@@ -8501,7 +8559,7 @@
 <release>
   <version>1.8.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-04-27</date>
   <filelist>
 <dir name="serendipity_event_relatedlinks">
 <dir name="UTF-8">
@@ -8560,7 +8618,7 @@
 <release>
   <version>1.8.2</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2015-01-27</date>
   <filelist>
 <dir name="serendipity_event_searchhighlight">
 <dir name="UTF-8">
@@ -8645,7 +8703,7 @@
 <release>
   <version>1.25.1</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_event_sidebarhider">
 <dir name="UTF-8">
@@ -8694,7 +8752,7 @@
 <release>
   <version>1.15</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-10-26</date>
   <filelist>
 <dir name="serendipity_event_smartymarkup">
 <dir name="UTF-8">
@@ -8741,7 +8799,7 @@
 <release>
   <version>0.12</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_smtpmail">
 <dir name="UTF-8">
@@ -8812,7 +8870,7 @@
 <release>
   <version>0.13.2</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-04-05</date>
   <filelist>
 <dir name="serendipity_event_social">
 <dir name="UTF-8">
@@ -8871,7 +8929,7 @@
 <release>
   <version>0.5.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-08-18</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bayes">
 <dir name="UTF-8">
@@ -8964,13 +9022,15 @@
 <release>
   <version>1.3.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bee">
 <dir name="UTF-8">
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
+</dir>
+<dir name="json">
 </dir>
 <file>ChangeLog</file>
 <file>lang_cs.inc.php</file>
@@ -9013,7 +9073,7 @@
 <release>
   <version>1.5.1</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_spamblock_rbl">
 <dir name="UTF-8">
@@ -9060,7 +9120,7 @@
 <release>
   <version>1.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_spamblock_surbl">
 <dir name="UTF-8">
@@ -9105,7 +9165,7 @@
 <release>
   <version>1.11</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_startcat">
 <dir name="UTF-8">
@@ -9146,7 +9206,7 @@
 <release>
   <version>4.15.3</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-07-24</date>
   <filelist>
 <dir name="serendipity_event_staticpage">
 <dir name="UTF-8">
@@ -9287,7 +9347,7 @@
 <release>
   <version>1.65</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_statistics">
 <dir name="UTF-8">
@@ -9392,7 +9452,7 @@
 <release>
   <version>0.11.3</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-04-27</date>
   <filelist>
 <dir name="serendipity_event_suggest">
 <dir name="UTF-8">
@@ -9445,7 +9505,7 @@
 <release>
   <version>0.8.1</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-10-26</date>
   <filelist>
 <dir name="serendipity_event_template_editor">
 <dir name="UTF-8">
@@ -9550,7 +9610,7 @@
 <release>
   <version>0.13</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_textlinkads">
 <dir name="UTF-8">
@@ -9606,7 +9666,7 @@
 <release>
   <version>1.6</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2015-01-27</date>
   <filelist>
 <dir name="serendipity_event_textwiki">
 <dir name="UTF-8">
@@ -9685,7 +9745,7 @@
 <release>
   <version>1.4.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_event_thumbnails">
 <dir name="UTF-8">
@@ -9733,7 +9793,7 @@
 <release>
   <version>0.2</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_tinypng">
 <dir name="UTF-8">
@@ -9798,7 +9858,7 @@
 <release>
   <version>1.25.1</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2017-04-10</date>
   <filelist>
 <dir name="serendipity_event_todolist">
 <dir name="UTF-8">
@@ -9965,7 +10025,7 @@
 <release>
   <version>1.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2015-02-04</date>
   <filelist>
 <dir name="serendipity_event_tooltips">
 <dir name="UTF-8">
@@ -10034,7 +10094,7 @@
 <release>
   <version>1.19</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-04-16</date>
   <filelist>
 <dir name="serendipity_event_trackback">
 <dir name="UTF-8">
@@ -10091,7 +10151,7 @@
 <release>
   <version>1.9.3</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-04-05</date>
   <filelist>
 <dir name="serendipity_event_trackexits">
 <dir name="UTF-8">
@@ -10171,7 +10231,7 @@
 <release>
   <version>0.23</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-08-06</date>
   <filelist>
 <dir name="serendipity_event_typesetbuttons">
 <dir name="UTF-8">
@@ -10273,7 +10333,7 @@
 <release>
   <version>1.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2013-08-12</date>
   <filelist>
 <dir name="serendipity_event_typoquote">
 <dir name="UTF-8">
@@ -10319,7 +10379,7 @@
 <release>
   <version>1.03.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2014-11-30</date>
   <filelist>
 <dir name="serendipity_event_unstrip_tags">
 <dir name="UTF-8">
@@ -10358,7 +10418,7 @@
 <release>
   <version>2.68</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_usergallery">
 <dir name="JPEG_TOOLKIT">
@@ -10467,7 +10527,7 @@
 <release>
   <version>0.31.1</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-04-27</date>
   <filelist>
 <dir name="serendipity_event_userprofiles">
 <dir name="UTF-8">
@@ -10528,7 +10588,7 @@
 <release>
   <version>0.11.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2017-01-09</date>
   <filelist>
 <dir name="serendipity_event_versioning">
 <dir name="UTF-8">
@@ -10573,7 +10633,7 @@
 <release>
   <version>0.4.1</version>
   <requirements:s9yVersion>2.2.1</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-08-18</date>
   <filelist>
 <dir name="serendipity_event_vgwort">
 <dir name="UTF-8">
@@ -10606,7 +10666,7 @@
 <release>
   <version>1.09</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2016-09-23</date>
   <filelist>
 <dir name="serendipity_event_weblogping">
 <dir name="UTF-8">
@@ -10695,7 +10755,7 @@
 <release>
   <version>0.25.2</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2017-04-10</date>
   <filelist>
 <dir name="serendipity_event_wikilinks">
 <dir name="UTF-8">
@@ -10750,7 +10810,7 @@
 <release>
   <version>0.11</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_wrapurl">
 <dir name="UTF-8">
@@ -10791,7 +10851,7 @@
 <release>
   <version>1.60.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-02-11</date>
   <filelist>
 <dir name="serendipity_event_xmlrpc">
 <dir name="PEAR">
@@ -10854,7 +10914,7 @@
 <release>
   <version>0.7</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2017-03-06</date>
   <filelist>
 <dir name="serendipity_event_xsstrust">
 <dir name="UTF-8">
@@ -10876,71 +10936,71 @@
 <file>Id.php</file>
 </dir>
 <dir name="schema">
-<file>Core.NormalizeNewlines.txt</file>
+<file>Core.RemoveScriptContents.txt</file>
 <file>Attr.AllowedClasses.txt</file>
-<file>Core.RemoveInvalidImg.txt</file>
+<file>Filter.Custom.txt</file>
 <file>Attr.AllowedFrameTargets.txt</file>
 <file>HTML.Nofollow.txt</file>
 <file>Attr.AllowedRel.txt</file>
 <file>HTML.Parent.txt</file>
 <file>Attr.AllowedRev.txt</file>
-<file>Core.RemoveScriptContents.txt</file>
-<file>Attr.ClassUseCDATA.txt</file>
-<file>Filter.Custom.txt</file>
-<file>Attr.DefaultImageAlt.txt</file>
 <file>Filter.ExtractStyleBlocks.Scope.txt</file>
+<file>Attr.ClassUseCDATA.txt</file>
+<file>Filter.ExtractStyleBlocks.txt</file>
+<file>Attr.DefaultImageAlt.txt</file>
+<file>Filter.YouTube.txt</file>
 <file>Attr.DefaultInvalidImage.txt</file>
 <file>Core.DisableExcludes.txt</file>
 <file>Attr.DefaultInvalidImageAlt.txt</file>
-<file>Filter.ExtractStyleBlocks.txt</file>
+<file>HTML.Allowed.txt</file>
 <file>Attr.DefaultTextDir.txt</file>
 <file>HTML.Proprietary.txt</file>
 <file>Attr.EnableID.txt</file>
-<file>Filter.YouTube.txt</file>
+<file>HTML.AllowedAttributes.txt</file>
 <file>Attr.ForbiddenClasses.txt</file>
 <file>HTML.SafeEmbed.txt</file>
 <file>Attr.IDBlacklist.txt</file>
-<file>HTML.Allowed.txt</file>
+<file>HTML.AllowedComments.txt</file>
 <file>Attr.IDBlacklistRegexp.txt</file>
 <file>HTML.SafeIframe.txt</file>
 <file>Attr.IDPrefix.txt</file>
-<file>HTML.AllowedAttributes.txt</file>
-<file>Attr.IDPrefixLocal.txt</file>
-<file>HTML.AllowedComments.txt</file>
-<file>AutoFormat.AutoParagraph.txt</file>
 <file>HTML.AllowedCommentsRegexp.txt</file>
+<file>Attr.IDPrefixLocal.txt</file>
+<file>HTML.AllowedElements.txt</file>
+<file>AutoFormat.AutoParagraph.txt</file>
+<file>HTML.AllowedModules.txt</file>
 <file>AutoFormat.Custom.txt</file>
 <file>Core.EnableIDNA.txt</file>
 <file>URI.Base.txt</file>
 <file>AutoFormat.DisplayLinkURI.txt</file>
-<file>HTML.AllowedElements.txt</file>
+<file>HTML.Attr.Name.UseCDATA.txt</file>
 <file>AutoFormat.Linkify.txt</file>
 <file>Core.ColorKeywords.txt</file>
 <file>URI.Host.txt</file>
 <file>AutoFormat.PurifierLinkify.DocURL.txt</file>
-<file>Core.Encoding.txt</file>
+<file>Core.Language.txt</file>
 <file>info.ini</file>
 <file>AutoFormat.PurifierLinkify.txt</file>
 <file>Output.FixInnerHTML.txt</file>
-<file>HTML.Trusted.txt</file>
+<file>HTML.TidyRemove.txt</file>
 <file>AutoFormat.RemoveEmpty.RemoveNbsp.Exceptions.txt</file>
 <file>Core.ConvertDocumentToFragment.txt</file>
 <file>AutoFormat.RemoveEmpty.RemoveNbsp.txt</file>
-<file>HTML.AllowedModules.txt</file>
+<file>HTML.BlockWrapper.txt</file>
 <file>AutoFormat.RemoveEmpty.txt</file>
 <file>Core.DirectLexLineNumberSyncInterval.txt</file>
 <file>AutoFormat.RemoveSpansWithoutAttributes.txt</file>
-<file>HTML.Attr.Name.UseCDATA.txt</file>
+<file>HTML.CoreModules.txt</file>
 <file>CSS.AllowImportant.txt</file>
 <file>HTML.SafeObject.txt</file>
 <file>CSS.AllowTricky.txt</file>
 <file>HTML.SafeScripting.txt</file>
 <file>CSS.AllowedFonts.txt</file>
-<file>HTML.BlockWrapper.txt</file>
-<file>CSS.AllowedProperties.txt</file>
-<file>HTML.CoreModules.txt</file>
-<file>CSS.DefinitionRev.txt</file>
 <file>HTML.CustomDoctype.txt</file>
+<file>CSS.AllowedProperties.txt</file>
+<file>HTML.DefinitionID.txt</file>
+<file>CSS.DefinitionRev.txt</file>
+<file>HTML.DefinitionRev.txt</file>
 <file>CSS.ForbiddenProperties.txt</file>
 <file>HTML.Strict.txt</file>
 <file>CSS.MaxImgLength.txt</file>
@@ -10948,31 +11008,31 @@
 <file>CSS.Proprietary.txt</file>
 <file>HTML.TidyAdd.txt</file>
 <file>CSS.Trusted.txt</file>
-<file>HTML.DefinitionID.txt</file>
-<file>Cache.DefinitionImpl.txt</file>
-<file>HTML.DefinitionRev.txt</file>
-<file>Cache.SerializerPath.txt</file>
-<file>Core.EscapeInvalidChildren.txt</file>
-<file>Cache.SerializerPermissions.txt</file>
 <file>HTML.Doctype.txt</file>
-<file>Core.AggressivelyFixLt.txt</file>
-<file>Core.EscapeInvalidTags.txt</file>
-<file>Core.AllowHostnameUnderscore.txt</file>
+<file>Cache.DefinitionImpl.txt</file>
 <file>HTML.FlashAllowFullScreen.txt</file>
-<file>Core.CollectErrors.txt</file>
-<file>Core.EscapeNonASCIICharacters.txt</file>
+<file>Cache.SerializerPath.txt</file>
+<file>Core.LexerImpl.txt</file>
+<file>Cache.SerializerPermissions.txt</file>
 <file>HTML.ForbiddenAttributes.txt</file>
+<file>Core.AggressivelyFixLt.txt</file>
+<file>Core.MaintainLineNumbers.txt</file>
+<file>Core.AllowHostnameUnderscore.txt</file>
+<file>HTML.ForbiddenElements.txt</file>
+<file>Core.CollectErrors.txt</file>
+<file>Core.Encoding.txt</file>
+<file>Core.NormalizeNewlines.txt</file>
+<file>Core.EscapeInvalidChildren.txt</file>
+<file>HTML.MaxImgLength.txt</file>
+<file>Core.EscapeInvalidTags.txt</file>
+<file>Core.RemoveInvalidImg.txt</file>
+<file>Core.EscapeNonASCIICharacters.txt</file>
 <file>Core.HiddenElements.txt</file>
 <file>HTML.TidyLevel.txt</file>
-<file>Core.Language.txt</file>
-<file>HTML.TidyRemove.txt</file>
-<file>Core.LexerImpl.txt</file>
-<file>HTML.ForbiddenElements.txt</file>
-<file>Core.MaintainLineNumbers.txt</file>
-<file>HTML.MaxImgLength.txt</file>
 <file>Core.RemoveProcessingInstructions.txt</file>
 <file>Filter.ExtractStyleBlocks.Escaping.txt</file>
 <file>Filter.ExtractStyleBlocks.TidyImpl.txt</file>
+<file>HTML.Trusted.txt</file>
 <file>HTML.XHTML.txt</file>
 <file>Output.CommentScriptContents.txt</file>
 <file>Output.FlashCompat.txt</file>
@@ -11002,6 +11062,10 @@
 <file>Validator.php</file>
 <file>ValidatorAtom.php</file>
 <file>schema.ser</file>
+</dir>
+<dir name="DefinitionCache">
+<dir name="Serializer">
+</dir>
 </dir>
 <dir name="EntityLookup">
 <file>entities.ser</file>
@@ -11055,71 +11119,71 @@
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/Builder/Xml.php</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/Interchange/Directive.php</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/Interchange/Id.php</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.NormalizeNewlines.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.RemoveScriptContents.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Attr.AllowedClasses.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.RemoveInvalidImg.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Filter.Custom.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Attr.AllowedFrameTargets.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Nofollow.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Attr.AllowedRel.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Parent.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Attr.AllowedRev.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.RemoveScriptContents.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Attr.ClassUseCDATA.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Filter.Custom.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Attr.DefaultImageAlt.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.Scope.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Attr.ClassUseCDATA.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Attr.DefaultImageAlt.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Filter.YouTube.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Attr.DefaultInvalidImage.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.DisableExcludes.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Attr.DefaultInvalidImageAlt.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Allowed.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Attr.DefaultTextDir.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Proprietary.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Attr.EnableID.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Filter.YouTube.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.AllowedAttributes.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Attr.ForbiddenClasses.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.SafeEmbed.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Attr.IDBlacklist.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Allowed.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.AllowedComments.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Attr.IDBlacklistRegexp.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.SafeIframe.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Attr.IDPrefix.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.AllowedAttributes.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Attr.IDPrefixLocal.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.AllowedComments.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.AutoParagraph.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.AllowedCommentsRegexp.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Attr.IDPrefixLocal.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.AllowedElements.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.AutoParagraph.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.AllowedModules.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.Custom.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.EnableIDNA.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/URI.Base.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.DisplayLinkURI.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.AllowedElements.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Attr.Name.UseCDATA.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.Linkify.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.ColorKeywords.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/URI.Host.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.PurifierLinkify.DocURL.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.Encoding.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.Language.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/info.ini</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.PurifierLinkify.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Output.FixInnerHTML.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Trusted.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.TidyRemove.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveEmpty.RemoveNbsp.Exceptions.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.ConvertDocumentToFragment.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveEmpty.RemoveNbsp.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.AllowedModules.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.BlockWrapper.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveEmpty.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.DirectLexLineNumberSyncInterval.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveSpansWithoutAttributes.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Attr.Name.UseCDATA.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.CoreModules.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/CSS.AllowImportant.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.SafeObject.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/CSS.AllowTricky.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.SafeScripting.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/CSS.AllowedFonts.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.BlockWrapper.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/CSS.AllowedProperties.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.CoreModules.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/CSS.DefinitionRev.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.CustomDoctype.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/CSS.AllowedProperties.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.DefinitionID.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/CSS.DefinitionRev.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.DefinitionRev.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/CSS.ForbiddenProperties.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Strict.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/CSS.MaxImgLength.txt</file>
@@ -11127,31 +11191,31 @@
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/CSS.Proprietary.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.TidyAdd.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/CSS.Trusted.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.DefinitionID.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Cache.DefinitionImpl.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.DefinitionRev.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Cache.SerializerPath.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.EscapeInvalidChildren.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Cache.SerializerPermissions.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Doctype.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.AggressivelyFixLt.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.EscapeInvalidTags.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.AllowHostnameUnderscore.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Cache.DefinitionImpl.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.FlashAllowFullScreen.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.CollectErrors.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.EscapeNonASCIICharacters.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Cache.SerializerPath.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.LexerImpl.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Cache.SerializerPermissions.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.ForbiddenAttributes.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.AggressivelyFixLt.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.MaintainLineNumbers.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.AllowHostnameUnderscore.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.ForbiddenElements.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.CollectErrors.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.Encoding.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.NormalizeNewlines.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.EscapeInvalidChildren.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.MaxImgLength.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.EscapeInvalidTags.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.RemoveInvalidImg.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.EscapeNonASCIICharacters.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.HiddenElements.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.TidyLevel.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.Language.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.TidyRemove.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.LexerImpl.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.ForbiddenElements.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.MaintainLineNumbers.txt</file>
-    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.MaxImgLength.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Core.RemoveProcessingInstructions.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.Escaping.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.TidyImpl.txt</file>
+    <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Trusted.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/HTML.XHTML.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Output.CommentScriptContents.txt</file>
     <file>serendipity_event_xsstrust/htmlpurifier-4.6.0-standalone/standalone/HTMLPurifier/ConfigSchema/schema/Output.FlashCompat.txt</file>
@@ -11217,7 +11281,7 @@
 <release>
   <version>1.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-08-17</date>
   <filelist>
 <dir name="serendipity_event_youtube">
 <dir name="UTF-8">
@@ -11258,7 +11322,7 @@
 <release>
   <version>2.38.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2019-04-27</date>
   <filelist>
 <dir name="serendipity_plugin_adduser">
 <dir name="UTF-8">
@@ -11319,7 +11383,7 @@
 <release>
   <version>1.05</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2012-06-14</date>
   <filelist>
 <dir name="serendipity_plugin_flickr">
 <dir name="UTF-8">
@@ -11414,7 +11478,7 @@
 <release>
   <version>2.17</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-04-03</date>
   <filelist>
 <dir name="serendipity_plugin_pollbox">
 <dir name="UTF-8">
@@ -11467,7 +11531,7 @@
 <release>
   <version>1.70</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-03-21</date>
+  <date>2018-04-03</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="UTF-8">
@@ -11507,6 +11571,7 @@
 <file>OAuth.php</file>
 <file>twitteroauth.php</file>
 </dir>
+<file>.cvsignore</file>
 <file>.htaccess</file>
 <file>ChangeLog</file>
 <file>documentation_cs.html</file>
@@ -11549,6 +11614,7 @@
     <file>serendipity_plugin_twitter/tweeter/tweeter_history.inc.php</file>
     <file>serendipity_plugin_twitter/twitteroauth/OAuth.php</file>
     <file>serendipity_plugin_twitter/twitteroauth/twitteroauth.php</file>
+    <file>serendipity_plugin_twitter/.cvsignore</file>
     <file>serendipity_plugin_twitter/.htaccess</file>
     <file>serendipity_plugin_twitter/ChangeLog</file>
     <file>serendipity_plugin_twitter/documentation_cs.html</file>

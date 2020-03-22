@@ -186,7 +186,7 @@ if (is_dir('homepage')) {
                 <li><a href="https://blog.s9y.org/index.php?serendipity[subpage]=dsgvo_gdpr_privacy">Privacy policy</a></li>
             </ul>
 
-            <p id="supporters">This site is hosted by the kind people at <a href="http://www.sourceforge.net">SourceForge.net</a> and created by <a href="http://garv.in">Garvin Hicking</a>.</p>
+            <p id="supporters">This site is hosted at <a href="https://uberspace.de/">Uberspace</a> and created by <a href="http://garv.in">Garvin Hicking</a> and the Serendipity Project.</p>
         </div>
     </footer>
 

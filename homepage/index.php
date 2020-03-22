@@ -11,6 +11,12 @@ if (is_dir('homepage')) {
 } else {
     define('BASEDIR', '');
 }
+if (!empty($_REQUEST['mode']) && (substr(($_REQUEST['mode']), 0, 8) != 'template')) {
+    $page_language = end(explode('_',$_REQUEST['mode']));
+    if ($page_language != LANG) { 
+        $_REQUEST['mode'] = preg_replace ('/'.$page_language.'$/', LANG, $_REQUEST['mode']);
+    }           
+}
 ?>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -128,6 +134,7 @@ if (is_dir('homepage')) {
                     <h3>Change language</h3>
 
                     <form action="index.php" method="get">
+                        <input type="hidden" name="mode" value="<?php echo $_REQUEST['mode']; ?>">
                         <select class="language" name="language">
                     <?php
                         $lang = array('en' => 'English',
@@ -169,8 +176,8 @@ if (is_dir('homepage')) {
                     <h3>Feeds</h3>
 
                     <ul>
-                        <li><a href="http://www.netmirror.org/mirror/serendipity/package_RSSevent.xml">Event plugins</a></li>
-                        <li><a href="http://www.netmirror.org/mirror/serendipity/package_RSSsidebar.xml">Sidebar plugins</a></li>
+                        <li><a href="https://raw.githubusercontent.com/s9y/additional_plugins/master/package_RSSevent.xml">Event plugins</a></li>
+                        <li><a href="https://raw.githubusercontent.com/s9y/additional_plugins/master/package_RSSsidebar.xml">Sidebar plugins</a></li>
                         <li><a href="https://github.com/s9y/additional_plugins/commits/master.atom">Plugin commits</a></li>
                         <li><a href="https://github.com/s9y/additional_themes/commits/master.atom">Theme commits</a></li>
                     </ul>
@@ -183,10 +190,10 @@ if (is_dir('homepage')) {
         <div class="layout-container">
             <ul id="service-links">
                 <li><a id="to-top" href="#top">Back to top</a></li>
-                <li><a href="http://jann.is/datenschutz.html">Privacy policy</a></li>
+                <li><a href="https://blog.s9y.org/index.php?serendipity[subpage]=dsgvo_gdpr_privacy">Privacy policy</a></li>
             </ul>
 
-            <p id="supporters">This site is hosted by the kind people at <a href="http://www.sourceforge.net">SourceForge.net</a> and created by <a href="http://garv.in">Garvin Hicking</a>.</p>
+            <p id="supporters">This site is hosted at <a href="https://uberspace.de/">Uberspace</a> and created by <a href="http://garv.in">Garvin Hicking</a> and the Serendipity Project.</p>
         </div>
     </footer>
 

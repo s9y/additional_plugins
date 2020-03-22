@@ -183,7 +183,7 @@ if (is_dir('homepage')) {
         <div class="layout-container">
             <ul id="service-links">
                 <li><a id="to-top" href="#top">Back to top</a></li>
-                <li><a href="http://jann.is/datenschutz.html">Privacy policy</a></li>
+                <li><a href="https://blog.s9y.org/index.php?serendipity[subpage]=dsgvo_gdpr_privacy">Privacy policy</a></li>
             </ul>
 
             <p id="supporters">This site is hosted by the kind people at <a href="http://www.sourceforge.net">SourceForge.net</a> and created by <a href="http://garv.in">Garvin Hicking</a>.</p>

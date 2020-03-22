@@ -11,6 +11,12 @@ if (is_dir('homepage')) {
 } else {
     define('BASEDIR', '');
 }
+if (!empty($_REQUEST['mode']) && (substr(($_REQUEST['mode']), 0, 8) != 'template')) {
+    $page_language = end(explode('_',$_REQUEST['mode']));
+    if ($page_language != LANG) { 
+        $_REQUEST['mode'] = preg_replace ('/'.$page_language.'$/', LANG, $_REQUEST['mode']);
+    }           
+}
 ?>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -128,6 +134,7 @@ if (is_dir('homepage')) {
                     <h3>Change language</h3>
 
                     <form action="index.php" method="get">
+                        <input type="hidden" name="mode" value="<?php echo $_REQUEST['mode']; ?>">
                         <select class="language" name="language">
                     <?php
                         $lang = array('en' => 'English',

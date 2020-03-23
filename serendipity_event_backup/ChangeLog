@@ -1,3 +1,5 @@
+0.15.1: Removed (dead) URL and mail address from author field.
+
 0.15: Added German translation.
 
 0.14: Adapt backend to 2.x (yellowled)

@@ -22,8 +22,8 @@ class serendipity_event_proxy_realip extends serendipity_event {
     $propbag->add('name', PLUGIN_EVENT_PROXY_REALIP_NAME);
     $propbag->add('description', PLUGIN_EVENT_PROXY_REALIP_DESC);
     $propbag->add('stackable', false);
-    $propbag->add('author', '<a href="http://blog.kleinerChemiker.net/" target="_blank">kleinerChemiker</a>');
-    $propbag->add('version', '1.0.1');
+    $propbag->add('author', 'kleinerChemiker');
+    $propbag->add('version', '1.0.2');
     $propbag->add('requirements', array('serendipity' => '1.6.2', 'smarty' => '2.6.7', 'php' => '5.3.0'));
     $propbag->add('groups', array('BACKEND_FEATURES'));
     $propbag->add('event_hooks', array('frontend_configure' => true));

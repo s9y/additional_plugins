@@ -103,33 +103,6 @@ if (!empty($_REQUEST['mode']) && (substr(($_REQUEST['mode']), 0, 8) != 'template
             <aside id="sidebar">
                 <h2>More info</h2>
 
-                <section id="spartacus-plugins" class="widget">
-                    <h3>Plugins</h3>
-
-                    <h4>Event</h4>
-
-                    <ul class="spartacus-list">
-                        <li><a href="index.php?mode=bygroups_event_<?php echo LANG; ?>">All Groups</a></li>
-                        <?php echo str_replace('[LANG]', LANG, file_get_contents(BASEDIR . 'box_groups_event.htm')); ?>
-                    </ul>
-
-                    <h4>Sidebar</h4>
-
-                    <ul class="spartacus-list">
-                        <li><a href="index.php?mode=bygroups_sidebar_<?php echo LANG; ?>">All Groups</a></li>
-                        <?php echo str_replace('[LANG]', LANG, file_get_contents(BASEDIR . 'box_groups_sidebar.htm')); ?>
-                    </ul>
-                </section>
-
-                <section id="spartacus-themes" class="widget">
-                    <h3>Themes</h3>
-
-                    <ul class="spartacus-list">
-                        <li><a href="index.php?mode=template_all">All Templates</a></li>
-                        <?php echo file_get_contents(BASEDIR . 'box_groups_template.htm'); ?>
-                    </ul>
-                </section>
-
                 <section id="spartacus-language" class="widget">
                     <h3>Change language</h3>
 
@@ -170,6 +143,33 @@ if (!empty($_REQUEST['mode']) && (substr(($_REQUEST['mode']), 0, 8) != 'template
                         </select>
                         <input type="submit" value="Go">
                     </form>
+                </section>
+
+                <section id="spartacus-plugins" class="widget">
+                    <h3>Plugins</h3>
+
+                    <h4>Event</h4>
+
+                    <ul class="spartacus-list">
+                        <li><a href="index.php?mode=bygroups_event_<?php echo LANG; ?>">All Groups</a></li>
+                        <?php echo str_replace('[LANG]', LANG, file_get_contents(BASEDIR . 'box_groups_event.htm')); ?>
+                    </ul>
+
+                    <h4>Sidebar</h4>
+
+                    <ul class="spartacus-list">
+                        <li><a href="index.php?mode=bygroups_sidebar_<?php echo LANG; ?>">All Groups</a></li>
+                        <?php echo str_replace('[LANG]', LANG, file_get_contents(BASEDIR . 'box_groups_sidebar.htm')); ?>
+                    </ul>
+                </section>
+
+                <section id="spartacus-themes" class="widget">
+                    <h3>Themes</h3>
+
+                    <ul class="spartacus-list">
+                        <li><a href="index.php?mode=template_all">All Templates</a></li>
+                        <?php echo file_get_contents(BASEDIR . 'box_groups_template.htm'); ?>
+                    </ul>
                 </section>
 
                 <section id="spartacus-feeds" class="widget">

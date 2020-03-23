@@ -364,11 +364,11 @@
 <summary>Show entries via JavaScript</summary>
 <groups>FRONTEND_FULL_MODS</groups>
 <description>Provides javascript output of recent entries for inclusion on other, extern websites. (see the README in the plugins directory!)</description>
-<maintainers><maintainer><name>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Alexander 'dma147' Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.6.1</version>
+  <version>0.6.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2020-03-24</date>
   <filelist>
 <dir name="serendipity_event_backend">
 <dir name="UTF-8">
@@ -455,11 +455,11 @@
 <summary>Backup Interface</summary>
 <groups>FRONTEND_FULL_MODS,BACKEND_FEATURES</groups>
 <description>Provides the ability to automatically make backups from your s9y, the database-tables, the whole database and the files. Only MySQL(i) databases are currently supported. WARNING: This plugin does not work well with large databases or directories.</description>
-<maintainers><maintainer><name>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Alexander 'dma147' Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.15</version>
+  <version>0.15.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2020-03-24</date>
   <filelist>
 <dir name="serendipity_event_backup">
 <dir name="UTF-8">
@@ -3596,11 +3596,11 @@
 <summary>Discussion forum / phpBB comment mirroring</summary>
 <groups>FRONTEND_FULL_MODS</groups>
 <description>Provides a complete discussion forum to your users. Can alternatively provide to mirror comments into a phpBB installation.</description>
-<maintainers><maintainer><name>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Alexander 'dma147' Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.38.4</version>
+  <version>0.38.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2020-03-24</date>
   <filelist>
 <dir name="serendipity_event_forum">
 <dir name="UTF-8">
@@ -4832,11 +4832,11 @@
 <summary>Google Analytics</summary>
 <groups>STATISTICS</groups>
 <description>This plugin adds extendet Google Analytic funcionality to youre Page like tracking external links or download links.</description>
-<maintainers><maintainer><name>&lt;a href=&quot;https://github.com/kleinerChemiker&quot; target=&quot;_blank&quot;&gt;kleinerChemiker&lt;/a&gt;</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>kleinerChemiker</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4.2</version>
+  <version>1.4.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2020-03-24</date>
   <filelist>
 <dir name="serendipity_event_google_analytics">
 <dir name="CVSROOT">
@@ -8318,11 +8318,11 @@
 <summary>Proxy Real-IP</summary>
 <groups>BACKEND_FEATURES</groups>
 <description>Sets the correct Visitors IP when useing a Proxy for your webserver. Should be the first plugin in the list.</description>
-<maintainers><maintainer><name>&lt;a href=&quot;http://blog.kleinerChemiker.net/&quot; target=&quot;_blank&quot;&gt;kleinerChemiker&lt;/a&gt;</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>kleinerChemiker</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <requirements:s9yVersion>1.6.2</requirements:s9yVersion>
-  <date>2013-07-02</date>
+  <date>2020-03-24</date>
   <filelist>
 <dir name="serendipity_event_proxy_realip">
 <dir name="UTF-8">

@@ -66,9 +66,9 @@
 <title>Show entries via JavaScript: Provides javascript output of recent entries for inclusion on other, extern websites. (see the README in the plugins directory!)</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_backend</link>
 <category>Event Plugins</category>
-<author>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</author>
+<author>Alexander 'dma147' Mieland</author>
 <content:encoded>&lt;b&gt;serendipity_event_backend&lt;br /&gt;Show entries via JavaScript&lt;/b&gt;&lt;br /&gt;Provides javascript output of recent entries for inclusion on other, extern websites. (see the README in the plugins directory!)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:34 +0200</pubDate>
+<pubDate>Tue, 24 Mar 2020 00:30:44 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_backend</guid>
 </item>
 <item>
@@ -84,9 +84,9 @@
 <title>Backup Interface: Provides the ability to automatically make backups from your s9y, the database-tables, the whole database and the files. Only MySQL(i) databases are currently supported. WARNING: This plugin does not work well with large databases or directories.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_backup</link>
 <category>Event Plugins</category>
-<author>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</author>
+<author>Alexander 'dma147' Mieland</author>
 <content:encoded>&lt;b&gt;serendipity_event_backup&lt;br /&gt;Backup Interface&lt;/b&gt;&lt;br /&gt;Provides the ability to automatically make backups from your s9y, the database-tables, the whole database and the files. Only MySQL(i) databases are currently supported. WARNING: This plugin does not work well with large databases or directories.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 17 Aug 2019 22:30:56 +0200</pubDate>
+<pubDate>Tue, 24 Mar 2020 00:30:44 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_backup</guid>
 </item>
 <item>
@@ -399,9 +399,9 @@
 <title>Forum de discussion / phpBB mirroring des commentaires: proposer un veritable forum a vos utilisateurs. Peut aussi permettre de mettre PHPBB en miroir pour les commentaires.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_forum</link>
 <category>Event Plugins</category>
-<author>Alexander 'dma147' Mieland, http://blog.linux-stats.org, dma147@linux-stats.org</author>
+<author>Alexander 'dma147' Mieland</author>
 <content:encoded>&lt;b&gt;serendipity_event_forum&lt;br /&gt;Forum de discussion / phpBB mirroring des commentaires&lt;/b&gt;&lt;br /&gt;proposer un veritable forum a vos utilisateurs. Peut aussi permettre de mettre PHPBB en miroir pour les commentaires.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 27 Apr 2019 22:32:20 +0200</pubDate>
+<pubDate>Tue, 24 Mar 2020 00:30:46 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_forum</guid>
 </item>
 <item>
@@ -480,9 +480,9 @@
 <title>Google Analytics: This plugin adds extendet Google Analytic funcionality to youre Page like tracking external links or download links.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_google_analytics</link>
 <category>Event Plugins</category>
-<author>&lt;a href=&quot;https://github.com/kleinerChemiker&quot; target=&quot;_blank&quot;&gt;kleinerChemiker&lt;/a&gt;</author>
+<author>kleinerChemiker</author>
 <content:encoded>&lt;b&gt;serendipity_event_google_analytics&lt;br /&gt;Google Analytics&lt;/b&gt;&lt;br /&gt;This plugin adds extendet Google Analytic funcionality to youre Page like tracking external links or download links.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:38 +0200</pubDate>
+<pubDate>Tue, 24 Mar 2020 00:30:46 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_google_analytics</guid>
 </item>
 <item>
@@ -840,9 +840,9 @@
 <title>Proxy Real-IP: Sets the correct Visitors IP when useing a Proxy for your webserver. Should be the first plugin in the list.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_proxy_realip</link>
 <category>Event Plugins</category>
-<author>&lt;a href=&quot;http://blog.kleinerChemiker.net/&quot; target=&quot;_blank&quot;&gt;kleinerChemiker&lt;/a&gt;</author>
+<author>kleinerChemiker</author>
 <content:encoded>&lt;b&gt;serendipity_event_proxy_realip&lt;br /&gt;Proxy Real-IP&lt;/b&gt;&lt;br /&gt;Sets the correct Visitors IP when useing a Proxy for your webserver. Should be the first plugin in the list.&lt;br/&gt;For: Serendipity 1.6.2</content:encoded>
-<pubDate>Tue, 02 Jul 2013 02:32:09 +0200</pubDate>
+<pubDate>Tue, 24 Mar 2020 00:30:47 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_proxy_realip</guid>
 </item>
 <item>

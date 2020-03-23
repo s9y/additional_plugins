@@ -203,7 +203,7 @@ class emerge_spartacus {
         $x[] = '</packages>';
         ksort($t);
 
-        $theme_li = '<!-- Created ' . date('Y-m-d h:i') . "-->\n";
+        $theme_li = '<!-- Created ' . date('Y-m-d H:i') . "-->\n";
         foreach($t as $theme => $html) {
             $theme_li .= '<li><a href="index.php?mode=template_' . $nametofile[$theme] . '">' . $theme . '</a></li>' . "\n";
             $fp = fopen('homepage/template_' . $nametofile[$theme] . '.htm', 'w');
@@ -375,7 +375,7 @@ class emerge_spartacus {
         }
 
         $fp = fopen('homepage/bygroups_' . $key . '_' . $serendipity['lang'] . '.htm', 'w');
-        $li_groups = '<!-- Created ' . date('Y-m-d h:i') . "-->\n";
+        $li_groups = '<!-- Created ' . date('Y-m-d H:i') . "-->\n";
         ksort($groups);
         foreach($groups AS $gname => $group) {
             $p = array();

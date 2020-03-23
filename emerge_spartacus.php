@@ -8,6 +8,7 @@
 
 header('Content-Type: text/plain');
 define('IN_serendipity', true);
+define('LASTRUN', '<!-- Created ' . date('Y-m-d H:i') . "-->\n");
 error_reporting(E_ALL &  ~E_NOTICE);
 
 class emerge_spartacus {
@@ -203,7 +204,7 @@ class emerge_spartacus {
         $x[] = '</packages>';
         ksort($t);
 
-        $theme_li = '<!-- Created ' . date('Y-m-d H:i') . "-->\n";
+        $theme_li = '';
         foreach($t as $theme => $html) {
             $theme_li .= '<li><a href="index.php?mode=template_' . $nametofile[$theme] . '">' . $theme . '</a></li>' . "\n";
             $fp = fopen('homepage/template_' . $nametofile[$theme] . '.htm', 'w');
@@ -211,7 +212,8 @@ class emerge_spartacus {
             fclose($fp);
         }
         $fp = fopen('homepage/template_all.htm', 'w');
-        $tplist = '<section class="spartacus-group"><h3>Frontend Themes</h3>' . implode("\n", $t) . '</section>';
+        $tplist =  LASTRUN;
+        $tplist .= '<section class="spartacus-group"><h3>Frontend Themes</h3>' . implode("\n", $t) . '</section>';
         fwrite($fp, $tplist);
         fclose($fp);
 
@@ -375,7 +377,7 @@ class emerge_spartacus {
         }
 
         $fp = fopen('homepage/bygroups_' . $key . '_' . $serendipity['lang'] . '.htm', 'w');
-        $li_groups = '<!-- Created ' . date('Y-m-d H:i') . "-->\n";
+        $li_groups = '';
         ksort($groups);
         foreach($groups AS $gname => $group) {
             $p = array();
@@ -384,10 +386,11 @@ class emerge_spartacus {
             foreach($group AS $plug) {
                 $p[] = $plug['content'];
             }
-            $c = '<section id="group_' . $gshort . '" class="spartacus-group">
+            $c  = LANG;
+            $c .= '<section id="group_' . $gshort . '" class="spartacus-group">
                     <h3>' . $gname . '</h3>
                     ' . implode("\n", $p) . '
-                 </section>';
+                  </section>';
             fwrite($fp, $c);
             $fp2 = fopen('homepage/bygroup_' . $key . '_' . $gshort . '_' . $serendipity['lang'] . '.htm', 'w');
             fwrite($fp2, $c);

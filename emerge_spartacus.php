@@ -386,7 +386,7 @@ class emerge_spartacus {
             foreach($group AS $plug) {
                 $p[] = $plug['content'];
             }
-            $c  = LANG;
+            $c  = LASTRUN;
             $c .= '<section id="group_' . $gshort . '" class="spartacus-group">
                     <h3>' . $gname . '</h3>
                     ' . implode("\n", $p) . '

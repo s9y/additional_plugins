@@ -1,17 +1,24 @@
 <?php
+# language switch
 if (isset($_GET['language'])) {
     #setcookie('language', $_GET['language']);
 }
-if (empty($_REQUEST['language'])) {
-    $_REQUEST['language'] = 'en';
+# if language (from language selector form) is set, set LANG accordingly
+if (!empty($_REQUEST['language'])) {
+    define('LANG', preg_replace('@[^a-z_]@i', '', $_REQUEST['language']));
+  # if a plugin group is displayed, get LANG from page name
+} elseif (!empty($_REQUEST['mode']) && (substr(($_REQUEST['mode']), 0, 8) != 'template')) {
+    define('LANG', preg_replace('@[^a-z_]@i', '', end(explode('_',$_REQUEST['mode']))));
+  # fall back to default (english)
+} else {
+    define('LANG', 'en');
 }
-define('LANG', preg_replace('@[^a-z_]@i', '', $_REQUEST['language']));
 if (is_dir('homepage')) {
     define('BASEDIR', 'homepage/');
 } else {
     define('BASEDIR', '');
 }
-if (!empty($_REQUEST['mode']) && (substr(($_REQUEST['mode']), 0, 8) != 'template')) {
+if (!empty($_REQUEST['mode']) && !empty($_REQUEST['language']) && (substr(($_REQUEST['mode']), 0, 8) != 'template')) {
     $page_language = end(explode('_',$_REQUEST['mode']));
     if ($page_language != LANG) { 
         $_REQUEST['mode'] = preg_replace ('/'.$page_language.'$/', LANG, $_REQUEST['mode']);
@@ -136,7 +143,7 @@ if (!empty($_REQUEST['mode']) && (substr(($_REQUEST['mode']), 0, 8) != 'template
                                       'ta' => 'Tamil');
                         foreach($lang as $l => $d) {
                     ?>
-                            <option value="<?php echo $l; ?>"><?php echo htmlspecialchars($d, ENT_COMPAT, 'UTF-8'); ?></option>
+                            <option value="<?php echo $l ?>"<?php echo ($l == LANG) ? ' selected' : ''; ?>><?php echo htmlspecialchars($d, ENT_COMPAT, 'UTF-8'); ?></option>
                     <?php
                         }
                     ?>

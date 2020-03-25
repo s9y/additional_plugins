@@ -202,7 +202,7 @@ class emerge_spartacus {
             $nametofile[$info['name']] = $path['name'];
         }
         $x[] = '</packages>';
-        ksort($t);
+        uksort($t, 'strcasecmp');
 
         $theme_li = '';
         foreach($t as $theme => $html) {

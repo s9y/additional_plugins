@@ -16,14 +16,17 @@ class serendipity_event_social extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_SOCIAL_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Matthias Mees, Thomas Hochstein');
-        $propbag->add('version',       '0.13.2');
+        $propbag->add('version',       '0.14');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0'
         ));
         $propbag->add('event_hooks',   array('frontend_display:html:per_entry' => true,
                                        'css' => true,
                                        'frontend_footer' => true,
-                                       'frontend_header' => true));
+                                       'frontend_header' => true,
+                                       'backend_display' => true,
+                                       'backend_publish' => true,
+                                       'backend_save' => true));
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
 
         $propbag->add('configuration', array('services', 'theme', 'overview', 'twitter_via', 'social_image', 'lang', 'backend'));
@@ -197,12 +200,19 @@ class serendipity_event_social extends serendipity_event {
                         echo '<meta property="og:site_name" content="' . $serendipity['blogTitle'] . '" />' . "\n";
                         echo '<meta property="og:url" content="'. $blogURL . serendipity_specialchars($_SERVER['REQUEST_URI']) . '" />' . "\n";
 
+                        // set default image from plugin configuration
                         $social_image = $this->get_config('social_image', '');
-                        if (isset($entry['properties']) && isset($entry['properties']['timeline_image'])) {
+                        if (isset($entry['properties']) && isset($entry['properties']['entry_image'])) {
+                            // if entry_image is set, use this image instead (first priority)
+                            $social_image = $entry['properties']['entry_image'];
+                        } else if (isset($entry['properties']) && isset($entry['properties']['timeline_image'])) {
+                            // if timeline_image from timeline theme is set, use this image (second priority)
                             $social_image = $entry['properties']['timeline_image'];
                         } else if (isset($entry['properties']) && isset($entry['properties']['ep_featuredImage'])) {
+                            // if ep_featuredImage from photo theme is set, use this image (third priority)
                             $social_image = $entry['properties']['ep_featuredImage'];
                         } else {
+                            // Fourth priority:
                             // This is searching for the first image in an entry to use as facebook article image.
                             // A better approach would be to register in the entry editor when an image was added
                             if (preg_match_all('@<img.*src=["\'](.+)["\']@imsU', $entry['body'] . $entry['extended'], $images)) {
@@ -224,6 +234,49 @@ class serendipity_event_social extends serendipity_event {
                         }
                     }
                     break;
+
+                case 'backend_display':
+                    if (isset($serendipity['POST']['properties']['entry_image'])) {
+                        $entry_image = $serendipity['POST']['properties']['entry_image'];
+                    } elseif (!empty($eventData['properties']['entry_image'])) {
+                        $entry_image = $eventData['properties']['entry_image'];
+                    } else {
+                        $entry_image = '';
+                    }
+?>
+                    <div class="social_entry_image adv_opts_box form_field">
+                        <div class="clearfix form_area media_choose" id="ep_column_entry_image">
+                            <label for="properties_entry_image"><?php echo PLUGIN_EVENT_SOCIAL_ENTRY_IMAGE; ?>:</label>
+                            <textarea data-configitem="properties_entry_image" name="serendipity[properties][entry_image]" class="change_preview" id="properties_entry_image" style="width: 100%"><?php echo serendipity_specialchars($entry_image); ?></textarea>
+                            <button class="customfieldMedia" type="button" name="insImage" title="<?php echo MEDIA ; ?>"><span class="icon-picture" aria-hidden="true"></span><span class="visuallyhidden"><?php echo MEDIA ; ?></span></button>
+                            <figure id="properties_entry_image_preview">
+                                <figcaption><?php echo PREVIEW; ?></figcaption>
+                                <img src="<?php echo $entry_image; ?>"  alt=""/>
+                            </figure>
+                        </div>
+                    </div>
+<?php
+                    return true;
+                    break;
+
+                case 'backend_publish':
+                case 'backend_save':
+                    if (!isset($serendipity['POST']['properties']) || !is_array($serendipity['POST']['properties']) || !isset($eventData['id'])) {
+                        return true;
+                    }
+
+                    $entry_image = $serendipity['POST']['properties']['entry_image'];
+
+                    // delete old entry, if any
+                    $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$eventData['id'] . " AND property = 'entry_image'";
+                    serendipity_db_query($q);
+
+                    // save new entry
+                    if (!empty($entry_image)) {
+                        $q = "INSERT INTO {$serendipity['dbPrefix']}entryproperties (entryid, property, value) VALUES (" . (int)$eventData['id'] . ", 'entry_image', '" . serendipity_db_escape_string($entry_image) . "')";
+                        serendipity_db_query($q);
+                    }
+
                 default:
                     return false;
             }

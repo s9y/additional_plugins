@@ -117,12 +117,12 @@
 <guid isPermaLink="false">serendipity_plugin_userprofiles</guid>
 </item>
 <item>
-<title>Рожденни дни на потребителите: PLUGIN_USERPROFILES_BIRTHDAYSNAME_DESCRIPTION</title>
+<title>Рожденни дни на потребителите: Birthdays of users</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_userprofiles</link>
 <category>Sidebar Plugins</category>
 <author>Falk Doering</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_userprofiles_birthdays&lt;br /&gt;Рожденни дни на потребителите&lt;/b&gt;&lt;br /&gt;PLUGIN_USERPROFILES_BIRTHDAYSNAME_DESCRIPTION&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 12 Aug 2013 09:58:59 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_plugin_userprofiles_birthdays&lt;br /&gt;Рожденни дни на потребителите&lt;/b&gt;&lt;br /&gt;Birthdays of users&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<pubDate>Sun, 29 Mar 2020 00:30:54 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_userprofiles_birthdays</guid>
 </item>
 <item>
@@ -227,7 +227,7 @@
 <category>Sidebar Plugins</category>
 <author>Michael Kaiser</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_flickr&lt;br /&gt;flickr Photostream&lt;/b&gt;&lt;br /&gt;Display the latest photos from flickr Photostreams.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 18 Aug 2019 22:31:19 +0200</pubDate>
+<pubDate>Sun, 29 Mar 2020 00:30:54 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_flickr</guid>
 </item>
 <item>
@@ -236,7 +236,7 @@
 <category>Sidebar Plugins</category>
 <author>Lars Strojny</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_flickrbadge&lt;br /&gt;Flickr badge&lt;/b&gt;&lt;br /&gt;Shows your last photos on Flickr.com&lt;br/&gt;For: Serendipity 0.9</content:encoded>
-<pubDate>Sat, 24 Aug 2019 22:31:23 +0200</pubDate>
+<pubDate>Sun, 29 Mar 2020 00:30:54 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_flickrbadge</guid>
 </item>
 <item>
@@ -290,7 +290,7 @@
 <category>Sidebar Plugins</category>
 <author>Andrew Brown (Menalto code), Matthew Groeninger (Unified/Media Lib. Code), Stefan Lange-Hegermann (Zooomr Code), Matthew Maude (Coppermine code)</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_imagesidebar&lt;br /&gt;Unified Sidebar Image Display&lt;/b&gt;&lt;br /&gt;Offers the ability to display images in the sidebar.  The source of the images is configurable.  The plugin is able to connect to a Menalto Gallery installs &quot;random&quot; url, access a Coppermine database directory (MySql only), connect to the web service Zooomr (http://beta.zooomr.com/home) or access images in the Serendipity Media Library.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Mon, 26 Sep 2016 22:32:51 +0200</pubDate>
+<pubDate>Sun, 29 Mar 2020 00:30:54 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_imagesidebar</guid>
 </item>
 <item>

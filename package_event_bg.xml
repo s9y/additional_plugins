@@ -10525,9 +10525,9 @@
 <description>Показва профил на автора с възможност за вграждане на негова снимка.</description>
 <maintainers><maintainer><name>Garvin Hicking, Falk Doering</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.31.1</version>
+  <version>0.31.2</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2020-03-29</date>
   <filelist>
 <dir name="serendipity_event_userprofiles">
 <dir name="UTF-8">

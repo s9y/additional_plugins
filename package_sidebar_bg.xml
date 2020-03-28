@@ -1082,12 +1082,12 @@
 <license>GPL</license>
 <summary>Рожденни дни на потребителите</summary>
 <groups>FRONTEND_VIEWS</groups>
-<description>PLUGIN_USERPROFILES_BIRTHDAYSNAME_DESCRIPTION</description>
+<description>Birthdays of users</description>
 <maintainers><maintainer><name>Falk Doering</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.3</version>
+  <version>0.3.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2020-03-29</date>
   <filelist>
 <dir name="serendipity_event_userprofiles">
 <dir name="UTF-8">
@@ -1914,9 +1914,9 @@
 <description>Display the latest photos from flickr Photostreams.</description>
 <maintainers><maintainer><name>Michael Kaiser</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.09.1</version>
+  <version>1.09.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-18</date>
+  <date>2020-03-29</date>
   <filelist>
 <dir name="serendipity_plugin_flickr">
 <dir name="UTF-8">
@@ -2009,9 +2009,9 @@
 <description>Shows your last photos on Flickr.com</description>
 <maintainers><maintainer><name>Lars Strojny</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.13</version>
+  <version>0.13.1</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2019-08-24</date>
+  <date>2020-03-29</date>
   <filelist>
 <dir name="serendipity_plugin_flickrbadge">
 <dir name="UTF-8">
@@ -2331,9 +2331,9 @@
 <description>Offers the ability to display images in the sidebar.  The source of the images is configurable.  The plugin is able to connect to a Menalto Gallery installs &quot;random&quot; url, access a Coppermine database directory (MySql only), connect to the web service Zooomr (http://beta.zooomr.com/home) or access images in the Serendipity Media Library.</description>
 <maintainers><maintainer><name>Andrew Brown (Menalto code), Matthew Groeninger (Unified/Media Lib. Code), Stefan Lange-Hegermann (Zooomr Code), Matthew Maude (Coppermine code)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.100</version>
+  <version>0.100.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-09-26</date>
+  <date>2020-03-29</date>
   <filelist>
 <dir name="serendipity_plugin_imagesidebar">
 <dir name="UTF-8">

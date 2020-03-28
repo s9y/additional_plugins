@@ -276,11 +276,11 @@
 <guid isPermaLink="false">serendipity_plugin_google_last_query</guid>
 </item>
 <item>
-<title>Google Căutare rapidă: Caută după o intrare (Google)</title>
+<title>Google Cautare rapida: Cauta dupa o intrare (Google)</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_google_quicksearch</link>
 <category>Sidebar Plugins</category>
 <author>Wesley Hwang-Chung</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_google_quicksearch&lt;br /&gt;Google Căutare rapidă&lt;/b&gt;&lt;br /&gt;Caută după o intrare (Google)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_plugin_google_quicksearch&lt;br /&gt;Google Cautare rapida&lt;/b&gt;&lt;br /&gt;Cauta dupa o intrare (Google)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Tue, 03 Apr 2018 22:31:31 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_google_quicksearch</guid>
 </item>
@@ -366,11 +366,11 @@
 <guid isPermaLink="false">serendipity_plugin_quicklink</guid>
 </item>
 <item>
-<title>Căutare rapidă: Caută după o intrare</title>
+<title>Cautare rapida: Cauta dupa o intrare</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_quicksearch</link>
 <category>Sidebar Plugins</category>
 <author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_quicksearch&lt;br /&gt;Căutare rapidă&lt;/b&gt;&lt;br /&gt;Caută după o intrare&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_plugin_quicksearch&lt;br /&gt;Cautare rapida&lt;/b&gt;&lt;br /&gt;Cauta dupa o intrare&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Sun, 02 Sep 2018 22:32:09 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_quicksearch</guid>
 </item>
@@ -429,20 +429,20 @@
 <guid isPermaLink="false">serendipity_plugin_timezones</guid>
 </item>
 <item>
-<title>Top Ieşiri: Arată cele mai frecvente pagini din blogul tău de pe care pleacă vizitatorii</title>
+<title>Top Iesiri: Arata cele mai frecvente pagini din blogul tau de pe care pleaca vizitatorii</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_topexits</link>
 <category>Sidebar Plugins</category>
 <author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_topexits&lt;br /&gt;Top Ieşiri&lt;/b&gt;&lt;br /&gt;Arată cele mai frecvente pagini din blogul tău de pe care pleacă vizitatorii&lt;br/&gt;For: Serendipity 0.8</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_plugin_topexits&lt;br /&gt;Top Iesiri&lt;/b&gt;&lt;br /&gt;Arata cele mai frecvente pagini din blogul tau de pe care pleaca vizitatorii&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Sun, 30 Nov 2014 03:13:00 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_topexits</guid>
 </item>
 <item>
-<title>Top Referers: Arată siturile care au legătură la blogul tău</title>
+<title>Top Referers: Arata siturile care au legatura la blogul tau</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_topreferers</link>
 <category>Sidebar Plugins</category>
 <author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_topreferers&lt;br /&gt;Top Referers&lt;/b&gt;&lt;br /&gt;Arată siturile care au legătură la blogul tău&lt;br/&gt;For: Serendipity 0.7</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_plugin_topreferers&lt;br /&gt;Top Referers&lt;/b&gt;&lt;br /&gt;Arata siturile care au legatura la blogul tau&lt;br/&gt;For: Serendipity 0.7</content:encoded>
 <pubDate>Sat, 27 Apr 2019 22:32:25 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_topreferers</guid>
 </item>

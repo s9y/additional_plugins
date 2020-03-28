@@ -7,9 +7,9 @@
  *
  * @author Lars Strojny <lars@strojny.net>
  */
-@define('SERENDIPITY_PLUGIN_FLICKRBADGE_VERSION', '0.13');
+@define('SERENDIPITY_PLUGIN_FLICKRBADGE_VERSION', '0.13.1');
 
-if (IN_SERENDIPITY != true) die("Don't hack");
+if (IN_serendipity != true) die("Don't hack");
 
 if (version_compare(phpversion(), '5.1.0', '>=')) {
 	$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';

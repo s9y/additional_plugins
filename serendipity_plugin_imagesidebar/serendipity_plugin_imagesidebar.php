@@ -20,7 +20,7 @@ include dirname(__FILE__) . '/lang_en.inc.php';
 class subplug_sidebar {
     var $changed = false;
 
-    function subplug_sidebar ($setting_array = NULL) {
+    function __construct ($setting_array = NULL) {
        if (is_array($setting_array)) {
            foreach ($setting_array as $name => $value) {
                $this->value_array[$name] = $value;
@@ -75,7 +75,7 @@ class serendipity_plugin_imagesidebar extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_SIDEBAR_IMAGESIDEBAR_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Andrew Brown (Menalto code), Matthew Groeninger (Unified/Media Lib. Code), Stefan Lange-Hegermann (Zooomr Code), Matthew Maude (Coppermine code)');
-        $propbag->add('version',       '0.100');
+        $propbag->add('version',       '0.100.1');
         $propbag->add('license',       'BSD');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',

@@ -28,7 +28,7 @@ class serendipity_plugin_flickr extends serendipity_plugin {
 			'smarty'	  => '2.6.9',
 			'php'		 => '4.3.0'
 		));
-		$propbag->add('version',  '1.09.1');
+		$propbag->add('version',  '1.09.2');
 		$propbag->add('configuration', array(
 						 'title',
 						 'email',

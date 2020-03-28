@@ -1,3 +1,7 @@
+0.100.1:
+-----
+    * Fix PHP warning.
+
 0.100:
 -----
     * Added option "none" for "Behavior of image link"

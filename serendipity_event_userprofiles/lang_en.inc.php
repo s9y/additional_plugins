@@ -80,6 +80,7 @@
 @define('PLUGIN_USERPROFILES_GRAVATAR_DEFAULT_DESC', 'Specifies the location of a graphic to display if a user doesn\'t have a Gravatar.');
 
 @define('PLUGIN_USERPROFILES_BIRTHDAYSNAME', 'Birthdays of users');
+@define('PLUGIN_USERPROFILES_BIRTHDAYSNAME_DESCRIPTION', 'Birthdays of users');
 @define('PLUGIN_USERPROFILES_BIRTHDAYTITLE', 'Birthdays');
 @define('PLUGIN_USERPROFILES_BIRTHDAYTITLE_DESCRIPTION', 'Show when the users have the next birthday.');
 @define('PLUGIN_USERPROFILES_BIRTHDAYTITLE_DEFAULT', 'birthdays');

@@ -20,7 +20,7 @@ class serendipity_plugin_userprofiles_birthdays extends serendipity_plugin {
         $propbag->add('description', PLUGIN_USERPROFILES_BIRTHDAYSNAME_DESCRIPTION);
         $propbag->add('author',      'Falk Doering');
         $propbag->add('stackable',   false);
-        $propbag->add('version',     '0.3');
+        $propbag->add('version',     '0.3.1');
         $propbag->add('configuration', array('title', 'number'));
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',

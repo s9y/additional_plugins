@@ -57,7 +57,7 @@ class serendipity_plugin_flickrbadge
 											'flickr_username'));
 		$propbag->add('stackable', true);
 		$propbag->add('requirements', array('php' => '5.1', 'serendipity' => '0.9'));
-		$propbag->add('groups', array(FRONTEND_EXTERNAL_SERVICES));
+		$propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
 		$propbag->add('author', 'Lars Strojny');
 		$propbag->add('version', SERENDIPITY_PLUGIN_FLICKRBADGE_VERSION);
 	}

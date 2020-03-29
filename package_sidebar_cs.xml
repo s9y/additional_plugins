@@ -3040,6 +3040,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_timezones</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_timezones/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Časová pásma</summary>
 <groups>FRONTEND_FEATURES</groups>
@@ -3057,13 +3058,13 @@
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
 </dir>
-<file>Changelog</file>
 <file>lang_bg.inc.php</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_plugin_timezones.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -3072,13 +3073,13 @@
     <file>serendipity_plugin_timezones/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_plugin_timezones/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_plugin_timezones/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_plugin_timezones/Changelog</file>
     <file>serendipity_plugin_timezones/lang_bg.inc.php</file>
     <file>serendipity_plugin_timezones/lang_cs.inc.php</file>
     <file>serendipity_plugin_timezones/lang_cz.inc.php</file>
     <file>serendipity_plugin_timezones/lang_de.inc.php</file>
     <file>serendipity_plugin_timezones/lang_en.inc.php</file>
     <file>serendipity_plugin_timezones/serendipity_plugin_timezones.php</file>
+    <file>serendipity_plugin_timezones/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>

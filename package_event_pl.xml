@@ -1577,6 +1577,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_comics</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_comics/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Comics</summary>
 <groups>FRONTEND_ENTRY_RELATED</groups>
@@ -1594,7 +1595,6 @@
 <file>lang_de.inc.php</file>
 <file>lang_ko.inc.php</file>
 </dir>
-<file>Changelog</file>
 <file>README</file>
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
@@ -1604,6 +1604,7 @@
 <file>lang_en.inc.php</file>
 <file>lang_ko.inc.php</file>
 <file>serendipity_event_comics.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -1612,7 +1613,6 @@
     <file>serendipity_event_comics/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_comics/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_comics/UTF-8/lang_ko.inc.php</file>
-    <file>serendipity_event_comics/Changelog</file>
     <file>serendipity_event_comics/README</file>
     <file>serendipity_event_comics/documentation_cs.html</file>
     <file>serendipity_event_comics/documentation_cz.html</file>
@@ -1622,6 +1622,7 @@
     <file>serendipity_event_comics/lang_en.inc.php</file>
     <file>serendipity_event_comics/lang_ko.inc.php</file>
     <file>serendipity_event_comics/serendipity_event_comics.php</file>
+    <file>serendipity_event_comics/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -3981,6 +3982,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_galleryimage</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_galleryimage/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Markup: Gallery Image</summary>
 <groups>MARKUP,IMAGES</groups>
@@ -3998,13 +4000,13 @@
 <file>lang_de.inc.php</file>
 <file>lang_ja.inc.php</file>
 </dir>
-<file>Changelog</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>lang_ja.inc.php</file>
 <file>serendipity_event_galleryimage.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -4013,13 +4015,13 @@
     <file>serendipity_event_galleryimage/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_galleryimage/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_galleryimage/UTF-8/lang_ja.inc.php</file>
-    <file>serendipity_event_galleryimage/Changelog</file>
     <file>serendipity_event_galleryimage/lang_cs.inc.php</file>
     <file>serendipity_event_galleryimage/lang_cz.inc.php</file>
     <file>serendipity_event_galleryimage/lang_de.inc.php</file>
     <file>serendipity_event_galleryimage/lang_en.inc.php</file>
     <file>serendipity_event_galleryimage/lang_ja.inc.php</file>
     <file>serendipity_event_galleryimage/serendipity_event_galleryimage.php</file>
+    <file>serendipity_event_galleryimage/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -5473,6 +5475,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_httpauth</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_httpauth/ChangeLog</changelog>
 <license>GPL</license>
 <summary>HTTP-Authentication</summary>
 <groups>BACKEND_USERMANAGEMENT</groups>
@@ -5489,12 +5492,12 @@
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
 </dir>
-<file>Changelog</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_httpauth.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -5502,12 +5505,12 @@
     <file>serendipity_event_httpauth/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_httpauth/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_httpauth/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_event_httpauth/Changelog</file>
     <file>serendipity_event_httpauth/lang_cs.inc.php</file>
     <file>serendipity_event_httpauth/lang_cz.inc.php</file>
     <file>serendipity_event_httpauth/lang_de.inc.php</file>
     <file>serendipity_event_httpauth/lang_en.inc.php</file>
     <file>serendipity_event_httpauth/serendipity_event_httpauth.php</file>
+    <file>serendipity_event_httpauth/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -5766,9 +5769,9 @@
 <description>Switch header image or logo for templates</description>
 <maintainers><maintainer><name>Garvin Hicking, Sebastian Mayeres, Jude Anthony</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
+  <version>1.5.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2020-03-30</date>
   <filelist>
 <dir name="serendipity_event_kubrickheader">
 <dir name="UTF-8">
@@ -9785,6 +9788,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_tinypng</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_tinypng/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Compress Images</summary>
 <groups>IMAGES</groups>
@@ -9819,10 +9823,10 @@
 <file>LICENSE</file>
 <file>README.md</file>
 </dir>
-<file>Changelog</file>
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_tinypng.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -9840,10 +9844,10 @@
     <file>serendipity_event_tinypng/tinify-php/.travis.yml</file>
     <file>serendipity_event_tinypng/tinify-php/LICENSE</file>
     <file>serendipity_event_tinypng/tinify-php/README.md</file>
-    <file>serendipity_event_tinypng/Changelog</file>
     <file>serendipity_event_tinypng/lang_de.inc.php</file>
     <file>serendipity_event_tinypng/lang_en.inc.php</file>
     <file>serendipity_event_tinypng/serendipity_event_tinypng.php</file>
+    <file>serendipity_event_tinypng/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>

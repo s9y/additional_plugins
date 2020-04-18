@@ -1,3 +1,7 @@
+0.61:
+-----
+    * Only add tag pages for tags with at least one published entry.
+
 0.60:
 -----
     * By default do not add pages that modern themes will set as noindex (overview pages)

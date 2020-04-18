@@ -30,7 +30,7 @@ class serendipity_event_google_sitemap extends serendipity_event {
         $propbag->add('name', PLUGIN_EVENT_SITEMAP_TITLE);
         $propbag->add('description', PLUGIN_EVENT_SITEMAP_DESC);
         $propbag->add('author', 'Boris');
-        $propbag->add('version', '0.60');
+        $propbag->add('version', '0.61');
         $propbag->add('event_hooks',  array(
                 'backend_publish' => true,
                 'backend_save'    => true,
@@ -544,11 +544,19 @@ class serendipity_event_google_sitemap extends serendipity_event {
         $sqlnullfunction = $this->get_sqlnullfunction();
 
         // add possible tags pages
-        $tag_pages = serendipity_db_query(
-                'SELECT tag
-                FROM '.$serendipity['dbPrefix'].'entrytags 
-			GROUP BY tag',
-            false, 'assoc');
+        // query adapted from generate_content() in serendipity_plugin_freetag
+        $query = "SELECT et.tag, count(et.tag) AS total
+                    FROM {$serendipity['dbPrefix']}entrytags AS et
+         LEFT OUTER JOIN {$serendipity['dbPrefix']}entries AS e
+                      ON et.entryid = e.id
+                   WHERE e.isdraft = 'false' "
+                         . (!serendipity_db_bool($serendipity['showFutureEntries']) ? " AND e.timestamp <= " . time() : '') . "
+                GROUP BY et.tag
+                  HAVING count(et.tag) >= 1
+                ORDER BY total DESC $limit";
+
+        $tag_pages = serendipity_db_query($query, false, 'assoc');
+
         if (is_array($tag_pages)) {
             foreach($tag_pages as $cur) {
                 $path_quoted = preg_quote($serendipity['serendipityHTTPPath'], '#');

@@ -1,3 +1,6 @@
+0.14.1
+    * Don't change entry image if entry_image is not set.
+
 0.14
     * Add per-entry social media image.
 

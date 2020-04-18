@@ -1,3 +1,7 @@
+0.15.6:
+-------
+  * DELETE only properties that are submitted with an empty value.
+
 0.15.4 & 0.15.5:
 ----------------
   * Fix logic for INSERT/UPDATE/DELETE of properties.

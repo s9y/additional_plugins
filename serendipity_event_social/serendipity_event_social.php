@@ -16,7 +16,7 @@ class serendipity_event_social extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_SOCIAL_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Matthias Mees, Thomas Hochstein');
-        $propbag->add('version',       '0.14');
+        $propbag->add('version',       '0.14.1');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0'
         ));
@@ -266,6 +266,11 @@ class serendipity_event_social extends serendipity_event {
                     }
 
                     $entry_image = $serendipity['POST']['properties']['entry_image'];
+
+                    // don't change anything if entry_image is not set
+                    if (!isset($entry_image)) {
+                        return true;
+                    }
 
                     // delete old entry, if any
                     $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$eventData['id'] . " AND property = 'entry_image'";

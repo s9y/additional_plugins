@@ -19,7 +19,7 @@ class serendipity_event_trackback extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_MTRACKBACK_TITLEDESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Malte Paskuda, Ian');
-        $propbag->add('version',       '1.19');
+        $propbag->add('version',       '1.20');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -204,7 +204,7 @@ class serendipity_event_trackback extends serendipity_event
 
                 case 'backend_save':
                 case 'backend_publish':
-                    if (!serendipity_db_bool($entry['isdraft'])
+                    if (!serendipity_db_bool($eventData['isdraft'])
                         &&
                             $eventData['timestamp'] >= serendipity_serverOffsetHour()
                         &&

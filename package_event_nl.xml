@@ -6715,9 +6715,9 @@
 <description>Apply Markdown markup to entry text</description>
 <maintainers><maintainer><name>Serendipity Team, Jan Lehnardt and Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.28</version>
+  <version>1.29</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2018-11-11</date>
+  <date>2020-04-23</date>
   <filelist>
 <dir name="serendipity_event_markdown">
 <dir name="UTF-8">

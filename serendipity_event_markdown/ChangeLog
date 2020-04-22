@@ -1,3 +1,9 @@
+Version 1.29:
+=============
+Changes by Thomas Hochstein <thh@inter.net>
+
+- Treat <details> and <summary> as block level.
+
 Version 1.28:
 =============
 Changes by Thomas Hochstein <thh@inter.net>

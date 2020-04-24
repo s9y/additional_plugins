@@ -1112,7 +1112,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_unstrip_tags&lt;br /&gt;HTML in Kommentaren maskieren&lt;/b&gt;&lt;br /&gt;Üblicherweise wird HTML in Kommentaren komplett entfernt (strip_tags). Hiermit wird HTML nur in seine Entities umgewandelt. Dieses Plugin sollte vor anderen Textformatierungs-Plugin stehen.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:12:53 +0100</pubDate>
+<pubDate>Sat, 25 Apr 2020 00:30:42 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_unstrip_tags</guid>
 </item>
 <item>

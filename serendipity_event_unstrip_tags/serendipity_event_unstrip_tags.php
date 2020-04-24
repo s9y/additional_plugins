@@ -24,14 +24,14 @@ class serendipity_event_unstrip_tags extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_UNSTRIP_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.03.1');
+        $propbag->add('version',       '1.4');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
         $propbag->add('groups', array('MARKUP'));
-        $propbag->add('event_hooks',   array('frontend_display' => true, 'frontend_comment' => true));
+        $propbag->add('event_hooks',   array('frontend_display' => true, array('frontend_entries_rss' => true, 'frontend_comment' => true));
     }
 
     function generate_content(&$title) {
@@ -48,6 +48,16 @@ class serendipity_event_unstrip_tags extends serendipity_event
 
                     if (isset($eventData ['comment']) && !empty($eventData['body'])) {
                         $eventData['comment'] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($eventData['body']) : htmlspecialchars($eventData['body'], ENT_COMPAT, LANG_CHARSET));
+                    }
+                    return true;
+                    break;
+
+               case 'frontend_entries_rss':
+
+                    foreach ($eventData as $entry => $entryData) {
+                        if (!empty($entryData['body'])) {
+                            $eventData[$entry]['body'] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($entryData['body']) : htmlspecialchars($entryData['body'], ENT_COMPAT, LANG_CHARSET));
+                        }
                     }
                     return true;
                     break;

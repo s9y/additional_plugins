@@ -1,0 +1,4 @@
+1.4:
+----
+
+* Unstrip (escape) HTML tags in comment RSS feeds, too.

@@ -353,7 +353,7 @@ class emerge_spartacus {
             $x .= '<li class="plugin_download"><a href="cvs/additional_plugins/' . $zipfile . '.zip">Download</a></li>';
             $x .= '<li class="plugin_github"><a href="https://github.com/s9y/additional_plugins/tree/master/' . $this->encode($zipfile) . '">GitHub</a></li>';
             if (!empty($plugin_data['properties']['website'])) {
-                $x .= '<li class="plugin_website"><a href="' . $this->encode($plugin_data['properties']['website']) . '">Documentation</a></li>';
+                $x .= '<li class="plugin_website"><a href="' . $this->encode($plugin_data['properties']['website']) . '">Website</a></li>';
             }
             if (!empty($plugin_data['properties']['changelog'])) {
                 $x .= '<li class="plugin_changelog"><a href="' . $this->encode($plugin_data['properties']['changelog']) . '">ChangeLog</a></li>';

@@ -48,6 +48,8 @@ class serendipity_event_unstrip_tags extends serendipity_event
 
                     if (isset($eventData ['comment']) && !empty($eventData['body'])) {
                         $eventData['comment'] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($eventData['body']) : htmlspecialchars($eventData['body'], ENT_COMPAT, LANG_CHARSET));
+                    } elseif (isset($addData['from']) && $addData['from'] == 'serendipity_plugin_comments:generate_content' && !empty($eventData ['comment'])) {
+                        $eventData['comment'] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($eventData['comment']) : htmlspecialchars($eventData['comment'], ENT_COMPAT, LANG_CHARSET));
                     }
                     return true;
                     break;

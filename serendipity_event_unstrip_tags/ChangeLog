@@ -2,3 +2,5 @@
 ----
 
 * Unstrip (escape) HTML tags in comment RSS feeds, too.
+* And do the same for comments displayed in
+  serendipity_plugin_comments (1.17 and newer).

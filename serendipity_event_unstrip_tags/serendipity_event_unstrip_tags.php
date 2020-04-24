@@ -31,7 +31,7 @@ class serendipity_event_unstrip_tags extends serendipity_event
             'php'         => '4.1.0'
         ));
         $propbag->add('groups', array('MARKUP'));
-        $propbag->add('event_hooks',   array('frontend_display' => true, array('frontend_entries_rss' => true, 'frontend_comment' => true));
+        $propbag->add('event_hooks',   array('frontend_display' => true, 'frontend_entries_rss' => true, 'frontend_comment' => true));
     }
 
     function generate_content(&$title) {

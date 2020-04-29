@@ -24,7 +24,7 @@ class serendipity_event_unstrip_tags extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_UNSTRIP_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Thomas Hochstein');
-        $propbag->add('version',       '1.4');
+        $propbag->add('version',       '1.4.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
@@ -56,9 +56,11 @@ class serendipity_event_unstrip_tags extends serendipity_event
 
                case 'frontend_entries_rss':
 
-                    foreach ($eventData as $entry => $entryData) {
-                        if (!empty($entryData['body'])) {
-                            $eventData[$entry]['body'] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($entryData['body']) : htmlspecialchars($entryData['body'], ENT_COMPAT, LANG_CHARSET));
+                    if (isset($addData['comments']) && $addData['comments']) {
+                        foreach ($eventData as $entry => $entryData) {
+                            if (!empty($entryData['body'])) {
+                                $eventData[$entry]['body'] = (function_exists('serendipity_specialchars') ? serendipity_specialchars($entryData['body']) : htmlspecialchars($entryData['body'], ENT_COMPAT, LANG_CHARSET));
+                            }
                         }
                     }
                     return true;

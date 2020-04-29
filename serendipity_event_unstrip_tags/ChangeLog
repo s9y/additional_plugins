@@ -1,3 +1,7 @@
+1.4.1:
+------
+* Don't touch (and HTML escape) entry RSS feeds!
+
 1.4:
 ----
 

@@ -10382,11 +10382,11 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <summary>Transforms HTML for comments</summary>
 <groups>MARKUP</groups>
 <description>Allows to insert HTML tags in comments (instead of stripping the tags, they are now converted to entities). Needs to be first of all markup plugins in the event queue!</description>
-<maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Garvin Hicking, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4</version>
+  <version>1.4.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-04-25</date>
+  <date>2020-04-30</date>
   <filelist>
 <dir name="serendipity_event_unstrip_tags">
 <dir name="UTF-8">

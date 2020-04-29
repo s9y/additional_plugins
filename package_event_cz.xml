@@ -10381,11 +10381,11 @@ aplikovány další typografické úpravy.</description>
 <summary>Transformace HTML v komentářích</summary>
 <groups>MARKUP</groups>
 <description>Umožňuje vkládat HTML tagy do komentářů k příspěvkům (místo jejich odstranění, bez tohoto modulu jsou převáděny na HTML entity). Musí být první ze všech značkovacích (markup) pluginů v seznamu pluginů událostí!</description>
-<maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Garvin Hicking, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4</version>
+  <version>1.4.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-04-25</date>
+  <date>2020-04-30</date>
   <filelist>
 <dir name="serendipity_event_unstrip_tags">
 <dir name="UTF-8">

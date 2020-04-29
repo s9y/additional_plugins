@@ -23,7 +23,7 @@ class serendipity_event_unstrip_tags extends serendipity_event
         $propbag->add('name',          PLUGIN_EVENT_UNSTRIP_NAME);
         $propbag->add('description',   PLUGIN_EVENT_UNSTRIP_DESC);
         $propbag->add('stackable',     false);
-        $propbag->add('author',        'Garvin Hicking');
+        $propbag->add('author',        'Garvin Hicking, Thomas Hochstein');
         $propbag->add('version',       '1.4');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',

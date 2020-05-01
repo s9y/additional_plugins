@@ -1,4 +1,10 @@
 # 
+1.37.4:
+
+    * substitute break outside of a loop by `return false`
+      PHP 7 doesn't accept `break` statements outside of loop or switch structures and
+      returns an error. See https://www.php.net/manual/en/control-structures.break.php
+
 1.37.3: Fixed bad constand name "DDEFAULT" to "DEFAULT"
 
 1.37.2:

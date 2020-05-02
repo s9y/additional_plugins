@@ -7944,9 +7944,9 @@
 <description>Adds &quot;podcasting&quot; capabilities hinzu (RSS enclosure, Video/Sound-Player)</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Hannes Gassert, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.37.3</version>
+  <version>1.37.4</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2018-05-14</date>
+  <date>2020-05-03</date>
   <filelist>
 <dir name="serendipity_event_podcast">
 <dir name="UTF-8">

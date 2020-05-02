@@ -14,7 +14,7 @@ if (file_exists($probelang)) {
 include_once dirname(__FILE__) . '/lang_en.inc.php';
 include_once dirname(__FILE__) . '/podcast_player.php';
 
-@define("SERENDIPITY_EVENT_PODCAST_VERSION", "1.37.3");
+@define("SERENDIPITY_EVENT_PODCAST_VERSION", "1.37.4");
 
 class serendipity_event_podcast extends serendipity_event {
 /**

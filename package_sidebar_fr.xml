@@ -520,7 +520,7 @@
 <release>
   <version>0.24</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2020-05-04</date>
   <filelist>
 <dir name="serendipity_event_microformats">
 <dir name="UTF-8">

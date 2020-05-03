@@ -153,7 +153,13 @@ class serendipity_plugin_microformats extends serendipity_plugin
                                 'mf_hCalendar_enddate'  => 'DTEND',
                                 'mf_hCalendar_desc'     => 'DESC');
             if ($this->get_config('include_entries') === true) {
-                $query = 'SELECT * FROM ' . $serendipity['dbPrefix'] . 'entryproperties WHERE property LIKE \'mf_hCalendar_%\' AND entryid IN (SELECT entryid FROM ' . $serendipity['dbPrefix'] . 'entryproperties WHERE property = \'mf_hCalendar_startdate\' AND value > (' . time() . ($this->get_config('purge') !== false ? ' - ' . 86400 * intval($this->get_config('purge')) : ' ') . '))';
+                if ($serendipity['dbType'] == "postgres") {
+                    // "value" needs to be casted to INT, otherwise PostgreSQL will raise an error:
+                    // operator does not exist: text > integer
+                    $query = 'SELECT * FROM ' . $serendipity['dbPrefix'] . 'entryproperties WHERE property LIKE \'mf_hCalendar_%\' AND entryid IN (SELECT entryid FROM ' . $serendipity['dbPrefix'] . 'entryproperties WHERE property = \'mf_hCalendar_startdate\' AND value::INT > (' . time() . ($this->get_config('purge') !== false ? ' - ' . 86400 * intval($this->get_config('purge')) : ' ') . '))';
+                } else {
+                    $query = 'SELECT * FROM ' . $serendipity['dbPrefix'] . 'entryproperties WHERE property LIKE \'mf_hCalendar_%\' AND entryid IN (SELECT entryid FROM ' . $serendipity['dbPrefix'] . 'entryproperties WHERE property = \'mf_hCalendar_startdate\' AND value > (' . time() . ($this->get_config('purge') !== false ? ' - ' . 86400 * intval($this->get_config('purge')) : ' ') . '))';
+                }
                 $result = serendipity_db_query($query, false, 'assoc');
                 $counter = count($event)-1;
                 if (is_array($result)) {

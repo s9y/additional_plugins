@@ -184,16 +184,24 @@ class serendipity_event_markdown extends serendipity_event
                               $eventData[$element] = preg_replace('/(^|(?<=&gt;))\s*&gt;/m', '>', $eventData[$element]);
                             }
                             if ($mdv == 2) {
+                                // use lib
                                 if ($mde) {
+                                    // use Markdown Extra
                                     $parser = new MarkdownExtra;
+                                    // parser configuration for Markdown Extra
                                     $parser->fn_id_prefix = $eventData['id'] . '_';
-                                    $eventData[$element] = str_replace('javascript:', '', $parser->transform($eventData[$element]));
                                 } else {
-                                    $eventData[$element] = str_replace('javascript:', '', Markdown::defaultTransform($eventData[$element]));
+                                    // use Markdown
+                                    $parser = new Markdown;
                                 }
+                                // apply Markdown (or Markdown Extra)
+                                $eventData[$element] = str_replace('javascript:', '', $parser->transform($eventData[$element]));
+                                // apply Smartypants
                                 if ($mdsp == 1) $eventData[$element] = SmartyPants::defaultTransform($eventData[$element]);
+                                // apply Smartypants Typographer
                                 if ($mdsp == 2) $eventData[$element] = SmartyPantsTypographer::defaultTransform($eventData[$element]);
                             } else {
+                                // use and apply "classic" version
                                 $eventData[$element] = str_replace('javascript:', '', Markdown($eventData[$element]));
                             }
                         }

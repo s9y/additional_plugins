@@ -31,7 +31,7 @@ class serendipity_event_markdown extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '5.3.0'
         ));
-        $propbag->add('version',       '1.29');
+        $propbag->add('version',       '1.30');
         $propbag->add('cachable_events', array('frontend_display' => true));
         $propbag->add('event_hooks',   array(
             'frontend_display' => true,
@@ -194,6 +194,10 @@ class serendipity_event_markdown extends serendipity_event
                                     // use Markdown
                                     $parser = new Markdown;
                                 }
+                                // parser configuration for both Markdown and Markdown Extra
+                                $parser->header_id_func = function ($text) {
+                                    return preg_replace('/[^a-z0-9]+/', '-', strtolower($text));
+                                };
                                 // apply Markdown (or Markdown Extra)
                                 $eventData[$element] = str_replace('javascript:', '', $parser->transform($eventData[$element]));
                                 // apply Smartypants

@@ -1,3 +1,10 @@
+Version 1.30:
+=============
+Changes by Thomas Hochstein <thh@inter.net>
+
+- Simplify use of Markdown (Extra) lib.
+- Add auto-ids to headings (h1-h6) in lib.
+
 Version 1.29:
 =============
 Changes by Thomas Hochstein <thh@inter.net>

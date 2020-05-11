@@ -41,7 +41,7 @@ window.onload = () => {
 							fill: new ol.style.Fill({color: dateToColor(date)})
 						})
 					});
-				},
+                },
 				zIndex: Infinity
 			})
 		];
@@ -51,13 +51,18 @@ window.onload = () => {
 					url: upload.url,
 					format: new ol.format.GPX()
 				}),
-				style: new ol.style.Style({
-					stroke: new ol.style.Stroke({
-						color: dateToColor(new Date(upload.date * 1000)),
-						width: 3,
-						lineDash: upload.date * 1000 > Date.now() ? [3, 6] : undefined
-					})
-				})
+                style: feature => {
+                    if (feature.getGeometry().getType() === "MultiLineString") {
+                        return new ol.style.Style({
+                            stroke: new ol.style.Stroke({
+                                color: dateToColor(new Date(upload.date * 1000)),
+                                width: 3,
+                                lineDash: upload.date * 1000 > Date.now() ? [3, 6] : undefined
+                            })
+                        });
+                    }
+                    return undefined;
+                },
 			});
 			layers.push(layer);
 		}

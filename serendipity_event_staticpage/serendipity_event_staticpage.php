@@ -90,7 +90,7 @@ class serendipity_event_staticpage extends serendipity_event
         $propbag->add('page_configuration', $this->config);
         $propbag->add('type_configuration', $this->config_types);
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers');
-        $propbag->add('version', '4.15.3');
+        $propbag->add('version', '4.15.4');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '2.6.7',
@@ -866,7 +866,7 @@ class serendipity_event_staticpage extends serendipity_event
                 $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN articletype int(4) default '0'";
                 serendipity_db_schema_import($q);
             case 7:
-                $q = "CREATE TABLE {$serendipity['dbPrefix']}staticpages_types (
+                $q = "CREATE TABLE IF NOT EXISTS {$serendipity['dbPrefix']}staticpages_types (
                         id {AUTOINCREMENT} {PRIMARY},
                         description varchar(100) not null default '',
                         template varchar(255) not null default '',
@@ -895,15 +895,17 @@ class serendipity_event_staticpage extends serendipity_event
             case 9:
             case 10:
                 if (!$fresh) {
-                    $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN shownavi int(4) default '1';";
-                    serendipity_db_schema_import($q);
-                    $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN showonnavi int(4) default '1'";
-                    serendipity_db_schema_import($q);
-                    $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN publishstatus int(4) default '1';";
-                    serendipity_db_schema_import($q);
-                    $q = 'DROP TABLE '.$serendipity['dbPrefix'].'staticpages_plugins';
-                    serendipity_db_schema_import($q);
-                    $q = 'ALTER TABLE '.$serendipity['dbPrefix'].'staticpages ADD COLUMN language varchar(10) default \'\'';
+                    if ($serendipity['dbType'] != 'sqlite' && $serendipity['dbType'] != 'sqlite3' && $serendipity['dbType'] != 'pdo-sqlite') {
+                        $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN shownavi int(4) default '1';";
+                        serendipity_db_schema_import($q);
+                        $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN showonnavi int(4) default '1'";
+                        serendipity_db_schema_import($q);
+                        $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN publishstatus int(4) default '1';";
+                        serendipity_db_schema_import($q);
+                        $q = 'ALTER TABLE '.$serendipity['dbPrefix'].'staticpages ADD COLUMN language varchar(10) default \'\'';
+                        serendipity_db_schema_import($q);
+                    }
+                    $q = 'DROP TABLE IF EXISTS '.$serendipity['dbPrefix'].'staticpages_plugins';
                     serendipity_db_schema_import($q);
                 }
             case 11:
@@ -914,14 +916,18 @@ class serendipity_event_staticpage extends serendipity_event
             case 13:
             case 14:
                 if (!$fresh) {
-                    $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN last_modified int(10)";
-                    serendipity_db_schema_import($q);
-                    serendipity_db_query("UPDATE {$serendipity['dbPrefix']}staticpages SET last_modified = timestamp");
+                    if ($serendipity['dbType'] != 'sqlite' && $serendipity['dbType'] != 'sqlite3' && $serendipity['dbType'] != 'pdo-sqlite') {
+                        $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN last_modified int(10)";
+                        serendipity_db_schema_import($q);
+                        serendipity_db_query("UPDATE {$serendipity['dbPrefix']}staticpages SET last_modified = timestamp");
+                    }
                 }
             case 15:
                 if (!$fresh) {
-                    $sql = 'ALTER TABLE '.$serendipity['dbPrefix'].'staticpages ADD COLUMN related_category_id int(4) default 0';
-                    serendipity_db_schema_import($sql);
+                    if ($serendipity['dbType'] != 'sqlite' && $serendipity['dbType'] != 'sqlite3' && $serendipity['dbType'] != 'pdo-sqlite') {
+                        $sql = 'ALTER TABLE '.$serendipity['dbPrefix'].'staticpages ADD COLUMN related_category_id int(4) default 0';
+                        serendipity_db_schema_import($sql);
+                    }
                 }
             case 16:
                 $this->pagetype = array(
@@ -930,28 +936,32 @@ class serendipity_event_staticpage extends serendipity_event
                 );
                 serendipity_db_insert('staticpages_types', $this->pagetype);
 
-                $sql = 'CREATE TABLE '.$serendipity['dbPrefix'].'staticpage_categorypage (
+                $sql = 'CREATE TABLE IF NOT EXISTS '.$serendipity['dbPrefix'].'staticpage_categorypage (
                             categoryid int(4) default 0,
                             staticpage_categorypage int(4) default 0
                         ) {UTF_8}';
                 serendipity_db_schema_import($sql);
             case 17:
-                $sql = 'CREATE TABLE '.$serendipity['dbPrefix'].'staticpage_custom (
+                $sql = 'CREATE TABLE IF NOT EXISTS '.$serendipity['dbPrefix'].'staticpage_custom (
                             staticpage int(11),
                             name varchar(128),
                             value text
                         ) {UTF_8}';
                 serendipity_db_schema_import($sql);
             case 18:
-                    $sql = 'ALTER TABLE '.$serendipity['dbPrefix'].'staticpages ADD COLUMN is_404_page int(1) default 0';
-                    if ($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') {
-                        $sql .= ' AFTER is_startpage';
+                    if ($serendipity['dbType'] != 'sqlite' && $serendipity['dbType'] != 'sqlite3' && $serendipity['dbType'] != 'pdo-sqlite') {
+                        $sql = 'ALTER TABLE '.$serendipity['dbPrefix'].'staticpages ADD COLUMN is_404_page int(1) default 0';
+                        if ($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') {
+                            $sql .= ' AFTER is_startpage';
+                        }
+                        serendipity_db_schema_import($sql);
                     }
-                    serendipity_db_schema_import($sql);
             case 19:
                 if (!$fresh) {
-                    $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN show_breadcrumb int(4) default '1'";
-                    serendipity_db_schema_import($q);
+                    if ($serendipity['dbType'] != 'sqlite' && $serendipity['dbType'] != 'sqlite3' && $serendipity['dbType'] != 'pdo-sqlite') {
+                        $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN show_breadcrumb int(4) default '1'";
+                        serendipity_db_schema_import($q);
+                    }
                 }
             case 20:
                 if (!$fresh) {

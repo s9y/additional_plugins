@@ -1,3 +1,5 @@
+4.15.4: Do not die on install when using sqlite as database
+
 4.15.3: Fix smarty_getCategoryLinkByID expecting a smarty reference, 
         for compatibility with serendipity 2.3
 

@@ -23,7 +23,7 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_DSGVO_GDPR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version', '1.2.1');
+        $propbag->add('version', '1.3');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '2.6.7',
@@ -623,7 +623,7 @@ class IpAnonymizer {
     /**
      * @var string IPv6 netmask used to anonymize IPv6 address.
      */
-    public $ipv6NetMask = "ffff:ffff:ffff:ffff:0000:0000:0000:0000";
+    public $ipv6NetMask = "ffff:ffff:ffff:0000:0000:0000:0000:0000";
     /**
      * Anonymize an IPv4 or IPv6 address.
      *

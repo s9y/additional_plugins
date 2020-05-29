@@ -42,7 +42,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '0.5.5' );
+		$propbag->add ( 'version', '0.5.6' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_spamblock_comments_shown' => true,
 		                                     'external_plugin' => true,
@@ -1747,6 +1747,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
         #code copied from serendipity_insertComment. Changed: $id and $status
         $id            = (int)$ca['id'];
         $type          = $commentInfo['type'];
+        $email         = serendipity_db_escape_string($commentInfo['email']);
         if (isset($commentInfo['subscribe'])) {
             if (!isset($serendipity['allowSubscriptionsOptIn']) || $serendipity['allowSubscriptionsOptIn']) {
                 $subscribe = 'false';
@@ -1765,7 +1766,6 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
         $commentsFixed = serendipity_db_escape_string($commentInfo['comment']);
         $name          = serendipity_db_escape_string($commentInfo['name']);
         $url           = serendipity_db_escape_string($commentInfo['url']);
-        $email         = serendipity_db_escape_string($commentInfo['email']);
         $parentid      = (isset($commentInfo['parent_id']) && is_numeric($commentInfo['parent_id'])) ? $commentInfo['parent_id'] : 0;
         $status        = serendipity_db_escape_string(isset($commentInfo['status']) ? $commentInfo['status'] : (serendipity_db_bool($ca['moderate_comments']) ? 'pending' : 'approved'));
         $t             = serendipity_db_escape_string(isset($commentInfo['time']) ? $commentInfo['time'] : time());

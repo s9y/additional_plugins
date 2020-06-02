@@ -1,3 +1,6 @@
+0.14.2
+    * Link to new shariff backend home
+
 0.14.1
     * Don't change entry image if entry_image is not set.
 

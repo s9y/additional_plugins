@@ -1456,9 +1456,9 @@
 <description>Тази приставка Ви позволява да сменяте шаблона и някои други свойства в зависимост от избраната катергория</description>
 <maintainers><maintainer><name>Garvin Hicking, Judebert</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.35.1</version>
+  <version>0.35.2</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2020-06-11</date>
   <filelist>
 <dir name="serendipity_event_categorytemplates">
 <dir name="UTF-8">

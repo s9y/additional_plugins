@@ -29,7 +29,7 @@ class serendipity_event_categorytemplates extends serendipity_event
         $propbag->add('description',   PLUGIN_CATEGORYTEMPLATES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Judebert');
-        $propbag->add('version',       '0.35.1');
+        $propbag->add('version',       '0.35.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'php'         => '4.1.0'
@@ -786,15 +786,6 @@ class serendipity_event_categorytemplates extends serendipity_event
                             $eventData['joins'] = $cond;
                         } else {
                             $eventData['joins'] .= $cond;
-                        }
-                    }
-                    // Havings
-                    if (count($havings) > 0) {
-                        $cond = implode(' AND ', $havings);
-                        if (empty($eventData['having'])) {
-                            $eventData['having'] =  "HAVING $cond ";
-                        } else {
-                            $eventData['having'] .= " AND $cond ";
                         }
                     }
 

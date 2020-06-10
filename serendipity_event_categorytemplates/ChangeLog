@@ -1,3 +1,7 @@
+0.35.2:
+----
+Don't die on PHP 7 versions 
+
 0.35:
 ----
 

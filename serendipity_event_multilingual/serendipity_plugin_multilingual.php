@@ -26,6 +26,7 @@ class serendipity_plugin_multilingual extends serendipity_event
 
         $conf = array('title', 'show_submit', 'size');
         /* Available languages */
+        /* already defined in serendipity_config.inc.php
         if (!is_array($serendipity['languages'])) {
             $serendipity['languages'] = array('en' => 'English',
                                   'de' => 'German',
@@ -58,12 +59,12 @@ class serendipity_plugin_multilingual extends serendipity_event
                                   'ko' => 'Korean',
                                   'sa' => 'Arabic',
                                   'ta' => 'Tamil');
-        }
+        } */
         foreach($serendipity['languages'] AS $lkey => $lval) {
             $conf[] = $lkey;
         }
         $propbag->add('configuration', $conf);
-        $propbag->add('version',       '1.15');
+        $propbag->add('version',       '1.16');
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
         $this->dependencies = array('serendipity_event_multilingual' => 'remove');
     }
@@ -116,7 +117,7 @@ class serendipity_plugin_multilingual extends serendipity_event
         $url   = serendipity_currentURL(true);
 
         echo '<form id="language_chooser" action="' . $url . '" method="post"><div>';
-        echo '<select style="font-size: ' . $this->get_config('size', '9') . 'px" name="user_language" onchange="document.getElementById(\'language_chooser\').submit();">';
+        echo '<select style="font-size: ' . $this->get_config('size', '9') . 'px" name="serendipity[user_language]" onchange="document.getElementById(\'language_chooser\').submit();">';
 //        echo '<option value=""> </option>'."\n";
         foreach ($serendipity['languages'] AS $lang_key => $language) {
             if (serendipity_db_bool($this->get_config($lang_key, 'false'))) {

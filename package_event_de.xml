@@ -3020,9 +3020,9 @@
 <description>Ermöglicht bei Betrachten eines Eintrages vor und zurück zu blättern</description>
 <maintainers><maintainer><name>Garvin Hicking, Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.40</version>
+  <version>1.41</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-03-18</date>
+  <date>2020-07-01</date>
   <filelist>
 <dir name="serendipity_event_entrypaging">
 <dir name="UTF-8">
@@ -8936,9 +8936,9 @@
 <description>Filtert Kommentare mittels eines lernenden Algorithmus.</description>
 <maintainers><maintainer><name>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.5.5</version>
+  <version>0.5.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-18</date>
+  <date>2020-07-01</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bayes">
 <dir name="UTF-8">

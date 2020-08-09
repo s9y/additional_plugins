@@ -1,4 +1,11 @@
-0.5.6: fix possible SQL exposure in email field of comment
+1.0:
+    * Update from the forked old b8 version to a current
+      version of that library
+    * Code cleanup
+    * Remove seldomly used functions and legacy code, including
+      most of the backend UI
+    * Rewrite javascript used in the backend (for marking spam
+      and ham comments) to be a minimal block of jQuery code
 
 0.5.5: Translation fixes (German).
 

@@ -1,3 +1,8 @@
+0.3.1:
+---
+
+* Calculate the total distance and put it into a span, for example "<span class="distance-counter" data-category="42">(wait...)</span>"
+
 0.3:
 ---
 

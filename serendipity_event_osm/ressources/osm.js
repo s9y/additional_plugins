@@ -4,7 +4,7 @@ const dateToColor = date => {
 	return "hsl(" + ((date.getTime() - minDate.getTime()) / (maxDate.getTime() - minDate.getTime())) + "turn, 100%, 50%)"
 };
 
-window.onload = () => {
+window.addEventListener('load', () => {
 	document.querySelectorAll("div.map").forEach(divMap => {
 		const popup = document.createElement("div");
 		popup.setAttribute("class", "ol-popup");
@@ -41,7 +41,7 @@ window.onload = () => {
 							fill: new ol.style.Fill({color: dateToColor(date)})
 						})
 					});
-                },
+				},
 				zIndex: Infinity
 			})
 		];
@@ -51,18 +51,25 @@ window.onload = () => {
 					url: upload.url,
 					format: new ol.format.GPX()
 				}),
-                style: feature => {
-                    if (feature.getGeometry().getType() === "MultiLineString") {
-                        return new ol.style.Style({
-                            stroke: new ol.style.Stroke({
-                                color: dateToColor(new Date(upload.date * 1000)),
-                                width: 3,
-                                lineDash: upload.date * 1000 > Date.now() ? [3, 6] : undefined
-                            })
-                        });
-                    }
-                    return undefined;
-                },
+				style: feature => {
+					if (feature.getGeometry().getType() === "MultiLineString") {
+						upload.length = ol.sphere.getLength(feature.getGeometry());
+						if (!uploads.some(u => u.length === undefined)) {
+							const distance = uploads.map(u => u.length).reduce((a, b) => a + b, 0);
+							document.querySelectorAll("span.distance-counter[data-category=\"" + data.category + "\"]").forEach(span => {
+								span.innerHTML = Math.round(distance / 1000);
+							});
+						}
+						return new ol.style.Style({
+							stroke: new ol.style.Stroke({
+								color: dateToColor(new Date(upload.date * 1000)),
+								width: 3,
+								lineDash: upload.date * 1000 > Date.now() ? [3, 6] : undefined
+							})
+						});
+					}
+					return undefined;
+				}
 			});
 			layers.push(layer);
 		}
@@ -91,7 +98,7 @@ window.onload = () => {
 				zoom: data.zoom
 			})
 		});
-
+		
 		map.on("singleclick", event => {
 			const makeItem = object => {
 				const title = document.createTextNode(object.title);
@@ -146,5 +153,4 @@ window.onload = () => {
 			divMap.style.cursor = hit ? "pointer" : "";
 		});
 	});
-};
-
+});

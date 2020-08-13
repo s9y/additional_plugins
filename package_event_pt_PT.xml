@@ -7695,7 +7695,7 @@
 <description>Provides an interactive map with *.gpx uploads and tagged geo data.</description>
 <maintainers><maintainer><name>Martin Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.3</version>
+  <version>0.3.1</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
   <date>2020-03-13</date>
   <filelist>
@@ -7748,7 +7748,7 @@
 <description>Includes scripts and stylesheets for OpenStreetMap support.</description>
 <maintainers><maintainer><name>Martin Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.3</version>
+  <version>0.3.1</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
   <date>2020-03-13</date>
   <filelist>

@@ -19,7 +19,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '1.0' );
+		$propbag->add ( 'version', '1.1' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_comments_top' => true,
 		                                     'external_plugin' => true,
@@ -89,14 +89,6 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$title = $this->title;
 	}
 
-    function install() {
-        $this->setupDB();
-    }
-
-    function upgrade() {
-        $this->setupDB();
-    }
-
     function setupDB() {
         global $serendipity;
         # b8 needs to one table for the tokens
@@ -120,6 +112,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                         {$serendipity['dbPrefix']}spamblock_bayes_recycler
                         LIKE
                         {$serendipity['dbPrefix']}comments";
+                serendipity_db_schema_import($sql);
                 break;
             case 'sqlite':
             case 'sqlite3':
@@ -140,12 +133,14 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                 if (strpos("sql", "NOT EXISTS") === false) {
                     $sql = str_replace("CREATE TABLE", "CREATE TABLE IF NOT EXISTS", $sql);
                 }
+                serendipity_db_schema_import($sql);
                 break;
             default:
                 $sql = "CREATE TABLE IF NOT EXISTS
                     {$serendipity['dbPrefix']}spamblock_bayes_recycler
                     as SELECT * FROM
                     {$serendipity['dbPrefix']}comments ORDER BY id LIMIT 1 WITH NO DATA";
+                serendipity_db_schema_import($sql);
         }
     }
 
@@ -330,6 +325,8 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
     function initB8() {
         global $serendipity;
         if ($this->$b8 === null) {
+            $this->setupDB();
+            
             require_once(dirname(__FILE__) . '/b8/b8.php');
             switch ($serendipity['dbType']) {
             case 'mysql':

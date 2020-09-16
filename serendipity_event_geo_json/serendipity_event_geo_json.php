@@ -13,8 +13,8 @@
 			$propbag->add('description', PLUGIN_EVENT_GEO_JSON_DESCRIPTION);
 			$propbag->add('copyright', 'GPL');
 			$propbag->add('event_hooks', array('frontend_header' => true));
-			$propbag->add('author', 'Martin Sewelies');
-			$propbag->add('version', '0.2');
+			$propbag->add('author', PLUGIN_EVENT_GEO_JSON_AUTHOR);
+			$propbag->add('version', PLUGIN_EVENT_GEO_JSON_VERSION);
 			$propbag->add('requirements', array('serendipity' => '2.3'));
 			$propbag->add('stackable', false);
 			$propbag->add('groups', array('FRONTEND_FEATURES'));
@@ -49,10 +49,10 @@
 					'url' => serendipity_db_bool($serendipity['showFutureEntries']) || $row['timestamp'] <= serendipity_db_time()
 						? $serendipity['serendipityHTTPPath'].$row['permalink']
 						: null,
-					'date' => $row['timestamp'],
-					'size' => $row['size'],
+					'date' => intval($row['timestamp']),
+					'size' => intval($row['size']),
 					'author' => $row['realname'],
-					'pos' => [(double)$row['lat'], (double)$row['lng']],
+					'pos' => [floatval($row['lat']), floatval($row['lng'])],
 					'categories' => []
 				];
 			}
@@ -64,7 +64,7 @@
 				JOIN {$serendipity['dbPrefix']}entryproperties eplng ON (eplng.entryid = ec.entryid AND eplng.property = 'geo_long')
 				WHERE e.isdraft = 'false'"
 			) as $row) {
-				$entries[$row['entryid']]['categories'][] = $row['categoryid'];
+				$entries[$row['entryid']]['categories'][] = intval($row['categoryid']);
 			}
 			return array_values($entries);
 		}
@@ -76,8 +76,8 @@
 				return [
 					'title' => $row['realname'],
 					'url' => $serendipity['serendipityHTTPPath'].$serendipity['uploadPath'].$row['path'].$row['realname'],
-					'date' => $row['date'],
-					'size' => $row['size']
+					'date' => intval($row['date']),
+					'size' => intval($row['size'])
 				];
 			}, $this->simple_query(
 				"SELECT i.realname, i.path, IFNULL(m.value, i.date) AS date, i.size

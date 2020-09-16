@@ -1,0 +1,5 @@
+0.2.1:
+---
+
+* convert date, size and catergory ids to int, 3% smaller output
+

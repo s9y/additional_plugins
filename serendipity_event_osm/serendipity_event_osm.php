@@ -96,31 +96,31 @@
 				case 'path':
 					$propbag->add('type',        'text');
 					$propbag->add('name',        PLUGIN_EVENT_OSM_PATH);
-					$propbag->add('description', PLUGIN_EVENT_OSM_PATH_DESC);
+					$propbag->add('description', PLUGIN_EVENT_OSM_PATH_DESCRIPTION);
 					$propbag->add('default',     '');
 					break;
 				case 'height':
 					$propbag->add('type',        'string');
 					$propbag->add('name',        PLUGIN_EVENT_OSM_HEIGHT);
-					$propbag->add('description', PLUGIN_EVENT_OSM_HEIGHT_DESC);
+					$propbag->add('description', PLUGIN_EVENT_OSM_HEIGHT_DESCRIPTION);
 					$propbag->add('default',     '463px');
 					break;
 				case 'latitude':
 					$propbag->add('type',        'string');
 					$propbag->add('name',        PLUGIN_EVENT_OSM_LAT);
-					$propbag->add('description', PLUGIN_EVENT_OSM_LAT_DESC);
+					$propbag->add('description', PLUGIN_EVENT_OSM_LAT_DESCRIPTION);
 					$propbag->add('default',     '51.48165');
 					break;
 				case 'longitude':
 					$propbag->add('type',        'string');
 					$propbag->add('name',        PLUGIN_EVENT_OSM_LONG);
-					$propbag->add('description', PLUGIN_EVENT_OSM_LONG_DESC);
+					$propbag->add('description', PLUGIN_EVENT_OSM_LONG_DESCRIPTION);
 					$propbag->add('default',     '7.21648');
 					break;
 				case 'zoom':
 					$propbag->add('type',        'string');
 					$propbag->add('name',        PLUGIN_EVENT_OSM_ZOOM);
-					$propbag->add('description', PLUGIN_EVENT_OSM_ZOOM_DESC);
+					$propbag->add('description', PLUGIN_EVENT_OSM_ZOOM_DESCRIPTION);
 					$propbag->add('default',     '15');
 					break;
 				default:

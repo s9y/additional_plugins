@@ -4,7 +4,7 @@ const dateToColor = date => {
 	return "hsl(" + ((date.getTime() - minDate.getTime()) / (maxDate.getTime() - minDate.getTime())) + "turn, 100%, 50%)"
 };
 
-window.addEventListener('load', () => {
+window.addEventListener("load", () => {
 	document.querySelectorAll("div.map").forEach(divMap => {
 		const popup = document.createElement("div");
 		popup.setAttribute("class", "ol-popup");

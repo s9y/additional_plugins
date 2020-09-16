@@ -1,6 +1,13 @@
+0.3.2:
+---
+
+* Option to compress GPX-files on upload
+* Changed some translation names
+
 0.3.1:
 ---
 
+* OpenLayers updated to v6.4.3
 * Calculate the total distance and put it into a span, for example "<span class="distance-counter" data-category="42">(wait...)</span>"
 
 0.3:

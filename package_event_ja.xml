@@ -4029,15 +4029,16 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 </package>
 <package version="1.0">
 <name>serendipity_event_geo_json</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_geo_json/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Geo-JSON</summary>
 <groups>FRONTEND_FEATURES</groups>
 <description>Provides a JSON object with all geo data which can be processed by JavaScript.</description>
-<maintainers><maintainer><name>Martin Sewelies</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>PLUGIN_EVENT_GEO_JSON_AUTHOR</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.2</version>
+  <version>PLUGIN_EVENT_GEO_JSON_VERSION</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
-  <date>2020-03-13</date>
+  <date>2020-09-17</date>
   <filelist>
 <dir name="serendipity_event_geo_json">
 <dir name="UTF-8">
@@ -4047,6 +4048,8 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_geo_json.php</file>
+<file>ChangeLog</file>
+<file>plugin_version.inc.php</file>
 </dir>
 
   </filelist>
@@ -4056,6 +4059,8 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
     <file>serendipity_event_geo_json/lang_de.inc.php</file>
     <file>serendipity_event_geo_json/lang_en.inc.php</file>
     <file>serendipity_event_geo_json/serendipity_event_geo_json.php</file>
+    <file>serendipity_event_geo_json/ChangeLog</file>
+    <file>serendipity_event_geo_json/plugin_version.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7697,9 +7702,9 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <description>Provides an interactive map with *.gpx uploads and tagged geo data.</description>
 <maintainers><maintainer><name>Martin Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.3.1</version>
+  <version>0.3.2</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
-  <date>2020-03-13</date>
+  <date>2020-09-17</date>
   <filelist>
 <dir name="serendipity_event_osm">
 <dir name="UTF-8">
@@ -7750,9 +7755,9 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <description>Includes scripts and stylesheets for OpenStreetMap support.</description>
 <maintainers><maintainer><name>Martin Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.3.1</version>
+  <version>0.3.2</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
-  <date>2020-03-13</date>
+  <date>2020-09-17</date>
   <filelist>
 <dir name="serendipity_event_osm">
 <dir name="UTF-8">

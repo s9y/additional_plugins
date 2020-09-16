@@ -430,9 +430,9 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <title>Geo-JSON: Provides a JSON object with all geo data which can be processed by JavaScript.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_geo_json</link>
 <category>Event Plugins</category>
-<author>Martin Sewelies</author>
+<author>PLUGIN_EVENT_GEO_JSON_AUTHOR</author>
 <content:encoded>&lt;b&gt;serendipity_event_geo_json&lt;br /&gt;Geo-JSON&lt;/b&gt;&lt;br /&gt;Provides a JSON object with all geo data which can be processed by JavaScript.&lt;br/&gt;For: Serendipity 2.3</content:encoded>
-<pubDate>Fri, 13 Mar 2020 22:31:18 +0100</pubDate>
+<pubDate>Thu, 17 Sep 2020 00:30:44 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_geo_json</guid>
 </item>
 <item>
@@ -774,7 +774,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Martin Sewelies</author>
 <content:encoded>&lt;b&gt;serendipity_event_osm&lt;br /&gt;OpenStreetMap integration&lt;/b&gt;&lt;br /&gt;Provides an interactive map with *.gpx uploads and tagged geo data.&lt;br/&gt;For: Serendipity 2.3</content:encoded>
-<pubDate>Fri, 13 Mar 2020 22:31:28 +0100</pubDate>
+<pubDate>Thu, 17 Sep 2020 00:30:45 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_osm</guid>
 </item>
 <item>
@@ -783,7 +783,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Martin Sewelies</author>
 <content:encoded>&lt;b&gt;serendipity_event_static_osm&lt;br /&gt;OpenStreetMap static files&lt;/b&gt;&lt;br /&gt;Includes scripts and stylesheets for OpenStreetMap support.&lt;br/&gt;For: Serendipity 2.3</content:encoded>
-<pubDate>Fri, 13 Mar 2020 22:31:31 +0100</pubDate>
+<pubDate>Thu, 17 Sep 2020 00:30:45 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_static_osm</guid>
 </item>
 <item>

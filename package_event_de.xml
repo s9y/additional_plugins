@@ -10641,9 +10641,9 @@
 <description>Integriert Zählmarken der VG Wort.</description>
 <maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.4.1</version>
+  <version>0.4.2</version>
   <requirements:s9yVersion>2.2.1</requirements:s9yVersion>
-  <date>2019-08-18</date>
+  <date>2020-09-22</date>
   <filelist>
 <dir name="serendipity_event_vgwort">
 <dir name="UTF-8">

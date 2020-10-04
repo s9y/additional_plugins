@@ -162,7 +162,6 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 							$ids = explode(';', $ids);
 							foreach($ids as $id) {
                                 $databaseComment = $this->getComment($id)[0];
-                                print_r($databaseComment);
 
                                 $comment = $databaseComment['url'] . ' ' . $databaseComment['body'] . ' ' . $databaseComment['author'] . ' ' . $databaseComment['email'];
 
@@ -176,10 +175,6 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                                     if ($this->get_config('recycler', true)) {
                                         $this->recycleComment($id, $databaseComment['entry_id']);
                                     }
-                                    echo 'id: ';
-                                    print_r($id);
-                                    echo 'entry_id: ';
-                                    print_r($databaseComment['entry_id']);
                                     serendipity_deleteComment($id, $databaseComment['entry_id']);
                                 }
                             }
@@ -227,7 +222,6 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 
                         $comment = $addData['url'] . ' ' . $addData['comment'] . ' ' . $addData['name'] . ' ' . $addData['email'];
 
-                        echo $this->rate($comment);
                         if ($this->rate($comment) > 0.8) {
                             $method = $this->get_config('method', 'moderate');
                             if ($method == 'moderate') {

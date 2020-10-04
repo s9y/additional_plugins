@@ -66,4 +66,5 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RATING', 'Rating');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_EMPTY_ALL', 'Recycler: Empty Complete');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_EMPTY_ALL_DESC', 'When emptying the recycler, delete all comments, not only the ones on the current page.');
+@define('PLUGIN_EVENT_SPAMBLOCK_METHOD_DESC', 'When a comment is rated with 80% as spam, it will be blocked or moderated.');
 ?>

@@ -19,7 +19,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '1.1' );
+		$propbag->add ( 'version', '1.1.1' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_comments_top' => true,
 		                                     'external_plugin' => true,
@@ -39,7 +39,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 			));
         $propbag->add('requirements',  array(
             'serendipity' => '2.1',
-            'php'         => '7.0'
+            'php'         => '7.2'
         ));
         $propbag->add('legal',    array(
             'services' => array(
@@ -67,6 +67,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
             case 'method':
             	$propbag->add('type', 'select');
             	$propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_METHOD);
+            	$propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_METHOD_DESC);
             	$propbag->add('select_values', array(
             	                                    'moderate'   => PLUGIN_EVENT_SPAMBLOCK_BAYES_METHOD_MODERATE,
             	                                    'block'      => PLUGIN_EVENT_SPAMBLOCK_BAYES_METHOD_BLOCK,

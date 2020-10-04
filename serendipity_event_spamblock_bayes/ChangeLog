@@ -1,3 +1,7 @@
+1.1.1:
+    * Set required PHP version to 7.2, b8 requires it
+    * Mention the 80% default barrier
+
 1.1:
     * Fix creation of needed b8_wordlist table also when upgrading
       from an older version

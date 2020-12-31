@@ -1,3 +1,9 @@
+0.3.3:
+---
+
+* OpenLayers updated to v6.5.0
+* Fixed JavaScript bug with category ids
+
 0.3.2:
 ---
 

@@ -17,7 +17,7 @@ window.addEventListener("load", () => {
 		});
 
 		const data = divMap.dataset;
-		const entries = geo.entries.filter(x => ["all", "none"].includes(data.category) || x.categories.includes(data.category));
+		const entries = geo.entries.filter(x => ["all", "none"].includes(data.category) || x.categories.includes(parseInt(data.category)));
 		const uploads = geo.uploads.filter(x => data.path.split("\n").some(y => x.url.startsWith(y)));
 		const features = entries.map((entry, id) => {
 			const feature = new ol.Feature(new ol.geom.Point(ol.proj.fromLonLat(entry.pos.reverse())));

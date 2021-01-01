@@ -4073,7 +4073,7 @@
 <release>
   <version>1.35</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-05-12</date>
+  <date>2021-01-02</date>
   <filelist>
 <dir name="serendipity_event_geotag">
 <dir name="UTF-8">
@@ -7700,7 +7700,7 @@
 <description>Provides an interactive map with *.gpx uploads and tagged geo data.</description>
 <maintainers><maintainer><name>Martin Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.3.2</version>
+  <version>0.3.3</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
   <date>2020-09-17</date>
   <filelist>
@@ -7753,7 +7753,7 @@
 <description>Includes scripts and stylesheets for OpenStreetMap support.</description>
 <maintainers><maintainer><name>Martin Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.3.2</version>
+  <version>0.3.3</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
   <date>2020-09-17</date>
   <filelist>

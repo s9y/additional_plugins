@@ -29,7 +29,10 @@ window.addEventListener("load", () => {
 		const layers = [
 			new ol.layer.Tile({source: osmSource}),
 			new ol.layer.Vector({
-				source: new ol.source.Vector({features: features}),
+				source: new ol.source.Vector({
+					features: features,
+					preload: Infinity
+				}),
 				style: feature => {
 					const id = feature.getId();
 					const entry = entries[id];

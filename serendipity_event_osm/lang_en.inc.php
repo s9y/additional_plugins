@@ -1,6 +1,7 @@
 <?php
 	@define('PLUGIN_EVENT_OSM_NAME', 'OpenStreetMap integration');
 	@define('PLUGIN_EVENT_OSM_DESCRIPTION', 'Provides an interactive map with *.gpx uploads and tagged geo data.');
+	@define('PLUGIN_EVENT_OSM_NOSHOW', ' (It does not show up on the actual page.)');
 	@define('PLUGIN_EVENT_STATIC_OSM_NAME', 'OpenStreetMap static files');
 	@define('PLUGIN_EVENT_STATIC_OSM_DESCRIPTION', 'Includes scripts and stylesheets for OpenStreetMap support.');
 	@define('PLUGIN_EVENT_STATIC_OSM_COMPRESS_GPX', 'Compress GPX-files');

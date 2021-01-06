@@ -1,3 +1,10 @@
+0.3.4:
+---
+
+* Avoid using translation from page nugget
+* Preloading enabled
+* Show track length in link title
+
 0.3.3:
 ---
 

@@ -490,10 +490,10 @@ class serendipity_event_picasa extends serendipity_event {
             $serendipity['smarty']->assign(get_class($this).'_use_jswindow',   $jswindow);
 
             $serendipity['smarty']->security_settings['MODIFIER_FUNCS'][] = "rand"; // necessary tweak before 0.8 final
-            $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-            $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
+            $inclusion = $serendipity['smarty']->security_settings['INCLUDE_ANY'];
+            $serendipity['smarty']->security_settings['INCLUDE_ANY'] = true;
             $album_code = $serendipity['smarty']->fetch($smarty_template);
-            $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+            $serendipity['smarty']->security_settings['INCLUDE_ANY'] = $inclusion;
         }
         return $album_code;
     }

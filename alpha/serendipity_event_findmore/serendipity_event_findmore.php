@@ -190,12 +190,12 @@ class serendipity_event_findmore extends serendipity_event
         if (!$tfile || $tfile == $filename) {
             $tfile = dirname(__FILE__) . '/' . $filename;
         }
-        $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-        $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
+        $inclusion = $serendipity['smarty']->security_settings['INCLUDE_ANY'];
+        $serendipity['smarty']->security_settings['INCLUDE_ANY'] = true;
 
         $serendipity['smarty']->assign('entrydata', $data);
         $content = $serendipity['smarty']->fetch('file:'. $tfile);
-        $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+        $serendipity['smarty']->security_settings['INCLUDE_ANY'] = $inclusion;
 
         return $content;
     }

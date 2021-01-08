@@ -29,7 +29,10 @@ window.addEventListener("load", () => {
 		const layers = [
 			new ol.layer.Tile({source: osmSource}),
 			new ol.layer.Vector({
-				source: new ol.source.Vector({features: features}),
+				source: new ol.source.Vector({
+					features: features,
+					preload: Infinity
+				}),
 				style: feature => {
 					const id = feature.getId();
 					const entry = entries[id];
@@ -108,7 +111,13 @@ window.addEventListener("load", () => {
 						const a = document.createElement("a");
 						a.appendChild(title);
 						a.setAttribute("href", object.url);
-						a.setAttribute("title", (object.author !== undefined ? object.author + ", " : "") + new Date(object.date * 1000).toLocaleString(undefined, {year: "numeric", month: "long", day: "2-digit", hour: "2-digit", minute: "2-digit"}));
+						a.setAttribute("title",
+							(object.author !== undefined ? object.author + ", " : "")
+							+
+							new Date(object.date * 1000).toLocaleString(undefined, {year: "numeric", month: "long", day: "2-digit", hour: "2-digit", minute: "2-digit"})
+							+
+							(object.length !== undefined ? ", " + (object.length / 1000).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "km" : "")
+						);
 						return a;
 					})()
 					: title

@@ -43,7 +43,9 @@
 					return $serendipity['POST']['multiCat'] ?? [$vars['category']];
 				case 'plugin':
 				case 'start':
-					return [$vars['staticpage_related_category_id']];
+					return $vars['staticpage_related_category_id'] !== '0'
+						? [$vars['staticpage_related_category_id']]
+						: [];
 			}
 			return [];
 		}

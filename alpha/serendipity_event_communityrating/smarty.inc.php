@@ -118,8 +118,8 @@ function communityrating_serendipity_show($params, &$smarty) {
     if (!$tfile || $tfile == $filename) {
         $tfile = dirname(__FILE__) . '/' . $filename;
     }
-    $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-    $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
+    $inclusion = $serendipity['smarty']->security_settings['INCLUDE_ANY'];
+    $serendipity['smarty']->security_settings['INCLUDE_ANY'] = true;
     $serendipity['smarty']->assign(
         array(
             'communityrating_images'        => $out,
@@ -130,7 +130,7 @@ function communityrating_serendipity_show($params, &$smarty) {
         )
     );
     $content = $serendipity['smarty']->fetch('file:'. $tfile);
-    $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+    $serendipity['smarty']->security_settings['INCLUDE_ANY'] = $inclusion;
 
 	if (!empty($params['escaped'])) {
         echo serendipity_utf8_encode((function_exists('serendipity_specialchars') ? serendipity_specialchars($content) : htmlspecialchars($content, ENT_COMPAT, LANG_CHARSET)));

@@ -1,3 +1,10 @@
+Version 1.20
+-----------------------
+* Fixed wrong API-Endpoint for youtube
+* Removed generic provider oohembed (service shutdown)
+* Removed wordpress player for AudioBoo (no more flash)
+* Changed info for generic provider embed.ly (free plan is no longer available)
+
 Version 1.15
 -----------------------
 * Fixed PHP warning caused by typo in template

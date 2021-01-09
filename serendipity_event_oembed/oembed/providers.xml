@@ -17,12 +17,14 @@
   <provider>
     <name>Youtube</name>
     <url>https?://*.youtube.com/*</url>
-    <endpoint>http://www.youtube.com/oembed</endpoint>
+    <jsononly/>
+    <endpoint>https://www.youtube.com/oembed?</endpoint>
   </provider>
   <provider>
     <name>Youtube short link</name>
     <url>https?://*.youtu.be/*</url>
-    <endpoint>http://www.youtube.com/oembed</endpoint>
+    <jsononly/>
+    <endpoint>https://www.youtube.com/oembed?</endpoint>
   </provider>
   <provider>
     <name>SmugMug</name>

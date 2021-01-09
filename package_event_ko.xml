@@ -7434,9 +7434,9 @@
 <description>oEmbed is a format for allowing an embedded representation of a URL on your blog. It allows blog articles to display embedded content (such as tweets, photos or videos) when a user posts a link to that resource, without having to parse the resource directly.</description>
 <maintainers><maintainer><name>Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.15.1</version>
+  <version>1.20</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2021-01-10</date>
   <filelist>
 <dir name="serendipity_event_oembed">
 <dir name="UTF-8">
@@ -7455,7 +7455,6 @@
 <file>LinkEmbed.class.php</file>
 <file>OEmbed.class.php</file>
 <file>OEmbedProvider.class.php</file>
-<file>OohEmbedProvider.class.php</file>
 <file>PhotoEmbed.class.php</file>
 <file>ProviderList.php</file>
 <file>ProviderManager.class.php</file>
@@ -7491,7 +7490,6 @@
     <file>serendipity_event_oembed/oembed/LinkEmbed.class.php</file>
     <file>serendipity_event_oembed/oembed/OEmbed.class.php</file>
     <file>serendipity_event_oembed/oembed/OEmbedProvider.class.php</file>
-    <file>serendipity_event_oembed/oembed/OohEmbedProvider.class.php</file>
     <file>serendipity_event_oembed/oembed/PhotoEmbed.class.php</file>
     <file>serendipity_event_oembed/oembed/ProviderList.php</file>
     <file>serendipity_event_oembed/oembed/ProviderManager.class.php</file>

@@ -1,3 +1,14 @@
+0.3.5:
+---
+
+* Plugin dependencies added
+* More understandable translations
+* Performance updates
+* Count distances only once
+* Bugfix for "no categories"
+* Added missing php 7.0 dependency
+* Preloading fixed
+
 0.3.4:
 ---
 

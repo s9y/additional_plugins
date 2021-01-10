@@ -51,10 +51,7 @@ window.addEventListener("load", () => {
 				format: new ol.format.GPX()
 			});
 			source.on("featuresloadend", event => {
-				const url = event.target.getUrl();
-				const id = uploads.findIndex(upload => upload.url === url);
-				const features = event.features;
-				uploads[id].length = features
+				upload.length = event.features
 					.filter(feature => feature.getGeometry().getType() === "MultiLineString")
 					.map(feature => ol.sphere.getLength(feature.getGeometry()))
 					.reduce((a, b) => a + b, 0);

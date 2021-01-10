@@ -23,6 +23,9 @@
 			));
 			$propbag->add('stackable', true);
 			$propbag->add('groups', array('FRONTEND_ENTRY_RELATED'));
+			$this->dependencies = array(
+				'serendipity_event_geo_json' => 'keep'
+			);
 		}
 
 		function generate_content(&$title)

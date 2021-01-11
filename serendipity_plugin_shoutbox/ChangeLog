@@ -1,1 +1,9 @@
-Added legal information for gdpr/dsgvo
+1.02.4:
+---
+
+* Use serendipity_db_escape_string and avoid sprintf
+
+1.02.3:
+---
+
+* Added legal information for gdpr/dsgvo

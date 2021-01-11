@@ -765,21 +765,21 @@
 <guid isPermaLink="false">serendipity_event_openid</guid>
 </item>
 <item>
-<title>OpenStreetMap Integration: Bietet eine interaktive Karte für *.gpx Uploads und Blogs mit Geo-Daten.</title>
+<title>OpenStreetMap Integration: Bietet eine interaktive Karte für *.gpx Uploads und Blogs mit Geo-Daten</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_osm</link>
 <category>Event Plugins</category>
 <author>Martin Sewelies</author>
-<content:encoded>&lt;b&gt;serendipity_event_osm&lt;br /&gt;OpenStreetMap Integration&lt;/b&gt;&lt;br /&gt;Bietet eine interaktive Karte für *.gpx Uploads und Blogs mit Geo-Daten.&lt;br/&gt;For: Serendipity 2.3</content:encoded>
-<pubDate>Sat, 09 Jan 2021 00:30:26 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_osm&lt;br /&gt;OpenStreetMap Integration&lt;/b&gt;&lt;br /&gt;Bietet eine interaktive Karte für *.gpx Uploads und Blogs mit Geo-Daten&lt;br/&gt;For: Serendipity 2.3</content:encoded>
+<pubDate>Tue, 12 Jan 2021 00:30:32 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_osm</guid>
 </item>
 <item>
-<title>OpenStreetMap Statische Dateien: Fügt Scripte und Stylesheets für OpenStreetMap ein.</title>
+<title>OpenStreetMap Statische Dateien: Fügt Scripte und Stylesheets für OpenStreetMap ein</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_osm</link>
 <category>Event Plugins</category>
 <author>Martin Sewelies</author>
-<content:encoded>&lt;b&gt;serendipity_event_static_osm&lt;br /&gt;OpenStreetMap Statische Dateien&lt;/b&gt;&lt;br /&gt;Fügt Scripte und Stylesheets für OpenStreetMap ein.&lt;br/&gt;For: Serendipity 2.3</content:encoded>
-<pubDate>Thu, 17 Sep 2020 00:30:45 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_static_osm&lt;br /&gt;OpenStreetMap Statische Dateien&lt;/b&gt;&lt;br /&gt;Fügt Scripte und Stylesheets für OpenStreetMap ein&lt;br/&gt;For: Serendipity 2.3</content:encoded>
+<pubDate>Tue, 12 Jan 2021 00:30:32 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_static_osm</guid>
 </item>
 <item>

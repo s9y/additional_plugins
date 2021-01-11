@@ -25,6 +25,9 @@
 			));
 			$propbag->add('stackable', false);
 			$propbag->add('groups', array('FRONTEND_ENTRY_RELATED'));
+			$this->dependencies = array(
+				'serendipity_event_geo_osm' => 'keep'
+			);
 		}
 
 		function generate_content(&$title)

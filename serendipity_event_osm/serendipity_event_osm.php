@@ -18,10 +18,14 @@
 			$propbag->add('author', PLUGIN_EVENT_OSM_AUTHOR);
 			$propbag->add('version', PLUGIN_EVENT_OSM_VERSION);
 			$propbag->add('requirements', array(
+				'php' => '7.0.0',
 				'serendipity' => '2.3'
 			));
 			$propbag->add('stackable', true);
 			$propbag->add('groups', array('FRONTEND_ENTRY_RELATED'));
+			$this->dependencies = array(
+				'serendipity_event_geo_json' => 'keep'
+			);
 		}
 
 		function generate_content(&$title)
@@ -42,7 +46,9 @@
 					return $serendipity['POST']['multiCat'] ?? [$vars['category']];
 				case 'plugin':
 				case 'start':
-					return [$vars['staticpage_related_category_id']];
+					return $vars['staticpage_related_category_id'] !== '0'
+						? [$vars['staticpage_related_category_id']]
+						: [];
 			}
 			return [];
 		}
@@ -50,12 +56,12 @@
 		function event_hook($event, &$bag, &$eventData, $addData = null)
 		{
 			if ($event == 'entries_header') {
-				$category_id = $this->get_config('category_id', 'all');
+				$category_id = $this->get_config('category_id', 'any');
 				$page_categories = $this->get_page_categories();
 				if (
-					$category_id === 'all'
+					$category_id === 'any'
 					||
-					($category_id === 'none' && empty($page_categories))
+					($category_id === 'without' && empty($page_categories))
 					||
 					in_array($category_id, $page_categories)
 				) {
@@ -66,7 +72,7 @@
 
 		function get_selectable_categories()
 		{
-			$categories = array('all' => ALL_CATEGORIES, 'none' => NO_CATEGORIES);
+			$categories = array('without' => PLUGIN_EVENT_OSM_CATEGORY_WITHOUT, 'any' => PLUGIN_EVENT_OSM_CATEGORY_ANY);
 			$cats = serendipity_fetchCategories();
 			if (is_array($cats)) {
 				$cats = serendipity_walkRecursive($cats, 'categoryid', 'parentid', VIEWMODE_THREADED);
@@ -83,7 +89,7 @@
 				case 'title':
 					$propbag->add('type',        'string');
 					$propbag->add('name',        TITLE);
-					$propbag->add('description', TITLE . PLUGIN_EVENT_OSM_NOSHOW);
+					$propbag->add('description', TITLE . ' (' . PLUGIN_EVENT_OSM_NOT_SHOWN . ')');
 					$propbag->add('default',     PLUGIN_EVENT_OSM_NAME);
 					break;
 				case 'category_id':

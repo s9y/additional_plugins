@@ -27,12 +27,9 @@ window.addEventListener("load", () => {
 
 		const osmSource = new ol.source.OSM();
 		const layers = [
-			new ol.layer.Tile({source: osmSource}),
+			new ol.layer.Tile({source: osmSource, preload: Infinity}),
 			new ol.layer.Vector({
-				source: new ol.source.Vector({
-					features: features,
-					preload: Infinity
-				}),
+				source: new ol.source.Vector({features: features}),
 				style: feature => {
 					const id = feature.getId();
 					const entry = entries[id];
@@ -49,30 +46,27 @@ window.addEventListener("load", () => {
 			})
 		];
 		for (const upload of uploads) {
+			const source = new ol.source.Vector({
+				url: upload.url,
+				format: new ol.format.GPX()
+			});
+			source.on("featuresloadend", event => {
+				upload.length = event.features
+					.filter(feature => feature.getGeometry().getType() === "MultiLineString")
+					.map(feature => ol.sphere.getLength(feature.getGeometry()))
+					.reduce((a, b) => a + b, 0);
+			});
 			const layer = new ol.layer.Vector({
-				source: new ol.source.Vector({
-					url: upload.url,
-					format: new ol.format.GPX()
-				}),
-				style: feature => {
-					if (feature.getGeometry().getType() === "MultiLineString") {
-						upload.length = ol.sphere.getLength(feature.getGeometry());
-						if (!uploads.some(u => u.length === undefined)) {
-							const distance = uploads.map(u => u.length).reduce((a, b) => a + b, 0);
-							document.querySelectorAll("span.distance-counter[data-category=\"" + data.category + "\"]").forEach(span => {
-								span.innerHTML = Math.round(distance / 1000);
-							});
-						}
-						return new ol.style.Style({
-							stroke: new ol.style.Stroke({
-								color: dateToColor(new Date(upload.date * 1000)),
-								width: 3,
-								lineDash: upload.date * 1000 > Date.now() ? [3, 6] : undefined
-							})
-						});
-					}
-					return undefined;
-				}
+				source: source,
+				style: feature => feature.getGeometry().getType() === "MultiLineString"
+					? new ol.style.Style({
+						stroke: new ol.style.Stroke({
+							color: dateToColor(new Date(upload.date * 1000)),
+							width: 3,
+							lineDash: upload.date * 1000 > Date.now() ? [3, 6] : undefined
+						})
+					})
+					: undefined
 			});
 			layers.push(layer);
 		}
@@ -101,7 +95,7 @@ window.addEventListener("load", () => {
 				zoom: data.zoom
 			})
 		});
-		
+
 		map.on("singleclick", event => {
 			const makeItem = object => {
 				const title = document.createTextNode(object.title);
@@ -160,6 +154,12 @@ window.addEventListener("load", () => {
 			const pixel = map.getEventPixel(event.originalEvent);
 			const hit = map.hasFeatureAtPixel(pixel, {hitTolerance: 10});
 			divMap.style.cursor = hit ? "pointer" : "";
+		});
+		map.on("rendercomplete", event => {
+			const distance = uploads.map(u => u.length).reduce((a, b) => a + b, 0);
+			document.querySelectorAll("span.distance-counter[data-category=\"" + data.category + "\"]").forEach(span => {
+				span.innerHTML = (distance / 1000).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+			});
 		});
 	});
 });

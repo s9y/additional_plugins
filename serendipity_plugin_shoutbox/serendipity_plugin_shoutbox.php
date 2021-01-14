@@ -20,29 +20,25 @@ class serendipity_plugin_shoutbox extends serendipity_plugin
         $propbag->add('description',   PLUGIN_SHOUTBOX_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Matthias Lange');
-        $propbag->add('version',       '1.02.3');
+        $propbag->add('version',       '1.02.4');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('legal',    array(
-            'services' => array(
-            ),
+        $propbag->add('legal', array(
+            'services' => array(),
             'frontend' => array(
                 'Shows a shoutbox which stores user comments / text and the submitting IP (no other metadata)',
             ),
-            'backend' => array(
-            ),
-            'cookies' => array(
-            ),
+            'backend' => array(),
+            'cookies' => array(),
             'stores_user_input'     => true,
             'stores_ip'             => true,
             'uses_ip'               => true,
             'transmits_user_input'  => true
         ));
-
 
         $propbag->add('configuration', array(
                                              'wordwrap',
@@ -62,46 +58,46 @@ class serendipity_plugin_shoutbox extends serendipity_plugin
                 $propbag->add('type', 'string');
                 $propbag->add('name', PLUGIN_SHOUTBOX_WORDWRAP);
                 $propbag->add('description', PLUGIN_SHOUTBOX_WORDWRAP_BLAHBLAH);
-                $propbag->add('default',     30);
+                $propbag->add('default', 30);
                 break;
 
             case 'max_chars':
                 $propbag->add('type', 'string');
                 $propbag->add('name', PLUGIN_SHOUTBOX_MAXCHARS);
                 $propbag->add('description', PLUGIN_SHOUTBOX_MAXCHARS_BLAHBLAH);
-                $propbag->add('default',     120);
+                $propbag->add('default', 120);
                 break;
 
             case 'max_entries':
                 $propbag->add('type', 'string');
                 $propbag->add('name', PLUGIN_SHOUTBOX_MAXENTRIES);
                 $propbag->add('description', PLUGIN_SHOUTBOX_MAXENTRIES_BLAHBLAH);
-                $propbag->add('default',     15);
+                $propbag->add('default', 15);
                 break;
 
             case 'dateformat':
                 $propbag->add('type', 'string');
                 $propbag->add('name', GENERAL_PLUGIN_DATEFORMAT);
                 $propbag->add('description', sprintf(GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH, '%a, %d.%m.%Y %H:%M'));
-                $propbag->add('default',     '%a, %d.%m.%Y %H:%M');
+                $propbag->add('default', '%a, %d.%m.%Y %H:%M');
                 break;
 
             case 'box_cols':
                 $propbag->add('type', 'string');
                 $propbag->add('name', GENERAL_PLUGIN_BOX_COLS);
                 $propbag->add('description', GENERAL_PLUGIN_BOX_COLS_BLAHBLAH);
-                $propbag->add('default',     '15');
+                $propbag->add('default', '15');
                 break;
 
             case 'box_rows':
                 $propbag->add('type', 'string');
                 $propbag->add('name', GENERAL_PLUGIN_BOX_ROWS);
                 $propbag->add('description', GENERAL_PLUGIN_BOX_ROWS_BLAHBLAH);
-                $propbag->add('default',     '4');
+                $propbag->add('default', '4');
                 break;
 
             default:
-                    return false;
+                return false;
         }
         return true;
     }
@@ -120,12 +116,12 @@ class serendipity_plugin_shoutbox extends serendipity_plugin
 
         // Create table, if not yet existant
         if (!$this->get_config('version')) {
-            $q   = "CREATE TABLE {$serendipity['dbPrefix']}shoutbox (
-                        id {AUTOINCREMENT} {PRIMARY},
-                        timestamp int(10) {UNSIGNED} NULL,
-                        ip varchar(45) default NULL,
-                        body text
-                    )";
+            $q = "CREATE TABLE {$serendipity['dbPrefix']}shoutbox (
+                      id {AUTOINCREMENT} {PRIMARY},
+                      timestamp INT(10) {UNSIGNED} NULL,
+                      ip VARCHAR(45) DEFAULT NULL,
+                      body TEXT
+                  )";
             $sql = serendipity_db_schema_import($q);
             $this->set_config('version', '2');
         }
@@ -140,33 +136,27 @@ class serendipity_plugin_shoutbox extends serendipity_plugin
         }
 
         //Put new shout into the database if necessary
-        if (!empty($_REQUEST['action']) && $_REQUEST['action'] == 'fillshoutbox' && $_REQUEST['serendipity']['shouttext'] != '') {
-
-            $sql =  sprintf(
-                      "INSERT INTO %sshoutbox (
-                            timestamp,
-                            ip,
-                            body
-                       ) VALUES (
-                            %s,
-                            '%s',
-                            '%s'
-                       )",
-
-                    $serendipity['dbPrefix'],
-                    time(),
-                    serendipity_db_escape_string($_SERVER['REMOTE_ADDR']),
-                    serendipity_db_escape_string($_REQUEST['serendipity']['shouttext']));
+        if (!empty($_REQUEST['action']) && $_REQUEST['action'] == 'fillshoutbox' && trim($_REQUEST['serendipity']['shouttext']) != '') {
+            $timestamp = time();
+            $remoteAddress = serendipity_db_escape_string($_SERVER['REMOTE_ADDR']);
+            $shoutText = serendipity_db_escape_string(trim($_REQUEST['serendipity']['shouttext']));
+            $sql = "INSERT INTO ${serendipity['dbPrefix']}shoutbox (
+                        timestamp,
+                        ip,
+                        body
+                    ) VALUES (
+                        $timestamp,
+                        '$remoteAddress',
+                        '$shoutText'
+                    )";
             serendipity_db_query($sql);
         }
         if (!empty($serendipity['GET']['action']) && $serendipity['GET']['action'] == 'shoutboxdelete'
-          && $_SESSION['serendipityAuthedUser'] === true) {
-            $sql  = sprintf("DELETE from %sshoutbox
-                              WHERE id = %d",
-                                    $serendipity['dbPrefix'],
-                                    (int)$serendipity['GET']['comment_id']);
+                && $_SESSION['serendipityAuthedUser'] === true) {
+            $id = (int)$serendipity['GET']['comment_id'];
+            $sql = "DELETE FROM ${serendipity['dbPrefix']}shoutbox WHERE id = $id";
             serendipity_db_query($sql);
-         }
+        }
 
         if (!$max_entries || !is_numeric($max_entries) || $max_entries < 1) {
             $max_entries = 15;
@@ -198,19 +188,19 @@ class serendipity_plugin_shoutbox extends serendipity_plugin
            <input name='submit' type='submit' value='<?php echo PLUGIN_SHOUTBOX_SUBMIT; ?>' />
        </form>
 <?php
-        $q = 'SELECT    s.body              AS comment,
-                        s.timestamp         AS stamp,
-                        s.id                AS comment_id
-                FROM    '.$serendipity['dbPrefix'].'shoutbox AS s
-            ORDER BY    s.timestamp DESC
-               LIMIT ' . $max_entries;
+        $q = "SELECT body      AS comment,
+                     timestamp AS stamp,
+                     id        AS comment_id
+                FROM ${serendipity['dbPrefix']}shoutbox
+            ORDER BY timestamp DESC
+               LIMIT $max_entries";
 ?>
 <div class="serendipity_shoutbox">
 <?php
         $sql = serendipity_db_query($q);
         if ($sql && is_array($sql)) {
             foreach($sql AS $key => $row) {
-                $comments = wordwrap(strip_tags($row['comment']), $max_chars, '@@@', 1);
+                $comments = specialchars(wordwrap($row['comment'], $max_chars, '@@@', 1));
                 $aComment = explode('@@@', $comments);
                 $comment  = $aComment[0];
                 if (count($aComment) > 1) {
@@ -227,7 +217,7 @@ class serendipity_plugin_shoutbox extends serendipity_plugin
                 serendipity_plugin_api::hook_event('frontend_display', $entry);
                 $entry['comment'] = wordwrap($entry['comment'], $wordwrap, "\n", 1);
 
-                echo '<div class="serendipity_shoutbox_date">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars(serendipity_strftime($dateformat, $row['stamp'])) : htmlspecialchars(serendipity_strftime($dateformat, $row['stamp']), ENT_COMPAT, LANG_CHARSET)) . '</div>' . "\n"
+                echo '<div class="serendipity_shoutbox_date">' . specialchars(serendipity_strftime($dateformat, $row['stamp'])) . '</div>' . "\n"
                      . '<div class="serendipity_shoutbox_comment">' . $entry['comment'] . '</div>' . "\n"
                      . '<div class="serendipity_shoutbox_delete">' . $deleteLink . '</div>' . "\n\n";
             }
@@ -236,8 +226,5 @@ class serendipity_plugin_shoutbox extends serendipity_plugin
 </div>
 <?php
     }
-
 }
-
-/* vim: set sts=4 ts=4 expandtab : */
 ?>

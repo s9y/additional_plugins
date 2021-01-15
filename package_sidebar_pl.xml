@@ -2827,9 +2827,9 @@
 <description>Pokazuje małe okienko w Panelu Bocznym dla niezwiązanych z wpisami komentarzami</description>
 <maintainers><maintainer><name>Matthias Lange</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.02.3</version>
+  <version>1.02.4</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2018-04-03</date>
+  <date>2021-01-15</date>
   <filelist>
 <dir name="serendipity_plugin_shoutbox">
 <dir name="UTF-8">

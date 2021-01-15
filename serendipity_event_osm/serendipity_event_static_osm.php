@@ -43,27 +43,36 @@
 				echo '    <link rel="stylesheet" href="'.$this->getFile('ressources/osm.css', 'serendipityHTTPPath').'" type="text/css" />'.PHP_EOL;
 				echo '    <script src="'.$this->getFile('ressources/ol.js', 'serendipityHTTPPath').'"></script>'.PHP_EOL;
 				echo '    <script src="'.$this->getFile('ressources/osm.js', 'serendipityHTTPPath').'"></script>'.PHP_EOL;
-			} else if ($event === 'backend_image_add' && preg_match('/\\.gpx$/i', mb_strtolower($eventData)) && $this->get_config('compress_gpx', true) === true) {
-				$fileName = $eventData;
-				$file = fopen($fileName.'.temp', 'wb');
-				fwrite($file, '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?><gpx version="1.1" creator="surrim.org" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">');
-				$gpx = simplexml_load_file($fileName);
-				foreach ($gpx->trk as $trk) {
-					fwrite($file, '<trk>');
-					foreach($trk->trkseg as $seg) {
-						fwrite($file, '<trkseg>');
-						foreach($seg->trkpt as $pt) {
-							fwrite($file, '<trkpt lat="'.$pt['lat'].'" lon="'.$pt['lon'].'"><ele>'.$pt->ele.'</ele></trkpt>');
+			} else if ($event === 'backend_image_add') {
+				if (preg_match('/\\.gpx$/i', mb_strtolower($eventData)) && $this->get_config('compress_gpx', true) === true) {
+					$fileName = $eventData;
+					$tmpFile = tmpfile();
+					fwrite($tmpFile, '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?><gpx version="1.1" creator="surrim.org" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">');
+					$gpx = simplexml_load_file($fileName);
+					foreach ($gpx->trk as $trk) {
+						fwrite($tmpFile, '<trk>');
+						foreach($trk->trkseg as $seg) {
+							fwrite($tmpFile, '<trkseg>');
+							foreach($seg->trkpt as $pt) {
+								fwrite($tmpFile, '<trkpt lat="'.$pt['lat'].'" lon="'.$pt['lon'].'"><ele>'.$pt->ele.'</ele></trkpt>');
+							}
+							fwrite($tmpFile, '</trkseg>');
 						}
-						fwrite($file, '</trkseg>');
+						fwrite($tmpFile, '</trk>');
 					}
-					fwrite($file, '</trk>');
+					fwrite($tmpFile, '</gpx>');
+					$fileSize = ftell($tmpFile);
+					unset($gpx);
+
+					rewind($tmpFile);
+					$file = fopen($fileName, 'w');
+					stream_copy_to_stream($tmpFile, $file, $fileSize);
+					fclose($file);
+					fclose($tmpFile);
+
+					$fileId = $addData['image_id'];
+					serendipity_updateImageInDatabase(array('size' => $fileSize), $fileId);
 				}
-				unset($gpx);
-				fwrite($file, '</gpx>');
-				fclose($file);
-				rename($fileName.'.temp', $fileName);
-				// TODO: serendipity_updateImageInDatabase(array('size' => @filesize($fileName)), $id);
 			}
 		}
 

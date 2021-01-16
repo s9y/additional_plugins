@@ -85,6 +85,7 @@
 
 		function introspect_config_item($name, &$propbag)
 		{
+			global $serendipity;
 			switch($name) {
 				case 'title':
 					$propbag->add('type',        'string');
@@ -103,7 +104,7 @@
 					$propbag->add('type',        'text');
 					$propbag->add('name',        PLUGIN_EVENT_OSM_PATH);
 					$propbag->add('description', PLUGIN_EVENT_OSM_PATH_DESCRIPTION);
-					$propbag->add('default',     '');
+					$propbag->add('default',     $serendipity['serendipityHTTPPath'] . $serendipity['uploadPath']);
 					break;
 				case 'height':
 					$propbag->add('type',        'string');

@@ -65,7 +65,13 @@
 					||
 					in_array($category_id, $page_categories)
 				) {
-					echo '    <div class="map" data-category="'.$category_id.'" data-path="'.$this->get_config('path', '').'" data-latitude="'.$this->get_config('latitude', 51.48165).'" data-longitude="'.$this->get_config('longitude', 7.21648).'" data-zoom="'.$this->get_config('zoom', 15).'" style="height: '.$this->get_config('height', '463px').'"></div>'.PHP_EOL;
+					echo '    <div class="map" data-category="' . $category_id
+						. '" data-path="' . addslashes($this->get_config('path', ''))
+						. '" data-latitude="' . ((float)$this->get_config('latitude', 51.48165))
+						. '" data-longitude="' . ((float)$this->get_config('longitude', 7.21648))
+						. '" data-zoom="' . ((int)$this->get_config('zoom', 15))
+						. '" style="height: ' . addslashes($this->get_config('height', '463px'))
+						. '"></div>'.PHP_EOL;
 				}
 			}
 		}

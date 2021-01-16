@@ -104,7 +104,7 @@
 					$propbag->add('name',          PLUGIN_EVENT_OSM_CATEGORY);
 					$propbag->add('description',   PLUGIN_EVENT_OSM_CATEGORY_DESCRIPTION);
 					$propbag->add('select_values', $this->get_selectable_categories());
-					$propbag->add('default',       'all');
+					$propbag->add('default',       'without');
 					break;
 				case 'path':
 					$propbag->add('type',        'text');

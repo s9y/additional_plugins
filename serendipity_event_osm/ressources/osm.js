@@ -56,7 +56,7 @@ window.addEventListener("load", () => {
 					.map(feature => ol.sphere.getLength(feature.getGeometry()))
 					.reduce((a, b) => a + b, 0);
 			});
-			const layer = new ol.layer.Vector({
+			const layer = new ol.layer.VectorImage({
 				source: source,
 				style: feature => feature.getGeometry().getType() === "MultiLineString"
 					? new ol.style.Style({

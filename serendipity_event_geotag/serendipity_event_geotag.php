@@ -357,7 +357,7 @@ class serendipity_event_geotag extends serendipity_event
                               const found = geo.match(/^\s*([+-]?([0-9]+([.][0-9]*)?|[.][0-9]+))\s*[ ,\/]\s*([+-]?([0-9]+([.][0-9]*)?|[.][0-9]+))\s*$/);
                               if (found !== null) {
                                  this.value = found[1];
-                                 document.getElementById(this.id === "properties_geo_lat" ? "properties_geo_long" : "properties_geo_lat").value = found[3];
+                                 document.getElementById(this.id === "properties_geo_lat" ? "properties_geo_long" : "properties_geo_lat").value = found[4];
                               } else {
                                  this.value = geo;
                               }

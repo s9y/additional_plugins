@@ -14,7 +14,7 @@ if (file_exists($probelang)) {
 include_once dirname(__FILE__) . '/lang_en.inc.php';
 include_once dirname(__FILE__) . '/podcast_player.php';
 
-@define("SERENDIPITY_EVENT_PODCAST_VERSION", "1.37.4");
+@define("SERENDIPITY_EVENT_PODCAST_VERSION", "1.37.5");
 
 class serendipity_event_podcast extends serendipity_event {
 /**
@@ -996,7 +996,7 @@ class serendipity_event_podcast extends serendipity_event{
         global $serendipity;
 
         if (!preg_match('@^https*://@', $url)) {
-            if ($url{0} == '/') {
+            if ($url[0] == '/') {
                 $url = $this->GetHostUrl() . $url;
             } else {
                 $url = $this->getHostUrl() . $serendipity['serendipityHTTPPath'] . $url;

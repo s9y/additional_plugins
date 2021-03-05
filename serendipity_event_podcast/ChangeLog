@@ -1,4 +1,9 @@
-# 
+#
+
+1.37.5:
+    * Replace curly braces char selection with []
+      PHP 7.4 throws a deprecated warning.
+ 
 1.37.4:
 
     * substitute break outside of a loop by `return false`

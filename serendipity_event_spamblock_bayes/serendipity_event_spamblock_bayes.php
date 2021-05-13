@@ -7,8 +7,9 @@ if (IN_serendipity !== true) {
 $probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
 if (file_exists($probelang)) {
     include $probelang;
+} else {
+    include dirname(__FILE__) . '/lang_en.inc.php';
 }
-include dirname(__FILE__) . '/lang_en.inc.php';
 
 class serendipity_event_spamblock_bayes extends serendipity_event {
 
@@ -19,7 +20,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '1.1.1' );
+		$propbag->add ( 'version', '1.1.2' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_comments_top' => true,
 		                                     'external_plugin' => true,

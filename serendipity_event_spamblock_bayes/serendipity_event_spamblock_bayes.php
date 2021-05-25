@@ -20,7 +20,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '1.1.2' );
+		$propbag->add ( 'version', '1.1.3' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_comments_top' => true,
 		                                     'external_plugin' => true,
@@ -239,7 +239,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                 case 'backend_view_comment':
                     $imgpath = $serendipity['baseURL'] . 'index.php?/plugin/';
 
-                    $comment = $eventData['url'] . ' ' . $eventData['fullBody'] . ' ' . $eventData['name'] . ' ' . $eventData['email']; 
+                    $comment = ($eventData['url'] ?? '') . ' ' . ($eventData['fullBody'] ?? '') . ' ' . ($eventData['name']  ?? '') . ' ' . ($eventData['email'] ?? ''); 
 
                     $eventData['action_more'] = '<ul id="bayes_actions" class="plainList clearfix actions">
                         <li>
@@ -320,7 +320,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
     # we init b8 in this function and not directly in the event hook, because in the event hook the SPL autoload gets triggered by smarty and fails
     function initB8() {
         global $serendipity;
-        if ($this->$b8 === null) {
+        if (! isset($this->b8) || $this->b8 === null) {
             $this->setupDB();
             
             require_once(dirname(__FILE__) . '/b8/b8.php');
@@ -339,24 +339,24 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
             
             $config_storage = [ 'resource' => $serendipity['dbConn'],
                     'table'    => 'b8_wordlist' ];
-            $this->$b8 = new b8\b8($config_b8, $config_storage);
+            $this->b8 = new b8\b8($config_b8, $config_storage);
         }
     }
 
     # Return the bayes rating reflecting the spamminess of the comment string. 0: ham, 1: spam
     function rate($comment) {
         $this->initB8();
-        return $this->$b8->classify($comment);
+        return $this->b8->classify($comment);
     }
 
     # Mark a comment text as ham or spam
     function learn($comment, $category) {
         $this->initB8();
         if ($category == 'ham') {
-            $this->$b8->learn($comment, b8\b8::HAM);
+            $this->b8->learn($comment, b8\b8::HAM);
         }
         if ($category == 'spam') {
-            $this->$b8->learn($comment, b8\b8::SPAM);
+            $this->b8->learn($comment, b8\b8::SPAM);
         }
     }
 

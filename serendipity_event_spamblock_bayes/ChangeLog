@@ -1,4 +1,5 @@
 1.1.3:
+    * Update b8
     * PHP 8 compatibility fix: Set b8 class variable properly
 
 1.1.2:

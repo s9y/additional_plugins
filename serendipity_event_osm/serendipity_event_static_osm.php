@@ -37,7 +37,6 @@
 
 		function event_hook($event, &$bag, &$eventData, $addData = null)
 		{
-			global $serendipity;
 			if ($event === 'frontend_header') {
 				echo '    <link rel="stylesheet" href="'.$this->getFile('ressources/ol.css', 'serendipityHTTPPath').'" type="text/css" />'.PHP_EOL;
 				echo '    <link rel="stylesheet" href="'.$this->getFile('ressources/osm.css', 'serendipityHTTPPath').'" type="text/css" />'.PHP_EOL;

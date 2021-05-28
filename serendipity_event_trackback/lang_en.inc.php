@@ -14,4 +14,5 @@
 @define('PLUGIN_EVENT_MTRACKBACK_TITLETRACKSEL', 'Only send trackbacks to URLs listed below');
 @define('PLUGIN_EVENT_MTRACKBACK_DELAYED_TRACKBACKS_NAME', 'Delayed Trackbacks');
 @define('PLUGIN_EVENT_MTRACKBACK_DELAYED_TRACKBACKS_DESC', 'Automatically create trackbacks of entries which were not released immediately.');
+@define('PLUGIN_EVENT_MTRACKBACK_TITLERESEND', 'Resend trackbacks');
 

@@ -437,7 +437,7 @@
 <category>Event Plugins</category>
 <author>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Martin Sewelies</author>
 <content:encoded>&lt;b&gt;serendipity_event_geotag&lt;br /&gt;Geotag&lt;/b&gt;&lt;br /&gt;Allows entries to be geotagged with coordinates&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sat, 02 Jan 2021 00:30:26 +0100</pubDate>
+<pubDate>Sat, 29 May 2021 00:30:32 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_geotag</guid>
 </item>
 <item>
@@ -770,7 +770,7 @@
 <category>Event Plugins</category>
 <author>Martin Sewelies</author>
 <content:encoded>&lt;b&gt;serendipity_event_osm&lt;br /&gt;OpenStreetMap integration&lt;/b&gt;&lt;br /&gt;Provides an interactive map with *.gpx uploads and tagged geo data&lt;br/&gt;For: Serendipity 2.3</content:encoded>
-<pubDate>Tue, 12 Jan 2021 00:30:32 +0100</pubDate>
+<pubDate>Sat, 29 May 2021 00:30:34 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_osm</guid>
 </item>
 <item>
@@ -779,7 +779,7 @@
 <category>Event Plugins</category>
 <author>Martin Sewelies</author>
 <content:encoded>&lt;b&gt;serendipity_event_static_osm&lt;br /&gt;OpenStreetMap static files&lt;/b&gt;&lt;br /&gt;Includes scripts and stylesheets for OpenStreetMap support&lt;br/&gt;For: Serendipity 2.3</content:encoded>
-<pubDate>Sun, 17 Jan 2021 00:30:33 +0100</pubDate>
+<pubDate>Sat, 29 May 2021 00:30:34 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_static_osm</guid>
 </item>
 <item>

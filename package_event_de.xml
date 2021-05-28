@@ -4071,9 +4071,9 @@
 <description>Erlaubt Einträge mit Geokoordinaten zu versehen</description>
 <maintainers><maintainer><name>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Martin Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.35</version>
+  <version>1.36</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-01-02</date>
+  <date>2021-05-29</date>
   <filelist>
 <dir name="serendipity_event_geotag">
 <dir name="UTF-8">
@@ -7698,9 +7698,9 @@
 <description>Bietet eine interaktive Karte für *.gpx Uploads und Blogs mit Geo-Daten</description>
 <maintainers><maintainer><name>Martin Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.3.6</version>
+  <version>0.3.7</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
-  <date>2021-01-12</date>
+  <date>2021-05-29</date>
   <filelist>
 <dir name="serendipity_event_osm">
 <dir name="UTF-8">
@@ -7721,6 +7721,7 @@
 <file>serendipity_event_osm.php</file>
 <file>serendipity_event_static_osm.php</file>
 <file>ChangeLog</file>
+<file>README.md</file>
 </dir>
 
   </filelist>
@@ -7739,6 +7740,7 @@
     <file>serendipity_event_osm/serendipity_event_osm.php</file>
     <file>serendipity_event_osm/serendipity_event_static_osm.php</file>
     <file>serendipity_event_osm/ChangeLog</file>
+    <file>serendipity_event_osm/README.md</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7751,9 +7753,9 @@
 <description>Fügt Scripte und Stylesheets für OpenStreetMap ein</description>
 <maintainers><maintainer><name>Martin Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.3.6</version>
+  <version>0.3.7</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
-  <date>2021-01-17</date>
+  <date>2021-05-29</date>
   <filelist>
 <dir name="serendipity_event_osm">
 <dir name="UTF-8">
@@ -7774,6 +7776,7 @@
 <file>serendipity_event_osm.php</file>
 <file>serendipity_event_static_osm.php</file>
 <file>ChangeLog</file>
+<file>README.md</file>
 </dir>
 
   </filelist>
@@ -7792,6 +7795,7 @@
     <file>serendipity_event_osm/serendipity_event_osm.php</file>
     <file>serendipity_event_osm/serendipity_event_static_osm.php</file>
     <file>serendipity_event_osm/ChangeLog</file>
+    <file>serendipity_event_osm/README.md</file>
   </serendipityFilelist>
 </release>
 </package>

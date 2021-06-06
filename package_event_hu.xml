@@ -3880,9 +3880,9 @@
 <description>Címkék megadását teszi lehetővé tetszőleges kombinációban</description>
 <maintainers><maintainer><name>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.70</version>
+  <version>3.70.1</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2018-08-15</date>
+  <date>2021-06-07</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <dir name="UTF-8">
@@ -6391,9 +6391,9 @@
 <description>Uses JavaScript to show a live preview and markup-buttons</description>
 <maintainers><maintainer><name>Malte Paskuda, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.5.5</version>
+  <version>2.5.6</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-06-07</date>
   <filelist>
 <dir name="serendipity_event_livecomment">
 <dir name="UTF-8">
@@ -9028,9 +9028,9 @@
 <description>Implements simple comment antispam mechanisms, that are easy to configure but very effective.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Janek Bevendorff</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.3.1</version>
+  <version>1.3.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-06-07</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bee">
 <dir name="UTF-8">
@@ -9212,9 +9212,9 @@
 <description>Shows static pages inside your blog with your blogs design and all formattings. Adds a new menu item to the admin interface.</description>
 <maintainers><maintainer><name>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>4.15.4</version>
+  <version>4.15.5</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2020-05-28</date>
+  <date>2021-06-07</date>
   <filelist>
 <dir name="serendipity_event_staticpage">
 <dir name="UTF-8">
@@ -9511,9 +9511,9 @@
 <description>Edit the files of the currently used template directly form the adminarea.</description>
 <maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.8.1</version>
+  <version>0.8.2</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2021-06-07</date>
   <filelist>
 <dir name="serendipity_event_template_editor">
 <dir name="UTF-8">
@@ -10101,9 +10101,9 @@
 <description>Allows granular control over how trackbacks are sent when creating entries</description>
 <maintainers><maintainer><name>Garvin Hicking, Malte Paskuda, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.20</version>
+  <version>1.20.1</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2020-04-19</date>
+  <date>2021-06-07</date>
   <filelist>
 <dir name="serendipity_event_trackback">
 <dir name="UTF-8">

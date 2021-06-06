@@ -4,14 +4,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_template_editor extends serendipity_event {
     var $title = PLUGIN_EVENT_TEMPLATE_EDITOR_NAME;
@@ -25,7 +18,7 @@ class serendipity_event_template_editor extends serendipity_event {
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda');
         $propbag->add('license',       'GPL');
-        $propbag->add('version',       '0.8.1');
+        $propbag->add('version',       '0.8.2');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0'
         ));
@@ -232,9 +225,9 @@ class serendipity_event_template_editor extends serendipity_event {
                             echo '<script src="'.$pluginPath.'codemirror/codemirror.js" type="text/javascript"></script>';
                         }
                         if (isset($serendipity['GET']['template_editor_use_temp'])) {
-                            $this->showEditor($serendipity['GET']['template_editor_path'] . $serendipity['GET']['editfile'], true);
+                            $this->showEditor($serendipity['GET']['template_editor_path'] . ($serendipity['GET']['editfile'] ?? ''), true);
                         } else {
-                            $this->showEditor($serendipity['GET']['template_editor_path'] . $serendipity['GET']['editfile']);
+                            $this->showEditor($serendipity['GET']['template_editor_path'] . ($serendipity['GET']['editfile'] ?? ''));
                         }
                     }
                     break;
@@ -339,7 +332,8 @@ class serendipity_event_template_editor extends serendipity_event {
         }
         echo '<ul id="templateEditorFileList" class="plainList zebra_list templateEditorList">';
         $filecount = 0;
-
+        $jsDeleteDialogs = '';
+        
         foreach ($files as $file) {
             if (getimagesize("{$path}{$file}")) {
                 #images shouldn't end in the textarea
@@ -441,7 +435,7 @@ class serendipity_event_template_editor extends serendipity_event {
 
     function forkTemplate() {
         global $serendipity;
-        $template_path = $serendipity['serendipity_path'] . $serendipity['templatePath'];
+        $template_path = $serendipity['templatePath'];
         $cur_template =  $serendipity['template'];
 
 

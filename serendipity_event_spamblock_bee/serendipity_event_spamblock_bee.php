@@ -610,7 +610,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
         global $serendipity;
 
         // Don't put extras on admin menu. They are not working there: ...or other backend forms like guestbook
-        if ((isset($eventData['GET']['action']) && $eventData['GET']['action']=='admin') || (int)$serendipity['serendipityUserlevel'] >= (int)USERLEVEL_ADMIN) return;
+        if ((isset($eventData['GET']['action']) && $eventData['GET']['action']=='admin') || (int)($serendipity['serendipityUserlevel'] ?? null) >= (int)USERLEVEL_ADMIN) return;
 
         // Honeypot
         if (serendipity_db_bool($this->useHoneyPot)) {

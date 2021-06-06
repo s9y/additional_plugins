@@ -5,7 +5,13 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-@serendipity_plugin_api::load_language(dirname(__FILE__));
+// Probe for a language include with constants. Still include defines later on, if some constants were missing
+$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
+if (file_exists($probelang)) {
+    include $probelang;
+}
+
+include dirname(__FILE__) . '/lang_en.inc.php';
 
 class serendipity_event_livecomment extends serendipity_event
 {
@@ -21,9 +27,9 @@ class serendipity_event_livecomment extends serendipity_event
         $propbag->add('author',        'Malte Paskuda, Garvin Hicking');
         $propbag->add('requirements',  array(
             'serendipity' => '1.0',
-            'php'         => '7.0'
+            'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '2.5.6');
+        $propbag->add('version',       '2.5.5');
         $propbag->add('event_hooks',   array(
         	'frontend_footer'               => true,
         	'external_plugin'               => true,
@@ -139,34 +145,34 @@ class serendipity_event_livecomment extends serendipity_event
         $hooks = &$bag->get('event_hooks');
 
         if (isset($hooks[$event])) {
-            if (($variant ?? null) === null) {
+            if ($variant === null) {
                 $variant = $this->get_config('variant', 'jquery');
             }
-            if (($buttons ?? null) === null) {
+            if ($buttons === null) {
                 $buttons = serendipity_db_bool($this->get_config('buttons', true));
             }
-            if (($timeout ?? null) === null) {
+            if ($timeout === null) {
                 $timeout = $this->get_config('timeout', '');
             }
-            if (($preview_animation ?? null) === null) {
+            if ($preview_animation === null) {
                 $preview_animation = $this->get_config('preview_animation', 'fadeIn');
             }
-            if (($preview_animation_speed ?? null) === null) {
+            if ($preview_animation_speed === null) {
                 $preview_animation_speed = $this->get_config('preview_animation_speed', 'slow');
             }
-            if (($button_animation ?? null) === null) {
+            if ($button_animation === null) {
                 $button_animation = $this->get_config('button_animation', 'slideDown');
             }
-            if (($button_animation_speed ?? null) === null) {
+            if ($button_animation_speed === null) {
                 $button_animation_speed = $this->get_config('button_animation_speed', 'slow');
             }
-            if (($elastic ?? null) === null) {
+            if ($elastic === null) {
                 $elastic = serendipity_db_bool($this->get_config('elastic', false));
             }
-            if (($inline ?? null) === null) {
+            if ($inline === null) {
                 $inline = serendipity_db_bool($this->get_config('inline', false));
             }
-            if (($path ?? null) === null) {
+            if ($path === null) {
                 $path = $this->get_config('path', '');
             }
             if (!empty($path) && $path != 'default' && $path != 'none' && $path != 'empty') {

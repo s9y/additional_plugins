@@ -3057,7 +3057,7 @@ foreach($select AS $select_value => $select_desc) {
                     // This behavior might change in future releases.
                     $this->error_404 = ($_SERVER['REDIRECT_STATUS'] == '404');
 
-                    $pages = $this->fetchStaticPages(true, $nice_url);
+                    $pages = $this->fetchStaticPages(true, strtok(strtok($nice_url,"&"), "?"));
                     if (is_array($pages)) {
                     foreach ($pages as $page) {
                         if ($page['permalink'] == $nice_url) {
@@ -3069,7 +3069,7 @@ foreach($select AS $select_value => $select_desc) {
                         }
                     }
                     }
-
+                    
                     // Set static page to 404 error document if page not found
                     if ($this->error_404) {
                         $serendipity['GET']['subpage'] = $this->get404Errorpage();
@@ -3082,7 +3082,7 @@ foreach($select AS $select_value => $select_desc) {
 
                     // Set static page according to requested URL
                     if (empty($serendipity['GET']['subpage'])) {
-                        $serendipity['GET']['subpage'] = $nice_url;
+                        $serendipity['GET']['subpage'] = strtok(strtok($nice_url,"&"), "?");
                     }
 
                     if ($this->selected()) {

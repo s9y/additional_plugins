@@ -70,9 +70,9 @@ class serendipity_event_freetag extends serendipity_event
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
-            'php'         => '4.1.0'
+            'php'         => '7.0'
         ));
-        $propbag->add('version',       '3.70');
+        $propbag->add('version',       '3.70.1');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -307,8 +307,12 @@ class serendipity_event_freetag extends serendipity_event
     static function tableCreated($table = 'entrytags')  {
         global $serendipity;
 
-        $q = "select count(tag) from {$serendipity['dbPrefix']}" . $table;
-        $row = serendipity_db_query($q, true, 'num');
+        try {
+            $q = "select count(tag) from {$serendipity['dbPrefix']}" . $table;
+            $row = serendipity_db_query($q, true, 'num');
+        } catch (exception $e) {
+            return false;
+        }
 
         if (!is_numeric($row[0])) { // if the response we got back was an SQL error.. :P
             return false;
@@ -527,7 +531,7 @@ class serendipity_event_freetag extends serendipity_event
     /*  This method can be called statically.
         Tags should be an array with the key being the tag name, and val being
         the number of occurances. */
-    static function displayTags($tags, $xml, $nl, $scaling, $maxSize = 200, $minSize = 100, $useFlash = false, $flashbgtrans = true, $flashtagcolor = 'ff6600', $flashbgcolor = 'ffffff', $flashwidth = 190, $flashspeed = 100, $cfg_taglink, $cfg_template, $xml_image = 'img/xml.gif')
+    static function displayTags($tags, $xml, $nl, $scaling, $maxSize = 200, $minSize = 100, $useFlash = false, $flashbgtrans = true, $flashtagcolor = 'ff6600', $flashbgcolor = 'ffffff', $flashwidth = 190, $flashspeed = 100, $cfg_taglink = null, $cfg_template = null, $xml_image = 'img/xml.gif')
     {
         global $serendipity;
 
@@ -686,7 +690,7 @@ class serendipity_event_freetag extends serendipity_event
                         echo '</script>'. "\n";
                     }
 
-                    $this->displayMetaKeywords($serendipity['GET']['id'],  $this->displayTag );
+                    $this->displayMetaKeywords($serendipity['GET']['id'] ?? null,  $this->displayTag );
                     return true;
 
                 case 'frontend_display:rss-2.0:per_entry':
@@ -930,7 +934,7 @@ class serendipity_event_freetag extends serendipity_event
                     $this->deleteTagsForEntry($eventData['id']);
                     $this->addTagsToEntry($eventData['id'], $tags);
 
-                    if ($serendipity['POST']['properties']['freetag_kill']) {
+                    if ($serendipity['POST']['properties']['freetag_kill'] ?? false) {
                         $this->deleteTagsForEntry($eventData['id']);
                     }
 
@@ -1176,10 +1180,10 @@ addLoadEvent(enableAutocomplete);
                         $showtag = serendipity_db_escape_string(urldecode($serendipity['GET']['tag']));
                     }
 
-                    if (is_array($showtag)) {
+                    if (is_array($showtag ?? null)) {
                         $arr_showtag = $showtag;
                     } else {
-                        $arr_showtag = explode(';', $showtag);
+                        $arr_showtag = explode(';', $showtag ?? '');
                     }
                     $multimode = 'and';
                     if (count($arr_showtag) > 1) {
@@ -1251,7 +1255,9 @@ addLoadEvent(enableAutocomplete);
 
                         $this->displayTag = $showtag;
                         $serendipity['plugin_vars']['displayTag'] = $showtag;
-                        @define('PLUGIN_VARS_DISPLAYTAG', $showtag);
+                        if (! defined('PLUGIN_VARS_DISPLAYTAG')) {
+                            @define('PLUGIN_VARS_DISPLAYTAG', $showtag);
+                        }
                     }
 
                     return true;
@@ -1452,6 +1458,7 @@ addLoadEvent(enableAutocomplete);
     // static
     static function makeTagsFromTaglist($tagList)
     {
+        $tags = [];
         $freetags = explode(',', $tagList);
         foreach($freetags AS $tag) {
             $tag = trim($tag);
@@ -1529,30 +1536,29 @@ addLoadEvent(enableAutocomplete);
     #
     function getTagCloudTags($tag, $descend = true) {
         $rows = serendipity_db_query($this->getTagCloudQuery('', $tag));
-
+        $tags = [];
         if (is_array($rows)) {
-        foreach((array)$rows as $r) {
-            $tags[$r['tag']] = $r['total'];
+            foreach((array)$rows as $r) {
+                $tags[$r['tag']] = $r['total'];
 
                 #get also tags which are related only by other tags
-               if($descend) {
+                if($descend) {
                     $descended_tags = $this->getTagCloudTags($r['tag'], false);
                     if (is_array($descended_tags)) {
                         foreach($descended_tags AS $dtag => $value) {
                             $descended_tags[$dtag] = $value / 2;
-                }
+                        }
 
-                   #$tags = array_merge($tags, $descended_tags);
-                   $tags = $tags + $descended_tags;
+                        $tags = $tags + $descended_tags;
                     }
                 }
+            }
         }
-        }
-        unset($tags["$tag"]);
+        unset($tags[$tag]);
         return $tags;
     }
 
-    function getTagCloudQuery($sort = '', $tag)
+    function getTagCloudQuery($sort = '', $tag = false)
     {
         global $serendipity;
         if ($tag === true) {
@@ -1614,7 +1620,7 @@ addLoadEvent(enableAutocomplete);
     }
 
 
-    function displayMetaKeywords($id = null, $tag) {
+    function displayMetaKeywords($id = null, $tag = false) {
         global $serendipity;
         $id = (int)$id;
         $max_keywords = (int)$this->get_config('meta_keywords', 0);

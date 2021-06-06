@@ -1,3 +1,6 @@
+4.15.5: Find pages when additional parameters are set.
+        Thanks to @hbarel for the patch.
+
 Sidebar plugin: 1.19.2: add missing title
 
 4.15.4: Do not die on install when using sqlite as database

@@ -19,7 +19,7 @@ class serendipity_event_trackback extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_MTRACKBACK_TITLEDESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Malte Paskuda, Ian');
-        $propbag->add('version',       '1.20');
+        $propbag->add('version',       '1.20.1');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -120,17 +120,19 @@ class serendipity_event_trackback extends serendipity_event
                     break;
 
                 case 'backend_trackbacks':
-                    if (!isset($serendipity['POST']['enable_trackback']) && serendipity_db_bool($this->get_config('disable_trackall', 'false'))) {
+                    if (!isset($serendipity['POST']['enable_trackback']) &&
+                            serendipity_db_bool($this->get_config('disable_trackall', 'false'))) {
                         $serendipity['noautodiscovery'] = true;
-                    } elseif ($serendipity['POST']['enable_trackback'] == 'off') {
+                    } elseif (($serendipity['POST']['enable_trackback'] ?? null) == 'off') {
                         $serendipity['noautodiscovery'] = true;
                     } else {
-                        if ($serendipity['POST']['enable_trackback'] == 'selective') {
+                        if (($serendipity['POST']['enable_trackback'] ?? null) == 'selective') {
                             // Clear TB URLs from the entry, start afresh from the textarea input.
                             $eventData = array();
                         }
 
-                        if (!empty($serendipity['POST']['additional_trackbacks'])) {
+                        if (isset($serendipity['POST']['additional_trackbacks']) &&
+                            !empty($serendipity['POST']['additional_trackbacks'])) {
                             $trackbackURLs = preg_split('@[ \s]+@', trim($serendipity['POST']['additional_trackbacks']));
                             foreach($trackbackURLs AS $trackbackURL) {
                                 $trackbackURL = trim($trackbackURL);
@@ -263,6 +265,10 @@ class serendipity_event_trackback extends serendipity_event
                     include_once S9Y_INCLUDE_PATH . 'include/functions_trackbacks.inc.php';
 
                     $stored_entry = serendipity_fetchEntry('id', $entry['id'], 1, 1);
+                    if ($stored_entry == false) {
+                        // The entry must have been deleted
+                        $this->removeDelayed($entry['id']);
+                    }
 
                     if (isset($_SESSION['serendipityRightPublish'])) {
                         $oldPublighRights = $_SESSION['serendipityRightPublish'];
@@ -284,7 +290,6 @@ class serendipity_event_trackback extends serendipity_event
                     foreach($current_cat AS $categoryidx => $category_data) {
                         $stored_entry['categories'][$category_data['categoryid']] = $category_data['categoryid'];
                     }
-
                     ob_start();
                     serendipity_updertEntry($stored_entry);
                     ob_end_clean();
@@ -294,7 +299,7 @@ class serendipity_event_trackback extends serendipity_event
                     } else {
                         $_SESSION['serendipityRightPublish'] = $oldPublighRights;
                     }
-                    #the trackbacks are now generated
+                    # the trackbacks are now generated
                     $this->removeDelayed($entry['id']);
                 }
             }
@@ -313,12 +318,8 @@ class serendipity_event_trackback extends serendipity_event
     function setupDB()
     {
         global $serendipity;
-        // postgres < 9.3 IF NOT EXISTS workaround...
-        $c = serendipity_db_query("SELECT COUNT(*) FROM {$serendipity['dbPrefix']}delayed_trackbacks;");
-        if (is_numeric($c)) {
-            return;
-        }
-        $sql = "CREATE TABLE {$serendipity['dbPrefix']}delayed_trackbacks (
+
+        $sql = "CREATE TABLE IF NOT EXISTS  {$serendipity['dbPrefix']}delayed_trackbacks (
                 id int(11) NOT NULL {PRIMARY},
                 timestamp int(10) {UNSIGNED}
                 )";

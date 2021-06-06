@@ -6,11 +6,16 @@ if (IN_serendipity !== true) {
 
 // Probe for a language include with constants. Still include defines later on, if some constants were missing
 $probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
+if (!defined('PLUGIN_EVENT_SPAMBLOCK_BEE_TITLE')) {
+    if (file_exists($probelang)) {
+        include $probelang;
+    } else {
+        include dirname(__FILE__) . '/lang_en.inc.php';
+    }
 }
-include dirname(__FILE__) . '/lang_en.inc.php';
-include dirname(__FILE__) . '/version.inc.php';
+if (!defined('PLUGIN_SPAMBLOCK_BEE_VERSION')) {
+    include dirname(__FILE__) . '/version.inc.php';
+}
 
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_DEBUG', FALSE);
 

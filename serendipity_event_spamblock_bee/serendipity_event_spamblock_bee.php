@@ -396,7 +396,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
         if ("NORMAL" == $addData['type']) { // only supported for normal comments
 
             // Check for Honey Pot:
-            $phone = $serendipity['POST']['phone'];
+            $phone = $serendipity['POST']['phone'] ?? '';
             if ($this->useHoneyPot && (!empty($phone) || $phone == '0') ) {
                 if (mb_strlen($phone) > 40) {
                     $phone = mb_substr($phone, 0, 40) . '..';
@@ -408,7 +408,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
 
             // Check hidden Captcha
             if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $this->hiddenCaptchaHandle) {
-                $answer                  = trim(strtolower($serendipity['POST']['beecaptcha']));
+                $answer                  = trim(strtolower($serendipity['POST']['beecaptcha'] ?? ''));
                 $correctAnswer           = $this->getCaptchaAnswer();
                 $correctAnswer['answer'] = strtolower($correctAnswer['answer']);
                 $isCorrect               = false;

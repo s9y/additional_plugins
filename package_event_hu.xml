@@ -2165,9 +2165,9 @@
 <description>Cleanup database</description>
 <maintainers><maintainer><name>Malte Paskuda, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.2.9</version>
+  <version>0.2.10</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2021-06-14</date>
   <filelist>
 <dir name="serendipity_event_dbclean">
 <dir name="UTF-8">

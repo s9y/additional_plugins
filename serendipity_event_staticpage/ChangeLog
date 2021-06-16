@@ -1,3 +1,7 @@
+4.15.6:
+    * PHP 8 compatibility fixes
+    * Correct fix to find pages when additional parameters are set
+
 4.15.5: Find pages when additional parameters are set.
         Thanks to @hbarel for the patch.
 

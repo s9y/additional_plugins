@@ -1821,7 +1821,7 @@ class serendipity_event_staticpage extends serendipity_event
                         if ($sort_idx == (count($pages)-1)) {
                             echo '<span class="button_placeholder">&nbsp;</span>';
                         } else {
-                            echo ($page['moveup']!= '' ? '&nbsp;' : '') . '<a class="button_link" href="?serendipity[adminModule]=staticpages&amp;serendipity[moveto]=movedown&serendipity[pagetomove]=' . $page['id'] . '&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=staticpages&amp;serendipity[staticpagecategory]=pageorder"><span class="icon-down-dir" aria-hidden="true"></span><span class="visuallyhidden">'. DOWN .'</span></a>';
+                            echo (($page['moveup'] ?? '') != '' ? '&nbsp;' : '') . '<a class="button_link" href="?serendipity[adminModule]=staticpages&amp;serendipity[moveto]=movedown&serendipity[pagetomove]=' . $page['id'] . '&amp;serendipity[adminModule]=event_display&amp;serendipity[adminAction]=staticpages&amp;serendipity[staticpagecategory]=pageorder"><span class="icon-down-dir" aria-hidden="true"></span><span class="visuallyhidden">'. DOWN .'</span></a>';
                         }
                         echo '</li>'."\n";
                         echo '</div></li>'."\n";
@@ -2156,10 +2156,14 @@ class serendipity_event_staticpage extends serendipity_event
 
         } else {
             serendipity_db_update('staticpages', array('id' => $id), array('pageorder' => ($thispage['pageorder'] + 1)));
-            serendipity_db_update('staticpages', array('id' => $childpage['id']), array('pageorder' => $thispage['pageorder']));
+            if (is_array($childpage)) {
+                serendipity_db_update('staticpages', array('id' => $childpage['id']), array('pageorder' => $thispage['pageorder']));
+            }
         }
 
-        @unlink($this->cachefile);
+        if (file_exists($this->cachefile)) {
+            @unlink($this->cachefile);
+        }
     }
 
     function inspectConfig($is_smarty, $what, $elcount, $config_item, $config_value, $type, $cname, $cdesc, $value, $default, $lang_direction, $hvalue, $radio, $radio2, $select, $per_row, $per_row2) {

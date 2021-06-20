@@ -4,13 +4,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_autoupdate extends serendipity_event {
     var $title = PLUGIN_EVENT_AUTOUPDATE_NAME;
@@ -22,7 +16,7 @@ class serendipity_event_autoupdate extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_AUTOUPDATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Ian');
-        $propbag->add('version',       '1.2');
+        $propbag->add('version',       '1.2.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '5.2'
@@ -633,23 +627,6 @@ EOS;
 
         $msg = "Autoupdate successfully done!\\nWe now refresh to Serendipity Installer!\\n"; // escape for js
         $this->show_message('<p class="msg_success"><span class="icon-ok" aria-hidden="true"></span>Autoupdate successfully done - refresh to Serendipity Installer</p>', 'Autoupdate');
-        //$this->close_page();
-
-        //if (die('<script type="text/javascript">alert("'.$msg.'"); window.location = "'.$serendipity['serendipityHTTPPath'].'";</script>'."\n    </body>\n</html>")) {
-            //return;
-        //} else {
-            //if (!headers_sent()) {
-                //if (header('Location: http://' . $_SERVER['HTTP_HOST'] . $serendipity['serendipityHTTPPath'])) exit;
-            //} else {
-                //echo '<script type="text/javascript">';
-                //echo '    window.location.href="' . $serendipity['serendipityHTTPPath'] . '"';
-                //echo '</script>'."\n";
-                //echo '<noscript>';
-                //echo '    <meta http-equiv="refresh" content="0;url=' . $serendipity['serendipityHTTPPath'] . '" />';
-                //echo '</noscript>';
-                //exit;
-            //}
-        //}
     }
 
     /**
@@ -659,13 +636,11 @@ EOS;
     function empty_dir($dir) {
         if (!is_dir($dir)) return;
         try {
-            $_dir = new RecursiveDirectoryIterator($dir);
-            // NOTE: UnexpectedValueException thrown for PHP >= 5.3
-            } catch (Exception $e) {
-                return;
-            }
+            $_dir = new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS);
+        } catch (Exception $e) {
+            return;
+        }
         $iterator = new RecursiveIteratorIterator($_dir, RecursiveIteratorIterator::CHILD_FIRST);
-        //$iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir), RecursiveIteratorIterator::CHILD_FIRST);
         foreach ($iterator as $file) {
             if ($file->isFile()) {
                 unlink($file->__toString());
@@ -684,10 +659,6 @@ EOS;
         global $serendipity;
         $zip    = (string)$serendipity['serendipityPath'] . 'templates_c/' . "serendipity-$version.zip";
         $zipDir = (string)$serendipity['serendipityPath'] . 'templates_c/' . "serendipity-$version";
-
-        // leave rm zip untouched here as not causing any errors
-        #unlink($zip);// if (unlink($zip)) { else error note?
-        #$this->show_message('<p class="msg_success"><span class="icon-ok" aria-hidden="true"></span>Removing the zip file in templates_c done</p>');
 
         // As trying to remove a directory that php is still using, we use open/closedir($handle) to be sure
         if ($handle = opendir($zipDir)) {

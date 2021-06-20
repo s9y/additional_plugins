@@ -1,3 +1,7 @@
+1.2.1:
+    * PHP 8 compatibility fix: Use language constant loading API,
+      ski[ dot files when emptying directory
+
 1.2:
     * Drop unnecessary time-elapsed messaged and microsleep steps
     * Stop if plugins are not current

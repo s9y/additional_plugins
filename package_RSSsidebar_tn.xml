@@ -95,7 +95,7 @@
 <category>Sidebar Plugins</category>
 <author>Rob Antonishen, Falk Doering, Ian (Timbalu)</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_staticpage&lt;br /&gt;Static Page List&lt;/b&gt;&lt;br /&gt;This plugin displays a configurable list of the static pages.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Wed, 01 Jul 2020 00:30:57 +0200</pubDate>
+<pubDate>Mon, 28 Jun 2021 00:30:31 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_staticpage</guid>
 </item>
 <item>
@@ -389,7 +389,7 @@
 <category>Sidebar Plugins</category>
 <author>Matthias Lange</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_shoutbox&lt;br /&gt;Shoutbox&lt;/b&gt;&lt;br /&gt;顯示 Shoutbox&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Fri, 15 Jan 2021 00:30:31 +0100</pubDate>
+<pubDate>Mon, 28 Jun 2021 00:30:32 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_shoutbox</guid>
 </item>
 <item>

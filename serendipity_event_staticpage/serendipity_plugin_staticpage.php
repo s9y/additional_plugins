@@ -6,14 +6,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_plugin_staticpage extends serendipity_plugin {
 
@@ -25,7 +18,7 @@ class serendipity_plugin_staticpage extends serendipity_plugin {
         $propbag->add('description', PLUGIN_STATICPAGELIST_NAME_DESC);
         $propbag->add('author',      "Rob Antonishen, Falk Doering, Ian (Timbalu)");
         $propbag->add('stackable',   true);
-        $propbag->add('version',     '1.19.2');
+        $propbag->add('version',     '1.19.3');
         $propbag->add('configuration', array(
                 'title',
                 'limit',

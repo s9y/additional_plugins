@@ -20,7 +20,7 @@ class serendipity_plugin_shoutbox extends serendipity_plugin
         $propbag->add('description',   PLUGIN_SHOUTBOX_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Matthias Lange');
-        $propbag->add('version',       '1.02.4');
+        $propbag->add('version',       '1.02.5');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -200,7 +200,7 @@ class serendipity_plugin_shoutbox extends serendipity_plugin
         $sql = serendipity_db_query($q);
         if ($sql && is_array($sql)) {
             foreach($sql AS $key => $row) {
-                $comments = specialchars(wordwrap($row['comment'], $max_chars, '@@@', 1));
+                $comments = htmlspecialchars(wordwrap($row['comment'], $max_chars, '@@@', 1));
                 $aComment = explode('@@@', $comments);
                 $comment  = $aComment[0];
                 if (count($aComment) > 1) {
@@ -217,7 +217,7 @@ class serendipity_plugin_shoutbox extends serendipity_plugin
                 serendipity_plugin_api::hook_event('frontend_display', $entry);
                 $entry['comment'] = wordwrap($entry['comment'], $wordwrap, "\n", 1);
 
-                echo '<div class="serendipity_shoutbox_date">' . specialchars(serendipity_strftime($dateformat, $row['stamp'])) . '</div>' . "\n"
+                echo '<div class="serendipity_shoutbox_date">' . htmlspecialchars(serendipity_strftime($dateformat, $row['stamp'])) . '</div>' . "\n"
                      . '<div class="serendipity_shoutbox_comment">' . $entry['comment'] . '</div>' . "\n"
                      . '<div class="serendipity_shoutbox_delete">' . $deleteLink . '</div>' . "\n\n";
             }

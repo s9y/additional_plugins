@@ -431,7 +431,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
                 }
             }
 
-            $str .= 'document.write(d);
+            $str .= 'document.write(d.toString());
             //-->
             </script>';
 

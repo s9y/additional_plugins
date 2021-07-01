@@ -421,9 +421,9 @@
 <description>リンク管理 - サイドバーにお気に入りのリンク集を表示します。</description>
 <maintainers><maintainer><name>Matthew Groeninger, Omid Mottaghi Rad</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.25</version>
+  <version>1.26</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-02</date>
   <filelist>
 <dir name="serendipity_event_linklist">
 <dir name="UTF-8">

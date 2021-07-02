@@ -4,7 +4,7 @@
 	}
 
 	@serendipity_plugin_api::load_language(dirname(__FILE__));
-	include dirname(__FILE__) . '/plugin_version.inc.php';
+	include_once dirname(__FILE__) . '/plugin_version.inc.php';
 
 	class serendipity_event_static_osm extends serendipity_event
 	{

@@ -38,13 +38,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include_once dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 // Because I am using get methods, if you change this, you also have to change the getManageUrlAsHidden
 define('FREETAG_MANAGE_URL','?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=managetags');

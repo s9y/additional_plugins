@@ -547,28 +547,29 @@ class serendipity_event_geotag extends serendipity_event
                     return true;
 
                 case 'entry_display':
-                	// used for looping (seems unnecessary, since we use the foreach ...)
-					if (isset($eventData) && is_array($eventData)) {
-    					$i = 0;
-                    	foreach($eventData as $event) {
-    	                    // Check if geo_lat and geo_long are both set
-    	                    $props = $eventData[$i]['properties'];
-    						$geotagged = true;
-    	                    foreach($this->supported_properties AS $prop_key) {
-    	                        if (!isset($props[$prop_key])) {
-    	                            $geotagged = false;
-    	                        }
-    	                    }
-    	                    if ($geotagged) {
-    		                    if (!isset($eventData[$i]['add_footer'])) $eventData[$i]['add_footer'] = "";
-    		                    // If extended is set, it's a single article
-    		                    $singleArticle = $addData['extended'];
-    		                    $eventData[$i]['add_footer'] .= $this->getFooterImage( $eventData[$i]['title'], $props["geo_lat"], $props["geo_long"],$singleArticle);
-    	                    }
-    	                    $i++;
-
+                    // used for looping (seems unnecessary, since we use the foreach ...)
+                    if (isset($eventData) && is_array($eventData)) {
+                        foreach($eventData as $i => &$myEvent) {
+                            if ($i !== 'clean_page') {
+                                // Check if geo_lat and geo_long are both set
+                                $props = $myEvent['properties'];
+                                $geotagged = true;
+                                foreach($this->supported_properties AS $prop_key) {
+                                    if (!isset($props[$prop_key])) {
+                                        $geotagged = false;
+                                    }
+                                }
+                                if ($geotagged) {
+                                    if (!isset($myEvent['add_footer'])) {
+                                        $myEvent['add_footer'] = "";
+                                    }
+                                    // If extended is set, it's a single article
+                                    $singleArticle = $addData['extended'];
+                                    $myEvent['add_footer'] .= $this->getFooterImage($myEvent['title'], $props["geo_lat"], $props["geo_long"],$singleArticle);
+                                }
+                            }
                         }
-                	}
+                    }
                     return true;
                 case 'frontend_header':
                     if (!$serendipity['GET']['id'] && $serendipity['view'] != 'entry') {

@@ -266,6 +266,9 @@ class serendipity_event_lightbox extends serendipity_event
                     break;
 
                 case 'frontend_display':
+                    if (!isset($eventData['id'])) {
+                        $eventData['id'] = 0; // TODO: PHP8 hotfix; id is not always set
+                    }
                     if ($type == 'lightbox2jq') {
                         if ($navigate == 'entry') {
                             $sub   = '<a $1 rel=$3lightbox[' . $eventData['id'] . ']$3 $2';
@@ -294,7 +297,7 @@ class serendipity_event_lightbox extends serendipity_event
 
                     foreach ($this->markup_elements as $temp) {
                         if (isset($eventData[$temp['element']]) && serendipity_db_bool($this->get_config($temp['name'], 'true')) &&
-                                !$eventData['properties']['ep_disable_markup_' . $this->instance] &&
+                                (isset($eventData['properties']) && isset($eventData['properties']['ep_disable_markup_' . $this->instance]) && !$eventData['properties']['ep_disable_markup_' . $this->instance]) && // TODO: please test
                                 !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
                             $element = $temp['element'];
 

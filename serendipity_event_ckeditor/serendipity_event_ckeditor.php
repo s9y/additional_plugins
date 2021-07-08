@@ -506,7 +506,7 @@ if ($headcss) {
                             $_locale = trim(isset($slocale) ? $slocale : $locale[0]); // set the current lang locale as string
                             if (!empty($_locale)) {
                                 $flocale = explode('.', $_locale); // $flocale array is the first defined 4-letter lang locale, eg "de_DE".
-                                if ($flocale[0] == 'nl_BE') $flocale[0] = 'nl_NL'; // case locale Nederlands / België set back to Dutch (Netherlands)
+                                if ($flocale[0] == 'nl_BE') $flocale[0] = 'nl_NL'; // case locale Nederlands / Belgium set back to Dutch (Netherlands)
                                 if ($flocale[0] == 'sv_SV') $flocale[0] = 'sv_SE'; // case Swedish set back to Swedish (Sweden)
                             }
                         }

@@ -499,7 +499,11 @@ class serendipity_event_staticpage extends serendipity_event
     {
         global $serendipity;
 
-        return (($user['userlevel'] < $serendipity['serendipityUserlevel']) || ($user['authorid'] == $serendipity['authorid']) || ($serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN));
+        return (
+            ($user['userlevel'] < ($serendipity['serendipityUserlevel'] ?? null)) ||
+            ($user['authorid'] == ($serendipity['authorid'] ?? null)) ||
+            (($serendipity['serendipityUserlevel'] ?? null) >= USERLEVEL_ADMIN)
+        );
     }
 
     /**
@@ -1650,7 +1654,9 @@ class serendipity_event_staticpage extends serendipity_event
             $serendipity['POST']['staticpage'] = $pid = serendipity_db_insert_id('staticpages', 'id');
             serendipity_plugin_api::hook_event('backend_staticpages_insert', $insert_page);
         } else {
-            @unlink($this->cachefile);
+            if (file_exists($this->cachefile)) {
+                @unlink($this->cachefile);
+            }
             $pid = $insert_page['id'];
             $result = serendipity_db_update('staticpages', array('id' => $insert_page['id']), $insert_page);
             serendipity_plugin_api::hook_event('backend_staticpages_update', $insert_page);
@@ -2549,7 +2555,7 @@ foreach($select AS $select_value => $select_desc) {
 
         // Code copied from include/admin/plugins.inc.php. Sue me. ;-)
 
-        if ($value_func == 'get_static' && $serendipity['POST']['backend_template'] != 'internal') {
+        if ($value_func == 'get_static' && ($serendipity['POST']['backend_template'] ?? null) != 'internal') {
             serendipity_smarty_init();
             $serendipity['smarty']->register_modifier('in_array', 'in_array');
             $serendipity['smarty']->register_function('staticpage_input', array($this, 'SmartyInspectConfig'));
@@ -2558,7 +2564,7 @@ foreach($select AS $select_value => $select_desc) {
                 $serendipity['smarty']->assign('is_wysiwyg', $serendipity['wysiwyg']);
             }
 
-            $filename = preg_replace('@[^a-z0-9\._-]@i', '', $serendipity['POST']['backend_template']);
+            $filename = isset($serendipity['POST']['backend_template']) ? preg_replace('@[^a-z0-9\._-]@i', '', $serendipity['POST']['backend_template']) : '';
             if ($filename == 'external' || empty($filename)) {
                 $filename = 'default_staticpage_backend.tpl';
             }

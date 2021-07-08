@@ -158,7 +158,7 @@ class serendipity_event_twitter extends serendipity_plugin {
                     'general_title', 'plugin_rel_url', 'general_oa_consumerdesc', 'general_oa_consumerkey', 'general_oa_consumersecret'
                  );
 
-        switch ($_GET['plugintab']) {
+        switch ($_GET['plugintab'] ?? '') {
             case 'announce':
                 $configuration = array_merge($configuration,
                     $config_announce

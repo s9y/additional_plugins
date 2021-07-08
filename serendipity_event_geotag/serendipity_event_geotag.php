@@ -552,7 +552,7 @@ class serendipity_event_geotag extends serendipity_event
                         foreach($eventData as $i => &$myEvent) {
                             if ($i !== 'clean_page') {
                                 // Check if geo_lat and geo_long are both set
-                                $props = $myEvent['properties'];
+                                $props = $myEvent['properties'] ?? null;
                                 $geotagged = true;
                                 foreach($this->supported_properties AS $prop_key) {
                                     if (!isset($props[$prop_key])) {
@@ -572,10 +572,10 @@ class serendipity_event_geotag extends serendipity_event
                     }
                     return true;
                 case 'frontend_header':
-                    if (!$serendipity['GET']['id'] && $serendipity['view'] != 'entry') {
+                    if (!($serendipity['GET']['id'] ?? 0) && $serendipity['view'] != 'entry') {
                         $lat = $this->get_config('hdr_default_lat');
                         $long = $this->get_config('hdr_default_long');
-                        $this->headerGeoTagging($lat,$long, $GLOBALS['serendipity']['blogTitle']);
+                        $this->headerGeoTagging($lat, $long, $GLOBALS['serendipity']['blogTitle']);
                         return true;
                     }
                     // we fetch the internal smarty object to get the current entry body
@@ -844,7 +844,7 @@ class serendipity_event_geotag extends serendipity_event
      */
     function getCacheDirectory(){
         global $serendipity;
-        if ($this->cache_dir === null) {
+        if (($this->cache_dir ?? null) === null) {
             $this->cache_dir = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/serendipity_event_geotag';
         }
         return $this->cache_dir;        

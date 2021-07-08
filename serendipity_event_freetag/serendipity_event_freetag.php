@@ -1719,7 +1719,9 @@ addLoadEvent(enableAutocomplete);
 
         $tags = array();
         foreach((array)$rows as $r) {
-            $tags[$r['tag']] = $r['total'];
+            if (is_array($r)) {
+                $tags[$r['tag']] = $r['total'];
+            }
         }
 
         return $tags;

@@ -148,7 +148,7 @@ class serendipity_event_metadesc extends serendipity_event {
                     $default_keywords = $this->get_config('default_keywords');
 
                     // Only emit in Single Entry Mode
-                    if ($serendipity['GET']['id'] && $serendipity['view'] == 'entry') {
+                    if (($serendipity['GET']['id'] ?? 0) && $serendipity['view'] == 'entry') {
                         // we fetch the internal smarty object to get the current entry body
                         $entry = (array)$eventData['smarty']->tpl_vars['entry']->value;
 
@@ -164,7 +164,7 @@ class serendipity_event_metadesc extends serendipity_event {
                             );
                         }
 
-                        $meta_description = $entry['properties']['meta_description'];
+                        $meta_description = $entry['properties']['meta_description'] ?? '';
                         if (empty($meta_description)) {
                             $description_body = $entry['body'];
                             if (isset($entry['plaintext_body'])) {
@@ -173,7 +173,7 @@ class serendipity_event_metadesc extends serendipity_event {
                             $meta_description = $this->extract_description($description_body);
                         }
 
-                        $meta_keywords = $entry['properties']['meta_keywords'];
+                        $meta_keywords = $entry['properties']['meta_keywords'] ?? '';
                         if (empty($meta_keywords)) {
                             $meta_keywords = (array)$this->extract_keywords($entry['body']);
                             if (!empty($meta_keywords))
@@ -233,7 +233,7 @@ class serendipity_event_metadesc extends serendipity_event {
                         $prop_val = (isset($serendipity['POST']['properties'][$prop_key]) ? $serendipity['POST']['properties'][$prop_key] : null);
                         if (!isset($property[$prop_key]) && !empty($prop_val)) {
                             $q = "INSERT INTO {$serendipity['dbPrefix']}entryproperties (entryid, property, value) VALUES (" . (int)$eventData['id'] . ", '" . serendipity_db_escape_string($prop_key) . "', '" . serendipity_db_escape_string($prop_val) . "')";
-                        } elseif ($property[$propkey] != $prop_val && !empty($prop_val)) {
+                        } elseif (($property[$prop_key] ?? null) != $prop_val && !empty($prop_val)) {
                             $q = "UPDATE {$serendipity['dbPrefix']}entryproperties SET value = '" . serendipity_db_escape_string($prop_val) . "' WHERE entryid = " . (int)$eventData['id'] . " AND property = '" . serendipity_db_escape_string($prop_key) . "'";
                         } elseif (!empty($property[$prop_key]) && isset($prop_val) && empty($prop_val)) {
                             $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$eventData['id'] . " AND property = '" . serendipity_db_escape_string($prop_key) . "'";

@@ -5,13 +5,8 @@ if (IN_serendipity !== true) {
 }
 
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
-include_once dirname(__FILE__) . '/lang_en.inc.php';
 include_once dirname(__FILE__) . '/podcast_player.php';
 
 @define("SERENDIPITY_EVENT_PODCAST_VERSION", "1.37.5");

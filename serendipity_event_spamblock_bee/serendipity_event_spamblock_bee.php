@@ -4,15 +4,8 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (!defined('PLUGIN_EVENT_SPAMBLOCK_BEE_TITLE')) {
-    if (file_exists($probelang)) {
-        include $probelang;
-    } else {
-        include dirname(__FILE__) . '/lang_en.inc.php';
-    }
-}
+@serendipity_plugin_api::load_language(dirname(__FILE__));
+
 if (!defined('PLUGIN_SPAMBLOCK_BEE_VERSION')) {
     include dirname(__FILE__) . '/version.inc.php';
 }

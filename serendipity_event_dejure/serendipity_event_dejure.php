@@ -4,13 +4,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 define('DJO_VERSION', '1.8.4');
 define('CACHE_VORHALT', 4); # (Tage) Wann ein vernetzter Text aus dem Cache entfernt und neu vernetzt werden soll

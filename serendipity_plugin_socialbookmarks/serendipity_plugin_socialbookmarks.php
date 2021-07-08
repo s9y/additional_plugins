@@ -75,12 +75,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-$probelang = __DIR__ .'/'.$serendipity['charset'].'lang_'.$serendipity['lang'].'.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-} else {
-    include __DIR__ .'/lang_en.inc.php';
-}
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 /**
  * Class serendipity_plugin_socialbookmarks

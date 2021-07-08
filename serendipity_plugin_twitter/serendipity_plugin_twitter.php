@@ -1,19 +1,11 @@
 <?php 
 // Contributed by Damian Luszczymak <info@daim-city.de>
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
-include dirname(__FILE__) . '/lang_en.inc.php';
-
-include dirname(__FILE__) . '/plugin_version.inc.php';
-
+include_once dirname(__FILE__) . '/plugin_version.inc.php';
 require_once dirname(__FILE__) . '/classes/Twitter.php';
-
-include dirname(__FILE__) . '/classes/json.php4.include.php';
+include_once dirname(__FILE__) . '/classes/json.php4.include.php';
 
 class serendipity_plugin_twitter extends serendipity_plugin {
     var $title = PLUGIN_TWITTER_TITLE;

@@ -8,13 +8,8 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
-include_once dirname(__FILE__) . '/lang_en.inc.php';
 include_once dirname(__FILE__) . '/engines_config.inc.php';
 
 @define ('SERENDIPITY_PLUGIN_GOOGLE_LAST_QUERY_REF', "select scheme, host, path, query, day, count from {$serendipity['dbPrefix']}referrers where ");

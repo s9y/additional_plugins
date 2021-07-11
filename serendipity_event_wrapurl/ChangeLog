@@ -1,6 +1,10 @@
 ChangeLog: serendipity_event_wrapurl Plugin
 """"""""""
 
+[Version 0.11.1 2021/07/12] by surrim
+
+Hotfixes for PHP 8
+
 [Version 0.11 2019/08/17] by -thh
 
 Added German translation.

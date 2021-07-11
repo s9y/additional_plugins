@@ -9,7 +9,7 @@ if (IN_serendipity !== true) {
 
 include_once dirname(__FILE__) . '/podcast_player.php';
 
-@define("SERENDIPITY_EVENT_PODCAST_VERSION", "1.37.5");
+@define("SERENDIPITY_EVENT_PODCAST_VERSION", "1.37.6");
 
 class serendipity_event_podcast extends serendipity_event {
 /**

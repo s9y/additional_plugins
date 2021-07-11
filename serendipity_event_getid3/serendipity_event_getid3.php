@@ -19,7 +19,7 @@ class serendipity_event_getid3 extends serendipity_plugin
         $propbag->add('description',   PLUGIN_GETID3_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Grischa Brockhaus');
-        $propbag->add('version',       '1.4');
+        $propbag->add('version',       '1.4.1');
         $propbag->add('requirements',  array(
             'serendipity' => '1.1',
             'smarty'      => '2.6.7',

@@ -5,7 +5,7 @@ if (IN_serendipity !== true) {
 }
 
 
-@define('PLUGIN_EVENT_PHOTOBLOG_VERSION', '1.6.1');
+@define('PLUGIN_EVENT_PHOTOBLOG_VERSION', '1.6.2');
 
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 

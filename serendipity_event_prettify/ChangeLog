@@ -1,3 +1,6 @@
+1.6.3:
+    * Hotfixes for PHP 8 (surrim)
+
 1.6.2:
     * Fix broken path to CSS + JS assets by adding serendipityHTTPPath
       to csspath + jspath

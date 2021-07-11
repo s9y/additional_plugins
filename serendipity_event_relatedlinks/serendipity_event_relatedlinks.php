@@ -24,7 +24,7 @@ class serendipity_event_relatedlinks extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.8.2');
+        $propbag->add('version',       '1.8.3');
         $propbag->add('event_hooks',    array(
             'frontend_display:html:per_entry'                   => true,
             'backend_publish'                                   => true,

@@ -54,7 +54,7 @@ class serendipity_event_flattr extends serendipity_event {
             'add_to_feed',
         ));
         $propbag->add('author',  'Garvin Hicking, Joachim Breitner', 'Matthias Gutjahr');
-        $propbag->add('version', '1.14');
+        $propbag->add('version', '1.14.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',

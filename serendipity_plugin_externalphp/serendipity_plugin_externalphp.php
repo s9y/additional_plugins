@@ -23,7 +23,7 @@ class serendipity_plugin_externalphp extends serendipity_plugin {
         $propbag->add('description', PLUGIN_EXTERNALPHP_TITLE_BLAHBLAH);
         $propbag->add('configuration', array('title', 'include', 'markup'));
         $propbag->add('author', 'Garvin Hicking');
-        $propbag->add('version', '1.1');
+        $propbag->add('version', '1.1.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',

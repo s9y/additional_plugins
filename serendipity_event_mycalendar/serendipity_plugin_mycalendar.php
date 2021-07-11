@@ -14,7 +14,7 @@ class serendipity_plugin_mycalendar extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_MYCALENDAR_SIDE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Markus Gerstel');
-        $propbag->add('version',       '0.13.1');
+        $propbag->add('version',       '0.13.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

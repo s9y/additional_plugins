@@ -17,7 +17,7 @@ class serendipity_event_loginform extends serendipity_event
         $propbag->add('description', PLUGIN_EVENT_LOGINFORM_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Garvin Hicking');
-        $propbag->add('version',     '1.04');
+        $propbag->add('version',     '1.04.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',

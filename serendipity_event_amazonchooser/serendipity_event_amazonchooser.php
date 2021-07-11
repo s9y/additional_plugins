@@ -23,7 +23,7 @@ class serendipity_event_amazonchooser extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_AMAZONCHOOSER_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Matthew Groeninger, Ian');
-        $propbag->add('version',       '0.76');
+        $propbag->add('version',       '0.76.1');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',

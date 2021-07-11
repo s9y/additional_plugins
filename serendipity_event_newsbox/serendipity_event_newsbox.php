@@ -26,7 +26,7 @@ class serendipity_event_newsbox extends serendipity_event
         $propbag->add('groups',        array('FRONTEND_VIEWS', 'FRONTEND_FEATURES'));
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jude Anthony');
-        $propbag->add('version',       '0.6');
+        $propbag->add('version',       '0.6.1');
         $propbag->add('requirements',  array(
             'serendipity' => '1.0-alpha1',
             'smarty'      => '2.6.7',

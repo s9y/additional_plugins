@@ -22,7 +22,7 @@ class serendipity_plugin_xsstrust extends serendipity_plugin
         $propbag->add('description',   PLUGIN_ETHICS_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Loris Zena');
-        $propbag->add('version',       '1.1.1');
+        $propbag->add('version',       '1.1.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

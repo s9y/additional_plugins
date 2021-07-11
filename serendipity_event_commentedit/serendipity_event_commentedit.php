@@ -24,7 +24,7 @@ class serendipity_event_commentedit extends serendipity_event
             'serendipity' => '1.5',
             'php'         => '5.2.0'
         ));
-        $propbag->add('version',       '0.2.3');
+        $propbag->add('version',       '0.2.4');
         $propbag->add('event_hooks',   array(
         	'frontend_saveComment_finish'               => true,
         	'fetchcomments'                           => true,

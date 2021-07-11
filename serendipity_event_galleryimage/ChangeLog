@@ -1,3 +1,7 @@
+1.13.1:
+-----
+ * Hotfixes for PHP 8 (surrim)
+
 1.13:
 -----
-* Add German translation.
+ * Add German translation.

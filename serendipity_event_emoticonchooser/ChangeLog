@@ -1,3 +1,7 @@
+2.12.1:
+-----
+hotfixes for PHP 8 (surrim)
+
 2.12:
 -----
 fixes for PHP >= 7.2

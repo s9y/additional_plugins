@@ -1,3 +1,7 @@
+2.5.3:
+    * Hotfixes for PHP 8 (surrim)
+
+------------------------------------------------------------------------
 2.5.1:
     * colorbox update v.1.6.4
     * lightbox2-jquery update v.2.9.0

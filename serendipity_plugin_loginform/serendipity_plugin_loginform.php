@@ -14,7 +14,7 @@ class serendipity_plugin_loginform extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_LOGINFORM_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Neil Dudman');
-        $propbag->add('version',       '1.09');
+        $propbag->add('version',       '1.09.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

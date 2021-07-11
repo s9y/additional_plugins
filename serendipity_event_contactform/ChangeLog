@@ -1,4 +1,10 @@
-1.22:  Added legal gdpr/dsgvo info
+1.22.1:
+-----
+  * Hotfixes for PHP 8 (surrim)
+
+1.22:
+-----
+  * Added legal gdpr/dsgvo info
 
 1.21
 -----

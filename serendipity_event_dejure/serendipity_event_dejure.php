@@ -6,7 +6,7 @@ if (IN_serendipity !== true) {
 
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
-define('DJO_VERSION', '1.8.4');
+define('DJO_VERSION', '1.8.5');
 define('CACHE_VORHALT', 4); # (Tage) Wann ein vernetzter Text aus dem Cache entfernt und neu vernetzt werden soll
 
 class serendipity_event_dejure extends serendipity_event

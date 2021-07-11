@@ -28,7 +28,7 @@ class serendipity_plugin_currently extends serendipity_plugin
         $propbag->add('description',   PLUGIN_CURRENTLY_DETAIL);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Dustin Hawkins');
-        $propbag->add('version',       '2.1');
+        $propbag->add('version',       '2.1.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

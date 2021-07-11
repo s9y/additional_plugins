@@ -20,7 +20,7 @@ class serendipity_event_pollbox extends serendipity_event {
         $propbag->add('configuration', array('permalink', "articleformat", "pagetitle", "articleformattitle"));
         $propbag->add('author', 'Garvin Hicking, Matthias Mees');
         $propbag->add('groups', array('STATISTICS'));
-        $propbag->add('version', '2.17');
+        $propbag->add('version', '2.17.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

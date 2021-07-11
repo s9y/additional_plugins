@@ -12,7 +12,7 @@ class serendipity_event_browserid extends serendipity_event
         $propbag->add('description', PLUGIN_BROWSERID_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Grischa Brockhaus, Malte Paskuda');
-        $propbag->add('version',     '2.0.1');
+        $propbag->add('version',     '2.0.2');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'php'         => '7.0'

@@ -1,4 +1,7 @@
-1.14:  Added legal gdpr/dsgvo info
+1.14.1: Hotfixes for PHP 8 (surrim)
+
+1.14: Added legal gdpr/dsgvo info
+
 1.12:
 ----
 Use SSL link

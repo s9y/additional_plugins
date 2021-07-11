@@ -1,3 +1,7 @@
+0.7.1 / 1.1.2:
+----
+Hotfixes for PHP 8 (surrim)
+
 0.7:
 ----
 Fixed set_config() parameters for current s9y cure

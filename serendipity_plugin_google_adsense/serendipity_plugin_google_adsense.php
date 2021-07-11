@@ -21,7 +21,7 @@ class serendipity_plugin_google_adsense extends serendipity_plugin
         $propbag->add('description',   PLUGIN_ADSENSE_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jim Dabell');
-        $propbag->add('version',       '0.5');
+        $propbag->add('version',       '0.5.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

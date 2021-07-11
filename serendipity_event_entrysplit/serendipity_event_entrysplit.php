@@ -23,7 +23,7 @@ class serendipity_event_entrysplit extends serendipity_event
         $propbag->add('description',   PLUGIN_ENTRYSPLIT_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Tadashi Jokagi, Thomas Werner');
-        $propbag->add('version',       '1.5.6');
+        $propbag->add('version',       '1.5.7');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

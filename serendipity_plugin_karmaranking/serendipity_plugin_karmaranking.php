@@ -18,7 +18,7 @@ class serendipity_plugin_karmaranking extends serendipity_plugin {
         $propbag->add('name',           PLUGIN_KARMARANKING_TITLE);
         $propbag->add('description',    PLUGIN_KARMARANKING_DESC);
         $propbag->add('configuration',  array('title', 'count'));
-        $propbag->add('version',     '1.1');
+        $propbag->add('version',     '1.1.1');
    	    $propbag->add('author',	'Andreas Brandmaier');
         $propbag->add('groups', array('STATISTICS'));
    }

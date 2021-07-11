@@ -16,7 +16,7 @@ class serendipity_plugin_nugget_multilingual extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_NUGGET_MULTI_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Wesley Hwang-Chung');
-        $propbag->add('version',       '1.9');
+        $propbag->add('version',       '1.9.1');
         $propbag->add('configuration', array('language', 'title', 'content', 'markup', 'show_where'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
 

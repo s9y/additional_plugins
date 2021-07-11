@@ -1,4 +1,6 @@
-# 
+Version 1.4.1:
+---
+ * Hotfixes for PHP 8 (surrim)
 
 Made event_hook() declaration the same as in s9y core
 

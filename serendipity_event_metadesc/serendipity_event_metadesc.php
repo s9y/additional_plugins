@@ -18,7 +18,7 @@ class serendipity_event_metadesc extends serendipity_event {
         $propbag->add('description',   PLUGIN_METADESC_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Judebert, Don Chambers');
-        $propbag->add('version',       '0.15.6');
+        $propbag->add('version',       '0.15.7');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '4.1.0'

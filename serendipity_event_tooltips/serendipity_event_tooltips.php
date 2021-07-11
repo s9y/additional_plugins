@@ -19,7 +19,7 @@ class serendipity_event_tooltips extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_TOOLTIPS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Enrico Stahn');
-        $propbag->add('version',       '1.6');
+        $propbag->add('version',       '1.6.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

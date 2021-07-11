@@ -23,7 +23,7 @@ class serendipity_event_outdate_entries extends serendipity_event {
             'php'         => '4.1.0'
         ));
         $propbag->add('groups', array('FRONTEND_ENTRY_RELATED'));
-        $propbag->add('version', '1.6');
+        $propbag->add('version', '1.6.1');
         $propbag->add('stackable', false);
         $this->dependencies = array('serendipity_event_entryproperties' => 'keep');
     }

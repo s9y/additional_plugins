@@ -17,7 +17,7 @@ class serendipity_event_entrylastmodified extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_ENTRYLASTMODIFIED_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.10');
+        $propbag->add('version',       '1.10.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

@@ -50,7 +50,7 @@ class serendipity_event_mymood extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.12.1');
+        $propbag->add('version',       '0.12.2');
         $propbag->add('author',       'Brett Profitt, Matthias Mees');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(

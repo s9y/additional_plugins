@@ -26,7 +26,7 @@ class serendipity_event_geourl extends serendipity_event {
         $propbag->add('event_hooks',   array('frontend_header' => true));
         $propbag->add('configuration', array('lat', 'long'));
         $propbag->add('description',   PLUGIN_EVENT_GEOURL_DESC);
-        $propbag->add('version',       '1.4.2');
+        $propbag->add('version',       '1.4.3');
         $propbag->add('groups', array('BACKEND_METAINFORMATION'));
     }
 

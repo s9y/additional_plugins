@@ -15,7 +15,7 @@ class serendipity_plugin_randomquotes extends serendipity_plugin {
         $propbag->add('configuration',  array('title', 'searchenginelink', 'formatstring', 'quotes', 'newwindow', 'numquotes'));
         $propbag->add('author',         'Florian Solcher');
         $propbag->add('stackable',      true);
-        $propbag->add('version',        '1.05.1');
+        $propbag->add('version',        '1.05.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

@@ -25,7 +25,7 @@ class serendipity_event_xsstrust extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '0.7');
+        $propbag->add('version',       '0.7.1');
         $propbag->add('event_hooks', array(
             'frontend_display' => true,
             'backend_media_check' => true,

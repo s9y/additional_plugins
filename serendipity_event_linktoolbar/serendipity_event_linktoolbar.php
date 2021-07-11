@@ -16,7 +16,7 @@ class serendipity_event_linktoolbar extends serendipity_event {
         $propbag->add('description',   PLUGIN_LINKTOOLBAR_TITLE_DESC);
         $propbag->add('event_hooks', array('frontend_header' => true));
         $propbag->add('author', 'Garvin Hicking');
-        $propbag->add('version', '1.5.1');
+        $propbag->add('version', '1.5.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',

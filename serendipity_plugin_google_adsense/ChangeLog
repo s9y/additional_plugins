@@ -1,4 +1,8 @@
-0.5
+0.5.1:
+----
+Hotfixes for PHP 8 (surrim)
+
+0.5:
 ----
 Load js over https.
 

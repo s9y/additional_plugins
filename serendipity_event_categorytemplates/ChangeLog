@@ -1,3 +1,7 @@
+0.35.3:
+----
+Hotfixes for PHP 8
+
 0.35.2:
 ----
 Don't die on PHP 7 versions 

@@ -1,3 +1,7 @@
+1.6.2:
+
+Hotfixes for PHP 8 (surrim)
+
 1.6.1:
 
 Remove non-language constant from language files.

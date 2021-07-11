@@ -25,7 +25,7 @@ class serendipity_plugin_feedburnersidebar extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_FEEDBURNERSIDEBAR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Aaron Axelsen');
-        $propbag->add('version',       '1.2');
+        $propbag->add('version',       '1.2.1');
         $propbag->add('requirements',  array(
             'serendipity' => '1.2.1',
             'smarty'      => '2.6.7',

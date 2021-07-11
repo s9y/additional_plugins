@@ -13,7 +13,7 @@ class serendipity_event_openid extends serendipity_event
         $propbag->add('description', PLUGIN_OPENID_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Grischa Brockhaus, Rob Richards');
-        $propbag->add('version',     '1.2.3');
+        $propbag->add('version',     '1.2.4');
         $propbag->add('requirements',  array(
             'serendipity' => '1.2',
             'smarty'      => '2.6.7',

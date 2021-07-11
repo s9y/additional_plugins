@@ -19,7 +19,7 @@ class serendipity_event_thumbnails extends serendipity_event {
         $propbag->add('configuration', array('number'));
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Cameron MacFarland');
-        $propbag->add('version', '1.4.1');
+        $propbag->add('version', '1.4.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',

@@ -52,7 +52,7 @@ class serendipity_plugin_microformats extends serendipity_plugin
         $propbag->add('description',   PLUGIN_MICROFORMATS_TITLE_D);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Matthias Gutjahr');
-        $propbag->add('version',       '0.24');
+        $propbag->add('version',       '0.24.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',

@@ -16,7 +16,7 @@ class serendipity_event_cronjob extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_CRONJOB_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '0.10');
+        $propbag->add('version',       '0.10.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '4.1.0'

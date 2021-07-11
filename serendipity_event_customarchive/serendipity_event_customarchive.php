@@ -88,7 +88,7 @@ class serendipity_event_customarchive extends serendipity_event {
         $propbag->add('event_hooks',  array('entries_header' => true, 'entry_display' => true, 'genpage' => true));
         $propbag->add('configuration', array('permalink', 'pagetitle', 'articleformat'));
         $propbag->add('author', 'Garvin Hicking');
-        $propbag->add('version', '1.12.2');
+        $propbag->add('version', '1.12.3');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

@@ -30,7 +30,7 @@ class serendipity_event_glossary extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_GLOSSARY_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author', 'Rob Antonishen');
-        $propbag->add('version', '1.7.1');
+        $propbag->add('version', '1.7.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

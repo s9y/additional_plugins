@@ -18,7 +18,7 @@ class serendipity_event_kubrickheader extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_KUBRICKHEADER_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Sebastian Mayeres, Jude Anthony');
-        $propbag->add('version',       '1.5.1');
+        $propbag->add('version',       '1.5.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

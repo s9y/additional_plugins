@@ -13,7 +13,7 @@ class serendipity_event_mailentry extends serendipity_event {
         $propbag->add('name',        PLUGIN_MAILENTRY_NAME);
         $propbag->add('description', PLUGIN_MAILENTRY_DESC);
         $propbag->add('configuration', array('title'));
-        $propbag->add('version',     '1.24');
+        $propbag->add('version',     '1.24.1');
         $propbag->add('event_hooks',
                       array('frontend_display:html:per_entry' => true));
         $propbag->add('groups', array('FRONTEND_ENTRY_RELATED'));

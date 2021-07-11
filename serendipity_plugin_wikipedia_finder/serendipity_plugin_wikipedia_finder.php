@@ -46,7 +46,7 @@ class serendipity_plugin_wikipedia_finder extends serendipity_plugin {
         ));
 
 
-        $propbag->add('version',     '1.5.1');
+        $propbag->add('version',     '1.5.2');
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
     }
 

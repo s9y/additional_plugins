@@ -127,7 +127,7 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
         $propbag->add('name', PLUGIN_SOCIALBOOKMARKS_N);
         $propbag->add('description', PLUGIN_SOCIALBOOKMARKS_D);
         $propbag->add('author', 'Matthias Gutjahr');
-        $propbag->add('version', '0.48');
+        $propbag->add('version', '0.48.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9alpha5',
             'smarty'      => '2.6.7',

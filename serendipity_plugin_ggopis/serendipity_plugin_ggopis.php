@@ -27,7 +27,7 @@ class serendipity_plugin_ggopis extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_GGOPIS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Piotr Borys');
-        $propbag->add('version',       '1.5');
+        $propbag->add('version',       '1.5.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',

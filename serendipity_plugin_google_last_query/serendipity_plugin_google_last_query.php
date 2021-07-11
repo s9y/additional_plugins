@@ -29,7 +29,7 @@ class serendipity_plugin_google_last_query extends serendipity_plugin {
     function introspect(&$propbag) {
         $propbag->add('name',           PLUGIN_GOOGLE_LAST_QUERY_TITLE);
         $propbag->add('description',    PLUGIN_GOOGLE_LAST_QUERY_DESC);
-        $propbag->add('version',        '1.18.1');
+        $propbag->add('version',        '1.18.2');
         $propbag->add('stackable',      true);
 
         if ($this->isVisitorsTableFilled()) {

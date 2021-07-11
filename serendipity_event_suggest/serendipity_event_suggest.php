@@ -25,7 +25,7 @@ class serendipity_event_suggest extends serendipity_event {
                                          ));
         $propbag->add('configuration',   array('permalink', 'pagetitle', 'authorid', 'email'));
         $propbag->add('author',          'Garvin Hicking');
-        $propbag->add('version',         '0.11.3');
+        $propbag->add('version',         '0.11.4');
         $propbag->add('groups',          array('FRONTEND_FEATURES'));
         $propbag->add('requirements',    array(
                                             'serendipity' => '0.9',

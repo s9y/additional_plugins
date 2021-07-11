@@ -1,5 +1,9 @@
-2.0.1
- Added legal gdpr/dsgvo info
+2.0.2:
+---
+* Hotfixes for PHP 8
+
+2.0.1:
+* Added legal gdpr/dsgvo info
 
 Version 1.1 (brockhaus)
 ---------------------------------

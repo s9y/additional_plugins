@@ -1,3 +1,7 @@
+0.100.2:
+-----
+    * Hotfixes for PHP 8 (surrim)
+
 0.100.1:
 -----
     * Fix PHP warning.

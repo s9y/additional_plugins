@@ -17,7 +17,7 @@ class serendipity_event_forgotpassword extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_FORGOTPASSWORD_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Omid Mottaghi');
-        $propbag->add('version',       '0.12.2');
+        $propbag->add('version',       '0.12.3');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9.1',
             'smarty'      => '2.6.7',

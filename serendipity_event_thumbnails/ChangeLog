@@ -1,1 +1,5 @@
+1.4.2:
+---
+ * Hotfixes for PHP 8 (surrim)
+
 Propagate $smarty.env.staticpage_pagetitle (and the others) so that it can be used in entries.tpl

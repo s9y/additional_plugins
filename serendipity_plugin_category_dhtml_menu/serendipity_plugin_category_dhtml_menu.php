@@ -38,7 +38,7 @@ class serendipity_plugin_category_dhtml_menu extends serendipity_plugin {
             'php'         => '4.1.0'
         ));
         $propbag->add('author',      'Jackson Miller, Sebastian Bauer');
-        $propbag->add('version',     '1.12');
+        $propbag->add('version',     '1.12.1');
         $propbag->add('groups', array('FRONTEND_VIEWS'));
     }
 

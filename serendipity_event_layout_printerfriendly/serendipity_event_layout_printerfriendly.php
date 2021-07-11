@@ -24,7 +24,7 @@ class serendipity_event_layout_printerfriendly extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.1');
+        $propbag->add('version',       '1.1.1');
         $propbag->add('event_hooks',   array('frontend_header' => true,
 					     'external_plugin' => true));
         $propbag->add('configuration', array('display_sidebars',

@@ -19,7 +19,7 @@ class serendipity_plugin_sidebarlogo extends serendipity_plugin
             $propbag->add('description',   PLUGIN_SIDEBARLOGO_DESC);
             $propbag->add('stackable',     true);
             $propbag->add('author',        PLUGIN_SIDEBARLOGO_AUTH);
-            $propbag->add('version',       '0.4');
+            $propbag->add('version',       '0.4.1');
             $propbag->add('requirements',  array('serendipity' => '0.9',
                                                  'smarty'      => '2.6.7',
                                                  'php'         => '4.1.0'

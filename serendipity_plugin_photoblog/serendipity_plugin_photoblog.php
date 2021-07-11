@@ -19,7 +19,7 @@ class serendipity_plugin_photoblog extends serendipity_plugin {
             'php'         => '4.1.0'
         ));
         $propbag->add('author',        'Cameron MacFarland');
-        $propbag->add('version',     '1.2.1');
+        $propbag->add('version',     '1.2.2');
         $propbag->add('groups', array('IMAGES'));
         $this->dependencies = array('serendipity_event_thumbnails' => 'keep');
     }

@@ -21,7 +21,7 @@ class serendipity_plugin_POPULARENTRIES extends serendipity_plugin {
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.10.1');
+        $propbag->add('version',       '1.10.2');
         $propbag->add('configuration', array('title', 'sortby', 'number', 'number_from', 'category', 'commentors_hide'));
         $propbag->add('groups', array('STATISTICS'));
     }

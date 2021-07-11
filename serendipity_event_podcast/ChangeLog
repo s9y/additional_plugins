@@ -1,4 +1,5 @@
-#
+1.37.6:
+    * Hotfixes for PHP 8 (surrim)
 
 1.37.5:
     * Replace curly braces char selection with []

@@ -25,7 +25,7 @@ class serendipity_event_spamblock_rbl extends serendipity_event
             'serendipity' => '1.2',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.5.1');
+        $propbag->add('version',       '1.5.2');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true
         ));

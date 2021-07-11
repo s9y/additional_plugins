@@ -47,7 +47,7 @@ class serendipity_event_forum extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.38.5');
+        $propbag->add('version',       '0.38.6');
         $propbag->add('author',       'Alexander \'dma147\' Mieland');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(

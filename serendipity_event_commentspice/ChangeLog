@@ -1,4 +1,10 @@
-1.10:  Added legal gdpr/dsgvo info
+1.10.1:
+-----
+    * Hotfixes for PHP 8 (surrim)
+
+1.10:
+-----
+    * Added legal gdpr/dsgvo info
 
 1.09:
 -----
@@ -34,4 +40,4 @@ Version 1.01
 * The internal styling of the article selector is optional now.
 * Removed spice from admins comment editor.
 * Added some css / templating fixes proposed by @yellowled. Thanks!
-* 2k11 commentform.tpl patchfile changed. Please update if you use it! 
+* 2k11 commentform.tpl patchfile changed. Please update if you use it!

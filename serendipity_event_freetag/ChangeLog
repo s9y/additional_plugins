@@ -1,3 +1,5 @@
+3.70.3: Hotfixes for PHP 8 (surrim)
+
 3.70.2: Fix warning in RSS feed when using PHP 8
 
 3.70.1: Add fixes for PHP 8 compatibility

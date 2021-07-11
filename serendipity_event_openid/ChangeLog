@@ -1,11 +1,17 @@
+Version 1.2.4:
+---------------------------------
+* Hotfixes for PHP 8 (surrim)
+
 Version 1.2.3:
+---------------------------------
 * Added legal gdpr/dsgvo info
 
 Version 1.2.2
+---------------------------------
 * Use PHP 5.3+ "static" function keyword
 
 Version 1.2
-
+---------------------------------
 * Fixed missing "realname" attribute in authentication
 
 Version 1.0 (brockhaus)

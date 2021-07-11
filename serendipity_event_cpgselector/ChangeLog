@@ -1,12 +1,16 @@
-2.09
+2.09.1:
+----
+ * Hotfixes for PHP 8 (surrim)
+
+2.09:
 ----
  * Added German translation.
 
-2.08.2
-------
+2.08.2:
+----
  * S9y 2.0 serendipity_define.js reference file fix
 
 
 2.08:
------
-Removed obsolete language attribute. (yellowled)
+----
+ * Removed obsolete language attribute. (yellowled)

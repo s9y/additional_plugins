@@ -1,3 +1,5 @@
+1.25.2: Hotfixes for PHP 8 (surrim)
+
 1.25: Move to the correct nav section for 2.0 backend (yellowled)
 
 1.24: Properly parse "sidebars" template option

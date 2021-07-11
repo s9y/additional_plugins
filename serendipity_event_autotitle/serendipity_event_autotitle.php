@@ -25,7 +25,7 @@ class serendipity_event_autotitle extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_AUTOTITLE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda');
-        $propbag->add('version',       '0.1.12');
+        $propbag->add('version',       '0.1.13');
         $propbag->add('requirements',  array(
             'php'         => '4.1.0'
         ));

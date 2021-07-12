@@ -11,9 +11,9 @@
 <description>Zeigt Hinweise für angemeldete Autoren in der Admin-Oberfläche an.</description>
 <maintainers><maintainer><name>Garvin Hicking, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.16</version>
+  <version>0.16.1</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_adminnotes">
 <dir name="UTF-8">
@@ -54,9 +54,9 @@
 <description>Aggregiert Einträge von mehreren RSS Feeds (&quot;Planet&quot;). WICHTIGER HINWEIS: Die Aktualisierung des Aggregators muss derzeit noch manuell via Crontab aufgerufen werden. Rufen Sie im gewünschten Abstand per cronjob o.ä. folgende URL auf: index.php?/plugin/aggregator</description>
 <maintainers><maintainer><name>Evan Nemerson, Garvin Hicking, Kristian Koehntopp, Thomas Schulz, Claus Schmidt</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.34.2</version>
+  <version>0.34.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_aggregator">
 <dir name="UTF-8">
@@ -147,9 +147,9 @@
 <description>Fügt einen Button zum Artikeleditor hinzu, über den eine Amazon.com Suche für Produkte ausgeführt werden kann und die Ergebnisse in den Eintrag eingebettet werden</description>
 <maintainers><maintainer><name>Matthew Groeninger, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.76</version>
+  <version>0.76.1</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_amazonchooser">
 <dir name="UTF-8">
@@ -222,9 +222,9 @@
 <description>Ermöglicht mehrere Kategorien zu bestehenden Einträgen zuzuweisen, bzw. die Zuweisungen schnell für alle Artikel zu ändern.</description>
 <maintainers><maintainer><name>Garvin Hicking, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4.2</version>
+  <version>1.4.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_assigncategories">
 <dir name="UTF-8">
@@ -271,9 +271,9 @@
 <description>Fügt automatischen den Titel der verlinkten Seite als als &quot;title&quot;-Tag zum Link hinzu.</description>
 <maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.1.12</version>
+  <version>0.1.13</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_autotitle">
 <dir name="UTF-8">
@@ -360,15 +360,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_backend</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_backend/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Zeige Einträge mittels JavaScript</summary>
 <groups>FRONTEND_FULL_MODS</groups>
 <description>Stellt JavaScript Ausgabe der letzten Einträge zum Einbinden in andere, externe Webseiten bereit. (Siehe README im Plugin Verzeichnis!)</description>
 <maintainers><maintainer><name>Alexander 'dma147' Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.6.2</version>
+  <version>0.6.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-24</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_backend">
 <dir name="UTF-8">
@@ -387,6 +388,7 @@
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_backend.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -405,20 +407,22 @@
     <file>serendipity_event_backend/lang_de.inc.php</file>
     <file>serendipity_event_backend/lang_en.inc.php</file>
     <file>serendipity_event_backend/serendipity_event_backend.php</file>
+    <file>serendipity_event_backend/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
 <package version="1.0">
 <name>serendipity_event_backendrss</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_backendrss/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Display RSS-Feed in Backend Overview</summary>
 <groups>BACKEND_FEATURES</groups>
 <description>Displays a RSS feed on the overview page (right after login) to the administration interface</description>
 <maintainers><maintainer><name>Sebastian Nohn</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4</version>
+  <version>1.4.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_backendrss">
 <dir name="UTF-8">
@@ -432,6 +436,7 @@
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_backendrss.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -445,6 +450,7 @@
     <file>serendipity_event_backendrss/lang_de.inc.php</file>
     <file>serendipity_event_backendrss/lang_en.inc.php</file>
     <file>serendipity_event_backendrss/serendipity_event_backendrss.php</file>
+    <file>serendipity_event_backendrss/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -457,9 +463,9 @@
 <description>Bietet die Möglichkeit, automatisch Backups von Ihren Serendipity - den Datenbanktabellen, der gesamten Datenbank und den Dateien - zu erstellen. Derzeit werden nur MySQL(i)-Datenbanken unterstützt. WARNUNG: Dieses Plugin funktioniert nicht gut mit großen Datenbanken oder Verzeichnissen.</description>
 <maintainers><maintainer><name>Alexander 'dma147' Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.15.1</version>
+  <version>0.15.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-24</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_backup">
 <dir name="UTF-8">
@@ -516,9 +522,9 @@
 <description>Ermöglicht Autoren, sich mittels de BrowserID Services einzuloggen.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.0.1</version>
+  <version>2.0.2</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_browserid">
 <dir name="UTF-8">
@@ -1361,9 +1367,9 @@
 <description>Zeigt einen Terminkalender innerhalb des Blogs mit dem Blog-Design und allen Formatierungen an. Unterstützt Backend/Frontend Administration, vielfache Termine und iCal Export. (Nur MySQL)</description>
 <maintainers><maintainer><name>Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.77</version>
+  <version>1.77.1</version>
   <requirements:s9yVersion>1.4</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_cal">
 <dir name="UTF-8">
@@ -1456,9 +1462,9 @@
 <description>Dieses Plugin ermöglicht erweitete Eigenschaften für Kategorien und deren Einträge festzulegen: speziell angepassete Templates, Anzeigereihenfolge, Anzeigeanzahl, Passwort-Schutz und Ausschluss aus dem RSS-Feed.</description>
 <maintainers><maintainer><name>Garvin Hicking, Judebert</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.35.2</version>
+  <version>0.35.3</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2020-06-11</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_categorytemplates">
 <dir name="UTF-8">
@@ -1509,9 +1515,9 @@
 <description>Nutzt CKEditor als Standard WYSIWYG Editor. Benutzung für JS-Editoren: Empfohlen! Nach der Installation, lies die Plugin Konfigurations Seite für weitere Informationen.</description>
 <maintainers><maintainer><name>Rustam Abdullaev, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>4.5.10.5</version>
+  <version>4.5.10.6</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_ckeditor">
 <dir name="UTF-8">
@@ -1584,9 +1590,9 @@
 <description>Webcomics im Blog posten</description>
 <maintainers><maintainer><name>Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
+  <version>1.5.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_comics">
 <dir name="UTF-8">
@@ -1635,9 +1641,9 @@
 <description>Ermöglicht Besuchern ihren Kommentar nachträglich zu editieren.</description>
 <maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.2.3</version>
+  <version>0.2.4</version>
   <requirements:s9yVersion>1.5</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_commentedit">
 <dir name="UTF-8">
@@ -1739,9 +1745,9 @@
 <description>Würze Deinen Kommentarbereich mit Extras wie einem Twitterlink oder einem Link auf den letzten Artikel des Kommentators und nofollow nach bestimmten Regeln.</description>
 <maintainers><maintainer><name>Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.10</version>
+  <version>1.10.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_commentspice">
 <dir name="UTF-8">
@@ -1816,9 +1822,9 @@
 <description>Stellt ein E-Mail Kontaktformular auf Ihrem Blog als statische Seite dar. Darauf kann entweder mittels des eigenen Permalinks oder mittels index.php?serendipity[subpage]=contactform aufgerufen werden. Die Darstellung kann durch Smarty Templates angepasst werden, indem die Datei plugin_contactform.tpl in Ihren Templateordner kopiert und modifiziert wird. Captchas des Spamblock-Plugins (falls aktiviert) werden angewendet.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.22</version>
+  <version>1.22.1</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_contactform">
 <dir name="UTF-8">
@@ -1971,9 +1977,9 @@
 <description>Wählen Sie Bilder aus einer Coppermine-Galerie für neue Einträge aus.</description>
 <maintainers><maintainer><name>Matthew Maude (modified by Jim Davies)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.09</version>
+  <version>2.09.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_cpgselector">
 <dir name="UTF-8">
@@ -2024,9 +2030,9 @@
 <description>Dieses Plugin führt andere Plugins, die regelmäßig bestimmte Aufgaben ausführen sollen, in bestimmten Zeitabständen aus. Einzelheiten finden Sie in der Konfiguration dieses Plugins.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.10</version>
+  <version>0.10.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_cronjob">
 <dir name="UTF-8">
@@ -2114,9 +2120,9 @@
 <description>Zeigt eine sortierbare Ansicht aller Artikel für den Besucher an. Der Link zu dieser eigenständigen Seite sollte in einem eigenen HTML Klotz verlinkt werden!</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.12.2</version>
+  <version>1.12.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_customarchive">
 <dir name="UTF-8">
@@ -2212,9 +2218,9 @@
 <description>Verlinkt automatisch zitierte Gesetze und Rechtsprechung (Aktenzeichen und Fundstellen) mit den Inhalten von dejure.org.</description>
 <maintainers><maintainer><name>Garvin Hicking, dejure.org, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.8.4</version>
+  <version>1.8.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_dejure">
 <dir name="UTF-8">
@@ -2255,9 +2261,9 @@
 <description>Disqus.com ist ein Webservice, mit dem Sie Kommentare zentral verwalten können. Der Dienst speichert und verwaltet Kommentare außerhalb Ihrer Serendipity-Installation und ist mit JavaScript eingebettet. Weitere Informationen finden Sie unter https://disqus.com/.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.5</version>
+  <version>0.5.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_disqus">
 <dir name="UTF-8">
@@ -2609,9 +2615,9 @@
 <description>Dieses Plugin ist ein JavaScript-Syntax-Hervorheber, der auf dem gleichnamigen Code von Alex Gorbatchev basiert. Es benötigt weniger serverseitige Ressourcen als GeSHi und zeigt im eigentlichen HTML-Code weniger Markups an; eine leichtgewichtigere, sauberere Alternative. Dieses Plugin benötigt das zugehörige Theme, um die folgenden Hooks bereitzustellen: frontend_header, frontend_footer (und optional backend_preview im Admin-Theme).</description>
 <maintainers><maintainer><name>Alex Gorbatchev (core), Brendon Kozlowski and J.M. Roth (plugin)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.0.83.1</version>
+  <version>3.0.83.2</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_dpsyntaxhighlighter">
 <dir name="UTF-8">
@@ -2770,9 +2776,9 @@
 <description>Dieses Plugin soll Blogbetreibern helfen, Konformität zur Datenschutz-Grundverordnung herzustellen.</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.3</version>
+  <version>1.3.1</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2020-05-28</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_dsgvo_gdpr">
 <dir name="UTF-8">
@@ -2811,9 +2817,9 @@
 <description>Macht E-Mail-Adressen klickbar, aber verschleiert sie, um sie vor Spambots zu schützen</description>
 <maintainers><maintainer><name>Stephan Manske, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.03</version>
+  <version>1.03.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-01-06</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_email_bot_obfuscator">
 <dir name="UTF-8">
@@ -2866,9 +2872,9 @@
 <description>Zeigt eine Auswahlleiste bei der Erstellung eines Eintrags um Smileys einzufügen.</description>
 <maintainers><maintainer><name>Garvin Hicking, Jay Bertrandt, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.12</version>
+  <version>2.12.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-05-11</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_emoticonchooser">
 <dir name="UTF-8">
@@ -2914,15 +2920,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_entrycheck</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_entrycheck/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Regeln für Veröffentlichungen</summary>
 <groups>BACKEND_EDITOR</groups>
 <description>Führt einige Prüfungen vor der Veröffentlichung eines Artikels durch. Arbeitet nicht mit eingesetztem WYSIWYG-CKEDITOR!</description>
 <maintainers><maintainer><name>Garvin Hicking, Gregor Voeltz</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.16</version>
+  <version>1.16.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-03-23</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_entrycheck">
 <dir name="UTF-8">
@@ -2941,6 +2948,7 @@
 <file>lang_fr.inc.php</file>
 <file>lang_ja.inc.php</file>
 <file>serendipity_event_entrycheck.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -2959,6 +2967,7 @@
     <file>serendipity_event_entrycheck/lang_fr.inc.php</file>
     <file>serendipity_event_entrycheck/lang_ja.inc.php</file>
     <file>serendipity_event_entrycheck/serendipity_event_entrycheck.php</file>
+    <file>serendipity_event_entrycheck/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -2971,9 +2980,9 @@
 <description>Zeigt das Datum der letzten Aktualisierung eines Eintrags an.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.10</version>
+  <version>1.10.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-06-09</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_entrylastmodified">
 <dir name="UTF-8">
@@ -3070,15 +3079,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_entrysplit</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_entrysplit/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Lange Einträge aufteilen</summary>
 <groups>BACKEND_EDITOR</groups>
 <description>Erlaubt die Aufteilung eines langen Artikels in mehrere Unterseiten sowie das Einfügen eines Inhaltsverzeichnisses</description>
 <maintainers><maintainer><name>Garvin Hicking, Tadashi Jokagi, Thomas Werner</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5.6</version>
+  <version>1.5.7</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_entrysplit">
 <dir name="UTF-8">
@@ -3097,6 +3107,7 @@
 <file>lang_ja.inc.php</file>
 <file>lang_tr.inc.php</file>
 <file>serendipity_event_entrysplit.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -3115,6 +3126,7 @@
     <file>serendipity_event_entrysplit/lang_ja.inc.php</file>
     <file>serendipity_event_entrysplit/lang_tr.inc.php</file>
     <file>serendipity_event_entrysplit/serendipity_event_entrysplit.php</file>
+    <file>serendipity_event_entrysplit/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -3127,9 +3139,9 @@
 <description>Ermöglicht die externe authentifizierung für Logins der Benutzer. Die Zugangsdaten werden im lokalen Serendipity Datenbank-Framework gecached.</description>
 <maintainers><maintainer><name>Garvin Hicking/Justin Alcorn</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.23</version>
+  <version>1.23.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_externalauth">
 <dir name="UTF-8">
@@ -3178,9 +3190,9 @@
 <description>Bettet eine externe PHP Anwendung in Ihrem Blog ein, dass im gewohnten Design präsentiert wird. MIT VORSICHT BENUTZEN, DA DIESES PLUGIN GROSSE SICHERHEITSLÜCKEN ERMÖGLICHEN KANN WENN EINE BELIEBIGE PHP-DATEI EINGEBUNDEN WIRD! Dieses Plugin kann daher nur als Administrator konfiguriert werden.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4</version>
+  <version>1.4.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2018-08-06</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_externalphp">
 <dir name="UTF-8">
@@ -3223,9 +3235,9 @@
 <description>Importiert Kommentare von Facebook-Posts (vergleichbar RSS-Graffiti) zurück in den Blog. Bettet auch Facebook-OpenGraph-Meta-Tags in den Blog ein.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.6</version>
+  <version>0.6.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_facebook">
 <dir name="UTF-8">
@@ -3444,9 +3456,9 @@
 <description>Flattr ist eine Social-Micropayment-Plattform, mit der man Liebe versprühen kann für Artikel, die man liebt. Das Plugin bindet &quot;Flattr&quot;-Buttons in den Blogeinträgen und RSS-Feeds ein. Flattr-spezifische Attribute können sowohl global als auch pro Eintrag vergeben werden.</description>
 <maintainers><maintainer><name>Garvin Hicking, Joachim Breitner</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.14</version>
+  <version>1.14.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_flattr">
 <dir name="UTF-8">
@@ -3489,9 +3501,9 @@
 <description>Bilder von flickr.com in die Mediendatenbank importieren.</description>
 <maintainers><maintainer><name>Jay Bertrand</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.6</version>
+  <version>0.6.1</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_flickr">
 <dir name="UTF-8">
@@ -3546,9 +3558,9 @@
 <description>Ändere das Passwort für ausgewählten Benutzer</description>
 <maintainers><maintainer><name>Omid Mottaghi</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.12.2</version>
+  <version>0.12.3</version>
   <requirements:s9yVersion>0.9.1</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_forgotpassword">
 <dir name="UTF-8">
@@ -3599,9 +3611,9 @@
 <description>Stellt ein komplettes Diskussions-Forum zur Verfügung, kann alternativ Blog-Kommentare in eine phpBB-Installation spiegeln.</description>
 <maintainers><maintainer><name>Alexander 'dma147' Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.38.5</version>
+  <version>0.38.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-24</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_forum">
 <dir name="UTF-8">
@@ -3880,9 +3892,9 @@
 <description>Erlaubt das freie Tagging von Artikeln</description>
 <maintainers><maintainer><name>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.70.2</version>
+  <version>3.70.3</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2021-07-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <dir name="UTF-8">
@@ -3989,9 +4001,9 @@
 <description>Fügt ein Gallery-Album oder Bild in Form von Markup ein.</description>
 <maintainers><maintainer><name>Rob Antonishen, Alexander Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.13</version>
+  <version>1.13.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_galleryimage">
 <dir name="UTF-8">
@@ -4071,9 +4083,9 @@
 <description>Erlaubt Einträge mit Geokoordinaten zu versehen</description>
 <maintainers><maintainer><name>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Martin Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.36</version>
+  <version>1.36.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-05-29</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_geotag">
 <dir name="UTF-8">
@@ -4128,9 +4140,9 @@
 <description>GeoURL ordnet URLs Örtlichkeiten zu. Mehr Infos unter http://geourl.org/</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4.2</version>
+  <version>1.4.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_geourl">
 <dir name="UTF-8">
@@ -4177,9 +4189,9 @@
 <description>Computer Language Color Syntax Highlighting. Benutzen Sie das Tag [geshi lang=php][/geshi]</description>
 <maintainers><maintainer><name>David Rolston</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1</version>
+  <version>1.1.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2019-06-10</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_geshi">
 <dir name="UTF-8">
@@ -4748,9 +4760,9 @@
 <description>Benutzt die getID3() Bibliothek um erweiterte Medien Eigenschaften für Filme und Audios zu erkennen. getID3() selbst wird nicht mit dem Plugin ausgeliefert.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4</version>
+  <version>1.4.1</version>
   <requirements:s9yVersion>1.1</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_getid3">
 <dir name="UTF-8">
@@ -4790,15 +4802,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_glossary</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_glossary/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Glossary</summary>
 <groups>MARKUP</groups>
 <description>A user defined glossary as highlighted text with a tooltip.</description>
 <maintainers><maintainer><name>Rob Antonishen</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.7.1</version>
+  <version>1.7.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_glossary">
 <dir name="UTF-8">
@@ -4814,6 +4827,7 @@
 <file>lang_it.inc.php</file>
 <file>lang_ja.inc.php</file>
 <file>serendipity_event_glossary.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -4829,6 +4843,7 @@
     <file>serendipity_event_glossary/lang_it.inc.php</file>
     <file>serendipity_event_glossary/lang_ja.inc.php</file>
     <file>serendipity_event_glossary/serendipity_event_glossary.php</file>
+    <file>serendipity_event_glossary/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -4841,9 +4856,9 @@
 <description>Dieses Plugin fügt Google Analytics Funktionalität hinzu. So können auch externe Links oder Downloads verfolgt werden.</description>
 <maintainers><maintainer><name>kleinerChemiker</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4.3</version>
+  <version>1.4.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-24</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_google_analytics">
 <dir name="CVSROOT">
@@ -4912,9 +4927,9 @@
 <description>Erstellt eine sitemap.xml.gz für verschiedene Suchmaschinen-Crawler (Google, MSN, Yahoo und Ask).</description>
 <maintainers><maintainer><name>Boris</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.61</version>
+  <version>0.61.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-04-19</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_google_sitemap">
 <dir name="UTF-8">
@@ -5324,9 +5339,9 @@
 <description>Zeigt ein Gästebuch innerhalb des Blogs mit dem gewählten Design und allen Formatierungen an.</description>
 <maintainers><maintainer><name>Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.61.1</version>
+  <version>3.61.2</version>
   <requirements:s9yVersion>1.7.0</requirements:s9yVersion>
-  <date>2019-08-18</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="UTF-8">
@@ -5487,9 +5502,9 @@
 <description>Authentifiziert Benutzer über HTTP-Authentifizierung (basic_auth) mit ihren s9y-Anmeldedaten.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.7</version>
+  <version>1.7.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_httpauth">
 <dir name="UTF-8">
@@ -5528,9 +5543,9 @@
 <description>Ermöglicht erweiterte Optionen beim Einfügen von Bildern aus der Mediendatenbank.</description>
 <maintainers><maintainer><name>Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.52</version>
+  <version>0.52.1</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_imageselectorplus">
 <dir name="UTF-8">
@@ -5591,9 +5606,9 @@
 <description>Ermöglicht das Hinzufügen von HTML-ähnlichen Tags um Teile von anderen Einträgen einzubinden. Benutzen Sie folgende Formatierung: [s9y-include-entry:XXX:YYY]. Ersetzen Sie XXX mit der Ziel-ID des Eintrags und YYY mit dem Zielfeldnamen der Datenbank (z.B. &quot;body&quot;, &quot;extended&quot;, &quot;title&quot; usw.).</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.18</version>
+  <version>2.18.1</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_includeentry">
 <dir name="UTF-8">
@@ -5768,15 +5783,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_kubrickheader</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_kubrickheader/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Kubrick/Joshua-Template Bild im Kopfbereich</summary>
 <groups>IMAGES</groups>
 <description>Wechselt das Bild im Kubrick/Joshua-Template</description>
 <maintainers><maintainer><name>Garvin Hicking, Sebastian Mayeres, Jude Anthony</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5.1</version>
+  <version>1.5.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_kubrickheader">
 <dir name="UTF-8">
@@ -5789,6 +5805,7 @@
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_kubrickheader.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -5801,20 +5818,22 @@
     <file>serendipity_event_kubrickheader/lang_de.inc.php</file>
     <file>serendipity_event_kubrickheader/lang_en.inc.php</file>
     <file>serendipity_event_kubrickheader/serendipity_event_kubrickheader.php</file>
+    <file>serendipity_event_kubrickheader/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
 <package version="1.0">
 <name>serendipity_event_layout_printerfriendly</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_layout_printerfriendly/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Layout-Plugin: Druckfreundliche Version</summary>
 <groups>BACKEND_TEMPLATES</groups>
 <description>Ermöglicht den besseren Ausdruck eines Eintrages im Browser</description>
 <maintainers><maintainer><name>Sebastian Nohn</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1</version>
+  <version>1.1.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_layout_printerfriendly">
 <dir name="UTF-8">
@@ -5831,6 +5850,7 @@
 <file>lang_en.inc.php</file>
 <file>lang_tr.inc.php</file>
 <file>serendipity_event_layout_printerfriendly.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -5847,6 +5867,7 @@
     <file>serendipity_event_layout_printerfriendly/lang_en.inc.php</file>
     <file>serendipity_event_layout_printerfriendly/lang_tr.inc.php</file>
     <file>serendipity_event_layout_printerfriendly/serendipity_event_layout_printerfriendly.php</file>
+    <file>serendipity_event_layout_printerfriendly/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -5859,9 +5880,9 @@
 <description>Das Lightbox Plugin ist eine einfaches unauffälliges Skript, das Bilder auf der Seite überlagern kann, wenn die große Version angeklickt wurde. Es fügt sich selbstständig in die Seite ein und funktioniert mit jedem modernen Browser. Alle Leuchtkästen verschönern Bilder-Popups. Dieses Plugin durchsucht ihre Einträge und ersetzt jeden auf ein Bild verweisenden 'a href=&quot;XXX&quot;' Link so, dass die interne Darstellung benutzt wird. Wenn Sie also ein Thumbnail Bild mit einem Popup der großen Version haben wollen, so fügen Sie das Thumbnail in ihren Eintrag ein und verlinken dieses mit der großen Version. Um auch versteckte Bilder mit display:none anzuzeigen, nutzen Sie das Lightbox2 Script. Diese Leuchtkasten Scripte sind alle jQuery basiert. Sie unterstützen nicht allein nur Bildtypen, sondern überwiegend auch anderes, wie Ajax, Videos, Flash, YouTube, iFrame, Inline oder modale Felder. Dieses Plugin nutzt sie nur für Fotografie Leuchtkästen, aber Sie können leicht andere Typen ihren Blog-Einträgen manuell hinzufügen und eine lightbox entsprechend für diesen Zweck initiieren, so wie es den jeweiligen Online-Dokumentationen beschrieben wird.</description>
 <maintainers><maintainer><name>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.5.2</version>
+  <version>2.5.3</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2019-09-20</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_lightbox">
 <dir name="UTF-8">
@@ -6287,9 +6308,9 @@
 <description>Fügt Tags für link rel=&quot;start|up|prev|next|canonical&quot; in die Ansichten des Weblogs ein um so mittels spezieller Tools (Mozilla Erweiterungen, ...) durch Meta-Ebenen zu navigieren.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5.1</version>
+  <version>1.5.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_linktoolbar">
 <dir name="UTF-8">
@@ -6336,9 +6357,9 @@
 <description>Ermöglicht Linkverkürzung zur Weiterleitung in Ihrem eigenen Blog, z.B. vermittels tr.im, tinyurl.com usw.</description>
 <maintainers><maintainer><name>Garvin Hicking, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6.4</version>
+  <version>1.6.5</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_linktrimmer">
 <dir name="UTF-8">
@@ -6568,9 +6589,9 @@
 <description>Benutzt XML-RPC Methoden um Einträge zu einem LiveJournal/MySpace/Serendipity zu übertragen</description>
 <maintainers><maintainer><name>Kaustubh Srikanth, Ivan Makhonin</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.13.3</version>
+  <version>1.13.4</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_ljupdate">
 <dir name="UTF-8">
@@ -6610,15 +6631,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_loginform</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_loginform/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Überprüft Autoren-Login</summary>
 <groups>FRONTEND_FEATURES</groups>
 <description>Überprüft die Logindaten des Autoren nach Benutzung des Login-Formulars in der Seitenleiste</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.04</version>
+  <version>1.04.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_loginform">
 <dir name="UTF-8">
@@ -6631,6 +6653,7 @@
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_loginform.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -6643,6 +6666,7 @@
     <file>serendipity_event_loginform/lang_de.inc.php</file>
     <file>serendipity_event_loginform/lang_en.inc.php</file>
     <file>serendipity_event_loginform/serendipity_event_loginform.php</file>
+    <file>serendipity_event_loginform/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -6655,9 +6679,9 @@
 <description>Erlaubt es Besuchern einen Eintrag per E-Mail an einen Freund zu verschicken</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.24</version>
+  <version>1.24.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_mailentry">
 <dir name="UTF-8">
@@ -6720,9 +6744,9 @@
 <description>Markdown-Textformatierung durchführen</description>
 <maintainers><maintainer><name>Serendipity Team, Jan Lehnardt and Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.30</version>
+  <version>1.30.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-05-11</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_markdown">
 <dir name="UTF-8">
@@ -6815,9 +6839,9 @@
 <description>Show read/unread state of entries for visitors</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
+  <version>1.5.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_markread">
 <dir name="UTF-8">
@@ -6858,9 +6882,9 @@
 <description>Setzt Tags für HTML Meta-Schlüsselwörter/-Beschreibungen und das title-Element für Seiten mit nur einem einzelnen Eintrag bzw. allgemeine Meta-Schlüsselwörter/-Beschreibungen für Seite mit mehr als einem Eintrag.</description>
 <maintainers><maintainer><name>Garvin Hicking, Judebert, Don Chambers</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.15.6</version>
+  <version>0.15.7</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-04-19</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_metadesc">
 <dir name="UTF-8">
@@ -6911,9 +6935,9 @@
 <description>Dieses Plugin ermöglicht es, auf einfache Weise Rezensionen zu veröffentlichen und Veranstaltungen anzukündigen: Es unterstützt die jeweiligen Mikroformate.</description>
 <maintainers><maintainer><name>Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.46.2</version>
+  <version>0.46.3</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_microformats">
 <dir name="UTF-8">
@@ -6983,15 +7007,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_mimetex</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_mimetex/ChangeLog</changelog>
 <license>GPL</license>
 <summary>MimeTex Tex Interpreter</summary>
 <groups>MARKUP</groups>
 <description>Erzeugt ein GIF von TeX-Ausdrücken mittels MimeTex</description>
 <maintainers><maintainer><name>Matthew Groeninger</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4</version>
+  <version>1.4.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_mimetex">
 <dir name="UTF-8">
@@ -7012,6 +7037,7 @@
 <file>lang_en.inc.php</file>
 <file>serendipity_event_mimetex.js</file>
 <file>serendipity_event_mimetex.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -7028,6 +7054,7 @@
     <file>serendipity_event_mimetex/lang_en.inc.php</file>
     <file>serendipity_event_mimetex/serendipity_event_mimetex.js</file>
     <file>serendipity_event_mimetex/serendipity_event_mimetex.php</file>
+    <file>serendipity_event_mimetex/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7037,12 +7064,12 @@
 <license>GPL</license>
 <summary>Markup: Mobile Ausgabe</summary>
 <groups>MARKUP</groups>
-<description>Dieses Plugin erkennt automatisch mobile Endgeraete und gibt optimiertes XHTML MP fuer diese aus. Fuer das Apple iPhone und den iPod Touch wird eine speziell angepasste Seite ausgegeben. Weiterhin werden Bilder automatisch passend skaliert.</description>
+<description>Dieses Plugin erkennt automatisch mobile Endgeräte und gibt optimiertes XHTML MP für diese aus. Für das Apple iPhone und den iPod Touch wird eine speziell angepasste Seite ausgegeben. Weiterhin werden Bilder automatisch passend skaliert.</description>
 <maintainers><maintainer><name>Pelle Boese, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.04.2</version>
+  <version>1.04.3</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2017-08-06</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_mobile_output">
 <dir name="UTF-8">
@@ -7296,9 +7323,9 @@
 <description>Pflegt einen persönlichen Kalender</description>
 <maintainers><maintainer><name>Garvin Hicking, Markus Gerstel, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.17.1</version>
+  <version>0.18.1</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_mycalendar">
 <dir name="UTF-8">
@@ -7353,9 +7380,9 @@
 <description>Allows you to add your current mood or moods to entries.</description>
 <maintainers><maintainer><name>Brett Profitt, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.12.1</version>
+  <version>0.12.2</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_mymood">
 <dir name="UTF-8">
@@ -7391,15 +7418,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_newsbox</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_newsbox/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Newsbox</summary>
 <groups>FRONTEND_VIEWS,FRONTEND_FEATURES</groups>
 <description>Group a category's entries in a frontpage box instead of the usual article listing.  Supports nested newsboxes.</description>
 <maintainers><maintainer><name>Jude Anthony</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.6</version>
+  <version>0.6.1</version>
   <requirements:s9yVersion>1.0-alpha1</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_newsbox">
 <dir name="UTF-8">
@@ -7411,6 +7439,7 @@
 <file>lang_en.inc.php</file>
 <file>newsbox.tpl</file>
 <file>serendipity_event_newsbox.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -7422,6 +7451,7 @@
     <file>serendipity_event_newsbox/lang_en.inc.php</file>
     <file>serendipity_event_newsbox/newsbox.tpl</file>
     <file>serendipity_event_newsbox/serendipity_event_newsbox.php</file>
+    <file>serendipity_event_newsbox/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7434,9 +7464,9 @@
 <description>oEmbed is a format for allowing an embedded representation of a URL on your blog. It allows blog articles to display embedded content (such as tweets, photos or videos) when a user posts a link to that resource, without having to parse the resource directly.</description>
 <maintainers><maintainer><name>Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.20</version>
+  <version>1.20.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-01-10</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_oembed">
 <dir name="UTF-8">
@@ -7521,9 +7551,9 @@
 <description>Ermöglicht es Autoren des Blogs, sich mit ihrer OpenID (oder Google/Yahoo Account) einzuloggen.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Rob Richards</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.2.3</version>
+  <version>1.2.4</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_openid">
 <dir name="PHP-openid">
@@ -7700,7 +7730,7 @@
 <release>
   <version>0.3.7</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
-  <date>2021-05-29</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_osm">
 <dir name="UTF-8">
@@ -7755,7 +7785,7 @@
 <release>
   <version>0.3.7</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
-  <date>2021-05-29</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_osm">
 <dir name="UTF-8">
@@ -7808,9 +7838,9 @@
 <description>Blendet alle Einträge die ein definiertes Alter überschritten haben aus, so dass sie nur für registrierte Benutzer sichtbar sind.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6</version>
+  <version>1.6.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-12-11</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_outdate_entries">
 <dir name="UTF-8">
@@ -7908,9 +7938,9 @@
 <description>Ein Bild zu einem Eintrag hinzufügen</description>
 <maintainers><maintainer><name>Cameron MacFarland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6.1</version>
+  <version>1.6.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_photoblog">
 <dir name="UTF-8">
@@ -7957,9 +7987,9 @@
 <description>Fügt &quot;Podcasting&quot; Faehigkeiten hinzu (RSS enclosure, Video/Sound-Player)</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Hannes Gassert, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.37.5</version>
+  <version>1.37.6</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2021-03-06</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_podcast">
 <dir name="UTF-8">
@@ -8196,9 +8226,9 @@
 <description>Holt E-Mail inkl. Anhängen ab und veröffentlicht sie von einem POP3 E-Mail-Account (mit spezieller Handy-Unterstützung)</description>
 <maintainers><maintainer><name>Jason Levitt</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.49</version>
+  <version>1.49.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-09-09</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_popfetcher">
 <dir name="UTF-8">
@@ -8269,9 +8299,9 @@
 <description>Prettify fügt Inhalten, die zwischen PRE-Tags stehen, simples Syntax-Highlighting hinzu.</description>
 <maintainers><maintainer><name>Adam Krause</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6.2</version>
+  <version>1.6.3</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2016-03-18</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_prettify">
 <dir name="UTF-8">
@@ -8336,9 +8366,9 @@
 <description>Setzt die richtige IP des Besuchers bei Benutzung eines Proxy vor dem Webserver. Sollte das erste Plugin in der Liste sein.</description>
 <maintainers><maintainer><name>kleinerChemiker</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
   <requirements:s9yVersion>1.6.2</requirements:s9yVersion>
-  <date>2020-03-24</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_proxy_realip">
 <dir name="UTF-8">
@@ -8376,15 +8406,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_randomblogdescription</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_randomblogdescription/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Zufällige Beschreibung des Blogs</summary>
 <groups>BACKEND_METAINFORMATION</groups>
 <description>Zeigt eine zufällige Beschreibung unter dem Titel an.</description>
 <maintainers><maintainer><name>Florian Anderiasch</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.6</version>
+  <version>0.6.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_randomblogdescription">
 <dir name="UTF-8">
@@ -8397,6 +8428,7 @@
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_randomblogdescription.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -8409,20 +8441,22 @@
     <file>serendipity_event_randomblogdescription/lang_de.inc.php</file>
     <file>serendipity_event_randomblogdescription/lang_en.inc.php</file>
     <file>serendipity_event_randomblogdescription/serendipity_event_randomblogdescription.php</file>
+    <file>serendipity_event_randomblogdescription/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
 <package version="1.0">
 <name>serendipity_event_realtimecomments</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_realtimecomments/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Echtzeit-Kommentare</summary>
 <groups>FRONTEND_VIEWS</groups>
 <description>Lade Kommentare, die gerade gespeichert wurden, und stelle sie ohne Neuladen der Seite dar.</description>
 <maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.1.3</version>
+  <version>0.1.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_realtimecomments">
 <dir name="UTF-8">
@@ -8437,6 +8471,7 @@
 <file>lang_en.inc.php</file>
 <file>rtcomments.js</file>
 <file>serendipity_event_realtimecomments.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -8451,6 +8486,7 @@
     <file>serendipity_event_realtimecomments/lang_en.inc.php</file>
     <file>serendipity_event_realtimecomments/rtcomments.js</file>
     <file>serendipity_event_realtimecomments/serendipity_event_realtimecomments.php</file>
+    <file>serendipity_event_realtimecomments/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -8463,9 +8499,9 @@
 <description>Recaptcha für die Kommentar-Funktion von Artikeln aktivieren (Sie müssen einen Schlüssel anfordern)</description>
 <maintainers><maintainer><name>Christian Brabandt (based on work of Garvin Hicking, Sebastian Nohn)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.20.3</version>
+  <version>0.20.4</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2018-03-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_recaptcha">
 <dir name="UTF-8">
@@ -8573,9 +8609,9 @@
 <description>Fügt verwandte Links/Einträge in die Artikelansicht ein, die manuell für jeden Eintrag eingegeben werden können. Für flexible Ausgabe kann das Smarty-Template &quot;plugin_relatedlinks.tpl&quot; angepasst werde.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.8.2</version>
+  <version>1.8.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_relatedlinks">
 <dir name="UTF-8">
@@ -8717,9 +8753,9 @@
 <description>Verkleinert Seitenleisten-Elemente auf ihren Titel und ermöglicht das individuelle Ausklappen. Zusätzliche Konfiguration siehe Einträge -&gt; Seitenleisten verwalten in der Administrationsoberfläche.</description>
 <maintainers><maintainer><name>Tys von Gaza, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.25.1</version>
+  <version>1.25.2</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_sidebarhider">
 <dir name="UTF-8">
@@ -8813,9 +8849,9 @@
 <description>Nutze einen beliebigen SMTP Server zum versenden deiner Mails</description>
 <maintainers><maintainer><name>kleinerChemiker</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.12</version>
+  <version>0.12.1</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_smtpmail">
 <dir name="UTF-8">
@@ -8943,9 +8979,9 @@
 <description>Filtert Kommentare mittels eines lernenden Algorithmus.</description>
 <maintainers><maintainer><name>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1.3</version>
+  <version>1.1.4</version>
   <requirements:s9yVersion>2.1</requirements:s9yVersion>
-  <date>2021-05-26</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bayes">
 <dir name="UTF-8">
@@ -9028,9 +9064,9 @@
 <description>Implementiert Kommentar AntiSpam Maßnahmen, die einfach zu konfigurieren aber sehr effektiv sind.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Janek Bevendorff</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.3.2</version>
+  <version>1.3.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-06-07</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bee">
 <dir name="UTF-8">
@@ -9079,9 +9115,9 @@
 <description>Blockiert SPAM Anhand von IP-Blacklists. Wird diese Option aktiviert, werden Kommentare abgewiesen die von IPs stammen, die in einer RBL/Blacklist geführt werden. Die Aktivierung hiervon kann Dial-Up oder Proxy-User betreffen!</description>
 <maintainers><maintainer><name>Sebastian Nohn</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5.1</version>
+  <version>1.5.2</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_spamblock_rbl">
 <dir name="UTF-8">
@@ -9126,9 +9162,9 @@
 <description>URL abweisen die als SPAM geblacklistet sind.</description>
 <maintainers><maintainer><name>Sebastian Nohn</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.2</version>
+  <version>1.2.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_spamblock_surbl">
 <dir name="UTF-8">
@@ -9171,9 +9207,9 @@
 <description>Ermöglicht, die Artikel einer speziellen Kategorie anstelle der Übersicht aller Artikel auf der Startseite anzuzeigen.</description>
 <maintainers><maintainer><name>Stefan Willoughby, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.11</version>
+  <version>1.11.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_startcat">
 <dir name="UTF-8">
@@ -9212,9 +9248,9 @@
 <description>Verwaltet beliebige statische Seiten innerhalb des Blogs mit dem Blog-Design und allen Formatierungen. Fügt einen neuen Menüpunkt in der Admin-Oberfläche hinzu!</description>
 <maintainers><maintainer><name>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>4.15.6</version>
+  <version>4.15.7</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2021-06-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_staticpage">
 <dir name="UTF-8">
@@ -9458,9 +9494,9 @@
 <description>Erlaubt nicht registrierten Autoren, eigene Artikel vorzuschlagen</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.11.3</version>
+  <version>0.11.4</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_suggest">
 <dir name="UTF-8">
@@ -9616,9 +9652,9 @@
 <description>Werbenanzeigen ins Blog einbetten.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.13</version>
+  <version>0.13.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_textlinkads">
 <dir name="UTF-8">
@@ -9751,9 +9787,9 @@
 <description>Zeigt eine Seite mit Thumbnails des Photoblog-Plugins. Die URL ist index.php?serendipity[page]=thumbs</description>
 <maintainers><maintainer><name>Cameron MacFarland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4.1</version>
+  <version>1.4.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_thumbnails">
 <dir name="UTF-8">
@@ -9865,9 +9901,9 @@
 <description>Verwaltet eine Liste von Projekten und deren aktuellem Status</description>
 <maintainers><maintainer><name>Steven Tonnesen, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.25.1</version>
+  <version>1.25.3</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2017-04-10</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_todolist">
 <dir name="UTF-8">
@@ -10032,9 +10068,9 @@
 <description>Aktiviert Tooltips für Textbereiche und Bilder.</description>
 <maintainers><maintainer><name>Enrico Stahn</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6</version>
+  <version>1.6.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-02-04</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_tooltips">
 <dir name="UTF-8">
@@ -10334,15 +10370,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_typoquote</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_typoquote/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Textformatierung: Typografische Anführungszeichen</summary>
 <groups>MARKUP</groups>
 <description>Wandelt normale Anführungszeichen in typografische Anführungszeichen</description>
 <maintainers><maintainer><name>Jonathan Spalink and Matthew Groeninger</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
+  <version>1.5.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_typoquote">
 <dir name="UTF-8">
@@ -10359,6 +10396,7 @@
 <file>lang_en.inc.php</file>
 <file>serendipity_event_typoquote.php</file>
 <file>smartypants.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -10375,6 +10413,7 @@
     <file>serendipity_event_typoquote/lang_en.inc.php</file>
     <file>serendipity_event_typoquote/serendipity_event_typoquote.php</file>
     <file>serendipity_event_typoquote/smartypants.php</file>
+    <file>serendipity_event_typoquote/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -10387,9 +10426,9 @@
 <description>Üblicherweise wird HTML in Kommentaren komplett entfernt (strip_tags). Hiermit wird HTML nur in seine Entities umgewandelt. Dieses Plugin sollte vor anderen Textformatierungs-Plugin stehen.</description>
 <maintainers><maintainer><name>Garvin Hicking, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4.1</version>
+  <version>1.4.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-04-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_unstrip_tags">
 <dir name="UTF-8">
@@ -10537,9 +10576,9 @@
 <description>Zeigt einfache Benutzerprofile</description>
 <maintainers><maintainer><name>Garvin Hicking, Falk Doering</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.31.2</version>
+  <version>0.31.3</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2020-03-29</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_userprofiles">
 <dir name="UTF-8">
@@ -10598,9 +10637,9 @@
 <description>Ältere Versionen werden gespeichert und können wiederhergestellt werden</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.11.2</version>
+  <version>0.11.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2017-01-09</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_versioning">
 <dir name="UTF-8">
@@ -10765,9 +10804,9 @@
 <description>Ermöglicht Links zu blog-internen Einträgen via [[Titel]], Links zu Statischen Seiten via ((Titel)) und einen Link zu beidem via {{Titel}}. Zudem wird ein Button zu internen Einträgen bereitgestellt. Referenzen können am Ende eines Blogeintrags eingehangen werden.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.25.2</version>
+  <version>0.25.3</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2017-04-10</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_wikilinks">
 <dir name="UTF-8">
@@ -10820,9 +10859,9 @@
 <description>Bindet eine andere Seite in einen IFRAME ein, der im Hauptteil angezeigt werden soll.</description>
 <maintainers><maintainer><name>Rob Antonishen, Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.11</version>
+  <version>0.11.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_wrapurl">
 <dir name="UTF-8">
@@ -10861,9 +10900,9 @@
 <description>Ermöglicht Einträge via XML-RPC API zu erstellen/bearbeiten (MT, Blogger, WordPress API-Endpunkte)</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.60.1</version>
+  <version>1.60.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-02-11</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_xmlrpc">
 <dir name="PEAR">
@@ -10924,9 +10963,9 @@
 <description>Dieses Plugin gibt an, welchen Autoren eines Mehrbenutzer-Blogs Sie genug trauen und von denen Sie keine Hackangriffe erwarten. Alle anderen Autoren dürfen kein HTML mehr verwenden!</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.7</version>
+  <version>0.7.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2017-03-06</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_xsstrust">
 <dir name="UTF-8">
@@ -11291,9 +11330,9 @@
 <description>Bietet mehr Schaltflächen für den Editor, um einen einfachen Zugriff auf HTML-/Javescript-Snippets wie Youtube usw. zu ermöglichen.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6</version>
+  <version>1.6.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_youtube">
 <dir name="UTF-8">
@@ -11332,9 +11371,9 @@
 <description>Ermöglicht es Blog-Besuchern sich einen eigenen Autoren-Account anzulegen. Zusammen mit dem Event-Plugin (index.php?serendipity[subpage]=adduser) kann eingestellt werden ob nur registrierte Benutzer Kommentare posten dürfen.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.38.3</version>
+  <version>2.38.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_adduser">
 <dir name="UTF-8">
@@ -11393,9 +11432,9 @@
 <description>Dieses Plugin ist eine Ergänzung zum flickr Fotostream-Seitenleistenplugin und sorgt für ein ansprechendes Aussehen der Bilddarstellung.</description>
 <maintainers><maintainer><name>Michael Kaiser</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.05</version>
+  <version>1.05.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_flickr">
 <dir name="UTF-8">
@@ -11488,9 +11527,9 @@
 <description>Verwaltet beliebige Umfragen!</description>
 <maintainers><maintainer><name>Garvin Hicking, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.17</version>
+  <version>2.17.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-03</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_pollbox">
 <dir name="UTF-8">
@@ -11541,9 +11580,9 @@
 <description>Fügt einen Twitter/Identica Client zum Administrator Interface hinzu, sucht nach Tweetbacks und kündigt neue Artikel über Twitter/Identica Accounts an.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Peter Heimann</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.70</version>
+  <version>1.70.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2018-04-03</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="UTF-8">

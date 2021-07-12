@@ -11,9 +11,9 @@
 <description>Zobrazuje v administrační sekci oznámení přihlášeným uživatelům</description>
 <maintainers><maintainer><name>Garvin Hicking, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.16</version>
+  <version>0.16.1</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_adminnotes">
 <dir name="UTF-8">
@@ -54,9 +54,9 @@
 <description>Zobrazuje zprávy z mnoha RSS kanálů. DŮLEŽITÁ POZNÁMKA: Aktualizace a &quot;krmení&quot; agregátoru je v současnosti nutno dělat ručně pomocí Cronjobs nebo podobně. Volejte následující adresu v libovolných časových intervalech: index.php?/plugin/aggregator</description>
 <maintainers><maintainer><name>Evan Nemerson, Garvin Hicking, Kristian Koehntopp, Thomas Schulz, Claus Schmidt</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.34.2</version>
+  <version>0.34.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_aggregator">
 <dir name="UTF-8">
@@ -147,9 +147,9 @@
 <description>Přidává tlačítko, které umožňuje vkládat do příspěvků výsledky hledání na Amazon.com</description>
 <maintainers><maintainer><name>Matthew Groeninger, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.76</version>
+  <version>0.76.1</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_amazonchooser">
 <dir name="UTF-8">
@@ -222,9 +222,9 @@
 <description>Umožňuje přiřadit příspěvku více kategorií</description>
 <maintainers><maintainer><name>Garvin Hicking, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4.2</version>
+  <version>1.4.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_assigncategories">
 <dir name="UTF-8">
@@ -271,9 +271,9 @@
 <description>Nastaví automaticky parametr title=&quot;...&quot; v odkazech - &amp;lt;a href=&quot;...&quot; title=&quot;...&quot;&amp;gt;.</description>
 <maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.1.12</version>
+  <version>0.1.13</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_autotitle">
 <dir name="UTF-8">
@@ -360,15 +360,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_backend</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_backend/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Zobrazování příspěvků pomocí JavaScriptu</summary>
 <groups>FRONTEND_FULL_MODS</groups>
 <description>Poskytuje Javascriptový výstup nejnovějších článků pro jejich vložení do cizích, externích stránek. (Přečtěte si soubor README v adresáři pluginu!)</description>
 <maintainers><maintainer><name>Alexander 'dma147' Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.6.2</version>
+  <version>0.6.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-24</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_backend">
 <dir name="UTF-8">
@@ -387,6 +388,7 @@
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_backend.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -405,20 +407,22 @@
     <file>serendipity_event_backend/lang_de.inc.php</file>
     <file>serendipity_event_backend/lang_en.inc.php</file>
     <file>serendipity_event_backend/serendipity_event_backend.php</file>
+    <file>serendipity_event_backend/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
 <package version="1.0">
 <name>serendipity_event_backendrss</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_backendrss/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Zobrazení RSS kanálu v administrační sekci</summary>
 <groups>BACKEND_FEATURES</groups>
 <description>Zobrazuje RSS kanál na přehledové stránce v administrační sekci (stránka těsně po přihlášení).</description>
 <maintainers><maintainer><name>Sebastian Nohn</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4</version>
+  <version>1.4.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_backendrss">
 <dir name="UTF-8">
@@ -432,6 +436,7 @@
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_backendrss.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -445,6 +450,7 @@
     <file>serendipity_event_backendrss/lang_de.inc.php</file>
     <file>serendipity_event_backendrss/lang_en.inc.php</file>
     <file>serendipity_event_backendrss/serendipity_event_backendrss.php</file>
+    <file>serendipity_event_backendrss/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -457,9 +463,9 @@
 <description>Zpřístupňuje možnost automatického zálohování Serendepity - databázových tabulek i souborů. V současnosti je podporována pouze databáze MySQL(i). VAROVÁNÍ: Plugin nefunguje optimálně s velkou databází nebo velkým množstvím souborů.</description>
 <maintainers><maintainer><name>Alexander 'dma147' Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.15.1</version>
+  <version>0.15.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-24</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_backup">
 <dir name="UTF-8">
@@ -516,9 +522,9 @@
 <description>Umožňuje autorům přihlašovat se do blogu pomocí služby BrowserID</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.0.1</version>
+  <version>2.0.2</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_browserid">
 <dir name="UTF-8">
@@ -1361,9 +1367,9 @@
 <description>Zobrazuje kalendář akcí jako samostatnou stránku v blogu. Design stránky zůstává stejný jako u zbytku blogu. (MySQL only)</description>
 <maintainers><maintainer><name>Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.77</version>
+  <version>1.77.1</version>
   <requirements:s9yVersion>1.4</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_cal">
 <dir name="UTF-8">
@@ -1456,9 +1462,9 @@
 <description>Tento plugin poskytuje přídavné vlastnosti pro kategorie a v nich obsažené příspěvky, včetně volitené šablony vzhledu, pořadí řazení, počet zobrazených příspěvků, ochranu heslem a schovávání RSS kanálu.</description>
 <maintainers><maintainer><name>Garvin Hicking, Judebert</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.35.2</version>
+  <version>0.35.3</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2020-06-11</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_categorytemplates">
 <dir name="UTF-8">
@@ -1509,9 +1515,9 @@
 <description>Používá CKEditor jako výchozí WYSIWYG editor. Tento editor je aktuálním state-of-art. Použití: Doporučeno! Po instalaci přejděte na stránku s nastavením tohoto pluginu a čtěte další instrukce.</description>
 <maintainers><maintainer><name>Rustam Abdullaev, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>4.5.10.5</version>
+  <version>4.5.10.6</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_ckeditor">
 <dir name="UTF-8">
@@ -1584,9 +1590,9 @@
 <description>Vydávejte na svém blogu komix</description>
 <maintainers><maintainer><name>Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
+  <version>1.5.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_comics">
 <dir name="UTF-8">
@@ -1635,9 +1641,9 @@
 <description>Povoluje uživatelům měnit vlastní komentáře i poté, co již byly odeslány.</description>
 <maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.2.3</version>
+  <version>0.2.4</version>
   <requirements:s9yVersion>1.5</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_commentedit">
 <dir name="UTF-8">
@@ -1739,9 +1745,9 @@
 <description>Okořeňte formulář pro zadání komentářů pomocí twitteru komentujícího, odkazem na poslední článek nebo pravidly pro ne-sledování.</description>
 <maintainers><maintainer><name>Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.10</version>
+  <version>1.10.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_commentspice">
 <dir name="UTF-8">
@@ -1816,9 +1822,9 @@
 <description>Zobrazuje kontaktní formulář k poslání e-mailu jako statickou stránku. Přístup k fromuláři buď pomocí stálého odkazu (permalinku) nebo na adrese index.php?serendipity[subpage]=contactform. Vzhled fromuláře si můžete upravit podle svého vložením souboru plugin_contactform.tpl do adresáře s Vaší šablonou. Kryptogramy z pluginu SpamBlock budou použity, pokud je SpamBlock nainstalován.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.22</version>
+  <version>1.22.1</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_contactform">
 <dir name="UTF-8">
@@ -1971,9 +1977,9 @@
 <description>Vybírá obrázky z webové galerie Coppermine</description>
 <maintainers><maintainer><name>Matthew Maude (modified by Jim Davies)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.09</version>
+  <version>2.09.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_cpgselector">
 <dir name="UTF-8">
@@ -2024,9 +2030,9 @@
 <description>Tento plugin periodicky vykonává pluginy, které poskytují/vyžadují opakované vykonávání. Podrobnosti v konfiguraci pluginu.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.10</version>
+  <version>0.10.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_cronjob">
 <dir name="UTF-8">
@@ -2114,9 +2120,9 @@
 <description>Zobrazuje návštěvníkovi blogu všechny dosud vydané články s možností třídění. Odkaz na tuto stránku by měl být vložen do HTML nugetu (bloku).</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.12.2</version>
+  <version>1.12.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_customarchive">
 <dir name="UTF-8">
@@ -2212,9 +2218,9 @@
 <description>Automaticky vytváří odkazy na citace a judikaturu (odkazy a zdroje informací) pomocí služby dejure.org.</description>
 <maintainers><maintainer><name>Garvin Hicking, dejure.org, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.8.4</version>
+  <version>1.8.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_dejure">
 <dir name="UTF-8">
@@ -2255,9 +2261,9 @@
 <description>Disqus.com je webová služba pro správu komentářů. Ukládá a spravuje komentáře vně instalace serendipity a je do blogu vkládána pomocí JavaScriptu. Pro více informací přejděte na www.disqus.com.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.5</version>
+  <version>0.5.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_disqus">
 <dir name="UTF-8">
@@ -2609,9 +2615,9 @@
 <description>Tento plugin je JavaScriptový zvýrazňovač syntaxe založený na stejnojmeném kódu Alexe Gorbačeva.Tento plugin zatěžuje server méně než GeSHi a vkládá méně značek do HTML kódu. Představuje čistější, odlehčenější alternativu ke GeSHi. Plugin vyžaduje použití šablony vzhledu, který podporuje následující hooky: frontend_header, frontend_footer (a volitelně také backend_preview prozobrazování i v administrační sekci).</description>
 <maintainers><maintainer><name>Alex Gorbatchev (core), Brendon Kozlowski and J.M. Roth (plugin)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.0.83.1</version>
+  <version>3.0.83.2</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_dpsyntaxhighlighter">
 <dir name="UTF-8">
@@ -2770,9 +2776,9 @@
 <description>This plugin aims to help blog owners apply conformity to the General Data Protection Regulation Act.</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.3</version>
+  <version>1.3.1</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2020-05-28</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_dsgvo_gdpr">
 <dir name="UTF-8">
@@ -2811,9 +2817,9 @@
 <description>Umožňuje vložit do blogu klikatelnou emailovou adresu, ale vkládá ji upravenou tak, aby ji nepoznaly internetové roboty, které hledají mailové adresy.</description>
 <maintainers><maintainer><name>Stephan Manske, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.03</version>
+  <version>1.03.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-01-06</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_email_bot_obfuscator">
 <dir name="UTF-8">
@@ -2866,9 +2872,9 @@
 <description>Zobrazí lištu se smajlíky, které je možné vložit do textu příspěvku nebo komentáře.</description>
 <maintainers><maintainer><name>Garvin Hicking, Jay Bertrandt, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.12</version>
+  <version>2.12.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-05-11</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_emoticonchooser">
 <dir name="UTF-8">
@@ -2914,15 +2920,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_entrycheck</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_entrycheck/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Pravidla vydávání příspěvků</summary>
 <groups>BACKEND_EDITOR</groups>
 <description>Provádí kontrolu příspěvku před jeho vydáním. Does not work with WYSIWYG-CKEDITOR!</description>
 <maintainers><maintainer><name>Garvin Hicking, Gregor Voeltz</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.16</version>
+  <version>1.16.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-03-23</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_entrycheck">
 <dir name="UTF-8">
@@ -2941,6 +2948,7 @@
 <file>lang_fr.inc.php</file>
 <file>lang_ja.inc.php</file>
 <file>serendipity_event_entrycheck.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -2959,6 +2967,7 @@
     <file>serendipity_event_entrycheck/lang_fr.inc.php</file>
     <file>serendipity_event_entrycheck/lang_ja.inc.php</file>
     <file>serendipity_event_entrycheck/serendipity_event_entrycheck.php</file>
+    <file>serendipity_event_entrycheck/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -2971,9 +2980,9 @@
 <description>Na úvodní stránce blogu zobrazuje u každého příspěvku zprávu o datu poslední změny. Pro příspěvky, které nikdy nebyly pozměňovány, zobrazuje zprávu, že nikdy nebyly měněny.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.10</version>
+  <version>1.10.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-06-09</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_entrylastmodified">
 <dir name="UTF-8">
@@ -3070,15 +3079,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_entrysplit</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_entrysplit/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Dělení dlouhých příspěvků</summary>
 <groups>BACKEND_EDITOR</groups>
 <description>Umožňuje rozdělit dlouhé příspěvky do několika podstránek</description>
 <maintainers><maintainer><name>Garvin Hicking, Tadashi Jokagi, Thomas Werner</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5.6</version>
+  <version>1.5.7</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_entrysplit">
 <dir name="UTF-8">
@@ -3097,6 +3107,7 @@
 <file>lang_ja.inc.php</file>
 <file>lang_tr.inc.php</file>
 <file>serendipity_event_entrysplit.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -3115,6 +3126,7 @@
     <file>serendipity_event_entrysplit/lang_ja.inc.php</file>
     <file>serendipity_event_entrysplit/lang_tr.inc.php</file>
     <file>serendipity_event_entrysplit/serendipity_event_entrysplit.php</file>
+    <file>serendipity_event_entrysplit/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -3127,9 +3139,9 @@
 <description>Umožňuje použít vnější zdroj pro zjišťování správnosti přihlašovacích údajů. Přihlašovací jména jsou cachována v Serendipity databázi. Tento plugin umí také sledovat přihlášení do Serendipity.</description>
 <maintainers><maintainer><name>Garvin Hicking/Justin Alcorn</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.23</version>
+  <version>1.23.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_externalauth">
 <dir name="UTF-8">
@@ -3178,9 +3190,9 @@
 <description>Zobrazuje výstup externí PHP aplikace uvnitř blogu, v designu a formátování blogu. POUŽÍVAT S ROZVAHOU, TENTO PLUGIN S SEBOU NESE BEZPEČNOSTNÍ RIZIKA, PROTOŽE UMOŽŇUJE VLOŽIT LIBOVOLNÝ PHP KÓD! TENTO PLUGIN MŮŽE POUŽÍVAT POUZE ADMINISTRÁTOR!</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4</version>
+  <version>1.4.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2018-08-06</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_externalphp">
 <dir name="UTF-8">
@@ -3223,9 +3235,9 @@
 <description>Importuje do blogu komentáře u příspěvků na facebooku (pomocí RSS Graffiti). Také do blogu vloží facebookové OpenGraph Meta-Tagy. Pamatujte, že přidání talčítka &quot;Líbí se mi&quot; k příspěvkům blogu je zajišťováno pluginem serendipity_event_findmore!</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.6</version>
+  <version>0.6.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_facebook">
 <dir name="UTF-8">
@@ -3444,9 +3456,9 @@
 <description>Flattr je platforma pro sociální mikroplatby, která čtenáři umožňuje ocenit drobným příspěvkem obsah, který se mu líbí. Tento plugin vkládá do příspěvků a RSS kanálů tlačítka &quot;Flattr&quot; (tzv. Flattr Badges). U každého příspěvku můžete jednotlivě zadat nastavení Flattru. Pokud tak neučiníte, použije se globální nastavení.</description>
 <maintainers><maintainer><name>Garvin Hicking, Joachim Breitner</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.14</version>
+  <version>1.14.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_flattr">
 <dir name="UTF-8">
@@ -3489,9 +3501,9 @@
 <description>Importuje obrázky z flickr.com do knihovny médií</description>
 <maintainers><maintainer><name>Jay Bertrand</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.6</version>
+  <version>0.6.1</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_flickr">
 <dir name="UTF-8">
@@ -3546,9 +3558,9 @@
 <description>Vybranému uživateli umožňuje změnit heslo.</description>
 <maintainers><maintainer><name>Omid Mottaghi</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.12.2</version>
+  <version>0.12.3</version>
   <requirements:s9yVersion>0.9.1</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_forgotpassword">
 <dir name="UTF-8">
@@ -3599,9 +3611,9 @@
 <description>Poskytuje kompletní diskusní fórum. Alternativě umožňuje přístup do diskusního fóra phpBB.</description>
 <maintainers><maintainer><name>Alexander 'dma147' Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.38.5</version>
+  <version>0.38.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-24</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_forum">
 <dir name="UTF-8">
@@ -3880,9 +3892,9 @@
 <description>Umožňuje libovolné přidávání klíčových slov k příspěvkům</description>
 <maintainers><maintainer><name>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.70.2</version>
+  <version>3.70.3</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2021-07-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <dir name="UTF-8">
@@ -3989,9 +4001,9 @@
 <description>Vkládá album nebo obrázek z fotoalba aplikace Gallery pomocí značky v textu příspěvku.</description>
 <maintainers><maintainer><name>Rob Antonishen, Alexander Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.13</version>
+  <version>1.13.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_galleryimage">
 <dir name="UTF-8">
@@ -4071,9 +4083,9 @@
 <description>Umožňuje přidat k příspěvku zeměpisné souřadnice - geotag</description>
 <maintainers><maintainer><name>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Martin Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.36</version>
+  <version>1.36.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-05-29</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_geotag">
 <dir name="UTF-8">
@@ -4128,9 +4140,9 @@
 <description>GeoURL vkládá informace o zeměpisné poloze URL blogu. Více informací na http://geourl.org/</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4.2</version>
+  <version>1.4.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_geourl">
 <dir name="UTF-8">
@@ -4177,9 +4189,9 @@
 <description>Barevné zvýrazňování syntaxe počítačových jazyků. Použití tagů: [geshi lang=nazev_jazyku [,ln={y|n}]]programový kód[/geshi]</description>
 <maintainers><maintainer><name>David Rolston</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1</version>
+  <version>1.1.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2019-06-10</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_geshi">
 <dir name="UTF-8">
@@ -4748,9 +4760,9 @@
 <description>Používá knihovnu getID3() k získání doplňujících informací o audio/video souborech. getID3() samotná není distribuována s tímto pluginem.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4</version>
+  <version>1.4.1</version>
   <requirements:s9yVersion>1.1</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_getid3">
 <dir name="UTF-8">
@@ -4790,15 +4802,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_glossary</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_glossary/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Rejstřík</summary>
 <groups>MARKUP</groups>
 <description>Uživatelem definovaný rejstřík slov, která se v textu zvýrazňují a po najetí myší se k nim v malém rámečku ukazuje vysvětlivka</description>
 <maintainers><maintainer><name>Rob Antonishen</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.7.1</version>
+  <version>1.7.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_glossary">
 <dir name="UTF-8">
@@ -4814,6 +4827,7 @@
 <file>lang_it.inc.php</file>
 <file>lang_ja.inc.php</file>
 <file>serendipity_event_glossary.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -4829,6 +4843,7 @@
     <file>serendipity_event_glossary/lang_it.inc.php</file>
     <file>serendipity_event_glossary/lang_ja.inc.php</file>
     <file>serendipity_event_glossary/serendipity_event_glossary.php</file>
+    <file>serendipity_event_glossary/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -4841,9 +4856,9 @@
 <description>Tento plugin přidává vašemu blogu rošířené funkce Google Analytics jako je například sledování odkazů nebo stažených souborů.</description>
 <maintainers><maintainer><name>kleinerChemiker</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4.3</version>
+  <version>1.4.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-24</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_google_analytics">
 <dir name="CVSROOT">
@@ -4912,9 +4927,9 @@
 <description>Vytváří soubor sitemap.xml.gz, který používají nejrůznější webové vyhledávače (Google, MSN, Yahoo nebo Ask)</description>
 <maintainers><maintainer><name>Boris</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.61</version>
+  <version>0.61.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-04-19</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_google_sitemap">
 <dir name="UTF-8">
@@ -5324,9 +5339,9 @@
 <description>Zobrazuje návštěvní knihu jako stránku blogu. Vzhled je totožný s ostatními stránkami.</description>
 <maintainers><maintainer><name>Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.61.1</version>
+  <version>3.61.2</version>
   <requirements:s9yVersion>1.7.0</requirements:s9yVersion>
-  <date>2019-08-18</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="UTF-8">
@@ -5487,9 +5502,9 @@
 <description>Ověřuje uživatele pomocí HTTP auth s použitím jejich serendipity přihlašovacích dat.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.7</version>
+  <version>1.7.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_httpauth">
 <dir name="UTF-8">
@@ -5528,9 +5543,9 @@
 <description>Rozšiřuje možnosti vkládání obrázků z knihovny médií - quickblog a hromadné vkládání obrázků (více v dokumentaci v adresáři plugins/serendipity_evnets_imageselectorplus) [verze Serendipity &gt;= 0.9].</description>
 <maintainers><maintainer><name>Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.52</version>
+  <version>0.52.1</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_imageselectorplus">
 <dir name="UTF-8">
@@ -5591,9 +5606,9 @@
 <description>Umožňuje přidat do příspěvku tagy, které zajistí vložení část jiného příspěvku. Použijte tuto značku: [s9y-include-entry:XXX:YYY]. Nahraďte XXX číslem ID odkazovaného příspěvku a YYY nahraďte názvem pole příspěvku, které chcete vložit (např. &quot;body&quot;, &quot;title&quot;, &quot;extended&quot;, ...). Také můžete využít nové funkce menu pro správu šablon a bloků, které je možno vložit mezi příspěvky.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.18</version>
+  <version>2.18.1</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_includeentry">
 <dir name="UTF-8">
@@ -5768,15 +5783,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_kubrickheader</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_kubrickheader/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Záhlaví šablony/Obrázek - logo</summary>
 <groups>IMAGES</groups>
 <description>Přepínání obrázku v záhlaví pro různé šablony</description>
 <maintainers><maintainer><name>Garvin Hicking, Sebastian Mayeres, Jude Anthony</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5.1</version>
+  <version>1.5.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_kubrickheader">
 <dir name="UTF-8">
@@ -5789,6 +5805,7 @@
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_kubrickheader.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -5801,20 +5818,22 @@
     <file>serendipity_event_kubrickheader/lang_de.inc.php</file>
     <file>serendipity_event_kubrickheader/lang_en.inc.php</file>
     <file>serendipity_event_kubrickheader/serendipity_event_kubrickheader.php</file>
+    <file>serendipity_event_kubrickheader/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
 <package version="1.0">
 <name>serendipity_event_layout_printerfriendly</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_layout_printerfriendly/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Layout plugin: verze pro tisk</summary>
 <groups>BACKEND_TEMPLATES</groups>
 <description>Při použití funkce &quot;vytisknout stránku&quot; v prohlížeči uvidíte výstup, který bude na tiskárně lépe vypadat.</description>
 <maintainers><maintainer><name>Sebastian Nohn</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1</version>
+  <version>1.1.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_layout_printerfriendly">
 <dir name="UTF-8">
@@ -5831,6 +5850,7 @@
 <file>lang_en.inc.php</file>
 <file>lang_tr.inc.php</file>
 <file>serendipity_event_layout_printerfriendly.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -5847,6 +5867,7 @@
     <file>serendipity_event_layout_printerfriendly/lang_en.inc.php</file>
     <file>serendipity_event_layout_printerfriendly/lang_tr.inc.php</file>
     <file>serendipity_event_layout_printerfriendly/serendipity_event_layout_printerfriendly.php</file>
+    <file>serendipity_event_layout_printerfriendly/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -5859,9 +5880,9 @@
 <description>Lightbox JS is a simple, unobtrusive script used to overlay images on the current page. It's a snap to setup and works with all modern browsers. All lightboxes pop-up images. This plugin searches through your entries, and replaces every image 'a href=&quot;XXX&quot;' link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. These lightbox scripts are all jQuery based. They do not only support image types, they may also add support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for image lightboxes only, but you can easily add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.</description>
 <maintainers><maintainer><name>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.5.2</version>
+  <version>2.5.3</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2019-09-20</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_lightbox">
 <dir name="UTF-8">
@@ -6287,9 +6308,9 @@
 <description>Zobrazuje metatagy &lt;link rel=&quot;start|up|prev|next&quot;&gt; v HTML hlavičce stránky blogu. To umožňuje v některých prohlížečích lepší navigaci ve stránkách.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5.1</version>
+  <version>1.5.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_linktoolbar">
 <dir name="UTF-8">
@@ -6336,9 +6357,9 @@
 <description>Umožňuje zkrátit odkaz na Váš blog, podobně jako třeba tr.im, tinyurl.com apod.</description>
 <maintainers><maintainer><name>Garvin Hicking, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6.4</version>
+  <version>1.6.5</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_linktrimmer">
 <dir name="UTF-8">
@@ -6568,9 +6589,9 @@
 <description>Používá XMLRPC protokol pro zasílání příspěvků na LiveJournal/MySpace/Serendipity</description>
 <maintainers><maintainer><name>Kaustubh Srikanth, Ivan Makhonin</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.13.3</version>
+  <version>1.13.4</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_ljupdate">
 <dir name="UTF-8">
@@ -6610,15 +6631,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_loginform</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_loginform/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Ověření přihlášení autorů</summary>
 <groups>FRONTEND_FEATURES</groups>
 <description>Ověřuje správnost přihlašovacích údajů autora, který se přihlašuje přes formulář v postranním sloupci</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.04</version>
+  <version>1.04.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_loginform">
 <dir name="UTF-8">
@@ -6631,6 +6653,7 @@
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_loginform.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -6643,6 +6666,7 @@
     <file>serendipity_event_loginform/lang_de.inc.php</file>
     <file>serendipity_event_loginform/lang_en.inc.php</file>
     <file>serendipity_event_loginform/serendipity_event_loginform.php</file>
+    <file>serendipity_event_loginform/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -6655,9 +6679,9 @@
 <description>Umožňuje uživatelům poslat příspěvek emailem kamarádovi. Dejte pozor, tento plugin může zvýšit provoz po síti, pokud začnou   spamboti zneužívat této funkce.</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.24</version>
+  <version>1.24.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_mailentry">
 <dir name="UTF-8">
@@ -6720,9 +6744,9 @@
 <description>Převádí značky Markdown na HTML v textu příspěvku</description>
 <maintainers><maintainer><name>Serendipity Team, Jan Lehnardt and Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.30</version>
+  <version>1.30.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-05-11</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_markdown">
 <dir name="UTF-8">
@@ -6815,9 +6839,9 @@
 <description>Přečteno/Nepřečteno označování příspěvků uživateli</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
+  <version>1.5.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_markread">
 <dir name="UTF-8">
@@ -6858,9 +6882,9 @@
 <description>Zadejte HTML meta tagy pro klíčová slova nebo popis blogu. Také můžete zadávat různý titulek pro jednotlivé stránky blogu a výchozí hodnotu pro klíčová slova/popis pro stránky se zobrazenm více příspěvků (výchozí stránka, přehledy kategorií).</description>
 <maintainers><maintainer><name>Garvin Hicking, Judebert, Don Chambers</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.15.6</version>
+  <version>0.15.7</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-04-19</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_metadesc">
 <dir name="UTF-8">
@@ -6911,9 +6935,9 @@
 <description>Tento plugin poskytuje jednoduché publikování přehledů (nebo událostí); podporuje příslušné mikroformáty.</description>
 <maintainers><maintainer><name>Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.46.2</version>
+  <version>0.46.3</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_microformats">
 <dir name="UTF-8">
@@ -6983,15 +7007,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_mimetex</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_mimetex/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Interpret příkazů MimeTex/LaTeX</summary>
 <groups>MARKUP</groups>
 <description>Vytvoří obrázky gif z výrazu TeX použitím softwaru MimeTex nebo LaTeX</description>
 <maintainers><maintainer><name>Matthew Groeninger</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4</version>
+  <version>1.4.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_mimetex">
 <dir name="UTF-8">
@@ -7012,6 +7037,7 @@
 <file>lang_en.inc.php</file>
 <file>serendipity_event_mimetex.js</file>
 <file>serendipity_event_mimetex.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -7028,6 +7054,7 @@
     <file>serendipity_event_mimetex/lang_en.inc.php</file>
     <file>serendipity_event_mimetex/serendipity_event_mimetex.js</file>
     <file>serendipity_event_mimetex/serendipity_event_mimetex.php</file>
+    <file>serendipity_event_mimetex/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7035,14 +7062,14 @@
 <name>serendipity_event_mobile_output</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_mobile_output/ChangeLog</changelog>
 <license>GPL</license>
-<summary></summary>
+<summary>Markup: Výstup na mobil</summary>
 <groups>MARKUP</groups>
-<description></description>
+<description>Tento plugin se stará o vytvoření kódu optimalizovaného pro mobilní telefony (tzv. XHTML MP), pokud zjistí, že stránku prohlíží prohlížeč pro mobily. Plugin je speciálně optimalizován pro iPhone a iPod Touch. Plugin také mění velikost obrázků, aby se přizpůsobily velikosti displeje.</description>
 <maintainers><maintainer><name>Pelle Boese, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.04.2</version>
+  <version>1.04.3</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2017-08-06</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_mobile_output">
 <dir name="UTF-8">
@@ -7296,9 +7323,9 @@
 <description>Správa osobního kalendáře</description>
 <maintainers><maintainer><name>Garvin Hicking, Markus Gerstel, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.17.1</version>
+  <version>0.18.1</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_mycalendar">
 <dir name="UTF-8">
@@ -7353,9 +7380,9 @@
 <description>Umožňuje vám přidávat vaší momentální náladu nebo nálady k příspvěkům.</description>
 <maintainers><maintainer><name>Brett Profitt, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.12.1</version>
+  <version>0.12.2</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_mymood">
 <dir name="UTF-8">
@@ -7391,15 +7418,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_newsbox</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_newsbox/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Blok s novinkami</summary>
 <groups>FRONTEND_VIEWS,FRONTEND_FEATURES</groups>
 <description>Seskupte příspěvky z jedné kategorie na výchozí stránce blogu do jednoho bloku místo obvyklého výpisu příspěvků. Podporuje vnořené bloky s novinkami.</description>
 <maintainers><maintainer><name>Jude Anthony</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.6</version>
+  <version>0.6.1</version>
   <requirements:s9yVersion>1.0-alpha1</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_newsbox">
 <dir name="UTF-8">
@@ -7411,6 +7439,7 @@
 <file>lang_en.inc.php</file>
 <file>newsbox.tpl</file>
 <file>serendipity_event_newsbox.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -7422,6 +7451,7 @@
     <file>serendipity_event_newsbox/lang_en.inc.php</file>
     <file>serendipity_event_newsbox/newsbox.tpl</file>
     <file>serendipity_event_newsbox/serendipity_event_newsbox.php</file>
+    <file>serendipity_event_newsbox/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7434,9 +7464,9 @@
 <description>oEmbed je formát, který umožňuje vkládat do blogu jiné stránky z internetu. Umožňuje zobrazovat v příspěvcích vložený obsah (jako tweety, fotky nebo videa), když autor příspěvku napíše odkaz na zdroj obsahu, aniž by bylo potřeba přímo parsovat cílovou stránku.</description>
 <maintainers><maintainer><name>Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.20</version>
+  <version>1.20.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-01-10</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_oembed">
 <dir name="UTF-8">
@@ -7521,9 +7551,9 @@
 <description>Umožňuje autorům přihlásit se pomocí OpenID.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Rob Richards</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.2.3</version>
+  <version>1.2.4</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_openid">
 <dir name="PHP-openid">
@@ -7700,7 +7730,7 @@
 <release>
   <version>0.3.7</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
-  <date>2021-05-29</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_osm">
 <dir name="UTF-8">
@@ -7755,7 +7785,7 @@
 <release>
   <version>0.3.7</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
-  <date>2021-05-29</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_osm">
 <dir name="UTF-8">
@@ -7808,9 +7838,9 @@
 <description>Pro nepřihlášené čtenáře schová všechny příspěvky starší než nastavený čas, tyto příspěvky jsou viditelné pouze přihlášeným uživatelům/autorům.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6</version>
+  <version>1.6.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-12-11</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_outdate_entries">
 <dir name="UTF-8">
@@ -7908,9 +7938,9 @@
 <description>Přidá do příspěvku jednu fotku</description>
 <maintainers><maintainer><name>Cameron MacFarland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6.1</version>
+  <version>1.6.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_photoblog">
 <dir name="UTF-8">
@@ -7957,9 +7987,9 @@
 <description>Přidává &quot;podcastovací&quot; možnosti (RSS zapouzdření, přehrávač videa a/nebo hudby)</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Hannes Gassert, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.37.5</version>
+  <version>1.37.6</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2021-03-06</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_podcast">
 <dir name="UTF-8">
@@ -8196,9 +8226,9 @@
 <description>Stahuje zprávy z emailu a zobrazí je včetně příloh v bloku v postranním sloupci (speciální podpora pro mobilní telefony)</description>
 <maintainers><maintainer><name>Jason Levitt</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.49</version>
+  <version>1.49.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-09-09</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_popfetcher">
 <dir name="UTF-8">
@@ -8269,9 +8299,9 @@
 <description>Použít skript Prettify pro vybroušení obsahu mezi tagy &amp;lt;PRE&amp;gt; pro jednoduché zvýrazňování syntaxe.</description>
 <maintainers><maintainer><name>Adam Krause</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6.2</version>
+  <version>1.6.3</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2016-03-18</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_prettify">
 <dir name="UTF-8">
@@ -8336,9 +8366,9 @@
 <description>Nastaví správnou návštěvnickou IP adresu pro čtenáře, kteří používají Proxy webserver. Měl by být prvním pluginem v seznamu pluginů.</description>
 <maintainers><maintainer><name>kleinerChemiker</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
   <requirements:s9yVersion>1.6.2</requirements:s9yVersion>
-  <date>2020-03-24</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_proxy_realip">
 <dir name="UTF-8">
@@ -8376,15 +8406,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_randomblogdescription</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_randomblogdescription/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Náhodný podtitulek blogu</summary>
 <groups>BACKEND_METAINFORMATION</groups>
 <description>Zobrazuje náhodný podtitulek v záhlaví blogu. (Oddělená databáze musí být spravována ručně)</description>
 <maintainers><maintainer><name>Florian Anderiasch</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.6</version>
+  <version>0.6.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_randomblogdescription">
 <dir name="UTF-8">
@@ -8397,6 +8428,7 @@
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_randomblogdescription.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -8409,20 +8441,22 @@
     <file>serendipity_event_randomblogdescription/lang_de.inc.php</file>
     <file>serendipity_event_randomblogdescription/lang_en.inc.php</file>
     <file>serendipity_event_randomblogdescription/serendipity_event_randomblogdescription.php</file>
+    <file>serendipity_event_randomblogdescription/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
 <package version="1.0">
 <name>serendipity_event_realtimecomments</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_realtimecomments/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Komentáře v reálném čase</summary>
 <groups>FRONTEND_VIEWS</groups>
 <description>Aktualizuje komentáře od ostatních uživatelů bez znovunačtení stránky.</description>
 <maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.1.3</version>
+  <version>0.1.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_realtimecomments">
 <dir name="UTF-8">
@@ -8437,6 +8471,7 @@
 <file>lang_en.inc.php</file>
 <file>rtcomments.js</file>
 <file>serendipity_event_realtimecomments.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -8451,6 +8486,7 @@
     <file>serendipity_event_realtimecomments/lang_en.inc.php</file>
     <file>serendipity_event_realtimecomments/rtcomments.js</file>
     <file>serendipity_event_realtimecomments/serendipity_event_realtimecomments.php</file>
+    <file>serendipity_event_realtimecomments/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -8463,9 +8499,9 @@
 <description>Při vkládání komentářů používá systém kryptogramů Recaptcha (je třeba předem zažádat o přístupový klíč)</description>
 <maintainers><maintainer><name>Christian Brabandt (based on work of Garvin Hicking, Sebastian Nohn)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.20.3</version>
+  <version>0.20.4</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2018-03-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_recaptcha">
 <dir name="UTF-8">
@@ -8573,9 +8609,9 @@
 <description>Vložte odkazy na podobné príspevky/stránky. K lepšímu prizpusobení výstupu mužete upravit Smarty šablonu &quot;plugin_relatedlinks.tpl&quot;. Tento modul zobrazuje data pouze v detailním zobrazení príspevku.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.8.2</version>
+  <version>1.8.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_relatedlinks">
 <dir name="UTF-8">
@@ -8717,9 +8753,9 @@
 <description>Smrští postranní sloupce pouze na jejich nadpisy. Přidává nastavení do psaní příspěvků a také položku &quot;Správa postranních sloupců&quot; do administrační sekce.</description>
 <maintainers><maintainer><name>Tys von Gaza, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.25.1</version>
+  <version>1.25.2</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_sidebarhider">
 <dir name="UTF-8">
@@ -8813,9 +8849,9 @@
 <description>Použití SMTP serveru pro odesílání pošty</description>
 <maintainers><maintainer><name>kleinerChemiker</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.12</version>
+  <version>0.12.1</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_smtpmail">
 <dir name="UTF-8">
@@ -8943,9 +8979,9 @@
 <description>Detekce spamu pomocí adaptivního algoritmu, který se dokáže sám učit.</description>
 <maintainers><maintainer><name>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1.3</version>
+  <version>1.1.4</version>
   <requirements:s9yVersion>2.1</requirements:s9yVersion>
-  <date>2021-05-26</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bayes">
 <dir name="UTF-8">
@@ -9028,9 +9064,9 @@
 <description>Implementuje jednoduché ale velmi účinné antispamové algoritmy.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Janek Bevendorff</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.3.2</version>
+  <version>1.3.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-06-07</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bee">
 <dir name="UTF-8">
@@ -9079,9 +9115,9 @@
 <description>Odmítne komentáře, které jsou zadány ze adres, které jsou vedeny v blacklistu RBL. Pozor, že tato volba může znemožnit posílání komentářů uživatelům, kteří sedí za proxy serverem nebo kteří používají vytáčené spojení.</description>
 <maintainers><maintainer><name>Sebastian Nohn</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5.1</version>
+  <version>1.5.2</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_spamblock_rbl">
 <dir name="UTF-8">
@@ -9126,9 +9162,9 @@
 <description>Zamítne komentáře, které obsahují URL adresy z černé listiny.</description>
 <maintainers><maintainer><name>Sebastian Nohn</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.2</version>
+  <version>1.2.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_spamblock_surbl">
 <dir name="UTF-8">
@@ -9171,9 +9207,9 @@
 <description>Umožňuje zobrazovat na výchozí stránce blogu příspěvky pouze z jedné kategorie</description>
 <maintainers><maintainer><name>Stefan Willoughby, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.11</version>
+  <version>1.11.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_startcat">
 <dir name="UTF-8">
@@ -9212,9 +9248,9 @@
 <description>Zobrazuje v blogu statické stránky se stejným designem jako mají běžné přspěvky. Přidá nové menu do adminstrátorského rozhraní.</description>
 <maintainers><maintainer><name>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>4.15.6</version>
+  <version>4.15.7</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2021-06-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_staticpage">
 <dir name="UTF-8">
@@ -9458,9 +9494,9 @@
 <description>Umožňuje neregistrovaným návštěvníkům navrhovat články, které by se měly vydat.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.11.3</version>
+  <version>0.11.4</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_suggest">
 <dir name="UTF-8">
@@ -9616,9 +9652,9 @@
 <description>Vkládá reklamy do blogu.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.13</version>
+  <version>0.13.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_textlinkads">
 <dir name="UTF-8">
@@ -9751,9 +9787,9 @@
 <description>Zobrazí stránku s náhledy článků. Její adresa je index.php?serendipity[page]=thumbs</description>
 <maintainers><maintainer><name>Cameron MacFarland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4.1</version>
+  <version>1.4.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_thumbnails">
 <dir name="UTF-8">
@@ -9865,9 +9901,9 @@
 <description>Správa seznamu projektů/úkolů a jejich splnění v procentech</description>
 <maintainers><maintainer><name>Steven Tonnesen, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.25.1</version>
+  <version>1.25.3</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2017-04-10</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_todolist">
 <dir name="UTF-8">
@@ -10032,9 +10068,9 @@
 <description>Aktivuje obrázky a texty nápovědy.</description>
 <maintainers><maintainer><name>Enrico Stahn</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6</version>
+  <version>1.6.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-02-04</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_tooltips">
 <dir name="UTF-8">
@@ -10334,6 +10370,7 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_typoquote</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_typoquote/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Markup: Typografické uvozovky</summary>
 <groups>MARKUP</groups>
@@ -10341,9 +10378,9 @@
 aplikovány další typografické úpravy.</description>
 <maintainers><maintainer><name>Jonathan Spalink and Matthew Groeninger</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
+  <version>1.5.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_typoquote">
 <dir name="UTF-8">
@@ -10360,6 +10397,7 @@ aplikovány další typografické úpravy.</description>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_typoquote.php</file>
 <file>smartypants.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -10376,6 +10414,7 @@ aplikovány další typografické úpravy.</description>
     <file>serendipity_event_typoquote/lang_en.inc.php</file>
     <file>serendipity_event_typoquote/serendipity_event_typoquote.php</file>
     <file>serendipity_event_typoquote/smartypants.php</file>
+    <file>serendipity_event_typoquote/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -10388,9 +10427,9 @@ aplikovány další typografické úpravy.</description>
 <description>Umožňuje vkládat HTML tagy do komentářů k příspěvkům (místo jejich odstranění, bez tohoto modulu jsou převáděny na HTML entity). Musí být první ze všech značkovacích (markup) pluginů v seznamu pluginů událostí!</description>
 <maintainers><maintainer><name>Garvin Hicking, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4.1</version>
+  <version>1.4.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-04-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_unstrip_tags">
 <dir name="UTF-8">
@@ -10538,9 +10577,9 @@ aplikovány další typografické úpravy.</description>
 <description>Zobrazuje jednoduché profily uživatelů a dovoluje přiložit jejich fotku.</description>
 <maintainers><maintainer><name>Garvin Hicking, Falk Doering</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.31.2</version>
+  <version>0.31.3</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2020-03-29</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_userprofiles">
 <dir name="UTF-8">
@@ -10599,9 +10638,9 @@ aplikovány další typografické úpravy.</description>
 <description>Umožňuje ukládat starší verze příspěvků a obnovovat je</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.11.2</version>
+  <version>0.11.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2017-01-09</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_versioning">
 <dir name="UTF-8">
@@ -10766,9 +10805,9 @@ aplikovány další typografické úpravy.</description>
 <description>V příspěvcích můžete zadat odkazy na existující/nové příspěvky pomocí [[nadpis příspěvku]], na statické stránky pomocí ((nadpis stránky)) a na obojí pomocí {{nadpis}}.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.25.2</version>
+  <version>0.25.3</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2017-04-10</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_wikilinks">
 <dir name="UTF-8">
@@ -10821,9 +10860,9 @@ aplikovány další typografické úpravy.</description>
 <description>Do těla blogu vloží IFRAME, který zobrazuje jinou cizí stránku</description>
 <maintainers><maintainer><name>Rob Antonishen, Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.11</version>
+  <version>0.11.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_wrapurl">
 <dir name="UTF-8">
@@ -10862,9 +10901,9 @@ aplikovány další typografické úpravy.</description>
 <description>Umožňuje posílat/editovat příspěvky pomocí XML-RPC API (MT, Blogger, WordPress Endpoints)</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.60.1</version>
+  <version>1.60.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-02-11</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_xmlrpc">
 <dir name="PEAR">
@@ -10925,9 +10964,9 @@ aplikovány další typografické úpravy.</description>
 <description>Tento plugin umožňuje upřesnit, kteří autoři na více-uživatelském blogu jsou důvěryhodní a lze se spolehnout, že se nebudou pokoušet o hackování. Všichni ostatní autoři jsou bráni jako potenciálně nebezpeční a nemohou vytvřátet příspěvky v HTML kódu.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.7</version>
+  <version>0.7.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2017-03-06</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_xsstrust">
 <dir name="UTF-8">
@@ -11292,9 +11331,9 @@ aplikovány další typografické úpravy.</description>
 <description>Přidává tlačítka do editačního formuláře pro lehčí vkládání HTML/JS akriptů jako např. Youtube apod.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6</version>
+  <version>1.6.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_youtube">
 <dir name="UTF-8">
@@ -11333,9 +11372,9 @@ aplikovány další typografické úpravy.</description>
 <description>Umožňuje návštěvníkům webu vytvořit si vlastní uživatelský účet. Dohromady s pluginem událostí (index.php?serendipity[subpage]=adduser) můžete určit, jestli komentáře mohou posílat pouze registrovaní uživatelé.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.38.3</version>
+  <version>2.38.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_adduser">
 <dir name="UTF-8">
@@ -11394,9 +11433,9 @@ aplikovány další typografické úpravy.</description>
 <description>Tento plugin je rozšířením postranního pluginu &quot;Flickr Photostream&quot; a přidává k němu stylování (CSS).</description>
 <maintainers><maintainer><name>Michael Kaiser</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.05</version>
+  <version>1.05.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_flickr">
 <dir name="UTF-8">
@@ -11489,9 +11528,9 @@ aplikovány další typografické úpravy.</description>
 <description>Správa anket</description>
 <maintainers><maintainer><name>Garvin Hicking, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.17</version>
+  <version>2.17.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-03</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_pollbox">
 <dir name="UTF-8">
@@ -11542,9 +11581,9 @@ aplikovány další typografické úpravy.</description>
 <description>Přidává klienta Twitter/Identica do administrační sekce a stahuje nové tweety a oznámuje nové články na účtu mikroblogu.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Peter Heimann</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.70</version>
+  <version>1.70.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2018-04-03</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="UTF-8">

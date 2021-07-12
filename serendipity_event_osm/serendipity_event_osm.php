@@ -36,8 +36,8 @@
 		function get_page_categories()
 		{
 			global $serendipity;
-			$vars = $serendipity['smarty']->get_template_vars();
-			switch ($vars['view']) {
+			$vars = $serendipity['smarty']->get_template_vars() ?? [];
+			switch ($vars['view'] ?? '') {
 				case 'entry':
 					return array_map(function($x) {
 						return $x['categoryid'];
@@ -46,7 +46,7 @@
 					return $serendipity['POST']['multiCat'] ?? [$vars['category']];
 				case 'plugin':
 				case 'start':
-					return $vars['staticpage_related_category_id'] !== '0'
+					return ($vars['staticpage_related_category_id'] ?? 0) !== '0'
 						? [$vars['staticpage_related_category_id']]
 						: [];
 			}

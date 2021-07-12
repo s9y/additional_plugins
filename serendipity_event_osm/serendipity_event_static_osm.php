@@ -48,11 +48,11 @@
 					$tmpFile = tmpfile();
 					fwrite($tmpFile, '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?><gpx version="1.1" creator="surrim.org" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">');
 					$gpx = simplexml_load_file($fileName);
-					foreach ($gpx->trk as $trk) {
+					foreach (($gpx->trk ?? []) as $trk) {
 						fwrite($tmpFile, '<trk>');
-						foreach($trk->trkseg as $seg) {
+						foreach (($trk->trkseg ?? []) as $seg) {
 							fwrite($tmpFile, '<trkseg>');
-							foreach($seg->trkpt as $pt) {
+							foreach (($seg->trkpt ?? []) as $pt) {
 								fwrite($tmpFile, '<trkpt lat="'.$pt['lat'].'" lon="'.$pt['lon'].'"><ele>'.$pt->ele.'</ele></trkpt>');
 							}
 							fwrite($tmpFile, '</trkseg>');

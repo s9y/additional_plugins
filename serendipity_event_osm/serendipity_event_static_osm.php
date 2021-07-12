@@ -13,21 +13,21 @@
 			$propbag->add('name', PLUGIN_EVENT_STATIC_OSM_NAME);
 			$propbag->add('description', PLUGIN_EVENT_STATIC_OSM_DESCRIPTION);
 			$propbag->add('copyright', 'GPL');
-			$propbag->add('configuration', array('compress_gpx'));
-			$propbag->add('event_hooks', array(
+			$propbag->add('configuration', ['compress_gpx']);
+			$propbag->add('event_hooks', [
 				'frontend_header' => true,
 				'backend_image_add' => true
-			));
+			]);
 			$propbag->add('author', PLUGIN_EVENT_OSM_AUTHOR);
 			$propbag->add('version', PLUGIN_EVENT_OSM_VERSION);
-			$propbag->add('requirements', array(
+			$propbag->add('requirements', [
 				'serendipity' => '2.3'
-			));
+			]);
 			$propbag->add('stackable', false);
-			$propbag->add('groups', array('FRONTEND_ENTRY_RELATED'));
-			$this->dependencies = array(
+			$propbag->add('groups', ['FRONTEND_ENTRY_RELATED']);
+			$this->dependencies = [
 				'serendipity_event_geo_osm' => 'keep'
-			);
+			];
 		}
 
 		function generate_content(&$title)
@@ -70,7 +70,7 @@
 					fclose($tmpFile);
 
 					$fileId = $addData['image_id'];
-					serendipity_updateImageInDatabase(array('size' => $fileSize), $fileId);
+					serendipity_updateImageInDatabase(['size' => $fileSize], $fileId);
 				}
 			}
 		}

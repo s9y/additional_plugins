@@ -1,56 +1,54 @@
+0.3.8:
+---
+ * Using short array init, fixed PHP 8 warnings
+ * Fixed handling with empty gpx files
+ * Removed "?>" from php files and changed indentation
+
 0.3.7:
 ---
-
-* Added README.md
-* Set default category id to "without"
-* Escape map parameter
-* Path description fixed for many paths
-* Default path for *.gpx files
+ * Added README.md
+ * Set default category id to "without"
+ * Escape map parameter
+ * Path description fixed for many paths
+ * Default path for *.gpx files
 
 0.3.6:
 ---
-
-* Using VectorImage instead of Vector
-* Fixed compressed *.gpx size bug
-* Compress *.gpx files only
+ * Using VectorImage instead of Vector
+ * Fixed compressed *.gpx size bug
+ * Compress *.gpx files only
 
 0.3.5:
 ---
-
-* Plugin dependencies added
-* More understandable translations
-* Performance updates
-* Count distances only once
-* Bugfix for "no categories"
-* Added missing php 7.0 dependency
-* Preloading fixed
+ * Plugin dependencies added
+ * More understandable translations
+ * Performance updates
+ * Count distances only once
+ * Bugfix for "no categories"
+ * Added missing php 7.0 dependency
+ * Preloading fixed
 
 0.3.4:
 ---
-
-* Avoid using translation from page nugget
-* Preloading enabled
-* Show track length in link title
+ * Avoid using translation from page nugget
+ * Preloading enabled
+ * Show track length in link title
 
 0.3.3:
 ---
-
-* OpenLayers updated to v6.5.0
-* Fixed JavaScript bug with category ids
+ * OpenLayers updated to v6.5.0
+ * Fixed JavaScript bug with category ids
 
 0.3.2:
 ---
-
-* Option to compress GPX-files on upload
-* Changed some translation names
+ * Option to compress GPX-files on upload
+ * Changed some translation names
 
 0.3.1:
 ---
-
-* OpenLayers updated to v6.4.3
-* Calculate the total distance and put it into a span, for example "<span class="distance-counter" data-category="42">(wait...)</span>"
+ * OpenLayers updated to v6.4.3
+ * Calculate the total distance and put it into a span, for example "<span class="distance-counter" data-category="42">(wait...)</span>"
 
 0.3:
 ---
-
-* Only show GPX records instead of all markers
+ * Only show GPX records instead of all markers

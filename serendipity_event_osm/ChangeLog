@@ -1,3 +1,7 @@
+0.3.9:
+---
+ * OpenLayers updated to v6.6.0
+
 0.3.8:
 ---
  * Using short array init, fixed PHP 8 warnings

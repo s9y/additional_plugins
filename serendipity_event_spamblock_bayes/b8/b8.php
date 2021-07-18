@@ -1,30 +1,15 @@
 <?php
 
-/* Copyright (C) 2006-2019 Tobias Leupold <tobias.leupold@gmx.de>
+/* SPDX-FileCopyrightText: 2006-2021 Tobias Leupold <tobias.leupold@gmx.de>
+   SPDX-FileCopyrightText: 2009 Oliver Lillie <ollie@buggedcom.co.uk>
 
-   b8 - A statistical ("Bayesian") spam filter written in PHP
-
-   This program is free software; you can redistribute it and/or modify it
-   under the terms of the GNU Lesser General Public License as published by
-   the Free Software Foundation in version 2.1 of the License.
-
-   This program is distributed in the hope that it will be useful, but
-   WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
-   or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public
-   License for more details.
-
-   You should have received a copy of the GNU Lesser General Public License
-   along with this program; if not, write to the Free Software Foundation,
-   Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+   SPDX-License-Identifier: LGPL-3.0-or-later
 */
 
 /**
  * The b8 spam filter library
  *
- * @license LGPL 2.1
  * @package b8
- * @author Tobias Leupold <tobias.leupold@gmx.de>
- * @author Oliver Lillie <ollie@buggedcom.co.uk> (original PHP 5 port)
  */
 
 namespace b8;
@@ -32,9 +17,9 @@ namespace b8;
 spl_autoload_register(
     function ($class) {
         $parts = explode('\\', $class);
-        if ($parts[1]) {
+        if (count($parts) > 2 && $parts[0] == 'b8') {
             require_once __DIR__ . DIRECTORY_SEPARATOR . $parts[1]
-                     . DIRECTORY_SEPARATOR . $parts[2] . '.php';
+                         . DIRECTORY_SEPARATOR . $parts[2] . '.php';
         }
     }
 );

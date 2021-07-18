@@ -1,3 +1,6 @@
+1.1.5:
+    * Update b8, to prevent a debug error when commenting
+
 1.1.4:
     * Hotfixes for PHP 8 (surrim)
 

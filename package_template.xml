@@ -4127,6 +4127,16 @@
 <file>preview.png</file>
 <file>preview_fullsize.jpg</file>
 <file>style.css</file>
+<dir name="UTF-8">
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_de.inc.php</file>
+<file>lang_en.inc.php</file>
+</dir>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_de.inc.php</file>
+<file>lang_en.inc.php</file>
 </dir>
 
   </filelist>
@@ -4140,6 +4150,14 @@
     <file>idea/preview.png</file>
     <file>idea/preview_fullsize.jpg</file>
     <file>idea/style.css</file>
+    <file>idea/UTF-8/lang_cs.inc.php</file>
+    <file>idea/UTF-8/lang_cz.inc.php</file>
+    <file>idea/UTF-8/lang_de.inc.php</file>
+    <file>idea/UTF-8/lang_en.inc.php</file>
+    <file>idea/lang_cs.inc.php</file>
+    <file>idea/lang_cz.inc.php</file>
+    <file>idea/lang_de.inc.php</file>
+    <file>idea/lang_en.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>

@@ -491,7 +491,7 @@
 <category>Event Plugins</category>
 <author>Boris</author>
 <content:encoded>&lt;b&gt;serendipity_event_google_sitemap&lt;br /&gt;Sitemap Generator (for Crawlers)&lt;/b&gt;&lt;br /&gt;Creates a sitemap.xml.gz, which can be used by miscellaneous Web-Crawlers. (Google, MSN, Yahoo and Ask)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:30 +0200</pubDate>
+<pubDate>Mon, 13 Sep 2021 00:30:30 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_google_sitemap</guid>
 </item>
 <item>
@@ -932,7 +932,7 @@
 <category>Event Plugins</category>
 <author>onli, Matthias Mees, Thomas Hochstein</author>
 <content:encoded>&lt;b&gt;serendipity_event_social&lt;br /&gt;Share Buttons&lt;/b&gt;&lt;br /&gt;Show social share buttons for services like Facebook and Twitter using shariff.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Sat, 10 Apr 2021 00:30:36 +0200</pubDate>
+<pubDate>Mon, 13 Sep 2021 00:30:32 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_social</guid>
 </item>
 <item>
@@ -1094,7 +1094,7 @@
 <category>Event Plugins</category>
 <author>Matthew Groeninger, Malte Diers, Matthias Gutjahr</author>
 <content:encoded>&lt;b&gt;serendipity_event_typesetbuttons&lt;br /&gt;Typeset/Extended Buttons for non-WYSIWYG editors&lt;/b&gt;&lt;br /&gt;Adds buttons for various encoded typeset entities and other extended actions.&lt;br/&gt;For: Serendipity 1.7</content:encoded>
-<pubDate>Mon, 06 Aug 2018 22:33:51 +0200</pubDate>
+<pubDate>Mon, 13 Sep 2021 00:30:33 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_typesetbuttons</guid>
 </item>
 <item>

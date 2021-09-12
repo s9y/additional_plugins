@@ -4929,9 +4929,9 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <description>Creates a sitemap.xml.gz, which can be used by miscellaneous Web-Crawlers. (Google, MSN, Yahoo and Ask)</description>
 <maintainers><maintainer><name>Boris</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.61.1</version>
+  <version>0.61.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2021-09-13</date>
   <filelist>
 <dir name="serendipity_event_google_sitemap">
 <dir name="UTF-8">
@@ -8922,9 +8922,9 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <description>Show social share buttons for services like Facebook and Twitter using shariff.</description>
 <maintainers><maintainer><name>onli, Matthias Mees, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.14.4</version>
+  <version>0.14.5</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2021-04-10</date>
+  <date>2021-09-13</date>
   <filelist>
 <dir name="serendipity_event_social">
 <dir name="UTF-8">
@@ -10276,9 +10276,9 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <description>Adds buttons for various encoded typeset entities and other extended actions.</description>
 <maintainers><maintainer><name>Matthew Groeninger, Malte Diers, Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.23</version>
+  <version>0.23.1</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2018-08-06</date>
+  <date>2021-09-13</date>
   <filelist>
 <dir name="serendipity_event_typesetbuttons">
 <dir name="UTF-8">

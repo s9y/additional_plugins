@@ -4927,9 +4927,9 @@
 <description>Erstellt eine sitemap.xml.gz für verschiedene Suchmaschinen-Crawler (Google, MSN, Yahoo und Ask).</description>
 <maintainers><maintainer><name>Boris</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.61.1</version>
+  <version>0.61.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2021-09-13</date>
   <filelist>
 <dir name="serendipity_event_google_sitemap">
 <dir name="UTF-8">
@@ -8920,9 +8920,9 @@
 <description>Zeige Sharebuttons für Netzwerke wie Facebook und Twitter (nutzt shariff)</description>
 <maintainers><maintainer><name>onli, Matthias Mees, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.14.4</version>
+  <version>0.14.5</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2021-04-10</date>
+  <date>2021-09-13</date>
   <filelist>
 <dir name="serendipity_event_social">
 <dir name="UTF-8">
@@ -10274,9 +10274,9 @@
 <description>Fügt Buttons für diverse Sonderzeichen und Aktionen in die Oberfläche zum Erzeugen eines Artikels ein. Dieses Plugin funktioniert nicht mit dem WYSIWYG-Editor zusammen.</description>
 <maintainers><maintainer><name>Matthew Groeninger, Malte Diers, Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.23</version>
+  <version>0.23.1</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2018-08-06</date>
+  <date>2021-09-13</date>
   <filelist>
 <dir name="serendipity_event_typesetbuttons">
 <dir name="UTF-8">

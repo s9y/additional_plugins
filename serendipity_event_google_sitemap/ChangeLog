@@ -1,3 +1,7 @@
+0.61.2:
+-----
+    * PHP 8 fix for sitemap generation warning after saving entry
+    
 0.61.1:
 -----
     * Hotfixes for PHP 8 (surrim)

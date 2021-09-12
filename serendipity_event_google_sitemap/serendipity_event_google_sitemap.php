@@ -24,7 +24,7 @@ class serendipity_event_google_sitemap extends serendipity_event {
         $propbag->add('name', PLUGIN_EVENT_SITEMAP_TITLE);
         $propbag->add('description', PLUGIN_EVENT_SITEMAP_DESC);
         $propbag->add('author', 'Boris');
-        $propbag->add('version', '0.61.1');
+        $propbag->add('version', '0.61.2');
         $propbag->add('event_hooks',  array(
                 'backend_publish' => true,
                 'backend_save'    => true,
@@ -527,7 +527,7 @@ class serendipity_event_google_sitemap extends serendipity_event {
             foreach($static_pages as $cur) {
                 $path_quoted = preg_quote($serendipity['serendipityHTTPPath'], '#');
                 $url = $serendipity['baseURL'] . preg_replace("#$path_quoted#", '', $cur['permalink'],1);
-                $cur_time = ($cur['timestamp']==0)? null : (int)$cur['timestamp'];
+                $cur_time = (($cur['timestamp'] ?? 0) == 0) ? null : (int)$cur['timestamp'];
                 $this->addtoxml($sitemap_xml, $url, $cur_time, 0.7);
             }
         }
@@ -603,7 +603,7 @@ class serendipity_event_google_sitemap extends serendipity_event {
         }
     }
 
-    function write_sitemap($basefilename = 'sitemap.xml', &$eventData, $gnewsmode = false) {
+    function write_sitemap($basefilename = 'sitemap.xml', &$eventData = null, $gnewsmode = false) {
         global $serendipity;
 
         $this->gnewsmode = false;

@@ -1,5 +1,8 @@
 0.14.5
-    * Avoid warning situation in entry preview with PHP 8
+    * Avoid PHP 8 warning warning  about missing view key
+      in entry preview
+    * Avoid PHP 8 warning about missing metadesc key in
+      entries without such a description
 
 0.14.4
     * Prevent possible error when some articles could not

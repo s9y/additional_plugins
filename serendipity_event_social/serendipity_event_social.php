@@ -194,7 +194,7 @@ class serendipity_event_social extends serendipity_event {
                         echo '<meta name="twitter:card" content="summary" />' . "\n";
                         echo '<meta property="og:title" content="' . serendipity_specialchars($entry['title']) . '" />' . "\n";
                         # get desciption from serendipity_event_metadesc, if set; take first 200 chars from body otherwise
-                        $meta_description = strip_tags($entry['properties']['meta_description']);
+                        $meta_description = strip_tags($entry['properties']['meta_description'] ?? '');
                         if (empty($meta_description)) {
                                                                  # /\s+/: multiple newline and whitespaces
                             $meta_description = trim(preg_replace('/\s+/', ' ', substr(strip_tags($entry['body']), 0, 200))) . '...';

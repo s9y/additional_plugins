@@ -1,3 +1,7 @@
+2.5.4:
+    * Fix: Lightbox was not enabled in entries
+------------------------------------------------------------------------
+
 2.5.3:
     * Hotfixes for PHP 8 (surrim)
 

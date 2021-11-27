@@ -1,3 +1,5 @@
+3.70.4: Fix a situation when an illegal offset error could occur
+
 3.70.3: Hotfixes for PHP 8 (surrim)
 
 3.70.2: Fix warning in RSS feed when using PHP 8

@@ -66,7 +66,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '7.0'
         ));
-        $propbag->add('version',       '3.70.3');
+        $propbag->add('version',       '3.70.4');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -1548,7 +1548,11 @@ addLoadEvent(enableAutocomplete);
                 }
             }
         }
-        unset($tags[$tag]);
+        // Check that $tag is a valid value to prevent the 'illegal offset error' that will occur
+        // on real traffic patterns (unclear on which page exactly)
+        if ($tag != null && is_string($tag) && isset($tags[$tag])) {
+            unset($tags[$tag]);
+        }
         return $tags;
     }
 

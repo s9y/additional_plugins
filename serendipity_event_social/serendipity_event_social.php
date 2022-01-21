@@ -16,7 +16,7 @@ class serendipity_event_social extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_SOCIAL_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Matthias Mees, Thomas Hochstein');
-        $propbag->add('version',       '0.14.5');
+        $propbag->add('version',       '0.14.6');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0'
         ));
@@ -133,7 +133,7 @@ class serendipity_event_social extends serendipity_event {
         if (isset($hooks[$event])) {
             switch($event) {
                 case 'frontend_display:html:per_entry':
-                    if ($serendipity['view'] ?? '' != 'entry') {
+                    if (($serendipity['view'] ?? '') != 'entry') {
                         if (! serendipity_db_bool($this->get_config('overview', true))) {
                             // We are in overview mode and the user opted to not show the button
                             return true;

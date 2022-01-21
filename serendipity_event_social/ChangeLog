@@ -1,3 +1,7 @@
+0.14.6
+    * Fix: Social share buttons were sometimes missing
+           on the entry page
+
 0.14.5
     * Avoid PHP 8 warning warning  about missing view key
       in entry preview

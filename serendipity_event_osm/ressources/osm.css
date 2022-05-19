@@ -44,13 +44,18 @@
 	font-weight: bold;
 }
 
-.ol-scale-bar{
+.ol-control {
+	z-index: 1;
+}
+
+.ol-scale-bar {
 	top: .5em;
 	bottom: unset;
 	left: unset;
 	right: 3.25em;
 	margin-right: 14px;
 	margin-top: 3px;
+	z-index: 0;
 }
 
 .ol-scale-step-text {

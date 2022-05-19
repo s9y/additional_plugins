@@ -1,7 +1,7 @@
 const dateToColor = date => {
 	const minDate = new Date(date.getFullYear(), date.getMonth() - 1, 0);
 	const maxDate = new Date(date.getFullYear(), date.getMonth(), 0);
-	return "hsl(" + ((date.getTime() - minDate.getTime()) / (maxDate.getTime() - minDate.getTime())) + "turn, 100%, 50%)"
+	return "hsl(" + ((date.getTime() - minDate.getTime()) / (maxDate.getTime() - minDate.getTime())).toFixed(3) + "turn, 100%, 50%)"
 };
 
 window.addEventListener("load", () => {
@@ -56,14 +56,16 @@ window.addEventListener("load", () => {
 					.map(feature => ol.sphere.getLength(feature.getGeometry()))
 					.reduce((a, b) => a + b, 0);
 			});
+			const color = dateToColor(new Date(upload.date * 1000));
+			const lineDash = upload.date * 1000 > Date.now() ? [3, 6] : undefined;
 			const layer = new ol.layer.VectorImage({
 				source: source,
 				style: feature => feature.getGeometry().getType() === "MultiLineString"
 					? new ol.style.Style({
 						stroke: new ol.style.Stroke({
-							color: dateToColor(new Date(upload.date * 1000)),
+							color: color,
 							width: 3,
-							lineDash: upload.date * 1000 > Date.now() ? [3, 6] : undefined
+							lineDash: lineDash
 						})
 					})
 					: undefined

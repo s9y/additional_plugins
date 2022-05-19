@@ -1,3 +1,9 @@
+0.3.11:
+---
+ * OpenLayers updated to v6.14.1
+ * CSS fixed
+ * Small performance updates
+
 0.3.10:
 ---
  * OpenLayers updated to v6.12.0

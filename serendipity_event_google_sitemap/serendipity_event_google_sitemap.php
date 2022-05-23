@@ -24,7 +24,7 @@ class serendipity_event_google_sitemap extends serendipity_event {
         $propbag->add('name', PLUGIN_EVENT_SITEMAP_TITLE);
         $propbag->add('description', PLUGIN_EVENT_SITEMAP_DESC);
         $propbag->add('author', 'Boris');
-        $propbag->add('version', '0.61.2');
+        $propbag->add('version', '0.61.3');
         $propbag->add('event_hooks',  array(
                 'backend_publish' => true,
                 'backend_save'    => true,
@@ -79,7 +79,11 @@ class serendipity_event_google_sitemap extends serendipity_event {
                 $propbag->add('description', PLUGIN_EVENT_SITEMAP_TYPES_TO_ADD_DESC);
                 $propbag->add('select_values', $types);
                 $propbag->add('select_size', 6);
-                $propbag->add('default', implode(array_keys($types), '^'));
+                if (version_compare(PHP_VERSION, '8.0.0', '>=')) {
+                    $propbag->add('default', implode('^', array_keys($types)));
+                } else {
+                    $propbag->add('default', implode(array_keys($types), '^'));
+                }
                 break;
 
             case 'gnews_subscription':

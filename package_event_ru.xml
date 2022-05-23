@@ -4927,9 +4927,9 @@
 <description>Creates a sitemap.xml.gz, which can be used by miscellaneous Web-Crawlers. (Google, MSN, Yahoo and Ask)</description>
 <maintainers><maintainer><name>Boris</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.61.2</version>
+  <version>0.61.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-09-13</date>
+  <date>2022-05-24</date>
   <filelist>
 <dir name="serendipity_event_google_sitemap">
 <dir name="UTF-8">

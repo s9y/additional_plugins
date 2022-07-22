@@ -23,9 +23,9 @@ class serendipity_event_markdown extends serendipity_event
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',
-            'php'         => '5.3.0'
+            'php'         => '7.4.0'
         ));
-        $propbag->add('version',       '1.30.1');
+        $propbag->add('version',       '1.31');
         $propbag->add('cachable_events', array('frontend_display' => true));
         $propbag->add('event_hooks',   array(
             'frontend_display' => true,

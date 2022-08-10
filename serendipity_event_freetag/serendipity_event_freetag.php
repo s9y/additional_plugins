@@ -1572,7 +1572,7 @@ addLoadEvent(enableAutocomplete);
             } else if (is_array($tag)) {
                  $join = "LEFT JOIN {$serendipity['dbPrefix']}entrytags AS neg ".
                     "ON main.entryid = neg.entryid ";
-                $ccond = '';
+                $cond = '';
                 $ncond = '';
 
                 $first = true;

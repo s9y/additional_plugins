@@ -770,7 +770,7 @@ class serendipity_event_freetag extends serendipity_event
                                 $param = array_map('urldecode', $param); // for doubled encoded tag umlauts via searchengines backlinks in sprintf
                             }
                             $param = array_map('strip_tags', $param);
-                            $param = array_filter($param); // empty removed XSS by strip_tags
+                            $param = array_values(array_filter($param)); // empty removed XSS by strip_tags
                             if (function_exists('serendipity_specialchars')) {
                                 $serendipity['head_subtitle'] = sprintf(PLUGIN_EVENT_FREETAG_USING, implode(' + ', array_map('serendipity_specialchars', $param)));
                             } else {

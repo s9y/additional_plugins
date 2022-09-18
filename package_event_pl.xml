@@ -9332,9 +9332,9 @@
 <description>Pokazuje Strony statyczne w Twoim blogu tak, jak pokazywane są wszystkie inne wpisy (z zachowaniem formatowania i layoutu). Dodaje nową zakładkę w menu w Panelu administracyjnym.</description>
 <maintainers><maintainer><name>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>4.15.7</version>
+  <version>4.15.8</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2022-09-19</date>
   <filelist>
 <dir name="serendipity_event_staticpage">
 <dir name="UTF-8">

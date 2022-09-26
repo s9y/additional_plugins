@@ -73,7 +73,7 @@ window.addEventListener("load", () => {
 			layers.push(layer);
 		}
 		const map = new ol.Map({
-			controls: ol.control.defaults({rotate: false}).extend([
+			controls: ol.control.defaults.defaults({rotate: false}).extend([
 				new ol.control.FullScreen(),
 				new ol.control.OverviewMap({
 					layers: [
@@ -85,7 +85,7 @@ window.addEventListener("load", () => {
 					minWidth: 120
 				})
 			]),
-			interactions: ol.interaction.defaults({
+			interactions: ol.interaction.defaults.defaults({
 				altShiftDragRotate: false,
 				pinchRotate: false
 			}),

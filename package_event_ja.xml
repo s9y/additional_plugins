@@ -7730,7 +7730,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <description>Provides an interactive map with *.gpx uploads and tagged geo data</description>
 <maintainers><maintainer><name>Martin Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.3.11</version>
+  <version>0.3.12</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
   <date>2021-07-14</date>
   <filelist>
@@ -7739,33 +7739,10 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <file>lang_de.inc.php</file>
 </dir>
 <dir name="ressources">
-<file>ol.css</file>
-<file>ol.css.map</file>
 <file>ol.js</file>
 <file>ol.js.map</file>
 <file>osm.css</file>
 <file>osm.js</file>
-<file>226.ol.js</file>
-<file>226.ol.js.map</file>
-<file>231.ol.js</file>
-<file>231.ol.js.map</file>
-<file>247.ol.js</file>
-<file>247.ol.js.LICENSE.txt</file>
-<file>247.ol.js.map</file>
-<file>356.ol.js</file>
-<file>356.ol.js.map</file>
-<file>382.ol.js</file>
-<file>382.ol.js.map</file>
-<file>395.ol.js</file>
-<file>395.ol.js.map</file>
-<file>54.ol.js</file>
-<file>54.ol.js.LICENSE.txt</file>
-<file>54.ol.js.map</file>
-<file>611.ol.js</file>
-<file>611.ol.js.map</file>
-<file>629.ol.js</file>
-<file>629.ol.js.map</file>
-<file>ol.js.LICENSE.txt</file>
 </dir>
 <file>LICENSE</file>
 <file>lang_de.inc.php</file>
@@ -7780,33 +7757,10 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_osm/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_event_osm/ressources/ol.css</file>
-    <file>serendipity_event_osm/ressources/ol.css.map</file>
     <file>serendipity_event_osm/ressources/ol.js</file>
     <file>serendipity_event_osm/ressources/ol.js.map</file>
     <file>serendipity_event_osm/ressources/osm.css</file>
     <file>serendipity_event_osm/ressources/osm.js</file>
-    <file>serendipity_event_osm/ressources/226.ol.js</file>
-    <file>serendipity_event_osm/ressources/226.ol.js.map</file>
-    <file>serendipity_event_osm/ressources/231.ol.js</file>
-    <file>serendipity_event_osm/ressources/231.ol.js.map</file>
-    <file>serendipity_event_osm/ressources/247.ol.js</file>
-    <file>serendipity_event_osm/ressources/247.ol.js.LICENSE.txt</file>
-    <file>serendipity_event_osm/ressources/247.ol.js.map</file>
-    <file>serendipity_event_osm/ressources/356.ol.js</file>
-    <file>serendipity_event_osm/ressources/356.ol.js.map</file>
-    <file>serendipity_event_osm/ressources/382.ol.js</file>
-    <file>serendipity_event_osm/ressources/382.ol.js.map</file>
-    <file>serendipity_event_osm/ressources/395.ol.js</file>
-    <file>serendipity_event_osm/ressources/395.ol.js.map</file>
-    <file>serendipity_event_osm/ressources/54.ol.js</file>
-    <file>serendipity_event_osm/ressources/54.ol.js.LICENSE.txt</file>
-    <file>serendipity_event_osm/ressources/54.ol.js.map</file>
-    <file>serendipity_event_osm/ressources/611.ol.js</file>
-    <file>serendipity_event_osm/ressources/611.ol.js.map</file>
-    <file>serendipity_event_osm/ressources/629.ol.js</file>
-    <file>serendipity_event_osm/ressources/629.ol.js.map</file>
-    <file>serendipity_event_osm/ressources/ol.js.LICENSE.txt</file>
     <file>serendipity_event_osm/LICENSE</file>
     <file>serendipity_event_osm/lang_de.inc.php</file>
     <file>serendipity_event_osm/lang_en.inc.php</file>
@@ -7827,7 +7781,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <description>Includes scripts and stylesheets for OpenStreetMap support</description>
 <maintainers><maintainer><name>Martin Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.3.11</version>
+  <version>0.3.12</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
   <date>2021-07-14</date>
   <filelist>
@@ -7836,33 +7790,10 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <file>lang_de.inc.php</file>
 </dir>
 <dir name="ressources">
-<file>ol.css</file>
-<file>ol.css.map</file>
 <file>ol.js</file>
 <file>ol.js.map</file>
 <file>osm.css</file>
 <file>osm.js</file>
-<file>226.ol.js</file>
-<file>226.ol.js.map</file>
-<file>231.ol.js</file>
-<file>231.ol.js.map</file>
-<file>247.ol.js</file>
-<file>247.ol.js.LICENSE.txt</file>
-<file>247.ol.js.map</file>
-<file>356.ol.js</file>
-<file>356.ol.js.map</file>
-<file>382.ol.js</file>
-<file>382.ol.js.map</file>
-<file>395.ol.js</file>
-<file>395.ol.js.map</file>
-<file>54.ol.js</file>
-<file>54.ol.js.LICENSE.txt</file>
-<file>54.ol.js.map</file>
-<file>611.ol.js</file>
-<file>611.ol.js.map</file>
-<file>629.ol.js</file>
-<file>629.ol.js.map</file>
-<file>ol.js.LICENSE.txt</file>
 </dir>
 <file>LICENSE</file>
 <file>lang_de.inc.php</file>
@@ -7877,33 +7808,10 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_osm/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_event_osm/ressources/ol.css</file>
-    <file>serendipity_event_osm/ressources/ol.css.map</file>
     <file>serendipity_event_osm/ressources/ol.js</file>
     <file>serendipity_event_osm/ressources/ol.js.map</file>
     <file>serendipity_event_osm/ressources/osm.css</file>
     <file>serendipity_event_osm/ressources/osm.js</file>
-    <file>serendipity_event_osm/ressources/226.ol.js</file>
-    <file>serendipity_event_osm/ressources/226.ol.js.map</file>
-    <file>serendipity_event_osm/ressources/231.ol.js</file>
-    <file>serendipity_event_osm/ressources/231.ol.js.map</file>
-    <file>serendipity_event_osm/ressources/247.ol.js</file>
-    <file>serendipity_event_osm/ressources/247.ol.js.LICENSE.txt</file>
-    <file>serendipity_event_osm/ressources/247.ol.js.map</file>
-    <file>serendipity_event_osm/ressources/356.ol.js</file>
-    <file>serendipity_event_osm/ressources/356.ol.js.map</file>
-    <file>serendipity_event_osm/ressources/382.ol.js</file>
-    <file>serendipity_event_osm/ressources/382.ol.js.map</file>
-    <file>serendipity_event_osm/ressources/395.ol.js</file>
-    <file>serendipity_event_osm/ressources/395.ol.js.map</file>
-    <file>serendipity_event_osm/ressources/54.ol.js</file>
-    <file>serendipity_event_osm/ressources/54.ol.js.LICENSE.txt</file>
-    <file>serendipity_event_osm/ressources/54.ol.js.map</file>
-    <file>serendipity_event_osm/ressources/611.ol.js</file>
-    <file>serendipity_event_osm/ressources/611.ol.js.map</file>
-    <file>serendipity_event_osm/ressources/629.ol.js</file>
-    <file>serendipity_event_osm/ressources/629.ol.js.map</file>
-    <file>serendipity_event_osm/ressources/ol.js.LICENSE.txt</file>
     <file>serendipity_event_osm/LICENSE</file>
     <file>serendipity_event_osm/lang_de.inc.php</file>
     <file>serendipity_event_osm/lang_en.inc.php</file>

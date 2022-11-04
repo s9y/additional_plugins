@@ -5661,9 +5661,9 @@
 <description>Позволяет посетителям оценивать ваши записи</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus, Judebert, Gregor Voeltz, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.14.1</version>
+  <version>2.14.2</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2019-07-21</date>
+  <date>2022-11-05</date>
   <filelist>
 <dir name="serendipity_event_karma">
 <dir name="UTF-8">

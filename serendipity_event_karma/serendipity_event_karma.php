@@ -44,7 +44,7 @@ class serendipity_event_karma extends serendipity_event
         $propbag->add('description',   PLUGIN_KARMA_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Grischa Brockhaus, Judebert, Gregor Voeltz, Ian');
-        $propbag->add('version',       '2.14.1');
+        $propbag->add('version',       '2.14.2');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -482,7 +482,7 @@ class serendipity_event_karma extends serendipity_event
         }
 
         if ($get) {
-            return $exits[$entries];
+            return $exits[$entries] ?? null;
         }
 
         return true;
@@ -493,7 +493,9 @@ class serendipity_event_karma extends serendipity_event
         static $karma_exits = null;
 
         if ($karma_exits === null) {
-            $karma_exits = ' <span class="serendipity_karmaVoting_exits_sep">|</span> <span class="serendipity_karmaVoting_exits">' . TOP_EXITS . '</span> <span class="serendipity_karmaVoting_exits_num">(%d)</span>';
+            // TOP_EXITS is a language constant of serendipity_plugin_entrylinks. To keep old behaviour we use it here, but
+            // check for its existence to make PHP 8 happy
+            $karma_exits = ' <span class="serendipity_karmaVoting_exits_sep">|</span> <span class="serendipity_karmaVoting_exits">' . (defined('TOP_EXITS') ? TOP_EXITS : 'TOP_EXITS') . '</span> <span class="serendipity_karmaVoting_exits_num">(%d)</span>';
         }
 
         if ($get_prepared) {
@@ -770,7 +772,10 @@ function vote(karmaVote,karmaId) {
 
                 // Hook for ajax calls
                 case 'external_plugin':
-                    $theUri = (string)str_replace('&amp;', '&', $eventData);
+                    $theUri = "";
+                    try {
+                        $theUri = (string)str_replace('&amp;', '&', $eventData);
+                    } catch (Error $e) {}
                     $uri_parts = explode('?', $theUri);
 
                     // Try to get request parameters from eventData name
@@ -1279,7 +1284,7 @@ END_IMG_CSS;
                                 $pairs = explode('&amp;', $url_parts['query']);
                                 foreach($pairs as $pair) {
                                     $parts = explode('=', $pair);
-                                    $q_parts[$parts[0]] = $parts[1];
+                                    $q_parts[$parts[0]] = ($parts[1] ?? null);
                                 }
                                 foreach($q_parts as $key => $value) {
                                     if (in_array($key, $exclude)) {
@@ -1416,12 +1421,12 @@ END_IMG_CSS;
                                  */
 
                                 // Substitute the % stuff and add it to the footer
-                                $eventData[$i]['properties']['myvote'] = $myvote;
-                                $eventData[$i]['properties']['points'] = $points;
-                                $eventData[$i]['properties']['votes'] = $votes;
-                                $eventData[$i]['properties']['visits'] = $visits;
+                                $eventData[$i]['properties']['myvote'] = ($myvote ?? '');
+                                $eventData[$i]['properties']['points'] = ($points ?? '');
+                                $eventData[$i]['properties']['votes'] = ($votes ?? '');
+                                $eventData[$i]['properties']['visits'] = ($visits ?? '');
 
-                                $footer .= sprintf($karma_block, $myvote, $points, $votes, $visits, $url);
+                                $footer .= sprintf($karma_block, $myvote ?? '', $points ?? '', $votes ?? '', $visits ?? '', $url);
 
                             } // foreach key in entries
                     }// End switch on karma voting status
@@ -1562,7 +1567,7 @@ END_IMG_CSS;
             </div>
 
             <div class='form_field'>
-                <label for='serendipity_filter_ip'>".IP."</label>
+                <label for='serendipity_filter_ip'>". (defined('IP') ? IP : 'IP') ."</label>
                 <input id='serendipity_filter_ip' name='serendipity[filter][ip]' type='text' value='".(function_exists('serendipity_specialchars') ? serendipity_specialchars($serendipity['GET']['filter']['ip']) : htmlspecialchars($serendipity['GET']['filter']['ip'], ENT_COMPAT, LANG_CHARSET))."'>
             </div>
 
@@ -1607,7 +1612,7 @@ END_IMG_CSS;
                     // Sorting (controls go after filtering controls in form above)
                     $sort_order = array(
                         'votetime' => DATE,
-                        'user_agent' => USER_AGENT,
+                        'user_agent' => defined('USER_AGENT') ? USER_AGENT : 'USER_AGENT',
                         'title' => TITLE,
                         'entryid' => 'ID');
                     if (empty($serendipity['GET']['sort']['ordermode']) || $serendipity['GET']['sort']['ordermode'] != 'ASC') {
@@ -1967,7 +1972,7 @@ END_IMG_CSS;
                 $img_data = serendipity_getimagesize($path . '/' . $filename);
                 if (!isset($img_data['noimage'])) {
                     // Curly braces are just a different syntax of associative array assignment
-                    $images{$filename} = array('fname'=>$filename, 'width'=>$img_data[0], 'height'=>$img_data[1]);
+                    $images[$filename] = array('fname'=>$filename, 'width'=>$img_data[0], 'height'=>$img_data[1]);
                 }
             }
         }
@@ -2115,7 +2120,7 @@ END_IMG_CSS;
         // Is the (possibly default) image valid?
         if ($this->image_name) {
             $imagesize = serendipity_getimagesize(dirname(__FILE__) . "/img/" . $this->image_name);
-            if ($imagesize['noimage']) {
+            if (isset($imagesize['noimage']) && $imagesize['noimage']) {
                 // No valid image; use text-only
                 $this->image_name = '0';
             } else {

@@ -50,7 +50,7 @@ class serendipity_event_multilingual extends serendipity_event
             'php'         => '4.1.0'
         ));
         $propbag->add('groups',         array('FRONTEND_ENTRY_RELATED', 'BACKEND_EDITOR'));
-        $propbag->add('version',        '2.36');
+        $propbag->add('version',        '2.36.1');
         $propbag->add('configuration',  array('copytext', 'placement', 'tagged_title', 'tagged_entries', 'tagged_sidebar', 'langswitch', 'hide_untranslated'));
         $propbag->add('event_hooks',    array(
                 'frontend_fetchentries'     => true,
@@ -785,7 +785,7 @@ class serendipity_event_multilingual extends serendipity_event
                     if (serendipity_db_bool($this->get_config('tagged_entries', 'true'))) {
                         $serendipity['smarty']->assign('head_title', $this->strip_langs($serendipity['head_title']));
                     }
-                    if (serendipity_db_bool($this->get_config('tagged_title', 'true'))) {
+                    if (serendipity_db_bool($this->get_config('tagged_title', 'true')) && isset($serendipity['head_subtitle'])) {
                         $serendipity['smarty']->assign('head_subtitle', $this->strip_langs($serendipity['head_subtitle']));
                     }
                     break;

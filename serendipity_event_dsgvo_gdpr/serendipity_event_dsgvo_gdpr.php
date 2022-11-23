@@ -498,7 +498,7 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
 ?>
                         <div class="form_toolbar dsgvo_gdpr_comment">
                             <div class="form_box">
-                                <input id="checkbox_dsgvo_gdpr" name="serendipity[accept_privacy]" value="1" type="checkbox" <?php echo ($serendipity['POST']['accept_privacy']??null == 1 ? 'checked="checked"' : ''); ?>><label for="checkbox_dsgvo_gdpr"><?php echo $this->parseText($this->get_config('commentform_text')); ?></label>
+                                <input id="checkbox_dsgvo_gdpr" name="serendipity[accept_privacy]" value="1" type="checkbox" <?php echo (($serendipity['POST']['accept_privacy']??null) == 1 ? 'checked="checked"' : ''); ?>><label for="checkbox_dsgvo_gdpr"><?php echo $this->parseText($this->get_config('commentform_text')); ?></label>
                             </div>
                         </div>
 <?php

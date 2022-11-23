@@ -9,7 +9,7 @@ if (IN_serendipity !== true) {
 
 include_once dirname(__FILE__) . '/podcast_player.php';
 
-@define("SERENDIPITY_EVENT_PODCAST_VERSION", "1.37.6");
+@define("SERENDIPITY_EVENT_PODCAST_VERSION", "1.37.7");
 
 class serendipity_event_podcast extends serendipity_event {
 /**
@@ -409,6 +409,9 @@ class serendipity_event_podcast extends serendipity_event{
     }
     
     function iTunify(&$eventData) {
+        if (! array_key_exists('per_entry_display_dat', $eventData)) {
+            $eventData['per_entry_display_dat'] = '';
+        }
         $eventData['per_entry_display_dat'] .= '<itunes:author>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($eventData['author']) : htmlspecialchars($eventData['author'], ENT_COMPAT, LANG_CHARSET)) . '</itunes:author>' . "\n";
         $eventData['per_entry_display_dat'] .= '<itunes:subtitle>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($eventData['title']) : htmlspecialchars($eventData['title'], ENT_COMPAT, LANG_CHARSET)) . '</itunes:subtitle>' . "\n";
         $eventData['per_entry_display_dat'] .= '<itunes:summary>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars(strip_tags($eventData['feed_body'])) : htmlspecialchars(strip_tags($eventData['feed_body']), ENT_COMPAT, LANG_CHARSET)) . '</itunes:summary>' . "\n";
@@ -552,7 +555,7 @@ class serendipity_event_podcast extends serendipity_event{
                 if (!$use_player && preg_match_all($patterns['playerRewritePattern'], $matchSource, $matches)) {
                     for ($i = 0, $maxi = count($matches[1]); $i < $maxi; $i++){
                         $complete   = $matches[0];
-                        if (!empty($nopodcasting_class) && preg_match($classPattern, $complete)) {
+                        if (!empty($nopodcasting_class) && is_string($complete) && preg_match($classPattern, $complete)) {
                             $this->log("NoPodcasting class found!");
                             continue;
                         }
@@ -1065,9 +1068,9 @@ class serendipity_event_podcast extends serendipity_event{
         $fileInfoArray['width']     = 0;
         $fileInfoArray['height']    = 0;
 
-        // Try to find the getid3 library in the bundled-libs first:
-        if (file_exists(dirname(__FILE__) . '/player/getid3/getid3.lib.php')) {
-            @define('GETID3_INCLUDEPATH', dirname(__FILE__) . '/player/getid3/');
+        // Try to find the getid3 library in the plugins bundled-libs first:
+        if (file_exists(dirname(__FILE__) . '/player/james-heinrich/getid3/getid3/')) {
+            @define('GETID3_INCLUDEPATH', dirname(__FILE__) . '/player/james-heinrich/getid3/getid3/');
         } elseif (file_exists(S9Y_INCLUDE_PATH . '/bundled-libs/getid3/getid3.lib.php')) {
             $this->log("GetID3Infos: include path " . S9Y_INCLUDE_PATH . '/bundled-libs/getid3/');
             @define('GETID3_INCLUDEPATH', S9Y_INCLUDE_PATH . '/bundled-libs/getid3/');

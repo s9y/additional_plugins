@@ -232,6 +232,7 @@ class media_sidebar extends subplug_sidebar {
             if (is_array($images)) {
                 $output_str .= $this->get_config('media_intro');
                 foreach ($images as $image) {
+                    serendipity_prepareMedia($image);
                     if (isset($image['name'])) {
                         if ($image['hotlink'] == 1) {
                             $thumb_path = $image_path = $image['path'];

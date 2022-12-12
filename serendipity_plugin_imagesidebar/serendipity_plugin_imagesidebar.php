@@ -68,7 +68,7 @@ class serendipity_plugin_imagesidebar extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_SIDEBAR_IMAGESIDEBAR_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Andrew Brown (Menalto code), Matthew Groeninger (Unified/Media Lib. Code), Stefan Lange-Hegermann (Zooomr Code), Matthew Maude (Coppermine code)');
-        $propbag->add('version',       '0.100.2');
+        $propbag->add('version',       '0.100.3');
         $propbag->add('license',       'BSD');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',

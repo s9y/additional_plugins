@@ -1,3 +1,6 @@
+3.70.6: Avoid error when tag variable looks like an array
+        (thanks @hannob!)
+
 3.70.5: Fix undefined variable error and holes in $params array
         (thanks @hannob!)
 

@@ -1,3 +1,4 @@
+1.66: Fixed broken admin page with PHP8
 1.65: Added legal gdpr/dsgvo info
 1.63: Restrict sql index key length for utf8mb4 migration
 1.62: Iconfont a11y fix (yellowled)

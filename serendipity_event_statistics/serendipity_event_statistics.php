@@ -16,7 +16,7 @@ class serendipity_event_statistics extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_STATISTICS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin, Matthias Mees, Ian');
-        $propbag->add('version',       '1.65');
+        $propbag->add('version',       '1.66');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -600,13 +600,13 @@ class serendipity_event_statistics extends serendipity_event
         </section>
 
         <section>
-            <h3><?php echo TOP_REFERRER; ?></h3>
+            <h3><?php echo PLUGIN_EVENT_STATISTICS_TOP_REFERRER; ?></h3>
 
             <?php echo serendipity_displayTopReferrers($max_items, true); ?>
         </section>
 
         <section>
-            <h3><?php echo TOP_EXITS; ?></h3>
+            <h3><?php echo PLUGIN_EVENT_STATISTICS_TOP_EXITS; ?></h3>
 
             <?php echo serendipity_displayTopExits($max_items, true); ?>
         </section>

@@ -9,7 +9,44 @@
 header('Content-Type: text/plain');
 define('IN_serendipity', true);
 define('LASTRUN', '<!-- Created ' . date('Y-m-d H:i') . "-->\n");
+define('PATH_SMARTY_COMPILE', '');
 error_reporting(E_ALL &  ~E_NOTICE);
+
+# No-op the database functions
+function serendipity_db_begin_transaction() {}
+
+function serendipity_db_end_transaction($commit) {}
+
+function serendipity_db_in_sql($col, &$search_ids, $type = ' OR ') {}
+ 
+function &serendipity_db_query($sql, $single = false, $result_type = "both", $reportErr = false, $assocKey = false, $assocVal = false, $expectError = false) {}
+
+function serendipity_db_query2($sql, $parameters = array()) {}
+
+function serendipity_db_insert_id() {}
+
+function serendipity_db_affected_rows() {}
+
+function serendipity_db_updated_rows() {}
+
+function serendipity_db_matched_rows() {}
+
+function serendipity_db_escape_string($string) {}
+
+function serendipity_db_limit($offset, $limit) {}
+
+function serendipity_db_limit_sql($limitstring) {}
+
+function serendipity_db_connect() {}
+
+function serendipity_db_reconnect() {}
+
+function serendipity_db_schema_import($query) {}
+
+function serendipity_db_probe($hash, &$errs) {}
+
+function serendipity_db_concat($string) {}
+
 
 class emerge_spartacus {
 
@@ -32,7 +69,7 @@ class emerge_spartacus {
         $this->memSnap('Emerge call');
         include_once $path . 'include/compat.inc.php';
         $serendipity['serendipityPath'] = $path;
-        $serendipity['dbType']          = 'mysql';
+        $serendipity['dbType']          = 'null';
         $serendipity['lang']            = $lang;
         $serendipity['charset']         = 'UTF-8/';
         define('S9Y_INCLUDE_PATH', $serendipity['serendipityPath']);

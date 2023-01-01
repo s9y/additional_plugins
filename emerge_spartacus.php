@@ -19,7 +19,7 @@ class emerge_spartacus {
     var $xmlData = array();
     var $i18n    = true;
 
-    function emerge_spartacus($lang = 'en', $path = '/var/www/virtual/s9y2/html/') {
+    function __construct($lang = 'en', $path = '/var/www/virtual/s9y2/html/') {
         global $serendipity;
 
         if ($lang == 'final') {

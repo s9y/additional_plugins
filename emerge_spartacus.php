@@ -69,7 +69,7 @@ class emerge_spartacus {
         $this->memSnap('Emerge call');
         include_once $path . 'include/compat.inc.php';
         $serendipity['serendipityPath'] = $path;
-        $serendipity['dbType']          = 'mysql';
+        $serendipity['dbType']          = 'null';
         $serendipity['lang']            = $lang;
         $serendipity['charset']         = 'UTF-8/';
         define('S9Y_INCLUDE_PATH', $serendipity['serendipityPath']);

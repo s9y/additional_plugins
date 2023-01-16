@@ -2075,9 +2075,9 @@
 <description>Defines custom permalinks that can be used to access a specific entry. It can only use URL patterns which are NOT YET in use - using custom permalinks within the /archives/ structure is thus not possible. But any (virtual) other directory is.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.17</version>
+  <version>1.17.1</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2017-04-17</date>
+  <date>2023-01-16</date>
   <filelist>
 <dir name="serendipity_event_custom_permalinks">
 <dir name="UTF-8">

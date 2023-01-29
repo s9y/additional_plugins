@@ -45,8 +45,8 @@ class serendipity_event_static_osm extends serendipity_event
 			echo '    <script src="'.$this->getFile('ressources/ol.js', 'serendipityHTTPPath').'"></script>'.PHP_EOL;
 			echo '    <script src="'.$this->getFile('ressources/osm.js', 'serendipityHTTPPath').'"></script>'.PHP_EOL;
 		} else if ($event === 'backend_image_add') {
-			if (preg_match('/\\.gpx$/i', mb_strtolower($eventData)) && $this->get_config('compress_gpx', true) === true) {
-				$fileName = $eventData;
+			$fileName = $eventData;
+			if (str_ends_with(strtolower($fileName), '.gpx') && $this->get_config('compress_gpx', true) === true) {
 				$tmpFile = tmpfile();
 				fwrite($tmpFile, '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?><gpx version="1.1" creator="surrim.org" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">');
 				$gpx = simplexml_load_file($fileName);

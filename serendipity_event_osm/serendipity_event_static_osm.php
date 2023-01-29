@@ -22,6 +22,7 @@ class serendipity_event_static_osm extends serendipity_event
 		$propbag->add('author', PLUGIN_EVENT_OSM_AUTHOR);
 		$propbag->add('version', PLUGIN_EVENT_OSM_VERSION);
 		$propbag->add('requirements', [
+			'php' => '7.0.0',
 			'serendipity' => '2.3'
 		]);
 		$propbag->add('stackable', false);

@@ -47,31 +47,27 @@ class serendipity_event_static_osm extends serendipity_event
 		} else if ($event === 'backend_image_add') {
 			$fileName = $eventData;
 			if (str_ends_with(strtolower($fileName), '.gpx') && $this->get_config('compress_gpx', true) === true) {
-				$tmpFile = tmpfile();
-				fwrite($tmpFile, '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?><gpx version="1.1" creator="surrim.org" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">');
-				$gpx = simplexml_load_file($fileName);
+				$gpx = new SimpleXMLElement($fileName, dataIsURL: true);
+				$tmpGpx = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8" standalone="yes" ?><gpx version="1.1" creator="surrim.org" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd"></gpx>');
 				foreach (($gpx->trk ?? []) as $trk) {
-					fwrite($tmpFile, '<trk>');
-					foreach (($trk->trkseg ?? []) as $seg) {
-						fwrite($tmpFile, '<trkseg>');
-						foreach (($seg->trkpt ?? []) as $pt) {
-							fwrite($tmpFile, '<trkpt lat="'.$pt['lat'].'" lon="'.$pt['lon'].'"><ele>'.$pt->ele.'</ele></trkpt>');
+					$tmpTrk = $tmpGpx->addChild('trk');
+					foreach (($trk->trkseg ?? []) as $trkseg) {
+						$tmpTrkseg = $tmpTrk->addChild('trkseg');
+						foreach (($trkseg->trkpt ?? []) as $trkpt) {
+							$tmpTrkpt = $tmpTrkseg->addChild('trkpt');
+							$tmpTrkpt->addAttribute('lat', $trkpt['lat']);
+							$tmpTrkpt->addAttribute('lon', $trkpt['lon']);
+							if ($trkpt->ele != '') {
+								$tmpTrkpt->addChild('ele', $trkpt->ele);
+							}
 						}
-						fwrite($tmpFile, '</trkseg>');
 					}
-					fwrite($tmpFile, '</trk>');
 				}
-				fwrite($tmpFile, '</gpx>');
-				$fileSize = ftell($tmpFile);
-				unset($gpx);
-
-				rewind($tmpFile);
-				$file = fopen($fileName, 'w');
-				stream_copy_to_stream($tmpFile, $file, $fileSize);
-				fclose($file);
-				fclose($tmpFile);
+				$tmpGpx->asXML($fileName);
+				clearstatcache(true, $fileName);
 
 				$fileId = $addData['image_id'];
+				$fileSize = filesize($fileName);
 				serendipity_updateImageInDatabase(['size' => $fileSize], $fileId);
 			}
 		}

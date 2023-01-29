@@ -10587,9 +10587,9 @@
 <description>Allows anonymous users to view Serendipity media gallery</description>
 <maintainers><maintainer><name>Arnan de Gans, Matthew Groeninger, and Stefan Willoughby, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.68</version>
+  <version>2.68.1</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2023-01-30</date>
   <filelist>
 <dir name="serendipity_event_usergallery">
 <dir name="JPEG_TOOLKIT">

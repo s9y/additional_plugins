@@ -65,7 +65,7 @@ include_once('idna_convert.class.php');
 // Instantiate it *
 $IDN = new idna_convert();
 // The input string, if input is not UTF-8 or UCS-4, it must be converted before
-$input = utf8_encode('nörgler.com');
+$input = mb_convert_encoding('nörgler.com', 'UTF-8', 'ISO-8859-1');
 // Encode it to its punycode presentation
 $output = $IDN->encode($input);
 // Output, what we got now

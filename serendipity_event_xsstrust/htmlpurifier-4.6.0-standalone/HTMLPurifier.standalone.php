@@ -4135,7 +4135,7 @@ class HTMLPurifier_Encoder
             $str = strtr($str, self::testEncodingSupportsASCII($encoding));
             return $str;
         } elseif ($encoding === 'iso-8859-1') {
-            $str = utf8_encode($str);
+            $str = mb_convert_encoding($str, 'UTF-8', 'ISO-8859-1');
             return $str;
         }
         $bug = HTMLPurifier_Encoder::testIconvTruncateBug();

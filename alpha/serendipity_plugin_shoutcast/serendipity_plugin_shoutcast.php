@@ -122,7 +122,7 @@ class serendipity_plugin_shoutcast extends serendipity_plugin {
     }
 
     if (LANG_CHARSET == 'UTF-8') {
-        echo utf8_encode($content);
+        echo mb_convert_encoding($content, 'UTF-8', 'ISO-8859-1');
     } else {
         echo $content;
     }

@@ -297,7 +297,7 @@ class emerge_spartacus {
 
     function encode($string, $force_utf8 = false) {
         if ($force_utf8) {
-            $string = utf8_encode($string);
+            $string = mb_convert_encoding($string, 'UTF-8', 'ISO-8859-1');
             // TODO: This screw must be changed. Many authors entered their
             // names inside plugins, but saved the file as ISO. Since some
             // strings are not localized (like author name), it needs to

@@ -151,7 +151,10 @@ class serendipity_event_commentedit extends serendipity_event
                                             'editcancel' => ABORT_NOW
                                             );
                             //For json to work, the strings has to be utf8-encoded
-                            echo json_encode(array_map(utf8_encode, $language));
+                            $utf8_encode = function($string) {
+                                return mb_convert_encoding($string, 'UTF-8', 'ISO-8859-1');
+                            };
+                            echo json_encode(array_map($utf8_encode, $language));
                             break;
                     }
                     return true;

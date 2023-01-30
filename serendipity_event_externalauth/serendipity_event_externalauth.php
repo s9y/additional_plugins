@@ -340,7 +340,7 @@ class serendipity_event_externalauth extends serendipity_event
 				} else { // LDAP with protected access and messy schema
 				  $password = $addData['password'];
 				  //convert password from possible iso-8859 to utf8
-				  //$password = utf8_encode($password);
+				  //$password = mb_convert_encoding($password, 'UTF-8', 'ISO-8859-1');
 				  if ($this->get_config('bind_user')
 				      && ($valid = @ldap_bind($ds, $this->get_config('bind_user'), $this->get_config('bind_password')))) {
 				    $auth_query = str_replace(array('%1', '%2', '%3'),

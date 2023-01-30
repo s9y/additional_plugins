@@ -206,7 +206,7 @@ class serendipity_event_weblogping extends serendipity_event
                             # 15 second timeout may not be long enough for weblogs.com
                             $message->createPayload();
                             if (strtoupper(LANG_CHARSET) != 'UTF-8') {
-                                $payload = utf8_encode($message->payload);
+                                $payload = mb_convert_encoding($message->payload, 'UTF-8', 'ISO-8859-1');
                             } else {
                                 $payload = $message->payload;
                             }

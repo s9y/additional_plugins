@@ -616,7 +616,7 @@ class serendipity_plugin_twitter extends serendipity_plugin {
         if (LANG_CHARSET == 'UTF-8') {
             return serendipity_strftime($dateformat, $timestamp);
         } else {
-            return utf8_encode(serendipity_strftime($dateformat, $timestamp));
+            return mb_convert_encoding(serendipity_strftime($dateformat, $timestamp), 'UTF-8', 'ISO-8859-1');
         }
     }
 

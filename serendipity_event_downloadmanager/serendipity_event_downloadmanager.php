@@ -1433,7 +1433,7 @@ class serendipity_event_downloadmanager extends serendipity_event
 
         $catid   = intval($catid);
         $filedir = $this->encodeToUTF($filedir); // OK for copy
-        // Avoid basename cutting Umlaut UTF-8 Chars on 1st char, eg Ärgerlich.pdf uploaded as rgerlich.pdf
+        // Avoid basename cutting Umlaut UTF-8 Chars on 1st char, eg Ã„rgerlich.pdf uploaded as rgerlich.pdf
         // this may be some kind of PHP bug (https://bugs.php.net/bug.php?id=62119) or is locale-aware, or be, while encoded chars start with a slash;
         // Anyway we just check if we are inside a dir with a DS, which avoids this - (false === (strpos($filedir, '/'))) ? $filedir : basename($filedir);
         $file    = $this->mb_basename($filedir); // end(explode...) is doing the same... though

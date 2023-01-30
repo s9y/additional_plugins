@@ -210,7 +210,7 @@ class serendipity_event_backendrss extends serendipity_event
 
             case 'UTF-8':
             default:
-                return utf8_decode($string);
+                return mb_convert_encoding($string, 'ISO-8859-1', 'UTF-8');
         }
     }
 

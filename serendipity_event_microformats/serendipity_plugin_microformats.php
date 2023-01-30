@@ -163,7 +163,7 @@ class serendipity_plugin_microformats extends serendipity_plugin
                         if ($v['property'] == 'mf_hCalendar_startdate' || $v['property'] == 'mf_hCalendar_enddate') {
                             $ev[$v['entryid']][$mapping[$v['property']]] = date('Ymd\THm', $v['value']);
                         } else {
-                            $ev[$v['entryid']][$mapping[$v['property']]] = utf8_decode($v['value']);
+                            $ev[$v['entryid']][$mapping[$v['property']]] = mb_convert_encoding($v['value'], 'ISO-8859-1', 'UTF-8');
                         }
                     }
                     foreach ($ev as $k => $v) {

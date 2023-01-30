@@ -319,9 +319,9 @@ class serendipity_plugin_audioscrobbler extends serendipity_plugin {
     // Reencodes UTF-8 to blog encoding
     function reencode($string) {
         if (LANG_CHARSET != 'UTF-8') {
-	    return utf8_decode($string);
-	}
-	return $string;
+	         return mb_convert_encoding($string, 'ISO-8859-1', 'UTF-8');
+	     }
+	     return $string;
     }
 
     //destacks the songs so that always the $this->number songs are in the songarray
@@ -474,9 +474,8 @@ class serendipity_plugin_audioscrobbler extends serendipity_plugin {
         $content    = array();
         $i          = 0;
         foreach ($this->songs as $key => $value) {
-            $value['songtitle']     = utf8_decode($value['songtitle']);
-            $value['artisttitle']   = utf8_decode($value['artisttitle']);
-            $value['songtitle']     = utf8_decode($value['songtitle']);
+            $value['artisttitle']   = mb_convert_encoding($value['artisttitle'], 'ISO-8859-1', 'UTF-8');
+            $value['songtitle']     = mb_convert_encoding($value['songtitle'], 'ISO-8859-1', 'UTF-8');
             $add = '';
             if ($songlink) {
                 if (is_string(strstr($value['link'], '&mode'))) {

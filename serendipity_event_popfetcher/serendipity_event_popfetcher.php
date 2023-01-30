@@ -661,7 +661,7 @@ class serendipity_event_popfetcher extends serendipity_event
 
         if (strtolower($charset) == 'utf-8' && strtolower(LANG_CHARSET) != strtolower($charset)) {
             #echo 'UTF8_decode(' . $charset . ', ' . LANG_CHARSET . ')<br />';
-            return utf8_decode($string);
+            return mb_convert_encoding($string, 'ISO-8859-1', 'UTF-8');
         } elseif (strtolower(LANG_CHARSET) == 'utf-8' && strtolower($charset) != 'utf-8') {
             #echo 'UTF8_encode(' . $charset . ', ' . LANG_CHARSET . ')<br />';
             return utf8_encode($string);

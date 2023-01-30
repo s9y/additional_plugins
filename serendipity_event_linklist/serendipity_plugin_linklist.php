@@ -322,7 +322,7 @@ class serendipity_plugin_linklist extends serendipity_plugin
     function decode($string)
     {
         if (LANG_CHARSET != 'UTF-8') {
-            return utf8_decode($string);
+            return mb_convert_encoding($string, 'ISO-8859-1', 'UTF-8');
         }
 
         return $string;

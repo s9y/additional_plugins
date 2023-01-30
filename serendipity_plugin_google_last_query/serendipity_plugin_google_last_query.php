@@ -477,7 +477,7 @@ class serendipity_plugin_google_last_query extends serendipity_plugin {
     function echo_referrers($search_engine, $search_query, $url_prot, $url_host, $url_dir, $url_qpar, $target, $time_title) {
         $this->show_icon($search_engine);
         if (LANG_CHARSET != 'UTF-8') {
-            $out = utf8_decode(urldecode($search_query));
+            $out = mb_convert_encoding(urldecode($search_query), 'ISO-8859-1', 'UTF-8');
         } else {
             $out = urldecode($search_query);
         }
@@ -487,7 +487,7 @@ class serendipity_plugin_google_last_query extends serendipity_plugin {
     function echo_visitors($search_engine, $search_query, $url_path, $url_qpar, $target, $time_title) {
         $this->show_icon($search_engine);
         if (LANG_CHARSET != 'UTF-8') {
-            $out = utf8_decode(urldecode($search_query));
+            $out = mb_convert_encoding(urldecode($search_query), 'ISO-8859-1', 'UTF-8');
         } else {
             $out = urldecode($search_query);
         }

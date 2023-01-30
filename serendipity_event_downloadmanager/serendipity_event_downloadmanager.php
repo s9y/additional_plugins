@@ -1406,14 +1406,11 @@ class serendipity_event_downloadmanager extends serendipity_event
         // if WIN decode for stats
         if ($this->isWIN) {
             if (!$reverse) {
-                $name = utf8_decode($name);
+                $name = mb_convert_encoding($name, 'ISO-8859-1', 'UTF-8');
                 if ($this->debug) echo '<b>NAME</b> return for file props internally UTF-8 <b>de</b>coded: <em>'.$this->mb_basename($name)."</em><br>\n";
                 if ($this->debug) echo "<b>NAME</b> detected as: <b>".mb_detect_encoding($name, 'UTF-8, ISO-8859-1', true)."</b><br><br>\n";
             } else {
                 // ASCII filenames only!
-                if (!function_exists('mb_convert_encoding')) {
-                    $this->ERRMSG(PLUGIN_DOWNLOADMANAGER_PHPMB_ERROR, 'status');
-                }
                 if (mb_detect_encoding($name, 'UTF-8', false)) {
                     if ($this->debug) echo "<b>NAME</b> return mb_convert_encoding back to UTF-8 for file prop stats reading: ";
                     $name = mb_convert_encoding($name, 'UTF-8', 'ISO-8859-1');

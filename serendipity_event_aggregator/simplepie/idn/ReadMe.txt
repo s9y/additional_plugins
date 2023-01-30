@@ -85,7 +85,7 @@ $input = 'andre@xn--brse-5qa.xn--knrz-1ra.info';
 $output = $IDN->decode($input);
 // Output, what we got now, if output should be in a format different to UTF-8
 // or UCS-4, you will have to convert it before outputting it
-echo utf8_decode($output); // This will read: andre@börse.knörz.info
+echo mb_convert_encoding($output, 'ISO-8859-1', 'UTF-8'); // This will read: andre@börse.knörz.info
 
 
 3. The input is read from a UCS-4 coded file and encoded line by line. By

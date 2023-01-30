@@ -329,7 +329,7 @@ class serendipity_event_blogpdf extends serendipity_event
         if (serendipity_db_bool($this->get_config('html2pdf'))) {
             return $string;
         } elseif (serendipity_db_bool($this->get_config('fallback'))) {
-			return strip_tags(html_entity_decode(utf8_decode($string), ENT_COMPAT, LANG_CHARSET));
+			return strip_tags(html_entity_decode(mb_convert_encoding($string, 'ISO-8859-1', 'UTF-8'), ENT_COMPAT, LANG_CHARSET));
 		} else {
 			return strip_tags(html_entity_decode($string, ENT_COMPAT, LANG_CHARSET));
 		}

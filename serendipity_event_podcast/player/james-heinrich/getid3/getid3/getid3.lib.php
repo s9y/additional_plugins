@@ -943,10 +943,7 @@ class getid3_lib
 	 * @return string
 	 */
 	public static function iconv_fallback_utf8_iso88591($string) {
-		if (function_exists('utf8_decode')) {
-			return utf8_decode($string);
-		}
-		// utf8_decode() unavailable, use getID3()'s iconv_fallback() conversions (possibly PHP is compiled without XML support)
+		return mb_convert_encoding($string, 'ISO-8859-1', 'UTF-8');
 		$newcharstring = '';
 		$offset = 0;
 		$stringlength = strlen($string);

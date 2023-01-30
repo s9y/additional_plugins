@@ -218,7 +218,7 @@ class serendipity_event_facebook extends serendipity_event {
     
     function &decode($string) {
         if (LANG_CHARSET == 'ISO-8859-1') {
-            return utf8_decode($string);
+            return mb_convert_encoding($string, 'ISO-8859-1', 'UTF-8');
         }
 
         return $string;

@@ -284,7 +284,7 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
                     require_once __DIR__ . '/simplepie/simplepie.inc';
                 }
                 $socialbookmarksFeed = new SimplePie();
-                $socialbookmarksFeed->set_feed_url(str_replace('%username%',urlencode(utf8_decode(stripslashes($socialbookmarksID))),$gsocialbookmarksFeedURL));
+                $socialbookmarksFeed->set_feed_url(str_replace('%username%', urlencode(mb_convert_encoding(stripslashes($socialbookmarksID), 'ISO-8859-1', 'UTF-8')), $gsocialbookmarksFeedURL));
                 $socialbookmarksFeed->set_cache_location($serendipity['serendipityPath'] . '/templates_c/');
                 $socialbookmarksFeed->enable_cache(false);
                 $socialbookmarksFeed->init();
@@ -325,7 +325,7 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
                     print 'A '.$this->get_config('socialbookmarksService').' error occured! <br />'.'Error Message: rss failed';
                 }
             } else {
-                $gsocialbookmarksFeedURL = str_replace('%username%',urlencode(utf8_decode(stripslashes($socialbookmarksID))),$gsocialbookmarksFeedURL);
+                $gsocialbookmarksFeedURL = str_replace('%username%', urlencode(mb_convert_encoding(stripslashes($socialbookmarksID), 'ISO-8859-1', 'UTF-8')), $gsocialbookmarksFeedURL);
                 echo('<script type="text/javascript" src="' . $gsocialbookmarksFeedURL . $this->get_config('additionalParams') . '"></scipt>');
             }
         } else {
@@ -333,7 +333,7 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
         }
 
         if (serendipity_db_bool($moreLink)) {
-            print '<a href="'.str_replace('%username%', urlencode(utf8_decode(stripslashes($socialbookmarksID))), $gsocialbookmarksURL).'/">('.PLUGIN_SOCIALBOOKMARKS_MORELINK.')</a>';
+            print '<a href="'.str_replace('%username%', urlencode(mb_convert_encoding(stripslashes($socialbookmarksID), 'ISO-8859-1', 'UTF-8')), $gsocialbookmarksURL).'/">('.PLUGIN_SOCIALBOOKMARKS_MORELINK.')</a>';
         }
         return true;
     }
@@ -409,7 +409,7 @@ class serendipity_plugin_socialbookmarks extends serendipity_plugin {
      */
     private function decode($string) {
         if (LANG_CHARSET !== 'UTF-8') {
-            return utf8_decode($string);
+            return mb_convert_encoding($string, 'ISO-8859-1', 'UTF-8');
         }
         return $string;
     }

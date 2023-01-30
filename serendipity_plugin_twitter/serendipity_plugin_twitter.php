@@ -228,7 +228,7 @@ class serendipity_plugin_twitter extends serendipity_plugin {
         if (LANG_CHARSET == 'UTF-8') {
             echo $out;
         } else {
-            echo utf8_decode($out);
+            echo mb_convert_encoding($out, 'ISO-8859-1', 'UTF-8');
         }
     }
 

@@ -1096,7 +1096,7 @@ class serendipity_event_aggregator extends serendipity_event {
             return true;
         } elseif ($charset == 'utf-8') {
             foreach($array AS $key => $val) {
-                $array[$key] = utf8_decode($val);
+                $array[$key] = mb_convert_encoding($val, 'ISO-8859-1', 'UTF-8');
             }
         } elseif ($charset == 'iso-8859-1') {
             foreach($array AS $key => $val) {

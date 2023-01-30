@@ -1,9 +1,14 @@
+0.3.0:
+---
+ * Added Spanish translations
+ * Improved translations
+ * More generic JSON data
+ * Changed my name
+
 0.2.2:
 ---
-
-* Added missing include
+ * Added missing include
 
 0.2.1:
 ---
-
-* Convert date, size and catergory ids to int, 3% smaller output
+ * Convert date, size and catergory ids to int, 3% smaller output

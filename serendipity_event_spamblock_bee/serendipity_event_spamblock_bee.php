@@ -647,7 +647,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
         global $serendipity;
 
         if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $this->hiddenCaptchaHandle) {
-            $path         = $this->path = $this->get_config('plugin_path', $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_spamblock_bee/');
+            $path         = $this->get_config('plugin_path', $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_spamblock_bee/');
             $answer       = $this->getCaptchaAnswer();
             $answer       = $answer['answer'];
             $jsProperties = array('method' => $this->answerRetrievalMethod);

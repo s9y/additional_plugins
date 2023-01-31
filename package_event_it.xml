@@ -4043,16 +4043,17 @@
 <license>GPL</license>
 <summary>Geo-JSON</summary>
 <groups>FRONTEND_FEATURES</groups>
-<description>Provides a JSON object with all geo data which can be processed by JavaScript.</description>
-<maintainers><maintainer><name>Martin Sewelies</name><role>lead</role></maintainer></maintainers>
+<description>Provides a JSON object which contains all geographic data and can be processed with JavaScript</description>
+<maintainers><maintainer><name>Kathi Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.2.2</version>
+  <version>0.3.0</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
-  <date>2021-01-09</date>
+  <date>2023-02-01</date>
   <filelist>
 <dir name="serendipity_event_geo_json">
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
+<file>lang_es.inc.php</file>
 </dir>
 <file>LICENSE</file>
 <file>lang_de.inc.php</file>
@@ -4060,17 +4061,20 @@
 <file>serendipity_event_geo_json.php</file>
 <file>ChangeLog</file>
 <file>plugin_version.inc.php</file>
+<file>lang_es.inc.php</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_geo_json/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_geo_json/UTF-8/lang_es.inc.php</file>
     <file>serendipity_event_geo_json/LICENSE</file>
     <file>serendipity_event_geo_json/lang_de.inc.php</file>
     <file>serendipity_event_geo_json/lang_en.inc.php</file>
     <file>serendipity_event_geo_json/serendipity_event_geo_json.php</file>
     <file>serendipity_event_geo_json/ChangeLog</file>
     <file>serendipity_event_geo_json/plugin_version.inc.php</file>
+    <file>serendipity_event_geo_json/lang_es.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7725,22 +7729,25 @@
 <license>GPL</license>
 <summary>OpenStreetMap integration</summary>
 <groups>FRONTEND_ENTRY_RELATED</groups>
-<description>Provides an interactive map with *.gpx uploads and tagged geo data</description>
-<maintainers><maintainer><name>Martin Sewelies</name><role>lead</role></maintainer></maintainers>
+<description>Provides an interactive map for *.gpx uploads and geo-tagged entries</description>
+<maintainers><maintainer><name>Kathi Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.3.13</version>
+  <version>0.4.0</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
-  <date>2021-07-14</date>
+  <date>2023-02-01</date>
   <filelist>
 <dir name="serendipity_event_osm">
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
+<file>lang_es.inc.php</file>
 </dir>
 <dir name="ressources">
 <file>ol.js</file>
 <file>osm.css</file>
 <file>osm.js</file>
 <file>ol.css</file>
+<file>ol.css.map</file>
+<file>ol.js.map</file>
 </dir>
 <file>LICENSE</file>
 <file>lang_de.inc.php</file>
@@ -7750,15 +7757,19 @@
 <file>serendipity_event_static_osm.php</file>
 <file>ChangeLog</file>
 <file>README.md</file>
+<file>lang_es.inc.php</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_osm/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_osm/UTF-8/lang_es.inc.php</file>
     <file>serendipity_event_osm/ressources/ol.js</file>
     <file>serendipity_event_osm/ressources/osm.css</file>
     <file>serendipity_event_osm/ressources/osm.js</file>
     <file>serendipity_event_osm/ressources/ol.css</file>
+    <file>serendipity_event_osm/ressources/ol.css.map</file>
+    <file>serendipity_event_osm/ressources/ol.js.map</file>
     <file>serendipity_event_osm/LICENSE</file>
     <file>serendipity_event_osm/lang_de.inc.php</file>
     <file>serendipity_event_osm/lang_en.inc.php</file>
@@ -7767,6 +7778,7 @@
     <file>serendipity_event_osm/serendipity_event_static_osm.php</file>
     <file>serendipity_event_osm/ChangeLog</file>
     <file>serendipity_event_osm/README.md</file>
+    <file>serendipity_event_osm/lang_es.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7777,21 +7789,24 @@
 <summary>OpenStreetMap static files</summary>
 <groups>FRONTEND_ENTRY_RELATED</groups>
 <description>Includes scripts and stylesheets for OpenStreetMap support</description>
-<maintainers><maintainer><name>Martin Sewelies</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Kathi Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.3.13</version>
+  <version>0.4.0</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
-  <date>2021-07-14</date>
+  <date>2023-02-01</date>
   <filelist>
 <dir name="serendipity_event_osm">
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
+<file>lang_es.inc.php</file>
 </dir>
 <dir name="ressources">
 <file>ol.js</file>
 <file>osm.css</file>
 <file>osm.js</file>
 <file>ol.css</file>
+<file>ol.css.map</file>
+<file>ol.js.map</file>
 </dir>
 <file>LICENSE</file>
 <file>lang_de.inc.php</file>
@@ -7801,15 +7816,19 @@
 <file>serendipity_event_static_osm.php</file>
 <file>ChangeLog</file>
 <file>README.md</file>
+<file>lang_es.inc.php</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_osm/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_osm/UTF-8/lang_es.inc.php</file>
     <file>serendipity_event_osm/ressources/ol.js</file>
     <file>serendipity_event_osm/ressources/osm.css</file>
     <file>serendipity_event_osm/ressources/osm.js</file>
     <file>serendipity_event_osm/ressources/ol.css</file>
+    <file>serendipity_event_osm/ressources/ol.css.map</file>
+    <file>serendipity_event_osm/ressources/ol.js.map</file>
     <file>serendipity_event_osm/LICENSE</file>
     <file>serendipity_event_osm/lang_de.inc.php</file>
     <file>serendipity_event_osm/lang_en.inc.php</file>
@@ -7818,6 +7837,7 @@
     <file>serendipity_event_osm/serendipity_event_static_osm.php</file>
     <file>serendipity_event_osm/ChangeLog</file>
     <file>serendipity_event_osm/README.md</file>
+    <file>serendipity_event_osm/lang_es.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>

@@ -44,7 +44,7 @@ class serendipity_event_karma extends serendipity_event
         $propbag->add('description',   PLUGIN_KARMA_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Grischa Brockhaus, Judebert, Gregor Voeltz, Ian');
-        $propbag->add('version',       '2.14.2');
+        $propbag->add('version',       '2.14.3');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -220,7 +220,7 @@ class serendipity_event_karma extends serendipity_event
             // Are we tracking exits?
             case 'exits_active':
                 $propbag->add('type', 'boolean');
-                $propbag->add('name', SHOWS_TOP_EXIT);
+                $propbag->add('name', 'SHOWS_TOP_EXIT');
                 $propbag->add('description', '');
                 $propbag->add('default', 'false');
                 break;

@@ -5665,9 +5665,9 @@
 <description>Дава възможност посетителите да оценяват качеството на вашите статии</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus, Judebert, Gregor Voeltz, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.14.2</version>
+  <version>2.14.3</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2022-11-05</date>
+  <date>2023-02-07</date>
   <filelist>
 <dir name="serendipity_event_karma">
 <dir name="UTF-8">
@@ -9529,9 +9529,9 @@
 <description>Добавя връзка към интересни статистически данни в страницата на постингите, включително и брояч на посетителите</description>
 <maintainers><maintainer><name>Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin, Matthias Mees, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.66</version>
+  <version>1.66.1</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2023-01-01</date>
+  <date>2023-02-07</date>
   <filelist>
 <dir name="serendipity_event_statistics">
 <dir name="UTF-8">

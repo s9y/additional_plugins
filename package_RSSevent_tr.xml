@@ -554,7 +554,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus, Judebert, Gregor Voeltz, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_karma&lt;br /&gt;Karma&lt;/b&gt;&lt;br /&gt;Let visitors rate your entries&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Sat, 05 Nov 2022 00:30:43 +0100</pubDate>
+<pubDate>Tue, 07 Feb 2023 00:30:34 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_karma</guid>
 </item>
 <item>
@@ -995,7 +995,7 @@
 <category>Event Plugins</category>
 <author>Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin, Matthias Mees, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_statistics&lt;br /&gt;Statistics&lt;/b&gt;&lt;br /&gt;Adds a link to interesting statistics in your entries panel, including a visitors counter&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Sun, 01 Jan 2023 00:30:40 +0100</pubDate>
+<pubDate>Tue, 07 Feb 2023 00:30:36 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_statistics</guid>
 </item>
 <item>

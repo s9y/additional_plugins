@@ -272,12 +272,11 @@ class serendipity_event_multilingual extends serendipity_event
         static $true  = true;
 
         $langs = array();
-        // list/each can use references
         if (!is_array($properties)) {
             return $false;
         }
 
-        while(list($key,) = each($properties)) {
+        foreach ($properties as $key => $property) {
             preg_match('@^multilingual_body_(.+)$@', $key, $match);
             if (isset($match[1])) {
                 $langs[$match[1]] = '<a class="multilingual_' . $match[1] . '" href="' . $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?' . serendipity_archiveURL($id, $serendipity['languages'][$match[1]], 'serendipityHTTPPath', false) . '&amp;' . $this->urlparam($match[1]) . '">' . $serendipity['languages'][$match[1]] . '</a>';
@@ -340,7 +339,7 @@ class serendipity_event_multilingual extends serendipity_event
         $parts = explode('{{--}}', $msg);
         $out   = '';
         // Iterate each subblock and inspect if its language matches.
-        foreach($parts AS $idx => $match) {
+        foreach($parts as $idx => $match) {
             if (empty($match)) continue; // Last block part, skip it.
             if (stristr($match, '{{!' . $serendipity['lang'] . '}}')) {
                 // Current language found. Keep the string, minus the {{!xx}} part.
@@ -423,8 +422,8 @@ class serendipity_event_multilingual extends serendipity_event
                     // Restore native language version, ONLY if a different language is being submitted.
                     $restore = serendipity_db_query("SELECT title, body, extended FROM {$serendipity['dbPrefix']}entries WHERE id = " . (int)$eventData['id']);
                     if (is_array($restore)) {
-                        foreach($restore AS $row) {
-                            foreach($this->switch_keys AS $restorekey) {
+                        foreach($restore as $row) {
+                            foreach($this->switch_keys as $restorekey) {
                                 $eventData[$restorekey] = $row[$restorekey];
                             }
                         }
@@ -451,7 +450,7 @@ class serendipity_event_multilingual extends serendipity_event
                     // Get existing data
                     $property = serendipity_fetchEntryProperties($eventData['id']);
 
-                    foreach($this->supported_properties AS $prop_key) {
+                    foreach($this->supported_properties as $prop_key) {
                         $prop_val = (isset($serendipity['POST']['properties'][$prop_key]) ? $serendipity['POST']['properties'][$prop_key] : null);
                         if (!isset($property[$prop_key]) && !empty($prop_val)) {
                             $q = "INSERT INTO {$serendipity['dbPrefix']}entryproperties (entryid, property, value) VALUES (" . (int)$eventData['id'] . ", '" . serendipity_db_escape_string($prop_key) . "', '" . serendipity_db_escape_string($prop_val) . "')";
@@ -498,7 +497,7 @@ class serendipity_event_multilingual extends serendipity_event
                         // this is a language change, not a save -- we want the DB values
                         // unless the user chooses to retain previous language content
                         if (isset($serendipity['POST']['no_save'])) {
-                            foreach($this->switch_keys AS $key) {
+                            foreach($this->switch_keys as $key) {
                                 if (!serendipity_db_bool($this->get_config('copytext', 'true')) || !empty($props['multilingual_' . $key . '_' . $this->showlang])) {
                                     $eventData[$key] = $props['multilingual_' . $key . '_' . $this->showlang];
                                 }
@@ -512,7 +511,7 @@ class serendipity_event_multilingual extends serendipity_event
                         }
                         // this is a language change, not a save -- we want the DB values
                         if (isset($serendipity['POST']['no_save'])) {
-                            foreach($this->switch_keys AS $key) {
+                            foreach($this->switch_keys as $key) {
                                 $eventData[$key] = $props[$key];
                             }
                         }
@@ -573,7 +572,7 @@ class serendipity_event_multilingual extends serendipity_event
                         if ($langs = $this->getLang($eventData[0]['id'], $eventData[0]['properties'])) {
                             if (!empty($this->showlang)) {
                                 $props = &$eventData[0]['properties'];
-                                foreach($this->switch_keys AS $key) {
+                                foreach($this->switch_keys as $key) {
                                     if (!empty($props['multilingual_' . $key . '_' . $this->showlang])) {
                                         $eventData[0][$key] = $props['multilingual_' . $key . '_' . $this->showlang];
                                     }
@@ -601,7 +600,7 @@ class serendipity_event_multilingual extends serendipity_event
                                 // original entries
 
                                 $props = &$eventData[$i]['properties'];
-                                foreach($this->switch_keys AS $key) {
+                                foreach($this->switch_keys as $key) {
                                     if (!empty($props['multilingual_' . $key . '_' . $this->showlang])) {
                                         $eventData[$i][$key] = $props['multilingual_' . $key . '_' . $this->showlang];
                                     }
@@ -621,12 +620,12 @@ class serendipity_event_multilingual extends serendipity_event
                     $this->tag_title();
 
                     if (serendipity_db_bool($this->get_config('tagged_entries', 'true'))) {
-                        foreach ($eventData AS $key => $entry) {
+                        foreach ($eventData as $key => $entry) {
                             if (isset($eventData[$key]['title'])) {
                                 $eventData[$key]['title'] = $this->strip_langs($eventData[$key]['title']);
                                 $eventData[$key]['body'] = $this->strip_langs($eventData[$key]['body']);
                                 if (is_array($eventData[$key]['categories'])) {
-                                    foreach($eventData[$key]['categories'] AS $ec_key => $ec_val) {
+                                    foreach($eventData[$key]['categories'] as $ec_key => $ec_val) {
                                         $eventData[$key]['categories'][$ec_key]['category_name'] = $this->strip_langs($ec_val['category_name']);
                                     }
                                 }
@@ -647,7 +646,7 @@ class serendipity_event_multilingual extends serendipity_event
 
                     $langs = '';
                     //asort($use_lang); //sorts by value ASC, but if so we should do it everywhere though
-                    foreach($use_lang AS $code => $desc) {
+                    foreach($use_lang as $code => $desc) {
                         $langs .= '<option value="' . $code . '" ' . ($lang_selected == $code ? 'selected="selected"' : '') . '>' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($desc) : htmlspecialchars($desc, ENT_COMPAT, LANG_CHARSET)) . '</option>' . "\n";
                     }
                     if ($serendipity['version'][0] < 2) {
@@ -690,14 +689,14 @@ class serendipity_event_multilingual extends serendipity_event
                     if (!is_array($properties)) {
                         return true;
                     }
-                    foreach($properties AS $idx => $row) {
+                    foreach($properties as $idx => $row) {
                         $eventData[$addData[$row['entryid']]]['properties'][$row['property']] = $row['value'];
                     }
                     break;
 
                 case 'frontend_entries_rss':
                     if (is_array($eventData)) {
-                        foreach($eventData AS $i => $entry) {
+                        foreach($eventData as $i => $entry) {
                             if (!empty($this->lang_display)) {
                                 $this->showlang = $this->lang_display;
                             }
@@ -707,7 +706,7 @@ class serendipity_event_multilingual extends serendipity_event
                                 // original entries
 
                                 $props = &$eventData[$i]['properties'];
-                                foreach($this->switch_keys AS $key) {
+                                foreach($this->switch_keys as $key) {
                                     if (!empty($props['multilingual_' . $key . '_' . $this->showlang])) {
                                         $eventData[$i][$key] = $props['multilingual_' . $key . '_' . $this->showlang];
                                     }
@@ -718,7 +717,7 @@ class serendipity_event_multilingual extends serendipity_event
                         }
                     }
                     if (serendipity_db_bool($this->get_config('tagged_entries', 'true'))) {
-                        foreach ($eventData AS $key => $entry) {
+                        foreach ($eventData as $key => $entry) {
                             $eventData[$key]['title'] = $this->strip_langs($eventData[$key]['title']);
                             $eventData[$key]['body'] = $this->strip_langs($eventData[$key]['body']);
                         }
@@ -800,7 +799,7 @@ class serendipity_event_multilingual extends serendipity_event
 
                 case 'frontend_sidebar_plugins':
                     if (serendipity_db_bool($this->get_config('tagged_sidebar', 'true'))) {
-                        foreach ($eventData AS $key => $entry) {
+                        foreach ($eventData as $key => $entry) {
                             $eventData[$key]['title'] = $this->strip_langs($eventData[$key]['title']);
                             $eventData[$key]['content'] = $this->strip_langs($eventData[$key]['content']);
                         }

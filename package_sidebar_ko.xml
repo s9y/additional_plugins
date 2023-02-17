@@ -597,9 +597,9 @@
 <description>방문자가 메인 페이지의 언어를 변경할 수 있게 하기</description>
 <maintainers><maintainer><name>Garvin Hicking, Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.15</version>
+  <version>1.15.1</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2023-02-18</date>
   <filelist>
 <dir name="serendipity_event_multilingual">
 <dir name="UTF-8">

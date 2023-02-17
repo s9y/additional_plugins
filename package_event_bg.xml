@@ -7254,9 +7254,9 @@
 <description>Позволява създаването на версии на статиите на различни езици</description>
 <maintainers><maintainer><name>Garvin Hicking, Wesley Hwang-Chung, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.35</version>
+  <version>2.35.1</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2018-08-15</date>
+  <date>2023-02-18</date>
   <filelist>
 <dir name="serendipity_event_multilingual">
 <dir name="UTF-8">

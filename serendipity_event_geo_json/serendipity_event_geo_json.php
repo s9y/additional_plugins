@@ -89,7 +89,7 @@
 					m.mediaid = i.id AND m.property='DATE' AND m.property_group = 'base_property' AND property_subgroup = ''
 				)
 				WHERE i.extension = 'gpx'
-				ORDER BY i.path",
+				ORDER BY i.path, i.realname",
 				false, 'assoc'
 			));
 		}

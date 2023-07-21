@@ -102,6 +102,8 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                 serendipity_db_query($sql);
                 $sql = "INSERT IGNORE INTO b8_wordlist (token, count_ham, count_spam) VALUES ('b8*texts', 0, 0);";
                 serendipity_db_query($sql);
+                $sql = "ALTER TABLE b8_wordlist MODIFY COLUMN token varchar(255) COLLATE 'utf8mb4_bin';";
+                serendipity_db_query($sql);
                 
                 # our recycler bin needs to copy the comments table
                 $sql = "CREATE TABLE IF NOT EXISTS

@@ -74,7 +74,7 @@ class serendipity_event_geshi extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '7.0'
         ));
-        $propbag->add('version',       '1.1.1');
+        $propbag->add('version',       '1.1.2');
         $propbag->add('event_hooks', array('frontend_display' => true, 'frontend_comment' => true));
         $propbag->add('groups', array('MARKUP'));
 
@@ -150,7 +150,7 @@ class serendipity_event_geshi extends serendipity_event
                 case 'frontend_display':
                     foreach ($this->markup_elements as $temp) {
                         if (serendipity_db_bool($this->get_config($temp['name'], true)) && isset($eventData[$temp['element']]) &&
-                            !$eventData['properties']['ep_disable_markup_' . $this->instance] &&
+                            !(isset($eventData['properties']['ep_disable_markup_' . $this->instance]) && $eventData['properties']['ep_disable_markup_' . $this->instance]) &&
                             !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
                             $element = $temp['element'];
                             $eventData[$element] = $this->geshi($eventData[$element]);

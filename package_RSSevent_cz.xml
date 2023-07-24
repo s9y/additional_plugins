@@ -428,7 +428,7 @@
 <category>Event Plugins</category>
 <author>Kathi Sewelies</author>
 <content:encoded>&lt;b&gt;serendipity_event_geo_json&lt;br /&gt;Geo-JSON&lt;/b&gt;&lt;br /&gt;Provides a JSON object which contains all geographic data and can be processed with JavaScript&lt;br/&gt;For: Serendipity 2.3</content:encoded>
-<pubDate>Wed, 01 Feb 2023 00:30:32 +0100</pubDate>
+<pubDate>Mon, 24 Jul 2023 16:20:00 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_geo_json</guid>
 </item>
 <item>
@@ -455,7 +455,7 @@
 <category>Event Plugins</category>
 <author>David Rolston</author>
 <content:encoded>&lt;b&gt;serendipity_event_geshi&lt;br /&gt;Markup: GeSHi&lt;/b&gt;&lt;br /&gt;Barevné zvýrazňování syntaxe počítačových jazyků. Použití tagů: [geshi lang=nazev_jazyku [,ln={y|n}]]programový kód[/geshi]&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:29 +0200</pubDate>
+<pubDate>Mon, 24 Jul 2023 16:20:00 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_geshi</guid>
 </item>
 <item>
@@ -473,7 +473,7 @@
 <category>Event Plugins</category>
 <author>Rob Antonishen</author>
 <content:encoded>&lt;b&gt;serendipity_event_glossary&lt;br /&gt;Rejstřík&lt;/b&gt;&lt;br /&gt;Uživatelem definovaný rejstřík slov, která se v textu zvýrazňují a po najetí myší se k nim v malém rámečku ukazuje vysvětlivka&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:30 +0200</pubDate>
+<pubDate>Mon, 24 Jul 2023 16:20:00 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_glossary</guid>
 </item>
 <item>
@@ -725,7 +725,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Markus Gerstel, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_mycalendar&lt;br /&gt;Můj kalendář&lt;/b&gt;&lt;br /&gt;Správa osobního kalendáře&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:32 +0200</pubDate>
+<pubDate>Mon, 24 Jul 2023 16:20:02 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_mycalendar</guid>
 </item>
 <item>
@@ -941,7 +941,7 @@
 <category>Event Plugins</category>
 <author>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_bayes&lt;br /&gt;Spamblock (Bayes)&lt;/b&gt;&lt;br /&gt;Detekce spamu pomocí adaptivního algoritmu, který se dokáže sám učit.&lt;br/&gt;For: Serendipity 2.1</content:encoded>
-<pubDate>Mon, 19 Jul 2021 00:30:37 +0200</pubDate>
+<pubDate>Mon, 24 Jul 2023 16:20:08 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_bayes</guid>
 </item>
 <item>

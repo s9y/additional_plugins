@@ -4046,9 +4046,9 @@
 <description>Provides a JSON object which contains all geographic data and can be processed with JavaScript</description>
 <maintainers><maintainer><name>Kathi Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.3.0</version>
+  <version>0.3.1</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
-  <date>2023-02-01</date>
+  <date>2023-07-24</date>
   <filelist>
 <dir name="serendipity_event_geo_json">
 <dir name="UTF-8">
@@ -4193,9 +4193,9 @@
 <description>Синтактично оцветяване на програмни текстове. Приложение: [geshi lang=lang_name [,ln={y|n}]] програмен текст (без HTML) [/geshi]. Поддържани езици: actionscript, ada, apache, asm, asp, bash, c, c_mac, caddcl, cadlisp, cpp, csharp (C#), css, delphi, html4strict, java, javascript, lisp, lua, mpasm, nsis, objc, oobas, oracle8, pascal, perl, php, python, qbasic, smarty, vb, vbnet, visualfoxpro, xml</description>
 <maintainers><maintainer><name>David Rolston</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1.1</version>
+  <version>1.1.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2023-07-24</date>
   <filelist>
 <dir name="serendipity_event_geshi">
 <dir name="UTF-8">
@@ -4813,9 +4813,9 @@
 <description>Потребителски речник на термини и дефиниции за тях. Термините се открояват в текста, а дефинициите се извеждат като подсказки.</description>
 <maintainers><maintainer><name>Rob Antonishen</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.7.2</version>
+  <version>1.7.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2023-07-24</date>
   <filelist>
 <dir name="serendipity_event_glossary">
 <dir name="UTF-8">
@@ -7327,9 +7327,9 @@
 <description>Поддържа персонален календар</description>
 <maintainers><maintainer><name>Garvin Hicking, Markus Gerstel, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.18.1</version>
+  <version>0.18.2</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2023-07-24</date>
   <filelist>
 <dir name="serendipity_event_mycalendar">
 <dir name="UTF-8">
@@ -7732,7 +7732,7 @@
 <description>Provides an interactive map for *.gpx uploads and geo-tagged entries</description>
 <maintainers><maintainer><name>Kathi Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.4.0</version>
+  <version>0.4.2</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
   <date>2023-02-01</date>
   <filelist>
@@ -7746,7 +7746,6 @@
 <file>osm.css</file>
 <file>osm.js</file>
 <file>ol.css</file>
-<file>ol.css.map</file>
 <file>ol.js.map</file>
 </dir>
 <file>LICENSE</file>
@@ -7768,7 +7767,6 @@
     <file>serendipity_event_osm/ressources/osm.css</file>
     <file>serendipity_event_osm/ressources/osm.js</file>
     <file>serendipity_event_osm/ressources/ol.css</file>
-    <file>serendipity_event_osm/ressources/ol.css.map</file>
     <file>serendipity_event_osm/ressources/ol.js.map</file>
     <file>serendipity_event_osm/LICENSE</file>
     <file>serendipity_event_osm/lang_de.inc.php</file>
@@ -7791,7 +7789,7 @@
 <description>Includes scripts and stylesheets for OpenStreetMap support</description>
 <maintainers><maintainer><name>Kathi Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.4.0</version>
+  <version>0.4.2</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
   <date>2023-02-01</date>
   <filelist>
@@ -7805,7 +7803,6 @@
 <file>osm.css</file>
 <file>osm.js</file>
 <file>ol.css</file>
-<file>ol.css.map</file>
 <file>ol.js.map</file>
 </dir>
 <file>LICENSE</file>
@@ -7827,7 +7824,6 @@
     <file>serendipity_event_osm/ressources/osm.css</file>
     <file>serendipity_event_osm/ressources/osm.js</file>
     <file>serendipity_event_osm/ressources/ol.css</file>
-    <file>serendipity_event_osm/ressources/ol.css.map</file>
     <file>serendipity_event_osm/ressources/ol.js.map</file>
     <file>serendipity_event_osm/LICENSE</file>
     <file>serendipity_event_osm/lang_de.inc.php</file>
@@ -9119,9 +9115,9 @@
 <description>Detects Spam via an algorithmus which learns.</description>
 <maintainers><maintainer><name>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1.5</version>
+  <version>1.1.6</version>
   <requirements:s9yVersion>2.1</requirements:s9yVersion>
-  <date>2021-07-19</date>
+  <date>2023-07-24</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bayes">
 <dir name="UTF-8">

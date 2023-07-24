@@ -670,9 +670,9 @@
 <description>X の近く公開の予定されたイベントを含めた個人のカレンダーを表示します。</description>
 <maintainers><maintainer><name>Garvin Hicking, Markus Gerstel</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.13.2</version>
+  <version>0.13.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2023-07-24</date>
   <filelist>
 <dir name="serendipity_event_mycalendar">
 <dir name="UTF-8">

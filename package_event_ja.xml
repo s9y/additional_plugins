@@ -3031,9 +3031,9 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <description>閲覧時、次/前のエントリを閲覧することを可能にします。</description>
 <maintainers><maintainer><name>Garvin Hicking, Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.42</version>
+  <version>1.43</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2022-11-23</date>
+  <date>2023-07-28</date>
   <filelist>
 <dir name="serendipity_event_entrypaging">
 <dir name="UTF-8">

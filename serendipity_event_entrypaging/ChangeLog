@@ -1,3 +1,7 @@
+1.43:
+--------
+* Bugfix when using entryproperties plugin and missing JOIN
+
 1.42:
 -------
 Fix PHP8 compats

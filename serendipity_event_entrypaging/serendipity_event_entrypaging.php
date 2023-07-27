@@ -20,7 +20,7 @@ class serendipity_event_entrypaging extends serendipity_event
         $propbag->add('description',   PLUGIN_ENTRYPAGING_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Wesley Hwang-Chung');
-        $propbag->add('version',       '1.42');
+        $propbag->add('version',       '1.43');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -197,11 +197,12 @@ class serendipity_event_entrypaging extends serendipity_event
 
                 $cond['and'] = " AND e.isdraft = 'false' AND e.timestamp <= " . $this->timeOffset(time());
                 serendipity_plugin_api::hook_event('frontend_fetchentry', $cond);
+
                 if (serendipity_db_bool($this->get_config('use_category')) && !empty($currentTimeSQL['categoryid'])) {
                     $cond['joins'] .= " JOIN {$serendipity['dbPrefix']}entrycat AS ec ON (ec.categoryid = " . (int)$currentTimeSQL['categoryid'] . " AND ec.entryid = e.id)";
-                } else {
-		$cond['joins'] = NULL;
-		}
+                } elseif (!isset($cond['joins'])) {
+		            $cond['joins'] = NULL;
+		        }
 
                 $querystring = "SELECT
                                     e.id, e.title, e.timestamp

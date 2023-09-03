@@ -1,3 +1,7 @@
+1.1,2:
+-----
+ * Fix warnings in aricles without any properties (mitch)
+
 1.1.1:
 -----
  * Hotfixes for PHP 8 (surrim)

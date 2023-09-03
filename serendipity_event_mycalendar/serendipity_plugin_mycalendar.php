@@ -14,7 +14,7 @@ class serendipity_plugin_mycalendar extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_MYCALENDAR_SIDE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Markus Gerstel');
-        $propbag->add('version',       '0.13.2');
+        $propbag->add('version',       '0.13.3');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -121,9 +121,13 @@ class serendipity_plugin_mycalendar extends serendipity_plugin {
         } else {
             $filter = "WHERE eventdate2 > " . $timeout;
         }
-
-        $items = serendipity_db_query("SELECT * from {$serendipity['dbPrefix']}mycalendar " . $filter . " ORDER BY eventdate LIMIT " . $this->get_config('items', 5));
-        if (!is_array($items)) {
+        try {
+            $items = serendipity_db_query("SELECT * from {$serendipity['dbPrefix']}mycalendar " . $filter . " ORDER BY eventdate LIMIT " . $this->get_config('items', 5));
+            if (!is_array($items)) {
+                return true;
+            }
+        } catch (Exception $e) {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
             return true;
         }
 

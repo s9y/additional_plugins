@@ -1,3 +1,6 @@
+1.1.6:
+    * Fix key collisions of b8 on MySQL (mitch)
+
 1.1.5:
     * Update b8, to prevent a debug error when commenting
 

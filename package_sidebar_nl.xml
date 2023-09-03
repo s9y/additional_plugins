@@ -597,9 +597,9 @@
 <description>Allows visitors to change the frontend interface language</description>
 <maintainers><maintainer><name>Garvin Hicking, Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.15</version>
+  <version>1.15.1</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2023-02-18</date>
   <filelist>
 <dir name="serendipity_event_multilingual">
 <dir name="UTF-8">
@@ -670,9 +670,9 @@
 <description>Shows your personal calendar with X upcoming scheduled events</description>
 <maintainers><maintainer><name>Garvin Hicking, Markus Gerstel</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.13.2</version>
+  <version>0.13.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2023-07-24</date>
   <filelist>
 <dir name="serendipity_event_mycalendar">
 <dir name="UTF-8">
@@ -2343,9 +2343,9 @@
 <description>Offers the ability to display images in the sidebar.  The source of the images is configurable.  The plugin is able to connect to a Menalto Gallery installs &quot;random&quot; url, access a Coppermine database directory (MySql only), connect to the web service Zooomr (http://beta.zooomr.com/home) or access images in the Serendipity Media Library.</description>
 <maintainers><maintainer><name>Andrew Brown (Menalto code), Matthew Groeninger (Unified/Media Lib. Code), Stefan Lange-Hegermann (Zooomr Code), Matthew Maude (Coppermine code)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.100.2</version>
+  <version>0.100.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2022-12-13</date>
   <filelist>
 <dir name="serendipity_plugin_imagesidebar">
 <dir name="UTF-8">
@@ -3117,23 +3117,30 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_topexits</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_topexits/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Top uitgaande hyperlinks</summary>
 <groups>STATISTICS</groups>
 <description>Toont de populairste hyperlinks waarmee bezoekers uw weblog verlaten.</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1</version>
+  <version>1.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2023-01-01</date>
   <filelist>
 <dir name="serendipity_plugin_topexits">
 <file>serendipity_plugin_topexits.php</file>
+<dir name="UTF-8">
+<file>lang_en.inc.php</file>
+</dir>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_plugin_topexits/serendipity_plugin_topexits.php</file>
+    <file>serendipity_plugin_topexits/UTF-8/lang_en.inc.php</file>
+    <file>serendipity_plugin_topexits/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>

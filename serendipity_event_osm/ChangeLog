@@ -1,3 +1,32 @@
+0.4.2:
+---
+ * OpenLayers updated to v7.4.0
+
+0.4.1:
+---
+ * OpenLayers updated to v7.3.0
+
+0.4.0:
+---
+ * Only add done gpx tracks to the total sum
+ * Added missing *.map files
+ * JavaScript code changed for Geo-JSON version 3 and better readability
+ * Optimized code for compressing GPX files
+ * Whitespaces fixed
+ * Avoid regex pattern for file name
+ * Added Spanish translations
+ * Improved translations
+ * Added PHP 7 dependency
+ * Changed my name
+
+0.3.13:
+---
+ * OpenLayers updated to v7.2.2
+
+0.3.12:
+---
+ * OpenLayers updated to v7.1.0
+
 0.3.11:
 ---
  * OpenLayers updated to v6.14.1

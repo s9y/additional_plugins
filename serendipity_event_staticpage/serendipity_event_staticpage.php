@@ -84,7 +84,7 @@ class serendipity_event_staticpage extends serendipity_event
         $propbag->add('page_configuration', $this->config);
         $propbag->add('type_configuration', $this->config_types);
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers');
-        $propbag->add('version', '4.15.7');
+        $propbag->add('version', '4.15.8');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '2.6.7',
@@ -3097,11 +3097,10 @@ foreach($select AS $select_value => $select_desc) {
                         $te = $this->get_static('title_element');
                         if (!empty($te)) {
                             $serendipity['head_title']    = (function_exists('serendipity_specialchars') ? serendipity_specialchars($te) : htmlspecialchars($te, ENT_COMPAT, LANG_CHARSET));
-                            $serendipity['head_subtitle'] ='';
                         } else {
                         $serendipity['head_title']    = $this->get_static('headline');
-                        $serendipity['head_subtitle'] = $serendipity['blogTitle'];
                         }
+                        $serendipity['head_subtitle'] = $serendipity['blogTitle'];
                     }
                     break;
 

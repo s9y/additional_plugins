@@ -1,5 +1,4 @@
 <?php
-
 @define('PLUGIN_EVENT_OSM_NAME', 'OpenStreetMap Integration');
 @define('PLUGIN_EVENT_OSM_DESCRIPTION', 'Bietet eine interaktive Karte für *.gpx Uploads und Blogs mit Geo-Daten');
 @define('PLUGIN_EVENT_OSM_NOT_SHOWN', 'Wird nicht auf der Webseite angezeigt');
@@ -18,6 +17,6 @@
 @define('PLUGIN_EVENT_OSM_LONG', 'Längengrad (Lon.)');
 @define('PLUGIN_EVENT_OSM_LONG_DESCRIPTION', 'Längengrad für die Mitte der Karte');
 @define('PLUGIN_EVENT_OSM_ZOOM', 'Zoom');
-@define('PLUGIN_EVENT_OSM_ZOOM_DESCRIPTION', 'Zoom Level der Karte');
+@define('PLUGIN_EVENT_OSM_ZOOM_DESCRIPTION', 'Zoom-Level der Karte');
 @define('PLUGIN_EVENT_OSM_HEIGHT', 'Kartenhöhe');
-@define('PLUGIN_EVENT_OSM_HEIGHT_DESCRIPTION', 'Die Höhe der Karte');
+@define('PLUGIN_EVENT_OSM_HEIGHT_DESCRIPTION', 'Kartehöhe mit CSS-Einheit (px, em, usw.)');

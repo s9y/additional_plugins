@@ -16,7 +16,7 @@
 			$propbag->add('event_hooks', array('frontend_header' => true));
 			$propbag->add('author', PLUGIN_EVENT_GEO_JSON_AUTHOR);
 			$propbag->add('version', PLUGIN_EVENT_GEO_JSON_VERSION);
-			$propbag->add('requirements', array('serendipity' => '2.3'));
+			$propbag->add('requirements', ['serendipity' => '2.3']);
 			$propbag->add('stackable', false);
 			$propbag->add('groups', array('FRONTEND_FEATURES'));
 		}
@@ -31,9 +31,11 @@
 			return is_array($rows) ? $rows : [];
 		}
 
-		function get_entries() {
+		function get_articles() {
 			global $serendipity;
-			$entries = [];
+			$timestamp = serendipity_db_time();
+			$showFutureEntries = serendipity_db_bool($serendipity['showFutureEntries']);
+			$articles = [];
 			foreach ($this->simple_query(
 				"SELECT e.id, e.title, p.permalink, e.timestamp, LENGTH(e.body) AS size, a.realname, eplat.value AS lat, eplng.value AS lng
 				FROM {$serendipity['dbPrefix']}entries e
@@ -44,16 +46,16 @@
 				WHERE e.isdraft = 'false'
 				ORDER BY e.timestamp",
 				false, 'assoc'
-			) as $row) {
-				$entries[$row['id']] = [
-					'title' => $row['title'],
-					'url' => serendipity_db_bool($serendipity['showFutureEntries']) || $row['timestamp'] <= serendipity_db_time()
-						? $serendipity['serendipityHTTPPath'].$row['permalink']
+			) as $article) {
+				$articles[$article['id']] = [
+					'title' => $article['title'],
+					'url' => $article['timestamp'] <= $timestamp || $showFutureEntries
+						? $serendipity['serendipityHTTPPath'] . $article['permalink']
 						: null,
-					'date' => intval($row['timestamp']),
-					'size' => intval($row['size']),
-					'author' => $row['realname'],
-					'pos' => [floatval($row['lat']), floatval($row['lng'])],
+					'date' => intval($article['timestamp']),
+					'size' => intval($article['size']),
+					'author' => $article['realname'],
+					'location' => [floatval($article['lat']), floatval($article['lng'])],
 					'categories' => []
 				];
 			}
@@ -64,21 +66,21 @@
 				JOIN {$serendipity['dbPrefix']}entryproperties eplat ON (eplat.entryid = ec.entryid AND eplat.property = 'geo_lat')
 				JOIN {$serendipity['dbPrefix']}entryproperties eplng ON (eplng.entryid = ec.entryid AND eplng.property = 'geo_long')
 				WHERE e.isdraft = 'false'"
-			) as $row) {
-				$entries[$row['entryid']]['categories'][] = intval($row['categoryid']);
+			) as $articleCategory) {
+				$articles[$articleCategory['entryid']]['categories'][] = intval($articleCategory['categoryid']);
 			}
-			return array_values($entries);
+			return array_values($articles);
 		}
 
-		function get_uploads() {
+		function get_tracks() {
 			global $serendipity;
-			return array_map(function($row) {
+			return array_map(function($track) {
 				global $serendipity;
 				return [
-					'title' => $row['realname'],
-					'url' => $serendipity['serendipityHTTPPath'].$serendipity['uploadPath'].$row['path'].$row['realname'],
-					'date' => intval($row['date']),
-					'size' => intval($row['size'])
+					'title' => $track['realname'],
+					'url' => $serendipity['serendipityHTTPPath'] . $serendipity['uploadPath'] . $track['path'] . $track['realname'],
+					'date' => intval($track['date']),
+					'size' => intval($track['size'])
 				];
 			}, $this->simple_query(
 				"SELECT i.realname, i.path, IFNULL(m.value, i.date) AS date, i.size
@@ -92,18 +94,17 @@
 			));
 		}
 
-		function get_geo_json()
-		{
+		function get_geo_json() {
 			return json_encode([
-				'entries' => $this->get_entries(),
-				'uploads' => $this->get_uploads()
+				'articles' => $this->get_articles(),
+				'tracks' => $this->get_tracks()
 			], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 		}
 
 		function event_hook($event, &$bag, &$eventData, $addData = null)
 		{
 			if ($event == 'frontend_header') {
-				echo '    <script>const geo = '.$this->get_geo_json().';</script>'.PHP_EOL;
+				echo '    <script>const geo = ' . $this->get_geo_json() . ';</script>' . PHP_EOL;
 			}
 		}
 

@@ -14,6 +14,7 @@ class serendipity_event_lightbox extends serendipity_event
 {
 
     var $title = PLUGIN_EVENT_LIGHTBOX_NAME;
+    var $markup_elements;
 
     // Remembers, if an image link was found in the article. If not found, nor CSS nor JS will be added to the blog header.
     var $foundImageLink = false;
@@ -25,7 +26,7 @@ class serendipity_event_lightbox extends serendipity_event
         $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_NAME);
         $propbag->add('description',    PLUGIN_EVENT_LIGHTBOX_DESC);
         $propbag->add('author',         'Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian');
-        $propbag->add('version',        '2.5.5');
+        $propbag->add('version',        '2.5.6');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'php'         => '5.3.0'

@@ -2928,9 +2928,9 @@
 <description>Shows entries of special categories in your sidebar. Good for Sidebar Moblogging!</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.9.1</version>
+  <version>1.9.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2023-09-05</date>
   <filelist>
 <dir name="serendipity_plugin_showentries">
 <dir name="UTF-8">

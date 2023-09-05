@@ -1,3 +1,6 @@
+1.1.7:
+    * Avvoid warning under PHP 8.2
+
 1.1.6:
     * Fix key collisions of b8 on MySQL (mitch)
 

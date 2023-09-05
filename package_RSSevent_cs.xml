@@ -77,7 +77,7 @@
 <category>Event Plugins</category>
 <author>Sebastian Nohn</author>
 <content:encoded>&lt;b&gt;serendipity_event_backendrss&lt;br /&gt;Zobrazení RSS kanálu v administrační sekci&lt;/b&gt;&lt;br /&gt;Zobrazuje RSS kanál na přehledové stránce v administrační sekci (stránka těsně po přihlášení).&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:28 +0200</pubDate>
+<pubDate>Wed, 06 Sep 2023 00:30:38 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_backendrss</guid>
 </item>
 <item>
@@ -941,7 +941,7 @@
 <category>Event Plugins</category>
 <author>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_bayes&lt;br /&gt;Spamblock (Bayes)&lt;/b&gt;&lt;br /&gt;Detekce spamu pomocí adaptivního algoritmu, který se dokáže sám učit.&lt;br/&gt;For: Serendipity 2.1</content:encoded>
-<pubDate>Mon, 24 Jul 2023 16:20:08 +0200</pubDate>
+<pubDate>Wed, 06 Sep 2023 00:30:42 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_bayes</guid>
 </item>
 <item>

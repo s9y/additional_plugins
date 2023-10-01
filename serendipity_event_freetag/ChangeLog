@@ -1,3 +1,6 @@
+3.70.6: Avoid deprecation warning under PHP 8.2
+        (thanks @hannob!)
+
 3.70.6: Avoid error when tag variable looks like an array
         (thanks @hannob!)
 

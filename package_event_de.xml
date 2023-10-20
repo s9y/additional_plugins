@@ -4085,7 +4085,7 @@
 <summary>Geotag</summary>
 <groups>BACKEND_EDITOR</groups>
 <description>Erlaubt Einträge mit Geokoordinaten zu versehen</description>
-<maintainers><maintainer><name>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Martin Sewelies</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Kathi Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.36.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>

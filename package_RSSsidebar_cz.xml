@@ -30,7 +30,7 @@
 <title>Geotag Google Map: Tento plugin zobrazuje souřadnice u osouřadnicovaných příspěvků v mapách na Googlu</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_geotag</link>
 <category>Sidebar Plugins</category>
-<author>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Martin Sewelies</author>
+<author>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Kathi Sewelies</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_geotag&lt;br /&gt;Geotag Google Map&lt;/b&gt;&lt;br /&gt;Tento plugin zobrazuje souřadnice u osouřadnicovaných příspěvků v mapách na Googlu&lt;br/&gt;For: Serendipity 0.9</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:29 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_geotag</guid>

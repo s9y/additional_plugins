@@ -435,7 +435,7 @@
 <title>Geotag: Erlaubt Einträge mit Geokoordinaten zu versehen</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_geotag</link>
 <category>Event Plugins</category>
-<author>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Martin Sewelies</author>
+<author>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Kathi Sewelies</author>
 <content:encoded>&lt;b&gt;serendipity_event_geotag&lt;br /&gt;Geotag&lt;/b&gt;&lt;br /&gt;Erlaubt Einträge mit Geokoordinaten zu versehen&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:29 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_geotag</guid>

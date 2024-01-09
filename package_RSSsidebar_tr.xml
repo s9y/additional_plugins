@@ -111,7 +111,7 @@
 <title>Serendipity Authors: Shows a list for all Authors</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_userprofiles</link>
 <category>Sidebar Plugins</category>
-<author></author>
+<author>Falk D�ring</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_userprofiles&lt;br /&gt;Serendipity Authors&lt;/b&gt;&lt;br /&gt;Shows a list for all Authors&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:33 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_userprofiles</guid>
@@ -127,15 +127,15 @@
 </item>
 <item>
 <title>Show trusted users: Displays all users with their ethics (represented by a traffic light). 
-                                   Green light means 'cool'; yellow light means 
-                                   'warning'; red light means 'banned'
+                                   Green light means &#039;cool&#039;; yellow light means 
+                                   &#039;warning&#039;; red light means &#039;banned&#039;
                                    The administrator can easily modify this value for each user.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_xsstrust</link>
 <category>Sidebar Plugins</category>
 <author>Loris Zena</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_xsstrust&lt;br /&gt;Show trusted users&lt;/b&gt;&lt;br /&gt;Displays all users with their ethics (represented by a traffic light). 
-                                   Green light means 'cool'; yellow light means 
-                                   'warning'; red light means 'banned'
+                                   Green light means &#039;cool&#039;; yellow light means 
+                                   &#039;warning&#039;; red light means &#039;banned&#039;
                                    The administrator can easily modify this value for each user.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:33 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_xsstrust</guid>
@@ -321,11 +321,11 @@
 <guid isPermaLink="false">serendipity_plugin_nugget_multilingual</guid>
 </item>
 <item>
-<title></title>
+<title>FotoG�nl�k Kay�tlar�: En son yay�nlad��n�z fotog�nl�k kay�tlar�n�zdaki k��kresimleri g�sterir (olaylar eklentisine bak�n).</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_photoblog</link>
 <category>Sidebar Plugins</category>
 <author>Cameron MacFarland</author>
-<content:encoded></content:encoded>
+<content:encoded>&lt;b&gt;serendipity_plugin_photoblog&lt;br /&gt;FotoG�nl�k Kay�tlar�&lt;/b&gt;&lt;br /&gt;En son yay�nlad��n�z fotog�nl�k kay�tlar�n�zdaki k��kresimleri g�sterir (olaylar eklentisine bak�n).&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:33 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_photoblog</guid>
 </item>

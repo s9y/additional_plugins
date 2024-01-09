@@ -111,7 +111,7 @@
 <title>Serendipity Authors: Shows a list for all Authors</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_userprofiles</link>
 <category>Sidebar Plugins</category>
-<author></author>
+<author>Falk D�ring</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_userprofiles&lt;br /&gt;Serendipity Authors&lt;/b&gt;&lt;br /&gt;Shows a list for all Authors&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:33 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_userprofiles</guid>
@@ -127,17 +127,17 @@
 </item>
 <item>
 <title>GLI UTENTI: Visualizza tutti gli utenti con il loro valore etico (rappresentato da un semaforo). 
-                                           Quello verde significa 'èta'; quello giallo significa
-                                           'avvisato'; quello rosso significa 'banned'.
-                                           L'amministratore può facilmente modificare tali valori.
+                                           Quello verde significa &#039;èta&#039;; quello giallo significa
+                                           &#039;avvisato&#039;; quello rosso significa &#039;banned&#039;.
+                                           L&#039;amministratore può facilmente modificare tali valori.
                                            </title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_xsstrust</link>
 <category>Sidebar Plugins</category>
 <author>Loris Zena</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_xsstrust&lt;br /&gt;GLI UTENTI&lt;/b&gt;&lt;br /&gt;Visualizza tutti gli utenti con il loro valore etico (rappresentato da un semaforo). 
-                                           Quello verde significa 'èta'; quello giallo significa
-                                           'avvisato'; quello rosso significa 'banned'.
-                                           L'amministratore può facilmente modificare tali valori.
+                                           Quello verde significa &#039;èta&#039;; quello giallo significa
+                                           &#039;avvisato&#039;; quello rosso significa &#039;banned&#039;.
+                                           L&#039;amministratore può facilmente modificare tali valori.
                                            &lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:33 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_xsstrust</guid>

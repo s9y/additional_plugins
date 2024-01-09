@@ -1144,9 +1144,9 @@
 <summary>GLI UTENTI</summary>
 <groups>FRONTEND_VIEWS</groups>
 <description>Visualizza tutti gli utenti con il loro valore etico (rappresentato da un semaforo). 
-                                           Quello verde significa 'èta'; quello giallo significa
-                                           'avvisato'; quello rosso significa 'banned'.
-                                           L'amministratore può facilmente modificare tali valori.
+                                           Quello verde significa &#039;èta&#039;; quello giallo significa
+                                           &#039;avvisato&#039;; quello rosso significa &#039;banned&#039;.
+                                           L&#039;amministratore può facilmente modificare tali valori.
                                            </description>
 <maintainers><maintainer><name>Loris Zena</name><role>lead</role></maintainer></maintainers>
 <release>

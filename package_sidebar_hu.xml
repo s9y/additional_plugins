@@ -1144,8 +1144,8 @@
 <summary>Show trusted users</summary>
 <groups>FRONTEND_VIEWS</groups>
 <description>Displays all users with their ethics (represented by a traffic light). 
-                                   Green light means 'cool'; yellow light means 
-                                   'warning'; red light means 'banned'
+                                   Green light means &#039;cool&#039;; yellow light means 
+                                   &#039;warning&#039;; red light means &#039;banned&#039;
                                    The administrator can easily modify this value for each user.</description>
 <maintainers><maintainer><name>Loris Zena</name><role>lead</role></maintainer></maintainers>
 <release>

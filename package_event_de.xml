@@ -365,7 +365,7 @@
 <summary>Zeige Einträge mittels JavaScript</summary>
 <groups>FRONTEND_FULL_MODS</groups>
 <description>Stellt JavaScript Ausgabe der letzten Einträge zum Einbinden in andere, externe Webseiten bereit. (Siehe README im Plugin Verzeichnis!)</description>
-<maintainers><maintainer><name>Alexander 'dma147' Mieland</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Alexander &#039;dma147&#039; Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>0.6.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
@@ -461,7 +461,7 @@
 <summary>Backup-Interface</summary>
 <groups>FRONTEND_FULL_MODS,BACKEND_FEATURES</groups>
 <description>Bietet die Möglichkeit, automatisch Backups von Ihren Serendipity - den Datenbanktabellen, der gesamten Datenbank und den Dateien - zu erstellen. Derzeit werden nur MySQL(i)-Datenbanken unterstützt. WARNUNG: Dieses Plugin funktioniert nicht gut mit großen Datenbanken oder Verzeichnissen.</description>
-<maintainers><maintainer><name>Alexander 'dma147' Mieland</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Alexander &#039;dma147&#039; Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>0.15.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
@@ -2304,7 +2304,7 @@
 <summary>Downloadmanager</summary>
 <groups>FRONTEND_FULL_MODS</groups>
 <description>Stellt einen kompletten Downloadmanager zur Verfügung. Bei Deinstallation werden alle zugehörigen Tabellen gelöscht!</description>
-<maintainers><maintainer><name>Alexander 'dma147' Mieland, Grischa Brockhaus, Ian</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Alexander &#039;dma147&#039; Mieland, Grischa Brockhaus, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>0.38</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
@@ -3609,7 +3609,7 @@
 <summary>Diskussions-Forum / phpBB-Kommentare</summary>
 <groups>FRONTEND_FULL_MODS</groups>
 <description>Stellt ein komplettes Diskussions-Forum zur Verfügung, kann alternativ Blog-Kommentare in eine phpBB-Installation spiegeln.</description>
-<maintainers><maintainer><name>Alexander 'dma147' Mieland</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Alexander &#039;dma147&#039; Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>0.38.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
@@ -5881,7 +5881,7 @@
 <license>GPL</license>
 <summary>Lightbox für Blog Einträge mit Bildern</summary>
 <groups>IMAGES</groups>
-<description>Das Lightbox Plugin ist eine einfaches unauffälliges Skript, das Bilder auf der Seite überlagern kann, wenn die große Version angeklickt wurde. Es fügt sich selbstständig in die Seite ein und funktioniert mit jedem modernen Browser. Alle Leuchtkästen verschönern Bilder-Popups. Dieses Plugin durchsucht ihre Einträge und ersetzt jeden auf ein Bild verweisenden 'a href=&quot;XXX&quot;' Link so, dass die interne Darstellung benutzt wird. Wenn Sie also ein Thumbnail Bild mit einem Popup der großen Version haben wollen, so fügen Sie das Thumbnail in ihren Eintrag ein und verlinken dieses mit der großen Version. Um auch versteckte Bilder mit display:none anzuzeigen, nutzen Sie das Lightbox2 Script. Diese Leuchtkasten Scripte sind alle jQuery basiert. Sie unterstützen nicht allein nur Bildtypen, sondern überwiegend auch anderes, wie Ajax, Videos, Flash, YouTube, iFrame, Inline oder modale Felder. Dieses Plugin nutzt sie nur für Fotografie Leuchtkästen, aber Sie können leicht andere Typen ihren Blog-Einträgen manuell hinzufügen und eine lightbox entsprechend für diesen Zweck initiieren, so wie es den jeweiligen Online-Dokumentationen beschrieben wird.</description>
+<description>Das Lightbox Plugin ist eine einfaches unauffälliges Skript, das Bilder auf der Seite überlagern kann, wenn die große Version angeklickt wurde. Es fügt sich selbstständig in die Seite ein und funktioniert mit jedem modernen Browser. Alle Leuchtkästen verschönern Bilder-Popups. Dieses Plugin durchsucht ihre Einträge und ersetzt jeden auf ein Bild verweisenden &#039;a href=&quot;XXX&quot;&#039; Link so, dass die interne Darstellung benutzt wird. Wenn Sie also ein Thumbnail Bild mit einem Popup der großen Version haben wollen, so fügen Sie das Thumbnail in ihren Eintrag ein und verlinken dieses mit der großen Version. Um auch versteckte Bilder mit display:none anzuzeigen, nutzen Sie das Lightbox2 Script. Diese Leuchtkasten Scripte sind alle jQuery basiert. Sie unterstützen nicht allein nur Bildtypen, sondern überwiegend auch anderes, wie Ajax, Videos, Flash, YouTube, iFrame, Inline oder modale Felder. Dieses Plugin nutzt sie nur für Fotografie Leuchtkästen, aber Sie können leicht andere Typen ihren Blog-Einträgen manuell hinzufügen und eine lightbox entsprechend für diesen Zweck initiieren, so wie es den jeweiligen Online-Dokumentationen beschrieben wird.</description>
 <maintainers><maintainer><name>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>2.5.6</version>
@@ -7426,7 +7426,7 @@
 <license>GPL</license>
 <summary>Newsbox</summary>
 <groups>FRONTEND_VIEWS,FRONTEND_FEATURES</groups>
-<description>Group a category's entries in a frontpage box instead of the usual article listing.  Supports nested newsboxes.</description>
+<description>Group a category&#039;s entries in a frontpage box instead of the usual article listing.  Supports nested newsboxes.</description>
 <maintainers><maintainer><name>Jude Anthony</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>0.6.1</version>

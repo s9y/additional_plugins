@@ -365,7 +365,7 @@
 <summary>Show entries via JavaScript</summary>
 <groups>FRONTEND_FULL_MODS</groups>
 <description>Provides javascript output of recent entries for inclusion on other, extern websites. (see the README in the plugins directory!)</description>
-<maintainers><maintainer><name>Alexander 'dma147' Mieland</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Alexander &#039;dma147&#039; Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>0.6.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
@@ -461,7 +461,7 @@
 <summary>Backup Interface</summary>
 <groups>FRONTEND_FULL_MODS,BACKEND_FEATURES</groups>
 <description>Provides the ability to automatically make backups from your s9y, the database-tables, the whole database and the files. Only MySQL(i) databases are currently supported. WARNING: This plugin does not work well with large databases or directories.</description>
-<maintainers><maintainer><name>Alexander 'dma147' Mieland</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Alexander &#039;dma147&#039; Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>0.15.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
@@ -1638,7 +1638,7 @@
 <license>GPL</license>
 <summary>Comment Edit</summary>
 <groups>FRONTEND_VIEWS</groups>
-<description>Let user's edit their comments after they posted them.</description>
+<description>Let user&#039;s edit their comments after they posted them.</description>
 <maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>0.2.4</version>
@@ -1819,7 +1819,7 @@
 <license>GPL</license>
 <summary>Formulaire de contact</summary>
 <groups>FRONTEND_FEATURES</groups>
-<description>Ajoute une page contact statique à votre blog. On peut y accéder par le rétrolien ou par index.php?serendipity[subpage]=contactform. Vous pouvez modifier l'aspect de la page contact en copiant plugin_contactform.tpl dans votre répertoire de template et en l'y modifiant. Les captchas contre le spam seront appliqués si le plugin est installé.</description>
+<description>Ajoute une page contact statique à votre blog. On peut y accéder par le rétrolien ou par index.php?serendipity[subpage]=contactform. Vous pouvez modifier l&#039;aspect de la page contact en copiant plugin_contactform.tpl dans votre répertoire de template et en l&#039;y modifiant. Les captchas contre le spam seront appliqués si le plugin est installé.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.22.1</version>
@@ -2304,7 +2304,7 @@
 <summary>Downloadmanager</summary>
 <groups>FRONTEND_FULL_MODS</groups>
 <description>Provides full downloadmanager capabilities to your s9y. When uninstalling, all related tables will be dropped!</description>
-<maintainers><maintainer><name>Alexander 'dma147' Mieland, Grischa Brockhaus, Ian</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Alexander &#039;dma147&#039; Mieland, Grischa Brockhaus, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>0.38</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
@@ -2612,7 +2612,7 @@
 <license>GPL</license>
 <summary>Markup: Syntax Highlighter</summary>
 <groups>MARKUP</groups>
-<description>This plugin is a JavaScript code highlighter based on the code of the same name by Alex Gorbatchev.   This plugin takes less server-side resources than GeSHi and displays less markup in the actual HTML code.  It's a lighter, cleaner alternative. This plugin requires the supporting theme to provide the following hooks: frontend_header, frontend_footer (and optionally backend_preview on the administrative theme only).</description>
+<description>This plugin is a JavaScript code highlighter based on the code of the same name by Alex Gorbatchev.   This plugin takes less server-side resources than GeSHi and displays less markup in the actual HTML code.  It&#039;s a lighter, cleaner alternative. This plugin requires the supporting theme to provide the following hooks: frontend_header, frontend_footer (and optionally backend_preview on the administrative theme only).</description>
 <maintainers><maintainer><name>Alex Gorbatchev (core), Brendon Kozlowski and J.M. Roth (plugin)</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>3.0.83.2</version>
@@ -2924,7 +2924,7 @@
 <license>GPL</license>
 <summary>Règles de publication</summary>
 <groups>BACKEND_EDITOR</groups>
-<description>Faire quelques vérifications avant qu'un billet soit publié. Does not work with WYSIWYG-CKEDITOR!</description>
+<description>Faire quelques vérifications avant qu&#039;un billet soit publié. Does not work with WYSIWYG-CKEDITOR!</description>
 <maintainers><maintainer><name>Garvin Hicking, Gregor Voeltz</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.16.1</version>
@@ -3609,7 +3609,7 @@
 <summary>Forum de discussion / phpBB mirroring des commentaires</summary>
 <groups>FRONTEND_FULL_MODS</groups>
 <description>proposer un veritable forum a vos utilisateurs. Peut aussi permettre de mettre PHPBB en miroir pour les commentaires.</description>
-<maintainers><maintainer><name>Alexander 'dma147' Mieland</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Alexander &#039;dma147&#039; Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>0.38.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
@@ -5881,7 +5881,7 @@
 <license>GPL</license>
 <summary>Lightbox for entry images</summary>
 <groups>IMAGES</groups>
-<description>Lightbox JS is a simple, unobtrusive script used to overlay images on the current page. It's a snap to setup and works with all modern browsers. All lightboxes pop-up images. This plugin searches through your entries, and replaces every image 'a href=&quot;XXX&quot;' link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. These lightbox scripts are all jQuery based. They do not only support image types, they may also add support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for image lightboxes only, but you can easily add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.</description>
+<description>Lightbox JS is a simple, unobtrusive script used to overlay images on the current page. It&#039;s a snap to setup and works with all modern browsers. All lightboxes pop-up images. This plugin searches through your entries, and replaces every image &#039;a href=&quot;XXX&quot;&#039; link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. These lightbox scripts are all jQuery based. They do not only support image types, they may also add support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for image lightboxes only, but you can easily add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.</description>
 <maintainers><maintainer><name>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>2.5.6</version>
@@ -7426,7 +7426,7 @@
 <license>GPL</license>
 <summary>Newsbox</summary>
 <groups>FRONTEND_VIEWS,FRONTEND_FEATURES</groups>
-<description>Group a category's entries in a frontpage box instead of the usual article listing.  Supports nested newsboxes.</description>
+<description>Group a category&#039;s entries in a frontpage box instead of the usual article listing.  Supports nested newsboxes.</description>
 <maintainers><maintainer><name>Jude Anthony</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>0.6.1</version>
@@ -7888,7 +7888,7 @@
 <license>GPL</license>
 <summary>HTML Nugget on Page</summary>
 <groups>FRONTEND_ENTRY_RELATED</groups>
-<description>Puts an HTML nugget on top or bottom of the page, or inside the page's HEAD tag</description>
+<description>Puts an HTML nugget on top or bottom of the page, or inside the page&#039;s HEAD tag</description>
 <maintainers><maintainer><name>Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.14</version>
@@ -8801,7 +8801,7 @@
 <license>GPL</license>
 <summary>Surligner les recherches</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
-<description>Surligne les termes d'une recherche faite dans le moteur de recherche par lequel le visiteur est arrivé dans votre blog</description>
+<description>Surligne les termes d&#039;une recherche faite dans le moteur de recherche par lequel le visiteur est arrivé dans votre blog</description>
 <maintainers><maintainer><name>Tom Sommer</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.8.2</version>
@@ -9522,7 +9522,7 @@
 <license>GPL</license>
 <summary>Statistiques</summary>
 <groups>STATISTICS</groups>
-<description>Ajoute un lien vers des statistiques intétressantes dans votre panneau d'administration des billets</description>
+<description>Ajoute un lien vers des statistiques intétressantes dans votre panneau d&#039;administration des billets</description>
 <maintainers><maintainer><name>Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin, Matthias Mees, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.66.1</version>
@@ -9841,7 +9841,7 @@
 <license>GPL</license>
 <summary>Balises: Wiki</summary>
 <groups>MARKUP</groups>
-<description>Permet l'utilisation de la Syntaxe Wiki dans le texte de vos billets</description>
+<description>Permet l&#039;utilisation de la Syntaxe Wiki dans le texte de vos billets</description>
 <maintainers><maintainer><name>Tobias Schlitt</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.6</version>
@@ -10848,7 +10848,7 @@
 <license>GPL</license>
 <summary>Annconcer les billets</summary>
 <groups>BACKEND_EDITOR</groups>
-<description>Envoyer une mise à jour pour les nouveaux billets aux services d'indexation</description>
+<description>Envoyer une mise à jour pour les nouveaux billets aux services d&#039;indexation</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.09</version>
@@ -11504,7 +11504,7 @@
 <license>GPL</license>
 <summary>Auto-enregistrement des utilisateurs</summary>
 <groups>BACKEND_USERMANAGEMENT</groups>
-<description>Permettre aux visiteurs du blog de créer leur propre compte utilisateur. En conjonction avec le plugin d'évènement (index.php?serendipity[subpage]=adduser), vous pouvez décider de n'autoriser que les utilisateurs enregistrés à poster des commentaires.</description>
+<description>Permettre aux visiteurs du blog de créer leur propre compte utilisateur. En conjonction avec le plugin d&#039;évènement (index.php?serendipity[subpage]=adduser), vous pouvez décider de n&#039;autoriser que les utilisateurs enregistrés à poster des commentaires.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>2.38.4</version>

@@ -7,6 +7,9 @@ if (IN_serendipity !== true) {
 
 class serendipity_event_spamblock_bayes extends serendipity_event {
 
+    // Hold the instance of the used bayes filter, b8
+    var $b8;
+
 	function introspect(&$propbag) {
 		global $serendipity;
 
@@ -14,7 +17,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '1.1.5' );
+		$propbag->add ( 'version', '1.1.7' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_comments_top' => true,
 		                                     'external_plugin' => true,
@@ -101,6 +104,8 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
                 $sql = "INSERT IGNORE INTO b8_wordlist (token, count_ham) VALUES ('b8*dbversion', 3);";
                 serendipity_db_query($sql);
                 $sql = "INSERT IGNORE INTO b8_wordlist (token, count_ham, count_spam) VALUES ('b8*texts', 0, 0);";
+                serendipity_db_query($sql);
+                $sql = "ALTER TABLE b8_wordlist MODIFY COLUMN token varchar(255) COLLATE 'utf8mb4_bin';";
                 serendipity_db_query($sql);
                 
                 # our recycler bin needs to copy the comments table

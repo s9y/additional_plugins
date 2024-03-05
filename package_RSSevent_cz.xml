@@ -66,7 +66,7 @@
 <title>Zobrazování příspěvků pomocí JavaScriptu: Poskytuje Javascriptový výstup nejnovějších článků pro jejich vložení do cizích, externích stránek. (Přečtěte si soubor README v adresáři pluginu!)</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_backend</link>
 <category>Event Plugins</category>
-<author>Alexander 'dma147' Mieland</author>
+<author>Alexander &#039;dma147&#039; Mieland</author>
 <content:encoded>&lt;b&gt;serendipity_event_backend&lt;br /&gt;Zobrazování příspěvků pomocí JavaScriptu&lt;/b&gt;&lt;br /&gt;Poskytuje Javascriptový výstup nejnovějších článků pro jejich vložení do cizích, externích stránek. (Přečtěte si soubor README v adresáři pluginu!)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:28 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_backend</guid>
@@ -77,14 +77,14 @@
 <category>Event Plugins</category>
 <author>Sebastian Nohn</author>
 <content:encoded>&lt;b&gt;serendipity_event_backendrss&lt;br /&gt;Zobrazení RSS kanálu v administrační sekci&lt;/b&gt;&lt;br /&gt;Zobrazuje RSS kanál na přehledové stránce v administrační sekci (stránka těsně po přihlášení).&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:28 +0200</pubDate>
+<pubDate>Wed, 06 Sep 2023 00:30:38 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_backendrss</guid>
 </item>
 <item>
 <title>Zálohování: Zpřístupňuje možnost automatického zálohování Serendepity - databázových tabulek i souborů. V současnosti je podporována pouze databáze MySQL(i). VAROVÁNÍ: Plugin nefunguje optimálně s velkou databází nebo velkým množstvím souborů.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_backup</link>
 <category>Event Plugins</category>
-<author>Alexander 'dma147' Mieland</author>
+<author>Alexander &#039;dma147&#039; Mieland</author>
 <content:encoded>&lt;b&gt;serendipity_event_backup&lt;br /&gt;Zálohování&lt;/b&gt;&lt;br /&gt;Zpřístupňuje možnost automatického zálohování Serendepity - databázových tabulek i souborů. V současnosti je podporována pouze databáze MySQL(i). VAROVÁNÍ: Plugin nefunguje optimálně s velkou databází nebo velkým množstvím souborů.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:28 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_backup</guid>
@@ -203,7 +203,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_custom_permalinks&lt;br /&gt;Stálé odkazy pro příspěvky&lt;/b&gt;&lt;br /&gt;Můžete definovat stálé odkazy k jednotlivým příspěvkům. Lze použít pouze URL vzory, které JEŠTĚ NEJSOU používané - používání stálých odkazů ve tvaru /archives/odkaz není tedy možné. Ale používání jakéhokoliv jiného (virtuálního) adresáře možné je.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Mon, 17 Apr 2017 22:32:13 +0200</pubDate>
+<pubDate>Mon, 16 Jan 2023 00:30:37 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_custom_permalinks</guid>
 </item>
 <item>
@@ -246,7 +246,7 @@
 <title>Downloadmanager: Zajišťuje Serendipity všechny funkce download managera. Při odinstalování jsou odstraněny všechny tabulky z databáze (ztráta všech dat)!!!</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_downloadmanager</link>
 <category>Event Plugins</category>
-<author>Alexander 'dma147' Mieland, Grischa Brockhaus, Ian</author>
+<author>Alexander &#039;dma147&#039; Mieland, Grischa Brockhaus, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_downloadmanager&lt;br /&gt;Downloadmanager&lt;/b&gt;&lt;br /&gt;Zajišťuje Serendipity všechny funkce download managera. Při odinstalování jsou odstraněny všechny tabulky z databáze (ztráta všech dat)!!!&lt;br/&gt;For: Serendipity 1.6</content:encoded>
 <pubDate>Wed, 26 Oct 2016 22:32:13 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_downloadmanager</guid>
@@ -266,7 +266,7 @@
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_event_dsgvo_gdpr&lt;br /&gt;DSGVO / GDPR: General Data Protection Regulation&lt;/b&gt;&lt;br /&gt;This plugin aims to help blog owners apply conformity to the General Data Protection Regulation Act.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:29 +0200</pubDate>
+<pubDate>Thu, 24 Nov 2022 00:30:35 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_dsgvo_gdpr</guid>
 </item>
 <item>
@@ -311,7 +311,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_event_entrypaging&lt;br /&gt;Odkaz na další/předchozí příspěvek&lt;/b&gt;&lt;br /&gt;Umožňuje prohlížení dalších/předchozích příspěvků&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Wed, 01 Jul 2020 00:30:56 +0200</pubDate>
+<pubDate>Fri, 28 Jul 2023 00:30:36 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_entrypaging</guid>
 </item>
 <item>
@@ -399,7 +399,7 @@
 <title>Diskusní fórum / zrcadlení phpBB fóra: Poskytuje kompletní diskusní fórum. Alternativě umožňuje přístup do diskusního fóra phpBB.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_forum</link>
 <category>Event Plugins</category>
-<author>Alexander 'dma147' Mieland</author>
+<author>Alexander &#039;dma147&#039; Mieland</author>
 <content:encoded>&lt;b&gt;serendipity_event_forum&lt;br /&gt;Diskusní fórum / zrcadlení phpBB fóra&lt;/b&gt;&lt;br /&gt;Poskytuje kompletní diskusní fórum. Alternativě umožňuje přístup do diskusního fóra phpBB.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:29 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_forum</guid>
@@ -410,7 +410,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_freetag&lt;br /&gt;Klíčová slova&lt;/b&gt;&lt;br /&gt;Umožňuje libovolné přidávání klíčových slov k příspěvkům&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Sun, 28 Nov 2021 00:30:37 +0100</pubDate>
+<pubDate>Tue, 03 Oct 2023 00:30:43 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_freetag</guid>
 </item>
 <item>
@@ -423,19 +423,19 @@
 <guid isPermaLink="false">serendipity_event_galleryimage</guid>
 </item>
 <item>
-<title>Geo-JSON: Provides a JSON object with all geo data which can be processed by JavaScript.</title>
+<title>Geo-JSON: Provides a JSON object which contains all geographic data and can be processed with JavaScript</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_geo_json</link>
 <category>Event Plugins</category>
-<author>Martin Sewelies</author>
-<content:encoded>&lt;b&gt;serendipity_event_geo_json&lt;br /&gt;Geo-JSON&lt;/b&gt;&lt;br /&gt;Provides a JSON object with all geo data which can be processed by JavaScript.&lt;br/&gt;For: Serendipity 2.3</content:encoded>
-<pubDate>Sat, 09 Jan 2021 00:30:24 +0100</pubDate>
+<author>Kathi Sewelies</author>
+<content:encoded>&lt;b&gt;serendipity_event_geo_json&lt;br /&gt;Geo-JSON&lt;/b&gt;&lt;br /&gt;Provides a JSON object which contains all geographic data and can be processed with JavaScript&lt;br/&gt;For: Serendipity 2.3</content:encoded>
+<pubDate>Mon, 24 Jul 2023 16:20:00 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_geo_json</guid>
 </item>
 <item>
 <title>Geotag: Umožňuje přidat k příspěvku zeměpisné souřadnice - geotag</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_geotag</link>
 <category>Event Plugins</category>
-<author>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Martin Sewelies</author>
+<author>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Kathi Sewelies</author>
 <content:encoded>&lt;b&gt;serendipity_event_geotag&lt;br /&gt;Geotag&lt;/b&gt;&lt;br /&gt;Umožňuje přidat k příspěvku zeměpisné souřadnice - geotag&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:29 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_geotag</guid>
@@ -455,7 +455,7 @@
 <category>Event Plugins</category>
 <author>David Rolston</author>
 <content:encoded>&lt;b&gt;serendipity_event_geshi&lt;br /&gt;Markup: GeSHi&lt;/b&gt;&lt;br /&gt;Barevné zvýrazňování syntaxe počítačových jazyků. Použití tagů: [geshi lang=nazev_jazyku [,ln={y|n}]]programový kód[/geshi]&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:29 +0200</pubDate>
+<pubDate>Mon, 24 Jul 2023 16:20:00 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_geshi</guid>
 </item>
 <item>
@@ -473,7 +473,7 @@
 <category>Event Plugins</category>
 <author>Rob Antonishen</author>
 <content:encoded>&lt;b&gt;serendipity_event_glossary&lt;br /&gt;Rejstřík&lt;/b&gt;&lt;br /&gt;Uživatelem definovaný rejstřík slov, která se v textu zvýrazňují a po najetí myší se k nim v malém rámečku ukazuje vysvětlivka&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:30 +0200</pubDate>
+<pubDate>Mon, 24 Jul 2023 16:20:00 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_glossary</guid>
 </item>
 <item>
@@ -554,7 +554,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus, Judebert, Gregor Voeltz, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_karma&lt;br /&gt;Karma&lt;/b&gt;&lt;br /&gt;Čtenáři hodnotí kvalitu Vašich příspěvků&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Sun, 21 Jul 2019 22:31:24 +0200</pubDate>
+<pubDate>Tue, 07 Feb 2023 00:30:34 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_karma</guid>
 </item>
 <item>
@@ -576,12 +576,12 @@
 <guid isPermaLink="false">serendipity_event_layout_printerfriendly</guid>
 </item>
 <item>
-<title>Lightbox for entry images: Lightbox JS is a simple, unobtrusive script used to overlay images on the current page. It's a snap to setup and works with all modern browsers. All lightboxes pop-up images. This plugin searches through your entries, and replaces every image 'a href=&quot;XXX&quot;' link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. These lightbox scripts are all jQuery based. They do not only support image types, they may also add support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for image lightboxes only, but you can easily add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.</title>
+<title>Lightbox for entry images: Lightbox JS is a simple, unobtrusive script used to overlay images on the current page. It&#039;s a snap to setup and works with all modern browsers. All lightboxes pop-up images. This plugin searches through your entries, and replaces every image &#039;a href=&quot;XXX&quot;&#039; link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. These lightbox scripts are all jQuery based. They do not only support image types, they may also add support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for image lightboxes only, but you can easily add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_lightbox</link>
 <category>Event Plugins</category>
 <author>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_lightbox&lt;br /&gt;Lightbox for entry images&lt;/b&gt;&lt;br /&gt;Lightbox JS is a simple, unobtrusive script used to overlay images on the current page. It's a snap to setup and works with all modern browsers. All lightboxes pop-up images. This plugin searches through your entries, and replaces every image 'a href=&quot;XXX&quot;' link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. These lightbox scripts are all jQuery based. They do not only support image types, they may also add support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for image lightboxes only, but you can easily add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Wed, 29 Sep 2021 00:30:32 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_lightbox&lt;br /&gt;Lightbox for entry images&lt;/b&gt;&lt;br /&gt;Lightbox JS is a simple, unobtrusive script used to overlay images on the current page. It&#039;s a snap to setup and works with all modern browsers. All lightboxes pop-up images. This plugin searches through your entries, and replaces every image &#039;a href=&quot;XXX&quot;&#039; link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. These lightbox scripts are all jQuery based. They do not only support image types, they may also add support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for image lightboxes only, but you can easily add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 05 Sep 2023 00:30:41 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_lightbox</guid>
 </item>
 <item>
@@ -608,7 +608,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_linktrimmer&lt;br /&gt;Zkracovač adres&lt;/b&gt;&lt;br /&gt;Umožňuje zkrátit odkaz na Váš blog, podobně jako třeba tr.im, tinyurl.com apod.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:31 +0200</pubDate>
+<pubDate>Sun, 01 Jan 2023 17:02:22 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_linktrimmer</guid>
 </item>
 <item>
@@ -662,7 +662,7 @@
 <category>Event Plugins</category>
 <author>Serendipity Team, Jan Lehnardt and Thomas Hochstein</author>
 <content:encoded>&lt;b&gt;serendipity_event_markdown&lt;br /&gt;Markup: Markdown&lt;/b&gt;&lt;br /&gt;Převádí značky Markdown na HTML v textu příspěvku&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:31 +0200</pubDate>
+<pubDate>Mon, 22 Aug 2022 00:30:39 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_markdown</guid>
 </item>
 <item>
@@ -716,7 +716,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Wesley Hwang-Chung, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_multilingual&lt;br /&gt;Vízejazyčné záznamy&lt;/b&gt;&lt;br /&gt;Umožňuje vytvořit příspěvek (záznam) ve více jazykových variantách. Obsahuje též fromulář pro výběr základního jazyka blogu.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Wed, 15 Aug 2018 22:32:10 +0200</pubDate>
+<pubDate>Sat, 18 Feb 2023 00:30:30 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_multilingual</guid>
 </item>
 <item>
@@ -725,7 +725,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Markus Gerstel, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_mycalendar&lt;br /&gt;Můj kalendář&lt;/b&gt;&lt;br /&gt;Správa osobního kalendáře&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:32 +0200</pubDate>
+<pubDate>Mon, 24 Jul 2023 16:20:02 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_mycalendar</guid>
 </item>
 <item>
@@ -765,21 +765,21 @@
 <guid isPermaLink="false">serendipity_event_openid</guid>
 </item>
 <item>
-<title>OpenStreetMap integration: Provides an interactive map with *.gpx uploads and tagged geo data</title>
+<title>OpenStreetMap integration: Provides an interactive map for *.gpx uploads and geo-tagged entries</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_osm</link>
 <category>Event Plugins</category>
-<author>Martin Sewelies</author>
-<content:encoded>&lt;b&gt;serendipity_event_osm&lt;br /&gt;OpenStreetMap integration&lt;/b&gt;&lt;br /&gt;Provides an interactive map with *.gpx uploads and tagged geo data&lt;br/&gt;For: Serendipity 2.3</content:encoded>
-<pubDate>Wed, 14 Jul 2021 00:30:32 +0200</pubDate>
+<author>Kathi Sewelies</author>
+<content:encoded>&lt;b&gt;serendipity_event_osm&lt;br /&gt;OpenStreetMap integration&lt;/b&gt;&lt;br /&gt;Provides an interactive map for *.gpx uploads and geo-tagged entries&lt;br/&gt;For: Serendipity 2.3</content:encoded>
+<pubDate>Wed, 01 Feb 2023 00:30:34 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_osm</guid>
 </item>
 <item>
 <title>OpenStreetMap static files: Includes scripts and stylesheets for OpenStreetMap support</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_osm</link>
 <category>Event Plugins</category>
-<author>Martin Sewelies</author>
+<author>Kathi Sewelies</author>
 <content:encoded>&lt;b&gt;serendipity_event_static_osm&lt;br /&gt;OpenStreetMap static files&lt;/b&gt;&lt;br /&gt;Includes scripts and stylesheets for OpenStreetMap support&lt;br/&gt;For: Serendipity 2.3</content:encoded>
-<pubDate>Wed, 14 Jul 2021 00:30:32 +0200</pubDate>
+<pubDate>Wed, 01 Feb 2023 00:30:34 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_static_osm</guid>
 </item>
 <item>
@@ -815,7 +815,7 @@
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Hannes Gassert, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_podcast&lt;br /&gt;Podcasting plugin&lt;/b&gt;&lt;br /&gt;Přidává &quot;podcastovací&quot; možnosti (RSS zapouzdření, přehrávač videa a/nebo hudby)&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:32 +0200</pubDate>
+<pubDate>Thu, 24 Nov 2022 00:30:37 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_podcast</guid>
 </item>
 <item>
@@ -941,7 +941,7 @@
 <category>Event Plugins</category>
 <author>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_bayes&lt;br /&gt;Spamblock (Bayes)&lt;/b&gt;&lt;br /&gt;Detekce spamu pomocí adaptivního algoritmu, který se dokáže sám učit.&lt;br/&gt;For: Serendipity 2.1</content:encoded>
-<pubDate>Mon, 19 Jul 2021 00:30:37 +0200</pubDate>
+<pubDate>Wed, 06 Sep 2023 00:30:42 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_bayes</guid>
 </item>
 <item>
@@ -986,7 +986,7 @@
 <category>Event Plugins</category>
 <author>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers</author>
 <content:encoded>&lt;b&gt;serendipity_event_staticpage&lt;br /&gt;Statické stránky&lt;/b&gt;&lt;br /&gt;Zobrazuje v blogu statické stránky se stejným designem jako mají běžné přspěvky. Přidá nové menu do adminstrátorského rozhraní.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:32 +0200</pubDate>
+<pubDate>Tue, 05 Sep 2023 00:30:42 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_staticpage</guid>
 </item>
 <item>
@@ -995,7 +995,7 @@
 <category>Event Plugins</category>
 <author>Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin, Matthias Mees, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_statistics&lt;br /&gt;Statistiky&lt;/b&gt;&lt;br /&gt;Zobrazení statistik záznamů&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:42 +0200</pubDate>
+<pubDate>Tue, 07 Feb 2023 00:30:36 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_statistics</guid>
 </item>
 <item>
@@ -1123,7 +1123,7 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <category>Event Plugins</category>
 <author>Arnan de Gans, Matthew Groeninger, and Stefan Willoughby, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_usergallery&lt;br /&gt;Galerie&lt;/b&gt;&lt;br /&gt;Umožňuje nepřihlášeným uživatelům prohlížet Serendipity knihovnu médií&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
+<pubDate>Mon, 30 Jan 2023 00:30:37 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_usergallery</guid>
 </item>
 <item>

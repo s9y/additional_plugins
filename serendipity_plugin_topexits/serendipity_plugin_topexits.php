@@ -1,5 +1,11 @@
 <?php
 
+if (IN_serendipity !== true) {
+    die ("Don't hack!");
+}
+
+@serendipity_plugin_api::load_language(dirname(__FILE__));
+
 class serendipity_plugin_topexits extends serendipity_plugin {
     var $title = TOP_EXITS;
 
@@ -9,7 +15,7 @@ class serendipity_plugin_topexits extends serendipity_plugin {
         $propbag->add('description',   SHOWS_TOP_EXIT);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.1');
+        $propbag->add('version',       '1.2');
         $propbag->add('configuration', array('limit', 'use_links', 'interval'));
         $propbag->add('groups',        array('STATISTICS'));
     }

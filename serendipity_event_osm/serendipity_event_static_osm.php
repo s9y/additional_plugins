@@ -22,6 +22,7 @@ class serendipity_event_static_osm extends serendipity_event
 		$propbag->add('author', PLUGIN_EVENT_OSM_AUTHOR);
 		$propbag->add('version', PLUGIN_EVENT_OSM_VERSION);
 		$propbag->add('requirements', [
+			'php' => '7.0.0',
 			'serendipity' => '2.3'
 		]);
 		$propbag->add('stackable', false);
@@ -39,38 +40,34 @@ class serendipity_event_static_osm extends serendipity_event
 	function event_hook($event, &$bag, &$eventData, $addData = null)
 	{
 		if ($event === 'frontend_header') {
-			echo '    <link rel="stylesheet" href="'.$this->getFile('ressources/ol.css', 'serendipityHTTPPath').'" type="text/css" />'.PHP_EOL;
-			echo '    <link rel="stylesheet" href="'.$this->getFile('ressources/osm.css', 'serendipityHTTPPath').'" type="text/css" />'.PHP_EOL;
-			echo '    <script src="'.$this->getFile('ressources/ol.js', 'serendipityHTTPPath').'"></script>'.PHP_EOL;
-			echo '    <script src="'.$this->getFile('ressources/osm.js', 'serendipityHTTPPath').'"></script>'.PHP_EOL;
+			echo '    <link rel="stylesheet" href="' . $this->getFile('ressources/ol.css', 'serendipityHTTPPath') . '" type="text/css" />' . PHP_EOL;
+			echo '    <link rel="stylesheet" href="' . $this->getFile('ressources/osm.css', 'serendipityHTTPPath') . '" type="text/css" />' . PHP_EOL;
+			echo '    <script src="' . $this->getFile('ressources/ol.js', 'serendipityHTTPPath') . '"></script>' . PHP_EOL;
+			echo '    <script src="' . $this->getFile('ressources/osm.js', 'serendipityHTTPPath') . '"></script>' . PHP_EOL;
 		} else if ($event === 'backend_image_add') {
-			if (preg_match('/\\.gpx$/i', mb_strtolower($eventData)) && $this->get_config('compress_gpx', true) === true) {
-				$fileName = $eventData;
-				$tmpFile = tmpfile();
-				fwrite($tmpFile, '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?><gpx version="1.1" creator="surrim.org" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">');
-				$gpx = simplexml_load_file($fileName);
+			$fileName = $eventData;
+			if (str_ends_with(strtolower($fileName), '.gpx') && $this->get_config('compress_gpx', true) === true) {
+				$gpx = new SimpleXMLElement($fileName, dataIsURL: true);
+				$tmpGpx = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8" standalone="yes" ?><gpx version="1.1" creator="surrim.org" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd"></gpx>');
 				foreach (($gpx->trk ?? []) as $trk) {
-					fwrite($tmpFile, '<trk>');
-					foreach (($trk->trkseg ?? []) as $seg) {
-						fwrite($tmpFile, '<trkseg>');
-						foreach (($seg->trkpt ?? []) as $pt) {
-							fwrite($tmpFile, '<trkpt lat="'.$pt['lat'].'" lon="'.$pt['lon'].'"><ele>'.$pt->ele.'</ele></trkpt>');
+					$tmpTrk = $tmpGpx->addChild('trk');
+					foreach (($trk->trkseg ?? []) as $trkseg) {
+						$tmpTrkseg = $tmpTrk->addChild('trkseg');
+						foreach (($trkseg->trkpt ?? []) as $trkpt) {
+							$tmpTrkpt = $tmpTrkseg->addChild('trkpt');
+							$tmpTrkpt->addAttribute('lat', $trkpt['lat']);
+							$tmpTrkpt->addAttribute('lon', $trkpt['lon']);
+							if ($trkpt->ele != '') {
+								$tmpTrkpt->addChild('ele', $trkpt->ele);
+							}
 						}
-						fwrite($tmpFile, '</trkseg>');
 					}
-					fwrite($tmpFile, '</trk>');
 				}
-				fwrite($tmpFile, '</gpx>');
-				$fileSize = ftell($tmpFile);
-				unset($gpx);
-
-				rewind($tmpFile);
-				$file = fopen($fileName, 'w');
-				stream_copy_to_stream($tmpFile, $file, $fileSize);
-				fclose($file);
-				fclose($tmpFile);
+				$tmpGpx->asXML($fileName);
+				clearstatcache(true, $fileName);
 
 				$fileId = $addData['image_id'];
+				$fileSize = filesize($fileName);
 				serendipity_updateImageInDatabase(['size' => $fileSize], $fileId);
 			}
 		}

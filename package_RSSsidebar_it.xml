@@ -30,7 +30,7 @@
 <title>Geotag Google/OSM Map: This plugin displays a Google Map or Openstreetmap with geotagged entries</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_geotag</link>
 <category>Sidebar Plugins</category>
-<author>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Martin Sewelies</author>
+<author>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Kathi Sewelies</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_geotag&lt;br /&gt;Geotag Google/OSM Map&lt;/b&gt;&lt;br /&gt;This plugin displays a Google Map or Openstreetmap with geotagged entries&lt;br/&gt;For: Serendipity 0.9</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:29 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_geotag</guid>
@@ -68,7 +68,7 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking, Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_multilingual&lt;br /&gt;Choose Language&lt;/b&gt;&lt;br /&gt;Allows visitors to change the frontend interface language&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
+<pubDate>Sat, 18 Feb 2023 00:30:30 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_multilingual</guid>
 </item>
 <item>
@@ -77,7 +77,7 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking, Markus Gerstel</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_mycalendar&lt;br /&gt;My Calendar&lt;/b&gt;&lt;br /&gt;Shows your personal calendar with X upcoming scheduled events&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:32 +0200</pubDate>
+<pubDate>Mon, 24 Jul 2023 16:20:02 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_mycalendar</guid>
 </item>
 <item>
@@ -111,7 +111,7 @@
 <title>Serendipity Authors: Shows a list for all Authors</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_userprofiles</link>
 <category>Sidebar Plugins</category>
-<author></author>
+<author>Falk D�ring</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_userprofiles&lt;br /&gt;Serendipity Authors&lt;/b&gt;&lt;br /&gt;Shows a list for all Authors&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:33 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_userprofiles</guid>
@@ -127,17 +127,17 @@
 </item>
 <item>
 <title>GLI UTENTI: Visualizza tutti gli utenti con il loro valore etico (rappresentato da un semaforo). 
-                                           Quello verde significa 'èta'; quello giallo significa
-                                           'avvisato'; quello rosso significa 'banned'.
-                                           L'amministratore può facilmente modificare tali valori.
+                                           Quello verde significa &#039;èta&#039;; quello giallo significa
+                                           &#039;avvisato&#039;; quello rosso significa &#039;banned&#039;.
+                                           L&#039;amministratore può facilmente modificare tali valori.
                                            </title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_xsstrust</link>
 <category>Sidebar Plugins</category>
 <author>Loris Zena</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_xsstrust&lt;br /&gt;GLI UTENTI&lt;/b&gt;&lt;br /&gt;Visualizza tutti gli utenti con il loro valore etico (rappresentato da un semaforo). 
-                                           Quello verde significa 'èta'; quello giallo significa
-                                           'avvisato'; quello rosso significa 'banned'.
-                                           L'amministratore può facilmente modificare tali valori.
+                                           Quello verde significa &#039;èta&#039;; quello giallo significa
+                                           &#039;avvisato&#039;; quello rosso significa &#039;banned&#039;.
+                                           L&#039;amministratore può facilmente modificare tali valori.
                                            &lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:33 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_xsstrust</guid>
@@ -292,7 +292,7 @@
 <category>Sidebar Plugins</category>
 <author>Andrew Brown (Menalto code), Matthew Groeninger (Unified/Media Lib. Code), Stefan Lange-Hegermann (Zooomr Code), Matthew Maude (Coppermine code)</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_imagesidebar&lt;br /&gt;Unified Sidebar Image Display&lt;/b&gt;&lt;br /&gt;Offers the ability to display images in the sidebar.  The source of the images is configurable.  The plugin is able to connect to a Menalto Gallery installs &quot;random&quot; url, access a Coppermine database directory (MySql only), connect to the web service Zooomr (http://beta.zooomr.com/home) or access images in the Serendipity Media Library.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:33 +0200</pubDate>
+<pubDate>Tue, 13 Dec 2022 00:30:41 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_imagesidebar</guid>
 </item>
 <item>
@@ -400,7 +400,7 @@
 <category>Sidebar Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_showentries&lt;br /&gt;Show Entries in sidebar&lt;/b&gt;&lt;br /&gt;Shows entries of special categories in your sidebar. Good for Sidebar Moblogging!&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:33 +0200</pubDate>
+<pubDate>Tue, 05 Sep 2023 00:30:43 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_showentries</guid>
 </item>
 <item>
@@ -436,7 +436,7 @@
 <category>Sidebar Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_plugin_topexits&lt;br /&gt;Top Exits&lt;/b&gt;&lt;br /&gt;Mostra dove vanno i tuoi lettori quando escono dal blog&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 30 Nov 2014 03:13:00 +0100</pubDate>
+<pubDate>Sun, 01 Jan 2023 00:30:41 +0100</pubDate>
 <guid isPermaLink="false">serendipity_plugin_topexits</guid>
 </item>
 <item>

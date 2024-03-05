@@ -66,7 +66,7 @@
 <title>Show entries via JavaScript: Provides javascript output of recent entries for inclusion on other, extern websites. (see the README in the plugins directory!)</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_backend</link>
 <category>Event Plugins</category>
-<author>Alexander 'dma147' Mieland</author>
+<author>Alexander &#039;dma147&#039; Mieland</author>
 <content:encoded>&lt;b&gt;serendipity_event_backend&lt;br /&gt;Show entries via JavaScript&lt;/b&gt;&lt;br /&gt;Provides javascript output of recent entries for inclusion on other, extern websites. (see the README in the plugins directory!)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:28 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_backend</guid>
@@ -77,7 +77,7 @@
 <category>Event Plugins</category>
 <author>Sebastian Nohn</author>
 <content:encoded>&lt;b&gt;serendipity_event_backendrss&lt;br /&gt;Display RSS-Feed in Backend Overview&lt;/b&gt;&lt;br /&gt;Displays a RSS feed on the overview page (right after login) to the administration interface&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:28 +0200</pubDate>
+<pubDate>Wed, 06 Sep 2023 00:30:38 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_backendrss</guid>
 </item>
 <item>
@@ -85,7 +85,7 @@
 自動的に s9y のデータベース内テーブル、データベース全体およびファイルからバックアップを作る能力を提供します。現在 MySQL(i) データベースのみサポートしています。警告: このプラグインは大きなデータベースやディレクトリーでは正しく処理できません。</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_backup</link>
 <category>Event Plugins</category>
-<author>Alexander 'dma147' Mieland</author>
+<author>Alexander &#039;dma147&#039; Mieland</author>
 <content:encoded>&lt;b&gt;serendipity_event_backup&lt;br /&gt;バックアップインターフェース&lt;/b&gt;&lt;br /&gt;
 自動的に s9y のデータベース内テーブル、データベース全体およびファイルからバックアップを作る能力を提供します。現在 MySQL(i) データベースのみサポートしています。警告: このプラグインは大きなデータベースやディレクトリーでは正しく処理できません。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:28 +0200</pubDate>
@@ -137,11 +137,11 @@
 <guid isPermaLink="false">serendipity_event_comics</guid>
 </item>
 <item>
-<title>Comment Edit: Let user's edit their comments after they posted them.</title>
+<title>Comment Edit: Let user&#039;s edit their comments after they posted them.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_commentedit</link>
 <category>Event Plugins</category>
 <author>Malte Paskuda</author>
-<content:encoded>&lt;b&gt;serendipity_event_commentedit&lt;br /&gt;Comment Edit&lt;/b&gt;&lt;br /&gt;Let user's edit their comments after they posted them.&lt;br/&gt;For: Serendipity 1.5</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_event_commentedit&lt;br /&gt;Comment Edit&lt;/b&gt;&lt;br /&gt;Let user&#039;s edit their comments after they posted them.&lt;br/&gt;For: Serendipity 1.5</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:29 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_commentedit</guid>
 </item>
@@ -205,7 +205,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_custom_permalinks&lt;br /&gt;Custom Permalinks for Entries&lt;/b&gt;&lt;br /&gt;Defines custom permalinks that can be used to access a specific entry. It can only use URL patterns which are NOT YET in use - using custom permalinks within the /archives/ structure is thus not possible. But any (virtual) other directory is.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Mon, 17 Apr 2017 22:32:13 +0200</pubDate>
+<pubDate>Mon, 16 Jan 2023 00:30:37 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_custom_permalinks</guid>
 </item>
 <item>
@@ -249,18 +249,18 @@
 s9yに十分なダウンロードマネージャーの能力を提供します。インストール解除する時、関連するテーブルがすべて破棄されるでしょう!</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_downloadmanager</link>
 <category>Event Plugins</category>
-<author>Alexander 'dma147' Mieland, Grischa Brockhaus, Ian</author>
+<author>Alexander &#039;dma147&#039; Mieland, Grischa Brockhaus, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_downloadmanager&lt;br /&gt;ダウンロードマネージャー&lt;/b&gt;&lt;br /&gt;
 s9yに十分なダウンロードマネージャーの能力を提供します。インストール解除する時、関連するテーブルがすべて破棄されるでしょう!&lt;br/&gt;For: Serendipity 1.6</content:encoded>
 <pubDate>Wed, 26 Oct 2016 22:32:13 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_downloadmanager</guid>
 </item>
 <item>
-<title>Markup: Syntax Highlighter: This plugin is a JavaScript code highlighter based on the code of the same name by Alex Gorbatchev.   This plugin takes less server-side resources than GeSHi and displays less markup in the actual HTML code.  It's a lighter, cleaner alternative. This plugin requires the supporting theme to provide the following hooks: frontend_header, frontend_footer (and optionally backend_preview on the administrative theme only).</title>
+<title>Markup: Syntax Highlighter: This plugin is a JavaScript code highlighter based on the code of the same name by Alex Gorbatchev.   This plugin takes less server-side resources than GeSHi and displays less markup in the actual HTML code.  It&#039;s a lighter, cleaner alternative. This plugin requires the supporting theme to provide the following hooks: frontend_header, frontend_footer (and optionally backend_preview on the administrative theme only).</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_dpsyntaxhighlighter</link>
 <category>Event Plugins</category>
 <author>Alex Gorbatchev (core), Brendon Kozlowski and J.M. Roth (plugin)</author>
-<content:encoded>&lt;b&gt;serendipity_event_dpsyntaxhighlighter&lt;br /&gt;Markup: Syntax Highlighter&lt;/b&gt;&lt;br /&gt;This plugin is a JavaScript code highlighter based on the code of the same name by Alex Gorbatchev.   This plugin takes less server-side resources than GeSHi and displays less markup in the actual HTML code.  It's a lighter, cleaner alternative. This plugin requires the supporting theme to provide the following hooks: frontend_header, frontend_footer (and optionally backend_preview on the administrative theme only).&lt;br/&gt;For: Serendipity 1.0</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_event_dpsyntaxhighlighter&lt;br /&gt;Markup: Syntax Highlighter&lt;/b&gt;&lt;br /&gt;This plugin is a JavaScript code highlighter based on the code of the same name by Alex Gorbatchev.   This plugin takes less server-side resources than GeSHi and displays less markup in the actual HTML code.  It&#039;s a lighter, cleaner alternative. This plugin requires the supporting theme to provide the following hooks: frontend_header, frontend_footer (and optionally backend_preview on the administrative theme only).&lt;br/&gt;For: Serendipity 1.0</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:29 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_dpsyntaxhighlighter</guid>
 </item>
@@ -270,7 +270,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
 <content:encoded>&lt;b&gt;serendipity_event_dsgvo_gdpr&lt;br /&gt;DSGVO / GDPR: General Data Protection Regulation&lt;/b&gt;&lt;br /&gt;This plugin aims to help blog owners apply conformity to the General Data Protection Regulation Act.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:29 +0200</pubDate>
+<pubDate>Thu, 24 Nov 2022 00:30:35 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_dsgvo_gdpr</guid>
 </item>
 <item>
@@ -315,7 +315,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Garvin Hicking, Wesley Hwang-Chung</author>
 <content:encoded>&lt;b&gt;serendipity_event_entrypaging&lt;br /&gt;次/前のエントリへのリンク&lt;/b&gt;&lt;br /&gt;閲覧時、次/前のエントリを閲覧することを可能にします。&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Wed, 01 Jul 2020 00:30:56 +0200</pubDate>
+<pubDate>Fri, 28 Jul 2023 00:30:36 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_entrypaging</guid>
 </item>
 <item>
@@ -403,7 +403,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <title>ディスカッションフォーラム: ユーザーに完全なディスカッションフォーラムを提供します。</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_forum</link>
 <category>Event Plugins</category>
-<author>Alexander 'dma147' Mieland</author>
+<author>Alexander &#039;dma147&#039; Mieland</author>
 <content:encoded>&lt;b&gt;serendipity_event_forum&lt;br /&gt;ディスカッションフォーラム&lt;/b&gt;&lt;br /&gt;ユーザーに完全なディスカッションフォーラムを提供します。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:29 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_forum</guid>
@@ -414,7 +414,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_freetag&lt;br /&gt;エントリーのタグ&lt;/b&gt;&lt;br /&gt;エントリーの自由なタグを許可します。&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Sun, 28 Nov 2021 00:30:37 +0100</pubDate>
+<pubDate>Tue, 03 Oct 2023 00:30:43 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_freetag</guid>
 </item>
 <item>
@@ -427,19 +427,19 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <guid isPermaLink="false">serendipity_event_galleryimage</guid>
 </item>
 <item>
-<title>Geo-JSON: Provides a JSON object with all geo data which can be processed by JavaScript.</title>
+<title>Geo-JSON: Provides a JSON object which contains all geographic data and can be processed with JavaScript</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_geo_json</link>
 <category>Event Plugins</category>
-<author>Martin Sewelies</author>
-<content:encoded>&lt;b&gt;serendipity_event_geo_json&lt;br /&gt;Geo-JSON&lt;/b&gt;&lt;br /&gt;Provides a JSON object with all geo data which can be processed by JavaScript.&lt;br/&gt;For: Serendipity 2.3</content:encoded>
-<pubDate>Sat, 09 Jan 2021 00:30:24 +0100</pubDate>
+<author>Kathi Sewelies</author>
+<content:encoded>&lt;b&gt;serendipity_event_geo_json&lt;br /&gt;Geo-JSON&lt;/b&gt;&lt;br /&gt;Provides a JSON object which contains all geographic data and can be processed with JavaScript&lt;br/&gt;For: Serendipity 2.3</content:encoded>
+<pubDate>Mon, 24 Jul 2023 16:20:00 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_geo_json</guid>
 </item>
 <item>
 <title>Geotag: Allows entries to be geotagged with coordinates</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_geotag</link>
 <category>Event Plugins</category>
-<author>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Martin Sewelies</author>
+<author>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Kathi Sewelies</author>
 <content:encoded>&lt;b&gt;serendipity_event_geotag&lt;br /&gt;Geotag&lt;/b&gt;&lt;br /&gt;Allows entries to be geotagged with coordinates&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:29 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_geotag</guid>
@@ -459,7 +459,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>David Rolston</author>
 <content:encoded>&lt;b&gt;serendipity_event_geshi&lt;br /&gt;Markup: GeSHi&lt;/b&gt;&lt;br /&gt;Computer Language Color Syntax Highlighting. Tag usage: [geshi lang=lang_name [,ln={y|n}]]code snippet[/geshi]&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:29 +0200</pubDate>
+<pubDate>Mon, 24 Jul 2023 16:20:00 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_geshi</guid>
 </item>
 <item>
@@ -477,7 +477,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Rob Antonishen</author>
 <content:encoded>&lt;b&gt;serendipity_event_glossary&lt;br /&gt;用語集&lt;/b&gt;&lt;br /&gt;ユーザーが定義した用語集をハイライトテキストとツールチップにします。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:30 +0200</pubDate>
+<pubDate>Mon, 24 Jul 2023 16:20:00 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_glossary</guid>
 </item>
 <item>
@@ -558,7 +558,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Garvin Hicking, Grischa Brockhaus, Judebert, Gregor Voeltz, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_karma&lt;br /&gt;評価&lt;/b&gt;&lt;br /&gt;訪問者にあなたのエントリの品質を評価させます。&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Sun, 21 Jul 2019 22:31:24 +0200</pubDate>
+<pubDate>Tue, 07 Feb 2023 00:30:34 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_karma</guid>
 </item>
 <item>
@@ -580,12 +580,12 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <guid isPermaLink="false">serendipity_event_layout_printerfriendly</guid>
 </item>
 <item>
-<title>Lightbox for entry images: Lightbox JS is a simple, unobtrusive script used to overlay images on the current page. It's a snap to setup and works with all modern browsers. All lightboxes pop-up images. This plugin searches through your entries, and replaces every image 'a href=&quot;XXX&quot;' link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. These lightbox scripts are all jQuery based. They do not only support image types, they may also add support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for image lightboxes only, but you can easily add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.</title>
+<title>Lightbox for entry images: Lightbox JS is a simple, unobtrusive script used to overlay images on the current page. It&#039;s a snap to setup and works with all modern browsers. All lightboxes pop-up images. This plugin searches through your entries, and replaces every image &#039;a href=&quot;XXX&quot;&#039; link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. These lightbox scripts are all jQuery based. They do not only support image types, they may also add support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for image lightboxes only, but you can easily add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_lightbox</link>
 <category>Event Plugins</category>
 <author>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_lightbox&lt;br /&gt;Lightbox for entry images&lt;/b&gt;&lt;br /&gt;Lightbox JS is a simple, unobtrusive script used to overlay images on the current page. It's a snap to setup and works with all modern browsers. All lightboxes pop-up images. This plugin searches through your entries, and replaces every image 'a href=&quot;XXX&quot;' link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. These lightbox scripts are all jQuery based. They do not only support image types, they may also add support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for image lightboxes only, but you can easily add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Wed, 29 Sep 2021 00:30:32 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_lightbox&lt;br /&gt;Lightbox for entry images&lt;/b&gt;&lt;br /&gt;Lightbox JS is a simple, unobtrusive script used to overlay images on the current page. It&#039;s a snap to setup and works with all modern browsers. All lightboxes pop-up images. This plugin searches through your entries, and replaces every image &#039;a href=&quot;XXX&quot;&#039; link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. These lightbox scripts are all jQuery based. They do not only support image types, they may also add support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for image lightboxes only, but you can easily add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<pubDate>Tue, 05 Sep 2023 00:30:41 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_lightbox</guid>
 </item>
 <item>
@@ -612,7 +612,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Garvin Hicking, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_linktrimmer&lt;br /&gt;Linktrimmer&lt;/b&gt;&lt;br /&gt;Allows you to truncate any link for redirection on your own blog, like tr.im, tinyurl.com etc.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:31 +0200</pubDate>
+<pubDate>Sun, 01 Jan 2023 17:02:22 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_linktrimmer</guid>
 </item>
 <item>
@@ -666,7 +666,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Serendipity Team, Jan Lehnardt and Thomas Hochstein</author>
 <content:encoded>&lt;b&gt;serendipity_event_markdown&lt;br /&gt;マークアップ: Markdown&lt;/b&gt;&lt;br /&gt;エントリテキストに Markdown マークアップを適用します。&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:31 +0200</pubDate>
+<pubDate>Mon, 22 Aug 2022 00:30:39 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_markdown</guid>
 </item>
 <item>
@@ -720,7 +720,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Garvin Hicking, Wesley Hwang-Chung, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_multilingual&lt;br /&gt;多言語エントリ&lt;/b&gt;&lt;br /&gt;エントリの複数の言語バージョンを作成することを可能にします。&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Wed, 15 Aug 2018 22:32:10 +0200</pubDate>
+<pubDate>Sat, 18 Feb 2023 00:30:30 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_multilingual</guid>
 </item>
 <item>
@@ -729,7 +729,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Garvin Hicking, Markus Gerstel, Grischa Brockhaus</author>
 <content:encoded>&lt;b&gt;serendipity_event_mycalendar&lt;br /&gt;自分のカレンダー&lt;/b&gt;&lt;br /&gt;個人カレンダーの管理をします。&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:32 +0200</pubDate>
+<pubDate>Mon, 24 Jul 2023 16:20:02 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_mycalendar</guid>
 </item>
 <item>
@@ -742,11 +742,11 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <guid isPermaLink="false">serendipity_event_mymood</guid>
 </item>
 <item>
-<title>Newsbox: Group a category's entries in a frontpage box instead of the usual article listing.  Supports nested newsboxes.</title>
+<title>Newsbox: Group a category&#039;s entries in a frontpage box instead of the usual article listing.  Supports nested newsboxes.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_newsbox</link>
 <category>Event Plugins</category>
 <author>Jude Anthony</author>
-<content:encoded>&lt;b&gt;serendipity_event_newsbox&lt;br /&gt;Newsbox&lt;/b&gt;&lt;br /&gt;Group a category's entries in a frontpage box instead of the usual article listing.  Supports nested newsboxes.&lt;br/&gt;For: Serendipity 1.0-alpha1</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_event_newsbox&lt;br /&gt;Newsbox&lt;/b&gt;&lt;br /&gt;Group a category&#039;s entries in a frontpage box instead of the usual article listing.  Supports nested newsboxes.&lt;br/&gt;For: Serendipity 1.0-alpha1</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:32 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_newsbox</guid>
 </item>
@@ -769,21 +769,21 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <guid isPermaLink="false">serendipity_event_openid</guid>
 </item>
 <item>
-<title>OpenStreetMap integration: Provides an interactive map with *.gpx uploads and tagged geo data</title>
+<title>OpenStreetMap integration: Provides an interactive map for *.gpx uploads and geo-tagged entries</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_osm</link>
 <category>Event Plugins</category>
-<author>Martin Sewelies</author>
-<content:encoded>&lt;b&gt;serendipity_event_osm&lt;br /&gt;OpenStreetMap integration&lt;/b&gt;&lt;br /&gt;Provides an interactive map with *.gpx uploads and tagged geo data&lt;br/&gt;For: Serendipity 2.3</content:encoded>
-<pubDate>Wed, 14 Jul 2021 00:30:32 +0200</pubDate>
+<author>Kathi Sewelies</author>
+<content:encoded>&lt;b&gt;serendipity_event_osm&lt;br /&gt;OpenStreetMap integration&lt;/b&gt;&lt;br /&gt;Provides an interactive map for *.gpx uploads and geo-tagged entries&lt;br/&gt;For: Serendipity 2.3</content:encoded>
+<pubDate>Wed, 01 Feb 2023 00:30:34 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_osm</guid>
 </item>
 <item>
 <title>OpenStreetMap static files: Includes scripts and stylesheets for OpenStreetMap support</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_osm</link>
 <category>Event Plugins</category>
-<author>Martin Sewelies</author>
+<author>Kathi Sewelies</author>
 <content:encoded>&lt;b&gt;serendipity_event_static_osm&lt;br /&gt;OpenStreetMap static files&lt;/b&gt;&lt;br /&gt;Includes scripts and stylesheets for OpenStreetMap support&lt;br/&gt;For: Serendipity 2.3</content:encoded>
-<pubDate>Wed, 14 Jul 2021 00:30:32 +0200</pubDate>
+<pubDate>Wed, 01 Feb 2023 00:30:34 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_static_osm</guid>
 </item>
 <item>
@@ -796,11 +796,11 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <guid isPermaLink="false">serendipity_event_outdate_entries</guid>
 </item>
 <item>
-<title>HTML Nugget on Page: Puts an HTML nugget on top or bottom of the page, or inside the page's HEAD tag</title>
+<title>HTML Nugget on Page: Puts an HTML nugget on top or bottom of the page, or inside the page&#039;s HEAD tag</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_page_nugget</link>
 <category>Event Plugins</category>
 <author>Wesley Hwang-Chung</author>
-<content:encoded>&lt;b&gt;serendipity_event_page_nugget&lt;br /&gt;HTML Nugget on Page&lt;/b&gt;&lt;br /&gt;Puts an HTML nugget on top or bottom of the page, or inside the page's HEAD tag&lt;br/&gt;For: Serendipity 1.6</content:encoded>
+<content:encoded>&lt;b&gt;serendipity_event_page_nugget&lt;br /&gt;HTML Nugget on Page&lt;/b&gt;&lt;br /&gt;Puts an HTML nugget on top or bottom of the page, or inside the page&#039;s HEAD tag&lt;br/&gt;For: Serendipity 1.6</content:encoded>
 <pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_page_nugget</guid>
 </item>
@@ -819,7 +819,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Grischa Brockhaus, Hannes Gassert, Garvin Hicking</author>
 <content:encoded>&lt;b&gt;serendipity_event_podcast&lt;br /&gt;Easy Podcasting Plugin&lt;/b&gt;&lt;br /&gt;Adds &quot;podcasting&quot; capabilities hinzu (RSS enclosure, Video/Sound-Player)&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:32 +0200</pubDate>
+<pubDate>Thu, 24 Nov 2022 00:30:37 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_podcast</guid>
 </item>
 <item>
@@ -945,7 +945,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</author>
 <content:encoded>&lt;b&gt;serendipity_event_spamblock_bayes&lt;br /&gt;Spamblock (Bayes)&lt;/b&gt;&lt;br /&gt;Detects Spam via an algorithmus which learns.&lt;br/&gt;For: Serendipity 2.1</content:encoded>
-<pubDate>Mon, 19 Jul 2021 00:30:37 +0200</pubDate>
+<pubDate>Wed, 06 Sep 2023 00:30:42 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_spamblock_bayes</guid>
 </item>
 <item>
@@ -990,7 +990,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers</author>
 <content:encoded>&lt;b&gt;serendipity_event_staticpage&lt;br /&gt;静的ページ&lt;/b&gt;&lt;br /&gt;デザインとすべての書式化されたブログとウェブログ内部に静的ページを表示します。管理インターフェースに新しいメニューを追加します。&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:32 +0200</pubDate>
+<pubDate>Tue, 05 Sep 2023 00:30:42 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_staticpage</guid>
 </item>
 <item>
@@ -999,7 +999,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin, Matthias Mees, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_statistics&lt;br /&gt;統計情報&lt;/b&gt;&lt;br /&gt;エントリパネルに興味のある統計へのリンクを加えます。&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Thu, 05 Apr 2018 22:31:42 +0200</pubDate>
+<pubDate>Tue, 07 Feb 2023 00:30:36 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_statistics</guid>
 </item>
 <item>
@@ -1125,7 +1125,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Arnan de Gans, Matthew Groeninger, and Stefan Willoughby, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_usergallery&lt;br /&gt;ギャラリー表示&lt;/b&gt;&lt;br /&gt;匿名ユーザーに Serendipity メディアギャラリー閲覧を許可します。&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
+<pubDate>Mon, 30 Jan 2023 00:30:37 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_usergallery</guid>
 </item>
 <item>

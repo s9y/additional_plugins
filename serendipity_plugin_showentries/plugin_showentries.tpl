@@ -1,7 +1,7 @@
 {foreach from=$entries item="entry"}
 {if $showtitle}
     <div class="serendipity_showentry_title">
-    {$entry.title|escape}
+    <h3><a href="{$entry.link}">{$entry.title|escape}</a></h3>
     </div>                
 {/if}
             

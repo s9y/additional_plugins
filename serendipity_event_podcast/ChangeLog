@@ -1,3 +1,6 @@
+1.37.7:
+    * Additional fixes for PHP 8
+
 1.37.6:
     * Hotfixes for PHP 8 (surrim)
 

@@ -245,7 +245,7 @@
 <summary>Geotag Google/OSM Map</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
 <description>This plugin displays a Google Map or Openstreetmap with geotagged entries</description>
-<maintainers><maintainer><name>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Martin Sewelies</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Kathi Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.36.1</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
@@ -597,9 +597,9 @@
 <description>Allows visitors to change the frontend interface language</description>
 <maintainers><maintainer><name>Garvin Hicking, Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.15</version>
+  <version>1.15.1</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2023-02-18</date>
   <filelist>
 <dir name="serendipity_event_multilingual">
 <dir name="UTF-8">
@@ -670,9 +670,9 @@
 <description>Shows your personal calendar with X upcoming scheduled events</description>
 <maintainers><maintainer><name>Garvin Hicking, Markus Gerstel</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.13.2</version>
+  <version>0.13.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2023-07-24</date>
   <filelist>
 <dir name="serendipity_event_mycalendar">
 <dir name="UTF-8">
@@ -1144,8 +1144,8 @@
 <summary>Show trusted users</summary>
 <groups>FRONTEND_VIEWS</groups>
 <description>Displays all users with their ethics (represented by a traffic light). 
-                                   Green light means 'cool'; yellow light means 
-                                   'warning'; red light means 'banned'
+                                   Green light means &#039;cool&#039;; yellow light means 
+                                   &#039;warning&#039;; red light means &#039;banned&#039;
                                    The administrator can easily modify this value for each user.</description>
 <maintainers><maintainer><name>Loris Zena</name><role>lead</role></maintainer></maintainers>
 <release>
@@ -2343,9 +2343,9 @@
 <description>Offers the ability to display images in the sidebar.  The source of the images is configurable.  The plugin is able to connect to a Menalto Gallery installs &quot;random&quot; url, access a Coppermine database directory (MySql only), connect to the web service Zooomr (http://beta.zooomr.com/home) or access images in the Serendipity Media Library.</description>
 <maintainers><maintainer><name>Andrew Brown (Menalto code), Matthew Groeninger (Unified/Media Lib. Code), Stefan Lange-Hegermann (Zooomr Code), Matthew Maude (Coppermine code)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.100.2</version>
+  <version>0.100.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2022-12-13</date>
   <filelist>
 <dir name="serendipity_plugin_imagesidebar">
 <dir name="UTF-8">
@@ -2928,9 +2928,9 @@
 <description>Shows entries of special categories in your sidebar. Good for Sidebar Moblogging!</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.9.1</version>
+  <version>1.9.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2023-09-05</date>
   <filelist>
 <dir name="serendipity_plugin_showentries">
 <dir name="UTF-8">
@@ -3117,23 +3117,30 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_topexits</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_topexits/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Куда ушли</summary>
 <groups>STATISTICS</groups>
 <description>Показывает сайты, куда читатели вашего блога уходили чаще всего</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1</version>
+  <version>1.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2023-01-01</date>
   <filelist>
 <dir name="serendipity_plugin_topexits">
 <file>serendipity_plugin_topexits.php</file>
+<dir name="UTF-8">
+<file>lang_en.inc.php</file>
+</dir>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_plugin_topexits/serendipity_plugin_topexits.php</file>
+    <file>serendipity_plugin_topexits/UTF-8/lang_en.inc.php</file>
+    <file>serendipity_plugin_topexits/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>

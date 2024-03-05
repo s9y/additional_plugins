@@ -1,3 +1,7 @@
+1.4.2:
+---
+ * Avoid warning under PHP 8.2
+
 1.4.1:
 ---
  * hotfixes for PHP 8

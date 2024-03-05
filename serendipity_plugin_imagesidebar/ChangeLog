@@ -1,3 +1,7 @@
+0.100.3:
+-----
+    * Fix image display when fetching from ML
+    
 0.100.2:
 -----
     * Hotfixes for PHP 8 (surrim)

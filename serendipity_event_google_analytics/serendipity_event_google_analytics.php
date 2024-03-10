@@ -33,7 +33,7 @@ class serendipity_event_google_analytics extends serendipity_event
 
         # Base values
         $conf_array = array();
-        $conf_array[] = 'analytics_account_number';
+        $conf_array[] = 'analytics_measurement_id';
         $conf_array[] = 'analytics_track_external';
 
         # Blog entry element parts for external tracking
@@ -61,7 +61,7 @@ class serendipity_event_google_analytics extends serendipity_event
     function introspect_config_item($name, &$propbag)
     {
         switch ($name) {
-            case 'analytics_account_number' :
+            case 'analytics_measurement_id' :
                 $propbag->add('type', 'string');
                 $propbag->add('name', PLUGIN_EVENT_GOOGLE_ANALYTICS_STREAM_NUMBER);
                 $propbag->add('description', PLUGIN_EVENT_GOOGLE_ANALYTICS_STREAM_NUMBER_DESC);
@@ -111,7 +111,7 @@ class serendipity_event_google_analytics extends serendipity_event
             return false;
         }
 
-        $acctNro = $this->get_config('analytics_account_number');
+        $acctNro = $this->get_config('analytics_measurement_id');
         if (!isset($acctNro) || !$acctNro) {
             return false;
         }

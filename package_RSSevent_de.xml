@@ -480,9 +480,9 @@
 <title>Google Analytics: Dieses Plugin fügt Google Analytics Funktionalität hinzu. So können auch externe Links oder Downloads verfolgt werden.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_google_analytics</link>
 <category>Event Plugins</category>
-<author>kleinerChemiker</author>
-<content:encoded>&lt;b&gt;serendipity_event_google_analytics&lt;br /&gt;Google Analytics&lt;/b&gt;&lt;br /&gt;Dieses Plugin fügt Google Analytics Funktionalität hinzu. So können auch externe Links oder Downloads verfolgt werden.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:30 +0200</pubDate>
+<author>Jari Turkia, kleinerChemiker</author>
+<content:encoded>&lt;b&gt;serendipity_event_google_analytics&lt;br /&gt;Google Analytics&lt;/b&gt;&lt;br /&gt;Dieses Plugin fügt Google Analytics Funktionalität hinzu. So können auch externe Links oder Downloads verfolgt werden.&lt;br/&gt;For: Serendipity 2.4</content:encoded>
+<pubDate>Wed, 13 Mar 2024 00:30:31 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_google_analytics</guid>
 </item>
 <item>

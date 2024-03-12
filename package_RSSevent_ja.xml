@@ -481,12 +481,12 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <guid isPermaLink="false">serendipity_event_glossary</guid>
 </item>
 <item>
-<title>Google Analytics: This plugin adds extendet Google Analytic funcionality to youre Page like tracking external links or download links.</title>
+<title>Google Analytics 4: This plugin adds extended Google Analytics 4 functionality.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_google_analytics</link>
 <category>Event Plugins</category>
-<author>kleinerChemiker</author>
-<content:encoded>&lt;b&gt;serendipity_event_google_analytics&lt;br /&gt;Google Analytics&lt;/b&gt;&lt;br /&gt;This plugin adds extendet Google Analytic funcionality to youre Page like tracking external links or download links.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:30 +0200</pubDate>
+<author>Jari Turkia, kleinerChemiker</author>
+<content:encoded>&lt;b&gt;serendipity_event_google_analytics&lt;br /&gt;Google Analytics 4&lt;/b&gt;&lt;br /&gt;This plugin adds extended Google Analytics 4 functionality.&lt;br/&gt;For: Serendipity 2.4</content:encoded>
+<pubDate>Wed, 13 Mar 2024 00:30:31 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_google_analytics</guid>
 </item>
 <item>

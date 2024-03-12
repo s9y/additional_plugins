@@ -4857,30 +4857,19 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <name>serendipity_event_google_analytics</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_google_analytics/ChangeLog</changelog>
 <license>GPL</license>
-<summary>Google Analytics</summary>
+<summary>Google Analytics 4</summary>
 <groups>STATISTICS</groups>
-<description>This plugin adds extendet Google Analytic funcionality to youre Page like tracking external links or download links.</description>
-<maintainers><maintainer><name>kleinerChemiker</name><role>lead</role></maintainer></maintainers>
+<description>This plugin adds extended Google Analytics 4 functionality.</description>
+<maintainers><maintainer><name>Jari Turkia, kleinerChemiker</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4.4</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <version>2.0.0</version>
+  <requirements:s9yVersion>2.4</requirements:s9yVersion>
+  <date>2024-03-13</date>
   <filelist>
 <dir name="serendipity_event_google_analytics">
 <dir name="CVSROOT">
 <dir name="Emptydir">
 </dir>
-<file>checkoutlist</file>
-<file>commitinfo</file>
-<file>config</file>
-<file>cvswrappers</file>
-<file>editinfo</file>
-<file>loginfo</file>
-<file>modules</file>
-<file>notify</file>
-<file>rcsinfo</file>
-<file>taginfo</file>
-<file>verifymsg</file>
 </dir>
 <dir name="UTF-8">
 <file>lang_cs.inc.php</file>
@@ -4899,17 +4888,6 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 
   </filelist>
   <serendipityFilelist>
-    <file>serendipity_event_google_analytics/CVSROOT/checkoutlist</file>
-    <file>serendipity_event_google_analytics/CVSROOT/commitinfo</file>
-    <file>serendipity_event_google_analytics/CVSROOT/config</file>
-    <file>serendipity_event_google_analytics/CVSROOT/cvswrappers</file>
-    <file>serendipity_event_google_analytics/CVSROOT/editinfo</file>
-    <file>serendipity_event_google_analytics/CVSROOT/loginfo</file>
-    <file>serendipity_event_google_analytics/CVSROOT/modules</file>
-    <file>serendipity_event_google_analytics/CVSROOT/notify</file>
-    <file>serendipity_event_google_analytics/CVSROOT/rcsinfo</file>
-    <file>serendipity_event_google_analytics/CVSROOT/taginfo</file>
-    <file>serendipity_event_google_analytics/CVSROOT/verifymsg</file>
     <file>serendipity_event_google_analytics/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_google_analytics/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_google_analytics/UTF-8/lang_de.inc.php</file>

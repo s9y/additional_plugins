@@ -7710,7 +7710,7 @@
 <description>Ofrece un mapa interactivo para archivos *.gpx y entradas de blog con coordenadas geográficas</description>
 <maintainers><maintainer><name>Kathi Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.4.4</version>
+  <version>0.4.5</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
   <date>2023-02-01</date>
   <filelist>
@@ -7767,7 +7767,7 @@
 <description>Inserta scripts y hojas de estilo para OpenStreetMap</description>
 <maintainers><maintainer><name>Kathi Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.4.4</version>
+  <version>0.4.5</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
   <date>2023-02-01</date>
   <filelist>

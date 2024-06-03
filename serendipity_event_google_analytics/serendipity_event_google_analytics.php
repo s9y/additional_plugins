@@ -154,7 +154,7 @@ EOT;
                         !$markupDisabledConfig && !$markupDisabledPost) {
                         $element = $element['element'];
                         $eventData[$element] = preg_replace_callback(
-                            "#<a (.*)href=(\"|')(http://|https://|)([^\"']+)(\"|')([^>]*)>#isUm",
+                            "#<a\\s+(.*)href\\s*=\\s*[\"|'](http://|https://|)([^\"']*)[\"|']([^>]*)>#isUm",
                             array($this, 'analytics_tracker_callback'),
                             $eventData[$element]
                         );
@@ -162,21 +162,32 @@ EOT;
                 }
                 return true;
 
-            default :
+            default:
                 return false;
         } // end switch ($event) {
     }
 
+    /**
+     * matches:
+     * 0 = entire regexp match
+     * 1 = anything between "<a" and "href"
+     * 2 = scheme
+     * 3 = address
+     * 4 = anything after "href" and ">"
+     */
     function analytics_tracker_callback($matches)
     {
-        $parsed_url = parse_url($matches[3].$matches[4]);
-        if (!isset($parsed_url["scheme"]))
-            return;
-        if (!in_array($parsed_url["scheme"], array("http", "https")))
-            return;
+        $parsed_url = parse_url($matches[2].$matches[3]);
 
+        // Skip tracking for local URLs without scheme, or unknown scheme.
+        if (!isset($parsed_url["scheme"]))
+            return $matches[0];
+        if (!in_array($parsed_url["scheme"], array("http", "https")))
+            return $matches[0];
+
+        // Note: Assume, there is no second onclick-event in substr($matches[0], 2)
         return '<a onclick="_gaq.push([\'_trackPageview\', \'/extlink/' .
-            (function_exists('serendipity_specialchars') ? serendipity_specialchars($matches[4]) : htmlspecialchars($matches[4], ENT_COMPAT, LANG_CHARSET)) .
+            (function_exists('serendipity_specialchars') ? serendipity_specialchars($matches[3]) : htmlspecialchars($matches[3], ENT_COMPAT, LANG_CHARSET)) .
             '\']);" ' . substr($matches[0], 2);
     }
 

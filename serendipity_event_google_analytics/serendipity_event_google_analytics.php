@@ -8,6 +8,7 @@ if (IN_serendipity !== true) {
 class serendipity_event_google_analytics extends serendipity_event
 {
     var $title = PLUGIN_EVENT_GOOGLE_ANALYTICS_NAME;
+    protected $markup_elements = array();
 
     // Docs:
     // - Install Google Tag Manager for web pages: https://developers.google.com/tag-platform/tag-manager/web

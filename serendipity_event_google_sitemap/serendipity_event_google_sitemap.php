@@ -308,7 +308,7 @@ class serendipity_event_google_sitemap extends serendipity_event {
 
             // add entries
             foreach($entries as $entry) {
-                $max = max($entry['timestamp_1']+0, $entry['timestamp_2']+0);
+                $max = max(intval($entry['timestamp_1']), intval($entry['timestamp_2']));
                 $url = serendipity_archiveURL($entry['id'], $entry['title']);
                 $props = serendipity_fetchEntryProperties($entry['id']);                
                 $props['title'] = $entry['title'];

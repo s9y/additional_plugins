@@ -1,3 +1,7 @@
+1.1.8:
+    * Fix comments marked as spam not being deleted and added
+      to the recycler
+
 1.1.7:
     * Avvoid warning under PHP 8.2
 

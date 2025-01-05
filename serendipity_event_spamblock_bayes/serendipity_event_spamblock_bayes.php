@@ -17,7 +17,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '1.1.7' );
+		$propbag->add ( 'version', '1.1.8' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_comments_top' => true,
 		                                     'external_plugin' => true,
@@ -469,9 +469,9 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
     function recycleComment($id, $entry_id) {
         global $serendipity;
         $sql  = "INSERT INTO
-                    {$serendipity['dbPrefix']}spamblock_bayes_recycler (entry_id, parent_id, ip, author, email, url, body, type, timestamp, title, subscribed, status, referer)
+                    {$serendipity['dbPrefix']}spamblock_bayes_recycler (id, entry_id, parent_id, ip, author, email, url, body, type, timestamp, title, subscribed, status, referer)
                         SELECT
-                            entry_id, parent_id, ip, author, email, url, body, type, timestamp, title, subscribed, status, referer
+                            id, entry_id, parent_id, ip, author, email, url, body, type, timestamp, title, subscribed, status, referer
                         FROM
                             {$serendipity['dbPrefix']}comments
                         WHERE

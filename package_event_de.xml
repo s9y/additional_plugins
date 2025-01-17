@@ -9034,9 +9034,9 @@
 <description>Zeige Sharebuttons für Netzwerke wie Facebook und Twitter (nutzt shariff)</description>
 <maintainers><maintainer><name>onli, Matthias Mees, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.14.6</version>
+  <version>0.15.0</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2022-01-22</date>
+  <date>2025-01-18</date>
   <filelist>
 <dir name="serendipity_event_social">
 <dir name="UTF-8">

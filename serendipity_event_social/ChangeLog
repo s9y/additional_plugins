@@ -1,3 +1,7 @@
+0.15.0
+    * Also create og-social tags when neither FB or Twitter
+      share button is active (useful for Mastodon etc)
+
 0.14.6
     * Fix: Social share buttons were sometimes missing
            on the entry page

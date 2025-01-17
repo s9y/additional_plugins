@@ -16,7 +16,7 @@ class serendipity_event_social extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_SOCIAL_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Matthias Mees, Thomas Hochstein');
-        $propbag->add('version',       '0.14.6');
+        $propbag->add('version',       '0.15.0');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0'
         ));
@@ -178,65 +178,63 @@ class serendipity_event_social extends serendipity_event {
                     if ($serendipity['view'] != 'entry') {
                         return true;
                     }
-                    // Facebook & Twitter can profit from having the og-properties set
-                    if (strpos($this->get_config('services'), 'facebook') !== false || strpos($this->get_config('services'), 'twitter') !== false) {
+                
+                    // we iterate over the internal smarty object to see which entry we are printing. This is hacky and should be improved
+                    if ($eventData['smarty']->tpl_vars['entries']->value != null) { 
+                        $entry = (current($eventData['smarty']->tpl_vars['entries']->value)['entries'][0]);
+                    } else {
+                        return true;
+                    }
 
-                        // we iterate over the internal smarty object to see which entry we are printing. This is hacky and should be improved
-                        if ($eventData['smarty']->tpl_vars['entries']->value != null) { 
-                            $entry = (current($eventData['smarty']->tpl_vars['entries']->value)['entries'][0]);
-                        } else {
-                            return true;
-                        }
+                    $blogURL = 'http' . ($_SERVER['HTTPS'] ? 's' : '') . '://' . $_SERVER['HTTP_HOST'];
 
-                        $blogURL = 'http' . ($_SERVER['HTTPS'] ? 's' : '') . '://' . $_SERVER['HTTP_HOST'];
+                    echo '<!--serendipity_event_shariff-->' . "\n";
+                    echo '<meta name="twitter:card" content="summary" />' . "\n";
+                    echo '<meta property="og:title" content="' . serendipity_specialchars($entry['title']) . '" />' . "\n";
+                    # get desciption from serendipity_event_metadesc, if set; take first 200 chars from body otherwise
+                    $meta_description = strip_tags($entry['properties']['meta_description'] ?? '');
+                    if (empty($meta_description)) {
+                                                             # /\s+/: multiple newline and whitespaces
+                        $meta_description = trim(preg_replace('/\s+/', ' ', substr(strip_tags($entry['body']), 0, 200))) . '...';
+                    }
+                    echo '<meta property="og:description" content="' . serendipity_specialchars($meta_description) . '" />' . "\n";
+                    echo '<meta property="og:type" content="article" />' . "\n";
+                    echo '<meta property="og:site_name" content="' . $serendipity['blogTitle'] . '" />' . "\n";
+                    echo '<meta property="og:url" content="'. $blogURL . serendipity_specialchars($_SERVER['REQUEST_URI']) . '" />' . "\n";
 
-                        echo '<!--serendipity_event_shariff-->' . "\n";
-                        echo '<meta name="twitter:card" content="summary" />' . "\n";
-                        echo '<meta property="og:title" content="' . serendipity_specialchars($entry['title']) . '" />' . "\n";
-                        # get desciption from serendipity_event_metadesc, if set; take first 200 chars from body otherwise
-                        $meta_description = strip_tags($entry['properties']['meta_description'] ?? '');
-                        if (empty($meta_description)) {
-                                                                 # /\s+/: multiple newline and whitespaces
-                            $meta_description = trim(preg_replace('/\s+/', ' ', substr(strip_tags($entry['body']), 0, 200))) . '...';
-                        }
-                        echo '<meta property="og:description" content="' . serendipity_specialchars($meta_description) . '" />' . "\n";
-                        echo '<meta property="og:type" content="article" />' . "\n";
-                        echo '<meta property="og:site_name" content="' . $serendipity['blogTitle'] . '" />' . "\n";
-                        echo '<meta property="og:url" content="'. $blogURL . serendipity_specialchars($_SERVER['REQUEST_URI']) . '" />' . "\n";
-
-                        // set default image from plugin configuration
-                        $social_image = $this->get_config('social_image', '');
-                        if (isset($entry['properties']) && isset($entry['properties']['entry_image'])) {
-                            // if entry_image is set, use this image instead (first priority)
-                            $social_image = $entry['properties']['entry_image'];
-                        } else if (isset($entry['properties']) && isset($entry['properties']['timeline_image'])) {
-                            // if timeline_image from timeline theme is set, use this image (second priority)
-                            $social_image = $entry['properties']['timeline_image'];
-                        } else if (isset($entry['properties']) && isset($entry['properties']['ep_featuredImage'])) {
-                            // if ep_featuredImage from photo theme is set, use this image (third priority)
-                            $social_image = $entry['properties']['ep_featuredImage'];
-                        } else {
-                            // Fourth priority:
-                            // This is searching for the first image in an entry to use as facebook article image.
-                            // A better approach would be to register in the entry editor when an image was added
-                            if (preg_match_all('@<img.*src=["\'](.+)["\']@imsU', $entry['body'] . $entry['extended'], $images)) {
-                                foreach ($images[1] as $im) {
-                                    if (strpos($im, '/emoticons/') === false) {
-                                        $social_image = $im;
-                                        break;
-                                    }
+                    // set default image from plugin configuration
+                    $social_image = $this->get_config('social_image', '');
+                    if (isset($entry['properties']) && isset($entry['properties']['entry_image'])) {
+                        // if entry_image is set, use this image instead (first priority)
+                        $social_image = $entry['properties']['entry_image'];
+                    } else if (isset($entry['properties']) && isset($entry['properties']['timeline_image'])) {
+                        // if timeline_image from timeline theme is set, use this image (second priority)
+                        $social_image = $entry['properties']['timeline_image'];
+                    } else if (isset($entry['properties']) && isset($entry['properties']['ep_featuredImage'])) {
+                        // if ep_featuredImage from photo theme is set, use this image (third priority)
+                        $social_image = $entry['properties']['ep_featuredImage'];
+                    } else {
+                        // Fourth priority:
+                        // This is searching for the first image in an entry to use as facebook article image.
+                        // A better approach would be to register in the entry editor when an image was added
+                        if (preg_match_all('@<img.*src=["\'](.+)["\']@imsU', $entry['body'] . $entry['extended'], $images)) {
+                            foreach ($images[1] as $im) {
+                                if (strpos($im, '/emoticons/') === false) {
+                                    $social_image = $im;
+                                    break;
                                 }
                             }
                         }
-
-                        if (! preg_match('/^http/i', $social_image)) {
-                            $social_image = $blogURL . $social_image;
-                        }
-
-                        if ($social_image != $blogURL && $social_image != $blogURL . 'none') {
-                            echo '<meta property="og:image" content="' . $social_image . '" />' . "\n";
-                        }
                     }
+
+                    if (! preg_match('/^http/i', $social_image)) {
+                        $social_image = $blogURL . $social_image;
+                    }
+
+                    if ($social_image != $blogURL && $social_image != $blogURL . 'none') {
+                        echo '<meta property="og:image" content="' . $social_image . '" />' . "\n";
+                    }
+                    
                     break;
 
                 case 'backend_display':

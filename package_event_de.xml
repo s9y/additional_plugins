@@ -1641,9 +1641,9 @@
 <description>Ermöglicht Besuchern ihren Kommentar nachträglich zu editieren.</description>
 <maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.2.4</version>
+  <version>0.2.5</version>
   <requirements:s9yVersion>1.5</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2025-01-19</date>
   <filelist>
 <dir name="serendipity_event_commentedit">
 <dir name="UTF-8">
@@ -4860,9 +4860,9 @@
 <description>Dieses Plugin fügt Google Analytics Funktionalität hinzu. So können auch externe Links oder Downloads verfolgt werden.</description>
 <maintainers><maintainer><name>Jari Turkia, kleinerChemiker</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.0.0</version>
+  <version>2.0.1</version>
   <requirements:s9yVersion>2.4</requirements:s9yVersion>
-  <date>2024-03-13</date>
+  <date>2025-01-19</date>
   <filelist>
 <dir name="serendipity_event_google_analytics">
 <dir name="CVSROOT">
@@ -10251,9 +10251,9 @@
 <description>Ermöglicht beim Anlegen eines Eintrages zu weiteren URLs Trackbacks zu schicken oder Trackbacks zu deaktivieren</description>
 <maintainers><maintainer><name>Garvin Hicking, Malte Paskuda, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.20.1</version>
-  <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2021-06-07</date>
+  <version>1.21</version>
+  <requirements:s9yVersion>2.4.0</requirements:s9yVersion>
+  <date>2025-01-19</date>
   <filelist>
 <dir name="serendipity_event_trackback">
 <dir name="UTF-8">

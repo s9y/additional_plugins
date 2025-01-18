@@ -140,7 +140,7 @@
 <category>Event Plugins</category>
 <author>Malte Paskuda</author>
 <content:encoded>&lt;b&gt;serendipity_event_commentedit&lt;br /&gt;Comment Edit&lt;/b&gt;&lt;br /&gt;Let user&#039;s edit their comments after they posted them.&lt;br/&gt;For: Serendipity 1.5</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:29 +0200</pubDate>
+<pubDate>Sun, 19 Jan 2025 00:30:25 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_commentedit</guid>
 </item>
 <item>
@@ -482,7 +482,7 @@
 <category>Event Plugins</category>
 <author>Jari Turkia, kleinerChemiker</author>
 <content:encoded>&lt;b&gt;serendipity_event_google_analytics&lt;br /&gt;Google Analytics 4&lt;/b&gt;&lt;br /&gt;This plugin adds extended Google Analytics 4 functionality.&lt;br/&gt;For: Serendipity 2.4</content:encoded>
-<pubDate>Wed, 13 Mar 2024 00:30:31 +0100</pubDate>
+<pubDate>Sun, 19 Jan 2025 00:30:26 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_google_analytics</guid>
 </item>
 <item>
@@ -1075,8 +1075,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_trackback</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking, Malte Paskuda, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_trackback&lt;br /&gt;Trackback-Control&lt;/b&gt;&lt;br /&gt;Allows granular control over how trackbacks are sent when creating entries&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Mon, 07 Jun 2021 00:30:37 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_trackback&lt;br /&gt;Trackback-Control&lt;/b&gt;&lt;br /&gt;Allows granular control over how trackbacks are sent when creating entries&lt;br/&gt;For: Serendipity 2.4.0</content:encoded>
+<pubDate>Sun, 19 Jan 2025 00:30:28 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_trackback</guid>
 </item>
 <item>

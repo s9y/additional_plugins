@@ -9,9 +9,13 @@ TODO:
 * Twitter announcements/credentials etc. per author instead of
   only per central blog
 
+1.70.1:
+-----
+    * Hotfixes for PHP 8 (surrim)
+
 1.70:
 -----
-Added legal information for gdpr/dsgvo
+    * Added legal information for gdpr/dsgvo
 
 1.69:
 -----

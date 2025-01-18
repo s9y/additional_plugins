@@ -1,4 +1,13 @@
-# 
+1.37.7:
+    * Additional fixes for PHP 8
+
+1.37.6:
+    * Hotfixes for PHP 8 (surrim)
+
+1.37.5:
+    * Replace curly braces char selection with []
+      PHP 7.4 throws a deprecated warning.
+ 
 1.37.4:
 
     * substitute break outside of a loop by `return false`

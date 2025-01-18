@@ -1,3 +1,7 @@
+1.4.3:
+-----
+    * Hotfixes for PHP 8 (surrim)
+
 1.4.2:
 -----
     * Added serendipity_request_url API method

@@ -6,15 +6,9 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
-include dirname(__FILE__) . '/lang_en.inc.php';
-
-include dirname(__FILE__) . '/plugin_version.inc.php';
+include_once dirname(__FILE__) . '/plugin_version.inc.php';
 
 require_once dirname(__FILE__) . '/classes/Twitter.php';
 require_once dirname(__FILE__) . '/classes/TwitterOAuthApi.php';
@@ -164,7 +158,7 @@ class serendipity_event_twitter extends serendipity_plugin {
                     'general_title', 'plugin_rel_url', 'general_oa_consumerdesc', 'general_oa_consumerkey', 'general_oa_consumersecret'
                  );
 
-        switch ($_GET['plugintab']) {
+        switch ($_GET['plugintab'] ?? '') {
             case 'announce':
                 $configuration = array_merge($configuration,
                     $config_announce

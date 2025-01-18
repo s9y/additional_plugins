@@ -140,7 +140,7 @@
 <release>
   <version>3.03</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <dir name="UTF-8">
@@ -245,11 +245,11 @@
 <summary>Geotag Google/OSM Map</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
 <description>This plugin displays a Google Map or Openstreetmap with geotagged entries</description>
-<maintainers><maintainer><name>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Martin Sewelies</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Kathi Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.35</version>
+  <version>1.36.1</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2016-10-27</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_geotag">
 <dir name="UTF-8">
@@ -304,9 +304,9 @@
 <description>Display the latest guestbook items in the sidebar</description>
 <maintainers><maintainer><name>Jaap Boerma ( j@webbict.com ), Tadashi Jokagi &lt;elf2000@users.sourceforge.net&gt;, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.26.1</version>
+  <version>1.26.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2019-08-18</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="UTF-8">
@@ -421,9 +421,9 @@
 <description>Links manager - Shows your favorite links in the sidebar.</description>
 <maintainers><maintainer><name>Matthew Groeninger, Omid Mottaghi Rad</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.25</version>
+  <version>1.26</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-02</date>
   <filelist>
 <dir name="serendipity_event_linklist">
 <dir name="UTF-8">
@@ -518,9 +518,9 @@
 <description>Display upcoming and recommended events in the sidebar and apply the hCalendar microformat to them.</description>
 <maintainers><maintainer><name>Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.24</version>
+  <version>0.24.1</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2020-05-04</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_microformats">
 <dir name="UTF-8">
@@ -597,9 +597,9 @@
 <description>Allows visitors to change the frontend interface language</description>
 <maintainers><maintainer><name>Garvin Hicking, Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.15</version>
+  <version>1.15.1</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2023-02-18</date>
   <filelist>
 <dir name="serendipity_event_multilingual">
 <dir name="UTF-8">
@@ -670,9 +670,9 @@
 <description>Shows your personal calendar with X upcoming scheduled events</description>
 <maintainers><maintainer><name>Garvin Hicking, Markus Gerstel</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.13.1</version>
+  <version>0.13.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2023-07-24</date>
   <filelist>
 <dir name="serendipity_event_mycalendar">
 <dir name="UTF-8">
@@ -727,9 +727,9 @@
 <description>Prints out a statistic about your comment spam if your antispam plugins report to the DB.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Janek Bevendorff</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.3.1</version>
+  <version>1.3.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-09-04</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bee">
 <dir name="UTF-8">
@@ -778,9 +778,9 @@
 <description>This plugin displays a configurable list of the static pages.</description>
 <maintainers><maintainer><name>Rob Antonishen, Falk Doering, Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.19.1</version>
+  <version>1.19.3</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-06-28</date>
   <filelist>
 <dir name="serendipity_event_staticpage">
 <dir name="UTF-8">
@@ -1024,9 +1024,9 @@
 <description>Shows a list for all Authors</description>
 <maintainers><maintainer><name>Falk Döring</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.2.1</version>
+  <version>1.2.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_userprofiles">
 <dir name="UTF-8">
@@ -1085,9 +1085,9 @@
 <description>Birthdays of users</description>
 <maintainers><maintainer><name>Falk Doering</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.3.1</version>
+  <version>0.3.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-29</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_userprofiles">
 <dir name="UTF-8">
@@ -1144,14 +1144,14 @@
 <summary>Show trusted users</summary>
 <groups>FRONTEND_VIEWS</groups>
 <description>Displays all users with their ethics (represented by a traffic light). 
-                                   Green light means 'cool'; yellow light means 
-                                   'warning'; red light means 'banned'
+                                   Green light means &#039;cool&#039;; yellow light means 
+                                   &#039;warning&#039;; red light means &#039;banned&#039;
                                    The administrator can easily modify this value for each user.</description>
 <maintainers><maintainer><name>Loris Zena</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1.1</version>
+  <version>1.1.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_xsstrust">
 <dir name="UTF-8">
@@ -1516,9 +1516,9 @@
 <description>Allows blog visitors to create their own author account. Together with the Event-plugin (index.php?serendipity[subpage]=adduser) you can choose whether only registered users may post comments.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.40.1</version>
+  <version>2.40.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-03-21</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_adduser">
 <dir name="UTF-8">
@@ -1577,9 +1577,9 @@
 <description>Recommend Products at Amazon within the Amazon-Partnerprogram</description>
 <maintainers><maintainer><name>Matthew Groeninger, (original plugin by Thomas Nesges)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.24</version>
+  <version>1.24.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-18</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_amazon">
 <dir name="UTF-8">
@@ -1645,15 +1645,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_category_dhtml_menu</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_category_dhtml_menu/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Category Tree Menu</summary>
 <groups>FRONTEND_VIEWS</groups>
 <description>DHTML category menu.  Requires PEAR::HTML_TreeMenu.</description>
 <maintainers><maintainer><name>Jackson Miller, Sebastian Bauer</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.12</version>
+  <version>1.12.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_category_dhtml_menu">
 <dir name="UTF-8">
@@ -1668,6 +1669,7 @@
 <file>lang_en.inc.php</file>
 <file>lang_ja.inc.php</file>
 <file>serendipity_plugin_category_dhtml_menu.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -1682,20 +1684,22 @@
     <file>serendipity_plugin_category_dhtml_menu/lang_en.inc.php</file>
     <file>serendipity_plugin_category_dhtml_menu/lang_ja.inc.php</file>
     <file>serendipity_plugin_category_dhtml_menu/serendipity_plugin_category_dhtml_menu.php</file>
+    <file>serendipity_plugin_category_dhtml_menu/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
 <package version="1.0">
 <name>serendipity_plugin_coppermine</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_coppermine/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Coppermine Thumbnails</summary>
 <groups>IMAGES</groups>
 <description>Display thumbnails from a Coppermine gallery in the sidebar</description>
 <maintainers><maintainer><name>Matthew Maude</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4</version>
+  <version>1.4.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2006-12-01</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_coppermine">
 <dir name="UTF-8">
@@ -1709,6 +1713,7 @@
 <file>none.jpg</file>
 <file>serendipity_plugin_coppermine.php</file>
 <file>styles.css</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -1722,6 +1727,7 @@
     <file>serendipity_plugin_coppermine/none.jpg</file>
     <file>serendipity_plugin_coppermine/serendipity_plugin_coppermine.php</file>
     <file>serendipity_plugin_coppermine/styles.css</file>
+    <file>serendipity_plugin_coppermine/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -1734,9 +1740,9 @@
 <description>Displays items you are currently listening, playing, or reading...</description>
 <maintainers><maintainer><name>Dustin Hawkins</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.1</version>
+  <version>2.1.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2009-11-18</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_currently">
 <dir name="UTF-8">
@@ -1782,15 +1788,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_delicious</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_delicious/ChangeLog</changelog>
 <license>GPL</license>
 <summary>A del.icio.us plug-in</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
 <description>A clone of the &quot;Remaindered Links&quot; &amp; &quot;Blogmarks&quot; systems, and uses the trendy del.icio.us for its back-end support.</description>
 <maintainers><maintainer><name>Riscky</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.8.1</version>
+  <version>0.8.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_delicious">
 <dir name="UTF-8">
@@ -1805,6 +1812,7 @@
 <file>lang_en.inc.php</file>
 <file>lang_ja.inc.php</file>
 <file>serendipity_plugin_delicious.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -1819,20 +1827,22 @@
     <file>serendipity_plugin_delicious/lang_en.inc.php</file>
     <file>serendipity_plugin_delicious/lang_ja.inc.php</file>
     <file>serendipity_plugin_delicious/serendipity_plugin_delicious.php</file>
+    <file>serendipity_plugin_delicious/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
 <package version="1.0">
 <name>serendipity_plugin_externalphp</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_externalphp/ChangeLog</changelog>
 <license>GPL</license>
 <summary>External PHP Application</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
 <description>Shows an external PHP application inside your blog with your blogs design and all formattings. USE WITH CARE, THIS PLUGIN HAS SECURITY IMPLICATIONS AS IT INCLUDES ANY GENERIC PHP FILE! YOU CAN ONLY USE THIS PLUGIN AS ADMIN!</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1</version>
+  <version>1.1.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_externalphp">
 <dir name="UTF-8">
@@ -1847,6 +1857,7 @@
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_plugin_externalphp.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -1861,6 +1872,7 @@
     <file>serendipity_plugin_externalphp/lang_de.inc.php</file>
     <file>serendipity_plugin_externalphp/lang_en.inc.php</file>
     <file>serendipity_plugin_externalphp/serendipity_plugin_externalphp.php</file>
+    <file>serendipity_plugin_externalphp/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -1873,9 +1885,9 @@
 <description>Adds assorted functionality of the feedburner service into the sidebar.</description>
 <maintainers><maintainer><name>Aaron Axelsen</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.2</version>
+  <version>1.2.1</version>
   <requirements:s9yVersion>1.2.1</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_feedburnersidebar">
 <dir name="UTF-8">
@@ -1914,9 +1926,9 @@
 <description>Display the latest photos from flickr Photostreams.</description>
 <maintainers><maintainer><name>Michael Kaiser</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.09.2</version>
+  <version>1.09.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-29</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_flickr">
 <dir name="UTF-8">
@@ -2009,9 +2021,9 @@
 <description>Shows your last photos on Flickr.com</description>
 <maintainers><maintainer><name>Lars Strojny</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.13.1</version>
+  <version>0.13.2</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2020-03-29</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_flickrbadge">
 <dir name="UTF-8">
@@ -2060,9 +2072,9 @@
 <description>Adds a reference to a Gallery Random Block script (see http://gallery.menalto.com for details on this script)</description>
 <maintainers><maintainer><name>Andrew Brown, Tadashi Jokagi</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.9</version>
+  <version>1.9.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_gallery_menalto_random">
 <dir name="UTF-8">
@@ -2105,9 +2117,9 @@
 <description>Gets and displays a status description of Gadu-Gadu IM</description>
 <maintainers><maintainer><name>Piotr Borys</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
+  <version>1.5.1</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_ggopis">
 <dir name="UTF-8">
@@ -2164,9 +2176,9 @@
 <description>Displays adverts from Google.</description>
 <maintainers><maintainer><name>Jim Dabell</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.5</version>
+  <version>0.5.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-05-24</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_google_adsense">
 <dir name="UTF-8">
@@ -2213,9 +2225,9 @@
 <description>Shows searched word of the last Google, Yahoo, Bing or Scoogle search, that lead to this blog.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.18.1</version>
+  <version>1.18.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_google_last_query">
 <dir name="UTF-8">
@@ -2284,9 +2296,9 @@
 <description>Поиск по записям (Google)</description>
 <maintainers><maintainer><name>Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6</version>
+  <version>1.6.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-03</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_google_quicksearch">
 <dir name="UTF-8">
@@ -2331,9 +2343,9 @@
 <description>Offers the ability to display images in the sidebar.  The source of the images is configurable.  The plugin is able to connect to a Menalto Gallery installs &quot;random&quot; url, access a Coppermine database directory (MySql only), connect to the web service Zooomr (http://beta.zooomr.com/home) or access images in the Serendipity Media Library.</description>
 <maintainers><maintainer><name>Andrew Brown (Menalto code), Matthew Groeninger (Unified/Media Lib. Code), Stefan Lange-Hegermann (Zooomr Code), Matthew Maude (Coppermine code)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.100.1</version>
+  <version>0.100.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-29</date>
+  <date>2022-12-13</date>
   <filelist>
 <dir name="serendipity_plugin_imagesidebar">
 <dir name="UTF-8">
@@ -2383,15 +2395,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_karmaranking</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_karmaranking/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Karma Ranking</summary>
 <groups>STATISTICS</groups>
 <description>Shows overall score by author</description>
 <maintainers><maintainer><name>Andreas Brandmaier</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1</version>
+  <version>1.1.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_karmaranking">
 <dir name="UTF-8">
@@ -2404,6 +2417,7 @@
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_plugin_karmaranking.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -2416,6 +2430,7 @@
     <file>serendipity_plugin_karmaranking/lang_de.inc.php</file>
     <file>serendipity_plugin_karmaranking/lang_en.inc.php</file>
     <file>serendipity_plugin_karmaranking/serendipity_plugin_karmaranking.php</file>
+    <file>serendipity_plugin_karmaranking/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -2428,9 +2443,9 @@
 <description>Show a login form for authors</description>
 <maintainers><maintainer><name>Garvin Hicking, Neil Dudman</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.09</version>
+  <version>1.09.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_loginform">
 <dir name="UTF-8">
@@ -2476,15 +2491,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_nugget_multilingual</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_nugget_multilingual/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Language-Specific HTML Nugget</summary>
 <groups>FRONTEND_VIEWS</groups>
 <description>Shows an HTML nugget on the sidebar, for a specific language.</description>
 <maintainers><maintainer><name>Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.9</version>
+  <version>1.9.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-01-08</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_nugget_multilingual">
 <dir name="UTF-8">
@@ -2502,6 +2518,7 @@
 <file>lang_en.inc.php</file>
 <file>lang_ko.inc.php</file>
 <file>serendipity_plugin_nugget_multilingual.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -2519,20 +2536,22 @@
     <file>serendipity_plugin_nugget_multilingual/lang_en.inc.php</file>
     <file>serendipity_plugin_nugget_multilingual/lang_ko.inc.php</file>
     <file>serendipity_plugin_nugget_multilingual/serendipity_plugin_nugget_multilingual.php</file>
+    <file>serendipity_plugin_nugget_multilingual/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
 <package version="1.0">
 <name>serendipity_plugin_photoblog</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_photoblog/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Photoblog Entries</summary>
 <groups>IMAGES</groups>
 <description>Shows the thumbnails of the most recent photoblog entries (see event plugin).</description>
 <maintainers><maintainer><name>Cameron MacFarland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.2.1</version>
+  <version>1.2.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_photoblog">
 <dir name="UTF-8">
@@ -2549,6 +2568,7 @@
 <file>lang_ja.inc.php</file>
 <file>lang_tr.inc.php</file>
 <file>serendipity_plugin_photoblog.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -2565,6 +2585,7 @@
     <file>serendipity_plugin_photoblog/lang_ja.inc.php</file>
     <file>serendipity_plugin_photoblog/lang_tr.inc.php</file>
     <file>serendipity_plugin_photoblog/serendipity_plugin_photoblog.php</file>
+    <file>serendipity_plugin_photoblog/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -2612,9 +2633,9 @@
 <description>Shows the current poll in your sidebar</description>
 <maintainers><maintainer><name>Garvin Hicking, Evan Nemerson</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.15</version>
+  <version>2.15.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-02-04</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_pollbox">
 <dir name="UTF-8">
@@ -2665,9 +2686,9 @@
 <description>Shows the titles and number of comments of the most popular entries calculated according to the entries most commented on.</description>
 <maintainers><maintainer><name>Kaustubh Srikanth</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.10.1</version>
+  <version>1.10.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_popularentries">
 <dir name="UTF-8">
@@ -2722,9 +2743,9 @@
 <description>Displays a box for quick links</description>
 <maintainers><maintainer><name>Omid Mottaghi Rad</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.8</version>
+  <version>0.8.1</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_quicklink">
 <dir name="UTF-8">
@@ -2778,15 +2799,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_randomquotes</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_randomquotes/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Random Quotes</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
 <description>Shows a block with a random quotation</description>
 <maintainers><maintainer><name>Florian Solcher</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.05.1</version>
+  <version>1.05.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_randomquotes">
 <dir name="UTF-8">
@@ -2801,6 +2823,7 @@
 <file>lang_en.inc.php</file>
 <file>lang_pl.inc.php</file>
 <file>serendipity_plugin_randomquotes.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -2815,6 +2838,7 @@
     <file>serendipity_plugin_randomquotes/lang_en.inc.php</file>
     <file>serendipity_plugin_randomquotes/lang_pl.inc.php</file>
     <file>serendipity_plugin_randomquotes/serendipity_plugin_randomquotes.php</file>
+    <file>serendipity_plugin_randomquotes/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -2827,9 +2851,9 @@
 <description>Displays a shoutbox for unrelated comments</description>
 <maintainers><maintainer><name>Matthias Lange</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.02.3</version>
+  <version>1.02.5</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2018-04-03</date>
+  <date>2021-06-28</date>
   <filelist>
 <dir name="serendipity_plugin_shoutbox">
 <dir name="UTF-8">
@@ -2904,9 +2928,9 @@
 <description>Shows entries of special categories in your sidebar. Good for Sidebar Moblogging!</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.9</version>
+  <version>1.9.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2023-09-05</date>
   <filelist>
 <dir name="serendipity_plugin_showentries">
 <dir name="UTF-8">
@@ -2952,15 +2976,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_sidebarlogo</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_sidebarlogo/ChangeLog</changelog>
 <license>GPL</license>
 <summary>SideBar Logo</summary>
 <groups>FRONTEND_FEATURES</groups>
 <description>Displays a panel containing your logo with a description including all relevant information about your site (an about box).</description>
 <maintainers><maintainer><name>Adam Krause &amp; Oliver Gerlach</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.4</version>
+  <version>0.4.1</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2013-11-28</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_sidebarlogo">
 <dir name="UTF-8">
@@ -2972,6 +2997,7 @@
 <file>lang_cz.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_plugin_sidebarlogo.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -2983,20 +3009,22 @@
     <file>serendipity_plugin_sidebarlogo/lang_cz.inc.php</file>
     <file>serendipity_plugin_sidebarlogo/lang_en.inc.php</file>
     <file>serendipity_plugin_sidebarlogo/serendipity_plugin_sidebarlogo.php</file>
+    <file>serendipity_plugin_sidebarlogo/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
 <package version="1.0">
 <name>serendipity_plugin_socialbookmarks</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_socialbookmarks/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Social Bookmarks Plugin</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
 <description>A plugin to display bookmarks from a social bookmark service (del.icio.us, ma.gnolia, furl.net, linkroll, Mister Wong) via an RSS feed.</description>
 <maintainers><maintainer><name>Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.48</version>
+  <version>0.48.1</version>
   <requirements:s9yVersion>0.9alpha5</requirements:s9yVersion>
-  <date>2016-10-27</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_socialbookmarks">
 <dir name="UTF-8">
@@ -3018,6 +3046,7 @@
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_plugin_socialbookmarks.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -3037,6 +3066,7 @@
     <file>serendipity_plugin_socialbookmarks/lang_de.inc.php</file>
     <file>serendipity_plugin_socialbookmarks/lang_en.inc.php</file>
     <file>serendipity_plugin_socialbookmarks/serendipity_plugin_socialbookmarks.php</file>
+    <file>serendipity_plugin_socialbookmarks/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -3049,9 +3079,9 @@
 <description>Shows the time of up to four timezones</description>
 <maintainers><maintainer><name>Christoph Eunicke &lt;s9y-plugin@eunicke.org&gt;</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.6</version>
+  <version>0.6.1</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_timezones">
 <dir name="UTF-8">
@@ -3087,37 +3117,45 @@
 </package>
 <package version="1.0">
 <name>serendipity_plugin_topexits</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_topexits/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Куда ушли</summary>
 <groups>STATISTICS</groups>
 <description>Показывает сайты, куда читатели вашего блога уходили чаще всего</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1</version>
+  <version>1.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2023-01-01</date>
   <filelist>
 <dir name="serendipity_plugin_topexits">
 <file>serendipity_plugin_topexits.php</file>
+<dir name="UTF-8">
+<file>lang_en.inc.php</file>
+</dir>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_plugin_topexits/serendipity_plugin_topexits.php</file>
+    <file>serendipity_plugin_topexits/UTF-8/lang_en.inc.php</file>
+    <file>serendipity_plugin_topexits/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
 <package version="1.0">
 <name>serendipity_plugin_topreferers</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_plugin_topreferers/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Top Referers</summary>
 <groups>STATISTICS</groups>
 <description>Показывает сайты, которые ссылались на ваш блог чаще всего</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.3.1</version>
+  <version>1.3.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_topreferers">
 <dir name="UTF-8">
@@ -3132,6 +3170,7 @@
 <file>lang_en.inc.php</file>
 <file>lang_ja.inc.php</file>
 <file>serendipity_plugin_topreferers.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -3146,6 +3185,7 @@
     <file>serendipity_plugin_topreferers/lang_en.inc.php</file>
     <file>serendipity_plugin_topreferers/lang_ja.inc.php</file>
     <file>serendipity_plugin_topreferers/serendipity_plugin_topreferers.php</file>
+    <file>serendipity_plugin_topreferers/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -3158,9 +3198,9 @@
 <description>Show your current Twitter entries</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Damian Luszczymak, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.70</version>
+  <version>1.70.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2017-08-06</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="UTF-8">
@@ -3269,9 +3309,9 @@
 <description>Highlight a phrase and click the icon to search on using Wikipedia.</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5.1</version>
+  <version>1.5.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2019-07-21</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_wikipedia_finder">
 <dir name="UTF-8">

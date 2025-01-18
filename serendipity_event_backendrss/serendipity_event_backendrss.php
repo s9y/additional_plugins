@@ -10,15 +10,12 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_backendrss extends serendipity_event
 {
+	var $dependencies;
+	
     function introspect(&$propbag)
     {
         global $serendipity;
@@ -27,7 +24,7 @@ class serendipity_event_backendrss extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_BACKENDRSS_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Sebastian Nohn');
-        $propbag->add('version',       '1.4');
+        $propbag->add('version',       '1.4.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '4.1.0'

@@ -16,13 +16,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_glossary extends serendipity_event
 {
@@ -36,7 +30,7 @@ class serendipity_event_glossary extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_GLOSSARY_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author', 'Rob Antonishen');
-        $propbag->add('version', '1.7.1');
+        $propbag->add('version', '1.7.3');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -165,6 +159,7 @@ class serendipity_event_glossary extends serendipity_event
                     if (count($terms) > 0) {
                         foreach ($this->markup_elements as $temp) {
                             if (serendipity_db_bool($this->get_config($temp['name'], true)) && isset($eventData[$temp['element']]) &&
+				 array_key_exists('properties', $eventData) &&
                             !$eventData['properties']['ep_disable_markup_' . $this->instance] &&
                             !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
                                 $element = $temp['element'];

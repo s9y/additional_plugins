@@ -5,13 +5,7 @@ if (IN_serendipity !== true) {
 }
 
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include_once dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_plugin_mycalendar extends serendipity_plugin {
     function introspect(&$propbag)
@@ -20,7 +14,7 @@ class serendipity_plugin_mycalendar extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_MYCALENDAR_SIDE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Markus Gerstel');
-        $propbag->add('version',       '0.13.1');
+        $propbag->add('version',       '0.13.3');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -127,9 +121,13 @@ class serendipity_plugin_mycalendar extends serendipity_plugin {
         } else {
             $filter = "WHERE eventdate2 > " . $timeout;
         }
-
-        $items = serendipity_db_query("SELECT * from {$serendipity['dbPrefix']}mycalendar " . $filter . " ORDER BY eventdate LIMIT " . $this->get_config('items', 5));
-        if (!is_array($items)) {
+        try {
+            $items = serendipity_db_query("SELECT * from {$serendipity['dbPrefix']}mycalendar " . $filter . " ORDER BY eventdate LIMIT " . $this->get_config('items', 5));
+            if (!is_array($items)) {
+                return true;
+            }
+        } catch (Exception $e) {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
             return true;
         }
 

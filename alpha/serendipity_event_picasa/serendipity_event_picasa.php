@@ -256,7 +256,7 @@ class serendipity_event_picasa extends serendipity_event {
         ));
         $propbag->add('stackable',       false);
         $propbag->add('author',          'Thomas Nesges, Greg Greenway');
-        $propbag->add('version',         '1.14.1');
+        $propbag->add('version',         '1.14.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -490,10 +490,10 @@ class serendipity_event_picasa extends serendipity_event {
             $serendipity['smarty']->assign(get_class($this).'_use_jswindow',   $jswindow);
 
             $serendipity['smarty']->security_settings['MODIFIER_FUNCS'][] = "rand"; // necessary tweak before 0.8 final
-            $inclusion = $serendipity['smarty']->security_settings[INCLUDE_ANY];
-            $serendipity['smarty']->security_settings[INCLUDE_ANY] = true;
+            $inclusion = $serendipity['smarty']->security_settings['INCLUDE_ANY'];
+            $serendipity['smarty']->security_settings['INCLUDE_ANY'] = true;
             $album_code = $serendipity['smarty']->fetch($smarty_template);
-            $serendipity['smarty']->security_settings[INCLUDE_ANY] = $inclusion;
+            $serendipity['smarty']->security_settings['INCLUDE_ANY'] = $inclusion;
         }
         return $album_code;
     }

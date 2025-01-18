@@ -3,13 +3,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_dsgvo_gdpr extends serendipity_event
 {
@@ -23,7 +17,7 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_DSGVO_GDPR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version', '1.3');
+        $propbag->add('version', '1.3.3');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '2.6.7',
@@ -330,7 +324,7 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
     function isActive() {
         global $serendipity;
 
-        if ($serendipity['GET']['subpage'] == 'dsgvo_gdpr_privacy') {
+        if (($serendipity['GET']['subpage']?? ' ') == 'dsgvo_gdpr_privacy') {
             return true;
         }
 
@@ -504,7 +498,7 @@ class serendipity_event_dsgvo_gdpr extends serendipity_event
 ?>
                         <div class="form_toolbar dsgvo_gdpr_comment">
                             <div class="form_box">
-                                <input id="checkbox_dsgvo_gdpr" name="serendipity[accept_privacy]" value="1" type="checkbox" <?php echo ($serendipity['POST']['accept_privacy'] == 1 ? 'checked="checked"' : ''); ?>><label for="checkbox_dsgvo_gdpr"><?php echo $this->parseText($this->get_config('commentform_text')); ?></label>
+                                <input id="checkbox_dsgvo_gdpr" name="serendipity[accept_privacy]" value="1" type="checkbox" <?php echo (($serendipity['POST']['accept_privacy']??null) == 1 ? 'checked="checked"' : ''); ?>><label for="checkbox_dsgvo_gdpr"><?php echo $this->parseText($this->get_config('commentform_text')); ?></label>
                             </div>
                         </div>
 <?php

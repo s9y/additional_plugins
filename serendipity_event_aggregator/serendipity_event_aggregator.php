@@ -49,13 +49,7 @@ if (IN_serendipity !== true) {
 // *****************************************************************
 
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_aggregator extends serendipity_event {
 
@@ -72,7 +66,7 @@ class serendipity_event_aggregator extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.34.2');
+        $propbag->add('version',       '0.34.3');
         $propbag->add('author',       'Evan Nemerson, Garvin Hicking, Kristian Koehntopp, Thomas Schulz, Claus Schmidt');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(

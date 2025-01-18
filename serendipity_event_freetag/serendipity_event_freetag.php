@@ -38,13 +38,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include_once dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 // Because I am using get methods, if you change this, you also have to change the getManageUrlAsHidden
 define('FREETAG_MANAGE_URL','?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=managetags');
@@ -70,9 +64,9 @@ class serendipity_event_freetag extends serendipity_event
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',
-            'php'         => '4.1.0'
+            'php'         => '7.0'
         ));
-        $propbag->add('version',       '3.70');
+        $propbag->add('version',       '3.70.8');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -307,8 +301,12 @@ class serendipity_event_freetag extends serendipity_event
     static function tableCreated($table = 'entrytags')  {
         global $serendipity;
 
-        $q = "select count(tag) from {$serendipity['dbPrefix']}" . $table;
-        $row = serendipity_db_query($q, true, 'num');
+        try {
+            $q = "select count(tag) from {$serendipity['dbPrefix']}" . $table;
+            $row = serendipity_db_query($q, true, 'num');
+        } catch (exception $e) {
+            return false;
+        }
 
         if (!is_numeric($row[0])) { // if the response we got back was an SQL error.. :P
             return false;
@@ -527,7 +525,7 @@ class serendipity_event_freetag extends serendipity_event
     /*  This method can be called statically.
         Tags should be an array with the key being the tag name, and val being
         the number of occurances. */
-    static function displayTags($tags, $xml, $nl, $scaling, $maxSize = 200, $minSize = 100, $useFlash = false, $flashbgtrans = true, $flashtagcolor = 'ff6600', $flashbgcolor = 'ffffff', $flashwidth = 190, $flashspeed = 100, $cfg_taglink, $cfg_template, $xml_image = 'img/xml.gif')
+    static function displayTags($tags, $xml, $nl, $scaling, $maxSize = 200, $minSize = 100, $useFlash = false, $flashbgtrans = true, $flashtagcolor = 'ff6600', $flashbgcolor = 'ffffff', $flashwidth = 190, $flashspeed = 100, $cfg_taglink = null, $cfg_template = null, $xml_image = 'img/xml.gif')
     {
         global $serendipity;
 
@@ -686,12 +684,12 @@ class serendipity_event_freetag extends serendipity_event
                         echo '</script>'. "\n";
                     }
 
-                    $this->displayMetaKeywords($serendipity['GET']['id'],  $this->displayTag );
+                    $this->displayMetaKeywords($serendipity['GET']['id'] ?? null,  $this->displayTag );
                     return true;
 
                 case 'frontend_display:rss-2.0:per_entry':
                 case 'frontend_display:rss-0.91:per_entry':
-                    $eventData['display_dat'] .= $this->getFeedXmlForTags('category', $eventData['properties']['freetag_tags']);
+                    $eventData['display_dat'] .= $this->getFeedXmlForTags('category', $eventData['properties']['freetag_tags'] ?? []);
                     return true;
 
                 case 'frontend_display:rss-1.0:per_entry':
@@ -772,7 +770,7 @@ class serendipity_event_freetag extends serendipity_event
                                 $param = array_map('urldecode', $param); // for doubled encoded tag umlauts via searchengines backlinks in sprintf
                             }
                             $param = array_map('strip_tags', $param);
-                            $param = array_filter($param); // empty removed XSS by strip_tags
+                            $param = array_values(array_filter($param)); // empty removed XSS by strip_tags
                             if (function_exists('serendipity_specialchars')) {
                                 $serendipity['head_subtitle'] = sprintf(PLUGIN_EVENT_FREETAG_USING, implode(' + ', array_map('serendipity_specialchars', $param)));
                             } else {
@@ -930,7 +928,7 @@ class serendipity_event_freetag extends serendipity_event
                     $this->deleteTagsForEntry($eventData['id']);
                     $this->addTagsToEntry($eventData['id'], $tags);
 
-                    if ($serendipity['POST']['properties']['freetag_kill']) {
+                    if ($serendipity['POST']['properties']['freetag_kill'] ?? false) {
                         $this->deleteTagsForEntry($eventData['id']);
                     }
 
@@ -1172,14 +1170,14 @@ addLoadEvent(enableAutocomplete);
                         } else {
                             $showtag = serendipity_db_escape_string($this->tags['show']);
                         }
-                    } else if (!empty($serendipity['GET']['tag'])) {
+                    } else if (!empty($serendipity['GET']['tag']) && is_string($serendipity['GET']['tag'])) {
                         $showtag = serendipity_db_escape_string(urldecode($serendipity['GET']['tag']));
                     }
 
-                    if (is_array($showtag)) {
+                    if (is_array($showtag ?? null)) {
                         $arr_showtag = $showtag;
                     } else {
-                        $arr_showtag = explode(';', $showtag);
+                        $arr_showtag = explode(';', $showtag ?? '');
                     }
                     $multimode = 'and';
                     if (count($arr_showtag) > 1) {
@@ -1251,7 +1249,9 @@ addLoadEvent(enableAutocomplete);
 
                         $this->displayTag = $showtag;
                         $serendipity['plugin_vars']['displayTag'] = $showtag;
-                        @define('PLUGIN_VARS_DISPLAYTAG', $showtag);
+                        if (! defined('PLUGIN_VARS_DISPLAYTAG')) {
+                            @define('PLUGIN_VARS_DISPLAYTAG', $showtag);
+                        }
                     }
 
                     return true;
@@ -1452,6 +1452,7 @@ addLoadEvent(enableAutocomplete);
     // static
     static function makeTagsFromTaglist($tagList)
     {
+        $tags = [];
         $freetags = explode(',', $tagList);
         foreach($freetags AS $tag) {
             $tag = trim($tag);
@@ -1529,30 +1530,33 @@ addLoadEvent(enableAutocomplete);
     #
     function getTagCloudTags($tag, $descend = true) {
         $rows = serendipity_db_query($this->getTagCloudQuery('', $tag));
-
+        $tags = [];
         if (is_array($rows)) {
-        foreach((array)$rows as $r) {
-            $tags[$r['tag']] = $r['total'];
+            foreach((array)$rows as $r) {
+                $tags[$r['tag']] = $r['total'];
 
                 #get also tags which are related only by other tags
-               if($descend) {
+                if($descend) {
                     $descended_tags = $this->getTagCloudTags($r['tag'], false);
                     if (is_array($descended_tags)) {
                         foreach($descended_tags AS $dtag => $value) {
                             $descended_tags[$dtag] = $value / 2;
-                }
+                        }
 
-                   #$tags = array_merge($tags, $descended_tags);
-                   $tags = $tags + $descended_tags;
+                        $tags = $tags + $descended_tags;
                     }
                 }
+            }
         }
+        // Check that $tag is a valid value to prevent the 'illegal offset error' that will occur
+        // on real traffic patterns (unclear on which page exactly)
+        if ($tag != null && is_string($tag) && isset($tags[$tag])) {
+            unset($tags[$tag]);
         }
-        unset($tags["$tag"]);
         return $tags;
     }
 
-    function getTagCloudQuery($sort = '', $tag)
+    function getTagCloudQuery($sort = '', $tag = false)
     {
         global $serendipity;
         if ($tag === true) {
@@ -1568,7 +1572,7 @@ addLoadEvent(enableAutocomplete);
             } else if (is_array($tag)) {
                  $join = "LEFT JOIN {$serendipity['dbPrefix']}entrytags AS neg ".
                     "ON main.entryid = neg.entryid ";
-                $ccond = '';
+                $cond = '';
                 $ncond = '';
 
                 $first = true;
@@ -1614,7 +1618,7 @@ addLoadEvent(enableAutocomplete);
     }
 
 
-    function displayMetaKeywords($id = null, $tag) {
+    function displayMetaKeywords($id = null, $tag = false) {
         global $serendipity;
         $id = (int)$id;
         $max_keywords = (int)$this->get_config('meta_keywords', 0);
@@ -1719,7 +1723,9 @@ addLoadEvent(enableAutocomplete);
 
         $tags = array();
         foreach((array)$rows as $r) {
-            $tags[$r['tag']] = $r['total'];
+            if (is_array($r)) {
+                $tags[$r['tag']] = $r['total'];
+            }
         }
 
         return $tags;
@@ -2042,8 +2048,8 @@ addLoadEvent(enableAutocomplete);
         global $serendipity;
 
         $q = "SELECT e.id as id, e.title as title
-                FROM ${serendipity['dbPrefix']}entries AS e
-                LEFT OUTER JOIN ${serendipity['dbPrefix']}entrytags AS t
+                FROM {$serendipity['dbPrefix']}entries AS e
+                LEFT OUTER JOIN {$serendipity['dbPrefix']}entrytags AS t
                     ON e.id = t.entryid
                 WHERE entryid IS NULL
                 GROUP BY e.id, e.title";
@@ -2055,8 +2061,8 @@ addLoadEvent(enableAutocomplete);
         global $serendipity;
 
         $q = "SELECT e.id as id, e.title as title, count(t.tag) as total
-                FROM ${serendipity['dbPrefix']}entries AS e
-                LEFT JOIN ${serendipity['dbPrefix']}entrytags AS t
+                FROM {$serendipity['dbPrefix']}entries AS e
+                LEFT JOIN {$serendipity['dbPrefix']}entrytags AS t
                     ON e.id = t.entryid
                 GROUP BY e.id, e.title
                 HAVING total = 1";
@@ -2301,7 +2307,7 @@ addLoadEvent(enableAutocomplete);
         $tag = serendipity_db_escape_string($tag);
         $newtag = serendipity_db_escape_string(urldecode($serendipity['GET']['newtag']));
 
-        $q = "select entryid from ${serendipity['dbPrefix']}entrytags where tag = '$tag'";
+        $q = "select entryid from {$serendipity['dbPrefix']}entrytags where tag = '$tag'";
 
         $r = serendipity_db_query($q);
         if (!is_array($r)) {
@@ -2309,11 +2315,11 @@ addLoadEvent(enableAutocomplete);
             return false;
         }
 
-        $q = "delete from ${serendipity['dbPrefix']}entrytags where tag = '$tag'";
+        $q = "delete from {$serendipity['dbPrefix']}entrytags where tag = '$tag'";
         serendipity_db_query($q);
 
         foreach ($r as $row) {
-            $q = "insert into ${serendipity['dbPrefix']}entrytags values ('{$row['entryid']}','$newtag')";
+            $q = "insert into {$serendipity['dbPrefix']}entrytags values ('{$row['entryid']}','$newtag')";
             serendipity_db_query($q);
         }
 
@@ -2336,7 +2342,7 @@ addLoadEvent(enableAutocomplete);
 
            $tag = serendipity_db_escape_string($tag);
 
-        $q = "DELETE from ${serendipity['dbPrefix']}entrytags
+        $q = "DELETE from {$serendipity['dbPrefix']}entrytags
                 WHERE tag='$tag'";
 
         $r = serendipity_db_query($q);
@@ -2372,7 +2378,7 @@ addLoadEvent(enableAutocomplete);
         $newtags = $this->makeTagsFromTaglist(urldecode($this->eventData['GET']['newtags']));
         $tag = serendipity_db_escape_string($tag);
 
-        $q = "SELECT entryid from ${serendipity['dbPrefix']}entrytags where tag = '$tag'";
+        $q = "SELECT entryid from {$serendipity['dbPrefix']}entrytags where tag = '$tag'";
         $entries = serendipity_db_query($q);
 
         if (!is_array($entries)) {
@@ -2380,7 +2386,7 @@ addLoadEvent(enableAutocomplete);
             return false;
         }
 
-        $q = "DELETE FROM ${serendipity['dbPrefix']}entrytags where tag = '$tag'";
+        $q = "DELETE FROM {$serendipity['dbPrefix']}entrytags where tag = '$tag'";
         $r = serendipity_db_query($q);
         if ($r !== true) {
             echo $r;
@@ -2389,8 +2395,8 @@ addLoadEvent(enableAutocomplete);
 
         foreach ($entries as $entryid) {
             foreach ($newtags as $tag) {
-                $q = "INSERT INTO ${serendipity['dbPrefix']}entrytags (entryid, tag)
-                        VALUES ('${entryid['entryid']}', '$tag')";
+                $q = "INSERT INTO {$serendipity['dbPrefix']}entrytags (entryid, tag)
+                        VALUES ('{$entryid['entryid']}', '$tag')";
                 $r = serendipity_db_query($q);
             }
         }

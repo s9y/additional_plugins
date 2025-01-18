@@ -27,7 +27,7 @@ class serendipity_event_custom_permalinks extends serendipity_event
                                         'backend_display'                   => true));
 
         $propbag->add('author', 'Garvin Hicking');
-        $propbag->add('version', '1.17');
+        $propbag->add('version', '1.17.1');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -127,8 +127,8 @@ class serendipity_event_custom_permalinks extends serendipity_event
                 case 'frontend_display:html:per_entry':
                     // Reset message for 404 error handling which is now overriden
                     $serendipity['content_message'] = '';
-
-                    if (isset($this->ids[$eventData['id']]) && stristr($this->ids[$eventData['id']], '/' . UNKNOWN) === FALSE) {
+                    // 2023: PHP8 threw undefined constant error for UNKNOWN. put the word in inverted commas. Works with PHP8.2
+                    if (isset($this->ids[$eventData['id']]) && stristr($this->ids[$eventData['id']], '/' . 'UNKNOWN') === FALSE) {
                         $eventData['link'] =  $this->ids[$eventData['id']];
                         $urldata = parse_url($serendipity['baseURL']);
                         $eventData['rdf_ident'] = $urldata['scheme'] . '://' . $urldata['host'] . $this->ids[$eventData['id']];
@@ -168,7 +168,7 @@ meta_properties_permalink {
 
                     $title = $eventData['title'];
                     if (empty($title)) {
-                        $title = UNKNOWN;
+                        $title = 'UNKNOWN'; // 2023: PHP8 threw undefined constant error. put the word in inverted commas
                     }
 
                     if (empty($permalink)) {

@@ -15,12 +15,11 @@
 @define('PLUGIN_EVENT_OEMBED_MAXHEIGHT_DESC','This is the max height the service should produce when providing a replacement. Not all services supports this but most.');
 
 @define('PLUGIN_EVENT_OEMBED_GENERIC_SERVICE',   'Generic oEmbed provider');
-@define('PLUGIN_EVENT_OEMBED_GENERIC_SERVICE_DESC','If the plugin is not able to resolve an URL because it is unknown yet, you may let it fall back to a "generic provider". These services implements oEmbed for a huge amount of services not having oEmbed. You have two choices: oohembed.com, a former free service bought by embedly and with a very limited API rate now. embed.ly is a very well maintained service for many oEmbed services (see http://embed.ly/providers), but it needs an API key to be used.');
+@define('PLUGIN_EVENT_OEMBED_GENERIC_SERVICE_DESC','If the plugin is not able to resolve an URL because it is unknown yet, you may let it fall back to a "generic provider". These services implements oEmbed for a huge amount of services not having oEmbed. You can choose to have no generic provider or use embed.ly which is a very well maintained service for many oEmbed services (see http://embed.ly/providers), but it needs an API key with a paid plan.');
 @define('PLUGIN_EVENT_OEMBED_SERVICE_NONE',      'No generic provider');
-@define('PLUGIN_EVENT_OEMBED_SERVICE_OOHEMBED',  'oohembed (free but limited)');
 @define('PLUGIN_EVENT_OEMBED_SERVICE_EMBEDLY',   'embed.ly (apikey needed)');
 @define('PLUGIN_EVENT_OEMBED_EMBEDLY_APIKEY',     'embed.ly API key');
-@define('PLUGIN_EVENT_OEMBED_EMBEDLY_APIKEY_DESC','embed.ly needs an API key to be used. The free account allows 10k calls per month atm, what should be enough even for heavy used blogs, as the results are cached localy and fetched only once per URL. You can register for your free account at http://app.embed.ly/pricing/free');
+@define('PLUGIN_EVENT_OEMBED_EMBEDLY_APIKEY_DESC','embed.ly needs an API key to be used. You need a paid plan to use this provider. Look for an account at https://embed.ly');
 
 @define('PLUGIN_EVENT_OEMBED_INFO',      '<h3>oEmbed Plugin</h3>' .
 '<p>'.
@@ -40,4 +39,3 @@
 @define('PLUGIN_EVENT_OEMBED_PLAYER_BOO_DESC',     	   'Audioboo supports 3 different players (see http://audioboo.fm/boos/649785-ein-erster-testboo.embed?labs=1). Choose the one you like most.');
 @define('PLUGIN_EVENT_OEMBED_PLAYER_BOO_STANDARD',     'standard player');
 @define('PLUGIN_EVENT_OEMBED_PLAYER_BOO_FULLFEATURED', 'full-featured (requires JavaScript)');
-@define('PLUGIN_EVENT_OEMBED_PLAYER_BOO_WORDPRESS',    'wordpress.com player (requires Flash)');

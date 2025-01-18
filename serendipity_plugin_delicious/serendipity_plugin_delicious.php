@@ -12,7 +12,9 @@
     Fixed:
      Fixed some error sniffing logic [v0.2.2]
      Removed Onyx Cacheing [v0.2.1]
-     Better caching system [v0.2]     Added tag & tag intersection support [v0.2]     Handles feed errors in an elegant manner (not perfeect) [v0.2]
+     Better caching system [v0.2]
+     Added tag & tag intersection support [v0.2]
+     Handles feed errors in an elegant manner (not perfeect) [v0.2]
      Some little stuff too [v0.2]
 
     Known Issues:
@@ -28,18 +30,11 @@
      This plug-in should work; any comments etc can be directed towards riscky-\{\@\}-gmail-\[dot\]-com
 */
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_plugin_delicious extends serendipity_plugin {
 
@@ -47,7 +42,7 @@ class serendipity_plugin_delicious extends serendipity_plugin {
         $propbag->add('name', PLUGIN_DELICIOUS_N);
         $propbag->add('description', PLUGIN_DELICIOUS_D);
         $propbag->add('author', 'Riscky');
-        $propbag->add('version', '0.8.1');
+        $propbag->add('version', '0.8.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

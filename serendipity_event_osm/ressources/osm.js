@@ -1,39 +1,40 @@
 const dateToColor = date => {
 	const minDate = new Date(date.getFullYear(), date.getMonth() - 1, 0);
 	const maxDate = new Date(date.getFullYear(), date.getMonth(), 0);
-	return "hsl(" + ((date.getTime() - minDate.getTime()) / (maxDate.getTime() - minDate.getTime())) + "turn, 100%, 50%)"
+	return "hsl(" + ((date.getTime() - minDate.getTime()) / (maxDate.getTime() - minDate.getTime())).toFixed(3) + "turn, 100%, 50%)";
 };
 
-window.onload = () => {
+window.addEventListener("load", () => {
 	document.querySelectorAll("div.map").forEach(divMap => {
 		const popup = document.createElement("div");
 		popup.setAttribute("class", "ol-popup");
+		const overlay = new ol.Overlay({
+			element: popup
+		});
 		popup.onclick = () => {
 			overlay.setPosition(undefined);
 		};
 
-		const overlay = new ol.Overlay({
-			element: popup
-		});
-
-		const data = divMap.dataset;
-		const entries = geo.entries.filter(x => ["all", "none"].includes(data.category) || x.categories.includes(data.category));
-		const uploads = geo.uploads.filter(x => data.path.split("\n").some(y => x.url.startsWith(y)));
-		const features = entries.map((entry, id) => {
-			const feature = new ol.Feature(new ol.geom.Point(ol.proj.fromLonLat(entry.pos.reverse())));
+		const dataset = divMap.dataset;
+		const articles = geo.articles
+			.filter(article => ["all", "none"].includes(dataset.category) || article.categories.includes(parseInt(dataset.category)));
+		const tracks = geo.tracks
+			.filter(track => dataset.path.split("\n").some(y => track.url.startsWith(y)));
+		const features = articles.map((article, id) => {
+			const feature = new ol.Feature(new ol.geom.Point(ol.proj.fromLonLat(article.location.reverse())));
 			feature.setId(id);
 			return feature;
 		});
 
 		const osmSource = new ol.source.OSM();
 		const layers = [
-			new ol.layer.Tile({source: osmSource}),
+			new ol.layer.Tile({source: osmSource, preload: Infinity}),
 			new ol.layer.Vector({
 				source: new ol.source.Vector({features: features}),
 				style: feature => {
 					const id = feature.getId();
-					const entry = entries[id];
-					const date = new Date(entry.date * 1000);
+					const article = articles[id];
+					const date = new Date(article.date * 1000);
 
 					return new ol.style.Style({
 						image: new ol.style.Circle({
@@ -41,33 +42,40 @@ window.onload = () => {
 							fill: new ol.style.Fill({color: dateToColor(date)})
 						})
 					});
-                },
+				},
 				zIndex: Infinity
 			})
 		];
-		for (const upload of uploads) {
-			const layer = new ol.layer.Vector({
-				source: new ol.source.Vector({
-					url: upload.url,
-					format: new ol.format.GPX()
-				}),
-                style: feature => {
-                    if (feature.getGeometry().getType() === "MultiLineString") {
-                        return new ol.style.Style({
-                            stroke: new ol.style.Stroke({
-                                color: dateToColor(new Date(upload.date * 1000)),
-                                width: 3,
-                                lineDash: upload.date * 1000 > Date.now() ? [3, 6] : undefined
-                            })
-                        });
-                    }
-                    return undefined;
-                },
+		const unixTime = Date.now() / 1000;
+		for (const track of tracks) {
+			const source = new ol.source.Vector({
+				url: track.url,
+				format: new ol.format.GPX()
+			});
+			source.on("featuresloadend", event => {
+				track.distance = event.features
+					.filter(feature => feature.getGeometry().getType() === "MultiLineString")
+					.map(feature => ol.sphere.getLength(feature.getGeometry()))
+					.reduce((a, b) => a + b, 0);
+			});
+			const color = dateToColor(new Date(track.date * 1000));
+			const lineDash = track.date > unixTime ? [3, 6] : undefined;
+			const layer = new ol.layer.VectorImage({
+				source: source,
+				style: feature => feature.getGeometry().getType() === "MultiLineString"
+					? new ol.style.Style({
+						stroke: new ol.style.Stroke({
+							color: color,
+							width: 3,
+							lineDash: lineDash
+						})
+					})
+					: undefined
 			});
 			layers.push(layer);
 		}
 		const map = new ol.Map({
-			controls: ol.control.defaults({rotate: false}).extend([
+			controls: ol.control.defaults.defaults({rotate: false}).extend([
 				new ol.control.FullScreen(),
 				new ol.control.OverviewMap({
 					layers: [
@@ -79,7 +87,7 @@ window.onload = () => {
 					minWidth: 120
 				})
 			]),
-			interactions: ol.interaction.defaults({
+			interactions: ol.interaction.defaults.defaults({
 				altShiftDragRotate: false,
 				pinchRotate: false
 			}),
@@ -87,8 +95,8 @@ window.onload = () => {
 			overlays: [overlay],
 			target: divMap,
 			view: new ol.View({
-				center: ol.proj.fromLonLat([data.longitude, data.latitude]),
-				zoom: data.zoom
+				center: ol.proj.fromLonLat([dataset.longitude, dataset.latitude]),
+				zoom: dataset.zoom
 			})
 		});
 
@@ -101,7 +109,25 @@ window.onload = () => {
 						const a = document.createElement("a");
 						a.appendChild(title);
 						a.setAttribute("href", object.url);
-						a.setAttribute("title", (object.author !== undefined ? object.author + ", " : "") + new Date(object.date * 1000).toLocaleString(undefined, {year: "numeric", month: "long", day: "2-digit", hour: "2-digit", minute: "2-digit"}));
+						a.setAttribute("title",
+							(object.author !== undefined ? object.author + ", " : "")
+							+
+							new Date(object.date * 1000).toLocaleString(undefined, {
+								year: "numeric",
+								month: "long",
+								day: "2-digit",
+								hour: "2-digit",
+								minute: "2-digit"
+							})
+							+
+							(object.distance !== undefined
+								? ", " + (object.distance / 1000).toLocaleString(undefined, {
+									minimumFractionDigits: 2,
+									maximumFractionDigits: 2
+								}) + "km"
+								: ""
+							)
+						);
 						return a;
 					})()
 					: title
@@ -109,32 +135,39 @@ window.onload = () => {
 				return li;
 			};
 
-			const foundEntries = [];
-			const foundUploads = [];
+			const foundArticles = [];
+			const foundTracks = [];
 			map.forEachFeatureAtPixel(event.pixel, (feature, layer) => {
 				const id = feature.getId();
 				if (id !== undefined) {
-					foundEntries.push(id);
+					foundArticles.push(id);
 				} else {
 					const url = layer.getSource().getUrl();
-					const id = uploads.findIndex(upload => upload.url === url);
-					foundUploads.push(id);
+					const id = tracks.findIndex(track => track.url === url);
+					foundTracks.push(id);
 				}
 			}, {hitTolerance: 10});
-			foundEntries.sort((x, y) => x - y);
-			foundUploads.sort((x, y) => x - y);
+			foundArticles.sort();
+			foundTracks.sort();
 
-			if (foundEntries.length || foundUploads.length) {
+			if (foundArticles.length || foundTracks.length) {
 				const initUl = title => {
 					const ul = document.createElement("ul");
 					ul.setAttribute("data-title", title);
 					return ul;
 				};
-				const ulEntries = foundEntries.map(x => makeItem(entries[x])).reduce((x, y) => {x.appendChild(y); return x;}, initUl("Blogs"));
-				const ulUploads = foundUploads.map(x => makeItem(uploads[x])).reduce((x, y) => {x.appendChild(y); return x;}, initUl("Downloads"));
-				popup.innerHTML = (foundEntries.length ? ulEntries.outerHTML : "") + (foundUploads.length ? ulUploads.outerHTML : "");
-				overlay.setPosition(foundEntries.length ? ol.proj.fromLonLat(
-					[0, 1].map(latLon => foundEntries.map(x => entries[x].pos[latLon]).reduce((x, y) => x + y, 0) / foundEntries.length)
+				const ulArticles = foundArticles
+					.map(x => makeItem(articles[x]))
+					.reduce((x, y) => {x.appendChild(y); return x;}, initUl("Articles"));
+				const ulTracks = foundTracks
+					.map(x => makeItem(tracks[x]))
+					.reduce((x, y) => {x.appendChild(y); return x;}, initUl("Tracks"));
+				popup.innerHTML = (foundArticles.length ? ulArticles.outerHTML : "") + (foundTracks.length ? ulTracks.outerHTML : "");
+				overlay.setPosition(foundArticles.length ? ol.proj.fromLonLat(
+					[0, 1].map(latLon => foundArticles
+						.map(x => articles[x].location[latLon])
+						.reduce((x, y) => x + y, 0) / foundArticles.length
+					)
 				) : event.coordinate);
 			} else {
 				overlay.setPosition(undefined);
@@ -145,6 +178,14 @@ window.onload = () => {
 			const hit = map.hasFeatureAtPixel(pixel, {hitTolerance: 10});
 			divMap.style.cursor = hit ? "pointer" : "";
 		});
+		map.on("rendercomplete", event => {
+			const distance = tracks
+				.filter(track => track.date < unixTime)
+				.map(track => track.distance)
+				.reduce((a, b) => a + b, 0);
+			document.querySelectorAll("span.distance-counter[data-category=\"" + dataset.category + "\"]").forEach(span => {
+				span.innerHTML = (distance / 1000).toFixed(0);
+			});
+		});
 	});
-};
-
+});

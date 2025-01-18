@@ -51,7 +51,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_EMPTY', 'Empty Recycler');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RESTORE', 'Restore');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_MENU_ANALYSIS', 'Analysis');
-@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_DELETE', 'Recyler Bypass');
+@define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_DELETE', 'Recyler: Bypass');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_DELETE_DESC', 'Comments with a rating equal or higher this value will not be thrown into the recycler, they will be deleted. Example: 98');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_IGNORE', 'Ignore');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_IGNORE_DESC', 'Parts of comments to be ignored. Possible values: ip, referer, author, body, email, url. Beispiel: "ip, referer".');
@@ -66,4 +66,5 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RATING', 'Rating');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_EMPTY_ALL', 'Recycler: Empty Complete');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_EMPTY_ALL_DESC', 'When emptying the recycler, delete all comments, not only the ones on the current page.');
+@define('PLUGIN_EVENT_SPAMBLOCK_METHOD_DESC', 'When a comment is rated with 80% as spam, it will be blocked or moderated.');
 ?>

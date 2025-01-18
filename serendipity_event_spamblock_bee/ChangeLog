@@ -1,5 +1,11 @@
+Version 1.3.3
+* Hotfixes for PHP 8 (surrim)
+
+Version 1.3.2
+* PHP 8 compat fix for saving comments
+
 Version 1.3.1
-Added legal gdpr/dsgvo info
+* Added legal gdpr/dsgvo info
 
 Version 1.3.0
 * Make construct PHP 7 compatible

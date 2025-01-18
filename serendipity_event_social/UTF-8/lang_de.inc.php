@@ -15,7 +15,7 @@
 @define('PLUGIN_EVENT_SOCIAL_TWITTERVIA_DESC', 'Twittername, der am Ende des Tweets angehängt werden soll ("none" deaktiviert dies).');
 @define('PLUGIN_EVENT_SOCIAL_LANG_DESC', 'Sprache der Sharebuttons.');
 @define('PLUGIN_EVENT_SOCIAL_BACKEND', 'Backend für Zähler');
-@define('PLUGIN_EVENT_SOCIAL_BACKEND_DESC', 'URL für ein Shariff-Backend, mit dem einige der Buttons (u.a. Facebook) anzeigen wie oft der Artikel geteilt wurde. "none" deaktiviert den Zähler. Standard: "https://onli.columba.uberspace.de/s9y_shariff"');
+@define('PLUGIN_EVENT_SOCIAL_BACKEND_DESC', 'URL für ein Shariff-Backend, mit dem einige der Buttons (u.a. Facebook) anzeigen wie oft der Artikel geteilt wurde. "none" deaktiviert den Zähler. Standard: "https://onli2.uber.space/s9y_shariff"');
 @define('PLUGIN_EVENT_SOCIAL_IMAGE', 'Fallback-Bild');
 @define('PLUGIN_EVENT_SOCIAL_IMAGE_DESC', 'Ein Bild, das auf Twitter und Facebook angezeigt wird, wenn der Eintrag kein eigenes Bild erhält. "none" deaktiviert es.');
 @define('PLUGIN_EVENT_SOCIAL_ENTRY_IMAGE', 'Bild für Social Media');

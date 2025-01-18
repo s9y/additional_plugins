@@ -1,0 +1,8 @@
+1.7.3
+---
+ * Fix to omit warning with PHP 8 (thanks @neonknight)
+
+1.7.2:
+---
+ * Hotfixes for PHP 8 (surrim)
+

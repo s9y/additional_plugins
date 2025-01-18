@@ -5,14 +5,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
-
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 //WARNING!!!  HORRIBLY NON-STANDARD PLUGIN!!!!!
 //This plugin extends the sidebar plugin class to add a simple framework for subplugins.
@@ -75,7 +68,7 @@ class serendipity_plugin_imagesidebar extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_SIDEBAR_IMAGESIDEBAR_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Andrew Brown (Menalto code), Matthew Groeninger (Unified/Media Lib. Code), Stefan Lange-Hegermann (Zooomr Code), Matthew Maude (Coppermine code)');
-        $propbag->add('version',       '0.100.1');
+        $propbag->add('version',       '0.100.3');
         $propbag->add('license',       'BSD');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',

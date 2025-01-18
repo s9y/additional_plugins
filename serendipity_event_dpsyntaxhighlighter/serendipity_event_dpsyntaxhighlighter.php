@@ -4,13 +4,7 @@ if (IN_serendipity !== true) {
     die ('Don\'t hack!');
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 // dp-SyntaxHighlighter Plugin for Serendipity
 // May 25, 2007 by Brendon Kozlowski <webmaster@mysiteonline.org>
@@ -19,7 +13,7 @@ class serendipity_event_dpsyntaxhighlighter extends serendipity_event {
 
     var $title = PLUGIN_EVENT_DPSYNTAXHIGHLIGHTER_NAME;
 
-  var $version = '3.0.83.1'; // helps to be easily able to upgrade on upstream upgrade
+  var $version = '3.0.83.2'; // helps to be easily able to upgrade on upstream upgrade
   
   /* _get_directory_match support function:
    * read files from $dir that match regexp $tomatch and store matches in 

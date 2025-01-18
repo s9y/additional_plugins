@@ -11,9 +11,9 @@
 <description>Displays information for authors on the administration panel</description>
 <maintainers><maintainer><name>Garvin Hicking, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.16</version>
+  <version>0.16.1</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_adminnotes">
 <dir name="UTF-8">
@@ -54,9 +54,9 @@
 <description>Display entries from multiple RSS feeds (&quot;Planet&quot;). IMPORTANT NOTE: Updating and &quot;feeding&quot; your Aggregator must currently still happen manually via Cronjobs or similar. Call this URL with your custom timing interval: index.php?/plugin/aggregator</description>
 <maintainers><maintainer><name>Evan Nemerson, Garvin Hicking, Kristian Koehntopp, Thomas Schulz, Claus Schmidt</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.34.2</version>
+  <version>0.34.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_aggregator">
 <dir name="UTF-8">
@@ -147,9 +147,9 @@
 <description>Adds a button to allow Amazon.com search which are insertable into your entry</description>
 <maintainers><maintainer><name>Matthew Groeninger, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.76</version>
+  <version>0.76.1</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_amazonchooser">
 <dir name="UTF-8">
@@ -222,9 +222,9 @@
 <description>Дава възможност за асоцииране на няколко категории с дадена статия</description>
 <maintainers><maintainer><name>Garvin Hicking, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4.2</version>
+  <version>1.4.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_assigncategories">
 <dir name="UTF-8">
@@ -271,9 +271,9 @@
 <description>Set the title-tag into the links of the entry.</description>
 <maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.1.12</version>
+  <version>0.1.13</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_autotitle">
 <dir name="UTF-8">
@@ -318,9 +318,9 @@
 <description>When the dashboard-plugin (once a day) detects an update, this plugin adds the option to manually download or start an automatic and secured upgrade of the blog directly with one click from within the adminarea.</description>
 <maintainers><maintainer><name>onli, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1.10</version>
+  <version>1.2.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-24</date>
+  <date>2021-06-21</date>
   <filelist>
 <dir name="serendipity_event_autoupdate">
 <dir name="UTF-8">
@@ -360,15 +360,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_backend</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_backend/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Показва статии от блога чрез JavaScript</summary>
 <groups>FRONTEND_FULL_MODS</groups>
 <description>Тази приставка извежда статии от блога през JavaScript, така че те могат да бъдат включвани в други, външни сайтове. (Вижте файл README в директорията на приставката.)</description>
-<maintainers><maintainer><name>Alexander 'dma147' Mieland</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Alexander &#039;dma147&#039; Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.6.2</version>
+  <version>0.6.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-24</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_backend">
 <dir name="UTF-8">
@@ -387,6 +388,7 @@
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_backend.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -405,20 +407,22 @@
     <file>serendipity_event_backend/lang_de.inc.php</file>
     <file>serendipity_event_backend/lang_en.inc.php</file>
     <file>serendipity_event_backend/serendipity_event_backend.php</file>
+    <file>serendipity_event_backend/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
 <package version="1.0">
 <name>serendipity_event_backendrss</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_backendrss/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Показва RSS емисия в административната страница</summary>
 <groups>BACKEND_FEATURES</groups>
 <description>Показва RSS емисия в административната страница, веднага след влизането в системата.</description>
 <maintainers><maintainer><name>Sebastian Nohn</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4</version>
+  <version>1.4.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2023-09-06</date>
   <filelist>
 <dir name="serendipity_event_backendrss">
 <dir name="UTF-8">
@@ -432,6 +436,7 @@
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_backendrss.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -445,6 +450,7 @@
     <file>serendipity_event_backendrss/lang_de.inc.php</file>
     <file>serendipity_event_backendrss/lang_en.inc.php</file>
     <file>serendipity_event_backendrss/serendipity_event_backendrss.php</file>
+    <file>serendipity_event_backendrss/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -455,11 +461,11 @@
 <summary>Backup Interface</summary>
 <groups>FRONTEND_FULL_MODS,BACKEND_FEATURES</groups>
 <description>Provides the ability to automatically make backups from your s9y, the database-tables, the whole database and the files. Only MySQL(i) databases are currently supported. WARNING: This plugin does not work well with large databases or directories.</description>
-<maintainers><maintainer><name>Alexander 'dma147' Mieland</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Alexander &#039;dma147&#039; Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.15.1</version>
+  <version>0.15.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-24</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_backup">
 <dir name="UTF-8">
@@ -516,9 +522,9 @@
 <description>Allows authors to authenticate using the BrowserID service.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.0.1</version>
+  <version>2.0.2</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_browserid">
 <dir name="UTF-8">
@@ -1361,9 +1367,9 @@
 <description>Shows an event calendar inside your blogs with your normal blog design. It supports backend/frontend administration, multiple events and iCal export. (MySQL-only)</description>
 <maintainers><maintainer><name>Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.77</version>
+  <version>1.77.1</version>
   <requirements:s9yVersion>1.4</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_cal">
 <dir name="UTF-8">
@@ -1456,9 +1462,9 @@
 <description>Тази приставка Ви позволява да сменяте шаблона и някои други свойства в зависимост от избраната катергория</description>
 <maintainers><maintainer><name>Garvin Hicking, Judebert</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.35.1</version>
+  <version>0.35.3</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_categorytemplates">
 <dir name="UTF-8">
@@ -1509,9 +1515,9 @@
 <description>Uses CKEditor as the default WYSIWYG editor. For any JS-Editor usage: Recommended! After installation, go to the configuration screen of this plugin for further instructions.</description>
 <maintainers><maintainer><name>Rustam Abdullaev, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>4.5.10.5</version>
+  <version>4.5.10.6</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_ckeditor">
 <dir name="UTF-8">
@@ -1584,9 +1590,9 @@
 <description>Run webcomics in your blog</description>
 <maintainers><maintainer><name>Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
+  <version>1.5.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_comics">
 <dir name="UTF-8">
@@ -1632,12 +1638,12 @@
 <license>GPL</license>
 <summary>Comment Edit</summary>
 <groups>FRONTEND_VIEWS</groups>
-<description>Let user's edit their comments after they posted them.</description>
+<description>Let user&#039;s edit their comments after they posted them.</description>
 <maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.2.3</version>
+  <version>0.2.4</version>
   <requirements:s9yVersion>1.5</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_commentedit">
 <dir name="UTF-8">
@@ -1739,9 +1745,9 @@
 <description>Spice up your comments area with goodies like commenters twitter or last posted article link and nofollows by rules.</description>
 <maintainers><maintainer><name>Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.10</version>
+  <version>1.10.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_commentspice">
 <dir name="UTF-8">
@@ -1813,12 +1819,12 @@
 <license>GPL</license>
 <summary>Форма за обратна връзка</summary>
 <groups>FRONTEND_FEATURES</groups>
-<description>Показва форма за изпращане на e-mail в блога като статична страница. Тя може да бъде достигната или чрез постоянна връзка, указана тук при конфигурирането на приставката или чрез 'index.php?serendipity[subpage]=contactform'. Можете да промените външния вид на формата като поставите файл 'plugin_contactform.tpl' в директорията на вашата тема и я модифицирате там. Captchas от приставка Spamblock (ако са позволени) ще бъдат приложени.</description>
+<description>Показва форма за изпращане на e-mail в блога като статична страница. Тя може да бъде достигната или чрез постоянна връзка, указана тук при конфигурирането на приставката или чрез &#039;index.php?serendipity[subpage]=contactform&#039;. Можете да промените външния вид на формата като поставите файл &#039;plugin_contactform.tpl&#039; в директорията на вашата тема и я модифицирате там. Captchas от приставка Spamblock (ако са позволени) ще бъдат приложени.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.22</version>
+  <version>1.22.1</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_contactform">
 <dir name="UTF-8">
@@ -1971,9 +1977,9 @@
 <description>Избира картинки от галерия Coppermine при редактиране на статии</description>
 <maintainers><maintainer><name>Matthew Maude (modified by Jim Davies)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.09</version>
+  <version>2.09.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_cpgselector">
 <dir name="UTF-8">
@@ -2024,9 +2030,9 @@
 <description>This plugin periodically executes plugins that provide/require periodic tasks. See the configuration of this plugin for details.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.10</version>
+  <version>0.10.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_cronjob">
 <dir name="UTF-8">
@@ -2069,9 +2075,9 @@
 <description>Дефинира постоянни връзки, които могат да се използват за достъп до избрани статии. Разрешени са варианти, които НЕ СЕ използват вече в структурата /archives/ . Но всяка друга (виртуална) директория е позволена.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.17</version>
+  <version>1.17.1</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2017-04-17</date>
+  <date>2023-01-16</date>
   <filelist>
 <dir name="serendipity_event_custom_permalinks">
 <dir name="UTF-8">
@@ -2114,9 +2120,9 @@
 <description>Shows a sortable view of all past articles for the visitor. The link to this page should be inserted into a HTML nugget.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.12.2</version>
+  <version>1.12.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_customarchive">
 <dir name="UTF-8">
@@ -2165,9 +2171,9 @@
 <description>Cleanup database</description>
 <maintainers><maintainer><name>Malte Paskuda, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.2.9</version>
+  <version>0.2.10</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2021-06-14</date>
   <filelist>
 <dir name="serendipity_event_dbclean">
 <dir name="UTF-8">
@@ -2212,9 +2218,9 @@
 <description>Automatically links quoted statues and judicature (references and source of information) with contents of dejure.org.</description>
 <maintainers><maintainer><name>Garvin Hicking, dejure.org, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.8.4</version>
+  <version>1.8.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_dejure">
 <dir name="UTF-8">
@@ -2255,9 +2261,9 @@
 <description>Disqus.com is a webservice that allows you to manage comments, with central logins. It stores and manages comments outside of your Serendipity installation, and is embedded using JavaScript. For more information see disqus.com.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.5</version>
+  <version>0.5.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_disqus">
 <dir name="UTF-8">
@@ -2298,7 +2304,7 @@
 <summary>Downloadmanager</summary>
 <groups>FRONTEND_FULL_MODS</groups>
 <description>Provides full downloadmanager capabilities to your s9y. When uninstalling, all related tables will be dropped!</description>
-<maintainers><maintainer><name>Alexander 'dma147' Mieland, Grischa Brockhaus, Ian</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Alexander &#039;dma147&#039; Mieland, Grischa Brockhaus, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>0.38</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
@@ -2606,12 +2612,12 @@
 <license>GPL</license>
 <summary>Markup: Syntax Highlighter</summary>
 <groups>MARKUP</groups>
-<description>This plugin is a JavaScript code highlighter based on the code of the same name by Alex Gorbatchev.   This plugin takes less server-side resources than GeSHi and displays less markup in the actual HTML code.  It's a lighter, cleaner alternative. This plugin requires the supporting theme to provide the following hooks: frontend_header, frontend_footer (and optionally backend_preview on the administrative theme only).</description>
+<description>This plugin is a JavaScript code highlighter based on the code of the same name by Alex Gorbatchev.   This plugin takes less server-side resources than GeSHi and displays less markup in the actual HTML code.  It&#039;s a lighter, cleaner alternative. This plugin requires the supporting theme to provide the following hooks: frontend_header, frontend_footer (and optionally backend_preview on the administrative theme only).</description>
 <maintainers><maintainer><name>Alex Gorbatchev (core), Brendon Kozlowski and J.M. Roth (plugin)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.0.83.1</version>
+  <version>3.0.83.2</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_dpsyntaxhighlighter">
 <dir name="UTF-8">
@@ -2770,9 +2776,9 @@
 <description>This plugin aims to help blog owners apply conformity to the General Data Protection Regulation Act.</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.3</version>
+  <version>1.3.3</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2020-05-28</date>
+  <date>2022-11-24</date>
   <filelist>
 <dir name="serendipity_event_dsgvo_gdpr">
 <dir name="UTF-8">
@@ -2811,9 +2817,9 @@
 <description>Makes email addresses clickabe, but obfuscates them to block spam harvester bots</description>
 <maintainers><maintainer><name>Stephan Manske, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.03</version>
+  <version>1.03.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-01-06</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_email_bot_obfuscator">
 <dir name="UTF-8">
@@ -2866,9 +2872,9 @@
 <description>Показва лента за избор на картинки, изразяващи емоции (emoticons). Не работи с WYSIWYG редактор.</description>
 <maintainers><maintainer><name>Garvin Hicking, Jay Bertrandt, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.12</version>
+  <version>2.12.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-05-11</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_emoticonchooser">
 <dir name="UTF-8">
@@ -2914,15 +2920,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_entrycheck</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_entrycheck/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Правила за публикуване на статии</summary>
 <groups>BACKEND_EDITOR</groups>
 <description>Прилага няколко проверки на статията преди тя да бъде публикувана. Does not work with WYSIWYG-CKEDITOR!</description>
 <maintainers><maintainer><name>Garvin Hicking, Gregor Voeltz</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.16</version>
+  <version>1.16.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-03-23</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_entrycheck">
 <dir name="UTF-8">
@@ -2941,6 +2948,7 @@
 <file>lang_fr.inc.php</file>
 <file>lang_ja.inc.php</file>
 <file>serendipity_event_entrycheck.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -2959,6 +2967,7 @@
     <file>serendipity_event_entrycheck/lang_fr.inc.php</file>
     <file>serendipity_event_entrycheck/lang_ja.inc.php</file>
     <file>serendipity_event_entrycheck/serendipity_event_entrycheck.php</file>
+    <file>serendipity_event_entrycheck/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -2971,9 +2980,9 @@
 <description>Показва кога (дата и час) са направени последните промени на статиите, веднага след тяхното съдържание. При непроменяните статии се извежда текст, поясняващ, че те не са променяни.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.10</version>
+  <version>1.10.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-06-09</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_entrylastmodified">
 <dir name="UTF-8">
@@ -3020,9 +3029,9 @@
 <description>Поставя връзки към предишната и следващата статия в страницата на настоящата статия. Това позволява по-лесно разглеждане на статиите.</description>
 <maintainers><maintainer><name>Garvin Hicking, Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.40</version>
+  <version>1.43</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-03-18</date>
+  <date>2023-07-28</date>
   <filelist>
 <dir name="serendipity_event_entrypaging">
 <dir name="UTF-8">
@@ -3070,15 +3079,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_entrysplit</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_entrysplit/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Разделяне на дълги статии</summary>
 <groups>BACKEND_EDITOR</groups>
 <description>Позволява разделянето на дълги статии в няколко части (страници), които се извеждат последователно</description>
 <maintainers><maintainer><name>Garvin Hicking, Tadashi Jokagi, Thomas Werner</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5.6</version>
+  <version>1.5.7</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_entrysplit">
 <dir name="UTF-8">
@@ -3097,6 +3107,7 @@
 <file>lang_ja.inc.php</file>
 <file>lang_tr.inc.php</file>
 <file>serendipity_event_entrysplit.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -3115,6 +3126,7 @@
     <file>serendipity_event_entrysplit/lang_ja.inc.php</file>
     <file>serendipity_event_entrysplit/lang_tr.inc.php</file>
     <file>serendipity_event_entrysplit/serendipity_event_entrysplit.php</file>
+    <file>serendipity_event_entrysplit/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -3127,9 +3139,9 @@
 <description>Allows to use external ressource to validate logins. Logins will be cached in the Serendipity database framework. This plugin can also track logins inside the Database.</description>
 <maintainers><maintainer><name>Garvin Hicking/Justin Alcorn</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.23</version>
+  <version>1.23.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_externalauth">
 <dir name="UTF-8">
@@ -3178,9 +3190,9 @@
 <description>Показва външно PHP приложение в блога, интегрирано в неговия дизайн и форматиране. ИЗПОЛЗВАЙТЕ ТАЗИ ПРИСТАВКА С ВНИМАНИЕ, ЗАЩОТО МОЖЕТЕ ДА ЗАСТРАШИТЕ СИГУРНОСТТА НА БЛОГА С НЕЯ (ТЯ МОЖЕ ДА ИЗПЪЛНЯВА ВСЯКАКЪВ PHP ФАЙЛ). МОЖЕТЕ ДА ИЗПОЛЗВАТЕ ПРИСТАВКАТА САМО КАТО АДМИНИСТРАТОР!</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4</version>
+  <version>1.4.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2018-08-06</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_externalphp">
 <dir name="UTF-8">
@@ -3223,9 +3235,9 @@
 <description>Imports comments made on facebook postings (like through RSS Graffiti) back into the blog. Also embeds Facebook OpenGraph Meta-Tags into the blog. Note that adding &quot;like&quot;-Buttons to blog entries is achieved via the serendipity_event_findmore plugin! </description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.6</version>
+  <version>0.6.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_facebook">
 <dir name="UTF-8">
@@ -3444,9 +3456,9 @@
 <description>Flattr is a social micropayment platform that lets you show love for the things you like. This plugin embedds &quot;Flattr&quot;-Badges in blog entries and RSS feeds. You can specify flattr-specific options per-entry, with a default global fallback.</description>
 <maintainers><maintainer><name>Garvin Hicking, Joachim Breitner</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.14</version>
+  <version>1.14.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_flattr">
 <dir name="UTF-8">
@@ -3489,9 +3501,9 @@
 <description>Import images from flickr.com into the media library</description>
 <maintainers><maintainer><name>Jay Bertrand</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.6</version>
+  <version>0.6.1</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_flickr">
 <dir name="UTF-8">
@@ -3546,9 +3558,9 @@
 <description>Сменя паролата на избран потребител</description>
 <maintainers><maintainer><name>Omid Mottaghi</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.12.2</version>
+  <version>0.12.3</version>
   <requirements:s9yVersion>0.9.1</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_forgotpassword">
 <dir name="UTF-8">
@@ -3597,11 +3609,11 @@
 <summary>Discussion forum / phpBB comment mirroring</summary>
 <groups>FRONTEND_FULL_MODS</groups>
 <description>Provides a complete discussion forum to your users. Can alternatively provide to mirror comments into a phpBB installation.</description>
-<maintainers><maintainer><name>Alexander 'dma147' Mieland</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Alexander &#039;dma147&#039; Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.38.5</version>
+  <version>0.38.6</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-24</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_forum">
 <dir name="UTF-8">
@@ -3880,9 +3892,9 @@
 <description>Позволява свободно маркиране на статиите</description>
 <maintainers><maintainer><name>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.70</version>
+  <version>3.70.8</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2018-08-15</date>
+  <date>2023-10-03</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <dir name="UTF-8">
@@ -3989,9 +4001,9 @@
 <description>Inserts a Gallery album or image using markup text.</description>
 <maintainers><maintainer><name>Rob Antonishen, Alexander Mieland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.13</version>
+  <version>1.13.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_galleryimage">
 <dir name="UTF-8">
@@ -4027,33 +4039,42 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_geo_json</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_geo_json/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Geo-JSON</summary>
 <groups>FRONTEND_FEATURES</groups>
-<description>Provides a JSON object with all geo data which can be processed by JavaScript.</description>
-<maintainers><maintainer><name>Martin Sewelies</name><role>lead</role></maintainer></maintainers>
+<description>Provides a JSON object which contains all geographic data and can be processed with JavaScript</description>
+<maintainers><maintainer><name>Kathi Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.2</version>
+  <version>0.3.1</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
-  <date>2020-03-13</date>
+  <date>2023-07-24</date>
   <filelist>
 <dir name="serendipity_event_geo_json">
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
+<file>lang_es.inc.php</file>
 </dir>
 <file>LICENSE</file>
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_geo_json.php</file>
+<file>ChangeLog</file>
+<file>plugin_version.inc.php</file>
+<file>lang_es.inc.php</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_geo_json/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_geo_json/UTF-8/lang_es.inc.php</file>
     <file>serendipity_event_geo_json/LICENSE</file>
     <file>serendipity_event_geo_json/lang_de.inc.php</file>
     <file>serendipity_event_geo_json/lang_en.inc.php</file>
     <file>serendipity_event_geo_json/serendipity_event_geo_json.php</file>
+    <file>serendipity_event_geo_json/ChangeLog</file>
+    <file>serendipity_event_geo_json/plugin_version.inc.php</file>
+    <file>serendipity_event_geo_json/lang_es.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -4064,11 +4085,11 @@
 <summary>Geotag</summary>
 <groups>BACKEND_EDITOR</groups>
 <description>Allows entries to be geotagged with coordinates</description>
-<maintainers><maintainer><name>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Martin Sewelies</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Zoran Kovacevic, Grischa Brockhaus, Matthias Gutjahr, Kathi Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.35</version>
+  <version>1.36.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-05-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_geotag">
 <dir name="UTF-8">
@@ -4123,9 +4144,9 @@
 <description>GeoURL асоциира URL на блога с географски координати. Повече информация има на http://geourl.org/</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4.2</version>
+  <version>1.4.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_geourl">
 <dir name="UTF-8">
@@ -4172,9 +4193,9 @@
 <description>Синтактично оцветяване на програмни текстове. Приложение: [geshi lang=lang_name [,ln={y|n}]] програмен текст (без HTML) [/geshi]. Поддържани езици: actionscript, ada, apache, asm, asp, bash, c, c_mac, caddcl, cadlisp, cpp, csharp (C#), css, delphi, html4strict, java, javascript, lisp, lua, mpasm, nsis, objc, oobas, oracle8, pascal, perl, php, python, qbasic, smarty, vb, vbnet, visualfoxpro, xml</description>
 <maintainers><maintainer><name>David Rolston</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1</version>
+  <version>1.1.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2019-06-10</date>
+  <date>2023-07-24</date>
   <filelist>
 <dir name="serendipity_event_geshi">
 <dir name="UTF-8">
@@ -4743,9 +4764,9 @@
 <description>Използва библиотека getID3() за извличане на свойствата на филми/аудио. getID3() не се разпространява с тази приставка.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4</version>
+  <version>1.4.1</version>
   <requirements:s9yVersion>1.1</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_getid3">
 <dir name="UTF-8">
@@ -4785,15 +4806,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_glossary</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_glossary/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Речник</summary>
 <groups>MARKUP</groups>
 <description>Потребителски речник на термини и дефиниции за тях. Термините се открояват в текста, а дефинициите се извеждат като подсказки.</description>
 <maintainers><maintainer><name>Rob Antonishen</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.7.1</version>
+  <version>1.7.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2023-07-24</date>
   <filelist>
 <dir name="serendipity_event_glossary">
 <dir name="UTF-8">
@@ -4809,6 +4831,7 @@
 <file>lang_it.inc.php</file>
 <file>lang_ja.inc.php</file>
 <file>serendipity_event_glossary.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -4824,6 +4847,7 @@
     <file>serendipity_event_glossary/lang_it.inc.php</file>
     <file>serendipity_event_glossary/lang_ja.inc.php</file>
     <file>serendipity_event_glossary/serendipity_event_glossary.php</file>
+    <file>serendipity_event_glossary/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -4831,30 +4855,19 @@
 <name>serendipity_event_google_analytics</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_google_analytics/ChangeLog</changelog>
 <license>GPL</license>
-<summary>Google Analytics</summary>
+<summary>Google Analytics 4</summary>
 <groups>STATISTICS</groups>
-<description>This plugin adds extendet Google Analytic funcionality to youre Page like tracking external links or download links.</description>
-<maintainers><maintainer><name>kleinerChemiker</name><role>lead</role></maintainer></maintainers>
+<description>This plugin adds extended Google Analytics 4 functionality.</description>
+<maintainers><maintainer><name>Jari Turkia, kleinerChemiker</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4.3</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-24</date>
+  <version>2.0.0</version>
+  <requirements:s9yVersion>2.4</requirements:s9yVersion>
+  <date>2024-03-13</date>
   <filelist>
 <dir name="serendipity_event_google_analytics">
 <dir name="CVSROOT">
 <dir name="Emptydir">
 </dir>
-<file>checkoutlist</file>
-<file>commitinfo</file>
-<file>config</file>
-<file>cvswrappers</file>
-<file>editinfo</file>
-<file>loginfo</file>
-<file>modules</file>
-<file>notify</file>
-<file>rcsinfo</file>
-<file>taginfo</file>
-<file>verifymsg</file>
 </dir>
 <dir name="UTF-8">
 <file>lang_cs.inc.php</file>
@@ -4873,17 +4886,6 @@
 
   </filelist>
   <serendipityFilelist>
-    <file>serendipity_event_google_analytics/CVSROOT/checkoutlist</file>
-    <file>serendipity_event_google_analytics/CVSROOT/commitinfo</file>
-    <file>serendipity_event_google_analytics/CVSROOT/config</file>
-    <file>serendipity_event_google_analytics/CVSROOT/cvswrappers</file>
-    <file>serendipity_event_google_analytics/CVSROOT/editinfo</file>
-    <file>serendipity_event_google_analytics/CVSROOT/loginfo</file>
-    <file>serendipity_event_google_analytics/CVSROOT/modules</file>
-    <file>serendipity_event_google_analytics/CVSROOT/notify</file>
-    <file>serendipity_event_google_analytics/CVSROOT/rcsinfo</file>
-    <file>serendipity_event_google_analytics/CVSROOT/taginfo</file>
-    <file>serendipity_event_google_analytics/CVSROOT/verifymsg</file>
     <file>serendipity_event_google_analytics/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_google_analytics/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_google_analytics/UTF-8/lang_de.inc.php</file>
@@ -4907,9 +4909,9 @@
 <description>Creates a sitemap.xml.gz, which can be used by miscellaneous Web-Crawlers. (Google, MSN, Yahoo and Ask)</description>
 <maintainers><maintainer><name>Boris</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.61</version>
+  <version>0.61.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-04-19</date>
+  <date>2022-05-24</date>
   <filelist>
 <dir name="serendipity_event_google_sitemap">
 <dir name="UTF-8">
@@ -5319,9 +5321,9 @@
 <description>Shows a guestbook inside your blog with your normal blog design.</description>
 <maintainers><maintainer><name>Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.61.1</version>
+  <version>3.61.2</version>
   <requirements:s9yVersion>1.7.0</requirements:s9yVersion>
-  <date>2019-08-18</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="UTF-8">
@@ -5482,9 +5484,9 @@
 <description>Authenticates users via HTTP auth using their s9y user login data.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.7</version>
+  <version>1.7.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_httpauth">
 <dir name="UTF-8">
@@ -5518,14 +5520,14 @@
 <name>serendipity_event_imageselectorplus</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_imageselectorplus/ChangeLog</changelog>
 <license>GPL</license>
-<summary></summary>
+<summary>����������� ���� �� ������� �������</summary>
 <groups>IMAGES,MARKUP</groups>
-<description></description>
+<description>���� ����������� ���� ��� ������� �� ���������� ���� ������� ������� [Serendipity &gt;= 0.9]</description>
 <maintainers><maintainer><name>Garvin Hicking, Vladimir Ajgl, Adam Charnock, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.52</version>
+  <version>0.52.1</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_imageselectorplus">
 <dir name="UTF-8">
@@ -5586,9 +5588,9 @@
 <description>Тази приставка дава възможност за включване на елементи от статия в друга статия. Използвайте този код: [s9y-include-entry:XXX:YYY]. Заменете XXX идентификатора на статията (цяло число), а YYY с идентификатор на частта за включване (например &quot;body&quot;, &quot;title&quot;, &quot;extended&quot;, ...). Освен това в административния панел е включено нова команда в менюто за поддръжка на шаблони (заготовки на статии) и блокове, които можете да включвате във Вашите статии.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.18</version>
+  <version>2.18.1</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_includeentry">
 <dir name="UTF-8">
@@ -5641,9 +5643,9 @@
 <description>Дава възможност посетителите да оценяват качеството на вашите статии</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus, Judebert, Gregor Voeltz, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.14.1</version>
+  <version>2.14.3</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2019-07-21</date>
+  <date>2023-02-07</date>
   <filelist>
 <dir name="serendipity_event_karma">
 <dir name="UTF-8">
@@ -5763,15 +5765,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_kubrickheader</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_kubrickheader/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Template Header/Logo Image</summary>
 <groups>IMAGES</groups>
 <description>Switch header image or logo for templates</description>
 <maintainers><maintainer><name>Garvin Hicking, Sebastian Mayeres, Jude Anthony</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5.1</version>
+  <version>1.5.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-03-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_kubrickheader">
 <dir name="UTF-8">
@@ -5784,6 +5787,7 @@
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_kubrickheader.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -5796,20 +5800,22 @@
     <file>serendipity_event_kubrickheader/lang_de.inc.php</file>
     <file>serendipity_event_kubrickheader/lang_en.inc.php</file>
     <file>serendipity_event_kubrickheader/serendipity_event_kubrickheader.php</file>
+    <file>serendipity_event_kubrickheader/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
 <package version="1.0">
 <name>serendipity_event_layout_printerfriendly</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_layout_printerfriendly/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Layout-Plugin: Изглед за принтер</summary>
 <groups>BACKEND_TEMPLATES</groups>
 <description>По-добър изглед за печат на Вашите статии</description>
 <maintainers><maintainer><name>Sebastian Nohn</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1</version>
+  <version>1.1.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_layout_printerfriendly">
 <dir name="UTF-8">
@@ -5826,6 +5832,7 @@
 <file>lang_en.inc.php</file>
 <file>lang_tr.inc.php</file>
 <file>serendipity_event_layout_printerfriendly.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -5842,6 +5849,7 @@
     <file>serendipity_event_layout_printerfriendly/lang_en.inc.php</file>
     <file>serendipity_event_layout_printerfriendly/lang_tr.inc.php</file>
     <file>serendipity_event_layout_printerfriendly/serendipity_event_layout_printerfriendly.php</file>
+    <file>serendipity_event_layout_printerfriendly/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -5851,12 +5859,12 @@
 <license>GPL</license>
 <summary>Lightbox for entry images</summary>
 <groups>IMAGES</groups>
-<description>Lightbox JS is a simple, unobtrusive script used to overlay images on the current page. It's a snap to setup and works with all modern browsers. All lightboxes pop-up images. This plugin searches through your entries, and replaces every image 'a href=&quot;XXX&quot;' link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. These lightbox scripts are all jQuery based. They do not only support image types, they may also add support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for image lightboxes only, but you can easily add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.</description>
+<description>Lightbox JS is a simple, unobtrusive script used to overlay images on the current page. It&#039;s a snap to setup and works with all modern browsers. All lightboxes pop-up images. This plugin searches through your entries, and replaces every image &#039;a href=&quot;XXX&quot;&#039; link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. These lightbox scripts are all jQuery based. They do not only support image types, they may also add support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for image lightboxes only, but you can easily add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.</description>
 <maintainers><maintainer><name>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.5.2</version>
+  <version>2.5.6</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2019-09-20</date>
+  <date>2023-09-05</date>
   <filelist>
 <dir name="serendipity_event_lightbox">
 <dir name="UTF-8">
@@ -6185,9 +6193,9 @@
 <description>Менажер на връзките - показва връзки към други сайтове в странична приставка.</description>
 <maintainers><maintainer><name>Matthew Groeninger, Omid Mottaghi Rad</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.05</version>
+  <version>2.06</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-02</date>
   <filelist>
 <dir name="serendipity_event_linklist">
 <dir name="UTF-8">
@@ -6282,9 +6290,9 @@
 <description>Inserts link rel=&quot;start|up|prev|next|canonical&quot; metatags into your frontend for better navigation.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5.1</version>
+  <version>1.5.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_linktoolbar">
 <dir name="UTF-8">
@@ -6331,9 +6339,9 @@
 <description>Allows you to truncate any link for redirection on your own blog, like tr.im, tinyurl.com etc.</description>
 <maintainers><maintainer><name>Garvin Hicking, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6.4</version>
+  <version>1.6.6</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2023-01-01</date>
   <filelist>
 <dir name="serendipity_event_linktrimmer">
 <dir name="UTF-8">
@@ -6386,9 +6394,9 @@
 <description>Uses JavaScript to show a live preview and markup-buttons</description>
 <maintainers><maintainer><name>Malte Paskuda, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.5.5</version>
+  <version>2.5.6</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-06-07</date>
   <filelist>
 <dir name="serendipity_event_livecomment">
 <dir name="UTF-8">
@@ -6563,9 +6571,9 @@
 <description>Uses XMLRPC to post to your Livejournal/MySpace/Serendipity</description>
 <maintainers><maintainer><name>Kaustubh Srikanth, Ivan Makhonin</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.13.3</version>
+  <version>1.13.4</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_ljupdate">
 <dir name="UTF-8">
@@ -6605,15 +6613,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_loginform</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_loginform/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Validates authors login</summary>
 <groups>FRONTEND_FEATURES</groups>
 <description>Validates the login credentials of an author using the sidebar login form</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.04</version>
+  <version>1.04.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_loginform">
 <dir name="UTF-8">
@@ -6626,6 +6635,7 @@
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_loginform.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -6638,6 +6648,7 @@
     <file>serendipity_event_loginform/lang_de.inc.php</file>
     <file>serendipity_event_loginform/lang_en.inc.php</file>
     <file>serendipity_event_loginform/serendipity_event_loginform.php</file>
+    <file>serendipity_event_loginform/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -6650,9 +6661,9 @@
 <description>Дава възможност за изпращане на статия по e-mail на приятел. Трябва да се има предвид, че тази приставка може да предизвика автоматичен трафик, ако се използва от роботи.</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.24</version>
+  <version>1.24.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_mailentry">
 <dir name="UTF-8">
@@ -6715,9 +6726,9 @@
 <description>Прилага текстово форматиране Markdown</description>
 <maintainers><maintainer><name>Serendipity Team, Jan Lehnardt and Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.30</version>
+  <version>1.31</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-05-11</date>
+  <date>2022-08-22</date>
   <filelist>
 <dir name="serendipity_event_markdown">
 <dir name="UTF-8">
@@ -6810,9 +6821,9 @@
 <description>Показва дали статиите са прочетени от посетителите</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
+  <version>1.5.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_markread">
 <dir name="UTF-8">
@@ -6853,9 +6864,9 @@
 <description>Sets HTML meta keywords/description tags and title element for single entry pages and default meta keywords/description tags for non-single entry pages.</description>
 <maintainers><maintainer><name>Garvin Hicking, Judebert, Don Chambers</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.15.6</version>
+  <version>0.15.7</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2020-04-19</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_metadesc">
 <dir name="UTF-8">
@@ -6906,9 +6917,9 @@
 <description>This plugin provides an easy way to publish reviews (or events); it supports the respective microformats.</description>
 <maintainers><maintainer><name>Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.46.2</version>
+  <version>0.46.3</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_microformats">
 <dir name="UTF-8">
@@ -6978,15 +6989,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_mimetex</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_mimetex/ChangeLog</changelog>
 <license>GPL</license>
 <summary>MimeTex/LaTeX TeX Interpreter</summary>
 <groups>MARKUP</groups>
 <description>Create Gifs from TeX expressions using MimeTex or LaTeX</description>
 <maintainers><maintainer><name>Matthew Groeninger</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4</version>
+  <version>1.4.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_mimetex">
 <dir name="UTF-8">
@@ -7007,6 +7019,7 @@
 <file>lang_en.inc.php</file>
 <file>serendipity_event_mimetex.js</file>
 <file>serendipity_event_mimetex.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -7023,6 +7036,7 @@
     <file>serendipity_event_mimetex/lang_en.inc.php</file>
     <file>serendipity_event_mimetex/serendipity_event_mimetex.js</file>
     <file>serendipity_event_mimetex/serendipity_event_mimetex.php</file>
+    <file>serendipity_event_mimetex/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7035,9 +7049,9 @@
 <description>This plugin handles mobile devices and outputs optimized XHTML MP markup if it detects a mobile browser and a specially optimized site for iPhone and iPod Touch. It also scales images to fit the display size.</description>
 <maintainers><maintainer><name>Pelle Boese, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.04.2</version>
+  <version>1.04.3</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2017-08-06</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_mobile_output">
 <dir name="UTF-8">
@@ -7218,9 +7232,9 @@
 <description>Позволява създаването на версии на статиите на различни езици</description>
 <maintainers><maintainer><name>Garvin Hicking, Wesley Hwang-Chung, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.35</version>
+  <version>2.35.1</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2018-08-15</date>
+  <date>2023-02-18</date>
   <filelist>
 <dir name="serendipity_event_multilingual">
 <dir name="UTF-8">
@@ -7291,9 +7305,9 @@
 <description>Поддържа персонален календар</description>
 <maintainers><maintainer><name>Garvin Hicking, Markus Gerstel, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.17.1</version>
+  <version>0.18.2</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2023-07-24</date>
   <filelist>
 <dir name="serendipity_event_mycalendar">
 <dir name="UTF-8">
@@ -7348,9 +7362,9 @@
 <description>Allows you to add your current mood or moods to entries.</description>
 <maintainers><maintainer><name>Brett Profitt, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.12.1</version>
+  <version>0.12.2</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_mymood">
 <dir name="UTF-8">
@@ -7386,15 +7400,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_newsbox</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_newsbox/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Newsbox</summary>
 <groups>FRONTEND_VIEWS,FRONTEND_FEATURES</groups>
-<description>Group a category's entries in a frontpage box instead of the usual article listing.  Supports nested newsboxes.</description>
+<description>Group a category&#039;s entries in a frontpage box instead of the usual article listing.  Supports nested newsboxes.</description>
 <maintainers><maintainer><name>Jude Anthony</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.6</version>
+  <version>0.6.1</version>
   <requirements:s9yVersion>1.0-alpha1</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_newsbox">
 <dir name="UTF-8">
@@ -7406,6 +7421,7 @@
 <file>lang_en.inc.php</file>
 <file>newsbox.tpl</file>
 <file>serendipity_event_newsbox.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -7417,6 +7433,7 @@
     <file>serendipity_event_newsbox/lang_en.inc.php</file>
     <file>serendipity_event_newsbox/newsbox.tpl</file>
     <file>serendipity_event_newsbox/serendipity_event_newsbox.php</file>
+    <file>serendipity_event_newsbox/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7429,9 +7446,9 @@
 <description>oEmbed is a format for allowing an embedded representation of a URL on your blog. It allows blog articles to display embedded content (such as tweets, photos or videos) when a user posts a link to that resource, without having to parse the resource directly.</description>
 <maintainers><maintainer><name>Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.15.1</version>
+  <version>1.20.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_oembed">
 <dir name="UTF-8">
@@ -7450,7 +7467,6 @@
 <file>LinkEmbed.class.php</file>
 <file>OEmbed.class.php</file>
 <file>OEmbedProvider.class.php</file>
-<file>OohEmbedProvider.class.php</file>
 <file>PhotoEmbed.class.php</file>
 <file>ProviderList.php</file>
 <file>ProviderManager.class.php</file>
@@ -7486,7 +7502,6 @@
     <file>serendipity_event_oembed/oembed/LinkEmbed.class.php</file>
     <file>serendipity_event_oembed/oembed/OEmbed.class.php</file>
     <file>serendipity_event_oembed/oembed/OEmbedProvider.class.php</file>
-    <file>serendipity_event_oembed/oembed/OohEmbedProvider.class.php</file>
     <file>serendipity_event_oembed/oembed/PhotoEmbed.class.php</file>
     <file>serendipity_event_oembed/oembed/ProviderList.php</file>
     <file>serendipity_event_oembed/oembed/ProviderManager.class.php</file>
@@ -7518,9 +7533,9 @@
 <description>Allows authors to authenticate using an OpenID, their Google or Yahoo account.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Rob Richards</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.2.3</version>
+  <version>1.2.4</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_openid">
 <dir name="PHP-openid">
@@ -7692,24 +7707,24 @@
 <license>GPL</license>
 <summary>OpenStreetMap integration</summary>
 <groups>FRONTEND_ENTRY_RELATED</groups>
-<description>Provides an interactive map with *.gpx uploads and tagged geo data.</description>
-<maintainers><maintainer><name>Martin Sewelies</name><role>lead</role></maintainer></maintainers>
+<description>Provides an interactive map for *.gpx uploads and geo-tagged entries</description>
+<maintainers><maintainer><name>Kathi Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.3</version>
+  <version>0.4.6</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
-  <date>2020-03-13</date>
+  <date>2023-02-01</date>
   <filelist>
 <dir name="serendipity_event_osm">
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
+<file>lang_es.inc.php</file>
 </dir>
 <dir name="ressources">
-<file>ol.css</file>
-<file>ol.css.map</file>
 <file>ol.js</file>
-<file>ol.js.map</file>
 <file>osm.css</file>
 <file>osm.js</file>
+<file>ol.css</file>
+<file>ol.js.map</file>
 </dir>
 <file>LICENSE</file>
 <file>lang_de.inc.php</file>
@@ -7718,17 +7733,19 @@
 <file>serendipity_event_osm.php</file>
 <file>serendipity_event_static_osm.php</file>
 <file>ChangeLog</file>
+<file>README.md</file>
+<file>lang_es.inc.php</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_osm/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_event_osm/ressources/ol.css</file>
-    <file>serendipity_event_osm/ressources/ol.css.map</file>
+    <file>serendipity_event_osm/UTF-8/lang_es.inc.php</file>
     <file>serendipity_event_osm/ressources/ol.js</file>
-    <file>serendipity_event_osm/ressources/ol.js.map</file>
     <file>serendipity_event_osm/ressources/osm.css</file>
     <file>serendipity_event_osm/ressources/osm.js</file>
+    <file>serendipity_event_osm/ressources/ol.css</file>
+    <file>serendipity_event_osm/ressources/ol.js.map</file>
     <file>serendipity_event_osm/LICENSE</file>
     <file>serendipity_event_osm/lang_de.inc.php</file>
     <file>serendipity_event_osm/lang_en.inc.php</file>
@@ -7736,6 +7753,8 @@
     <file>serendipity_event_osm/serendipity_event_osm.php</file>
     <file>serendipity_event_osm/serendipity_event_static_osm.php</file>
     <file>serendipity_event_osm/ChangeLog</file>
+    <file>serendipity_event_osm/README.md</file>
+    <file>serendipity_event_osm/lang_es.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7745,24 +7764,24 @@
 <license>GPL</license>
 <summary>OpenStreetMap static files</summary>
 <groups>FRONTEND_ENTRY_RELATED</groups>
-<description>Includes scripts and stylesheets for OpenStreetMap support.</description>
-<maintainers><maintainer><name>Martin Sewelies</name><role>lead</role></maintainer></maintainers>
+<description>Includes scripts and stylesheets for OpenStreetMap support</description>
+<maintainers><maintainer><name>Kathi Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.3</version>
+  <version>0.4.6</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
-  <date>2020-03-13</date>
+  <date>2023-02-01</date>
   <filelist>
 <dir name="serendipity_event_osm">
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
+<file>lang_es.inc.php</file>
 </dir>
 <dir name="ressources">
-<file>ol.css</file>
-<file>ol.css.map</file>
 <file>ol.js</file>
-<file>ol.js.map</file>
 <file>osm.css</file>
 <file>osm.js</file>
+<file>ol.css</file>
+<file>ol.js.map</file>
 </dir>
 <file>LICENSE</file>
 <file>lang_de.inc.php</file>
@@ -7771,17 +7790,19 @@
 <file>serendipity_event_osm.php</file>
 <file>serendipity_event_static_osm.php</file>
 <file>ChangeLog</file>
+<file>README.md</file>
+<file>lang_es.inc.php</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_osm/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_event_osm/ressources/ol.css</file>
-    <file>serendipity_event_osm/ressources/ol.css.map</file>
+    <file>serendipity_event_osm/UTF-8/lang_es.inc.php</file>
     <file>serendipity_event_osm/ressources/ol.js</file>
-    <file>serendipity_event_osm/ressources/ol.js.map</file>
     <file>serendipity_event_osm/ressources/osm.css</file>
     <file>serendipity_event_osm/ressources/osm.js</file>
+    <file>serendipity_event_osm/ressources/ol.css</file>
+    <file>serendipity_event_osm/ressources/ol.js.map</file>
     <file>serendipity_event_osm/LICENSE</file>
     <file>serendipity_event_osm/lang_de.inc.php</file>
     <file>serendipity_event_osm/lang_en.inc.php</file>
@@ -7789,6 +7810,8 @@
     <file>serendipity_event_osm/serendipity_event_osm.php</file>
     <file>serendipity_event_osm/serendipity_event_static_osm.php</file>
     <file>serendipity_event_osm/ChangeLog</file>
+    <file>serendipity_event_osm/README.md</file>
+    <file>serendipity_event_osm/lang_es.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -7801,9 +7824,9 @@
 <description>Скрива всички статии, които са по-стари от определена възраст, така че те да бъдат виждани само от регистирани посетители и автори</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6</version>
+  <version>1.6.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-12-11</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_outdate_entries">
 <dir name="UTF-8">
@@ -7901,9 +7924,9 @@
 <description>Adds a single image to an entry.</description>
 <maintainers><maintainer><name>Cameron MacFarland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6.1</version>
+  <version>1.6.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_photoblog">
 <dir name="UTF-8">
@@ -7950,9 +7973,9 @@
 <description>Adds &quot;podcasting&quot; capabilities hinzu (RSS enclosure, Video/Sound-Player)</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Hannes Gassert, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.37.4</version>
+  <version>1.37.7</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-05-03</date>
+  <date>2022-11-24</date>
   <filelist>
 <dir name="serendipity_event_podcast">
 <dir name="UTF-8">
@@ -7974,80 +7997,6 @@
 <file>flowplayer.controls-3.2.5.swf</file>
 </dir>
 <dir name="getid3">
-<file>dependencies.txt</file>
-<file>module.audio.wavpack.php</file>
-<file>extension.cache.dbm.php</file>
-<file>module.graphic.bmp.php</file>
-<file>extension.cache.mysql.php</file>
-<file>getid3.lib.php</file>
-<file>getid3.php</file>
-<file>module.graphic.gif.php</file>
-<file>license.commercial.txt</file>
-<file>license.txt</file>
-<file>module.graphic.pcd.php</file>
-<file>module.archive.gzip.php</file>
-<file>module.graphic.jpg.php</file>
-<file>module.archive.rar.php</file>
-<file>module.graphic.png.php</file>
-<file>module.archive.szip.php</file>
-<file>module.graphic.svg.php</file>
-<file>module.archive.tar.php</file>
-<file>module.graphic.tiff.php</file>
-<file>module.archive.zip.php</file>
-<file>module.misc.cue.php</file>
-<file>module.audio-video.asf.php</file>
-<file>module.tag.apetag.php</file>
-<file>module.audio-video.bink.php</file>
-<file>module.tag.id3v1.php</file>
-<file>module.audio-video.flv.php</file>
-<file>module.audio.voc.php</file>
-<file>module.audio-video.matroska.php</file>
-<file>module.tag.id3v2.php</file>
-<file>module.audio-video.mpeg.php</file>
-<file>module.tag.lyrics3.php</file>
-<file>module.audio-video.nsv.php</file>
-<file>module.audio.vqf.php</file>
-<file>module.audio-video.quicktime.php</file>
-<file>module.tag.xmp.php</file>
-<file>module.audio-video.real.php</file>
-<file>readme.txt</file>
-<file>module.audio-video.riff.php</file>
-<file>write.apetag.php</file>
-<file>module.audio-video.swf.php</file>
-<file>module.audio.aa.php</file>
-<file>module.audio.aac.php</file>
-<file>module.audio.ac3.php</file>
-<file>module.audio.au.php</file>
-<file>module.audio.avr.php</file>
-<file>write.id3v1.php</file>
-<file>module.audio.bonk.php</file>
-<file>module.audio.dss.php</file>
-<file>module.audio.dts.php</file>
-<file>write.id3v2.php</file>
-<file>module.audio.flac.php</file>
-<file>module.audio.la.php</file>
-<file>write.lyrics3.php</file>
-<file>module.audio.lpac.php</file>
-<file>write.metaflac.php</file>
-<file>module.audio.midi.php</file>
-<file>module.audio.mod.php</file>
-<file>write.php</file>
-<file>module.audio.monkey.php</file>
-<file>module.audio.mp3.php</file>
-<file>module.audio.mpc.php</file>
-<file>module.audio.ogg.php</file>
-<file>write.real.php</file>
-<file>module.audio.optimfrog.php</file>
-<file>write.vorbiscomment.php</file>
-<file>module.audio.rkau.php</file>
-<file>module.audio.shorten.php</file>
-<file>module.audio.tta.php</file>
-<file>module.misc.doc.php</file>
-<file>module.misc.exe.php</file>
-<file>module.misc.iso.php</file>
-<file>module.misc.msoffice.php</file>
-<file>module.misc.par2.php</file>
-<file>module.misc.pdf.php</file>
 </dir>
 <dir name="jw-flv">
 <dir name="extras">
@@ -8061,6 +8010,149 @@
 <file>xspf_player_slim.fla</file>
 <file>xspf_player_slim.swf</file>
 </dir>
+<dir name="composer">
+<file>ClassLoader.php</file>
+<file>InstalledVersions.php</file>
+<file>LICENSE</file>
+<file>autoload_classmap.php</file>
+<file>autoload_namespaces.php</file>
+<file>autoload_psr4.php</file>
+<file>autoload_real.php</file>
+<file>autoload_static.php</file>
+<file>installed.json</file>
+<file>installed.php</file>
+<file>platform_check.php</file>
+</dir>
+<dir name="james-heinrich">
+<dir name="getid3">
+<dir name="demos">
+<file>demo.audioinfo.class.php</file>
+<file>demo.basic.php</file>
+<file>demo.browse.php</file>
+<file>demo.cache.dbm.php</file>
+<file>demo.cache.mysql.php</file>
+<file>demo.dirscan.php</file>
+<file>demo.joinmp3.php</file>
+<file>demo.mimeonly.php</file>
+<file>demo.mp3header.php</file>
+<file>demo.mysqli.php</file>
+<file>demo.simple.php</file>
+<file>demo.simple.write.php</file>
+<file>demo.write.php</file>
+<file>demo.zip.php</file>
+<file>getid3.css</file>
+<file>index.php</file>
+</dir>
+<dir name="getid3">
+<file>module.audio.mpc.php</file>
+<file>extension.cache.dbm.php</file>
+<file>module.audio.ogg.php</file>
+<file>extension.cache.mysql.php</file>
+<file>module.audio.optimfrog.php</file>
+<file>extension.cache.mysqli.php</file>
+<file>module.audio.wavpack.php</file>
+<file>extension.cache.sqlite3.php</file>
+<file>write.metaflac.php</file>
+<file>getid3.lib.php</file>
+<file>getid3.php</file>
+<file>module.graphic.bmp.php</file>
+<file>module.archive.gzip.php</file>
+<file>module.graphic.efax.php</file>
+<file>module.archive.hpk.php</file>
+<file>module.graphic.gif.php</file>
+<file>module.archive.rar.php</file>
+<file>module.graphic.jpg.php</file>
+<file>module.archive.szip.php</file>
+<file>module.graphic.pcd.php</file>
+<file>module.archive.tar.php</file>
+<file>module.graphic.png.php</file>
+<file>module.archive.xz.php</file>
+<file>module.graphic.svg.php</file>
+<file>module.archive.zip.php</file>
+<file>module.graphic.tiff.php</file>
+<file>module.audio-video.asf.php</file>
+<file>module.misc.cue.php</file>
+<file>module.audio-video.bink.php</file>
+<file>module.misc.exe.php</file>
+<file>module.audio-video.flv.php</file>
+<file>module.misc.iso.php</file>
+<file>module.audio-video.ivf.php</file>
+<file>module.audio.vqf.php</file>
+<file>module.audio-video.matroska.php</file>
+<file>module.misc.msoffice.php</file>
+<file>module.audio-video.mpeg.php</file>
+<file>module.misc.par2.php</file>
+<file>module.audio-video.nsv.php</file>
+<file>module.audio.mp3.php</file>
+<file>module.audio-video.quicktime.php</file>
+<file>module.misc.pdf.php</file>
+<file>module.audio-video.real.php</file>
+<file>module.misc.torrent.php</file>
+<file>module.audio-video.riff.php</file>
+<file>module.tag.apetag.php</file>
+<file>module.audio-video.swf.php</file>
+<file>module.tag.id3v1.php</file>
+<file>module.audio-video.ts.php</file>
+<file>module.tag.id3v2.php</file>
+<file>module.audio-video.wtv.php</file>
+<file>write.php</file>
+<file>module.audio.aa.php</file>
+<file>write.real.php</file>
+<file>module.audio.aac.php</file>
+<file>write.vorbiscomment.php</file>
+<file>module.audio.ac3.php</file>
+<file>module.audio.amr.php</file>
+<file>module.audio.au.php</file>
+<file>module.audio.avr.php</file>
+<file>module.tag.lyrics3.php</file>
+<file>module.audio.bonk.php</file>
+<file>module.tag.nikon-nctg.php</file>
+<file>module.audio.dsdiff.php</file>
+<file>module.audio.dsf.php</file>
+<file>module.audio.dss.php</file>
+<file>module.audio.dts.php</file>
+<file>module.tag.xmp.php</file>
+<file>module.audio.flac.php</file>
+<file>module.audio.la.php</file>
+<file>write.apetag.php</file>
+<file>module.audio.lpac.php</file>
+<file>write.id3v1.php</file>
+<file>module.audio.midi.php</file>
+<file>module.audio.mod.php</file>
+<file>write.id3v2.php</file>
+<file>module.audio.monkey.php</file>
+<file>module.audio.rkau.php</file>
+<file>write.lyrics3.php</file>
+<file>module.audio.shorten.php</file>
+<file>module.audio.tak.php</file>
+<file>module.audio.tta.php</file>
+<file>module.audio.voc.php</file>
+</dir>
+<dir name="helperapps">
+<file>cygwin1.dll</file>
+<file>head.exe</file>
+<file>metaflac.exe</file>
+<file>readme.helperapps.txt</file>
+<file>shorten.exe</file>
+<file>vorbiscomment.exe</file>
+</dir>
+<dir name="licenses">
+<file>license.commercial.txt</file>
+<file>license.gpl-10.txt</file>
+<file>license.gpl-20.txt</file>
+<file>license.gpl-30.txt</file>
+<file>license.lgpl-30.txt</file>
+<file>license.mpl-20.txt</file>
+</dir>
+<file>README.md</file>
+<file>changelog.txt</file>
+<file>dependencies.txt</file>
+<file>license.txt</file>
+<file>readme.txt</file>
+<file>structure.txt</file>
+</dir>
+</dir>
+<file>autoload.php</file>
 </dir>
 <file>.cvsignore</file>
 <file>ChangeLog</file>
@@ -8073,6 +8165,8 @@
 <file>lang_fr.inc.php</file>
 <file>podcast_player.php</file>
 <file>serendipity_event_podcast.php</file>
+<file>composer.json</file>
+<file>composer.lock</file>
 </dir>
 
   </filelist>
@@ -8088,84 +8182,139 @@
     <file>serendipity_event_podcast/player/flowplayer/README.txt</file>
     <file>serendipity_event_podcast/player/flowplayer/flowplayer-3.2.7.swf</file>
     <file>serendipity_event_podcast/player/flowplayer/flowplayer.controls-3.2.5.swf</file>
-    <file>serendipity_event_podcast/player/getid3/dependencies.txt</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.wavpack.php</file>
-    <file>serendipity_event_podcast/player/getid3/extension.cache.dbm.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.graphic.bmp.php</file>
-    <file>serendipity_event_podcast/player/getid3/extension.cache.mysql.php</file>
-    <file>serendipity_event_podcast/player/getid3/getid3.lib.php</file>
-    <file>serendipity_event_podcast/player/getid3/getid3.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.graphic.gif.php</file>
-    <file>serendipity_event_podcast/player/getid3/license.commercial.txt</file>
-    <file>serendipity_event_podcast/player/getid3/license.txt</file>
-    <file>serendipity_event_podcast/player/getid3/module.graphic.pcd.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.archive.gzip.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.graphic.jpg.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.archive.rar.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.graphic.png.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.archive.szip.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.graphic.svg.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.archive.tar.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.graphic.tiff.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.archive.zip.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.misc.cue.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio-video.asf.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.tag.apetag.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio-video.bink.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.tag.id3v1.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio-video.flv.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.voc.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio-video.matroska.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.tag.id3v2.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio-video.mpeg.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.tag.lyrics3.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio-video.nsv.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.vqf.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio-video.quicktime.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.tag.xmp.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio-video.real.php</file>
-    <file>serendipity_event_podcast/player/getid3/readme.txt</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio-video.riff.php</file>
-    <file>serendipity_event_podcast/player/getid3/write.apetag.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio-video.swf.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.aa.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.aac.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.ac3.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.au.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.avr.php</file>
-    <file>serendipity_event_podcast/player/getid3/write.id3v1.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.bonk.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.dss.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.dts.php</file>
-    <file>serendipity_event_podcast/player/getid3/write.id3v2.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.flac.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.la.php</file>
-    <file>serendipity_event_podcast/player/getid3/write.lyrics3.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.lpac.php</file>
-    <file>serendipity_event_podcast/player/getid3/write.metaflac.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.midi.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.mod.php</file>
-    <file>serendipity_event_podcast/player/getid3/write.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.monkey.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.mp3.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.mpc.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.ogg.php</file>
-    <file>serendipity_event_podcast/player/getid3/write.real.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.optimfrog.php</file>
-    <file>serendipity_event_podcast/player/getid3/write.vorbiscomment.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.rkau.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.shorten.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.audio.tta.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.misc.doc.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.misc.exe.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.misc.iso.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.misc.msoffice.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.misc.par2.php</file>
-    <file>serendipity_event_podcast/player/getid3/module.misc.pdf.php</file>
     <file>serendipity_event_podcast/player/xspf/license.txt</file>
     <file>serendipity_event_podcast/player/xspf/xspf_player_slim.as</file>
     <file>serendipity_event_podcast/player/xspf/xspf_player_slim.fla</file>
     <file>serendipity_event_podcast/player/xspf/xspf_player_slim.swf</file>
+    <file>serendipity_event_podcast/player/composer/ClassLoader.php</file>
+    <file>serendipity_event_podcast/player/composer/InstalledVersions.php</file>
+    <file>serendipity_event_podcast/player/composer/LICENSE</file>
+    <file>serendipity_event_podcast/player/composer/autoload_classmap.php</file>
+    <file>serendipity_event_podcast/player/composer/autoload_namespaces.php</file>
+    <file>serendipity_event_podcast/player/composer/autoload_psr4.php</file>
+    <file>serendipity_event_podcast/player/composer/autoload_real.php</file>
+    <file>serendipity_event_podcast/player/composer/autoload_static.php</file>
+    <file>serendipity_event_podcast/player/composer/installed.json</file>
+    <file>serendipity_event_podcast/player/composer/installed.php</file>
+    <file>serendipity_event_podcast/player/composer/platform_check.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/demos/demo.audioinfo.class.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/demos/demo.basic.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/demos/demo.browse.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/demos/demo.cache.dbm.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/demos/demo.cache.mysql.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/demos/demo.dirscan.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/demos/demo.joinmp3.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/demos/demo.mimeonly.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/demos/demo.mp3header.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/demos/demo.mysqli.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/demos/demo.simple.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/demos/demo.simple.write.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/demos/demo.write.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/demos/demo.zip.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/demos/getid3.css</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/demos/index.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.mpc.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/extension.cache.dbm.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.ogg.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/extension.cache.mysql.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.optimfrog.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/extension.cache.mysqli.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.wavpack.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/extension.cache.sqlite3.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/write.metaflac.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/getid3.lib.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/getid3.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.graphic.bmp.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.archive.gzip.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.graphic.efax.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.archive.hpk.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.graphic.gif.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.archive.rar.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.graphic.jpg.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.archive.szip.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.graphic.pcd.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.archive.tar.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.graphic.png.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.archive.xz.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.graphic.svg.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.archive.zip.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.graphic.tiff.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio-video.asf.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.misc.cue.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio-video.bink.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.misc.exe.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio-video.flv.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.misc.iso.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio-video.ivf.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.vqf.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio-video.matroska.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.misc.msoffice.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio-video.mpeg.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.misc.par2.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio-video.nsv.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.mp3.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio-video.quicktime.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.misc.pdf.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio-video.real.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.misc.torrent.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio-video.riff.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.tag.apetag.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio-video.swf.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.tag.id3v1.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio-video.ts.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.tag.id3v2.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio-video.wtv.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/write.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.aa.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/write.real.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.aac.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/write.vorbiscomment.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.ac3.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.amr.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.au.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.avr.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.tag.lyrics3.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.bonk.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.tag.nikon-nctg.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.dsdiff.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.dsf.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.dss.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.dts.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.tag.xmp.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.flac.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.la.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/write.apetag.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.lpac.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/write.id3v1.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.midi.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.mod.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/write.id3v2.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.monkey.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.rkau.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/write.lyrics3.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.shorten.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.tak.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.tta.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/getid3/module.audio.voc.php</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/helperapps/cygwin1.dll</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/helperapps/head.exe</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/helperapps/metaflac.exe</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/helperapps/readme.helperapps.txt</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/helperapps/shorten.exe</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/helperapps/vorbiscomment.exe</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/licenses/license.commercial.txt</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/licenses/license.gpl-10.txt</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/licenses/license.gpl-20.txt</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/licenses/license.gpl-30.txt</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/licenses/license.lgpl-30.txt</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/licenses/license.mpl-20.txt</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/README.md</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/changelog.txt</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/dependencies.txt</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/license.txt</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/readme.txt</file>
+    <file>serendipity_event_podcast/player/james-heinrich/getid3/structure.txt</file>
+    <file>serendipity_event_podcast/player/autoload.php</file>
     <file>serendipity_event_podcast/.cvsignore</file>
     <file>serendipity_event_podcast/ChangeLog</file>
     <file>serendipity_event_podcast/documentation_cs.html</file>
@@ -8177,6 +8326,8 @@
     <file>serendipity_event_podcast/lang_fr.inc.php</file>
     <file>serendipity_event_podcast/podcast_player.php</file>
     <file>serendipity_event_podcast/serendipity_event_podcast.php</file>
+    <file>serendipity_event_podcast/composer.json</file>
+    <file>serendipity_event_podcast/composer.lock</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -8189,9 +8340,9 @@
 <description>Fetches and publishes email and attachments from a POP3 email account (with special cell phone support)</description>
 <maintainers><maintainer><name>Jason Levitt</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.49</version>
+  <version>1.49.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-09-09</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_popfetcher">
 <dir name="UTF-8">
@@ -8262,9 +8413,9 @@
 <description>Use Prettify to brush content between PRE tags for simple syntax highlighting.</description>
 <maintainers><maintainer><name>Adam Krause</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6.2</version>
+  <version>1.6.3</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2016-03-18</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_prettify">
 <dir name="UTF-8">
@@ -8329,9 +8480,9 @@
 <description>Sets the correct Visitors IP when useing a Proxy for your webserver. Should be the first plugin in the list.</description>
 <maintainers><maintainer><name>kleinerChemiker</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
   <requirements:s9yVersion>1.6.2</requirements:s9yVersion>
-  <date>2020-03-24</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_proxy_realip">
 <dir name="UTF-8">
@@ -8369,15 +8520,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_randomblogdescription</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_randomblogdescription/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Random Blog Description</summary>
 <groups>BACKEND_METAINFORMATION</groups>
 <description>Shows a random description in the header. (Seperate database table has currently to be maintained manually)</description>
 <maintainers><maintainer><name>Florian Anderiasch</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.6</version>
+  <version>0.6.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_randomblogdescription">
 <dir name="UTF-8">
@@ -8390,6 +8542,7 @@
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_randomblogdescription.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -8402,20 +8555,22 @@
     <file>serendipity_event_randomblogdescription/lang_de.inc.php</file>
     <file>serendipity_event_randomblogdescription/lang_en.inc.php</file>
     <file>serendipity_event_randomblogdescription/serendipity_event_randomblogdescription.php</file>
+    <file>serendipity_event_randomblogdescription/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
 <package version="1.0">
 <name>serendipity_event_realtimecomments</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_realtimecomments/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Realtime Comments</summary>
 <groups>FRONTEND_VIEWS</groups>
 <description>Load comments made from other users without reloading the page.</description>
 <maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.1.3</version>
+  <version>0.1.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_realtimecomments">
 <dir name="UTF-8">
@@ -8430,6 +8585,7 @@
 <file>lang_en.inc.php</file>
 <file>rtcomments.js</file>
 <file>serendipity_event_realtimecomments.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -8444,6 +8600,7 @@
     <file>serendipity_event_realtimecomments/lang_en.inc.php</file>
     <file>serendipity_event_realtimecomments/rtcomments.js</file>
     <file>serendipity_event_realtimecomments/serendipity_event_realtimecomments.php</file>
+    <file>serendipity_event_realtimecomments/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -8456,9 +8613,9 @@
 <description>Enabling a recaptcha for commenting articles (You need to apply for a key)</description>
 <maintainers><maintainer><name>Christian Brabandt (based on work of Garvin Hicking, Sebastian Nohn)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.20.3</version>
+  <version>0.20.4</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2018-03-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_recaptcha">
 <dir name="UTF-8">
@@ -8566,9 +8723,9 @@
 <description>Вмъква връзки към подобни (свързани с тази статия) други статии или WEB страници. За постигане на гъвкавост можете да редактирате файл &quot;plugin_relatedlinks.tpl&quot; (Smarty-Template), за да настроите как да изглежда статията. Забележка: Тази приставка извежда връзките само в детайлен / пълен вид на статията.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.8.2</version>
+  <version>1.8.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_relatedlinks">
 <dir name="UTF-8">
@@ -8710,9 +8867,9 @@
 <description>Shrinks Sidebars to just their titles.  Extra configuration in Entries -&gt; Manage Sidebars in the Admin Suite.</description>
 <maintainers><maintainer><name>Tys von Gaza, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.25.1</version>
+  <version>1.25.2</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_sidebarhider">
 <dir name="UTF-8">
@@ -8806,9 +8963,9 @@
 <description>Use a SMTP server to send your mails</description>
 <maintainers><maintainer><name>kleinerChemiker</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.12</version>
+  <version>0.12.1</version>
   <requirements:s9yVersion>1.3</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_smtpmail">
 <dir name="UTF-8">
@@ -8877,9 +9034,9 @@
 <description>Show social share buttons for services like Facebook and Twitter using shariff.</description>
 <maintainers><maintainer><name>onli, Matthias Mees, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.14.1</version>
+  <version>0.15.0</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2020-04-19</date>
+  <date>2025-01-18</date>
   <filelist>
 <dir name="serendipity_event_social">
 <dir name="UTF-8">
@@ -8936,9 +9093,9 @@
 <description>Detects Spam via an algorithmus which learns.</description>
 <maintainers><maintainer><name>kleinerChemiker,  Malte Paskuda, based upon b8 by Tobias Leupold</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.5.5</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-18</date>
+  <version>1.1.8</version>
+  <requirements:s9yVersion>2.1</requirements:s9yVersion>
+  <date>2025-01-06</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bayes">
 <dir name="UTF-8">
@@ -8948,38 +9105,38 @@
 <file>lang_en.inc.php</file>
 </dir>
 <dir name="admin">
-<file>serendipity_event_spamblock_bayes.css</file>
 </dir>
 <dir name="img">
 <file>spamblock_bayes.load.gif</file>
 <file>spamblock_bayes.spam.png</file>
 </dir>
 <file>ChangeLog</file>
-<file>bayesAnalysis.tpl</file>
-<file>bayesAnalysismenu.tpl</file>
-<file>bayesDBmenu.tpl</file>
-<file>bayesImportmenu.tpl</file>
-<file>bayesLearnmenu.tpl</file>
-<file>bayesNavigation.tpl</file>
 <file>bayesRecyclermenu.tpl</file>
 <file>bayes_commentlist.js</file>
 <file>credit.txt</file>
-<file>details.polyfill.min.js</file>
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
 <file>documentation_de.html</file>
-<file>jquery.excerpt.js</file>
-<file>jquery.heatcolor.js</file>
-<file>jquery.tablesorter.js</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
-<file>load.gif</file>
-<file>publicTrojaKey.pem</file>
-<file>serendipity_event_spamblock_bayes.css</file>
-<file>serendipity_event_spamblock_bayes.js</file>
 <file>serendipity_event_spamblock_bayes.php</file>
+<dir name="b8">
+<dir name="degenerator">
+<file>standard.php</file>
+</dir>
+<dir name="lexer">
+<file>standard.php</file>
+</dir>
+<dir name="storage">
+<file>dba.php</file>
+<file>mysql.php</file>
+<file>sqlite.php</file>
+<file>storage_base.php</file>
+</dir>
+<file>b8.php</file>
+</dir>
 </dir>
 
   </filelist>
@@ -8988,35 +9145,27 @@
     <file>serendipity_event_spamblock_bayes/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_spamblock_bayes/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_spamblock_bayes/UTF-8/lang_en.inc.php</file>
-    <file>serendipity_event_spamblock_bayes/admin/serendipity_event_spamblock_bayes.css</file>
     <file>serendipity_event_spamblock_bayes/img/spamblock_bayes.load.gif</file>
     <file>serendipity_event_spamblock_bayes/img/spamblock_bayes.spam.png</file>
     <file>serendipity_event_spamblock_bayes/ChangeLog</file>
-    <file>serendipity_event_spamblock_bayes/bayesAnalysis.tpl</file>
-    <file>serendipity_event_spamblock_bayes/bayesAnalysismenu.tpl</file>
-    <file>serendipity_event_spamblock_bayes/bayesDBmenu.tpl</file>
-    <file>serendipity_event_spamblock_bayes/bayesImportmenu.tpl</file>
-    <file>serendipity_event_spamblock_bayes/bayesLearnmenu.tpl</file>
-    <file>serendipity_event_spamblock_bayes/bayesNavigation.tpl</file>
     <file>serendipity_event_spamblock_bayes/bayesRecyclermenu.tpl</file>
     <file>serendipity_event_spamblock_bayes/bayes_commentlist.js</file>
     <file>serendipity_event_spamblock_bayes/credit.txt</file>
-    <file>serendipity_event_spamblock_bayes/details.polyfill.min.js</file>
     <file>serendipity_event_spamblock_bayes/documentation_cs.html</file>
     <file>serendipity_event_spamblock_bayes/documentation_cz.html</file>
     <file>serendipity_event_spamblock_bayes/documentation_de.html</file>
-    <file>serendipity_event_spamblock_bayes/jquery.excerpt.js</file>
-    <file>serendipity_event_spamblock_bayes/jquery.heatcolor.js</file>
-    <file>serendipity_event_spamblock_bayes/jquery.tablesorter.js</file>
     <file>serendipity_event_spamblock_bayes/lang_cs.inc.php</file>
     <file>serendipity_event_spamblock_bayes/lang_cz.inc.php</file>
     <file>serendipity_event_spamblock_bayes/lang_de.inc.php</file>
     <file>serendipity_event_spamblock_bayes/lang_en.inc.php</file>
-    <file>serendipity_event_spamblock_bayes/load.gif</file>
-    <file>serendipity_event_spamblock_bayes/publicTrojaKey.pem</file>
-    <file>serendipity_event_spamblock_bayes/serendipity_event_spamblock_bayes.css</file>
-    <file>serendipity_event_spamblock_bayes/serendipity_event_spamblock_bayes.js</file>
     <file>serendipity_event_spamblock_bayes/serendipity_event_spamblock_bayes.php</file>
+    <file>serendipity_event_spamblock_bayes/b8/degenerator/standard.php</file>
+    <file>serendipity_event_spamblock_bayes/b8/lexer/standard.php</file>
+    <file>serendipity_event_spamblock_bayes/b8/storage/dba.php</file>
+    <file>serendipity_event_spamblock_bayes/b8/storage/mysql.php</file>
+    <file>serendipity_event_spamblock_bayes/b8/storage/sqlite.php</file>
+    <file>serendipity_event_spamblock_bayes/b8/storage/storage_base.php</file>
+    <file>serendipity_event_spamblock_bayes/b8/b8.php</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -9029,9 +9178,9 @@
 <description>Implements simple comment antispam mechanisms, that are easy to configure but very effective.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Janek Bevendorff</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.3.1</version>
+  <version>1.3.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_spamblock_bee">
 <dir name="UTF-8">
@@ -9080,9 +9229,9 @@
 <description>Will reject comments made from hosts which are listed in RBLs. Pay attention that this may affect proxy-users or dial-up users.</description>
 <maintainers><maintainer><name>Sebastian Nohn</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5.1</version>
+  <version>1.5.2</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_spamblock_rbl">
 <dir name="UTF-8">
@@ -9127,9 +9276,9 @@
 <description>Reject comments that contain blacklisted URLs</description>
 <maintainers><maintainer><name>Sebastian Nohn</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.2</version>
+  <version>1.2.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_spamblock_surbl">
 <dir name="UTF-8">
@@ -9172,9 +9321,9 @@
 <description>Allows you to show only one category on the frontpage</description>
 <maintainers><maintainer><name>Stefan Willoughby, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.11</version>
+  <version>1.11.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_startcat">
 <dir name="UTF-8">
@@ -9213,9 +9362,9 @@
 <description>Показва статични страници във вашия блог използвайки общия дизайн на блога. Добавя нова команда към административното меню.</description>
 <maintainers><maintainer><name>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>4.15.4</version>
+  <version>4.15.9</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2020-05-28</date>
+  <date>2023-09-05</date>
   <filelist>
 <dir name="serendipity_event_staticpage">
 <dir name="UTF-8">
@@ -9354,9 +9503,9 @@
 <description>Добавя връзка към интересни статистически данни в страницата на постингите, включително и брояч на посетителите</description>
 <maintainers><maintainer><name>Arnan de Gans, Garvin Hicking, Fredrik Sandberg, kalkin, Matthias Mees, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.65</version>
+  <version>1.66.1</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2018-04-05</date>
+  <date>2023-02-07</date>
   <filelist>
 <dir name="serendipity_event_statistics">
 <dir name="UTF-8">
@@ -9459,9 +9608,9 @@
 <description>Дава възможност на нерегистрирани автори да предлагат статии за публикуване.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.11.3</version>
+  <version>0.11.4</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_suggest">
 <dir name="UTF-8">
@@ -9512,9 +9661,9 @@
 <description>Edit the files of the currently used template directly form the adminarea.</description>
 <maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.8.1</version>
+  <version>0.8.2</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2021-06-07</date>
   <filelist>
 <dir name="serendipity_event_template_editor">
 <dir name="UTF-8">
@@ -9617,9 +9766,9 @@
 <description>Вгражда рекламни банери в страниците на блога.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.13</version>
+  <version>0.13.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_textlinkads">
 <dir name="UTF-8">
@@ -9752,9 +9901,9 @@
 <description>Shows a thumbnail page. Address is index.php?serendipity[page]=thumbs</description>
 <maintainers><maintainer><name>Cameron MacFarland</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4.1</version>
+  <version>1.4.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2014-11-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_thumbnails">
 <dir name="UTF-8">
@@ -9866,9 +10015,9 @@
 <description>Поддържа списък от проекти и степента на изпълнението им.</description>
 <maintainers><maintainer><name>Steven Tonnesen, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.25.1</version>
+  <version>1.25.3</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2017-04-10</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_todolist">
 <dir name="UTF-8">
@@ -10033,9 +10182,9 @@
 <description>Activate Tooltips Text and Images.</description>
 <maintainers><maintainer><name>Enrico Stahn</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6</version>
+  <version>1.6.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2015-02-04</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_tooltips">
 <dir name="UTF-8">
@@ -10102,9 +10251,9 @@
 <description>Позволява подробен контрол върху проследяванията при създаване на статии</description>
 <maintainers><maintainer><name>Garvin Hicking, Malte Paskuda, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.20</version>
+  <version>1.20.1</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2020-04-19</date>
+  <date>2021-06-07</date>
   <filelist>
 <dir name="serendipity_event_trackback">
 <dir name="UTF-8">
@@ -10239,9 +10388,9 @@
 <description>Adds buttons for various encoded typeset entities and other extended actions.</description>
 <maintainers><maintainer><name>Matthew Groeninger, Malte Diers, Matthias Gutjahr</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.23</version>
+  <version>0.23.1</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2018-08-06</date>
+  <date>2021-09-13</date>
   <filelist>
 <dir name="serendipity_event_typesetbuttons">
 <dir name="UTF-8">
@@ -10335,15 +10484,16 @@
 </package>
 <package version="1.0">
 <name>serendipity_event_typoquote</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_typoquote/ChangeLog</changelog>
 <license>GPL</license>
 <summary>Форматиране на текст: Кавички</summary>
 <groups>MARKUP</groups>
 <description>Преобразува правите кавички в наклонени.</description>
 <maintainers><maintainer><name>Jonathan Spalink and Matthew Groeninger</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.5</version>
+  <version>1.5.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2013-08-12</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_typoquote">
 <dir name="UTF-8">
@@ -10360,6 +10510,7 @@
 <file>lang_en.inc.php</file>
 <file>serendipity_event_typoquote.php</file>
 <file>smartypants.php</file>
+<file>ChangeLog</file>
 </dir>
 
   </filelist>
@@ -10376,6 +10527,7 @@
     <file>serendipity_event_typoquote/lang_en.inc.php</file>
     <file>serendipity_event_typoquote/serendipity_event_typoquote.php</file>
     <file>serendipity_event_typoquote/smartypants.php</file>
+    <file>serendipity_event_typoquote/ChangeLog</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -10388,9 +10540,9 @@
 <description>Allows to insert HTML tags in comments (instead of stripping the tags, they are now converted to entities). Needs to be first of all markup plugins in the event queue!</description>
 <maintainers><maintainer><name>Garvin Hicking, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.4.1</version>
+  <version>1.4.2</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2020-04-30</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_unstrip_tags">
 <dir name="UTF-8">
@@ -10429,9 +10581,9 @@
 <description>Allows anonymous users to view Serendipity media gallery</description>
 <maintainers><maintainer><name>Arnan de Gans, Matthew Groeninger, and Stefan Willoughby, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.68</version>
+  <version>2.68.1</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2023-01-30</date>
   <filelist>
 <dir name="serendipity_event_usergallery">
 <dir name="JPEG_TOOLKIT">
@@ -10538,9 +10690,9 @@
 <description>Показва профил на автора с възможност за вграждане на негова снимка.</description>
 <maintainers><maintainer><name>Garvin Hicking, Falk Doering</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.31.2</version>
+  <version>0.31.3</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2020-03-29</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_userprofiles">
 <dir name="UTF-8">
@@ -10599,9 +10751,9 @@
 <description>Съхранява версии на статиите и може да възстановява стари версии при необходимост.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.11.2</version>
+  <version>0.11.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2017-01-09</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_versioning">
 <dir name="UTF-8">
@@ -10644,9 +10796,9 @@
 <description>Integrate VG Wort counters into your blog.</description>
 <maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.4.1</version>
+  <version>0.4.3</version>
   <requirements:s9yVersion>2.2.1</requirements:s9yVersion>
-  <date>2019-08-18</date>
+  <date>2020-09-24</date>
   <filelist>
 <dir name="serendipity_event_vgwort">
 <dir name="UTF-8">
@@ -10766,9 +10918,9 @@
 <description>Можете да поставяте нови/съществуващи връзки към вашите статии чрез [[title]], към статични страници чрез ((title)) и връзки към двете чрез {{title}}.</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.25.2</version>
+  <version>0.25.3</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2017-04-10</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_wikilinks">
 <dir name="UTF-8">
@@ -10821,9 +10973,9 @@
 <description>Wraps another page in an IFRAME to be displayed in the body</description>
 <maintainers><maintainer><name>Rob Antonishen, Ian (Timbalu)</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.11</version>
+  <version>0.11.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_wrapurl">
 <dir name="UTF-8">
@@ -10862,9 +11014,9 @@
 <description>Allows to post/edit entries via the XML-RPC API (MT, Blogger, WordPress Endpoints)</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.60.1</version>
+  <version>1.60.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-02-11</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_xmlrpc">
 <dir name="PEAR">
@@ -10925,9 +11077,9 @@
 <description>This plugin can specify, which authors on a multi-user blog you have enough trust in and do not expect hacking attempts. All other users are treated as possibly evil and cannot create HTML entries.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.7</version>
+  <version>0.7.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2017-03-06</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_xsstrust">
 <dir name="UTF-8">
@@ -11292,9 +11444,9 @@
 <description>Offers more buttons to the editing screen to implement easy access to HTML/JS snippets like Youtube etc.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6</version>
+  <version>1.6.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-08-17</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_event_youtube">
 <dir name="UTF-8">
@@ -11333,9 +11485,9 @@
 <description>Allows blog visitors to create their own author account. Together with the Event-plugin (index.php?serendipity[subpage]=adduser) you can choose whether only registered users may post comments.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.38.3</version>
+  <version>2.38.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2019-04-27</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_adduser">
 <dir name="UTF-8">
@@ -11394,9 +11546,9 @@
 <description>This plugin is an extension to the flickr Photostream sidebar plugin and adds style information (CSS).</description>
 <maintainers><maintainer><name>Michael Kaiser</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.05</version>
+  <version>1.05.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2012-06-14</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_flickr">
 <dir name="UTF-8">
@@ -11489,9 +11641,9 @@
 <description>Maintains your votings / polls</description>
 <maintainers><maintainer><name>Garvin Hicking, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.17</version>
+  <version>2.17.1</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-04-03</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_pollbox">
 <dir name="UTF-8">
@@ -11542,9 +11694,9 @@
 <description>Adds a twitter/identica client to the admininistration interface, searches for tweetbacks and announces new articles to a microblogging account.</description>
 <maintainers><maintainer><name>Grischa Brockhaus, Peter Heimann</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.70</version>
+  <version>1.70.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2018-04-03</date>
+  <date>2021-07-13</date>
   <filelist>
 <dir name="serendipity_plugin_twitter">
 <dir name="UTF-8">

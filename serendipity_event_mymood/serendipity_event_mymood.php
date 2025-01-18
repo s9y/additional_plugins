@@ -5,13 +5,7 @@ if (IN_serendipity !== true) {
 }
 
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include_once dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 #mood list.
 #i apologize for the pain this list may cause.
@@ -56,7 +50,7 @@ class serendipity_event_mymood extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '0.12.1');
+        $propbag->add('version',       '0.12.2');
         $propbag->add('author',       'Brett Profitt, Matthias Mees');
         $propbag->add('stackable',     false);
         $propbag->add('event_hooks',   array(

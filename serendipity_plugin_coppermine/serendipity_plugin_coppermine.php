@@ -8,13 +8,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include_once dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_plugin_coppermine extends serendipity_plugin
 {
@@ -30,7 +24,7 @@ class serendipity_plugin_coppermine extends serendipity_plugin
 
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Matthew Maude');
-        $propbag->add('version',       '1.4');
+        $propbag->add('version',       '1.4.1');
         $propbag->add('requirements',  array('serendipity' => '0.8'));
         $propbag->add('groups', array('IMAGES'));
 		$propbag->add('configuration', array('cm_server','cm_prefix','cm_path','cm_title','cm_db','cm_user','cm_pass','cm_size','cm_count','cm_type','cm_plugin_title','cm_albumlink','cm_album','cm_gallerypath','cm_resolve'));

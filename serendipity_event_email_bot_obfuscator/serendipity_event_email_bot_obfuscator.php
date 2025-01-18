@@ -5,13 +5,7 @@ if (IN_serendipity !== true) {
 }
 
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_email_bot_obfuscator extends serendipity_event
 {
@@ -25,7 +19,7 @@ class serendipity_event_email_bot_obfuscator extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_EMAIL_BOT_OBFUSCATOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Stephan Manske, Ian');
-        $propbag->add('version',       '1.03');
+        $propbag->add('version',       '1.03.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',

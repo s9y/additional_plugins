@@ -5,13 +5,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_plugin_timezones extends serendipity_plugin {
     var $title = PLUGIN_TIMEZONES_TITLE;
@@ -24,7 +18,7 @@ class serendipity_plugin_timezones extends serendipity_plugin {
                             'zone4_text', 'zone4_name', 'zone4_format', 'timeshift4'));
         $propbag->add('author',         'Christoph Eunicke <s9y-plugin@eunicke.org>');
         $propbag->add('stackable',      true);
-        $propbag->add('version',        '0.6');
+        $propbag->add('version',        '0.6.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',

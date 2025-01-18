@@ -14,7 +14,7 @@ TODO:
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
-@define('PLUGIN_EVENT_MOBILE_VERSION','1.04.2');
+@define('PLUGIN_EVENT_MOBILE_VERSION','1.04.3');
 @define('PLUGIN_EVENT_MOBILE_AUTHORS','Pelle Boese, Grischa Brockhaus');
 
 @define('PLUGIN_EVENT_MOBILE_TPL_IPHONE','iphone.app');
@@ -35,13 +35,7 @@ if(file_exists($template)) {
     die('Missing required file template.class.php');
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_mobile_output extends serendipity_event
 {

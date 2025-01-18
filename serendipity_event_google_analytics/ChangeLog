@@ -1,3 +1,13 @@
+2.0.1:
+-----
+# Fix link tracking functionality
+
+2.0.0:
+-----
+# Re-did the plugin to support GA4 and drop support to any obsoleted Google APIs
+# Made a mess with DE, CZ and CS translations
+
+1.4.4: Hotfixes for PHP 8 (surrim)
 1.4.3: Remove hyperlink from author field.
 1.4.2: Added legal gdpr/dsgvo info
 

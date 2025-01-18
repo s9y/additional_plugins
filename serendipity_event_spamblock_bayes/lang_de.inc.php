@@ -67,4 +67,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RATING', 'Bewertung');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_EMPTY_ALL', 'Papierkorb komplett leeren');
 @define('PLUGIN_EVENT_SPAMBLOCK_BAYES_RECYCLER_EMPTY_ALL_DESC', 'Lösche alle Kommentare im Papierkorb, nicht nur die auf der momentanen Seite.');
+@define('PLUGIN_EVENT_SPAMBLOCK_METHOD_DESC', 'Ab einer Spambewertung von 80% werden Kommentare moderiert oder abgewiesen.');
+
+
 ?>

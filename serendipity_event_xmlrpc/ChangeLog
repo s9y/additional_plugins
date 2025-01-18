@@ -1,4 +1,6 @@
-# 
+Version 1.60.2:
+    * Hotfixes for PHP 8 (surrim)
+
 Version 1.60:
     * Added stub wp.getProfile dummy API function
 

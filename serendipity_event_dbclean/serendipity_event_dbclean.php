@@ -4,14 +4,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_dbclean extends serendipity_event {
     var $title = PLUGIN_EVENT_DBCLEAN_NAME;
@@ -24,7 +17,7 @@ class serendipity_event_dbclean extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_DBCLEAN_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda, Matthias Mees');
-        $propbag->add('version',       '0.2.9');
+        $propbag->add('version',       '0.2.10');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8'
         ));
@@ -185,27 +178,29 @@ class serendipity_event_dbclean extends serendipity_event {
     function cleanDB($table, $days) {
         global $serendipity;
         set_time_limit(0);
-        if($table=='visitors') {
-            $sql = "DELETE
-                FROM {$serendipity['dbPrefix']}visitors
-                WHERE unix_timestamp(concat(day,' ',time)) <" . (time() - ($days*24*60*60));
-            serendipity_db_query($sql);
-        } else if ($table =='referrers') {
-             $sql = "DELETE
-                    FROM {$serendipity['dbPrefix']}$table
-                    WHERE day <" . (time() - ($days*24*60*60));
-            serendipity_db_query($sql);
-        } else if ($table =='exits') {
-             $sql = "DELETE
-                    FROM {$serendipity['dbPrefix']}$table
-                    WHERE day < '" . date( 'Y-m-d', (time() - ($days*24*60*60))) ."'";
-            serendipity_db_query($sql);
-        } else {
-            $sql = "DELETE
-                    FROM {$serendipity['dbPrefix']}$table
-                    WHERE timestamp < " . (time() - ($days*24*60*60));
-            serendipity_db_query($sql);
-        }
+        try {
+            if($table=='visitors') {
+                $sql = "DELETE
+                    FROM {$serendipity['dbPrefix']}visitors
+                    WHERE unix_timestamp(concat(day,' ',time)) <" . (time() - ($days*24*60*60));
+                serendipity_db_query($sql);
+            } else if ($table =='referrers') {
+                 $sql = "DELETE
+                        FROM {$serendipity['dbPrefix']}$table
+                        WHERE day <" . (time() - ($days*24*60*60));
+                serendipity_db_query($sql);
+            } else if ($table =='exits') {
+                 $sql = "DELETE
+                        FROM {$serendipity['dbPrefix']}$table
+                        WHERE day < '" . date( 'Y-m-d', (time() - ($days*24*60*60))) ."'";
+                serendipity_db_query($sql);
+            } else {
+                $sql = "DELETE
+                        FROM {$serendipity['dbPrefix']}$table
+                        WHERE timestamp < " . (time() - ($days*24*60*60));
+                serendipity_db_query($sql);
+            }
+        } catch (Exception $e) { }
 
         switch($serendipity['dbType']) {
             case 'sqlite':
@@ -226,7 +221,9 @@ class serendipity_event_dbclean extends serendipity_event {
             case 'mysqli':
                 $sql = "OPTIMIZE TABLE
                         {$serendipity['dbPrefix']}$table";
-                serendipity_db_query($sql);
+                try {
+                    serendipity_db_query($sql);
+                } catch (Exception $e) { }
                 break;
         }
 
@@ -318,7 +315,10 @@ class serendipity_event_dbclean extends serendipity_event {
                         WHERE timestamp < $timespan";
             }
         }
-        $count = serendipity_db_query($sql);
+        $count = 0;
+        try {
+            $count = serendipity_db_query($sql);
+        } catch (Exception $e) { }
         if(is_array($count)) {
             if (is_array($count[0])) {
                 return $count[0][0];

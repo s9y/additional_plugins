@@ -1,3 +1,7 @@
+2.35.1 & 1.15.1 (sidebar):
+      * PHP 8 compatibility fixes
+      * Fix sidebar change not changing language in 2.4.
+        
 2.35: assign lang stripped blogTitle in genpage hook (empty search was not covered)
 2.34: Added legal gdpr/dsgvo info
 2.33: Iconfont a11y fix (yellowled)

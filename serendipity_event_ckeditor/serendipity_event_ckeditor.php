@@ -184,7 +184,7 @@ class serendipity_event_ckeditor extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_CKEDITOR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Rustam Abdullaev, Ian');
-        $propbag->add('version',       '4.5.10.5'); // is CKEDITOR Series 4.5.10 - and appended plugin revision .5
+        $propbag->add('version',       '4.5.10.6'); // is CKEDITOR Series 4.5.10 - and appended plugin revision .5
         $propbag->add('copyright',     'GPL or LGPL License');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
@@ -506,7 +506,7 @@ if ($headcss) {
                             $_locale = trim(isset($slocale) ? $slocale : $locale[0]); // set the current lang locale as string
                             if (!empty($_locale)) {
                                 $flocale = explode('.', $_locale); // $flocale array is the first defined 4-letter lang locale, eg "de_DE".
-                                if ($flocale[0] == 'nl_BE') $flocale[0] = 'nl_NL'; // case locale Nederlands / België set back to Dutch (Netherlands)
+                                if ($flocale[0] == 'nl_BE') $flocale[0] = 'nl_NL'; // case locale Nederlands / Belgium set back to Dutch (Netherlands)
                                 if ($flocale[0] == 'sv_SV') $flocale[0] = 'sv_SE'; // case Swedish set back to Swedish (Sweden)
                             }
                         }

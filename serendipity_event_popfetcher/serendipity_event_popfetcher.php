@@ -12,7 +12,7 @@ require_once('tmobile.php');
 require_once('o2.php');
 
 // Default values
-define('POPFETCHER_VERSION',  '1.49');       // This version of Popfetcher
+define('POPFETCHER_VERSION',  '1.49.1');       // This version of Popfetcher
 define('DEFAULT_ADMINMENU',   'true');       // True if run as sidebar plugin. False if external plugin.
 define('DEFAULT_HIDENAME',    'popfetcher'); // User should set this to something unguessable
 define('DEFAULT_MAILSERVER',  '');
@@ -33,13 +33,7 @@ if (IN_serendipity !== true) {
 }
 
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-require_once(dirname(__FILE__). '/lang_en.inc.php');
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_popfetcher extends serendipity_event
 {

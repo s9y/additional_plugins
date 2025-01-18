@@ -1,3 +1,20 @@
+4.15.9:
+    * Avoid warnings under PHP 8.2
+    
+4.15.8: always show Blog subtitle
+
+4.15.7:
+    * Hotfixes for PHP 8 (surrim)
+
+4.15.6:
+    * PHP 8 compatibility fixes
+    * Correct fix to find pages when additional parameters are set
+
+4.15.5: Find pages when additional parameters are set.
+        Thanks to @hbarel for the patch.
+
+Sidebar plugin: 1.19.2: add missing title
+
 4.15.4: Do not die on install when using sqlite as database
 
 4.15.3: Fix smarty_getCategoryLinkByID expecting a smarty reference, 

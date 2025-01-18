@@ -4,13 +4,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 if (!function_exists("Amazon_country_code")) {
    include(dirname(__FILE__)."/Amazon_s9y_lib.php");
@@ -29,7 +23,7 @@ class serendipity_event_amazonchooser extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_AMAZONCHOOSER_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Matthew Groeninger, Ian');
-        $propbag->add('version',       '0.76');
+        $propbag->add('version',       '0.76.1');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
             'smarty'      => '2.6.7',

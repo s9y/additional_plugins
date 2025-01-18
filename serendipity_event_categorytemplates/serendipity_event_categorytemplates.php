@@ -8,13 +8,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 @define('CATEGORYTEMPLATE_DB_VERSION', 4);
 
@@ -29,7 +23,7 @@ class serendipity_event_categorytemplates extends serendipity_event
         $propbag->add('description',   PLUGIN_CATEGORYTEMPLATES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Judebert');
-        $propbag->add('version',       '0.35.1');
+        $propbag->add('version',       '0.35.3');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'php'         => '4.1.0'
@@ -786,15 +780,6 @@ class serendipity_event_categorytemplates extends serendipity_event
                             $eventData['joins'] = $cond;
                         } else {
                             $eventData['joins'] .= $cond;
-                        }
-                    }
-                    // Havings
-                    if (count($havings) > 0) {
-                        $cond = implode(' AND ', $havings);
-                        if (empty($eventData['having'])) {
-                            $eventData['having'] =  "HAVING $cond ";
-                        } else {
-                            $eventData['having'] .= " AND $cond ";
                         }
                     }
 

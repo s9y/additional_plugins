@@ -4,13 +4,17 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
-include_once dirname(__FILE__) . '/lang_en.inc.php';
+if (PHP_VERSION_ID < 70300) {
+    // Borrowed from
+    // https://github.com/symfony/polyfill/blob/6b0f6d1b248ec4adc9bb18f4a93b30cc9788713a/src/Php73/bootstrap.php#L18
+    if (!function_exists('is_countable')) {
+        function is_countable($value) {
+            return is_array($value) || $value instanceof Countable || $value instanceof ResourceBundle || $value instanceof SimpleXmlElement;
+        }
+    }
+}
 
 class serendipity_event_linktrimmer extends serendipity_event {
     var $debug;
@@ -26,7 +30,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '1.6.4');
+        $propbag->add('version',       '1.6.6');
         $propbag->add('author',        'Garvin Hicking, Ian');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array('prefix', 'frontpage', 'domain'));
@@ -326,7 +330,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
                     $uri_part = $parts[0];
                     $parts = array_pop($parts);
 
-                    if (count($parts) > 1) {
+                    if (is_countable($parts) && count($parts) > 1) {
                        foreach($parts as $key => $value) {
                             $val = explode('=', $value);
                             $_REQUEST[$val[0]] = $val[1];
@@ -338,7 +342,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
 
                     if (!isset($_REQUEST['txtarea'])) {
                         $parts = explode('&', $uri_parts[1]);
-                        if (count($parts) > 1) {
+                        if (is_countable($parts) && count($parts) > 1) {
                             foreach($parts as $key => $value) {
                                  $val = explode('=', $value);
                                  $_REQUEST[$val[0]] = $val[1];

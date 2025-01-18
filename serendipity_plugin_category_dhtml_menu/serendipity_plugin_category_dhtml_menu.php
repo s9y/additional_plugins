@@ -13,13 +13,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 /**
  * Provides a DHTML tree menu of serendipity categories.
@@ -44,7 +38,7 @@ class serendipity_plugin_category_dhtml_menu extends serendipity_plugin {
             'php'         => '4.1.0'
         ));
         $propbag->add('author',      'Jackson Miller, Sebastian Bauer');
-        $propbag->add('version',     '1.12');
+        $propbag->add('version',     '1.12.1');
         $propbag->add('groups', array('FRONTEND_VIEWS'));
     }
 

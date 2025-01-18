@@ -16,7 +16,7 @@ class serendipity_event_vgwort extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_VGWORT_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda');
-        $propbag->add('version',       '0.4.1');
+        $propbag->add('version',       '0.4.3');
         $propbag->add('requirements',  array(
             'serendipity' => '2.2.1'
         ));
@@ -73,21 +73,26 @@ class serendipity_event_vgwort extends serendipity_event {
      * Import the counter codes ("Zählmarken") stored in the given CSV. Store them in the database, with an entry id if there are available entries (=that are long enough)
      * */
     function import($csv) {
-        // NOTE: We should use one of the included CSV functions. But they don't work with the format the csv file has currently
-        $csv = explode(";Zählmarke für HTML Texte;Zählmarke für HTML Texte - SSL (https://...);Zählmarke für Dokumente (erlaubte Formate: PDF, ePub);Zählmarke für Dokumente (erlaubte Formate: PDF, ePub) - SSL (https://...)", $csv);
-        $entries = $this->markableEntries();
-        foreach ($csv as $csvline) {
-            // we have to remove newlines here, because the CSV currently contains newlines where there should be none,
-            // which trips up the selection via array indexes selection below
-            $csvline = str_replace(array("\n", "\r"), '', $csvline);
-            $csvline = explode(';', $csvline);
-            if (strpos($csvline[1], 'img') !== false) {
-                preg_match('@.*/na/(.*?)"@', $csvline[1], $counterPublic);
-                $counterPublic = $counterPublic[1];
-                $counterPrivate = $csvline[6];
-                $entryId = array_pop($entries);
-                $this->storeCounter($entryId, $counterPublic, $counterPrivate);
+        // NOTE: We should use one of the included CSV functions. But they don't work with the format the csv file has currently, since it is batshit crazy
+        $publicCounters = [];
+        $privateCounters = [];
+
+        $csv_split = explode("\n", $csv);
+        foreach ($csv_split as $line) {
+            preg_match('@https.*/na/(.*?)"@', $line, $counterPublic);
+            if ($counterPublic[1]) {
+                $publicCounters[] = $counterPublic[1];
             }
+            preg_match('@;Privater Identifikationscode:;([^;]*);?@', $line, $counterPrivate);
+            if ($counterPrivate) {
+                $privateCounters[] = $counterPrivate[1];
+            }
+        }
+        
+        $entries = $this->markableEntries();
+        for ($i=0; $i<count($publicCounters); $i++) {        
+            $entryId = array_pop($entries);
+            $this->storeCounter($entryId, $publicCounters[$i], $privateCounters[$i]);
         }
     }
 
@@ -114,7 +119,7 @@ class serendipity_event_vgwort extends serendipity_event {
     }
 
     /**
-     * Store a new triple of entry_id, public and private counter
+     * Store a new triple of entry_id, public and private counter. If entry_id is null the counters are seen as unused
      * */
     function storeCounter($entry_id, $public, $private) {
         global $serendipity;

@@ -5,13 +5,8 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
-include dirname(__FILE__) . '/lang_en.inc.php';
 require_once dirname(__FILE__) . '/DbSpice.class.php';
 require_once dirname(__FILE__) . '/json/json.php4.include.php';
 
@@ -34,7 +29,7 @@ class serendipity_event_commentspice extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.10');
+        $propbag->add('version',       '1.10.1');
 
         $propbag->add('event_hooks',    array(
             'entry_display' => true,

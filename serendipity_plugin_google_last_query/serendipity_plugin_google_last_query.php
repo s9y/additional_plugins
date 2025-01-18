@@ -8,13 +8,8 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
-include_once dirname(__FILE__) . '/lang_en.inc.php';
 include_once dirname(__FILE__) . '/engines_config.inc.php';
 
 @define ('SERENDIPITY_PLUGIN_GOOGLE_LAST_QUERY_REF', "select scheme, host, path, query, day, count from {$serendipity['dbPrefix']}referrers where ");
@@ -34,7 +29,7 @@ class serendipity_plugin_google_last_query extends serendipity_plugin {
     function introspect(&$propbag) {
         $propbag->add('name',           PLUGIN_GOOGLE_LAST_QUERY_TITLE);
         $propbag->add('description',    PLUGIN_GOOGLE_LAST_QUERY_DESC);
-        $propbag->add('version',        '1.18.1');
+        $propbag->add('version',        '1.18.2');
         $propbag->add('stackable',      true);
 
         if ($this->isVisitorsTableFilled()) {

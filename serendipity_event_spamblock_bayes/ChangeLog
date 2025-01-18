@@ -1,3 +1,44 @@
+1.1.8:
+    * Fix comments marked as spam not being deleted and added
+      to the recycler
+
+1.1.7:
+    * Avvoid warning under PHP 8.2
+
+1.1.6:
+    * Fix key collisions of b8 on MySQL (mitch)
+
+1.1.5:
+    * Update b8, to prevent a debug error when commenting
+
+1.1.4:
+    * Hotfixes for PHP 8 (surrim)
+
+1.1.3:
+    * Update b8
+    * PHP 8 compatibility fix: Set b8 class variable properly
+
+1.1.2:
+    * PHP 8 compatibility fix: Don't load language constants twice
+
+1.1.1:
+    * Set required PHP version to 7.2, b8 requires it
+    * Mention the 80% default barrier
+
+1.1:
+    * Fix creation of needed b8_wordlist table also when upgrading
+      from an older version
+    * Fix recycler table creation
+
+1.0:
+    * Update from the forked old b8 version to a current
+      version of that library
+    * Code cleanup
+    * Remove seldomly used functions and legacy code, including
+      most of the backend UI
+    * Rewrite javascript used in the backend (for marking spam
+      and ham comments) to be a minimal block of jQuery code
+
 0.5.5: Translation fixes (German).
 
 0.5.4: Fix German language constant.

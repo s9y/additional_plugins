@@ -1,3 +1,11 @@
+1.2.1:
+    * PHP 8 compatibility fix: Use language constant loading API,
+      ski[ dot files when emptying directory
+
+1.2:
+    * Drop unnecessary time-elapsed messaged and microsleep steps
+    * Stop if plugins are not current
+
 1.1.10: Repeat file integrity check for text files that were treated as binary
         files in S9y versions < 2.3
 

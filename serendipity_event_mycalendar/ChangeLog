@@ -1,3 +1,7 @@
+0.18.2 / 0.13.3: Avoid PHP exception when database table is missing
+
+0.18.1 / 0.13.2: Hotfixes for PHP 8 (surrim)
+
 0.18: Iconfont a11y fix (yellowled)
 
 0.17: Adapt backend to 2.x (yellowled)

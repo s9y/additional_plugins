@@ -10,13 +10,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include_once dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_wrapURL extends serendipity_event {
     function introspect(&$propbag) {
@@ -27,7 +21,7 @@ class serendipity_event_wrapURL extends serendipity_event {
         $propbag->add('event_hooks',  array('entries_header' => true, 'entry_display' => true, 'genpage' => true, 'frontend_generate_plugins' => true, 'css' => true));
         $propbag->add('configuration', array('headline', 'permalink', 'pagetitle', 'wrapurl', 'height', 'wrapurl_append', 'hide_sidebar'));
         $propbag->add('author', 'Rob Antonishen, Ian (Timbalu)');
-        $propbag->add('version', '0.11');
+        $propbag->add('version', '0.11.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.7',
             'smarty'      => '2.6.7',

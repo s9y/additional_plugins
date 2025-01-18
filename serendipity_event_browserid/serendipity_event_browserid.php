@@ -1,11 +1,6 @@
 <?php # 
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-include_once dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_browserid extends serendipity_event
 {
@@ -17,7 +12,7 @@ class serendipity_event_browserid extends serendipity_event
         $propbag->add('description', PLUGIN_BROWSERID_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Grischa Brockhaus, Malte Paskuda');
-        $propbag->add('version',     '2.0.1');
+        $propbag->add('version',     '2.0.2');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'php'         => '7.0'

@@ -1,3 +1,11 @@
+1.43:
+--------
+* Bugfix when using entryproperties plugin and missing JOIN
+
+1.42:
+-------
+Fix PHP8 compats
+
 1.40:
 -----
  * Fix and allow Smarty option assignement to be used in entries tpl

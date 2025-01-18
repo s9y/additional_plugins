@@ -1,3 +1,10 @@
+0.2.5
+    * Improve browser compatibility by outputting JavaScript in html body
+    * Fix error when trying to utf8 encode language constants
+
+0.2.4
+    * Hotfixes for PHP 8 (surrim)
+
 0.2.1
     * Fixed mail-option (was ignored before)
 

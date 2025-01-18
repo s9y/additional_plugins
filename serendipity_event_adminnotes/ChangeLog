@@ -1,3 +1,5 @@
+0.16.1: hotfixes for PHP 8 (surrim)
+
 0.16: Iconfont a11y fix (yellowled)
 
 0.15: Fix lang file encoding, clean up CSS (yellowled)
@@ -15,3 +17,4 @@
 0.9: Use serendipity 2.0 backend hook
 
 0.8: Added additional backend markup for 2.0 backend (yellowled)
+

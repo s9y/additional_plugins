@@ -4,13 +4,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_plugin_POPULARENTRIES extends serendipity_plugin {
     var $title = PLUGIN_POPULARENTRIES_TITLE;
@@ -27,7 +21,7 @@ class serendipity_plugin_POPULARENTRIES extends serendipity_plugin {
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.10.1');
+        $propbag->add('version',       '1.10.2');
         $propbag->add('configuration', array('title', 'sortby', 'number', 'number_from', 'category', 'commentors_hide'));
         $propbag->add('groups', array('STATISTICS'));
     }

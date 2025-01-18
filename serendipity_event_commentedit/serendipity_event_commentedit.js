@@ -4,63 +4,69 @@ var runs = 0;
 var timer = null;
 jQuery.noConflict();
 function makeEditable(commentNumber, entryid) {
-    runs++;
     //we have to prevent this function to be executed twice, but the
     //serendipity_event calling this function is executed twice
-    if (runs==2) {
-        getLanguage();
-        var commentID = 'serendipity_comment_' + commentNumber;
-        var base = cebase + 'commentedit';
-        var loadbase = base + '_load';
-        var formatted_comment = '';
-        if (getRemainingTime() != 0 ) {
-            jQuery("#"+commentID+" > .serendipity_commentBody").editable(
-                 base, {
-                 submitdata : { 'cid': commentNumber,
-                             'entry_id': entryid },
-                 name : 'comment',
-                 type    : 'textarea',
-                 tooltip   : language.edittooltip,
-                 submit  : language.editsubmit,
-                 cancel: language.editcancel,
-                 onblur : 'ignore',
-                 rows   : 5,
-                 loadurl: loadbase,
-                 loadtype: 'POST',
-                 loaddata: { 'cid': commentNumber,
-                             'entry_id': entryid }
-            });
-            markEditable(commentID);
-            msRemainingTime = getRemainingTime() * 1000;
-            timeoutFunction = "makeUneditable('"+commentID+"')"
-            window.setTimeout(timeoutFunction, msRemainingTime)      
-        }
+
+    getLanguage();
+    var commentIDSelector = 'serendipity_comment_' + commentNumber;
+    var commentID2k11Selector = 'c' + commentNumber;
+    var base = cebase + 'commentedit';
+    var loadbase = base + '_load';
+    var formatted_comment = '';
+    if (getRemainingTime() != 0 ) {
+        jQuery("#"+commentIDSelector+" > .serendipity_commentBody,#"+commentID2k11Selector+" > .serendipity_commentBody").editable(
+             base, {
+             submitdata : { 'cid': commentNumber,
+                         'entry_id': entryid },
+             name : 'comment',
+             type    : 'textarea',
+             tooltip   : language.edittooltip,
+             submit  : language.editsubmit,
+             cancel: language.editcancel,
+             onblur : 'ignore',
+             rows   : 5,
+             loadurl: loadbase,
+             loadtype: 'POST',
+             loaddata: { 'cid': commentNumber,
+                         'entry_id': entryid }
+        });
+        markEditable(commentNumber);
+        msRemainingTime = getRemainingTime() * 1000;
+        timeoutFunction = "makeUneditable('"+commentNumber+"')"
+        window.setTimeout(timeoutFunction, msRemainingTime)      
     }
+    
 }
 
-function makeUneditable(commentID) {
-    var $source = jQuery("#"+commentID+" > .serendipity_comment_source").clone();
-    var text = jQuery("#"+commentID+" > .serendipity_commentBody > * > *:input:first").val();
+function makeUneditable(commentNumber) {
+    var commentIDSelector = 'serendipity_comment_' + commentNumber;
+    var commentID2k11Selector = 'c' + commentNumber;
+    
+    var $source = jQuery("#"+commentIDSelector+" > .serendipity_comment_source,#"+commentID2k11Selector+" > footer").clone();
+    var text = jQuery("#"+commentIDSelector+" > .serendipity_commentBody > * > *:input:first,#"+commentID2k11Selector+" > .serendipity_commentBody > * > *:input:first").val();
     //text is undefined if currently the editarea wasn't displayed
     if(typeof text == 'undefined') {
-        text = jQuery("#"+commentID+" > .serendipity_commentBody").html();
+        text = jQuery("#"+commentIDSelector+" > .serendipity_commentBody,#"+commentID2k11Selector+" > .serendipity_commentBody").html();
     }
-    jQuery("#"+commentID+" > .serendipity_commentBody").fadeOut('slow').remove();
-    jQuery("#"+commentID).html('<div class="serendipity_commentBody">'+text+'</div>');
-    jQuery("#"+commentID).append($source);
+    jQuery("#"+commentIDSelector+" > .serendipity_commentBody,#"+commentID2k11Selector+" > .serendipity_commentBody").fadeOut('slow').remove();
+    jQuery("#"+commentIDSelector+",#"+commentID2k11Selector).html('<div class="serendipity_commentBody">'+text+'</div>');
+    jQuery("#"+commentIDSelector+",#"+commentID2k11Selector).append($source);
     jQuery('#commentedit').fadeOut('slow').remove()
 }
 
-function markEditable(commentID) {
+function markEditable(commentNumber) {
     var timeLeft = getRemainingTime();
-    jQuery("#"+commentID+" > .serendipity_comment_source").append(
+    var commentIDSelector = 'serendipity_comment_' + commentNumber;
+    var commentID2k11Selector = 'c' + commentNumber;
+
+    jQuery("#"+commentIDSelector+" > .serendipity_comment_source,#"+commentID2k11Selector+" > footer").append(
                                     '(<a id="commentedit">'+language.editlink+'<a>)'
                                     );
     jQuery('#commentedit').click(function() {
-        jQuery("#"+commentID+" > .serendipity_commentBody").click();
+        jQuery("#"+commentIDSelector+" > .serendipity_commentBody,#"+commentID2k11Selector+" > .serendipity_commentBody").click();
     });
     jQuery('#commentedit').css("cursor", "pointer");
-    jQuery("#"+commentID+" > .serendipity_comment_source").append(
+    jQuery("#"+commentIDSelector+" > .serendipity_comment_source,#"+commentID2k11Selector+" > footer").append(
                 '<div id="commentedit_timer">'+language.edittimer+': <span class="commentedit_timer">'+timeLeft+'</span></div>'
                 );
     //Pass timer to updateTime to get rid of performance-critical dom-traversing

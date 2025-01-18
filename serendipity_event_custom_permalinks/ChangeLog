@@ -1,3 +1,7 @@
+1.17.1: PHP8 threw an error because of an undeclared
+        const variable "UNKNOWN". changed both 
+	     appearances to the string value 'UNKNOWN'
+
 1.17: Reset message for 404 error handling which is now
       overriden
 

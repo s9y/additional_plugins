@@ -14,6 +14,7 @@ class serendipity_event_lightbox extends serendipity_event
 {
 
     var $title = PLUGIN_EVENT_LIGHTBOX_NAME;
+    var $markup_elements;
 
     // Remembers, if an image link was found in the article. If not found, nor CSS nor JS will be added to the blog header.
     var $foundImageLink = false;
@@ -25,7 +26,7 @@ class serendipity_event_lightbox extends serendipity_event
         $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_NAME);
         $propbag->add('description',    PLUGIN_EVENT_LIGHTBOX_DESC);
         $propbag->add('author',         'Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian');
-        $propbag->add('version',        '2.5.2');
+        $propbag->add('version',        '2.5.6');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'php'         => '5.3.0'
@@ -209,9 +210,9 @@ class serendipity_event_lightbox extends serendipity_event
                     }
                     // LightBox2 jQuery based - http://lokeshdhakar.com/projects/lightbox2/ - this lightbox does not allow to show :visible anchors only - it shows and counts all gallery images, if set to view galleries
                     elseif ($type == 'lightbox2jq') {
-                        if ($headcss) {
-                            echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/lightbox2-jquery/css/lightbox.css" />' . "\n";
-                        } else {
+                            if (isset($headcss) && $headcss) {
+                                echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/lightbox2-jquery/css/lightbox.css" />' . "\n";
+                            } else {
                             if (!class_exists('serendipity_event_jquery') && !$serendipity['capabilities']['jquery']) {
                                 echo '    <script type="text/javascript" src="' . $pluginDir . '/jquery-1.11.3.min.js" charset="utf-8"></script>' . "\n";
                             }
@@ -266,6 +267,9 @@ class serendipity_event_lightbox extends serendipity_event
                     break;
 
                 case 'frontend_display':
+                    if (!isset($eventData['id'])) {
+                        $eventData['id'] = 0; // TODO: PHP8 hotfix; id is not always set
+                    }
                     if ($type == 'lightbox2jq') {
                         if ($navigate == 'entry') {
                             $sub   = '<a $1 rel=$3lightbox[' . $eventData['id'] . ']$3 $2';
@@ -294,7 +298,7 @@ class serendipity_event_lightbox extends serendipity_event
 
                     foreach ($this->markup_elements as $temp) {
                         if (isset($eventData[$temp['element']]) && serendipity_db_bool($this->get_config($temp['name'], 'true')) &&
-                                !$eventData['properties']['ep_disable_markup_' . $this->instance] &&
+                                !(isset($eventData['properties']['ep_disable_markup_' . $this->instance]) && $eventData['properties']['ep_disable_markup_' . $this->instance]) &&
                                 !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
                             $element = $temp['element'];
 

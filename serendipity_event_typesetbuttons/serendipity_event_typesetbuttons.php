@@ -36,7 +36,7 @@ class serendipity_event_typesetbuttons extends serendipity_event
         $propbag->add('description', PLUGIN_EVENT_TYPESETBUTTONS_DESC);
         $propbag->add('stackable', false);
         $propbag->add('author', 'Matthew Groeninger, Malte Diers, Matthias Gutjahr');
-        $propbag->add('version', '0.23');
+        $propbag->add('version', '0.23.1');
         $propbag->add('requirements', array(
             'serendipity' => '1.7',
             'smarty'      => '2.6.7',
@@ -457,14 +457,16 @@ class serendipity_event_typesetbuttons extends serendipity_event
         $b_name = (function_exists('serendipity_specialchars') ? serendipity_specialchars($buttons[0]) : htmlspecialchars($buttons[0], ENT_COMPAT, LANG_CHARSET));
         $b_title = preg_replace('@[^a-z0-9]@i', '_', $buttons[0]);
         $b_open = str_replace(array('"', "'"), array('&quot;', "\\'"), $buttons[1]);
-        $b_close = str_replace(array('"', "'"), array('&quot;', "\\'"), $buttons[2]);
+        if (isset($buttons[2])) {
+            $b_close = str_replace(array('"', "'"), array('&quot;', "\\'"), $buttons[2]);
+        }
         require_once 'buttons/CustomButton.php';
         $button = new CustomButton($txtarea);
         $button->setIsLegacyMode($this->legacy);
         $button->setName('ins_custom_' . $b_name);
         $button->setValue($b_title);
         $button->setOpen($b_open);
-        $button->setClose($b_close);
+        $button->setClose($b_close ?? '');
         return $button->render();
     }
 }

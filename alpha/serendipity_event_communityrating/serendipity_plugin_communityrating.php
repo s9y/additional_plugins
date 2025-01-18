@@ -25,7 +25,7 @@ class serendipity_plugin_communityrating extends serendipity_plugin
         $propbag->add('description',   PLUGIN_EVENT_COMMUNITYRATING_AVGRATING_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Lewe Zipfel, Garvin Hicking');
-        $propbag->add('version',       '1.2.1');
+        $propbag->add('version',       '1.2.2');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',

@@ -104,3 +104,6 @@
 
 @define('PLUGIN_EVENT_STATISTICS_SHOW_CURRENTVISITORS', 'Show number of current visitors (aggregate past 15 minutes)');
 @define('PLUGIN_EVENT_STATISTICS_TEXT_CURRENTVISITORS', '%s visitor(s) online');
+
+@define('PLUGIN_EVENT_STATISTICS_TOP_REFERRER', 'Top Referrers');
+@define('PLUGIN_EVENT_STATISTICS_TOP_EXITS', 'Top Exits');

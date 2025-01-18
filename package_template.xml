@@ -2801,7 +2801,7 @@
 </release>
 </package>
 <package version="1.0">
-<name>CoSTa's Nature Theme v0.6 (2013-02-07)</name>
+<name>CoSTa&#039;s Nature Theme v0.6 (2013-02-07)</name>
 <template>costa-nature_theme</template>
 <license>N/A (=GPL)</license>
 <summary></summary>
@@ -4127,6 +4127,16 @@
 <file>preview.png</file>
 <file>preview_fullsize.jpg</file>
 <file>style.css</file>
+<dir name="UTF-8">
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_de.inc.php</file>
+<file>lang_en.inc.php</file>
+</dir>
+<file>lang_cs.inc.php</file>
+<file>lang_cz.inc.php</file>
+<file>lang_de.inc.php</file>
+<file>lang_en.inc.php</file>
 </dir>
 
   </filelist>
@@ -4140,6 +4150,14 @@
     <file>idea/preview.png</file>
     <file>idea/preview_fullsize.jpg</file>
     <file>idea/style.css</file>
+    <file>idea/UTF-8/lang_cs.inc.php</file>
+    <file>idea/UTF-8/lang_cz.inc.php</file>
+    <file>idea/UTF-8/lang_de.inc.php</file>
+    <file>idea/UTF-8/lang_en.inc.php</file>
+    <file>idea/lang_cs.inc.php</file>
+    <file>idea/lang_cz.inc.php</file>
+    <file>idea/lang_de.inc.php</file>
+    <file>idea/lang_en.inc.php</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -5069,7 +5087,7 @@
 <summary></summary>
 <description></description>
 <recommended></recommended>
-<maintainers><maintainer><name>Darren Hoyt, ported to s9y by Matthias 'YellowLed' Mees.</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Darren Hoyt, ported to s9y by Matthias &#039;YellowLed&#039; Mees.</name><role>lead</role></maintainer></maintainers>
 <release>
   <version>1.0</version>
   <requirements:s9yVersion>1.2</requirements:s9yVersion>

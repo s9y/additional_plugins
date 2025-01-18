@@ -1,4 +1,4 @@
-<?php # 
+<?php
 
 // Zoran Kovacevic http://www.kovacevic.nl/blog
 // Shameless copy of serendipity_event_entryproperties and serendipity_event_multilingual
@@ -8,15 +8,10 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
-include_once dirname(__FILE__) . '/lang_en.inc.php';
-include dirname(__FILE__) . '/plugin_version.inc.php';
-include dirname(__FILE__) . '/GeoTagDb.class.php';
+include_once dirname(__FILE__) . '/plugin_version.inc.php';
+include_once dirname(__FILE__) . '/GeoTagDb.class.php';
 
 @define("PLUGIN_EVENT_GEOTAG_DEBUG",FALSE);
 
@@ -354,10 +349,10 @@ class serendipity_event_geotag extends serendipity_event
                         function paste(event) {
                            if (Math.abs(this.selectionEnd - this.selectionStart) === this.value.length) {
                               const geo = event.clipboardData.getData('text/plain');
-                              const found = geo.match(/^\s*(\d+(\.\d+))\s*[ ,/]\s*(\d+(\.\d+)?)\s*$/);
+                              const found = geo.match(/^\s*([+-]?([0-9]+([.][0-9]*)?|[.][0-9]+))\s*[ ,\/]\s*([+-]?([0-9]+([.][0-9]*)?|[.][0-9]+))\s*$/);
                               if (found !== null) {
                                  this.value = found[1];
-                                 document.getElementById(this.id === "properties_geo_lat" ? "properties_geo_long" : "properties_geo_lat").value = found[3];
+                                 document.getElementById(this.id === "properties_geo_lat" ? "properties_geo_long" : "properties_geo_lat").value = found[4];
                               } else {
                                  this.value = geo;
                               }
@@ -552,34 +547,35 @@ class serendipity_event_geotag extends serendipity_event
                     return true;
 
                 case 'entry_display':
-                	// used for looping (seems unnecessary, since we use the foreach ...)
-					if (isset($eventData) && is_array($eventData)) {
-    					$i = 0;
-                    	foreach($eventData as $event) {
-    	                    // Check if geo_lat and geo_long are both set
-    	                    $props = $eventData[$i]['properties'];
-    						$geotagged = true;
-    	                    foreach($this->supported_properties AS $prop_key) {
-    	                        if (!isset($props[$prop_key])) {
-    	                            $geotagged = false;
-    	                        }
-    	                    }
-    	                    if ($geotagged) {
-    		                    if (!isset($eventData[$i]['add_footer'])) $eventData[$i]['add_footer'] = "";
-    		                    // If extended is set, it's a single article
-    		                    $singleArticle = $addData['extended'];
-    		                    $eventData[$i]['add_footer'] .= $this->getFooterImage( $eventData[$i]['title'], $props["geo_lat"], $props["geo_long"],$singleArticle);
-    	                    }
-    	                    $i++;
-
+                    // used for looping (seems unnecessary, since we use the foreach ...)
+                    if (isset($eventData) && is_array($eventData)) {
+                        foreach($eventData as $i => &$myEvent) {
+                            if ($i !== 'clean_page') {
+                                // Check if geo_lat and geo_long are both set
+                                $props = $myEvent['properties'] ?? null;
+                                $geotagged = true;
+                                foreach($this->supported_properties AS $prop_key) {
+                                    if (!isset($props[$prop_key])) {
+                                        $geotagged = false;
+                                    }
+                                }
+                                if ($geotagged) {
+                                    if (!isset($myEvent['add_footer'])) {
+                                        $myEvent['add_footer'] = "";
+                                    }
+                                    // If extended is set, it's a single article
+                                    $singleArticle = $addData['extended'];
+                                    $myEvent['add_footer'] .= $this->getFooterImage($myEvent['title'], $props["geo_lat"], $props["geo_long"],$singleArticle);
+                                }
+                            }
                         }
-                	}
+                    }
                     return true;
                 case 'frontend_header':
-                    if (!$serendipity['GET']['id'] && $serendipity['view'] != 'entry') {
+                    if (!($serendipity['GET']['id'] ?? 0) && $serendipity['view'] != 'entry') {
                         $lat = $this->get_config('hdr_default_lat');
                         $long = $this->get_config('hdr_default_long');
-                        $this->headerGeoTagging($lat,$long, $GLOBALS['serendipity']['blogTitle']);
+                        $this->headerGeoTagging($lat, $long, $GLOBALS['serendipity']['blogTitle']);
                         return true;
                     }
                     // we fetch the internal smarty object to get the current entry body
@@ -848,7 +844,7 @@ class serendipity_event_geotag extends serendipity_event
      */
     function getCacheDirectory(){
         global $serendipity;
-        if ($this->cache_dir === null) {
+        if (($this->cache_dir ?? null) === null) {
             $this->cache_dir = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/serendipity_event_geotag';
         }
         return $this->cache_dir;        

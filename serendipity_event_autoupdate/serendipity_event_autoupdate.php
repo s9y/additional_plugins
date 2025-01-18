@@ -4,13 +4,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_autoupdate extends serendipity_event {
     var $title = PLUGIN_EVENT_AUTOUPDATE_NAME;
@@ -22,7 +16,7 @@ class serendipity_event_autoupdate extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_AUTOUPDATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Ian');
-        $propbag->add('version',       '1.1.10');
+        $propbag->add('version',       '1.2.1');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'php'         => '5.2'
@@ -208,97 +202,70 @@ class serendipity_event_autoupdate extends serendipity_event {
             <article>
 EOS;
 
-                    $this->show_message('<p class="msg_notice"><span class="icon-attention" aria-hidden="true"></span>Download, verify, check, unzip, copy, remove temporary stuff for Serendipity Update: ' . $_REQUEST['serendipity']['newVersion'] . ' may take a little while...<br>Please don\'t get nervous and do not close this page while in progress!</p><hr>');
-                    $this->show_message('<p class="msg_notice" style="font-size: small;color: #999;"><span class="icon-attention" aria-hidden="true"></span>Please note: If this page ever stops with an error message during procession, you can normally just RELOAD your browser [by keyboard shortcut] to get another run. This does not do any harm to a continued upgrade.</p>');
+                    $this->show_message('<p class="msg_notice"><span class="icon-attention" aria-hidden="true"></span>Download, verify, check, unzip, copy, remove temporary stuff for Serendipity Update: ' . $_REQUEST['serendipity']['newVersion'] . ' may take a little while...</p><hr>');
                     $this->show_message('<p class="msg_notice"><span class="icon-attention" aria-hidden="true"></span>PHP max execution time set to 210 seconds</p>');
-                    $start = microtime(true);
                     if (false === ($update = $this->fetchUpdate($nv))) {
                         $this->close_page(true);
                     }
-                    usleep(3);
-                    $time = microtime(true) - $start;
-                    $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn fetchUpdate()...\n", $time); // print in readable format 1.2345
-                    $this->show_message('<p class="msg_run"><span class="icon-clock" aria-hidden="true"></span><em>'.$lmsg.'</em></p>', 'Function fetch update', 'verify the update pack');
-                    if (!empty($update)) {
-                        $start = microtime(true);
-                        if ($this->verifyUpdate($update, $nv)) {
-                            usleep(3);
-                            $time = microtime(true) - $start;
-                            $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn verifyUpdate()...\n", $time); // print in readable format 1.2345
-                            $this->show_message('<p class="msg_run"><span class="icon-clock" aria-hidden="true"></span><em>'.$lmsg.'</em></p>', 'Function verify update', 'checking write permissions');
-                            $start = microtime(true);
-                            if ($this->checkWritePermissions($update)) {
-                                usleep(3);
-                                $time = microtime(true) - $start;
-                                $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn checkWritePermissions()...\n", $time); // print in readable format 1.2345
-                                $this->show_message('<p class="msg_run"><span class="icon-clock" aria-hidden="true"></span><em>'.$lmsg.'</em></p>', 'Function check write permissions', 'unpacking the update');
-                                $start = microtime(true);
-                                $unpacked = $this->unpackUpdate($nv);
-                                usleep(3);
-                                $time = microtime(true) - $start;
-                                $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn unpackUpdate()...\n", $time); // print in readable format 1.2345
-                                $this->show_message('<p class="msg_run"><span class="icon-clock" aria-hidden="true"></span><em>'.$lmsg.'</em></p>', 'Function unpack update', 'checking integrity');
-                                if ($unpacked) {
-                                    $start = microtime(true);
-                                    $disableIntegrityChecks = $this->get_config('disable_integrity_checks', false);
-                                    if ($disableIntegrityChecks !== false || $this->checkIntegrity($nv)) {
-                                        usleep(3);
-                                        $time = microtime(true) - $start;
-                                        if ($disableIntegrityChecks !== false) {
-                                            $this->set_config('disable_integrity_checks', false); //reset config
-                                            $logmsg .= $lmsg = "fcn checkIntegrity() skipped...\nReset 'disable_integrity_checks' to false\n";
-                                        } else {
-                                            $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn checkIntegrity()...\n", $time); // print in readable format 1.2345
-                                        }
-                                        $this->show_message('<p class="msg_run"><span class="icon-clock" aria-hidden="true"></span><em>'.$lmsg.'</em></p>', 'Function check integrity', 'finally copy update');
-                                        $start = microtime(true);
-                                        $copied = $this->copyUpdate($nv);
-                                        usleep(3);
-                                        $time = microtime(true) - $start;
-                                        $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn copyUpdate()...\n", $time); // print in readable format 1.2345
-                                        $this->show_message('<p class="msg_run"><span class="icon-clock" aria-hidden="true"></span><em>'.$lmsg.'</em></p>', 'Function copy update', 'cleaning up temporary directory');
-                                        if ($copied) {
-                                            $start = microtime(true);
-                                            if (true === $this->cleanTemplatesC($nv, true) ) {
-                                                $this->show_message('<p class="msg_success"><span class="icon-ok" aria-hidden="true"></span>Cleanup download temp done!</p>');
-                                            }
-                                            usleep(3);
-                                            $time = microtime(true) - $start;
-                                            $logmsg .= $lmsg = sprintf("In %0.4d seconds run fcn cleanTemplatesC()...\n", $time); // print in readable format 1.2345
-                                            $this->show_message('<p class="msg_run"><span class="icon-clock" aria-hidden="true"></span><em>'.$lmsg.'</em></p>', 'Function cleanup templates_c', 'finish processing unit');
-                                            sleep(2);
-                                            echo '<script type="text/javascript">var el = document.getElementById("loader"); el.style.display = "none";</script>';
-                                            sleep(2);
-                                            $this->show_message('<p class="msg_notice"><span class="icon-attention" aria-hidden="true"></span><a href="'.$serendipity['serendipityHTTPPath'].'">click to start Serendipity Installer here</a>!</p>');
-                                            sleep(1);
-                                            $this->doUpdate();//$logmsg
-                                        } else {
-                                             $this->show_message('<p class="msg_error"><span class="icon-error" aria-hidden="true"></span>Copying the files for the update failed</p>');
-                                        }
-                                     } else {
-                                        $this->showChecksumErrors($nv);
-                                        echo sprintf(
-                                            '<form action="?serendipity[adminModule]=event_display&serendipity[adminAction]=update_no_integrity_checks" method="POST"><input type="hidden" name="serendipity[newVersion]" value="%s"/>%s</form>',
-                                            $nv,
-                                            $serendipity['version'][0] > 1 ? '<button type="submit">'.PLUGIN_EVENT_AUTOUPDATE_RETRY_NO_INTEGRITY_CHECKS_BUTTON.'</button>' : '<input type="submit" value="'.PLUGIN_EVENT_AUTOUPDATE_RETRY_NO_INTEGRITY_CHECKS_BUTTON.'" />'
-                                        );
-                                    }
-                                } else {
-                                    $this->show_message('<p class="msg_error"><span class="icon-error" aria-hidden="true"></span>Unpacking the update failed</p>');
-                                    if (true === $this->cleanTemplatesC($nv, false)) {
-                                        $this->show_message('<p class="msg_success"><span class="icon-ok" aria-hidden="true"></span>Cleaning up the failed unpack directory!</p>');
-                                    }
-                                    $this->show_message('<p class="msg_notice"><span class="icon-attention" aria-hidden="true"></span>Please reload this page by F5 to have another try upgrading your Blog successfully!</p>');
-                                }
+
+                    serendipity_plugin_api::hook_event('backend_plugins_upgradecount', $pluginUpdates);
+                    if (empty($pluginUpdates)) {
+                        if (!empty($update)) {
+                            if ($this->verifyUpdate($update, $nv)) {
                                 
-                            } else {
-                               $this->showNotWriteable($update);
-                               echo '<form action="?serendipity[adminModule]=event_display&serendipity[adminAction]=update" method="POST">
-                                    <input type="hidden" name="serendipity[newVersion]" value="'.$nv.'" />
-                                    <input type="submit" value="'.PLUGIN_EVENT_AUTOUPDATE_UPDATEBUTTON.'" />
-                                    </form>';
+                                if ($this->checkWritePermissions($update)) {
+                                    
+                                    $unpacked = $this->unpackUpdate($nv);
+                                    
+                                    if ($unpacked) {
+                                        $disableIntegrityChecks = $this->get_config('disable_integrity_checks', false);
+                                        if ($disableIntegrityChecks !== false || $this->checkIntegrity($nv)) {
+                                            if ($disableIntegrityChecks !== false) {
+                                                $this->set_config('disable_integrity_checks', false); //reset config
+                                                $this->show_message("fcn checkIntegrity() skipped...\nReset 'disable_integrity_checks' to false\n");
+                                            }
+                                            
+                                            $copied = $this->copyUpdate($nv);
+                                            if ($copied) {
+                                                if (true === $this->cleanTemplatesC($nv, true) ) {
+                                                    $this->show_message('<p class="msg_success"><span class="icon-ok" aria-hidden="true"></span>Cleanup download temp done!</p>');
+                                                }
+                                                sleep(2);
+                                                echo '<script type="text/javascript">var el = document.getElementById("loader"); el.style.display = "none";</script>';
+                                                sleep(2);
+                                                $this->show_message('<p class="msg_notice"><span class="icon-attention" aria-hidden="true"></span><a href="'.$serendipity['serendipityHTTPPath'].'">click to start Serendipity Installer here</a>!</p>');
+                                                sleep(1);
+                                                $this->doUpdate();//$logmsg
+                                            } else {
+                                                 $this->show_message('<p class="msg_error"><span class="icon-error" aria-hidden="true"></span>Copying the files for the update failed</p>');
+                                            }
+                                         } else {
+                                            $this->showChecksumErrors($nv);
+                                            echo sprintf(
+                                                '<form action="?serendipity[adminModule]=event_display&serendipity[adminAction]=update_no_integrity_checks" method="POST"><input type="hidden" name="serendipity[newVersion]" value="%s"/>%s</form>',
+                                                $nv,
+                                                $serendipity['version'][0] > 1 ? '<button type="submit">'.PLUGIN_EVENT_AUTOUPDATE_RETRY_NO_INTEGRITY_CHECKS_BUTTON.'</button>' : '<input type="submit" value="'.PLUGIN_EVENT_AUTOUPDATE_RETRY_NO_INTEGRITY_CHECKS_BUTTON.'" />'
+                                            );
+                                        }
+                                    } else {
+                                        $this->show_message('<p class="msg_error"><span class="icon-error" aria-hidden="true"></span>Unpacking the update failed</p>');
+                                        if (true === $this->cleanTemplatesC($nv, false)) {
+                                            $this->show_message('<p class="msg_success"><span class="icon-ok" aria-hidden="true"></span>Cleaning up the failed unpack directory!</p>');
+                                        }
+                                        $this->show_message('<p class="msg_notice"><span class="icon-attention" aria-hidden="true"></span>Please reload this page by F5 to have another try upgrading your Blog successfully!</p>');
+                                    }
+                                    
+                                } else {
+                                   $this->showNotWriteable($update);
+                                   echo '<form action="?serendipity[adminModule]=event_display&serendipity[adminAction]=update" method="POST">
+                                        <input type="hidden" name="serendipity[newVersion]" value="'.$nv.'" />
+                                        <input type="submit" value="'.PLUGIN_EVENT_AUTOUPDATE_UPDATEBUTTON.'" />
+                                        </form>';
+                                }
                             }
                         }
+                    } else {
+                        $this->show_message('<p class="msg_error"><span class="icon-error" aria-hidden="true"></span>Please update all your plugins first.</p>');
                     }
                     $this->close_page(true);
 
@@ -660,24 +627,6 @@ EOS;
 
         $msg = "Autoupdate successfully done!\\nWe now refresh to Serendipity Installer!\\n"; // escape for js
         $this->show_message('<p class="msg_success"><span class="icon-ok" aria-hidden="true"></span>Autoupdate successfully done - refresh to Serendipity Installer</p>', 'Autoupdate');
-        $this->close_page();
-
-        // this is working for me.... is it for you?
-        if (die('<script type="text/javascript">alert("'.$msg.'"); window.location = "'.$serendipity['serendipityHTTPPath'].'";</script>'."\n    </body>\n</html>")) {
-            return;
-        } else {
-            if (!headers_sent()) {
-                if (header('Location: http://' . $_SERVER['HTTP_HOST'] . $serendipity['serendipityHTTPPath'])) exit;
-            } else {
-                echo '<script type="text/javascript">';
-                echo '    window.location.href="' . $serendipity['serendipityHTTPPath'] . '"';
-                echo '</script>'."\n";
-                echo '<noscript>';
-                echo '    <meta http-equiv="refresh" content="0;url=' . $serendipity['serendipityHTTPPath'] . '" />';
-                echo '</noscript>';
-                exit;
-            }
-        }
     }
 
     /**
@@ -687,13 +636,11 @@ EOS;
     function empty_dir($dir) {
         if (!is_dir($dir)) return;
         try {
-            $_dir = new RecursiveDirectoryIterator($dir);
-            // NOTE: UnexpectedValueException thrown for PHP >= 5.3
-            } catch (Exception $e) {
-                return;
-            }
+            $_dir = new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS);
+        } catch (Exception $e) {
+            return;
+        }
         $iterator = new RecursiveIteratorIterator($_dir, RecursiveIteratorIterator::CHILD_FIRST);
-        //$iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir), RecursiveIteratorIterator::CHILD_FIRST);
         foreach ($iterator as $file) {
             if ($file->isFile()) {
                 unlink($file->__toString());
@@ -712,10 +659,6 @@ EOS;
         global $serendipity;
         $zip    = (string)$serendipity['serendipityPath'] . 'templates_c/' . "serendipity-$version.zip";
         $zipDir = (string)$serendipity['serendipityPath'] . 'templates_c/' . "serendipity-$version";
-
-        // leave rm zip untouched here as not causing any errors
-        #unlink($zip);// if (unlink($zip)) { else error note?
-        #$this->show_message('<p class="msg_success"><span class="icon-ok" aria-hidden="true"></span>Removing the zip file in templates_c done</p>');
 
         // As trying to remove a directory that php is still using, we use open/closedir($handle) to be sure
         if ($handle = opendir($zipDir)) {

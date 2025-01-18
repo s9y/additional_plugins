@@ -4,13 +4,11 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
+@serendipity_plugin_api::load_language(dirname(__FILE__));
+
+if (!defined('PLUGIN_SPAMBLOCK_BEE_VERSION')) {
+    include dirname(__FILE__) . '/version.inc.php';
 }
-include dirname(__FILE__) . '/lang_en.inc.php';
-include dirname(__FILE__) . '/version.inc.php';
 
 @define('PLUGIN_EVENT_SPAMBLOCK_BEE_DEBUG', FALSE);
 
@@ -396,7 +394,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
         if ("NORMAL" == $addData['type']) { // only supported for normal comments
 
             // Check for Honey Pot:
-            $phone = $serendipity['POST']['phone'];
+            $phone = $serendipity['POST']['phone'] ?? '';
             if ($this->useHoneyPot && (!empty($phone) || $phone == '0') ) {
                 if (mb_strlen($phone) > 40) {
                     $phone = mb_substr($phone, 0, 40) . '..';
@@ -408,7 +406,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
 
             // Check hidden Captcha
             if (PLUGIN_EVENT_SPAMBLOCK_SWTCH_OFF != $this->hiddenCaptchaHandle) {
-                $answer                  = trim(strtolower($serendipity['POST']['beecaptcha']));
+                $answer                  = trim(strtolower($serendipity['POST']['beecaptcha'] ?? ''));
                 $correctAnswer           = $this->getCaptchaAnswer();
                 $correctAnswer['answer'] = strtolower($correctAnswer['answer']);
                 $isCorrect               = false;
@@ -605,7 +603,7 @@ class serendipity_event_spamblock_bee extends serendipity_event
         global $serendipity;
 
         // Don't put extras on admin menu. They are not working there: ...or other backend forms like guestbook
-        if ((isset($eventData['GET']['action']) && $eventData['GET']['action']=='admin') || (int)$serendipity['serendipityUserlevel'] >= (int)USERLEVEL_ADMIN) return;
+        if ((isset($eventData['GET']['action']) && $eventData['GET']['action']=='admin') || (int)($serendipity['serendipityUserlevel'] ?? null) >= (int)USERLEVEL_ADMIN) return;
 
         // Honeypot
         if (serendipity_db_bool($this->useHoneyPot)) {

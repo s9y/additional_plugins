@@ -1,7 +1,14 @@
+1.1,2:
+-----
+ * Fix warnings in aricles without any properties (mitch)
+
+1.1.1:
+-----
+ * Hotfixes for PHP 8 (surrim)
+
 1.1:
 -----
  * Upgrade GeSHi to 1.0.9.0; minimal PHP version is now 7.0.
-
 
 1.0: Another fix for PHP7.2 compatibility.
 

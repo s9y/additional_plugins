@@ -11,13 +11,7 @@ if (IN_serendipity !== true) {
   * 
   */
 
-// Probe for a language include with constants. Still include defines later on, if some constants were missing
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 /* This plugin is named "_google_sitemap" for historical reasons:
  * The sitemap-protocol was originally created by Google, but was supported
@@ -30,7 +24,7 @@ class serendipity_event_google_sitemap extends serendipity_event {
         $propbag->add('name', PLUGIN_EVENT_SITEMAP_TITLE);
         $propbag->add('description', PLUGIN_EVENT_SITEMAP_DESC);
         $propbag->add('author', 'Boris');
-        $propbag->add('version', '0.61');
+        $propbag->add('version', '0.61.3');
         $propbag->add('event_hooks',  array(
                 'backend_publish' => true,
                 'backend_save'    => true,
@@ -85,7 +79,11 @@ class serendipity_event_google_sitemap extends serendipity_event {
                 $propbag->add('description', PLUGIN_EVENT_SITEMAP_TYPES_TO_ADD_DESC);
                 $propbag->add('select_values', $types);
                 $propbag->add('select_size', 6);
-                $propbag->add('default', implode(array_keys($types), '^'));
+                if (version_compare(PHP_VERSION, '8.0.0', '>=')) {
+                    $propbag->add('default', implode('^', array_keys($types)));
+                } else {
+                    $propbag->add('default', implode(array_keys($types), '^'));
+                }
                 break;
 
             case 'gnews_subscription':
@@ -533,7 +531,7 @@ class serendipity_event_google_sitemap extends serendipity_event {
             foreach($static_pages as $cur) {
                 $path_quoted = preg_quote($serendipity['serendipityHTTPPath'], '#');
                 $url = $serendipity['baseURL'] . preg_replace("#$path_quoted#", '', $cur['permalink'],1);
-                $cur_time = ($cur['timestamp']==0)? null : (int)$cur['timestamp'];
+                $cur_time = (($cur['timestamp'] ?? 0) == 0) ? null : (int)$cur['timestamp'];
                 $this->addtoxml($sitemap_xml, $url, $cur_time, 0.7);
             }
         }
@@ -609,7 +607,7 @@ class serendipity_event_google_sitemap extends serendipity_event {
         }
     }
 
-    function write_sitemap($basefilename = 'sitemap.xml', &$eventData, $gnewsmode = false) {
+    function write_sitemap($basefilename = 'sitemap.xml', &$eventData = null, $gnewsmode = false) {
         global $serendipity;
 
         $this->gnewsmode = false;

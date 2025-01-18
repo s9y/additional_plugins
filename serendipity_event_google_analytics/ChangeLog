@@ -1,3 +1,7 @@
+2.0.1:
+-----
+# Fix link tracking functionality
+
 2.0.0:
 -----
 # Re-did the plugin to support GA4 and drop support to any obsoleted Google APIs

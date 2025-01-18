@@ -24,10 +24,10 @@ class serendipity_event_commentedit extends serendipity_event
             'serendipity' => '1.5',
             'php'         => '5.2.0'
         ));
-        $propbag->add('version',       '0.2.4');
+        $propbag->add('version',       '0.2.5');
         $propbag->add('event_hooks',   array(
         	'frontend_saveComment_finish'               => true,
-        	'fetchcomments'                           => true,
+        	'frontend_display'                           => true,
         	'frontend_header'                            => true,
         	'external_plugin'                            => true
         ));
@@ -151,7 +151,7 @@ class serendipity_event_commentedit extends serendipity_event
                                             'editcancel' => ABORT_NOW
                                             );
                             //For json to work, the strings has to be utf8-encoded
-                            echo json_encode(array_map(utf8_encode, $language));
+                            echo json_encode(array_map('utf8_encode', $language));
                             break;
                     }
                     return true;
@@ -164,28 +164,23 @@ class serendipity_event_commentedit extends serendipity_event
                     return true;
                     break;
                     
-                case 'fetchcomments':
+                case 'frontend_display':
                     $postBase = false;
                     $cids = array();
-                    foreach($eventData as $comment) {
-                        if ($this->get_cached_commentid($timeout) == $comment['id']) {
-                            //we now know that the comment is from the
-                            //user and created within the last minutes, 
-                            //so add comment_id
-                            $cids[] = $comment['id'];
-                            $postBase = true;
-                        }
+                    if (! (isset($addData['from']) && $addData['from'] = 'functions_entries:printComments')) {
+                        break;
                     }
-                    
-                    if ($postBase) {
+                    $comment = $eventData;
+                    if ($this->get_cached_commentid($timeout) == $comment['id']) {
+                        $postBase = true;
+                        
                         //cebase is used for the POST of the edited
                         //comment to the external_plugin-call
                         echo '<script>var cebase = "'. $serendipity['baseURL'] .'index.php?/plugin/";</script>';
-  
-                        foreach($cids as $cid) {
-                            //add edit-ability:
-                            echo '<script>makeEditable(' . $comment['id'] . ','. $eventData['0']['entry_id'] .') </script>' . "\n";
-                        }
+                        echo '<script>jQuery(document).ready(function() {
+                            makeEditable(' . $comment['id'] . ','. $comment['entry_id'] .')
+                            });</script>' . "\n";
+                        
                     }
                     return true;
                     break;

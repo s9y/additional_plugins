@@ -1,3 +1,8 @@
+
+1.21:
+-----
+   * Add checkbox to editor area to resend trackbacks
+   
 1.20.1:
 -----
    * PHP 8 compatibility fixes

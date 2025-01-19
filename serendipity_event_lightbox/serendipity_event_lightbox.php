@@ -26,7 +26,7 @@ class serendipity_event_lightbox extends serendipity_event
         $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_NAME);
         $propbag->add('description',    PLUGIN_EVENT_LIGHTBOX_DESC);
         $propbag->add('author',         'Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian');
-        $propbag->add('version',        '2.5.6');
+        $propbag->add('version',        '2.5.7');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'php'         => '5.3.0'
@@ -197,7 +197,7 @@ class serendipity_event_lightbox extends serendipity_event
                     echo "\n";
                     // ColorBox code (https://github.com/jackmoore/colorbox) - init with :visible to ensure to not show hidden elements via hideafter function in imageselectorplus ranges
                     if ($type == 'colorbox') {
-                        if ($headcss) {
+                        if (isset($headcss) && $headcss) {
                             echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/colorbox/colorboxScreens.css" />' . "\n";
                             echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/colorbox/colorbox.css" />' . "\n";
                         } else {
@@ -223,7 +223,7 @@ class serendipity_event_lightbox extends serendipity_event
                     }
                     // Magnific-Popup code (https://github.com/dimsemenov/Magnific-Popup) - init with :visible to ensure to not show hidden elements via hideafter function in imageselectorplus ranges
                     elseif ($type == 'magnific') {
-                        if ($headcss) {
+                        if (isset($headcss) && $headcss) {
                             echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/magnific-popup/magnific-popup.css" />' . "\n";
                         } else {
                             if (!class_exists('serendipity_event_jquery') && !$serendipity['capabilities']['jquery']) {
@@ -235,7 +235,7 @@ class serendipity_event_lightbox extends serendipity_event
                     }
                     // PrettyPhoto code - http://www.no-margin-for-errors.com/projects/prettyPhoto/ - init with :visible to ensure to not show hidden elements via hideafter function in imageselectorplus ranges
                     elseif ($type == 'prettyPhoto') {
-                        if ($headcss) {
+                        if (isset($headcss) && $headcss) {
                             echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/prettyphoto/css/prettyPhoto.css" />' . "\n";
                             echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/prettyphoto/css/prettyPhotoScreens.css" />' . "\n";
                         } else {

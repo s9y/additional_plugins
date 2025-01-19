@@ -24,7 +24,7 @@ class serendipity_event_commentedit extends serendipity_event
             'serendipity' => '1.5',
             'php'         => '5.2.0'
         ));
-        $propbag->add('version',       '0.2.5');
+        $propbag->add('version',       '0.2.6');
         $propbag->add('event_hooks',   array(
         	'frontend_saveComment_finish'               => true,
         	'frontend_display'                           => true,
@@ -82,20 +82,16 @@ class serendipity_event_commentedit extends serendipity_event
         $hooks = &$bag->get('event_hooks');
 
         if (isset($hooks[$event])) {
-            if ($timeout === null) {
-                $timeout = $this->get_config('timeout', '300');
-            }
-            if ($path === null) {
-                $path = $this->get_config('path', '');
-            }
+            $timeout = $this->get_config('timeout', '300');
+            $path = $this->get_config('path', '');
+            
             if (!empty($path) && $path != 'default' && $path != 'none' && $path != 'empty') {
                 $path_defined = true;
             } else {
                 $path_defined = false;
             }
-            if ($mail == null) {
-                $mail = $this->get_config('mail', false);
-            }
+            $mail = $this->get_config('mail', false);
+            
             
             switch($event) {
                 case 'external_plugin':
@@ -206,7 +202,7 @@ class serendipity_event_commentedit extends serendipity_event
      * @param timeout time to edit in seconds
      * */
     function get_cached_commentid($timeout) {
-        if ($_SESSION['comment_made_time'] > time() - $timeout) {
+        if (isset($_SESSION['comment_made_time']) && $_SESSION['comment_made_time'] > (time() - $timeout)) {
     	    return $_SESSION['comment_made'];
         } else {
             return false;

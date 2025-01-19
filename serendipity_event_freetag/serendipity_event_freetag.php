@@ -66,7 +66,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '7.0'
         ));
-        $propbag->add('version',       '3.70.8');
+        $propbag->add('version',       '3.70.9');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -689,14 +689,14 @@ class serendipity_event_freetag extends serendipity_event
 
                 case 'frontend_display:rss-2.0:per_entry':
                 case 'frontend_display:rss-0.91:per_entry':
-                    $eventData['display_dat'] .= $this->getFeedXmlForTags('category', $eventData['properties']['freetag_tags'] ?? []);
+                    $eventData['display_dat'] = ($eventData['display_dat'] ?? '') . $this->getFeedXmlForTags('category', $eventData['properties']['freetag_tags'] ?? []);
                     return true;
 
                 case 'frontend_display:rss-1.0:per_entry':
                 case 'frontend_display:rss-0.91:per_entry':
                 case 'frontend_display:atom-0.3:per_entry':
                 case 'frontend_display:atom-1.0:per_entry':
-                    $eventData['display_dat'] .= $this->getFeedXmlForTags('dc:subject', $eventData['properties']['freetag_tags']);
+                    $eventData['display_dat'] = ($eventData['display_dat'] ?? '') . $this->getFeedXmlForTags('dc:subject', $eventData['properties']['freetag_tags']);
                     return true;
 
                 case 'external_plugin':

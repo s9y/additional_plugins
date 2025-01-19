@@ -37,10 +37,8 @@ window.addEventListener("load", () => {
 					const date = new Date(article.date * 1000);
 
 					return new ol.style.Style({
-						image: new ol.style.Circle({
-							radius: 6,
-							fill: new ol.style.Fill({color: dateToColor(date)})
-						})
+						image: new ol.style.Circle({radius: 6}),
+						fill: new ol.style.Fill({color: dateToColor(date)})
 					});
 				},
 				zIndex: Infinity

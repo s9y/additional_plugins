@@ -11,6 +11,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
     var $title = PLUGIN_EVENT_IMAGESELECTORPLUS_NAME;
     var $gotMilk = false;
     var $cache = array();
+    var $markup_elements = [];
 
     function introspect(&$propbag)
     {
@@ -153,7 +154,7 @@ class serendipity_event_imageselectorplus extends serendipity_event
     function selected() {
         global $serendipity;
 
-        if ($serendipity['GET']['subpage'] == 's9yisp') {
+        if (isset($serendipity['GET']['subpage']) && $serendipity['GET']['subpage'] == 's9yisp') {
             return true;
         }
 

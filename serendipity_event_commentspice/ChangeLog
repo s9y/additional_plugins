@@ -1,3 +1,7 @@
+1.10.2:
+-----
+    * Address some php warnings for PHP 8
+
 1.10.1:
 -----
     * Hotfixes for PHP 8 (surrim)

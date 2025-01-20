@@ -1,3 +1,7 @@
+0.2.7:
+    * Remove deprecated utf8-encode call
+    * Fix PHP warning that occured when comment was edited
+
 0.2.6
     * Fix some PHP 8 warnings
 

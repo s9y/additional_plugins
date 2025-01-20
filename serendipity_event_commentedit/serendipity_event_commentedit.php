@@ -24,7 +24,7 @@ class serendipity_event_commentedit extends serendipity_event
             'serendipity' => '1.5',
             'php'         => '5.2.0'
         ));
-        $propbag->add('version',       '0.2.6');
+        $propbag->add('version',       '0.2.7');
         $propbag->add('event_hooks',   array(
         	'frontend_saveComment_finish'               => true,
         	'frontend_display'                           => true,
@@ -118,7 +118,7 @@ class serendipity_event_commentedit extends serendipity_event
                                 $data = array('comment' => $comment);
                                 serendipity_plugin_api::hook_event('frontend_display', $data);
                                 //send mail with edit-notification to blogowner, only if normal notification is enabled and config, too
-                                if ($serendipity['mail_comments'] == 1 && $mail) {
+                                if (isset($serendipity['mail_comments']) && $serendipity['mail_comments'] == 1 && $mail) {
                                     serendipity_sendMail($serendipity['email'], 'Comment ' . $comment_id . ' edited' , 'New comment: ' . $comment, $serendipity['blogMail']);
                                 }
                                 echo $data['comment'];
@@ -147,7 +147,7 @@ class serendipity_event_commentedit extends serendipity_event
                                             'editcancel' => ABORT_NOW
                                             );
                             //For json to work, the strings has to be utf8-encoded
-                            echo json_encode(array_map('utf8_encode', $language));
+                            echo json_encode(array_map(fn($value) => mb_convert_encoding($value, 'UTF-8', LANG_CHARSET), $language));
                             break;
                     }
                     return true;

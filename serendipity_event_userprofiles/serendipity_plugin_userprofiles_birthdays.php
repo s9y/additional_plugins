@@ -8,6 +8,7 @@ if (IN_serendipity !== true) {
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_plugin_userprofiles_birthdays extends serendipity_plugin {
+    protected $dependencies = array();
 
     function introspect(&$propbag) {
         $propbag->add('name',        PLUGIN_USERPROFILES_BIRTHDAYSNAME);

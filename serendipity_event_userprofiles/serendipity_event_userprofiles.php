@@ -169,7 +169,7 @@ class serendipity_event_userprofiles extends serendipity_event {
     }
 
     function &getLocalProperties() {
-        return array(
+        $props = array(
             'realname' => array('desc' => USERCONF_REALNAME,
                                 'type' => 'string'),
             'username' => array('desc' => USERCONF_USERNAME,
@@ -177,6 +177,7 @@ class serendipity_event_userprofiles extends serendipity_event {
             'email'    => array('desc' => USERCONF_EMAIL,
                                 'type' => 'string')
         );
+        return $props;
     }
 
     function getShow($type, $user) {
@@ -315,7 +316,7 @@ class serendipity_event_userprofiles extends serendipity_event {
     function selected() {
         global $serendipity;
 
-        if ($serendipity['GET']['subpage'] == 'userprofiles') {
+        if (isset($serendipity['GET']['subpage']) && $serendipity['GET']['subpage'] == 'userprofiles') {
             return true;
         }
 
@@ -417,7 +418,7 @@ class serendipity_event_userprofiles extends serendipity_event {
                 $this->updateConfigVar($property, $profile, $user[$property], $user['authorid']);
                 $profile[$property] = $user[$property];
             } else {
-                $user[$property] = $profile[$property];
+                $user[$property] = $profile[$property] ?? null;
             }
 
             $this->showCol($property, $info, $user);
@@ -442,7 +443,7 @@ class serendipity_event_userprofiles extends serendipity_event {
                 $this->updateConfigVar($property, $profile, $user[$property], $user['authorid']);
                 $profile[$property] = $user[$property];
             } else {
-                $user[$property] = $profile[$property];
+                $user[$property] = $profile[$property] ?? null;
             }
 
             $this->showCol($property, $info, $user);
@@ -538,12 +539,19 @@ class serendipity_event_userprofiles extends serendipity_event {
                         if (!$tfile) {
                             $tfile = dirname(__FILE__) . '/plugin_userprofile.tpl';
                         }
-                        $inclusion = $serendipity['smarty']->security_settings['INCLUDE_ANY'];
-                        $serendipity['smarty']->security_settings['INCLUDE_ANY'] = true;
+                        if ($serendipity['smarty']->security_settings) {
+                            $inclusion = $serendipity['smarty']->security_settings['INCLUDE_ANY'];
+                            $serendipity['smarty']->security_settings['INCLUDE_ANY'] = true;
+                        }
                         $profile = $this->getConfigVars($serendipity['GET']['viewAuthor']);
                         $local_properties =& $this->getLocalProperties();
                         foreach($local_properties as $property => $info) {
-                            $profile[$property] = $GLOBALS['uInfo'][0][$property];
+                            if (isset($GLOBALS['uInfo'])) {
+                                $profile[$property] = $GLOBALS['uInfo'][0][$property];
+                            }
+                            else {
+                                $profile[$property] = null;
+                            }
                         }
 
                         $properties = array();
@@ -559,7 +567,9 @@ class serendipity_event_userprofiles extends serendipity_event {
                         $serendipity['smarty']->assign('userProfileTitle', PLUGIN_EVENT_USERPROFILES_SHOW);
 
                         $content = $serendipity['smarty']->fetch('file:'. $tfile);
-                        $serendipity['smarty']->security_settings['INCLUDE_ANY'] = $inclusion;
+                        if ($serendipity['smarty']->security_settings) {
+                            $serendipity['smarty']->security_settings['INCLUDE_ANY'] = $inclusion;
+                        }
 
                         echo $content;
                     }
@@ -619,6 +629,9 @@ class serendipity_event_userprofiles extends serendipity_event {
                         return true;
                     }
 
+                    if (!isset($eventData['authorid'])) {
+                        return true;
+                    }
                     if (empty($eventData['author'])) {
                         $tmp = serendipity_fetchAuthor($eventData['authorid']);
                         $author = $tmp[0]['realname'];

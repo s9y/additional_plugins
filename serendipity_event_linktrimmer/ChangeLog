@@ -1,3 +1,5 @@
+1.6.7: Fix PHP 8 warnings
+
 1.6.6: Check is_countable() before count()
 
 1.6.5: Hotfixes for PHP 8 (surrim)

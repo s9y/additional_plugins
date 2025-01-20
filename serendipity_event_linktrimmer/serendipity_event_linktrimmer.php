@@ -30,7 +30,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
             'php'         => '4.1.0'
         ));
 
-        $propbag->add('version',       '1.6.6');
+        $propbag->add('version',       '1.6.7');
         $propbag->add('author',        'Garvin Hicking, Ian');
         $propbag->add('stackable',     false);
         $propbag->add('configuration', array('prefix', 'frontpage', 'domain'));
@@ -331,16 +331,18 @@ class serendipity_event_linktrimmer extends serendipity_event {
                     $parts = array_pop($parts);
 
                     if (is_countable($parts) && count($parts) > 1) {
-                       foreach($parts as $key => $value) {
+                        foreach($parts as $key => $value) {
                             $val = explode('=', $value);
                             $_REQUEST[$val[0]] = $val[1];
-                       }
+                        }
                     } else {
-                       $val = explode('=', $parts[0]);
-                       $_REQUEST[$val[0]] = $val[1];
+                        $val = explode('=', $parts[0]);
+                        if (count($val) > 1) {
+                            $_REQUEST[$val[0]] = $val[1];
+                        }
                     }
 
-                    if (!isset($_REQUEST['txtarea'])) {
+                    if (!isset($_REQUEST['txtarea']) && count($uri_parts) > 1) {
                         $parts = explode('&', $uri_parts[1]);
                         if (is_countable($parts) && count($parts) > 1) {
                             foreach($parts as $key => $value) {
@@ -349,7 +351,9 @@ class serendipity_event_linktrimmer extends serendipity_event {
                             }
                         } else {
                             $val = explode('=', $parts[0]);
-                            $_REQUEST[$val[0]] = $val[1];
+                            if (count($val) > 1) {
+                                $_REQUEST[$val[0]] = $val[1];
+                            }
                         }
                     }
 

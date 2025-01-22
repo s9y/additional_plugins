@@ -1,0 +1,9 @@
+1.0:
+    * Proxy video preview image, so a page visit does not leak the visitors IP. Preview images
+      will be cached locally and served from there.
+
+0.2:
+    * lazy-load video preview image
+
+0.1:
+    * init

@@ -30,6 +30,7 @@ if ( !class_exists('phpFlickr') ) {
 		var $upload_endpoint = 'https://up.flickr.com/services/upload/';
 		var $replace_endpoint = 'https://up.flickr.com/services/replace/';
 		var $req;
+		var $cache_request;
 		var $response;
 		var $parsed_response;
 		var $cache = false;
@@ -43,6 +44,7 @@ if ( !class_exists('phpFlickr') ) {
 		var $error_code;
 		Var $error_msg;
 		var $token;
+		var $service;
 		var $php_version;
 		var $custom_post = null, $custom_cache_get = null, $custom_cache_set = null;
 
@@ -58,7 +60,7 @@ if ( !class_exists('phpFlickr') ) {
 		 */
 		var $max_cache_rows = 1000;
 
-		function phpFlickr ($api_key, $secret = NULL, $die_on_error = false) {
+		function __construct($api_key, $secret = NULL, $die_on_error = false) {
 			//The API Key must be set before any calls can be made.  You can
 			//get your own at https://www.flickr.com/services/api/misc.api_keys.html
 			$this->api_key = $api_key;
@@ -922,7 +924,7 @@ if ( !class_exists('phpFlickr') ) {
 		function people_findByUsername ($username) {
 			/* https://www.flickr.com/services/api/flickr.people.findByUsername.html */
 			$this->request("flickr.people.findByUsername", array("username"=>$username));
-			return $this->parsed_response ? $this->parsed_response['user'] : false;
+			return $this->parsed_response ? $this->parsed_response['user']['id'] : false;
 		}
 
 		function people_getInfo ($user_id) {

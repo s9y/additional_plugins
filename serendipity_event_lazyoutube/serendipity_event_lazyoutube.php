@@ -113,7 +113,7 @@ class serendipity_event_lazyoutube extends serendipity_event {
                         return false;
                     }
                     if ($parts[0] == 'lazyoutubefetch') {
-                        $videoid = $parts[1];
+                        $videoid =  str_replace('UNDERSCORE', '_', $parts[1]);
                         if (! $this->on_whitelist($videoid)) {
                             return false;
                         }
@@ -256,7 +256,7 @@ class serendipity_event_lazyoutube extends serendipity_event {
                             }
                             # We need to whitelist the videoid first, otherwise the proxied lookup will not work
                             $this->whitelist($videoid);
-                            $proxy_url = $serendipity['baseURL'] . $serendipity['indexFile'] . '?/' . $this->getPermaPluginPath() . '/lazyoutubefetch_' . $videoid;
+                            $proxy_url = $serendipity['baseURL'] . $serendipity['indexFile'] . '?/' . $this->getPermaPluginPath() . '/lazyoutubefetch_' . str_replace('_', 'UNDERSCORE', $videoid);
                             return '<iframe
                                 width="560"
                                 height="315"

@@ -19,7 +19,7 @@ class serendipity_event_smtpmail extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SMTPMAIL_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'kleinerChemiker');
-        $propbag->add('version',       '0.12.1');
+        $propbag->add('version',       '0.13.0');
         $propbag->add('license',       'GPL');
         $propbag->add('requirements',  array(
             'serendipity' => '1.3',
@@ -145,16 +145,15 @@ class serendipity_event_smtpmail extends serendipity_event
 
         if ($event == 'backend_sendmail') {
 			# Load phpmailer
-			substr(PHP_VERSION, 0,1) > 4 ? include_once('php5/class.phpmailer.php') : include_once('php4/class.phpmailer.php');
+			require_once S9Y_INCLUDE_PATH . 'plugins/serendipity_event_smtpmail/vendor/autoload.php';
 
 			# Login to POP3 Server if Auth is "POP3 before SMTP"
 			if ($this->get_config('smtpmail_auth') == 1) {
-				substr(PHP_VERSION, 0,1) > 4 ? include_once('php5/class.pop3.php') : include_once('php4/class.pop3.php');
-				$pop = new POP3();
+				$pop = new PHPMailer\PHPMailer\POP3();
 				$pop->Authorise($this->get_config('smtpmail_pop3_server'), $this->get_config('smtpmail_pop3_port'), false, $this->get_config('smtpmail_user'), $this->get_config('smtpmail_passwd'), 0);
 			}
 			
-			$mail = new PHPMailer();
+			$mail = new PHPMailer\PHPMailer\PHPMailer();
 			$mail->IsSMTP();
 			
 			# Activate Auth if Auth is "SMTP AUTH"
@@ -168,8 +167,7 @@ class serendipity_event_smtpmail extends serendipity_event
 			$mail->IsHTML(false);
 			$mail->Host     = $this->get_config('smtpmail_smtp_server');
 			$mail->Port     = $this->get_config('smtpmail_smtp_port');
-			$mail->From     = $eventData['fromMail'];
-			$mail->FromName = $eventData['fromName'];
+			$mail->setFrom($eventData['fromMail'], $eventData['fromName']);
 			$mail->Subject  = $eventData['subject'];
 			$mail->Body     = $eventData['message'];
 			$mail->CharSet  = LANG_CHARSET;

@@ -1,3 +1,6 @@
+0.13.0:
+Fix Compatibility with PHP 8 by upgrading the PHPMailer library
+
 0.12.1:
 Hotfixes for PHP 8 (surrim)
 

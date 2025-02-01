@@ -1,3 +1,10 @@
+1.0:
+---
+    * Additional fixes for PHP 8
+    * Restore flickr import functionality
+    * Update used phpFlickr library. The new version no longer relies on HTTP_Request, and also
+      was not patched to rely on HTTP_Request 2. It instead calls curl or pfsockopen directly.
+
 0.6.1:
 ---
     * Hotfixes for PHP 8 (surrim)

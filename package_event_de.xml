@@ -3501,9 +3501,9 @@
 <description>Bilder von flickr.com in die Mediendatenbank importieren.</description>
 <maintainers><maintainer><name>Jay Bertrand</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.6.1</version>
+  <version>1.0</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2025-02-02</date>
   <filelist>
 <dir name="serendipity_event_flickr">
 <dir name="UTF-8">

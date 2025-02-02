@@ -4966,9 +4966,9 @@
 <description>Avatare bei Kommentaren anzeigen. Unterstützt werden Gravatare, Pavatare, Favatare, Twitter, Identica und MyBlogLog Avatare</description>
 <maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.62.3</version>
+  <version>1.63.1</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2018-09-02</date>
+  <date>2025-02-03</date>
   <filelist>
 <dir name="serendipity_event_gravatar">
 <dir name="UTF-8">

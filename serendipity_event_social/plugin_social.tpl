@@ -16,7 +16,7 @@
         </a>
     {/if}
     {if $service == 'xing'}
-        <a href="https://www.xing.com/social_plugins/share?url={$url|escape:url}" target="_blank" rel="noopener">
+        <a href="https://www.xing.com/social/share/spi?url={$url|escape:url}" target="_blank" rel="noopener">
             Xing
         </a>
     {/if}

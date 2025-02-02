@@ -22,7 +22,6 @@ class serendipity_event_social extends serendipity_event {
         ));
         $propbag->add('event_hooks',   array('frontend_display:html:per_entry' => true,
                                        'css' => true,
-                                       'frontend_footer' => true,
                                        'frontend_header' => true,
                                        'backend_display' => true,
                                        'backend_publish' => true,
@@ -32,16 +31,6 @@ class serendipity_event_social extends serendipity_event {
         $propbag->add('configuration', array('services', 'theme', 'overview', 'twitter_via', 'social_image', 'lang', 'backend'));
 
         $propbag->add('legal',    array(
-            'services' => array(
-                'Multiple' => array(
-                    'url' => 'https://github.com/heiseonline/shariff',
-                    'desc' => 'All supported social platforms can receive user data and metadata (IP, cookies)'
-                ),
-                's9y Shariff' => array(
-                    'url' => 'https://onli.columba.uberspace.de/s9y_shariff/',
-                    'desc' => 'When enabled, this shariff backend will receive metadata of URL requests'
-                )
-            ),
             'frontend' => array(
                 'When sharing functions of the plugin are used by the visitor, those selected sharing services will receive the URL and the metadata of the visitor (IP, User Agent, Referrer, etc.).',
             ),
@@ -70,7 +59,7 @@ class serendipity_event_social extends serendipity_event {
                 $propbag->add('name',           PLUGIN_EVENT_SOCIAL_SERVICES);
                 $propbag->add('description',    PLUGIN_EVENT_SOCIAL_SERVICES_DESC);
                 $propbag->add('default',        'twitter^facebook');
-                $propbag->add('select_values',  array('twitter' => 'twitter', 'facebook' => 'facebook', 'linkedin' => 'linkedin', 'pinterest' => 'pinterest', 'xing' => 'xing', 'whatsapp' => 'whatsapp', 'mail' => 'mail', 'info' => 'info', 'addthis' => 'addthis', 'tumblr' => 'tumblr', 'flattr' => 'flattr', 'diaspora' => 'diaspora', 'reddit' => 'reddit', 'stumbleupon' => 'stumbleupon', 'threema' => 'threema', 'weibo' => 'weibo', 'tencent-weibo' => 'tencent-weibo', 'qzone' => 'qzone', 'print' => 'print', 'telegram' => 'telegram', 'vk' => 'vk', 'flipboard' => 'flipboard'));
+                $propbag->add('select_values',  array('twitter' => 'X', 'facebook' => 'facebook', 'linkedin' => 'linkedin', 'pinterest' => 'pinterest', 'xing' => 'xing', 'whatsapp' => 'whatsapp', 'mail' => 'mail', 'tumblr' => 'tumblr', 'diaspora' => 'diaspora', 'reddit' => 'reddit', 'stumbleupon' => 'stumbleupon', 'threema' => 'threema', 'weibo' => 'weibo', 'tencent-weibo' => 'tencent-weibo', 'qzone' => 'qzone', 'print' => 'print', 'telegram' => 'telegram', 'vk' => 'vk', 'flipboard' => 'flipboard'));
                 break;
             case 'theme':
                 $propbag->add('type',           'select');
@@ -138,40 +127,27 @@ class serendipity_event_social extends serendipity_event {
                             // We are in overview mode and the user opted to not show the button
                             return true;
                         }
-                        // when sharing on the frontpage, at least the twitter button is using the page title instead of the entry title, so we set that manually
-                        $hardcoded_title = ' data-title="' . $eventData['title'] .'"';
                     }
                     $twitter_via = $this->get_config('twitter_via', 'none');
+                    $twitter_via_tag = '';
                     if ($twitter_via != 'none') {
-                        $twitter_via_tag = ' data-twitter-via="' . str_replace('@', '', $twitter_via) .'"';
-                    }
-                    $backend = $this->get_config('backend', 'https://onli2.uber.space/s9y_shariff/');
-                    if ($backend != 'none') {
-                        $backend_tag = ' data-backend-url="' . $backend .'"';
+                        $twitter_via_tag = $twitter_via;
                     }
                     $theme = $this->get_config('theme');
                     $lang = $this->get_config('lang', 'en');
                     $services = $this->get_config('services');
-                    # remove googleplus from services
-                    if (strpos($services, 'googleplus') !== false) {
-                        $services = preg_replace('/\^?googleplus/', '', $services);
+                    $services = explode('^', $services);
+                    $data = ['services' => $services, 'url' => $eventData['rdf_ident'], 'title' => $eventData['title']];
+                    
+                    $serendipity['smarty']->assign($data);
+                    if (! isset($eventData['display_dat'])) {
+                        $eventData['display_dat'] = '';
                     }
-                    $services = '&quot;' . str_replace('^', '&quot;,&quot;', $services) . '&quot;';
-                    if (strpos($services, 'info') !== false) {
-                        // the info button looks strange if not at the end, hardcode that position
-                        $services = str_replace(',&quot;info&quot;', '', $services) . ',&quot;info&quot;';
-                    }
-
-                    $eventData['display_dat'] = '<div class="shariff" data-url="' . $eventData['rdf_ident'] .'" data-services="[' . $services . ']" data-lang="' . $lang .'" data-theme="' . $theme . '" data-mail-url="mailto:foo@example.org"'. $hardcoded_title . $twitter_via_tag . $backend_tag . '></div>';
+                    $eventData['display_dat'] .= $this->parseTemplate('plugin_social.tpl');
                     break;
 
                 case 'css':
-                    $eventData .= file_get_contents(dirname(__FILE__) . '/shariff.complete.css');
-                    break;
-
-                case 'frontend_footer':
-                    // this script should go into the JS hook, but it has to be at the bottom to work, and the js hook places it at the top
-                    echo '<script src="' . $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_social/shariff.min.js' . '"></script>';
+                    $eventData .= file_get_contents(dirname(__FILE__) . '/social.css');
                     break;
 
                 case 'frontend_header':
@@ -188,7 +164,7 @@ class serendipity_event_social extends serendipity_event {
 
                     $blogURL = 'http' . ($_SERVER['HTTPS'] ? 's' : '') . '://' . $_SERVER['HTTP_HOST'];
 
-                    echo '<!--serendipity_event_shariff-->' . "\n";
+                    echo '<!--serendipity_event_social-->' . "\n";
                     echo '<meta name="twitter:card" content="summary" />' . "\n";
                     echo '<meta property="og:title" content="' . serendipity_specialchars($entry['title']) . '" />' . "\n";
                     # get desciption from serendipity_event_metadesc, if set; take first 200 chars from body otherwise

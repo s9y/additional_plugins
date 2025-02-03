@@ -28,7 +28,7 @@ class serendipity_event_social extends serendipity_event {
                                        'backend_save' => true));
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
 
-        $propbag->add('configuration', array('services', 'theme', 'overview', 'twitter_via', 'social_image', 'lang', 'backend'));
+        $propbag->add('configuration', array('services', 'theme', 'overview', 'twitter_via', 'social_image'));
 
         $propbag->add('legal',    array(
             'frontend' => array(
@@ -59,7 +59,7 @@ class serendipity_event_social extends serendipity_event {
                 $propbag->add('name',           PLUGIN_EVENT_SOCIAL_SERVICES);
                 $propbag->add('description',    PLUGIN_EVENT_SOCIAL_SERVICES_DESC);
                 $propbag->add('default',        'twitter^facebook');
-                $propbag->add('select_values',  array('twitter' => 'X', 'facebook' => 'facebook', 'linkedin' => 'linkedin', 'pinterest' => 'pinterest', 'xing' => 'xing', 'whatsapp' => 'whatsapp', 'mail' => 'mail', 'tumblr' => 'tumblr', 'diaspora' => 'diaspora', 'reddit' => 'reddit', 'stumbleupon' => 'stumbleupon', 'threema' => 'threema', 'weibo' => 'weibo', 'tencent-weibo' => 'tencent-weibo', 'qzone' => 'qzone', 'print' => 'print', 'telegram' => 'telegram', 'vk' => 'vk', 'flipboard' => 'flipboard'));
+                $propbag->add('select_values',  array('mastodon' => 'mastodon', 'bluesky' => 'bluesky', 'twitter' => 'X', 'facebook' => 'facebook', 'linkedin' => 'linkedin', 'pinterest' => 'pinterest', 'xing' => 'xing', 'whatsapp' => 'whatsapp', 'mail' => 'mail', 'tumblr' => 'tumblr', 'diaspora' => 'diaspora', 'reddit' => 'reddit', 'threema' => 'threema', 'weibo' => 'weibo', 'qzone' => 'qzone', 'telegram' => 'telegram', 'vk' => 'vk', 'flipboard' => 'flipboard', 'buffer' => 'buffer'));
                 break;
             case 'theme':
                 $propbag->add('type',           'select');
@@ -80,19 +80,6 @@ class serendipity_event_social extends serendipity_event {
                 $propbag->add('description',    PLUGIN_EVENT_SOCIAL_TWITTERVIA_DESC);
                 $propbag->add('default',        'none');
                 break;
-            case 'lang':
-                $propbag->add('type',           'select');
-                $propbag->add('name',           INSTALL_LANG);
-                $propbag->add('description',    PLUGIN_EVENT_SOCIAL_LANG_DESC);
-                $propbag->add('default',        'en');
-                $propbag->add('select_values',        array('bg' => 'bg', 'de' => 'de', 'en' => 'en', 'es' => 'es', 'fi' => 'fi', 'hr' => 'hr', 'hu' => 'hu', 'ja' => 'ja', 'ko' => 'ko', 'no' => 'no', 'pl' => 'pl', 'pt' => 'pt', 'ro' => 'ro', 'ru' => 'ru', 'sk' => 'sk', 'sl' => 'sl', 'sr' => 'sr', 'sv' => 'sv', 'tr' => 'tr', 'zh' => 'zh'));
-                break;
-            case 'backend':
-                $propbag->add('type',           'string');
-                $propbag->add('name',           PLUGIN_EVENT_SOCIAL_BACKEND);
-                $propbag->add('description',    PLUGIN_EVENT_SOCIAL_BACKEND_DESC);
-                $propbag->add('default',        'https://onli2.uber.space/s9y_shariff/');
-                break;
             case 'social_image':
                 $propbag->add('type',           'media');
                 $propbag->add('name',           PLUGIN_EVENT_SOCIAL_IMAGE);
@@ -102,16 +89,6 @@ class serendipity_event_social extends serendipity_event {
 
         }
         return true;
-    }
-
-
-    function performConfig(&$bag) {
-        // remove googleplus from config
-        $services = $this->get_config('services');
-        if (strpos($services, 'googleplus') !== false) {
-            $services = preg_replace('/\^?googleplus/', '', $services);
-            $this->set_config('services', $services);
-        }
     }
 
     function event_hook($event, &$bag, &$eventData, $addData = null) {
@@ -234,7 +211,6 @@ class serendipity_event_social extends serendipity_event {
                         </div>
                     </div>
 <?php
-                    return true;
                     break;
 
                 case 'backend_publish':
@@ -259,6 +235,7 @@ class serendipity_event_social extends serendipity_event {
                         $q = "INSERT INTO {$serendipity['dbPrefix']}entryproperties (entryid, property, value) VALUES (" . (int)$eventData['id'] . ", 'entry_image', '" . serendipity_db_escape_string($entry_image) . "')";
                         serendipity_db_query($q);
                     }
+                    break;
 
                 default:
                     return false;

@@ -1,0 +1,21 @@
+.social a {
+  display: inline-block;
+  color: #ffffff;
+  border: none;
+  padding: 0.1em 0.6em;
+  outline: none;
+  text-align: center;
+  font-size: 0.9em;
+  margin: 0 0.2em;
+  text-decoration: none;
+  background: red;
+}
+
+.social a:focus,
+.social a:hover {
+  opacity: 0.8;
+}
+
+.social a:active {
+  color: #e2e2e2;
+}

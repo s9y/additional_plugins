@@ -31,6 +31,12 @@ class serendipity_event_social extends serendipity_event {
         $propbag->add('configuration', array('services', 'theme', 'overview', 'twitter_via', 'social_image'));
 
         $propbag->add('legal',    array(
+            'services' => array(
+                'tootpick' => array(
+                    'url' => 'https://tootpick.org/',
+                    'desc' => 'When enabled, this toot backend will receive user data and metadata.'
+                )
+            ),
             'frontend' => array(
                 'When sharing functions of the plugin are used by the visitor, those selected sharing services will receive the URL and the metadata of the visitor (IP, User Agent, Referrer, etc.).',
             ),
@@ -80,6 +86,18 @@ class serendipity_event_social extends serendipity_event {
                 $propbag->add('description',    PLUGIN_EVENT_SOCIAL_TWITTERVIA_DESC);
                 $propbag->add('default',        'none');
                 break;
+            case 'mastodon_via':
+                $propbag->add('type',           'string');
+                $propbag->add('name',           PLUGIN_EVENT_SOCIAL_MASTODONVIA);
+                $propbag->add('description',    PLUGIN_EVENT_SOCIAL_MASTODONVIA_DESC);
+                $propbag->add('default',        'none');
+                break;
+            case 'bluesky_via':
+                $propbag->add('type',           'string');
+                $propbag->add('name',           PLUGIN_EVENT_SOCIAL_BLUESKYVIA);
+                $propbag->add('description',    PLUGIN_EVENT_SOCIAL_BLUESKYVIA_DESC);
+                $propbag->add('default',        'none');
+                break;
             case 'social_image':
                 $propbag->add('type',           'media');
                 $propbag->add('name',           PLUGIN_EVENT_SOCIAL_IMAGE);
@@ -110,6 +128,16 @@ class serendipity_event_social extends serendipity_event {
                     if ($twitter_via != 'none') {
                         $twitter_via_tag = $twitter_via;
                     }
+                    $mastodon_via = $this->get_config('mastodon_via', 'none');
+                    $mastodon_via_tag = '';
+                    if ($mastodon_via != 'none') {
+                        $mastodon_via_tag = $mastodon_via;
+                    }
+                    $bluesky_via = $this->get_config('bluesky_via', 'none');
+                    $bluesky_via_tag = '';
+                    if ($bluesky_via != 'none') {
+                        $bluesky_via_tag = $bluesky_via;
+                    }
                     $theme = $this->get_config('theme');
                     $lang = $this->get_config('lang', 'en');
                     $services = $this->get_config('services');
@@ -117,7 +145,10 @@ class serendipity_event_social extends serendipity_event {
                     $data = [   'services' => $services,
                                 'url' => $eventData['rdf_ident'],
                                 'title' => $eventData['title'],
-                                'theme' => $theme
+                                'theme' => $theme,
+                                'twitter_via_tag' => $twitter_via_tag,
+                                'mastodon_via_tag' => $mastodon_via_tag,
+                                'bluesky_via_tag' => $bluesky_via_tag,
                             ];
                     
                     $serendipity['smarty']->assign($data);

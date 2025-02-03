@@ -59,7 +59,7 @@ class serendipity_event_social extends serendipity_event {
                 $propbag->add('name',           PLUGIN_EVENT_SOCIAL_SERVICES);
                 $propbag->add('description',    PLUGIN_EVENT_SOCIAL_SERVICES_DESC);
                 $propbag->add('default',        'twitter^facebook');
-                $propbag->add('select_values',  array('mastodon' => 'mastodon', 'bluesky' => 'bluesky', 'twitter' => 'X', 'facebook' => 'facebook', 'linkedin' => 'linkedin', 'pinterest' => 'pinterest', 'xing' => 'xing', 'whatsapp' => 'whatsapp', 'mail' => 'mail', 'tumblr' => 'tumblr', 'diaspora' => 'diaspora', 'reddit' => 'reddit', 'threema' => 'threema', 'weibo' => 'weibo', 'qzone' => 'qzone', 'telegram' => 'telegram', 'vk' => 'vk', 'flipboard' => 'flipboard', 'buffer' => 'buffer'));
+                $propbag->add('select_values',  array('mastodon' => 'mastodon', 'bluesky' => 'bluesky', 'twitter' => 'X', 'facebook' => 'facebook', 'linkedin' => 'linkedin', 'pinterest' => 'pinterest', 'xing' => 'xing', 'whatsapp' => 'whatsapp', 'mail' => 'mail', 'tumblr' => 'tumblr', 'diaspora' => 'diaspora', 'reddit' => 'reddit', 'threema' => 'threema', 'weibo' => 'weibo', 'qzone' => 'qzone', 'telegram' => 'telegram', 'vk' => 'vk', 'flipboard' => 'flipboard', 'buffer' => 'buffer', 'pocket' => 'pocket'));
                 break;
             case 'theme':
                 $propbag->add('type',           'select');
@@ -114,7 +114,11 @@ class serendipity_event_social extends serendipity_event {
                     $lang = $this->get_config('lang', 'en');
                     $services = $this->get_config('services');
                     $services = explode('^', $services);
-                    $data = ['services' => $services, 'url' => $eventData['rdf_ident'], 'title' => $eventData['title']];
+                    $data = [   'services' => $services,
+                                'url' => $eventData['rdf_ident'],
+                                'title' => $eventData['title'],
+                                'theme' => $theme
+                            ];
                     
                     $serendipity['smarty']->assign($data);
                     if (! isset($eventData['display_dat'])) {

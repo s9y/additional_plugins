@@ -1,4 +1,4 @@
-<div class="shariff social">
+<div class="shariff social {$theme}">
 {foreach $services as $service}
     {if $service == 'facebook'}
         <a href="https://www.facebook.com/sharer/sharer.php?u={$url|escape:url}" target="_blank" rel="noopener" class="{$service}">
@@ -91,8 +91,13 @@
         </a>
     {/if}
     {if $service == 'bluesky'}
-        <a href=" https://bsky.app/intent/compose?text={"$title $url"|escape:url}" target="_blank" rel="noopener" class="{$service}">
+        <a href="https://bsky.app/intent/compose?text={"$title $url"|escape:url}" target="_blank" rel="noopener" class="{$service}">
             Bluesky
+        </a>
+    {/if}
+    {if $service == 'pocket'}
+        <a href="https://getpocket.com/save?title={$title|escape:url}&url={$url|escape:url}" target="_blank" rel="noopener" class="{$service}">
+            Pocket
         </a>
     {/if}
 {/foreach}

@@ -6,7 +6,7 @@
     --linkedin: #0077B5;
     --xing: #026466;
     --pinterest: #E60023;
-    --whatsapp: #075E54;
+    --whatsapp: #25D366;
     --telegram: #24A1DE;
     --vk: #507299;
     --buffer: #3a3a3a;
@@ -22,7 +22,7 @@
 }
 
 .social a {
-  display: inline-block;
+  display: inline-flex;
   color: #ffffff;
   border: none;
   padding: 0.1em 0.6em;
@@ -31,15 +31,24 @@
   margin: 0.2em 0.2em;
   text-decoration: none;
   background: red;
+  align-items: center;
+  box-shadow: 2px 2px 3px #d6d6df;
+  gap: 0.3em;
 }
 
-.social a:focus,
-.social a:hover {
+.social a svg {
+    height: 0.9em;
+}
+
+.social.standard a:focus,
+.social.standard a:hover {
   opacity: 0.8;
 }
 
-.social a:active {
+.social a:active,
+.social a:hover {
   color: #e2e2e2;
+  box-shadow: none;
 }
 
 .social .bluesky,
@@ -128,8 +137,9 @@
     border: 1px solid #ddd;
 }
 
-.social.white a:active {
-  background: #e2e2e2;
+.social.white a:active,
+.social.white a:hover {
+  background: #FBFBFB;
 }
 
 .social.white .bluesky {

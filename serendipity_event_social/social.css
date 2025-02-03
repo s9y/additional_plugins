@@ -27,7 +27,7 @@
   border: none;
   padding: 0.1em 0.6em;
   text-align: center;
-  font-size: 0.9em;
+  font-size: 1em;
   margin: 0.2em 0.2em;
   text-decoration: none;
   background: red;
@@ -36,8 +36,16 @@
   gap: 0.3em;
 }
 
+.social.size_icons a {
+    padding: 0.4em 0.6em;
+}
+
 .social a svg {
-    height: 0.9em;
+    height: 1em;
+}
+
+.social.size_icons a svg {
+    height: 1.5em;
 }
 
 .social.standard a:focus,

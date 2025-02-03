@@ -9,6 +9,10 @@
 @define('PLUGIN_EVENT_SOCIAL_THEME_STD', 'Standard');
 @define('PLUGIN_EVENT_SOCIAL_THEME_WHITE', 'Weiß');
 @define('PLUGIN_EVENT_SOCIAL_THEME_GREY', 'Grau');
+@define('PLUGIN_EVENT_SOCIAL_SIZE', 'Buttongröße');
+@define('PLUGIN_EVENT_SOCIAL_SIZE_DESC', 'Wähle eine Größe für die Sharebuttons.');
+@define('PLUGIN_EVENT_SOCIAL_SIZE_STD', 'Standard');
+@define('PLUGIN_EVENT_SOCIAL_SIZE_ICONS', 'Nur die Icons');
 @define('PLUGIN_EVENT_SOCIAL_OVERVIEW', 'Auf Übersichtsseiten anzeigen');
 @define('PLUGIN_EVENT_SOCIAL_OVERVIEW_DESC', 'Zeige die Sharebuttons auch auf Übersichtsseiten (wie z.B. der Startseite).');
 @define('PLUGIN_EVENT_SOCIAL_TWITTERVIA', 'Twittererwähnung');

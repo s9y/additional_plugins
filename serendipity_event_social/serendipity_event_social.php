@@ -28,7 +28,7 @@ class serendipity_event_social extends serendipity_event {
                                        'backend_save' => true));
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
 
-        $propbag->add('configuration', array('services', 'theme', 'overview', 'twitter_via', 'social_image'));
+        $propbag->add('configuration', array('services', 'theme', 'size', 'overview', 'twitter_via', 'mastodon_via', 'bluesky_via', 'social_image'));
 
         $propbag->add('legal',    array(
             'services' => array(
@@ -72,6 +72,13 @@ class serendipity_event_social extends serendipity_event {
                 $propbag->add('name',           PLUGIN_EVENT_SOCIAL_THEME);
                 $propbag->add('description',    PLUGIN_EVENT_SOCIAL_THEME_DESC);
                 $propbag->add('select_values',  array('standard' => PLUGIN_EVENT_SOCIAL_THEME_STD, 'white' => PLUGIN_EVENT_SOCIAL_THEME_WHITE, 'grey' => PLUGIN_EVENT_SOCIAL_THEME_GREY));
+                $propbag->add('default',        'standard');
+                break;
+            case 'size':
+                $propbag->add('type',           'select');
+                $propbag->add('name',           PLUGIN_EVENT_SOCIAL_SIZE);
+                $propbag->add('description',    PLUGIN_EVENT_SOCIAL_SIZE_DESC);
+                $propbag->add('select_values',  array('standard' => PLUGIN_EVENT_SOCIAL_SIZE_STD, 'icons' => PLUGIN_EVENT_SOCIAL_SIZE_ICONS));
                 $propbag->add('default',        'standard');
                 break;
             case 'overview':
@@ -139,6 +146,7 @@ class serendipity_event_social extends serendipity_event {
                         $bluesky_via_tag = $bluesky_via;
                     }
                     $theme = $this->get_config('theme');
+                    $size = $this->get_config('size', 'standard');
                     $lang = $this->get_config('lang', 'en');
                     $services = $this->get_config('services');
                     $services = explode('^', $services);
@@ -146,8 +154,10 @@ class serendipity_event_social extends serendipity_event {
                                 'url' => $eventData['rdf_ident'],
                                 'title' => $eventData['title'],
                                 'theme' => $theme,
+                                'size' => $size,
                                 'twitter_via_tag' => $twitter_via_tag,
                                 'mastodon_via_tag' => $mastodon_via_tag,
+                                'bluesky_via_tag' => $bluesky_via_tag,
                                 'bluesky_via_tag' => $bluesky_via_tag,
                             ];
                     

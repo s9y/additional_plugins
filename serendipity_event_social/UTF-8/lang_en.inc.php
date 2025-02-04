@@ -1,7 +1,7 @@
 <?php #
 
 @define('PLUGIN_EVENT_SOCIAL_NAME', 'Share Buttons');
-@define('PLUGIN_EVENT_SOCIAL_DESC', 'Show social share buttons for services like Facebook and Twitter using shariff.');
+@define('PLUGIN_EVENT_SOCIAL_DESC', 'Show social share buttons for services like Facebook and Twitter.');
 @define('PLUGIN_EVENT_SOCIAL_SERVICES', 'Available Services');
 @define('PLUGIN_EVENT_SOCIAL_SERVICES_DESC', 'Select the services for which you want to show a share button.');
 @define('PLUGIN_EVENT_SOCIAL_THEME', 'Color theme');
@@ -9,13 +9,23 @@
 @define('PLUGIN_EVENT_SOCIAL_THEME_STD', 'Standard');
 @define('PLUGIN_EVENT_SOCIAL_THEME_WHITE', 'White');
 @define('PLUGIN_EVENT_SOCIAL_THEME_GREY', 'Grey');
+@define('PLUGIN_EVENT_SOCIAL_SIZE', 'Button size');
+@define('PLUGIN_EVENT_SOCIAL_SIZE_DESC', 'Pick a size for the share buttons');
+@define('PLUGIN_EVENT_SOCIAL_SIZE_STD', 'Default');
+@define('PLUGIN_EVENT_SOCIAL_SIZE_ICONS', 'Just the icons');
 @define('PLUGIN_EVENT_SOCIAL_OVERVIEW', 'Show on overview pages');
 @define('PLUGIN_EVENT_SOCIAL_OVERVIEW_DESC', 'Also show the share buttons on overview pages (like i.e. the front page).');
 @define('PLUGIN_EVENT_SOCIAL_TWITTERVIA', 'Twitter mention');
-@define('PLUGIN_EVENT_SOCIAL_TWITTERVIA_DESC', 'Username of the twitter user that shall be mentioned (set to "none" to disable.');
-@define('PLUGIN_EVENT_SOCIAL_LANG_DESC', 'Language of the share buttons');
-@define('PLUGIN_EVENT_SOCIAL_BACKEND', 'Backend for share counter');
-@define('PLUGIN_EVENT_SOCIAL_BACKEND_DESC', 'URL to a shariff backend, that provides some buttons (like Facebook) with a share counter. Set to "none" to deacivate. Default: "https://onli2.uber.space/s9y_shariff"');
+@define('PLUGIN_EVENT_SOCIAL_TWITTERVIA_DESC', 'Username of the twitter user that shall be mentioned (set to "none" to disable).');
+@define('PLUGIN_EVENT_SOCIAL_MASTODONVIA', 'Mastodon mention');
+@define('PLUGIN_EVENT_SOCIAL_MASTODONVIA_DESC', 'Username of the mastodon user that shall be mentioned (set to "none" to disable).');
+@define('PLUGIN_EVENT_SOCIAL_BLUESKYVIA', 'Bluesky mention');
+@define('PLUGIN_EVENT_SOCIAL_BLUESKYVIA_DESC', 'Username of the bluesky user that shall be mentioned (set to "none" to disable).');
 @define('PLUGIN_EVENT_SOCIAL_IMAGE', 'Fallback Image');
 @define('PLUGIN_EVENT_SOCIAL_IMAGE_DESC', 'Image shown on Twitter and Facebok if the entry contains no own image. Set to "none" to deacivate.');
 @define('PLUGIN_EVENT_SOCIAL_ENTRY_IMAGE', 'Image shown on Social-Media');
+@define('PLUGIN_EVENT_SOCIAL_SHARE_TITLE', 'Share on %s');
+@define('PLUGIN_EVENT_SOCIAL_SHARE_ACTION', 'Share');
+@define('PLUGIN_EVENT_SOCIAL_SHARE_TITLE_POCKET', 'Save on pocket');
+@define('PLUGIN_EVENT_SOCIAL_SHARE_TITLE_PINTEREST', 'Pin it on Pinterest');
+@define('PLUGIN_EVENT_SOCIAL_SHARE_TITLE_MAIL', 'Send by mail');

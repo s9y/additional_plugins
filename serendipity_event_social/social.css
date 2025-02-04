@@ -1,0 +1,218 @@
+.social {
+    --bluesky: #1084fd;
+    --mastodon: #6364FF;
+    --facebook: #1877F2;
+    --twitter: #000000;
+    --linkedin: #0077B5;
+    --xing: #026466;
+    --pinterest: #E60023;
+    --whatsapp: #25D366;
+    --telegram: #24A1DE;
+    --vk: #507299;
+    --buffer: #3a3a3a;
+    --threema: #333;
+    --tumblr: #021A35;
+    --reddit: #FF4500;
+    --qzone: #2b82d9;
+    --weibo: #ff555f;
+    --flipboard: #e12828;
+    --mail: #65646a;
+    --diaspora: #222;
+    --pocket: #ef4056;
+}
+
+.social a {
+  display: inline-flex;
+  color: #ffffff;
+  border: none;
+  padding: 0.1em 0.6em;
+  text-align: center;
+  font-size: 1em;
+  margin: 0.2em 0.2em;
+  text-decoration: none;
+  background: red;
+  align-items: center;
+  box-shadow: 2px 2px 3px #d6d6df;
+  gap: 0.3em;
+}
+
+.social.size_icons a {
+    padding: 0.4em 0.6em;
+}
+
+.social a svg {
+    height: 1em;
+}
+
+.social.size_icons a svg {
+    height: 1.5em;
+}
+
+.social.standard a:focus,
+.social.standard a:hover {
+  opacity: 0.8;
+}
+
+.social a:active,
+.social a:hover {
+  color: #e2e2e2;
+  box-shadow: none;
+}
+
+.social .bluesky,
+.social.grey .bluesky:hover {
+    background: var(--bluesky);
+}
+.social .mastodon,
+.social.grey .mastodon:hover {
+    background: var(--mastodon);
+}
+.social .twitter,
+.social.grey .twitter:hover {
+    background: var(--twitter);
+}
+.social .facebook,
+.social.grey .facebook:hover {
+    background: var(--facebook);
+}
+.social .linkedin,
+.social.grey .linkedin:hover {
+    background: var(--linkedin);
+}
+.social .xing,
+.social.grey .xing:hover {
+    background: var(--xing);
+}
+.social .buffer,
+.social.grey .buffer:hover {
+    background: var(--buffer);
+}
+.social .weibo,
+.social.grey .weibo:hover {
+    background: var(--weibo);
+}
+.social .qzone,
+.social.grey .qzone:hover {
+    background: var(--qzone);
+}
+.social .whatsapp,
+.social.grey .whatsapp:hover {
+    background: var(--whatsapp);
+}
+.social .telegram,
+.social.grey .telegram:hover {
+    background: var(--telegram);
+}
+.social .threema,
+.social.grey .threema:hover {
+    background: var(--threema);
+}
+.social .pinterest,
+.social.grey .pinterest:hover {
+    background: var(--pinterest);
+}
+.social .mail,
+.social.grey .mail:hover {
+    background: var(--mail);
+}
+.social .tumblr,
+.social.grey .tumblr:hover {
+    background: var(--tumblr);
+}
+.social .diaspora,
+.social.grey .diaspora:hover {
+    background: var(--diaspora);
+}
+.social .reddit,
+.social.grey .reddit:hover {
+    background: var(--reddit);
+}
+.social .vk,
+.social.grey .vk:hover {
+    background: var(--vk);
+}
+.social .flipboard,
+.social.grey .flipboard:hover {
+    background: var(--flipboard);
+}
+.social .pocket,
+.social.grey .pocket:hover {
+    background: var(--flipboard);
+}
+
+.social.white a {
+    background: white;
+    border: 1px solid #ddd;
+}
+
+.social.white a:active,
+.social.white a:hover {
+  background: #FBFBFB;
+}
+
+.social.white .bluesky {
+    color: var(--bluesky);
+}
+.social.white .mastodon {
+    color: var(--mastodon);
+}
+.social.white .twitter {
+    color: var(--twitter);
+}
+.social.white .facebook {
+    color: var(--facebook);
+}
+.social.white .linkedin {
+    color: var(--linkedin);
+}
+.social.white .xing {
+    color: var(--xing);
+}
+.social.white .buffer {
+    color: var(--buffer);
+}
+.social.white .weibo {
+    color: var(--weibo);
+}
+.social.white .qzone {
+    color: var(--qzone);
+}
+.social.white .whatsapp {
+    color: var(--whatsapp);
+}
+.social.white .telegram {
+    color: var(--telegram);
+}
+.social.white .threema {
+    color: var(--threema);
+}
+.social.white .pinterest {
+    color: var(--pinterest);
+}
+.social.white .mail {
+    color: var(--mail);
+}
+.social.white .tumblr {
+    color: var(--tumblr);
+}
+.social.white .diaspora {
+    color: var(--diaspora);
+}
+.social.white .reddit {
+    color: var(--reddit);
+}
+.social.white .vk {
+    color: var(--vk);
+}
+.social.white .flipboard {
+    color: var(--flipboard);
+}
+.social.white .pocket {
+    color: var(--flipboard);
+}
+
+.social.grey a {
+    background: #939393;
+    color: white;
+    border: 1px solid #ddd;
+}

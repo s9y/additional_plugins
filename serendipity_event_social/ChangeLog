@@ -1,3 +1,15 @@
+1.0
+    * Replace shariff buttons with plain HTML links, removing the need for
+      JavaScript and a shariff backend
+    * Smartify HTML generation, so users can change the buttons more easily
+    * Remove defunct services addThis, flattr and tencent-weibo
+    * Remove print and info button
+    * Add buttons for mastodon, bluesky, pocket and buffer
+    * Implement icon only mode, rectangular buttons without text
+    * Various translation changes
+    * Switching away from shariff also removed the existing button translation.
+      Now, only german and english are supported, for now.
+
 0.15.0
     * Also create og-social tags when neither FB or Twitter
       share button is active (useful for Mastodon etc)

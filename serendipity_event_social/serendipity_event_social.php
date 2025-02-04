@@ -16,30 +16,25 @@ class serendipity_event_social extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_SOCIAL_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Matthias Mees, Thomas Hochstein');
-        $propbag->add('version',       '0.15.0');
+        $propbag->add('version',       '1.0');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0'
         ));
         $propbag->add('event_hooks',   array('frontend_display:html:per_entry' => true,
                                        'css' => true,
-                                       'frontend_footer' => true,
                                        'frontend_header' => true,
                                        'backend_display' => true,
                                        'backend_publish' => true,
                                        'backend_save' => true));
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
 
-        $propbag->add('configuration', array('services', 'theme', 'overview', 'twitter_via', 'social_image', 'lang', 'backend'));
+        $propbag->add('configuration', array('services', 'theme', 'size', 'overview', 'twitter_via', 'mastodon_via', 'bluesky_via', 'social_image'));
 
         $propbag->add('legal',    array(
             'services' => array(
-                'Multiple' => array(
-                    'url' => 'https://github.com/heiseonline/shariff',
-                    'desc' => 'All supported social platforms can receive user data and metadata (IP, cookies)'
-                ),
-                's9y Shariff' => array(
-                    'url' => 'https://onli.columba.uberspace.de/s9y_shariff/',
-                    'desc' => 'When enabled, this shariff backend will receive metadata of URL requests'
+                'tootpick' => array(
+                    'url' => 'https://tootpick.org/',
+                    'desc' => 'When enabled, this toot backend will receive user data and metadata.'
                 )
             ),
             'frontend' => array(
@@ -70,13 +65,20 @@ class serendipity_event_social extends serendipity_event {
                 $propbag->add('name',           PLUGIN_EVENT_SOCIAL_SERVICES);
                 $propbag->add('description',    PLUGIN_EVENT_SOCIAL_SERVICES_DESC);
                 $propbag->add('default',        'twitter^facebook');
-                $propbag->add('select_values',  array('twitter' => 'twitter', 'facebook' => 'facebook', 'linkedin' => 'linkedin', 'pinterest' => 'pinterest', 'xing' => 'xing', 'whatsapp' => 'whatsapp', 'mail' => 'mail', 'info' => 'info', 'addthis' => 'addthis', 'tumblr' => 'tumblr', 'flattr' => 'flattr', 'diaspora' => 'diaspora', 'reddit' => 'reddit', 'stumbleupon' => 'stumbleupon', 'threema' => 'threema', 'weibo' => 'weibo', 'tencent-weibo' => 'tencent-weibo', 'qzone' => 'qzone', 'print' => 'print', 'telegram' => 'telegram', 'vk' => 'vk', 'flipboard' => 'flipboard'));
+                $propbag->add('select_values',  array('mastodon' => 'mastodon', 'bluesky' => 'bluesky', 'twitter' => 'X', 'facebook' => 'facebook', 'linkedin' => 'linkedin', 'pinterest' => 'pinterest', 'xing' => 'xing', 'whatsapp' => 'whatsapp', 'mail' => 'mail', 'tumblr' => 'tumblr', 'diaspora' => 'diaspora', 'reddit' => 'reddit', 'threema' => 'threema', 'weibo' => 'weibo', 'qzone' => 'qzone', 'telegram' => 'telegram', 'vk' => 'vk', 'flipboard' => 'flipboard', 'buffer' => 'buffer', 'pocket' => 'pocket'));
                 break;
             case 'theme':
                 $propbag->add('type',           'select');
                 $propbag->add('name',           PLUGIN_EVENT_SOCIAL_THEME);
                 $propbag->add('description',    PLUGIN_EVENT_SOCIAL_THEME_DESC);
                 $propbag->add('select_values',  array('standard' => PLUGIN_EVENT_SOCIAL_THEME_STD, 'white' => PLUGIN_EVENT_SOCIAL_THEME_WHITE, 'grey' => PLUGIN_EVENT_SOCIAL_THEME_GREY));
+                $propbag->add('default',        'standard');
+                break;
+            case 'size':
+                $propbag->add('type',           'select');
+                $propbag->add('name',           PLUGIN_EVENT_SOCIAL_SIZE);
+                $propbag->add('description',    PLUGIN_EVENT_SOCIAL_SIZE_DESC);
+                $propbag->add('select_values',  array('standard' => PLUGIN_EVENT_SOCIAL_SIZE_STD, 'icons' => PLUGIN_EVENT_SOCIAL_SIZE_ICONS));
                 $propbag->add('default',        'standard');
                 break;
             case 'overview':
@@ -91,18 +93,17 @@ class serendipity_event_social extends serendipity_event {
                 $propbag->add('description',    PLUGIN_EVENT_SOCIAL_TWITTERVIA_DESC);
                 $propbag->add('default',        'none');
                 break;
-            case 'lang':
-                $propbag->add('type',           'select');
-                $propbag->add('name',           INSTALL_LANG);
-                $propbag->add('description',    PLUGIN_EVENT_SOCIAL_LANG_DESC);
-                $propbag->add('default',        'en');
-                $propbag->add('select_values',        array('bg' => 'bg', 'de' => 'de', 'en' => 'en', 'es' => 'es', 'fi' => 'fi', 'hr' => 'hr', 'hu' => 'hu', 'ja' => 'ja', 'ko' => 'ko', 'no' => 'no', 'pl' => 'pl', 'pt' => 'pt', 'ro' => 'ro', 'ru' => 'ru', 'sk' => 'sk', 'sl' => 'sl', 'sr' => 'sr', 'sv' => 'sv', 'tr' => 'tr', 'zh' => 'zh'));
-                break;
-            case 'backend':
+            case 'mastodon_via':
                 $propbag->add('type',           'string');
-                $propbag->add('name',           PLUGIN_EVENT_SOCIAL_BACKEND);
-                $propbag->add('description',    PLUGIN_EVENT_SOCIAL_BACKEND_DESC);
-                $propbag->add('default',        'https://onli2.uber.space/s9y_shariff/');
+                $propbag->add('name',           PLUGIN_EVENT_SOCIAL_MASTODONVIA);
+                $propbag->add('description',    PLUGIN_EVENT_SOCIAL_MASTODONVIA_DESC);
+                $propbag->add('default',        'none');
+                break;
+            case 'bluesky_via':
+                $propbag->add('type',           'string');
+                $propbag->add('name',           PLUGIN_EVENT_SOCIAL_BLUESKYVIA);
+                $propbag->add('description',    PLUGIN_EVENT_SOCIAL_BLUESKYVIA_DESC);
+                $propbag->add('default',        'none');
                 break;
             case 'social_image':
                 $propbag->add('type',           'media');
@@ -113,16 +114,6 @@ class serendipity_event_social extends serendipity_event {
 
         }
         return true;
-    }
-
-
-    function performConfig(&$bag) {
-        // remove googleplus from config
-        $services = $this->get_config('services');
-        if (strpos($services, 'googleplus') !== false) {
-            $services = preg_replace('/\^?googleplus/', '', $services);
-            $this->set_config('services', $services);
-        }
     }
 
     function event_hook($event, &$bag, &$eventData, $addData = null) {
@@ -138,40 +129,47 @@ class serendipity_event_social extends serendipity_event {
                             // We are in overview mode and the user opted to not show the button
                             return true;
                         }
-                        // when sharing on the frontpage, at least the twitter button is using the page title instead of the entry title, so we set that manually
-                        $hardcoded_title = ' data-title="' . $eventData['title'] .'"';
                     }
                     $twitter_via = $this->get_config('twitter_via', 'none');
+                    $twitter_via_tag = '';
                     if ($twitter_via != 'none') {
-                        $twitter_via_tag = ' data-twitter-via="' . str_replace('@', '', $twitter_via) .'"';
+                        $twitter_via_tag = $twitter_via;
                     }
-                    $backend = $this->get_config('backend', 'https://onli2.uber.space/s9y_shariff/');
-                    if ($backend != 'none') {
-                        $backend_tag = ' data-backend-url="' . $backend .'"';
+                    $mastodon_via = $this->get_config('mastodon_via', 'none');
+                    $mastodon_via_tag = '';
+                    if ($mastodon_via != 'none') {
+                        $mastodon_via_tag = $mastodon_via;
+                    }
+                    $bluesky_via = $this->get_config('bluesky_via', 'none');
+                    $bluesky_via_tag = '';
+                    if ($bluesky_via != 'none') {
+                        $bluesky_via_tag = $bluesky_via;
                     }
                     $theme = $this->get_config('theme');
+                    $size = $this->get_config('size', 'standard');
                     $lang = $this->get_config('lang', 'en');
                     $services = $this->get_config('services');
-                    # remove googleplus from services
-                    if (strpos($services, 'googleplus') !== false) {
-                        $services = preg_replace('/\^?googleplus/', '', $services);
+                    $services = explode('^', $services);
+                    $data = [   'services' => $services,
+                                'url' => $eventData['rdf_ident'],
+                                'title' => $eventData['title'],
+                                'theme' => $theme,
+                                'size' => $size,
+                                'twitter_via_tag' => $twitter_via_tag,
+                                'mastodon_via_tag' => $mastodon_via_tag,
+                                'bluesky_via_tag' => $bluesky_via_tag,
+                                'bluesky_via_tag' => $bluesky_via_tag,
+                            ];
+                    
+                    $serendipity['smarty']->assign($data);
+                    if (! isset($eventData['display_dat'])) {
+                        $eventData['display_dat'] = '';
                     }
-                    $services = '&quot;' . str_replace('^', '&quot;,&quot;', $services) . '&quot;';
-                    if (strpos($services, 'info') !== false) {
-                        // the info button looks strange if not at the end, hardcode that position
-                        $services = str_replace(',&quot;info&quot;', '', $services) . ',&quot;info&quot;';
-                    }
-
-                    $eventData['display_dat'] = '<div class="shariff" data-url="' . $eventData['rdf_ident'] .'" data-services="[' . $services . ']" data-lang="' . $lang .'" data-theme="' . $theme . '" data-mail-url="mailto:foo@example.org"'. $hardcoded_title . $twitter_via_tag . $backend_tag . '></div>';
+                    $eventData['display_dat'] .= $this->parseTemplate('plugin_social.tpl');
                     break;
 
                 case 'css':
-                    $eventData .= file_get_contents(dirname(__FILE__) . '/shariff.complete.css');
-                    break;
-
-                case 'frontend_footer':
-                    // this script should go into the JS hook, but it has to be at the bottom to work, and the js hook places it at the top
-                    echo '<script src="' . $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_social/shariff.min.js' . '"></script>';
+                    $eventData .= file_get_contents(dirname(__FILE__) . '/social.css');
                     break;
 
                 case 'frontend_header':
@@ -188,7 +186,7 @@ class serendipity_event_social extends serendipity_event {
 
                     $blogURL = 'http' . ($_SERVER['HTTPS'] ? 's' : '') . '://' . $_SERVER['HTTP_HOST'];
 
-                    echo '<!--serendipity_event_shariff-->' . "\n";
+                    echo '<!--serendipity_event_social-->' . "\n";
                     echo '<meta name="twitter:card" content="summary" />' . "\n";
                     echo '<meta property="og:title" content="' . serendipity_specialchars($entry['title']) . '" />' . "\n";
                     # get desciption from serendipity_event_metadesc, if set; take first 200 chars from body otherwise
@@ -258,7 +256,6 @@ class serendipity_event_social extends serendipity_event {
                         </div>
                     </div>
 <?php
-                    return true;
                     break;
 
                 case 'backend_publish':
@@ -283,6 +280,7 @@ class serendipity_event_social extends serendipity_event {
                         $q = "INSERT INTO {$serendipity['dbPrefix']}entryproperties (entryid, property, value) VALUES (" . (int)$eventData['id'] . ", 'entry_image', '" . serendipity_db_escape_string($entry_image) . "')";
                         serendipity_db_query($q);
                     }
+                    break;
 
                 default:
                     return false;

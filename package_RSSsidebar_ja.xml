@@ -63,15 +63,6 @@
 <guid isPermaLink="false">serendipity_plugin_microformats</guid>
 </item>
 <item>
-<title>言語の選択: 訪問者がフロントエンドインターフェースの言語を変更することを可能にします。</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_multilingual</link>
-<category>Sidebar Plugins</category>
-<author>Garvin Hicking, Wesley Hwang-Chung</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_multilingual&lt;br /&gt;言語の選択&lt;/b&gt;&lt;br /&gt;訪問者がフロントエンドインターフェースの言語を変更することを可能にします。&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Sat, 18 Feb 2023 00:30:30 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_multilingual</guid>
-</item>
-<item>
 <title>自分のカレンダー: X の近く公開の予定されたイベントを含めた個人のカレンダーを表示します。</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mycalendar</link>
 <category>Sidebar Plugins</category>
@@ -157,15 +148,6 @@
 <content:encoded>&lt;b&gt;serendipity_plugin_amazon&lt;br /&gt;Amazon で推薦&lt;/b&gt;&lt;br /&gt;Amazon の Amazon パートナープログラムで製品を推薦します。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:33 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_amazon</guid>
-</item>
-<item>
-<title>Authors: 著者の一覧を表示します。</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_authors</link>
-<category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_authors&lt;br /&gt;Authors&lt;/b&gt;&lt;br /&gt;著者の一覧を表示します。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 02 Sep 2018 22:32:09 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_authors</guid>
 </item>
 <item>
 <title>カテゴリツリーメニュー: DHTML のカテゴリメニューです。PEAR::HTML_TreeMenu が必要です。</title>
@@ -364,15 +346,6 @@
 <content:encoded>&lt;b&gt;serendipity_plugin_quicklink&lt;br /&gt;Quick Link&lt;/b&gt;&lt;br /&gt;Displays a box for quick links&lt;br/&gt;For: Serendipity 0.9</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:33 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_quicklink</guid>
-</item>
-<item>
-<title>クイック サーチ: エントリーの検索</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_quicksearch</link>
-<category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_quicksearch&lt;br /&gt;クイック サーチ&lt;/b&gt;&lt;br /&gt;エントリーの検索&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 02 Sep 2018 22:32:09 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_quicksearch</guid>
 </item>
 <item>
 <title>Random Quotes: Shows a block with a random quotation</title>

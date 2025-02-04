@@ -495,15 +495,6 @@
 <guid isPermaLink="false">serendipity_event_google_sitemap</guid>
 </item>
 <item>
-<title>Avatar Plugin: Zobrazuje avatary (ikona či obrázek přispěvatele) v komentářích. Podporovány jsou služby Gravatar, Pavatar, Favatar a MyBlogLog.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_gravatar</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Grischa Brockhaus</author>
-<content:encoded>&lt;b&gt;serendipity_event_gravatar&lt;br /&gt;Avatar Plugin&lt;/b&gt;&lt;br /&gt;Zobrazuje avatary (ikona či obrázek přispěvatele) v komentářích. Podporovány jsou služby Gravatar, Pavatar, Favatar a MyBlogLog.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Mon, 03 Feb 2025 00:30:23 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_gravatar</guid>
-</item>
-<item>
 <title>Návštěvní kniha: Zobrazuje návštěvní knihu jako stránku blogu. Vzhled je totožný s ostatními stránkami.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_guestbook</link>
 <category>Event Plugins</category>
@@ -709,15 +700,6 @@
 <content:encoded>&lt;b&gt;serendipity_event_mobile_output&lt;br /&gt;Markup: Výstup na mobil&lt;/b&gt;&lt;br /&gt;Tento plugin se stará o vytvoření kódu optimalizovaného pro mobilní telefony (tzv. XHTML MP), pokud zjistí, že stránku prohlíží prohlížeč pro mobily. Plugin je speciálně optimalizován pro iPhone a iPod Touch. Plugin také mění velikost obrázků, aby se přizpůsobily velikosti displeje.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:31 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_mobile_output</guid>
-</item>
-<item>
-<title>Vízejazyčné záznamy: Umožňuje vytvořit příspěvek (záznam) ve více jazykových variantách. Obsahuje též fromulář pro výběr základního jazyka blogu.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_multilingual</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Wesley Hwang-Chung, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_multilingual&lt;br /&gt;Vízejazyčné záznamy&lt;/b&gt;&lt;br /&gt;Umožňuje vytvořit příspěvek (záznam) ve více jazykových variantách. Obsahuje též fromulář pro výběr základního jazyka blogu.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Sat, 18 Feb 2023 00:30:30 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_multilingual</guid>
 </item>
 <item>
 <title>Můj kalendář: Správa osobního kalendáře</title>
@@ -927,12 +909,12 @@
 <guid isPermaLink="false">serendipity_event_smtpmail</guid>
 </item>
 <item>
-<title>Share Buttons: Show social share buttons for services like Facebook and Twitter using shariff.</title>
+<title>Share Buttons: Show social share buttons for services like Facebook and Mastodon.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_social</link>
 <category>Event Plugins</category>
 <author>onli, Matthias Mees, Thomas Hochstein</author>
-<content:encoded>&lt;b&gt;serendipity_event_social&lt;br /&gt;Share Buttons&lt;/b&gt;&lt;br /&gt;Show social share buttons for services like Facebook and Twitter using shariff.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Sat, 18 Jan 2025 00:30:25 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_social&lt;br /&gt;Share Buttons&lt;/b&gt;&lt;br /&gt;Show social share buttons for services like Facebook and Mastodon.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Wed, 05 Feb 2025 00:30:25 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_social</guid>
 </item>
 <item>
@@ -1242,6 +1224,15 @@ aplikovány další typografické úpravy.&lt;br/&gt;For: Serendipity 0.8</conte
 <content:encoded>&lt;b&gt;serendipity_event_twitter&lt;br /&gt;Mikroblogování (Twitter, Identica)&lt;/b&gt;&lt;br /&gt;Přidává klienta Twitter/Identica do administrační sekce a stahuje nové tweety a oznámuje nové články na účtu mikroblogu.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:34 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_twitter</guid>
+</item>
+<item>
+<title>Markup: Lazy YouTube Embeds: Transform YouTube embeds to load on click</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_lazyoutube</link>
+<category>Event Plugins</category>
+<author>Malte Paskuda</author>
+<content:encoded>&lt;b&gt;serendipity_event_lazyoutube&lt;br /&gt;Markup: Lazy YouTube Embeds&lt;/b&gt;&lt;br /&gt;Transform YouTube embeds to load on click&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Wed, 05 Feb 2025 00:30:23 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_lazyoutube</guid>
 </item>
 </channel>
 </rss>

@@ -63,15 +63,6 @@
 <guid isPermaLink="false">serendipity_plugin_microformats</guid>
 </item>
 <item>
-<title>Sprachauswahl: Ermöglicht Besuchern die Ausgabesprache von Serendipity zu ändern</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_multilingual</link>
-<category>Sidebar Plugins</category>
-<author>Garvin Hicking, Wesley Hwang-Chung</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_multilingual&lt;br /&gt;Sprachauswahl&lt;/b&gt;&lt;br /&gt;Ermöglicht Besuchern die Ausgabesprache von Serendipity zu ändern&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Sat, 18 Feb 2023 00:30:30 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_multilingual</guid>
-</item>
-<item>
 <title>Mein Kalender: Zeigt einen eigenen Kalendar mit den nächsten X Terminen</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mycalendar</link>
 <category>Sidebar Plugins</category>
@@ -157,15 +148,6 @@
 <content:encoded>&lt;b&gt;serendipity_plugin_amazon&lt;br /&gt;Amazon Empfehlungen&lt;/b&gt;&lt;br /&gt;Empfehlungsblock für Produkte innerhalb des Amazon-Partnerprogramms&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:33 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_amazon</guid>
-</item>
-<item>
-<title>Autoren: Zeigt die Liste aller Autoren</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_authors</link>
-<category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_authors&lt;br /&gt;Autoren&lt;/b&gt;&lt;br /&gt;Zeigt die Liste aller Autoren&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 02 Sep 2018 22:32:09 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_authors</guid>
 </item>
 <item>
 <title>Category Tree Menu: DHTML category menu.  Requires PEAR::HTML_TreeMenu.</title>
@@ -364,15 +346,6 @@
 <content:encoded>&lt;b&gt;serendipity_plugin_quicklink&lt;br /&gt;Quicklink&lt;/b&gt;&lt;br /&gt;Zeigt ein Feld für Quicklinks an&lt;br/&gt;For: Serendipity 0.9</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:33 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_quicklink</guid>
-</item>
-<item>
-<title>Suche: Nach Einträgen suchen</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_quicksearch</link>
-<category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_quicksearch&lt;br /&gt;Suche&lt;/b&gt;&lt;br /&gt;Nach Einträgen suchen&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 02 Sep 2018 22:32:09 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_quicksearch</guid>
 </item>
 <item>
 <title>Zufallszitat: Zeigt einen Zufallszitatsblock</title>

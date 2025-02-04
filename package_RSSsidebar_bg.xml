@@ -63,15 +63,6 @@
 <guid isPermaLink="false">serendipity_plugin_microformats</guid>
 </item>
 <item>
-<title>Избор на език: Позволява посетителите да сменят езика на лицевата страница</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_multilingual</link>
-<category>Sidebar Plugins</category>
-<author>Garvin Hicking, Wesley Hwang-Chung</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_multilingual&lt;br /&gt;Избор на език&lt;/b&gt;&lt;br /&gt;Позволява посетителите да сменят езика на лицевата страница&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Sat, 18 Feb 2023 00:30:30 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_multilingual</guid>
-</item>
-<item>
 <title>Моят календар: Показва Вашият персонален календар с X бъдещи събития</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mycalendar</link>
 <category>Sidebar Plugins</category>
@@ -157,15 +148,6 @@
 <content:encoded>&lt;b&gt;serendipity_plugin_amazon&lt;br /&gt;Amazon Recommendations&lt;/b&gt;&lt;br /&gt;Recommend Products at Amazon within the Amazon-Partnerprogram&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:33 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_amazon</guid>
-</item>
-<item>
-<title>Автори: Показване на списък на автори</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_authors</link>
-<category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_authors&lt;br /&gt;Автори&lt;/b&gt;&lt;br /&gt;Показване на списък на автори&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 02 Sep 2018 22:32:09 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_authors</guid>
 </item>
 <item>
 <title>Категории в дървовидно меню: DHTML дървовидно меню на категориите. Изисква PEAR::HTML_TreeMenu.</title>
@@ -364,15 +346,6 @@
 <content:encoded>&lt;b&gt;serendipity_plugin_quicklink&lt;br /&gt;Quick Link&lt;/b&gt;&lt;br /&gt;Displays a box for quick links&lt;br/&gt;For: Serendipity 0.9</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:33 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_quicklink</guid>
-</item>
-<item>
-<title>Бързо търсене: Търсене в статиите</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_quicksearch</link>
-<category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_quicksearch&lt;br /&gt;Бързо търсене&lt;/b&gt;&lt;br /&gt;Търсене в статиите&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 02 Sep 2018 22:32:09 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_quicksearch</guid>
 </item>
 <item>
 <title>Random Quotes: Shows a block with a random quotation</title>

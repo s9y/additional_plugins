@@ -495,15 +495,6 @@
 <guid isPermaLink="false">serendipity_event_google_sitemap</guid>
 </item>
 <item>
-<title>Avatar Plugin: Show avatars inside comments. Gravatars, Pavatars, Favatars, Twitter, Identica and MyBlogLog avatars are supported.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_gravatar</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Grischa Brockhaus</author>
-<content:encoded>&lt;b&gt;serendipity_event_gravatar&lt;br /&gt;Avatar Plugin&lt;/b&gt;&lt;br /&gt;Show avatars inside comments. Gravatars, Pavatars, Favatars, Twitter, Identica and MyBlogLog avatars are supported.&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Mon, 03 Feb 2025 00:30:23 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_gravatar</guid>
-</item>
-<item>
 <title>Gästbok: Visa en gästbol i din blog med ditt vanlig blog-utseende.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_guestbook</link>
 <category>Event Plugins</category>
@@ -709,15 +700,6 @@
 <content:encoded>&lt;b&gt;serendipity_event_mobile_output&lt;br /&gt;Markup: Mobile Output&lt;/b&gt;&lt;br /&gt;This plugin handles mobile devices and outputs optimized XHTML MP markup if it detects a mobile browser and a specially optimized site for iPhone and iPod Touch. It also scales images to fit the display size.&lt;br/&gt;For: Serendipity 1.0</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:31 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_mobile_output</guid>
-</item>
-<item>
-<title>Multilingual entries: Allows to create multiple language versions of an entry</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_multilingual</link>
-<category>Event Plugins</category>
-<author>Garvin Hicking, Wesley Hwang-Chung, Ian</author>
-<content:encoded>&lt;b&gt;serendipity_event_multilingual&lt;br /&gt;Multilingual entries&lt;/b&gt;&lt;br /&gt;Allows to create multiple language versions of an entry&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Sat, 18 Feb 2023 00:30:30 +0100</pubDate>
-<guid isPermaLink="false">serendipity_event_multilingual</guid>
 </item>
 <item>
 <title>My Calendar: Maintains a personal calendar</title>
@@ -927,12 +909,12 @@
 <guid isPermaLink="false">serendipity_event_smtpmail</guid>
 </item>
 <item>
-<title>Share Buttons: Show social share buttons for services like Facebook and Twitter using shariff.</title>
+<title>Share Buttons: Show social share buttons for services like Facebook and Mastodon.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_social</link>
 <category>Event Plugins</category>
 <author>onli, Matthias Mees, Thomas Hochstein</author>
-<content:encoded>&lt;b&gt;serendipity_event_social&lt;br /&gt;Share Buttons&lt;/b&gt;&lt;br /&gt;Show social share buttons for services like Facebook and Twitter using shariff.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Sat, 18 Jan 2025 00:30:25 +0100</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_social&lt;br /&gt;Share Buttons&lt;/b&gt;&lt;br /&gt;Show social share buttons for services like Facebook and Mastodon.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Wed, 05 Feb 2025 00:30:25 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_social</guid>
 </item>
 <item>
@@ -1240,6 +1222,15 @@
 <content:encoded>&lt;b&gt;serendipity_event_twitter&lt;br /&gt;Microblogging (Twitter,Identica)&lt;/b&gt;&lt;br /&gt;Adds a twitter/identica client to the admininistration interface, searches for tweetbacks and announces new articles to a microblogging account.&lt;br/&gt;For: Serendipity 0.7</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:34 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_twitter</guid>
+</item>
+<item>
+<title>Markup: Lazy YouTube Embeds: Transform YouTube embeds to load on click</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_lazyoutube</link>
+<category>Event Plugins</category>
+<author>Malte Paskuda</author>
+<content:encoded>&lt;b&gt;serendipity_event_lazyoutube&lt;br /&gt;Markup: Lazy YouTube Embeds&lt;/b&gt;&lt;br /&gt;Transform YouTube embeds to load on click&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Wed, 05 Feb 2025 00:30:23 +0100</pubDate>
+<guid isPermaLink="false">serendipity_event_lazyoutube</guid>
 </item>
 </channel>
 </rss>

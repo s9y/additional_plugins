@@ -589,79 +589,6 @@
 </release>
 </package>
 <package version="1.0">
-<name>serendipity_plugin_multilingual</name>
-<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_multilingual/ChangeLog</changelog>
-<license>GPL</license>
-<summary>Langage</summary>
-<groups>FRONTEND_VIEWS</groups>
-<description>Sélection de la langue par les visiteurs</description>
-<maintainers><maintainer><name>Garvin Hicking, Wesley Hwang-Chung</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>1.15.1</version>
-  <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2023-02-18</date>
-  <filelist>
-<dir name="serendipity_event_multilingual">
-<dir name="UTF-8">
-<file>lang_bg.inc.php</file>
-<file>lang_cs.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_de.inc.php</file>
-<file>lang_fr.inc.php</file>
-<file>lang_ja.inc.php</file>
-<file>lang_ko.inc.php</file>
-<file>lang_tr.inc.php</file>
-</dir>
-<file>.htaccess</file>
-<file>ChangeLog</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
-<file>documentation_de.html</file>
-<file>documentation_en.html</file>
-<file>lang_bg.inc.php</file>
-<file>lang_cs.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_de.inc.php</file>
-<file>lang_en.inc.php</file>
-<file>lang_fr.inc.php</file>
-<file>lang_ja.inc.php</file>
-<file>lang_ko.inc.php</file>
-<file>lang_tr.inc.php</file>
-<file>serendipity_event_multilingual.php</file>
-<file>serendipity_plugin_multilingual.php</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_event_multilingual/UTF-8/lang_bg.inc.php</file>
-    <file>serendipity_event_multilingual/UTF-8/lang_cs.inc.php</file>
-    <file>serendipity_event_multilingual/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_multilingual/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_event_multilingual/UTF-8/lang_fr.inc.php</file>
-    <file>serendipity_event_multilingual/UTF-8/lang_ja.inc.php</file>
-    <file>serendipity_event_multilingual/UTF-8/lang_ko.inc.php</file>
-    <file>serendipity_event_multilingual/UTF-8/lang_tr.inc.php</file>
-    <file>serendipity_event_multilingual/.htaccess</file>
-    <file>serendipity_event_multilingual/ChangeLog</file>
-    <file>serendipity_event_multilingual/documentation_cs.html</file>
-    <file>serendipity_event_multilingual/documentation_cz.html</file>
-    <file>serendipity_event_multilingual/documentation_de.html</file>
-    <file>serendipity_event_multilingual/documentation_en.html</file>
-    <file>serendipity_event_multilingual/lang_bg.inc.php</file>
-    <file>serendipity_event_multilingual/lang_cs.inc.php</file>
-    <file>serendipity_event_multilingual/lang_cz.inc.php</file>
-    <file>serendipity_event_multilingual/lang_de.inc.php</file>
-    <file>serendipity_event_multilingual/lang_en.inc.php</file>
-    <file>serendipity_event_multilingual/lang_fr.inc.php</file>
-    <file>serendipity_event_multilingual/lang_ja.inc.php</file>
-    <file>serendipity_event_multilingual/lang_ko.inc.php</file>
-    <file>serendipity_event_multilingual/lang_tr.inc.php</file>
-    <file>serendipity_event_multilingual/serendipity_event_multilingual.php</file>
-    <file>serendipity_event_multilingual/serendipity_plugin_multilingual.php</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
 <name>serendipity_plugin_mycalendar</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_mycalendar/ChangeLog</changelog>
 <license>GPL</license>
@@ -1616,30 +1543,6 @@
     <file>serendipity_plugin_amazon/lang_en.inc.php</file>
     <file>serendipity_plugin_amazon/lang_ja.inc.php</file>
     <file>serendipity_plugin_amazon/serendipity_plugin_amazon.php</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
-<name>serendipity_plugin_authors</name>
-<license>GPL</license>
-<summary>Auteurs</summary>
-<groups>FRONTEND_VIEWS</groups>
-<description>Affiche une liste d&#039;auteurs</description>
-<maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>2.2</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-09-02</date>
-  <filelist>
-<dir name="serendipity_plugin_authors">
-<dir name="UTF-8">
-</dir>
-<file>serendipity_plugin_authors.php</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_plugin_authors/serendipity_plugin_authors.php</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -2772,28 +2675,6 @@
     <file>serendipity_plugin_quicklink/lang_de.inc.php</file>
     <file>serendipity_plugin_quicklink/lang_en.inc.php</file>
     <file>serendipity_plugin_quicklink/serendipity_plugin_quicklink.php</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
-<name>serendipity_plugin_quicksearch</name>
-<license>GPL</license>
-<summary>Recherche rapide</summary>
-<groups>FRONTEND_ENTRY_RELATED</groups>
-<description>Recherche d&#039;un billet</description>
-<maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>1.2</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2018-09-02</date>
-  <filelist>
-<dir name="serendipity_plugin_quicksearch">
-<file>serendipity_plugin_quicksearch.php</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_plugin_quicksearch/serendipity_plugin_quicksearch.php</file>
   </serendipityFilelist>
 </release>
 </package>

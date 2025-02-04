@@ -63,15 +63,6 @@
 <guid isPermaLink="false">serendipity_plugin_microformats</guid>
 </item>
 <item>
-<title>Výběr jazyka: Povolit návštěvníkům měnit jazyk uživatelského rozhraní blogu</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_multilingual</link>
-<category>Sidebar Plugins</category>
-<author>Garvin Hicking, Wesley Hwang-Chung</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_multilingual&lt;br /&gt;Výběr jazyka&lt;/b&gt;&lt;br /&gt;Povolit návštěvníkům měnit jazyk uživatelského rozhraní blogu&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Sat, 18 Feb 2023 00:30:30 +0100</pubDate>
-<guid isPermaLink="false">serendipity_plugin_multilingual</guid>
-</item>
-<item>
 <title>Můj kalendář: Zobrazuje Váš osobní kalendář s X nadcházejícími událsotmi.</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_mycalendar</link>
 <category>Sidebar Plugins</category>
@@ -153,15 +144,6 @@
 <content:encoded>&lt;b&gt;serendipity_plugin_amazon&lt;br /&gt;Doporučení Amazon&lt;/b&gt;&lt;br /&gt;Doporučené produkty z Amazon v rámci partnerského programu Amazon&lt;br/&gt;For: Serendipity 0.8</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:33 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_amazon</guid>
-</item>
-<item>
-<title>Autoři: Zobrazit seznam autorů</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_authors</link>
-<category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_authors&lt;br /&gt;Autoři&lt;/b&gt;&lt;br /&gt;Zobrazit seznam autorů&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 02 Sep 2018 22:32:09 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_authors</guid>
 </item>
 <item>
 <title>Stromové menu kategorií: Menu kategorií vystavěné pomocí DHTML (dynamické, rozklikávatelné, schovávací).  Vyžaduje PEAR::HTML_TreeMenu.</title>
@@ -360,15 +342,6 @@
 <content:encoded>&lt;b&gt;serendipity_plugin_quicklink&lt;br /&gt;Rychlé odkazy&lt;/b&gt;&lt;br /&gt;Zobrazuje blok pro rychlé odkazy&lt;br/&gt;For: Serendipity 0.9</content:encoded>
 <pubDate>Tue, 13 Jul 2021 00:30:33 +0200</pubDate>
 <guid isPermaLink="false">serendipity_plugin_quicklink</guid>
-</item>
-<item>
-<title>Rychlé hledání: Hledání záznamu</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_plugin_quicksearch</link>
-<category>Sidebar Plugins</category>
-<author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_plugin_quicksearch&lt;br /&gt;Rychlé hledání&lt;/b&gt;&lt;br /&gt;Hledání záznamu&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Sun, 02 Sep 2018 22:32:09 +0200</pubDate>
-<guid isPermaLink="false">serendipity_plugin_quicksearch</guid>
 </item>
 <item>
 <title>Náhodný citát: Zobrazuje blok s náhodně vybraným citátem</title>

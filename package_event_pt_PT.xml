@@ -4958,361 +4958,6 @@
 </release>
 </package>
 <package version="1.0">
-<name>serendipity_event_gravatar</name>
-<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_gravatar/ChangeLog</changelog>
-<license>GPL</license>
-<summary>Avatar Plugin</summary>
-<groups>IMAGES</groups>
-<description>Show avatars inside comments. Gravatars, Pavatars, Favatars, Twitter, Identica and MyBlogLog avatars are supported.</description>
-<maintainers><maintainer><name>Garvin Hicking, Grischa Brockhaus</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>1.63.1</version>
-  <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2025-02-03</date>
-  <filelist>
-<dir name="serendipity_event_gravatar">
-<dir name="UTF-8">
-<file>lang_cs.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_de.inc.php</file>
-<file>lang_pl.inc.php</file>
-</dir>
-<dir name="documentation">
-<file>documentation.css</file>
-<file>identicons.jpg</file>
-<file>monsterid.png</file>
-<file>wavatars.jpg</file>
-</dir>
-<dir name="monsterid">
-<dir name="parts">
-<file>arms_1.png</file>
-<file>arms_2.png</file>
-<file>arms_3.png</file>
-<file>arms_4.png</file>
-<file>arms_5.png</file>
-<file>body_1.png</file>
-<file>body_10.png</file>
-<file>body_11.png</file>
-<file>body_12.png</file>
-<file>body_13.png</file>
-<file>body_14.png</file>
-<file>body_15.png</file>
-<file>body_2.png</file>
-<file>body_3.png</file>
-<file>body_4.png</file>
-<file>body_5.png</file>
-<file>body_6.png</file>
-<file>body_7.png</file>
-<file>body_8.png</file>
-<file>body_9.png</file>
-<file>eyes_1.png</file>
-<file>eyes_10.png</file>
-<file>eyes_11.png</file>
-<file>eyes_12.png</file>
-<file>eyes_13.png</file>
-<file>eyes_14.png</file>
-<file>eyes_15.png</file>
-<file>eyes_2.png</file>
-<file>eyes_3.png</file>
-<file>eyes_4.png</file>
-<file>eyes_5.png</file>
-<file>eyes_6.png</file>
-<file>eyes_7.png</file>
-<file>eyes_8.png</file>
-<file>eyes_9.png</file>
-<file>hair_1.png</file>
-<file>hair_2.png</file>
-<file>hair_3.png</file>
-<file>hair_4.png</file>
-<file>hair_5.png</file>
-<file>image.info</file>
-<file>legs_1.png</file>
-<file>legs_2.png</file>
-<file>legs_3.png</file>
-<file>legs_4.png</file>
-<file>legs_5.png</file>
-<file>monsterparts.xcf</file>
-<file>mouth_1.png</file>
-<file>mouth_10.png</file>
-<file>mouth_2.png</file>
-<file>mouth_3.png</file>
-<file>mouth_4.png</file>
-<file>mouth_5.png</file>
-<file>mouth_6.png</file>
-<file>mouth_7.png</file>
-<file>mouth_8.png</file>
-<file>mouth_9.png</file>
-</dir>
-<file>README</file>
-<file>monsterid.php</file>
-</dir>
-<dir name="wavatars">
-<dir name="parts">
-<file>pupils5.png</file>
-<file>brow1.png</file>
-<file>pupils7.png</file>
-<file>brow2.png</file>
-<file>pupils6.png</file>
-<file>brow3.png</file>
-<file>pupils8.png</file>
-<file>brow4.png</file>
-<file>pupils9.png</file>
-<file>brow5.png</file>
-<file>shine9.png</file>
-<file>brow6.png</file>
-<file>brow7.png</file>
-<file>brow8.png</file>
-<file>eyes1.png</file>
-<file>eyes10.png</file>
-<file>eyes11.png</file>
-<file>eyes12.png</file>
-<file>eyes13.png</file>
-<file>eyes2.png</file>
-<file>eyes3.png</file>
-<file>eyes4.png</file>
-<file>eyes5.png</file>
-<file>eyes6.png</file>
-<file>eyes7.png</file>
-<file>eyes8.png</file>
-<file>eyes9.png</file>
-<file>fade1.png</file>
-<file>fade2.png</file>
-<file>fade3.png</file>
-<file>fade4.png</file>
-<file>mask1.png</file>
-<file>mask10.png</file>
-<file>mask11.png</file>
-<file>mask2.png</file>
-<file>mask3.png</file>
-<file>mask4.png</file>
-<file>mask5.png</file>
-<file>mask6.png</file>
-<file>mask7.png</file>
-<file>mask8.png</file>
-<file>mask9.png</file>
-<file>mouth1.png</file>
-<file>mouth10.png</file>
-<file>mouth11.png</file>
-<file>mouth12.png</file>
-<file>mouth13.png</file>
-<file>mouth14.png</file>
-<file>mouth15.png</file>
-<file>mouth16.png</file>
-<file>mouth17.png</file>
-<file>mouth18.png</file>
-<file>mouth19.png</file>
-<file>mouth2.png</file>
-<file>mouth3.png</file>
-<file>mouth4.png</file>
-<file>mouth5.png</file>
-<file>mouth6.png</file>
-<file>mouth7.png</file>
-<file>mouth8.png</file>
-<file>mouth9.png</file>
-<file>pupils1.png</file>
-<file>pupils10.png</file>
-<file>pupils11.png</file>
-<file>pupils2.png</file>
-<file>pupils3.png</file>
-<file>pupils4.png</file>
-<file>shine1.png</file>
-<file>shine10.png</file>
-<file>shine11.png</file>
-<file>shine2.png</file>
-<file>shine3.png</file>
-<file>shine4.png</file>
-<file>shine5.png</file>
-<file>shine6.png</file>
-<file>shine7.png</file>
-<file>shine8.png</file>
-</dir>
-<file>wavatars.php</file>
-</dir>
-<dir name="ycon">
-<dir name="UTF-8">
-</dir>
-<file>ycon.image.php</file>
-<file>ycon.php</file>
-</dir>
-<file>.cvsignore</file>
-<file>ChangeLog</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
-<file>documentation_de.html</file>
-<file>documentation_en.html</file>
-<file>lang_cs.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_de.inc.php</file>
-<file>lang_en.inc.php</file>
-<file>lang_pl.inc.php</file>
-<file>serendipity_event_gravatar.php</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_event_gravatar/UTF-8/lang_cs.inc.php</file>
-    <file>serendipity_event_gravatar/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_gravatar/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_event_gravatar/UTF-8/lang_pl.inc.php</file>
-    <file>serendipity_event_gravatar/documentation/documentation.css</file>
-    <file>serendipity_event_gravatar/documentation/identicons.jpg</file>
-    <file>serendipity_event_gravatar/documentation/monsterid.png</file>
-    <file>serendipity_event_gravatar/documentation/wavatars.jpg</file>
-    <file>serendipity_event_gravatar/monsterid/parts/arms_1.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/arms_2.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/arms_3.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/arms_4.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/arms_5.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/body_1.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/body_10.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/body_11.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/body_12.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/body_13.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/body_14.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/body_15.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/body_2.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/body_3.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/body_4.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/body_5.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/body_6.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/body_7.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/body_8.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/body_9.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/eyes_1.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/eyes_10.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/eyes_11.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/eyes_12.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/eyes_13.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/eyes_14.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/eyes_15.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/eyes_2.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/eyes_3.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/eyes_4.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/eyes_5.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/eyes_6.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/eyes_7.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/eyes_8.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/eyes_9.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/hair_1.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/hair_2.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/hair_3.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/hair_4.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/hair_5.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/image.info</file>
-    <file>serendipity_event_gravatar/monsterid/parts/legs_1.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/legs_2.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/legs_3.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/legs_4.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/legs_5.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/monsterparts.xcf</file>
-    <file>serendipity_event_gravatar/monsterid/parts/mouth_1.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/mouth_10.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/mouth_2.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/mouth_3.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/mouth_4.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/mouth_5.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/mouth_6.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/mouth_7.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/mouth_8.png</file>
-    <file>serendipity_event_gravatar/monsterid/parts/mouth_9.png</file>
-    <file>serendipity_event_gravatar/monsterid/README</file>
-    <file>serendipity_event_gravatar/monsterid/monsterid.php</file>
-    <file>serendipity_event_gravatar/wavatars/parts/pupils5.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/brow1.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/pupils7.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/brow2.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/pupils6.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/brow3.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/pupils8.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/brow4.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/pupils9.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/brow5.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/shine9.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/brow6.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/brow7.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/brow8.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/eyes1.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/eyes10.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/eyes11.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/eyes12.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/eyes13.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/eyes2.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/eyes3.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/eyes4.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/eyes5.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/eyes6.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/eyes7.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/eyes8.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/eyes9.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/fade1.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/fade2.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/fade3.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/fade4.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mask1.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mask10.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mask11.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mask2.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mask3.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mask4.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mask5.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mask6.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mask7.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mask8.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mask9.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mouth1.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mouth10.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mouth11.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mouth12.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mouth13.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mouth14.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mouth15.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mouth16.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mouth17.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mouth18.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mouth19.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mouth2.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mouth3.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mouth4.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mouth5.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mouth6.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mouth7.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mouth8.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/mouth9.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/pupils1.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/pupils10.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/pupils11.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/pupils2.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/pupils3.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/pupils4.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/shine1.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/shine10.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/shine11.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/shine2.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/shine3.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/shine4.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/shine5.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/shine6.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/shine7.png</file>
-    <file>serendipity_event_gravatar/wavatars/parts/shine8.png</file>
-    <file>serendipity_event_gravatar/wavatars/wavatars.php</file>
-    <file>serendipity_event_gravatar/ycon/ycon.image.php</file>
-    <file>serendipity_event_gravatar/ycon/ycon.php</file>
-    <file>serendipity_event_gravatar/.cvsignore</file>
-    <file>serendipity_event_gravatar/ChangeLog</file>
-    <file>serendipity_event_gravatar/documentation_cs.html</file>
-    <file>serendipity_event_gravatar/documentation_cz.html</file>
-    <file>serendipity_event_gravatar/documentation_de.html</file>
-    <file>serendipity_event_gravatar/documentation_en.html</file>
-    <file>serendipity_event_gravatar/lang_cs.inc.php</file>
-    <file>serendipity_event_gravatar/lang_cz.inc.php</file>
-    <file>serendipity_event_gravatar/lang_de.inc.php</file>
-    <file>serendipity_event_gravatar/lang_en.inc.php</file>
-    <file>serendipity_event_gravatar/lang_pl.inc.php</file>
-    <file>serendipity_event_gravatar/serendipity_event_gravatar.php</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
 <name>serendipity_event_guestbook</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_guestbook/ChangeLog</changelog>
 <license>GPL</license>
@@ -7224,79 +6869,6 @@
 </release>
 </package>
 <package version="1.0">
-<name>serendipity_event_multilingual</name>
-<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_multilingual/ChangeLog</changelog>
-<license>GPL</license>
-<summary>Multilingual entries</summary>
-<groups>FRONTEND_ENTRY_RELATED,BACKEND_EDITOR</groups>
-<description>Allows to create multiple language versions of an entry</description>
-<maintainers><maintainer><name>Garvin Hicking, Wesley Hwang-Chung, Ian</name><role>lead</role></maintainer></maintainers>
-<release>
-  <version>2.35.1</version>
-  <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2023-02-18</date>
-  <filelist>
-<dir name="serendipity_event_multilingual">
-<dir name="UTF-8">
-<file>lang_bg.inc.php</file>
-<file>lang_cs.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_de.inc.php</file>
-<file>lang_fr.inc.php</file>
-<file>lang_ja.inc.php</file>
-<file>lang_ko.inc.php</file>
-<file>lang_tr.inc.php</file>
-</dir>
-<file>.htaccess</file>
-<file>ChangeLog</file>
-<file>documentation_cs.html</file>
-<file>documentation_cz.html</file>
-<file>documentation_de.html</file>
-<file>documentation_en.html</file>
-<file>lang_bg.inc.php</file>
-<file>lang_cs.inc.php</file>
-<file>lang_cz.inc.php</file>
-<file>lang_de.inc.php</file>
-<file>lang_en.inc.php</file>
-<file>lang_fr.inc.php</file>
-<file>lang_ja.inc.php</file>
-<file>lang_ko.inc.php</file>
-<file>lang_tr.inc.php</file>
-<file>serendipity_event_multilingual.php</file>
-<file>serendipity_plugin_multilingual.php</file>
-</dir>
-
-  </filelist>
-  <serendipityFilelist>
-    <file>serendipity_event_multilingual/UTF-8/lang_bg.inc.php</file>
-    <file>serendipity_event_multilingual/UTF-8/lang_cs.inc.php</file>
-    <file>serendipity_event_multilingual/UTF-8/lang_cz.inc.php</file>
-    <file>serendipity_event_multilingual/UTF-8/lang_de.inc.php</file>
-    <file>serendipity_event_multilingual/UTF-8/lang_fr.inc.php</file>
-    <file>serendipity_event_multilingual/UTF-8/lang_ja.inc.php</file>
-    <file>serendipity_event_multilingual/UTF-8/lang_ko.inc.php</file>
-    <file>serendipity_event_multilingual/UTF-8/lang_tr.inc.php</file>
-    <file>serendipity_event_multilingual/.htaccess</file>
-    <file>serendipity_event_multilingual/ChangeLog</file>
-    <file>serendipity_event_multilingual/documentation_cs.html</file>
-    <file>serendipity_event_multilingual/documentation_cz.html</file>
-    <file>serendipity_event_multilingual/documentation_de.html</file>
-    <file>serendipity_event_multilingual/documentation_en.html</file>
-    <file>serendipity_event_multilingual/lang_bg.inc.php</file>
-    <file>serendipity_event_multilingual/lang_cs.inc.php</file>
-    <file>serendipity_event_multilingual/lang_cz.inc.php</file>
-    <file>serendipity_event_multilingual/lang_de.inc.php</file>
-    <file>serendipity_event_multilingual/lang_en.inc.php</file>
-    <file>serendipity_event_multilingual/lang_fr.inc.php</file>
-    <file>serendipity_event_multilingual/lang_ja.inc.php</file>
-    <file>serendipity_event_multilingual/lang_ko.inc.php</file>
-    <file>serendipity_event_multilingual/lang_tr.inc.php</file>
-    <file>serendipity_event_multilingual/serendipity_event_multilingual.php</file>
-    <file>serendipity_event_multilingual/serendipity_plugin_multilingual.php</file>
-  </serendipityFilelist>
-</release>
-</package>
-<package version="1.0">
 <name>serendipity_event_mycalendar</name>
 <changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_mycalendar/ChangeLog</changelog>
 <license>GPL</license>
@@ -9189,56 +8761,36 @@
 <license>GPL</license>
 <summary>Share Buttons</summary>
 <groups>FRONTEND_EXTERNAL_SERVICES</groups>
-<description>Show social share buttons for services like Facebook and Twitter using shariff.</description>
+<description>Show social share buttons for services like Facebook and Mastodon.</description>
 <maintainers><maintainer><name>onli, Matthias Mees, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.15.0</version>
+  <version>1.0</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2025-01-18</date>
+  <date>2025-02-05</date>
   <filelist>
 <dir name="serendipity_event_social">
 <dir name="UTF-8">
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 </dir>
-<dir name="fa">
-<file>fa-brands-400.ttf</file>
-<file>fa-brands-400.woff</file>
-<file>fa-brands-400.woff2</file>
-<file>fa-regular-400.ttf</file>
-<file>fa-regular-400.woff</file>
-<file>fa-regular-400.woff2</file>
-<file>fa-solid-900.ttf</file>
-<file>fa-solid-900.woff</file>
-<file>fa-solid-900.woff2</file>
-</dir>
 <file>ChangeLog</file>
 <file>lang_de.inc.php</file>
 <file>lang_en.inc.php</file>
 <file>serendipity_event_social.php</file>
-<file>shariff.complete.css</file>
-<file>shariff.min.js</file>
+<file>plugin_social.tpl</file>
+<file>social.css</file>
 </dir>
 
   </filelist>
   <serendipityFilelist>
     <file>serendipity_event_social/UTF-8/lang_de.inc.php</file>
     <file>serendipity_event_social/UTF-8/lang_en.inc.php</file>
-    <file>serendipity_event_social/fa/fa-brands-400.ttf</file>
-    <file>serendipity_event_social/fa/fa-brands-400.woff</file>
-    <file>serendipity_event_social/fa/fa-brands-400.woff2</file>
-    <file>serendipity_event_social/fa/fa-regular-400.ttf</file>
-    <file>serendipity_event_social/fa/fa-regular-400.woff</file>
-    <file>serendipity_event_social/fa/fa-regular-400.woff2</file>
-    <file>serendipity_event_social/fa/fa-solid-900.ttf</file>
-    <file>serendipity_event_social/fa/fa-solid-900.woff</file>
-    <file>serendipity_event_social/fa/fa-solid-900.woff2</file>
     <file>serendipity_event_social/ChangeLog</file>
     <file>serendipity_event_social/lang_de.inc.php</file>
     <file>serendipity_event_social/lang_en.inc.php</file>
     <file>serendipity_event_social/serendipity_event_social.php</file>
-    <file>serendipity_event_social/shariff.complete.css</file>
-    <file>serendipity_event_social/shariff.min.js</file>
+    <file>serendipity_event_social/plugin_social.tpl</file>
+    <file>serendipity_event_social/social.css</file>
   </serendipityFilelist>
 </release>
 </package>
@@ -11951,6 +11503,43 @@
     <file>serendipity_plugin_twitter/plugin_version.inc.php</file>
     <file>serendipity_plugin_twitter/serendipity_event_twitter.php</file>
     <file>serendipity_plugin_twitter/serendipity_plugin_twitter.php</file>
+  </serendipityFilelist>
+</release>
+</package>
+<package version="1.0">
+<name>serendipity_event_lazyoutube</name>
+<changelog>https://github.com/s9y/additional_plugins/blob/master/serendipity_event_lazyoutube/ChangeLog</changelog>
+<license>GPL</license>
+<summary>Markup: Lazy YouTube Embeds</summary>
+<groups>MARKUP</groups>
+<description>Transform YouTube embeds to load on click</description>
+<maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
+<release>
+  <version>1.0</version>
+  <requirements:s9yVersion>2.0</requirements:s9yVersion>
+  <date>2025-02-05</date>
+  <filelist>
+<dir name="serendipity_event_lazyoutube">
+<dir name="UTF-8">
+<file>lang_de.inc.php</file>
+<file>lang_en.inc.php</file>
+</dir>
+<file>ChangeLog</file>
+<file>README.md</file>
+<file>lang_de.inc.php</file>
+<file>lang_en.inc.php</file>
+<file>serendipity_event_lazyoutube.php</file>
+</dir>
+
+  </filelist>
+  <serendipityFilelist>
+    <file>serendipity_event_lazyoutube/UTF-8/lang_de.inc.php</file>
+    <file>serendipity_event_lazyoutube/UTF-8/lang_en.inc.php</file>
+    <file>serendipity_event_lazyoutube/ChangeLog</file>
+    <file>serendipity_event_lazyoutube/README.md</file>
+    <file>serendipity_event_lazyoutube/lang_de.inc.php</file>
+    <file>serendipity_event_lazyoutube/lang_en.inc.php</file>
+    <file>serendipity_event_lazyoutube/serendipity_event_lazyoutube.php</file>
   </serendipityFilelist>
 </release>
 </package>

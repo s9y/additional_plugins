@@ -1,3 +1,6 @@
+1.1.0:
+    * Add option to disable preview image proxy
+
 1.0:
     * Proxy video preview image, so a page visit does not leak the visitors IP. Preview images
       will be cached locally and served from there.

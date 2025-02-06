@@ -18,7 +18,7 @@ class serendipity_event_lazyoutube extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_LAZYOUTUBE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda');
-        $propbag->add('version',       '1.0');
+        $propbag->add('version',       '1.1.0');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
         ));
@@ -52,6 +52,7 @@ class serendipity_event_lazyoutube extends serendipity_event {
         foreach($this->markup_elements as $element) {
             $conf_array[] = $element['name'];
         }
+        $conf_array[] = 'proxy';
         $propbag->add('configuration', $conf_array);
     }
 
@@ -72,11 +73,22 @@ class serendipity_event_lazyoutube extends serendipity_event {
 
     function introspect_config_item($name, &$propbag)
     {
-        $propbag->add('type',        'boolean');
-        $propbag->add('name',        constant($name));
-        $propbag->add('description', sprintf(APPLY_MARKUP_TO, constant($name)));
-        $propbag->add('default', 'true');
-        return true;
+
+        switch($name) {
+            case 'proxy':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        PLUGIN_EVENT_LAZYOUTUBE_PROXY_NAME);
+                $propbag->add('description', PLUGIN_EVENT_LAZYOUTUBE_PROXY_DESC);
+                $propbag->add('default', 'true');
+                return true;
+
+            default:
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        constant($name));
+                $propbag->add('description', sprintf(APPLY_MARKUP_TO, constant($name)));
+                $propbag->add('default', 'true');
+                return true;
+        }
     }
 
     function setupDB() {
@@ -244,24 +256,33 @@ class serendipity_event_lazyoutube extends serendipity_event {
         $search = array(
                         // iframe embed                    optional privacy mode       #videoid     #start time etc
                         '/<iframe[^>]*https:\/\/www\.youtube(?:-nocookie)?\.com\/embed\/([^ \&"\?]+)([^"]*)[^>]*><\/iframe>/',
-                       );   
+                       );
         $search_elements = count($search);
+        $proxy = serendipity_db_bool($this->get_config('proxy', true));
         for($i = 0; $i < $search_elements; $i++) {
-            $text = preg_replace_callback($search[$i], function ($matches) use ($serendipity) {
+            $text = preg_replace_callback($search[$i], function ($matches) use ($serendipity, $proxy) {
                             $videoid = $matches[1];
                             if (isset($matches[2]) && ! empty($matches[2])) {
                                 $params = $matches[2] . '&autoplay=1';
                             } else {
                                 $params = '?autoplay=1';
                             }
-                            # We need to whitelist the videoid first, otherwise the proxied lookup will not work
-                            $this->whitelist($videoid);
-                            $proxy_url = $serendipity['baseURL'] . $serendipity['indexFile'] . '?/' . $this->getPermaPluginPath() . '/lazyoutubefetch_' . str_replace('_', 'UNDERSCORE', $videoid);
+                            # We need to whitelist the videoid first, otherwise the proxied lookup will not work                            
+                            if ($proxy) {
+                                # We whitelist only when the proxy option is enabled. Then we can
+                                # leave the proxy function itself enabled even if the option is off,
+                                # to solve the scenarios when old entries still have the proxies url
+                                # in their cache
+                                $this->whitelist($videoid);
+                                $thumbnail_url = $serendipity['baseURL'] . $serendipity['indexFile'] . '?/' . $this->getPermaPluginPath() . '/lazyoutubefetch_' . str_replace('_', 'UNDERSCORE', $videoid);
+                            } else {
+                                $thumbnail_url = 'https://img.youtube.com/vi/' . $videoid .'/hqdefault.jpg';
+                            }
                             return '<iframe
                                 width="560"
                                 height="315"
                                 src="https://www.youtube-nocookie.com/embed/' . $videoid .'"
-                                srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube-nocookie.com/embed/' . $videoid . $params . '><img width=560 height=420 loading=lazy src=' . $proxy_url .'><span>▶</span></a>"
+                                srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube-nocookie.com/embed/' . $videoid . $params . '><img width=560 height=420 loading=lazy src=' . $thumbnail_url .'><span>▶</span></a>"
                                 frameborder="0"
                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen

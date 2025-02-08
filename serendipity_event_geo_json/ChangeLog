@@ -1,3 +1,7 @@
+0.3.2:
+---
+ * Omitting PHP closing tags
+
 0.3.1:
 ---
  * Tracks sorted by file name

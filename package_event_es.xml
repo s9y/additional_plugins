@@ -4046,9 +4046,9 @@
 <description>Crea un objeto JSON que contiene todos los datos geográficos y puede procesarse con JavaScript</description>
 <maintainers><maintainer><name>Kathi Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.3.1</version>
+  <version>0.3.2</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
-  <date>2023-07-24</date>
+  <date>2025-02-09</date>
   <filelist>
 <dir name="serendipity_event_geo_json">
 <dir name="UTF-8">
@@ -7282,7 +7282,7 @@
 <description>Ofrece un mapa interactivo para archivos *.gpx y entradas de blog con coordenadas geográficas</description>
 <maintainers><maintainer><name>Kathi Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.4.8</version>
+  <version>0.5.0</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
   <date>2023-02-01</date>
   <filelist>
@@ -7339,7 +7339,7 @@
 <description>Inserta scripts y hojas de estilo para OpenStreetMap</description>
 <maintainers><maintainer><name>Kathi Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.4.8</version>
+  <version>0.5.0</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
   <date>2023-02-01</date>
   <filelist>

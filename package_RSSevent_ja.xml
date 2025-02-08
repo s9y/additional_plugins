@@ -432,7 +432,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>Kathi Sewelies</author>
 <content:encoded>&lt;b&gt;serendipity_event_geo_json&lt;br /&gt;Geo-JSON&lt;/b&gt;&lt;br /&gt;Provides a JSON object which contains all geographic data and can be processed with JavaScript&lt;br/&gt;For: Serendipity 2.3</content:encoded>
-<pubDate>Mon, 24 Jul 2023 16:20:00 +0200</pubDate>
+<pubDate>Sun, 09 Feb 2025 00:30:22 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_geo_json</guid>
 </item>
 <item>

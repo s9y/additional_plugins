@@ -51,7 +51,7 @@ window.addEventListener("load", () => {
 			});
 			const color = timestampToColor(track.date);
 			const lineDash = track.date > unixTime ? [3, 6] : [0];
-			const layer = new ol.layer.VectorImage({
+			const layer = new ol.layer.Vector({
 				source: source,
 				style: [{
 					filter: ["==", ["geometry-type"], "LineString"],

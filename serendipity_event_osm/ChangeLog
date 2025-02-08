@@ -1,3 +1,10 @@
+0.5.0:
+---
+ * OpenLayers updated to v10.4.0
+ * Using style expressions
+ * Using Vector instead of VectorImage
+ * Whitespace fixes
+
 0.4.8:
 ---
  * OpenLayers downgraded to v10.2.1

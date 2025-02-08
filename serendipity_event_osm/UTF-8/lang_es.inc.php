@@ -1,4 +1,5 @@
 <?php
+
 @define('PLUGIN_EVENT_OSM_NAME', 'Integración de OpenStreetMap');
 @define('PLUGIN_EVENT_OSM_DESCRIPTION', 'Ofrece un mapa interactivo para archivos *.gpx y entradas de blog con coordenadas geográficas');
 @define('PLUGIN_EVENT_OSM_NOT_SHOWN', 'No se muestra en el sitio web');

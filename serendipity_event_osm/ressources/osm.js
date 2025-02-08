@@ -1,19 +1,16 @@
-const dateToColor = date => {
-	const minDate = new Date(date.getFullYear(), date.getMonth() - 1, 0);
-	const maxDate = new Date(date.getFullYear(), date.getMonth(), 0);
-	return "hsl(" + ((date.getTime() - minDate.getTime()) / (maxDate.getTime() - minDate.getTime())).toFixed(3) + "turn, 100%, 50%)";
+const timestampToColor = timestamp => {
+	const date = new Date(timestamp * 1000);
+	const minDate = new Date(date.getFullYear(), date.getMonth(), 1);
+	const maxDate = new Date(date.getFullYear(), date.getMonth() + 1, 1);
+	return "hsl(" + (360 * (date.getTime() - minDate.getTime()) / (maxDate.getTime() - minDate.getTime())).toFixed() + " 100% 50%)";
 };
 
 window.addEventListener("load", () => {
 	document.querySelectorAll("div.map").forEach(divMap => {
 		const popup = document.createElement("div");
+		const overlay = new ol.Overlay({element: popup});
 		popup.setAttribute("class", "ol-popup");
-		const overlay = new ol.Overlay({
-			element: popup
-		});
-		popup.onclick = () => {
-			overlay.setPosition(undefined);
-		};
+		popup.onclick = () => { overlay.setPosition(undefined); };
 
 		const dataset = divMap.dataset;
 		const articles = geo.articles
@@ -23,6 +20,7 @@ window.addEventListener("load", () => {
 		const features = articles.map((article, id) => {
 			const feature = new ol.Feature(new ol.geom.Point(ol.proj.fromLonLat(article.location.reverse())));
 			feature.setId(id);
+			feature.set("color", timestampToColor(article.date));
 			return feature;
 		});
 
@@ -31,17 +29,10 @@ window.addEventListener("load", () => {
 			new ol.layer.Tile({source: osmSource, preload: Infinity}),
 			new ol.layer.Vector({
 				source: new ol.source.Vector({features: features}),
-				style: feature => {
-					const id = feature.getId();
-					const article = articles[id];
-					const date = new Date(article.date * 1000);
-
-					return new ol.style.Style({
-						image: new ol.style.Circle({
-							radius: 6,
-							fill: new ol.style.Fill({color: dateToColor(date)})
-						})
-					});
+				style: {
+					"circle-radius": 6,
+					"circle-fill-color": ["get", "color"],
+					"circle-stroke-color": ["get", "color"]
 				},
 				zIndex: Infinity
 			})
@@ -58,19 +49,18 @@ window.addEventListener("load", () => {
 					.map(feature => ol.sphere.getLength(feature.getGeometry()))
 					.reduce((a, b) => a + b, 0);
 			});
-			const color = dateToColor(new Date(track.date * 1000));
-			const lineDash = track.date > unixTime ? [3, 6] : undefined;
+			const color = timestampToColor(track.date);
+			const lineDash = track.date > unixTime ? [3, 6] : [0];
 			const layer = new ol.layer.VectorImage({
 				source: source,
-				style: feature => feature.getGeometry().getType() === "MultiLineString"
-					? new ol.style.Style({
-						stroke: new ol.style.Stroke({
-							color: color,
-							width: 3,
-							lineDash: lineDash
-						})
-					})
-					: undefined
+				style: [{
+					filter: ["==", ["geometry-type"], "LineString"],
+					style: {
+						"stroke-color": color,
+						"stroke-width": 3,
+						"stroke-line-dash": lineDash
+					}
+				}]
 			});
 			layers.push(layer);
 		}
@@ -78,19 +68,11 @@ window.addEventListener("load", () => {
 			controls: ol.control.defaults.defaults({rotate: false}).extend([
 				new ol.control.FullScreen(),
 				new ol.control.OverviewMap({
-					layers: [
-						new ol.layer.Tile({source: osmSource})
-					]
+					layers: [new ol.layer.Tile({source: osmSource})]
 				}),
-				new ol.control.ScaleLine({
-					bar: true,
-					minWidth: 120
-				})
+				new ol.control.ScaleLine({bar: true, minWidth: 120})
 			]),
-			interactions: ol.interaction.defaults.defaults({
-				altShiftDragRotate: false,
-				pinchRotate: false
-			}),
+			interactions: ol.interaction.defaults.defaults({altShiftDragRotate: false, pinchRotate: false}),
 			layers: layers,
 			overlays: [overlay],
 			target: divMap,
@@ -158,10 +140,10 @@ window.addEventListener("load", () => {
 				};
 				const ulArticles = foundArticles
 					.map(x => makeItem(articles[x]))
-					.reduce((x, y) => {x.appendChild(y); return x;}, initUl("Articles"));
+					.reduce((x, y) => { x.appendChild(y); return x; }, initUl("Articles"));
 				const ulTracks = foundTracks
 					.map(x => makeItem(tracks[x]))
-					.reduce((x, y) => {x.appendChild(y); return x;}, initUl("Tracks"));
+					.reduce((x, y) => { x.appendChild(y); return x; }, initUl("Tracks"));
 				popup.innerHTML = (foundArticles.length ? ulArticles.outerHTML : "") + (foundTracks.length ? ulTracks.outerHTML : "");
 				overlay.setPosition(foundArticles.length ? ol.proj.fromLonLat(
 					[0, 1].map(latLon => foundArticles
@@ -184,7 +166,7 @@ window.addEventListener("load", () => {
 				.map(track => track.distance)
 				.reduce((a, b) => a + b, 0);
 			document.querySelectorAll("span.distance-counter[data-category=\"" + dataset.category + "\"]").forEach(span => {
-				span.innerHTML = (distance / 1000).toFixed(0);
+				span.innerHTML = (distance / 1000).toFixed();
 			});
 		});
 	});

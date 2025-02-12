@@ -16,19 +16,15 @@ class serendipity_event_weblogping extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_WEBLOGPING_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.09');
+        $propbag->add('version',       '1.10');
         $propbag->add('requirements',  array(
-            'serendipity' => '1.6',
-            'smarty'      => '2.6.7',
-            'php'         => '4.1.0'
+            'serendipity' => '2.4',
+            'php'         => '7.4.0'
         ));
         $propbag->add('event_hooks',    array(
-            'backend_display' => true,
             'frontend_display' => true,
-            'backend_insert' => true,
-            'backend_update' => true,
+            'backend_display' => true,
             'backend_publish' => true,
-            'backend_draft' => true,
             'external_plugin' => true
         ));
         $propbag->add('groups', array('BACKEND_EDITOR'));
@@ -214,18 +210,8 @@ class serendipity_event_weblogping extends serendipity_event
                             if (function_exists('serendipity_request_url')) {
                                 $http_response = serendipity_request_url("http://".$service['host'].$service['path'], 'POST', 'text/xml', $payload, null, 'weblogping');
                             } else {
-                                $options = array();
-                                require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
-                                serendipity_plugin_api::hook_event('backend_http_request', $options, 'weblogping');
-                                serendipity_request_start();
-
-                                $req = new HTTP_Request("http://".$service['host'].$service['path'], $options);
-                                $req->setMethod(HTTP_REQUEST_METHOD_POST);
-                                $req->addHeader("Content-Type", "text/xml");
-                                $req->addRawPostData($payload);
-                                $http_result   = $req->sendRequest();
-                                $http_response = $req->getResponseBody();
-                                serendipity_request_end();
+                                echo "Unable to ping";
+                                return false;
                             }
 
                             $xmlrpc_result = $message->parseResponse($http_response);
@@ -254,10 +240,6 @@ class serendipity_event_weblogping extends serendipity_event
                     }
                     return true;
 
-                case 'frontend_display':
-                case 'backend_insert':
-                case 'backend_update':
-                case 'backend_draft':
                 default:
                     return false;
                     break;

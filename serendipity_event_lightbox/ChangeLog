@@ -1,3 +1,8 @@
+2.7.0:
+    * Remove prettyPhoto option, as the script was abandoned
+    * Drop bundled jQuery, rely on s9y 2.0 offering it
+    
+------------------------------------------------------------------------
 2.5.7:
     *  Fix more warnings under PHP 8.2
 ------------------------------------------------------------------------

@@ -26,7 +26,7 @@ class serendipity_event_lightbox extends serendipity_event
         $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_NAME);
         $propbag->add('description',    PLUGIN_EVENT_LIGHTBOX_DESC);
         $propbag->add('author',         'Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian');
-        $propbag->add('version',        '2.5.7');
+        $propbag->add('version',        '2.6.7');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'php'         => '5.3.0'
@@ -92,7 +92,7 @@ class serendipity_event_lightbox extends serendipity_event
                 $propbag->add('type',           'select');
                 $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_TYPE);
                 $propbag->add('description',    '');
-                $propbag->add('select_values',  array('colorbox' => 'ColorBox', 'lightbox2jq' => 'Lightbox 2 jQuery', 'magnific' => 'Magnific-Popup', 'prettyPhoto' => 'prettyPhoto'));
+                $propbag->add('select_values',  array('colorbox' => 'ColorBox', 'lightbox2jq' => 'Lightbox 2 jQuery', 'magnific' => 'Magnific-Popup'));
                 $propbag->add('default',        'lightbox2jq');
                 break;
 
@@ -147,12 +147,6 @@ class serendipity_event_lightbox extends serendipity_event
 
             if ($type === null) {
                 $type = $this->get_config('type');
-                #$new  = array('colorbox', 'lightbox2jq', 'magnific', 'prettyPhoto');
-                /*$removed  = array('lightbox2', 'lightbox', 'lightbox_plus', 'thickbox', 'greybox');
-                if (in_array($type, $removed)) {
-                    $type = 'lightbox2jq'; // force and set new default for upgraders
-                    $this->set_config('type', $type);
-                }*/
             }
 
             if ($navigate === null) {
@@ -163,9 +157,6 @@ class serendipity_event_lightbox extends serendipity_event
                 if ($type == 'lightbox2jq') {
                     $regex = '/<a([^>]+)(href=(["\'])[^"\']*\.(jpe?g|gif|png)["\'])/i';
                     $sub   = '<a $1 rel=$3lightbox$3 $2';
-                } elseif ($type == 'prettyPhoto') {
-                    $regex = '/<a([^>]+)(href=(["\'])[^"\']*\.(jpe?g|gif|png)["\'])/i';
-                    $sub   = '<a rel=$3prettyPhoto$3 $1 $2';
                 } elseif ($type == 'colorbox') {
                     $regex = '/<a([^>]+)(href=(["\'])[^"\']*\.(jpe?g|gif|png)["\'])/i';
                     $sub   = '<a $1 rel=$3singlebox$3 $2';
@@ -233,21 +224,6 @@ class serendipity_event_lightbox extends serendipity_event
                             echo '    <script type="text/javascript" src="' . $pluginDir . '/magnific-popup/jquery.magnific-popup.init.js" charset="utf-8"></script>' . "\n";
                         }
                     }
-                    // PrettyPhoto code - http://www.no-margin-for-errors.com/projects/prettyPhoto/ - init with :visible to ensure to not show hidden elements via hideafter function in imageselectorplus ranges
-                    elseif ($type == 'prettyPhoto') {
-                        if (isset($headcss) && $headcss) {
-                            echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/prettyphoto/css/prettyPhoto.css" />' . "\n";
-                            echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/prettyphoto/css/prettyPhotoScreens.css" />' . "\n";
-                        } else {
-                            if (!class_exists('serendipity_event_jquery') && !$serendipity['capabilities']['jquery']) {
-                                echo '    <script type="text/javascript" src="' . $pluginDir . '/jquery-1.11.3.min.js" charset="utf-8"></script>' . "\n";
-                            }
-                            // remove anchors possible onclick handler
-                            echo '    <script type="text/javascript">jQuery(document).ready(function(){ jQuery(\'a[rel^="prettyPhoto"]\').removeAttr("onclick"); }); </script>' . "\n";
-                            echo '    <script type="text/javascript" src="' . $pluginDir . '/prettyphoto/js/jquery.prettyPhoto.min.js" charset="utf-8"></script>' . "\n";
-                            echo '    <script type="text/javascript">jQuery(document).ready(function(){ jQuery(\'a:visible[rel^="prettyPhoto"]\').prettyPhoto(' . $this->get_config('init_js') . '); }); </script>' . "\n";
-                        }
-                    }
                     break;
 
                 case 'css':
@@ -275,12 +251,6 @@ class serendipity_event_lightbox extends serendipity_event
                             $sub   = '<a $1 rel=$3lightbox[' . $eventData['id'] . ']$3 $2';
                         } elseif ($navigate == 'page') {
                             $sub   = '<a $1 rel=$3lightbox[]$3 $2';
-                        }
-                    } elseif ($type == 'prettyPhoto') {
-                        if ($navigate == 'entry') {
-                            $sub   = '<a rel=$3prettyPhoto[' . $eventData['id'] . ']$3 $1 $2';
-                        } elseif ($navigate == 'page') {
-                            $sub   = '<a rel=$3prettyPhoto[]$3 $1 $2';
                         }
                     } elseif ($type == 'colorbox') {
                         if ($navigate == 'entry') {

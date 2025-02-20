@@ -44,15 +44,11 @@ class serendipity_event_weblogping extends serendipity_event
                 if (!empty($ms_name)) {
                     $is_extended = ($ms_name[0] == '*' ? true : false);
                     $ms_name = trim($ms_name, '*');
-                    $ms_parts = explode('/', $ms_name);
-                    $ms_host = $ms_parts[0];
-                    unset($ms_party[0]);
 
-                    array_shift( $ms_parts);  //  remove hostname.
                     $this->services[] = array(
                                           'name'     => $ms_name,
-                                          'host'     => $ms_host,
-                                          'path'     => '/'.implode('/', $ms_parts),
+                                          'host'     => parse_url($ms_name, PHP_URL_HOST),
+                                          'path'     => (parse_url($ms_name, PHP_URL_PATH) ?? '/'),
                                           'extended' => $is_extended
                     );
                 }
@@ -206,9 +202,9 @@ class serendipity_event_weblogping extends serendipity_event
                             } else {
                                 $payload = $message->payload;
                             }
-
+                            
                             if (function_exists('serendipity_request_url')) {
-                                $http_response = serendipity_request_url("http://".$service['host'].$service['path'], 'POST', 'text/xml', $payload, null, 'weblogping');
+                                $http_response = serendipity_request_url("https://".$service['host'].$service['path'], 'POST', 'text/xml', $payload, null, 'weblogping');
                             } else {
                                 echo "Unable to ping";
                                 return false;

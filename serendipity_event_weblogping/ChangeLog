@@ -3,6 +3,8 @@
     * Remove abandoned ping services from options
     * Remove fallback code for HTTP/Request, as that was removed from Serendipity
     * Restore options form for the entry editor
+    * Make host and path detection of custom ping services more reliable
+    * Always ping https://, instead of forcing http://
 
 1.09:
 -----

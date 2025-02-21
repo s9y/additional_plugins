@@ -42,7 +42,7 @@ class serendipity_event_weblogping extends serendipity_event
         if (is_array($manual_services)) {
             foreach($manual_services AS $ms_index => $ms_name) {
                 if (!empty($ms_name)) {
-                    $is_extended = ($ms_name[0] == '*' ? true : false);
+                    $is_extended = ($ms_name[0] == '*');
                     $ms_name = trim($ms_name, '*');
 
                     $this->services[] = array(
@@ -207,6 +207,24 @@ class serendipity_event_weblogping extends serendipity_event
                                 $http_response = serendipity_request_url("https://".$service['host'].$service['path'], 'POST', 'text/xml', $payload, null, 'weblogping');
                             } else {
                                 echo "Unable to ping";
+                                return false;
+                            }
+                            
+                            if ($http_response == 'success' && $serendipity['last_http_request']['responseCode'] == 200) {
+                                // Some ping services, like the uberblogr webring, do not send an
+                                // xmlrpc response
+                                $out = PLUGIN_EVENT_WEBLOGPING_SEND_SUCCESS . "<br />";
+                                if (!defined('SERENDIPITY_IS_XMLRPC') || defined('SERENDIPITY_XMLRPC_VERBOSE')) {
+                                    echo $out;
+                                }
+                                return true;
+                            }
+                            
+                            if ($http_response == 'warning') {
+                                $out = sprintf(PLUGIN_EVENT_WEBLOGPING_SEND_FAILURE . "<br />", 'Unknown Warning as response');
+                                if (!defined('SERENDIPITY_IS_XMLRPC') || defined('SERENDIPITY_XMLRPC_VERBOSE')) {
+                                    echo $out;
+                                }
                                 return false;
                             }
 

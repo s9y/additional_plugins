@@ -5,6 +5,7 @@
     * Restore options form for the entry editor
     * Make host and path detection of custom ping services more reliable
     * Always ping https://, instead of forcing http://
+    * Enable ping status detection when the service does not return an xmlrpc response
 
 1.09:
 -----

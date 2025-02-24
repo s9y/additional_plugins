@@ -10539,9 +10539,9 @@
 <description>将新文章的发布消息通知到其他到网上服务</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.09</version>
-  <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <version>1.10</version>
+  <requirements:s9yVersion>2.4</requirements:s9yVersion>
+  <date>2025-02-25</date>
   <filelist>
 <dir name="serendipity_event_weblogping">
 <dir name="UTF-8">

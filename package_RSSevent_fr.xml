@@ -1138,8 +1138,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_weblogping</link>
 <category>Event Plugins</category>
 <author>Serendipity Team</author>
-<content:encoded>&lt;b&gt;serendipity_event_weblogping&lt;br /&gt;Annconcer les billets&lt;/b&gt;&lt;br /&gt;Envoyer une mise à jour pour les nouveaux billets aux services d&#039;indexation&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Fri, 23 Sep 2016 22:32:58 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_weblogping&lt;br /&gt;Annconcer les billets&lt;/b&gt;&lt;br /&gt;Envoyer une mise à jour pour les nouveaux billets aux services d&#039;indexation&lt;br/&gt;For: Serendipity 2.4</content:encoded>
+<pubDate>Tue, 25 Feb 2025 00:30:26 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_weblogping</guid>
 </item>
 <item>

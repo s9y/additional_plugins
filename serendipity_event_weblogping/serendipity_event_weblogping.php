@@ -46,11 +46,15 @@ class serendipity_event_weblogping extends serendipity_event
                 if (!empty($ms_name)) {
                     $is_extended = ($ms_name[0] == '*');
                     $ms_name = trim($ms_name, '*');
+                    $ms_url = $ms_name;
+                    if (! str_starts_with($ms_url, 'http')) {
+                        $ms_url = 'https://' . $ms_url;
+                    }
 
                     $this->services[] = array(
                                           'name'     => $ms_name,
-                                          'host'     => parse_url($ms_name, PHP_URL_HOST),
-                                          'path'     => (parse_url($ms_name, PHP_URL_PATH) ?? '/'),
+                                          'host'     => parse_url($ms_url, PHP_URL_HOST),
+                                          'path'     => (parse_url($ms_url, PHP_URL_PATH) ?? '/'),
                                           'extended' => $is_extended
                     );
                 }

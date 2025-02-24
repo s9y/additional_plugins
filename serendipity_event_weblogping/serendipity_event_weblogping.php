@@ -149,6 +149,9 @@ class serendipity_event_weblogping extends serendipity_event
 
                 case 'backend_save':
                 case 'backend_publish':
+                    if (serendipity_db_bool($eventData['isdraft'])) {
+                        return false;
+                    }
                     if (!class_exists('XML_RPC_Base')) {
                         include_once(S9Y_PEAR_PATH . "XML/RPC.php");
                     }
@@ -215,9 +218,7 @@ class serendipity_event_weblogping extends serendipity_event
                             }
                             
                             if (function_exists('serendipity_request_url')) {
-                                if (!serendipity_db_bool($eventData['isdraft']) &&
-                                    $eventData['timestamp'] >= serendipity_serverOffsetHour()
-                                    ) {
+                                if ($eventData['timestamp'] >= serendipity_serverOffsetHour()) {
                                     # Entry will be not be published yet, so send the ping later
                                     $this->delay($eventData['id'], "https://".$service['host'].$service['path'], $payload, $eventData['timestamp']);
                                     echo "Ping scheduled";

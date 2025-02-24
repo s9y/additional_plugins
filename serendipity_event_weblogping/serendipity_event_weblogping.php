@@ -16,20 +16,18 @@ class serendipity_event_weblogping extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_WEBLOGPING_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.09');
+        $propbag->add('version',       '1.10');
         $propbag->add('requirements',  array(
-            'serendipity' => '1.6',
-            'smarty'      => '2.6.7',
-            'php'         => '4.1.0'
+            'serendipity' => '2.4',
+            'php'         => '7.4.0'
         ));
         $propbag->add('event_hooks',    array(
-            'backend_display' => true,
             'frontend_display' => true,
-            'backend_insert' => true,
-            'backend_update' => true,
+            'backend_display' => true,
             'backend_publish' => true,
-            'backend_draft' => true,
-            'external_plugin' => true
+            'backend_save' => true,
+            'external_plugin' => true,
+            'genpage' => true
         ));
         $propbag->add('groups', array('BACKEND_EDITOR'));
 
@@ -46,17 +44,17 @@ class serendipity_event_weblogping extends serendipity_event
         if (is_array($manual_services)) {
             foreach($manual_services AS $ms_index => $ms_name) {
                 if (!empty($ms_name)) {
-                    $is_extended = ($ms_name[0] == '*' ? true : false);
+                    $is_extended = ($ms_name[0] == '*');
                     $ms_name = trim($ms_name, '*');
-                    $ms_parts = explode('/', $ms_name);
-                    $ms_host = $ms_parts[0];
-                    unset($ms_party[0]);
+                    $ms_url = $ms_name;
+                    if (! str_starts_with($ms_url, 'http')) {
+                        $ms_url = 'https://' . $ms_url;
+                    }
 
-                    array_shift( $ms_parts);  //  remove hostname.
                     $this->services[] = array(
                                           'name'     => $ms_name,
-                                          'host'     => $ms_host,
-                                          'path'     => '/'.implode('/', $ms_parts),
+                                          'host'     => parse_url($ms_url, PHP_URL_HOST),
+                                          'path'     => (parse_url($ms_url, PHP_URL_PATH) ?? '/'),
                                           'extended' => $is_extended
                     );
                 }
@@ -94,6 +92,10 @@ class serendipity_event_weblogping extends serendipity_event
 
     function generate_content(&$title) {
         $title = PLUGIN_EVENT_WEBLOGPING_TITLE;
+    }
+
+    function install() {
+        $this->setupDB();
     }
 
     function event_hook($event, &$bag, &$eventData, $addData = null) {
@@ -145,7 +147,11 @@ class serendipity_event_weblogping extends serendipity_event
                     return true;
                     break;
 
+                case 'backend_save':
                 case 'backend_publish':
+                    if (serendipity_db_bool($eventData['isdraft'])) {
+                        return false;
+                    }
                     if (!class_exists('XML_RPC_Base')) {
                         include_once(S9Y_PEAR_PATH . "XML/RPC.php");
                     }
@@ -210,22 +216,39 @@ class serendipity_event_weblogping extends serendipity_event
                             } else {
                                 $payload = $message->payload;
                             }
-
+                            
                             if (function_exists('serendipity_request_url')) {
-                                $http_response = serendipity_request_url("http://".$service['host'].$service['path'], 'POST', 'text/xml', $payload, null, 'weblogping');
+                                if ($eventData['timestamp'] >= serendipity_serverOffsetHour()) {
+                                    # Entry will be not be published yet, so send the ping later
+                                    $this->delay($eventData['id'], "https://".$service['host'].$service['path'], $payload, $eventData['timestamp']);
+                                    echo "Ping scheduled";
+                                    continue;
+                                } else {
+                                    # Remove a potentially already scheduled ping
+                                    $this->removeDelayed($eventData['id'], "https://".$service['host'].$service['path']);
+                                    $http_response = serendipity_request_url("https://".$service['host'].$service['path'], 'POST', 'text/xml', $payload, null, 'weblogping');
+                                }
                             } else {
-                                $options = array();
-                                require_once S9Y_PEAR_PATH . 'HTTP/Request.php';
-                                serendipity_plugin_api::hook_event('backend_http_request', $options, 'weblogping');
-                                serendipity_request_start();
-
-                                $req = new HTTP_Request("http://".$service['host'].$service['path'], $options);
-                                $req->setMethod(HTTP_REQUEST_METHOD_POST);
-                                $req->addHeader("Content-Type", "text/xml");
-                                $req->addRawPostData($payload);
-                                $http_result   = $req->sendRequest();
-                                $http_response = $req->getResponseBody();
-                                serendipity_request_end();
+                                echo "Unable to ping";
+                                return false;
+                            }
+                            
+                            if ($http_response == 'success' && $serendipity['last_http_request']['responseCode'] == 200) {
+                                // Some ping services, like the uberblogr webring, do not send an
+                                // xmlrpc response
+                                $out = PLUGIN_EVENT_WEBLOGPING_SEND_SUCCESS . "<br />";
+                                if (!defined('SERENDIPITY_IS_XMLRPC') || defined('SERENDIPITY_XMLRPC_VERBOSE')) {
+                                    echo $out;
+                                }
+                                continue;
+                            }
+                            
+                            if ($http_response == 'warning') {
+                                $out = sprintf(PLUGIN_EVENT_WEBLOGPING_SEND_FAILURE . "<br />", 'Unknown Warning as response');
+                                if (!defined('SERENDIPITY_IS_XMLRPC') || defined('SERENDIPITY_XMLRPC_VERBOSE')) {
+                                    echo $out;
+                                }
+                                continue;
                             }
 
                             $xmlrpc_result = $message->parseResponse($http_response);
@@ -254,10 +277,14 @@ class serendipity_event_weblogping extends serendipity_event
                     }
                     return true;
 
-                case 'frontend_display':
-                case 'backend_insert':
-                case 'backend_update':
-                case 'backend_draft':
+                case 'genpage':
+                    # Do not check on every page
+                    $try = mt_rand(1, 10);
+                    if ($try == 1) {
+                        $this->generateDelayed();
+                    }
+                    break;
+
                 default:
                     return false;
                     break;
@@ -266,6 +293,71 @@ class serendipity_event_weblogping extends serendipity_event
             return false;
         }
     }
+
+    # Store for each entry the ping target, payload and timestamp of release
+    function delay($entry_id, $target, $payload, $timestamp) {
+        global $serendipity;
+        $this->upgradeCheck();
+        $this->removeDelayed($entry_id, $target);
+        $sql = "INSERT INTO
+                    {$serendipity['dbPrefix']}delayed_weblogpings (entry_id, target, payload, timestamp)
+                VALUES
+                    (" . serendipity_db_escape_string($entry_id) .', "' . serendipity_db_escape_string($target) . '", "' . serendipity_db_escape_string($payload) . '", ' . serendipity_db_escape_string($timestamp) . ')';
+        serendipity_db_query($sql);
+    }
+
+    
+    # Send the pings for entries which now are shown
+    function generateDelayed() {
+        global $serendipity;
+        $this->upgradeCheck();
+
+        $sql = "SELECT entry_id, target, payload, timestamp
+                FROM
+                    {$serendipity['dbPrefix']}delayed_weblogpings";
+        $pings = serendipity_db_query($sql);
+
+        if (is_array($pings) && !empty($pings)) {
+            foreach ($pings as $ping) {
+                if ($ping['timestamp'] <= serendipity_serverOffsetHour()) {
+                    serendipity_request_url($ping['target'], 'POST', 'text/xml', $ping['payload'], null, 'weblogping');
+                    
+                    # the pings are now sent
+                    $this->removeDelayed($ping['entry_id'], $ping['target']);
+                }
+            }
+        }
+    }
+
+    # Remove delayed ping from further use
+    function removeDelayed($entry_id, $target) {
+        global $serendipity;
+        $sql = "DELETE FROM {$serendipity['dbPrefix']}delayed_weblogpings
+                      WHERE entry_id= " . serendipity_db_escape_string($entry_id) . ' AND target="' .serendipity_db_escape_string($target) . '"';
+        serendipity_db_query($sql);
+    }
+
+     function setupDB() {
+        global $serendipity;
+
+        $sql = "CREATE TABLE IF NOT EXISTS  {$serendipity['dbPrefix']}delayed_weblogpings (
+                entry_id int(11) NOT NULL,
+                target VARCHAR(200) NOT NULL,
+                payload {TEXT} NOT NULL,
+                timestamp int(10) {UNSIGNED},
+                PRIMARY KEY(entry_id, target)
+                )";
+        serendipity_db_schema_import($sql);
+    }
+
+    function upgradeCheck() {
+        $db_upgrade = $this->get_config('db_upgrade', '');
+        if ($db_upgrade != 1) {
+            $this->setupDB();
+            $this->set_config('db_upgrade', 1);
+        }
+    }
+
 }
 
 /* vim: set sts=4 ts=4 expandtab : */

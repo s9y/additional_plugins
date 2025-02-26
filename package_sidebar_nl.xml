@@ -11,9 +11,9 @@
 <description>Choose the categories you will display on the blog.</description>
 <maintainers><maintainer><name>Falk Doering</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.3</version>
+  <version>0.3.1</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2016-09-23</date>
+  <date>2025-02-27</date>
   <filelist>
 <dir name="serendipity_event_faq">
 <dir name="UTF-8">

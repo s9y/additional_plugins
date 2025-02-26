@@ -3280,9 +3280,9 @@
 <description>Liste von Fragen und Antworten werden übersichtlich aufbereitet dargestellt.</description>
 <maintainers><maintainer><name>Falk Doering, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.24</version>
+  <version>1.24.1</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2016-10-26</date>
+  <date>2025-02-27</date>
   <filelist>
 <dir name="serendipity_event_faq">
 <dir name="UTF-8">

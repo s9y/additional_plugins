@@ -8,6 +8,7 @@ if (IN_serendipity !== true) {
 
 class serendipity_plugin_faq extends serendipity_plugin
 {
+    var $dependencies = [];
 
     function introspect(&$propbag)
     {
@@ -15,7 +16,7 @@ class serendipity_plugin_faq extends serendipity_plugin
         $propbag->add('description',    FAQ_PLUGIN_NAME_DESC);
         $propbag->add('author',         'Falk Doering');
         $propbag->add('stackable',      true);
-        $propbag->add('version',        '0.3');
+        $propbag->add('version',        '0.3.1');
         $propbag->add('copyright',      'LGPL');
         $propbag->add('configuration',  array(
             'title',
@@ -97,7 +98,7 @@ class serendipity_plugin_faq extends serendipity_plugin
         $q = "SELECT id, category
                 FROM {$serendipity['dbPrefix']}faq_categorys
                WHERE ";
-        if (is_array($ids)) {
+        if (is_array($ids) && ! empty($ids) && ! empty($ids[0])) {
             $q .= serendipity_db_in_sql('id', $ids, '');
         } else {
             $q .= ' parent_id = 0';

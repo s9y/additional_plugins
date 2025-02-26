@@ -13,7 +13,7 @@ abstract class inspectConfig extends serendipity_event_faq
 
 class icSeparator extends inspectConfig
 {
-    protected function icSeparator()
+    protected function __construct()
     {
         return;//void
     }
@@ -21,7 +21,7 @@ class icSeparator extends inspectConfig
 
 class icSelect extends inspectConfig
 {
-    protected function icSelect()
+    protected function __construct()
     {
         global $inspectConfig;
 
@@ -63,7 +63,7 @@ class icSelect extends inspectConfig
 
 class icTristate extends inspectConfig
 {
-    protected function icTristate()
+    protected function __construct()
     {
         global $inspectConfig;
 
@@ -76,7 +76,7 @@ class icTristate extends inspectConfig
 
 class icBoolean extends inspectConfig
 {
-    protected function icBoolean()
+    protected function __construct()
     {
         global $inspectConfig;
 
@@ -94,7 +94,7 @@ class icRadio extends inspectConfig
     /**
      * Radio form field generator. May have pre set dependencies in tristate and boolean.
      */
-    protected function icRadio()
+    protected function __construct()
     {
         global $inspectConfig;
 
@@ -163,7 +163,7 @@ class icRadio extends inspectConfig
 
 class icString extends inspectConfig
 {
-    protected function icString()
+    protected function __construct()
     {
         global $inspectConfig;
 ?>
@@ -183,7 +183,7 @@ class icString extends inspectConfig
 
 class icText extends inspectConfig
 {
-    protected function icText()
+    protected function __construct()
     {
         global $inspectConfig;
 
@@ -294,7 +294,7 @@ class icText extends inspectConfig
 
 class icHtml extends inspectConfig
 {
-    protected function icHtml()
+    protected function __construct()
     {
         $icText::icText();
     }
@@ -302,7 +302,7 @@ class icHtml extends inspectConfig
 
 class icContent extends inspectConfig
 {
-    protected function icContent()
+    protected function __construct()
     {
         global $inspectConfig;
 ?>
@@ -315,7 +315,7 @@ class icContent extends inspectConfig
 
 class icHidden extends inspectConfig
 {
-    protected function icHidden()
+    protected function __construct()
     {
         global $inspectConfig;
 ?>

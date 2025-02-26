@@ -76,7 +76,7 @@ class serendipity_event_faq extends serendipity_event
         $propbag->add('name',         FAQ_NAME);
         $propbag->add('description',  FAQ_NAME_DESC);
         $propbag->add('author',       'Falk Doering, Ian');
-        $propbag->add('version',      '1.24');
+        $propbag->add('version',      '1.24.1');
         $propbag->add('copyright',    'LGPL');
         $propbag->add('stackable',    false);
         $propbag->add('requirements', array(
@@ -192,12 +192,12 @@ class serendipity_event_faq extends serendipity_event
 
             case 'cid':
                 $propbag->add('type',           'hidden');
-                $propbag->add('value',          (empty($this->faq['cid']) ? $serendipity['GET']['cid'] : $this->faq['cid']));
+                $propbag->add('value',          (empty($this->faq['cid'] ?? []) ? $serendipity['GET']['cid'] ?? null : $this->faq['cid']));
                 break;
 
             case 'id':
                 $propbag->add('type',           'hidden');
-                $propbag->add('value',          $this->faq['id']);
+                $propbag->add('value',          $this->faq['id'] ?? null);
                 break;
 
             default:
@@ -227,14 +227,14 @@ class serendipity_event_faq extends serendipity_event
         switch ($name) {
             case 'id':
                 $propbag->add('type',           'hidden');
-                $propbag->add('value',          $this->category['id']);
+                $propbag->add('value',          $this->category['id'] ?? null);
                 break;
 
             case 'parent_id':
                 $propbag->add('type',           'select');
                 $propbag->add('name',           FAQ_PID);
                 $propbag->add('description',    FAQ_PID_PID);
-                $propbag->add('select_values',  $this->getCategories($serendipity['GET']['cat_lang']));
+                $propbag->add('select_values',  $this->getCategories($serendipity['GET']['cat_lang'] ?? null));
                 $propbag->add('default',        '');
                 break;
 
@@ -254,7 +254,7 @@ class serendipity_event_faq extends serendipity_event
 
             case 'language':
                 $propbag->add('type',           'hidden');
-                $propbag->add('value',          $serendipity['GET']['cat_lang']);
+                $propbag->add('value',          $serendipity['GET']['cat_lang'] ?? null);
                 break;
 
             default:
@@ -630,7 +630,7 @@ class serendipity_event_faq extends serendipity_event
 
         switch ($serendipity['GET']['action']) {
             case 'faqs':
-                if (($serendipity['POST']['typeSave'] == "true") && (!empty($serendipity['POST']['SAVECONF']))) {
+                if ((($serendipity['POST']['typeSave'] ?? '') == "true") && (!empty($serendipity['POST']['SAVECONF']))) {
                     $serendipity['POST']['typeSubmit'] = true;
                     $bag = new serendipity_property_bag();
                     $this->introspect($bag);
@@ -656,10 +656,10 @@ class serendipity_event_faq extends serendipity_event
                 if (!empty($serendipity['POST']['id'])) {
                     $serendipity['GET']['id'] = &$serendipity['POST']['id'];
                 }
-                if (is_numeric($serendipity['GET']['id'])) {
+                if (isset($serendipity['GET']['id']) && is_numeric($serendipity['GET']['id'])) {
                     $this->fetchFAQ($serendipity['GET']['id']);
                 }
-                if (!is_numeric($serendipity['GET']['cid'])) {
+                if (isset($serendipity['GET']['cid']) && !is_numeric($serendipity['GET']['cid'])) {
                     $cid = &$this->faq['cid'];
                 } else {
                     $cid = &$serendipity['GET']['cid'];
@@ -692,11 +692,11 @@ class serendipity_event_faq extends serendipity_event
                 if (!empty($serendipity['GET']['id'])) {
                     $serendipity['POST']['id'] = &$serendipity['GET']['id'];
                 }
-                if (is_numeric($serendipity['POST']['id'])) {
+                if (isset($serendipity['POST']['id']) && is_numeric($serendipity['POST']['id'])) {
                     $this->fetchCategory($serendipity['POST']['id']);
                 }
 
-                if (($serendipity['POST']['categorySave'] == "true") && (!empty($serendipity['POST']['SAVECONF']))) {
+                if ((isset($serendipity['POST']['categorySave']) && $serendipity['POST']['categorySave'] == "true") && (!empty($serendipity['POST']['SAVECONF']))) {
                     $serendipity['POST']['categorySubmit'] = true;
                     $bag = new serendipity_property_bag();
                     $this->introspect($bag);
@@ -748,9 +748,9 @@ class serendipity_event_faq extends serendipity_event
                     }
                 }
 
-                if ($serendipity['GET']['actiondo'] == 'faqMoveUp') {
+                if (($serendipity['GET']['actiondo'] ?? '') == 'faqMoveUp') {
                     $this->faqMove($serendipity['GET']['id'], $serendipity['GET']['cid'], D_FAQ_MOVEUP);
-                } elseif ($serendipity['GET']['actiondo'] == 'faqMoveDown') {
+                } elseif (($serendipity['GET']['actiondo'] ?? '') == 'faqMoveDown') {
                     $this->faqMove($serendipity['GET']['id'], $serendipity['GET']['cid'], D_FAQ_MOVEDOWN);
                 }
 
@@ -903,14 +903,14 @@ class serendipity_event_faq extends serendipity_event
         header('Content-Type: text/html; charset=' . LANG_CHARSET);
         include_once(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
 
-        if (is_string($serendipity['uriArguments'][2]) && isset($serendipity['languages'][$serendipity['uriArguments'][2]])) {
+        if (isset($serendipity['uriArguments'][2]) && is_string($serendipity['uriArguments'][2]) && isset($serendipity['languages'][$serendipity['uriArguments'][2]])) {
             $faq_language   = $serendipity['uriArguments'][2];
             $faq_categoryid = $serendipity['uriArguments'][3];
             $faq_faqid      = $serendipity['uriArguments'][4];
         } else {
             $faq_language   = $serendipity['lang'];
-            $faq_categoryid = $serendipity['uriArguments'][2];
-            $faq_faqid      = $serendipity['uriArguments'][3];
+            $faq_categoryid = $serendipity['uriArguments'][2] ?? null;
+            $faq_faqid      = $serendipity['uriArguments'][3] ?? null;
         }
 
         if (is_numeric($faq_categoryid)) {
@@ -997,18 +997,19 @@ class serendipity_event_faq extends serendipity_event
                         'categoryid' => $faq_categoryid,
                         'category'   => $faq['category']
                     ),
-                    'next_faq' => array(
+                    'next_faq' => $nfaq ? array(
                         'faqid'      => $nfaq['id'],
                         'question'   => $nfaq['question'],
                         'categoryid' => $nfaq['cid'],
                         'category'   => $nfaq['category']
-                    ),
-                    'prev_faq' => array(
+                    ) : array(),
+                    'prev_faq' => $pfaq ? array(
                         'faqid'      => $pfaq['id'],
                         'question'   => $pfaq['question'],
                         'categoryid' => $pfaq['cid'],
                         'category'   => $pfaq['category']
-                    )
+                    ) : array()
+                    
                 ));
 
             } else {
@@ -1188,7 +1189,7 @@ class serendipity_event_faq extends serendipity_event
         $htmlnugget = array();
         $inspectConfig = array();
         // add some $serendipity items to check for
-        $inspectConfig['s9y']['wysiwyg'] = $serendipity['wysiwyg'];
+        $inspectConfig['s9y']['wysiwyg'] = $serendipity['wysiwyg'] ?? null;
         $inspectConfig['s9y']['version'] = $serendipity['version'][0];
         $inspectConfig['s9y']['nl2br']['iso2br'] = $serendipity['nl2br']['iso2br'];
         $inspectConfig['s9y']['plugin_path'] = $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_faq/';
@@ -1213,7 +1214,7 @@ class serendipity_event_faq extends serendipity_event
             }
             // check the special cases
             if (($config_item == 'language' || $config_item == 'id' || $config_item == 'cid')
-                    && $type == 'hidden' && trim($value) == '') {
+                    && $type == 'hidden' && trim($value ?? '') == '') {
                 $inspectConfig['value'] = $value = $cbag->get('value'); // case 'language' prop type hidden 'default' = 'value'!
             }
 
@@ -1243,7 +1244,7 @@ class serendipity_event_faq extends serendipity_event
                 echo "<!-- modul-type::$type - class_inspectConfig.php -->\n"; // tag dynamic form items
                 $ctype = 'ic'.ucfirst($type);
                 ${$ctype} = new $ctype();
-                if ($type == 'text' && $serendipity['wysiwyg']) {
+                if ($type == 'text' && ($serendipity['wysiwyg'] ?? false)) {
                     $htmlnugget[] = $elcount;
                     serendipity_emit_htmlarea_code('nuggets', 'nuggets', true);
                 }
@@ -1305,7 +1306,7 @@ class serendipity_event_faq extends serendipity_event
         $htmlnugget = array();
         $inspectConfig = array();
         // add some $serendipity items to check for
-        $inspectConfig['s9y']['wysiwyg'] = $serendipity['wysiwyg'];
+        $inspectConfig['s9y']['wysiwyg'] = $serendipity['wysiwyg'] ?? null;
         $inspectConfig['s9y']['version'] = $serendipity['version'][0];
         $inspectConfig['s9y']['nl2br']['iso2br'] = $serendipity['nl2br']['iso2br'];
         $inspectConfig['s9y']['plugin_path'] = $serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_faq/';
@@ -1330,7 +1331,7 @@ class serendipity_event_faq extends serendipity_event
             }
             // check the special cases
             if (($config_item == 'language' || $config_item == 'id' || $config_item == 'cid')
-                    && $type == 'hidden' && trim($value) == '') {
+                    && $type == 'hidden' && trim($value ?? '') == '') {
                 $inspectConfig['value'] = $value = $cbag->get('value'); // case 'language' prop type hidden 'default' = 'value'!
             }
 
@@ -1359,8 +1360,9 @@ class serendipity_event_faq extends serendipity_event
             if ($type) {
                 echo "<!-- modul-type::$type - class_inspectConfig.php -->\n"; // tag dynamic form items
                 $ctype = 'ic'.ucfirst($type);
+                
                 ${$ctype} = new $ctype();
-                if ($type == 'text' && $serendipity['wysiwyg']) {
+                if ($type == 'text' && ($serendipity['wysiwyg'] ?? false)) {
                     $htmlnugget[] = $elcount;
                     serendipity_emit_htmlarea_code('nuggets', 'nuggets', true);
                 }

@@ -104,11 +104,6 @@
 @define('PLUGIN_EVENT_FREETAG_ORDER_TAGNAME', 'Tag-Name');
 @define('PLUGIN_EVENT_FREETAG_ORDER_TAGCOUNT', 'Tag-Anzahl');
 
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK', 'Technorati Tag Links');
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_DESC', 'Fügt Links auf Technorati Tags hinzu. Wenn auf diese Links geklickt wird, so wird eine Liste von ähnlichen Einträgen in weiteren Blogs angezeigt, die in Technorati zu dem entsprechenden Tag gespeichert wurden.');
-
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_IMG', 'Technorati Tag Bild');
-
 @define('PLUGIN_EVENT_FREETAG_XMLIMAGE', 'XML Bild relativ zum Template Verzeichnis');
 
 @define('PLUGIN_EVENT_FREETAG_EMBED_FOOTER_DESC2', 'Wenn auf "Smarty" gestellt wird, dann wird eine smarty Variable {$entry.freetag} generiert, die an beliebiger Stelle in der entries.tpl Vorlagendatei eingefügt werden kann.');

@@ -104,11 +104,6 @@
 @define('PLUGIN_EVENT_FREETAG_ORDER_TAGNAME', 'Tag name');
 @define('PLUGIN_EVENT_FREETAG_ORDER_TAGCOUNT', 'Tag count');
 
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK', 'Technorati tag links');
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_DESC', 'Adds technorati tag links behind the tags in the entry footer. Clicking them will show similair articles in other blogs found on technorati.');
-
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_IMG', 'Technorati tag image');
-
 @define('PLUGIN_EVENT_FREETAG_XMLIMAGE', 'XML image relative to template path');
 
 @define('PLUGIN_EVENT_FREETAG_EMBED_FOOTER_DESC2', 'If set to "Smarty", then a smarty variable {$entry.freetag} will be created that you can place anywhere in your entries.tpl template file.');

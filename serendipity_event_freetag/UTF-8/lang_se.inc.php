@@ -81,9 +81,4 @@
 @define('PLUGIN_EVENT_FREETAG_ORDER_TAGNAME', 'Etikettnamn');
 @define('PLUGIN_EVENT_FREETAG_ORDER_TAGCOUNT', 'Etikettantal');
 
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK',      'Technorati-etikettlänkar');
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_DESC', 'Adderar technorati-etikettlänkar efter etiketterna i artikeln. Genom att klicka på dem visas liknande artiklar i andra bloggar funna via technorati.');
-
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_IMG',      'Technorati-etikettbild');
-
 @define('PLUGIN_EVENT_FREETAG_XMLIMAGE',    'XML-bild relativt till mallsökvägen');

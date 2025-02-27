@@ -52,6 +52,7 @@ class serendipity_event_freetag extends serendipity_event
     var $TaggedEntries        = null;
     var $supported_properties = array();
     var $dependencies         = array();
+    var $eventData            = null;
 
     function introspect(&$propbag)
     {
@@ -72,9 +73,7 @@ class serendipity_event_freetag extends serendipity_event
             'frontend_fetchentry'                               => true,
             'frontend_display:rss-2.0:per_entry'                => true,
             'frontend_header'                                   => true,
-//            'frontend_display:rss-0.92:per_entry'             => true,
             'frontend_display:rss-1.0:per_entry'                => true,
-//            'frontend_display:rss-0.91:per_entry'             => true,
             'frontend_display:atom-0.3:per_entry'               => true,
             'frontend_display:atom-1.0:per_entry'               => true,
             'frontend_entryproperties'                          => true,
@@ -98,7 +97,7 @@ class serendipity_event_freetag extends serendipity_event
         $propbag->add('groups', array('BACKEND_EDITOR'));
         $this->supported_properties = array('freetag_name', 'freetag_tagList');
         $this->dependencies = array('serendipity_plugin_freetag' => 'keep');
-        $propbag->add('configuration', array('cat2tag', 'keyword2tag', 'taglink', 'taglist', 'embed_footer', 'extended_smarty', 'show_tagcloud', 'min_percent', 'max_percent', 'max_tags', 'use_flash', 'flash_tag_color', 'flash_bg_trans', 'flash_bg_color', 'flash_width', 'flash_speed', 'meta_keywords', 'show_related', 'show_related_count', 'lowercase_tags', 'collation', 'send_http_header', 'admin_show_taglist', 'admin_ftayt', 'technorati_tag_link', 'technorati_tag_image'));
+        $propbag->add('configuration', array('cat2tag', 'keyword2tag', 'taglink', 'taglist', 'embed_footer', 'extended_smarty', 'show_tagcloud', 'min_percent', 'max_percent', 'max_tags', 'use_flash', 'flash_tag_color', 'flash_bg_trans', 'flash_bg_color', 'flash_width', 'flash_speed', 'meta_keywords', 'show_related', 'show_related_count', 'lowercase_tags', 'collation', 'send_http_header', 'admin_show_taglist', 'admin_ftayt'));
     }
 
     function introspect_config_item($name, &$propbag) {
@@ -233,20 +232,6 @@ class serendipity_event_freetag extends serendipity_event
                  $propbag->add('name',        PLUGIN_EVENT_FREETAG_ADMIN_FTAYT);
                  $propbag->add('description', '');
                  $propbag->add('default',     false);
-                 break;
-
-            case 'technorati_tag_link':
-                 $propbag->add('type',        'boolean');
-                 $propbag->add('name',        PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK);
-                 $propbag->add('description', PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_DESC);
-                 $propbag->add('default',     false);
-                 break;
-
-            case 'technorati_tag_image':
-                 $propbag->add('type',        'string');
-                 $propbag->add('name',        PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_IMG);
-                 $propbag->add('description', '');
-                 $propbag->add('default',     'http://static.technorati.com/static/img/pub/icon-utag-16x13.png');
                  break;
 
             case 'use_flash':
@@ -442,8 +427,6 @@ class serendipity_event_freetag extends serendipity_event
             return '';
         }
 
-        $technorati     = $this->get_config('technorati_tag_link');
-        $technorati_img = $this->get_config('technorati_tag_image');
         $img_url        = $this->get_config('path_img',$serendipity['serendipityHTTPPath'] . 'plugins/serendipity_event_freetag/img/');
 
         foreach($tags as $tag) {
@@ -453,8 +436,7 @@ class serendipity_event_freetag extends serendipity_event
             }
             $links[] = '<a href="' . $taglink . serendipity_event_freetag::makeURLTag($tag) . '"' .
                    ' title="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($tag) : htmlspecialchars($tag, ENT_COMPAT, LANG_CHARSET)) . '"' .
-                   ' rel="tag">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($tag) : htmlspecialchars($tag, ENT_COMPAT, LANG_CHARSET)) . '</a>' .
-                   ($technorati?'<a href="http://technorati.com/tag/' . urlencode($tag) . '" class="serendipity_freeTag_technoratiTag" rel="tag"><img style="border:0;vertical-align:middle;margin-left:.4em" src="' . $technorati_img . '?tag=' . urlencode($tag) . '" alt="technorati" /></a>':'');
+                   ' rel="tag">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($tag) : htmlspecialchars($tag, ENT_COMPAT, LANG_CHARSET)) . '</a>';
 
         }
         if ($extended_smarty) {

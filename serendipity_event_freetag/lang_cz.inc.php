@@ -105,11 +105,6 @@
 @define('PLUGIN_EVENT_FREETAG_ORDER_TAGNAME',		'Klíèové slovo');
 @define('PLUGIN_EVENT_FREETAG_ORDER_TAGCOUNT',		'Poèet klíèových slov');
 
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK',		'Technorati odkazy');
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_DESC',		'Pøidá odkazy na klíèová slova z Technorati za klíèová slova v patièce stránky. Kliknutí na nì zobrazí podobné èlánky z jiných blogù nalezených na Technorati.');
-
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_IMG',		'Technorati obrázky');
-
 @define('PLUGIN_EVENT_FREETAG_XMLIMAGE',		'XML obrázek - cesta relativní k umístìní ¹ablon');
 
 @define('PLUGIN_EVENT_FREETAG_EMBED_FOOTER_DESC2',		'Pokud nastaveno na "Smarty", pak bude ve smarty vytvoøena promìnná ($entry.freetag), kterou mù¾ete umístit kamkoliv do ¹ablonového souboru entries.tpl.');

@@ -91,11 +91,6 @@
 @define('PLUGIN_EVENT_FREETAG_ORDER_TAGNAME', 'Име на маркер');
 @define('PLUGIN_EVENT_FREETAG_ORDER_TAGCOUNT', 'Брой появи');
 
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK',      'Technorati връзки');
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_DESC', 'Добавя Technorati връзки след маркерите в основата на статията. Натискането на тези маркери ще покаже подобни статии в други блогове, намерени в Technorati.');
-
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_IMG',      'Изображение за Technorati връзка');
-
 @define('PLUGIN_EVENT_FREETAG_XMLIMAGE',    'XML изображение (относително спрямо пътя до избраната тема на блога)');
 
 @define('PLUGIN_EVENT_FREETAG_EMBED_FOOTER_DESC2', 'При избор на \'Smarty\', ще бъде създадена \'Smarty\' променлива {$entry.freetag}, която можете да сложите навсякъде в файл entries.tpl.');

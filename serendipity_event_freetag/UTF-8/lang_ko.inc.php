@@ -104,11 +104,6 @@
 @define('PLUGIN_EVENT_FREETAG_ORDER_TAGNAME', '태그 이름');
 @define('PLUGIN_EVENT_FREETAG_ORDER_TAGCOUNT', '태그 수');
 
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK', '테크노라티 태그 링크');
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_DESC', '글 말미(푸터)에 있는 태그 뒤에 테크노라티 태그 링크를 추가합니다. 링크를 누르면 테크노라티에 있는 블로그 중 유사한 글을 찾아서 보여줍니다.');
-
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_IMG', '테크노라티 태그 그림');
-
 @define('PLUGIN_EVENT_FREETAG_XMLIMAGE', 'XML 그림의 상대경로 (템플릿 위치 기준)');
 
 @define('PLUGIN_EVENT_FREETAG_EMBED_FOOTER_DESC2', '"스마티"로 설정할 경우 entries.tpl 템플릿 파일 내에 자유롭게 넣을 수 있는 {$entry.freetag} 스마티 변수를 생성합니다.');

@@ -1,3 +1,7 @@
+1.10.1:
+-----
+    * Fix: Pings could not be scheduled when using sqlite
+
 1.10:
 -----
     * Remove abandoned ping services from options

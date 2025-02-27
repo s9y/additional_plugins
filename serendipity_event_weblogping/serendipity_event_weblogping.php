@@ -16,7 +16,7 @@ class serendipity_event_weblogping extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_WEBLOGPING_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.10');
+        $propbag->add('version',       '1.10.1');
         $propbag->add('requirements',  array(
             'serendipity' => '2.4',
             'php'         => '7.4.0'
@@ -302,7 +302,7 @@ class serendipity_event_weblogping extends serendipity_event
         $sql = "INSERT INTO
                     {$serendipity['dbPrefix']}delayed_weblogpings (entry_id, target, payload, timestamp)
                 VALUES
-                    (" . serendipity_db_escape_string($entry_id) .', "' . serendipity_db_escape_string($target) . '", "' . serendipity_db_escape_string($payload) . '", ' . serendipity_db_escape_string($timestamp) . ')';
+                    (" . serendipity_db_escape_string($entry_id) .', "' . serendipity_db_escape_string($target) . '", \'' . serendipity_db_escape_string($payload) . '\', ' . serendipity_db_escape_string($timestamp) . ')';
         serendipity_db_query($sql);
     }
 

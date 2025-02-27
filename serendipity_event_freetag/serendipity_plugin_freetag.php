@@ -10,6 +10,7 @@ if (IN_serendipity !== true) {
 class serendipity_plugin_freetag extends serendipity_plugin
 {
     var $title = PLUGIN_FREETAG_NAME;
+    var $dependencies = array();
 
     function introspect(&$propbag)
     {
@@ -28,7 +29,7 @@ class serendipity_plugin_freetag extends serendipity_plugin
         ));
         $propbag->add('version',       '3.03');
         $propbag->add('groups',        array('FRONTEND_ENTRY_RELATED'));
-        $propbag->add('configuration', array('title', 'show_xml','xml_image', 'show_newline', 'taglink', 'scale_tag', 'max_tags', 'min_percent', 'max_percent', 'use_flash', 'flash_tag_color', 'flash_bg_trans', 'flash_bg_color', 'flash_width', 'flash_speed', 'treshold_tag_count', 'order_by', 'template'));
+        $propbag->add('configuration', array('title', 'show_xml','xml_image', 'show_newline', 'taglink', 'scale_tag', 'max_tags', 'min_percent', 'max_percent', 'treshold_tag_count', 'order_by', 'template'));
         $this->dependencies = array('serendipity_event_freetag' => 'keep');
     }
 
@@ -115,48 +116,6 @@ class serendipity_plugin_freetag extends serendipity_plugin
                  $propbag->add('default',     'img/xml.gif');
                  break;
 
-            case 'use_flash':
-                 $propbag->add('type',        'boolean');
-                 $propbag->add('name',        PLUGIN_EVENT_FREETAG_USE_FLASH);
-                 $propbag->add('description', '');
-                 $propbag->add('default',     false);
-                 break;
-
-            case 'flash_bg_trans':
-                 $propbag->add('type',        'boolean');
-                 $propbag->add('name',        PLUGIN_EVENT_FREETAG_FLASH_TRANSPARENT);
-                 $propbag->add('description', '');
-                 $propbag->add('default',     false);
-                 break;
-
-            case 'flash_tag_color':
-                $propbag->add('type',        'string');
-                $propbag->add('name',        PLUGIN_EVENT_FREETAG_FLASH_TAG_COLOR);
-                $propbag->add('description', '');
-                $propbag->add('default',     'ff6600');
-                break;
-
-            case 'flash_bg_color':
-                $propbag->add('type',        'string');
-                $propbag->add('name',        PLUGIN_EVENT_FREETAG_FLASH_BG_COLOR);
-                $propbag->add('description', '');
-                $propbag->add('default',     'ffffff');
-                break;
-
-            case 'flash_width':
-                $propbag->add('type',        'string');
-                $propbag->add('name',        PLUGIN_EVENT_FREETAG_FLASH_WIDTH);
-                $propbag->add('description', '');
-                $propbag->add('default',     '190');
-                break;
-
-            case 'flash_speed':
-                $propbag->add('type',        'string');
-                $propbag->add('name',        PLUGIN_EVENT_FREETAG_FLASH_SPEED);
-                $propbag->add('description', '');
-                $propbag->add('default',     '100');
-                break;
-
             case 'template':
                 $propbag->add('type',         'string');
                 $propbag->add('name',         PLUGIN_EVENT_FREETAG_TEMPLATE);
@@ -212,11 +171,7 @@ class serendipity_plugin_freetag extends serendipity_plugin
         $nl      = serendipity_db_bool($this->get_config('show_newline'));
         $scaling = serendipity_db_bool($this->get_config('scale_tag'));
 
-        serendipity_event_freetag::displayTags($tags, $xml, $nl, $scaling, $this->get_config('max_percent', 300), $this->get_config('min_percent', 100), 
-                                               serendipity_db_bool($this->get_config('use_flash')), 
-                                               serendipity_db_bool($this->get_config('flash_bg_trans', true)), 
-                                               $this->get_config('flash_tag_color', 'ff6600'), $this->get_config('flash_bg_color', 'ffffff'),
-                                               $this->get_config('flash_width', 190), $this->get_config('flash_speed', 100),
+        serendipity_event_freetag::displayTags($tags, $xml, $nl, $scaling, $this->get_config('max_percent', 300), $this->get_config('min_percent', 100),
                                                $this->get_config('taglink'), $this->get_config('template'), $this->get_config('xml_image','img/xml.gif'));
     }
 

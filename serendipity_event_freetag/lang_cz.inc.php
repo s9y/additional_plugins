@@ -66,13 +66,6 @@
 @define('PLUGIN_EVENT_FREETAG_TAGCLOUD_MIN',		'Nejmen¹í velikost fontu písma v % pøi zobrazení mno¾iny klíèových slov');
 @define('PLUGIN_EVENT_FREETAG_TAGCLOUD_MAX',		'Nejvìt¹í velikost fontu písma v % pøi zobrazení mno¾iny klíèových slov');
 
-@define('PLUGIN_EVENT_FREETAG_USE_FLASH',		'Pou¾ívat Flash k zborazení mno¾iny klíèových slov?');
-@define('PLUGIN_EVENT_FREETAG_FLASH_TAG_COLOR',		'Flash - barva slov (rrggbb)');
-@define('PLUGIN_EVENT_FREETAG_FLASH_TRANSPARENT',		'Flash - prùhledné pozadí?');
-@define('PLUGIN_EVENT_FREETAG_FLASH_BG_COLOR',		'Flash - barva pozadí (rrggbb)');
-@define('PLUGIN_EVENT_FREETAG_FLASH_WIDTH',		'Flash - ¹íøka');
-@define('PLUGIN_EVENT_FREETAG_FLASH_SPEED',		'Flash - rychlost pohybu mno¾iny klíèových slov');
-
 @define('PLUGIN_FREETAG_META_KEYWORDS',		'Poèet klíèových slov, která mají být vlo¾ena do "meta keywords" tagu v hlavièce zdrojového HTML kódu (0: zakázat generování meta tagu)');
 
 @define('PLUGIN_EVENT_FREETAG_RELATED_ENTRIES',		'Pøíbuzné pøípìvky podle klíèových slov:');

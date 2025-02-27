@@ -62,14 +62,6 @@
 @define('PLUGIN_EVENT_FREETAG_TAGCLOUD_MIN', 'Minimum font size % of tag in tag cloud');
 @define('PLUGIN_EVENT_FREETAG_TAGCLOUD_MAX', 'Maximum font size % of tag in tag cloud');
 
-@define('PLUGIN_EVENT_FREETAG_USE_FLASH', 'Use Flash to display the tag cloud?');
-@define('PLUGIN_EVENT_FREETAG_FLASH_TAG_COLOR', 'Flash tag color (rrggbb)');
-@define('PLUGIN_EVENT_FREETAG_FLASH_TRANSPARENT', 'Make flash tag cloud background transparent?');
-@define('PLUGIN_EVENT_FREETAG_FLASH_BG_COLOR', 'Flash tag cloud background color (rrggbb)');
-@define('PLUGIN_EVENT_FREETAG_FLASH_WIDTH', 'Flash tag cloud width');
-@define('PLUGIN_EVENT_FREETAG_FLASH_SPEED', 'Flash tag cloud motion speed');
-
-
 @define('PLUGIN_FREETAG_META_KEYWORDS', 'Number of meta keywords to embed in HTML source (0: disabled)');
 
 @define('PLUGIN_EVENT_FREETAG_RELATED_ENTRIES', 'Related entries by tags:');

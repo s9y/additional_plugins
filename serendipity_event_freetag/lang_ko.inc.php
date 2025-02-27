@@ -62,13 +62,6 @@
 @define('PLUGIN_EVENT_FREETAG_TAGCLOUD_MIN', '태그 클라우드에 표시되는 태그 글자의 최소 크기 비율(%)');
 @define('PLUGIN_EVENT_FREETAG_TAGCLOUD_MAX', '태그 클라우드에 표시되는 태그 글자의 최대 크기 비율(%)');
 
-@define('PLUGIN_EVENT_FREETAG_USE_FLASH', '태그 클라우드 표시에 플래시를 사용합니까?');
-@define('PLUGIN_EVENT_FREETAG_FLASH_TAG_COLOR', '플래시 태그 색상 (rrggbb)');
-@define('PLUGIN_EVENT_FREETAG_FLASH_TRANSPARENT', '플래시 태그 클라우드의 배경을 투명하게 합니까?');
-@define('PLUGIN_EVENT_FREETAG_FLASH_BG_COLOR', '플래시 태그 클라우드 배경 색상 (rrggbb)');
-@define('PLUGIN_EVENT_FREETAG_FLASH_WIDTH', '플래시 태그 클라우드 너비');
-@define('PLUGIN_EVENT_FREETAG_FLASH_SPEED', '플래시 태그 클라우드 이동 속도');
-
 
 @define('PLUGIN_FREETAG_META_KEYWORDS', 'HTML 소스에 삽입할 메타 키워드의 수 (0: 사용 안 함)');
 

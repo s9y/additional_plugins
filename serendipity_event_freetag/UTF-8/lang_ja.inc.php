@@ -51,13 +51,6 @@
 @define('PLUGIN_EVENT_FREETAG_TAGCLOUD_MIN', 'タグ クラウドの最小フォントサイズ(単位:パーセント)');
 @define('PLUGIN_EVENT_FREETAG_TAGCLOUD_MAX', 'タグ クラウドの最大フォントサイズ(単位:パーセント)');
 
-@define('PLUGIN_EVENT_FREETAG_USE_FLASH', 'タグ クラウドの表示に Flash を使いますか?');
-@define('PLUGIN_EVENT_FREETAG_FLASH_TAG_COLOR', 'Flash タグの色 (rrggbb)');
-@Define('PLUGIN_EVENT_FREETAG_FLASH_TRANSPARENT', 'Flash タグ クラウドの背景色を透過にしますか?');
-@define('PLUGIN_EVENT_FREETAG_FLASH_BG_COLOR', 'Flash タグ クラウドの背景色 (rrggbb)');
-@define('PLUGIN_EVENT_FREETAG_FLASH_WIDTH', 'Flash タグ クラウドの幅');
-@define('PLUGIN_EVENT_FREETAG_FLASH_SPEED', 'Flash タグ クラウドのモーション速度');
-
 
 @define('PLUGIN_FREETAG_META_KEYWORDS', 'HTML ソースに埋め込む meta keywords の数 (0: 無効)');
 

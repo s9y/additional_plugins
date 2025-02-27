@@ -62,13 +62,6 @@
 @define('PLUGIN_EVENT_FREETAG_TAGCLOUD_MIN', 'Minimale Schriftgröße eines Tags in der Wolke in %');
 @define('PLUGIN_EVENT_FREETAG_TAGCLOUD_MAX', 'Maximale Schriftgröße eines Tags in der Wolke in %');
 
-@define('PLUGIN_EVENT_FREETAG_USE_FLASH', 'verwende Flash um die Tag-Wolke anzuzeigen?');
-@define('PLUGIN_EVENT_FREETAG_FLASH_TAG_COLOR', 'Flash Tag Wolke: Schriftfarbe (rrggbb)');
-@define('PLUGIN_EVENT_FREETAG_FLASH_TRANSPARENT', 'Flash Tag Wolke: Hintergrund transparent?');
-@define('PLUGIN_EVENT_FREETAG_FLASH_BG_COLOR', 'Flash Tag Wolke: Hintergrund-Farbe (rrggbb)');
-@define('PLUGIN_EVENT_FREETAG_FLASH_WIDTH', 'Flash Tag-Wolke: Breite');
-@define('PLUGIN_EVENT_FREETAG_FLASH_SPEED', 'Flash Tag-Wolke: Anzeige Geschwindigkeit');
-
 
 @define('PLUGIN_FREETAG_META_KEYWORDS', 'Anzahl der Stichwörter, die in die Meta-Angaben des HTML-Codes eingesetzt werden sollen (0: abgeschaltet)');
 

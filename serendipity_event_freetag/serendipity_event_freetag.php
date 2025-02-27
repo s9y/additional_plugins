@@ -97,7 +97,7 @@ class serendipity_event_freetag extends serendipity_event
         $propbag->add('groups', array('BACKEND_EDITOR'));
         $this->supported_properties = array('freetag_name', 'freetag_tagList');
         $this->dependencies = array('serendipity_plugin_freetag' => 'keep');
-        $propbag->add('configuration', array('cat2tag', 'keyword2tag', 'taglink', 'taglist', 'embed_footer', 'extended_smarty', 'show_tagcloud', 'min_percent', 'max_percent', 'max_tags', 'use_flash', 'flash_tag_color', 'flash_bg_trans', 'flash_bg_color', 'flash_width', 'flash_speed', 'meta_keywords', 'show_related', 'show_related_count', 'lowercase_tags', 'collation', 'send_http_header', 'admin_show_taglist', 'admin_ftayt'));
+        $propbag->add('configuration', array('cat2tag', 'keyword2tag', 'taglink', 'taglist', 'embed_footer', 'extended_smarty', 'show_tagcloud', 'min_percent', 'max_percent', 'max_tags', 'meta_keywords', 'show_related', 'show_related_count', 'lowercase_tags', 'collation', 'send_http_header', 'admin_show_taglist', 'admin_ftayt'));
     }
 
     function introspect_config_item($name, &$propbag) {
@@ -233,48 +233,6 @@ class serendipity_event_freetag extends serendipity_event
                  $propbag->add('description', '');
                  $propbag->add('default',     false);
                  break;
-
-            case 'use_flash':
-                 $propbag->add('type',        'boolean');
-                 $propbag->add('name',        PLUGIN_EVENT_FREETAG_USE_FLASH);
-                 $propbag->add('description', '');
-                 $propbag->add('default',     false);
-                 break;
-
-            case 'flash_bg_trans':
-                 $propbag->add('type',        'boolean');
-                 $propbag->add('name',        PLUGIN_EVENT_FREETAG_FLASH_TRANSPARENT);
-                 $propbag->add('description', '');
-                 $propbag->add('default',     false);
-                 break;
-
-            case 'flash_tag_color':
-                $propbag->add('type',        'string');
-                $propbag->add('name',        PLUGIN_EVENT_FREETAG_FLASH_TAG_COLOR);
-                $propbag->add('description', '');
-                $propbag->add('default',     'ff6600');
-                break;
-
-            case 'flash_bg_color':
-                $propbag->add('type',        'string');
-                $propbag->add('name',        PLUGIN_EVENT_FREETAG_FLASH_BG_COLOR);
-                $propbag->add('description', '');
-                $propbag->add('default',     'ffffff');
-                break;
-
-            case 'flash_width':
-                $propbag->add('type',        'string');
-                $propbag->add('name',        PLUGIN_EVENT_FREETAG_FLASH_WIDTH);
-                $propbag->add('description', '');
-                $propbag->add('default',     '500');
-                break;
-
-            case 'flash_speed':
-                $propbag->add('type',        'string');
-                $propbag->add('name',        PLUGIN_EVENT_FREETAG_FLASH_SPEED);
-                $propbag->add('description', '');
-                $propbag->add('default',     '100');
-                break;
         }
         return true;
     }
@@ -507,7 +465,7 @@ class serendipity_event_freetag extends serendipity_event
     /*  This method can be called statically.
         Tags should be an array with the key being the tag name, and val being
         the number of occurances. */
-    static function displayTags($tags, $xml, $nl, $scaling, $maxSize = 200, $minSize = 100, $useFlash = false, $flashbgtrans = true, $flashtagcolor = 'ff6600', $flashbgcolor = 'ffffff', $flashwidth = 190, $flashspeed = 100, $cfg_taglink = null, $cfg_template = null, $xml_image = 'img/xml.gif')
+    static function displayTags($tags, $xml, $nl, $scaling, $maxSize = 200, $minSize = 100, $cfg_taglink = null, $cfg_template = null, $xml_image = 'img/xml.gif')
     {
         global $serendipity;
 
@@ -522,7 +480,7 @@ class serendipity_event_freetag extends serendipity_event
 
         $template = $cfg_template;
         if (!$template) {
-            serendipity_event_freetag::renderTags($tags, $xml, $nl, $scaling, $maxSize, $minSize, $useFlash, $flashbgtrans, $flashtagcolor, $flashbgcolor, $flashwidth, $flashspeed, $taglink, $xml_image);
+            serendipity_event_freetag::renderTags($tags, $xml, $nl, $scaling, $maxSize, $minSize, $taglink, $xml_image);
         } else {
             arsort($tags);
             $tagsWithLinks = array();
@@ -540,7 +498,7 @@ class serendipity_event_freetag extends serendipity_event
     }
 
 
-     static function renderTags($tags, $xml, $nl, $scaling, $maxSize, $minSize, $useFlash, $flashbgtrans, $flashtagcolor, $flashbgcolor, $flashwidth, $flashspeed, $taglink, $xml_image = 'img/xml.gif')
+     static function renderTags($tags, $xml, $nl, $scaling, $maxSize, $minSize, $taglink, $xml_image = 'img/xml.gif')
      {
         global $serendipity;
 
@@ -555,17 +513,6 @@ class serendipity_event_freetag extends serendipity_event
 
         if ($scale < 0) {
             $scale = 1;
-        }
-
-        $key = uniqid(rand());
-
-        if ($useFlash) {
-            echo '<div id="flashcontent' . $key . '">'. "\n";
-
-            echo "\n". '<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="' . $flashwidth .'" height="' . round($flashwidth * 0.75) . '" id="tagcloud' . $key . '" name="tagcloud' . $key . '">'. "\n";
-            echo '<param name="movie" value="' . $serendipity['serendipityHTTPPath'] .'plugins/serendipity_event_freetag/tagcloud.swf" />'. "\n";
-            echo '<param name="wmode" value="transparent" />'. "\n";
-            echo '<param name="flashvars" value="tcolor=0x' . $flashtagcolor . '&amp;mode=tags&amp;distr=true&amp;tspeed=' . $flashspeed .'&amp;tagcloud=%3Ctags%3E';
         }
 
         $tagparam = '';
@@ -623,27 +570,7 @@ class serendipity_event_freetag extends serendipity_event
             $tagparam .= "%3Ca href='" . $taglink . serendipity_event_freetag::makeURLTag($name) . "' style='" . round($fontSize/5) . "'%3E" . str_replace(' ','&nbsp;',(function_exists('serendipity_specialchars') ? serendipity_specialchars($name) : htmlspecialchars($name, ENT_COMPAT, LANG_CHARSET))) . "%3C/a%3E";
         }
 
-        if ($useFlash) {
-            echo $tagparam;
-            echo '%3C/tags%3E" />' . "\n";
-            echo '<!--[if !IE]>-->' . "\n";
-            echo "\n" . '<object type="application/x-shockwave-flash" data="' . $serendipity['serendipityHTTPPath'] .'plugins/serendipity_event_freetag/tagcloud.swf" width="' . $flashwidth .'" height="' . round($flashwidth * 0.75) . '">'. "\n";
-            echo '<param name="wmode" value="transparent" />' . "\n";
-            echo '<param name="flashvars" value="tcolor=0x' . $flashtagcolor . '&amp;mode=tags&amp;distr=true&amp;tspeed=' . $flashspeed .'&amp;tagcloud=%3Ctags%3E';
-            echo $tagparam;
-            echo '%3C/tags%3E" />'. "\n";
-            echo '<!--<![endif]-->'. "\n";
-        }
-
         echo $html;
-
-        if ($useFlash) {
-            echo '<!--[if !IE]>-->'. "\n";
-            echo '</object>'. "\n";
-            echo '<!--<![endif]-->'. "\n";
-            echo '</object>'. "\n";
-            echo '</div>'. "\n";
-        }
     }
 
     function event_hook($event, &$bag, &$eventData, $addData = null) {
@@ -657,14 +584,6 @@ class serendipity_event_freetag extends serendipity_event
                     return true;
 
                 case 'frontend_header':
-                    if (serendipity_db_bool($this->get_config('use_flash'))) {
-                        echo '<script type="text/javascript" src="';
-                        echo $serendipity['serendipityHTTPPath'];
-                        echo 'plugins/serendipity_event_freetag/swfobject.js"></script>'. "\n";
-                        echo '<script type="text/javascript">'. "\n";
-                        echo 'swfobject.registerObject("tagcloud", "9.0.0", "expressInstall.swf");'. "\n";
-                        echo '</script>'. "\n";
-                    }
 
                     $this->displayMetaKeywords($serendipity['GET']['id'] ?? null,  $this->displayTag );
                     return true;
@@ -1491,10 +1410,6 @@ addLoadEvent(enableAutocomplete);
 
             ob_start();
             serendipity_event_freetag::displayTags($tags, false, false, true, $max, $min,
-                                                   serendipity_db_bool($this->get_config('use_flash')),
-                                                   serendipity_db_bool($this->get_config('flash_bg_trans', true)),
-                                                   $this->get_config('flash_tag_color', 'ff6600'), $this->get_config('flash_bg_color', 'ffffff'),
-                                                   $this->get_config('flash_width', 600), $this->get_config('flash_speed', 100),
                                                    $this->get_config('taglink'), $this->get_config('template'), $this->get_config('xml_image','img/xml.gif'));
             $tagout = ob_get_contents();
             ob_end_clean();
@@ -1586,11 +1501,7 @@ addLoadEvent(enableAutocomplete);
                  GROUP BY neg.tag";
         }
 
-        if (serendipity_db_bool($this->get_config('use_flash'))) {
-            $mt = $this->get_config('max_tags', 45);
-        } else {
-            $mt = $this->get_config('max_tags', 0);
-        }
+        $mt = $this->get_config('max_tags', 0);
 
         if ($mt > 0 && $sort == '') {
             $q = $q . " LIMIT " . $mt;
@@ -2504,17 +2415,6 @@ addLoadEvent(enableAutocomplete);
     margin-top: 20px;
     margin-bottom: 0px;
 }
-
-' . (serendipity_db_bool($this->get_config('use_flash')) ? '
-.serendipity_freetag_taglist
-{
-    margin: 10px;
-    border: 1px solid #' . $this->get_config('flash_tag_color', 'ffffff') . ';
-    padding: 5px;
-    background-color: #' . $this->get_config('flash_bg_color', 'ffffff') . ';
-    text-align: justify;
-}
-' : '') . '
 
 .serendipity_freeTag a
 {

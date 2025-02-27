@@ -1,3 +1,11 @@
+4.0:
+      * Avoid more warnings under PHP 8.x
+      * Drop outdated option to create a technorati link
+      * Drop outdated option to create a flash based tag cloud
+      * Set Serendipity 2.0 as required and remove compatibility code for 1.x
+      * Update jquery.autocomplete, so that bundled jquery migration script could be removed
+      * Remove bundled, outdated jquery version
+
 3.70.9: Avoid more warnings under PHP 8.2, thanks @bauigel
 
 3.70.8: Avoid more warnings under PHP 8.2

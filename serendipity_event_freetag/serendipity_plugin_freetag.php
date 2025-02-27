@@ -27,7 +27,7 @@ class serendipity_plugin_freetag extends serendipity_plugin
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '3.03');
+        $propbag->add('version',       '4.0');
         $propbag->add('groups',        array('FRONTEND_ENTRY_RELATED'));
         $propbag->add('configuration', array('title', 'show_xml','xml_image', 'show_newline', 'taglink', 'scale_tag', 'max_tags', 'min_percent', 'max_percent', 'treshold_tag_count', 'order_by', 'template'));
         $this->dependencies = array('serendipity_event_freetag' => 'keep');

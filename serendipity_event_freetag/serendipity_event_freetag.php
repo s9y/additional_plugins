@@ -63,7 +63,7 @@ class serendipity_event_freetag extends serendipity_event
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny, Malte Paskuda, Ian');
         $propbag->add('requirements',  array(
-            'serendipity' => '1.3',
+            'serendipity' => '2.0',
             'smarty'      => '2.6.7',
             'php'         => '7.0'
         ));
@@ -938,23 +938,10 @@ addLoadEvent(enableAutocomplete);
                         }
                         // jQuery Migrate is used due to $.browser of autocomplete plugin not being available in jquery 1.9+
                         echo '
-                        ' . ($serendipity['version'][0] < 2 ? '<script src="' . $serendipity['baseURL'] . 'plugins/serendipity_event_freetag/jquery-1.11.1.min.js" type="text/javascript"></script>' : '') . '
                         <link rel="stylesheet" type="text/css" href="' . $serendipity['baseURL'] . 'plugins/serendipity_event_freetag/jquery.autocomplete.css" />
-                        <script src="' . $serendipity['baseURL'] . 'plugins/serendipity_event_freetag/jquery-migrate-1.2.1.min.js"></script>
                         <script type="text/javascript" src="' . $serendipity['baseURL'] . 'plugins/serendipity_event_freetag/jquery.autocomplete.min.js"></script>
                         <script type="text/javascript">
                         var tags = [' . implode(',', $wicktags) . '];
-                         ' . ($serendipity['version'][0] < 2 ? '
-                        function enableAutocomplete() {
-                            $("#properties_freetag_tagList").autocomplete(tags, {
-                                        minChars: 0,
-                                        multiple: true,
-                                        scrollHeight: 200,
-                                        matchContains: "word",
-                                        autoFill: false
-                                    })};
-                            addLoadEvent(enableAutocomplete);
-                         ' : '') . '
                         </script>';
                     }
 
@@ -992,42 +979,25 @@ addLoadEvent(enableAutocomplete);
 <?php
                     }
 
-                    if ($serendipity['version'][0] < 2) {
 ?>
-                        <fieldset style="margin: 5px">
-                            <legend><?php echo PLUGIN_EVENT_FREETAG_TITLE; ?></legend>
-                            <label for="serendipity[properties][freetag_tagList]" title="<?php echo PLUGIN_EVENT_FREETAG_TITLE; ?>"><?php echo PLUGIN_EVENT_FREETAG_ENTERDESC; ?>:</label><br/>
-                            <input type="text" name="serendipity[properties][freetag_tagList]" id="properties_freetag_tagList" class="wickEnabled input_textbox" value="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($tagList) : htmlspecialchars($tagList, ENT_COMPAT, LANG_CHARSET)); ?>" style="width: 100%" />
-
-                            <input type="checkbox" name="serendipity[properties][freetag_kill]" id="properties_freetag_kill" class="input_checkbox" />
-                            <label for="serendipity[properties][freetag_kill]" title="<?php echo PLUGIN_EVENT_FREETAG_KILL; ?>"><?php echo PLUGIN_EVENT_FREETAG_KILL; ?></label><br/>
+                    <fieldset id="edit_entry_freetags" class="entryproperties_freetag">
+                        <span class="wrap_legend"><legend><?php echo PLUGIN_EVENT_FREETAG_TITLE; ?></legend></span>
+                        <div class="form_field">
+                            <label for="properties_freetag_tagList" class="block_level"><?php echo PLUGIN_EVENT_FREETAG_ENTERDESC; ?>:</label>
+                            <input id="properties_freetag_tagList" type="text" name="serendipity[properties][freetag_tagList]" class="wickEnabled" value="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($tagList) : htmlspecialchars($tagList, ENT_COMPAT, LANG_CHARSET)); ?>">
+                        </div>
+                        <div class="form_check">
+                            <input id="properties_freetag_kill" type="checkbox" name="serendipity[properties][freetag_kill]">
+                            <label for="properties_freetag_kill"><?php echo PLUGIN_EVENT_FREETAG_KILL; ?></label>
+                        </div>
 <?php
-                        if ($this->get_config('admin_show_taglist')) {
+                    if ($this->get_config('admin_show_taglist')) {
 ?>
-                            <a name="tagListAnchor"></a>
-                            <div id="backend_freetag_list" style="margin: 5px; border: 1px dotted #000; padding: 5px; font-size: 9px;">
-<?php
-                        }
-                    } else {
-?>
-                        <fieldset id="edit_entry_freetags" class="entryproperties_freetag">
-                            <span class="wrap_legend"><legend><?php echo PLUGIN_EVENT_FREETAG_TITLE; ?></legend></span>
-                            <div class="form_field">
-                                <label for="properties_freetag_tagList" class="block_level"><?php echo PLUGIN_EVENT_FREETAG_ENTERDESC; ?>:</label>
-                                <input id="properties_freetag_tagList" type="text" name="serendipity[properties][freetag_tagList]" class="wickEnabled" value="<?php echo (function_exists('serendipity_specialchars') ? serendipity_specialchars($tagList) : htmlspecialchars($tagList, ENT_COMPAT, LANG_CHARSET)); ?>">
-                            </div>
-                            <div class="form_check">
-                                <input id="properties_freetag_kill" type="checkbox" name="serendipity[properties][freetag_kill]">
-                                <label for="properties_freetag_kill"><?php echo PLUGIN_EVENT_FREETAG_KILL; ?></label>
-                            </div>
-<?php
-                        if ($this->get_config('admin_show_taglist')) {
-?>
-                            <a name="tagListAnchor"></a>
-                            <div id="backend_freetag_list">
+                        <a name="tagListAnchor"></a>
+                        <div id="backend_freetag_list">
 <?php
                         }
-                    }
+                    
                         if ($this->get_config('admin_show_taglist')) {
                             $lastletter = '';
                             foreach ($taglist as $tag => $count) {

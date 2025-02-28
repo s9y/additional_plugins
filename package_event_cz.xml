@@ -10540,9 +10540,9 @@ aplikovány další typografické úpravy.</description>
 <description>Posílá oznámení o nových příspěvcích na on-line internetové služby.</description>
 <maintainers><maintainer><name>Serendipity Team</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.10</version>
+  <version>1.10.1</version>
   <requirements:s9yVersion>2.4</requirements:s9yVersion>
-  <date>2025-02-25</date>
+  <date>2025-03-01</date>
   <filelist>
 <dir name="serendipity_event_weblogping">
 <dir name="UTF-8">

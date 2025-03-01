@@ -5507,9 +5507,9 @@
 <description>Lightbox JS is a simple, unobtrusive script used to overlay images on the current page. It&#039;s a snap to setup and works with all modern browsers. All lightboxes pop-up images. This plugin searches through your entries, and replaces every image &#039;a href=&quot;XXX&quot;&#039; link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. These lightbox scripts are all jQuery based. They do not only support image types, they may also add support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for image lightboxes only, but you can easily add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.</description>
 <maintainers><maintainer><name>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.5.7</version>
-  <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2025-01-20</date>
+  <version>2.7.0</version>
+  <requirements:s9yVersion>2.0</requirements:s9yVersion>
+  <date>2025-03-02</date>
   <filelist>
 <dir name="serendipity_event_lightbox">
 <dir name="UTF-8">
@@ -5616,8 +5616,6 @@
 </dir>
 <dir name="prettyphoto">
 <dir name="css">
-<file>prettyPhoto.css</file>
-<file>prettyPhotoScreens.css</file>
 </dir>
 <dir name="images">
 <dir name="backgrounds">
@@ -5626,64 +5624,23 @@
 </dir>
 <dir name="prettyPhoto">
 <dir name="dark_rounded">
-<file>btnNext.png</file>
-<file>btnPrevious.png</file>
-<file>contentPattern.png</file>
-<file>default_thumbnail.gif</file>
-<file>loader.gif</file>
-<file>sprite.png</file>
 </dir>
 <dir name="dark_square">
-<file>btnNext.png</file>
-<file>btnPrevious.png</file>
-<file>contentPattern.png</file>
-<file>default_thumbnail.gif</file>
-<file>loader.gif</file>
-<file>sprite.png</file>
 </dir>
 <dir name="default">
-<file>default_thumb.png</file>
-<file>loader.gif</file>
-<file>sprite.png</file>
-<file>sprite_next.png</file>
-<file>sprite_prev.png</file>
-<file>sprite_x.png</file>
-<file>sprite_y.png</file>
 </dir>
 <dir name="facebook">
-<file>btnNext.png</file>
-<file>btnPrevious.png</file>
-<file>contentPatternBottom.png</file>
-<file>contentPatternLeft.png</file>
-<file>contentPatternRight.png</file>
-<file>contentPatternTop.png</file>
-<file>default_thumbnail.gif</file>
-<file>loader.gif</file>
-<file>sprite.png</file>
 </dir>
 <dir name="light_rounded">
-<file>btnNext.png</file>
-<file>btnPrevious.png</file>
-<file>default_thumbnail.gif</file>
-<file>loader.gif</file>
-<file>sprite.png</file>
 </dir>
 <dir name="light_square">
-<file>btnNext.png</file>
-<file>btnPrevious.png</file>
-<file>default_thumbnail.gif</file>
-<file>loader.gif</file>
-<file>sprite.png</file>
 </dir>
 </dir>
 <dir name="thumbnails">
 </dir>
 </dir>
 <dir name="js">
-<file>jquery.prettyPhoto.js</file>
-<file>jquery.prettyPhoto.min.js</file>
 </dir>
-<file>README</file>
 </dir>
 <dir name="thickbox">
 </dir>
@@ -5691,7 +5648,6 @@
 <file>ChangeLog</file>
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
-<file>jquery-1.11.3.min.js</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
@@ -5772,54 +5728,10 @@
     <file>serendipity_event_lightbox/magnific-popup/jquery.magnific-popup.js</file>
     <file>serendipity_event_lightbox/magnific-popup/jquery.magnific-popup.min.js</file>
     <file>serendipity_event_lightbox/magnific-popup/magnific-popup.css</file>
-    <file>serendipity_event_lightbox/prettyphoto/css/prettyPhoto.css</file>
-    <file>serendipity_event_lightbox/prettyphoto/css/prettyPhotoScreens.css</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/dark_rounded/btnNext.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/dark_rounded/btnPrevious.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/dark_rounded/contentPattern.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/dark_rounded/default_thumbnail.gif</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/dark_rounded/loader.gif</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/dark_rounded/sprite.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/dark_square/btnNext.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/dark_square/btnPrevious.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/dark_square/contentPattern.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/dark_square/default_thumbnail.gif</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/dark_square/loader.gif</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/dark_square/sprite.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/default/default_thumb.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/default/loader.gif</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/default/sprite.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/default/sprite_next.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/default/sprite_prev.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/default/sprite_x.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/default/sprite_y.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/facebook/btnNext.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/facebook/btnPrevious.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/facebook/contentPatternBottom.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/facebook/contentPatternLeft.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/facebook/contentPatternRight.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/facebook/contentPatternTop.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/facebook/default_thumbnail.gif</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/facebook/loader.gif</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/facebook/sprite.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/light_rounded/btnNext.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/light_rounded/btnPrevious.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/light_rounded/default_thumbnail.gif</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/light_rounded/loader.gif</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/light_rounded/sprite.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/light_square/btnNext.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/light_square/btnPrevious.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/light_square/default_thumbnail.gif</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/light_square/loader.gif</file>
-    <file>serendipity_event_lightbox/prettyphoto/images/prettyPhoto/light_square/sprite.png</file>
-    <file>serendipity_event_lightbox/prettyphoto/js/jquery.prettyPhoto.js</file>
-    <file>serendipity_event_lightbox/prettyphoto/js/jquery.prettyPhoto.min.js</file>
-    <file>serendipity_event_lightbox/prettyphoto/README</file>
     <file>serendipity_event_lightbox/.htaccess</file>
     <file>serendipity_event_lightbox/ChangeLog</file>
     <file>serendipity_event_lightbox/documentation_cs.html</file>
     <file>serendipity_event_lightbox/documentation_cz.html</file>
-    <file>serendipity_event_lightbox/jquery-1.11.3.min.js</file>
     <file>serendipity_event_lightbox/lang_cs.inc.php</file>
     <file>serendipity_event_lightbox/lang_cz.inc.php</file>
     <file>serendipity_event_lightbox/lang_de.inc.php</file>

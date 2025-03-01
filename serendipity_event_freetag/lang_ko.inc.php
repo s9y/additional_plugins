@@ -62,13 +62,6 @@
 @define('PLUGIN_EVENT_FREETAG_TAGCLOUD_MIN', '태그 클라우드에 표시되는 태그 글자의 최소 크기 비율(%)');
 @define('PLUGIN_EVENT_FREETAG_TAGCLOUD_MAX', '태그 클라우드에 표시되는 태그 글자의 최대 크기 비율(%)');
 
-@define('PLUGIN_EVENT_FREETAG_USE_FLASH', '태그 클라우드 표시에 플래시를 사용합니까?');
-@define('PLUGIN_EVENT_FREETAG_FLASH_TAG_COLOR', '플래시 태그 색상 (rrggbb)');
-@define('PLUGIN_EVENT_FREETAG_FLASH_TRANSPARENT', '플래시 태그 클라우드의 배경을 투명하게 합니까?');
-@define('PLUGIN_EVENT_FREETAG_FLASH_BG_COLOR', '플래시 태그 클라우드 배경 색상 (rrggbb)');
-@define('PLUGIN_EVENT_FREETAG_FLASH_WIDTH', '플래시 태그 클라우드 너비');
-@define('PLUGIN_EVENT_FREETAG_FLASH_SPEED', '플래시 태그 클라우드 이동 속도');
-
 
 @define('PLUGIN_FREETAG_META_KEYWORDS', 'HTML 소스에 삽입할 메타 키워드의 수 (0: 사용 안 함)');
 
@@ -103,11 +96,6 @@
 
 @define('PLUGIN_EVENT_FREETAG_ORDER_TAGNAME', '태그 이름');
 @define('PLUGIN_EVENT_FREETAG_ORDER_TAGCOUNT', '태그 수');
-
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK', '테크노라티 태그 링크');
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_DESC', '글 말미(푸터)에 있는 태그 뒤에 테크노라티 태그 링크를 추가합니다. 링크를 누르면 테크노라티에 있는 블로그 중 유사한 글을 찾아서 보여줍니다.');
-
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_IMG', '테크노라티 태그 그림');
 
 @define('PLUGIN_EVENT_FREETAG_XMLIMAGE', 'XML 그림의 상대경로 (템플릿 위치 기준)');
 

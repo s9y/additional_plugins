@@ -66,13 +66,6 @@
 @define('PLUGIN_EVENT_FREETAG_TAGCLOUD_MIN',		'Nejmenší velikost fontu písma v % pøi zobrazení množiny klíèových slov');
 @define('PLUGIN_EVENT_FREETAG_TAGCLOUD_MAX',		'Nejvìtší velikost fontu písma v % pøi zobrazení množiny klíèových slov');
 
-@define('PLUGIN_EVENT_FREETAG_USE_FLASH',		'Používat Flash k zborazení množiny klíèových slov?');
-@define('PLUGIN_EVENT_FREETAG_FLASH_TAG_COLOR',		'Flash - barva slov (rrggbb)');
-@define('PLUGIN_EVENT_FREETAG_FLASH_TRANSPARENT',		'Flash - prùhledné pozadí?');
-@define('PLUGIN_EVENT_FREETAG_FLASH_BG_COLOR',		'Flash - barva pozadí (rrggbb)');
-@define('PLUGIN_EVENT_FREETAG_FLASH_WIDTH',		'Flash - šíøka');
-@define('PLUGIN_EVENT_FREETAG_FLASH_SPEED',		'Flash - rychlost pohybu množiny klíèových slov');
-
 @define('PLUGIN_FREETAG_META_KEYWORDS',		'Poèet klíèových slov, která mají být vložena do "meta keywords" tagu v hlavièce zdrojového HTML kódu (0: zakázat generování meta tagu)');
 
 @define('PLUGIN_EVENT_FREETAG_RELATED_ENTRIES',		'Pøíbuzné pøípìvky podle klíèových slov:');
@@ -104,11 +97,6 @@
 
 @define('PLUGIN_EVENT_FREETAG_ORDER_TAGNAME',		'Klíèové slovo');
 @define('PLUGIN_EVENT_FREETAG_ORDER_TAGCOUNT',		'Poèet klíèových slov');
-
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK',		'Technorati odkazy');
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_DESC',		'Pøidá odkazy na klíèová slova z Technorati za klíèová slova v patièce stránky. Kliknutí na nì zobrazí podobné èlánky z jiných blogù nalezených na Technorati.');
-
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_IMG',		'Technorati obrázky');
 
 @define('PLUGIN_EVENT_FREETAG_XMLIMAGE',		'XML obrázek - cesta relativní k umístìní šablon');
 

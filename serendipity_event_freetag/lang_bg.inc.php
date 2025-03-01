@@ -51,14 +51,6 @@
 @define('PLUGIN_EVENT_FREETAG_TAGCLOUD_MIN', 'Най-малък шрифт % за маркерите в облака');
 @define('PLUGIN_EVENT_FREETAG_TAGCLOUD_MAX', 'Най-голям шрифт % за маркерите в облака');
 
-@define('PLUGIN_EVENT_FREETAG_USE_FLASH', 'Използване на Flash за показване на облака от маркери?');
-@define('PLUGIN_EVENT_FREETAG_FLASH_TAG_COLOR', 'Цвят на маркерите (rrggbb)');
-@define('PLUGIN_EVENT_FREETAG_FLASH_TRANSPARENT', 'Прозрачен фон на облака?');
-@define('PLUGIN_EVENT_FREETAG_FLASH_BG_COLOR', 'Цвят на фона на облака (rrggbb)');
-@define('PLUGIN_EVENT_FREETAG_FLASH_WIDTH', 'Ширина на облака');
-@define('PLUGIN_EVENT_FREETAG_FLASH_SPEED', 'Скорост на движение на облака');
-
-
 @define('PLUGIN_FREETAG_META_KEYWORDS', 'Брой на мета-ключовите думи, които да се вграждат в HTML (0: забранено)');
 
 @define('PLUGIN_EVENT_FREETAG_RELATED_ENTRIES', 'Статии с еднакви маркери:');
@@ -90,11 +82,6 @@
 
 @define('PLUGIN_EVENT_FREETAG_ORDER_TAGNAME', 'Име на маркер');
 @define('PLUGIN_EVENT_FREETAG_ORDER_TAGCOUNT', 'Брой появи');
-
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK',      'Technorati връзки');
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_DESC', 'Добавя Technorati връзки след маркерите в основата на статията. Натискането на тези маркери ще покаже подобни статии в други блогове, намерени в Technorati.');
-
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_IMG',      'Изображение за Technorati връзка');
 
 @define('PLUGIN_EVENT_FREETAG_XMLIMAGE',    'XML изображение (относително спрямо пътя до избраната тема на блога)');
 

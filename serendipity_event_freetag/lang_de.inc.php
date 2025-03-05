@@ -62,14 +62,6 @@
 @define('PLUGIN_EVENT_FREETAG_TAGCLOUD_MIN', 'Minimale Schriftgröße eines Tags in der Wolke in %');
 @define('PLUGIN_EVENT_FREETAG_TAGCLOUD_MAX', 'Maximale Schriftgröße eines Tags in der Wolke in %');
 
-@define('PLUGIN_EVENT_FREETAG_USE_FLASH', 'verwende Flash um die Tag-Wolke anzuzeigen?');
-@define('PLUGIN_EVENT_FREETAG_FLASH_TAG_COLOR', 'Flash Tag Wolke: Schriftfarbe (rrggbb)');
-@define('PLUGIN_EVENT_FREETAG_FLASH_TRANSPARENT', 'Flash Tag Wolke: Hintergrund transparent?');
-@define('PLUGIN_EVENT_FREETAG_FLASH_BG_COLOR', 'Flash Tag Wolke: Hintergrund-Farbe (rrggbb)');
-@define('PLUGIN_EVENT_FREETAG_FLASH_WIDTH', 'Flash Tag-Wolke: Breite');
-@define('PLUGIN_EVENT_FREETAG_FLASH_SPEED', 'Flash Tag-Wolke: Anzeige Geschwindigkeit');
-
-
 @define('PLUGIN_FREETAG_META_KEYWORDS', 'Anzahl der Stichwörter, die in die Meta-Angaben des HTML-Codes eingesetzt werden sollen (0: abgeschaltet)');
 @define('PLUGIN_EVENT_FREETAG_TEMPLATE', 'Template für Seitenleiste');
 @define('PLUGIN_EVENT_FREETAG_TEMPLATE_DESCRIPTION', 'Wenn ein Template angegeben ist, wird es benutzt um de Seitenleiste anzuzeigen. Im Template wird eine Variable <tags> zu Verfügung gestellt, die ein Liste von Einträgen im folgenden Format enthält: <tagName> => array(href = <tagLink>, count => <tagCount>)');
@@ -103,11 +95,6 @@
 
 @define('PLUGIN_EVENT_FREETAG_ORDER_TAGNAME', 'Tag-Name');
 @define('PLUGIN_EVENT_FREETAG_ORDER_TAGCOUNT', 'Tag-Anzahl');
-
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK', 'Technorati Tag Links');
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_DESC', 'Fügt Links auf Technorati Tags hinzu. Wenn auf diese Links geklickt wird, so wird eine Liste von ähnlichen Einträgen in weiteren Blogs angezeigt, die in Technorati zu dem entsprechenden Tag gespeichert wurden.');
-
-@define('PLUGIN_EVENT_FREETAG_TECHNORATI_TAGLINK_IMG', 'Technorati Tag Bild');
 
 @define('PLUGIN_EVENT_FREETAG_XMLIMAGE', 'XML Bild relativ zum Template Verzeichnis');
 

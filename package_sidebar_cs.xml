@@ -138,9 +138,9 @@
 <description>Zobrazí seznam existujících klíčových slov</description>
 <maintainers><maintainer><name>Garvin Hicking, Jonathan Arkell, Grischa Brockhaus, Lars Strojny</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.03</version>
+  <version>4.0</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2025-03-06</date>
   <filelist>
 <dir name="serendipity_event_freetag">
 <dir name="UTF-8">
@@ -167,8 +167,6 @@
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
 <file>documentation_en.html</file>
-<file>jquery-1.11.1.min.js</file>
-<file>jquery-migrate-1.2.1.min.js</file>
 <file>jquery.autocomplete.css</file>
 <file>jquery.autocomplete.min.js</file>
 <file>lang_bg.inc.php</file>
@@ -187,8 +185,7 @@
 <file>plugin_freetag.tpl</file>
 <file>serendipity_event_freetag.php</file>
 <file>serendipity_plugin_freetag.php</file>
-<file>swfobject.js</file>
-<file>tagcloud.swf</file>
+<file>jquery.autocomplete.js</file>
 </dir>
 
   </filelist>
@@ -213,8 +210,6 @@
     <file>serendipity_event_freetag/documentation_cs.html</file>
     <file>serendipity_event_freetag/documentation_cz.html</file>
     <file>serendipity_event_freetag/documentation_en.html</file>
-    <file>serendipity_event_freetag/jquery-1.11.1.min.js</file>
-    <file>serendipity_event_freetag/jquery-migrate-1.2.1.min.js</file>
     <file>serendipity_event_freetag/jquery.autocomplete.css</file>
     <file>serendipity_event_freetag/jquery.autocomplete.min.js</file>
     <file>serendipity_event_freetag/lang_bg.inc.php</file>
@@ -233,8 +228,7 @@
     <file>serendipity_event_freetag/plugin_freetag.tpl</file>
     <file>serendipity_event_freetag/serendipity_event_freetag.php</file>
     <file>serendipity_event_freetag/serendipity_plugin_freetag.php</file>
-    <file>serendipity_event_freetag/swfobject.js</file>
-    <file>serendipity_event_freetag/tagcloud.swf</file>
+    <file>serendipity_event_freetag/jquery.autocomplete.js</file>
   </serendipityFilelist>
 </release>
 </package>

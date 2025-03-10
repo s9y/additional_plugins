@@ -60,6 +60,8 @@ if (IN_serendipity !== true) {
 class serendipity_event_geshi extends serendipity_event
 {
     var $title = PLUGIN_EVENT_GESHI_NAME;
+    var $markup_elements = [];
+    
     // Top Level Configuration, requires name of the Plugin, description text, and configuration information in an array..
     function introspect(&$propbag)
     {

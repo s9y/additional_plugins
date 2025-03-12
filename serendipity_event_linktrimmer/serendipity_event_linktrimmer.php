@@ -135,7 +135,7 @@ class serendipity_event_linktrimmer extends serendipity_event {
         $url = trim($url);
 
         if (!preg_match('@https?://@i', $url)) {
-            $url = 'http://' . $url;
+            $url = 'https://' . $url;
         }
 
         $res = serendipity_db_query("SELECT hash FROM {$serendipity['dbPrefix']}linktrimmer WHERE url = '" . serendipity_db_escape_string($url) . "' LIMIT 1", true, 'assoc');
@@ -185,16 +185,16 @@ class serendipity_event_linktrimmer extends serendipity_event {
             die ("Don't hack!");
         }
 
-        if (!is_object($serendipity['smarty'])) {
+        if (! isset($serendipity['smarty']) || ! is_object($serendipity['smarty'])) {
             serendipity_smarty_init();
         }
 
         $this->setupDB();
 
-        $pref = $this->get_config('domain') . $this->get_config('prefix') . '/';
-        if ($this->get_config('domain') == $serendipity['baseURL'])  {
-            $pref = $this->get_config('domain') . $this->get_config('prefix') . '/';
-        } else {
+        $pref = $this->get_config('domain') . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . $this->get_config('prefix') . '/';
+        if (stripos($this->get_config('domain'), $serendipity['baseURL']) === NULL)  {
+            # If the baseURL is not part of the configured "domain", then we are not pointing
+            # to this blog. 
             $pref = $this->get_config('domain');
         }
 
@@ -207,9 +207,9 @@ class serendipity_event_linktrimmer extends serendipity_event {
 
         $serendipity['smarty']->assign(array(
             'linktrimmer_ispopup'     => $serendipity['enablePopup'],
-            'linktrimmer_error'       => $error,
-            'linktrimmer_url'         => $url,
-            'linktrimmer_origurl'     => $_REQUEST['linktrimmer_url'],
+            'linktrimmer_error'       => $error ?? null,
+            'linktrimmer_url'         => $url ?? null,
+            'linktrimmer_origurl'     => $_REQUEST['linktrimmer_url'] ?? null,
             'linktrimmer_external'    => $external,
             'linktrimmer_txtarea'     => $_REQUEST['txtarea']
         ));
@@ -296,8 +296,8 @@ class serendipity_event_linktrimmer extends serendipity_event {
                     break;
 
                 case 'frontend_configure':
-                    if (preg_match('@' . $serendipity['serendipityHTTPPath'] . '/?(' . $serendipity['indexFile'] . ')?\??' . $this->get_config('prefix') . '/?(.+)$@imsU', $_SERVER['REQUEST_URI'], $m)) {
-                        $hash = preg_replace('@[^a-z0-9]@imsU', '', $m[2]);
+                    if (preg_match('@/'. $this->get_config('prefix') .'/(.+)$@imsU', $_SERVER['REQUEST_URI'], $m)) {
+                        $hash = preg_replace('@[^a-z0-9]@imsU', '', $m[1]);
                         $res = serendipity_db_query("SELECT url
                                                        FROM {$serendipity['dbPrefix']}linktrimmer
                                                       WHERE hash = '" . serendipity_db_escape_string($hash) . "'

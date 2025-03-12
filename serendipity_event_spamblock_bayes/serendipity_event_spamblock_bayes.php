@@ -17,7 +17,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 		$this->title = PLUGIN_EVENT_SPAMBLOCK_BAYES_NAME;
 		$propbag->add ( 'description', PLUGIN_EVENT_SPAMBLOCK_BAYES_DESC);
 		$propbag->add ( 'name', $this->title);
-		$propbag->add ( 'version', '1.1.8' );
+		$propbag->add ( 'version', '1.1.9' );
 		$propbag->add ( 'event_hooks', array ('frontend_saveComment' => true,
 		                                     'backend_comments_top' => true,
 		                                     'external_plugin' => true,
@@ -391,7 +391,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
     function displayRecycler() {
         global $serendipity;
         $comments = $this->getAllRecyclerComments();
-        if (is_array($comments[0])) {
+        if (is_array($comments) && is_array($comments[0])) {
             for ($i=0; $i < count($comments); $i++) {
                 $databaseComment = $comments[$i];
                 $comment = $databaseComment['url'] . ' ' . $databaseComment['body'] . ' ' . $databaseComment['author'] . ' ' . $databaseComment['email'];
@@ -413,6 +413,7 @@ class serendipity_event_spamblock_bayes extends serendipity_event {
 
     function getAllRecyclerComments() {
         global $serendipity;
+        $this->setupDB();
         $sql = "SELECT * FROM {$serendipity['dbPrefix']}spamblock_bayes_recycler ORDER BY id DESC";
         $comments = serendipity_db_query($sql, false, 'assoc');
 

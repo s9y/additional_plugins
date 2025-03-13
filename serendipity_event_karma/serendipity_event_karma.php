@@ -1151,7 +1151,7 @@ END_IMG_CSS;
                     }
 
                     // If we're actually reading the entry, not voting or editing it...
-                    if ($entryid && empty($serendipity['GET']['adminAction']) && !$serendipity['GET']['karmaVote']) {
+                    if ($entryid && empty($serendipity['GET']['adminAction']) && !($serendipity['GET']['karmaVote'] ?? false)) {
                         // Update the number of visits
                         // Are we supposed to track visits?
                         $track_clicks  = serendipity_db_bool($this->get_config('visits_active', true)) && $this->track_clicks_allowed_by_user();
@@ -1917,21 +1917,21 @@ END_IMG_CSS;
 /* Overrides for $css_class */
 .$css_class 
 {
-  width: ${width}px;
-  height: ${height}px;
+  width: {$width}px;
+  height: {$height}px;
 }
 .$css_class,
 .$css_class a:hover,
 .$css_class .serendipity_karmaVoting_current-rating
 {
-  background-image: url({$serendipity['baseURL']}plugins/serendipity_event_karma/img/${fname});
+  background-image: url({$serendipity['baseURL']}plugins/serendipity_event_karma/img/{$fname});
 }
 .$css_class,
 .$css_class a,
 .$css_class .serendipity_karmaVoting_current-rating
 {
-  line-height: ${height}px;
-  height: ${height}px;
+  line-height: {$height}px;
+  height: {$height}px;
 }
 
 ";
@@ -2069,7 +2069,7 @@ END_IMG_CSS;
                     // Get current karma text
                     $curr_msg = $this->get_config('curr_msg', PLUGIN_KARMA_CURRENT);
                     $karma_display .= "
-    <li class='serendipity_karmaVoting_current-rating' style='width: ${cr_width}px;' title='$curr_msg'> </li>
+    <li class='serendipity_karmaVoting_current-rating' style='width: {$cr_width}px;' title='$curr_msg'> </li>
     ";
                 }
                 // Only create voting links if required
@@ -2109,7 +2109,7 @@ END_IMG_CSS;
                 $this->image_name = $base_image;
             } else {
                 $imagesize = serendipity_getimagesize(dirname(__FILE__) . "/img/" . $base_image);
-                if ($imagesize['noimage']) {
+                if ($imagesize['noimage'] ?? false) {
                     // Leave as default
                 } else {
                     // Set to valid image name

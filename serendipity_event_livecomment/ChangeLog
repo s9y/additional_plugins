@@ -1,3 +1,9 @@
+2.5.7:
+    * More PHP 8 compatibility fixes
+    * Fix commentform buttons when using the legacy comment
+      preview method
+    * Compatibility with jQuery 3
+
 2.5.6:
     * PHP 8 compatibility fixes
 

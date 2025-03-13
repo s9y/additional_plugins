@@ -46,7 +46,7 @@ class serendipity_event_karma extends serendipity_event
         $propbag->add('author',        'Garvin Hicking, Grischa Brockhaus, Judebert, Gregor Voeltz, Ian');
         $propbag->add('version',       '2.14.4');
         $propbag->add('requirements',  array(
-            'serendipity' => '1.6',
+            'serendipity' => '2.0',
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
@@ -871,14 +871,13 @@ function vote(karmaVote,karmaId) {
     margin: 5px;
 }
 ");
-                        if ($serendipity['version'][0] > 1) {
-                            print("\n</style>\n");
-                        }
+                        
+                        print("\n</style>\n");
+                        
                     }
-                    if ($serendipity['version'][0] > 1) {
-                        break;
-                        return true;
-                    }
+                    break;
+                    return true;
+                    
 
                 case 'css_backend':
                 case 'css':
@@ -906,12 +905,6 @@ function vote(karmaVote,karmaId) {
                     // templates that only handle the text rating bars, and
                     // newer templates that understand the graphical raters.
                     // We check for both types and act appropriately.
-                    /*--JAM: Let's just skip this whole hassle
-                    if (!$align) {
-                        $align = $this->get_config('alignment', 'detect');
-                    }
-                    if ($align == 'detect') {
-                    */
                     $align = $this->get_config('alignment');
                         // Try to let the template take care of it
                         if ($this->image_name == '0') {
@@ -920,48 +913,8 @@ function vote(karmaVote,karmaId) {
                                 // Template is handling all our CSS
                                 return true;
                             }
-                        }/* --JAM: else {
-                            // Graphical rating bar is used
-                            if (strpos($eventData, '.serendipity_karmaVoting_images')) {
-                                // Template is handling all our CSS
-                                return true;
-                            }
-                            // Check for old text-only templates
-                            $pos = strpos($eventData, '.serendipity_karmaVoting');
-                            while ($pos && ($align == 'detect')) {
-                                // Find text-align: in the current block
-                                $endpos = strpos($eventData, '}', $pos);
-                                if (!$endpos) {
-                                    // Broken CSS
-                                    break;
-                                }
-                                $alignpos = strpos($eventData, 'text-align:', $pos);
-                                // Can't check for comments, or I would.  Hope
-                                // the first is the correct one.
-                                if ($alignpos && $alignpos < $endpos) {
-                                    $start = $alignpos + 11;
-                                    $alignend = strpos($eventData, ';', $alignpos);
-                                    if ($alignend)
-                                    {
-                                        // All valid.  Pull out the alignment.
-                                        $len = $alignend - $start;
-                                        $align = trim(substr($eventData, $start, $len));
-                                    }
-                                }
-                                $pos = strpos($eventData, '.serendipity_karmaVoting', $endpos);
-                            }
-                            // I should have a valid alignment or 'detect' in $align now.
                         }
-                    }
-                    // If we couldn't detect the alignment, guess 'right'
-                    if ($align == 'detect') {
-                        $align = 'right';
-                    }
-                    --JAM: END COMMENT BLOCK */
 
-                    if ($serendipity['version'][0] < 2 && $event == 'backend_header') {
-                        print ("<style type='text/css'>\n");
-                    }
                     // Since errors might be printed at any time, always
                     // output the text-mode CSS
                     print <<<EOS
@@ -1083,10 +1036,6 @@ END_IMG_CSS;
                             print($this->select_css);
                         }
                     } // End if image bar defined
-
-                    if ($serendipity['version'][0] < 2 && $event == 'backend_header') {
-                        print("\n</style>\n");
-                    }
 
                     return true;
                     break;
@@ -1839,16 +1788,7 @@ END_IMG_CSS;
         // We will be wrapped in a <tr><td colspan="2">
         $this->select_html .= "
 <strong>" . PLUGIN_KARMA_IMAGE . "</strong><br />
-<span style='color: rgb(94, 122, 148); font-size: 8pt;'>&nbsp;".PLUGIN_KARMA_IMAGE_DESC."</span>";
-        if ($serendipity['version'][0] < 2) {
-            $this->select_html .= "
-</td>
-<td></td>
-</tr>
-<tr>
-<td colspan='2'>\n";
-        }
-        $this->select_html .= "
+<span style='color: rgb(94, 122, 148); font-size: 8pt;'>&nbsp;".PLUGIN_KARMA_IMAGE_DESC."</span>
 <table border='1' class='serendipity_karmaVote_selectorTable'>";
         // Add the 'text-only' selection and its CSS
         if ($cursel == '0') {
@@ -1950,10 +1890,6 @@ END_IMG_CSS;
         // End the table, with a config-item bottom-border separator
         $this->select_html .= 
 "</tr>\n</table>\n";
-        if ($serendipity['version'][0] < 2) {
-            $this->select_html .= 
-"<tr><td colspan='2' style='border-bottom: 1px solid #000000; vertical-align: top'>&nbsp;<td></tr>\n";
-        }
         // The config item and row are closed by the core code
 
         return $this->select_html;

@@ -1,3 +1,9 @@
+2.0:
+      * Fix shortened link detection
+      * Show shortened link with or without index.php/, depending on if
+        URL rewriting is enabled
+      * Remove backwards compatibility code for Serendipity 1.x
+
 1.6.7: Fix PHP 8 warnings
 
 1.6.6: Check is_countable() before count()

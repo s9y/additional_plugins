@@ -5945,9 +5945,9 @@
 <description>Používá JavaScript k ukázání náhledu komentáře a značkovací tlačítka</description>
 <maintainers><maintainer><name>Malte Paskuda, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.5.6</version>
+  <version>2.5.7</version>
   <requirements:s9yVersion>1.0</requirements:s9yVersion>
-  <date>2021-06-07</date>
+  <date>2025-03-14</date>
   <filelist>
 <dir name="serendipity_event_livecomment">
 <dir name="UTF-8">
@@ -5964,9 +5964,6 @@
 <file>ChangeLog</file>
 <file>commentMarkup.fieldselection.js</file>
 <file>commentMarkup.fieldselection.js-def</file>
-<file>commentMarkup.js</file>
-<file>commentMarkup.listen.js</file>
-<file>commentMarkup.listen.js-def</file>
 <file>credits.txt</file>
 <file>documentation_cs.html</file>
 <file>documentation_cz.html</file>
@@ -5974,7 +5971,6 @@
 <file>jquery.elastic.js</file>
 <file>jquery.elastic.js-def</file>
 <file>jquery.elastic.js-min</file>
-<file>jquery.js</file>
 <file>lang_cs.inc.php</file>
 <file>lang_cz.inc.php</file>
 <file>lang_de.inc.php</file>
@@ -6000,9 +5996,6 @@
     <file>serendipity_event_livecomment/ChangeLog</file>
     <file>serendipity_event_livecomment/commentMarkup.fieldselection.js</file>
     <file>serendipity_event_livecomment/commentMarkup.fieldselection.js-def</file>
-    <file>serendipity_event_livecomment/commentMarkup.js</file>
-    <file>serendipity_event_livecomment/commentMarkup.listen.js</file>
-    <file>serendipity_event_livecomment/commentMarkup.listen.js-def</file>
     <file>serendipity_event_livecomment/credits.txt</file>
     <file>serendipity_event_livecomment/documentation_cs.html</file>
     <file>serendipity_event_livecomment/documentation_cz.html</file>
@@ -6010,7 +6003,6 @@
     <file>serendipity_event_livecomment/jquery.elastic.js</file>
     <file>serendipity_event_livecomment/jquery.elastic.js-def</file>
     <file>serendipity_event_livecomment/jquery.elastic.js-min</file>
-    <file>serendipity_event_livecomment/jquery.js</file>
     <file>serendipity_event_livecomment/lang_cs.inc.php</file>
     <file>serendipity_event_livecomment/lang_cz.inc.php</file>
     <file>serendipity_event_livecomment/lang_de.inc.php</file>

@@ -777,7 +777,9 @@ function vote(karmaVote,karmaId) {
                 case 'external_plugin':
                     $theUri = "";
                     try {
-                        $theUri = (string)str_replace('&amp;', '&', $eventData);
+                        if (is_string($eventData)) {
+                            $theUri = (string)str_replace('&amp;', '&', $eventData);
+                        }
                     } catch (Error $e) {}
                     $uri_parts = explode('?', $theUri);
 

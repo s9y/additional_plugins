@@ -23,7 +23,7 @@ class serendipity_event_livecomment extends serendipity_event
             'serendipity' => '1.0',
             'php'         => '7.0'
         ));
-        $propbag->add('version',       '2.5.6');
+        $propbag->add('version',       '2.5.7');
         $propbag->add('event_hooks',   array(
         	'frontend_footer'               => true,
         	'external_plugin'               => true,
@@ -43,9 +43,6 @@ class serendipity_event_livecomment extends serendipity_event
                                              'inline'
                                              )
                                         );
-        if (!$serendipity['capabilities']['jquery']) {
-	        $this->dependencies = array('serendipity_event_jquery' => 'remove');
-		}
     }
 
     function generate_content(&$title) {
@@ -185,7 +182,7 @@ class serendipity_event_livecomment extends serendipity_event
                             echo file_get_contents(dirname(__FILE__). '/serendipity_event_livecomment.js');
                             break;
                         case 'livecomment':    
-                            $data = array('comment' => $_REQUEST['data']);
+                            $data = array('comment' => $_REQUEST['data'] ?? '');
                             serendipity_plugin_api::hook_event('frontend_display', $data);
                             echo $data['comment'];
                             break;
@@ -217,14 +214,6 @@ class serendipity_event_livecomment extends serendipity_event
                                       //has to be last element:
                                       $this->get_Title()
                                       );
-                            break;
-                        case 'commentMarkup.listen.js':
-                            header('Content-Type: text/javascript');
-                            echo file_get_contents(dirname(__FILE__). '/commentMarkup.listen.js');
-                            break;
-                        case 'commentMarkup.fieldselection.js':
-                            header('Content-Type: text/javascript');
-                            echo file_get_contents(dirname(__FILE__). '/commentMarkup.fieldselection.js');
                             break;
                         case 'jquery.elastic.js':
                             header('Content-Type: text/javascript');
@@ -271,12 +260,12 @@ class serendipity_event_livecomment extends serendipity_event
                             if ($path_defined) {
                                 echo '<script type="text/javascript" src="' . $path . 'serendipity_event_reallivecomment.js"></script>
     <script type="text/javascript">
-    var lcbase = "' . $serendipity['baseURL'] .'index.php?/plugin/reallivecomment";
+    var rlcbase = "' . $serendipity['baseURL'] .'index.php?/plugin/reallivecomment";
     </script>' . "\n";
                             } else {
                                 echo '<script type="text/javascript" src="' . $serendipity['baseURL'] . 'index.php?/plugin/reallivecomment.js"></script>
     <script type="text/javascript">
-    var lcbase = "' . $serendipity['baseURL'] .'index.php?/plugin/reallivecomment";
+    var rlcbase = "' . $serendipity['baseURL'] .'index.php?/plugin/reallivecomment";
     </script>' . "\n";
                             }
                         }
@@ -312,13 +301,13 @@ class serendipity_event_livecomment extends serendipity_event
                             if ($path_defined) {
                                 echo '<script type="text/javascript">
     var lcbase = "'. $serendipity['baseURL'] .'index.php?/plugin/livecomment"; 
-    var lcchar = LANG_CHARSET;
+    var lcchar = "'. LANG_CHARSET . '";
     </script>
     <script type="text/javascript" src="'. $path .'serendipity_event_livecomment.js"></script>'. "\n";
                             } else {
                                 echo '<script type="text/javascript">
     var lcbase = "'. $serendipity['baseURL'] .'index.php?/plugin/livecomment"; 
-    var lcchar = LANG_CHARSET;
+    var lcchar = "'. LANG_CHARSET .'";
     </script>
     <script type="text/javascript" src="' . $serendipity['baseURL'] . 'index.php?/plugin/livecomment.js"></script>'. "\n";
                             }
@@ -330,11 +319,9 @@ class serendipity_event_livecomment extends serendipity_event
     </script>'. "\n";
                             }
                             if ($path_defined) {
-                                echo '<script type="text/javascript" src="' . $path . 'commentMarkup.listen.js"></script>
-    <script type="text/javascript" src="' . $path . 'commentMarkup.fieldselection.js"></script>'. "\n";
+                                echo '<script type="text/javascript" src="' . $path . 'commentMarkup.fieldselection.js"></script>'. "\n";
                             } else {
-                                echo '<script type="text/javascript" src="' . $serendipity['baseURL'] . 'index.php?/plugin/commentMarkup.listen.js"></script>
-    <script type="text/javascript" src="' . $serendipity['baseURL'] . 'index.php?/plugin/commentMarkup.fieldselection.js"></script>'. "\n";
+                                echo '<script type="text/javascript" src="' . $serendipity['baseURL'] . 'index.php?/plugin/commentMarkup.fieldselection.js"></script>'. "\n";
                             }
                         }
                         if ($elastic) {

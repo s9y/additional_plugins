@@ -754,6 +754,9 @@ for (i=1;i<6;i++) {
     jQuery('.serendipity_karmaVoting_link'+i).click(function(event) {
         event.preventDefault();
         karmaId = jQuery(this).attr('href').match(/\[karmaId\]=([0-9]+)/);
+        if (karmaId == null) {
+            karmaId = karmaId=jQuery(this).attr('href').match(/%5BkarmaId%5D=([0-9]+)/);
+        }
         vote(jQuery(this).html(),karmaId[1]);
     });
 }
@@ -761,7 +764,7 @@ for (i=1;i<6;i++) {
 function vote(karmaVote,karmaId) {
     // Send the data using post and put the results in place
     jQuery('#karma_vote'+karmaId).parent().children('.serendipity_karmaVoting_links').replaceWith('<div class="serendipity_karmaVoting_links ajaxloader"><img src="<?php echo $serendipity['baseURL']; ?>plugins/serendipity_event_karma/img/ajax-loader.gif" border="0" alt="ajax-loader" /></div>');
-    jQuery.post("<?php echo $serendipity['baseURL']. $serendipity['permalinkPluginPath'] ?>/karma-ajaxquery", { karmaVote: karmaVote, karmaId: karmaId }, function(data) {
+    jQuery.post("<?php echo $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '')  . $serendipity['permalinkPluginPath'] ?>/karma-ajaxquery", { karmaVote: karmaVote, karmaId: karmaId }, function(data) {
         jQuery('#karma_vote'+karmaId).parent().replaceWith(data);
     });
 }

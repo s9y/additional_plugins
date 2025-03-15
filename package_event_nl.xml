@@ -11413,9 +11413,9 @@
 <description>Transform YouTube embeds to load on click</description>
 <maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.1.0</version>
+  <version>1.1.1</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2025-02-07</date>
+  <date>2025-03-16</date>
   <filelist>
 <dir name="serendipity_event_lazyoutube">
 <dir name="UTF-8">

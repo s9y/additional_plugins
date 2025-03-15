@@ -1,3 +1,6 @@
+1.1.1:
+    * Design fix for small width windows, set preview height to auto to fix its scaling
+
 1.1.0:
     * Add option to disable preview image proxy
 

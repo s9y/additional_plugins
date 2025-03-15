@@ -18,7 +18,7 @@ class serendipity_event_lazyoutube extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_LAZYOUTUBE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda');
-        $propbag->add('version',       '1.1.0');
+        $propbag->add('version',       '1.1.1');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
         ));
@@ -282,7 +282,7 @@ class serendipity_event_lazyoutube extends serendipity_event {
                                 width="560"
                                 height="315"
                                 src="https://www.youtube-nocookie.com/embed/' . $videoid .'"
-                                srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube-nocookie.com/embed/' . $videoid . $params . '><img width=560 height=420 loading=lazy src=' . $thumbnail_url .'><span>▶</span></a>"
+                                srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;height:auto;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube-nocookie.com/embed/' . $videoid . $params . '><img width=560 height=420 loading=lazy src=' . $thumbnail_url .'><span>▶</span></a>"
                                 frameborder="0"
                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen

@@ -1,3 +1,9 @@
+2.14.4:
+     * Avoid more PHP 8 warnings
+     * Fix ajax vote in modern themes
+     * Fix ajax vote when URL rewriting is off
+     * Remove compatibility code for s9y 1.x
+     
 2.14.3: Fix errors with constant in PHP 8
 2.14.2: Fix errors in PHP 8
 2.14.1: Fix error in PHP 7 by casting variables

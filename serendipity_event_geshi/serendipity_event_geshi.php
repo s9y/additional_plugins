@@ -60,6 +60,8 @@ if (IN_serendipity !== true) {
 class serendipity_event_geshi extends serendipity_event
 {
     var $title = PLUGIN_EVENT_GESHI_NAME;
+    var $markup_elements = [];
+    
     // Top Level Configuration, requires name of the Plugin, description text, and configuration information in an array..
     function introspect(&$propbag)
     {
@@ -74,7 +76,7 @@ class serendipity_event_geshi extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '7.0'
         ));
-        $propbag->add('version',       '1.1.2');
+        $propbag->add('version',       '1.2.0');
         $propbag->add('event_hooks', array('frontend_display' => true, 'frontend_comment' => true));
         $propbag->add('groups', array('MARKUP'));
 

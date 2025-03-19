@@ -18,9 +18,9 @@ class serendipity_event_realtimecomments extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_REALTIMECOMMENTS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Malte Paskuda');
-        $propbag->add('version',       '0.1.4');
+        $propbag->add('version',       '0.2.0');
         $propbag->add('requirements',  array(
-            'serendipity' => '0.8'
+            'serendipity' => '2.0'
         ));
         $propbag->add('event_hooks',   array(
                                             'frontend_comment'              => true,
@@ -88,12 +88,14 @@ class serendipity_event_realtimecomments extends serendipity_event {
                             $entry_id = $_REQUEST['entryId'];
                             if ($this->hasNewComment($entry_id, time())) {
                                 $comments = $this->getNewComments($entry_id);
-                                $old_raw_mode = $serendipity['smarty_raw_mode'];
+                                $old_raw_mode = $serendipity['smarty_raw_mode'] ?? null;
                                 $serendipity['smarty_raw_mode'] = true; // Force output of Smarty stuff
                                 serendipity_smarty_init();
                                 #existing parent_id crashes the smarty-fetch
                                 $comments_code = serendipity_printComments($comments, VIEWMODE_LINEAR);
-                                $serendipity['smarty_raw_mode'] = $old_raw_mode;
+                                if ($old_raw_mode != null) {
+                                    $serendipity['smarty_raw_mode'] = $old_raw_mode;
+                                }
                                 
                                 echo $comments_code;
                             }
@@ -107,8 +109,8 @@ class serendipity_event_realtimecomments extends serendipity_event {
                     } else {
                         $path_defined = false;
                     }
-                    #it should be enough to set this only here, since
-                    #it's the first thing happening on the site concerning the plugin
+                    # it should be enough to set this only here, since
+                    # it's the first thing happening on the site concerning the plugin
                     $this->interval = $this->get_config('interval', 10);
                     if($path_defined) {
                         echo '<script type="text/javascript" src="' . $path . 'rtcomments.js"></script>' . "\n";
@@ -146,15 +148,15 @@ class serendipity_event_realtimecomments extends serendipity_event {
 
     }
 
-    #if entry has an observer, let him see this in his next pull
+    # if entry has an observer, let him see this in his next pull
     function notify($entry_id, $comment_id, $timestamp) {
         
     }
 
-    #Return true if entry has a new comment
+    # Return true if entry has a new comment
     function hasNewComment($entry_id, $timestamp) {
         global $serendipity;
-        #remove comments who weren't delivered in the last interval (*2 to prevent races)
+        # remove comments which weren't delivered in the last interval (*2 to prevent races)
         $this->cleanComments($timestamp - ($this->interval*2));
         $sql = "SELECT entry_id FROM
                     {$serendipity['dbPrefix']}rtcomments_comments

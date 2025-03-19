@@ -17,10 +17,10 @@ function requestComments(entryId) {
 
                     var ids = new Array();
                     var i = 0;
-                    jQuery.each($comments.find('div'), function() {
+                    jQuery.each($comments.find('.serendipity_comment'), function() {
                             var id = jQuery(this).attr('id');
-                            if (id != '') {
-                                ids[i] = id.replace('serendipity_comment_', '');
+                            if (id != '' && id != undefined) {
+                                ids[i] = id;
                                 i++;
                             }                        
                         });
@@ -36,12 +36,8 @@ function requestComments(entryId) {
 }
 
 function notSet(commentId) {
-    var $comment = jQuery('#c'+commentId);
-    if ($comment.length > 0) {
-        return false;
-    } else {
-        return true;
-    }
+    var $comment = jQuery('#' + commentId);
+    return $comment.length == 0;
 }
 
 function placeComment($comments, id) {
@@ -49,16 +45,14 @@ function placeComment($comments, id) {
     var commentDiv;
 
     $comments.find('a').each(function() {
-            if (jQuery(this).attr('id') == 'c'+id) {
+            if (jQuery(this).attr('id') == id) {
                 comment.appendChild(this);
             }
         }
     );
-    $comments.find('div').each(function() {
-            if (jQuery(this).attr('id') == 'serendipity_comment_'+id) {
-                commentDiv = this;
-                comment.appendChild(this);
-            }
+    $comments.find('.serendipity_comment').each(function() {
+            commentDiv = this;
+            comment.appendChild(this);
         }
     );
     $commentDiv = jQuery(commentDiv);
@@ -70,7 +64,7 @@ function placeComment($comments, id) {
 
 function addDetails($commentDiv, id) {
     //TODO: that's not a good way, since we totally ignore nested comments
-    //but at the moment better then to fight with regexp (or to respect the parentid)
+    //but at the moment better than to fight with regexp (or to respect the parentid)
     var pos = jQuery('.serendipity_comment').length;
     $commentDiv.find('a').each(function() {
             if (jQuery(this).hasClass('comment_source_trace')) {

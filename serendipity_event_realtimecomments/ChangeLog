@@ -1,3 +1,8 @@
+0.2.0:
+---
+ * Resolve PHP 8 warning
+ * Adjust script to expect 2k11 layout
+
 0.1.4:
 ---
  * Hotfixes for PHP 8 (surrim)

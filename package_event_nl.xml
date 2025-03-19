@@ -8038,9 +8038,9 @@
 <description>Load comments made from other users without reloading the page.</description>
 <maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.1.4</version>
-  <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <version>0.2.0</version>
+  <requirements:s9yVersion>2.0</requirements:s9yVersion>
+  <date>2025-03-20</date>
   <filelist>
 <dir name="serendipity_event_realtimecomments">
 <dir name="UTF-8">

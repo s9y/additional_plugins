@@ -841,8 +841,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_realtimecomments</link>
 <category>Event Plugins</category>
 <author>Malte Paskuda</author>
-<content:encoded>&lt;b&gt;serendipity_event_realtimecomments&lt;br /&gt;Echtzeit-Kommentare&lt;/b&gt;&lt;br /&gt;Lade Kommentare, die gerade gespeichert wurden, und stelle sie ohne Neuladen der Seite dar.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:32 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_realtimecomments&lt;br /&gt;Echtzeit-Kommentare&lt;/b&gt;&lt;br /&gt;Lade Kommentare, die gerade gespeichert wurden, und stelle sie ohne Neuladen der Seite dar.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Thu, 20 Mar 2025 00:30:27 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_realtimecomments</guid>
 </item>
 <item>

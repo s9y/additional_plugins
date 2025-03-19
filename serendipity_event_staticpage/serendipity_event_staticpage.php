@@ -788,7 +788,8 @@ class serendipity_event_staticpage extends serendipity_event
 
         $built = $this->get_config('db_built', null);
         if (empty($built) || $built == null) {
-            // We likely can create a full complete table from scratch
+            // We create the original minimal table here. The upgrade steps below
+            // will upgrade it to the full table setup the plugin needs,
             serendipity_db_schema_import("CREATE TABLE IF NOT EXISTS {$serendipity['dbPrefix']}staticpages (
                     id {AUTOINCREMENT} {PRIMARY},
                     articleformattitle varchar(255) not null default '',
@@ -962,7 +963,7 @@ class serendipity_event_staticpage extends serendipity_event
         $this->set_config('db_built', 21);
     }
 
-    // Return true if the plugin database already has the given column. Helper for the setupDB
+    // Return true if the plugin database table already has the given column. Helper for the setupDB
     // function.
     function has_column($column) {
         global $serendipity;

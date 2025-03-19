@@ -17,6 +17,7 @@ class serendipity_event_staticpage extends serendipity_event
     var $error_404 = FALSE;
     var $cachefile;
     var $smarty_init = false;
+    var $htmlnugget = [];
 
     var $config = array(
             'headline',

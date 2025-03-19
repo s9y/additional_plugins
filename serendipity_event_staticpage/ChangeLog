@@ -1,6 +1,7 @@
 4.15.10:
     * Avoid warnings under PHP 8.4
     * Fix database creation/updater function, to avoid a recurrent install error
+    * Fix entry editor markup buttons not having any effect
     
 4.15.9:
     * Avoid warnings under PHP 8.2

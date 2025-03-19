@@ -2340,13 +2340,12 @@ foreach($select AS $select_value => $select_desc) {
                     if (!$serendipity['wysiwyg']) {
 ?>                  <nobr><span id="tools_<?php echo $config_item ?>" style="display: none">
                         <?php if( $serendipity['nl2br']['iso2br'] ) { ?>
-                        <input type="button" class="serendipityPrettyButton input_button" name="insX" value="NoBR" accesskey="x" style="font-style: italic" onclick="wrapSelection(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'],'<nl>','</nl>')" />
+                        <input type="button" class="serendipityPrettyButton input_button" name="insX" value="NoBR" accesskey="x" style="font-style: italic" onclick="serendipity.wrapSelection(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'],'<nl>','</nl>')" />
                         <?php } ?>
-                        <input type="button" class="serendipityPrettyButton input_button wrap_selection" name="insI" value="I" accesskey="i" data-tarea="nuggets<?php echo $elcount; ?>" data-tag="em" style="font-style: italic" onclick="wrapSelection(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'],'<em>','</em>')" />
-                        <input type="button" class="serendipityPrettyButton input_button wrap_selection" name="insB" value="B" accesskey="b" data-tarea="nuggets<?php echo $elcount; ?>" data-tag="strong" style="font-weight: bold" onclick="wrapSelection(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'],'<strong>','</strong>')" />
-                        <input type="button" class="serendipityPrettyButton input_button wrap_selection" name="insU" value="U" accesskey="u" data-tarea="nuggets<?php echo $elcount; ?>" data-tag="u" style="text-decoration: underline;" onclick="wrapSelection(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'],'<u>','</u>')" />
-                        <input type="button" class="serendipityPrettyButton input_button wrap_selection" name="insQ" value="<?php echo QUOTE ?>" accesskey="q" data-tarea="nuggets<?php echo $elcount; ?>" data-tag="blockquote" style="font-style: italic" onclick="wrapSelection(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'],'<blockquote>','</blockquote>')" />
-                        <input type="button" class="serendipityPrettyButton input_button wrap_insimg" name="insJ" value="img" accesskey="j" data-tarea="nuggets<?php echo $elcount; ?>" onclick="wrapInsImage(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'])" />
+                        <input type="button" class="serendipityPrettyButton input_button wrap_selection lang-html" name="insI" value="I" accesskey="i" data-tarea="nuggets<?php echo $elcount; ?>" data-tag-open="em" data-tag-close="em" style="font-style: italic" />
+                        <input type="button" class="serendipityPrettyButton input_button wrap_selection lang-html" name="insB" value="B" accesskey="b" data-tarea="nuggets<?php echo $elcount; ?>" data-tag-open="strong" data-tag-close="strong" style="font-weight: bold" />
+                        <input type="button" class="serendipityPrettyButton input_button wrap_selection lang-html " name="insQ" value="<?php echo QUOTE ?>" accesskey="q" data-tarea="nuggets<?php echo $elcount; ?>" data-tag-open="blockquote" data-tag-close="blockquote" />
+                        <input type="button" class="serendipityPrettyButton input_button wrap_insimg" name="insJ" value="img" accesskey="j" data-tarea="nuggets<?php echo $elcount; ?>" onclick="serendipity.wrapInsImage(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'])" />
                         <?php
                         if (version_compare(serendipity_getCoreVersion($serendipity['version']), "2.0", ">=")) {
                             ?>
@@ -2358,7 +2357,7 @@ foreach($select AS $select_value => $select_desc) {
                             <?php
                         }
                         ?>
-                        <input type="button" class="serendipityPrettyButton input_button wrap_insurl" name="insU" value="URL" accesskey="l" data-tarea="nuggets<?php echo $elcount; ?>" style="color: blue; text-decoration: underline;" onclick="wrapSelectionWithLink(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'])" />
+                        <input type="button" class="serendipityPrettyButton input_button wrap_insurl" name="insU" value="URL" accesskey="l" data-tarea="nuggets<?php echo $elcount; ?>" />
                     </span></nobr>
 <?php               } ?>
                     <script type="text/javascript" language="JavaScript">

@@ -17,6 +17,7 @@ class serendipity_event_staticpage extends serendipity_event
     var $error_404 = FALSE;
     var $cachefile;
     var $smarty_init = false;
+    var $htmlnugget = [];
 
     var $config = array(
             'headline',
@@ -86,7 +87,7 @@ class serendipity_event_staticpage extends serendipity_event
         $propbag->add('page_configuration', $this->config);
         $propbag->add('type_configuration', $this->config_types);
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers');
-        $propbag->add('version', '4.15.9');
+        $propbag->add('version', '4.15.10');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '2.6.7',
@@ -786,89 +787,66 @@ class serendipity_event_staticpage extends serendipity_event
         global $serendipity;
 
         $built = $this->get_config('db_built', null);
-        $fresh = false;
-        if ((empty($built)) && (!defined('STATICPAGE_UPGRADE_DONE'))) {
+        if (empty($built) || $built == null) {
+            // We create the original minimal table here. The upgrade steps below
+            // will upgrade it to the full table setup the plugin needs,
             serendipity_db_schema_import("CREATE TABLE IF NOT EXISTS {$serendipity['dbPrefix']}staticpages (
                     id {AUTOINCREMENT} {PRIMARY},
-                    parent_id int(11) default '0',
                     articleformattitle varchar(255) not null default '',
                     articleformat int(1) default '1',
                     markup int(1) default '1',
                     pagetitle varchar(255) not null default '',
                     permalink varchar(255) not null default '',
-                    is_startpage int(1) default '0',
-                    is_404_page int(1) default '0',
-                    show_childpages int(1) not null default '0',
                     content text,
-                    pre_content text,
                     headline varchar(255) not null default '',
                     filename varchar(255) not null default '',
-                    pass varchar(255) not null default '',
                     timestamp int(10) {UNSIGNED} default null,
-                    last_modified int(10) {UNSIGNED} default null,
-                    authorid int(11) default '0',
-                    pageorder int(4) default '0',
-                    articletype int(4) default '0',
-                    related_category_id int(4) default 0,
-                    shownavi int(4) default '1',
-                    showonnavi int(4) default '1',
-                    show_breadcrumb int(4) default '1',
-                    publishstatus int(4) default '1',
-                    language varchar(10) default '') {UTF_8}");
+                    authorid int(11) default '0'
+                    ) {UTF_8}");
 
-            $old_stuff = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}config WHERE name LIKE 'serendipity_event_staticpage:%'");
-
-            $import = array();
-            if (is_array($old_stuff)) {
-                foreach ($old_stuff as $item) {
-                    $names = explode('/', $item['name']);
-                    if (!isset($import[$names[0]])) {
-                        $import[$names[0]] = array('authorid' => $item['authorid']);
-                    }
-
-                    $import[$names[0]][$names[1]] = serendipity_get_bool($item['value']);
-                }
-            }
-
-            foreach ($import AS $page) {
-                if (is_array($page)) {
-                    try {
-                        serendipity_db_insert('staticpages', $page);
-                        @unlink($this->cachefile);
-                    } catch (Exception $e) {
-                        // one part of the setup did not work, which is probably not bad.
-                    }
-                }
-            }
-
-            serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config  WHERE name LIKE 'serendipity_event_staticpage:%'");
-            serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}plugins WHERE name LIKE 'serendipity_event_staticpage:%' AND name NOT LIKE '" . serendipity_db_escape_string($this->instance) . "'");
-            $this->set_config('db_built', '7');
-            $fresh = true;
-            @define('STATICPAGE_UPGRADE_DONE', true); // No further static pages may be called!
+            $this->set_config('db_built', '0');
         }
 
         switch ($built) {
+            case 0:
             case 1: // password not included
-                $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN pass varchar(255) not null default ''";
-                serendipity_db_schema_import($q);
+                if (!$this->has_column('pass')) {
+                    $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN pass varchar(255) not null default ''";
+                    serendipity_db_schema_import($q);
+                }
+                $this->set_config('db_built', 1);
             case 2: // parent-id not included
-                $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN parent_id int(11) default '0'";
-                serendipity_db_schema_import($q);
+                if (!$this->has_column('parent_id')) {
+                    $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN parent_id int(11) default '0'";
+                    serendipity_db_schema_import($q);
+                }
+                $this->set_config('db_built', 2);
             case 3:
-                $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN show_childpages int(1) not null default '0'";
-                serendipity_db_schema_import($q); // list of child-pages on parent-page
-                $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN pre_content text";
-                serendipity_db_schema_import($q); // content
+                if (!$this->has_column('show_childpages')) {
+                    $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN show_childpages int(1) not null default '0'";
+                    serendipity_db_schema_import($q); // list of child-pages on parent-page
+                    $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN pre_content text";
+                    serendipity_db_schema_import($q); // content
+                }
+                $this->set_config('db_built', 3);
             case 4:
-                $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN is_startpage int(1) default '0'";
-                serendipity_db_schema_import($q);
+                if (!$this->has_column('is_startpage')) {
+                    $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN is_startpage int(1) default '0'";
+                    serendipity_db_schema_import($q);
+                }
+                $this->set_config('db_built', 4);
             case 5: // enum to re-order staticpages
-                $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN pageorder int(4) default '0'";
-                serendipity_db_schema_import($q);
+                if (!$this->has_column('pageorder')) {
+                    $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN pageorder int(4) default '0'";
+                    serendipity_db_schema_import($q);
+                }
+                $this->set_config('db_built', 5);
             case 6:
-                $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN articletype int(4) default '0'";
-                serendipity_db_schema_import($q);
+                if (!$this->has_column('articletype')) {
+                    $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN articletype int(4) default '0'";
+                    serendipity_db_schema_import($q);
+                }
+                $this->set_config('db_built', 6);
             case 7:
                 $q = "CREATE TABLE IF NOT EXISTS {$serendipity['dbPrefix']}staticpages_types (
                         id {AUTOINCREMENT} {PRIMARY},
@@ -895,44 +873,44 @@ class serendipity_event_staticpage extends serendipity_event
                     serendipity_db_update('staticpages', array(), $set);
                     @unlink($this->cachefile);
                 }
+                $this->set_config('db_built', 7);
             case 8:
             case 9:
             case 10:
-                if (!$fresh) {
-                    if ($serendipity['dbType'] != 'sqlite' && $serendipity['dbType'] != 'sqlite3' && $serendipity['dbType'] != 'pdo-sqlite') {
-                        $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN shownavi int(4) default '1';";
-                        serendipity_db_schema_import($q);
-                        $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN showonnavi int(4) default '1'";
-                        serendipity_db_schema_import($q);
-                        $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN publishstatus int(4) default '1';";
-                        serendipity_db_schema_import($q);
-                        $q = 'ALTER TABLE '.$serendipity['dbPrefix'].'staticpages ADD COLUMN language varchar(10) default \'\'';
-                        serendipity_db_schema_import($q);
-                    }
-                    $q = 'DROP TABLE IF EXISTS '.$serendipity['dbPrefix'].'staticpages_plugins';
+                if (!$this->has_column('shownavi')) {
+                    $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN shownavi int(4) default '1';";
+                    serendipity_db_schema_import($q);
+                    $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN showonnavi int(4) default '1'";
+                    serendipity_db_schema_import($q);
+                    $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN publishstatus int(4) default '1';";
+                    serendipity_db_schema_import($q);
+                    $q = 'ALTER TABLE '.$serendipity['dbPrefix'].'staticpages ADD COLUMN language varchar(10) default \'\'';
                     serendipity_db_schema_import($q);
                 }
+                $q = 'DROP TABLE IF EXISTS '.$serendipity['dbPrefix'].'staticpages_plugins';
+                serendipity_db_schema_import($q);
+                $this->set_config('db_built', 10);
             case 11:
                 serendipity_db_update('staticpages_types', array('description' => 'Aboutpage'), array('description' => 'Overview'));
+                $this->set_config('db_built', 11);
             case 12:
-                $q = "CREATE {FULLTEXT_MYSQL} INDEX staticentry_idx on {$serendipity['dbPrefix']}staticpages (headline, content);";
+                $q = "CREATE {FULLTEXT_MYSQL} INDEX IF NOT EXISTS staticentry_idx on {$serendipity['dbPrefix']}staticpages (headline, content);";
                 serendipity_db_schema_import($q);
+                $this->set_config('db_built', 12);
             case 13:
             case 14:
-                if (!$fresh) {
-                    if ($serendipity['dbType'] != 'sqlite' && $serendipity['dbType'] != 'sqlite3' && $serendipity['dbType'] != 'pdo-sqlite') {
-                        $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN last_modified int(10)";
-                        serendipity_db_schema_import($q);
-                        serendipity_db_query("UPDATE {$serendipity['dbPrefix']}staticpages SET last_modified = timestamp");
-                    }
+                if (!$this->has_column('last_modified')) {
+                    $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN last_modified int(10)";
+                    serendipity_db_schema_import($q);
+                    serendipity_db_query("UPDATE {$serendipity['dbPrefix']}staticpages SET last_modified = timestamp");
                 }
+                $this->set_config('db_built', 14);
             case 15:
-                if (!$fresh) {
-                    if ($serendipity['dbType'] != 'sqlite' && $serendipity['dbType'] != 'sqlite3' && $serendipity['dbType'] != 'pdo-sqlite') {
-                        $sql = 'ALTER TABLE '.$serendipity['dbPrefix'].'staticpages ADD COLUMN related_category_id int(4) default 0';
-                        serendipity_db_schema_import($sql);
-                    }
+                if (!$this->has_column('related_category_id')) {
+                    $sql = 'ALTER TABLE '.$serendipity['dbPrefix'].'staticpages ADD COLUMN related_category_id int(4) default 0';
+                    serendipity_db_schema_import($sql);
                 }
+                $this->set_config('db_built', 15);
             case 16:
                 $this->pagetype = array(
                     'description' => 'Staticpage with related category',
@@ -945,6 +923,7 @@ class serendipity_event_staticpage extends serendipity_event
                             staticpage_categorypage int(4) default 0
                         ) {UTF_8}';
                 serendipity_db_schema_import($sql);
+                $this->set_config('db_built', 16);
             case 17:
                 $sql = 'CREATE TABLE IF NOT EXISTS '.$serendipity['dbPrefix'].'staticpage_custom (
                             staticpage int(11),
@@ -952,23 +931,24 @@ class serendipity_event_staticpage extends serendipity_event
                             value text
                         ) {UTF_8}';
                 serendipity_db_schema_import($sql);
+                $this->set_config('db_built', 17);
             case 18:
-                    if ($serendipity['dbType'] != 'sqlite' && $serendipity['dbType'] != 'sqlite3' && $serendipity['dbType'] != 'pdo-sqlite') {
-                        $sql = 'ALTER TABLE '.$serendipity['dbPrefix'].'staticpages ADD COLUMN is_404_page int(1) default 0';
-                        if ($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') {
-                            $sql .= ' AFTER is_startpage';
-                        }
-                        serendipity_db_schema_import($sql);
+                if (!$this->has_column('is_404_page')) {
+                    $sql = 'ALTER TABLE '.$serendipity['dbPrefix'].'staticpages ADD COLUMN is_404_page int(1) default 0';
+                    if ($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') {
+                        $sql .= ' AFTER is_startpage';
                     }
-            case 19:
-                if (!$fresh) {
-                    if ($serendipity['dbType'] != 'sqlite' && $serendipity['dbType'] != 'sqlite3' && $serendipity['dbType'] != 'pdo-sqlite') {
-                        $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN show_breadcrumb int(4) default '1'";
-                        serendipity_db_schema_import($q);
-                    }
+                    serendipity_db_schema_import($sql);
                 }
+                $this->set_config('db_built', 18);
+            case 19:
+                if (!$this->has_column('show_breadcrumb')) {
+                    $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN show_breadcrumb int(4) default '1'";
+                    serendipity_db_schema_import($q);
+                }
+                $this->set_config('db_built', 19);
             case 20:
-                if (!$fresh) {
+                if (!$this->has_column('title_element')) {
                     $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN title_element varchar(255) not null default ''";
                     serendipity_db_schema_import($q);
                     $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN meta_description varchar(255) not null default ''";
@@ -976,11 +956,32 @@ class serendipity_event_staticpage extends serendipity_event
                     $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD COLUMN meta_keywords varchar(255) not null default ''";
                     serendipity_db_schema_import($q);
                 }
-                $this->set_config('db_built', 21);
+                
+                $this->set_config('db_built', 20);
                 break;
         }
+        $this->set_config('db_built', 21);
     }
 
+    // Return true if the plugin database table already has the given column. Helper for the setupDB
+    // function.
+    function has_column($column) {
+        global $serendipity;
+         if ($serendipity['dbType'] == 'postgres') {
+            $q = "SELECT COUNT(*) FROM information_schema.columns 
+                WHERE table_name='{$serendipity['dbPrefix']}staticpages' and column_name='$column'";
+        } elseif ($serendipity['dbType'] == 'sqlite' || $serendipity['dbType'] == 'sqlite3' || $serendipity['dbType'] == 'pdo-sqlite') {
+            $q = "SELECT COUNT(*) FROM pragma_table_info('{$serendipity['dbPrefix']}staticpages')
+                  WHERE name='$column'";
+        } else {
+            // mysql
+            $q = "SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS
+                  WHERE
+                  TABLE_NAME = '{$serendipity['dbPrefix']}staticpages' AND COLUMN_NAME = '$column'";
+        }
+        $result = serendipity_db_query($q, true);
+        return ($result[0] > 0);
+    }
 
     /**
      *
@@ -2339,13 +2340,12 @@ foreach($select AS $select_value => $select_desc) {
                     if (!$serendipity['wysiwyg']) {
 ?>                  <nobr><span id="tools_<?php echo $config_item ?>" style="display: none">
                         <?php if( $serendipity['nl2br']['iso2br'] ) { ?>
-                        <input type="button" class="serendipityPrettyButton input_button" name="insX" value="NoBR" accesskey="x" style="font-style: italic" onclick="wrapSelection(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'],'<nl>','</nl>')" />
+                        <input type="button" class="serendipityPrettyButton input_button" name="insX" value="NoBR" accesskey="x" style="font-style: italic" onclick="serendipity.wrapSelection(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'],'<nl>','</nl>')" />
                         <?php } ?>
-                        <input type="button" class="serendipityPrettyButton input_button wrap_selection" name="insI" value="I" accesskey="i" data-tarea="nuggets<?php echo $elcount; ?>" data-tag="em" style="font-style: italic" onclick="wrapSelection(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'],'<em>','</em>')" />
-                        <input type="button" class="serendipityPrettyButton input_button wrap_selection" name="insB" value="B" accesskey="b" data-tarea="nuggets<?php echo $elcount; ?>" data-tag="strong" style="font-weight: bold" onclick="wrapSelection(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'],'<strong>','</strong>')" />
-                        <input type="button" class="serendipityPrettyButton input_button wrap_selection" name="insU" value="U" accesskey="u" data-tarea="nuggets<?php echo $elcount; ?>" data-tag="u" style="text-decoration: underline;" onclick="wrapSelection(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'],'<u>','</u>')" />
-                        <input type="button" class="serendipityPrettyButton input_button wrap_selection" name="insQ" value="<?php echo QUOTE ?>" accesskey="q" data-tarea="nuggets<?php echo $elcount; ?>" data-tag="blockquote" style="font-style: italic" onclick="wrapSelection(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'],'<blockquote>','</blockquote>')" />
-                        <input type="button" class="serendipityPrettyButton input_button wrap_insimg" name="insJ" value="img" accesskey="j" data-tarea="nuggets<?php echo $elcount; ?>" onclick="wrapInsImage(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'])" />
+                        <input type="button" class="serendipityPrettyButton input_button wrap_selection lang-html" name="insI" value="I" accesskey="i" data-tarea="nuggets<?php echo $elcount; ?>" data-tag-open="em" data-tag-close="em" style="font-style: italic" />
+                        <input type="button" class="serendipityPrettyButton input_button wrap_selection lang-html" name="insB" value="B" accesskey="b" data-tarea="nuggets<?php echo $elcount; ?>" data-tag-open="strong" data-tag-close="strong" style="font-weight: bold" />
+                        <input type="button" class="serendipityPrettyButton input_button wrap_selection lang-html " name="insQ" value="<?php echo QUOTE ?>" accesskey="q" data-tarea="nuggets<?php echo $elcount; ?>" data-tag-open="blockquote" data-tag-close="blockquote" />
+                        <input type="button" class="serendipityPrettyButton input_button wrap_insimg" name="insJ" value="img" accesskey="j" data-tarea="nuggets<?php echo $elcount; ?>" onclick="serendipity.wrapInsImage(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'])" />
                         <?php
                         if (version_compare(serendipity_getCoreVersion($serendipity['version']), "2.0", ">=")) {
                             ?>
@@ -2357,7 +2357,7 @@ foreach($select AS $select_value => $select_desc) {
                             <?php
                         }
                         ?>
-                        <input type="button" class="serendipityPrettyButton input_button wrap_insurl" name="insU" value="URL" accesskey="l" data-tarea="nuggets<?php echo $elcount; ?>" style="color: blue; text-decoration: underline;" onclick="wrapSelectionWithLink(document.forms['serendipityEntry']['serendipity[plugin][<?php echo $config_item ?>]'])" />
+                        <input type="button" class="serendipityPrettyButton input_button wrap_insurl" name="insU" value="URL" accesskey="l" data-tarea="nuggets<?php echo $elcount; ?>" />
                     </span></nobr>
 <?php               } ?>
                     <script type="text/javascript" language="JavaScript">

@@ -8970,9 +8970,9 @@
 <description>Visualizza una pagina statica nel tuo blog con la stessa grafica e formattazione del blog stesso</description>
 <maintainers><maintainer><name>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>4.15.9</version>
+  <version>4.15.10</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2023-09-05</date>
+  <date>2025-03-21</date>
   <filelist>
 <dir name="serendipity_event_staticpage">
 <dir name="UTF-8">

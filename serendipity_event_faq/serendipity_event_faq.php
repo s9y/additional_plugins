@@ -76,7 +76,7 @@ class serendipity_event_faq extends serendipity_event
         $propbag->add('name',         FAQ_NAME);
         $propbag->add('description',  FAQ_NAME_DESC);
         $propbag->add('author',       'Falk Doering, Ian');
-        $propbag->add('version',      '1.24.1');
+        $propbag->add('version',      '1.24.2');
         $propbag->add('copyright',    'LGPL');
         $propbag->add('stackable',    false);
         $propbag->add('requirements', array(
@@ -523,7 +523,7 @@ class serendipity_event_faq extends serendipity_event
     {
         global $serendipity;
 
-        return (($serendipity['uriArguments'][0] == $serendipity['permalinkPluginPath']) && ($serendipity['uriArguments'][1] == $this->get_config('faqurl', 'faqs')));
+        return ((($serendipity['uriArguments'][0] ?? null) == $serendipity['permalinkPluginPath']) && (($serendipity['uriArguments'][1] ?? null) == $this->get_config('faqurl', 'faqs')));
     }
 
     function countFAQbyCid(&$cid)

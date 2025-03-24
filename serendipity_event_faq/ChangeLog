@@ -1,3 +1,5 @@
+1.24.2: Additional PHP 8 compatibility fix (warning on other plugin pages)
+
 1.24.1: PHP 8 compatibility fixes, 8.4 and earlier
 
 1.24: Iconfont a11y fix (yellowled)

@@ -3280,9 +3280,9 @@
 <description>Редактира списък от често задавани въпроси.</description>
 <maintainers><maintainer><name>Falk Doering, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.24.1</version>
+  <version>1.24.2</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2025-02-27</date>
+  <date>2025-03-25</date>
   <filelist>
 <dir name="serendipity_event_faq">
 <dir name="UTF-8">
@@ -9269,9 +9269,9 @@
 <description>Edit the files of the currently used template directly form the adminarea.</description>
 <maintainers><maintainer><name>Malte Paskuda</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.8.2</version>
+  <version>0.8.3</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2021-06-07</date>
+  <date>2025-03-25</date>
   <filelist>
 <dir name="serendipity_event_template_editor">
 <dir name="UTF-8">

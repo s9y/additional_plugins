@@ -57,7 +57,7 @@ function highlight($file) {
         $file.css('border', '0');
         //prevent second relocation:
         $file.unbind();
-        var base = '/index.php?/plugin/template_editor_rename';
+        var base = 'index.php?/plugin/template_editor_rename';
         $file.editable(base, {
             submitdata : { 'file': $file.text(),
                 'curDir': curDir

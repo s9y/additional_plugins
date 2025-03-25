@@ -1,11 +1,5 @@
 <?php
 
-/**
- * serendipity_event_guestbook.php, v.3.57 - 2015-08-20
- */
-
-//error_reporting(E_ALL);
-
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
@@ -448,30 +442,6 @@ class serendipity_event_guestbook extends serendipity_event {
 
 
     /**
-     * guestbook wrapper for htmlspecialchars charset switch with PHP 5.4
-     *
-     * @access public
-     * @return string
-     */
-    public static function html_specialchars($string, $flags = null, $encoding = LANG_CHARSET, $double_encode = true) {
-        if ($flags == null) {
-            if (defined('ENT_HTML401')) {
-                // Added with PHP 5.4.x
-                $flags = ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE;
-            } else {
-                // For PHP < 5.4 compatibility
-                $flags = ENT_COMPAT;
-            }
-        }
-        if ($encoding == 'LANG_CHARSET') {
-            $encoding = 'UTF-8'; // fallback
-        }
-
-        return htmlspecialchars($string, $flags, $encoding, $double_encode);
-    }
-
-
-    /**
      * Strip and secure $serendipity['POST'] by keys and define modified array var if value has changed
      * No need for trim(strip_tags()) here, while this changes length and is further on done on output separately!
      *
@@ -484,12 +454,12 @@ class serendipity_event_guestbook extends serendipity_event {
     function strip_security($parr = null, $keys = null, $single = false, $compare = true) {
         $authenticated_user = serendipity_userLoggedIn() ? true : false;
         if ($single) {
-            return $authenticated_user ? $this->html_specialchars($parr) : $this->html_specialchars(strip_tags($parr));
+            return $authenticated_user ? serendipity_specialchars($parr) : serendipity_specialchars(strip_tags($parr));
         } else { // POST data input check
             foreach ($parr AS $k => $v) {
                 if (in_array($k, $keys)) {
                     $valuelength = strlen($v);
-                    #$parrsec[$k] = $authenticated_user ? $this->html_specialchars($v) : $this->html_specialchars(strip_tags($v));//dont store entities
+                    #$parrsec[$k] = $authenticated_user ? serendipity_specialchars($v) : serendipity_specialchars(strip_tags($v));//dont store entities
                     $parrsec[$k] = $authenticated_user ? $v : strip_tags($v);
                     if (!$authenticated_user && $compare && ($valuelength != strlen($parrsec[$k]))) {
                         $parrsec['stripped'] = true;
@@ -655,7 +625,7 @@ class serendipity_event_guestbook extends serendipity_event {
                     $entry['body']      = nl2br($entry['bodywrap']);
                 }
                 if ($backend_escape) {
-                    $replace_ac = $this->html_specialchars($replace_ac); // do not allow in backend, eg unescaped scripts
+                    $replace_ac = serendipity_specialchars($replace_ac); // do not allow in backend, eg unescaped scripts
                 }
                 $entry['body']          = str_replace($placeholder_ac, $replace_ac, $entry['body']);
                 $entry['body']          = $this->text_pattern_bbc($entry['body']);
@@ -886,7 +856,7 @@ class serendipity_event_guestbook extends serendipity_event {
 
             if (isset($serendipity['POST']['email']) && !empty($serendipity['POST']['email']) && trim($serendipity['POST']['email']) != '') {
                 if (!$this->is_valid_email($serendipity['POST']['email'])) {
-                    array_push($messages, ERROR_NOVALIDEMAIL . ' <span class="gb_msgred">' . $this->html_specialchars($serendipity['POST']['email']) . '</span>');
+                    array_push($messages, ERROR_NOVALIDEMAIL . ' <span class="gb_msgred">' . serendipity_specialchars($serendipity['POST']['email']) . '</span>');
                 } else {
                     $valid['data_email'] = TRUE;
                 }
@@ -1117,12 +1087,12 @@ class serendipity_event_guestbook extends serendipity_event {
                     'plugin_guestbook_intro'           => $this->get_config('intro'),
                     'plugin_guestbook_sent'            => $this->get_config('sent', PLUGIN_GUESTBOOK_SENT_HTML),
                     'plugin_guestbook_action'          => $serendipity['baseURL'] . $serendipity['indexFile'],
-                    'plugin_guestbook_sname'           => $this->html_specialchars($serendipity['GET']['subpage']),
-                    'plugin_guestbook_name'            => $this->html_specialchars(strip_tags($serendipity['POST']['name'])),
-                    'plugin_guestbook_email'           => $this->html_specialchars(strip_tags($serendipity['POST']['email'])),
+                    'plugin_guestbook_sname'           => serendipity_specialchars($serendipity['GET']['subpage']),
+                    'plugin_guestbook_name'            => serendipity_specialchars(strip_tags($serendipity['POST']['name'])),
+                    'plugin_guestbook_email'           => serendipity_specialchars(strip_tags($serendipity['POST']['email'])),
                     'plugin_guestbook_emailprotect'    => PLUGIN_GUESTBOOK_PROTECTION,
-                    'plugin_guestbook_url'             => $this->html_specialchars(strip_tags($serendipity['POST']['url'])),
-                    'plugin_guestbook_comment'         => $this->html_specialchars(strip_tags($serendipity['POST']['comment'])),
+                    'plugin_guestbook_url'             => serendipity_specialchars(strip_tags($serendipity['POST']['url'])),
+                    'plugin_guestbook_comment'         => serendipity_specialchars(strip_tags($serendipity['POST']['comment'])),
                     'plugin_guestbook_messagestack'    => $serendipity['messagestack']['comments'],
                     'plugin_guestbook_entry'           => array('timestamp' => 1)
                 )
@@ -1301,7 +1271,7 @@ class serendipity_event_guestbook extends serendipity_event {
 
                     if ($this->selected()) {
                         $serendipity['head_title']    = $this->get_config('headline');
-                        $serendipity['head_subtitle'] = $this->html_specialchars($serendipity['blogTitle']);
+                        $serendipity['head_subtitle'] = serendipity_specialchars($serendipity['blogTitle']);
                     }
                     break;
 

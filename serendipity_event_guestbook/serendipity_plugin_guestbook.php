@@ -177,8 +177,8 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
         $entries = serendipity_db_query($sql);
         if (!empty($entries) && is_array($entries)) {
             foreach($entries AS $row) {
-                echo '<time>' . serendipity_event_guestbook::html_specialchars(serendipity_strftime($dateformat, $row['timestamp'])) . "</time>\n";
-                $row['body'] = serendipity_event_guestbook::html_specialchars($row['body']);
+                echo '<time>' . serendipity_specialchars(serendipity_strftime($dateformat, $row['timestamp'])) . "</time>\n";
+                $row['body'] = serendipity_specialchars($row['body']);
                 $row['body'] = serendipity_event_guestbook::bbc_reverse($row['body']);
                 $row['body'] = trim(preg_replace('/\s+/', ' ', $row['body']));
 
@@ -197,16 +197,16 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
                 serendipity_plugin_api::hook_event('frontend_display', $entry); */
 
                 echo '<div class="guestbook_sidebar_comment">' . $row['body'] . "</div>\n"; // Care: use $entry['comment'] with hook!
-                echo '<div class="guestbook_sidebar_name"><strong>' . serendipity_event_guestbook::html_specialchars($row['name']) . "</strong></div>\n";
+                echo '<div class="guestbook_sidebar_name"><strong>' . serendipity_specialchars($row['name']) . "</strong></div>\n";
 
                 if ($showemail){
-                    $_email = serendipity_event_guestbook::html_specialchars($row['email']);
+                    $_email = serendipity_specialchars($row['email']);
                     $email  = $serendipity['serendipityUserlevel'] < USERLEVEL_ADMIN ? str_replace(array('@', '.'), array(' at ', ' dot '), $_email) : $_email;
-                    echo '<div class="guestbook_sidebar_email"><a href="mailto:' . $email . '">' . serendipity_event_guestbook::html_specialchars($row['email']) . "</a></div>\n";
+                    echo '<div class="guestbook_sidebar_email"><a href="mailto:' . $email . '">' . serendipity_specialchars($row['email']) . "</a></div>\n";
                 }
 
                 if ($showhomepage) {
-                    echo '<div class="guestbook_sidebar_url"><a href="' . serendipity_event_guestbook::html_specialchars($row['homepage']) . '">' . serendipity_event_guestbook::html_specialchars($row['homepage']) . "</a></div>\n";
+                    echo '<div class="guestbook_sidebar_url"><a href="' . serendipity_specialchars($row['homepage']) . '">' . serendipity_specialchars($row['homepage']) . "</a></div>\n";
                 }
 
                 echo "<div class=\"guestbook_sidebar_spacer\">&nbsp;</div>\n\n";

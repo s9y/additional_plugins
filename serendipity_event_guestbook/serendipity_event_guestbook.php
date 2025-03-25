@@ -73,16 +73,6 @@ class serendipity_event_guestbook extends serendipity_event {
         $this->filter_defaults = array('words'   => '\[link(.*?)\];http://');
     }
 
-
-    /**
-     * serendipity_plugin::example method
-     *
-     */
-    function example() {
-        return "\n<ul>\n    <li class=\"msg_notice\"><strong>Note to v. 3.53:</strong> If have, please update copied guestbook tpl files in your template!</li>\n    <li class=\"msg_notice\"><strong>Note to v. 3.50:</strong> A possible TABLE COLUMN order change for long time users, may need you to backup your database in Guestbooks DB Administration panel again!</li>\n</ul>\n\n";
-    }
-
-
     /**
      * serendipity_plugin::cleanup method
      *

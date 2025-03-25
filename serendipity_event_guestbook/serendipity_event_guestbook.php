@@ -1465,15 +1465,15 @@ class serendipity_event_guestbook extends serendipity_event {
         }
 
         $moderate   = (serendipity_db_bool($this->get_config('showapp')) || serendipity_db_bool($this->get_config('automoderate'))) ? true : false;
-        $gbcat      = !empty($serendipity['GET']['guestbookcategory']) ? $serendipity['GET']['guestbookcategory'] : $serendipity['POST']['guestbookcategory'];
+        $gbcat      = !empty($serendipity['GET']['guestbookcategory'] ?? '') ? $serendipity['GET']['guestbookcategory'] ?? '' : $serendipity['POST']['guestbookcategory'] ?? '';
 
         if (!isset($serendipity['POST']['guestbookadmin'])) {
             $serendipity['smarty']->assign(
                 array(
                     'gb_liva'     => (!isset($serendipity['GET']['guestbookcategory']) || $serendipity['GET']['guestbookcategory'] == 'gbview') ? ' id="active"' : '',
-                    'gb_liapa'    => ($serendipity['GET']['guestbookcategory'] == 'gbapp' || ($serendipity['POST']['guestbook_category'] ?? '') == 'gbapp') ? ' id="active"' : '',
-                    'gb_liada'    => (($serendipity['GET']['guestbookcategory'] == 'gbadd' || ($serendipity['POST']['guestbookcategory'] ?? '') == 'gbadd') && ($serendipity['POST']['guestbook_category'] ?? '') != 'gbapp') ? ' id="active"' : '',
-                    'gb_lida'     => $serendipity['GET']['guestbookcategory'] == 'gbdb' ? ' id="active"' : '',
+                    'gb_liapa'    => (($serendipity['GET']['guestbookcategory'] ?? '') == 'gbapp' || ($serendipity['POST']['guestbook_category'] ?? '') == 'gbapp') ? ' id="active"' : '',
+                    'gb_liada'    => ((($serendipity['GET']['guestbookcategory'] ?? '') == 'gbadd' || ($serendipity['POST']['guestbookcategory'] ?? '') == 'gbadd') && ($serendipity['POST']['guestbook_category'] ?? '') != 'gbapp') ? ' id="active"' : '',
+                    'gb_lida'     => ($serendipity['GET']['guestbookcategory'] ?? '') == 'gbdb' ? ' id="active"' : '',
                     'gb_moderate' => $moderate,
                     'gb_isnav'    => true
                 )

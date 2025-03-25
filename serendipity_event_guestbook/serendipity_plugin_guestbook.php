@@ -13,7 +13,7 @@ if (IN_serendipity !== true) {
 
 class serendipity_plugin_guestbook extends serendipity_plugin {
     var $title = PLUGIN_GUESTSIDE_NAME;
-    #var $conty = array('%serendipity_event_guestbook%/showapp', '%serendipity_event_guestbook%/automoderate');
+    var $dependencies = null;
 
     function introspect(&$propbag) {
         global $serendipity;

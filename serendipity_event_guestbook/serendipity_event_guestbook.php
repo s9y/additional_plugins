@@ -391,26 +391,6 @@ class serendipity_event_guestbook extends serendipity_event {
          return str_replace(array('@', '.'), array(' at ', ' dot '), $email);
     }
 
-
-    /**
-     * Check if email is valid
-     *
-     * @param  string   $string   entry email checks
-     * @return mixed    string/boolean
-     */
-     function is_valid_email($postmail) {
-        // Email needs to match this pattern to be a good email address
-        if (!empty($postmail)) {
-            return (preg_match(
-                ":^([-!#\$%&'*+./0-9=?A-Z^_`a-z{|}~ ])+" .    // the user name
-                "@" .                                        // the ubiquitous at-sign
-                "([-!#\$%&'*+/0-9=?A-Z^_`a-z{|}~ ]+\\.)+" . // host, sub-, and domain names
-                "[a-zA-Z]{2,6}\$:i",                         // top-level domain (TLD)
-                trim($postmail)));                            // get rid of trailing whitespace
-        } else return false;
-    }
-
-
     /**
      * Check POST string if guestbooks content filter found something to strip
      * Adds match to $serendipity['messagestack']['comments'] array, if not in admin group
@@ -855,7 +835,7 @@ class serendipity_event_guestbook extends serendipity_event {
             }
 
             if (isset($serendipity['POST']['email']) && !empty($serendipity['POST']['email']) && trim($serendipity['POST']['email']) != '') {
-                if (!$this->is_valid_email($serendipity['POST']['email'])) {
+                if (! filter_var($serendipity['POST']['email'], FILTER_VALIDATE_EMAIL)) {
                     array_push($messages, ERROR_NOVALIDEMAIL . ' <span class="gb_msgred">' . serendipity_specialchars($serendipity['POST']['email']) . '</span>');
                 } else {
                     $valid['data_email'] = TRUE;

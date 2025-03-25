@@ -266,7 +266,7 @@ class serendipity_event_guestbook extends serendipity_event {
                 break;
 
             case 'intro':
-                $propbag->add('type', ($serendipity['wysiwyg'] === true ? 'html' : 'text'));
+                $propbag->add('type', (($serendipity['wysiwyg'] ?? false) === true ? 'html' : 'text'));
                 $propbag->add('rows', 3);
                 $propbag->add('name',        PLUGIN_GUESTBOOK_INTRO);
                 $propbag->add('description', '');
@@ -690,7 +690,7 @@ class serendipity_event_guestbook extends serendipity_event {
      * @param  boolean   $old    Insert/Replace
      * @return boolean
      */
-    function insertEntriesDB($id=false, $ip=false, $name, $url, $email, $body, $app=false, $ts=false, $old=false) {
+    function insertEntriesDB($id, $ip, $name, $url, $email, $body, $app=false, $ts=false, $old=false) {
         global $serendipity;
 
         // make php to current unix timestamp to insert into db
@@ -1290,7 +1290,7 @@ class serendipity_event_guestbook extends serendipity_event {
                         $this->alter_db($cur);
                         $this->set_config('dbversion', '5');
                     } elseif ($cur == '5') {
-                        continue;
+                        break;
                     } else {
                         $this->install();
                         $this->set_config('dbversion', '5');

@@ -604,7 +604,7 @@ class serendipity_event_guestbook extends serendipity_event {
                                         ? 'http://' . $this->strip_security($entry['homepage'], null, true)
                                         : $this->strip_security($entry['homepage'], null, true);
                 $entry['pluginpath']    = $serendipity['serendipityHTTPPath'] . $serendipity['guestbook']['pluginpath'];
-                $entry['timestamp']     = strftime($this->get_config('dateformat'), (int)$entry['timestamp']); // mysql would use SELECT *, FROM_UNIXTIME(timestamp) AS ts FROM `s9y_guestbook`
+                $entry['timestamp']     = PHP81_BC\strftime($this->get_config('dateformat'), (int)$entry['timestamp']); // mysql would use SELECT *, FROM_UNIXTIME(timestamp) AS ts FROM `s9y_guestbook`
 
                 $entry['page']          = $is_guestbook_url . (($serendipity['rewrite'] == 'rewrite') ? '?' : '&') . 'noclean=true&serendipity[adminAction]=guestbookdelete&serendipity[page]=' . (int)$serendipity['GET']['page'] . '&serendipity[gbid]=' . $entry['id'];
 
@@ -659,8 +659,8 @@ class serendipity_event_guestbook extends serendipity_event {
         $ts    = isset($ts)  ? $ts   : time();
 
         $name  = serendipity_db_escape_string(substr($name, 0, 29));
-        $url   = serendipity_db_escape_string(substr($url, 0, 99));
-        $email = serendipity_db_escape_string(substr($email, 0, 99));
+        $url   = serendipity_db_escape_string(substr($url ?? '', 0, 99));
+        $email = serendipity_db_escape_string(substr($email ?? '', 0, 99));
         $body  = serendipity_db_escape_string($body);
 
         if ($old === false) {
@@ -789,7 +789,7 @@ class serendipity_event_guestbook extends serendipity_event {
         }
         // if force moderate is set to moderate, advice security to not support 'stripped' or 'stripped-by-key' POST mark
         // this does only happen true, if not automoderate is set in both plugins and strip tags really removed some tags.
-        if (isset($serendipity[$forcemoderate[0]]) == 'moderate' && $gb_automoderate === true) {
+        if (isset ($forcemoderate) && $serendipity[$forcemoderate[0]] == 'moderate' && $gb_automoderate === true) {
             $serendipity['POST'] = $this->strip_security($serendipity['POST'], array('name', 'email', 'comment', 'admincomment', 'url'), false, false);
         } else {
             $serendipity['POST'] = $this->strip_security($serendipity['POST'], array('name', 'email', 'comment', 'admincomment', 'url'));
@@ -1088,11 +1088,11 @@ class serendipity_event_guestbook extends serendipity_event {
                     'plugin_guestbook_sent'            => $this->get_config('sent', PLUGIN_GUESTBOOK_SENT_HTML),
                     'plugin_guestbook_action'          => $serendipity['baseURL'] . $serendipity['indexFile'],
                     'plugin_guestbook_sname'           => serendipity_specialchars($serendipity['GET']['subpage']),
-                    'plugin_guestbook_name'            => serendipity_specialchars(strip_tags($serendipity['POST']['name'])),
-                    'plugin_guestbook_email'           => serendipity_specialchars(strip_tags($serendipity['POST']['email'])),
+                    'plugin_guestbook_name'            => serendipity_specialchars(strip_tags($serendipity['POST']['name'] ?? '')),
+                    'plugin_guestbook_email'           => serendipity_specialchars(strip_tags($serendipity['POST']['email'] ?? '')),
                     'plugin_guestbook_emailprotect'    => PLUGIN_GUESTBOOK_PROTECTION,
-                    'plugin_guestbook_url'             => serendipity_specialchars(strip_tags($serendipity['POST']['url'])),
-                    'plugin_guestbook_comment'         => serendipity_specialchars(strip_tags($serendipity['POST']['comment'])),
+                    'plugin_guestbook_url'             => serendipity_specialchars(strip_tags($serendipity['POST']['url'] ?? '')),
+                    'plugin_guestbook_comment'         => serendipity_specialchars(strip_tags($serendipity['POST']['comment'] ?? '')),
                     'plugin_guestbook_messagestack'    => $serendipity['messagestack']['comments'],
                     'plugin_guestbook_entry'           => array('timestamp' => 1)
                 )

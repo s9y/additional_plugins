@@ -606,7 +606,7 @@ class serendipity_event_guestbook extends serendipity_event {
                 $entry['pluginpath']    = $serendipity['serendipityHTTPPath'] . $serendipity['guestbook']['pluginpath'];
                 $entry['timestamp']     = PHP81_BC\strftime($this->get_config('dateformat'), (int)$entry['timestamp']); // mysql would use SELECT *, FROM_UNIXTIME(timestamp) AS ts FROM `s9y_guestbook`
 
-                $entry['page']          = $is_guestbook_url . (($serendipity['rewrite'] == 'rewrite') ? '?' : '&') . 'noclean=true&serendipity[adminAction]=guestbookdelete&serendipity[page]=' . (int)$serendipity['GET']['page'] . '&serendipity[gbid]=' . $entry['id'];
+                $entry['page']          = $is_guestbook_url . (($serendipity['rewrite'] == 'rewrite') ? '?' : '&') . 'noclean=true&serendipity[adminAction]=guestbookdelete&serendipity[page]=' . (int)($serendipity['GET']['page'] ?? 0) . '&serendipity[gbid]=' . $entry['id'];
 
                 // authenticated user admincomment is not escaped - do not wordwrap this part (since it could cause undetermined string errors, etc)
                 $placeholder_ac         = '[[$ac]]';
@@ -795,7 +795,7 @@ class serendipity_event_guestbook extends serendipity_event {
             $serendipity['POST'] = $this->strip_security($serendipity['POST'], array('name', 'email', 'comment', 'admincomment', 'url'));
         }
 
-        if ($serendipity['POST']['stripped'] === true) {
+        if (($serendipity['POST']['stripped'] ?? false) === true) {
             array_push($messages, ERROR_OCCURRED . '<br>' . ERROR_DATASTRIPPED);
             return false;
         }
@@ -926,7 +926,7 @@ class serendipity_event_guestbook extends serendipity_event {
 
             if (is_numeric($_POST['guestbook']['id'])) {
                 // update validated form values into db
-                $this->insertEntriesDB($_POST['guestbook']['id'], $_POST['guestbook']['ip'], $serendipity['POST']['name'], $serendipity['POST']['url'], $serendipity['POST']['email'], $serendipity['POST']['comment'].$admincomment, $_POST['guestbook']['approved'], $_POST['guestbook']['timestamp'], true);
+                $this->insertEntriesDB($_POST['guestbook']['id'], $_POST['guestbook']['ip'], $serendipity['POST']['name'], ($serendipity['POST']['url'] ?? null), $serendipity['POST']['email'], $serendipity['POST']['comment'].$admincomment, $_POST['guestbook']['approved'], $_POST['guestbook']['timestamp'], true);
             } else {
                 // insert validated form values into db
                 $this->insertEntriesDB(NULL, NULL, $serendipity['POST']['name'], $serendipity['POST']['url'], $serendipity['POST']['email'], $serendipity['POST']['comment'], $acapp, NULL, false);
@@ -1471,8 +1471,8 @@ class serendipity_event_guestbook extends serendipity_event {
             $serendipity['smarty']->assign(
                 array(
                     'gb_liva'     => (!isset($serendipity['GET']['guestbookcategory']) || $serendipity['GET']['guestbookcategory'] == 'gbview') ? ' id="active"' : '',
-                    'gb_liapa'    => ($serendipity['GET']['guestbookcategory'] == 'gbapp' || $serendipity['POST']['guestbook_category'] == 'gbapp') ? ' id="active"' : '',
-                    'gb_liada'    => (($serendipity['GET']['guestbookcategory'] == 'gbadd' || $serendipity['POST']['guestbookcategory'] == 'gbadd') && $serendipity['POST']['guestbook_category'] != 'gbapp') ? ' id="active"' : '',
+                    'gb_liapa'    => ($serendipity['GET']['guestbookcategory'] == 'gbapp' || ($serendipity['POST']['guestbook_category'] ?? '') == 'gbapp') ? ' id="active"' : '',
+                    'gb_liada'    => (($serendipity['GET']['guestbookcategory'] == 'gbadd' || ($serendipity['POST']['guestbookcategory'] ?? '') == 'gbadd') && ($serendipity['POST']['guestbook_category'] ?? '') != 'gbapp') ? ' id="active"' : '',
                     'gb_lida'     => $serendipity['GET']['guestbookcategory'] == 'gbdb' ? ' id="active"' : '',
                     'gb_moderate' => $moderate,
                     'gb_isnav'    => true
@@ -1524,8 +1524,8 @@ class serendipity_event_guestbook extends serendipity_event {
                     // check form vars
                     $this->checkSubmit();
                 }
-// HÄH?????
-                if ($serendipity['guestbook_message_header'] === true) {
+
+                if (($serendipity['guestbook_message_header'] ?? null) === true) {
                     if (count($messages) < 1 && $serendipity['guestbook_message_header'] === false) {
                         array_push($messages, PLUGIN_GUESTBOOK_MESSAGE . ': ' . ERROR_UNKNOWN . '<br>' . ERROR_NOCAPTCHASET);
                     }
@@ -1551,7 +1551,7 @@ class serendipity_event_guestbook extends serendipity_event {
 
                 } else {
                     // fallback to new ENTRY FORM, since there was an error - no need to escape
-                   if ($serendipity['guestbook_message_header'] === false ) {
+                   if (($serendipity['guestbook_message_header'] ?? null) === false ) {
                         foreach($serendipity['POST'] as $sk => $sv) {
                             $entry[$sk] = $sv;
                         }
@@ -1571,7 +1571,7 @@ class serendipity_event_guestbook extends serendipity_event {
 
                     // extract entry bodys admincomment to var
                     preg_match_all("/\[ac\](.*?)\[\/ac\]/", $entry['body'], $match);
-                    $entry['acbody'] = $match[1][0];
+                    $entry['acbody'] = $match[1][0] ?? '';
                     $entry['body']   = preg_replace("/\[ac\](.*?)\[\/ac\]/","", $entry['body']);
 
                     // assign form array entries to smarty
@@ -1588,7 +1588,7 @@ class serendipity_event_guestbook extends serendipity_event {
                             'plugin_guestbook_comment'         => trim($entry['body']),
                             'plugin_guestbook_ac_comment'      => isset($entry['admincomment']) ? trim($entry['admincomment']) : trim($entry['acbody']),
                             'guestbook_messages'               => $messages,
-                            'plugin_guestbook_messagestack'    => $serendipity['messagestack']['comments']
+                            'plugin_guestbook_messagestack'    => $serendipity['messagestack']['comments'] ?? null
                         )
                     );
 
@@ -1658,7 +1658,7 @@ class serendipity_event_guestbook extends serendipity_event {
             $result = $this->backend_guestbook_paginator($count[0], $ap, $cat);
         }
 
-        if (!is_numeric($wordwrap)) {
+        if (!is_numeric($wordwrap ?? null)) {
             $wordwrap = 50;
         }
 
@@ -1676,7 +1676,7 @@ class serendipity_event_guestbook extends serendipity_event {
                     'guestbook_messages'        => $messages,
                     'guestbook_entries'         => $entries,
                     'guestbook_paginator'       => $paginator,
-                    'guestbook_message_header'  => $serendipity['guestbook_message_header']
+                    'guestbook_message_header'  => $serendipity['guestbook_message_header'] ?? ''
                 )
         );
 

@@ -1,6 +1,6 @@
 <?php # 
 
-# (c) by Falk Döring
+# (c) by Falk Dï¿½ring
 
 
 if (IN_serendipity !== true) {
@@ -10,11 +10,12 @@ if (IN_serendipity !== true) {
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_plugin_userprofiles extends serendipity_plugin {
+    protected $dependencies = array();
 
     function introspect(&$propbag) {
         $propbag->add('name',        PLUGIN_USERPROFILES_NAME);
         $propbag->add('description', PLUGIN_USERPROFILES_NAME_DESC);
-        $propbag->add('author',      "Falk Döring");
+        $propbag->add('author',      "Falk Dï¿½ring");
         $propbag->add('stackable',   false);
         $propbag->add('version',     '1.2.2');
         $propbag->add('configuration', array('title', 'show_groups', 'show_users'));

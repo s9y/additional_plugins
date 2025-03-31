@@ -91,7 +91,7 @@ class serendipity_event_userprofiles extends serendipity_event {
             'genpage'                                         => true
         ));
         $propbag->add('author', 'Garvin Hicking, Falk Doering');
-        $propbag->add('version', '0.31.3');
+        $propbag->add('version', '0.31.4');
         $propbag->add('requirements', array(
             'serendipity' => '2.0',
             'smarty'      => '2.6.7',

@@ -13,7 +13,7 @@ if (IN_serendipity !== true) {
 
 class serendipity_plugin_guestbook extends serendipity_plugin {
     var $title = PLUGIN_GUESTSIDE_NAME;
-    #var $conty = array('%serendipity_event_guestbook%/showapp', '%serendipity_event_guestbook%/automoderate');
+    var $dependencies = null;
 
     function introspect(&$propbag) {
         global $serendipity;
@@ -22,7 +22,7 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_GUESTSIDE_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Jaap Boerma ( j@webbict.com ), Tadashi Jokagi <elf2000@users.sourceforge.net>, Ian');
-        $propbag->add('version',       '1.26.2');
+        $propbag->add('version',       '1.26.3');
         $propbag->add('requirements', array(
                         'serendipity' => '0.7',
                         'smarty'      => '2.6.7',
@@ -177,8 +177,8 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
         $entries = serendipity_db_query($sql);
         if (!empty($entries) && is_array($entries)) {
             foreach($entries AS $row) {
-                echo '<time>' . serendipity_event_guestbook::html_specialchars(serendipity_strftime($dateformat, $row['timestamp'])) . "</time>\n";
-                $row['body'] = serendipity_event_guestbook::html_specialchars($row['body']);
+                echo '<time>' . serendipity_specialchars(serendipity_strftime($dateformat, $row['timestamp'])) . "</time>\n";
+                $row['body'] = serendipity_specialchars($row['body']);
                 $row['body'] = serendipity_event_guestbook::bbc_reverse($row['body']);
                 $row['body'] = trim(preg_replace('/\s+/', ' ', $row['body']));
 
@@ -197,16 +197,16 @@ class serendipity_plugin_guestbook extends serendipity_plugin {
                 serendipity_plugin_api::hook_event('frontend_display', $entry); */
 
                 echo '<div class="guestbook_sidebar_comment">' . $row['body'] . "</div>\n"; // Care: use $entry['comment'] with hook!
-                echo '<div class="guestbook_sidebar_name"><strong>' . serendipity_event_guestbook::html_specialchars($row['name']) . "</strong></div>\n";
+                echo '<div class="guestbook_sidebar_name"><strong>' . serendipity_specialchars($row['name']) . "</strong></div>\n";
 
                 if ($showemail){
-                    $_email = serendipity_event_guestbook::html_specialchars($row['email']);
+                    $_email = serendipity_specialchars($row['email']);
                     $email  = $serendipity['serendipityUserlevel'] < USERLEVEL_ADMIN ? str_replace(array('@', '.'), array(' at ', ' dot '), $_email) : $_email;
-                    echo '<div class="guestbook_sidebar_email"><a href="mailto:' . $email . '">' . serendipity_event_guestbook::html_specialchars($row['email']) . "</a></div>\n";
+                    echo '<div class="guestbook_sidebar_email"><a href="mailto:' . $email . '">' . serendipity_specialchars($row['email']) . "</a></div>\n";
                 }
 
                 if ($showhomepage) {
-                    echo '<div class="guestbook_sidebar_url"><a href="' . serendipity_event_guestbook::html_specialchars($row['homepage']) . '">' . serendipity_event_guestbook::html_specialchars($row['homepage']) . "</a></div>\n";
+                    echo '<div class="guestbook_sidebar_url"><a href="' . serendipity_specialchars($row['homepage']) . '">' . serendipity_specialchars($row['homepage']) . "</a></div>\n";
                 }
 
                 echo "<div class=\"guestbook_sidebar_spacer\">&nbsp;</div>\n\n";

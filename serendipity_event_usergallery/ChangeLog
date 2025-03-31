@@ -1,3 +1,10 @@
+3.0:
+----
+ * Remove prettyphoto option that was removed from the lightbox plugin
+ * Drop array_combine polyfill (for PHP 4)
+ * Fix Exif tags display under PHP 8 by using the s9y core for exif parsing. This reset the
+   exif settings to the default of activating none.
+ 
 2.68.1:
 ----
  * Compatibility fixes for Serendipity 2.4.0

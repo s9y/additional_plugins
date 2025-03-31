@@ -5,19 +5,6 @@ if (IN_serendipity !== true) {
 }
 // todo: add config groups, aka freetag dev
 
-if (!function_exists('array_combine')) {
-    function array_combine($a, $b) {
-        $c = array();
-        if (is_array($a) && is_array($b))
-            while (list(, $va) = each($a))
-                if (list(, $vb) = each($b))
-                    $c[$va] = $vb;
-                else
-                    break 1;
-        return $c;
-    }
-}
-
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_event_usergallery extends serendipity_event
@@ -31,7 +18,7 @@ class serendipity_event_usergallery extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_USERGALLERY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Arnan de Gans, Matthew Groeninger, and Stefan Willoughby, Ian');
-        $propbag->add('version',       '2.68.1');
+        $propbag->add('version',       '3.0');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -194,7 +181,6 @@ class serendipity_event_usergallery extends serendipity_event
 
             case 'lightbox_type':
                 $select_type["lightbox"]     = 'Lightbox2 jQuery';
-                $select_type["prettyphoto"]  = 'Prettyphoto';
                 $select_type["colorbox"]     = 'Colorbox';
                 $select_type["magnific"]     = 'Magnific-Popup';
                 $propbag->add('type',          'select');
@@ -667,8 +653,7 @@ class serendipity_event_usergallery extends serendipity_event
                 // this needs the latest >= v. 2.0 lightbox plugin installed!
                 $lightbox_type = $this->get_config('lightbox_type');
                 $lbtype = 'rel="lightbox[]"';
-                if ($lightbox_type == 'prettyphoto') $lbtype = 'rel="prettyPhoto[]"';
-                elseif ($lightbox_type == 'colorbox') $lbtype = 'rel="colorbox[]"';
+                if ($lightbox_type == 'colorbox') $lbtype = 'rel="colorbox[]"';
                 elseif ($lightbox_type == 'magnific') $lbtype = 'rel="magnificPopup[]"';
 
                 $serendipity['smarty']->assign(
@@ -806,142 +791,16 @@ class serendipity_event_usergallery extends serendipity_event
         }
     }
 
-    function setResData($res, $unit)
-    {
-        $dir_arr = explode(' ', $res);
-        $dir_arr[1] = trim($dir_arr[1], '()');
-        $res_unit = rtrim($unit, 'es');
-        $exif_res = $dir_arr[1].' '.$dir_arr[2].' '.$dir_arr[3].' '.$res_unit;
-        return($exif_res);
-    }
-
-    function changeExifDate($date)
-    {
-        $date = str_replace(array('-','T'),array(':',' '),preg_replace('/\+.*/', '', $date)); // sets a date string 2014-03-18T10:11:31+01:00 to (Format: YYYY:MM:DD HH:mm:SS)
-        #echo $date . ' ';
-        $dt_arr = explode(' ', $date);
-        $date_arr = explode(':', $dt_arr[0]);
-        $time_arr = explode(':', $dt_arr[1]);
-        $year = $date_arr[0];
-        $month = $date_arr[1];
-        $day = $date_arr[2];
-        $hour = $time_arr[0];
-        $minute = $time_arr[1];
-        $second = $time_arr[2];
-        $timestamp = @mktime($hour, $minute, $second, $month, $day, $year);
-        if ($timestamp != -1) {
-            $date_str = date('M j Y H:i:s \G\M\T O', $timestamp);
-        } else {
-            $date_str = 'Unknown';
-        }
-        $exif_date = $date_str;
-        return $exif_date;
-    }
-
-    function getExifTags($path, $name, $type)
-    {
-        $exif_data = array();
-        // Display additonal exif information if allowed.
-        $JPEG_TOOLKIT = $serendipity['baseURL'].'plugins/serendipity_event_usergallery/JPEG_TOOLKIT/';
-        if (is_file($JPEG_TOOLKIT . 'EXIF.php')) {
-            include_once $JPEG_TOOLKIT . 'EXIF.php';
-            if (strtolower($type) == 'jpeg' || strtolower($type) == 'jpg') {
-                $filename = $name.'.'.$type;
-                if ($exif = get_EXIF_JPEG($path.$filename)) {
-                    $exif_arr_num_1 = array(116 => 'Copyright Notice',
-                                            271 => 'Camera Make',
-                                            272 => 'Camera Model',
-                                            274 => 'Orientation',
-                                            296 => 'Resolution Unit',
-                                            282 => 'X Resolution',
-                                            283 => 'Y Resolution',
-                                            306 => 'Date and Time',
-                                            531 => 'YCbCr Positioning',
-                                            34665 => '');
-                    $exif_arr_num_2 = array(33434 => 'Exposure Time',
-                                            33437 => 'Aperture',
-                                            34850 => 'Exposure Program',
-                                            34855 => 'ISO',
-                                            36864 => 'Exif Version',
-                                            36867 => 'Date (Original)',
-                                            36868 => 'Date (Digitized)',
-                                            37380 => 'APEX Exposure Bias',
-                                            37381 => 'APEX Max Aperture',
-                                            37383 => 'Metering Mode',
-                                            37384 => 'Light Source',
-                                            37385 => 'Flash',
-                                            37386 => 'FocalLength',
-                                            37510 => 'User Comment',
-                                            40960 => 'FlashPix Version',
-                                            40961 => 'Colour Space',
-                                            40962 => 'Pixel X Dimension',
-                                            40963 => 'Pixel Y Dimension',
-                                            41728 => 'File Source',
-                                            41985 => 'Special Processing',
-                                            41986 => 'Exposure Mode',
-                                            41987 => 'White Balance',
-                                            41988 => 'Digital Zoom Ratio',
-                                            41990 => 'Scene Capture Type',
-                                            41991 => 'Gain Control',
-                                            41992 => 'Contrast',
-                                            41993 => 'Saturation',
-                                            41994 => 'Sharpness',
-                                            37121 => 'Components Config');
-
-                    foreach ($exif_arr_num_1 as $num1 => $value1) {
-                        if ($num1 != 34665) {
-                            if (isset($exif[0][$num1]['Text Value'])) {
-                                if ($exif[0][$num1]['Text Value'] == '') { $exif_data[$value1] = 'Unknown'; }
-                                else { $exif_data[$value1] = $exif[0][$num1]['Text Value']; }
-                            }
-                        } else {
-                            foreach ($exif_arr_num_2 as $num2 => $value2)    {
-                                if (isset($exif[0][$num1]['Data'][0][$num2]['Text Value'])) {
-                                    if ($exif[0][$num1]['Data'][0][$num2]['Text Value'] == '') { $exif_data[$value2] = 'Unknown'; }
-                                    else { $exif_data[$value2] = $exif[0][$num1]['Data'][0][$num2]['Text Value']; }
-                                }
-                            }
-                        }
-                    }
-                } else {
-                    $exif_data = array();
-                }
-            } else {
-                $exif_data = array();
-            }
-
-            if (isset($exif_data['X Resolution']) && isset($exif_data['Resolution Unit'])) {
-                $exif_data['X Resolution'] = $this->setResData($exif_data['X Resolution'], $exif_data['Resolution Unit']);
-            }
-
-            if (isset($exif_data['Y Resolution']) && isset($exif_data['Resolution Unit'])) {
-                $exif_data['Y Resolution'] = $this->setResData($exif_data['Y Resolution'], $exif_data['Resolution Unit']);
-            }
-
-            if (isset($exif_data['Date and Time'])) {
-                $exif_data['Date and Time'] = $this->changeExifDate($exif_data['Date and Time']);
-            }
-
-            if (isset($exif_data['Orientation'])) {
-                $pos = explode(' ', $exif_data['Orientation']);
-                $exif_data['Orientation'] = $pos[0].' '.$pos[1].' '.$pos[2].' '.$pos[3];
-            }
-
-            if (isset($exif_data['YCbCr Positioning'])) {
-                $exif_data['YCbCr Positioning'] = str_replace('components', '', $exif_data['YCbCr Positioning']);
-            }
-
-        } else {
-            $exif_data = array();
-        }
-        return($exif_data);
+    function getExifTags($file) {
+        serendipity_prepareMedia($file);
+        $data = serendipity_getMetaData($file['realfile'], $file['header']);
+        return($data['EXIF']);
     }
 
     function &makeExifSelector() {
         global $serendipity;
 
-        #$selector .= "</td></tr>\n";
-        $selector .= '<tr><td style="vertical-align: top; width: 80%"><strong>'.PLUGIN_EVENT_USERGALLERY_EXIFDATA_NAME.'</strong></td>';
+        $selector = '<tr><td style="vertical-align: top; width: 80%"><strong>'.PLUGIN_EVENT_USERGALLERY_EXIFDATA_NAME.'</strong></td>';
         $selector .= '<td style="vertical-align: top"><strong>Options</strong></td></tr>'."\n";
         $selector .= '<tr><td colspan="2"><span style="color: rgb(94, 122, 148); font-size: 8pt;">'.PLUGIN_EVENT_USERGALLERY_EXIFDATA_DESC.'</span><br />'."\n";
         $selector .= '<span style="color: rgb(94, 122, 148); font-size: 8pt;">'.PLUGIN_EVENT_USERGALLERY_EXIFDATA_CAMERA.'</span></td></tr>'."\n";
@@ -965,7 +824,14 @@ class serendipity_event_usergallery extends serendipity_event
             $exif_array = array_combine($res1_exif_array, $res2_exif_array);
         } else {
             //get the optionstring
-            $exifsettings = $this->get_config('exif_data','Copyright Notice-no,Camera Make-no,Camera Model-no,Orientation-no,Resolution Unit-no,X Resolution-no,Y Resolution-no,Date and Time-no,YCbCr Positioning-no,Exposure Time-no,Aperture-no,Exposure Program-no,ISO-no,Exif Version-no,Date (Original)-no,Date (Digitized)-no,APEX Exposure Bias-no,APEX Max Aperture-no,Metering Mode-no,Light Source-no,Flash-no,FocalLength-no,User Comment-no,FlashPix Version-no,Colour Space-no,Pixel X Dimension-no,Pixel Y Dimension-no,File Source-no,Special Processing-no,Exposure Mode-no,White Balance-no,Digital Zoom Ratio-no,Scene Capture Type-no,Gain Control-no,Contrast-no,Saturation-no,Sharpness-no,Components Config-no');
+            $default = 'Camera Maker-no,Camera Model-no,Orientation-no,X Resolution-no,Y Resolution-no,Date Time-no,Exposure Time-no,Aperture Value-no,Exposure Program-no,ISO Speed Ratings-no,Date Created-no,Digital Date Created-no,Max Aperture Value-no,Metering Mode-no,Flash Fired-no,FocalLength-no,Description-no,White Balance-no,Digital Zoom Ratio-no';
+            $exifsettings = $this->get_config('exif_data', $default);
+            if (str_contains($exifsettings, 'Camera Make-')) {
+                // The old settings from before 3.0 are saved, we have to overwrite with the new
+                // default since the exif keys changed.
+                $this->set_config('exif_data', $default);
+                $exifsettings = $default;
+            }
             if (!$exifsettings) {
                 //return empty array if invalid or non-existant
                 $exifsettings = array();
@@ -997,7 +863,6 @@ class serendipity_event_usergallery extends serendipity_event
             }
             $selector .= '> ' . NO . '</td></tr>'."\n";
         }
-        #$selector .= '<tr><td colspan="2" style="border-bottom: 1px solid #000;">&nbsp;</td></tr>';
         return $selector;
     }
 
@@ -1063,23 +928,29 @@ class serendipity_event_usergallery extends serendipity_event
             if ($this->get_config('exif_show_data') == 'yes') {
                 // If any exif tags that are available.
                 $filepath = $serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $file['path'];
-                $exif_data = $this->getExifTags($filepath, $file['name'], $file['extension']);
+                $exif_data = $this->getExifTags($file);
                 $exifsettings_one = $this->get_config('exif_data', $this->makeExifSelector());
+                $exif_display_one_trimmed = [];
                 // Create array of exif display settings for main information table.
                 $exif_arr = explode(',', $exifsettings_one);
                 foreach ($exif_arr as $key => $value) {
                     $display = explode('-', $exif_arr[$key]);
+                    // The core returns the exif tags without whitespace, so we copy that approach
+                    // here
+                    $exif_display_one_trimmed[str_replace(' ', '', $display[0])] = $display[1];
                     $exif_display_one[$display[0]] = $display[1];
                 }
 
                 $data_written = false;
-                $exif_output .= '<div class="all_img_info">';
+                $exif_output = '<div class="all_img_info">';
                 $exif_output .= '<div class="exif_info_row"><div class="exif_info_head"><strong>'.PLUGIN_EVENT_USERGALLERY_EXIFDATA_ADDITIONALDATA.'</strong></div></div>';
+                $i = 1;
                 foreach ($exif_data as $tag => $value) {
-                    if ($value != 'Unknown' && $exif_display_one[$tag] == 'yes') {
+                    if ($value != 'Unknown' && $exif_display_one_trimmed[$tag] == 'yes') {
                         $data_written = true;
-                        $exif_output .= '<div class="exif_info_row"><span class="exif_info_tag">'.$tag.'</span><span class="exif_info">'.$value.'</span></div>';
+                        $exif_output .= '<div class="exif_info_row"><span class="exif_info_tag">'. array_keys($exif_display_one)[$i] .'</span><span class="exif_info">'.$value.'</span></div>';
                     }
+                    $i++;
                 }
                 if (!$data_written) {
                     $exif_output .= '<div class="exif_info_row"><strong>'.PLUGIN_EVENT_USERGALLERY_EXIFDATA_NOADDITIONALDATA.'</strong></div>';

@@ -482,7 +482,7 @@
 <category>Event Plugins</category>
 <author>Jari Turkia, kleinerChemiker</author>
 <content:encoded>&lt;b&gt;serendipity_event_google_analytics&lt;br /&gt;Google Analytics 4&lt;/b&gt;&lt;br /&gt;This plugin adds extended Google Analytics 4 functionality.&lt;br/&gt;For: Serendipity 2.4</content:encoded>
-<pubDate>Sun, 19 Jan 2025 00:30:26 +0100</pubDate>
+<pubDate>Tue, 01 Apr 2025 00:30:25 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_google_analytics</guid>
 </item>
 <item>
@@ -500,7 +500,7 @@
 <category>Event Plugins</category>
 <author>Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_guestbook&lt;br /&gt;Księga gości&lt;/b&gt;&lt;br /&gt;Pokazuje księgę gości w ramach twojego blogu, stosując normalny jego wygląd.&lt;br/&gt;For: Serendipity 1.7.0</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:30 +0200</pubDate>
+<pubDate>Tue, 01 Apr 2025 00:30:25 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_guestbook</guid>
 </item>
 <item>
@@ -1103,7 +1103,7 @@
 <category>Event Plugins</category>
 <author>Arnan de Gans, Matthew Groeninger, and Stefan Willoughby, Ian</author>
 <content:encoded>&lt;b&gt;serendipity_event_usergallery&lt;br /&gt;Gallery Display&lt;/b&gt;&lt;br /&gt;Allows anonymous users to view Serendipity media gallery&lt;br/&gt;For: Serendipity 1.6</content:encoded>
-<pubDate>Mon, 30 Jan 2023 00:30:37 +0100</pubDate>
+<pubDate>Tue, 01 Apr 2025 00:30:27 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_usergallery</guid>
 </item>
 <item>
@@ -1112,7 +1112,7 @@
 <category>Event Plugins</category>
 <author>Garvin Hicking, Falk Doering</author>
 <content:encoded>&lt;b&gt;serendipity_event_userprofiles&lt;br /&gt;User Profiles&lt;/b&gt;&lt;br /&gt;Shows simple user profiles and allows to embed author pictures.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:33 +0200</pubDate>
+<pubDate>Tue, 01 Apr 2025 00:30:27 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_userprofiles</guid>
 </item>
 <item>

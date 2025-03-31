@@ -298,9 +298,9 @@
 <description>Toont de laatste items uit het gastenboek in de sidebar</description>
 <maintainers><maintainer><name>Jaap Boerma ( j@webbict.com ), Tadashi Jokagi &lt;elf2000@users.sourceforge.net&gt;, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.26.2</version>
+  <version>1.26.3</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2025-04-01</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="UTF-8">
@@ -943,11 +943,11 @@
 <summary>Serendipity Authors</summary>
 <groups>FRONTEND_VIEWS</groups>
 <description>Shows a list for all Authors</description>
-<maintainers><maintainer><name>Falk Döring</name><role>lead</role></maintainer></maintainers>
+<maintainers><maintainer><name>Falk DÃ¶ring</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.2.2</version>
+  <version>1.2.3</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2025-04-01</date>
   <filelist>
 <dir name="serendipity_event_userprofiles">
 <dir name="UTF-8">
@@ -1008,7 +1008,7 @@
 <release>
   <version>0.3.2</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2025-04-01</date>
   <filelist>
 <dir name="serendipity_event_userprofiles">
 <dir name="UTF-8">

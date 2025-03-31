@@ -4856,9 +4856,9 @@
 <description>This plugin adds extended Google Analytics 4 functionality.</description>
 <maintainers><maintainer><name>Jari Turkia, kleinerChemiker</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.0.1</version>
+  <version>2.0.2</version>
   <requirements:s9yVersion>2.4</requirements:s9yVersion>
-  <date>2025-01-19</date>
+  <date>2025-04-01</date>
   <filelist>
 <dir name="serendipity_event_google_analytics">
 <dir name="CVSROOT">
@@ -4962,9 +4962,9 @@
 <description>Visa en gästbol i din blog med ditt vanlig blog-utseende.</description>
 <maintainers><maintainer><name>Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.61.2</version>
+  <version>3.61.3</version>
   <requirements:s9yVersion>1.7.0</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2025-04-01</date>
   <filelist>
 <dir name="serendipity_event_guestbook">
 <dir name="UTF-8">
@@ -10189,39 +10189,14 @@
 <description>Allows anonymous users to view Serendipity media gallery</description>
 <maintainers><maintainer><name>Arnan de Gans, Matthew Groeninger, and Stefan Willoughby, Ian</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.68.1</version>
+  <version>3.0</version>
   <requirements:s9yVersion>1.6</requirements:s9yVersion>
-  <date>2023-01-30</date>
+  <date>2025-04-01</date>
   <filelist>
 <dir name="serendipity_event_usergallery">
 <dir name="JPEG_TOOLKIT">
 <dir name="Makernotes">
-<file>Pentax.php</file>
-<file>agfa.php</file>
-<file>canon.php</file>
-<file>casio.php</file>
-<file>epson.php</file>
-<file>fujifilm.php</file>
-<file>konica_minolta.php</file>
-<file>kyocera.php</file>
-<file>nikon.php</file>
-<file>olympus.php</file>
-<file>panasonic.php</file>
-<file>ricoh.php</file>
-<file>sony.php</file>
 </dir>
-<file>COPYING.txt</file>
-<file>EXIF.php</file>
-<file>EXIF_Makernote.php</file>
-<file>EXIF_Tags.php</file>
-<file>IPTC.php</file>
-<file>JPEG.php</file>
-<file>PIM.php</file>
-<file>Photoshop_IRB.php</file>
-<file>Unicode.php</file>
-<file>XML.php</file>
-<file>XMP.php</file>
-<file>pjmt_utils.php</file>
 </dir>
 <dir name="UTF-8">
 <file>lang_cs.inc.php</file>
@@ -10245,31 +10220,6 @@
 
   </filelist>
   <serendipityFilelist>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/Makernotes/Pentax.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/Makernotes/agfa.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/Makernotes/canon.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/Makernotes/casio.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/Makernotes/epson.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/Makernotes/fujifilm.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/Makernotes/konica_minolta.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/Makernotes/kyocera.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/Makernotes/nikon.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/Makernotes/olympus.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/Makernotes/panasonic.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/Makernotes/ricoh.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/Makernotes/sony.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/COPYING.txt</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/EXIF.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/EXIF_Makernote.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/EXIF_Tags.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/IPTC.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/JPEG.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/PIM.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/Photoshop_IRB.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/Unicode.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/XML.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/XMP.php</file>
-    <file>serendipity_event_usergallery/JPEG_TOOLKIT/pjmt_utils.php</file>
     <file>serendipity_event_usergallery/UTF-8/lang_cs.inc.php</file>
     <file>serendipity_event_usergallery/UTF-8/lang_cz.inc.php</file>
     <file>serendipity_event_usergallery/UTF-8/lang_de.inc.php</file>
@@ -10298,9 +10248,9 @@
 <description>Shows simple user profiles and allows to embed author pictures.</description>
 <maintainers><maintainer><name>Garvin Hicking, Falk Doering</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.31.3</version>
+  <version>0.31.4</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2025-04-01</date>
   <filelist>
 <dir name="serendipity_event_userprofiles">
 <dir name="UTF-8">

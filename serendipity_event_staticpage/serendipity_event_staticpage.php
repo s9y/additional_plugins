@@ -901,7 +901,7 @@ class serendipity_event_staticpage extends serendipity_event
                         // We really use MySQL, not MariaDB. MySQL does not support IF NOT EXISTS
                         // for CREATE INDEX. Instead we use this ALTER TABLE statement, which will
                         // fail if the index exists - an error we catch below.
-                        $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD FULLTEXT INDEX staticentry_idx(headline, content) VISIBLE";
+                        $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD FULLTEXT INDEX staticentry_idx(headline, content)";
                     }
                 }
                 try {
@@ -910,9 +910,9 @@ class serendipity_event_staticpage extends serendipity_event
                     if ($e->getCode() == 1061) {
                         // Index already exists, on MySQL. That's not an error for us
                     } else {
-                        echo "Error creating staticentry_idx";
+                        echo "Error creating staticentry_idx. Stopping migration.";
                         echo $e->getMessage();
-                        break;
+                        return;
                     }
                 }
                 $this->set_config('db_built', 12);

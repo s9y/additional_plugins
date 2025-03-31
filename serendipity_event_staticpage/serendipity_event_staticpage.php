@@ -87,7 +87,7 @@ class serendipity_event_staticpage extends serendipity_event
         $propbag->add('page_configuration', $this->config);
         $propbag->add('type_configuration', $this->config_types);
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers');
-        $propbag->add('version', '4.15.10');
+        $propbag->add('version', '4.15.11');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '2.6.7',
@@ -895,7 +895,26 @@ class serendipity_event_staticpage extends serendipity_event
                 $this->set_config('db_built', 11);
             case 12:
                 $q = "CREATE {FULLTEXT_MYSQL} INDEX IF NOT EXISTS staticentry_idx on {$serendipity['dbPrefix']}staticpages (headline, content);";
-                serendipity_db_schema_import($q);
+                if ($serendipity['dbType'] == 'mysqli') {
+                    $mysql_version = mysqli_get_server_info($serendipity['dbConn']);
+                    if (strpos($mysql_version, 'MariaDB') === false) {
+                        // We really use MySQL, not MariaDB. MySQL does not support IF NOT EXISTS
+                        // for CREATE INDEX. Instead we use this ALTER TABLE statement, which will
+                        // fail if the index exists - an error we catch below.
+                        $q = "ALTER TABLE {$serendipity['dbPrefix']}staticpages ADD FULLTEXT INDEX staticentry_idx(headline, content) VISIBLE";
+                    }
+                }
+                try {
+                    serendipity_db_schema_import($q);
+                } catch (mysqli_sql_exception $e) {
+                    if ($e->getCode() == 1061) {
+                        // Index already exists, on MySQL. That's not an error for us
+                    } else {
+                        echo "Error creating staticentry_idx";
+                        echo $e->getMessage();
+                        break;
+                    }
+                }
                 $this->set_config('db_built', 12);
             case 13:
             case 14:

@@ -17,7 +17,7 @@ class serendipity_plugin_userprofiles extends serendipity_plugin {
         $propbag->add('description', PLUGIN_USERPROFILES_NAME_DESC);
         $propbag->add('author',      "Falk Döring");
         $propbag->add('stackable',   false);
-        $propbag->add('version',     '1.2.2');
+        $propbag->add('version',     '1.2.3');
         $propbag->add('configuration', array('title', 'show_groups', 'show_users'));
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',

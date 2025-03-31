@@ -24,7 +24,7 @@ class serendipity_event_google_sitemap extends serendipity_event {
         $propbag->add('name', PLUGIN_EVENT_SITEMAP_TITLE);
         $propbag->add('description', PLUGIN_EVENT_SITEMAP_DESC);
         $propbag->add('author', 'Boris');
-        $propbag->add('version', '0.61.3');
+        $propbag->add('version', '0.61.4');
         $propbag->add('event_hooks',  array(
                 'backend_publish' => true,
                 'backend_save'    => true,
@@ -308,7 +308,7 @@ class serendipity_event_google_sitemap extends serendipity_event {
 
             // add entries
             foreach($entries as $entry) {
-                $max = max($entry['timestamp_1']+0, $entry['timestamp_2']+0);
+                $max = max(intval($entry['timestamp_1']), intval($entry['timestamp_2']));
                 $url = serendipity_archiveURL($entry['id'], $entry['title']);
                 $props = serendipity_fetchEntryProperties($entry['id']);                
                 $props['title'] = $entry['title'];

@@ -4907,9 +4907,9 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <description>Creates a sitemap.xml.gz, which can be used by miscellaneous Web-Crawlers. (Google, MSN, Yahoo and Ask)</description>
 <maintainers><maintainer><name>Boris</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.61.3</version>
+  <version>0.61.4</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2022-05-24</date>
+  <date>2025-04-02</date>
   <filelist>
 <dir name="serendipity_event_google_sitemap">
 <dir name="UTF-8">
@@ -8972,9 +8972,9 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <description>デザインとすべての書式化されたブログとウェブログ内部に静的ページを表示します。管理インターフェースに新しいメニューを追加します。</description>
 <maintainers><maintainer><name>Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>4.15.10</version>
+  <version>4.15.11</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2025-03-21</date>
+  <date>2025-04-02</date>
   <filelist>
 <dir name="serendipity_event_staticpage">
 <dir name="UTF-8">

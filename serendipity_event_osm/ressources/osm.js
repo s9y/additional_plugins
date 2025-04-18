@@ -8,7 +8,7 @@ const timestampToColor = timestamp => {
 window.addEventListener("load", () => {
 	document.querySelectorAll("div.map").forEach(divMap => {
 		const popup = document.createElement("div");
-		const overlay = new ol.Overlay({element: popup});
+		const overlay = new ol.Overlay({ element: popup });
 		popup.setAttribute("class", "ol-popup");
 		popup.onclick = () => { overlay.setPosition(undefined); };
 
@@ -72,7 +72,7 @@ window.addEventListener("load", () => {
 				}),
 				new ol.control.ScaleLine({bar: true, minWidth: 120})
 			]),
-			interactions: ol.interaction.defaults.defaults({altShiftDragRotate: false, pinchRotate: false}),
+			interactions: ol.interaction.defaults.defaults({ altShiftDragRotate: false, pinchRotate: false }),
 			layers: layers,
 			overlays: [overlay],
 			target: divMap,

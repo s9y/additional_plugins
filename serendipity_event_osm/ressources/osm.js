@@ -1,7 +1,7 @@
 const timestampToColor = timestamp => {
 	const date = new Date(timestamp * 1000);
-	const minDate = new Date(date.getFullYear(), date.getMonth(), 1);
-	const maxDate = new Date(date.getFullYear(), date.getMonth() + 1, 1);
+	const minDate = new Date(date.getFullYear(), date.getMonth() - 1, 1);
+	const maxDate = new Date(date.getFullYear(), date.getMonth(), 1);
 	return "hsl(" + (360 * (date.getTime() - minDate.getTime()) / (maxDate.getTime() - minDate.getTime())).toFixed() + " 100% 50%)";
 };
 

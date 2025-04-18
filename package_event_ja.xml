@@ -7182,7 +7182,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <description>Provides an interactive map for *.gpx uploads and geo-tagged entries</description>
 <maintainers><maintainer><name>Kathi Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.5.0</version>
+  <version>0.5.1</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
   <date>2023-02-01</date>
   <filelist>
@@ -7239,7 +7239,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <description>Includes scripts and stylesheets for OpenStreetMap support</description>
 <maintainers><maintainer><name>Kathi Sewelies</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.5.0</version>
+  <version>0.5.1</version>
   <requirements:s9yVersion>2.3</requirements:s9yVersion>
   <date>2023-02-01</date>
   <filelist>

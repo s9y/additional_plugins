@@ -53,14 +53,15 @@ window.addEventListener("load", () => {
 			const lineDash = track.date > unixTime ? [3, 6] : [0];
 			const layer = new ol.layer.Vector({
 				source: source,
-				style: [{
-					filter: ["==", ["geometry-type"], "LineString"],
-					style: {
-						"stroke-color": color,
-						"stroke-width": 3,
-						"stroke-line-dash": lineDash
-					}
-				}]
+				style: feature => feature.getGeometry().getType() === "MultiLineString"
+					? new ol.style.Style({
+						stroke: new ol.style.Stroke({
+							color: color,
+							width: 3,
+							lineDash: lineDash
+						})
+					})
+					: undefined
 			});
 			layers.push(layer);
 		}

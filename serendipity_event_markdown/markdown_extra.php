@@ -1750,6 +1750,9 @@ class MarkdownExtra_Parser extends Markdown_Parser {
 			"doFootnotes"        => 5,
 			"doAbbreviations"    => 70,
 			];
+
+		# Call the parent constructor explicitly (needed for php 8.x)
+		parent::__construct();
 	}
 
 

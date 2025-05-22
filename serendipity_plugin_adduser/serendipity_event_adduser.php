@@ -4,6 +4,8 @@ include_once dirname(__FILE__) . '/common.inc.php';
 
 class serendipity_event_adduser extends serendipity_event
 {
+    var $dependencies = null;
+    
     function introspect(&$propbag)
     {
         global $serendipity;
@@ -12,7 +14,7 @@ class serendipity_event_adduser extends serendipity_event
         $propbag->add('description', PLUGIN_ADDUSER_DESC);
         $propbag->add('stackable',   false);
         $propbag->add('author',      'Garvin Hicking');
-        $propbag->add('version',     '2.38.4');
+        $propbag->add('version',     '2.38.5');
         $propbag->add('requirements',  array(
             'serendipity' => '0.8',
             'smarty'      => '2.6.7',
@@ -248,7 +250,7 @@ class serendipity_event_adduser extends serendipity_event
                         } else {
                             $serendipity['COOKIE']['name']  = (isset($_SESSION['serendipityRealname']) ? $_SESSION['serendipityRealname'] : $_SESSION['serendipityUser']);
                             $serendipity['COOKIE']['email'] = $_SESSION['serendipityEmail'];
-                            if ($serendipity['POST']['comment']) {
+                            if (isset($serendipity['POST']['comment']) && $serendipity['POST']['comment']) {
                                 $serendipity['POST']['name']  = $serendipity['COOKIE']['name'];
                                 $serendipity['POST']['email'] = $serendipity['COOKIE']['email'];
                             }
@@ -259,7 +261,7 @@ class serendipity_event_adduser extends serendipity_event
                     break;
 
                 case 'entry_display':
-                    if ($serendipity['GET']['subpage'] == 'adduser' || $serendipity['POST']['subpage'] == 'adduser' || !empty($serendipity['GET']['adduser_activation']) || !empty($this->clean_page)) {
+                    if ((isset($serendipity['GET']['subpage']) && $serendipity['GET']['subpage'] == 'adduser') || (isset($serendipity['POST']['subpage']) && $serendipity['POST']['subpage'] == 'adduser') || !empty($serendipity['GET']['adduser_activation']) || !empty($this->clean_page)) {
                         if (is_array($eventData)) {
                             $eventData['clean_page'] = true;
                         }

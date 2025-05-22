@@ -11045,9 +11045,9 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <description>ブログ訪問者が自分のアカウントを作成することを許可します。Together with the Event-plugin (index.php?serendipity[subpage]=adduser) you can choose whether only registered users may post comments.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.38.4</version>
+  <version>2.38.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2025-05-23</date>
   <filelist>
 <dir name="serendipity_plugin_adduser">
 <dir name="UTF-8">

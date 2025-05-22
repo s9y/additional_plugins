@@ -11043,9 +11043,9 @@
 <description>Permettre aux visiteurs du blog de créer leur propre compte utilisateur. En conjonction avec le plugin d&#039;évènement (index.php?serendipity[subpage]=adduser), vous pouvez décider de n&#039;autoriser que les utilisateurs enregistrés à poster des commentaires.</description>
 <maintainers><maintainer><name>Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.38.4</version>
+  <version>2.38.5</version>
   <requirements:s9yVersion>0.8</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2025-05-23</date>
   <filelist>
 <dir name="serendipity_plugin_adduser">
 <dir name="UTF-8">

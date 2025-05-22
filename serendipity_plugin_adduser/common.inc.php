@@ -163,7 +163,15 @@ class serendipity_common_adduser {
     static function addAuthor($username, $password, $email, $userlevel, $right_publish, $no_create) {
         global $serendipity;
 
-        if (!is_array(serendipity_db_query("SELECT username FROM {$serendipity['dbPrefix']}pending_authors LIMIT 1", true, 'both', false, false, false, true))) {
+        $usercheck = null;
+        try {
+            $usercheck = serendipity_db_query("SELECT username FROM {$serendipity['dbPrefix']}pending_authors LIMIT 1", true, 'both', false, false, false, true);
+        } catch (mysqli_sql_exception) {
+            // Nothing to do, table will be created next
+        } catch(Exception $e) {
+            // Nothing to do, table will be created next
+        }
+        if (!is_array($usercheck)) {
             serendipity_db_schema_import("CREATE TABLE {$serendipity['dbPrefix']}pending_authors (
               username varchar(20) default null,
               password varchar(128) default null,

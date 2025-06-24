@@ -19,6 +19,8 @@ if (IN_serendipity !== true) {
  */
 class serendipity_event_google_sitemap extends serendipity_event {
     var $title = PLUGIN_EVENT_SITEMAP_TITLE;
+    var $gnewsmode;
+    var $types;
 
     function introspect(&$propbag) {
         $propbag->add('name', PLUGIN_EVENT_SITEMAP_TITLE);
@@ -510,7 +512,7 @@ class serendipity_event_google_sitemap extends serendipity_event {
             $filelist = array('/index.rss', '/index.rss1', '/index.rss2', '/atom.xml');
             foreach($filelist as $curfile) {
                 $url = serendipity_rewriteURL(PATH_FEEDS . $curfile);
-                $this->addtoxml($sitemap_xml, $url, $max, 0.0);
+                $this->addtoxml($sitemap_xml, $url, $max ?? null, 0.0);
             }
         }
     }
@@ -721,7 +723,7 @@ class serendipity_event_google_sitemap extends serendipity_event {
                 $pingback_name = $matches[1];
             }
 
-            if(!serendipity_db_bool($eventData['isdraft']) && $do_pingback && $cur_url) {
+            if(!serendipity_db_bool($eventData['isdraft'] ?? null) && $do_pingback && $cur_url) {
                     $answer = $this->send_ping($cur_url);
                     if($answer) {
                         printf(PLUGIN_EVENT_SITEMAP_REPORT_OK, $pingback_name);

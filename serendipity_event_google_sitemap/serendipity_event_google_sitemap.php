@@ -170,7 +170,7 @@ class serendipity_event_google_sitemap extends serendipity_event {
         $str .= "\t<url>\n";
         $str .= "\t\t<loc>$url</loc>\n";
         if ($lastmod!=null) {
-            $str_lastmod = gmstrftime('%Y-%m-%dT%H:%M:%SZ', $lastmod); // 'Z' does mean UTC in W3C Date/Time
+            $str_lastmod = date('c', $lastmod); // 'Z' does mean UTC in W3C Date/Time
             $str .= "\t\t<lastmod>$str_lastmod</lastmod>\n";
             if ($this->gnewsmode) {
                 $str .= "\t\t<news:news>\n";
@@ -456,10 +456,12 @@ class serendipity_event_google_sitemap extends serendipity_event {
                     MIN(timestamp) AS min_time
                 FROM '.$serendipity['dbPrefix'].'entries',
             true, 'num');
-        $first_year  = 0+gmstrftime('%Y', $min[0]);
-        $first_month = 0+gmstrftime('%m', $min[0]);
-        $last_year   = 0+gmstrftime('%Y', time());
-        $last_month  = 0+gmstrftime('%m', time());
+        
+        $first_year  = 0+date('%Y', $min[0]);
+        $first_month = 0+date('%m', $min[0]);
+        $last_year   = 0+date('%Y', time());
+        $last_month  = 0+date('%m', time());
+        
 
         // add all the month-links
         if(is_array($min) && $first_year<=$last_year) {

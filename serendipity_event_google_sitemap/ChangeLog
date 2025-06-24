@@ -1,3 +1,9 @@
+1.0:
+-----
+    * Fix a couple of deprecation and other warnings on PHP 8.1 and later
+    * Remove backwards compatibility code, so that serendipity 2.0 is now the required
+      minimal version
+
 0.61.4:
 -----
     * Fix sitemap creation with NULL timestamps on PHP 8

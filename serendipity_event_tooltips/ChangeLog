@@ -1,9 +1,0 @@
-1.6.1:
----
- * Hotfixes for PHP 8 (surrim)
-
-1.6:
-----
-
-Try to change preg_replace('/e/') modifier calls with preg_replace_calllback.
-Probably a mess.

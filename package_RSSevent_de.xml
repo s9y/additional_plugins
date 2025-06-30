@@ -166,8 +166,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_contactform</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_contactform&lt;br /&gt;Kontaktformular&lt;/b&gt;&lt;br /&gt;Stellt ein E-Mail Kontaktformular auf Ihrem Blog als statische Seite dar. Darauf kann entweder mittels des eigenen Permalinks oder mittels index.php?serendipity[subpage]=contactform aufgerufen werden. Die Darstellung kann durch Smarty Templates angepasst werden, indem die Datei plugin_contactform.tpl in Ihren Templateordner kopiert und modifiziert wird. Captchas des Spamblock-Plugins (falls aktiviert) werden angewendet.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:29 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_contactform&lt;br /&gt;Kontaktformular&lt;/b&gt;&lt;br /&gt;Stellt ein E-Mail Kontaktformular auf Ihrem Blog als statische Seite dar. Darauf kann entweder mittels des eigenen Permalinks oder mittels index.php?serendipity[subpage]=contactform aufgerufen werden. Die Darstellung kann durch Smarty Templates angepasst werden, indem die Datei plugin_contactform.tpl in Ihren Templateordner kopiert und modifiziert wird. Captchas des Spamblock-Plugins (falls aktiviert) werden angewendet.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Tue, 01 Jul 2025 00:30:26 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_contactform</guid>
 </item>
 <item>
@@ -490,8 +490,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_google_sitemap</link>
 <category>Event Plugins</category>
 <author>Boris</author>
-<content:encoded>&lt;b&gt;serendipity_event_google_sitemap&lt;br /&gt;Suchmaschinen-Sitemap Generator&lt;/b&gt;&lt;br /&gt;Erstellt eine sitemap.xml.gz für verschiedene Suchmaschinen-Crawler (Google, MSN, Yahoo und Ask).&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 02 Apr 2025 00:30:24 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_google_sitemap&lt;br /&gt;Suchmaschinen-Sitemap Generator&lt;/b&gt;&lt;br /&gt;Erstellt eine sitemap.xml.gz für verschiedene Suchmaschinen-Crawler (Google, MSN, Yahoo und Ask).&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Tue, 01 Jul 2025 00:30:27 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_google_sitemap</guid>
 </item>
 <item>
@@ -653,7 +653,7 @@
 <category>Event Plugins</category>
 <author>Serendipity Team, Jan Lehnardt and Thomas Hochstein</author>
 <content:encoded>&lt;b&gt;serendipity_event_markdown&lt;br /&gt;Textformatierung: Markdown&lt;/b&gt;&lt;br /&gt;Markdown-Textformatierung durchführen&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 22 Aug 2022 00:30:39 +0200</pubDate>
+<pubDate>Tue, 01 Jul 2025 00:30:27 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_markdown</guid>
 </item>
 <item>

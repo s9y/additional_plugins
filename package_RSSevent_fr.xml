@@ -166,8 +166,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_contactform</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_contactform&lt;br /&gt;Formulaire de contact&lt;/b&gt;&lt;br /&gt;Ajoute une page contact statique à votre blog. On peut y accéder par le rétrolien ou par index.php?serendipity[subpage]=contactform. Vous pouvez modifier l&#039;aspect de la page contact en copiant plugin_contactform.tpl dans votre répertoire de template et en l&#039;y modifiant. Les captchas contre le spam seront appliqués si le plugin est installé.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:29 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_contactform&lt;br /&gt;Formulaire de contact&lt;/b&gt;&lt;br /&gt;Ajoute une page contact statique à votre blog. On peut y accéder par le rétrolien ou par index.php?serendipity[subpage]=contactform. Vous pouvez modifier l&#039;aspect de la page contact en copiant plugin_contactform.tpl dans votre répertoire de template et en l&#039;y modifiant. Les captchas contre le spam seront appliqués si le plugin est installé.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Tue, 01 Jul 2025 00:30:26 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_contactform</guid>
 </item>
 <item>
@@ -490,8 +490,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_google_sitemap</link>
 <category>Event Plugins</category>
 <author>Boris</author>
-<content:encoded>&lt;b&gt;serendipity_event_google_sitemap&lt;br /&gt;Sitemap Generator (for Crawlers)&lt;/b&gt;&lt;br /&gt;Creates a sitemap.xml.gz, which can be used by miscellaneous Web-Crawlers. (Google, MSN, Yahoo and Ask)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 02 Apr 2025 00:30:24 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_google_sitemap&lt;br /&gt;Sitemap Generator (for Crawlers)&lt;/b&gt;&lt;br /&gt;Creates a sitemap.xml.gz, which can be used by miscellaneous Web-Crawlers. (Google, MSN, Yahoo and Ask)&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Tue, 01 Jul 2025 00:30:27 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_google_sitemap</guid>
 </item>
 <item>
@@ -653,7 +653,7 @@
 <category>Event Plugins</category>
 <author>Serendipity Team, Jan Lehnardt and Thomas Hochstein</author>
 <content:encoded>&lt;b&gt;serendipity_event_markdown&lt;br /&gt;Markup: Markdown&lt;/b&gt;&lt;br /&gt;Apply Markdown markup to entry text&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 22 Aug 2022 00:30:39 +0200</pubDate>
+<pubDate>Tue, 01 Jul 2025 00:30:27 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_markdown</guid>
 </item>
 <item>

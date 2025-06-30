@@ -166,8 +166,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_contactform</link>
 <category>Event Plugins</category>
 <author>Garvin Hicking</author>
-<content:encoded>&lt;b&gt;serendipity_event_contactform&lt;br /&gt;Kontaktní formulář&lt;/b&gt;&lt;br /&gt;Zobrazuje kontaktní formulář k poslání e-mailu jako statickou stránku. Přístup k fromuláři buď pomocí stálého odkazu (permalinku) nebo na adrese index.php?serendipity[subpage]=contactform. Vzhled fromuláře si můžete upravit podle svého vložením souboru plugin_contactform.tpl do adresáře s Vaší šablonou. Kryptogramy z pluginu SpamBlock budou použity, pokud je SpamBlock nainstalován.&lt;br/&gt;For: Serendipity 1.3</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:29 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_contactform&lt;br /&gt;Kontaktní formulář&lt;/b&gt;&lt;br /&gt;Zobrazuje kontaktní formulář k poslání e-mailu jako statickou stránku. Přístup k fromuláři buď pomocí stálého odkazu (permalinku) nebo na adrese index.php?serendipity[subpage]=contactform. Vzhled fromuláře si můžete upravit podle svého vložením souboru plugin_contactform.tpl do adresáře s Vaší šablonou. Kryptogramy z pluginu SpamBlock budou použity, pokud je SpamBlock nainstalován.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Tue, 01 Jul 2025 00:30:26 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_contactform</guid>
 </item>
 <item>
@@ -490,8 +490,8 @@
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_google_sitemap</link>
 <category>Event Plugins</category>
 <author>Boris</author>
-<content:encoded>&lt;b&gt;serendipity_event_google_sitemap&lt;br /&gt;Generátor mapy stránek pro vyhledávače&lt;/b&gt;&lt;br /&gt;Vytváří soubor sitemap.xml.gz, který používají nejrůznější webové vyhledávače (Google, MSN, Yahoo nebo Ask)&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Wed, 02 Apr 2025 00:30:24 +0200</pubDate>
+<content:encoded>&lt;b&gt;serendipity_event_google_sitemap&lt;br /&gt;Generátor mapy stránek pro vyhledávače&lt;/b&gt;&lt;br /&gt;Vytváří soubor sitemap.xml.gz, který používají nejrůznější webové vyhledávače (Google, MSN, Yahoo nebo Ask)&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Tue, 01 Jul 2025 00:30:27 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_google_sitemap</guid>
 </item>
 <item>
@@ -653,7 +653,7 @@
 <category>Event Plugins</category>
 <author>Serendipity Team, Jan Lehnardt and Thomas Hochstein</author>
 <content:encoded>&lt;b&gt;serendipity_event_markdown&lt;br /&gt;Markup: Markdown&lt;/b&gt;&lt;br /&gt;Převádí značky Markdown na HTML v textu příspěvku&lt;br/&gt;For: Serendipity 0.7</content:encoded>
-<pubDate>Mon, 22 Aug 2022 00:30:39 +0200</pubDate>
+<pubDate>Tue, 01 Jul 2025 00:30:27 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_markdown</guid>
 </item>
 <item>

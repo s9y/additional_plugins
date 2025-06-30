@@ -167,7 +167,7 @@ class serendipity_event_markdown extends serendipity_event
 
                     foreach ($this->markup_elements as $temp) {
                         if (serendipity_db_bool($this->get_config($temp['name'], true)) && !empty($eventData[$temp['element']]) &&
-                            !$eventData['properties']['ep_disable_markup_' . $this->instance] &&
+                            !($eventData['properties']['ep_disable_markup_' . $this->instance] ?? false) &&
                             !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
                             $element = $temp['element'];
                             # HTML special chars like ">" in comments may have been replaced by entities ("&gt;")

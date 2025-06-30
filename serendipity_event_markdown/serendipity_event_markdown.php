@@ -11,6 +11,7 @@ if (IN_serendipity !== true) {
 class serendipity_event_markdown extends serendipity_event
 {
     var $title = PLUGIN_EVENT_MARKDOWN_NAME;
+    var $markup_elements;
 
     function introspect(&$propbag)
     {
@@ -250,7 +251,7 @@ class serendipity_event_markdown extends serendipity_event
             $plaintext_body = html_entity_decode($eventData['body'], ENT_COMPAT, LANG_CHARSET);
         }
 
-        if ($mde) {
+        if ($mde ?? false) {
             $html =  ($version == 2) ? MarkdownExtra::defaultTransform($plaintext_body) : Markdown($plaintext_body);
         } else {
             $html =  ($version == 2) ? Markdown::defaultTransform($plaintext_body) : Markdown($plaintext_body);

@@ -1763,6 +1763,7 @@ class MarkdownExtra_Parser extends Markdown_Parser {
 	public $footnotes_numbers = [];
 	public $abbr_desciptions = [];
 	public $abbr_word_re = '';
+	public $ref_attr = [];
 
 	# Give the current footnote number.
 	public $footnote_counter = 1;

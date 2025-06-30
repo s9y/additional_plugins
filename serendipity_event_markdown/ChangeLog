@@ -1,3 +1,9 @@
+Version 1.32:
+=============
+Changes by DLange and onli
+
+- Fix php 8.4+ compatibility / warnings.
+
 Version 1.31:
 =============
 Changes by spackmat

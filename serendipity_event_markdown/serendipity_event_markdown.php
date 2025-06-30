@@ -11,6 +11,7 @@ if (IN_serendipity !== true) {
 class serendipity_event_markdown extends serendipity_event
 {
     var $title = PLUGIN_EVENT_MARKDOWN_NAME;
+    var $markup_elements;
 
     function introspect(&$propbag)
     {
@@ -25,7 +26,7 @@ class serendipity_event_markdown extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '7.4.0'
         ));
-        $propbag->add('version',       '1.31');
+        $propbag->add('version',       '1.32');
         $propbag->add('cachable_events', array('frontend_display' => true));
         $propbag->add('event_hooks',   array(
             'frontend_display' => true,
@@ -166,7 +167,7 @@ class serendipity_event_markdown extends serendipity_event
 
                     foreach ($this->markup_elements as $temp) {
                         if (serendipity_db_bool($this->get_config($temp['name'], true)) && !empty($eventData[$temp['element']]) &&
-                            !$eventData['properties']['ep_disable_markup_' . $this->instance] &&
+                            !($eventData['properties']['ep_disable_markup_' . $this->instance] ?? false) &&
                             !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
                             $element = $temp['element'];
                             # HTML special chars like ">" in comments may have been replaced by entities ("&gt;")
@@ -250,7 +251,7 @@ class serendipity_event_markdown extends serendipity_event
             $plaintext_body = html_entity_decode($eventData['body'], ENT_COMPAT, LANG_CHARSET);
         }
 
-        if ($mde) {
+        if ($mde ?? false) {
             $html =  ($version == 2) ? MarkdownExtra::defaultTransform($plaintext_body) : Markdown($plaintext_body);
         } else {
             $html =  ($version == 2) ? Markdown::defaultTransform($plaintext_body) : Markdown($plaintext_body);

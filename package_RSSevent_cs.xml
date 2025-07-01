@@ -1044,15 +1044,6 @@
 <guid isPermaLink="false">serendipity_event_todolist</guid>
 </item>
 <item>
-<title>Tooltips - nápověda, tipy: Aktivuje obrázky a texty nápovědy.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_tooltips</link>
-<category>Event Plugins</category>
-<author>Enrico Stahn</author>
-<content:encoded>&lt;b&gt;serendipity_event_tooltips&lt;br /&gt;Tooltips - nápověda, tipy&lt;/b&gt;&lt;br /&gt;Aktivuje obrázky a texty nápovědy.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:33 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_tooltips</guid>
-</item>
-<item>
 <title>Správa odezev: Umožňuje podrobnou kontrolu chování odezev, jak jsou posílány při vytváření příspěvků</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_trackback</link>
 <category>Event Plugins</category>

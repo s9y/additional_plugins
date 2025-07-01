@@ -1048,15 +1048,6 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <guid isPermaLink="false">serendipity_event_todolist</guid>
 </item>
 <item>
-<title>ツールチップ: ツールチップテキストと画像を起動します。</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_tooltips</link>
-<category>Event Plugins</category>
-<author>Enrico Stahn</author>
-<content:encoded>&lt;b&gt;serendipity_event_tooltips&lt;br /&gt;ツールチップ&lt;/b&gt;&lt;br /&gt;ツールチップテキストと画像を起動します。&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:33 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_tooltips</guid>
-</item>
-<item>
 <title>トラックバック制御: Allows granular control over how trackbacks are sent when creating entries</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_trackback</link>
 <category>Event Plugins</category>

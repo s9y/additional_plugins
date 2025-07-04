@@ -116,6 +116,6 @@ file you will find it on the map.
 
 ## Author
 
-Martin Sewelies <ruhrtour@surrim.org>
+Kathi Sewelies <ruhrtour@surrim.org>
 
 [ol]: https://openlayers.org/

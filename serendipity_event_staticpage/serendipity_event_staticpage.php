@@ -87,7 +87,7 @@ class serendipity_event_staticpage extends serendipity_event
         $propbag->add('page_configuration', $this->config);
         $propbag->add('type_configuration', $this->config_types);
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers');
-        $propbag->add('version', '4.15.11');
+        $propbag->add('version', '4.15.12');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '2.6.7',
@@ -1623,7 +1623,7 @@ class serendipity_event_staticpage extends serendipity_event
     {
         global $serendipity;
 
-        $q = 'SELECT pagetitle
+        $q = 'SELECT id
                 FROM '.$serendipity['dbPrefix'].'staticpages
                WHERE is_startpage = 1
                  AND (language = \'' . $serendipity['lang'] . '\'
@@ -1633,7 +1633,7 @@ class serendipity_event_staticpage extends serendipity_event
                LIMIT 1';
         $page = serendipity_db_query($q, true, 'assoc');
 
-        return (is_array($page) && isset($page['pagetitle'])) ? $page['pagetitle'] : false;
+        return (is_array($page) && isset($page['id'])) ? $page['id'] : false;
     }
 
     function get404Errorpage()
@@ -3106,7 +3106,7 @@ foreach($select AS $select_value => $select_desc) {
 
                     // Set static page with is_startpage flag set as startpage
                     if ((empty($args) || preg_match('@' . $serendipity['indexFile'] . '\??$@', trim($args))) && empty($serendipity['GET']['subpage'])) {
-                        $serendipity['GET']['subpage'] = $this->getStartpage();
+                        $serendipity['GET']['staticid'] = $this->getStartpage();
                     }
 
                     // Set static page according to requested URL

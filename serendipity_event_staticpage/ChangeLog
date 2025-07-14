@@ -1,3 +1,8 @@
+4.15.12: Avoid selecting the wrong static page as start page, by using its id instead of
+         the pagetitle
+  
+4.15.11: Fix mysql error caused by INDEX IF NOT EXISTS
+
 4.15.10:
     * Avoid warnings under PHP 8.4
     * Fix database creation/updater function, to avoid a recurrent install error

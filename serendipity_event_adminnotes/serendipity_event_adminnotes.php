@@ -172,7 +172,7 @@ class serendipity_event_adminnotes extends serendipity_event {
             return false;
         }
 
-        switch($_REQUEST['action']) {
+        switch($_REQUEST['action'] ?? '') {
             case 'edit':
                 $entry = $this->getMyNotes((int)$_REQUEST['note']);
                 $mode  = 'update';
@@ -181,11 +181,11 @@ class serendipity_event_adminnotes extends serendipity_event {
                     $mode = 'insert';
                 }
 
-                if (!is_array($entry)) {
+                if (!is_array($entry ?? null)) {
                     $entry = array();
                 }
 
-                if ($_REQUEST['submit'] /* && serendipity_checkFormToken() */) {
+                if ($_REQUEST['submit'] ?? false) {
                     $valid_groups = serendipity_getAllGroups($serendipity['authorid']);
                     $targets = array();
                     if (is_array($_REQUEST['note_target'])) {
@@ -242,7 +242,7 @@ class serendipity_event_adminnotes extends serendipity_event {
                 echo '<input type="hidden" name="serendipity[adminModule]" value="event_display" />';
                 echo '<input type="hidden" name="serendipity[adminAction]" value="adminnotes" />';
                 echo '<input type="hidden" name="action" value="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($_REQUEST['action']) : htmlspecialchars($_REQUEST['action'], ENT_COMPAT, LANG_CHARSET)) . '" />';
-                echo '<input type="hidden" name="note" value="' . $entry['noteid'] . '" />';
+                echo '<input type="hidden" name="note" value="' . (isset($entry['noteid']) ? $entry['noteid'] : '') . '" />';
                 echo '<input type="hidden" name="note_notetype" value="note" />';
 
                 if ($serendipity['version'][0] < 2) {
@@ -251,7 +251,7 @@ class serendipity_event_adminnotes extends serendipity_event {
                 } else {
                     echo '<div class="form_field">';
                     echo '<label for="note_subject" class="block_level">' . TITLE . '</label>';
-                    echo '<input id="note_subject" type="text" name="note_subject" value="' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['subject']) : htmlspecialchars($entry['subject'], ENT_COMPAT, LANG_CHARSET)) . '">';
+                    echo '<input id="note_subject" type="text" name="note_subject" value="' . serendipity_specialchars($entry['subject'] ?? '') . '">';
                     echo '</div>';
                 }
 
@@ -275,7 +275,7 @@ class serendipity_event_adminnotes extends serendipity_event {
                 echo '<select id="note_target" name="note_target[]" multiple="multiple" size="5">';
                 foreach($valid_groups AS $group) {
                     # PRESELECT!
-                    if (in_array($group['confkey'], (array)$selected) || count($selected) == 0) {
+                    if (in_array($group['confkey'], (array)($selected ?? [])) || count($selected ?? []) == 0) {
                         $is_selected = 'selected="selected"';
                     } else {
                         $is_selected = '';
@@ -294,7 +294,7 @@ class serendipity_event_adminnotes extends serendipity_event {
                     echo '<div class="form_area">';
                     echo '<label for="note_body" class="block_level">' . ENTRY_BODY . '</label>';
                 }
-                    echo '<textarea id="note_body" rows=10 cols=80 name="note_body">' . (function_exists('serendipity_specialchars') ? serendipity_specialchars($entry['body']) : htmlspecialchars($entry['body'], ENT_COMPAT, LANG_CHARSET)) . '</textarea>';
+                    echo '<textarea id="note_body" rows=10 cols=80 name="note_body">' . serendipity_specialchars(isset($entry['body']) ? $entry['body'] : '') . '</textarea>';
                 if ($serendipity['version'][0] < 2) {
                     echo '<br /><br />';
                     echo '<input type="submit" name="submit" value="' . SAVE . '" class="serendipityPrettyButton input_button" />';

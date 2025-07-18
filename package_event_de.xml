@@ -11,9 +11,9 @@
 <description>Zeigt Hinweise für angemeldete Autoren in der Admin-Oberfläche an.</description>
 <maintainers><maintainer><name>Garvin Hicking, Matthias Mees</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.16.1</version>
-  <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <version>0.16.2</version>
+  <requirements:s9yVersion>2.0</requirements:s9yVersion>
+  <date>2025-07-19</date>
   <filelist>
 <dir name="serendipity_event_adminnotes">
 <dir name="UTF-8">

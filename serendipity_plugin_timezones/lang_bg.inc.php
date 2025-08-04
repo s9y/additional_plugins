@@ -16,7 +16,7 @@
 @define('PLUGIN_TIMEZONES_ZONE1_NAME',                  'Код на първа зона');
 @define('PLUGIN_TIMEZONES_ZONE1_NAME_BLABLAH',          'Код на първата зона. (например CET)');
 @define('PLUGIN_TIMEZONES_ZONE1_FORMAT',                'Формат на времето за първа зона');
-@define('PLUGIN_TIMEZONES_ZONE1_FORMAT_BLABLAH',        'Форматиращ стринг, както се иска от PEAR::Date (Вижте http://pear.php.net/package/Date/docs/1.4.5/apidoc/Date/Date.html#methodformat)');
+@define('PLUGIN_TIMEZONES_ZONE1_FORMAT_BLABLAH',        'Форматиращ стринг, както се иска от PEAR::Date (Вижте https://www.php.net/manual/en/datetime.format.php#refsect1-datetime.format-parameters)');
 
 @define('PLUGIN_TIMEZONES_ZONE2_TEXT',                  'Втора зона');
 @define('PLUGIN_TIMEZONES_ZONE2_TEXT_BLABLAH',          'Място (държава/град) на втората зона.');

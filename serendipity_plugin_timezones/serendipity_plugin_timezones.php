@@ -12,17 +12,17 @@ class serendipity_plugin_timezones extends serendipity_plugin {
     function introspect(&$propbag) {
         $propbag->add('name',           PLUGIN_TIMEZONES_TITLE);
         $propbag->add('description',    PLUGIN_TIMEZONES_BLAHBLAH);
-        $propbag->add('configuration',  array('title', 'zone1_text', 'zone1_name', 'zone1_format', 'timeshift1',
-                                                       'zone2_text', 'zone2_name', 'zone2_format', 'timeshift2',
-                            'zone3_text', 'zone3_name', 'zone3_format', 'timeshift3',
-                            'zone4_text', 'zone4_name', 'zone4_format', 'timeshift4'));
+        $propbag->add('configuration',  array('title', 'zone1_text', 'zone1_name', 'zone1_format',
+                                                       'zone2_text', 'zone2_name', 'zone2_format',
+                            'zone3_text', 'zone3_name', 'zone3_format',
+                            'zone4_text', 'zone4_name', 'zone4_format'));
         $propbag->add('author',         'Christoph Eunicke <s9y-plugin@eunicke.org>');
         $propbag->add('stackable',      true);
-        $propbag->add('version',        '0.6.1');
+        $propbag->add('version',        '1.0');
         $propbag->add('requirements',  array(
             'serendipity' => '0.9',
             'smarty'      => '2.6.7',
-            'php'         => '4.1.0'
+            'php'         => '5.2.0'
         ));
         $propbag->add('groups', array('FRONTEND_FEATURES'));
     }
@@ -68,7 +68,7 @@ class serendipity_plugin_timezones extends serendipity_plugin {
                 $propbag->add('type',           'string');
                 $propbag->add('name',           PLUGIN_TIMEZONES_ZONE1_NAME);
                 $propbag->add('description',    PLUGIN_TIMEZONES_ZONE1_NAME_BLABLAH);
-                $propbag->add('default',        'WEST');
+                $propbag->add('default',        'Europe/Berlin');
                 break;
 
             case 'zone2_name':
@@ -96,14 +96,14 @@ class serendipity_plugin_timezones extends serendipity_plugin {
                 $propbag->add('type',           'string');
                 $propbag->add('name',           PLUGIN_TIMEZONES_ZONE1_FORMAT);
                 $propbag->add('description',    PLUGIN_TIMEZONES_ZONE1_FORMAT_BLABLAH);
-                $propbag->add('default',        '%T');
+                $propbag->add('default',        'H:i');
                 break;
 
             case 'zone2_format':
                 $propbag->add('type',           'string');
                 $propbag->add('name',           PLUGIN_TIMEZONES_ZONE2_FORMAT);
                 $propbag->add('description',    PLUGIN_TIMEZONES_ZONE1_FORMAT_BLABLAH);
-                $propbag->add('default',        '%T');
+                $propbag->add('default',        'H:i');
                 break;
 
             case 'zone3_format':
@@ -120,35 +120,6 @@ class serendipity_plugin_timezones extends serendipity_plugin {
                 $propbag->add('default',        '');
                 break;
 
-            case 'timeshift1':
-                $propbag->add('type',           'string');
-                $propbag->add('name',           PLUGIN_TIMEZONES_TIMESHIFT1);
-                $propbag->add('description',    PLUGIN_TIMEZONES_TIMESHIFT1_BLABLAH);
-                $propbag->add('default',        '');
-                break;
-
-            case 'timeshift2':
-                $propbag->add('type',           'string');
-                $propbag->add('name',           PLUGIN_TIMEZONES_TIMESHIFT2);
-                $propbag->add('description',    PLUGIN_TIMEZONES_TIMESHIFT1_BLABLAH);
-                $propbag->add('default',        '');
-                break;
-
-            case 'timeshift3':
-                $propbag->add('type',           'string');
-                $propbag->add('name',           PLUGIN_TIMEZONES_TIMESHIFT3);
-                $propbag->add('description',    PLUGIN_TIMEZONES_TIMESHIFT1_BLABLAH);
-                $propbag->add('default',        '');
-                break;
-
-            case 'timeshift4':
-                $propbag->add('type',           'string');
-                $propbag->add('name',           PLUGIN_TIMEZONES_TIMESHIFT4);
-                $propbag->add('description',    PLUGIN_TIMEZONES_TIMESHIFT1_BLABLAH);
-                $propbag->add('default',        '');
-                break;
-
-
             default:
                 return false;
         }
@@ -159,58 +130,25 @@ class serendipity_plugin_timezones extends serendipity_plugin {
         global $serendipity;
 
         $title = $this->get_config('title');
-
-        if (($this->get_config('timeshift1') == "" ||
-            $this->get_config('timeshift2') == "" ||
-            $this->get_config('timeshift3') == "" ||
-            $this->get_config('timeshift4') == "" ) &&
-            @include_once 'Date.php') {
-
-            $date = new Date();
-            //create the first date
-
-            $date->convertTZbyID($this->get_config('zone1_name'));
-            $date1=$date->format($this->get_config('zone1_format'));
-
-            $date->convertTZbyID($this->get_config('zone2_name'));
-            $date2=$date->format($this->get_config('zone2_format'));
-
-            $date->convertTZbyID($this->get_config('zone3_name'));
-            $date3=$date->format($this->get_config('zone3_format'));
-
-            $date->convertTZbyID($this->get_config('zone4_name'));
-            $date4=$date->format($this->get_config('zone4_format'));
-        } else {
-            $date1=date($this->get_config('zone1_format'),time()+$this->get_config('timeshift1'));
-            $date2=date($this->get_config('zone2_format'),time()+$this->get_config('timeshift2'));
-            $date3=date($this->get_config('zone3_format'),time()+$this->get_config('timeshift3'));
-            $date4=date($this->get_config('zone4_format'),time()+$this->get_config('timeshift4'));
-        }
+        $d = new DateTimeImmutable();
+        $timezoneIds = [$this->get_config('zone1_name'), $this->get_config('zone2_name'), $this->get_config('zone3_name'), $this->get_config('zone4_name')];
 
         echo '<ul class="plainList">';
-        echo '<li>';
-        echo $this->get_config('zone1_text');
-        echo $date1;
-        echo '</li>';
-
-        echo '<li>';
-        echo $this->get_config('zone2_text');
-        echo $date2;
-        echo '</li>';
-   
-        if ($this->get_config('zone3_text') !== ""){ //Third zone required
-            echo '<li>';
-            echo $this->get_config('zone3_text');
-            echo $date3;
-            echo '</li>';
-
-            if ($this->get_config('zone4_text') !== ""){ //Fourth zone required
+        $i = 0;
+        foreach ($timezoneIds as $timezoneId) {
+            $i += 1;
+            if ($timezoneId) {
+                $tzo = new DateTimeZone($timezoneId);
+                $local = $d->setTimezone($tzo);
+                
                 echo '<li>';
-                echo $this->get_config('zone4_text');
-                echo $date4;
+                echo $this->get_config("zone{$i}_text");
+                echo ' ';
+                echo $local->format( $this->get_config("zone{$i}_format"));
                 echo '</li>';
             }
         }
+
         echo '</ul>';
     }
 } 

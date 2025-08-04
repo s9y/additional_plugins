@@ -1,3 +1,11 @@
+1.0:
+----
+* Rework date format approach for modern PHP
+    * to avoid an error under
+    * and no longer rely on a manually supplied Date.php
+* Drop manual timezone offsets. Proper timezone support (like Europe/Berlin) can
+  be used instead
+
 0.6.1:
 ----
 * Hotfixes for PHP 8 (surrim)

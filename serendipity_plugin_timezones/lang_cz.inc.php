@@ -15,7 +15,7 @@
 @define('PLUGIN_TIMEZONES_ZONE1_NAME',		'Název prvního pásma');
 @define('PLUGIN_TIMEZONES_ZONE1_NAME_BLABLAH',		'Krátký název pro první èasové pásmo (napø. SELÈ = StøedoEvropský Letní Èas)');
 @define('PLUGIN_TIMEZONES_ZONE1_FORMAT',		'Formát prvního èasového pásma');
-@define('PLUGIN_TIMEZONES_ZONE1_FORMAT_BLABLAH',		'Formátovací øetìzec pøedaný php kódu, viz. http://pear.php.net/package/Date/docs/1.4.5/apidoc/Date/Date.html#methodformat a nebo http://uk2.php.net/date (pokud není mo¾n épou¾ít PEAR)');
+@define('PLUGIN_TIMEZONES_ZONE1_FORMAT_BLABLAH',		'Formátovací øetìzec pøedaný php kódu, viz. https://www.php.net/manual/en/datetime.format.php#refsect1-datetime.format-parameters');
 
 @define('PLUGIN_TIMEZONES_TIMESHIFT1',		'Posun prvního pásma');
 @define('PLUGIN_TIMEZONES_TIMESHIFT1_BLABLAH',		"Posun v SEKUNDÁCH vùèi èasu serveru (pouze pokud PEAR::Date not available).");

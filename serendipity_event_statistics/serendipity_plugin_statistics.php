@@ -213,23 +213,35 @@ class serendipity_plugin_statistics extends serendipity_plugin
             }
 
             if (serendipity_db_bool($this->get_config('show_monthvisitors'))) {
-                $res = serendipity_db_query("SELECT sum(visits) AS monthvisitors FROM {$serendipity['dbPrefix']}visitors_count WHERE year='".$year."' AND month='".$month."'", true, 'assoc');
-                if (is_array($res) && isset($res['monthvisitors'])) {
-                    $content .= '<div class="stat_monthvisitors">' . sprintf($this->get_config('text_monthvisitors'), '<span class="stat_number">' . $res['monthvisitors'] . '</span>') . "</div>\n";
+                try {
+                    $res = serendipity_db_query("SELECT sum(visits) AS monthvisitors FROM {$serendipity['dbPrefix']}visitors_count WHERE year='".$year."' AND month='".$month."'", true, 'assoc');
+                    if (is_array($res) && isset($res['monthvisitors'])) {
+                        $content .= '<div class="stat_monthvisitors">' . sprintf($this->get_config('text_monthvisitors'), '<span class="stat_number">' . $res['monthvisitors'] . '</span>') . "</div>\n";
+                    }
+                } catch (Exception $ex) {
+                    // It is possible the visitor_count table does not exist. This will then throw an exception, but which one depends
+                    // on the used database. So we catch all possible Exceptions here. We can't really do anything with it regardless.
                 }
             }
 
             if (serendipity_db_bool($this->get_config('show_weekvisitors'))) {
-                $res = serendipity_db_query("SELECT sum(visits) AS weekvisitors FROM {$serendipity['dbPrefix']}visitors_count WHERE CONCAT(year,month,day) >= '".$lastmonday."' AND CONCAT(year,month,day) <= '".$nextsunday."'", true, 'assoc');
-                if (is_array($res) && isset($res['weekvisitors'])) {
-                    $content .= '<div class="stat_weekhvisitors">' . sprintf($this->get_config('text_weekvisitors'), '<span class="stat_number">' . $res['weekvisitors'] . '</span>') . "</div>\n";
+                try {
+                    $res = serendipity_db_query("SELECT sum(visits) AS weekvisitors FROM {$serendipity['dbPrefix']}visitors_count WHERE CONCAT(year,month,day) >= '".$lastmonday."' AND CONCAT(year,month,day) <= '".$nextsunday."'", true, 'assoc');
+                    if (is_array($res) && isset($res['weekvisitors'])) {
+                        $content .= '<div class="stat_weekhvisitors">' . sprintf($this->get_config('text_weekvisitors'), '<span class="stat_number">' . $res['weekvisitors'] . '</span>') . "</div>\n";
+                    }
+                } catch (Exception $ex) {
                 }
+                
             }
 
             if (serendipity_db_bool($this->get_config('show_dayvisitors'))) {
-                $res = serendipity_db_query("SELECT sum(visits) AS dayvisitors FROM {$serendipity['dbPrefix']}visitors_count WHERE year='".$year."' AND month='".$month."' AND day='".$day."'", true, 'assoc');
-                if (is_array($res) && isset($res['dayvisitors'])) {
-                    $content .= '<div class="stat_dayhvisitors">' . sprintf($this->get_config('text_dayvisitors'), '<span class="stat_number">' . $res['dayvisitors'] . '</span>') . "</div>\n";
+                try {
+                    $res = serendipity_db_query("SELECT sum(visits) AS dayvisitors FROM {$serendipity['dbPrefix']}visitors_count WHERE year='".$year."' AND month='".$month."' AND day='".$day."'", true, 'assoc');
+                    if (is_array($res) && isset($res['dayvisitors'])) {
+                        $content .= '<div class="stat_dayhvisitors">' . sprintf($this->get_config('text_dayvisitors'), '<span class="stat_number">' . $res['dayvisitors'] . '</span>') . "</div>\n";
+                    }
+                } catch (Exception $ex) {
                 }
             }
 
@@ -250,9 +262,12 @@ class serendipity_plugin_statistics extends serendipity_plugin
                     $min_ts = date('Hi', $min);
                     $q   = "SELECT count(counter_id) AS currentvisitors FROM {$serendipity['dbPrefix']}visitors WHERE day LIKE '" . date('Y-m-d') . "' AND (REPLACE(time, ':', '') BETWEEN $min_ts AND $max_ts)";
                 }
-                $res = serendipity_db_query($q, true, 'assoc');
-                if (is_array($res) && isset($res['currentvisitors'])) {
-                    $content .= '<div class="stat_currentvisitors">' . sprintf($this->get_config('text_currentvisitors'), '<span class="stat_number">' . $res['currentvisitors'] . '</span>') . "</div>\n";
+                try {
+                    $res = serendipity_db_query($q, true, 'assoc');
+                    if (is_array($res) && isset($res['currentvisitors'])) {
+                        $content .= '<div class="stat_currentvisitors">' . sprintf($this->get_config('text_currentvisitors'), '<span class="stat_number">' . $res['currentvisitors'] . '</span>') . "</div>\n";
+                    }
+                } catch (Exception $ex) {
                 }
             }
 

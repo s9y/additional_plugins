@@ -220,7 +220,8 @@ class serendipity_plugin_statistics extends serendipity_plugin
                     }
                 } catch (Exception $ex) {
                     // It is possible the visitor_count table does not exist. This will then throw an exception, but which one depends
-                    // on the used database. So we catch all possible Exceptions here. We can't really do anything with it regardless.
+                    // on the used database. So we catch all possible Exceptions here.
+                    $content .= '<div class="stat_monthvisitors">Missing data</div>';
                 }
             }
 
@@ -231,6 +232,7 @@ class serendipity_plugin_statistics extends serendipity_plugin
                         $content .= '<div class="stat_weekhvisitors">' . sprintf($this->get_config('text_weekvisitors'), '<span class="stat_number">' . $res['weekvisitors'] . '</span>') . "</div>\n";
                     }
                 } catch (Exception $ex) {
+                    $content .= '<div class="stat_weekhvisitors">Missing data</div>';
                 }
                 
             }
@@ -242,6 +244,7 @@ class serendipity_plugin_statistics extends serendipity_plugin
                         $content .= '<div class="stat_dayhvisitors">' . sprintf($this->get_config('text_dayvisitors'), '<span class="stat_number">' . $res['dayvisitors'] . '</span>') . "</div>\n";
                     }
                 } catch (Exception $ex) {
+                    $content .= '<div class="stat_dayhvisitors">Missing data</div>';
                 }
             }
 
@@ -268,6 +271,7 @@ class serendipity_plugin_statistics extends serendipity_plugin
                         $content .= '<div class="stat_currentvisitors">' . sprintf($this->get_config('text_currentvisitors'), '<span class="stat_number">' . $res['currentvisitors'] . '</span>') . "</div>\n";
                     }
                 } catch (Exception $ex) {
+                    $content .= '<div class="stat_currentvisitors">Missing data</div>';
                 }
             }
 

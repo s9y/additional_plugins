@@ -18,7 +18,7 @@ class serendipity_plugin_statistics extends serendipity_plugin
         $propbag->add('description',   PLUGIN_EVENT_STATISTICS_NAME);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Arnan de Gans, Garvin Hicking');
-        $propbag->add('version',       '1.6');
+        $propbag->add('version',       '1.6.1');
         $propbag->add('requirements',  array(
             'serendipity' => '1.7',
             'smarty'      => '2.6.7',

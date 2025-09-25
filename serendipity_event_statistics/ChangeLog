@@ -1,3 +1,4 @@
+1.6.1 (sidebar): Avoid fatal error when database table missing
 1.66.1: Fixed broken admin page with PHP8 when comments empty
 1.66: Fixed broken admin page with PHP8
 1.65: Added legal gdpr/dsgvo info

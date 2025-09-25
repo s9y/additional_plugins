@@ -16,7 +16,7 @@
 @define('PLUGIN_TIMEZONES_ZONE1_NAME',                  "First zone");
 @define('PLUGIN_TIMEZONES_ZONE1_NAME_BLABLAH',          "Shortname for the first timezone. (e.g. CET)");
 @define('PLUGIN_TIMEZONES_ZONE1_FORMAT',                "Format of the first timezone");
-@define('PLUGIN_TIMEZONES_ZONE1_FORMAT_BLABLAH',        "Formatstring passed to php, see http://pear.php.net/package/Date/docs/1.4.5/apidoc/Date/Date.html#methodformat or http://uk2.php.net/date (if PEAR is not Available)");
+@define('PLUGIN_TIMEZONES_ZONE1_FORMAT_BLABLAH',        "Formatstring passed to php, see https://www.php.net/manual/en/datetime.format.php#refsect1-datetime.format-parameters");
 
 @define('PLUGIN_TIMEZONES_TIMESHIFT1',                  "First Timeshift");
 @define('PLUGIN_TIMEZONES_TIMESHIFT1_BLABLAH',          "The timeshift in SECONDS from local machine time(only used when PEAR::Date not available).");

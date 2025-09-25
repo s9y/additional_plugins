@@ -840,9 +840,9 @@
 <description>Статистика</description>
 <maintainers><maintainer><name>Arnan de Gans, Garvin Hicking</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.6</version>
+  <version>1.6.1</version>
   <requirements:s9yVersion>1.7</requirements:s9yVersion>
-  <date>2015-01-26</date>
+  <date>2025-09-26</date>
   <filelist>
 <dir name="serendipity_event_statistics">
 <dir name="UTF-8">
@@ -2954,9 +2954,9 @@
 <description>Показва времето в две времеви зони</description>
 <maintainers><maintainer><name>Christoph Eunicke &lt;s9y-plugin@eunicke.org&gt;</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>0.6.1</version>
+  <version>1.0</version>
   <requirements:s9yVersion>0.9</requirements:s9yVersion>
-  <date>2021-07-13</date>
+  <date>2025-09-26</date>
   <filelist>
 <dir name="serendipity_plugin_timezones">
 <dir name="UTF-8">

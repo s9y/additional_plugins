@@ -8662,9 +8662,9 @@
 <description>Show social share buttons for services like Facebook and Mastodon.</description>
 <maintainers><maintainer><name>onli, Matthias Mees, Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.0</version>
+  <version>1.1</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2025-02-05</date>
+  <date>2025-09-26</date>
   <filelist>
 <dir name="serendipity_event_social">
 <dir name="UTF-8">

@@ -1,3 +1,7 @@
+1.1
+    * Replaced Threema icon with a custom icon that resembles the original
+      but properly adapts to the color modes
+
 1.0
     * Replace shariff buttons with plain HTML links, removing the need for
       JavaScript and a shariff backend

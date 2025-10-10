@@ -1,0 +1,11 @@
+0.2.3:
+    * Add Readme as documentation to the serendipity backend
+
+0.2.2:
+    * Fix json being invalid if review item name had quotes
+
+0.2.1:
+    * Fix warning in preview when using PHP 8
+
+0.2:
+    * Add option to set review schema markup in combination with the extended property plugin

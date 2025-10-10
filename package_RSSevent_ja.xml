@@ -918,7 +918,7 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <category>Event Plugins</category>
 <author>onli, Matthias Mees, Thomas Hochstein</author>
 <content:encoded>&lt;b&gt;serendipity_event_social&lt;br /&gt;Share Buttons&lt;/b&gt;&lt;br /&gt;Show social share buttons for services like Facebook and Mastodon.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Fri, 26 Sep 2025 00:30:27 +0200</pubDate>
+<pubDate>Sat, 11 Oct 2025 00:30:29 +0200</pubDate>
 <guid isPermaLink="false">serendipity_event_social</guid>
 </item>
 <item>
@@ -1226,6 +1226,15 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <content:encoded>&lt;b&gt;serendipity_event_lazyoutube&lt;br /&gt;Markup: Lazy YouTube Embeds&lt;/b&gt;&lt;br /&gt;Transform YouTube embeds to load on click&lt;br/&gt;For: Serendipity 2.0</content:encoded>
 <pubDate>Sun, 16 Mar 2025 00:30:23 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_lazyoutube</guid>
+</item>
+<item>
+<title>Schema.org Markup: Add schema.org markup to entries to enable rich result display on Google.</title>
+<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_schema</link>
+<category>Event Plugins</category>
+<author>Malte Paskuda</author>
+<content:encoded>&lt;b&gt;serendipity_event_schema&lt;br /&gt;Schema.org Markup&lt;/b&gt;&lt;br /&gt;Add schema.org markup to entries to enable rich result display on Google.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
+<pubDate>Sat, 11 Oct 2025 00:30:29 +0200</pubDate>
+<guid isPermaLink="false">serendipity_event_schema</guid>
 </item>
 </channel>
 </rss>

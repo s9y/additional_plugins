@@ -16,7 +16,7 @@ class serendipity_event_social extends serendipity_event {
         $propbag->add('description',   PLUGIN_EVENT_SOCIAL_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'onli, Matthias Mees, Thomas Hochstein');
-        $propbag->add('version',       '1.1');
+        $propbag->add('version',       '1.2');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0'
         ));
@@ -65,7 +65,7 @@ class serendipity_event_social extends serendipity_event {
                 $propbag->add('name',           PLUGIN_EVENT_SOCIAL_SERVICES);
                 $propbag->add('description',    PLUGIN_EVENT_SOCIAL_SERVICES_DESC);
                 $propbag->add('default',        'twitter^facebook');
-                $propbag->add('select_values',  array('mastodon' => 'mastodon', 'bluesky' => 'bluesky', 'twitter' => 'X', 'facebook' => 'facebook', 'linkedin' => 'linkedin', 'pinterest' => 'pinterest', 'xing' => 'xing', 'whatsapp' => 'whatsapp', 'mail' => 'mail', 'tumblr' => 'tumblr', 'diaspora' => 'diaspora', 'reddit' => 'reddit', 'threema' => 'threema', 'weibo' => 'weibo', 'qzone' => 'qzone', 'telegram' => 'telegram', 'vk' => 'vk', 'flipboard' => 'flipboard', 'buffer' => 'buffer', 'pocket' => 'pocket'));
+                $propbag->add('select_values',  array('mastodon' => 'mastodon', 'bluesky' => 'bluesky', 'twitter' => 'X', 'facebook' => 'facebook', 'linkedin' => 'linkedin', 'pinterest' => 'pinterest', 'xing' => 'xing', 'whatsapp' => 'whatsapp', 'mail' => 'mail', 'tumblr' => 'tumblr', 'diaspora' => 'diaspora', 'reddit' => 'reddit', 'threema' => 'threema', 'weibo' => 'weibo', 'qzone' => 'qzone', 'telegram' => 'telegram', 'vk' => 'vk', 'flipboard' => 'flipboard', 'buffer' => 'buffer'));
                 break;
             case 'theme':
                 $propbag->add('type',           'select');

@@ -1,3 +1,10 @@
+1.6:
+----
+ * Set 'blog.bl.zonecheck.org,sbl-xbl.spamhaus.org' as default blacklists. 'list.blogspambl.com'
+   does not exist anymore.
+ * Replace the Net/DNSBL requirement with a custom DNS check. This ought to make the plugin more
+   resilient against PHP upgrade changes, since Net/DNSBL is not maintained anymore.
+
 1.5.2:
 ------
 Hotfixes for PHP 8 (surrim)

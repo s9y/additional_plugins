@@ -25,7 +25,7 @@ class serendipity_event_spamblock_rbl extends serendipity_event
             'serendipity' => '1.2',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.5.2');
+        $propbag->add('version',       '1.5.3');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true
         ));
@@ -67,8 +67,7 @@ class serendipity_event_spamblock_rbl extends serendipity_event
                 $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_RBLLIST);
                 $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_RBLLIST_DESC);
                 // old - as not good for comment spam (indigoxela)
-                // $propbag->add('default', 'sbl-xbl.spamhaus.org, bl.spamcop.net');
-                $propbag->add('default', 'list.blogspambl.com');
+                $propbag->add('default', 'blog.bl.zonecheck.org,sbl-xbl.spamhaus.org');
                 break;
             case 'httpBL_key':
                 $propbag->add('type', 'string');
@@ -103,15 +102,30 @@ class serendipity_event_spamblock_rbl extends serendipity_event
                         }
 
                         // Check for IP listed in RBL
-                        require_once (defined('S9Y_PEAR_PATH') ? S9Y_PEAR_PATH : 'bundled-libs/') . 'Net/DNSBL.php';
-                        $dnsbl = new Net_DNSBL();
                         $remoteIP = $_SERVER['REMOTE_ADDR'];
 
-                        $dnsbl->setBlacklists(explode(',', $this->get_config('rbllist')));
-                        if ($dnsbl->isListed($remoteIP)) {
+                        $rev = null;
+                        if (filter_var($remoteIP, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+                            $rev = implode('.', array_reverse(explode('.', $remoteIP)));
+                        } elseif (filter_var($remoteIP, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+                            $expanded = inet_ntop(inet_pton($remoteIP));
+                            $rev = implode('.', array_reverse(str_split(str_replace(':', '', bin2hex(inet_pton($expanded))))));
+                        }
+                        
+                        $listed = false;
+                        if ($rev) {
+                            $blacklists = explode(',', $this->get_config('rbllist', 'blog.bl.zonecheck.org,sbl-xbl.spamhaus.org'));
+                            foreach ($blacklists as $bl) {
+                                $check = "$rev.$bl";
+                                if ($check != gethostbyname($check)) {
+                                    $listed = true;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if ($listed) {
                             $eventData = array('allow_comments' => false);
-                            // old - but missing $dnsbl->getTxt() function in delivered old DNSBL.php
-                            //$serendipity['messagestack']['comments'][] = PLUGIN_EVENT_SPAMBLOCK_ERROR_RBL . ' ('.implode(', ', $dnsbl->getTxt($remoteIP)).')';
                             $serendipity['messagestack']['comments'][] = PLUGIN_EVENT_SPAMBLOCK_ERROR_RBL . ' ('.$remoteIP.')';
                             return false;
                         }

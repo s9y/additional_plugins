@@ -25,7 +25,7 @@ class serendipity_event_spamblock_rbl extends serendipity_event
             'serendipity' => '1.2',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.5.2');
+        $propbag->add('version',       '1.5.3');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true
         ));
@@ -67,8 +67,7 @@ class serendipity_event_spamblock_rbl extends serendipity_event
                 $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_RBLLIST);
                 $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_RBLLIST_DESC);
                 // old - as not good for comment spam (indigoxela)
-                // $propbag->add('default', 'sbl-xbl.spamhaus.org, bl.spamcop.net');
-                $propbag->add('default', 'list.blogspambl.com');
+                $propbag->add('default', 'bl.spamcop.net');
                 break;
             case 'httpBL_key':
                 $propbag->add('type', 'string');

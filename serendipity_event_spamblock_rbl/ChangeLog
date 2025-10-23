@@ -1,3 +1,7 @@
+1.5.3:
+------
+Return to bl.spamcop.net as default blacklist, since list.blogspambl.com does not exist anymore
+
 1.5.2:
 ------
 Hotfixes for PHP 8 (surrim)

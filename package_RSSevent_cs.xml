@@ -945,15 +945,6 @@
 <guid isPermaLink="false">serendipity_event_spamblock_rbl</guid>
 </item>
 <item>
-<title>Spam Protector (SURBL): Zamítne komentáře, které obsahují URL adresy z černé listiny.</title>
-<link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_spamblock_surbl</link>
-<category>Event Plugins</category>
-<author>Sebastian Nohn</author>
-<content:encoded>&lt;b&gt;serendipity_event_spamblock_surbl&lt;br /&gt;Spam Protector (SURBL)&lt;/b&gt;&lt;br /&gt;Zamítne komentáře, které obsahují URL adresy z černé listiny.&lt;br/&gt;For: Serendipity 0.8</content:encoded>
-<pubDate>Tue, 13 Jul 2021 00:30:32 +0200</pubDate>
-<guid isPermaLink="false">serendipity_event_spamblock_surbl</guid>
-</item>
-<item>
 <title>Kategorie na výchozí stránce: Umožňuje zobrazovat na výchozí stránce blogu příspěvky pouze z jedné kategorie</title>
 <link>https://github.com/s9y/additional_plugins/tree/master/serendipity_event_startcat</link>
 <category>Event Plugins</category>

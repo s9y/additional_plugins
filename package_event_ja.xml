@@ -4189,9 +4189,9 @@ s9yに十分なダウンロードマネージャーの能力を提供します�
 <description>Computer Language Color Syntax Highlighting. Tag usage: [geshi lang=lang_name [,ln={y|n}]]code snippet[/geshi]</description>
 <maintainers><maintainer><name>David Rolston</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.2.0</version>
+  <version>1.2.1</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2025-03-18</date>
+  <date>2025-11-02</date>
   <filelist>
 <dir name="serendipity_event_geshi">
 <dir name="UTF-8">

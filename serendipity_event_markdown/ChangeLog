@@ -1,3 +1,9 @@
+Version 1.33:
+=============
+Changes by mattsches
+
+- Upgrade michelf/php-markdown to 2.0.0
+
 Version 1.32:
 =============
 Changes by DLange and onli

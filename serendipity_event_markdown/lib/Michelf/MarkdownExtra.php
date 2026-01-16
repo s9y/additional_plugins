@@ -4,7 +4,7 @@
  *
  * @package   php-markdown
  * @author    Michel Fortin <michel.fortin@michelf.com>
- * @copyright 2004-2019 Michel Fortin <https://michelf.com/projects/php-markdown/>
+ * @copyright 2004-2022 Michel Fortin <https://michelf.com/projects/php-markdown/>
  * @copyright (Original Markdown) 2004-2006 John Gruber <https://daringfireball.net/projects/markdown/>
  */
 
@@ -601,6 +601,7 @@ class MarkdownExtra extends \Michelf\Markdown {
 			else {
 				$parsed .= $tag;
 			}
+			// @phpstan-ignore-next-line
 		} while ($depth >= 0);
 
 		return array($parsed, $text);
@@ -682,7 +683,7 @@ class MarkdownExtra extends \Michelf\Markdown {
 			// by the pattern.
 			$parts = preg_split($tag_re, $text, 2, PREG_SPLIT_DELIM_CAPTURE);
 
-			if (count($parts) < 3) {
+			if ($parts === false || count($parts) < 3) {
 				// End of $text reached with unbalenced tag(s).
 				// In that case, we return original text unchanged and pass the
 				// first character as filtered to prevent an infinite loop in the

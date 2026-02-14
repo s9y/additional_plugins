@@ -24,11 +24,10 @@
  		"psr-4": { "Michelf\\": "Michelf/" }
 	},
 	"require-dev": {
-		"phpspec/prophecy": "^1.6",
 		"friendsofphp/php-cs-fixer": "^3.0",
 		"phpunit/phpunit": "^9.5",
-		"phpstan/phpstan": "^1.0",
-		"phpstan/phpstan-phpunit": "^1.0"
+		"phpstan/phpstan": ">=1.0",
+		"phpstan/phpstan-phpunit": ">=1.0"
 	},
 
 	"scripts": {
@@ -39,6 +38,17 @@
 		],
 		"codestyle": "vendor/bin/php-cs-fixer fix Michelf --dry-run --verbose --show-progress=none",
 		"codestyle-fix": "vendor/bin/php-cs-fixer fix Michelf"
-	}
+	},
 
+	"archive": {
+		"exclude": [
+			"/.github/",
+			"/test/",
+			"/.editorconfig",
+			"/.gitignore",
+			"/.scrutinizer.yml",
+			"/.travis.yml",
+			"/phpunit.xml.dist"
+		]
+	}
 }

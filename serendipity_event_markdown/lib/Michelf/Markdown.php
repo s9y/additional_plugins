@@ -4,7 +4,7 @@
  *
  * @package   php-markdown
  * @author    Michel Fortin <michel.fortin@michelf.com>
- * @copyright 2004-2019 Michel Fortin <https://michelf.com/projects/php-markdown/>
+ * @copyright 2004-2022 Michel Fortin <https://michelf.com/projects/php-markdown/>
  * @copyright (Original Markdown) 2004-2006 John Gruber <https://daringfireball.net/projects/markdown/>
  */
 
@@ -18,7 +18,7 @@ class Markdown implements MarkdownInterface {
 	 * Define the package version
 	 * @var string
 	 */
-	const MARKDOWNLIB_VERSION = "2.0";
+	const MARKDOWNLIB_VERSION = "2.0.0";
 
 	/**
 	 * Simple function interface - Initialize the parser and return the result
@@ -29,7 +29,7 @@ class Markdown implements MarkdownInterface {
 	 * @param  string $text
 	 * @return string
 	 */
-	public static function defaultTransform($text) {
+	public static function defaultTransform(string $text): string {
 		// Take parser class on which this function was called.
 		$parser_class = static::class;
 
@@ -127,10 +127,10 @@ class Markdown implements MarkdownInterface {
 	 * Needed to insert a maximum bracked depth while converting to PHP.
 	 */
 	protected int $nested_brackets_depth = 6;
-	protected $nested_brackets_re;
+	protected string $nested_brackets_re;
 
 	protected int $nested_url_parenthesis_depth = 4;
-	protected $nested_url_parenthesis_re;
+	protected string $nested_url_parenthesis_re;
 
 	/**
 	 * Table of hash values for escaped characters:
@@ -167,7 +167,7 @@ class Markdown implements MarkdownInterface {
 	 * Internal hashes used during transformation.
 	 */
 	protected array $urls        = array();
-	protected $titles      = array();
+	protected array $titles      = array();
 	protected array $html_hashes = array();
 
 	/**
@@ -213,7 +213,7 @@ class Markdown implements MarkdownInterface {
 	 * @param  string $text
 	 * @return string
 	 */
-	public function transform($text) {
+	public function transform(string $text): string {
 		$this->setup();
 
 		# Remove UTF-8 BOM and marker character in input, if present.

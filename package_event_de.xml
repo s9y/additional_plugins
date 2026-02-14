@@ -6269,9 +6269,9 @@
 <description>Markdown-Textformatierung durchführen</description>
 <maintainers><maintainer><name>Serendipity Team, Jan Lehnardt and Thomas Hochstein</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>1.32</version>
+  <version>1.33</version>
   <requirements:s9yVersion>0.7</requirements:s9yVersion>
-  <date>2025-07-01</date>
+  <date>2026-02-15</date>
   <filelist>
 <dir name="serendipity_event_markdown">
 <dir name="UTF-8">
@@ -6289,8 +6289,6 @@
 <file>MarkdownExtra.php</file>
 <file>MarkdownInterface.inc.php</file>
 <file>MarkdownInterface.php</file>
-<file>SmartyPants.php</file>
-<file>SmartyPantsTypographer.php</file>
 </dir>
 <file>License.md</file>
 <file>Readme.md</file>
@@ -6329,8 +6327,6 @@
     <file>serendipity_event_markdown/lib/Michelf/MarkdownExtra.php</file>
     <file>serendipity_event_markdown/lib/Michelf/MarkdownInterface.inc.php</file>
     <file>serendipity_event_markdown/lib/Michelf/MarkdownInterface.php</file>
-    <file>serendipity_event_markdown/lib/Michelf/SmartyPants.php</file>
-    <file>serendipity_event_markdown/lib/Michelf/SmartyPantsTypographer.php</file>
     <file>serendipity_event_markdown/lib/License.md</file>
     <file>serendipity_event_markdown/lib/Readme.md</file>
     <file>serendipity_event_markdown/lib/Readme.php</file>

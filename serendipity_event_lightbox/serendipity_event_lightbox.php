@@ -9,7 +9,8 @@ if (IN_serendipity !== true) {
 
 // Subst Plugin for Serendipity
 // 01/2006 by Thomas Nesges <thomas@tnt-computer.de>
-// 12/2006  Andy Hopkins Added Greybox functionality. <andy.hopkins@gmail.com>
+// 12/2006 by Andy Hopkins - Added Greybox functionality <andy.hopkins@gmail.com>
+// 01/2026 by Jeremy Glastetter - Added PhotoSwipe (no jQuery dependency) <jmglastetter@live.com>
 class serendipity_event_lightbox extends serendipity_event
 {
 
@@ -25,8 +26,8 @@ class serendipity_event_lightbox extends serendipity_event
 
         $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_NAME);
         $propbag->add('description',    PLUGIN_EVENT_LIGHTBOX_DESC);
-        $propbag->add('author',         'Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian');
-        $propbag->add('version',        '2.7.0');
+        $propbag->add('author',         'Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian, Jeremy Glastetter');
+        $propbag->add('version',        '3.0.0');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'php'         => '5.3.0'
@@ -37,22 +38,10 @@ class serendipity_event_lightbox extends serendipity_event
         $propbag->add('cachable_events', array('frontend_display' => true));
 
         $this->markup_elements = array(
-            array(
-              'name'     => 'ENTRY_BODY',
-              'element'  => 'body',
-            ),
-            array(
-              'name'     => 'EXTENDED_BODY',
-              'element'  => 'extended',
-            ),
-            array(
-              'name'     => 'COMMENT',
-              'element'  => 'comment',
-            ),
-            array(
-              'name'     => 'HTML_NUGGET',
-              'element'  => 'html_nugget',
-            )
+            array('name' => 'ENTRY_BODY', 'element' => 'body'),
+            array('name' => 'EXTENDED_BODY', 'element' => 'extended'),
+            array('name' => 'COMMENT', 'element' => 'comment'),
+            array('name' => 'HTML_NUGGET', 'element' => 'html_nugget')
         );
 
         $conf_array   = array();
@@ -68,12 +57,10 @@ class serendipity_event_lightbox extends serendipity_event
         $propbag->add('configuration', $conf_array);
     }
 
-
     function generate_content(&$title)
     {
         $title = PLUGIN_EVENT_LIGHTBOX_NAME;
     }
-
 
     function introspect_config_item($name, &$propbag)
     {
@@ -92,8 +79,8 @@ class serendipity_event_lightbox extends serendipity_event
                 $propbag->add('type',           'select');
                 $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_TYPE);
                 $propbag->add('description',    '');
-                $propbag->add('select_values',  array('colorbox' => 'ColorBox', 'lightbox2jq' => 'Lightbox 2 jQuery', 'magnific' => 'Magnific-Popup'));
-                $propbag->add('default',        'lightbox2jq');
+                $propbag->add('select_values',  array('photoswipe' => 'PhotoSwipe (No jQuery)', 'colorbox' => 'ColorBox', 'lightbox2jq' => 'Lightbox 2 jQuery', 'magnific' => 'Magnific-Popup'));
+                $propbag->add('default',        'photoswipe');
                 break;
 
             case 'path':
@@ -123,7 +110,6 @@ class serendipity_event_lightbox extends serendipity_event
                 $propbag->add('description',    sprintf(APPLY_MARKUP_TO, defined($name) ? constant($name) : $name));
                 $propbag->add('default',        'true');
                 break;
-
         }
         return true;
     }
@@ -154,7 +140,10 @@ class serendipity_event_lightbox extends serendipity_event
             }
 
             if ($regex == null) {
-                if ($type == 'lightbox2jq') {
+                if ($type == 'photoswipe') {
+                    $regex = '/<a([^>]+)href=(["\'])([^"\']+\.(?:jpe?g|gif|png))(["\'])/i';
+                    $sub   = '<a$1href=$2$3$4 data-pswp-src=$2$3$4 class="pswp-enabled"';
+                } elseif ($type == 'lightbox2jq') {
                     $regex = '/<a([^>]+)(href=(["\'])[^"\']*\.(jpe?g|gif|png)["\'])/i';
                     $sub   = '<a $1 rel=$3lightbox$3 $2';
                 } elseif ($type == 'colorbox') {
@@ -163,12 +152,6 @@ class serendipity_event_lightbox extends serendipity_event
                 } elseif ($type == 'magnific') {
                     $regex = '/<a([^>]+)(href=(["\'])[^"\']*\.(jpe?g|gif|png)["\'])/i';
                     $sub   = '<a rel=$3onemagnificPopup$3 $1 $2';
-                }// do not use 'class' here as identifier, whenever possible, since this conflicts/not validates with $1 'class'es
-                else { // force new lib to prevent empty regular expression errors in preg_replace()
-                    $type  = 'lightbox2jq';
-                    $this->set_config('type', $type);
-                    $regex = '/<a([^>]+)(href=(["\'])[^"\']*\.(jpe?g|gif|png)["\'])/i';
-                    $sub   = '<a $1 rel=$3lightbox$3 $2';
                 }
             }
 
@@ -177,17 +160,106 @@ class serendipity_event_lightbox extends serendipity_event
                 case 'frontend_header':
                     $headcss = true;
                 case 'frontend_footer':
-                    // case plugin imagesidebar on eg staticpages. We need the libs then!
                     $check_imagesidebar = serendipity_plugin_api::enum_plugins('*', false, 'serendipity_plugin_imagesidebar');
                     $cisb = (is_array($check_imagesidebar) && $check_imagesidebar[0]['placement'] != 'hide') ? $check_imagesidebar : null;
 
-                    // If no imagelink was processed, don't add css or js files to the header or footer! (configurable plugin option)
                     if (true === (serendipity_db_bool($this->get_config('header_optimization', 'false')) && $this->foundImageLink === false && empty($cisb))) {
                         break;
                     }
                     echo "\n";
-                    // ColorBox code (https://github.com/jackmoore/colorbox) - init with :visible to ensure to not show hidden elements via hideafter function in imageselectorplus ranges
-                    if ($type == 'colorbox') {
+                    
+                    if ($type == 'photoswipe') {
+                        if (isset($headcss) && $headcss) {
+                            echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/photoswipe/photoswipe.css" />' . "\n";
+                            echo '    <style type="text/css">
+                                .pswp { --pswp-icon-color: #fff; }
+                                /* NEW: Prevent stretching, add corners, and force high-res visibility */
+                                .pswp__img { object-fit: contain !important; border-radius: 1rem !important; }
+                                /* NEW: Force high contrast on UI buttons and counter */
+                                .pswp__button, .pswp__counter { opacity: 1 !important; color: #fff !important; }
+                                .pswp__icn-shadow { display: none !important; }
+                                /* NEW: Wide-format caption bar styles */
+                                .pswp__custom-caption {
+                                    background: rgba(0, 0, 0, 0.75);
+                                    color: #fff;
+                                    font-size: 16px;
+                                    line-height: 1.5;
+                                    text-align: center;
+                                    position: absolute;
+                                    left: 50%;
+                                    bottom: 20px; 
+                                    transform: translateX(-50%);
+                                    z-index: 1000;
+                                    width: 90%; 
+                                    max-width: 900px;
+                                    padding: 12px 20px;
+                                    border-radius: 10px;
+                                    box-sizing: border-box;
+                                }
+                                .pswp__custom-caption:empty { display: none; }
+                            </style>' . "\n";
+                        } else {
+                            echo '
+<script type="module">
+import PhotoSwipeLightbox from "' . $pluginDir . '/photoswipe/photoswipe-lightbox.esm.js";
+import PhotoSwipe from "' . $pluginDir . '/photoswipe/photoswipe.esm.js";
+
+const lightbox = new PhotoSwipeLightbox({
+    gallery: "body",
+    children: "a.pswp-enabled",
+    pswpModule: PhotoSwipe,
+    // NEW: Extra bottom padding to keep image clear of the caption bar
+    padding: { top: 20, bottom: 100, left: 20, right: 20 }
+});
+
+lightbox.addFilter("itemData", (itemData) => {
+    const linkEl = itemData.element;
+    if (linkEl) {
+        itemData.src = linkEl.getAttribute("href");
+        itemData.title = linkEl.getAttribute("title");
+        // NEW: Detect thumbnail aspect ratio to prevent jumpy opening animations
+        const imgEl = linkEl.querySelector("img");
+        if (imgEl && imgEl.naturalWidth) {
+            const ratio = imgEl.naturalWidth / imgEl.naturalHeight;
+            itemData.w = 1200; 
+            itemData.h = 1200 / ratio; 
+        }
+    }
+    return itemData;
+});
+
+// NEW: Dynamically update true dimensions once the full image has loaded
+lightbox.on("gettingData", (e) => {
+    const { data } = e;
+    const img = new Image();
+    img.onload = () => {
+        data.w = img.naturalWidth;
+        data.h = img.naturalHeight;
+        if (lightbox.pswp) lightbox.pswp.currSlide.updateSize(true);
+    };
+    img.src = data.src;
+});
+
+// NEW: Register the custom caption element to the Root interface layer
+lightbox.on("uiRegister", function() {
+    lightbox.pswp.ui.registerElement({
+        name: "custom-caption",
+        order: 9,
+        tagName: "div",
+        appendTo: "root", 
+        onInit: (el, pswp) => {
+            pswp.on("change", () => {
+                const curr = pswp.currSlide;
+                el.innerHTML = curr.data.element ? curr.data.element.getAttribute("title") : "";
+            });
+        }
+    });
+});
+lightbox.init();
+</script>' . "\n";
+                        }
+                    }
+                    elseif ($type == 'colorbox') {
                         if (isset($headcss) && $headcss) {
                             echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/colorbox/colorboxScreens.css" />' . "\n";
                             echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/colorbox/colorbox.css" />' . "\n";
@@ -196,17 +268,14 @@ class serendipity_event_lightbox extends serendipity_event
                             echo '    <script type="text/javascript" src="' . $pluginDir . '/colorbox/jquery.colorbox.init.js" charset="utf-8"></script>' . "\n";
                         }
                     }
-                    // LightBox2 jQuery based - http://lokeshdhakar.com/projects/lightbox2/ - this lightbox does not allow to show :visible anchors only - it shows and counts all gallery images, if set to view galleries
                     elseif ($type == 'lightbox2jq') {
                             if (isset($headcss) && $headcss) {
                                 echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/lightbox2-jquery/css/lightbox.css" />' . "\n";
                             } else {
-                            // remove anchors possible onclick handler
                             echo '    <script type="text/javascript"> jQuery(document).ready(function(){ jQuery(\'a[rel^="lightbox"]\').removeAttr("onclick"); }); </script>' . "\n";
                             echo '    <script type="text/javascript" src="' . $pluginDir . '/lightbox2-jquery/js/lightbox.min.js" charset="utf-8"></script>' . "\n";
                         }
                     }
-                    // Magnific-Popup code (https://github.com/dimsemenov/Magnific-Popup) - init with :visible to ensure to not show hidden elements via hideafter function in imageselectorplus ranges
                     elseif ($type == 'magnific') {
                         if (isset($headcss) && $headcss) {
                             echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/magnific-popup/magnific-popup.css" />' . "\n";
@@ -218,43 +287,28 @@ class serendipity_event_lightbox extends serendipity_event
                     break;
 
                 case 'css':
-                    // prepend css in this case only! since the scripts rely on this... I think ... (that is why it was added with fixchrome.css before!)
                     echo '
-
 /* serendipity_event_lightbox start */
-
-/* Fix for Safari and Chrome */
-.serendipity_image_link {
-    display: block;
+.serendipity_image_link, .pswp-enabled {
+    display: inline-block;
 }
-
 /* serendipity_event_lightbox end */
-
 ';
                     break;
 
                 case 'frontend_display':
-                    if (!isset($eventData['id'])) {
-                        $eventData['id'] = 0; // TODO: PHP8 hotfix; id is not always set
-                    }
-                    if ($type == 'lightbox2jq') {
-                        if ($navigate == 'entry') {
-                            $sub   = '<a $1 rel=$3lightbox[' . $eventData['id'] . ']$3 $2';
-                        } elseif ($navigate == 'page') {
-                            $sub   = '<a $1 rel=$3lightbox[]$3 $2';
-                        }
+                    if (!isset($eventData['id'])) { $eventData['id'] = 0; }
+                    if ($type == 'photoswipe') {
+                        $sub = '<a$1href=$2$3$4 data-pswp-src=$2$3$4 class="pswp-enabled"';
+                    } elseif ($type == 'lightbox2jq') {
+                        if ($navigate == 'entry') { $sub = '<a $1 rel=$3lightbox[' . $eventData['id'] . ']$3 $2'; } 
+                        elseif ($navigate == 'page') { $sub = '<a $1 rel=$3lightbox[]$3 $2'; }
                     } elseif ($type == 'colorbox') {
-                        if ($navigate == 'entry') {
-                            $sub   = '<a rel=$3colorbox[' . $eventData['id'] . ']$3 $1 $2';
-                        } elseif ($navigate == 'page') {
-                            $sub   = '<a rel=$3colorbox[]$3 $1 $2';
-                        }
+                        if ($navigate == 'entry') { $sub = '<a rel=$3colorbox[' . $eventData['id'] . ']$3 $1 $2'; } 
+                        elseif ($navigate == 'page') { $sub = '<a rel=$3colorbox[]$3 $1 $2'; }
                     } elseif ($type == 'magnific') {
-                        if ($navigate == 'entry') {
-                            $sub   = '<a rel=$3magnificPopup[' . $eventData['id'] . ']$3 $1 $2';
-                        } elseif ($navigate == 'page') {
-                            $sub   = '<a rel=$3magnificPopup[]$3 $1 $2';
-                        }
+                        if ($navigate == 'entry') { $sub = '<a rel=$3magnificPopup[' . $eventData['id'] . ']$3 $1 $2'; } 
+                        elseif ($navigate == 'page') { $sub = '<a rel=$3magnificPopup[]$3 $1 $2'; }
                     }
 
                     foreach ($this->markup_elements as $temp) {
@@ -262,21 +316,15 @@ class serendipity_event_lightbox extends serendipity_event
                                 !(isset($eventData['properties']['ep_disable_markup_' . $this->instance]) && $eventData['properties']['ep_disable_markup_' . $this->instance]) &&
                                 !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
                             $element = $temp['element'];
-
                             $replacement_count = 0;
                             $eventData[$element] = preg_replace($regex, $sub, $eventData[$element], -1,  $replacement_count);
-
-                            // Remember if an image link was found
-                            if ($replacement_count > 0) {
-                                $this->foundImageLink = true;
-                            }
+                            if ($replacement_count > 0) { $this->foundImageLink = true; }
                         }
                     }
                     break;
 
                 default:
                     return false;
-
             }
             return true;
         } else {
@@ -284,78 +332,9 @@ class serendipity_event_lightbox extends serendipity_event
         }
     }
 
-    function install()
-    {
-        serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
-    }
-
-    function uninstall(&$propbag)
-    {
-        serendipity_plugin_api::hook_event('backend_cache_purge', $this->title);
-        serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
-    }
-
-    function example()
-    {
-        // remove old lightbox script directory
-        if (is_file(dirname(__FILE__) . '/lightbox/lightbox.js')) {
-            $this->empty_dir(dirname(__FILE__) . '/lightbox');
-            @rmdir(dirname(__FILE__) . '/lightbox');
-        }
-        // remove old lightbox2 script directory
-        if (is_file(dirname(__FILE__) . '/lightbox2/lightbox2.js')) {
-            $this->empty_dir(dirname(__FILE__) . '/lightbox2');
-            @rmdir(dirname(__FILE__) . '/lightbox2');
-        }
-        // remove old lightbox plus script directory
-        if (is_file(dirname(__FILE__) . '/lightbox_plus/lightbox_plus.js')) {
-            $this->empty_dir(dirname(__FILE__) . '/lightbox_plus');
-            @rmdir(dirname(__FILE__) . '/lightbox_plus');
-        }
-        // remove old thickbox script directory
-        if (is_file(dirname(__FILE__) . '/thickbox/thickbox.js')) {
-            $this->empty_dir(dirname(__FILE__) . '/thickbox');
-            @rmdir(dirname(__FILE__) . '/thickbox');
-        }
-        // remove old graybox script directory
-        if (is_file(dirname(__FILE__) . '/graybox/gb_scripts.js')) {
-            $this->empty_dir(dirname(__FILE__) . '/graybox');
-            @rmdir(dirname(__FILE__) . '/graybox');
-            @unlink(dirname(__FILE__) . '/graycode_samples.txt');
-        }
-        // remove old greybox script directory
-        if (is_file(dirname(__FILE__) . '/greybox/gb_scripts.js')) {
-            $this->empty_dir(dirname(__FILE__) . '/greybox');
-            @rmdir(dirname(__FILE__) . '/greybox');
-        }
-    }
-
-    /**
-     * empty a directory using the Standard PHP Library (SPL) iterator
-     * @access    private
-     * @param   string directory
-     */
-    private function empty_dir($dir)
-    {
-        if (!is_dir($dir)) return;
-        try {
-            $_dir = new RecursiveDirectoryIterator($dir);
-            // NOTE: UnexpectedValueException thrown for PHP >= 5.3
-            } catch (Exception $e) {
-                return;
-            }
-        $iterator = new RecursiveIteratorIterator($_dir, RecursiveIteratorIterator::CHILD_FIRST);
-        //$iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir), RecursiveIteratorIterator::CHILD_FIRST);
-        foreach ($iterator as $file) {
-            if ($file->isFile()) {
-                @unlink($file->__toString());
-            } else {
-                @rmdir($file->__toString());
-            }
-        }
-        @rmdir(dir);
-    }
-
+    function install() { serendipity_plugin_api::hook_event('backend_cache_entries', $this->title); }
+    function uninstall(&$propbag) { serendipity_plugin_api::hook_event('backend_cache_purge', $this->title); }
+    function example() {}
+    private function empty_dir($dir) {}
 }
-
 ?>

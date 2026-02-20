@@ -67,7 +67,7 @@ class serendipity_event_freetag extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '7.0'
         ));
-        $propbag->add('version',       '4.0');
+        $propbag->add('version',       '4.1');
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
             'frontend_fetchentry'                               => true,
@@ -415,9 +415,10 @@ class serendipity_event_freetag extends serendipity_event
             $tags[$idx] = serendipity_db_escape_string($tag);
         }
 
-        $q = "SELECT DISTINCT e1.entryid,
+        $q = "SELECT e1.entryid,
                      e2.title,
-                     e2.timestamp
+                     e2.timestamp,
+                     COUNT(e2.title) AS shared_tags
                 FROM {$serendipity['dbPrefix']}entrytags AS e1
            LEFT JOIN {$serendipity['dbPrefix']}entries   AS e2
                   ON e1.entryid = e2.id
@@ -425,7 +426,8 @@ class serendipity_event_freetag extends serendipity_event
                  AND e1.entryid != " . (int)$postID . "
                  AND e2.isdraft = 'false'
                      " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? " AND e2.timestamp <= " . time() : '') . "
-            ORDER BY  e2.timestamp DESC
+            GROUP BY e2.id 
+            ORDER BY  shared_tags DESC, e2.timestamp DESC
                LIMIT " . $this->get_config('show_related_count', 10);
 
         $result = serendipity_db_query($q, false, 'assoc', false, 'entryid', 'title');

@@ -418,7 +418,7 @@ class serendipity_event_freetag extends serendipity_event
         $q = "SELECT e1.entryid,
                      e2.title,
                      e2.timestamp,
-                     COUNT(e2.title) AS shared_tags
+                     COUNT(e2.id) AS shared_tags
                 FROM {$serendipity['dbPrefix']}entrytags AS e1
            LEFT JOIN {$serendipity['dbPrefix']}entries   AS e2
                   ON e1.entryid = e2.id
@@ -426,7 +426,7 @@ class serendipity_event_freetag extends serendipity_event
                  AND e1.entryid != " . (int)$postID . "
                  AND e2.isdraft = 'false'
                      " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? " AND e2.timestamp <= " . time() : '') . "
-            GROUP BY e2.id 
+            GROUP BY e2.id, e1.entryid, e2.title, e2.timestamp
             ORDER BY  shared_tags DESC, e2.timestamp DESC
                LIMIT " . $this->get_config('show_related_count', 10);
 

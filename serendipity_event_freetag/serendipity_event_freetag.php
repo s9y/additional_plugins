@@ -426,7 +426,7 @@ class serendipity_event_freetag extends serendipity_event
                  AND e1.entryid != " . (int)$postID . "
                  AND e2.isdraft = 'false'
                      " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? " AND e2.timestamp <= " . time() : '') . "
-            GROUP BY e2.id, e1.entryid, e2.title, e2.timestamp
+            GROUP BY e1.entryid, e2.title, e2.timestamp
             ORDER BY  shared_tags DESC, e2.timestamp DESC
                LIMIT " . $this->get_config('show_related_count', 10);
 

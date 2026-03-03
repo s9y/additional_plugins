@@ -1,3 +1,5 @@
+4.1: Match related entries by amount of shared tags
+
 4.0:
       * Avoid more warnings under PHP 8.x
       * Drop outdated option to create a technorati link

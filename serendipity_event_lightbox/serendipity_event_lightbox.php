@@ -138,16 +138,16 @@ class serendipity_event_lightbox extends serendipity_event
 
             if ($regex == null) {
                 if ($type == 'photoswipe') {
-                    $regex = '/<a([^>]+)href=(["\'])([^"\']+\.(?:jpe?g|gif|png))(["\'])/i';
-                    $sub   = '<a$1href=$2$3$4 data-pswp-src=$2$3$4 class="pswp-enabled"';
+                    $regex = '/<a([^>]+)href=(["\'])([^"\']+\.(?:jpe?g|gif|png|webp|avif))(["\'])/i';
+                    $sub   = '<a$1href=$2$3$4 data-pswp-src=$2$3$4 rel="pswp-enabled"';
                 } elseif ($type == 'lightbox2jq') {
-                    $regex = '/<a([^>]+)(href=(["\'])[^"\']*\.(jpe?g|gif|png)["\'])/i';
+                    $regex = '/<a([^>]+)(href=(["\'])[^"\']*\.(jpe?g|gif|png|webp|avif)["\'])/i';
                     $sub   = '<a $1 rel=$3lightbox$3 $2';
                 } elseif ($type == 'colorbox') {
-                    $regex = '/<a([^>]+)(href=(["\'])[^"\']*\.(jpe?g|gif|png)["\'])/i';
+                    $regex = '/<a([^>]+)(href=(["\'])[^"\']*\.(jpe?g|gif|png|webp|avif)["\'])/i';
                     $sub   = '<a $1 rel=$3singlebox$3 $2';
                 } elseif ($type == 'magnific') {
-                    $regex = '/<a([^>]+)(href=(["\'])[^"\']*\.(jpe?g|gif|png)["\'])/i';
+                    $regex = '/<a([^>]+)(href=(["\'])[^"\']*\.(jpe?g|gif|png|webp|avif)["\'])/i';
                     $sub   = '<a rel=$3onemagnificPopup$3 $1 $2';
                 }
             }
@@ -203,7 +203,7 @@ import PhotoSwipe from "' . $pluginDir . '/photoswipe/photoswipe.esm.js";
 
 const lightbox = new PhotoSwipeLightbox({
     gallery: "body",
-    children: "a.pswp-enabled",
+    children: "a[rel=\"pswp-enabled\"]",
     pswpModule: PhotoSwipe,
     // NEW: Extra bottom padding to keep image clear of the caption bar
     padding: { top: 20, bottom: 100, left: 20, right: 20 }
@@ -232,7 +232,9 @@ lightbox.on("gettingData", (e) => {
     img.onload = () => {
         data.w = img.naturalWidth;
         data.h = img.naturalHeight;
-        if (lightbox.pswp) lightbox.pswp.currSlide.updateSize(true);
+        if (lightbox.pswp) {
+            lightbox.pswp.updateSize(true);
+        }
     };
     img.src = data.src;
 });
@@ -286,7 +288,7 @@ lightbox.init();
                 case 'css':
                     echo '
 /* serendipity_event_lightbox start */
-.serendipity_image_link, .pswp-enabled {
+.serendipity_image_link, a[rel="pswp-enabled"] {
     display: inline-block;
 }
 /* serendipity_event_lightbox end */
@@ -296,7 +298,7 @@ lightbox.init();
                 case 'frontend_display':
                     if (!isset($eventData['id'])) { $eventData['id'] = 0; }
                     if ($type == 'photoswipe') {
-                        $sub = '<a$1href=$2$3$4 data-pswp-src=$2$3$4 class="pswp-enabled"';
+                        $sub = '<a$1href=$2$3$4 data-pswp-src=$2$3$4 rel="pswp-enabled"';
                     } elseif ($type == 'lightbox2jq') {
                         if ($navigate == 'entry') { $sub = '<a $1 rel=$3lightbox[' . $eventData['id'] . ']$3 $2'; } 
                         elseif ($navigate == 'page') { $sub = '<a $1 rel=$3lightbox[]$3 $2'; }

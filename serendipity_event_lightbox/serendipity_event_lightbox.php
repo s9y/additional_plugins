@@ -8,9 +8,6 @@ if (IN_serendipity !== true) {
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
 // Subst Plugin for Serendipity
-// 01/2006 by Thomas Nesges <thomas@tnt-computer.de>
-// 12/2006 by Andy Hopkins - Added Greybox functionality <andy.hopkins@gmail.com>
-// 01/2026 by Jeremy Glastetter - Added PhotoSwipe (no jQuery dependency) <jmglastetter@live.com>
 class serendipity_event_lightbox extends serendipity_event
 {
 

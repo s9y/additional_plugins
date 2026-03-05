@@ -345,7 +345,9 @@ lightbox.init();
                                 !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
                             $element = $temp['element'];
                             $replacement_count = 0;
-                            $eventData[$element] = preg_replace($regex, $sub, $eventData[$element], -1,  $replacement_count);
+                            if ($regex) {
+                                $eventData[$element] = preg_replace($regex, $sub, $eventData[$element], -1,  $replacement_count);
+                            }
                             // Remember if an image link was found
                             if ($replacement_count > 0) {
                                 $this->foundImageLink = true;

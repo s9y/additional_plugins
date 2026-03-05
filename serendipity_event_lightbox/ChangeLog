@@ -1,3 +1,11 @@
+3.0.0:
+    * Add PhotoSwipe as (new default) lightbox option, for a nicer
+      looking lightbox that allows swiping through galleries (thanks to
+      Jeremy Glastetter)
+    * Restored formerly defunct 'Initial JavaScript configuration object'
+      config option, now used to enable configuration of PhotoSwipe
+------------------------------------------------------------------------
+
 2.7.0:
     * Remove prettyPhoto option, as the script was abandoned
     * Drop bundled jQuery, rely on s9y 2.0 offering it

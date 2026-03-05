@@ -201,9 +201,20 @@ class serendipity_event_lightbox extends serendipity_event
 import PhotoSwipeLightbox from "' . $pluginDir . '/photoswipe/photoswipe-lightbox.esm.js";
 import PhotoSwipe from "' . $pluginDir . '/photoswipe/photoswipe.esm.js";
 
-const lightbox = new PhotoSwipeLightbox({
-    gallery: "body",
-    children: "a[rel=\"pswp-enabled\"]",
+const lightbox = new PhotoSwipeLightbox({';
+switch ($navigate) {
+    case 'page':
+        echo  'gallery: "body",
+        children: "a[rel=\"pswp-enabled\"]",';
+        break;
+    case 'entry':
+        echo  'gallery: ".serendipity_entry",
+        children: "a[rel=\"pswp-enabled\"]",';
+        break;
+    default:
+        echo 'gallery: "a[rel=\"pswp-enabled\"]",';
+}
+echo '
     pswpModule: PhotoSwipe,
     // NEW: Extra bottom padding to keep image clear of the caption bar
     padding: { top: 20, bottom: 100, left: 20, right: 20 }

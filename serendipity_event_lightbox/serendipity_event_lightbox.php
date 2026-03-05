@@ -76,7 +76,7 @@ class serendipity_event_lightbox extends serendipity_event
                 $propbag->add('type',           'select');
                 $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_TYPE);
                 $propbag->add('description',    '');
-                $propbag->add('select_values',  array('photoswipe' => 'PhotoSwipe (No jQuery)', 'colorbox' => 'ColorBox', 'lightbox2jq' => 'Lightbox 2 jQuery', 'magnific' => 'Magnific-Popup'));
+                $propbag->add('select_values',  array('photoswipe' => 'PhotoSwipe', 'colorbox' => 'ColorBox', 'lightbox2jq' => 'Lightbox 2 jQuery', 'magnific' => 'Magnific-Popup'));
                 $propbag->add('default',        'photoswipe');
                 break;
 
@@ -149,7 +149,7 @@ class serendipity_event_lightbox extends serendipity_event
                 } elseif ($type == 'magnific') {
                     $regex = '/<a([^>]+)(href=(["\'])[^"\']*\.(jpe?g|gif|png|webp|avif)["\'])/i';
                     $sub   = '<a rel=$3onemagnificPopup$3 $1 $2';
-                }
+                }// do not use 'class' here as identifier, whenever possible, since this conflicts/not validates with $1 'class'es
             }
 
             switch($event) {
@@ -157,9 +157,11 @@ class serendipity_event_lightbox extends serendipity_event
                 case 'frontend_header':
                     $headcss = true;
                 case 'frontend_footer':
+                    // case plugin imagesidebar on eg staticpages. We need the libs then!
                     $check_imagesidebar = serendipity_plugin_api::enum_plugins('*', false, 'serendipity_plugin_imagesidebar');
                     $cisb = (is_array($check_imagesidebar) && $check_imagesidebar[0]['placement'] != 'hide') ? $check_imagesidebar : null;
 
+                    // If no imagelink was processed, don't add css or js files to the header or footer! (configurable plugin option)
                     if (true === (serendipity_db_bool($this->get_config('header_optimization', 'false')) && $this->foundImageLink === false && empty($cisb))) {
                         break;
                     }
@@ -279,9 +281,10 @@ lightbox.init();
                         }
                     }
                     elseif ($type == 'lightbox2jq') {
-                            if (isset($headcss) && $headcss) {
-                                echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/lightbox2-jquery/css/lightbox.css" />' . "\n";
-                            } else {
+                        if (isset($headcss) && $headcss) {
+                            echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/lightbox2-jquery/css/lightbox.css" />' . "\n";
+                        } else {
+                            // remove anchors possible onclick handler
                             echo '    <script type="text/javascript"> jQuery(document).ready(function(){ jQuery(\'a[rel^="lightbox"]\').removeAttr("onclick"); }); </script>' . "\n";
                             echo '    <script type="text/javascript" src="' . $pluginDir . '/lightbox2-jquery/js/lightbox.min.js" charset="utf-8"></script>' . "\n";
                         }
@@ -307,18 +310,29 @@ lightbox.init();
                     break;
 
                 case 'frontend_display':
-                    if (!isset($eventData['id'])) { $eventData['id'] = 0; }
+                    if (!isset($eventData['id'])) {
+                        $eventData['id'] = 0; // PHP8 hotfix; id is not always set
+                    }
                     if ($type == 'photoswipe') {
                         $sub = '<a$1href=$2$3$4 data-pswp-src=$2$3$4 rel="pswp-enabled"';
                     } elseif ($type == 'lightbox2jq') {
-                        if ($navigate == 'entry') { $sub = '<a $1 rel=$3lightbox[' . $eventData['id'] . ']$3 $2'; } 
-                        elseif ($navigate == 'page') { $sub = '<a $1 rel=$3lightbox[]$3 $2'; }
+                        if ($navigate == 'entry') {
+                            $sub = '<a $1 rel=$3lightbox[' . $eventData['id'] . ']$3 $2';
+                        } elseif ($navigate == 'page') {
+                            $sub = '<a $1 rel=$3lightbox[]$3 $2';
+                        }
                     } elseif ($type == 'colorbox') {
-                        if ($navigate == 'entry') { $sub = '<a rel=$3colorbox[' . $eventData['id'] . ']$3 $1 $2'; } 
-                        elseif ($navigate == 'page') { $sub = '<a rel=$3colorbox[]$3 $1 $2'; }
+                        if ($navigate == 'entry') {
+                            $sub = '<a rel=$3colorbox[' . $eventData['id'] . ']$3 $1 $2';
+                        } elseif ($navigate == 'page') {
+                            $sub = '<a rel=$3colorbox[]$3 $1 $2';
+                        }
                     } elseif ($type == 'magnific') {
-                        if ($navigate == 'entry') { $sub = '<a rel=$3magnificPopup[' . $eventData['id'] . ']$3 $1 $2'; } 
-                        elseif ($navigate == 'page') { $sub = '<a rel=$3magnificPopup[]$3 $1 $2'; }
+                        if ($navigate == 'entry') {
+                            $sub = '<a rel=$3magnificPopup[' . $eventData['id'] . ']$3 $1 $2';
+                        } elseif ($navigate == 'page') {
+                            $sub = '<a rel=$3magnificPopup[]$3 $1 $2';
+                        }
                     }
 
                     foreach ($this->markup_elements as $temp) {
@@ -328,7 +342,10 @@ lightbox.init();
                             $element = $temp['element'];
                             $replacement_count = 0;
                             $eventData[$element] = preg_replace($regex, $sub, $eventData[$element], -1,  $replacement_count);
-                            if ($replacement_count > 0) { $this->foundImageLink = true; }
+                            // Remember if an image link was found
+                            if ($replacement_count > 0) {
+                                $this->foundImageLink = true;
+                            }
                         }
                     }
                     break;
@@ -342,9 +359,12 @@ lightbox.init();
         }
     }
 
-    function install() { serendipity_plugin_api::hook_event('backend_cache_entries', $this->title); }
-    function uninstall(&$propbag) { serendipity_plugin_api::hook_event('backend_cache_purge', $this->title); }
-    function example() {}
-    private function empty_dir($dir) {}
+    function install() {
+        serendipity_plugin_api::hook_event('backend_cache_entries', $this->title);
+    }
+    
+    function uninstall(&$propbag) {
+        serendipity_plugin_api::hook_event('backend_cache_purge', $this->title);
+    }
 }
 ?>

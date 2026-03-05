@@ -5500,12 +5500,12 @@
 <license>GPL</license>
 <summary>Lightbox for entry images</summary>
 <groups>IMAGES</groups>
-<description>Lightbox JS is a simple, unobtrusive script used to overlay images on the current page. It&#039;s a snap to setup and works with all modern browsers. All lightboxes pop-up images. This plugin searches through your entries, and replaces every image &#039;a href=&quot;XXX&quot;&#039; link to use the internal display. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. These lightbox scripts are all jQuery based. They do not only support image types, they may also add support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for image lightboxes only, but you can easily add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.</description>
-<maintainers><maintainer><name>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian</name><role>lead</role></maintainer></maintainers>
+<description>Lightboxes are unobtrusive scripts used to show images in an overlay when clicked. It&#039;s a snap to setup and works with all modern browsers. All lightboxes pop-up images instead of showing them directly. This plugin searches through your entries, and replaces every image &#039;a href=&quot;XXX&quot;&#039; link to use the new display method. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. Those scripts do not only support images, they may also have support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for images only, but you can add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.</description>
+<maintainers><maintainer><name>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian, Jeremy Glastetter</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>2.7.0</version>
+  <version>3.0.0</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2025-03-02</date>
+  <date>2026-03-06</date>
   <filelist>
 <dir name="serendipity_event_lightbox">
 <dir name="UTF-8">
@@ -5650,6 +5650,11 @@
 <file>lang_en.inc.php</file>
 <file>lang_pl.inc.php</file>
 <file>serendipity_event_lightbox.php</file>
+<dir name="photoswipe">
+<file>photoswipe-lightbox.esm.js</file>
+<file>photoswipe.css</file>
+<file>photoswipe.esm.js</file>
+</dir>
 </dir>
 
   </filelist>
@@ -5734,6 +5739,9 @@
     <file>serendipity_event_lightbox/lang_en.inc.php</file>
     <file>serendipity_event_lightbox/lang_pl.inc.php</file>
     <file>serendipity_event_lightbox/serendipity_event_lightbox.php</file>
+    <file>serendipity_event_lightbox/photoswipe/photoswipe-lightbox.esm.js</file>
+    <file>serendipity_event_lightbox/photoswipe/photoswipe.css</file>
+    <file>serendipity_event_lightbox/photoswipe/photoswipe.esm.js</file>
   </serendipityFilelist>
 </release>
 </package>

@@ -216,6 +216,10 @@ switch ($navigate) {
     default:
         echo 'gallery: "a[rel=\"pswp-enabled\"]",';
 }
+$init_js = $this->get_config('init_js', '');
+if (! empty($init_js)) {
+    echo $init_js;
+}
 echo '
     pswpModule: PhotoSwipe,
     // NEW: Extra bottom padding to keep image clear of the caption bar

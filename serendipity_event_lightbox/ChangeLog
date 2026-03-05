@@ -2,6 +2,8 @@
     * Add PhotoSwipe as (new default) lightbox option, for a nicer
       looking lightbox that allows swiping through galleries (thanks to
       Jeremy Glastetter)
+    * Restored formerly defunct 'Initial JavaScript configuration object'
+      config option, now used to enable configuration of PhotoSwipe
 ------------------------------------------------------------------------
 
 2.7.0:

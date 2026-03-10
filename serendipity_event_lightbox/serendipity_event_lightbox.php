@@ -201,8 +201,8 @@ class serendipity_event_lightbox extends serendipity_event
                             echo '
 <script type="module">
 import PhotoSwipeLightbox from "' . $pluginDir . '/photoswipe/photoswipe-lightbox.esm.min.js";
-import PhotoSwipe from "' . $pluginDir . '/photoswipe/photoswipe.esm.min.js";
 
+document.addEventListener("DOMContentLoaded", () => {
 const lightbox = new PhotoSwipeLightbox({';
 switch ($navigate) {
     case 'page':
@@ -221,7 +221,7 @@ if (! empty($init_js)) {
     echo $init_js;
 }
 echo '
-    pswpModule: PhotoSwipe,
+    pswpModule: () => import("' . $pluginDir . '/photoswipe/photoswipe.esm.min.js"),
     // NEW: Extra bottom padding to keep image clear of the caption bar
     padding: { top: 20, bottom: 100, left: 20, right: 20 }
 });
@@ -272,6 +272,7 @@ lightbox.on("uiRegister", function() {
     });
 });
 lightbox.init();
+});
 </script>' . "\n";
                         }
                     }

@@ -169,7 +169,7 @@ class serendipity_event_lightbox extends serendipity_event
                     
                     if ($type == 'photoswipe') {
                         if (isset($headcss) && $headcss) {
-                            echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/photoswipe/photoswipe.css" />' . "\n";
+                            echo '    <link rel="stylesheet" href="' . $pluginDir . '/photoswipe/photoswipe.css" media="print" onload="this.media=\'all\'">' . "\n";
                             echo '    <style type="text/css">
                                 .pswp { --pswp-icon-color: #fff; }
                                 /* NEW: Prevent stretching, add corners, and force high-res visibility */

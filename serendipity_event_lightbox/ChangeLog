@@ -1,5 +1,6 @@
 3.1.0:
-    * Improve page loading times by using minified photoswipe files
+    * Improve page loading times by using minified photoswipe files and
+      defer loading them
 
 3.0.0:
     * Add PhotoSwipe as (new default) lightbox option, for a nicer

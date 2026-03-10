@@ -24,7 +24,7 @@ class serendipity_event_lightbox extends serendipity_event
         $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_NAME);
         $propbag->add('description',    PLUGIN_EVENT_LIGHTBOX_DESC);
         $propbag->add('author',         'Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian, Jeremy Glastetter');
-        $propbag->add('version',        '3.0.0');
+        $propbag->add('version',        '3.1.0');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'php'         => '5.3.0'
@@ -200,8 +200,8 @@ class serendipity_event_lightbox extends serendipity_event
                         } else {
                             echo '
 <script type="module">
-import PhotoSwipeLightbox from "' . $pluginDir . '/photoswipe/photoswipe-lightbox.esm.js";
-import PhotoSwipe from "' . $pluginDir . '/photoswipe/photoswipe.esm.js";
+import PhotoSwipeLightbox from "' . $pluginDir . '/photoswipe/photoswipe-lightbox.esm.min.js";
+import PhotoSwipe from "' . $pluginDir . '/photoswipe/photoswipe.esm.min.js";
 
 const lightbox = new PhotoSwipeLightbox({';
 switch ($navigate) {

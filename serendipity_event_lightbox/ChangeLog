@@ -1,3 +1,6 @@
+3.1.0:
+    * Improve page loading times by using minified photoswipe files
+
 3.0.0:
     * Add PhotoSwipe as (new default) lightbox option, for a nicer
       looking lightbox that allows swiping through galleries (thanks to

@@ -572,7 +572,7 @@
 <category>Event Plugins</category>
 <author>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian, Jeremy Glastetter</author>
 <content:encoded>&lt;b&gt;serendipity_event_lightbox&lt;br /&gt;Lightbox for entry images&lt;/b&gt;&lt;br /&gt;Lightboxes are unobtrusive scripts used to show images in an overlay when clicked. It&#039;s a snap to setup and works with all modern browsers. All lightboxes pop-up images instead of showing them directly. This plugin searches through your entries, and replaces every image &#039;a href=&quot;XXX&quot;&#039; link to use the new display method. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. Those scripts do not only support images, they may also have support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for images only, but you can add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.&lt;br/&gt;For: Serendipity 2.0</content:encoded>
-<pubDate>Fri, 06 Mar 2026 00:30:25 +0100</pubDate>
+<pubDate>Thu, 12 Mar 2026 00:30:26 +0100</pubDate>
 <guid isPermaLink="false">serendipity_event_lightbox</guid>
 </item>
 <item>

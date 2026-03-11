@@ -5503,9 +5503,9 @@
 <description>Lightboxes are unobtrusive scripts used to show images in an overlay when clicked. It&#039;s a snap to setup and works with all modern browsers. All lightboxes pop-up images instead of showing them directly. This plugin searches through your entries, and replaces every image &#039;a href=&quot;XXX&quot;&#039; link to use the new display method. So if you want your thumbnail images to popup large, you need to insert your images as links to the large version. To display also hidden set images by display:none, use lightbox2. Those scripts do not only support images, they may also have support for ajax, videos, flash, YouTube, iFrame, inline, or modal boxes. This Plugin uses them for images only, but you can add other content types manually to your entries and start the chosen lightbox as described in their online documentaries.</description>
 <maintainers><maintainer><name>Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian, Jeremy Glastetter</name><role>lead</role></maintainer></maintainers>
 <release>
-  <version>3.0.0</version>
+  <version>3.1.0</version>
   <requirements:s9yVersion>2.0</requirements:s9yVersion>
-  <date>2026-03-06</date>
+  <date>2026-03-12</date>
   <filelist>
 <dir name="serendipity_event_lightbox">
 <dir name="UTF-8">
@@ -5654,6 +5654,10 @@
 <file>photoswipe-lightbox.esm.js</file>
 <file>photoswipe.css</file>
 <file>photoswipe.esm.js</file>
+<file>photoswipe-lightbox.esm.js.map</file>
+<file>photoswipe-lightbox.esm.min.js</file>
+<file>photoswipe.esm.js.map</file>
+<file>photoswipe.esm.min.js</file>
 </dir>
 </dir>
 
@@ -5742,6 +5746,10 @@
     <file>serendipity_event_lightbox/photoswipe/photoswipe-lightbox.esm.js</file>
     <file>serendipity_event_lightbox/photoswipe/photoswipe.css</file>
     <file>serendipity_event_lightbox/photoswipe/photoswipe.esm.js</file>
+    <file>serendipity_event_lightbox/photoswipe/photoswipe-lightbox.esm.js.map</file>
+    <file>serendipity_event_lightbox/photoswipe/photoswipe-lightbox.esm.min.js</file>
+    <file>serendipity_event_lightbox/photoswipe/photoswipe.esm.js.map</file>
+    <file>serendipity_event_lightbox/photoswipe/photoswipe.esm.min.js</file>
   </serendipityFilelist>
 </release>
 </package>

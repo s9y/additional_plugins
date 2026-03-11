@@ -24,7 +24,7 @@ class serendipity_event_lightbox extends serendipity_event
         $propbag->add('name',           PLUGIN_EVENT_LIGHTBOX_NAME);
         $propbag->add('description',    PLUGIN_EVENT_LIGHTBOX_DESC);
         $propbag->add('author',         'Thomas Nesges, Andy Hopkins, Lokesh Dhakar, Cody Lindley, Stephan Manske, Grischa Brockhaus, Ian, Jeremy Glastetter');
-        $propbag->add('version',        '3.0.0');
+        $propbag->add('version',        '3.1.0');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'php'         => '5.3.0'
@@ -169,7 +169,7 @@ class serendipity_event_lightbox extends serendipity_event
                     
                     if ($type == 'photoswipe') {
                         if (isset($headcss) && $headcss) {
-                            echo '    <link rel="stylesheet" type="text/css" href="' . $pluginDir . '/photoswipe/photoswipe.css" />' . "\n";
+                            echo '    <link rel="stylesheet" href="' . $pluginDir . '/photoswipe/photoswipe.css" media="print" onload="this.media=\'all\'">' . "\n";
                             echo '    <style type="text/css">
                                 .pswp { --pswp-icon-color: #fff; }
                                 /* NEW: Prevent stretching, add corners, and force high-res visibility */
@@ -200,9 +200,9 @@ class serendipity_event_lightbox extends serendipity_event
                         } else {
                             echo '
 <script type="module">
-import PhotoSwipeLightbox from "' . $pluginDir . '/photoswipe/photoswipe-lightbox.esm.js";
-import PhotoSwipe from "' . $pluginDir . '/photoswipe/photoswipe.esm.js";
+import PhotoSwipeLightbox from "' . $pluginDir . '/photoswipe/photoswipe-lightbox.esm.min.js";
 
+document.addEventListener("DOMContentLoaded", () => {
 const lightbox = new PhotoSwipeLightbox({';
 switch ($navigate) {
     case 'page':
@@ -221,7 +221,7 @@ if (! empty($init_js)) {
     echo $init_js;
 }
 echo '
-    pswpModule: PhotoSwipe,
+    pswpModule: () => import("' . $pluginDir . '/photoswipe/photoswipe.esm.min.js"),
     // NEW: Extra bottom padding to keep image clear of the caption bar
     padding: { top: 20, bottom: 100, left: 20, right: 20 }
 });
@@ -272,6 +272,7 @@ lightbox.on("uiRegister", function() {
     });
 });
 lightbox.init();
+});
 </script>' . "\n";
                         }
                     }

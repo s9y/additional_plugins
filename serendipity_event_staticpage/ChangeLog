@@ -1,3 +1,6 @@
+4.15.13: Make the preview button actually ... provide a preview of the current edits
+         and not a re-rendering of the database-saved page
+
 4.15.12: Avoid selecting the wrong static page as start page, by using its id instead of
          the pagetitle
   

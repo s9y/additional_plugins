@@ -87,7 +87,7 @@ class serendipity_event_staticpage extends serendipity_event
         $propbag->add('page_configuration', $this->config);
         $propbag->add('type_configuration', $this->config_types);
         $propbag->add('author', 'Marco Rinck, Garvin Hicking, David Rolston, Falk Doering, Stephan Manske, Pascal Uhlmann, Ian, Don Chambers');
-        $propbag->add('version', '4.15.12');
+        $propbag->add('version', '4.15.13');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '2.6.7',
@@ -2092,13 +2092,32 @@ class serendipity_event_staticpage extends serendipity_event
                 echo '</div>';
 
                 if (!empty($serendipity['POST']['staticPreview'])) {
+                    // Apply current POST form values to $this->staticpage so that:
+                    // * showForm re-renders the form with the user's current edits (not DB values)
+                    // * The session data reflects the unsaved edits
+                    $bag = new serendipity_property_bag;
+                    $this->introspect($bag);
+                    $config_names = $bag->get('page_configuration');
+                    foreach ($config_names as $config_item) {
+                        $cbag = new serendipity_property_bag;
+                        if ($this->introspect_item($config_item, $cbag)) {
+                            $this->staticpage[$config_item] = serendipity_get_bool($serendipity['POST']['plugin'][$config_item] ?? '');
+                        }
+                    }
+
+                    // Store the unsaved edits in the session so the preview window can display them
+                    if (!isset($_SESSION['staticpage_preview'])) {
+                        $_SESSION['staticpage_preview'] = array();
+                    }
+                    $_SESSION['staticpage_preview'][$this->staticpage['id']] = $this->staticpage;
+
                     $link = $serendipity['baseURL'] . $serendipity['indexFile'] . '?serendipity[staticid]=' . $this->staticpage['id'] . '&serendipity[staticPreview]=1';
                     echo '<script>';
                     echo 'var staticpage_preview = window.open("' . $link . '", "staticpage_preview");' . "\n";
                     echo 'staticpage_preview.focus();' . "\n";
                     echo '</script>';
                     $serendipity['POST']['staticSubmit'] = true;
-                    echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . sprintf(PLUGIN_STATICPAGE_PREVIEW, '<a href="' . $link . '">' . $this->staticpage['pagetitle'] . '</a>') . '</span>';
+                    echo '<span class="msg_notice">...' . serendipity_specialchars($this->staticpage['pagetitle']) . '...</span>';
                 }
 
                 if (($serendipity['POST']['staticSubmit'] ?? false) || isset($serendipity['GET']['staticid'])) {
@@ -3148,6 +3167,19 @@ foreach($select AS $select_value => $select_desc) {
                 case 'entry_display':
 
                     $this->smarty_init();
+
+                        // When a logged-in user requests a preview of unsaved edits, override the
+                        // DB-loaded page data with the session data stored by showBackend().
+                        if (!empty($serendipity['GET']['staticPreview']) && serendipity_userLoggedIn() &&
+                            isset($_SESSION['staticpage_preview'][$this->staticpage['id']])) {
+                            $preview_data = $_SESSION['staticpage_preview'][$this->staticpage['id']];
+                            foreach ($this->config as $config_item) {
+                                if (array_key_exists($config_item, $preview_data)) {
+                                    $this->staticpage[$config_item] = $preview_data[$config_item];
+                                }
+                            }
+                            // Keep the session data so the user can refresh the preview window
+                        }
 
                     if ($this->selected()) {
                         if (is_array($eventData)) {
